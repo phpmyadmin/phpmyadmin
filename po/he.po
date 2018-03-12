@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-03-05 13:36+0000\n"
+"PO-Revision-Date: 2018-03-12 22:25+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/he/>\n"
+"Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1031,8 +1031,6 @@ msgid "Add index"
 msgstr "הוספת שדה חדש"
 
 #: js/messages.php:121
-#, fuzzy
-#| msgid "Edit Index"
 msgid "Edit index"
 msgstr "עריכת האינדקס"
 
@@ -1042,10 +1040,8 @@ msgid "Add %s column(s) to index"
 msgstr "הוספת %s עמודות לאינדקס"
 
 #: js/messages.php:123
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "גרסת שרת"
+msgstr "יצירת אינדקס חד עמודה"
 
 #: js/messages.php:124
 #, fuzzy
@@ -1060,42 +1056,32 @@ msgid "Composite with:"
 msgstr "שדות מוקפים ע\"י"
 
 #: js/messages.php:126
-#, fuzzy
-#| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "הוספת %s עמודות לאינדקס"
+msgstr "נא לבחור עמודות לאינדקס."
 
 #: js/messages.php:129 libraries/classes/InsertEdit.php:1890
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:188
 #: templates/table/index_form.twig:216
 msgid "Preview SQL"
-msgstr ""
+msgstr "הצגה מקדימה של SQL"
 
 #: js/messages.php:132
-#, fuzzy
-#| msgid "in query"
 msgid "Simulate query"
-msgstr "בשאילתה"
+msgstr "הדמיית שאילתה"
 
 #: js/messages.php:133
-#, fuzzy
-#| msgid "Start"
 msgid "Matched rows:"
-msgstr "שבת"
+msgstr "שורות תואמות:"
 
 #: js/messages.php:134 libraries/classes/Util.php:566
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL query:"
-msgstr "שאילתת SQL"
+msgstr "שאילתת SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:138
-#, fuzzy
-#| msgid "Y Values"
 msgid "Y values"
-msgstr "ערך"
+msgstr "ערכי Y"
 
 #: js/messages.php:141
 msgid "The host name is empty!"
@@ -1125,25 +1111,20 @@ msgid "Close"
 msgstr "סגירה"
 
 #: js/messages.php:149
-#, fuzzy
 msgid "Template was created."
-msgstr "טבלה %s נמחקה"
+msgstr "נוצרה תבנית."
 
 #: js/messages.php:150
 msgid "Template was loaded."
-msgstr ""
+msgstr "נטענה תבנית."
 
 #: js/messages.php:151
-#, fuzzy
-#| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "הפרופיל עודכן בהצלחה."
+msgstr "תבנית עודכנה."
 
 #: js/messages.php:152
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "השורה נמחקה"
+msgstr "תבנית נמחקה."
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:155 libraries/classes/Server/Status/Data.php:132
@@ -1182,9 +1163,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:173
-#, fuzzy
 msgid "Query cache efficiency"
-msgstr "סוג שאילתה"
+msgstr "יעילות מטמון שאילתה"
 
 #: js/messages.php:174
 msgid "Query cache usage"
@@ -1195,10 +1175,8 @@ msgid "Query cache used"
 msgstr "שאילתות מטמון בשימוש"
 
 #: js/messages.php:177
-#, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
-msgstr "שימוש במערכת ה-CPU"
+msgstr "ניצול מעבד המערכת"
 
 #: js/messages.php:178
 msgid "System memory"
@@ -1206,7 +1184,7 @@ msgstr "זיכרון מערכת"
 
 #: js/messages.php:179
 msgid "System swap"
-msgstr ""
+msgstr "קובץ החלפה של המערכת"
 
 #: js/messages.php:181
 msgid "Average load"
@@ -1218,11 +1196,11 @@ msgstr "סה\"כ זיכרון"
 
 #: js/messages.php:183
 msgid "Cached memory"
-msgstr ""
+msgstr "זיכרון במטמון"
 
 #: js/messages.php:184
 msgid "Buffered memory"
-msgstr ""
+msgstr "זיכרון בחוצץ"
 
 #: js/messages.php:185
 msgid "Free memory"
@@ -1233,36 +1211,28 @@ msgid "Used memory"
 msgstr "זיכרון בשימוש"
 
 #: js/messages.php:188
-#, fuzzy
-#| msgid "Total"
 msgid "Total swap"
-msgstr "סה\"כ"
+msgstr "סך כל קובץ ההחלפה"
 
 #: js/messages.php:189
-#, fuzzy
-#| msgid "memcached usage"
 msgid "Cached swap"
-msgstr "שימוש מקום"
+msgstr "קובץ החלפה במטמון"
 
 #: js/messages.php:190
 msgid "Used swap"
-msgstr ""
+msgstr "ניצול קובץ החלפה"
 
 #: js/messages.php:191
-#, fuzzy
-#| msgid "Free pages"
 msgid "Free swap"
-msgstr "דפים חופשיים"
+msgstr "פנוי בקובץ החלפה"
 
 #: js/messages.php:193
 msgid "Bytes sent"
 msgstr "בתים נשלחו"
 
 #: js/messages.php:194
-#, fuzzy
-#| msgid "Received"
 msgid "Bytes received"
-msgstr "התקבל"
+msgstr "בתים שהתקבלו"
 
 #: js/messages.php:195 libraries/classes/Server/Status.php:243
 msgid "Connections"
@@ -1311,16 +1281,14 @@ msgid "EiB"
 msgstr "EB"
 
 #: js/messages.php:206
-#, fuzzy, php-format
-#| msgid "%s table(s)"
+#, php-format
 msgid "%d table(s)"
-msgstr "%s טבלאות"
+msgstr "%d טבלאות"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:209
-#, fuzzy
 msgid "Questions"
-msgstr "Persian"
+msgstr "שאלות"
 
 #: js/messages.php:210 libraries/classes/Server/Status.php:151
 msgid "Traffic"
@@ -1329,20 +1297,16 @@ msgstr "תעבורה"
 #: js/messages.php:211 libraries/classes/Menu.php:612
 #: libraries/classes/Server/Status/Monitor.php:264
 #: libraries/classes/Util.php:3963
-#, fuzzy
-#| msgid "General relation features"
 msgid "Settings"
-msgstr "תכונות קשר כלליות"
+msgstr "הגדרות"
 
 #: js/messages.php:212
 msgid "Add chart to grid"
-msgstr ""
+msgstr "הוספת תרשים לרשת"
 
 #: js/messages.php:215
-#, fuzzy
-#| msgid "Please add at least one variable to the series"
 msgid "Please add at least one variable to the series!"
-msgstr "אנא הוסף לפחות משתנה אחד לסידרה"
+msgstr "נא להוסיף לסדרה משתנה אחד לפחות!"
 
 #: js/messages.php:216 libraries/classes/Display/Results.php:1467
 #: libraries/classes/Plugins/Export/ExportSql.php:2188
@@ -1360,39 +1324,39 @@ msgstr "ללא"
 
 #: js/messages.php:217
 msgid "Resume monitor"
-msgstr ""
+msgstr "המשך המעקב"
 
 #: js/messages.php:218
 msgid "Pause monitor"
-msgstr ""
+msgstr "השהיית המעקב"
 
 #: js/messages.php:219 libraries/classes/Server/Status/Processes.php:46
 msgid "Start auto refresh"
-msgstr ""
+msgstr "התחלת רענון אוטומטי"
 
 #: js/messages.php:220
 msgid "Stop auto refresh"
-msgstr ""
+msgstr "עצירת רענון אוטומטי"
 
 #: js/messages.php:222
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log ו־slow_query_log פעילים."
 
 #: js/messages.php:223
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log פעיל."
 
 #: js/messages.php:224
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log פעיל."
 
 #: js/messages.php:225
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log ו־general_log מושבתים."
 
 #: js/messages.php:226
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output לא מוגדר לטבלה (TABLE)."
 
 #: js/messages.php:227
 msgid "log_output is set to TABLE."
@@ -1409,105 +1373,96 @@ msgstr ""
 #: js/messages.php:233
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "הזמן של long_query_time מוגדר ל־%d שניות."
 
 #: js/messages.php:235
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
 msgstr ""
+"ההגדרות הבאות יחולו באופן גלובלי ויאופסו לבררת המחדל עם הפעלת השרת מחדש:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:239
-#, fuzzy, php-format
-#| msgid "Save as file"
+#, php-format
 msgid "Set log_output to %s"
-msgstr "שמירה כקובץ"
+msgstr "הגדרת הערך של log_output לערך %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:241
-#, fuzzy, php-format
-#| msgid "Enabled"
+#, php-format
 msgid "Enable %s"
-msgstr "מופעל"
+msgstr "הפעלת %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:243
-#, fuzzy, php-format
-#| msgid "Disable"
+#, php-format
 msgid "Disable %s"
-msgstr "מבוטל"
+msgstr "השבתת %s"
 
 #. l10n: %d seconds
 #: js/messages.php:245
-#, fuzzy, php-format
-#| msgid "Query took %01.4f sec"
+#, php-format
 msgid "Set long_query_time to %d seconds."
-msgstr "שאילתה לקחה %01.4f שניות"
+msgstr "הגדרת long_query_time ל־%d שניות."
 
 #: js/messages.php:247
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"לא ניתן לשנות את המשתנים האלה. נא להיכנס כמשתמש על או ליצור קשר עם מנהל מסד "
+"הנתונים שלך."
 
 #: js/messages.php:250
-#, fuzzy
-#| msgid "General relation features"
 msgid "Change settings"
-msgstr "תכונות קשר כלליות"
+msgstr "שינוי הגדרות"
 
 #: js/messages.php:251
-#, fuzzy
-#| msgid "General relation features"
 msgid "Current settings"
-msgstr "תכונות קשר כלליות"
+msgstr "ההגדרות הנוכחיות"
 
 #: js/messages.php:253
-#, fuzzy
-#| msgid "Import files"
 msgid "Chart title"
-msgstr "קבצי ייבוא"
+msgstr "כותרת התרשים"
 
 #. l10n: As in differential values
 #: js/messages.php:255
 msgid "Differential"
-msgstr ""
+msgstr "יחסי"
 
 #: js/messages.php:256
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "מחולק ב־%s"
 
 #: js/messages.php:257
 msgid "Unit"
-msgstr ""
+msgstr "יחידה"
 
 #: js/messages.php:259
 msgid "From slow log"
-msgstr ""
+msgstr "מיומן האיטיים"
 
 #: js/messages.php:260
 msgid "From general log"
-msgstr ""
+msgstr "מהיומן הכללי"
 
 #: js/messages.php:262
 msgid "The database name is not known for this query in the server's logs."
-msgstr ""
+msgstr "שם מסד הנתונים אינו ידוע עבור שאילתה זו ביומני השרת."
 
 #: js/messages.php:264
-#, fuzzy
 msgid "Analysing logs"
-msgstr "מקומי"
+msgstr "ניתוח יומנים"
 
 #: js/messages.php:266
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "היומנים מנותחים ונטענים. פעולה זו עשויה לארוך זמן מה."
 
 #: js/messages.php:267
-#, fuzzy
 msgid "Cancel request"
-msgstr "בקשות כתיבה"
+msgstr "ביטול הבקשה"
 
 #: js/messages.php:269
 msgid ""
@@ -1515,6 +1470,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"עמודה זו מציעה את כמות השאילתות הזהות שמקובצות יחד. עם זאת, רק שאילתת ה־SQL "
+"עצמה משמשת כקריטריון לקיבוץ, כך שמאפיינים נוספים של השאילתה, כגון מועד "
+"ההפעלה, עשויים להיות שונים."
 
 #: js/messages.php:274
 msgid ""
@@ -1522,35 +1480,32 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"מאחר שנבחר קיבוץ של שאילתות הוספה (INSERT), שאילתות הוספה (INSERT) לאותה "
+"הטבלה יקובצו גם הן יחדיו, תוך התעלמות מהנתונים המתווספים."
 
 #: js/messages.php:279
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "נתוני היומן נטענו. שאילתות שהופעלו בטווח זמן זה:"
 
 #: js/messages.php:281
-#, fuzzy
 msgid "Jump to Log table"
-msgstr "אין מאגרי נתונים"
+msgstr "מעבר לטבלת היומן"
 
 #: js/messages.php:282
-#, fuzzy
-#| msgid "No databases"
 msgid "No data found"
-msgstr "אין מאגרי נתונים"
+msgstr "לא נמצאו נתונים"
 
 #: js/messages.php:284
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "היומן עבר ניתוח, אך לא נמצאו נתונים בטווח זמן זה."
 
 #: js/messages.php:286
 msgid "Analyzing…"
-msgstr ""
+msgstr "מתבצע ניתוח…"
 
 #: js/messages.php:287
-#, fuzzy
-#| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "הסברת SQL"
+msgstr "הסברת הפלט"
 
 #: js/messages.php:288 libraries/classes/Menu.php:578
 #: libraries/classes/Rte/Events.php:413 libraries/classes/Rte/RteList.php:116
@@ -1573,91 +1528,70 @@ msgid "Time"
 msgstr "זמן"
 
 #: js/messages.php:290
-#, fuzzy
-#| msgid "Total"
 msgid "Total time:"
-msgstr "סה\"כ"
+msgstr "זמן כולל:"
 
 #: js/messages.php:291
-#, fuzzy
-#| msgid "SQL result"
 msgid "Profiling results"
-msgstr "תוצאת SQL"
+msgstr "תוצאות החקירה"
 
 #: js/messages.php:292
-#, fuzzy
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "טבלה"
 
 #: js/messages.php:293
-#, fuzzy
-#| msgid "Charset"
 msgid "Chart"
-msgstr "קידוד"
+msgstr "תרשים"
 
 #: js/messages.php:295 libraries/classes/Display/Export.php:566
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "מסד נתונים"
 
 #: js/messages.php:296 libraries/classes/Display/Export.php:578
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "טבלה"
 
 #: js/messages.php:297 libraries/classes/Display/Export.php:589
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "עמודה"
 
 #. l10n: A collection of available filters
 #: js/messages.php:300
-#, fuzzy
-#| msgid "Table options"
 msgid "Log table filter options"
-msgstr "אפשרויות טבלה"
+msgstr "תיעוד אפשרויות סינון טבלאות ביומן"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:302
 msgid "Filter"
-msgstr ""
+msgstr "מסנן"
 
 #: js/messages.php:303
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "סינון שאילתות לפי מילה/ביטוי רגולרי:"
 
 #: js/messages.php:305
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "קיבוץ שאילתות, תוך התעלמות מנתונים משתנים בביטויי הכוונה (WHERE)"
 
 #: js/messages.php:306
-#, fuzzy
-#| msgid "Number of fields"
 msgid "Sum of grouped rows:"
-msgstr "מספר שדות"
+msgstr "סיכום שורות מקובצות:"
 
 #: js/messages.php:307
-#, fuzzy
-#| msgid "Total"
 msgid "Total:"
-msgstr "סה\"כ"
+msgstr "סה״כ:"
 
 #: js/messages.php:309
-#, fuzzy
 msgid "Loading logs"
-msgstr "מקומי"
+msgstr "היומנים נטענים"
 
 #: js/messages.php:310
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "רענון המעקב נכשל"
 
 #: js/messages.php:312
 msgid ""
@@ -1665,25 +1599,27 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"בעת בקשת נתונים חדשים לתרשים החזיר השרת תגובה שגויה. כפי הנראה כיוון שהזמן "
+"שמוקצה להפעלה שלך פג. רענון העמוד והקלדת פרטי הזיהוי שלך מחדש אמורים לפתור "
+"זאת."
 
 #: js/messages.php:316
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Reload page"
-msgstr "שינוי שם מאגר נתונים אל"
+msgstr "רענון העמוד"
 
 #: js/messages.php:318
 msgid "Affected rows:"
-msgstr ""
+msgstr "שורות מושפעות:"
 
 #: js/messages.php:321
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
-msgstr ""
+msgstr "ניתוח קובץ ההגדרות נכשל. הוא לא נראה כמו קוד JSON תקני."
 
 #: js/messages.php:324
 msgid ""
 "Failed building chart grid with imported config. Resetting to default config…"
 msgstr ""
+"בניית רשת לתרשים נכשלה עם ההגדרות שייובאו. מתבצע איפוס להגדרות בררת המחדל…"
 
 #: js/messages.php:326 libraries/classes/Config/Forms/User/ImportForm.php:58
 #: libraries/classes/Menu.php:385 libraries/classes/Menu.php:487
@@ -1692,61 +1628,52 @@ msgstr ""
 #: libraries/classes/Util.php:3962 libraries/classes/Util.php:3977
 #: libraries/classes/Util.php:3994 prefs_manage.php:226
 #: templates/display/import/import.twig:38
-#, fuzzy
 msgid "Import"
-msgstr "ייצוא"
+msgstr "ייבוא"
 
 #: js/messages.php:327
-#, fuzzy
-#| msgid "Local monitor configuration incompatible"
 msgid "Import monitor configuration"
-msgstr "תצורת מעקב מקומית אינה נתמכת"
+msgstr "ייבוא תצורת מעקב"
 
 #: js/messages.php:329
 msgid "Please select the file you want to import."
-msgstr ""
+msgstr "נא לבחור את הקובץ לייבוא."
 
 #: js/messages.php:330
 msgid "No files available on server for import!"
-msgstr ""
+msgstr "אין קבצים זמינים לייבוא בשרת!"
 
 #: js/messages.php:332
-#, fuzzy
-#| msgid "Update Query"
 msgid "Analyse query"
-msgstr "עדכון שאילתה"
+msgstr "ניתוח שאילתה"
 
 #: js/messages.php:336
 msgid "Advisor system"
-msgstr ""
+msgstr "מערכת ייעוץ"
 
 #: js/messages.php:337
 msgid "Possible performance issues"
-msgstr ""
+msgstr "תקלות ביצועים אפשריות"
 
 #: js/messages.php:338
 msgid "Issue"
-msgstr ""
+msgstr "תקלה"
 
 #: js/messages.php:339
-#, fuzzy
-#| msgid "Documentation"
 msgid "Recommendation"
-msgstr "תיעוד"
+msgstr "המלצה"
 
 #: js/messages.php:340
 msgid "Rule details"
-msgstr ""
+msgstr "פרטי כלל"
 
 #: js/messages.php:341
-#, fuzzy
-#| msgid "Documentation"
 msgid "Justification"
-msgstr "תיעוד"
+msgstr "הצדקה"
 
 #: js/messages.php:342
 msgid "Used variable / formula"
-msgstr ""
+msgstr "נוסחה / משתמש בשימוש"
 
 #: js/messages.php:343
 msgid "Test"
