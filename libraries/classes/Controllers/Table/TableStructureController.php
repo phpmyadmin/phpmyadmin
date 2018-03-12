@@ -315,6 +315,7 @@ class TableStructureController extends TableController
             //after refactoring sql.php
             $db = $this->db;
             $table = $this->table;
+            $sql_query = $GLOBALS['sql_query'];
             $cfg = $GLOBALS['cfg'];
             $pmaThemeImage = $GLOBALS['pmaThemeImage'];
             include 'sql.php';
