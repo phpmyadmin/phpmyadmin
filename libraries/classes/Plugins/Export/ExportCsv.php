@@ -18,6 +18,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 
 /**
  * Handles the export for the CSV format
@@ -113,9 +114,11 @@ class ExportCsv extends ExportPlugin
     public function exportHeader()
     {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
-
+        //Enable columns names by default for CSV 
+        if($what == 'csv')
+          $GLOBALS['csv_columns'] = 'yes';
         // Here we just prepare some values for export
-        if ($what == 'excel') {
+        if ($what=='excel') {
             $csv_terminated = "\015\012";
             switch ($GLOBALS['excel_edition']) {
             case 'win':
