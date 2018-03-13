@@ -77,7 +77,6 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
             query += '`' + escapeBacktick(columns[0][0]) + '`.' + escapeBacktick(columns[0][1]) + '';
         else
             query += '`' + escapeBacktick(columns[0][0]) + '`.`' + escapeBacktick(columns[0][1]) + '`';
-        
         if (columns[0][2] !== '') {
             query += ' AS ' + columns[0][2];
         }
