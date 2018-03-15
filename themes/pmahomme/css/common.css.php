@@ -14,6 +14,9 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 ?>
 /******************************************************************************/
 /* general tags */
+html {
+    font-size: 82%;
+}
 
 input,
 select,
