@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Util;
 
 /**
@@ -17,13 +18,28 @@ use PhpMyAdmin\Util;
 class CheckUserPrivileges
 {
     /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * Constructor
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     */
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+    }
+
+    /**
      * Extracts details from a result row of a SHOW GRANT query
      *
      * @param string $row grant row
      *
      * @return array
      */
-    public static function getItemsFromShowGrantsRow($row)
+    public function getItemsFromShowGrantsRow($row)
     {
         $db_name_offset = mb_strpos($row, ' ON ') + 4;
         $show_grants_dbname = mb_substr(
@@ -33,7 +49,7 @@ class CheckUserPrivileges
 
         $show_grants_dbname = Util::unQuote($show_grants_dbname, '`');
 
-        $show_grants_str    = mb_substr(
+        $show_grants_str = mb_substr(
             $row,
             6,
             (mb_strpos($row, ' ON ') - 6)
@@ -66,7 +82,7 @@ class CheckUserPrivileges
      *
      * @return void
      */
-    public static function checkRequiredPrivilegesForAdjust(
+    public function checkRequiredPrivilegesForAdjust(
         $show_grants_str,
         $show_grants_dbname,
         $show_grants_tblname
@@ -141,7 +157,7 @@ class CheckUserPrivileges
      *
      * @return void
      */
-    public static function analyseShowGrant()
+    public function analyseShowGrant()
     {
         if (Util::cacheExists('is_create_db_priv')) {
             $GLOBALS['is_create_db_priv'] = Util::cacheGet(
@@ -178,16 +194,16 @@ class CheckUserPrivileges
 
         // defaults
         $GLOBALS['is_create_db_priv']  = false;
-        $GLOBALS['is_reload_priv']     = false;
-        $GLOBALS['db_to_create']       = '';
+        $GLOBALS['is_reload_priv'] = false;
+        $GLOBALS['db_to_create'] = '';
         $GLOBALS['dbs_where_create_table_allowed'] = array();
-        $GLOBALS['dbs_to_test']        = $GLOBALS['dbi']->getSystemSchemas();
+        $GLOBALS['dbs_to_test'] = $this->dbi->getSystemSchemas();
         $GLOBALS['proc_priv'] = false;
         $GLOBALS['db_priv'] = false;
         $GLOBALS['col_priv'] = false;
         $GLOBALS['table_priv'] = false;
 
-        $rs_usr = $GLOBALS['dbi']->tryQuery('SHOW GRANTS');
+        $rs_usr = $this->dbi->tryQuery('SHOW GRANTS');
 
         if (! $rs_usr) {
             return;
@@ -196,12 +212,12 @@ class CheckUserPrivileges
         $re0 = '(^|(\\\\\\\\)+|[^\\\\])'; // non-escaped wildcards
         $re1 = '(^|[^\\\\])(\\\)+'; // escaped wildcards
 
-        while ($row = $GLOBALS['dbi']->fetchRow($rs_usr)) {
+        while ($row = $this->dbi->fetchRow($rs_usr)) {
             list(
                 $show_grants_str,
                 $show_grants_dbname,
                 $show_grants_tblname
-            ) = self::getItemsFromShowGrantsRow($row[0]);
+            ) = $this->getItemsFromShowGrantsRow($row[0]);
 
             if ($show_grants_dbname == '*') {
                 if ($show_grants_str != 'USAGE') {
@@ -218,7 +234,7 @@ class CheckUserPrivileges
             }
 
             // check for the required privileges for adjust
-            self::checkRequiredPrivilegesForAdjust(
+            $this->checkRequiredPrivilegesForAdjust(
                 $show_grants_str,
                 $show_grants_dbname,
                 $show_grants_tblname
@@ -256,12 +272,12 @@ class CheckUserPrivileges
                     // does this db exist?
                     if ((preg_match('/' . $re0 . '%|_/', $show_grants_dbname)
                         && ! preg_match('/\\\\%|\\\\_/', $show_grants_dbname))
-                        || (! $GLOBALS['dbi']->tryQuery(
+                        || (! $this->dbi->tryQuery(
                             'USE ' .  preg_replace(
                                 '/' . $re1 . '(%|_)/', '\\1\\3', $dbname_to_test
                             )
                         )
-                        && mb_substr($GLOBALS['dbi']->getError(), 1, 4) != 1044)
+                        && mb_substr($this->dbi->getError(), 1, 4) != 1044)
                     ) {
                         /**
                          * Do not handle the underscore wildcard
@@ -289,7 +305,7 @@ class CheckUserPrivileges
 
         } // end while
 
-        $GLOBALS['dbi']->freeResult($rs_usr);
+        $this->dbi->freeResult($rs_usr);
 
         // must also cacheUnset() them in
         // PhpMyAdmin\Plugins\Auth\AuthenticationCookie

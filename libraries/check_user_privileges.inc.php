@@ -11,6 +11,8 @@ if (! defined('PHPMYADMIN')) {
 
 use PhpMyAdmin\CheckUserPrivileges;
 
+$checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
+
 list($username, $hostname) = $GLOBALS['dbi']->getCurrentUserAndHost();
 if ($username === '') { // MySQL is started with --skip-grant-tables
     $GLOBALS['is_create_db_priv'] = true;
@@ -23,5 +25,5 @@ if ($username === '') { // MySQL is started with --skip-grant-tables
     $GLOBALS['table_priv'] = true;
     $GLOBALS['proc_priv'] = true;
 } else {
-    CheckUserPrivileges::analyseShowGrant();
+    $checkUserPrivileges->analyseShowGrant();
 }

@@ -10,12 +10,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\CheckUserPrivileges;
 use PHPUnit\Framework\TestCase;
 
-/*
- * Include to test.
- */
-$GLOBALS['server'] = 1;
-$GLOBALS['cfg']['Server']['DisableIS'] = false;
-
 /**
  * tests for PhpMyAdmin\CheckUserPrivileges
  *
@@ -24,20 +18,33 @@ $GLOBALS['cfg']['Server']['DisableIS'] = false;
 class CheckUserPrivilegesTest extends TestCase
 {
     /**
+     * @var CheckUserPrivileges
+     */
+    private $checkUserPrivileges;
+
+    /**
      * prepares environment for tests
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['col_priv'] = false;
         $GLOBALS['db_priv'] = false;
         $GLOBALS['proc_priv'] = false;
         $GLOBALS['table_priv'] = false;
         $GLOBALS['is_reload_priv'] = false;
+
+        $this->checkUserPrivileges = new CheckUserPrivileges($GLOBALS['dbi']);
     }
 
-
+    /**
+     * Test for getItemsFromShowGrantsRow
+     *
+     * @return void
+     */
     public function testGetItemsFromShowGrantsRow()
     {
         // TEST CASE 1
@@ -48,7 +55,7 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
+        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -75,7 +82,7 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
+        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -102,7 +109,7 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
+        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
@@ -120,12 +127,10 @@ class CheckUserPrivilegesTest extends TestCase
             "columns_priv",
             $show_grants_tblname
         );
-
     }
 
-
     /**
-     * Test for CheckUserPrivileges::checkRequiredPrivilegesForAdjust
+     * Test for checkRequiredPrivilegesForAdjust
      *
      * @return void
      */
@@ -138,12 +143,12 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
+        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
         // call the to-be-tested function
-        CheckUserPrivileges::checkRequiredPrivilegesForAdjust(
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust(
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
@@ -179,12 +184,12 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
+        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
         // call the to-be-tested function
-        CheckUserPrivileges::checkRequiredPrivilegesForAdjust(
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust(
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
@@ -220,12 +225,12 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
+        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
         // call the to-be-tested function
-        CheckUserPrivileges::checkRequiredPrivilegesForAdjust(
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust(
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
@@ -261,12 +266,12 @@ class CheckUserPrivilegesTest extends TestCase
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        ) = CheckUserPrivileges::getItemsFromShowGrantsRow(
+        ) = $this->checkUserPrivileges->getItemsFromShowGrantsRow(
             $show_grants_full_row
         );
 
         // call the to-be-tested function
-        CheckUserPrivileges::checkRequiredPrivilegesForAdjust(
+        $this->checkUserPrivileges->checkRequiredPrivilegesForAdjust(
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
