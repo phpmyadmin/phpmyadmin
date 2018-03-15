@@ -5020,9 +5020,10 @@ function PMA_getImage(image, alternate, attributes) {
  * @param  {object}     value       Configuration value.
  * @param  {boolean}    only_local  Configuration type.
  */
-function configSet(key, value, only_local=false)
+function configSet(key, value, only_local)
 {
-    let serialized = JSON.stringify(value);
+    only_local = (typeof only_local !== 'undefined') ? only_local : false;
+    var serialized = JSON.stringify(value);
     localStorage.setItem(key, serialized);
     $.ajax({
         url: "ajax.php",
@@ -5053,13 +5054,14 @@ function configSet(key, value, only_local=false)
  * right from the server is required, the third parameter should be `false`.
  *
  * @param  {string}     key         Configuration key.
- * @param  {boolean}    only_local  Configuration type.
+ * @param  {boolean}    cached      Configuration type.
  *
  * @return {object}                 Configuration value.
  */
-function configGet(key, cached=true)
+function configGet(key, cached)
 {
-    let value = localStorage.getItem(key);
+    cached = (typeof cached !== 'undefined') ? cached : true;
+    var value = localStorage.getItem(key);
     if (cached && value !== undefined && value !== null) {
         return JSON.parse(value);
     }
