@@ -1186,7 +1186,7 @@ class Config
      * returns a unique value to force a CSS reload if either the config
      * or the theme changes
      *
-     * @return int Summary of unix timestamps and fontsize,
+     * @return int Summary of unix timestamps,
      * to be unique on theme parameters change
      */
     public function getThemeUniqueValue()
