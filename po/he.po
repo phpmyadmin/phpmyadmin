@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-03-12 22:25+0000\n"
+"PO-Revision-Date: 2018-03-16 09:53+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -702,10 +702,8 @@ msgid "PHP extension:"
 msgstr "הרחבות PHP:"
 
 #: index.php:406
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP version:"
-msgstr "גרסת PHP"
+msgstr "גרסת PHP:"
 
 #: index.php:417
 msgid "Show PHP information"
@@ -801,15 +799,13 @@ msgstr ""
 "הphpMyAdmin שלך. עדיף לך להסיר אותו בסוף מהתצורה phpMyAdmin."
 
 #: index.php:603
-#, fuzzy, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"תכונות נוספות לעבודה עם טבלאות מקושרות בוטלו. לעוד מידע למה לחץ %sכאן%s."
+"אחסון התצורה של phpMyAdmin לא מוגדר לחלוטין, חלק מהתכונות המורחבות הושבתו. "
+"%sהסיבה%s. "
 
 #: index.php:610
 msgid ""
@@ -856,34 +852,24 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "פעולה זו עלולה למחוק טבלה שלמה!"
 
 #: js/messages.php:53
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "מחיקת נתוני המעקב לטבלה זו"
+msgstr "למחוק את נתוני המעקב לטבלה זו?"
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "מחיקת נתוני המעקב לטבלה זו"
+msgstr "למחוק את נתוני המעקב לטבלאות אלו?"
 
 #: js/messages.php:57
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "מחיקת נתוני המעקב לטבלה זו"
+msgstr "למחוק את נתוני המעקב לגרסה זו?"
 
 #: js/messages.php:59
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "מחיקת נתוני המעקב לטבלה זו"
+msgstr "למחוק את נתוני המעקב לגרסאות אלו?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete entry from tracking report?"
-msgstr "נתוני המעקב נמחקים"
+msgstr "למחוק רשומה מדוח המעקב?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
@@ -894,26 +880,22 @@ msgid "Dropping Primary Key/Index"
 msgstr "מפתח/אינדקס ראשיים מושמטים"
 
 #: js/messages.php:63
-#, fuzzy
-#| msgid "Dropping Procedure"
 msgid "Dropping Foreign key."
-msgstr "תהליכים"
+msgstr "המפתח הזר מושמט."
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
 msgstr "תהליך זה יכול לקחת זמן רב. להמשיך בכל מקרה?"
 
 #: js/messages.php:67
-#, fuzzy, php-format
-#| msgid "Do you really want to execute \"%s\"?"
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "האם אכן ברצונך להפעיל את „%s”?"
+msgstr "למחוק את קבוצת המשתמשים „%s”?"
 
 #: js/messages.php:69
-#, fuzzy, php-format
-#| msgid "Do you really want to execute \"%s\"?"
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "האם אכן ברצונך להפעיל את „%s”?"
+msgstr "למחוק את החיפוש „%s”?"
 
 #: js/messages.php:71
 msgid "You have unsaved changes; are you sure you want to leave this page?"
@@ -985,10 +967,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:111
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save & close"
-msgstr "שמירה כקובץ"
+msgstr "שמירה וסגירה"
 
 #: js/messages.php:112 libraries/classes/InsertEdit.php:1892
 #: prefs_manage.php:355 prefs_manage.php:366
@@ -997,38 +977,28 @@ msgid "Reset"
 msgstr "איפוס"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Select All"
 msgid "Reset all"
-msgstr "בחירת הכול"
+msgstr "איפוס הכול"
 
 #: js/messages.php:116
 msgid "Missing value in the form!"
 msgstr "ערך ריק בטופס!"
 
 #: js/messages.php:117
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "לפחות אחת מהמילים"
+msgstr "נא לבחור לפחות באחת מהאפשרויות!"
 
 #: js/messages.php:118
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid number!"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד מספר תקני!"
 
 #: js/messages.php:119
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid length!"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד אורך תקין!"
 
 #: js/messages.php:120
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add index"
-msgstr "הוספת שדה חדש"
+msgstr "הוספת אינדקס"
 
 #: js/messages.php:121
 msgid "Edit index"
@@ -1044,16 +1014,12 @@ msgid "Create single-column index"
 msgstr "יצירת אינדקס חד עמודה"
 
 #: js/messages.php:124
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create composite index"
-msgstr "גרסת שרת"
+msgstr "יצירת אינדקס מרוכב"
 
 #: js/messages.php:125
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Composite with:"
-msgstr "שדות מוקפים ע\"י"
+msgstr "מרוכב עם:"
 
 #: js/messages.php:126
 msgid "Please select column(s) for the index."
