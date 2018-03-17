@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-12 15:28+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-7/pt/>\n"
+"PO-Revision-Date: 2018-03-18 15:39+0000\n"
+"Last-Translator: Nuno Marques <nunosil@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-7/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -5116,17 +5116,12 @@ msgstr ""
 "é incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
 
 #: libraries/common.inc.php:509
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Activou a função mbstring.func_overload na sua configuração PHP. Esta opção "
-"é incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
+"Desativou a função ini_get e/ou ini_set in php.ini na sua configuração PHP. "
+"Esta opção é incompatível com o phpMyAdmin!"
 
 #: libraries/common.inc.php:542
 #, php-format
@@ -5217,16 +5212,12 @@ msgid "key"
 msgstr "chave"
 
 #: libraries/config.values.php:98
-#, fuzzy
-#| msgid "Display columns table"
 msgid "display column"
-msgstr "Mostrando comentários das colunas"
+msgstr "Mostrar coluna"
 
 #: libraries/config.values.php:102
-#, fuzzy
-#| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Bemvindo ao %s"
+msgstr "Bem-vindo"
 
 #: libraries/config.values.php:122
 msgid "Open"
@@ -5249,22 +5240,16 @@ msgid "Never send error reports"
 msgstr "Nunca enviar relatórios de erro"
 
 #: libraries/config.values.php:132
-#, fuzzy
-#| msgid "Set default"
 msgid "Server default"
-msgstr "Definir como padrão"
+msgstr "Servidor padrão"
 
 #: libraries/config.values.php:133
-#, fuzzy
-#| msgid "Enabled"
 msgid "Enable"
-msgstr "Activado"
+msgstr "Ativado"
 
 #: libraries/config.values.php:134
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
-msgstr "Desactidado"
+msgstr "Desativado"
 
 #: libraries/config.values.php:163
 #: libraries/plugins/export/ExportHtmlword.php:66
@@ -5301,7 +5286,7 @@ msgstr "estrutura e dados"
 
 #: libraries/config.values.php:168
 msgid "Quick - display only the minimal options to configure"
-msgstr "Rápida -  mostrar apenas o mínimo de opções para configurar"
+msgstr "Rápida - mostrar apenas o mínimo de opções para configurar"
 
 #: libraries/config.values.php:169
 msgid "Custom - display all possible options to configure"
@@ -5634,10 +5619,8 @@ msgstr ""
 "endereço IP ou nome de anfitrião do servidor MySQL à expressão regular dada."
 
 #: libraries/config/messages.inc.php:26
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Não é possível fazer login no servidor MySQL"
+msgstr "Login restrito no servidor MySQL"
 
 #: libraries/config/messages.inc.php:28
 msgid ""
@@ -5686,14 +5669,8 @@ msgid "Highlight pointer"
 msgstr "Destacar cursor"
 
 #: libraries/config/messages.inc.php:47
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Activar compressão [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] para "
-"operações de importação."
+msgstr "Activar compressão bzip2 para operações de importação."
 
 #: libraries/config/messages.inc.php:50
 msgid "Bzip2"
@@ -5714,16 +5691,12 @@ msgid "CHAR columns editing"
 msgstr "Edição de colunas CHAR"
 
 #: libraries/config/messages.inc.php:58
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Use o nosso editor amigável para editar consultas SQL ([a@https://codemirror."
-"net/]CodeMirror[/a]) com realce de sintaxe e número de linhas."
+"Use o nosso editor amigável para editar consultas SQL (CodeMirror) com "
+"realce de sintaxe e número de linhas."
 
 #: libraries/config/messages.inc.php:62
 msgid "Enable CodeMirror"
