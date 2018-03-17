@@ -493,13 +493,10 @@ class DatabaseStructureController extends DatabaseController
                 }
             }
 
-            $truename = htmlspecialchars(
-                (!empty($tooltip_truename)
+            $truename = (!empty($tooltip_truename)
                     && isset($tooltip_truename[$current_table['TABLE_NAME']]))
                 ? $tooltip_truename[$current_table['TABLE_NAME']]
-                : $current_table['TABLE_NAME']
-            );
-            $truename = str_replace(' ', '&nbsp;', $truename);
+                : $current_table['TABLE_NAME'];
 
             $i++;
 
