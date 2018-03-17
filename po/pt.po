@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-01-13 02:25+0000\n"
-"Last-Translator: Tony Nascimento <gtonynasc@gmail.com>\n"
+"PO-Revision-Date: 2018-03-18 15:40+0000\n"
+"Last-Translator: Nuno Marques <nunosil@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -861,6 +861,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"A $cfg['TempDir'] (%s 1) não se encontra acessível. phpMyAdmin não "
+"conseguirá colocar os modelos em cache e devido a isso irá ser mais lento."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -2295,10 +2297,8 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Nenhuma tabela encontrada na base de dados."
+msgstr "Adicione tabelas de outras bases de dados"
 
 #: js/messages.php:561
 msgid "Page name"
@@ -2703,12 +2703,12 @@ msgstr "Forte"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Acabou o tempo de espera para a chave segura de activação."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Falhou a activação com chave segura (%s)."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -3042,10 +3042,9 @@ msgid "Error"
 msgstr "Erro"
 
 #: libraries/classes/Advisor.php:249
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Erro ao criar o PDF:"
+msgstr "Erro ao estimar: %s"
 
 #: libraries/classes/Advisor.php:280
 #, php-format
@@ -3622,10 +3621,8 @@ msgstr ""
 "endereço IP ou nome de anfitrião do servidor MySQL à expressão regular dada."
 
 #: libraries/classes/Config/Descriptions.php:72
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Não é possível fazer login no servidor MySQL"
+msgstr "Login restrito no servidor MySQL"
 
 #: libraries/classes/Config/Descriptions.php:75
 msgid ""
@@ -3674,14 +3671,8 @@ msgid "Highlight pointer"
 msgstr "Destacar cursor"
 
 #: libraries/classes/Config/Descriptions.php:100
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import operations."
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Activar compressão [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] para "
-"operações de importação."
+msgstr "Activar compressão bzip2 para operações de importação."
 
 #: libraries/classes/Config/Descriptions.php:104
 msgid "Bzip2"
@@ -3702,16 +3693,12 @@ msgid "CHAR columns editing"
 msgstr "Edição de colunas CHAR"
 
 #: libraries/classes/Config/Descriptions.php:115
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
-"Use o nosso editor amigável para editar consultas SQL ([a@https://codemirror."
-"net/]CodeMirror[/a]) com realce de sintaxe e número de linhas."
+"Use o nosso editor amigável para editar consultas SQL (CodeMirror) com "
+"realce de sintaxe e número de linhas."
 
 #: libraries/classes/Config/Descriptions.php:120
 msgid "Enable CodeMirror"
@@ -7146,17 +7133,12 @@ msgstr ""
 "é incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
 
 #: libraries/classes/Core.php:1226
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Activou a função mbstring.func_overload na sua configuração PHP. Esta opção "
-"é incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
+"Desativou a função ini_get e/ou ini_set in php.ini na sua configuração PHP. "
+"Esta opção é incompatível com o phpMyAdmin!"
 
 #: libraries/classes/Core.php:1277
 msgid "GLOBALS overwrite attempt"
@@ -14231,16 +14213,12 @@ msgid "key"
 msgstr "chave"
 
 #: libraries/config.values.php:99
-#, fuzzy
-#| msgid "Display columns table"
 msgid "display column"
-msgstr "Mostrando comentários das colunas"
+msgstr "Mostrar coluna"
 
 #: libraries/config.values.php:103
-#, fuzzy
-#| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "Bemvindo ao %s"
+msgstr "Bem-vindo"
 
 #: libraries/config.values.php:123
 msgid "Open"
@@ -14263,26 +14241,20 @@ msgid "Never send error reports"
 msgstr "Nunca enviar relatórios de erro"
 
 #: libraries/config.values.php:133
-#, fuzzy
-#| msgid "Set default"
 msgid "Server default"
-msgstr "Definir como padrão"
+msgstr "Servidor padrão"
 
 #: libraries/config.values.php:134
-#, fuzzy
-#| msgid "Enabled"
 msgid "Enable"
-msgstr "Activado"
+msgstr "Ativado"
 
 #: libraries/config.values.php:135
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
-msgstr "Desactidado"
+msgstr "Desativado"
 
 #: libraries/config.values.php:169
 msgid "Quick - display only the minimal options to configure"
-msgstr "Rápida -  mostrar apenas o mínimo de opções para configurar"
+msgstr "Rápida - mostrar apenas o mínimo de opções para configurar"
 
 #: libraries/config.values.php:170
 msgid "Custom - display all possible options to configure"
