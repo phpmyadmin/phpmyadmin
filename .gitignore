@@ -54,4 +54,6 @@ cache.properties
 composer.lock
 /vendor/
 # NPM
-/node_modules/
+node_modules/
+npm-debug.log
+yarn-error.log
