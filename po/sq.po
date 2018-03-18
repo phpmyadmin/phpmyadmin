@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-12 15:27+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2018-03-19 23:34+0000\n"
+"Last-Translator: M. M. <m.mirena@gmail.com>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/4-7/"
 "sq/>\n"
 "Language: sq\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
@@ -35,7 +35,7 @@ msgstr ""
 
 #: db_central_columns.php:133
 msgid "Click to sort."
-msgstr "Kliko për të klasifikuar."
+msgstr "Kliko për sortim."
 
 #: db_central_columns.php:150
 #, php-format
@@ -1023,7 +1023,7 @@ msgstr "Shto indeks"
 
 #: js/messages.php:121
 msgid "Edit index"
-msgstr "Korrigjo indeksin"
+msgstr "Redakto indeksin"
 
 #: js/messages.php:122 templates/table/index_form.phtml:235
 #, php-format
@@ -1898,7 +1898,7 @@ msgstr "Shfaq kutinë e pyetsorit"
 #: templates/server/variables/variable_row.phtml:4
 #: templates/server/variables/variable_row.phtml:7
 msgid "Edit"
-msgstr "Korrigjo"
+msgstr "Redakto"
 
 #: js/messages.php:421 libraries/DbSearch.php:353
 #: libraries/DisplayResults.php:3570 libraries/DisplayResults.php:4852
@@ -2377,7 +2377,7 @@ msgid ""
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 "Kjo tabelë nuk përmban një kolonë unike. Tiparet e lidhura me lidhjet "
-"korrigjim rrjetë, kuti kontrolli, Korrigjo, Kopjo dhe Fshij mund të mos "
+"redaktimin rrjetë, kuti kontrolli, Redakto, Kopjo dhe Fshij mund të mos "
 "punojnë pas ruajtjes."
 
 #: js/messages.php:605
@@ -4920,7 +4920,7 @@ msgstr "Profilon"
 #: libraries/Util.php:1209
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "Korrigjo në linjë"
+msgstr "Redakto në linjë"
 
 #. l10n: Short week day name
 #: libraries/Util.php:1550
@@ -6903,7 +6903,7 @@ msgstr "Tabelat e përdorura së fundi"
 
 #: libraries/config/messages.inc.php:540
 msgid "These are Edit, Copy and Delete links."
-msgstr "Këto janë lidhjet Korrigjo, Kopjo dhe Fshij."
+msgstr "Këto janë lidhjet për redaktim, kopjim dhe fshirje."
 
 #: libraries/config/messages.inc.php:541
 msgid "Where to show the table row links"
@@ -7696,8 +7696,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
-"Përcakton nëse fushat e shkrimit duhet ose jo të shfaqet fillimisht në "
-"mënyrën korrigjo/fut."
+"Përcakton nëse fushat e shkrimit duhet ose jo të shfaqen fillimisht në "
+"mënyrën e redaktimit/shtimit."
 
 #: libraries/config/messages.inc.php:850
 msgid "Show field types"
@@ -7705,7 +7705,7 @@ msgstr "Shfaq tipet e fushave"
 
 #: libraries/config/messages.inc.php:852
 msgid "Display the function fields in edit/insert mode."
-msgstr "Shfaq fushat e funksionit në mënyrën korrigjo/fut."
+msgstr "Shfaq fushat e funksionit në mënyrën e korrigjimit/futjes."
 
 #: libraries/config/messages.inc.php:854
 msgid "Show function fields"
@@ -9092,7 +9092,7 @@ msgstr ""
 
 #: libraries/import.lib.php:1212
 msgid "Edit structure by following the \"Structure\" link."
-msgstr "Korrigjo strukturën duke ndjekur lidhjen \"Structure\" (struktura)."
+msgstr "Redakto strukturën duke ndjekur lidhjen \"Struktura\"."
 
 #: libraries/import.lib.php:1219
 #, php-format
@@ -9102,7 +9102,7 @@ msgstr "Shko tek databaza: %s"
 #: libraries/import.lib.php:1225 libraries/import.lib.php:1269
 #, php-format
 msgid "Edit settings for %s"
-msgstr "Korrigjo rregullimet për %s"
+msgstr "Redakto cilësimet për %s"
 
 #: libraries/import.lib.php:1254
 #, php-format
@@ -9161,7 +9161,7 @@ msgstr ""
 
 #: libraries/insert_edit.lib.php:1100
 msgid "Binary - do not edit"
-msgstr "Binar - mos korrigjo"
+msgstr "Binar - mos redakto"
 
 #: libraries/insert_edit.lib.php:1236
 #: templates/privileges/column_privileges.phtml:17
@@ -9175,7 +9175,7 @@ msgstr "drejtoria e ngarkimit në ueb server:"
 
 #: libraries/insert_edit.lib.php:1417 templates/table/search/input_box.phtml:46
 msgid "Edit/Insert"
-msgstr "Korrigjo/Fut"
+msgstr "Redakto/fut"
 
 #: libraries/insert_edit.lib.php:1467
 #, php-format
@@ -9212,7 +9212,7 @@ msgstr "Kthehu tek kjo faqe"
 
 #: libraries/insert_edit.lib.php:1587
 msgid "Edit next row"
-msgstr "Korrigjo radhën tjetër"
+msgstr "Redakto radhën tjetër"
 
 #: libraries/insert_edit.lib.php:1609
 msgid ""
@@ -11597,7 +11597,7 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:224
 msgid "Edit event"
-msgstr "Korrigjo ngjarjen"
+msgstr "Redakto ngjarjen"
 
 #: libraries/rte/rte_events.lib.php:390 libraries/rte/rte_routines.lib.php:890
 #: libraries/rte/rte_triggers.lib.php:327 view_create.php:205
@@ -11706,7 +11706,7 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:129
 msgid "Edit routine"
-msgstr "Korrigjo rutinën"
+msgstr "Redakto rutinën"
 
 #: libraries/rte/rte_routines.lib.php:207
 #: libraries/rte/rte_routines.lib.php:1118
@@ -11853,7 +11853,7 @@ msgstr "Shkrehësi %1$s është krijuar."
 
 #: libraries/rte/rte_triggers.lib.php:209
 msgid "Edit trigger"
-msgstr "Korrigjo shkrehës"
+msgstr "Redakto shkrehësin"
 
 #: libraries/rte/rte_triggers.lib.php:330
 msgid "Trigger name"
@@ -12418,7 +12418,7 @@ msgstr "Privilegjet specifike të tabelës"
 
 #: libraries/server_privileges.lib.php:2798
 msgid "Edit privileges"
-msgstr "Korrigjo privilegjet"
+msgstr "Redakto privilegjet"
 
 #: libraries/server_privileges.lib.php:2801
 msgid "Revoke"
@@ -12426,7 +12426,7 @@ msgstr "Tërhiq"
 
 #: libraries/server_privileges.lib.php:2825
 msgid "Edit user group"
-msgstr "Korrigjo grupin e përdoruesit"
+msgstr "Redakto grupin e përdoruesit"
 
 #: libraries/server_privileges.lib.php:3040
 msgid "… keep the old one."
@@ -12519,7 +12519,7 @@ msgstr "Përdoruesi"
 
 #: libraries/server_privileges.lib.php:4478
 msgid "Edit privileges:"
-msgstr "Korrigjo privilegjet:"
+msgstr "Redakto privilegjet:"
 
 #: libraries/server_privileges.lib.php:4479
 msgid "User account"
@@ -13677,7 +13677,7 @@ msgstr "Shto grup përdoruesish"
 #: libraries/server_user_groups.lib.php:210
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr "Korrigjo grupin e përdoruesit: '%s'"
+msgstr "Redakto grupin e përdoruesit: '%s'"
 
 #: libraries/server_user_groups.lib.php:226
 msgid "User group menu assignments"
@@ -13762,8 +13762,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet korrigjo rrjetën, "
-"kuti kontrolli, Kopjo dhe Fshij nuk janë në vlefshme. %s"
+"Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet redaktimi i rrjetës, "
+"kutisë së kontrollit, Redakto, Kopjo dhe Fshij nuk janë në vlefshme. %s"
 
 #: libraries/sql.lib.php:1762
 #, php-format
@@ -13771,8 +13771,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
-"Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet korrigjo rrjetën, "
-"Korrigjo, Kopjo dhe Fshij mund të rezultojnë në sjellje të padëshiruar. %s"
+"Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet redaktimi i rrjetës, "
+"Redakto, Kopjo dhe Fshij mund të rezultojnë në sjellje të padëshiruar. %s"
 
 #: libraries/sql.lib.php:1804
 #, php-format
@@ -14325,7 +14325,7 @@ msgstr "Dhuro"
 
 #: setup/frames/servers.inc.php:32
 msgid "Edit server"
-msgstr "Korrigjo server"
+msgstr "Redakto serverin"
 
 #: setup/frames/servers.inc.php:42
 msgid "Add a new server"
@@ -14482,7 +14482,7 @@ msgstr "PARTITION (ndarja) përkufizimi:"
 
 #: templates/columns_definitions/column_length.phtml:9
 msgid "Edit ENUM/SET values"
-msgstr "Korrigjo vlerat ENUM/SET"
+msgstr "Redakto vlerat ENUM/SET"
 
 #: templates/columns_definitions/column_name.phtml:6
 #, php-format
@@ -15531,7 +15531,7 @@ msgstr "Bëj një \"pyetsor sipas shembullit\" (wildcard: \"%\")"
 
 #: templates/table/search/zoom_result_form.phtml:7
 msgid "Browse/Edit the points"
-msgstr "Shfleto/Korrigjo pikët"
+msgstr "Shfleto/Redakto pikët"
 
 #: templates/table/search/zoom_result_form.phtml:15
 msgid "How to use"
@@ -15609,11 +15609,11 @@ msgstr "Tabela e copëzimit"
 #: templates/table/structure/display_partitions.phtml:137
 #: templates/table/structure/partition_definition_form.phtml:7
 msgid "Edit partitioning"
-msgstr "Korrigjo copëzimin"
+msgstr "Redakto ndarjen"
 
 #: templates/table/structure/display_structure.phtml:129 view_create.php:206
 msgid "Edit view"
-msgstr "Korrigjo pamjen"
+msgstr "Redakto pamjen"
 
 #: templates/table/structure/display_table_stats.phtml:13
 msgid "Space usage"
