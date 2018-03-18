@@ -8,32 +8,27 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.7.8-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2015-10-15 11:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Nepali <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ne/>\n"
+"PO-Revision-Date: 2018-03-19 21:41+0000\n"
+"Last-Translator: Nabin Ghimire <nnabinn@hotmail.com>\n"
+"Language-Team: Nepali <https://hosted.weblate.org/projects/phpmyadmin/4-7/ne/"
+">\n"
 "Language: ne\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:16 ajax.php:33 export.php:192 schema_export.php:64
 msgid "Bad type!"
 msgstr "प्रकार मिलेन!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr ""
-"सिस्टममा %s फाईल उपलब्ध छैन, कृपया अधिक जानकारीका लागि www.phpmyadmin.net मा "
-"जानुहोस।"
+msgstr "सिस्टममा %s फाईल उपलब्ध छैन, कृपया अधिक जानकारीका लागि %s मा जानुहोस।"
 
 #: db_central_columns.php:108
 msgid "The central list of columns for the current database is empty."
@@ -296,8 +291,6 @@ msgstr "डाटा"
 
 #: db_export.php:70 libraries/DbSearch.php:434
 #: libraries/display_export.lib.php:46 libraries/replication_gui.lib.php:379
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "सबै चयन गर्नुहोस"
 
@@ -308,6 +301,8 @@ msgstr "डेटाबेसको नाम राखेएको छैन!"
 #: db_operations.php:61
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"समान नाममा डेटाबेस प्रतिलिपि गर्न सकिँदैन। नाम परिवर्तन गर्नुहोस् र फेरि "
+"प्रयास गर्नुहोस्।"
 
 #: db_operations.php:150
 #, php-format
@@ -12879,7 +12874,7 @@ msgstr ""
 
 #: libraries/tracking.lib.php:284 templates/server/plugins/section.phtml:10
 msgid "Version"
-msgstr ""
+msgstr "संस्करण"
 
 #: libraries/tracking.lib.php:285 libraries/tracking.lib.php:1597
 msgid "Created"
@@ -12890,22 +12885,18 @@ msgid "Updated"
 msgstr "सुधार गरियो"
 
 #: libraries/tracking.lib.php:295 libraries/tracking.lib.php:362
-#, fuzzy
-#| msgid "Last version"
 msgid "Delete version"
-msgstr "पछिल्लो संस्करण"
+msgstr "संस्करण मेटाउनुहोस्"
 
 #: libraries/tracking.lib.php:296 libraries/tracking.lib.php:468
 #: libraries/tracking.lib.php:1611
-#, fuzzy
 msgid "Tracking report"
-msgstr "Tracking रिपोर्ट"
+msgstr "ट्र्याकिंग रिपोर्ट"
 
 #: libraries/tracking.lib.php:299 libraries/tracking.lib.php:834
 #: libraries/tracking.lib.php:1614
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "संरचना स्न्यापसट"
+msgstr "संरचना स्न्यापशट"
 
 #: libraries/tracking.lib.php:428 libraries/tracking.lib.php:1427
 #: libraries/tracking.lib.php:1715
@@ -12919,7 +12910,7 @@ msgstr "सक्रिय छैन"
 
 #: libraries/tracking.lib.php:472
 msgid "Tracking statements"
-msgstr ""
+msgstr "बयानहरू पहिचन गर्दै"
 
 #: libraries/tracking.lib.php:484
 msgid "Delete tracking data row from report"
