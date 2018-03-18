@@ -22,6 +22,7 @@ $(document).ready(function () {
     var keyH = 72;
     var keyC = 67;
     var keyBackSpace = 8;
+    var keyN = 78;
     $(document).on('keyup', function (e) {
         if (e.target.nodeName === 'INPUT' || e.target.nodeName === 'TEXTAREA' || e.target.nodeName === 'SELECT') {
             return;
@@ -96,6 +97,8 @@ $(document).ready(function () {
             window.history.back();
         } else if (e.keyCode === keyH) {
             $('.ic_b_home').first().trigger('click');
+        } else if (e.keyCode === keyN) {
+            window.open('http://localhost/phpmyadmin/server_databases.php?server=1', '_self');
         }
     });
 });
