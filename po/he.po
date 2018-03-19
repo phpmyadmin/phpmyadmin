@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-03-16 09:53+0000\n"
+"PO-Revision-Date: 2018-03-20 09:37+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -2353,15 +2353,14 @@ msgid "Modifications have been saved"
 msgstr "שינויים נשמרו"
 
 #: js/messages.php:576
-#, fuzzy, php-format
-#| msgid "Value for the column \"%s\""
+#, php-format
 msgid "Add an option for column \"%s\"."
-msgstr "ערך עבור העמודה „%s“"
+msgstr "הוספת אפשרות עבור העמודה „%s“."
 
 #: js/messages.php:577
 #, php-format
 msgid "%d object(s) created."
-msgstr ""
+msgstr "נוצרו %d פריטים."
 
 #: js/messages.php:578 libraries/classes/SqlQueryForm.php:419
 msgid "Submit"
@@ -2369,7 +2368,7 @@ msgstr "שליחה"
 
 #: js/messages.php:581
 msgid "Press escape to cancel editing."
-msgstr ""
+msgstr "יש ללחוץ על escape כדי לבטל את העריכה."
 
 #: js/messages.php:583
 msgid ""
