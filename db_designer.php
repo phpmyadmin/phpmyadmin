@@ -209,5 +209,4 @@ $response->addHTML($databaseDesigner->getAggregateQueryPanel());
 $response->addHTML($databaseDesigner->getWhereQueryPanel());
 $response->addHTML($databaseDesigner->getQueryDetails($_GET['db']));
 
-
 $response->addHTML('<div id="PMA_disable_floating_menubar"></div>');
