@@ -202,14 +202,12 @@ $response->addHTML('<div id="designer_hint"></div>');
 
 $response->addHTML($databaseDesigner->getNewRelationPanel());
 $response->addHTML($databaseDesigner->getDeleteRelationPanel());
+$response->addHTML($databaseDesigner->getOptionsPanel());
+$response->addHTML($databaseDesigner->getRenameToPanel());
+$response->addHTML($databaseDesigner->getHavingQueryPanel());
+$response->addHTML($databaseDesigner->getAggregateQueryPanel());
+$response->addHTML($databaseDesigner->getWhereQueryPanel());
+$response->addHTML($databaseDesigner->getQueryDetails($_GET['db']));
 
-if (isset($_REQUEST['query'])) {
-    $response->addHTML($databaseDesigner->getOptionsPanel());
-    $response->addHTML($databaseDesigner->getRenameToPanel());
-    $response->addHTML($databaseDesigner->getHavingQueryPanel());
-    $response->addHTML($databaseDesigner->getAggregateQueryPanel());
-    $response->addHTML($databaseDesigner->getWhereQueryPanel());
-    $response->addHTML($databaseDesigner->getQueryDetails($_GET['db']));
-}
 
 $response->addHTML('<div id="PMA_disable_floating_menubar"></div>');
