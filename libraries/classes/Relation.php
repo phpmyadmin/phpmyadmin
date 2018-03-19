@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Set of functions used with the relation and pdf feature
+ * Set of functions used with the relation and PDF feature
  *
  * @package PhpMyAdmin
  */
@@ -19,7 +19,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\Relation class
+ * Set of functions used with the relation and PDF feature
  *
  * @package PhpMyAdmin
  */
@@ -37,7 +37,7 @@ class Relation
      * @access  public
      *
      */
-    public static function queryAsControlUser($sql, $show_error = true, $options = 0)
+    public function queryAsControlUser($sql, $show_error = true, $options = 0)
     {
         // Avoid caching of the number of rows affected; for example, this function
         // is called for tracking purposes but we want to display the correct number
@@ -66,23 +66,23 @@ class Relation
         }
 
         return false;
-    } // end of the "self::queryAsControlUser()" function
+    }
 
     /**
      * Returns current relation parameters
      *
      * @return array   $cfgRelation
      */
-    public static function getRelationsParam()
+    public function getRelationsParam()
     {
         if (empty($_SESSION['relation'][$GLOBALS['server']])
             || (empty($_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION']))
             || $_SESSION['relation'][$GLOBALS['server']]['PMA_VERSION'] != PMA_VERSION
         ) {
-            $_SESSION['relation'][$GLOBALS['server']] = self::checkRelationsParam();
+            $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
         }
 
-        // just for BC but needs to be before self::getRelationsParamDiagnostic()
+        // just for BC but needs to be before getRelationsParamDiagnostic()
         // which uses it
         $GLOBALS['cfgRelation'] = $_SESSION['relation'][$GLOBALS['server']];
 
@@ -96,7 +96,7 @@ class Relation
      *
      * @return string
      */
-    public static function getRelationsParamDiagnostic(array $cfgRelation)
+    public function getRelationsParamDiagnostic(array $cfgRelation)
     {
         $retval = '<br>';
 
@@ -122,9 +122,9 @@ class Relation
                  . '</font>' . "\n";
             if ($GLOBALS['cfg']['ZeroConf']) {
                 if (strlen($GLOBALS['db']) == 0) {
-                    $retval .= self::getHtmlFixPmaTables(true, true);
+                    $retval .= $this->getHtmlFixPmaTables(true, true);
                 } else {
-                    $retval .= self::getHtmlFixPmaTables(true);
+                    $retval .= $this->getHtmlFixPmaTables(true);
                 }
             }
         } else {
@@ -134,70 +134,70 @@ class Relation
                 && $GLOBALS['cfg']['ZeroConf']
                 // Avoid showing a "Create missing tables" link if it's a
                 // problem of missing definition
-                && self::arePmadbTablesDefined()
+                && $this->arePmadbTablesDefined()
             ) {
-                $retval .= self::getHtmlFixPmaTables(false);
+                $retval .= $this->getHtmlFixPmaTables(false);
                 $retval .= '<br />';
             }
 
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'pmadb',
                 $cfgRelation['db'],
                 $messages,
                 'pmadb'
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'relation',
                 isset($cfgRelation['relation']),
                 $messages,
                 'relation'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('General relation features'),
                 'relwork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'table_info',
                 isset($cfgRelation['table_info']),
                 $messages,
                 'table_info'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Display Features'),
                 'displaywork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'table_coords',
                 isset($cfgRelation['table_coords']),
                 $messages,
                 'table_coords'
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'pdf_pages',
                 isset($cfgRelation['pdf_pages']),
                 $messages,
                 'pdf_pages'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Designer and creation of PDFs'),
                 'pdfwork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'column_info',
                 isset($cfgRelation['column_info']),
                 $messages,
                 'column_info'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Displaying Column Comments'),
                 'commwork',
                 $messages,
                 false
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Browser transformation'),
                 'mimework',
                 $messages
@@ -214,151 +214,151 @@ class Relation
                 );
                 $retval .= '</td></tr>';
             }
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'bookmarktable',
                 isset($cfgRelation['bookmark']),
                 $messages,
                 'bookmark'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Bookmarked SQL query'),
                 'bookmarkwork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'history',
                 isset($cfgRelation['history']),
                 $messages,
                 'history'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('SQL history'),
                 'historywork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'recent',
                 isset($cfgRelation['recent']),
                 $messages,
                 'recent'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Persistent recently used tables'),
                 'recentwork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'favorite',
                 isset($cfgRelation['favorite']),
                 $messages,
                 'favorite'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Persistent favorite tables'),
                 'favoritework',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'table_uiprefs',
                 isset($cfgRelation['table_uiprefs']),
                 $messages,
                 'table_uiprefs'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Persistent tables\' UI preferences'),
                 'uiprefswork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'tracking',
                 isset($cfgRelation['tracking']),
                 $messages,
                 'tracking'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Tracking'),
                 'trackingwork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'userconfig',
                 isset($cfgRelation['userconfig']),
                 $messages,
                 'userconfig'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('User preferences'),
                 'userconfigwork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'users',
                 isset($cfgRelation['users']),
                 $messages,
                 'users'
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'usergroups',
                 isset($cfgRelation['usergroups']),
                 $messages,
                 'usergroups'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Configurable menus'),
                 'menuswork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'navigationhiding',
                 isset($cfgRelation['navigationhiding']),
                 $messages,
                 'navigationhiding'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Hide/show navigation items'),
                 'navwork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'savedsearches',
                 isset($cfgRelation['savedsearches']),
                 $messages,
                 'savedsearches'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Saving Query-By-Example searches'),
                 'savedsearcheswork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'central_columns',
                 isset($cfgRelation['central_columns']),
                 $messages,
                 'central_columns'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Managing Central list of columns'),
                 'centralcolumnswork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'designer_settings',
                 isset($cfgRelation['designer_settings']),
                 $messages,
                 'designer_settings'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Remembering Designer Settings'),
                 'designersettingswork',
                 $messages
             );
-            $retval .= self::getDiagMessageForParameter(
+            $retval .= $this->getDiagMessageForParameter(
                 'export_templates',
                 isset($cfgRelation['export_templates']),
                 $messages,
                 'export_templates'
             );
-            $retval .= self::getDiagMessageForFeature(
+            $retval .= $this->getDiagMessageForFeature(
                 __('Saving export templates'),
                 'exporttemplateswork',
                 $messages
@@ -408,7 +408,7 @@ class Relation
      *
      * @return string
      */
-    public static function getDiagMessageForFeature($feature_name,
+    public function getDiagMessageForFeature($feature_name,
         $relation_parameter, array $messages, $skip_line = true
     ) {
         $retval = '    <tr><td colspan=2 class="right">' . $feature_name . ': ';
@@ -436,7 +436,7 @@ class Relation
      *
      * @return string
      */
-    public static function getDiagMessageForParameter($parameter,
+    public function getDiagMessageForParameter($parameter,
         $relationParameterSet, array $messages, $docAnchor
     ) {
         $retval = '<tr><th class="left">';
@@ -462,7 +462,7 @@ class Relation
      * @access  protected
      * @return array    the relation parameters for the current user
      */
-    public static function checkRelationsParam()
+    public function checkRelationsParam()
     {
         $cfgRelation                   = array();
         $cfgRelation['PMA_VERSION']    = PMA_VERSION;
@@ -508,8 +508,8 @@ class Relation
             return $cfgRelation;
         }
 
-        $cfgRelation['user']  = $GLOBALS['cfg']['Server']['user'];
-        $cfgRelation['db']    = $GLOBALS['cfg']['Server']['pmadb'];
+        $cfgRelation['user'] = $GLOBALS['cfg']['Server']['user'];
+        $cfgRelation['db'] = $GLOBALS['cfg']['Server']['pmadb'];
 
         //  Now I just check if all tables that i need are present so I can for
         //  example enable relations but not pdf...
@@ -520,7 +520,7 @@ class Relation
             . Util::backquote(
                 $GLOBALS['cfg']['Server']['pmadb']
             );
-        $tab_rs    = self::queryAsControlUser(
+        $tab_rs = $this->queryAsControlUser(
             $tab_query, false, DatabaseInterface::QUERY_STORE
         );
 
@@ -589,7 +589,7 @@ class Relation
             $cfgRelation['commwork']    = true;
             // phpMyAdmin 4.3+
             // Check for input transformations upgrade.
-            $cfgRelation['mimework'] = self::tryUpgradeTransformations();
+            $cfgRelation['mimework'] = $this->tryUpgradeTransformations();
         }
 
         if (isset($cfgRelation['history'])) {
@@ -674,7 +674,7 @@ class Relation
         $cfgRelation['allworks'] = $allWorks;
 
         return $cfgRelation;
-    } // end of the 'self::checkRelationsParam()' function
+    }
 
     /**
      * Check whether column_info table input transformation
@@ -684,7 +684,7 @@ class Relation
      *
      * @access  public
      */
-    public static function tryUpgradeTransformations()
+    public function tryUpgradeTransformations()
     {
         // From 4.3, new input oriented transformation feature was introduced.
         // Check whether column_info table has input transformation columns
@@ -698,7 +698,7 @@ class Relation
                 $GLOBALS['cfg']['Server']['column_info']
             )
             . ' WHERE Field IN (\'' . implode('\', \'', $new_cols) . '\')';
-        $result = self::queryAsControlUser(
+        $result = $this->queryAsControlUser(
             $query, false, DatabaseInterface::QUERY_STORE
         );
         if ($result) {
@@ -756,9 +756,9 @@ class Relation
      *
      * @access  public
      */
-    public static function getForeigners($db, $table, $column = '', $source = 'both')
+    public function getForeigners($db, $table, $column = '', $source = 'both')
     {
-        $cfgRelation = self::getRelationsParam();
+        $cfgRelation = $this->getRelationsParam();
         $foreign = array();
 
         if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
@@ -824,7 +824,7 @@ class Relation
         }
 
         return $foreign;
-    } // end of the 'self::getForeigners()' function
+    }
 
     /**
      * Gets the display field of a table
@@ -836,9 +836,9 @@ class Relation
      *
      * @access  public
      */
-    public static function getDisplayField($db, $table)
+    public function getDisplayField($db, $table)
     {
-        $cfgRelation = self::getRelationsParam();
+        $cfgRelation = $this->getRelationsParam();
 
         /**
          * Try to fetch the display field from DB.
@@ -883,13 +883,8 @@ class Relation
                 }
             }
         }
-
-        /**
-         * No Luck...
-         */
         return false;
-
-    } // end of the 'self::getDisplayField()' function
+    }
 
     /**
      * Gets the comments for all columns of a table or the db itself
@@ -901,7 +896,7 @@ class Relation
      *
      * @access  public
      */
-    public static function getComments($db, $table = '')
+    public function getComments($db, $table = '')
     {
         $comments = array();
 
@@ -916,11 +911,11 @@ class Relation
                 }
             }
         } else {
-            $comments[] = self::getDbComment($db);
+            $comments[] = $this->getDbComment($db);
         }
 
         return $comments;
-    } // end of the 'self::getComments()' function
+    }
 
     /**
      * Gets the comment for a db
@@ -931,9 +926,9 @@ class Relation
      *
      * @access  public
      */
-    public static function getDbComment($db)
+    public function getDbComment($db)
     {
-        $cfgRelation = self::getRelationsParam();
+        $cfgRelation = $this->getRelationsParam();
         $comment = '';
 
         if ($cfgRelation['commwork']) {
@@ -946,7 +941,7 @@ class Relation
                 WHERE db_name     = '" . $GLOBALS['dbi']->escapeString($db) . "'
                     AND table_name  = ''
                     AND column_name = '(db_comment)'";
-            $com_rs = self::queryAsControlUser(
+            $com_rs = $this->queryAsControlUser(
                 $com_qry, true, DatabaseInterface::QUERY_STORE
             );
 
@@ -958,7 +953,7 @@ class Relation
         }
 
         return $comment;
-    } // end of the 'self::getDbComment()' function
+    }
 
     /**
      * Gets the comment for a db
@@ -967,9 +962,9 @@ class Relation
      *
      * @return string   comment
      */
-    public static function getDbComments()
+    public function getDbComments()
     {
-        $cfgRelation = self::getRelationsParam();
+        $cfgRelation = $this->getRelationsParam();
         $comments = array();
 
         if ($cfgRelation['commwork']) {
@@ -980,7 +975,7 @@ class Relation
                     . "." . Util::backquote($cfgRelation['column_info'])
                     . "
                 WHERE `column_name` = '(db_comment)'";
-            $com_rs = self::queryAsControlUser(
+            $com_rs = $this->queryAsControlUser(
                 $com_qry, true, DatabaseInterface::QUERY_STORE
             );
 
@@ -993,7 +988,7 @@ class Relation
         }
 
         return $comments;
-    } // end of the 'self::getDbComments()' function
+    }
 
     /**
      * Set a database comment to a certain value.
@@ -1005,9 +1000,9 @@ class Relation
      *
      * @access  public
      */
-    public static function setDbComment($db, $comment = '')
+    public function setDbComment($db, $comment = '')
     {
-        $cfgRelation = self::getRelationsParam();
+        $cfgRelation = $this->getRelationsParam();
 
         if (! $cfgRelation['commwork']) {
             return false;
@@ -1036,11 +1031,11 @@ class Relation
         }
 
         if (isset($upd_query)) {
-            return self::queryAsControlUser($upd_query);
+            return $this->queryAsControlUser($upd_query);
         }
 
         return false;
-    } // end of 'self::setDbComment()' function
+    }
 
     /**
      * Set a SQL history entry
@@ -1054,7 +1049,7 @@ class Relation
      *
      * @access  public
      */
-    public static function setHistory($db, $table, $username, $sqlquery)
+    public function setHistory($db, $table, $username, $sqlquery)
     {
         $maxCharactersInDisplayedSQL = $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'];
         // Prevent to run this automatically on Footer class destroying in testsuite
@@ -1064,7 +1059,7 @@ class Relation
             return;
         }
 
-        $cfgRelation = self::getRelationsParam();
+        $cfgRelation = $this->getRelationsParam();
 
         if (! isset($_SESSION['sql_history'])) {
             $_SESSION['sql_history'] = array();
@@ -1085,7 +1080,7 @@ class Relation
             return;
         }
 
-        self::queryAsControlUser(
+        $this->queryAsControlUser(
             'INSERT INTO '
             . Util::backquote($cfgRelation['db']) . '.'
             . Util::backquote($cfgRelation['history']) . '
@@ -1102,9 +1097,8 @@ class Relation
                    \'' . $GLOBALS['dbi']->escapeString($sqlquery) . '\')'
         );
 
-        self::purgeHistory($username);
-
-    } // end of 'self::setHistory()' function
+        $this->purgeHistory($username);
+    }
 
     /**
      * Gets a SQL history entry
@@ -1115,9 +1109,9 @@ class Relation
      *
      * @access  public
      */
-    public static function getHistory($username)
+    public function getHistory($username)
     {
-        $cfgRelation = self::getRelationsParam();
+        $cfgRelation = $this->getRelationsParam();
 
         if (! $cfgRelation['historywork']) {
             return false;
@@ -1147,7 +1141,7 @@ class Relation
         return $GLOBALS['dbi']->fetchResult(
             $hist_query, null, null, DatabaseInterface::CONNECT_CONTROL
         );
-    } // end of 'self::getHistory()' function
+    }
 
     /**
      * purges SQL history
@@ -1161,9 +1155,9 @@ class Relation
      *
      * @access  public
      */
-    public static function purgeHistory($username)
+    public function purgeHistory($username)
     {
-        $cfgRelation = self::getRelationsParam();
+        $cfgRelation = $this->getRelationsParam();
         if (! $GLOBALS['cfg']['QueryHistoryDB'] || ! $cfgRelation['historywork']) {
             return;
         }
@@ -1183,7 +1177,7 @@ class Relation
         if ($max_time = $GLOBALS['dbi']->fetchValue(
             $search_query, 0, 0, DatabaseInterface::CONNECT_CONTROL
         )) {
-            self::queryAsControlUser(
+            $this->queryAsControlUser(
                 'DELETE FROM '
                 . Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation['history']) . '
@@ -1192,7 +1186,7 @@ class Relation
                     AND `timevalue` <= \'' . $max_time . '\''
             );
         }
-    } // end of 'self::purgeHistory()' function
+    }
 
     /**
      * Prepares the dropdown for one mode
@@ -1205,7 +1199,7 @@ class Relation
      *
      * @access  protected
      */
-    public static function buildForeignDropdown(array $foreign, $data, $mode)
+    public function buildForeignDropdown(array $foreign, $data, $mode)
     {
         $reloptions = array();
 
@@ -1263,7 +1257,7 @@ class Relation
         } // end foreach
 
         return $reloptions;
-    } // end of 'self::buildForeignDropdown' function
+    }
 
     /**
      * Outputs dropdown with values of foreign fields
@@ -1278,7 +1272,7 @@ class Relation
      *
      * @access  public
      */
-    public static function foreignDropdown(array $disp_row, $foreign_field, $foreign_display, $data,
+    public function foreignDropdown(array $disp_row, $foreign_field, $foreign_display, $data,
         $max = null
     ) {
         if (null === $max) {
@@ -1307,25 +1301,25 @@ class Relation
         if ($foreign_display) {
             if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'], 'array')) {
                 if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])) {
-                    $top = self::buildForeignDropdown(
+                    $top = $this->buildForeignDropdown(
                         $foreign,
                         $data,
                         $GLOBALS['cfg']['ForeignKeyDropdownOrder'][0]
                     );
                 }
                 if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][1])) {
-                    $bottom = self::buildForeignDropdown(
+                    $bottom = $this->buildForeignDropdown(
                         $foreign,
                         $data,
                         $GLOBALS['cfg']['ForeignKeyDropdownOrder'][1]
                     );
                 }
             } else {
-                $top = self::buildForeignDropdown($foreign, $data, 'id-content');
-                $bottom = self::buildForeignDropdown($foreign, $data, 'content-id');
+                $top = $this->buildForeignDropdown($foreign, $data, 'id-content');
+                $bottom = $this->buildForeignDropdown($foreign, $data, 'content-id');
             }
         } else {
-            $top = self::buildForeignDropdown($foreign, $data, 'id-only');
+            $top = $this->buildForeignDropdown($foreign, $data, 'id-only');
         }
 
         // beginning of dropdown
@@ -1344,7 +1338,7 @@ class Relation
         }
 
         return $ret;
-    } // end of 'self::foreignDropdown()' function
+    }
 
     /**
      * Gets foreign keys in preparation for a drop-down selector
@@ -1362,7 +1356,7 @@ class Relation
      *
      * @access  public
      */
-    public static function getForeignData(
+    public function getForeignData(
         $foreigners, $field, $override_total,
         $foreign_filter, $foreign_limit, $get_total=false
     ) {
@@ -1373,7 +1367,7 @@ class Relation
             if (! $foreigners) {
                 break;
             }
-            $foreigner = self::searchColumnInForeigners($foreigners, $field);
+            $foreigner = $this->searchColumnInForeigners($foreigners, $field);
             if ($foreigner != false) {
                 $foreign_db      = $foreigner['foreign_db'];
                 $foreign_table   = $foreigner['foreign_table'];
@@ -1399,7 +1393,7 @@ class Relation
                 || !$moreThanLimit
             ) {
                 // foreign_display can be false if no display field defined:
-                $foreign_display = self::getDisplayField($foreign_db, $foreign_table);
+                $foreign_display = $this->getDisplayField($foreign_db, $foreign_table);
 
                 $f_query_main = 'SELECT ' . Util::backquote($foreign_field)
                     . (
@@ -1476,7 +1470,7 @@ class Relation
         $foreignData['foreign_field'] = isset($foreign_field) ? $foreign_field : null;
 
         return $foreignData;
-    } // end of 'self::getForeignData()' function
+    }
 
     /**
      * Rename a field in relation tables
@@ -1490,9 +1484,9 @@ class Relation
      *
      * @return void
      */
-    public static function renameField($db, $table, $field, $new_name)
+    public function renameField($db, $table, $field, $new_name)
     {
-        $cfgRelation = self::getRelationsParam();
+        $cfgRelation = $this->getRelationsParam();
 
         if ($cfgRelation['displaywork']) {
             $table_query = 'UPDATE '
@@ -1507,7 +1501,7 @@ class Relation
                 . '\''
                 . '   AND display_field = \'' . $GLOBALS['dbi']->escapeString($field)
                 . '\'';
-            self::queryAsControlUser($table_query);
+            $this->queryAsControlUser($table_query);
         }
 
         if ($cfgRelation['relwork']) {
@@ -1523,7 +1517,7 @@ class Relation
                 . '\''
                 . '   AND master_field = \'' . $GLOBALS['dbi']->escapeString($field)
                 . '\'';
-            self::queryAsControlUser($table_query);
+            $this->queryAsControlUser($table_query);
 
             $table_query = 'UPDATE '
                 . Util::backquote($cfgRelation['db']) . '.'
@@ -1537,9 +1531,8 @@ class Relation
                 . '\''
                 . '   AND foreign_field = \'' . $GLOBALS['dbi']->escapeString($field)
                 . '\'';
-            self::queryAsControlUser($table_query);
-
-        } // end if relwork
+            $this->queryAsControlUser($table_query);
+        }
     }
 
 
@@ -1556,7 +1549,7 @@ class Relation
      *
      * @return void
      */
-    public static function renameSingleTable($table,
+    public function renameSingleTable($table,
         $source_db, $target_db,
         $source_table, $target_table,
         $db_field, $table_field
@@ -1574,7 +1567,7 @@ class Relation
             . ' AND '
             . $table_field . ' = \'' . $GLOBALS['dbi']->escapeString($source_table)
             . '\'';
-        self::queryAsControlUser($query);
+        $this->queryAsControlUser($query);
     }
 
 
@@ -1590,11 +1583,11 @@ class Relation
      *
      * @return void
      */
-    public static function renameTable($source_db, $target_db, $source_table, $target_table)
+    public function renameTable($source_db, $target_db, $source_table, $target_table)
     {
         // Move old entries from PMA-DBs to new table
         if ($GLOBALS['cfgRelation']['commwork']) {
-            self::renameSingleTable(
+            $this->renameSingleTable(
                 'column_info',
                 $source_db, $target_db,
                 $source_table, $target_table,
@@ -1606,7 +1599,7 @@ class Relation
         // moved, and not the whole DB.
 
         if ($GLOBALS['cfgRelation']['displaywork']) {
-            self::renameSingleTable(
+            $this->renameSingleTable(
                 'table_info',
                 $source_db, $target_db,
                 $source_table, $target_table,
@@ -1615,14 +1608,14 @@ class Relation
         }
 
         if ($GLOBALS['cfgRelation']['relwork']) {
-            self::renameSingleTable(
+            $this->renameSingleTable(
                 'relation',
                 $source_db, $target_db,
                 $source_table, $target_table,
                 'foreign_db', 'foreign_table'
             );
 
-            self::renameSingleTable(
+            $this->renameSingleTable(
                 'relation',
                 $source_db, $target_db,
                 $source_table, $target_table,
@@ -1633,7 +1626,7 @@ class Relation
         if ($GLOBALS['cfgRelation']['pdfwork']) {
             if ($source_db == $target_db) {
                 // rename within the database can be handled
-                self::renameSingleTable(
+                $this->renameSingleTable(
                     'table_coords',
                     $source_db, $target_db,
                     $source_table, $target_table,
@@ -1648,12 +1641,12 @@ class Relation
                     . " WHERE db_name  = '" . $GLOBALS['dbi']->escapeString($source_db) . "'"
                     . " AND table_name = '" . $GLOBALS['dbi']->escapeString($source_table)
                     . "'";
-                self::queryAsControlUser($remove_query);
+                $this->queryAsControlUser($remove_query);
             }
         }
 
         if ($GLOBALS['cfgRelation']['uiprefswork']) {
-            self::renameSingleTable(
+            $this->renameSingleTable(
                 'table_uiprefs',
                 $source_db, $target_db,
                 $source_table, $target_table,
@@ -1663,7 +1656,7 @@ class Relation
 
         if ($GLOBALS['cfgRelation']['navwork']) {
             // update hidden items inside table
-            self::renameSingleTable(
+            $this->renameSingleTable(
                 'navigationhiding',
                 $source_db, $target_db,
                 $source_table, $target_table,
@@ -1685,7 +1678,7 @@ class Relation
                 . " AND item_name = '" . $GLOBALS['dbi']->escapeString($source_table)
                 . "'"
                 . " AND item_type = 'table'";
-            self::queryAsControlUser($query);
+            $this->queryAsControlUser($query);
         }
     }
 
@@ -1698,7 +1691,7 @@ class Relation
      *
      * @return int $pdf_page_number
      */
-    public static function createPage($newpage, array $cfgRelation, $db)
+    public function createPage($newpage, array $cfgRelation, $db)
     {
         if (! isset($newpage) || $newpage == '') {
             $newpage = __('no description');
@@ -1710,7 +1703,7 @@ class Relation
             . ' VALUES (\''
             . $GLOBALS['dbi']->escapeString($db) . '\', \''
             . $GLOBALS['dbi']->escapeString($newpage) . '\')';
-        self::queryAsControlUser($ins_query, false);
+        $this->queryAsControlUser($ins_query, false);
 
         return $GLOBALS['dbi']->insertId(DatabaseInterface::CONNECT_CONTROL);
     }
@@ -1725,7 +1718,7 @@ class Relation
      *
      * @return array $child_references
      */
-    public static function getChildReferences($db, $table, $column = '')
+    public function getChildReferences($db, $table, $column = '')
     {
         $child_references = array();
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -1759,7 +1752,7 @@ class Relation
      *
      * @return array $column_status telling about references if foreign key.
      */
-    public static function checkChildForeignReferences(
+    public function checkChildForeignReferences(
         $db, $table, $column, $foreigners_full = null, $child_references_full = null
     ) {
         $column_status = array();
@@ -1777,9 +1770,9 @@ class Relation
                 $foreigners['foreign_keys_data'] = $foreigners_full['foreign_keys_data'];
             }
         } else {
-            $foreigners = self::getForeigners($db, $table, $column, 'foreign');
+            $foreigners = $this->getForeigners($db, $table, $column, 'foreign');
         }
-        $foreigner = self::searchColumnInForeigners($foreigners, $column);
+        $foreigner = $this->searchColumnInForeigners($foreigners, $column);
 
         $child_references = array();
         if ($child_references_full !== null) {
@@ -1787,7 +1780,7 @@ class Relation
                 $child_references = $child_references_full[$column];
             }
         } else {
-            $child_references = self::getChildReferences($db, $table, $column);
+            $child_references = $this->getChildReferences($db, $table, $column);
         }
 
         if (sizeof($child_references, 0) > 0
@@ -1822,7 +1815,7 @@ class Relation
      *
      * @return bool|array
      */
-    public static function searchColumnInForeigners(array $foreigners, $column)
+    public function searchColumnInForeigners(array $foreigners, $column)
     {
         if (isset($foreigners[$column])) {
             return $foreigners[$column];
@@ -1858,7 +1851,7 @@ class Relation
      *
      * @return array table name, create query
      */
-    public static function getDefaultPmaTableNames()
+    public function getDefaultPmaTableNames()
     {
         $pma_tables = array();
         $create_tables_file = file_get_contents(
@@ -1886,7 +1879,7 @@ class Relation
      *
      * @return bool
      */
-    public static function createPmaDatabase()
+    public function createPmaDatabase()
     {
         $GLOBALS['dbi']->tryQuery("CREATE DATABASE IF NOT EXISTS `phpmyadmin`");
         if ($error = $GLOBALS['dbi']->getError()) {
@@ -1912,7 +1905,7 @@ class Relation
      *
      * @return void
      */
-    public static function fixPmaTables($db, $create = true)
+    public function fixPmaTables($db, $create = true)
     {
         $tablesToFeatures = array(
             'pma__bookmark' => 'bookmarktable',
@@ -1944,7 +1937,7 @@ class Relation
             if (! in_array($table, $existingTables)) {
                 if ($create) {
                     if ($createQueries == null) { // first create
-                        $createQueries = self::getDefaultPmaTableNames();
+                        $createQueries = $this->getDefaultPmaTableNames();
                         $GLOBALS['dbi']->selectDb($db);
                     }
                     $GLOBALS['dbi']->tryQuery($createQueries[$table]);
@@ -1965,9 +1958,9 @@ class Relation
             return;
         }
         $GLOBALS['cfg']['Server']['pmadb'] = $db;
-        $_SESSION['relation'][$GLOBALS['server']] = self::checkRelationsParam();
+        $_SESSION['relation'][$GLOBALS['server']] = $this->checkRelationsParam();
 
-        $cfgRelation = self::getRelationsParam();
+        $cfgRelation = $this->getRelationsParam();
         if ($cfgRelation['recentwork'] || $cfgRelation['favoritework']) {
             // Since configuration storage is updated, we need to
             // re-initialize the favorite and recent tables stored in the
@@ -1997,7 +1990,7 @@ class Relation
      *
      * @return string Html
      */
-    public static function getHtmlFixPmaTables($allTables, $createDb = false)
+    public function getHtmlFixPmaTables($allTables, $createDb = false)
     {
         $retval = '';
 
@@ -2043,12 +2036,12 @@ class Relation
      *
      * @return array ($res_rel, $have_rel)
      */
-    public static function getRelationsAndStatus($condition, $db, $table)
+    public function getRelationsAndStatus($condition, $db, $table)
     {
         if ($condition) {
             // Find which tables are related with the current one and write it in
             // an array
-            $res_rel = self::getForeigners($db, $table);
+            $res_rel = $this->getForeigners($db, $table);
 
             if (count($res_rel) > 0) {
                 $have_rel = true;
@@ -2067,7 +2060,7 @@ class Relation
      *
      * @return boolean
      */
-    public static function arePmadbTablesDefined()
+    public function arePmadbTablesDefined()
     {
         if (empty($GLOBALS['cfg']['Server']['bookmarktable'])
             || empty($GLOBALS['cfg']['Server']['relation'])
@@ -2103,7 +2096,7 @@ class Relation
      *
      * @return array Table names
      */
-    public static function getTables($foreignDb, $tblStorageEngine)
+    public function getTables($foreignDb, $tblStorageEngine)
     {
         $tables = array();
         $tablesRows = $GLOBALS['dbi']->query(

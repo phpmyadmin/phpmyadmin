@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PhpMyAdmin\Relation
+ * Tests for PhpMyAdmin\Relation
  *
  * @package PhpMyAdmin-test
  */
@@ -20,13 +20,18 @@ use PHPUnit\Framework\TestCase;
 class RelationTest extends TestCase
 {
     /**
+     * @var Relation
+     */
+    private $relation;
+
+    /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
      * @access protected
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -39,10 +44,12 @@ class RelationTest extends TestCase
 
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['ServerDefault'] = 0;
+
+        $this->relation = new Relation();
     }
 
     /**
-     * Test for Relation::queryAsControlUser
+     * Test for queryAsControlUser
      *
      * @return void
      */
@@ -65,22 +72,22 @@ class RelationTest extends TestCase
         $sql = "insert into PMA_bookmark A,B values(1, 2)";
         $this->assertEquals(
             'executeResult1',
-            Relation::queryAsControlUser($sql)
+            $this->relation->queryAsControlUser($sql)
         );
         $this->assertEquals(
             'executeResult2',
-            Relation::queryAsControlUser($sql, false)
+            $this->relation->queryAsControlUser($sql, false)
         );
     }
 
     /**
-     * Test for Relation::getRelationsParam & Relation::getRelationsParamDiagnostic
+     * Test for getRelationsParam & getRelationsParamDiagnostic
      *
      * @return void
      */
     public function testPMAGetRelationsParam()
     {
-        $relationsPara = Relation::getRelationsParam();
+        $relationsPara = $this->relation->getRelationsParam();
         $this->assertEquals(
             false,
             $relationsPara['relwork']
@@ -98,7 +105,7 @@ class RelationTest extends TestCase
             $relationsPara['db']
         );
 
-        $retval = Relation::getRelationsParamDiagnostic($relationsPara);
+        $retval = $this->relation->getRelationsParamDiagnostic($relationsPara);
         //check $cfg['Servers'][$i]['pmadb']
         $this->assertContains(
             "\$cfg['Servers'][\$i]['pmadb']",
@@ -145,7 +152,7 @@ class RelationTest extends TestCase
         );
 
         $relationsPara['db'] = false;
-        $retval = Relation::getRelationsParamDiagnostic($relationsPara);
+        $retval = $this->relation->getRelationsParamDiagnostic($relationsPara);
 
         $result = __('General relation features');
         $this->assertContains(
@@ -165,7 +172,7 @@ class RelationTest extends TestCase
     }
 
     /**
-     * Test for Relation::getDisplayField
+     * Test for getDisplayField
      *
      * @return void
      */
@@ -175,27 +182,27 @@ class RelationTest extends TestCase
         $table = 'CHARACTER_SETS';
         $this->assertEquals(
             'DESCRIPTION',
-            Relation::getDisplayField($db, $table)
+            $this->relation->getDisplayField($db, $table)
         );
 
         $db = 'information_schema';
         $table = 'TABLES';
         $this->assertEquals(
             'TABLE_COMMENT',
-            Relation::getDisplayField($db, $table)
+            $this->relation->getDisplayField($db, $table)
         );
 
         $db = 'information_schema';
         $table = 'PMA';
         $this->assertEquals(
             false,
-            Relation::getDisplayField($db, $table)
+            $this->relation->getDisplayField($db, $table)
         );
 
     }
 
     /**
-     * Test for Relation::getComments
+     * Test for getComments
      *
      * @return void
      */
@@ -228,7 +235,7 @@ class RelationTest extends TestCase
         $db = 'information_schema';
         $this->assertEquals(
             array(''),
-            Relation::getComments($db)
+            $this->relation->getComments($db)
         );
 
         $db = 'information_schema';
@@ -238,12 +245,12 @@ class RelationTest extends TestCase
                 'field1' => 'Comment1',
                 'field2' => 'Comment1'
             ),
-            Relation::getComments($db, $table)
+            $this->relation->getComments($db, $table)
         );
     }
 
     /**
-     * Test for Relation::tryUpgradeTransformations
+     * Test for tryUpgradeTransformations
      *
      * @return void
      */
@@ -267,14 +274,14 @@ class RelationTest extends TestCase
         $GLOBALS['cfg']['Server']['column_info'] = 'column_info';
 
         // Case 1
-        $actual = Relation::tryUpgradeTransformations();
+        $actual = $this->relation->tryUpgradeTransformations();
         $this->assertEquals(
             false,
             $actual
         );
 
         // Case 2
-        $actual = Relation::tryUpgradeTransformations();
+        $actual = $this->relation->tryUpgradeTransformations();
         $this->assertEquals(
             true,
             $actual
@@ -282,7 +289,7 @@ class RelationTest extends TestCase
     }
 
     /**
-     * Test for Relation::searchColumnInForeigners
+     * Test for searchColumnInForeigners
      *
      * @return void
      */
@@ -308,7 +315,7 @@ class RelationTest extends TestCase
             )
         );
 
-        $foreigner = Relation::searchColumnInForeigners($foreigners, 'id');
+        $foreigner = $this->relation->searchColumnInForeigners($foreigners, 'id');
         $expected = array();
         $expected['foreign_field'] = 'id';
         $expected['foreign_db'] = 'GSoC14';
