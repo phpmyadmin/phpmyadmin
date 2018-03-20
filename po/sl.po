@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-01-22 21:08+0000\n"
+"PO-Revision-Date: 2018-03-21 14:10+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -3590,12 +3590,12 @@ msgstr "Strežnik %d"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Če je omogočeno, lahko uporabnik vstopi v kateri koli strežnik MySQL v "
+"Če je omogočeno, lahko uporabnik vstopi v katerikoli strežnik MySQL v "
 "prijavnem obrazcu z overovitvijo piškotkov."
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
-msgstr "Dovoli prijavo v kateri koli strežnik MySQL"
+msgstr "Dovoli prijavo v katerikoli strežnik MySQL"
 
 #: libraries/classes/Config/Descriptions.php:67
 msgid ""
@@ -6320,7 +6320,7 @@ msgstr ""
 "Ta %smožnost%s naj bo onemogočena, saj omogoča napadalcem, da se z načinom "
 "bruteforce prijavijo v kateri koli strežnik MySQL. Če menite, da je to "
 "potrebno, uporabite %somejeno prjavo v strežnik MySQL%s ali %sseznam "
-"zaupanih proxyjev%s. Kakor koli, zaščita s seznamom zaupanih proxyjev, "
+"zaupanih proxyjev%s. Kakorkoli, zaščita s seznamom zaupanih proxyjev, "
 "temelječa na IP, ni zanesljiva, če vaš IP pripada ISP-ju, na katerega je "
 "povezanih tisoče uporabnikov, vključno z vami."
 
@@ -10577,7 +10577,7 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:751
 #: libraries/classes/Server/Privileges.php:1600
 msgid "Any host"
-msgstr "Kateri koli gostitelj"
+msgstr "Katerikoli gostitelj"
 
 #: libraries/classes/ReplicationGui.php:756
 #: libraries/classes/Server/Privileges.php:1608
@@ -10592,7 +10592,7 @@ msgstr "Ta strežnik"
 #: libraries/classes/ReplicationGui.php:803
 #: libraries/classes/Server/Privileges.php:1510
 msgid "Any user"
-msgstr "Kateri koli uporabnik"
+msgstr "Katerikoli uporabnik"
 
 #: libraries/classes/ReplicationGui.php:808
 #: libraries/classes/ReplicationGui.php:841
@@ -11542,7 +11542,7 @@ msgstr "Najden ni bil noben uporabnik."
 #: libraries/classes/Server/Privileges.php:2960
 #: libraries/classes/Server/Privileges.php:3625
 msgid "Any"
-msgstr "Kateri koli"
+msgstr "Katerikoli"
 
 #: libraries/classes/Server/Privileges.php:2682
 msgid "global"
@@ -11812,7 +11812,7 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
-"Preden spremenite kateri koli del konfiguracije, se prepričajte, da veste, "
+"Preden spremenite katerikoli del konfiguracije, se prepričajte, da veste, "
 "kaj spreminjate (tako, da preberete dokumentacijo) in kako lahko spremembo "
 "razveljavite. Napačno nastavljanje ima lahko na zmogljivost zelo negativen "
 "učinek."
@@ -11985,7 +11985,7 @@ msgid ""
 msgstr ""
 "Vaš brskalnik bo osveževal vse prikazane grafikone v rednih razmikih. Pod "
 "'Nastavitve' lahko dodate grafikone in spremenite pogostost osveževanja ali "
-"pa odstranite kateri koli grafikon s klikom na ikono zobnika ob ustreznem "
+"pa odstranite katerikoli grafikon s klikom na ikono zobnika ob ustreznem "
 "grafikonu."
 
 #: libraries/classes/Server/Status/Monitor.php:144
@@ -12282,8 +12282,8 @@ msgid ""
 "indicates the number of time tables have been discovered."
 msgstr ""
 "Strežnik MySQL lahko vpraša skladiščni pogon NDB Cluster, če ve za tabelo z "
-"navedenim imenom. Temu se reče odkritje. Handler_discover kaže koliko krat "
-"so bile tabele odkrite."
+"navedenim imenom. Temu se reče odkritje. Handler_discover kaže kolikokrat so "
+"bile tabele odkrite."
 
 #: libraries/classes/Server/Status/Variables.php:399
 msgid ""
@@ -12291,9 +12291,9 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"Koliko krat je bil prvi vnos prebran iz indeksa. Če je vrednost visoka, "
-"kaže, da strežnik izvaja mnogo pregledov indeksa; na primer: SELECT col1 "
-"FROM foo, pri čemer se predpostavlja, da je col1 indeksiran."
+"Kolikokrat je bil prvi vnos prebran iz indeksa. Če je vrednost visoka, kaže, "
+"da strežnik izvaja mnogo pregledov indeksa; na primer: SELECT col1 FROM foo, "
+"pri čemer se predpostavlja, da je col1 indeksiran."
 
 #: libraries/classes/Server/Status/Variables.php:405
 msgid ""
@@ -12826,7 +12826,7 @@ msgstr "Število razvrščanj, ki so bila storjena s pregledovanjem tabele."
 
 #: libraries/classes/Server/Status/Variables.php:743
 msgid "The number of times that a table lock was acquired immediately."
-msgstr "Koliko krat je bil zaklep tabele pridobljen takoj."
+msgstr "Kolikokrat je bil zaklep tabele pridobljen takoj."
 
 #: libraries/classes/Server/Status/Variables.php:746
 msgid ""
@@ -12835,8 +12835,8 @@ msgid ""
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
-"Koliko krat zaklepa tabele ni bilo mogoče pridobiti takoj in je bilo "
-"potrebno počakati. Če je to visoko in imate težave z zmogljivostjo, najprej "
+"Kolikokrat zaklepa tabele ni bilo mogoče pridobiti takoj in je bilo potrebno "
+"počakati. Če je to visoko in imate težave z zmogljivostjo, najprej "
 "optimizirajte vaše poizvedbe, nato pa ali razdelite vašo tabelo oz. tabele "
 "ali uporabite podvojevanje."
 
