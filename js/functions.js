@@ -1846,7 +1846,7 @@ function getJSConfirmCommonParam (elem, params) {
     var $elem = $(elem);
     if (params) {
         // Strip possible leading ?
-        if (params.startsWith('?')) {
+        if (params.substring(0,1) == '?') {
             params = params.substr(1);
         }
         params += '&';
@@ -4980,7 +4980,7 @@ AJAX.registerOnload('functions.js', function(){
 jQuery.fn.getPostData = function() {
     var dataPost = this.attr('data-post');
     // Strip possible leading ?
-    if (dataPost !== undefined && dataPost.startsWith('?')) {
+    if (dataPost !== undefined && dataPost.substring(0,1) == '?') {
         dataPost = dataPost.substr(1);
     }
     return dataPost;
