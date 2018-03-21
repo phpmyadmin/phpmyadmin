@@ -730,10 +730,19 @@ class CentralColumnsTest extends TestCase
             $result
         );
         $this->assertContains(
-            Url::getHiddenInputs('phpmyadmin')
-            . '<input type="hidden" name="add_column" value="add">'
-            . '<input type="hidden" name="pos" value="0" />'
-            . '<input type="hidden" name="total_rows" value="20"/>',
+            Url::getHiddenInputs('phpmyadmin'),
+            $result
+        );
+        $this->assertContains(
+            '<input type="hidden" name="add_column" value="add">',
+            $result
+        );
+        $this->assertContains(
+            '<input type="hidden" name="pos" value="0" />',
+            $result
+        );
+        $this->assertContains(
+            '<input type="hidden" name="total_rows" value="20"/>',
             $result
         );
     }
