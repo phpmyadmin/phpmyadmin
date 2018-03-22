@@ -142,9 +142,9 @@ var ErrorReport = {
 
         $div.append($buttons);
         $div.appendTo(document.body);
-        $('#change_error_settings').on('click', ErrorReport._redirect_to_settings);
-        $('#show_error_report').on('click', ErrorReport._createReportDialog);
-        $('#ignore_error').on('click', ErrorReport._removeErrorNotification);
+        $(document).on('click', '#change_error_settings', ErrorReport._redirect_to_settings);
+        $(document).on('click', '#show_error_report', ErrorReport._createReportDialog);
+        $(document).on('click', '#ignore_error', ErrorReport._removeErrorNotification);
     },
     /**
      * Removes the notification if it was displayed before
