@@ -875,39 +875,24 @@ class CentralColumns
      *
      * @return string html to add a column in the central list
      */
-    public function getHtmlForAddColumn(
-        $total_rows,
-        $pos,
-        $db
-    ) {
-        $columnAdd = '<table class="central_columns_add_column" '
-            . 'class="navigation nospacing nopadding">'
-            . '<tr>'
-            . '<td class="navigation_separator largescreenonly"></td>'
-            . '<td class="central_columns_navigation">'
-            . Util::getIcon(
-                'centralColumns_add',
-                __('Add column')
-            )
-            . '<form id="add_column" action="db_central_columns.php" method="post">'
-            . Url::getHiddenInputs(
-                $db
-            )
-            . '<input type="hidden" name="add_column" value="add">'
-            . '<input type="hidden" name="pos" value="' . $pos . '" />'
-            . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>'
-            . $this->getHtmlForTableDropdown($db)
-            . '<select name="column-select" id="column-select">'
-            . '<option value="" selected="selected">'
-            . __('Select a column.') . '</option>'
-            . '</select></form>'
-            . '</td>'
-            . '<td class="navigation_separator largescreenonly"></td>'
-            . '</tr>'
-            . '</table>';
-
-        return $columnAdd;
-    }
+     public function getHtmlForAddColumn(
+         $total_rows,
+         $pos,
+         $db
+     ) {
+         $icon = Util::getIcon(
+             'centralColumns_add',
+             __('Add column')
+         );
+         $table_drop_down = $this->getHtmlForTableDropdown($db);
+         return Template::get('database/central_columns/add_column')->render(array(
+             'icon' => $icon,
+             'pos' => $pos,
+             'db' => $db,
+             'total_rows' => $total_rows,
+             'table_drop_down' => $table_drop_down,
+         ));
+     }
 
     /**
      * build html for a row in central columns table

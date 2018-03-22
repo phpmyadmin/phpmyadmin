@@ -1,0 +1,19 @@
+<table class="central_columns_add_column" class="navigation nospacing nopadding">
+    <tr>
+        <td class="navigation_separator largescreenonly"></td>
+        <td class="central_columns_navigation">
+            {{ icon|raw }}
+            <form id="add_column" action="db_central_columns.php" method="post">
+                {{ Url_getHiddenInputs(db)}}
+                <input type="hidden" name="add_column" value="add">
+                <input type="hidden" name="pos" value="{{ pos }}" />
+                <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
+                {{ table_drop_down|raw }}
+                <select name="column-select" id="column-select">
+                    <option value="" selected="selected">{% trans 'Select a column.' %}</option>
+                </select>
+            </form>
+        </td>
+        <td class="navigation_separator largescreenonly"></td>
+    </tr>
+</table>
