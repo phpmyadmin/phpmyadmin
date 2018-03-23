@@ -55,7 +55,7 @@ class ZipExtension
             if ($this->zip->numFiles === 0) {
                 $error_message = __('No files found inside ZIP archive!');
                 $this->zip->close();
-                return (array('error' => $error_message, 'data' => $file_data));
+                return (['error' => $error_message, 'data' => $file_data]);
             }
 
             /* Is the the zip really an ODS file? */
@@ -68,7 +68,7 @@ class ZipExtension
             if (!isset($specific_entry)) {
                 $file_data = $first_zip_entry;
                 $this->zip->close();
-                return (array('error' => $error_message, 'data' => $file_data));
+                return (['error' => $error_message, 'data' => $file_data]);
             }
 
             /* Return the correct contents, not just the first entry */
@@ -86,11 +86,11 @@ class ZipExtension
             }
 
             $this->zip->close();
-            return (array('error' => $error_message, 'data' => $file_data));
+            return (['error' => $error_message, 'data' => $file_data]);
         } else {
             $error_message = __('Error in ZIP archive:') . ' ' . $this->zip->getStatusString();
             $this->zip->close();
-            return (array('error' => $error_message, 'data' => $file_data));
+            return (['error' => $error_message, 'data' => $file_data]);
         }
     }
 
@@ -167,24 +167,23 @@ class ZipExtension
      */
     public function createFile($data, $name, $time = 0)
     {
-        $datasec = array();  // Array to store compressed data
-        $ctrl_dir = array(); // Central directory
+        $datasec = [];  // Array to store compressed data
+        $ctrl_dir = []; // Central directory
         $old_offset = 0;     // Last offset position
         $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00"; // End of central directory record
 
         if (is_string($data)) {
-            $data = array($name => $data);
-        } else if (! is_array($data)) {
+            $data = [$name => $data];
+        } elseif (! is_array($data)) {
             return false;
         }
         $ext_pos = strpos($name, '.');
         $extension = substr($name, $ext_pos);
         foreach ($data as $table => $dump) {
-            if(count($data) > 1) {
+            if (count($data) > 1) {
                 $tmp_name = str_replace($extension, '_' . $table . $extension, $name);
-            }
-            else {
-                $tmp_name = $name;   
+            } else {
+                $tmp_name = $name;
             }
             $temp_name = str_replace('\\', '/', $tmp_name);
 
@@ -262,10 +261,10 @@ class ZipExtension
         $temp_ctrldir = implode('', $ctrl_dir);
         $header = $temp_ctrldir .
             $eof_ctrl_dir .
-            pack('v', sizeof($ctrl_dir)) .      //total #of entries "on this disk"
-            pack('v', sizeof($ctrl_dir)) .      //total #of entries overall
-            pack('V', strlen($temp_ctrldir)) .  //size of central dir
-            pack('V', $old_offset) .            //offset to start of central dir
+            pack('v', sizeof($ctrl_dir)) . //total #of entries "on this disk"
+            pack('v', sizeof($ctrl_dir)) . //total #of entries overall
+            pack('V', strlen($temp_ctrldir)) . //size of central dir
+            pack('V', $old_offset) . //offset to start of central dir
             "\x00\x00";                         //.zip file comment length
 
         $data = implode('', $datasec);
