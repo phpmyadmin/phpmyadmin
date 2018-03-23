@@ -504,8 +504,11 @@ class CentralColumnsTest extends TestCase
             'phpmyadmin'
         );
         $this->assertContains(
-            '<form action="db_central_columns.php" method="post">'
-            . Url::getHiddenInputs(
+            '<form action="db_central_columns.php" method="post">',
+            $result_1
+        );
+        $this->assertContains(
+            Url::getHiddenInputs(
                 'phpmyadmin'
             ),
             $result_1
