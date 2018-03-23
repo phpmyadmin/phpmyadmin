@@ -91,7 +91,7 @@ class ImportAjax
     public static function progressCheck()
     {
         return function_exists("uploadprogress_get_info")
-            || function_exists('getallheaders');
+            && function_exists('getallheaders');
     }
 
     /**

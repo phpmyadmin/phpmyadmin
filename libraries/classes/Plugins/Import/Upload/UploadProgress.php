@@ -60,11 +60,7 @@ class UploadProgress implements UploadInterface
             return $ret;
         }
 
-        if (function_exists("uploadprogress_get_info")) {
-            $status = uploadprogress_get_info($id);
-        } else {
-            $status = getallheaders();
-        }
+        $status = uploadprogress_get_info($id);
 
         if ($status) {
             if ($status['bytes_uploaded'] == $status['bytes_total']) {
