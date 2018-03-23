@@ -1797,7 +1797,7 @@ function getJSConfirmCommonParam (elem, params) {
     var sep = PMA_commonParams.get('arg_separator');
     if (params) {
         // Strip possible leading ?
-        if (params.startsWith('?')) {
+        if (params.substring(0,1) == '?') {
             params = params.substr(1);
         }
         params += sep;
@@ -5100,7 +5100,7 @@ function configGet(key, cached)
 jQuery.fn.getPostData = function() {
     var dataPost = this.attr('data-post');
     // Strip possible leading ?
-    if (dataPost !== undefined && dataPost.startsWith('?')) {
+    if (dataPost !== undefined && dataPost.substring(0,1) == '?') {
         dataPost = dataPost.substr(1);
     }
     return dataPost;

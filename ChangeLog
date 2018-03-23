@@ -48,6 +48,8 @@ phpMyAdmin - ChangeLog
 - issue #13940 Honor arg_separator in AJAX requests
 
 4.7.10 (not yet released)
+- issue #14060 Can't edit rows in Internet Explorer
+- issue #14096 Internet Explorer compatibility; fixes JavaScript error Object doesn't support property or method 'startsWith'
 
 4.7.9 (2018-03-05)
 - issue #13931 Fixed browsing tables with more results
