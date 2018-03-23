@@ -172,17 +172,21 @@ class ZipExtension
         $old_offset = 0;     // Last offset position
         $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00"; // End of central directory record
 
-        if (is_string($name) && is_string($data)) {
-            $name = array($name);
-            $data = array($data);
-        } else {
-            if (! is_array($name) || ! is_array($data) || count($name) != count($data)) {
-                return false;
-            }
+        if (is_string($data)) {
+            $data = array($name => $data);
+        } else if (! is_array($data)) {
+            return false;
         }
-
-        for ($i = 0; $i < count($data); $i++) {
-            $temp_name = str_replace('\\', '/', $name[$i]);
+        $ext_pos = strpos($name, '.');
+        $extension = substr($name, $ext_pos);
+        foreach ($data as $table => $dump) {
+            if(count($data) > 1) {
+                $tmp_name = str_replace($extension, '_' . $table . $extension, $name);
+            }
+            else {
+                $tmp_name = $name;   
+            }
+            $temp_name = str_replace('\\', '/', $tmp_name);
 
             /* Convert Unix timestamp to DOS timestamp */
             $timearray = ($time == 0) ? getdate() : getdate($time);
@@ -205,9 +209,9 @@ class ZipExtension
 
             $hexdtime = pack('V', $time);
 
-            $unc_len = strlen($data[$i]);
-            $crc = crc32($data[$i]);
-            $zdata = gzcompress($data[$i]);
+            $unc_len = strlen($dump);
+            $crc = crc32($dump);
+            $zdata = gzcompress($dump);
             $zdata = substr(substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
             $c_len = strlen($zdata);
             $fr = "\x50\x4b\x03\x04"
@@ -229,7 +233,6 @@ class ZipExtension
 
             $datasec[] = $fr;
 
-            $old_offset += strlen($fr);
             // now add to central directory record
             $cdrec = "\x50\x4b\x01\x02"
                 . "\x00\x00"                     // version made by
@@ -249,7 +252,7 @@ class ZipExtension
                                                  // - 'archive' bit set
                 . pack('V', $old_offset)         // relative offset of local header
                 . $temp_name;                    // filename
-
+            $old_offset += strlen($fr);
             // optional extra field, file comment goes here
             // save to central directory
             $ctrl_dir[] = $cdrec;
