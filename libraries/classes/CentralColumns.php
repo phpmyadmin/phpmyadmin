@@ -696,65 +696,17 @@ class CentralColumns
     {
         $pageNow = ($pos / $this->maxRows) + 1;
         $nbTotalPage = ceil($total_rows / $this->maxRows);
-        $table_navigation_html = '<table style="display:inline-block;max-width:49%" '
-            . 'class="navigation nospacing nopadding">'
-            . '<tr>'
-            . '<td class="navigation_separator"></td>';
-        if ($pos - $this->maxRows >= 0) {
-            $table_navigation_html .= '<td>'
-                . '<form action="db_central_columns.php" method="post">'
-                . Url::getHiddenInputs(
-                    $db
-                )
-                . '<input type="hidden" name="pos" value="' . ($pos - $this->maxRows) . '" />'
-                . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>'
-                . '<input type="submit" name="navig"'
-                . ' class="ajax" '
-                . 'value="&lt" />'
-                . '</form>'
-                . '</td>';
-        }
-        if ($nbTotalPage > 1) {
-            $table_navigation_html .= '<td>';
-            $table_navigation_html .= '<form action="db_central_columns.php'
-                . '" method="post">'
-                . Url::getHiddenInputs(
-                    $db
-                )
-                . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>';
-            $table_navigation_html .= Util::pageselector(
-                'pos', $this->maxRows, $pageNow, $nbTotalPage
-            );
-            $table_navigation_html .= '</form>'
-                . '</td>';
-        }
-        if ($pos + $this->maxRows < $total_rows) {
-            $table_navigation_html .= '<td>'
-                . '<form action="db_central_columns.php" method="post">'
-                . Url::getHiddenInputs(
-                    $db
-                )
-                . '<input type="hidden" name="pos" value="' . ($pos + $this->maxRows) . '" />'
-                . '<input type="hidden" name="total_rows" value="' . $total_rows . '"/>'
-                . '<input type="submit" name="navig"'
-                . ' class="ajax" '
-                . 'value="&gt" />'
-                . '</form>'
-                . '</td>';
-        }
-        $table_navigation_html .= '</form>'
-            . '</td>'
-            . '<td class="navigation_separator"></td>'
-            . '<td>'
-            . '<span>' . __('Filter rows') . ':</span>'
-            . '<input type="text" class="filter_rows" placeholder="'
-            . __('Search this table') . '">'
-            . '</td>'
-            . '<td class="navigation_separator"></td>'
-            . '</tr>'
-            . '</table>';
-
-        return $table_navigation_html;
+        $page_selector = ($nbTotalPage > 1)?(Util::pageselector(
+            'pos', $this->maxRows, $pageNow, $nbTotalPage
+        )):'';
+        return  Template::get('database/central_columns/table_navigation')->render(array(
+            "pos" => $pos,
+            "max_rows" => $this->maxRows,
+            "db" => $db,
+            "total_rows" => $total_rows,
+            "nb_total_page" => $nbTotalPage,
+            "page_selector" => $page_selector,
+        ));
     }
 
     /**
