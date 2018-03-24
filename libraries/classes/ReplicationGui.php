@@ -332,7 +332,7 @@ class ReplicationGui
         $html .= sprintf(
             __('Skip next %s errors.'),
             '<input type="text" name="sr_skip_errors_count" value="1" '
-            . 'style="width: 30px" />'
+            . 'class = "repl_gui_skip_err_cnt" />'
         );
         $html .= '              <input type="submit" name="sr_slave_skip_error" ';
         $html .= 'value="' . __('Go') . '" />';
