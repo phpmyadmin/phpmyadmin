@@ -2974,7 +2974,7 @@ class Util
         }
 
         $wktresult  = $GLOBALS['dbi']->tryQuery(
-            $wktsql, null, DatabaseInterface::QUERY_STORE
+            $wktsql
         );
         $wktarr     = $GLOBALS['dbi']->fetchRow($wktresult, 0);
         $wktval     = $wktarr[0];
