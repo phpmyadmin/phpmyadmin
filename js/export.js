@@ -369,6 +369,7 @@ function setup_table_structure_or_data () {
 
         check_selected_tables();
         check_table_select_all();
+        check_table_select_struture_or_data();
     }
 }
 
@@ -470,6 +471,30 @@ function check_table_select_all () {
         data_all
             .prop('indeterminate', true)
             .prop('checked', false);
+    }
+}
+
+function check_table_select_struture_or_data () {
+    var str_checked = $('input[name="table_structure[]"]:checked').length;
+    var data_checked = $('input[name="table_data[]"]:checked').length;
+    var auto_increment = $('#checkbox_sql_auto_increment');
+
+    var pluginName = $('select#plugins').val();
+    var dataDiv = '#' + pluginName + '_data';
+    var structureDiv = '#' + pluginName + '_structure';
+
+    if (str_checked === 0) {
+        $(structureDiv).slideUp('slow');
+    } else {
+        $(structureDiv).slideDown('slow');
+    }
+
+    if (data_checked === 0) {
+        $(dataDiv).slideUp('slow');
+        auto_increment.prop('disabled', true).parent().fadeTo('fast', 0.4);
+    } else {
+        $(dataDiv).slideDown('slow');
+        auto_increment.prop('disabled', false).parent().fadeTo('fast', 1);
     }
 }
 
@@ -581,30 +606,35 @@ AJAX.registerOnload('export.js', function () {
         toggle_table_select($(this).closest('tr'));
         check_table_select_all();
         handleAddProcCheckbox();
+        check_table_select_struture_or_data();
     });
 
     $('input[name="table_structure[]"]').on('change', function () {
         check_table_selected($(this).closest('tr'));
         check_table_select_all();
         handleAddProcCheckbox();
+        check_table_select_struture_or_data();
     });
 
     $('input[name="table_data[]"]').on('change', function () {
         check_table_selected($(this).closest('tr'));
         check_table_select_all();
         handleAddProcCheckbox();
+        check_table_select_struture_or_data();
     });
 
     $('#table_structure_all').on('change', function () {
         toggle_table_select_all_str();
         check_selected_tables();
         handleAddProcCheckbox();
+        check_table_select_struture_or_data();
     });
 
     $('#table_data_all').on('change', function () {
         toggle_table_select_all_data();
         check_selected_tables();
         handleAddProcCheckbox();
+        check_table_select_struture_or_data();
     });
 
     if ($('input[name=\'export_type\']').val() === 'database') {
