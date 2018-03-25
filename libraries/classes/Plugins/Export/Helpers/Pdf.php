@@ -27,6 +27,46 @@ class Pdf extends PdfLib
     var $headerset;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Constructs PDF and configures standard parameters.
+     *
+     * @param string  $orientation page orientation
+     * @param string  $unit        unit
+     * @param string  $format      the format used for pages
+     * @param boolean $unicode     true means that the input text is unicode
+     * @param string  $encoding    charset encoding; default is UTF-8.
+     * @param boolean $diskcache   if true reduce the RAM memory usage by caching
+     *                             temporary data on filesystem (slower).
+     * @param boolean $pdfa        If TRUE set the document to PDF/A mode.
+     *
+     * @access public
+     */
+    public function __construct(
+        $orientation = 'P',
+        $unit = 'mm',
+        $format = 'A4',
+        $unicode = true,
+        $encoding = 'UTF-8',
+        $diskcache = false,
+        $pdfa = false
+    ) {
+        parent::__construct(
+            $orientation,
+            $unit,
+            $format,
+            $unicode,
+            $encoding,
+            $diskcache,
+            $pdfa
+        );
+        $this->relation = new Relation();
+    }
+
+    /**
      * Add page if needed.
      *
      * @param float|int $h       cell height. Default value: 0
@@ -461,7 +501,7 @@ class Pdf extends PdfLib
         if ($do_relation) {
             // Find which tables are related with the current one and write it in
             // an array
-            $res_rel = Relation::getForeigners($db, $table);
+            $res_rel = $this->relation->getForeigners($db, $table);
             $have_rel = !empty($res_rel);
         } else {
             $have_rel = false;
@@ -514,7 +554,7 @@ class Pdf extends PdfLib
         // Now let's start to write the table structure
 
         if ($do_comments) {
-            $comments = Relation::getComments($db, $table);
+            $comments = $this->relation->getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $mime_map = Transformations::getMIME($db, $table, true);

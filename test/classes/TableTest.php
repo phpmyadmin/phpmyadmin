@@ -42,7 +42,8 @@ class TableTest extends PmaTestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = "pma__table_uiprefs";
 
-        $GLOBALS['cfgRelation'] = Relation::getRelationsParam();
+        $relation = new Relation();
+        $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['dblist'] = new DataBasePMAMock();
         $GLOBALS['dblist']->databases = new DataBaseMock();
 

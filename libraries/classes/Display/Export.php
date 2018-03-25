@@ -28,6 +28,19 @@ use PhpMyAdmin\Util;
 class Export
 {
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->relation = new Relation();
+    }
+
+    /**
      * Outputs appropriate checked statement for checkbox.
      *
      * @param string $str option name
@@ -139,7 +152,7 @@ class Export
     private function getOptionsForTemplates($exportType)
     {
         // Get the relation settings
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         $query = "SELECT `id`, `template_name` FROM "
            . Util::backquote($cfgRelation['db']) . '.'
@@ -149,7 +162,7 @@ class Export
             . "' AND `export_type` = '" . $GLOBALS['dbi']->escapeString($exportType) . "'"
            . " ORDER BY `template_name`;";
 
-        $result = Relation::queryAsControlUser($query);
+        $result = $this->relation->queryAsControlUser($query);
 
         $templates = [];
         if ($result !== false) {
@@ -643,7 +656,7 @@ class Export
         $unlimNumRows,
         $multiValues
     ) {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         if (isset($_REQUEST['single_table'])) {
             $GLOBALS['single_table'] = $_REQUEST['single_table'];
@@ -758,7 +771,7 @@ class Export
             break;
         }
 
-        $result = Relation::queryAsControlUser($query, false);
+        $result = $this->relation->queryAsControlUser($query, false);
 
         $response = Response::getInstance();
         if (! $result) {

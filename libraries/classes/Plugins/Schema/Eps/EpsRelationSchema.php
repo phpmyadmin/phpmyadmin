@@ -92,7 +92,7 @@ class EpsRelationSchema extends ExportRelationSchema
 
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
-            $exist_rel = Relation::getForeigners($this->db, $one_table, '', 'both');
+            $exist_rel = $this->relation->getForeigners($this->db, $one_table, '', 'both');
             if (!$exist_rel) {
                 continue;
             }

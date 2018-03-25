@@ -118,6 +118,11 @@ class DatabaseInterface
     public $types;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Constructor
      *
      * @param DbiExtension $ext Object to be used for database queries
@@ -133,6 +138,7 @@ class DatabaseInterface
         $this->_table_cache = array();
         $this->_current_user = array();
         $this->types = new Types($this);
+        $this->relation = new Relation();
     }
 
     /**
@@ -1528,15 +1534,15 @@ class DatabaseInterface
         // If Zero configuration mode enabled, check PMA tables in current db.
         if ($GLOBALS['cfg']['ZeroConf'] == true) {
             if (strlen($GLOBALS['db'])) {
-                $cfgRelation = Relation::getRelationsParam();
+                $cfgRelation = $this->relation->getRelationsParam();
                 if (empty($cfgRelation['db'])) {
-                    Relation::fixPmaTables($GLOBALS['db'], false);
+                    $this->relation->fixPmaTables($GLOBALS['db'], false);
                 }
             }
-            $cfgRelation = Relation::getRelationsParam();
+            $cfgRelation = $this->relation->getRelationsParam();
             if (empty($cfgRelation['db'])) {
                 if ($GLOBALS['dblist']->databases->exists('phpmyadmin')) {
-                    Relation::fixPmaTables('phpmyadmin', false);
+                    $this->relation->fixPmaTables('phpmyadmin', false);
                 }
             }
         }

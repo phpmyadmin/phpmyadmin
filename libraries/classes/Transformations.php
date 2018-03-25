@@ -250,7 +250,8 @@ class Transformations
      */
     public static function getMIME($db, $table, $strict = false, $fullName = false)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
 
         if (! $cfgRelation['mimework']) {
             return false;
@@ -327,7 +328,8 @@ class Transformations
     public static function setMIME($db, $table, $key, $mimetype, $transformation,
         $transformationOpts, $inputTransform, $inputTransformOpts, $forcedelete = false
     ) {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
 
         if (! $cfgRelation['mimework']) {
             return false;
@@ -355,7 +357,7 @@ class Transformations
                 AND `table_name`  = \'' . $GLOBALS['dbi']->escapeString($table) . '\'
                 AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key) . '\'';
 
-        $test_rs   = Relation::queryAsControlUser(
+        $test_rs = $relation->queryAsControlUser(
             $test_qry, true, DatabaseInterface::QUERY_STORE
         );
 
@@ -409,7 +411,7 @@ class Transformations
         }
 
         if (isset($upd_query)) {
-            return Relation::queryAsControlUser($upd_query);
+            return $relation->queryAsControlUser($upd_query);
         }
 
         return false;
@@ -432,7 +434,8 @@ class Transformations
      */
     public static function clear($db, $table = '', $column = '')
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
 
         if (! isset($cfgRelation['column_info'])) {
             return false;

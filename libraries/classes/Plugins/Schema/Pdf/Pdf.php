@@ -55,6 +55,11 @@ class Pdf extends PdfLib
     private $_db;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Constructs PDF for schema export.
      *
      * @param string  $orientation page orientation
@@ -73,6 +78,7 @@ class Pdf extends PdfLib
         $this->_pageNumber = $pageNumber;
         $this->_withDoc = $withDoc;
         $this->_db = $db;
+        $this->relation = new Relation();
     }
 
     /**
@@ -242,7 +248,7 @@ class Pdf extends PdfLib
                     . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
                     . ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($this->_db)
                     . '\' AND page_nr = \'' . $this->_pageNumber . '\'';
-                $test_rs = Relation::queryAsControlUser($test_query);
+                $test_rs = $this->relation->queryAsControlUser($test_query);
                 $pages = @$GLOBALS['dbi']->fetchAssoc($test_rs);
                 $pg_name = ucfirst($pages['page_descr']);
             }

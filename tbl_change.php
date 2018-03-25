@@ -87,7 +87,8 @@ if (! empty($disp_message)) {
 $table_columns = $insertEdit->getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
-$foreigners = Relation::getForeigners($db, $table);
+$relation = new Relation();
+$foreigners = $relation->getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form
 $_form_params = $insertEdit->getFormParametersForInsertForm(

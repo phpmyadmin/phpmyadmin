@@ -30,6 +30,11 @@ class Normalization
     private $dbi;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -37,6 +42,7 @@ class Normalization
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
+        $this->relation = new Relation();
     }
 
     /**
@@ -111,7 +117,7 @@ class Normalization
         $table,
         array $columnMeta = []
     ) {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $contentCells = [];
         $availableMime = [];
         $mimeMap = [];
@@ -119,7 +125,7 @@ class Normalization
             $mimeMap = Transformations::getMIME($db, $table);
             $availableMime = Transformations::getAvailableMIMEtypes();
         }
-        $commentsMap = Relation::getComments($db, $table);
+        $commentsMap = $this->relation->getComments($db, $table);
         for ($columnNumber = 0; $columnNumber < $numFields; $columnNumber++) {
             $contentCells[$columnNumber] = [
                 'column_number' => $columnNumber,

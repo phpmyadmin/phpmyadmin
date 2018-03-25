@@ -34,10 +34,12 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $header->enablePrintView();
 
+$relation = new Relation();
+
 /**
  * Gets the relations settings
  */
-$cfgRelation  = Relation::getRelationsParam();
+$cfgRelation  = $relation->getRelationsParam();
 
 /**
  * Check parameters
@@ -50,7 +52,7 @@ PhpMyAdmin\Util::checkParameters(array('db'));
 $err_url = 'db_sql.php' . Url::getCommon(array('db' => $db));
 
 if ($cfgRelation['commwork']) {
-    $comment = Relation::getDbComment($db);
+    $comment = $relation->getDbComment($db);
 
     /**
      * Displays DB comment
@@ -69,7 +71,7 @@ $tables = $GLOBALS['dbi']->getTables($db);
 
 $count  = 0;
 foreach ($tables as $table) {
-    $comments = Relation::getComments($db, $table);
+    $comments = $relation->getComments($db, $table);
 
     echo '<div>' , "\n";
 
@@ -95,7 +97,7 @@ foreach ($tables as $table) {
     $columns = $GLOBALS['dbi']->getColumns($db, $table);
 
     // Check if we can use Relations
-    list($res_rel, $have_rel) = Relation::getRelationsAndStatus(
+    list($res_rel, $have_rel) = $relation->getRelationsAndStatus(
         ! empty($cfgRelation['relation']), $db, $table
     );
 
@@ -171,7 +173,7 @@ foreach ($tables as $table) {
 
         if ($have_rel) {
             echo '    <td>';
-            if ($foreigner = Relation::searchColumnInForeigners($res_rel, $column_name)) {
+            if ($foreigner = $relation->searchColumnInForeigners($res_rel, $column_name)) {
                 echo htmlspecialchars(
                     $foreigner['foreign_table']
                     . ' -> '

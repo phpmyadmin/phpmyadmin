@@ -23,6 +23,19 @@ use PhpMyAdmin\Util;
 class Designer
 {
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->relation = new Relation();
+    }
+
+    /**
      * Function to get html for displaying the page edit/delete form
      *
      * @param string $db        database name
@@ -32,7 +45,7 @@ class Designer
      */
     public function getHtmlForEditOrDeletePages($db, $operation)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         return Template::get('database/designer/edit_delete_pages')->render([
             'db' => $db,
             'operation' => $operation,
@@ -50,7 +63,7 @@ class Designer
      */
     public function getHtmlForPageSaveAs($db)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         return Template::get('database/designer/page_save_as')->render([
             'db' => $db,
             'pdfwork' => $cfgRelation['pdfwork'],
@@ -67,13 +80,13 @@ class Designer
      */
     private function getPageIdsAndNames($db)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $page_query = "SELECT `page_nr`, `page_descr` FROM "
             . Util::backquote($cfgRelation['db']) . "."
             . Util::backquote($cfgRelation['pdf_pages'])
             . " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($db) . "'"
             . " ORDER BY `page_descr`";
-        $page_rs = Relation::queryAsControlUser(
+        $page_rs = $this->relation->queryAsControlUser(
             $page_query,
             false,
             DatabaseInterface::QUERY_STORE
@@ -137,7 +150,7 @@ class Designer
         array $script_display_field,
         $display_page
     ) {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         return Template::get('database/designer/js_fields')->render([
             'server' => $GLOBALS['server'],
             'db' => $_GET['db'],
@@ -178,7 +191,7 @@ class Designer
     {
         $params = [];
 
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         if ($GLOBALS['cfgRelation']['designersettingswork']) {
             $query = 'SELECT `settings_data` FROM '

@@ -54,6 +54,11 @@ class TableRelationController extends TableController
     protected $upd_query;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Constructor
      *
      * @param array|null $options_array      Options
@@ -83,6 +88,7 @@ class TableRelationController extends TableController
         $this->existrel = $existrel;
         $this->existrel_foreign = $existrel_foreign;
         $this->upd_query = $upd_query;
+        $this->relation = new Relation();
     }
 
     /**
@@ -133,14 +139,14 @@ class TableRelationController extends TableController
 
         // If we did an update, refresh our data
         if (isset($_POST['destination_db']) && $this->cfgRelation['relwork']) {
-            $this->existrel = Relation::getForeigners(
+            $this->existrel = $this->relation->getForeigners(
                 $this->db, $this->table, '', 'internal'
             );
         }
         if (isset($_POST['destination_foreign_db'])
             && Util::isForeignKeySupported($this->tbl_storage_engine)
         ) {
-            $this->existrel_foreign = Relation::getForeigners(
+            $this->existrel_foreign = $this->relation->getForeigners(
                 $this->db, $this->table, '', 'foreign'
             );
         }
@@ -156,7 +162,7 @@ class TableRelationController extends TableController
                         'table' => $GLOBALS['table']
                     ),
                     'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                    'cfg_relation' => Relation::getRelationsParam(),
+                    'cfg_relation' => $this->relation->getRelationsParam(),
                 )
             )
         );

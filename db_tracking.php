@@ -111,7 +111,8 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
 }
 
 // ---------------------------------------------------------------------------
-$cfgRelation = Relation::getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 
 // Prepare statement to get HEAD version
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
@@ -122,7 +123,7 @@ $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
     ' GROUP BY table_name' .
     ' ORDER BY table_name ASC';
 
-$all_tables_result = Relation::queryAsControlUser($all_tables_query);
+$all_tables_result = $relation->queryAsControlUser($all_tables_query);
 
 // If a HEAD version exists
 if (is_object($all_tables_result)

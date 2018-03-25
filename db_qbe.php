@@ -22,7 +22,8 @@ require_once 'libraries/common.inc.php';
 $response = Response::getInstance();
 
 // Gets the relation settings
-$cfgRelation = Relation::getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 
 $savedSearchList = array();
 $savedSearch = null;

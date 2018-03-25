@@ -42,7 +42,8 @@ $options_array = array(
     'NO_ACTION' => 'NO ACTION',
     'RESTRICT' => 'RESTRICT',
 );
-$cfgRelation = Relation::getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 $tbl_storage_engine = mb_strtoupper(
     $dbi->getTable($db, $table)->getStatusInfo('Engine')
 );
@@ -55,12 +56,12 @@ $dependency_definitions = array(
     "upd_query" => $upd_query
 );
 if ($cfgRelation['relwork']) {
-    $dependency_definitions['existrel'] = Relation::getForeigners(
+    $dependency_definitions['existrel'] = $relation->getForeigners(
         $db, $table, '', 'internal'
     );
 }
 if (Util::isForeignKeySupported($tbl_storage_engine)) {
-    $dependency_definitions['existrel_foreign'] = Relation::getForeigners(
+    $dependency_definitions['existrel_foreign'] = $relation->getForeigners(
         $db, $table, '', 'foreign'
     );
 }

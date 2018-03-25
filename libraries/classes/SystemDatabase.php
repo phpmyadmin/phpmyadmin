@@ -24,6 +24,11 @@ class SystemDatabase
     protected $dbi;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Get instance of SystemDatabase
      *
      * @param DatabaseInterface $dbi Database interface for the system database
@@ -32,6 +37,7 @@ class SystemDatabase
     function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
+        $this->relation = new Relation();
     }
 
     /**
@@ -44,7 +50,7 @@ class SystemDatabase
      */
     public function getExistingTransformationData($db)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         // Get the existing transformation details of the same database
         // from pma__column_info table
@@ -71,7 +77,7 @@ class SystemDatabase
     function getNewTransformationDataSql(
         $pma_transformation_data, array $column_map, $view_name, $db
     ) {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         // Need to store new transformation details for VIEW
         $new_transformations_sql = sprintf(

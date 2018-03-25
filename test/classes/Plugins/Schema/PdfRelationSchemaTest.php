@@ -67,7 +67,8 @@ class PdfRelationSchemaTest extends PmaTestCase
             'column_info' => 'column_info',
             'pdf_pages' => 'pdf_pages'
         );
-        Relation::getRelationsParam();
+        $relation = new Relation();
+        $relation->getRelationsParam();
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()

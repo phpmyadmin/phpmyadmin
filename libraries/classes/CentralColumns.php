@@ -58,6 +58,11 @@ class CentralColumns
     private $disableIs;
 
     /**
+     * @var Relation
+     */
+    private $relation;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -70,6 +75,8 @@ class CentralColumns
         $this->maxRows = (int) $GLOBALS['cfg']['MaxRows'];
         $this->charEditing = $GLOBALS['cfg']['CharEditing'];
         $this->disableIs = (bool) $GLOBALS['cfg']['Server']['DisableIS'];
+
+        $this->relation = new Relation();
     }
 
     /**
@@ -86,7 +93,7 @@ class CentralColumns
             return $cfgCentralColumns;
         }
 
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         if ($cfgRelation['centralcolumnswork']) {
             $cfgCentralColumns = array(
@@ -486,7 +493,7 @@ class CentralColumns
             $has_list = $this->getFromTable($db, $table, true);
             $this->dbi->selectDb($db);
             foreach ($has_list as $column) {
-                $column_status = Relation::checkChildForeignReferences(
+                $column_status = $this->relation->checkChildForeignReferences(
                     $db, $table, $column['col_name']
                 );
                 //column definition can only be changed if

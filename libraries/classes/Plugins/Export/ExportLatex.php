@@ -34,9 +34,9 @@ class ExportLatex extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         // initialize the specific export sql variables
         $this->initSpecificVariables();
-
         $this->setProperties();
     }
 
@@ -496,7 +496,7 @@ class ExportLatex extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        list($res_rel, $have_rel) = Relation::getRelationsAndStatus(
+        list($res_rel, $have_rel) = $this->relation->getRelationsAndStatus(
             $do_relation && !empty($cfgRelation['relation']),
             $db,
             $table
@@ -532,7 +532,7 @@ class ExportLatex extends ExportPlugin
         }
         if ($do_comments) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Comments') . '}}';
-            $comments = Relation::getComments($db, $table);
+            $comments = $this->relation->getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';

@@ -103,6 +103,11 @@ class Node
     public $pos3 = 0;
 
     /**
+     * @var Relation $relation
+     */
+    protected $relation;
+
+    /**
      * Initialises the class by setting the mandatory variables
      *
      * @param string $name     An identifier for the new node
@@ -120,6 +125,7 @@ class Node
             $this->type = Node::CONTAINER;
         }
         $this->is_group = (bool)$is_group;
+        $this->relation = new Relation();
     }
 
     /**
@@ -803,7 +809,7 @@ class Node
      */
     public function getNavigationHidingData()
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['navwork']) {
             $navTable = Util::backquote($cfgRelation['db'])
                 . "." . Util::backquote(

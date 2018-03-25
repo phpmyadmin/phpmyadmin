@@ -117,7 +117,8 @@ class Tracking
      */
     public static function getListOfVersionsOfTable()
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
         $sql_query = " SELECT * FROM " .
             Util::backquote($cfgRelation['db']) . "." .
             Util::backquote($cfgRelation['tracking']) .
@@ -127,7 +128,7 @@ class Tracking
             $GLOBALS['dbi']->escapeString($_REQUEST['table']) . "' " .
             " ORDER BY version DESC ";
 
-        return Relation::queryAsControlUser($sql_query);
+        return $relation->queryAsControlUser($sql_query);
     }
 
     /**
@@ -268,7 +269,8 @@ class Tracking
      */
     public static function getSqlResultForSelectableTables()
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
 
         $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
             Util::backquote($cfgRelation['db']) . "." .
@@ -277,7 +279,7 @@ class Tracking
             "' " .
             " ORDER BY db_name, table_name";
 
-        return Relation::queryAsControlUser($sql_query);
+        return $relation->queryAsControlUser($sql_query);
     }
 
     /**
@@ -1217,6 +1219,7 @@ class Tracking
         $textDir,
         array $cfgRelation
     ) {
+        $relation = new Relation();
         $versions = [];
         while ($oneResult = $GLOBALS['dbi']->fetchArray($allTablesResult)) {
             list($tableName, $versionNumber) = $oneResult;
@@ -1229,7 +1232,7 @@ class Tracking
                  . $GLOBALS['dbi']->escapeString($tableName)
                  . '\' AND `version` = \'' . $versionNumber . '\'';
 
-            $tableResult = Relation::queryAsControlUser($tableQuery);
+            $tableResult = $relation->queryAsControlUser($tableQuery);
             $versionData = $GLOBALS['dbi']->fetchArray($tableResult);
             $versionData['status_button'] = self::getStatusButton(
                 $versionData,

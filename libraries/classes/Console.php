@@ -28,20 +28,26 @@ class Console
     private $_isEnabled;
 
     /**
-     * Creates a new class instance
-     */
-    public function __construct()
-    {
-        $this->_isEnabled = true;
-    }
-
-    /**
      * Whether we are servicing an ajax request.
      *
      * @access private
      * @var bool
      */
     private $_isAjax;
+
+    /**
+     * @var Relation
+     */
+    private $relation;
+
+    /**
+     * Creates a new class instance
+     */
+    public function __construct()
+    {
+        $this->_isEnabled = true;
+        $this->relation = new Relation();
+    }
 
     /**
      * Set the ajax flag to indicate whether
@@ -124,23 +130,23 @@ class Console
     public function getDisplay()
     {
         if ((! $this->_isAjax) && $this->_isEnabled) {
-            $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
+            $cfgBookmark = Bookmark::getParams(
+                $GLOBALS['cfg']['Server']['user']
+            );
 
             $image = Util::getImage('console', __('SQL Query Console'));
-            $_sql_history = Relation::getHistory($GLOBALS['cfg']['Server']['user']);
+            $_sql_history = $this->relation->getHistory(
+                $GLOBALS['cfg']['Server']['user']
+            );
             $bookmarkContent = static::getBookmarkContent();
 
-            return Template::get('console/display')
-                ->render(
-                    array(
-                        'cfg_bookmark' => $cfgBookmark,
-                        'image' => $image,
-                        'sql_history' => $_sql_history,
-                        'bookmark_content' => $bookmarkContent,
-                    )
-                );
+            return Template::get('console/display')->render([
+                'cfg_bookmark' => $cfgBookmark,
+                'image' => $image,
+                'sql_history' => $_sql_history,
+                'bookmark_content' => $bookmarkContent,
+            ]);
         }
         return '';
     }
-
 }

@@ -387,7 +387,7 @@ class NodeDatabase extends Node
         }
 
         // Remove hidden items so that they are not displayed in navigation tree
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['navwork']) {
             $hiddenItems = $this->getHiddenItems(substr($type, 0, -1));
             foreach ($retval as $key => $item) {
@@ -411,7 +411,7 @@ class NodeDatabase extends Node
     public function getHiddenItems($type)
     {
         $db = $this->real_name;
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (empty($cfgRelation['navigationhiding'])) {
             return array();
         }
@@ -422,7 +422,7 @@ class NodeDatabase extends Node
             . " AND `item_type`='" . $type
             . "'" . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($db)
             . "'";
-        $result = Relation::queryAsControlUser($sqlQuery, false);
+        $result = $this->relation->queryAsControlUser($sqlQuery, false);
         $hiddenItems = array();
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchArray($result)) {
@@ -669,7 +669,7 @@ class NodeDatabase extends Node
     public function getHtmlForControlButtons()
     {
         $ret = '';
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['navwork']) {
             if ($this->hiddenCount > 0) {
                 $params = array(

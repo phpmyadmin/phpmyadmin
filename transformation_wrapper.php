@@ -21,7 +21,8 @@ define('IS_TRANSFORMATION_WRAPPER', true);
  */
 require_once './libraries/common.inc.php';
 
-$cfgRelation = Relation::getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script

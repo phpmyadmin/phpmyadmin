@@ -49,7 +49,7 @@ class Tracker
      *
      * @return void
      */
-    static public function enable()
+    public static function enable()
     {
         self::$enabled = true;
     }
@@ -61,7 +61,7 @@ class Tracker
      *
      * @return boolean (true=on|false=off)
      */
-    static public function isActive()
+    public static function isActive()
     {
         if (! self::$enabled) {
             return false;
@@ -70,7 +70,8 @@ class Tracker
          * from Relation::getRelationsParam
          */
         self::$enabled = false;
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
         /* Restore original state */
         self::$enabled = true;
         if (! $cfgRelation['trackingwork']) {
@@ -121,7 +122,7 @@ class Tracker
      *
      * @return boolean true or false
      */
-    static public function isTracked($dbname, $tablename)
+    public static function isTracked($dbname, $tablename)
     {
         if (! self::$enabled) {
             return false;
@@ -134,7 +135,8 @@ class Tracker
          * from Relation::getRelationsParam
          */
         self::$enabled = false;
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
         /* Restore original state */
         self::$enabled = true;
         if (! $cfgRelation['trackingwork']) {
@@ -158,7 +160,7 @@ class Tracker
      *
      * @return string Comment, contains date and username
      */
-    static public function getLogComment()
+    public static function getLogComment()
     {
         $date = Util::date('Y-m-d H:i:s');
         $user = preg_replace('/\s+/', ' ', $GLOBALS['cfg']['Server']['user']);
@@ -180,10 +182,12 @@ class Tracker
      *
      * @return int result of version insertion
      */
-    static public function createVersion($dbname, $tablename, $version,
+    public static function createVersion($dbname, $tablename, $version,
         $tracking_set = '', $is_view = false
     ) {
         global $sql_backquotes, $export_type;
+
+        $relation = new Relation();
 
         if ($tracking_set == '') {
             $tracking_set
@@ -270,7 +274,7 @@ class Tracker
         '" . $GLOBALS['dbi']->escapeString($tracking_set)
         . "' )";
 
-        $result = Relation::queryAsControlUser($sql_query);
+        $result = $relation->queryAsControlUser($sql_query);
 
         if ($result) {
             // Deactivate previous version
@@ -292,8 +296,10 @@ class Tracker
      *
      * @return int result of version insertion
      */
-    static public function deleteTracking($dbname, $tablename, $version = '')
+    public static function deleteTracking($dbname, $tablename, $version = '')
     {
+        $relation = new Relation();
+
         $sql_query = "/*NOTRACK*/\n"
             . "DELETE FROM " . self::_getTrackingTable()
             . " WHERE `db_name` = '"
@@ -304,7 +310,7 @@ class Tracker
             $sql_query .= " AND `version` = '"
                 . $GLOBALS['dbi']->escapeString($version) . "'";
         }
-        $result = Relation::queryAsControlUser($sql_query);
+        $result = $relation->queryAsControlUser($sql_query);
 
         return $result;
     }
@@ -322,9 +328,11 @@ class Tracker
      *
      * @return int result of version insertion
      */
-    static public function createDatabaseVersion($dbname, $version, $query,
+    public static function createDatabaseVersion($dbname, $version, $query,
         $tracking_set = 'CREATE DATABASE,ALTER DATABASE,DROP DATABASE'
     ) {
+        $relation = new Relation();
+
         $date = Util::date('Y-m-d H:i:s');
 
         if ($tracking_set == '') {
@@ -366,7 +374,7 @@ class Tracker
         '" . $GLOBALS['dbi']->escapeString($tracking_set)
         . "' )";
 
-        $result = Relation::queryAsControlUser($sql_query);
+        $result = $relation->queryAsControlUser($sql_query);
 
         return $result;
     }
@@ -388,6 +396,7 @@ class Tracker
     static private function _changeTracking($dbname, $tablename,
         $version, $new_state
     ) {
+        $relation = new Relation();
 
         $sql_query = " UPDATE " . self::_getTrackingTable() .
         " SET `tracking_active` = '" . $new_state . "' " .
@@ -395,7 +404,7 @@ class Tracker
         " AND `table_name` = '" . $GLOBALS['dbi']->escapeString($tablename) . "' " .
         " AND `version` = '" . $GLOBALS['dbi']->escapeString($version) . "' ";
 
-        $result = Relation::queryAsControlUser($sql_query);
+        $result = $relation->queryAsControlUser($sql_query);
 
         return $result;
     }
@@ -413,9 +422,11 @@ class Tracker
      *
      * @return bool result of change
      */
-    static public function changeTrackingData($dbname, $tablename,
+    public static function changeTrackingData($dbname, $tablename,
         $version, $type, $new_data
     ) {
+        $relation = new Relation();
+
         if ($type == 'DDL') {
             $save_to = 'schema_sql';
         } elseif ($type == 'DML') {
@@ -441,7 +452,7 @@ class Tracker
         " AND `table_name` = '" . $GLOBALS['dbi']->escapeString($tablename) . "' " .
         " AND `version` = '" . $GLOBALS['dbi']->escapeString($version) . "' ";
 
-        $result = Relation::queryAsControlUser($sql_query);
+        $result = $relation->queryAsControlUser($sql_query);
 
         return (boolean) $result;
     }
@@ -457,7 +468,7 @@ class Tracker
      *
      * @return int result of SQL query
      */
-    static public function activateTracking($dbname, $tablename, $version)
+    public static function activateTracking($dbname, $tablename, $version)
     {
         return self::_changeTracking($dbname, $tablename, $version, 1);
     }
@@ -474,7 +485,7 @@ class Tracker
      *
      * @return int result of SQL query
      */
-    static public function deactivateTracking($dbname, $tablename, $version)
+    public static function deactivateTracking($dbname, $tablename, $version)
     {
         return self::_changeTracking($dbname, $tablename, $version, 0);
     }
@@ -492,8 +503,10 @@ class Tracker
      *
      * @return int (-1 if no version exists | >  0 if a version exists)
      */
-    static public function getVersion($dbname, $tablename, $statement = null)
+    public static function getVersion($dbname, $tablename, $statement = null)
     {
+        $relation = new Relation();
+
         $sql_query = " SELECT MAX(version) FROM " . self::_getTrackingTable() .
         " WHERE `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname) . "' " .
         " AND `table_name` = '" . $GLOBALS['dbi']->escapeString($tablename) . "' ";
@@ -502,7 +515,7 @@ class Tracker
             $sql_query .= " AND FIND_IN_SET('"
                 . $statement . "',tracking) > 0" ;
         }
-        $row = $GLOBALS['dbi']->fetchArray(Relation::queryAsControlUser($sql_query));
+        $row = $GLOBALS['dbi']->fetchArray($relation->queryAsControlUser($sql_query));
         return isset($row[0])
             ? $row[0]
             : -1;
@@ -521,8 +534,10 @@ class Tracker
      * @return mixed record DDM log, DDL log, structure snapshot, tracked
      *         statements.
      */
-    static public function getTrackedData($dbname, $tablename, $version)
+    public static function getTrackedData($dbname, $tablename, $version)
     {
+        $relation = new Relation();
+
         $sql_query = " SELECT * FROM " . self::_getTrackingTable() .
             " WHERE `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname) . "' ";
         if (! empty($tablename)) {
@@ -532,7 +547,7 @@ class Tracker
         $sql_query .= " AND `version` = '" . $GLOBALS['dbi']->escapeString($version)
             . "' " . " ORDER BY `version` DESC LIMIT 1";
 
-        $mixed = $GLOBALS['dbi']->fetchAssoc(Relation::queryAsControlUser($sql_query));
+        $mixed = $GLOBALS['dbi']->fetchAssoc($relation->queryAsControlUser($sql_query));
 
         // Parse log
         $log_schema_entries = explode('# log ',  $mixed['schema_sql']);
@@ -629,7 +644,7 @@ class Tracker
      * @return mixed Array containing identifier, type and tablename.
      *
      */
-    static public function parseQuery($query)
+    public static function parseQuery($query)
     {
         // Usage of PMA_SQP does not work here
         //
@@ -776,8 +791,10 @@ class Tracker
      *
      * @return void
      */
-    static public function handleQuery($query)
+    public static function handleQuery($query)
     {
+        $relation = new Relation();
+
         // If query is marked as untouchable, leave
         if (mb_strstr($query, "/*NOTRACK*/")) {
             return;
@@ -877,7 +894,7 @@ class Tracker
                 . $GLOBALS['dbi']->escapeString($result['tablename']) . "' " .
                 " AND `version` = '" . $GLOBALS['dbi']->escapeString($version) . "' ";
 
-                Relation::queryAsControlUser($sql_query);
+                $relation->queryAsControlUser($sql_query);
             }
         }
     }
@@ -889,7 +906,8 @@ class Tracker
      */
     private static function _getTrackingTable()
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
         return Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['tracking']);
     }

@@ -526,7 +526,8 @@ class Privileges
      */
     public static function getHtmlToChooseUserGroup($username)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['usergroups']);
         $userTable = Util::backquote($cfgRelation['db'])
@@ -543,7 +544,7 @@ class Privileges
 
         $allUserGroups = array('' => '');
         $sql_query = "SELECT DISTINCT `usergroup` FROM " . $groupTable;
-        $result = Relation::queryAsControlUser($sql_query, false);
+        $result = $relation->queryAsControlUser($sql_query, false);
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchRow($result)) {
                 $allUserGroups[$row[0]] = $row[0];
@@ -573,7 +574,8 @@ class Privileges
      */
     public static function setUserGroup($username, $userGroup)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
             return;
         }
@@ -602,7 +604,7 @@ class Privileges
             }
         }
         if (isset($upd_query)) {
-            Relation::queryAsControlUser($upd_query);
+            $relation->queryAsControlUser($upd_query);
         }
     }
 
@@ -2867,7 +2869,8 @@ class Privileges
      */
     public static function getUserGroupCount()
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
         $user_group_table = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
@@ -2887,7 +2890,8 @@ class Privileges
      */
     public static function getUserGroupForUser($username)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
 
         if (empty($cfgRelation['db'])
             || empty($cfgRelation['users'])
@@ -2925,6 +2929,7 @@ class Privileges
     public static function getExtraDataForAjaxBehavior(
         $password, $sql_query, $hostname, $username
     ) {
+        $relation = new Relation();
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
             if (preg_match('/(?<!\\\\)(?:_|%)/i', $GLOBALS['dbname'])) {
@@ -2978,7 +2983,7 @@ class Privileges
 
             // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
             // enabled
-            $cfgRelation = Relation::getRelationsParam();
+            $cfgRelation = $relation->getRelationsParam();
             if (!empty($cfgRelation['users']) && !empty($cfgRelation['usergroups'])) {
                 $new_user_string .= '<td class="usrGroup"></td>';
             }
@@ -3586,12 +3591,13 @@ class Privileges
      */
     public static function getHtmlTableBodyForUserRights(array $db_rights)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['menuswork']) {
             $users_table = Util::backquote($cfgRelation['db'])
                 . "." . Util::backquote($cfgRelation['users']);
             $sql_query = 'SELECT * FROM ' . $users_table;
-            $result = Relation::queryAsControlUser($sql_query, false);
+            $result = $relation->queryAsControlUser($sql_query, false);
             $group_assignment = array();
             if ($result) {
                 while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {

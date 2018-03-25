@@ -24,6 +24,19 @@ use PhpMyAdmin\Util;
 class UserPreferences
 {
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->relation = new Relation();
+    }
+
+    /**
      * Common initialization for user preferences modification pages
      *
      * @param ConfigFile $cf Config file instance
@@ -56,7 +69,7 @@ class UserPreferences
      */
     public function load()
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['userconfigwork']) {
             // no pmadb table, use session storage
             if (! isset($_SESSION['userconfig'])) {
@@ -94,7 +107,7 @@ class UserPreferences
      */
     public function save(array $config_array)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $server = isset($GLOBALS['server'])
             ? $GLOBALS['server']
             : $GLOBALS['cfg']['ServerDefault'];

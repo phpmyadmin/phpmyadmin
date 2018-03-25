@@ -35,6 +35,7 @@ class ExportOdt extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $GLOBALS['odt_buffer'] = '';
         $this->setProperties();
     }
@@ -454,7 +455,7 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['dbi']->selectDb($db);
 
         // Check if we can use Relations
-        list($res_rel, $have_rel) = Relation::getRelationsAndStatus(
+        list($res_rel, $have_rel) = $this->relation->getRelationsAndStatus(
             $do_relation && !empty($cfgRelation['relation']),
             $db,
             $table
@@ -499,7 +500,7 @@ class ExportOdt extends ExportPlugin
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Comments') . '</text:p>'
                 . '</table:table-cell>';
-            $comments = Relation::getComments($db, $table);
+            $comments = $this->relation->getComments($db, $table);
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
@@ -520,7 +521,7 @@ class ExportOdt extends ExportPlugin
                 $col_as
             );
             if ($do_relation && $have_rel) {
-                $foreigner = Relation::searchColumnInForeigners($res_rel, $field_name);
+                $foreigner = $this->relation->searchColumnInForeigners($res_rel, $field_name);
                 if ($foreigner) {
                     $rtable = $foreigner['foreign_table'];
                     $rfield = $foreigner['foreign_field'];

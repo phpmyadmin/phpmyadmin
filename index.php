@@ -594,8 +594,10 @@ if (@file_exists('config')) {
     );
 }
 
+$relation = new Relation();
+
 if ($server > 0) {
-    $cfgRelation = Relation::getRelationsParam();
+    $cfgRelation = $relation->getRelationsParam();
     if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {

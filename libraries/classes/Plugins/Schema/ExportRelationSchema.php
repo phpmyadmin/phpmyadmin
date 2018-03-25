@@ -21,6 +21,22 @@ use PhpMyAdmin\Util;
  */
 class ExportRelationSchema
 {
+    protected $db;
+    protected $diagram;
+    protected $showColor;
+    protected $tableDimension;
+    protected $sameWide;
+    protected $showKeys;
+    protected $orientation;
+    protected $paper;
+    protected $pageNumber;
+    protected $offline;
+
+    /**
+     * @var Relation $relation
+     */
+    protected $relation;
+
     /**
      * Constructor.
      *
@@ -33,18 +49,8 @@ class ExportRelationSchema
         $this->diagram = $diagram;
         $this->setPageNumber($_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
+        $this->relation = new Relation();
     }
-
-    protected $db;
-    protected $diagram;
-    protected $showColor;
-    protected $tableDimension;
-    protected $sameWide;
-    protected $showKeys;
-    protected $orientation;
-    protected $paper;
-    protected $pageNumber;
-    protected $offline;
 
     /**
      * Set Page Number
@@ -266,7 +272,7 @@ class ExportRelationSchema
                 . Util::backquote($GLOBALS['cfgRelation']['db']) . '.'
                 . Util::backquote($GLOBALS['cfgRelation']['pdf_pages'])
                 . ' WHERE page_nr = ' . $this->pageNumber;
-            $_name_rs = Relation::queryAsControlUser($_name_sql);
+            $_name_rs = $this->relation->queryAsControlUser($_name_sql);
             $_name_row = $GLOBALS['dbi']->fetchRow($_name_rs);
             $filename = $_name_row[0] . $extension;
         }

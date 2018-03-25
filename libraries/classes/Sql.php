@@ -35,6 +35,19 @@ use PhpMyAdmin\Util;
 class Sql
 {
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->relation = new Relation();
+    }
+
+    /**
      * Parses and analyzes the given SQL query.
      *
      * @param string $sql_query SQL query
@@ -192,9 +205,9 @@ class Sql
      */
     private function getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value)
     {
-        $foreigners = Relation::getForeigners($db, $table, $column);
+        $foreigners = $this->relation->getForeigners($db, $table, $column);
 
-        $foreignData = Relation::getForeignData($foreigners, $column, false, '', '');
+        $foreignData = $this->relation->getForeignData($foreigners, $column, false, '', '');
 
         if ($foreignData['disp_row'] == null) {
             //Handle the case when number of values
@@ -214,7 +227,7 @@ class Sql
                 . __('Browse foreign values')
                 . '</a>';
         } else {
-            $dropdown = Relation::foreignDropdown(
+            $dropdown = $this->relation->foreignDropdown(
                 $foreignData['disp_row'],
                 $foreignData['foreign_field'],
                 $foreignData['foreign_display'],

@@ -185,6 +185,10 @@ class Results
      */
     public $transformation_info;
 
+    /**
+     * @var Relation $relation
+     */
+    private $relation;
 
     /**
      * Get any property of this class
@@ -199,7 +203,6 @@ class Results
             return $this->_property_array[$property];
         }
     }
-
 
     /**
      * Set values for any property of this class
@@ -216,7 +219,6 @@ class Results
         }
     }
 
-
     /**
      * Constructor for PhpMyAdmin\Display\Results class
      *
@@ -229,6 +231,8 @@ class Results
      */
     public function __construct($db, $table, $goto, $sql_query)
     {
+        $this->relation = new Relation();
+
         $this->_setDefaultTransformations();
 
         $this->__set('db', $db);
@@ -243,7 +247,7 @@ class Results
      *
      * @return void
      */
-    private  function _setDefaultTransformations()
+    private function _setDefaultTransformations()
     {
         $json_highlighting_data = array(
             'libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php',
@@ -310,7 +314,7 @@ class Results
             )
         );
 
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['db']) {
             $this->transformation_info[$cfgRelation['db']] = array();
             $relDb = &$this->transformation_info[$cfgRelation['db']];
@@ -1575,7 +1579,7 @@ class Results
             if (empty($field->table)) {
                 continue;
             }
-            $ret[$field->table] = Relation::getComments(
+            $ret[$field->table] = $this->relation->getComments(
                 empty($field->database) ? $this->__get('db') : $field->database,
                 $field->table
             );
@@ -4602,7 +4606,7 @@ class Results
         // configuration storage. If no PMA storage, we won't be able
         // to use the "column to display" notion (for example show
         // the name related to a numeric id).
-        $exist_rel = Relation::getForeigners(
+        $exist_rel = $this->relation->getForeigners(
             $this->__get('db'), $this->__get('table'), '', self::POSITION_BOTH
         );
 
@@ -4610,7 +4614,7 @@ class Results
 
             foreach ($exist_rel as $master_field => $rel) {
                 if ($master_field != 'foreign_keys_data') {
-                    $display_field = Relation::getDisplayField(
+                    $display_field = $this->relation->getDisplayField(
                         $rel['foreign_db'], $rel['foreign_table']
                     );
                     $map[$master_field] = array(
@@ -4622,7 +4626,7 @@ class Results
                 } else {
                     foreach ($rel as $key => $one_key) {
                         foreach ($one_key['index_list'] as $index => $one_field) {
-                            $display_field = Relation::getDisplayField(
+                            $display_field = $this->relation->getDisplayField(
                                 isset($one_key['ref_db_name'])
                                 ? $one_key['ref_db_name']
                                 : $GLOBALS['db'],

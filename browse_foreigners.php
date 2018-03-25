@@ -35,10 +35,12 @@ $header = $response->getHeader();
 $header->disableMenuAndConsole();
 $header->setBodyId('body_browse_foreigners');
 
+$relation = new Relation();
+
 /**
  * Displays the frame
  */
-$foreigners = Relation::getForeigners($db, $table);
+$foreigners = $relation->getForeigners($db, $table);
 $browseForeigners = new BrowseForeigners(
     $GLOBALS['cfg']['LimitChars'],
     $GLOBALS['cfg']['MaxRows'],
@@ -50,7 +52,7 @@ $foreign_limit = $browseForeigners->getForeignLimit(
     isset($_REQUEST['foreign_showAll']) ? $_REQUEST['foreign_showAll'] : null
 );
 
-$foreignData = Relation::getForeignData(
+$foreignData = $relation->getForeignData(
     $foreigners, $_REQUEST['field'], true,
     isset($_REQUEST['foreign_filter'])
     ? $_REQUEST['foreign_filter']

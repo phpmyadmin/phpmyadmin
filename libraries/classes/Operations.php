@@ -28,6 +28,19 @@ use PhpMyAdmin\Util;
 class Operations
 {
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->relation = new Relation();
+    }
+
+    /**
      * Get HTML output for database comment
      *
      * @param string $db database name
@@ -48,7 +61,7 @@ class Operations
         $html_output .= '</legend>';
         $html_output .= '<input type="text" name="comment" '
             . 'class="textfield"'
-            . 'value="' . htmlspecialchars(Relation::getDbComment($db)) . '" />'
+            . 'value="' . htmlspecialchars($this->relation->getDbComment($db)) . '" />'
             . '</fieldset>';
         $html_output .= '<fieldset class="tblFooters">'
             . '<input type="submit" value="' . __('Go') . '" />'
@@ -1284,7 +1297,7 @@ class Operations
 
         // display "Add constraints" choice only if there are
         // foreign keys
-        if (Relation::getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign')) {
+        if ($this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign')) {
             $html_output .= '<input type="checkbox" name="add_constraints" '
                 . 'value="1" id="checkbox_constraints" checked="checked"/>';
             $html_output .= '<label for="checkbox_constraints">'

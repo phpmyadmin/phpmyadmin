@@ -44,7 +44,8 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 /**
  * Gets relation settings
  */
-$cfgRelation = Relation::getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 
 // reselect current db (needed in some cases probably due to
 // the calling of PhpMyAdmin\Relation)
@@ -460,7 +461,7 @@ unset($partition_names);
 
 if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
     $GLOBALS['dbi']->selectDb($GLOBALS['db']);
-    $foreign = Relation::getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
+    $foreign = $relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'internal');
 
     if (! empty($foreign)) {
         $response->addHTML(

@@ -23,6 +23,19 @@ use PhpMyAdmin\Util;
 class Navigation
 {
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->relation = new Relation();
+    }
+
+    /**
      * Renders the navigation tree, or part of it
      *
      * @return string The navigation tree
@@ -99,7 +112,7 @@ class Navigation
             . "'" . $GLOBALS['dbi']->escapeString($dbName) . "',"
             . "'" . (! empty($tableName)? $GLOBALS['dbi']->escapeString($tableName) : "" )
             . "')";
-        Relation::queryAsControlUser($sqlQuery, false);
+        $this->relation->queryAsControlUser($sqlQuery, false);
     }
 
     /**
@@ -150,7 +163,7 @@ class Navigation
                 ? " AND `table_name`='" . $GLOBALS['dbi']->escapeString($tableName) . "'"
                 : ""
             );
-        Relation::queryAsControlUser($sqlQuery, false);
+        $this->relation->queryAsControlUser($sqlQuery, false);
     }
 
     /**
@@ -176,7 +189,7 @@ class Navigation
             . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
             . " AND `table_name`='"
             . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : '') . "'";
-        $result = Relation::queryAsControlUser($sqlQuery, false);
+        $result = $this->relation->queryAsControlUser($sqlQuery, false);
 
         $hidden = array();
         if ($result) {
