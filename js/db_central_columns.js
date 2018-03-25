@@ -209,10 +209,11 @@ AJAX.registerOnload('db_central_columns.js', function () {
             });
         }
     });
-    $('#column-select').change(function (e) {
-        var selectvalue = $(this).val();
-        if (selectvalue !== '') {
-            $('#add_column').submit();
+    $('#add_column').submit(function (e) {
+        var selectvalue = $('#column-select').val();
+        if (selectvalue === '') {
+            e.preventDefault();
+            e.stopPropagation();
         }
     });
     $('#add_col_div').find('>a').click(function (event) {
