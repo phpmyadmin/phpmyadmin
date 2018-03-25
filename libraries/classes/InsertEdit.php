@@ -971,8 +971,8 @@ class InsertEdit
             . ' class="' . $the_class . '"'
             . ($readOnly ? ' readonly="readonly"' : '')
             . (isset($maxlength) ? ' data-maxlength="' . $maxlength . '"' : '')
-            . ' rows="' . $textAreaRows . '"'
-            . ' cols="' . $textareaCols . '"'
+            . ' rows="5"'
+            . ' cols="90"'
             . ' dir="' . $text_dir . '"'
             . ' id="field_' . ($idindex) . '_3"'
             . (! empty($onChangeClause) ? ' ' . $onChangeClause : '')
