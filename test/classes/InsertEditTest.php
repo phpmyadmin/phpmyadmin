@@ -1232,8 +1232,8 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             "\na\n"
-            . '<textarea name="fieldsb" class="char" data-maxlength="255" rows="5" '
-            . 'cols="1" dir="/" id="field_1_3" c tabindex="3" data-type="HEX">'
+            . '<textarea name="fieldsb" class="char" data-maxlength="255" rows="15" '
+            . 'cols="2" dir="/" id="field_1_3" c tabindex="3" data-type="HEX">'
             . '</textarea><input type="hidden" name="fields_typeb" value="hex" />'
             . '<br /><input type="file" name="fields_uploadfoo[123]" class="text'
             . 'field noDragDrop" id="field_1_3" size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
