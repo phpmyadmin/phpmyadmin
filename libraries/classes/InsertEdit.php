@@ -958,7 +958,8 @@ class InsertEdit
                 $column['Type']
             );
             $maxlength = $extracted_columnspec['spec_in_brackets'];
-            if (isset($maxlength) && $maxlength == 255) {
+            if ($maxlength == 255) {
+                // Special case for varchar(255)
                 $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'] * 3;
                 $textareaCols = $GLOBALS['cfg']['CharTextareaCols'] * 2;
             } else {
