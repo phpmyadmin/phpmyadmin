@@ -954,8 +954,8 @@ class InsertEdit
              *       why character columns have the "char" class instead
              */
             $the_class = 'char';
-            $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
-            $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
+            $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'] * 3;
+            $textareaCols = $GLOBALS['cfg']['CharTextareaCols'] * 2;
             $extracted_columnspec = Util::extractColumnSpec(
                 $column['Type']
             );
@@ -971,8 +971,8 @@ class InsertEdit
             . ' class="' . $the_class . '"'
             . ($readOnly ? ' readonly="readonly"' : '')
             . (isset($maxlength) ? ' data-maxlength="' . $maxlength . '"' : '')
-            . ' rows="5"'
-            . ' cols="90"'
+            . ' rows="' . $textAreaRows . '"'
+            . ' cols="' . $textareaCols . '"'
             . ' dir="' . $text_dir . '"'
             . ' id="field_' . ($idindex) . '_3"'
             . (! empty($onChangeClause) ? ' ' . $onChangeClause : '')
