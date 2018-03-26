@@ -954,12 +954,17 @@ class InsertEdit
              *       why character columns have the "char" class instead
              */
             $the_class = 'char';
-            $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'] * 3;
-            $textareaCols = $GLOBALS['cfg']['CharTextareaCols'] * 2;
             $extracted_columnspec = Util::extractColumnSpec(
                 $column['Type']
             );
             $maxlength = $extracted_columnspec['spec_in_brackets'];
+            if (isset($maxlength) && $maxlength == 255) {
+                $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'] * 3;
+                $textareaCols = $GLOBALS['cfg']['CharTextareaCols'] * 2;
+            } else {
+                $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
+                $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
+            }
         } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
             && mb_strstr($column['pma_type'], 'longtext')
         ) {
