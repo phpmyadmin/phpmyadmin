@@ -180,7 +180,6 @@ $response->addHTML(
 );
 
 
-
 $response->addHTML('<div id="canvas_outer">');
 $response->addHTML(
     '<form action="" id="container-form" method="post" name="form1">'
