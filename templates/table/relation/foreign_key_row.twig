@@ -4,7 +4,7 @@
         {% set js_msg = '' %}
         {% set this_params = null %}
         {% if one_key['constraint'] is defined %}
-            {% set drop_fk_query = 'ALTER TABLE ' ~ Util_backquote(table)
+            {% set drop_fk_query = 'ALTER TABLE ' ~ Util_backquote(db) ~ '.' ~ Util_backquote(table)
                 ~ ' DROP FOREIGN KEY '
                 ~ Util_backquote(one_key['constraint']) ~ ';'
             %}
@@ -18,7 +18,7 @@
                 )
             } %}
             {% set js_msg = Sanitize_jsFormat(
-                'ALTER TABLE ' ~ table
+                'ALTER TABLE ' ~ db ~ '.' ~ table
                 ~ ' DROP FOREIGN KEY '
                 ~ one_key['constraint'] ~ ';'
             ) %}
@@ -120,7 +120,7 @@
             {% for foreign_column in one_key['ref_index_list'] %}
                 <span class="formelement clearfloat">
                     {% include 'table/relation/relational_dropdown.twig' with {
-                        'name': 'destination_foreign_column[' ~ i ~ ']',
+                        'name': 'destination_foreign_column[' ~ i ~ '][]',
                         'title': 'Column'|trans,
                         'values': unique_columns,
                         'foreign': foreign_column
@@ -130,7 +130,7 @@
         {% else %}
             <span class="formelement clearfloat">
                 {% include 'table/relation/relational_dropdown.twig' with {
-                    'name': 'destination_foreign_column[' ~ i ~ ']',
+                    'name': 'destination_foreign_column[' ~ i ~ '][]',
                     'title': 'Column'|trans,
                     'values': [],
                     'foreign': ''
