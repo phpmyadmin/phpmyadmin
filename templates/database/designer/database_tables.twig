@@ -15,7 +15,7 @@
             {{- tab_pos[t_n] is defined or display_page == -1 ? 'block' : 'none' }}; z-index: 1;">
         <thead>
             <tr class="header">
-                {% if query is defined %}
+                {% if has_query %}
                     <td class="select_all">
                         <input class="select_all_1"
                             type="checkbox"
@@ -41,13 +41,13 @@
                 <td id="id_zag_{{ t_n_url }}"
                     class="tab_zag nowrap tab_zag_noquery"
                     table_name="{{ t_n_url }}"
-                    query_set="{{ query is defined ? 1 : 0 }}">
+                    query_set="{{ has_query ? 1 : 0 }}">
                     <span class="owner">
                         {{ owner_out[i]|raw }}
                     </span>
                     {{ table_names_small_out[i]|raw }}
                 </td>
-                {% if query is defined %}
+                {% if has_query %}
                     <td class="tab_zag tab_zag_query"
                         id="id_zag_{{ t_n_url }}_2"
                         table_name="{{ t_n_url }}">
@@ -75,7 +75,7 @@
                 <tr id="id_tr_{{ table_names_small_url[i] }}.{{ tab_column[t_n]['COLUMN_NAME'][j] }}" class="tab_field
                     {{- display_field == tab_column[t_n]['COLUMN_NAME'][j] ? '_3' }}" click_field_param="
                     {{- click_field_param|join(',') }}">
-                    {% if query is defined %}
+                    {% if has_query %}
                         <td class="select_all">
                             <input class="select_all_store_col"
                                 value="{{ t_n_url }}{{ tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}"
@@ -113,7 +113,7 @@
                             {{ tab_column[t_n]['COLUMN_NAME'][j] }} : {{ tab_column[t_n]['TYPE'][j] }}
                         </div>
                     </td>
-                    {% if query is defined %}
+                    {% if has_query %}
                         <td class="small_tab_pref small_tab_pref_click_opt"
                             click_option_param="designer_optionse,
                                 {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }},
