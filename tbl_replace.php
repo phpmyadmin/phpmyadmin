@@ -47,6 +47,8 @@ $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
+$relation = new Relation();
+
 $insertEdit = new InsertEdit($GLOBALS['dbi']);
 
 // check whether insert row mode, if so include tbl_change.php
@@ -384,7 +386,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
      */
     if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
 
-        $map = Relation::getForeigners($db, $table, '', 'both');
+        $map = $relation->getForeigners($db, $table, '', 'both');
 
         $relation_fields = array();
         parse_str($_REQUEST['rel_fields_list'], $relation_fields);

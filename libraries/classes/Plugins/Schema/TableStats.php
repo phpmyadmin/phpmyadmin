@@ -38,6 +38,11 @@ abstract class TableStats
     protected $offline;
 
     /**
+     * @var Relation $relation
+     */
+    protected $relation;
+
+    /**
      * Constructor
      *
      * @param object  $diagram        schema diagram
@@ -62,6 +67,8 @@ abstract class TableStats
         $this->tableDimension   = $tableDimension;
 
         $this->offline    = $offline;
+
+        $this->relation = new Relation();
 
         // checks whether the table exists
         // and loads fields
@@ -139,7 +146,7 @@ abstract class TableStats
      */
     protected function loadDisplayField()
     {
-        $this->displayfield = Relation::getDisplayField($this->db, $this->tableName);
+        $this->displayfield = $this->relation->getDisplayField($this->db, $this->tableName);
     }
 
     /**

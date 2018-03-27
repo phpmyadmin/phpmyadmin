@@ -50,6 +50,28 @@ class SavedSearches
     private $_searchName = null;
 
     /**
+     * Criterias
+     * @var array
+     */
+    private $_criterias = null;
+
+    /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Public constructor
+     *
+     * @param array $config Global configuration
+     */
+    public function __construct(array $config)
+    {
+        $this->setConfig($config);
+        $this->relation = new Relation();
+    }
+
+    /**
      * Setter of id
      *
      * @param int|null $searchId Id of search
@@ -99,12 +121,6 @@ class SavedSearches
     {
         return $this->_searchName;
     }
-
-    /**
-     * Criterias
-     * @var array
-     */
-    private $_criterias = null;
 
     /**
      * Setter of config
@@ -240,16 +256,6 @@ class SavedSearches
     }
 
     /**
-     * Public constructor
-     *
-     * @param array $config Global configuration
-     */
-    public function __construct(array $config)
-    {
-        $this->setConfig($config);
-    }
-
-    /**
      * Save the search
      *
      * @return boolean
@@ -313,7 +319,7 @@ class SavedSearches
                 . "'" . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias()))
                 . "')";
 
-            $result = (bool)Relation::queryAsControlUser($sqlQuery);
+            $result = (bool) $this->relation->queryAsControlUser($sqlQuery);
             if (!$result) {
                 return false;
             }
@@ -347,7 +353,7 @@ class SavedSearches
             . "`search_data` = '"
             . $GLOBALS['dbi']->escapeString(json_encode($this->getCriterias())) . "' "
             . "WHERE id = " . $this->getId();
-        return (bool)Relation::queryAsControlUser($sqlQuery);
+        return (bool) $this->relation->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -375,7 +381,7 @@ class SavedSearches
         $sqlQuery = "DELETE FROM " . $savedSearchesTbl
             . "WHERE id = '" . $GLOBALS['dbi']->escapeString($this->getId()) . "'";
 
-        return (bool)Relation::queryAsControlUser($sqlQuery);
+        return (bool) $this->relation->queryAsControlUser($sqlQuery);
     }
 
     /**
@@ -403,7 +409,7 @@ class SavedSearches
             . "FROM " . $savedSearchesTbl . " "
             . "WHERE id = '" . $GLOBALS['dbi']->escapeString($this->getId()) . "' ";
 
-        $resList = Relation::queryAsControlUser($sqlQuery);
+        $resList = $this->relation->queryAsControlUser($sqlQuery);
 
         if (false === ($oneResult = $GLOBALS['dbi']->fetchArray($resList))) {
             $message = Message::error(__('Error while loading the search.'));
@@ -450,7 +456,7 @@ class SavedSearches
 
         $sqlQuery .= "order by search_name ASC ";
 
-        $resList = Relation::queryAsControlUser($sqlQuery);
+        $resList = $this->relation->queryAsControlUser($sqlQuery);
 
         $list = array();
         while ($oneResult = $GLOBALS['dbi']->fetchArray($resList)) {

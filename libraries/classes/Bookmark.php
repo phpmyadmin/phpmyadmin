@@ -218,7 +218,8 @@ class Bookmark
             return $cfgBookmark;
         }
 
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
             $cfgBookmark = array(
                 'user'  => $user,

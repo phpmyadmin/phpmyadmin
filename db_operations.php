@@ -210,15 +210,16 @@ if (strlen($GLOBALS['db']) > 0
 /**
  * Settings for relations stuff
  */
+$relation = new Relation();
 
-$cfgRelation = Relation::getRelationsParam();
+$cfgRelation = $relation->getRelationsParam();
 
 /**
  * Check if comments were updated
  * (must be done before displaying the menu tabs)
  */
 if (isset($_REQUEST['comment'])) {
-    Relation::setDbComment($GLOBALS['db'], $_REQUEST['comment']);
+    $relation->setDbComment($GLOBALS['db'], $_REQUEST['comment']);
 }
 
 require 'libraries/db_common.inc.php';

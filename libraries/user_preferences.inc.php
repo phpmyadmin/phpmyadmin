@@ -64,7 +64,8 @@ if (!empty($_GET['saved'])) {
 }
 
 // warn about using session storage for settings
-$cfgRelation = Relation::getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 if (! $cfgRelation['userconfigwork']) {
     $msg = __(
         'Your preferences will be saved for current session only. Storing them '

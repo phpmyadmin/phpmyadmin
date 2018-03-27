@@ -74,6 +74,11 @@ class TableStructureController extends TableController
     private $createAddField;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * TableStructureController constructor
      *
      * @param string $db                  DB name
@@ -121,6 +126,7 @@ class TableStructureController extends TableController
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
 
         $this->createAddField = new CreateAddField($dbi);
+        $this->relation = new Relation();
     }
 
     /**
@@ -278,7 +284,7 @@ class TableStructureController extends TableController
                         'table' => $this->table
                     ),
                     'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                    'cfg_relation' => Relation::getRelationsParam(),
+                    'cfg_relation' => $this->relation->getRelationsParam(),
                 )
             )
         );
@@ -325,7 +331,7 @@ class TableStructureController extends TableController
         /**
          * Gets the relation settings
          */
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         /**
          * Runs common work
@@ -1047,7 +1053,7 @@ class TableStructureController extends TableController
         if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
             foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
                 if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
-                    Relation::renameField(
+                    $this->relation->renameField(
                         $this->db, $this->table, $fieldcontent,
                         $_REQUEST['field_name'][$fieldindex]
                     );
@@ -1184,7 +1190,7 @@ class TableStructureController extends TableController
         $mime_map = array();
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
-            $comments_map = Relation::getComments($this->db, $this->table);
+            $comments_map = $this->relation->getComments($this->db, $this->table);
             if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
                 $mime_map = Transformations::getMIME($this->db, $this->table, true);
             }

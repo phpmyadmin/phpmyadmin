@@ -51,6 +51,7 @@ class ExportSql extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
 
         // Avoids undefined variables, use NULL so isset() returns false
@@ -998,7 +999,7 @@ class ExportSql extends ExportPlugin
         $tables,
         array $metadataTypes
     ) {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (!isset($cfgRelation['db'])) {
             return true;
         }
@@ -1050,7 +1051,7 @@ class ExportSql extends ExportPlugin
         $table,
         array $metadataTypes
     ) {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         if (isset($table)) {
             $types = array(
@@ -1839,7 +1840,7 @@ class ExportSql extends ExportPlugin
         $schema_create = '';
 
         // Check if we can use Relations
-        list($res_rel, $have_rel) = Relation::getRelationsAndStatus(
+        list($res_rel, $have_rel) = $this->relation->getRelationsAndStatus(
             $do_relation && !empty($cfgRelation['relation']),
             $db,
             $table

@@ -213,6 +213,33 @@ class Qbe
     private $_currentSearch = null;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Public Constructor
+     *
+     * @param string        $dbname          Database name
+     * @param array         $savedSearchList List of saved searches
+     * @param SavedSearches $currentSearch   Current search id
+     */
+    public function __construct(
+        $dbname,
+        array $savedSearchList = array(),
+        $currentSearch = null
+    ) {
+        $this->_db = $dbname;
+        $this->_savedSearchList = $savedSearchList;
+        $this->_currentSearch = $currentSearch;
+        $this->_loadCriterias();
+        // Sets criteria parameters
+        $this->_setSearchParams();
+        $this->_setCriteriaTablesAndColumns();
+        $this->relation = new Relation();
+    }
+
+    /**
      * Initialize criterias
      *
      * @return static
@@ -239,25 +266,6 @@ class Qbe
     private function _getCurrentSearch()
     {
         return $this->_currentSearch;
-    }
-
-    /**
-     * Public Constructor
-     *
-     * @param string        $dbname          Database name
-     * @param array         $savedSearchList List of saved searches
-     * @param SavedSearches $currentSearch   Current search id
-     */
-    public function __construct(
-        $dbname, array $savedSearchList = array(), $currentSearch = null
-    ) {
-        $this->_db = $dbname;
-        $this->_savedSearchList = $savedSearchList;
-        $this->_currentSearch = $currentSearch;
-        $this->_loadCriterias();
-        // Sets criteria parameters
-        $this->_setSearchParams();
-        $this->_setCriteriaTablesAndColumns();
     }
 
     /**
@@ -1395,7 +1403,7 @@ class Qbe
         // So we select candidate tables which are foreign tables.
         $foreign_tables = array();
         foreach ($candidate_columns as $one_table) {
-            $foreigners = Relation::getForeigners($this->_db, $one_table);
+            $foreigners = $this->relation->getForeigners($this->_db, $one_table);
             foreach ($foreigners as $key => $foreigner) {
                 if ($key != 'foreign_keys_data') {
                     if (in_array($foreigner['foreign_table'], $candidate_columns)) {
@@ -1584,7 +1592,7 @@ class Qbe
             // having relationships with unfinalized tables
             foreach ($unfinalized as $oneTable) {
 
-                $references = Relation::getChildReferences($this->_db, $oneTable);
+                $references = $this->relation->getChildReferences($this->_db, $oneTable);
                 foreach ($references as $column => $columnReferences) {
                     foreach ($columnReferences as $reference) {
 
@@ -1667,7 +1675,7 @@ class Qbe
     {
         $relations[$oneTable] = array();
 
-        $foreigners = Relation::getForeigners($GLOBALS['db'], $oneTable);
+        $foreigners = $this->relation->getForeigners($GLOBALS['db'], $oneTable);
         foreach ($foreigners as $field => $foreigner) {
             // Foreign keys data
             if ($field == 'foreign_keys_data') {

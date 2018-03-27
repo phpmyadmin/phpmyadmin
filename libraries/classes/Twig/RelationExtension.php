@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Twig;
 
+use PhpMyAdmin\Relation;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -24,28 +25,29 @@ class RelationExtension extends AbstractExtension
      */
     public function getFunctions()
     {
+        $relation = new Relation();
         return array(
             new TwigFunction(
                 'Relation_foreignDropdown',
-                'PhpMyAdmin\Relation::foreignDropdown',
+                [$relation, 'foreignDropdown'],
                 array('is_safe' => array('html'))
             ),
             new TwigFunction(
                 'Relation_getDisplayField',
-                'PhpMyAdmin\Relation::getDisplayField',
+                [$relation, 'getDisplayField'],
                 array('is_safe' => array('html'))
             ),
             new TwigFunction(
                 'Relation_getForeignData',
-                'PhpMyAdmin\Relation::getForeignData'
+                [$relation, 'getForeignData']
             ),
             new TwigFunction(
                 'Relation_getTables',
-                'PhpMyAdmin\Relation::getTables'
+                [$relation, 'getTables']
             ),
             new TwigFunction(
                 'Relation_searchColumnInForeigners',
-                'PhpMyAdmin\Relation::searchColumnInForeigners'
+                [$relation, 'searchColumnInForeigners']
             ),
         );
     }

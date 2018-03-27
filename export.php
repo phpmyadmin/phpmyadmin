@@ -399,6 +399,8 @@ if ($save_on_server) {
     } // end download
 }
 
+$relation = new Relation();
+
 // Fake loop just to allow skip of remain of this code by break, I'd really
 // need exceptions here :-)
 do {
@@ -417,7 +419,7 @@ do {
         || isset($GLOBALS[$what . '_comments']);
     $do_mime     = isset($GLOBALS[$what . '_mime']);
     if ($do_relation || $do_comments || $do_mime) {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $relation->getRelationsParam();
     }
 
     // Include dates in export?

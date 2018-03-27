@@ -56,6 +56,20 @@ class DatabaseStructureController extends DatabaseController
     protected $_is_show_stats;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Constructor
+     */
+    public function __construct($response, $dbi, $db)
+    {
+        parent::__construct($response, $dbi, $db);
+        $this->relation = new Relation();
+    }
+
+    /**
      * Retrieves databse information for further use
      *
      * @param string $sub_part Page part name
@@ -229,7 +243,7 @@ class DatabaseStructureController extends DatabaseController
 
         // Request for Synchronization of favorite tables.
         if (isset($_REQUEST['sync_favorite_tables'])) {
-            $cfgRelation = Relation::getRelationsParam();
+            $cfgRelation = $this->relation->getRelationsParam();
             if ($cfgRelation['favoritework']) {
                 $this->synchronizeFavoriteTables($fav_instance, $user, $favorite_tables);
             }

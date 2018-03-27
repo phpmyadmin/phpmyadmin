@@ -28,9 +28,19 @@ abstract class ExportPlugin
      * @var \PhpMyAdmin\Properties\Plugins\ExportPluginProperties
      */
     protected $properties;
+
     /**
-     * Common methods, must be overwritten by all export plugins
+     * @var Relation $relation
      */
+    protected $relation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->relation = new Relation();
+    }
 
     /**
      * Outputs export header
@@ -350,7 +360,7 @@ abstract class ExportPlugin
         array $aliases = array()
     ) {
         $relation = '';
-        $foreigner = Relation::searchColumnInForeigners($res_rel, $field_name);
+        $foreigner = $this->relation->searchColumnInForeigners($res_rel, $field_name);
         if ($foreigner) {
             $ftable = $foreigner['foreign_table'];
             $ffield = $foreigner['foreign_field'];

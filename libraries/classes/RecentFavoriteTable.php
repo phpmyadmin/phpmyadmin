@@ -48,6 +48,11 @@ class RecentFavoriteTable
     private static $_instances = array();
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Creates a new instance of RecentFavoriteTable
      *
      * @param string $type the table type
@@ -56,6 +61,7 @@ class RecentFavoriteTable
      */
     private function __construct($type)
     {
+        $this->relation = new Relation();
         $this->_tableType = $type;
         $server_id = $GLOBALS['server'];
         if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])
@@ -105,7 +111,7 @@ class RecentFavoriteTable
             " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'";
 
         $return = array();
-        $result = Relation::queryAsControlUser($sql_query, false);
+        $result = $this->relation->queryAsControlUser($sql_query, false);
         if ($result) {
             $row = $GLOBALS['dbi']->fetchArray($result);
             if (isset($row[0])) {
@@ -350,7 +356,7 @@ class RecentFavoriteTable
         if ($server_id == 0) {
             return '';
         }
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         // Not to show this once list is synchronized.
         if ($cfgRelation['favoritework'] && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
             $params  = array('ajax_request' => true, 'favorite_table' => true,
@@ -383,7 +389,7 @@ class RecentFavoriteTable
      */
     private function _getPmaTable()
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (! empty($cfgRelation['db'])
             && ! empty($cfgRelation[$this->_tableType])
         ) {

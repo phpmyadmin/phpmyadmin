@@ -32,6 +32,11 @@ class ErrorReport
     private $httpRequest;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Constructor
      *
      * @param HttpRequest $httpRequest HttpRequest instance
@@ -40,6 +45,7 @@ class ErrorReport
     {
         $this->httpRequest = $httpRequest;
         $this->submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
+        $this->relation = new Relation();
     }
 
     /**
@@ -66,7 +72,7 @@ class ErrorReport
      */
     public function getData($exceptionType = 'js')
     {
-        $relParams = Relation::getRelationsParam();
+        $relParams = $this->relation->getRelationsParam();
         // common params for both, php & js exceptions
         $report = [
             "pma_version" => PMA_VERSION,

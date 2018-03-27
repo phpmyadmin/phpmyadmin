@@ -45,7 +45,8 @@ class TableSearchControllerTest extends PmaTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['cfgRelation'] = Relation::getRelationsParam();
+        $relation = new Relation();
+        $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')

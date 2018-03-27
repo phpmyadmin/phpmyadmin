@@ -23,6 +23,11 @@ use PHPUnit\Framework\TestCase;
 class RelationCleanupTest extends TestCase
 {
     /**
+     * @var Relation
+     */
+    private $relation;
+
+    /**
      * Prepares environment for the test.
      *
      * @return void
@@ -54,6 +59,7 @@ class RelationCleanupTest extends TestCase
         $GLOBALS['cfg']['Server']['export_templates'] = 'pma__export_templates';
 
         $this->redefineRelation();
+        $this->relation = new Relation();
     }
 
 
@@ -82,13 +88,13 @@ class RelationCleanupTest extends TestCase
         $this->redefineRelation();
 
         //the $cfgRelation value before cleanup column
-        $cfgRelation = Relation::checkRelationsParam();
+        $cfgRelation = $this->relation->checkRelationsParam();
         $this->assertEquals(
             true,
             $cfgRelation['commwork']
         );
         //validate Relation::getDbComments when commwork = true
-        $db_comments = Relation::getDbComments();
+        $db_comments = $this->relation->getDbComments();
         $this->assertEquals(
             array('db_name0' => 'comment0','db_name1' => 'comment1'),
             $db_comments
@@ -99,7 +105,7 @@ class RelationCleanupTest extends TestCase
             $cfgRelation['displaywork']
         );
         //validate Relation::getDisplayField when displaywork = true
-        $display_field = Relation::getDisplayField($db, $table);
+        $display_field = $this->relation->getDisplayField($db, $table);
         $this->assertEquals(
             'PMA_display_field',
             $display_field
@@ -125,7 +131,7 @@ class RelationCleanupTest extends TestCase
         RelationCleanup::column($db, $table, $column);
 
         //the $cfgRelation value after cleanup column
-        $cfgRelation = Relation::checkRelationsParam();
+        $cfgRelation = $this->relation->checkRelationsParam();
 
         $is_defined_column_info
             = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
@@ -161,7 +167,7 @@ class RelationCleanupTest extends TestCase
         $this->redefineRelation();
 
         //the $cfgRelation value before cleanup column
-        $cfgRelation = Relation::checkRelationsParam();
+        $cfgRelation = $this->relation->checkRelationsParam();
         $this->assertEquals(
             'column_info',
             $cfgRelation['column_info']
@@ -183,7 +189,7 @@ class RelationCleanupTest extends TestCase
         RelationCleanup::table($db, $table);
 
         //the $cfgRelation value after cleanup column
-        $cfgRelation = Relation::checkRelationsParam();
+        $cfgRelation = $this->relation->checkRelationsParam();
 
         $is_defined_column_info
             = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
@@ -225,7 +231,7 @@ class RelationCleanupTest extends TestCase
         $this->redefineRelation();
 
         //the $cfgRelation value before cleanup column
-        $cfgRelation = Relation::checkRelationsParam();
+        $cfgRelation = $this->relation->checkRelationsParam();
         $this->assertEquals(
             'column_info',
             $cfgRelation['column_info']
@@ -255,7 +261,7 @@ class RelationCleanupTest extends TestCase
         RelationCleanup::database($db);
 
         //the value after cleanup column
-        $cfgRelation = Relation::checkRelationsParam();
+        $cfgRelation = $this->relation->checkRelationsParam();
 
         $is_defined_column_info
             = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;

@@ -54,7 +54,8 @@ class SvgRelationSchemaTest extends PmaTestCase
             'relwork' => 'relwork',
             'relation' => 'relation'
         );
-        Relation::getRelationsParam();
+        $relation = new Relation();
+        $relation->getRelationsParam();
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()

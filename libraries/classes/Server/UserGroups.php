@@ -27,17 +27,18 @@ class UserGroups
      */
     public static function getHtmlForListingUsersofAGroup($userGroup)
     {
+        $relation = new Relation();
         $html_output  = '<h2>'
             . sprintf(__('Users of \'%s\' user group'), htmlspecialchars($userGroup))
             . '</h2>';
 
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $relation->getRelationsParam();
         $usersTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['users']);
         $sql_query = "SELECT `username` FROM " . $usersTable
             . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
             . "'";
-        $result = Relation::queryAsControlUser($sql_query, false);
+        $result = $relation->queryAsControlUser($sql_query, false);
         if ($result) {
             if ($GLOBALS['dbi']->numRows($result) == 0) {
                 $html_output .= '<p>'
@@ -70,12 +71,13 @@ class UserGroups
      */
     public static function getHtmlForUserGroupsTable()
     {
+        $relation = new Relation();
         $html_output  = '<h2>' . __('User groups') . '</h2>';
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['usergroups']);
         $sql_query = "SELECT * FROM " . $groupTable . " ORDER BY `usergroup` ASC";
-        $result = Relation::queryAsControlUser($sql_query, false);
+        $result = $relation->queryAsControlUser($sql_query, false);
 
         if ($result && $GLOBALS['dbi']->numRows($result)) {
             $html_output .= '<form name="userGroupsForm" id="userGroupsForm"'
@@ -189,7 +191,8 @@ class UserGroups
      */
     public static function delete($userGroup)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
         $userTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['users']);
         $groupTable = Util::backquote($cfgRelation['db'])
@@ -197,11 +200,11 @@ class UserGroups
         $sql_query = "DELETE FROM " . $userTable
             . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
             . "'";
-        Relation::queryAsControlUser($sql_query, true);
+        $relation->queryAsControlUser($sql_query, true);
         $sql_query = "DELETE FROM " . $groupTable
             . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
             . "'";
-        Relation::queryAsControlUser($sql_query, true);
+        $relation->queryAsControlUser($sql_query, true);
     }
 
     /**
@@ -213,6 +216,7 @@ class UserGroups
      */
     public static function getHtmlToEditUserGroup($userGroup = null)
     {
+        $relation = new Relation();
         $html_output = '';
         if ($userGroup == null) {
             $html_output .= '<h2>' . __('Add user group') . '</h2>';
@@ -253,13 +257,13 @@ class UserGroups
             'table'  => array()
         );
         if ($userGroup != null) {
-            $cfgRelation = Relation::getRelationsParam();
+            $cfgRelation = $relation->getRelationsParam();
             $groupTable = Util::backquote($cfgRelation['db'])
                 . "." . Util::backquote($cfgRelation['usergroups']);
             $sql_query = "SELECT * FROM " . $groupTable
                 . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
                 . "'";
-            $result = Relation::queryAsControlUser($sql_query, false);
+            $result = $relation->queryAsControlUser($sql_query, false);
             if ($result) {
                 while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                     $key = $row['tab'];
@@ -337,8 +341,9 @@ class UserGroups
      */
     public static function edit($userGroup, $new = false)
     {
+        $relation = new Relation();
         $tabs = Util::getMenuTabList();
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['usergroups']);
 
@@ -346,7 +351,7 @@ class UserGroups
             $sql_query = "DELETE FROM " . $groupTable
                 . " WHERE `usergroup`='" . $GLOBALS['dbi']->escapeString($userGroup)
                 . "';";
-            Relation::queryAsControlUser($sql_query, true);
+            $relation->queryAsControlUser($sql_query, true);
         }
 
         $sql_query = "INSERT INTO " . $groupTable
@@ -366,6 +371,6 @@ class UserGroups
             }
         }
         $sql_query .= ";";
-        Relation::queryAsControlUser($sql_query, true);
+        $relation->queryAsControlUser($sql_query, true);
     }
 }

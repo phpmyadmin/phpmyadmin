@@ -56,6 +56,11 @@ class Footer
     private $_isEnabled;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Creates a new class instance
      */
     public function __construct()
@@ -63,6 +68,7 @@ class Footer
         $this->_isEnabled = true;
         $this->_scripts   = new Scripts();
         $this->_isMinimal = false;
+        $this->relation = new Relation();
     }
 
     /**
@@ -245,7 +251,7 @@ class Footer
             && isset($GLOBALS['dbi'])
             && $GLOBALS['dbi']->isUserType('logged')
         ) {
-            Relation::setHistory(
+            $this->relation->setHistory(
                 Core::ifSetOr($GLOBALS['db'], ''),
                 Core::ifSetOr($GLOBALS['table'], ''),
                 $GLOBALS['cfg']['Server']['user'],

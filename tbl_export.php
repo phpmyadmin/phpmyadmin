@@ -23,7 +23,8 @@ $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
 
 // Get the relation settings
-$cfgRelation = Relation::getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 
 $displayExport = new Export();
 

@@ -43,6 +43,11 @@ class Menu
     private $_table;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Creates a new instance of Menu
      *
      * @param int    $server Server id
@@ -52,8 +57,9 @@ class Menu
     public function __construct($server, $db, $table)
     {
         $this->_server = $server;
-        $this->_db     = $db;
-        $this->_table  = $table;
+        $this->_db = $db;
+        $this->_table = $table;
+        $this->relation = new Relation();
     }
 
     /**
@@ -138,7 +144,7 @@ class Menu
             return Util::cacheGet($cache_key);
         }
         $allowedTabs = Util::getMenuTabList($level);
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['menuswork']) {
             $groupTable = Util::backquote($cfgRelation['db'])
                 . "."
@@ -153,7 +159,7 @@ class Menu
                 . $userTable . " WHERE `username` = '"
                 . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "')";
 
-            $result = Relation::queryAsControlUser($sql_query, false);
+            $result = $this->relation->queryAsControlUser($sql_query, false);
             if ($result) {
                 while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                     $tabName = mb_substr(
@@ -293,12 +299,12 @@ class Menu
                 } // end if
             } else {
                 // no table selected, display database comment if present
-                $cfgRelation = Relation::getRelationsParam();
+                $cfgRelation = $this->relation->getRelationsParam();
 
                 // Get additional information about tables for tooltip is done
                 // in Util::getDbInfo() only once
                 if ($cfgRelation['commwork']) {
-                    $comment = Relation::getDbComment($this->_db);
+                    $comment = $this->relation->getDbComment($this->_db);
                     /**
                      * Displays table comment
                      */
@@ -449,7 +455,7 @@ class Menu
         /**
          * Gets the relation settings
          */
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         $tabs = array();
 

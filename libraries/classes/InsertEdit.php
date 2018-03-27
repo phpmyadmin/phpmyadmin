@@ -34,6 +34,11 @@ class InsertEdit
     private $dbi;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -41,6 +46,7 @@ class InsertEdit
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
+        $this->relation = new Relation();
     }
 
     /**
@@ -567,7 +573,7 @@ class InsertEdit
         array $foreigners,
         array $foreignData
     ) {
-        $foreigner = Relation::searchColumnInForeigners($foreigners, $column['Field']);
+        $foreigner = $this->relation->searchColumnInForeigners($foreigners, $column['Field']);
         if (mb_strstr($column['True_Type'], 'enum')) {
             if (mb_strlen($column['Type']) > 20) {
                 $nullify_code = '1';
@@ -895,7 +901,7 @@ class InsertEdit
             . ($readOnly ? ' disabled' : '')
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
             . ' id="field_' . $idindex . '_3">';
-        $html_output .= Relation::foreignDropdown(
+        $html_output .= $this->relation->foreignDropdown(
             $foreignData['disp_row'],
             $foreignData['foreign_field'],
             $foreignData['foreign_display'],
@@ -2361,8 +2367,8 @@ class InsertEdit
         array $map,
         $relation_field
     ) {
-        $foreigner = Relation::searchColumnInForeigners($map, $relation_field);
-        $display_field = Relation::getDisplayField(
+        $foreigner = $this->relation->searchColumnInForeigners($map, $relation_field);
+        $display_field = $this->relation->getDisplayField(
             $foreigner['foreign_db'],
             $foreigner['foreign_table']
         );
@@ -2410,7 +2416,7 @@ class InsertEdit
         $dispval,
         $relation_field_value
     ) {
-        $foreigner = Relation::searchColumnInForeigners($map, $relation_field);
+        $foreigner = $this->relation->searchColumnInForeigners($map, $relation_field);
         if ('K' == $_SESSION['tmpval']['relational_display']) {
             // user chose "relational key" in the display options, so
             // the title contains the display field
@@ -2909,7 +2915,7 @@ class InsertEdit
         $comments_map = array();
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
-            $comments_map = Relation::getComments($db, $table);
+            $comments_map = $this->relation->getComments($db, $table);
         }
 
         return $comments_map;
@@ -3198,7 +3204,7 @@ class InsertEdit
 
         // The function column
         // -------------------
-        $foreignData = Relation::getForeignData(
+        $foreignData = $this->relation->getForeignData(
             $foreigners,
             $column['Field'],
             false,

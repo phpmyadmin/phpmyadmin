@@ -21,6 +21,19 @@ use PhpMyAdmin\Util;
 class Common
 {
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->relation = new Relation();
+    }
+
+    /**
      * Retrieves table info and stores it in $GLOBALS['designer']
      *
      * @return array with table info
@@ -65,7 +78,7 @@ class Common
                 $one_table['ENGINE']
             );
 
-            $DF = Relation::getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
+            $DF = $this->relation->getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
             if ($DF != '') {
                 $retval[$GLOBALS['designer_url']["TABLE_NAME_SMALL"][$i]] = $DF;
             }
@@ -126,7 +139,7 @@ class Common
             DatabaseInterface::QUERY_STORE
         );
         while ($val = @$GLOBALS['dbi']->fetchRow($alltab_rs)) {
-            $row = Relation::getForeigners($GLOBALS['db'], $val[0], '', 'internal');
+            $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'internal');
 
             if ($row !== false) {
                 foreach ($row as $field => $value) {
@@ -140,7 +153,7 @@ class Common
                     $i++;
                 }
             }
-            $row = Relation::getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
+            $row = $this->relation->getForeigners($GLOBALS['db'], $val[0], '', 'foreign');
 
             if ($row !== false) {
                 foreach ($row['foreign_keys_data'] as $one_key) {
@@ -250,7 +263,7 @@ class Common
      */
     public function getTablePositions($pg)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
             return null;
         }
@@ -284,7 +297,7 @@ class Common
      */
     public function getPageName($pg)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
             return null;
         }
@@ -312,7 +325,7 @@ class Common
      */
     public function deletePage($pg)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
             return false;
         }
@@ -320,7 +333,7 @@ class Common
         $query = "DELETE FROM " . Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['table_coords'])
             . " WHERE " . Util::backquote('pdf_page_number') . " = " . intval($pg);
-        $success = Relation::queryAsControlUser(
+        $success = $this->relation->queryAsControlUser(
             $query, true, DatabaseInterface::QUERY_STORE
         );
 
@@ -328,7 +341,7 @@ class Common
             $query = "DELETE FROM " . Util::backquote($cfgRelation['db'])
                 . "." . Util::backquote($cfgRelation['pdf_pages'])
                 . " WHERE " . Util::backquote('page_nr') . " = " . intval($pg);
-            $success = Relation::queryAsControlUser(
+            $success = $this->relation->queryAsControlUser(
                 $query, true, DatabaseInterface::QUERY_STORE
             );
         }
@@ -346,7 +359,7 @@ class Common
      */
     public function getDefaultPage($db)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
             return null;
         }
@@ -381,7 +394,7 @@ class Common
      */
     public function getLoadingPage($db)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
             return null;
         }
@@ -421,9 +434,9 @@ class Common
      */
     public function createNewPage($pageName, $db)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['pdfwork']) {
-            $pageNumber = Relation::createPage(
+            $pageNumber = $this->relation->createPage(
                 $pageName,
                 $cfgRelation,
                 $db
@@ -442,7 +455,7 @@ class Common
      */
     public function saveTablePositions($pg)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
             return false;
         }
@@ -457,7 +470,7 @@ class Common
             . " AND `pdf_page_number` = '" . $GLOBALS['dbi']->escapeString($pg)
             . "'";
 
-        $res = Relation::queryAsControlUser(
+        $res = $this->relation->queryAsControlUser(
             $query,
             true,
             DatabaseInterface::QUERY_STORE
@@ -484,7 +497,7 @@ class Common
                 . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['t_x'][$key]) . "', "
                 . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['t_y'][$key]) . "')";
 
-            $res = Relation::queryAsControlUser(
+            $res = $this->relation->queryAsControlUser(
                 $query,  true, DatabaseInterface::QUERY_STORE
             );
         }
@@ -503,7 +516,7 @@ class Common
      */
     public function saveDisplayField($db, $table, $field)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (!$cfgRelation['displaywork']) {
             return false;
         }
@@ -542,8 +555,8 @@ class Common
             && $type_T1 == $type_T2
         ) {
             // relation exists?
-            $existrel_foreign = Relation::getForeigners($DB2, $T2, '', 'foreign');
-            $foreigner = Relation::searchColumnInForeigners($existrel_foreign, $F2);
+            $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
+            $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
             if ($foreigner
                 && isset($foreigner['constraint'])
             ) {
@@ -629,7 +642,7 @@ class Common
             . "'" . $GLOBALS['dbi']->escapeString($T1) . "', "
             . "'" . $GLOBALS['dbi']->escapeString($F1) . "')";
 
-        if (Relation::queryAsControlUser($q, false, DatabaseInterface::QUERY_STORE)
+        if ($this->relation->queryAsControlUser($q, false, DatabaseInterface::QUERY_STORE)
         ) {
             return array(true, __('Internal relationship has been added.'));
         }
@@ -667,8 +680,8 @@ class Common
             && $type_T1 == $type_T2
         ) {
             // InnoDB
-            $existrel_foreign = Relation::getForeigners($DB2, $T2, '', 'foreign');
-            $foreigner = Relation::searchColumnInForeigners($existrel_foreign, $F2);
+            $existrel_foreign = $this->relation->getForeigners($DB2, $T2, '', 'foreign');
+            $foreigner = $this->relation->searchColumnInForeigners($existrel_foreign, $F2);
 
             if (isset($foreigner['constraint'])) {
                 $upd_query = 'ALTER TABLE ' . Util::backquote($DB2)
@@ -698,7 +711,7 @@ class Common
             . " AND foreign_table = '" . $GLOBALS['dbi']->escapeString($T1) . "'"
             . " AND foreign_field = '" . $GLOBALS['dbi']->escapeString($F1) . "'";
 
-        $result = Relation::queryAsControlUser(
+        $result = $this->relation->queryAsControlUser(
             $delete_query,
             false,
             DatabaseInterface::QUERY_STORE
@@ -725,7 +738,7 @@ class Common
      */
     public function saveSetting($index, $value)
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $cfgDesigner = array(
             'user'  => $GLOBALS['cfg']['Server']['user'],
             'db'    => $cfgRelation['db'],
@@ -757,7 +770,7 @@ class Common
                     . " WHERE username = '"
                     . $GLOBALS['dbi']->escapeString($cfgDesigner['user']) . "';";
 
-                $success = Relation::queryAsControlUser($save_query);
+                $success = $this->relation->queryAsControlUser($save_query);
             } else {
                 $save_data = array($index => $value);
 
@@ -768,7 +781,7 @@ class Common
                     . " VALUES('" . $cfgDesigner['user'] . "',"
                     . " '" . json_encode($save_data) . "');";
 
-                $success = Relation::queryAsControlUser($query);
+                $success = $this->relation->queryAsControlUser($query);
             }
         }
 

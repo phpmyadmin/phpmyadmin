@@ -25,7 +25,8 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/check_user_privileges.inc.php';
 
-$cfgRelation = Relation::getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 
 /**
  * Does the common work

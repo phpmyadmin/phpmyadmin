@@ -81,6 +81,11 @@ class TableSearchController extends TableController
     protected $url_query;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Constructor
      *
      * @param string $searchType Search type
@@ -104,6 +109,7 @@ class TableSearchController extends TableController
         $this->_columnCollations = array();
         $this->_geomColumnFlag = false;
         $this->_foreigners = array();
+        $this->relation = new Relation();
         // Loads table's information
         $this->_loadTableInfo();
         $this->_connectionCharSet = $this->dbi->fetchValue(
@@ -162,7 +168,7 @@ class TableSearchController extends TableController
         } // end for
 
         // Retrieve foreign keys
-        $this->_foreigners = Relation::getForeigners($this->db, $this->table);
+        $this->_foreigners = $this->relation->getForeigners($this->db, $this->table);
     }
 
     /**
@@ -270,7 +276,7 @@ class TableSearchController extends TableController
 
             //Set default datalabel if not selected
             if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
-                $dataLabel = Relation::getDisplayField($this->db, $this->table);
+                $dataLabel = $this->relation->getDisplayField($this->db, $this->table);
             } else {
                 $dataLabel = $_POST['dataLabel'];
             }
@@ -870,7 +876,7 @@ class TableSearchController extends TableController
             )
         );
         //Gets link to browse foreign data(if any) and criteria inputbox
-        $foreignData = Relation::getForeignData(
+        $foreignData = $this->relation->getForeignData(
             $this->_foreigners, $this->_columnNames[$column_index], false, '', ''
         );
         $value = Template::get('table/search/input_box')->render(

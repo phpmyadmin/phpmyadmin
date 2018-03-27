@@ -77,6 +77,11 @@ class Table
     protected $_dbi;
 
     /**
+     * @var Relation $relation
+     */
+    private $relation;
+
+    /**
      * Constructor
      *
      * @param string            $table_name table name
@@ -91,6 +96,7 @@ class Table
         $this->_dbi = $dbi;
         $this->_name = $table_name;
         $this->_db_name = $db_name;
+        $this->relation = new Relation();
     }
 
     /**
@@ -746,7 +752,7 @@ class Table
      *
      * @return string  field specification
      */
-    static public function generateAlter($oldcol, $newcol, $type, $length,
+    public static function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
         $extra, $comment, $virtuality, $expression, $move_to
     ) {
@@ -778,9 +784,10 @@ class Table
      *
      * @return int|boolean
      */
-    static public function duplicateInfo($work, $pma_table, array $get_fields,
+    public static function duplicateInfo($work, $pma_table, array $get_fields,
         array $where_fields, array $new_fields
     ) {
+        $relation = new Relation();
         $last_id = -1;
 
         if (!isset($GLOBALS['cfgRelation']) || !$GLOBALS['cfgRelation'][$work]) {
@@ -815,7 +822,7 @@ class Table
 
         // must use DatabaseInterface::QUERY_STORE here, since we execute
         // another query inside the loop
-        $table_copy_rs = Relation::queryAsControlUser(
+        $table_copy_rs = $relation->queryAsControlUser(
             $table_copy_query, true, DatabaseInterface::QUERY_STORE
         );
 
@@ -835,7 +842,7 @@ class Table
                 . implode('\', \'', $value_parts) . '\', \''
                 . implode('\', \'', $new_value_parts) . '\')';
 
-            Relation::queryAsControlUser($new_table_query);
+            $relation->queryAsControlUser($new_table_query);
             $last_id = $GLOBALS['dbi']->insertId();
         } // end while
 
@@ -857,11 +864,12 @@ class Table
      *
      * @return bool true if success, false otherwise
      */
-    static public function moveCopy($source_db, $source_table, $target_db,
+    public static function moveCopy($source_db, $source_table, $target_db,
         $target_table, $what, $move, $mode
     ) {
-
         global $err_url;
+
+        $relation = new Relation();
 
         // Try moving the tables directly, using native `RENAME` statement.
         if ($move && $what == 'data') {
@@ -1173,7 +1181,7 @@ class Table
             }
         }
 
-        Relation::getRelationsParam();
+        $relation->getRelationsParam();
 
         // Drops old table if the user has requested to move it
         if ($move) {
@@ -1192,7 +1200,7 @@ class Table
             $GLOBALS['dbi']->query($sql_drop_query);
 
             // Renable table in configuration storage
-            Relation::renameTable(
+            $relation->renameTable(
                 $source_db, $target_db,
                 $source_table, $target_table
             );
@@ -1210,7 +1218,7 @@ class Table
 
         if ($GLOBALS['cfgRelation']['commwork']) {
             // Get all comments and MIME-Types for current table
-            $comments_copy_rs = Relation::queryAsControlUser(
+            $comments_copy_rs = $relation->queryAsControlUser(
                 'SELECT column_name, comment'
                 . ($GLOBALS['cfgRelation']['mimework']
                 ? ', mimetype, transformation, transformation_options'
@@ -1258,7 +1266,7 @@ class Table
                         . '\''
                         : '')
                     . ')';
-                Relation::queryAsControlUser($new_comment_query);
+                $relation->queryAsControlUser($new_comment_query);
             } // end while
             $GLOBALS['dbi']->freeResult($comments_copy_rs);
             unset($comments_copy_rs);
@@ -1497,7 +1505,7 @@ class Table
         $this->_db_name = $new_db;
 
         // Renable table in configuration storage
-        Relation::renameTable(
+        $this->relation->renameTable(
             $old_db, $new_db,
             $old_name, $new_name
         );
@@ -1692,7 +1700,7 @@ class Table
      */
     protected function getUiPrefsFromDb()
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $pma_table = Util::backquote($cfgRelation['db']) . "."
             . Util::backquote($cfgRelation['table_uiprefs']);
 
@@ -1702,7 +1710,7 @@ class Table
             . " AND `db_name` = '" . $GLOBALS['dbi']->escapeString($this->_db_name) . "'"
             . " AND `table_name` = '" . $GLOBALS['dbi']->escapeString($this->_name) . "'";
 
-        $row = $this->_dbi->fetchArray(Relation::queryAsControlUser($sql_query));
+        $row = $this->_dbi->fetchArray($this->relation->queryAsControlUser($sql_query));
         if (isset($row[0])) {
             return json_decode($row[0], true);
         }
@@ -1717,7 +1725,7 @@ class Table
      */
     protected function saveUiPrefsToDb()
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $pma_table = Util::backquote($cfgRelation['db']) . "."
             . Util::backquote($cfgRelation['table_uiprefs']);
 
@@ -1792,7 +1800,7 @@ class Table
      */
     protected function loadUiPrefs()
     {
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $server_id = $GLOBALS['server'];
 
         // set session variable if it's still undefined
@@ -1930,7 +1938,7 @@ class Table
         $this->uiprefs[$property] = $value;
 
         // check if pmadb is set
-        $cfgRelation = Relation::getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['uiprefswork']) {
             return $this->saveUiprefsToDb();
         }
@@ -1953,7 +1961,7 @@ class Table
             unset($this->uiprefs[$property]);
 
             // check if pmadb is set
-            $cfgRelation = Relation::getRelationsParam();
+            $cfgRelation = $this->relation->getRelationsParam();
             if ($cfgRelation['uiprefswork']) {
                 return $this->saveUiprefsToDb();
             }
