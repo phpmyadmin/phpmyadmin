@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.9.0 (not yet released)
+
 4.8.0 (not yet released)
 - issue #12946 Allow to export JSON with unescaped unicode chars
 - issue #12983 Disable login button without solved reCaptcha
