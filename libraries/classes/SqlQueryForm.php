@@ -82,7 +82,6 @@ class SqlQueryForm
         // start output
         $html .= '<form method="post" action="import.php" ' . $enctype;
         $html .= ' class="ajax lock-page"';
-        $html .= ' onsubmit=window.localStorage.auto_saved_sql=""';
         $html .= ' id="sqlqueryform" name="sqlform">' . "\n";
 
         $html .= '<input type="hidden" name="is_js_confirmed" value="0" />'
