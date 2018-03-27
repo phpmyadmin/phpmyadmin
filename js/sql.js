@@ -387,7 +387,7 @@ AJAX.registerOnload('sql.js', function () {
      * @memberOf    jQuery
      */
     $(document).on('click', '#button_submit_query', function (event) {
-        window.localStorage.auto_saved_sql="";
+        window.localStorage.auto_saved_sql = "";
         // Remove auto_saved_sql on submission of sql
         $('.success,.error').hide();
         // hide already existing error or success message
