@@ -3684,3 +3684,9 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
 #name-panel {
     overflow:hidden;
 }
+.span_color_green {
+    color:green;
+}
+.span_color_red {
+    color:red;
+}
