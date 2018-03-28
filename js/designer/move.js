@@ -155,6 +155,11 @@ function MouseMove (e) {
             new_y = parseInt(new_y / grid_size) * grid_size;
         }
 
+        if (new_x < 0) {
+            new_x = 0;
+        } else if (new_y < 0) {
+            new_y = 0;
+        }
         $cur_click.css('left', new_x + 'px');
         $cur_click.css('top', new_y + 'px');
     } else if (layer_menu_cur_click) {
