@@ -3435,3 +3435,10 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
 #name-panel {
     overflow:hidden;
 }
+
+.span_color_red{
+    color:red; 
+}
+.span_color_green{
+    color:green;
+}
