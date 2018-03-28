@@ -15,7 +15,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
- * PhpMyAdmin\ReplicationGui class
+ * Functions for the replication GUI
  *
  * @package PhpMyAdmin
  */
@@ -24,9 +24,9 @@ class ReplicationGui
     /**
      * returns HTML for error message
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForErrorMessage()
+    public function getHtmlForErrorMessage()
     {
         $html = '';
         if (isset($_SESSION['replication']['sr_action_status'])
@@ -48,9 +48,9 @@ class ReplicationGui
     /**
      * returns HTML for master replication
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForMasterReplication()
+    public function getHtmlForMasterReplication()
     {
         $html = '';
         if (! isset($_REQUEST['repl_clear_scr'])) {
@@ -60,12 +60,12 @@ class ReplicationGui
             $html .= '<ul>';
             $html .= '  <li><a href="#master_status_href" id="master_status_href">';
             $html .= __('Show master status') . '</a>';
-            $html .= self::getHtmlForReplicationStatusTable('master', true, false);
+            $html .= $this->getHtmlForReplicationStatusTable('master', true, false);
             $html .= '  </li>';
 
             $html .= '  <li><a href="#master_slaves_href" id="master_slaves_href">';
             $html .= __('Show connected slaves') . '</a>';
-            $html .= self::getHtmlForReplicationSlavesTable(true);
+            $html .= $this->getHtmlForReplicationSlavesTable(true);
             $html .= '  </li>';
 
             $_url_params = $GLOBALS['url_params'];
@@ -80,7 +80,7 @@ class ReplicationGui
 
         // Display 'Add replication slave user' form
         if (isset($_REQUEST['mr_adduser'])) {
-            $html .= self::getHtmlForReplicationMasterAddSlaveUser();
+            $html .= $this->getHtmlForReplicationMasterAddSlaveUser();
         } elseif (! isset($_REQUEST['repl_clear_scr'])) {
             $html .= "</ul>";
             $html .= "</fieldset>";
@@ -92,9 +92,9 @@ class ReplicationGui
     /**
      * returns HTML for master replication configuration
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForMasterConfiguration()
+    public function getHtmlForMasterConfiguration()
     {
         $html  = '<fieldset>';
         $html .= '<legend>' . __('Master configuration') . '</legend>';
@@ -115,7 +115,7 @@ class ReplicationGui
         $html .= '</select>';
         $html .= '<br /><br />';
         $html .= __('Please select databases:') . '<br />';
-        $html .= self::getHtmlForReplicationDbMultibox();
+        $html .= $this->getHtmlForReplicationDbMultibox();
         $html .= '<br /><br />';
         $html .= __(
             'Now, add the following lines at the end of [mysqld] section'
@@ -144,9 +144,9 @@ class ReplicationGui
      * @param bool  $server_slave_status      Whether it is Master or Slave
      * @param array $server_slave_replication Slave replication
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForSlaveConfiguration(
+    public function getHtmlForSlaveConfiguration(
         $server_slave_status, array $server_slave_replication
     ) {
         $html  = '<fieldset>';
@@ -249,7 +249,7 @@ class ReplicationGui
             $html .= '<ul>';
             $html .= ' <li><a href="#slave_status_href" id="slave_status_href">';
             $html .= __('See slave status table') . '</a>';
-            $html .= self::getHtmlForReplicationStatusTable('slave', true, false);
+            $html .= $this->getHtmlForReplicationStatusTable('slave', true, false);
             $html .= ' </li>';
 
             $html .= ' <li><a href="#slave_control_href" id="slave_control_href">';
@@ -282,7 +282,7 @@ class ReplicationGui
             $html .= ' </div>';
             $html .= ' </li>';
             $html .= ' <li>';
-            $html .= self::getHtmlForSlaveErrorManagement($slave_skip_error_link);
+            $html .= $this->getHtmlForSlaveErrorManagement($slave_skip_error_link);
             $html .= ' </li>';
             $html .= ' <li><a href="' . $reconfiguremaster_link . '">';
             $html .=  __('Change or reconfigure master server') . '</a></li>';
@@ -310,11 +310,11 @@ class ReplicationGui
     /**
      * returns HTML for Slave Error Management
      *
-     * @param String $slave_skip_error_link error link
+     * @param string $slave_skip_error_link error link
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForSlaveErrorManagement($slave_skip_error_link)
+    public function getHtmlForSlaveErrorManagement($slave_skip_error_link)
     {
         $html  = '<a href="#slave_errormanagement_href" '
             . 'id="slave_errormanagement_href">';
@@ -346,9 +346,9 @@ class ReplicationGui
     /**
      * returns HTML for not configure for a server replication
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForNotServerReplication()
+    public function getHtmlForNotServerReplication()
     {
         $_url_params = $GLOBALS['url_params'];
         $_url_params['mr_configure'] = true;
@@ -369,9 +369,9 @@ class ReplicationGui
     /**
      * returns HTML code for selecting databases
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForReplicationDbMultibox()
+    public function getHtmlForReplicationDbMultibox()
     {
         $multi_values = '';
         $multi_values .= '<select name="db_select[]" '
@@ -398,15 +398,15 @@ class ReplicationGui
     /**
      * returns HTML for changing master
      *
-     * @param String $submitname - submit button name
+     * @param string $submitname - submit button name
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForReplicationChangeMaster($submitname)
+    public function getHtmlForReplicationChangeMaster($submitname)
     {
         $html = '';
         list($username_length, $hostname_length)
-            = self::getUsernameHostnameLength();
+            = $this->getUsernameHostnameLength();
 
         $html .= '<form method="post" action="server_replication.php">';
         $html .= Url::getHiddenInputs('', '');
@@ -420,7 +420,7 @@ class ReplicationGui
         $html .= '<br />';
         $html .= '<pre>server-id=' . time() . '</pre>';
 
-        $html .= self::getHtmlForAddUserInputDiv(
+        $html .= $this->getHtmlForAddUserInputDiv(
             array('text'=>__('User name:'), 'for'=>"text_username"),
             array(
                 'type'=>'text',
@@ -432,7 +432,7 @@ class ReplicationGui
             )
         );
 
-        $html .= self::getHtmlForAddUserInputDiv(
+        $html .= $this->getHtmlForAddUserInputDiv(
             array('text'=>__('Password:'), 'for'=>"text_pma_pw"),
             array(
                 'type'=>'password',
@@ -443,7 +443,7 @@ class ReplicationGui
             )
         );
 
-        $html .= self::getHtmlForAddUserInputDiv(
+        $html .= $this->getHtmlForAddUserInputDiv(
             array('text'=>__('Host:'), 'for'=>"text_hostname"),
             array(
                 'type'=>'text',
@@ -455,7 +455,7 @@ class ReplicationGui
             )
         );
 
-        $html .= self::getHtmlForAddUserInputDiv(
+        $html .= $this->getHtmlForAddUserInputDiv(
             array('text'=>__('Port:'), 'for'=>"text_port"),
             array(
                 'type'=>'number',
@@ -485,9 +485,9 @@ class ReplicationGui
      * @param array $label_array label tag elements
      * @param array $input_array input tag elements
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForAddUserInputDiv(array $label_array, array $input_array)
+    public function getHtmlForAddUserInputDiv(array $label_array, array $input_array)
     {
         $html  = '  <div class="item">';
         $html .= '     <label for="' . $label_array['for'] . '">';
@@ -510,9 +510,9 @@ class ReplicationGui
      *                        default value false
      * @param boolean $title  if true, then title is displayed, default true
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForReplicationStatusTable($type, $hidden = false, $title = true)
+    public function getHtmlForReplicationStatusTable($type, $hidden = false, $title = true)
     {
         global ${"{$type}_variables"};
         global ${"{$type}_variables_alerts"};
@@ -579,7 +579,7 @@ class ReplicationGui
                 $html .= '<span>';
             }
             // allow wrapping long table lists into multiple lines
-            static $variables_wrap = array(
+            $variables_wrap = array(
                 'Replicate_Do_DB', 'Replicate_Ignore_DB',
                 'Replicate_Do_Table', 'Replicate_Ignore_Table',
                 'Replicate_Wild_Do_Table', 'Replicate_Wild_Ignore_Table');
@@ -614,7 +614,7 @@ class ReplicationGui
      *
      * @return string
      */
-    public static function getHtmlForReplicationSlavesTable($hidden = false)
+    public function getHtmlForReplicationSlavesTable($hidden = false)
     {
         $html = '';
         // Fetch data
@@ -659,7 +659,7 @@ class ReplicationGui
      *
      * @return array   username length, hostname length
      */
-    public static function getUsernameHostnameLength()
+    public function getUsernameHostnameLength()
     {
         $fields_info = $GLOBALS['dbi']->getColumns('mysql', 'user');
         $username_length = 16;
@@ -685,13 +685,13 @@ class ReplicationGui
     /**
      * returns html code to add a replication slave user to the master
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForReplicationMasterAddSlaveUser()
+    public function getHtmlForReplicationMasterAddSlaveUser()
     {
         $html = '';
         list($username_length, $hostname_length)
-            = self::getUsernameHostnameLength();
+            = $this->getUsernameHostnameLength();
 
         if (isset($_REQUEST['username']) && strlen($_REQUEST['username']) === 0) {
             $GLOBALS['pred_username'] = 'any';
@@ -703,7 +703,7 @@ class ReplicationGui
         $html .= Url::getHiddenInputs('', '');
         $html .= '<fieldset id="fieldset_add_user_login">'
             . '<legend>' . __('Add slave replication user') . '</legend>'
-            . self::getHtmlForAddUserLoginForm($username_length)
+            . $this->getHtmlForAddUserLoginForm($username_length)
             . '<div class="item">'
             . '<label for="select_pred_hostname">'
             . '    ' . __('Host:')
@@ -765,7 +765,7 @@ class ReplicationGui
         }
         unset($thishost);
 
-        $html .= self::getHtmlForTableInfoForm($hostname_length);
+        $html .= $this->getHtmlForTableInfoForm($hostname_length);
         $html .= '</form>';
         $html .= '</div>';
 
@@ -777,9 +777,9 @@ class ReplicationGui
      *
      * @param int $username_length Username length
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForAddUserLoginForm($username_length)
+    public function getHtmlForAddUserLoginForm($username_length)
     {
         $html = '<input type="hidden" name="grant_count" value="25" />'
             . '<input type="hidden" name="createdb" id="createdb_0" value="0" />'
@@ -825,9 +825,9 @@ class ReplicationGui
      *
      * @param int $hostname_length Selected hostname length
      *
-     * @return String HTML code
+     * @return string HTML code
      */
-    public static function getHtmlForTableInfoForm($hostname_length)
+    public function getHtmlForTableInfoForm($hostname_length)
     {
         $html = '        <option value="hosttable"'
             . ((isset($GLOBALS['pred_hostname'])
@@ -903,9 +903,9 @@ class ReplicationGui
     /**
      * handle control requests
      *
-     * @return NULL
+     * @return void
      */
-    public static function handleControlRequest()
+    public function handleControlRequest()
     {
         if (isset($_REQUEST['sr_take_action'])) {
             $refresh = false;
@@ -917,9 +917,9 @@ class ReplicationGui
                 $_SESSION['replication']['sr_action_status'] = 'error';
                 $_SESSION['replication']['sr_action_info'] = __('Connection to server is disabled, please enable $cfg[\'AllowArbitraryServer\'] in phpMyAdmin configuration.');
             } elseif (isset($_REQUEST['slave_changemaster'])) {
-                $result = self::handleRequestForSlaveChangeMaster();
+                $result = $this->handleRequestForSlaveChangeMaster();
             } elseif (isset($_REQUEST['sr_slave_server_control'])) {
-                $result = self::handleRequestForSlaveServerControl();
+                $result = $this->handleRequestForSlaveServerControl();
                 $refresh = true;
 
                 switch ($_REQUEST['sr_slave_action']) {
@@ -941,7 +941,7 @@ class ReplicationGui
                     break;
                 }
             } elseif (isset($_REQUEST['sr_slave_skip_error'])) {
-                $result = self::handleRequestForSlaveSkipError();
+                $result = $this->handleRequestForSlaveSkipError();
             }
 
             if ($refresh) {
@@ -970,7 +970,7 @@ class ReplicationGui
      *
      * @return boolean
      */
-    public static function handleRequestForSlaveChangeMaster()
+    public function handleRequestForSlaveChangeMaster()
     {
         $sr = array();
         $_SESSION['replication']['m_username'] = $sr['username']
@@ -1041,7 +1041,7 @@ class ReplicationGui
      *
      * @return boolean
      */
-    public static function handleRequestForSlaveServerControl()
+    public function handleRequestForSlaveServerControl()
     {
         if (empty($_REQUEST['sr_slave_control_parm'])) {
             $_REQUEST['sr_slave_control_parm'] = null;
@@ -1071,7 +1071,7 @@ class ReplicationGui
      *
      * @return boolean
      */
-    public static function handleRequestForSlaveSkipError()
+    public function handleRequestForSlaveSkipError()
     {
         $count = 1;
         if (isset($_REQUEST['sr_skip_errors_count'])) {

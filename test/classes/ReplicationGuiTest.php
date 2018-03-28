@@ -53,6 +53,8 @@ class ReplicationGuiTest extends TestCase
         $GLOBALS['table'] = "table";
         $GLOBALS['url_params'] = array();
 
+        $this->replicationGui = new ReplicationGui();
+
         //$_SESSION
 
         //Mock DBI
@@ -94,12 +96,12 @@ class ReplicationGuiTest extends TestCase
     }
 
     /**
-     * Test for ReplicationGui::getHtmlForMasterReplication
+     * Test for getHtmlForMasterReplication
      *
      * @return void
      * @group medium
      */
-    public function testPMAGetHtmlForMasterReplication()
+    public function testGetHtmlForMasterReplication()
     {
         global $master_variables_alerts;
         global $master_variables_oks;
@@ -110,7 +112,7 @@ class ReplicationGuiTest extends TestCase
         $strReplicationStatus_master = null;
 
         //Call the test function
-        $html = ReplicationGui::getHtmlForMasterReplication();
+        $html = $this->replicationGui->getHtmlForMasterReplication();
 
         //validate 1: Master replication
         $this->assertContains(
@@ -122,7 +124,7 @@ class ReplicationGuiTest extends TestCase
             $html
         );
 
-        //validate 2: ReplicationGui::getHtmlForReplicationStatusTable
+        //validate 2: getHtmlForReplicationStatusTable
         $this->assertContains(
             '<div id="replication_master_section"',
             $html
@@ -142,7 +144,7 @@ class ReplicationGuiTest extends TestCase
             $html
         );
 
-        //validate 3: ReplicationGui::getHtmlForReplicationSlavesTable
+        //validate 3: getHtmlForReplicationSlavesTable
         $this->assertContains(
             'replication_slaves_section',
             $html
@@ -196,14 +198,14 @@ class ReplicationGuiTest extends TestCase
     }
 
     /**
-     * Test for ReplicationGui::getHtmlForNotServerReplication
+     * Test for getHtmlForNotServerReplication
      *
      * @return void
      */
-    public function testPMAGetHtmlForNotServerReplication()
+    public function testGetHtmlForNotServerReplication()
     {
         //Call the test function
-        $html = ReplicationGui::getHtmlForNotServerReplication();
+        $html = $this->replicationGui->getHtmlForNotServerReplication();
 
         $this->assertContains(
             '<legend>Master replication</legend>',
@@ -216,16 +218,16 @@ class ReplicationGuiTest extends TestCase
     }
 
     /**
-     * Test for ReplicationGui::getHtmlForSlaveConfiguration
+     * Test for getHtmlForSlaveConfiguration
      *
      * @return void
      */
-    public function testPMAGetHtmlForSlaveConfiguration()
+    public function testGetHtmlForSlaveConfiguration()
     {
         global $server_slave_replication;
 
         //Call the test function
-        $html = ReplicationGui::getHtmlForSlaveConfiguration(
+        $html = $this->replicationGui->getHtmlForSlaveConfiguration(
             true,
             $server_slave_replication
         );
@@ -269,14 +271,16 @@ class ReplicationGuiTest extends TestCase
     }
 
     /**
-     * Test for ReplicationGui::getHtmlForReplicationChangeMaster
+     * Test for getHtmlForReplicationChangeMaster
      *
      * @return void
      */
-    public function testPMAGetHtmlForReplicationChangeMaster()
+    public function testGetHtmlForReplicationChangeMaster()
     {
         //Call the test function
-        $html = ReplicationGui::getHtmlForReplicationChangeMaster("slave_changemaster");
+        $html = $this->replicationGui->getHtmlForReplicationChangeMaster(
+            'slave_changemaster'
+        );
 
         $this->assertContains(
             '<form method="post" action="server_replication.php">',
