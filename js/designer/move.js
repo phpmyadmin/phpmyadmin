@@ -126,7 +126,7 @@ function MouseMove (e) {
 
     var new_dx = isIE ? e.clientX + document.body.scrollLeft : e.pageX;
     var new_dy = isIE ? e.clientY + document.body.scrollTop : e.pageY;
-
+    console.log(new_dx);
     var delta_x = Glob_X - new_dx;
     var delta_y = Glob_Y - new_dy;
 
@@ -155,6 +155,11 @@ function MouseMove (e) {
             new_y = parseInt(new_y / grid_size) * grid_size;
         }
 
+        if (new_x < 0) {
+            new_x = 0;
+        } else if (new_y < 0) {
+            new_y = 0;
+        }
         $cur_click.css('left', new_x + 'px');
         $cur_click.css('top', new_y + 'px');
     } else if (layer_menu_cur_click) {
@@ -376,7 +381,6 @@ function Re_load () {
                     var y1 = document.getElementById(key2).offsetTop +
                         row_offset_top +
                         height_field;
-
 
                     row_offset_top = 0;
                     tab_hide_button = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
@@ -1974,6 +1978,11 @@ AJAX.registerOnload('designer/move.js', function () {
     });
     $('#SaveAs').click(function () {
         Save_as();
+        $(document).ready(function() {
+            $('input#selected_value').click(function () {
+                document.getElementById("save_page_new").checked = true;
+            });
+        });
         return false;
     });
     $('#delPages').click(function () {
