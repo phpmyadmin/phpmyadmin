@@ -101,16 +101,16 @@ class Relation
         $retval = '<br>';
 
         $messages = array();
-        $messages['error'] = '<span style="color:red"><strong>'
+        $messages['error'] = '<span class="span_color_red"><strong>'
             . __('not OK')
             . '</strong></span>';
 
-        $messages['ok'] = '<span style="color:green"><strong>'
+        $messages['ok'] = '<span class="span_color_green"><strong>'
             .  _pgettext('Correctly working', 'OK')
             . '</strong></span>';
 
-        $messages['enabled']  = '<span style="color:green">' . __('Enabled') . '</span>';
-        $messages['disabled'] = '<span style="color:red">'   . __('Disabled') . '</span>';
+        $messages['enabled']  = '<span class="span_color_green">' . __('Enabled') . '</span>';
+        $messages['disabled'] = '<span class="span_color_red">'   . __('Disabled') . '</span>';
 
         if (strlen($cfgRelation['db']) == 0) {
             $retval .= __('Configuration of pmadb…') . ' '
