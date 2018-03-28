@@ -319,7 +319,7 @@ class TableSearchControllerTest extends PmaTestCase
             'b', 'a'
         );
         $_POST['criteriaColumnOperators'] = array(
-            '<=', '='
+            '<=', '=', 'IS NULL', 'IS NOT NULL'
         );
         $_POST['criteriaValues'] = array(
             '10', '2'
