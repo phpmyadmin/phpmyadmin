@@ -1847,8 +1847,7 @@ function add_object () {
     var init = history_array.length;
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
-            document.getElementById('designer_hint').innerHTML = 'value/subQuery is empty';
-            document.getElementById('designer_hint').style.display = 'block';
+            PMA_ajaxShowMessage(PMA_sprintf(PMA_messages.strQueryEmpty));
             return;
         }
         p = document.getElementById('Query');
@@ -1874,8 +1873,6 @@ function add_object () {
     }
     if (document.getElementById('h_rel_opt').value !== '--') {
         if (document.getElementById('having').value === '') {
-            document.getElementById('designer_hint').innerHTML = 'value/subQuery is empty';
-            document.getElementById('designer_hint').style.display = 'block';
             return;
         }
         where_obj = new having(
