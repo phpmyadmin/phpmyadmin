@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-03-29 18:59+0000\n"
+"PO-Revision-Date: 2018-03-29 19:02+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -1706,7 +1706,7 @@ msgstr "טקסט שגיאה: %s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr "נראה כי הקישור לשרת אבד. נא לבדוק את החיבור שלך לרשת ואת מצב השרת שלך."
+msgstr "נראה כי הקישור לשרת אבד. נא לבדוק את החיבור שלך לרשת ואת מצב השרת."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
@@ -1739,7 +1739,7 @@ msgstr "אישור"
 
 #: js/messages.php:374
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "יש ללחוץ כדי להעלים את ההתרעה הזאת"
 
 #: js/messages.php:377
 msgid "Renaming databases"
@@ -1755,11 +1755,11 @@ msgstr "הקידוד משתנה"
 
 #: js/messages.php:383 templates/fk_checkbox.twig:4
 msgid "Enable foreign key checks"
-msgstr ""
+msgstr "הפעלת בדיקות מפתחות זרים"
 
 #: js/messages.php:386
 msgid "Failed to get real row count."
-msgstr ""
+msgstr "ספירת השורות האמתית נכשלה."
 
 #: js/messages.php:389
 msgid "Searching"
@@ -1814,7 +1814,7 @@ msgstr ""
 
 #: js/messages.php:404 libraries/classes/Rte/Routines.php:760
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "עורך מונה/עריכה (ENUM/SET)"
 
 #: js/messages.php:405
 #, php-format
