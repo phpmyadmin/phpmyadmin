@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-03-29 19:03+0000\n"
+"PO-Revision-Date: 2018-03-30 06:32+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -1827,7 +1827,7 @@ msgstr "ערכים לעמודה חדשה"
 
 #: js/messages.php:407
 msgid "Enter each value in a separate field."
-msgstr "נא להקליד לכל ערך בשדה נפרד."
+msgstr "נא להקליד כל ערך בשדה נפרד."
 
 #: js/messages.php:408
 #, php-format
