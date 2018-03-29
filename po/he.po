@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-03-20 09:37+0000\n"
+"PO-Revision-Date: 2018-03-29 18:59+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -687,7 +687,7 @@ msgstr "משתמש:"
 
 #: index.php:361
 msgid "Server charset:"
-msgstr "ערכת תווים לשרת:"
+msgstr "קידוד לשרת:"
 
 #: index.php:377
 msgid "Web server"
@@ -741,7 +741,7 @@ msgstr "רשימת שינויים"
 
 #: index.php:482 templates/server/plugins/section.twig:13
 msgid "License"
-msgstr ""
+msgstr "רשיון"
 
 #: index.php:502
 msgid ""
@@ -828,7 +828,7 @@ msgstr ""
 
 #: js/messages.php:43
 msgid "Confirm"
-msgstr ""
+msgstr "אימות"
 
 #: js/messages.php:44
 #, php-format
@@ -841,7 +841,7 @@ msgstr "פעולה זו עלולה להשמיד מסד נתונים שלם!"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "לא ניתן לשנות את שם מסד הנתונים לאותו השם. נא לשנות את השם ולנסות שוב"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -1115,10 +1115,8 @@ msgid "Connections / Processes"
 msgstr "חיבורים / תהליכים"
 
 #: js/messages.php:165
-#, fuzzy
-#| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "תצורת מעקב מקומית אינה נתמכת"
+msgstr "תצורת מעקב מקומית אינה תואמת!"
 
 #: js/messages.php:167
 msgid ""
@@ -1643,17 +1641,15 @@ msgstr "נוסחה / משתמש בשימוש"
 
 #: js/messages.php:343
 msgid "Test"
-msgstr ""
+msgstr "בדיקה"
 
 #: js/messages.php:346
 msgid "Formatting SQL…"
-msgstr ""
+msgstr "ה־SQL מאורגן…"
 
 #: js/messages.php:347
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
-msgstr "פרמטרים שגויים!"
+msgstr "לא נמצאו משתנים!"
 
 #: js/messages.php:351
 #: templates/database/designer/aggregate_query_panel.twig:64
@@ -1665,60 +1661,52 @@ msgstr "פרמטרים שגויים!"
 #: templates/database/designer/options_panel.twig:255
 #: templates/server/variables/link_template.twig:5
 msgid "Cancel"
-msgstr ""
+msgstr "ביטול"
 
 #: js/messages.php:354 libraries/classes/Header.php:453
-#, fuzzy
-#| msgid "General relation features"
 msgid "Page-related settings"
-msgstr "תכונות קשר כלליות"
+msgstr "הגדרות תלויות עמוד"
 
 #: js/messages.php:355 templates/config/form_display/fieldset_bottom.twig:8
 msgid "Apply"
-msgstr ""
+msgstr "החלה"
 
 #: js/messages.php:358 libraries/classes/Navigation/NavigationHeader.php:61
 #: libraries/classes/Server/Status/Monitor.php:130
-#, fuzzy
 msgid "Loading…"
-msgstr "מקומי"
+msgstr "בטעינה…"
 
 #: js/messages.php:359
 msgid "Request aborted!!"
-msgstr ""
+msgstr "הבקשה בוטלה!!"
 
 #: js/messages.php:360
-#, fuzzy
-#| msgid "Processes"
 msgid "Processing request"
-msgstr "תהליכים"
+msgstr "הבקשה בהליכי עיבוד"
 
 #: js/messages.php:361
-#, fuzzy
 msgid "Request failed!!"
-msgstr "סוג שאילתה"
+msgstr "הבקשה נכשלה!!"
 
 #: js/messages.php:362
-#, fuzzy
-#| msgid "Processes"
 msgid "Error in processing request"
-msgstr "תהליכים"
+msgstr "שגיאה בעיבוד הבקשה"
 
 #: js/messages.php:363
 #, php-format
 msgid "Error code: %s"
-msgstr ""
+msgstr "קוד שגיאה: %s"
 
 #: js/messages.php:364
 #, php-format
 msgid "Error text: %s"
-msgstr ""
+msgstr "טקסט שגיאה: %s"
 
 #: js/messages.php:366
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr ""
+msgstr "נראה כי הקישור לשרת אבד. נא לבדוק את החיבור שלך לרשת ואת מצב השרת שלך."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
@@ -1727,22 +1715,16 @@ msgid "No databases selected."
 msgstr "אף מאגר נתונים לא נבחר."
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No accounts selected."
-msgstr "לא נבחרו שורות"
+msgstr "לא נבחרו חשבונות."
 
 #: js/messages.php:371
-#, fuzzy
-#| msgid "Inside column:"
 msgid "Dropping column"
-msgstr "בתוך העמודה:"
+msgstr "העמודה מושמטת"
 
 #: js/messages.php:372
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Adding primary key"
-msgstr "הוספת %s תאים"
+msgstr "נוסף מפתח עיקרי"
 
 #: js/messages.php:373
 #: templates/database/designer/aggregate_query_panel.twig:60
@@ -1760,22 +1742,16 @@ msgid "Click to dismiss this notification"
 msgstr ""
 
 #: js/messages.php:377
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Renaming databases"
-msgstr "שינוי שם מאגר נתונים אל"
+msgstr "שמות מסדי הנתונים משתנים"
 
 #: js/messages.php:378
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copying database"
-msgstr "העתקת מאגר נתונים אל"
+msgstr "מסד הנתונים מועתק"
 
 #: js/messages.php:379
-#, fuzzy
-#| msgid "Charset"
 msgid "Changing charset"
-msgstr "קידוד"
+msgstr "הקידוד משתנה"
 
 #: js/messages.php:383 templates/fk_checkbox.twig:4
 msgid "Enable foreign key checks"
@@ -1786,32 +1762,24 @@ msgid "Failed to get real row count."
 msgstr ""
 
 #: js/messages.php:389
-#, fuzzy
-#| msgid "Search"
 msgid "Searching"
-msgstr "חיפוש"
+msgstr "מתבצע חיפוש"
 
 #: js/messages.php:390
-#, fuzzy
 msgid "Hide search results"
-msgstr "שאילתת SQL"
+msgstr "הסתרת תוצאות החיפוש"
 
 #: js/messages.php:391
-#, fuzzy
 msgid "Show search results"
-msgstr "שאילתת SQL"
+msgstr "הצגת תוצאות החיפוש"
 
 #: js/messages.php:392
-#, fuzzy
-#| msgid "Browse"
 msgid "Browsing"
 msgstr "עיון"
 
 #: js/messages.php:393
-#, fuzzy
-#| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "מוחק %s"
+msgstr "מחיקה"
 
 #: js/messages.php:394
 #, php-format
@@ -1849,10 +1817,9 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: js/messages.php:405
-#, fuzzy, php-format
-#| msgid "Number of fields"
+#, php-format
 msgid "Values for column %s"
-msgstr "מספר שדות"
+msgstr "ערכים לעמודה %s"
 
 #: js/messages.php:406
 msgid "Values for a new column"
@@ -1863,9 +1830,9 @@ msgid "Enter each value in a separate field."
 msgstr ""
 
 #: js/messages.php:408
-#, fuzzy, php-format
+#, php-format
 msgid "Add %d value(s)"
-msgstr "הוספת משתמש חדש"
+msgstr "הוספת %d ערך/ים"
 
 #: js/messages.php:412
 msgid ""
@@ -1873,14 +1840,12 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:416
-#, fuzzy
 msgid "Hide query box"
-msgstr "שאילתת SQL"
+msgstr "הסתרת תיבת שאילתות"
 
 #: js/messages.php:417
-#, fuzzy
 msgid "Show query box"
-msgstr "שאילתת SQL"
+msgstr "הצגת תיבת שאילתות"
 
 #: js/messages.php:418 libraries/classes/CentralColumns.php:934
 #: libraries/classes/CentralColumns.php:1285
@@ -1929,26 +1894,21 @@ msgid "No auto-saved query"
 msgstr ""
 
 #: js/messages.php:423
-#, fuzzy, php-format
-#| msgid "Variable"
+#, php-format
 msgid "Variable %d:"
-msgstr "משתנה"
+msgstr "משתנה %d:"
 
 #: js/messages.php:426 libraries/classes/Normalization.php:961
 msgid "Pick"
 msgstr ""
 
 #: js/messages.php:427
-#, fuzzy
-#| msgid "No rows selected"
 msgid "Column selector"
-msgstr "לא נבחרו שורות"
+msgstr "בוחר עמודות"
 
 #: js/messages.php:428
-#, fuzzy
-#| msgid "Search in database"
 msgid "Search this list"
-msgstr "חיפוש במסד הנתונים"
+msgstr "חיפוש ברשימה הזאת"
 
 #: js/messages.php:430
 #, php-format
@@ -1958,10 +1918,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:433
-#, fuzzy
-#| msgid "Free memory"
 msgid "See more"
-msgstr "זיכרון פנוי"
+msgstr "הצגת עוד"
 
 #: js/messages.php:434
 msgid "Are you sure?"
@@ -1974,26 +1932,20 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:439
-#, fuzzy
-#| msgid "Contribute"
 msgid "Continue"
-msgstr "תורם"
+msgstr "להמשיך"
 
 #: js/messages.php:442
 msgid "Add primary key"
 msgstr ""
 
 #: js/messages.php:443
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key added."
-msgstr "מפתח ראשי נוסף אל %s"
+msgstr "נוסף מפתח עיקרי."
 
 #: js/messages.php:444 libraries/classes/Normalization.php:236
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Taking you to next step…"
-msgstr "דוח המעקב"
+msgstr "התקדמות לשלב הבא…"
 
 #: js/messages.php:446
 #, php-format
@@ -2004,10 +1956,8 @@ msgstr ""
 #: libraries/classes/Normalization.php:551
 #: libraries/classes/Normalization.php:637
 #: libraries/classes/Normalization.php:701
-#, fuzzy
-#| msgid "At End of Table"
 msgid "End of step"
-msgstr "בסוף טבלה"
+msgstr "סיום השלב"
 
 #: js/messages.php:448
 msgid "Second step of normalization (2NF)"
@@ -2016,10 +1966,8 @@ msgstr ""
 #. l10n: Display text for calendar close link
 #: js/messages.php:449 js/messages.php:772
 #: libraries/classes/Normalization.php:334
-#, fuzzy
-#| msgid "None"
 msgid "Done"
-msgstr "ללא"
+msgstr "סיום"
 
 #: js/messages.php:450
 msgid "Confirm partial dependencies"
@@ -2036,10 +1984,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:456
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "אף מאגר נתונים לא נבחר."
+msgstr "לא נמצאו תלויות חלקיות!"
 
 #: js/messages.php:459
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -2069,10 +2015,8 @@ msgid "DROP columns %s from the table %s"
 msgstr ""
 
 #: js/messages.php:469
-#, fuzzy
-#| msgid "Add privileges on the following table"
 msgid "Create the following table"
-msgstr "הוספת הראשאות לטבלה הבאה"
+msgstr "יצירת הטבלה הבאה"
 
 #: js/messages.php:472
 msgid "Third step of normalization (3NF)"
@@ -2087,10 +2031,8 @@ msgid "Selected dependencies are as follows:"
 msgstr ""
 
 #: js/messages.php:475
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No dependencies selected!"
-msgstr "אף מאגר נתונים לא נבחר."
+msgstr "לא נבחרו תלויות!"
 
 #: js/messages.php:478 libraries/classes/CentralColumns.php:1305
 #: libraries/classes/InsertEdit.php:1802
@@ -2103,32 +2045,24 @@ msgid "Save"
 msgstr "שמירה"
 
 #: js/messages.php:481
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "שאילתת SQL"
+msgstr "הסתרת תנאי חיפוש"
 
 #: js/messages.php:482
-#, fuzzy
 msgid "Show search criteria"
-msgstr "שאילתת SQL"
+msgstr "הצגת תנאי חיפוש"
 
 #: js/messages.php:483
-#, fuzzy
-#| msgid "Search"
 msgid "Range search"
-msgstr "חיפוש"
+msgstr "חיפוש טווח"
 
 #: js/messages.php:484
-#, fuzzy
-#| msgid "Column names"
 msgid "Column maximum:"
-msgstr "שמות עמודה"
+msgstr "כמות מרבית לעמודה:"
 
 #: js/messages.php:485
-#, fuzzy
-#| msgid "Column names"
 msgid "Column minimum:"
-msgstr "שמות עמודה"
+msgstr "כמות מזערית לעמודה:"
 
 #: js/messages.php:486
 msgid "Minimum value:"
@@ -2139,14 +2073,12 @@ msgid "Maximum value:"
 msgstr ""
 
 #: js/messages.php:490
-#, fuzzy
 msgid "Hide find and replace criteria"
-msgstr "שאילתת SQL"
+msgstr "הסתרת תנאי החיפוש וההחלפה"
 
 #: js/messages.php:491
-#, fuzzy
 msgid "Show find and replace criteria"
-msgstr "שאילתת SQL"
+msgstr "הצגת תנאי החיפוש וההחלפה"
 
 #: js/messages.php:495
 msgid "Each point represents a data row."
@@ -2173,20 +2105,16 @@ msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
 #: js/messages.php:508
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select two columns"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "נא לבחור שתי עמודות"
 
 #: js/messages.php:510
 msgid "Select two different columns"
 msgstr ""
 
 #: js/messages.php:512
-#, fuzzy
-#| msgid "Table of contents"
 msgid "Data point content"
-msgstr "תוכן עניניים"
+msgstr "תוכן נקודת נתונים"
 
 #: js/messages.php:515 js/messages.php:682 js/messages.php:699
 #: libraries/classes/ErrorHandler.php:371 libraries/classes/InsertEdit.php:2970
@@ -2216,16 +2144,12 @@ msgid "Geometry"
 msgstr "פני השטח"
 
 #: js/messages.php:524
-#, fuzzy
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "טבעת פנימית"
 
 #: js/messages.php:525
-#, fuzzy
-#| msgid "Outer ring:"
 msgid "Outer ring"
-msgstr "טבעת חיצונית:"
+msgstr "טבעת חיצונית"
 
 #: js/messages.php:529
 msgid "Do you want to copy encryption key?"
@@ -2267,10 +2191,8 @@ msgstr ""
 
 #: js/messages.php:555 templates/database/designer/side_menu.twig:92
 #: templates/database/designer/side_menu.twig:95
-#, fuzzy
-#| msgid "Choose field to display"
 msgid "Choose column to display"
-msgstr "בחירת שדה להצגה"
+msgstr "נא לבחור עמודה להצגה"
 
 #: js/messages.php:557
 msgid ""
@@ -2280,59 +2202,43 @@ msgstr ""
 
 #: js/messages.php:560 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "לא נמצאו טבלאות במסד הנתונים."
+msgstr "הוספת טבלאות ממסדי נתונים אחרים"
 
 #: js/messages.php:561
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page name"
-msgstr "מספר דף:"
+msgstr "שם העמוד"
 
 #: js/messages.php:562 templates/database/designer/side_menu.twig:57
 #: templates/database/designer/side_menu.twig:60
-#, fuzzy
-#| msgid "Select All"
 msgid "Save page"
-msgstr "בחירת הכל"
+msgstr "שמירת עמוד"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:64
 #: templates/database/designer/side_menu.twig:67
-#, fuzzy
-#| msgid "Select All"
 msgid "Save page as"
-msgstr "בחירת הכל"
+msgstr "שמירת עמוד בשם"
 
 #: js/messages.php:564 templates/database/designer/side_menu.twig:50
 #: templates/database/designer/side_menu.twig:53
-#, fuzzy
-#| msgid "Free pages"
 msgid "Open page"
-msgstr "דפים חופשיים"
+msgstr "פתיחת עמוד"
 
 #: js/messages.php:565
-#, fuzzy
-#| msgid "Select All"
 msgid "Delete page"
-msgstr "בחירת הכל"
+msgstr "מחיקת עמוד"
 
 #: js/messages.php:566 templates/database/designer/side_menu.twig:4
 msgid "Untitled"
 msgstr ""
 
 #: js/messages.php:567
-#, fuzzy
-#| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
-msgstr "אנא בחר עמוד לעריכה"
+msgstr "נא לבחור עמוד כדי להמשיך"
 
 #: js/messages.php:568
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid page name"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד שם עמוד תקני"
 
 #: js/messages.php:570
 msgid "Do you want to save the changes to the current page?"
@@ -2343,10 +2249,8 @@ msgid "Successfully deleted the page"
 msgstr ""
 
 #: js/messages.php:572
-#, fuzzy
-#| msgid "Edit or export relational schema"
 msgid "Export relational schema"
-msgstr "עריכה או יצוא של תבנית יחסית"
+msgstr "יצוא סכימה יחסית"
 
 #: js/messages.php:573
 msgid "Modifications have been saved"
@@ -2429,10 +2333,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:609
-#, fuzzy
-#| msgid "Original position"
 msgid "Original length"
-msgstr "מיקום מקורי"
+msgstr "אורך מקורי"
 
 #: js/messages.php:612
 msgid "cancel"
@@ -2447,19 +2349,16 @@ msgid "Success"
 msgstr ""
 
 #: js/messages.php:616
-#, fuzzy
 msgid "Import status"
-msgstr "קבצי ייבוא"
+msgstr "מצב ייבוא"
 
 #: js/messages.php:617 libraries/classes/Navigation/Navigation.php:114
 msgid "Drop files here"
 msgstr ""
 
 #: js/messages.php:618
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database first"
-msgstr "בחירת טבלאות"
+msgstr "נא לבחור מסד נתונים קודם"
 
 #: js/messages.php:621 libraries/classes/Display/Results.php:4871
 #: libraries/classes/Util.php:3854
@@ -2477,25 +2376,20 @@ msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
 #: js/messages.php:639
-#, fuzzy
 msgid "Go to link:"
-msgstr "אין מאגרי נתונים"
+msgstr "מעבר לקישור:"
 
 #: js/messages.php:640
-#, fuzzy
-#| msgid "Column names"
 msgid "Copy column name."
-msgstr "שמות עמודה"
+msgstr "העתקת שם העמודה."
 
 #: js/messages.php:642
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:645
-#, fuzzy
-#| msgid "Generate Password"
 msgid "Generate password"
-msgstr "ייצור סיסמא"
+msgstr "יצירת ססמה"
 
 #: js/messages.php:646 libraries/classes/ReplicationGui.php:890
 msgid "Generate"
@@ -2503,45 +2397,33 @@ msgstr "ייצור"
 
 #: js/messages.php:650
 #: templates/table/structure/actions_in_table_structure.twig:4
-#, fuzzy
-#| msgid "Mon"
 msgid "More"
-msgstr "יום שני"
+msgstr "עוד"
 
 #: js/messages.php:653
-#, fuzzy
-#| msgid "Show all"
 msgid "Show panel"
-msgstr "הצגת הכול"
+msgstr "הצגת לוח"
 
 #: js/messages.php:654
-#, fuzzy
-#| msgid "Add new field"
 msgid "Hide panel"
-msgstr "הוספת שדה חדש"
+msgstr "הסתרת לוח"
 
 #: js/messages.php:655
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show hidden navigation tree items."
-msgstr "הראה רשת"
+msgstr "הצגת פריטי עץ ניווט נסתרים."
 
 #: js/messages.php:656 libraries/classes/Config/Descriptions.php:778
 #: libraries/classes/Navigation/NavigationTree.php:1431
-#, fuzzy
 msgid "Link with main panel"
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "קישור ללוח הראשי"
 
 #: js/messages.php:657 libraries/classes/Navigation/NavigationTree.php:1434
-#, fuzzy
 msgid "Unlink from main panel"
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "ניתוק מהלוח הראשי"
 
 #: js/messages.php:661
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The requested page was not found in the history, it may have expired."
-msgstr "המשתמש שנבחר לא נמצא בטבלת ההרשאות."
+msgstr "העמוד המבוקש לא נמצא בהיסטוריה, יתכן שהוא פג."
 
 #: js/messages.php:665 setup/lib/Index.php:171
 #, php-format
@@ -2556,25 +2438,21 @@ msgid ", latest stable version:"
 msgstr ""
 
 #: js/messages.php:670
-#, fuzzy
 msgid "up to date"
-msgstr "אין מאגרי נתונים"
+msgstr "עדכני"
 
 #: js/messages.php:672 libraries/classes/Display/Results.php:4805
 #: templates/view_create.twig:11
-#, fuzzy
 msgid "Create view"
-msgstr "גרסת שרת"
+msgstr "יצירת תצוגה"
 
 #: js/messages.php:675
-#, fuzzy
 msgid "Send error report"
-msgstr "קוד שרת (ID)"
+msgstr "שליחת דוח שגיאה"
 
 #: js/messages.php:676
-#, fuzzy
 msgid "Submit error report"
-msgstr "קוד שרת (ID)"
+msgstr "שליחת דוח שגיאה"
 
 #: js/messages.php:678
 msgid ""
@@ -2583,15 +2461,12 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:680
-#, fuzzy
-#| msgid "General relation features"
 msgid "Change report settings"
-msgstr "תכונות קשר כלליות"
+msgstr "שינוי הגדרות דיווח"
 
 #: js/messages.php:681
-#, fuzzy
 msgid "Show report details"
-msgstr "ראיית טבלאות"
+msgstr "הצגת פרטי דוח"
 
 #: js/messages.php:684
 msgid ""
@@ -2615,10 +2490,8 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: js/messages.php:702 libraries/classes/ErrorHandler.php:375
-#, fuzzy
-#| msgid "Ignore"
 msgid "Ignore All"
-msgstr "התעלמות"
+msgstr "התעלמות מהכול"
 
 #: js/messages.php:710
 msgid ""
@@ -2626,16 +2499,12 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:720
-#, fuzzy
-#| msgid "Show this query here again"
 msgid "Execute this query again?"
-msgstr "הראה את שאילתה כאן שוב"
+msgstr "להפעיל את השאילתה הזאת שוב?"
 
 #: js/messages.php:722
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
-msgstr "האם אכן ברצונך להפעיל את „%s”?"
+msgstr "למחוק את הסימנייה הזאת?"
 
 #: js/messages.php:724
 msgid "Some error occurred while getting SQL debug info."
