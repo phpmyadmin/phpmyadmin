@@ -1741,6 +1741,16 @@ function Click_option (id_this, column_name, table_name) {
 
 function Close_option () {
     document.getElementById('designer_optionse').style.display = 'none';
+    document.getElementById('rel_opt').value = '--';
+    document.getElementById('Query').value = '';
+    document.getElementById('new_name').value = '';
+    document.getElementById('operator').value = '---';
+    document.getElementById('groupby').checked = false;
+    document.getElementById('h_rel_opt').value = '--';
+    document.getElementById('h_operator').value = '---';
+    document.getElementById('having').value = '';
+    document.getElementById('orderby').value = '---';
+
 }
 
 function Select_all (id_this, owner) {
@@ -1837,59 +1847,47 @@ function add_object () {
     var init = history_array.length;
     if (rel.value !== '--') {
         if (document.getElementById('Query').value === '') {
-            document.getElementById('designer_hint').innerHTML = 'value/subQuery is empty';
-            document.getElementById('designer_hint').style.display = 'block';
+            PMA_ajaxShowMessage(PMA_sprintf(PMA_messages.strQueryEmpty));
             return;
         }
         p = document.getElementById('Query');
         where_obj = new where(rel.value, p.value);// make where object
         history_array.push(new history_obj(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Where'));
         sum = sum + 1;
-        rel.value = '--';
-        p.value = '';
     }
     if (document.getElementById('new_name').value !== '') {
         var rename_obj = new rename(document.getElementById('new_name').value);// make Rename object
         history_array.push(new history_obj(col_name, rename_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Rename'));
         sum = sum + 1;
-        document.getElementById('new_name').value = '';
     }
     if (document.getElementById('operator').value !== '---') {
         var aggregate_obj = new aggregate(document.getElementById('operator').value);
         history_array.push(new history_obj(col_name, aggregate_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Aggregate'));
         sum = sum + 1;
-        document.getElementById('operator').value = '---';
         // make aggregate operator
     }
     if (document.getElementById('groupby').checked === true) {
         history_array.push(new history_obj(col_name, 'GroupBy', tab_name, h_tabs[downer + '.' + tab_name], 'GroupBy'));
         sum = sum + 1;
-        document.getElementById('groupby').checked = false;
         // make groupby
     }
     if (document.getElementById('h_rel_opt').value !== '--') {
         if (document.getElementById('having').value === '') {
-            document.getElementById('designer_hint').innerHTML = 'value/subQuery is empty';
-            document.getElementById('designer_hint').style.display = 'block';
             return;
         }
-        p = document.getElementById('having');
         where_obj = new having(
             document.getElementById('h_rel_opt').value,
-            p.value,
+            document.getElementById('having').value,
             document.getElementById('h_operator').value
         );// make where object
         history_array.push(new history_obj(col_name, where_obj, tab_name, h_tabs[downer + '.' + tab_name], 'Having'));
         sum = sum + 1;
-        document.getElementById('h_rel_opt').value = '--';
-        document.getElementById('h_operator').value = '---';
-        p.value = ''; // make having
+        // make having
     }
     if (document.getElementById('orderby').value !== '---') {
         var oderby_obj = new orderby(document.getElementById('orderby').value);
         history_array.push(new history_obj(col_name, oderby_obj, tab_name, h_tabs[downer + '.' + tab_name], 'OrderBy'));
         sum = sum + 1;
-        document.getElementById('orderby').value = '---';
         // make orderby
     }
     PMA_ajaxShowMessage(PMA_sprintf(PMA_messages.strObjectsCreated, sum));
