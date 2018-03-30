@@ -55,7 +55,7 @@ class ZipExtension
             if ($this->zip->numFiles === 0) {
                 $error_message = __('No files found inside ZIP archive!');
                 $this->zip->close();
-                return (array('error' => $error_message, 'data' => $file_data));
+                return (['error' => $error_message, 'data' => $file_data]);
             }
 
             /* Is the the zip really an ODS file? */
@@ -68,7 +68,7 @@ class ZipExtension
             if (!isset($specific_entry)) {
                 $file_data = $first_zip_entry;
                 $this->zip->close();
-                return (array('error' => $error_message, 'data' => $file_data));
+                return (['error' => $error_message, 'data' => $file_data]);
             }
 
             /* Return the correct contents, not just the first entry */
@@ -86,11 +86,11 @@ class ZipExtension
             }
 
             $this->zip->close();
-            return (array('error' => $error_message, 'data' => $file_data));
+            return (['error' => $error_message, 'data' => $file_data]);
         } else {
             $error_message = __('Error in ZIP archive:') . ' ' . $this->zip->getStatusString();
             $this->zip->close();
-            return (array('error' => $error_message, 'data' => $file_data));
+            return (['error' => $error_message, 'data' => $file_data]);
         }
     }
 
@@ -167,22 +167,25 @@ class ZipExtension
      */
     public function createFile($data, $name, $time = 0)
     {
-        $datasec = array();  // Array to store compressed data
-        $ctrl_dir = array(); // Central directory
+        $datasec = [];  // Array to store compressed data
+        $ctrl_dir = []; // Central directory
         $old_offset = 0;     // Last offset position
         $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00"; // End of central directory record
 
-        if (is_string($name) && is_string($data)) {
-            $name = array($name);
-            $data = array($data);
-        } else {
-            if (! is_array($name) || ! is_array($data) || count($name) != count($data)) {
-                return false;
-            }
+        if (is_string($data)) {
+            $data = [$name => $data];
+        } elseif (! is_array($data)) {
+            return false;
         }
-
-        for ($i = 0; $i < count($data); $i++) {
-            $temp_name = str_replace('\\', '/', $name[$i]);
+        $ext_pos = strpos($name, '.');
+        $extension = substr($name, $ext_pos);
+        foreach ($data as $table => $dump) {
+            if (count($data) > 1) {
+                $tmp_name = str_replace($extension, '_' . $table . $extension, $name);
+            } else {
+                $tmp_name = $name;
+            }
+            $temp_name = str_replace('\\', '/', $tmp_name);
 
             /* Convert Unix timestamp to DOS timestamp */
             $timearray = ($time == 0) ? getdate() : getdate($time);
@@ -205,9 +208,9 @@ class ZipExtension
 
             $hexdtime = pack('V', $time);
 
-            $unc_len = strlen($data[$i]);
-            $crc = crc32($data[$i]);
-            $zdata = gzcompress($data[$i]);
+            $unc_len = strlen($dump);
+            $crc = crc32($dump);
+            $zdata = gzcompress($dump);
             $zdata = substr(substr($zdata, 0, strlen($zdata) - 4), 2); // fix crc bug
             $c_len = strlen($zdata);
             $fr = "\x50\x4b\x03\x04"
@@ -229,7 +232,6 @@ class ZipExtension
 
             $datasec[] = $fr;
 
-            $old_offset += strlen($fr);
             // now add to central directory record
             $cdrec = "\x50\x4b\x01\x02"
                 . "\x00\x00"                     // version made by
@@ -249,7 +251,7 @@ class ZipExtension
                                                  // - 'archive' bit set
                 . pack('V', $old_offset)         // relative offset of local header
                 . $temp_name;                    // filename
-
+            $old_offset += strlen($fr);
             // optional extra field, file comment goes here
             // save to central directory
             $ctrl_dir[] = $cdrec;
@@ -259,10 +261,10 @@ class ZipExtension
         $temp_ctrldir = implode('', $ctrl_dir);
         $header = $temp_ctrldir .
             $eof_ctrl_dir .
-            pack('v', sizeof($ctrl_dir)) .      //total #of entries "on this disk"
-            pack('v', sizeof($ctrl_dir)) .      //total #of entries overall
-            pack('V', strlen($temp_ctrldir)) .  //size of central dir
-            pack('V', $old_offset) .            //offset to start of central dir
+            pack('v', sizeof($ctrl_dir)) . //total #of entries "on this disk"
+            pack('v', sizeof($ctrl_dir)) . //total #of entries overall
+            pack('V', strlen($temp_ctrldir)) . //size of central dir
+            pack('V', $old_offset) . //offset to start of central dir
             "\x00\x00";                         //.zip file comment length
 
         $data = implode('', $datasec);
