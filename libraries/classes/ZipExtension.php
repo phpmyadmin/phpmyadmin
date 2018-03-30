@@ -157,35 +157,46 @@ class ZipExtension
     /**
      * Creates a zip file.
      * If $data is an array and $name is a string, the filenames will be indexed.
-     * The function will return false if $data is a string but $name is an array or if $data is an array and $name is an array, but they don't have the same amount of elements.
+     * The function will return false if $data is a string but $name is an array
+     * or if $data is an array and $name is an array, but they don't have the
+     * same amount of elements.
      *
      * @param array|string $data contents of the file/files
      * @param array|string $name name of the file/files in the archive
      * @param integer      $time the current timestamp
      *
-     * @return string|bool  the ZIP file contents, or false if there was an error.
+     * @return string|bool the ZIP file contents, or false if there was an error.
      */
     public function createFile($data, $name, $time = 0)
     {
-        $datasec = [];  // Array to store compressed data
+        $datasec = []; // Array to store compressed data
         $ctrl_dir = []; // Central directory
-        $old_offset = 0;     // Last offset position
+        $old_offset = 0; // Last offset position
         $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00"; // End of central directory record
 
-        if (is_string($data)) {
+        if (is_string($data) && is_string($name)) {
             $data = [$name => $data];
-        } elseif (! is_array($data)) {
+        } elseif (is_array($data) && is_string($name)) {
+            $ext_pos = strpos($name, '.');
+            $extension = substr($name, $ext_pos);
+            $newData = [];
+            foreach ($data as $key => $value) {
+                $newName = str_replace(
+                    $extension,
+                    '_' . $key . $extension,
+                    $name
+                );
+                $newData[$newName] = $value;
+            }
+            $data = $newData;
+        } elseif (is_array($data) && is_array($name) && count($data) === count($name)) {
+            $data = array_combine($name, $data);
+        } else {
             return false;
         }
-        $ext_pos = strpos($name, '.');
-        $extension = substr($name, $ext_pos);
+
         foreach ($data as $table => $dump) {
-            if (count($data) > 1) {
-                $tmp_name = str_replace($extension, '_' . $table . $extension, $name);
-            } else {
-                $tmp_name = $name;
-            }
-            $temp_name = str_replace('\\', '/', $tmp_name);
+            $temp_name = str_replace('\\', '/', $table);
 
             /* Convert Unix timestamp to DOS timestamp */
             $timearray = ($time == 0) ? getdate() : getdate($time);
