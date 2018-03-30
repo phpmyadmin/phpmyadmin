@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-01 14:37+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"PO-Revision-Date: 2018-03-30 20:08+0000\n"
+"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -5373,19 +5373,14 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Nascondi i database corrispondenti all'espressione regolare (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Maggiori informazioni su [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]PMA bug tracker[/a] e [a@https://bugs.mysql.com/19588]MySQL Bugs[/"
-"a]"
+"Maggiori informazioni su [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] e [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -13984,6 +13979,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Impostazione del cookie di sessione fallita. Forse stai usando HTTP invece "
+"che HTTPS per accedere a phpMyAdmin."
 
 #: libraries/common.inc.php:338
 msgid "Invalid authentication method set in configuration:"
@@ -14823,10 +14820,9 @@ msgstr "Output:"
 
 #: templates/display/export/options_quick_export.twig:8
 #: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Salva sul server nella cartella <b>%s</b>"
+msgstr "Salva sul server nella cartella <strong>%s</strong>"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -15243,10 +15239,8 @@ msgid "No preview available."
 msgstr "Nessuna anteprima disponibile."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "prendilo"
+msgstr "Prendilo"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
@@ -15425,8 +15419,6 @@ msgstr "Aggiorna query"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -15894,13 +15886,10 @@ msgstr[0] "%1$s corrispondenza in <strong>%2$s</strong>"
 msgstr[1] "%1$s corrispondenze in <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Totale:</b> <i>%s</i> corrispondenza"
-msgstr[1] "<b>Totale:</b> <i>%s</i> corrispondenze"
+msgstr[0] "<strong>Totale:</strong> <em>%count%</em> corrispondenza"
+msgstr[1] "<strong>Totale:</strong> <em>%count%</em> corrispondenze"
 
 #: templates/display/export/template_loading.twig:2
 msgid "Export templates:"
@@ -15957,10 +15946,9 @@ msgid "Save output to a file"
 msgstr "Salva l'output in un file"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Salta le tabelle più grandi di"
+msgstr "Salta le tabelle più grandi di %s MiB"
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -15971,12 +15959,11 @@ msgid "Export tables as separate files"
 msgstr "Esporta le tabelle come file separati"
 
 #: templates/login/twofactor/key-https-warning.twig:3
-#, fuzzy
 msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
-"Non stai usando HTTPS per accedere a phpMyAdmin, per cui probabilmente il "
+"Non stai usando HTTPS per accedere a phpMyAdmin, molto probabilmente il "
 "dispositivo FIDO U2F si rifiuterà di autenticarti."
 
 #: templates/table/structure/display_partitions.twig:8
