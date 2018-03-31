@@ -49,6 +49,7 @@ class ExportXml extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -368,7 +369,7 @@ class ExportXml extends ExportPlugin
             }
         }
 
-        return Export::outputHandler($head);
+        return $this->export->outputHandler($head);
     }
 
     /**
@@ -380,7 +381,7 @@ class ExportXml extends ExportPlugin
     {
         $foot = '</pma_xml_export>';
 
-        return Export::outputHandler($foot);
+        return $this->export->outputHandler($foot);
     }
 
     /**
@@ -407,7 +408,7 @@ class ExportXml extends ExportPlugin
                 . '    -->' . $crlf . '    <database name="'
                 . htmlspecialchars($db_alias) . '">' . $crlf;
 
-            return Export::outputHandler($head);
+            return $this->export->outputHandler($head);
         }
 
         return true;
@@ -427,7 +428,7 @@ class ExportXml extends ExportPlugin
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']
         ) {
-            return Export::outputHandler('    </database>' . $crlf);
+            return $this->export->outputHandler('    </database>' . $crlf);
         }
 
         return true;
@@ -493,7 +494,7 @@ class ExportXml extends ExportPlugin
 
             $buffer = '        <!-- ' . __('Table') . ' '
                 . htmlspecialchars($table_alias) . ' -->' . $crlf;
-            if (!Export::outputHandler($buffer)) {
+            if (!$this->export->outputHandler($buffer)) {
                 return false;
             }
 
@@ -519,7 +520,7 @@ class ExportXml extends ExportPlugin
                 }
                 $buffer .= '        </table>' . $crlf;
 
-                if (!Export::outputHandler($buffer)) {
+                if (!$this->export->outputHandler($buffer)) {
                     return false;
                 }
             }

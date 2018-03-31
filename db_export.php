@@ -24,6 +24,8 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
 
+$export = new Export();
+
 // $sub_part is used in Util::getDbInfo() to see if we are coming from
 // db_export.php, in which case we don't obey $cfg['MaxTableList']
 $sub_part  = '_export';
@@ -95,25 +97,25 @@ foreach (array('table_select', 'table_structure', 'table_data') as $one_key) {
 
 foreach ($tables as $each_table) {
     if (isset($_GET['table_select']) && is_array($_GET['table_select'])) {
-        $is_checked = Export::getCheckedClause(
+        $is_checked = $export->getCheckedClause(
             $each_table['Name'], $_GET['table_select']
         );
     } elseif (isset($table_select)) {
-        $is_checked = Export::getCheckedClause(
+        $is_checked = $export->getCheckedClause(
             $each_table['Name'], $table_select
         );
     } else {
         $is_checked = ' checked="checked"';
     }
     if (isset($_GET['table_structure']) && is_array($_GET['table_structure'])) {
-        $structure_checked = Export::getCheckedClause(
+        $structure_checked = $export->getCheckedClause(
             $each_table['Name'], $_GET['table_structure']
         );
     } else {
         $structure_checked = $is_checked;
     }
     if (isset($_GET['table_data']) && is_array($_GET['table_data'])) {
-        $data_checked = Export::getCheckedClause(
+        $data_checked = $export->getCheckedClause(
             $each_table['Name'], $_GET['table_data']
         );
     } else {

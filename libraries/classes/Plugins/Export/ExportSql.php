@@ -22,7 +22,6 @@ use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
@@ -581,7 +580,7 @@ class ExportSql extends ExportPlugin
         }
 
         if (!empty($text)) {
-            return Export::outputHandler($text);
+            return $this->export->outputHandler($text);
         }
 
         return false;
@@ -667,7 +666,7 @@ class ExportSql extends ExportPlugin
             $GLOBALS['dbi']->query('SET time_zone = "' . $GLOBALS['old_tz'] . '"');
         }
 
-        return Export::outputHandler($foot);
+        return $this->export->outputHandler($foot);
     }
 
     /**
@@ -774,7 +773,7 @@ class ExportSql extends ExportPlugin
             $this->_sent_charset = true;
         }
 
-        return Export::outputHandler($head);
+        return $this->export->outputHandler($head);
     }
 
     /**
@@ -799,7 +798,7 @@ class ExportSql extends ExportPlugin
             $compat = 'NONE';
         }
         if (isset($GLOBALS['sql_drop_database'])) {
-            if (!Export::outputHandler(
+            if (!$this->export->outputHandler(
                 'DROP DATABASE IF EXISTS '
                 . Util::backquoteCompat(
                     $db_alias,
@@ -835,7 +834,7 @@ class ExportSql extends ExportPlugin
             $create_query .= ' DEFAULT CHARACTER SET ' . $collation;
         }
         $create_query .= ';' . $crlf;
-        if (!Export::outputHandler($create_query)) {
+        if (!$this->export->outputHandler($create_query)) {
             return false;
         }
 
@@ -857,7 +856,7 @@ class ExportSql extends ExportPlugin
         if (isset($GLOBALS['sql_compatibility'])
             && $GLOBALS['sql_compatibility'] == 'NONE'
         ) {
-            $result = Export::outputHandler(
+            $result = $this->export->outputHandler(
                 'USE '
                 . Util::backquoteCompat(
                     $db,
@@ -867,7 +866,7 @@ class ExportSql extends ExportPlugin
                 . ';' . $crlf
             );
         } else {
-            $result = Export::outputHandler('USE ' . $db . ';' . $crlf);
+            $result = $this->export->outputHandler('USE ' . $db . ';' . $crlf);
         }
 
         return $result;
@@ -902,7 +901,7 @@ class ExportSql extends ExportPlugin
             )
             . $this->_exportComment();
 
-        return Export::outputHandler($head);
+        return $this->export->outputHandler($head);
     }
 
     /**
@@ -920,17 +919,17 @@ class ExportSql extends ExportPlugin
 
         //add indexes to the sql dump file
         if (isset($GLOBALS['sql_indexes'])) {
-            $result = Export::outputHandler($GLOBALS['sql_indexes']);
+            $result = $this->export->outputHandler($GLOBALS['sql_indexes']);
             unset($GLOBALS['sql_indexes']);
         }
         //add auto increments to the sql dump file
         if (isset($GLOBALS['sql_auto_increments'])) {
-            $result = Export::outputHandler($GLOBALS['sql_auto_increments']);
+            $result = $this->export->outputHandler($GLOBALS['sql_auto_increments']);
             unset($GLOBALS['sql_auto_increments']);
         }
         //add constraints to the sql dump file
         if (isset($GLOBALS['sql_constraints'])) {
-            $result = Export::outputHandler($GLOBALS['sql_constraints']);
+            $result = $this->export->outputHandler($GLOBALS['sql_constraints']);
             unset($GLOBALS['sql_constraints']);
         }
 
@@ -979,7 +978,7 @@ class ExportSql extends ExportPlugin
         }
 
         if (!empty($text)) {
-            return Export::outputHandler($text);
+            return $this->export->outputHandler($text);
         }
 
         return false;
@@ -1009,7 +1008,7 @@ class ExportSql extends ExportPlugin
             . $this->_exportComment()
             . $this->_exportComment(__('Metadata'))
             . $this->_exportComment();
-        if (!Export::outputHandler($comment)) {
+        if (!$this->export->outputHandler($comment)) {
             return false;
         }
 
@@ -1092,7 +1091,7 @@ class ExportSql extends ExportPlugin
 
         $comment .= $this->_exportComment();
 
-        if (!Export::outputHandler($comment)) {
+        if (!$this->export->outputHandler($comment)) {
             return false;
         }
 
@@ -1142,7 +1141,7 @@ class ExportSql extends ExportPlugin
                         $lastPage = $GLOBALS['crlf']
                             . "SET @LAST_PAGE = LAST_INSERT_ID();"
                             . $GLOBALS['crlf'];
-                        if (!Export::outputHandler($lastPage)) {
+                        if (!$this->export->outputHandler($lastPage)) {
                             return false;
                         }
 
@@ -2132,7 +2131,7 @@ class ExportSql extends ExportPlugin
         // but not in the case of export
         unset($GLOBALS['sql_constraints_query']);
 
-        return Export::outputHandler($dump);
+        return $this->export->outputHandler($dump);
     }
 
     /**
@@ -2190,7 +2189,7 @@ class ExportSql extends ExportPlugin
                 . $this->_exportComment()
                 . $this->_possibleCRLF();
 
-            return Export::outputHandler($head);
+            return $this->export->outputHandler($head);
         }
 
         $result = $GLOBALS['dbi']->tryQuery(
@@ -2206,7 +2205,7 @@ class ExportSql extends ExportPlugin
             if (! defined('TESTSUITE')) {
                 trigger_error($message, E_USER_ERROR);
             }
-            return Export::outputHandler(
+            return $this->export->outputHandler(
                 $this->_exportComment($message)
             );
         }
@@ -2296,8 +2295,8 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->_exportComment()
                     . $crlf;
-                Export::outputHandler($truncatehead);
-                Export::outputHandler($truncate);
+                $this->export->outputHandler($truncatehead);
+                $this->export->outputHandler($truncate);
             }
 
             // scheme for inserting fields
@@ -2348,7 +2347,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->_exportComment()
                     . $crlf;
-                if (!Export::outputHandler($head)) {
+                if (!$this->export->outputHandler($head)) {
                     return false;
                 }
             }
@@ -2357,7 +2356,7 @@ class ExportSql extends ExportPlugin
                 && $GLOBALS['sql_compatibility'] == 'MSSQL'
                 && $current_row == 0
             ) {
-                if (!Export::outputHandler(
+                if (!$this->export->outputHandler(
                     'SET IDENTITY_INSERT '
                     . Util::backquoteCompat(
                         $table_alias,
@@ -2468,7 +2467,7 @@ class ExportSql extends ExportPlugin
                             && $sql_max_size > 0
                             && $query_size + $insertLineSize > $sql_max_size
                         ) {
-                            if (!Export::outputHandler(';' . $crlf)) {
+                            if (!$this->export->outputHandler(';' . $crlf)) {
                                 return false;
                             }
                             $query_size = 0;
@@ -2485,7 +2484,7 @@ class ExportSql extends ExportPlugin
             }
             unset($values);
 
-            if (!Export::outputHandler(
+            if (!$this->export->outputHandler(
                 ($current_row == 1 ? '' : $separator . $crlf)
                 . $insert_line
             )
@@ -2495,7 +2494,7 @@ class ExportSql extends ExportPlugin
         } // end while
 
         if ($current_row > 0) {
-            if (!Export::outputHandler(';' . $crlf)) {
+            if (!$this->export->outputHandler(';' . $crlf)) {
                 return false;
             }
         }
@@ -2505,7 +2504,7 @@ class ExportSql extends ExportPlugin
             && $GLOBALS['sql_compatibility'] == 'MSSQL'
             && $current_row > 0
         ) {
-            $outputSucceeded = Export::outputHandler(
+            $outputSucceeded = $this->export->outputHandler(
                 $crlf . 'SET IDENTITY_INSERT '
                 . Util::backquoteCompat(
                     $table_alias,
