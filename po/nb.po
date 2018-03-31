@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-03-31 15:15+0000\n"
+"PO-Revision-Date: 2018-04-01 16:39+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nb/>\n"
@@ -625,13 +625,13 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"Du ble logget ut fra én server. For å logge helt ut av phpMyAdmin må du "
+"Du ble logget ut fra én tjener. For å logge helt ut av phpMyAdmin må du "
 "logge ut av alle tjenere."
 
 #: index.php:193 libraries/classes/Footer.php:75
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin Demo-server"
+msgstr "phpMyAdmin-demotjener"
 
 #: index.php:197 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
@@ -640,9 +640,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
-"Du bruker demo server. Du kan gjøre hva du vil her, men vennligst ikke endre "
-"på root, debian-sys-maint og pma -brukerne. Mer informasjon er tilgjengelig "
-"på %s."
+"Du bruker demotjeneren. Du kan gjøre hva du vil her, men vennligst ikke "
+"endre på root, debian-sys-maint og pma -brukerne. Mer informasjon "
+"tilgjengelig på %s."
 
 #: index.php:207
 msgid "General settings"
@@ -669,15 +669,15 @@ msgstr "Flere innstillinger"
 
 #: index.php:331
 msgid "Database server"
-msgstr "Database-server"
+msgstr "Database-tjener"
 
 #: index.php:334 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
 msgid "Server:"
-msgstr "Server:"
+msgstr "Tjener:"
 
 #: index.php:338
 msgid "Server type:"
-msgstr "Server-type:"
+msgstr "Tjener-type:"
 
 #: index.php:342
 #, fuzzy
@@ -689,7 +689,7 @@ msgstr "Usikker tilkobling"
 #: libraries/classes/Plugins/Export/ExportSql.php:704
 #: libraries/classes/Plugins/Export/ExportXml.php:243
 msgid "Server version:"
-msgstr "Server-versjon:"
+msgstr "Tjener-versjon:"
 
 #: index.php:352
 msgid "Protocol version:"
@@ -701,7 +701,7 @@ msgstr "Bruker:"
 
 #: index.php:361
 msgid "Server charset:"
-msgstr "Server-tegnsett:"
+msgstr "Tjener-tegnsett:"
 
 #: index.php:377
 msgid "Web server"
