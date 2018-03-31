@@ -31,6 +31,7 @@ class ChangePassword
       */
     public static function getHtml($mode, $username, $hostname)
     {
+        $serverPrivileges = new Privileges();
         /**
          * autocomplete feature of IE kills the "onchange" event handler and it
          * must be replaced by the "onpropertychange" one in this case
@@ -92,7 +93,7 @@ class ChangePassword
 
         $serverType = Util::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
-        $orig_auth_plugin = Privileges::getCurrentAuthenticationPlugin(
+        $orig_auth_plugin = $serverPrivileges->getCurrentAuthenticationPlugin(
             'change',
             $username,
             $hostname
@@ -109,7 +110,7 @@ class ChangePassword
                 && $serverVersion >= 50706)
                 || ($GLOBALS['dbi']->isSuperuser() && $mode == 'edit_other')
             ) {
-                $auth_plugin_dropdown = Privileges::getHtmlForAuthPluginsDropdown(
+                $auth_plugin_dropdown = $serverPrivileges->getHtmlForAuthPluginsDropdown(
                     $orig_auth_plugin, 'change_pw', 'new'
                 );
 
@@ -142,7 +143,7 @@ class ChangePassword
                     . '</table>';
             }
         } else {
-            $auth_plugin_dropdown = Privileges::getHtmlForAuthPluginsDropdown(
+            $auth_plugin_dropdown = $serverPrivileges->getHtmlForAuthPluginsDropdown(
                 $orig_auth_plugin, 'change_pw', 'old'
             );
 
