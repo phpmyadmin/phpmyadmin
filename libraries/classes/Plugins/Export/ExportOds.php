@@ -32,6 +32,7 @@ class ExportOds extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $GLOBALS['ods_buffer'] = '';
         $this->setProperties();
     }
@@ -149,7 +150,7 @@ class ExportOds extends ExportPlugin
             . '</office:body>'
             . '</office:document-content>';
 
-        return Export::outputHandler(
+        return $this->export->outputHandler(
             OpenDocument::create(
                 'application/vnd.oasis.opendocument.spreadsheet',
                 $GLOBALS['ods_buffer']

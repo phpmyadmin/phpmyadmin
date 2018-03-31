@@ -30,6 +30,7 @@ class ExportYaml extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -74,7 +75,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportHeader()
     {
-        Export::outputHandler(
+        $this->export->outputHandler(
             '%YAML 1.1' . $GLOBALS['crlf'] . '---' . $GLOBALS['crlf']
         );
 
@@ -88,7 +89,7 @@ class ExportYaml extends ExportPlugin
      */
     public function exportFooter()
     {
-        Export::outputHandler('...' . $GLOBALS['crlf']);
+        $this->export->outputHandler('...' . $GLOBALS['crlf']);
 
         return true;
     }
@@ -207,7 +208,7 @@ class ExportYaml extends ExportPlugin
                 $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . $crlf;
             }
 
-            if (!Export::outputHandler($buffer)) {
+            if (!$this->export->outputHandler($buffer)) {
                 return false;
             }
         }

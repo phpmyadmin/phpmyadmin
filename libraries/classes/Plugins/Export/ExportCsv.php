@@ -32,6 +32,7 @@ class ExportCsv extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -256,7 +257,7 @@ class ExportCsv extends ExportPlugin
                 $schema_insert .= $csv_separator;
             } // end for
             $schema_insert = trim(mb_substr($schema_insert, 0, -1));
-            if (!Export::outputHandler($schema_insert . $csv_terminated)) {
+            if (!$this->export->outputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end if
@@ -321,7 +322,7 @@ class ExportCsv extends ExportPlugin
                 }
             } // end for
 
-            if (!Export::outputHandler($schema_insert . $csv_terminated)) {
+            if (!$this->export->outputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end while

@@ -223,7 +223,7 @@ class ExportLatex extends ExportPlugin
             . '% ' . __('Server version:') . ' ' . $GLOBALS['dbi']->getVersionString() . $crlf
             . '% ' . __('PHP Version:') . ' ' . phpversion() . $crlf;
 
-        return Export::outputHandler($head);
+        return $this->export->outputHandler($head);
     }
 
     /**
@@ -254,7 +254,7 @@ class ExportLatex extends ExportPlugin
             . '% ' . __('Database:') . ' ' . '\'' . $db_alias . '\'' . $crlf
             . '% ' . $crlf;
 
-        return Export::outputHandler($head);
+        return $this->export->outputHandler($head);
     }
 
     /**
@@ -351,7 +351,7 @@ class ExportLatex extends ExportPlugin
                 )
                 . '} \\\\';
         }
-        if (!Export::outputHandler($buffer)) {
+        if (!$this->export->outputHandler($buffer)) {
             return false;
         }
 
@@ -364,11 +364,11 @@ class ExportLatex extends ExportPlugin
             }
 
             $buffer = mb_substr($buffer, 0, -2) . '\\\\ \\hline \hline ';
-            if (!Export::outputHandler($buffer . ' \\endfirsthead ' . $crlf)) {
+            if (!$this->export->outputHandler($buffer . ' \\endfirsthead ' . $crlf)) {
                 return false;
             }
             if (isset($GLOBALS['latex_caption'])) {
-                if (!Export::outputHandler(
+                if (!$this->export->outputHandler(
                     '\\caption{'
                     . Util::expandUserString(
                         $GLOBALS['latex_data_continued_caption'],
@@ -384,11 +384,11 @@ class ExportLatex extends ExportPlugin
                     return false;
                 }
             }
-            if (!Export::outputHandler($buffer . '\\endhead \\endfoot' . $crlf)) {
+            if (!$this->export->outputHandler($buffer . '\\endhead \\endfoot' . $crlf)) {
                 return false;
             }
         } else {
-            if (!Export::outputHandler('\\\\ \hline')) {
+            if (!$this->export->outputHandler('\\\\ \hline')) {
                 return false;
             }
         }
@@ -417,13 +417,13 @@ class ExportLatex extends ExportPlugin
                 }
             }
             $buffer .= ' \\\\ \\hline ' . $crlf;
-            if (!Export::outputHandler($buffer)) {
+            if (!$this->export->outputHandler($buffer)) {
                 return false;
             }
         }
 
         $buffer = ' \\end{longtable}' . $crlf;
-        if (!Export::outputHandler($buffer)) {
+        if (!$this->export->outputHandler($buffer)) {
             return false;
         }
 
@@ -506,7 +506,7 @@ class ExportLatex extends ExportPlugin
          */
         $buffer = $crlf . '%' . $crlf . '% ' . __('Structure:') . ' '
             . $table_alias . $crlf . '%' . $crlf . ' \\begin{longtable}{';
-        if (!Export::outputHandler($buffer)) {
+        if (!$this->export->outputHandler($buffer)) {
             return false;
         }
 
@@ -575,7 +575,7 @@ class ExportLatex extends ExportPlugin
         }
         $buffer .= $header . ' \\\\ \\hline \\hline \\endhead \\endfoot ' . $crlf;
 
-        if (!Export::outputHandler($buffer)) {
+        if (!$this->export->outputHandler($buffer)) {
             return false;
         }
 
@@ -648,14 +648,14 @@ class ExportLatex extends ExportPlugin
             $buffer = str_replace("\000", ' & ', $local_buffer);
             $buffer .= ' \\\\ \\hline ' . $crlf;
 
-            if (!Export::outputHandler($buffer)) {
+            if (!$this->export->outputHandler($buffer)) {
                 return false;
             }
         } // end while
 
         $buffer = ' \\end{longtable}' . $crlf;
 
-        return Export::outputHandler($buffer);
+        return $this->export->outputHandler($buffer);
     } // end of the 'exportStructure' method
 
     /**

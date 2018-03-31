@@ -32,6 +32,7 @@ class ExportMediawiki extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -262,7 +263,7 @@ class ExportMediawiki extends ExportPlugin
             break;
         } // end switch
 
-        return Export::outputHandler($output);
+        return $this->export->outputHandler($output);
     }
 
     /**
@@ -347,7 +348,7 @@ class ExportMediawiki extends ExportPlugin
         // End table construction
         $output .= "|}" . str_repeat($this->_exportCRLF(), 2);
 
-        return Export::outputHandler($output);
+        return $this->export->outputHandler($output);
     }
 
     /**

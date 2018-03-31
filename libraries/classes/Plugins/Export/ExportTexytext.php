@@ -133,7 +133,7 @@ class ExportTexytext extends ExportPlugin
             $db_alias = $db;
         }
 
-        return Export::outputHandler(
+        return $this->export->outputHandler(
             '===' . __('Database') . ' ' . $db_alias . "\n\n"
         );
     }
@@ -190,7 +190,7 @@ class ExportTexytext extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        if (!Export::outputHandler(
+        if (!$this->export->outputHandler(
             '== ' . __('Dumping data for table') . ' ' . $table_alias . "\n\n"
         )
         ) {
@@ -217,7 +217,7 @@ class ExportTexytext extends ExportPlugin
                     . htmlspecialchars(stripslashes($col_as));
             } // end for
             $text_output .= "\n|------\n";
-            if (!Export::outputHandler($text_output)) {
+            if (!$this->export->outputHandler($text_output)) {
                 return false;
             }
         } // end if
@@ -241,7 +241,7 @@ class ExportTexytext extends ExportPlugin
                     );
             } // end for
             $text_output .= "\n";
-            if (!Export::outputHandler($text_output)) {
+            if (!$this->export->outputHandler($text_output)) {
                 return false;
             }
         } // end while
@@ -561,7 +561,7 @@ class ExportTexytext extends ExportPlugin
             $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
         } // end switch
 
-        return Export::outputHandler($dump);
+        return $this->export->outputHandler($dump);
     }
 
     /**

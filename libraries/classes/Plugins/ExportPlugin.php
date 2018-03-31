@@ -8,6 +8,7 @@
 
 namespace PhpMyAdmin\Plugins;
 
+use PhpMyAdmin\Export;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Relation;
 
@@ -35,11 +36,17 @@ abstract class ExportPlugin
     protected $relation;
 
     /**
+     * @var Export $export
+     */
+    protected $export;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->relation = new Relation();
+        $this->export = new Export();
     }
 
     /**

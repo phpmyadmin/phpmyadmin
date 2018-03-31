@@ -31,6 +31,7 @@ class ExportPhparray extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -87,7 +88,7 @@ class ExportPhparray extends ExportPlugin
      */
     public function exportHeader()
     {
-        Export::outputHandler(
+        $this->export->outputHandler(
             '<?php' . $GLOBALS['crlf']
             . '/**' . $GLOBALS['crlf']
             . ' * Export to PHP Array plugin for PHPMyAdmin' . $GLOBALS['crlf']
@@ -121,7 +122,7 @@ class ExportPhparray extends ExportPlugin
         if (empty($db_alias)) {
             $db_alias = $db;
         }
-        Export::outputHandler(
+        $this->export->outputHandler(
             '/**' . $GLOBALS['crlf']
             . ' * Database ' . $this->commentString(Util::backquote($db_alias))
             . $GLOBALS['crlf'] . ' */' . $GLOBALS['crlf']
@@ -246,7 +247,7 @@ class ExportPhparray extends ExportPlugin
         }
 
         $buffer .= $crlf . ');' . $crlf;
-        if (!Export::outputHandler($buffer)) {
+        if (!$this->export->outputHandler($buffer)) {
             return false;
         }
 

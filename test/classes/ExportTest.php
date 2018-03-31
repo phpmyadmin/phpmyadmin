@@ -21,11 +21,26 @@ use PHPUnit\Framework\TestCase;
 class ExportTest extends TestCase
 {
     /**
-     * Test for Export::mergeAliases
+     * @var Export
+     */
+    private $export;
+
+    /**
+     * Sets up the fixture
      *
      * @return void
      */
-    public function testPMAMergeAliases()
+    protected function setUp()
+    {
+        $this->export = new Export();
+    }
+
+    /**
+     * Test for mergeAliases
+     *
+     * @return void
+     */
+    public function testMergeAliases()
     {
         $aliases1 = array(
             'test_db' => array(
@@ -91,7 +106,7 @@ class ExportTest extends TestCase
                 )
             )
         );
-        $actual = Export::mergeAliases($aliases1, $aliases2);
+        $actual = $this->export->mergeAliases($aliases1, $aliases2);
         $this->assertEquals($expected, $actual);
     }
 }
