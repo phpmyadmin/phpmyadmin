@@ -25,6 +25,8 @@ $scripts  = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('db_tracking.js');
 
+$tracking = new Tracking();
+
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
  */
@@ -57,7 +59,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
 
 } elseif (isset($_REQUEST['submit_create_version'])) {
 
-    Tracking::createTrackingForMultipleTables($_REQUEST['selected']);
+    $tracking->createTrackingForMultipleTables($_REQUEST['selected']);
     Message::success(
         sprintf(
             __(
@@ -82,7 +84,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
 
         } elseif ($_REQUEST['submit_mult'] == 'track') {
 
-            echo Tracking::getHtmlForDataDefinitionAndManipulationStatements(
+            echo $tracking->getHtmlForDataDefinitionAndManipulationStatements(
                 'db_tracking.php' . $url_query,
                 0,
                 $GLOBALS['db'],
@@ -129,17 +131,17 @@ $all_tables_result = $relation->queryAsControlUser($all_tables_query);
 if (is_object($all_tables_result)
     && $GLOBALS['dbi']->numRows($all_tables_result) > 0
 ) {
-    echo Tracking::getHtmlForTrackedTables(
+    echo $tracking->getHtmlForTrackedTables(
         $GLOBALS['db'], $all_tables_result, $url_query, $pmaThemeImage,
         $text_dir, $cfgRelation
     );
 }
 
-$untracked_tables = Tracking::getUntrackedTables($GLOBALS['db']);
+$untracked_tables = $tracking->getUntrackedTables($GLOBALS['db']);
 
 // If untracked tables exist
 if (count($untracked_tables) > 0) {
-    echo Tracking::getHtmlForUntrackedTables(
+    echo $tracking->getHtmlForUntrackedTables(
         $GLOBALS['db'], $untracked_tables, $url_query, $pmaThemeImage, $text_dir
     );
 }
