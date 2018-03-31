@@ -958,14 +958,8 @@ class InsertEdit
                 $column['Type']
             );
             $maxlength = $extracted_columnspec['spec_in_brackets'];
-            if ($maxlength == 255) {
-                // Special case for varchar(255)
-                $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'] * 3;
-                $textareaCols = $GLOBALS['cfg']['CharTextareaCols'] * 2;
-            } else {
-                $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
-                $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
-            }
+            $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'] * (($maxlength / 100) + 1);
+            $textareaCols = $GLOBALS['cfg']['CharTextareaCols'] * (($maxlength / 150) + 1);
         } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
             && mb_strstr($column['pma_type'], 'longtext')
         ) {
