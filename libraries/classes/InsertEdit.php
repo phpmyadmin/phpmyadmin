@@ -958,8 +958,8 @@ class InsertEdit
                 $column['Type']
             );
             $maxlength = $extracted_columnspec['spec_in_brackets'];
-            $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'] * (($maxlength / 100) + 1);
-            $textareaCols = $GLOBALS['cfg']['CharTextareaCols'] * (($maxlength / 150) + 1);
+            $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'] * floor(($maxlength / 100) + 1);
+            $textareaCols = $GLOBALS['cfg']['CharTextareaCols'] * floor(($maxlength / 150) + 1);
         } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
             && mb_strstr($column['pma_type'], 'longtext')
         ) {
