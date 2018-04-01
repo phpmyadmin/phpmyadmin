@@ -21,6 +21,7 @@ define('IS_TRANSFORMATION_WRAPPER', true);
  */
 require_once './libraries/common.inc.php';
 
+$transformations = new Transformations();
 $relation = new Relation();
 $cfgRelation = $relation->getRelationsParam();
 
@@ -87,8 +88,8 @@ if (! $row) {
 $default_ct = 'application/octet-stream';
 
 if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
-    $mime_map = Transformations::getMIME($db, $table);
-    $mime_options = Transformations::getOptions(
+    $mime_map = $transformations->getMime($db, $table);
+    $mime_options = $transformations->getOptions(
         isset($mime_map[$transform_key]['transformation_options'])
         ? $mime_map[$transform_key]['transformation_options'] : ''
     );

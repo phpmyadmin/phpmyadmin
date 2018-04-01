@@ -19,6 +19,11 @@ use PHPUnit\Framework\TestCase;
 class TransformationsTest extends TestCase
 {
     /**
+     * @var Transformations
+     */
+    private $transformations;
+
+    /**
      * Set up global environment.
      *
      * @return void
@@ -42,6 +47,8 @@ class TransformationsTest extends TestCase
         $GLOBALS['cfg']['DBG']['sql'] = false;
         // need to clear relation test cache
         unset($_SESSION['relation']);
+
+        $this->transformations = new Transformations();
     }
 
     /**
@@ -58,7 +65,7 @@ class TransformationsTest extends TestCase
     {
         $this->assertEquals(
             $expected,
-            Transformations::getOptions($input)
+            $this->transformations->getOptions($input)
         );
     }
 
@@ -163,7 +170,7 @@ class TransformationsTest extends TestCase
                     'Text_Plain_Substring.php',
                 ),
             ),
-            Transformations::getAvailableMIMEtypes()
+            $this->transformations->getAvailableMimeTypes()
         );
     }
 
@@ -198,12 +205,12 @@ class TransformationsTest extends TestCase
                     'input_transformation_options' => '',
                 ),
             ),
-            Transformations::getMIME('pma_test', 'table1')
+            $this->transformations->getMime('pma_test', 'table1')
         );
     }
 
     /**
-     * Test for Transformations::clear
+     * Test for clear
      *
      * @return void
      */
@@ -219,7 +226,7 @@ class TransformationsTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         // Case 1 : no configuration storage
-        $actual = Transformations::clear('db');
+        $actual = $this->transformations->clear('db');
         $this->assertEquals(
             false,
             $actual
@@ -230,21 +237,21 @@ class TransformationsTest extends TestCase
         $_SESSION['relation'][$GLOBALS['server']]['db'] = "pmadb";
 
         // Case 2 : database delete
-        $actual = Transformations::clear('db');
+        $actual = $this->transformations->clear('db');
         $this->assertEquals(
             true,
             $actual
         );
 
         // Case 3 : table delete
-        $actual = Transformations::clear('db', 'table');
+        $actual = $this->transformations->clear('db', 'table');
         $this->assertEquals(
             true,
             $actual
         );
 
         // Case 4 : column delete
-        $actual = Transformations::clear('db', 'table', 'col');
+        $actual = $this->transformations->clear('db', 'table', 'col');
         $this->assertEquals(
             true,
             $actual
@@ -258,7 +265,7 @@ class TransformationsTest extends TestCase
     {
         $this->assertEquals(
             $expected,
-            Transformations::fixupMIME($value)
+            $this->transformations->fixUpMime($value)
         );
     }
 

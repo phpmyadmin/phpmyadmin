@@ -71,6 +71,11 @@ class PdfRelationSchema extends ExportRelationSchema
     protected $relations = array();
 
     /**
+     * @var Transformations
+     */
+    private $transformations;
+
+    /**
      * The "PdfRelationSchema" constructor
      *
      * @param string $db database name
@@ -79,6 +84,8 @@ class PdfRelationSchema extends ExportRelationSchema
      */
     public function __construct($db)
     {
+        $this->transformations = new Transformations();
+
         $this->setShowGrid(isset($_REQUEST['pdf_show_grid']));
         $this->setShowColor(isset($_REQUEST['pdf_show_color']));
         $this->setShowKeys(isset($_REQUEST['pdf_show_keys']));
@@ -550,7 +557,7 @@ class PdfRelationSchema extends ExportRelationSchema
             $cfgRelation = $this->relation->getRelationsParam();
             $comments = $this->relation->getComments($this->db, $table);
             if ($cfgRelation['mimework']) {
-                $mime_map = Transformations::getMIME($this->db, $table, true);
+                $mime_map = $this->transformations->getMime($this->db, $table, true);
             }
 
             /**

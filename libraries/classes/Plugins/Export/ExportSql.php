@@ -1846,7 +1846,7 @@ class ExportSql extends ExportPlugin
         );
 
         if ($do_mime && $cfgRelation['mimework']) {
-            if (!($mime_map = Transformations::getMIME($db, $table, true))) {
+            if (!($mime_map = $this->transformations->getMime($db, $table, true))) {
                 unset($mime_map);
             }
         }
