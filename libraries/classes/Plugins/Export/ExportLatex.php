@@ -536,7 +536,7 @@ class ExportLatex extends ExportPlugin
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';
-            $mime_map = Transformations::getMIME($db, $table, true);
+            $mime_map = $this->transformations->getMime($db, $table, true);
         }
 
         // Table caption for first page and label

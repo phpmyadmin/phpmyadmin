@@ -1675,9 +1675,11 @@ class ResultsTest extends PmaTestCase
                     ),
                 )
             );
+
+        $transformations = new Transformations();
         $this->object->__set(
             'mime_map',
-            Transformations::getMIME('db', 'table')
+            $transformations->getMime('db', 'table')
         );
 
         // Actually invoke tested method

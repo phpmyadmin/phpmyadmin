@@ -21,6 +21,8 @@ require_once 'libraries/common.inc.php';
 // Check parameters
 Util::checkParameters(array('db'));
 
+$transformations = new Transformations();
+
 /* Check if database name is empty */
 if (strlen($db) === 0) {
     Util::mysqlDie(
@@ -81,7 +83,7 @@ if (isset($_REQUEST['do_save_data'])) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
                     && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
-                    Transformations::setMIME(
+                    $transformations->setMime(
                         $db, $table,
                         $_REQUEST['field_name'][$fieldindex], $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],

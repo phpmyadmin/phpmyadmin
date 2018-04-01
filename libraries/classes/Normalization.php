@@ -35,6 +35,11 @@ class Normalization
     private $relation;
 
     /**
+     * @var Transformations
+     */
+    private $transformations;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -43,6 +48,7 @@ class Normalization
     {
         $this->dbi = $dbi;
         $this->relation = new Relation();
+        $this->transformations = new Transformations();
     }
 
     /**
@@ -122,8 +128,8 @@ class Normalization
         $availableMime = [];
         $mimeMap = [];
         if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
-            $mimeMap = Transformations::getMIME($db, $table);
-            $availableMime = Transformations::getAvailableMIMEtypes();
+            $mimeMap = $this->transformations->getMime($db, $table);
+            $availableMime = $this->transformations->getAvailableMimeTypes();
         }
         $commentsMap = $this->relation->getComments($db, $table);
         for ($columnNumber = 0; $columnNumber < $numFields; $columnNumber++) {

@@ -410,7 +410,7 @@ class ExportHtmlword extends ExportPlugin
             $schema_insert .= '<td class="print"><strong>'
                 . htmlspecialchars('MIME')
                 . '</strong></td>';
-            $mime_map = Transformations::getMIME($db, $table, true);
+            $mime_map = $this->transformations->getMime($db, $table, true);
         }
         $schema_insert .= '</tr>';
 

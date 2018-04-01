@@ -389,7 +389,7 @@ class ExportTexytext extends ExportPlugin
         }
         if ($do_mime && $cfgRelation['mimework']) {
             $text_output .= '|' . htmlspecialchars('MIME');
-            $mime_map = Transformations::getMIME($db, $table, true);
+            $mime_map = $this->transformations->getMime($db, $table, true);
         }
         $text_output .= "\n|------\n";
 

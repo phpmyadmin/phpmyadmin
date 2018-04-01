@@ -48,7 +48,7 @@ $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
 $relation = new Relation();
-
+$transformations = new Transformations();
 $insertEdit = new InsertEdit($GLOBALS['dbi']);
 
 // check whether insert row mode, if so include tbl_change.php
@@ -133,7 +133,7 @@ $gis_from_wkb_functions = array(
 );
 
 //if some posted fields need to be transformed.
-$mime_map = Transformations::getMIME($GLOBALS['db'], $GLOBALS['table']);
+$mime_map = $transformations->getMime($GLOBALS['db'], $GLOBALS['table']);
 if ($mime_map === false) {
     $mime_map = array();
 }
@@ -225,10 +225,10 @@ foreach ($loop_array as $rownumber => $where_clause) {
                 . $mime_map[$column_name]['input_transformation'];
             if (is_file($filename)) {
                 include_once $filename;
-                $classname = Transformations::getClassName($filename);
+                $classname = $transformations->getClassName($filename);
                 /** @var IOTransformationsPlugin $transformation_plugin */
                 $transformation_plugin = new $classname();
-                $transformation_options = Transformations::getOptions(
+                $transformation_options = $transformations->getOptions(
                     $mime_map[$column_name]['input_transformation_options']
                 );
                 $current_value = $transformation_plugin->applyTransformation(

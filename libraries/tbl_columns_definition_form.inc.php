@@ -30,6 +30,7 @@ Util::checkParameters(
 global $db, $table;
 
 $relation = new Relation();
+$transformations = new Transformations();
 
 /**
  * Initialize to avoid code execution path warnings
@@ -102,8 +103,8 @@ if (isset($fields_meta)) {
 
 $available_mime = array();
 if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
-    $mime_map = Transformations::getMIME($db, $table);
-    $available_mime = Transformations::getAvailableMIMEtypes();
+    $mime_map = $transformations->getMime($db, $table);
+    $available_mime = $transformations->getAvailableMimeTypes();
 }
 
 //  workaround for field_fulltext, because its submitted indices contain
