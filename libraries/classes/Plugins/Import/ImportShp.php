@@ -38,6 +38,7 @@ class ImportShp extends ImportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
         if (extension_loaded('zip')) {
             $this->zipExtension = new ZipExtension();
@@ -259,7 +260,7 @@ class ImportShp extends ImportPlugin
 
         // Use data from shape file to chose best-fit MySQL types for each column
         $analyses = array();
-        $analyses[] = Import::analyzeTable($tables[0]);
+        $analyses[] = $this->import->analyzeTable($tables[0]);
 
         $table_no = 0;
         $spatial_col = 0;
@@ -277,7 +278,7 @@ class ImportShp extends ImportPlugin
 
         // Created and execute necessary SQL statements from data
         $null_param = null;
-        Import::buildSql($db_name, $tables, $analyses, $null_param, $options, $sql_data);
+        $this->import->buildSql($db_name, $tables, $analyses, $null_param, $options, $sql_data);
 
         unset($tables);
         unset($analyses);
@@ -286,7 +287,7 @@ class ImportShp extends ImportPlugin
         $error = false;
 
         // Commit any possible data in buffers
-        Import::runQuery('', '', $sql_data);
+        $this->import->runQuery('', '', $sql_data);
     }
 
     /**
@@ -303,11 +304,13 @@ class ImportShp extends ImportPlugin
     {
         global $buffer, $eof;
 
+        $import = new Import();
+
         if (strlen($buffer) < $length) {
             if ($GLOBALS['finished']) {
                 $eof = true;
             } else {
-                $buffer .= Import::getNextChunk();
+                $buffer .= $import->getNextChunk();
             }
         }
         $result = substr($buffer, 0, $length);
