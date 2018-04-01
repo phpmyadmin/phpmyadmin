@@ -30,7 +30,7 @@ class Export
      *
      * @return void
      */
-    public static function shutdown()
+    public function shutdown()
     {
         $error = error_get_last();
         if ($error != null && mb_strpos($error['message'], "execution time")) {
@@ -44,7 +44,7 @@ class Export
      *
      * @return bool
      */
-    public static function isGzHandlerEnabled()
+    public function isGzHandlerEnabled()
     {
         return in_array('ob_gzhandler', ob_list_handlers());
     }
@@ -55,7 +55,7 @@ class Export
      *
      * @return bool Whether gzencode is needed
      */
-    public static function gzencodeNeeded()
+    public function gzencodeNeeded()
     {
         /*
          * We should gzencode only if the function exists
@@ -69,7 +69,7 @@ class Export
 
         if (function_exists('gzencode')
             && ((! ini_get('zlib.output_compression')
-            && ! self::isGzHandlerEnabled())
+            && ! $this->isGzHandlerEnabled())
             || $GLOBALS['save_on_server']
             || $chromeAndGreaterThan43)
         ) {
@@ -87,7 +87,7 @@ class Export
      *
      * @return bool Whether output succeeded
      */
-    public static function outputHandler($line)
+    public function outputHandler($line)
     {
         global $time_start, $dump_buffer, $dump_buffer_len, $save_filename;
 
@@ -117,7 +117,7 @@ class Export
                         );
                     }
                     if ($GLOBALS['compression'] == 'gzip'
-                        && self::gzencodeNeeded()
+                        && $this->gzencodeNeeded()
                     ) {
                         // as a gzipped file
                         // without the optional parameter level because it bugs
@@ -184,7 +184,7 @@ class Export
             }
         }
         return true;
-    } // end of the 'self::outputHandler()' function
+    }
 
     /**
      * Returns HTML containing the footer for a displayed export
@@ -194,7 +194,7 @@ class Export
      *
      * @return string $html the HTML output
      */
-    public static function getHtmlForDisplayedExportFooter($back_button, $refreshButton)
+    public function getHtmlForDisplayedExportFooter($back_button, $refreshButton)
     {
         /**
          * Close the html tags and add the footers for on-screen export
@@ -222,7 +222,7 @@ class Export
      *
      * @return int $memory_limit the memory limit
      */
-    public static function getMemoryLimit()
+    public function getMemoryLimit()
     {
         $memory_limit = trim(ini_get('memory_limit'));
         $memory_limit_num = (int)substr($memory_limit, 0, -1);
@@ -263,7 +263,7 @@ class Export
      *
      * @return string[] the filename template and mime type
      */
-    public static function getFilenameAndMimetype(
+    public function getFilenameAndMimetype(
         $export_type, $remember_template, $export_plugin, $compression,
         $filename_template
     ) {
@@ -332,7 +332,7 @@ class Export
      *
      * @return array the full save filename, possible message and the file handle
      */
-    public static function openFile($filename, $quick_export)
+    public function openFile($filename, $quick_export)
     {
         $file_handle = null;
         $message = '';
@@ -381,7 +381,7 @@ class Export
      *
      * @return Message $message a message object (or empty string)
      */
-    public static function closeFile($file_handle, $dump_buffer, $save_filename)
+    public function closeFile($file_handle, $dump_buffer, $save_filename)
     {
         $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
@@ -414,13 +414,13 @@ class Export
      *
      * @return object $message a message object (or empty string)
      */
-    public static function compress($dump_buffer, $compression, $filename)
+    public function compress($dump_buffer, $compression, $filename)
     {
         if ($compression == 'zip' && function_exists('gzcompress')) {
             $zipExtension = new ZipExtension();
             $filename = substr($filename, 0, -4); // remove extension (.zip)
             $dump_buffer = $zipExtension->createFile($dump_buffer, $filename);
-        } elseif ($compression == 'gzip' && self::gzencodeNeeded()) {
+        } elseif ($compression == 'gzip' && $this->gzencodeNeeded()) {
             // without the optional parameter level because it bugs
             $dump_buffer = gzencode($dump_buffer);
         }
@@ -436,7 +436,7 @@ class Export
      *
      * @return void
      */
-    public static function saveObjectInBuffer($object_name, $append = false)
+    public function saveObjectInBuffer($object_name, $append = false)
     {
 
         global $dump_buffer_objects, $dump_buffer, $dump_buffer_len;
@@ -464,7 +464,7 @@ class Export
      *
      * @return string[] the generated HTML and back button
      */
-    public static function getHtmlForDisplayedExportHeader($export_type, $db, $table)
+    public function getHtmlForDisplayedExportHeader($export_type, $db, $table)
     {
         $html = '<div>';
 
@@ -555,7 +555,7 @@ class Export
      *
      * @return void
      */
-    public static function exportServer(
+    public function exportServer(
         $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
         $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
         array $aliases, $separate_files
@@ -570,14 +570,14 @@ class Export
                 && mb_strpos(' ' . $tmp_select, '|' . $current_db . '|')
             ) {
                 $tables = $GLOBALS['dbi']->getTables($current_db);
-                self::exportDatabase(
+                $this->exportDatabase(
                     $current_db, $tables, $whatStrucOrData, $tables, $tables,
                     $export_plugin, $crlf, $err_url, $export_type, $do_relation,
                     $do_comments, $do_mime, $do_dates, $aliases,
                     $separate_files == 'database' ? $separate_files : ''
                 );
                 if ($separate_files == 'server') {
-                    self::saveObjectInBuffer($current_db);
+                    $this->saveObjectInBuffer($current_db);
                 }
             }
         } // end foreach database
@@ -604,7 +604,7 @@ class Export
      *
      * @return void
      */
-    public static function exportDatabase(
+    public function exportDatabase(
         $db, array $tables, $whatStrucOrData, array $table_structure, array $table_data,
         $export_plugin, $crlf, $err_url, $export_type, $do_relation,
         $do_comments, $do_mime, $do_dates, array $aliases, $separate_files
@@ -619,7 +619,7 @@ class Export
             return;
         }
         if ($separate_files == 'database') {
-            self::saveObjectInBuffer('database', true);
+            $this->saveObjectInBuffer('database', true);
         }
 
         if (($GLOBALS['sql_structure_or_data'] == 'structure'
@@ -629,7 +629,7 @@ class Export
             $export_plugin->exportRoutines($db, $aliases);
 
             if ($separate_files == 'database') {
-                self::saveObjectInBuffer('routines');
+                $this->saveObjectInBuffer('routines');
             }
         }
 
@@ -712,7 +712,7 @@ class Export
 
             // this buffer was filled, we save it and go to the next one
             if ($separate_files == 'database') {
-                self::saveObjectInBuffer('table_' . $table);
+                $this->saveObjectInBuffer('table_' . $table);
             }
 
             // now export the triggers (needs to be done after the data because
@@ -730,7 +730,7 @@ class Export
                 }
 
                 if ($separate_files == 'database') {
-                    self::saveObjectInBuffer('table_' . $table, true);
+                    $this->saveObjectInBuffer('table_' . $table, true);
                 }
             }
 
@@ -752,7 +752,7 @@ class Export
                     }
 
                     if ($separate_files == 'database') {
-                        self::saveObjectInBuffer('view_' . $view);
+                        $this->saveObjectInBuffer('view_' . $view);
                     }
                 }
             }
@@ -767,16 +767,16 @@ class Export
         if (isset($GLOBALS['sql_metadata'])) {
             // Types of metadata to export.
             // In the future these can be allowed to be selected by the user
-            $metadataTypes = self::getMetadataTypes();
+            $metadataTypes = $this->getMetadataTypes();
             $export_plugin->exportMetadata($db, $tables, $metadataTypes);
 
             if ($separate_files == 'database') {
-                self::saveObjectInBuffer('metadata');
+                $this->saveObjectInBuffer('metadata');
             }
         }
 
         if ($separate_files == 'database') {
-            self::saveObjectInBuffer('extra');
+            $this->saveObjectInBuffer('extra');
         }
 
         if (($GLOBALS['sql_structure_or_data'] == 'structure'
@@ -786,7 +786,7 @@ class Export
             $export_plugin->exportEvents($db);
 
             if ($separate_files == 'database') {
-                self::saveObjectInBuffer('events');
+                $this->saveObjectInBuffer('events');
             }
         }
     }
@@ -813,7 +813,7 @@ class Export
      *
      * @return void
      */
-    public static function exportTable(
+    public function exportTable(
         $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
         $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
         $allrows, $limit_to, $limit_from, $sql_query, array $aliases
@@ -915,7 +915,7 @@ class Export
         if (isset($GLOBALS['sql_metadata'])) {
             // Types of metadata to export.
             // In the future these can be allowed to be selected by the user
-            $metadataTypes = self::getMetadataTypes();
+            $metadataTypes = $this->getMetadataTypes();
             $export_plugin->exportMetadata($db, $table, $metadataTypes);
         }
     }
@@ -929,7 +929,7 @@ class Export
      *
      * @return void
      */
-    public static function showPage($db, $table, $export_type)
+    public function showPage($db, $table, $export_type)
     {
         global $cfg;
         if ($export_type == 'server') {
@@ -955,7 +955,7 @@ class Export
      *
      * @return array resultant merged aliases info
      */
-    public static function mergeAliases(array $aliases1, array $aliases2)
+    public function mergeAliases(array $aliases1, array $aliases2)
     {
         // First do a recursive array merge
         // on aliases arrays.
@@ -1008,7 +1008,7 @@ class Export
      *
      * @return mixed result of the query
      */
-    public static function lockTables($db, array $tables, $lockType = "WRITE")
+    public function lockTables($db, array $tables, $lockType = "WRITE")
     {
         $locks = array();
         foreach ($tables as $table) {
@@ -1025,7 +1025,7 @@ class Export
      *
      * @return mixed result of the query
      */
-    public static function unlockTables()
+    public function unlockTables()
     {
         return $GLOBALS['dbi']->tryQuery("UNLOCK TABLES");
     }
@@ -1035,7 +1035,7 @@ class Export
      *
      * @return string[] metadata types.
      */
-    public static function getMetadataTypes()
+    public function getMetadataTypes()
     {
         return array(
             'column_info',
@@ -1059,7 +1059,7 @@ class Export
      *
      * @return string the checked clause
      */
-    public static function getCheckedClause($key, array $array)
+    public function getCheckedClause($key, array $array)
     {
         if (in_array($key, $array)) {
             return ' checked="checked"';
@@ -1076,7 +1076,7 @@ class Export
      *
      * @return void
      */
-    public static function processExportSchema($export_type)
+    public function processExportSchema($export_type)
     {
         /**
          * default is PDF, otherwise validate it's only letters a-z

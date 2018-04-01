@@ -32,6 +32,7 @@ class ImportOds extends ImportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -113,7 +114,7 @@ class ImportOds extends ImportPlugin
          * it can process compressed files
          */
         while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
-            $data = Import::getNextChunk();
+            $data = $this->import->getNextChunk();
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
                 $GLOBALS['offset'] -= strlen($buffer);
@@ -236,7 +237,7 @@ class ImportOds extends ImportPlugin
                             }
                         } else {
                             for ($i = 0; $i < $num_null; ++$i) {
-                                $col_names[] = Import::getColumnAlphaName(
+                                $col_names[] = $this->import->getColumnAlphaName(
                                     $col_count + 1
                                 );
                                 ++$col_count;
@@ -246,7 +247,7 @@ class ImportOds extends ImportPlugin
                         if (!$col_names_in_first_row) {
                             $tempRow[] = 'NULL';
                         } else {
-                            $col_names[] = Import::getColumnAlphaName(
+                            $col_names[] = $this->import->getColumnAlphaName(
                                 $col_count + 1
                             );
                         }
@@ -295,7 +296,7 @@ class ImportOds extends ImportPlugin
 
             /* Fill out column names */
             for ($i = count($col_names); $i < $max_cols; ++$i) {
-                $col_names[] = Import::getColumnAlphaName($i + 1);
+                $col_names[] = $this->import->getColumnAlphaName($i + 1);
             }
 
             /* Fill out all rows */
@@ -350,7 +351,7 @@ class ImportOds extends ImportPlugin
 
         $len = count($tables);
         for ($i = 0; $i < $len; ++$i) {
-            $analyses[] = Import::analyzeTable($tables[$i]);
+            $analyses[] = $this->import->analyzeTable($tables[$i]);
         }
 
         /**
@@ -374,13 +375,13 @@ class ImportOds extends ImportPlugin
         $create = null;
 
         /* Created and execute necessary SQL statements from data */
-        Import::buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
+        $this->import->buildSql($db_name, $tables, $analyses, $create, $options, $sql_data);
 
         unset($tables);
         unset($analyses);
 
         /* Commit any possible data in buffers */
-        Import::runQuery('', '', $sql_data);
+        $this->import->runQuery('', '', $sql_data);
     }
 
     /**

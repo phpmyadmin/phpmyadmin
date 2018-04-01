@@ -44,6 +44,7 @@ class ExportCodegen extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         // initialize the specific export CodeGen variables
         $this->initSpecificVariables();
         $this->setProperties();
@@ -196,12 +197,12 @@ class ExportCodegen extends ExportPlugin
         if (isset($CG_FORMATS[$format])) {
             $method = $CG_HANDLERS[$format];
 
-            return Export::outputHandler(
+            return $this->export->outputHandler(
                 $this->$method($db, $table, $crlf, $aliases)
             );
         }
 
-        return Export::outputHandler(sprintf("%s is not supported.", $format));
+        return $this->export->outputHandler(sprintf("%s is not supported.", $format));
     }
 
     /**

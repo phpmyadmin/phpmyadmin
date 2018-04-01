@@ -18,7 +18,6 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
@@ -168,7 +167,7 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['odt_buffer'] .= '</office:text>'
             . '</office:body>'
             . '</office:document-content>';
-        if (!Export::outputHandler(
+        if (!$this->export->outputHandler(
             OpenDocument::create(
                 'application/vnd.oasis.opendocument.text',
                 $GLOBALS['odt_buffer']
