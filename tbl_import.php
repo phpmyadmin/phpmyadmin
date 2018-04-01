@@ -21,6 +21,8 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('import.js');
 
+$import = new Import();
+
 /**
  * Gets tables information and displays top links
  */
@@ -28,7 +30,7 @@ require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_import.php&amp;back=tbl_import.php';
 
 $response->addHTML(
-    Import::get(
+    $import->get(
         'table', $db, $table, $max_upload_size
     )
 );
