@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-03-29 19:11+0000\n"
+"PO-Revision-Date: 2018-04-02 14:39+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -2889,118 +2889,84 @@ msgid "Hour"
 msgstr ""
 
 #: js/messages.php:905
-#, fuzzy
-#| msgid "in use"
 msgid "Minute"
-msgstr "בשימוש"
+msgstr "דקה"
 
 #: js/messages.php:906
-#, fuzzy
-#| msgid "per second"
 msgid "Second"
-msgstr "לשנייה"
+msgstr "שנייה"
 
 #: js/messages.php:917
 msgid "This field is required"
-msgstr ""
+msgstr "שדה זה נחוץ"
 
 #: js/messages.php:918
-#, fuzzy
-#| msgid "Use text field"
 msgid "Please fix this field"
-msgstr "השתמש בשדה טקסט"
+msgstr "נא לתקן את השדה הזה"
 
 #: js/messages.php:919
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid email address"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד כתובת דוא״ל תקנית"
 
 #: js/messages.php:920
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid URL"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד כתובת תקנית"
 
 #: js/messages.php:921
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid date"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד תאריך תקין"
 
 #: js/messages.php:924
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid date ( ISO )"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד תאריך תקני (ISO)"
 
 #: js/messages.php:926
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid number"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד מספר תקני"
 
 #: js/messages.php:929
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid credit card number"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד מספר כרטיס אשראי תקני"
 
 #: js/messages.php:931
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter only digits"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד ספרות בלבד"
 
 #: js/messages.php:934
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter the same value again"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד את אותו הערך שוב"
 
 #: js/messages.php:938
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "נא להקליד פחות מ־{0} תווים"
 
 #: js/messages.php:943
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter at least {0} characters"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד {0} תווים לפחות"
 
 #: js/messages.php:948
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "נא להקליד ערך באורך של בין {0} ל־{1} תווים"
 
 #: js/messages.php:953
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a value between {0} and {1}"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד ערך בין {0} ל־{1}"
 
 #: js/messages.php:958
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a value less than or equal to {0}"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד ערך שקטן או שווה ל־{0}"
 
 #: js/messages.php:963
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד ערך שגדול או שווה ל־{0}"
 
 #: js/messages.php:969
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid date or time"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד תאריך או שעה תקניים"
 
 #: js/messages.php:974
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid HEX input"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "נא להקליד קלט הקסדצימלי (HEX) תקני"
 
 #: js/messages.php:979 libraries/classes/Core.php:296
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1490
@@ -3010,14 +2976,14 @@ msgid "Error"
 msgstr "שגיאה"
 
 #: libraries/classes/Advisor.php:249
-#, fuzzy, php-format
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "מאפשר מחיקת מידע."
+msgstr "שגיאה בעת הערכה: %s"
 
 #: libraries/classes/Advisor.php:280
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr ""
+msgstr "הערת התנאי המקדים לכלל ‚%s’ נכשלה."
 
 #: libraries/classes/Advisor.php:297
 #, php-format
