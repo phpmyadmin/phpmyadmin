@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-04-03 16:38+0000\n"
-"Last-Translator: Sebastian <sebastian@sgundersen.com>\n"
+"Last-Translator: Børge Holm-Wennberg <borge947@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nb/>\n"
 "Language: nb\n"
@@ -16565,7 +16565,7 @@ msgstr "Bokmerke"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Query failed"
-msgstr "Spørring feilet"
+msgstr "Spørringen feilet"
 
 #: templates/console/display.twig:42 templates/console/display.twig:184
 msgid "Queried time"
