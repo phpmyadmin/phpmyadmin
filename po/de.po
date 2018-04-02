@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-01-21 02:31+0000\n"
-"Last-Translator: Microgamer Developer <microgamer.developer@gmail.com>\n"
+"PO-Revision-Date: 2018-04-03 10:41+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 2.20-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -3897,6 +3897,9 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"Werte für Optionsliste für Standardtransformationen. Diese werden "
+"überschrieben, wenn die Transformation auf der Seite der Tabellenstruktur "
+"ausgefüllt wird."
 
 #: libraries/classes/Config/Descriptions.php:199
 msgid "Default transformations for Substring"
@@ -3914,31 +3917,31 @@ msgstr "Standardmäßige Anpassung für \"External\""
 #, fuzzy
 #| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Eingabeumwandlungsoptionen"
+msgstr "Standard-Transformationen für PreApPend"
 
 #: libraries/classes/Config/Descriptions.php:215
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Voreingestellte Sortierung"
+msgstr "Standard-Transformationen für DateFormat"
 
 #: libraries/classes/Config/Descriptions.php:219
 #, fuzzy
 #| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "Eingabeumwandlungsoptionen"
+msgstr "Standard-Transformationen für Inline"
 
 #: libraries/classes/Config/Descriptions.php:223
 #, fuzzy
 #| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Eingabeumwandlungsoptionen"
+msgstr "Standard-Transformationen für TextImageLink"
 
 #: libraries/classes/Config/Descriptions.php:227
 #, fuzzy
 #| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Eingabeumwandlungsoptionen"
+msgstr "Standard-Transformationen für TextLink"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
@@ -4858,16 +4861,12 @@ msgid "Show databases navigation as tree"
 msgstr "Datenbanknavigation als Baum anzeigen"
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Navigationspanel"
+msgstr "Navigationspanelbreite"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Logo im Navigationspanel anzeigen."
+msgstr "Auf 0 setzen, um das Navigations-Panel zu verstecken."
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Link with main panel by highlighting the current database or table."
@@ -5389,8 +5388,8 @@ msgid ""
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Mehr Informationen auf [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Mehr Informationen zu [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] und [a@https://bugs.mysql.com/19588]MySQL "
 "Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:1045
@@ -6252,16 +6251,12 @@ msgid "Switch to dark theme"
 msgstr "Zum dunklen Motiv wechseln"
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Konsole"
+msgstr "Konsolenhöhe"
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Konsole"
+msgstr "Konsolenmodus"
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
