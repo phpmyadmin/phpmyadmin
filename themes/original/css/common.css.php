@@ -715,6 +715,9 @@ ul#topmenu2 a {
 span.caution {
     color: #FF0000;
 }
+span.success {
+    color: green;
+}
 fieldset.caution a {
     color:              #FF0000;
 }
@@ -3434,11 +3437,4 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
 /* side menu */
 #name-panel {
     overflow:hidden;
-}
-
-.span_color_green {
-    color:green;
-}
-.span_color_red {
-    color:red;
 }
