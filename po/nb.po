@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-04-03 16:38+0000\n"
-"Last-Translator: Master3395 <kimskorgenes@hotmail.com>\n"
+"Last-Translator: Ronny André Løkken <rlo012@post.uit.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nb/>\n"
 "Language: nb\n"
@@ -2608,7 +2608,7 @@ msgstr "%s spørringer utført %s ganger på %s sekunder."
 #: js/messages.php:727
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argument(er) sendt"
 
 #: js/messages.php:728
 msgid "Show arguments"
