@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-02 14:39+0000\n"
+"PO-Revision-Date: 2018-04-03 15:37+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -2983,27 +2983,27 @@ msgstr "שגיאה בעת הערכה: %s"
 #: libraries/classes/Advisor.php:280
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'."
-msgstr "הערת התנאי המקדים לכלל ‚%s’ נכשלה."
+msgstr "הערכת התנאי המקדים לכלל ‚%s’ נכשלה."
 
 #: libraries/classes/Advisor.php:297
 #, php-format
 msgid "Failed calculating value for rule '%s'."
-msgstr ""
+msgstr "חישוב הערך לכלל ‚%s’ נכשלה."
 
 #: libraries/classes/Advisor.php:316
 #, php-format
 msgid "Failed running test for rule '%s'."
-msgstr ""
+msgstr "הרצת בדיקה לכלל ‚%s’ נכשלה."
 
 #: libraries/classes/Advisor.php:396
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "עיצוב מחרוזת לכלל ‚%s’ נכשלה."
 
 #: libraries/classes/Advisor.php:496
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "שגיאה בקריאת הקובץ: הקובץ ‚%s’ לא קיים או שאין אפשרות לקרוא אותו!"
 
 #: libraries/classes/Advisor.php:521
 #, php-format
