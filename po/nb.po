@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-01 16:39+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2018-04-03 16:38+0000\n"
+"Last-Translator: Master3395 <kimskorgenes@hotmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nb/>\n"
 "Language: nb\n"
@@ -1863,7 +1863,7 @@ msgstr "Eksporter"
 
 #: js/messages.php:401
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Ingen rutine kan eksporteres. Nødvendige rettigheter mangler."
 
 #: js/messages.php:404 libraries/classes/Rte/Routines.php:760
 msgid "ENUM/SET editor"
