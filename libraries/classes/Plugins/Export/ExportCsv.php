@@ -115,8 +115,9 @@ class ExportCsv extends ExportPlugin
     {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
         //Enable columns names by default for CSV
-        if($what == 'csv')
+        if ($what == 'csv') {
             $GLOBALS['csv_columns'] = 'yes';
+        }
         // Here we just prepare some values for export
         if ($what == 'excel') {
             $csv_terminated = "\015\012";
