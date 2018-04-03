@@ -38,7 +38,6 @@ use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\ThemeManager;

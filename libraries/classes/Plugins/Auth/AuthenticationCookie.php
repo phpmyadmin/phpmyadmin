@@ -56,6 +56,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->_use_openssl = ! class_exists('phpseclib\Crypt\Random');
     }
 

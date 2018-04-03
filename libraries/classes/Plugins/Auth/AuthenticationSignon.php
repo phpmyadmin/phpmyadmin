@@ -20,6 +20,14 @@ use PhpMyAdmin\Util;
 class AuthenticationSignon extends AuthenticationPlugin
 {
     /**
+     * AuthenticationSignon constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
      * Displays authentication form
      *
      * @return boolean   always true (no return indeed)
