@@ -1198,8 +1198,6 @@ function insertQuery (queryType) {
             setQuery(window.localStorage.auto_saved_sql_temp);
         } else if (Cookies.get('auto_saved_sql_temp')) {
             setQuery(Cookies.get('auto_saved_sql_temp'));
-        } else {
-            PMA_ajaxShowMessage(PMA_messages.strNoAutoSavedQuery);
         }
         return;
     }
