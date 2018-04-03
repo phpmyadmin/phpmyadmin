@@ -158,14 +158,7 @@ AJAX.registerTeardown('sql.js', function () {
  */
 AJAX.registerOnload('sql.js', function () {
     $(function () {
-        if (codemirror_editor) {
-            codemirror_editor.on('change', function () {
-                PMA_autosaveSQL(codemirror_editor.getValue());
-            });
-        } else {
-            $('#sqlquery').on('input propertychange', function () {
-                PMA_autosaveSQL($('#sqlquery').val());
-            });
+        if (!codemirror_editor) {
             // Save sql query with sort
             $('select[name="sql_query"]').on('change', function () {
                 PMA_autosaveSQLSort($('select[name="sql_query"]').val());
@@ -283,8 +276,8 @@ AJAX.registerOnload('sql.js', function () {
         });
 
         $('.table_results .column_heading a').each(function () {
-        	//Don't copy ordering number text within <small> tag
-        	textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
+            // Don't copy ordering number text within <small> tag
+            textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
         });
 
         textArea.value += '\n';
