@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-03 10:41+0000\n"
+"PO-Revision-Date: 2018-04-03 10:42+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-8/de/"
 ">\n"
@@ -5378,17 +5378,12 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Verberge Datenbanken, die auf regular expressions (PCRE) passen."
 
 #: libraries/classes/Config/Descriptions.php:1041
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Mehr Informationen zu [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"Mehr Informationen auf [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
 "8970]phpMyAdmin issue tracker[/a] und [a@https://bugs.mysql.com/19588]MySQL "
 "Bugs[/a]"
 
@@ -6236,14 +6231,9 @@ msgid "Show current browsing query"
 msgstr "Aktuelle Abfrage anzeigen"
 
 #: libraries/classes/Config/Descriptions.php:1472
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
-"Abfragen mit Enter ausgeführen und neue Zeilen mit Shift + Enter eingefügen. "
-"Um dies dauerhaft zu speichern, siehe Einstellungen."
+"Abfragen mit Enter ausführen und neue Zeilen mit Shift + Enter eingefügen"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
