@@ -97,6 +97,7 @@ class Application extends TwoFactorPlugin
         );
         return Template::get('login/twofactor/application_configure')->render([
             'image' => $inlineUrl,
+            'secret' => $_SESSION['2fa_application_key']
         ]);
     }
 
@@ -139,4 +140,3 @@ class Application extends TwoFactorPlugin
         return __('Provides authentication using HOTP and TOTP applications such as FreeOTP, Google Authenticator or Authy.');
     }
 }
-
