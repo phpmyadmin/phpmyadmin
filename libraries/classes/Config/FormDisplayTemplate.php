@@ -79,7 +79,6 @@ class FormDisplayTemplate
                 'items' => $items,
             )
         );
-        $htmlOutput .= '<br />';
         $htmlOutput .= '<div class="tabs_contents">';
         return $htmlOutput;
     }

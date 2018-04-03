@@ -202,13 +202,13 @@ div.notice[id^=version_check] h4 {
 
 ul.tabs {
     margin: 1.1em 2px 0;
-    padding: 0 0 3px 0;
+    padding: 0;
     list-style: none;
     font-weight: bold;
 }
 
 ul.tabs li {
-    float: left;
+    display: inline-block;
     margin-bottom: -1px;
 }
 
@@ -246,7 +246,7 @@ ul.tabs li.active a {
 }
 
 .tabs_contents {
-    margin-top: 13px;
+    margin-top: 0;
 }
 
 .tabs_contents fieldset {
@@ -606,6 +606,7 @@ a.btn:hover, a.btn:active {
     background: #E6F5FF;
     color: #004C96;
 }
-.hide {
-    display: none;
+
+.hide {		
+    display: none;		
 }
