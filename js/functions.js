@@ -774,12 +774,10 @@ function checkSqlQuery (theForm) {
         result = confirmQuery(theForm, sqlQuery);
         // if query is valid then store it in
         // local storage in auto_save_sql variable
-        if (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql !== 'undefined') {
-            if (codemirror_editor) {
-                PMA_autosaveSQL(codemirror_editor.getValue());
-            } else {
-                PMA_autosaveSQL($('#sqlquery').val());
-            }
+        if (codemirror_editor) {
+            PMA_autosaveSQL(codemirror_editor.getValue());
+        } else {
+            PMA_autosaveSQL($('#sqlquery').val());
         }
     } else {
         alert(PMA_messages.strFormEmpty);
