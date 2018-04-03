@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-03 10:42+0000\n"
+"PO-Revision-Date: 2018-04-04 11:37+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/4-8/de/"
 ">\n"
@@ -6232,8 +6232,7 @@ msgstr "Aktuelle Abfrage anzeigen"
 
 #: libraries/classes/Config/Descriptions.php:1472
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr ""
-"Abfragen mit Enter ausführen und neue Zeilen mit Shift + Enter eingefügen"
+msgstr "Abfragen mit Enter ausführen und neue Zeilen mit Shift + Enter einfügen"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -6258,10 +6257,8 @@ msgid "Order"
 msgstr "Reihenfolge"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Sortieren nach:"
+msgstr "Sortieren nach"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:524
@@ -6395,7 +6392,7 @@ msgstr "CSV mit LOAD DATA"
 #, fuzzy
 #| msgid "Input transformation"
 msgid "Default transformations"
-msgstr "Eingabeumwandlung"
+msgstr "Standard-Transformationen"
 
 #: libraries/classes/Config/PageSettings.php:134
 msgid "Cannot save settings, submitted configuration form contains errors!"
@@ -6456,13 +6453,7 @@ msgstr ""
 "Benutzer, einschließlich Ihnen selbst, verbunden sind."
 
 #: libraries/classes/Config/ServerConfigChecks.php:203
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6474,7 +6465,7 @@ msgstr ""
 "Benutzernamen und Passwort für Auto-Login eingegeben, was für Server im "
 "Internet nicht wünschenswert ist. Jeder, der Ihre phpMyAdmin-URL kennt oder "
 "errät, kann direkt auf Ihre phpMyAdmin-Oberfläche zugreifen. Setzen Sie den "
-"%sAuthentifizierungstyp%s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
+"%1$s Authentifizierungstyp %2$s auf [kbd]cookie[/kbd] oder [kbd]http[/kbd]."
 
 #: libraries/classes/Config/ServerConfigChecks.php:230
 msgid "You allow for connecting to the server without a password."
@@ -6519,19 +6510,15 @@ msgstr ""
 "Schlüssel sollte Buchstaben, Ziffern [em]und[/em] Sonderzeichen enthalten."
 
 #: libraries/classes/Config/ServerConfigChecks.php:418
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"%sLogincookie-Gültigkeit%s größer als %ssession.gc_maxlifetime%s kann "
-"zufälligen Ablauf von Sitzungen verursachen (aktuell beträgt session."
-"gc_maxlifetime: %d)."
+"%1$sLogincookie-Gültigkeit%2$s größer als %3$ssession.gc_maxlifetime%4$s "
+"kann zufälligen Ablauf von Sitzungen verursachen (aktuell beträgt "
+"session.gc_maxlifetime: %5$d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:442
 #, php-format
@@ -6554,28 +6541,22 @@ msgstr ""
 "auf den gleichen oder einen niedrigeren Wert gesetzt sein."
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2-Komprimierung und Dekomprimierung%s benötigt Funktionen (%s), die "
-"auf diesem System nicht verfügbar sind."
+"%1$sBzip2-Komprimierung und Dekomprimierung%2$s benötigt Funktionen (%3$s), "
+"die auf diesem System nicht verfügbar sind."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip-Komprimierung und Dekomprimierung%s benötigt Funktionen (%s), die auf "
-"diesem System nicht verfügbar sind."
+"%1$sGZip-Komprimierung und Dekomprimierung%2$s benötigt Funktionen (%3$s), "
+"die auf diesem System nicht verfügbar sind."
 
 #: libraries/classes/Config/Validator.php:210
 #: libraries/classes/Config/Validator.php:217
@@ -7103,21 +7084,16 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Die Wörter werden durch Leerzeichen (\" \") getrennt."
 
 #: libraries/classes/DatabaseInterface.php:1462
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"Es ist nicht möglich, die Zeitzone %1$s für den Server %2$d zu benutzen. "
-"Bitte überprüfen Sie die Konfigurationseinstellung für [em]$cfg['Servers']"
-"[%3$d]['SessionTimeZone'][/em]. phpMyAdmin verwendet aktuell die Standard-"
-"Zeitzone des Datenbankservers."
+"Es ist nicht möglich, die Zeitzone \"%1$s\" für den Server %2$d zu benutzen. "
+"Bitte überprüfen Sie die Konfigurationseinstellung für "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. phpMyAdmin verwendet "
+"aktuell die Standard-Zeitzone des Datenbankservers."
 
 #: libraries/classes/DatabaseInterface.php:1509
 msgid "Failed to set configured collation connection!"
@@ -8955,14 +8931,10 @@ msgid "Switch to copied database"
 msgstr "Zu kopierter Datenbank wechseln"
 
 #: libraries/classes/Operations.php:305
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
 msgstr "Alle Spaltenkollationen ändern"
 
 #: libraries/classes/Operations.php:311
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
 msgstr "Alle Spaltenkollationen ändern"
 
@@ -10253,25 +10225,27 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Formatiert den Text als XML mit Syntaxhervorhebung."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:129
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "Authentifizierungs Plugin"
+msgstr "Authentifizierungsanwendung (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:139
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Bietet Authentifizierung mit HOTP- und TOTP-Anwendungen wie FreeOTP, Google "
+"Authenticator oder Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:186
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Hardware-Sicherheitsschlüssel (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:196
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Bietet Authentifizierung mit Hardware-Sicherheitstoken, die FIDO U2F "
+"unterstützen."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
 #, fuzzy
