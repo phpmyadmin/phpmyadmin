@@ -79,6 +79,11 @@ class TableStructureController extends TableController
     private $relation;
 
     /**
+     * @var Transformations
+     */
+    private $transformations;
+
+    /**
      * TableStructureController constructor
      *
      * @param string $db                  DB name
@@ -127,6 +132,7 @@ class TableStructureController extends TableController
 
         $this->createAddField = new CreateAddField($dbi);
         $this->relation = new Relation();
+        $this->transformations = new Transformations();
     }
 
     /**
@@ -1070,7 +1076,7 @@ class TableStructureController extends TableController
                 if (isset($_REQUEST['field_name'][$fieldindex])
                     && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
-                    Transformations::setMIME(
+                    $this->transformations->setMime(
                         $this->db, $this->table,
                         $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
@@ -1192,7 +1198,7 @@ class TableStructureController extends TableController
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
             $comments_map = $this->relation->getComments($this->db, $this->table);
             if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
-                $mime_map = Transformations::getMIME($this->db, $this->table, true);
+                $mime_map = $this->transformations->getMime($this->db, $this->table, true);
             }
         }
         $centralColumns = new CentralColumns($GLOBALS['dbi']);

@@ -19,6 +19,8 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('import.js');
 
+$import = new Import();
+
 /**
  * Gets tables information and displays top links
  */
@@ -38,7 +40,7 @@ list(
 
 $response = Response::getInstance();
 $response->addHTML(
-    Import::get(
+    $import->get(
         'database', $db, $table, $max_upload_size
     )
 );

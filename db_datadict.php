@@ -35,6 +35,7 @@ $header   = $response->getHeader();
 $header->enablePrintView();
 
 $relation = new Relation();
+$transformations = new Transformations();
 
 /**
  * Gets the relations settings
@@ -188,7 +189,7 @@ foreach ($tables as $table) {
         }
         echo '</td>' , "\n";
         if ($cfgRelation['mimework']) {
-            $mime_map = Transformations::getMIME($db, $table, true);
+            $mime_map = $transformations->getMime($db, $table, true);
 
             echo '    <td>';
             if (isset($mime_map[$column_name])) {

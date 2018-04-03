@@ -30,4 +30,5 @@ if (! isset($_REQUEST['export_type'])) {
  * Include the appropriate Schema Class depending on $export_type
  * default is PDF
  */
-Export::processExportSchema($_REQUEST['export_type']);
+$export = new Export();
+$export->processExportSchema($_REQUEST['export_type']);

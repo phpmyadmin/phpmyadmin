@@ -7,6 +7,7 @@
  */
 namespace PhpMyAdmin\Twig;
 
+use PhpMyAdmin\Transformations;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -24,14 +25,15 @@ class TransformationsExtension extends AbstractExtension
      */
     public function getFunctions()
     {
+        $transformations = new Transformations();
         return array(
             new TwigFunction(
                 'Transformations_getDescription',
-                'PhpMyAdmin\Transformations::getDescription'
+                [$transformations, 'getDescription']
             ),
             new TwigFunction(
                 'Transformations_getName',
-                'PhpMyAdmin\Transformations::getName'
+                [$transformations, 'getName']
             ),
         );
     }

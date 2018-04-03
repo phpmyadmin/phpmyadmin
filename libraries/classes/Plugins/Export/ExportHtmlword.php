@@ -109,7 +109,7 @@ class ExportHtmlword extends ExportPlugin
     {
         global $charset;
 
-        return Export::outputHandler(
+        return $this->export->outputHandler(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
             xmlns="http://www.w3.org/TR/REC-html40">
@@ -132,7 +132,7 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportFooter()
     {
-        return Export::outputHandler('</body></html>');
+        return $this->export->outputHandler('</body></html>');
     }
 
     /**
@@ -149,7 +149,7 @@ class ExportHtmlword extends ExportPlugin
             $db_alias = $db;
         }
 
-        return Export::outputHandler(
+        return $this->export->outputHandler(
             '<h1>' . __('Database') . ' ' . htmlspecialchars($db_alias) . '</h1>'
         );
     }
@@ -206,7 +206,7 @@ class ExportHtmlword extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
 
-        if (!Export::outputHandler(
+        if (!$this->export->outputHandler(
             '<h2>'
             . __('Dumping data for table') . ' ' . htmlspecialchars($table_alias)
             . '</h2>'
@@ -214,7 +214,7 @@ class ExportHtmlword extends ExportPlugin
         ) {
             return false;
         }
-        if (!Export::outputHandler(
+        if (!$this->export->outputHandler(
             '<table class="width100" cellspacing="1">'
         )
         ) {
@@ -243,7 +243,7 @@ class ExportHtmlword extends ExportPlugin
                     . '</strong></td>';
             } // end for
             $schema_insert .= '</tr>';
-            if (!Export::outputHandler($schema_insert)) {
+            if (!$this->export->outputHandler($schema_insert)) {
                 return false;
             }
         } // end if
@@ -264,13 +264,13 @@ class ExportHtmlword extends ExportPlugin
                     . '</td>';
             } // end for
             $schema_insert .= '</tr>';
-            if (!Export::outputHandler($schema_insert)) {
+            if (!$this->export->outputHandler($schema_insert)) {
                 return false;
             }
         } // end while
         $GLOBALS['dbi']->freeResult($result);
 
-        return Export::outputHandler('</table>');
+        return $this->export->outputHandler('</table>');
     }
 
     /**
@@ -410,7 +410,7 @@ class ExportHtmlword extends ExportPlugin
             $schema_insert .= '<td class="print"><strong>'
                 . htmlspecialchars('MIME')
                 . '</strong></td>';
-            $mime_map = Transformations::getMIME($db, $table, true);
+            $mime_map = $this->transformations->getMime($db, $table, true);
         }
         $schema_insert .= '</tr>';
 
@@ -604,7 +604,7 @@ class ExportHtmlword extends ExportPlugin
             $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
         } // end switch
 
-        return Export::outputHandler($dump);
+        return $this->export->outputHandler($dump);
     }
 
     /**

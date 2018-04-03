@@ -18,7 +18,9 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $header->disableMenuAndConsole();
 
-$types = Transformations::getAvailableMIMEtypes();
+$transformations = new Transformations();
+
+$types = $transformations->getAvailableMimeTypes();
 ?>
 
 <h2><?php echo __('Available MIME types'); ?></h2>
@@ -58,7 +60,7 @@ $th = array(
     <tbody>
     <?php
     foreach ($types[$ttype] as $key => $transform) {
-        $desc = Transformations::getDescription($types[$ttype . '_file'][$key]);
+        $desc = $transformations->getDescription($types[$ttype . '_file'][$key]);
         ?>
         <tr>
             <td><?php echo htmlspecialchars($transform); ?></td>
