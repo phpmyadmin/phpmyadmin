@@ -1193,6 +1193,15 @@ function insertQuery (queryType) {
             PMA_ajaxShowMessage(PMA_messages.strNoAutoSavedQuery);
         }
         return;
+    } else if (queryType === 'temp_saved') {
+        if (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql_temp !== 'undefined') {
+            setQuery(window.localStorage.auto_saved_sql_temp);
+        } else if (Cookies.get('auto_saved_sql_temp')) {
+            setQuery(Cookies.get('auto_saved_sql_temp'));
+        } else {
+            PMA_ajaxShowMessage(PMA_messages.strNoAutoSavedQuery);
+        }
+        return;
     }
 
     var query = '';

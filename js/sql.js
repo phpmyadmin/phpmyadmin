@@ -49,6 +49,23 @@ function PMA_autosaveSQL (query) {
 }
 
 /**
+ * Saves query which is currently in typing in temporary
+ * variable in local storage or cookie
+ *
+ * @param string SQL query
+ * @returns void
+ */
+function PMA_autosaveSQLtemp (query) {
+    if (query) {
+        if (isStorageSupported('localStorage')) {
+            window.localStorage.auto_saved_sql_temp = query;
+        } else {
+            Cookies.set('auto_saved_sql_temp', query);
+        }
+    }
+}
+
+/**
  * Saves SQL query with sort in local storage or cookie
  *
  * @param string SQL query
@@ -157,8 +174,16 @@ AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function () {
+
     $(function () {
-        if (!codemirror_editor) {
+        if (codemirror_editor) {
+            codemirror_editor.on('change', function () {
+                PMA_autosaveSQLtemp(codemirror_editor.getValue());
+            });
+        } else {
+            $('#sqlquery').on('input propertychange', function () {
+                PMA_autosaveSQLtemp($('#sqlquery').val());
+            });
             // Save sql query with sort
             $('select[name="sql_query"]').on('change', function () {
                 PMA_autosaveSQLSort($('select[name="sql_query"]').val());
@@ -867,7 +892,7 @@ AJAX.registerOnload('sql.js', function () {
      * Restores SQL query after timeout login
      */
     if (codemirror_editor || document.sqlform) {
-        insertQuery('saved');
+        insertQuery('temp_saved');
     }
 });
 
