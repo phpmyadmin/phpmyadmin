@@ -196,51 +196,51 @@ class IpAllowDenyTest extends TestCase
         $_SERVER['REMOTE_ADDR'] = "";
         $this->assertEquals(
             false,
-            $this->ipAllowDeny->allowDeny("allow")
+            $this->ipAllowDeny->allow()
         );
 
         $_SERVER['REMOTE_ADDR'] = "255.0.1.0";
         $this->assertEquals(
             true,
-            $this->ipAllowDeny->allowDeny("allow")
+            $this->ipAllowDeny->allow()
         );
         $_SERVER['REMOTE_ADDR'] = "10.0.0.0";
         $this->assertEquals(
             false,
-            $this->ipAllowDeny->allowDeny("allow")
+            $this->ipAllowDeny->allow()
         );
 
         $_SERVER['REMOTE_ADDR'] = "255.255.0.1";
         $this->assertEquals(
             true,
-            $this->ipAllowDeny->allowDeny("deny")
+            $this->ipAllowDeny->deny()
         );
         $_SERVER['REMOTE_ADDR'] = "255.124.0.5";
         $this->assertEquals(
             true,
-            $this->ipAllowDeny->allowDeny("deny")
+            $this->ipAllowDeny->deny()
         );
         $_SERVER['REMOTE_ADDR'] = "122.124.0.5";
         $this->assertEquals(
             false,
-            $this->ipAllowDeny->allowDeny("deny")
+            $this->ipAllowDeny->deny()
         );
 
         //IPV6
         $_SERVER['REMOTE_ADDR'] = "2001:4998:c:a0d:0000:0000:4998:1020";
         $this->assertEquals(
             true,
-            $this->ipAllowDeny->allowDeny("allow")
+            $this->ipAllowDeny->allow()
         );
         $_SERVER['REMOTE_ADDR'] = "2001:4998:c:a0d:0000:0000:4998:1000";
         $this->assertEquals(
             false,
-            $this->ipAllowDeny->allowDeny("allow")
+            $this->ipAllowDeny->allow()
         );
         $_SERVER['REMOTE_ADDR'] = "2001:4998:c:a0d:0000:0000:4998:1020";
         $this->assertEquals(
             true,
-            $this->ipAllowDeny->allowDeny("allow")
+            $this->ipAllowDeny->allow()
         );
     }
 }

@@ -219,6 +219,34 @@ class IpAllowDeny
     }
 
     /**
+     * Runs through IP Allow rules the use of it below for more information
+     *
+     * @return bool Whether rule has matched
+     *
+     * @access  public
+     *
+     * @see     Core::getIp()
+     */
+    public function allow()
+    {
+        return $this->allowDeny("allow");
+    }
+
+    /**
+     * Runs through IP Deny rules the use of it below for more information
+     *
+     * @return bool Whether rule has matched
+     *
+     * @access  public
+     *
+     * @see     Core::getIp()
+     */
+    public function deny()
+    {
+        return $this->allowDeny("deny");
+    }
+
+    /**
      * Runs through IP Allow/Deny rules the use of it below for more information
      *
      * @param string $type 'allow' | 'deny' type of rule to match
@@ -229,7 +257,7 @@ class IpAllowDeny
      *
      * @see     Core::getIp()
      */
-    public function allowDeny($type)
+    private function allowDeny($type)
     {
         global $cfg;
 

@@ -280,21 +280,21 @@ abstract class AuthenticationPlugin
             $allowDeny_forbidden         = false; // default
             if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
                 $allowDeny_forbidden     = true;
-                if ($this->ipAllowDeny->allowDeny('allow')) {
+                if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
-                if ($this->ipAllowDeny->allowDeny('deny')) {
+                if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
             } elseif ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
-                if ($this->ipAllowDeny->allowDeny('deny')) {
+                if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
-                if ($this->ipAllowDeny->allowDeny('allow')) {
+                if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
             } elseif ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
-                if ($this->ipAllowDeny->allowDeny('allow') && ! $this->ipAllowDeny->allowDeny('deny')) {
+                if ($this->ipAllowDeny->allow() && ! $this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = false;
                 } else {
                     $allowDeny_forbidden = true;
