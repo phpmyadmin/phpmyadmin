@@ -24,7 +24,7 @@ $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
 $userPassword = new UserPassword();
-
+Gitinit777
 /**
  * Displays an error message and exits if the user isn't allowed to use this
  * script
