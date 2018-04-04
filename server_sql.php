@@ -28,7 +28,9 @@ $scripts->addFile('sql.js');
 
 require_once 'libraries/server_common.inc.php';
 
+$sqlQueryForm = new SqlQueryForm();
+
 /**
  * Query box, bookmark, insert data from textfile
  */
-$response->addHTML(SqlQueryForm::getHtml());
+$response->addHTML($sqlQueryForm->getHtml());

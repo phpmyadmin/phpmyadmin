@@ -26,6 +26,19 @@ use PhpMyAdmin\Util;
 class Tracking
 {
     /**
+     * @var SqlQueryForm
+     */
+    private $sqlQueryForm;
+
+    /**
+     * Tracking constructor.
+     */
+    public function __construct()
+    {
+        $this->sqlQueryForm = new SqlQueryForm();
+    }
+
+    /**
      * Filters tracking entries
      *
      * @param array  $data           the entries to filter
@@ -830,7 +843,7 @@ class Tracking
 
         $GLOBALS['db'] = $GLOBALS['table'] = '';
 
-        $html .= SqlQueryForm::getHtml($new_query, 'sql');
+        $html .= $this->sqlQueryForm->getHtml($new_query, 'sql');
 
         $GLOBALS['db'] = $db_temp;
         $GLOBALS['table'] = $table_temp;

@@ -28,12 +28,19 @@ $GLOBALS['server'] = 0;
 class SqlQueryFormTest extends TestCase
 {
     /**
+     * @var SqlQueryForm
+     */
+    private $sqlQueryForm;
+
+    /**
      * Test for setUp
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
+        $this->sqlQueryForm = new SqlQueryForm();
+
         //$GLOBALS
         $GLOBALS['max_upload_size'] = 100;
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
@@ -97,7 +104,7 @@ class SqlQueryFormTest extends TestCase
     }
 
     /**
-     * Test for SqlQueryForm::getHtmlForInsert
+     * Test for getHtmlForInsert
      *
      * @return void
      */
@@ -105,7 +112,7 @@ class SqlQueryFormTest extends TestCase
     {
         //Call the test function
         $query = "select * from PMA";
-        $html = SqlQueryForm::getHtmlForInsert($query);
+        $html = $this->sqlQueryForm->getHtmlForInsert($query);
 
         //validate 1: query
         $this->assertContains(
@@ -160,7 +167,7 @@ class SqlQueryFormTest extends TestCase
     }
 
     /**
-     * Test for SqlQueryForm::getHtml
+     * Test for getHtml
      *
      * @return void
      */
@@ -170,7 +177,7 @@ class SqlQueryFormTest extends TestCase
         $GLOBALS['is_upload'] = true;
         $GLOBALS['lang'] = 'ja';
         $query = "select * from PMA";
-        $html = SqlQueryForm::getHtml($query);
+        $html = $this->sqlQueryForm->getHtml($query);
 
         //validate 1: query
         $this->assertContains(

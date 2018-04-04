@@ -35,11 +35,13 @@ $err_url   = 'tbl_sql.php' . $err_url;
 $goto = 'tbl_sql.php';
 $back = 'tbl_sql.php';
 
+$sqlQueryForm = new SqlQueryForm();
+
 /**
  * Query box, bookmark, insert data from textfile
  */
 $response->addHTML(
-    SqlQueryForm::getHtml(
+    $sqlQueryForm->getHtml(
         true, false,
         isset($_REQUEST['delimiter'])
         ? htmlspecialchars($_REQUEST['delimiter'])
