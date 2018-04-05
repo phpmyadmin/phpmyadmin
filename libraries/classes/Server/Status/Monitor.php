@@ -28,17 +28,17 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForMonitor(Data $serverStatusData)
+    public function getHtmlForMonitor(Data $serverStatusData)
     {
-        $retval  = self::getHtmlForTabLinks();
+        $retval  = $this->getHtmlForTabLinks();
 
-        $retval .= self::getHtmlForSettingsDialog();
+        $retval .= $this->getHtmlForSettingsDialog();
 
-        $retval .= self::getHtmlForInstructionsDialog();
+        $retval .= $this->getHtmlForInstructionsDialog();
 
-        $retval .= self::getHtmlForAddChartDialog();
+        $retval .= $this->getHtmlForAddChartDialog();
 
-        $retval .= self::getHtmlForAnalyseDialog();
+        $retval .= $this->getHtmlForAnalyseDialog();
 
         $retval .= '<table class="clearfloat tdblock" id="chartGrid"></table>';
         $retval .= '<div id="logTable">';
@@ -67,7 +67,7 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForAnalyseDialog()
+    public function getHtmlForAnalyseDialog()
     {
         $retval  = '<div id="logAnalyseDialog" title="';
         $retval .= __('Log statistics') . '" class="hide">';
@@ -111,7 +111,7 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForInstructionsDialog()
+    public function getHtmlForInstructionsDialog()
     {
         $retval  = '<div id="monitorInstructionsDialog" title="';
         $retval .= __('Monitor Instructions') . '" class="hide">';
@@ -172,7 +172,7 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForAddChartDialog()
+    public function getHtmlForAddChartDialog()
     {
         $retval  = '<div id="addChartDialog" title="'
             . __('Add chart') . '" class="hide">';
@@ -254,7 +254,7 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForTabLinks()
+    public function getHtmlForTabLinks()
     {
         $retval  = '<div class="tabLinks">';
         $retval .= '<a href="#pauseCharts">';
@@ -279,7 +279,7 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForSettingsDialog()
+    public function getHtmlForSettingsDialog()
     {
         $retval  = '<div class="popupContent settingsPopup">';
         $retval .= '<a href="#addNewChart">';
@@ -345,7 +345,7 @@ class Monitor
      *
      * @return string
      */
-    public static function getHtmlForClientSideDataAndLinks(Data $serverStatusData)
+    public function getHtmlForClientSideDataAndLinks(Data $serverStatusData)
     {
         /**
          * Define some data needed on the client side
@@ -377,7 +377,7 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForChartingData()
+    public function getJsonForChartingData()
     {
         $ret = json_decode($_REQUEST['requiredData'], true);
         $statusVars = array();
@@ -385,7 +385,7 @@ class Monitor
         $sysinfo = $cpuload = $memory = 0;
 
         /* Accumulate all required variables and data */
-        list($serverVars, $statusVars, $ret) = self::getJsonForChartingDataGet(
+        list($serverVars, $statusVars, $ret) = $this->getJsonForChartingDataGet(
             $ret, $serverVars, $statusVars, $sysinfo, $cpuload, $memory
         );
 
@@ -414,7 +414,7 @@ class Monitor
         }
 
         // ...and now assign them
-        $ret = self::getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues);
+        $ret = $this->getJsonForChartingDataSet($ret, $statusVarValues, $serverVarValues);
 
         $ret['x'] = microtime(true) * 1000;
         return $ret;
@@ -429,7 +429,7 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForChartingDataSet(array $ret, array $statusVarValues, array $serverVarValues)
+    public function getJsonForChartingDataSet(array $ret, array $statusVarValues, array $serverVarValues)
     {
         foreach ($ret as $chart_id => $chartNodes) {
             foreach ($chartNodes as $node_id => $nodeDataPoints) {
@@ -462,7 +462,7 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForChartingDataGet(
+    public function getJsonForChartingDataGet(
         array $ret, array $serverVars, array $statusVars, $sysinfo, $cpuload, $memory
     ) {
         // For each chart
@@ -472,7 +472,7 @@ class Monitor
                 // For each data point in the series (usually just 1)
                 foreach ($nodeDataPoints as $point_id => $dataPoint) {
                     list($serverVars, $statusVars, $ret[$chart_id][$node_id][$point_id])
-                        = self::getJsonForChartingDataSwitch(
+                        = $this->getJsonForChartingDataSwitch(
                             $dataPoint['type'], $dataPoint['name'], $serverVars,
                             $statusVars, $ret[$chart_id][$node_id][$point_id],
                             $sysinfo, $cpuload, $memory
@@ -497,7 +497,7 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForChartingDataSwitch(
+    public function getJsonForChartingDataSwitch(
         $type, $pName, array $serverVars, array $statusVars, array $ret,
         $sysinfo, $cpuload, $memory
     ) {
@@ -564,7 +564,7 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForLogDataTypeSlow($start, $end)
+    public function getJsonForLogDataTypeSlow($start, $end)
     {
         $query  = 'SELECT start_time, user_host, ';
         $query .= 'Sec_to_Time(Sum(Time_to_Sec(query_time))) as query_time, ';
@@ -630,7 +630,7 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForLogDataTypeGeneral($start, $end)
+    public function getJsonForLogDataTypeGeneral($start, $end)
     {
         $limitTypes = '';
         if (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes']) {
@@ -683,7 +683,7 @@ class Monitor
                         // there's been other queries
                         $temp = $return['rows'][$insertTablesFirst]['argument'];
                         $return['rows'][$insertTablesFirst]['argument']
-                            .= self::getSuspensionPoints(
+                            .= $this->getSuspensionPoints(
                                 $temp[strlen($temp) - 1]
                             );
 
@@ -737,7 +737,7 @@ class Monitor
      *
      * @return null|string Return suspension points if needed
      */
-    public static function getSuspensionPoints($lastChar)
+    public function getSuspensionPoints($lastChar)
     {
         if ($lastChar != '.') {
             return '<br/>...';
@@ -751,7 +751,7 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForLoggingVars()
+    public function getJsonForLoggingVars()
     {
         if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
             $value = $GLOBALS['dbi']->escapeString($_REQUEST['varValue']);
@@ -781,7 +781,7 @@ class Monitor
      *
      * @return array
      */
-    public static function getJsonForQueryAnalyzer()
+    public function getJsonForQueryAnalyzer()
     {
         $return = array();
 

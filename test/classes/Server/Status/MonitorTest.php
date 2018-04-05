@@ -22,18 +22,21 @@ use PHPUnit\Framework\TestCase;
 class MonitorTest extends TestCase
 {
     /**
-     * Prepares environment for the test.
-     *
-     * @return void
+     * @var Data
      */
-    public $serverStatusData;
+    private $statusData;
+
+    /**
+     * @var Monitor
+     */
+    private $statusMonitor;
 
     /**
      * Test for setUp
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$_REQUEST
         $_REQUEST['log'] = "index1";
@@ -71,7 +74,7 @@ class MonitorTest extends TestCase
             "Com_empty_query" => "0",
         );
 
-        $server_variables= array(
+        $server_variables = array(
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "1",
             "automatic_sp_privileges" => "ON",
@@ -112,11 +115,12 @@ class MonitorTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->serverStatusData = new Data();
+        $this->statusMonitor = new Monitor();
+        $this->statusData = new Data();
     }
 
     /**
-     * Test for Monitor::getHtmlForMonitor
+     * Test for getHtmlForMonitor
      *
      * @return void
      * @group medium
@@ -124,9 +128,9 @@ class MonitorTest extends TestCase
     public function testPMAGetHtmlForMonitor()
     {
         //Call the test function
-        $html = Monitor::getHtmlForMonitor($this->serverStatusData);
+        $html = $this->statusMonitor->getHtmlForMonitor($this->statusData);
 
-        //validate 1: Monitor::getHtmlForTabLinks
+        //validate 1: getHtmlForTabLinks
         $this->assertContains(
             '<div class="tabLinks">',
             $html
@@ -143,7 +147,7 @@ class MonitorTest extends TestCase
             __('Done dragging (rearranging) charts'),
             $html
         );
-        //validate 2: Monitor::getHtmlForSettingsDialog
+        //validate 2: getHtmlForSettingsDialog
         $this->assertContains(
             '<div class="popupContent settingsPopup">',
             $html
@@ -160,7 +164,7 @@ class MonitorTest extends TestCase
             '<option>3</option>',
             $html
         );
-        //validate 3: Monitor::getHtmlForInstructionsDialog
+        //validate 3: getHtmlForInstructionsDialog
         $this->assertContains(
             __('Monitor Instructions'),
             $html
@@ -169,7 +173,7 @@ class MonitorTest extends TestCase
             'monitorInstructionsDialog',
             $html
         );
-        //validate 4: Monitor::getHtmlForAddChartDialog
+        //validate 4: getHtmlForAddChartDialog
         $this->assertContains(
             '<div id="addChartDialog"',
             $html
@@ -189,16 +193,16 @@ class MonitorTest extends TestCase
     }
 
     /**
-     * Test for Monitor::getHtmlForClientSideDataAndLinks
+     * Test for getHtmlForClientSideDataAndLinks
      *
      * @return void
      */
     public function testPMAGetHtmlForClientSideDataAndLinks()
     {
         //Call the test function
-        $html = Monitor::getHtmlForClientSideDataAndLinks($this->serverStatusData);
+        $html = $this->statusMonitor->getHtmlForClientSideDataAndLinks($this->statusData);
 
-        //validate 1: Monitor::getHtmlForClientSideDataAndLinks
+        //validate 1: getHtmlForClientSideDataAndLinks
         $from = '<form id="js_data" class="hide">'
             . '<input type="hidden" name="server_time"';
         $this->assertContains(
@@ -221,7 +225,7 @@ class MonitorTest extends TestCase
     }
 
     /**
-     * Test for Monitor::getJsonForLogDataTypeSlow
+     * Test for getJsonForLogDataTypeSlow
      *
      * @return void
      */
@@ -254,7 +258,7 @@ class MonitorTest extends TestCase
         //Call the test function
         $start = 0;
         $end = 10;
-        $ret = Monitor::getJsonForLogDataTypeSlow($start, $end);
+        $ret = $this->statusMonitor->getJsonForLogDataTypeSlow($start, $end);
 
         $result_rows = array(
             array('sql_text' => 'insert sql_text', '#' => 11),
@@ -276,7 +280,7 @@ class MonitorTest extends TestCase
     }
 
     /**
-     * Test for Monitor::getJsonForLogDataTypeGeneral
+     * Test for getJsonForLogDataTypeGeneral
      *
      * @return void
      */
@@ -313,7 +317,7 @@ class MonitorTest extends TestCase
         //Call the test function
         $start = 0;
         $end = 10;
-        $ret = Monitor::getJsonForLogDataTypeGeneral($start, $end);
+        $ret = $this->statusMonitor->getJsonForLogDataTypeGeneral($start, $end);
 
         $result_rows = array(
             $value,
@@ -336,7 +340,7 @@ class MonitorTest extends TestCase
     }
 
     /**
-     * Test for Monitor::getJsonForLoggingVars
+     * Test for getJsonForLoggingVars
      *
      * @return void
      */
@@ -361,7 +365,7 @@ class MonitorTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         //Call the test function
-        $ret = Monitor::getJsonForLoggingVars();
+        $ret = $this->statusMonitor->getJsonForLoggingVars();
 
         //validate that, the result is the same as fetchResult
         $this->assertEquals(
@@ -371,7 +375,7 @@ class MonitorTest extends TestCase
     }
 
     /**
-     * Test for Monitor::getJsonForQueryAnalyzer
+     * Test for getJsonForQueryAnalyzer
      *
      * @return void
      */
@@ -402,7 +406,7 @@ class MonitorTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         //Call the test function
-        $ret = Monitor::getJsonForQueryAnalyzer();
+        $ret = $this->statusMonitor->getJsonForQueryAnalyzer();
 
         $this->assertEquals(
             'cached_affected_rows',
