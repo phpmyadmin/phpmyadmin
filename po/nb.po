@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-01 00:34+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2018-04-03 16:38+0000\n"
+"Last-Translator: Master3395 <kimskorgenes@hotmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb/>\n"
 "Language: nb\n"
@@ -1863,7 +1863,7 @@ msgstr "Eksporter"
 
 #: js/messages.php:401
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "Ingen rutine kan eksporteres. Nødvendige rettigheter mangler."
 
 #: js/messages.php:404 libraries/classes/Rte/Routines.php:760
 msgid "ENUM/SET editor"
@@ -2608,7 +2608,7 @@ msgstr "%s spørringer utført %s ganger på %s sekunder."
 #: js/messages.php:727
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s argument(er) sendt"
 
 #: js/messages.php:728
 msgid "Show arguments"
@@ -3152,11 +3152,11 @@ msgstr "Kunne ikke fjerne kolonner!"
 
 #: libraries/classes/CentralColumns.php:618
 msgid "YES"
-msgstr ""
+msgstr "JA"
 
 #: libraries/classes/CentralColumns.php:618
 msgid "NO"
-msgstr ""
+msgstr "NEI"
 
 #: libraries/classes/CentralColumns.php:749
 #: libraries/classes/Display/Results.php:961
@@ -14894,7 +14894,7 @@ msgstr "Du burde oppgradere til %s %s eller nyere."
 
 #: libraries/common.inc.php:444
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "Feil: Tegn samsvarer ikke"
 
 #: libraries/config.values.php:56 libraries/config.values.php:76
 #: libraries/config.values.php:88
@@ -14926,7 +14926,7 @@ msgstr "Høyre"
 
 #: libraries/config.values.php:93
 msgid "Click"
-msgstr ""
+msgstr "Klikk"
 
 #: libraries/config.values.php:94
 msgid "Double click"
@@ -14934,7 +14934,7 @@ msgstr ""
 
 #: libraries/config.values.php:98
 msgid "key"
-msgstr ""
+msgstr "nøkkel"
 
 #: libraries/config.values.php:99
 msgid "display column"
@@ -14956,15 +14956,15 @@ msgstr "Lukket"
 
 #: libraries/config.values.php:128
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "Spør før innsending av feilrapporter"
 
 #: libraries/config.values.php:129
 msgid "Always send error reports"
-msgstr ""
+msgstr "Alltid send feilrapporter"
 
 #: libraries/config.values.php:130
 msgid "Never send error reports"
-msgstr ""
+msgstr "Aldri send feilrapporter"
 
 #: libraries/config.values.php:133
 #, fuzzy
@@ -16565,7 +16565,7 @@ msgstr "Bokmerke"
 
 #: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Query failed"
-msgstr "Spørring feilet"
+msgstr "Spørringen feilet"
 
 #: templates/console/display.twig:42 templates/console/display.twig:184
 msgid "Queried time"
