@@ -842,6 +842,12 @@ function browseForeignDialog ($this_a) {
     });
 }
 
+function checkSavedQuery () {
+    if (isStorageSupported('localStorage') && window.localStorage.auto_saved_sql !== undefined) {
+        PMA_ajaxShowMessage(PMA_messages.strPreviousSaveQuery);
+    }
+}
+
 AJAX.registerOnload('sql.js', function () {
     $('body').on('click', 'a.browse_foreign', function (e) {
         e.preventDefault();
@@ -871,11 +877,9 @@ AJAX.registerOnload('sql.js', function () {
     $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
 
     /**
-     * Restores SQL query after timeout login
+     * Check if there is any saved query
      */
-    if (codemirror_editor || document.sqlform) {
-        insertQuery('saved');
-    }
+    checkSavedQuery();
 });
 
 /*
