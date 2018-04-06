@@ -1111,6 +1111,8 @@ function setQuery (query) {
     } else if (document.sqlform) {
         document.sqlform.sql_query.value = query;
         document.sqlform.sql_query.focus();
+    } else {
+        return;
     }
 }
 
