@@ -76,22 +76,25 @@ function PMA_showThisQuery (db, table, query) {
  * checked and query for the db and table pair exists
  */
 function setShowThisQuery () {
-    if (isStorageSupported('localStorage')
-        && window.localStorage.show_this_query !== undefined
-        && window.localStorage.show_this_query === '1') {
-        $('input[name="show_query"]').prop('checked', true);
-        var db = $('input[name="db"]').val();
-        var table = $('input[name="table"]').val();
-        if (db === JSON.parse(window.localStorage.show_this_query_object).db
-            && table === JSON.parse(window.localStorage.show_this_query_object).table) {
-            if (codemirror_editor) {
-                codemirror_editor.setValue(JSON.parse(window.localStorage.show_this_query_object).query);
-            } else {
-                $('#sqlquery').val = JSON.parse(window.localStorage.show_this_query_object).query;
+    var db = $('input[name="db"]').val();
+    var table = $('input[name="table"]').val();
+    if (isStorageSupported('localStorage')) {
+        var stored_db = JSON.parse(window.localStorage.show_this_query_object).db;
+        var stored_table = JSON.parse(window.localStorage.show_this_query_object).table;
+        var stored_query = JSON.parse(window.localStorage.show_this_query_object).query;
+        if (window.localStorage.show_this_query !== undefined
+            && window.localStorage.show_this_query === '1') {
+            $('input[name="show_query"]').prop('checked', true);
+            if (db === stored_db && table === stored_table) {
+                if (codemirror_editor) {
+                    codemirror_editor.setValue(stored_query);
+                } else {
+                    document.sqlform.sql_query.value = stored_query;
+                }
             }
+        } else {
+            $('input[name="show_query"]').prop('checked', false);
         }
-    } else {
-        $('input[name="show_query"]').prop('checked', false);
     }
 }
 
@@ -445,6 +448,11 @@ AJAX.registerOnload('sql.js', function () {
         // import.php about what needs to be done
         $form.find('select[name=id_bookmark]').val('');
         // let normal event propagation happen
+        if (isStorageSupported('localStorage')) {
+            window.localStorage.removeItem('auto_saved_sql');
+        } else {
+            Cookies.set('auto_saved_sql', '');
+        }
         var isShowQuery =  $('input[name="show_query"').is(':checked');
         if (isShowQuery) {
             window.localStorage.show_this_query = '1';
