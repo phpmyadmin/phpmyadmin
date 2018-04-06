@@ -21,6 +21,11 @@ use PHPUnit\Framework\TestCase;
 class RoutinesTest extends TestCase
 {
     /**
+     * @var Routines
+     */
+    private $routines;
+
+    /**
      * Set up
      *
      * @return void
@@ -48,10 +53,12 @@ class RoutinesTest extends TestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
+
+        $this->routines = new Routines();
     }
 
     /**
-     * Test for Routines::getDataFromRequest
+     * Test for getDataFromRequest
      *
      * @param array $in  Input
      * @param array $out Expected output
@@ -70,8 +77,8 @@ class RoutinesTest extends TestCase
                 $_REQUEST[$key] = $value;
             }
         }
-        Routines::setGlobals();
-        $this->assertEquals($out, Routines::getDataFromRequest());
+        $this->routines->setGlobals();
+        $this->assertEquals($out, $this->routines->getDataFromRequest());
     }
 
     /**
@@ -239,18 +246,18 @@ class RoutinesTest extends TestCase
     }
 
     /**
-     * Test for Routines::getParameterRow
+     * Test for getParameterRow
      *
      * @return void
      */
     public function testGetParameterRowEmpty()
     {
-        Routines::setGlobals();
-        $this->assertEquals('', Routines::getParameterRow(array(), 0));
+        $this->routines->setGlobals();
+        $this->assertEquals('', $this->routines->getParameterRow(array(), 0));
     }
 
     /**
-     * Test for Routines::getParameterRow
+     * Test for getParameterRow
      *
      * @param array $data    Data for routine
      * @param mixed $index   Index
@@ -263,10 +270,10 @@ class RoutinesTest extends TestCase
      */
     public function testGetParameterRow($data, $index, $matcher)
     {
-        Routines::setGlobals();
+        $this->routines->setGlobals();
         $this->assertContains(
             $matcher,
-            Routines::getParameterRow($data, $index)
+            $this->routines->getParameterRow($data, $index)
         );
     }
 
@@ -333,7 +340,7 @@ class RoutinesTest extends TestCase
     }
 
     /**
-     * Test for Routines::getParameterRow
+     * Test for getParameterRow
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
@@ -346,10 +353,10 @@ class RoutinesTest extends TestCase
     public function testGetParameterRowAjax($data, $matcher)
     {
         Response::getInstance()->setAjax(true);
-        Routines::setGlobals();
+        $this->routines->setGlobals();
         $this->assertContains(
             $matcher,
-            Routines::getParameterRow($data)
+            $this->routines->getParameterRow($data)
         );
         Response::getInstance()->setAjax(false);
     }
@@ -412,7 +419,7 @@ class RoutinesTest extends TestCase
     }
 
     /**
-     * Test for Routines::getEditorForm
+     * Test for getEditorForm
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
@@ -424,10 +431,10 @@ class RoutinesTest extends TestCase
      */
     public function testGetEditorForm1($data, $matcher)
     {
-        Routines::setGlobals();
+        $this->routines->setGlobals();
         $this->assertContains(
             $matcher,
-            Routines::getEditorForm('add', '', $data)
+            $this->routines->getEditorForm('add', '', $data)
         );
     }
 
@@ -533,7 +540,7 @@ class RoutinesTest extends TestCase
     }
 
     /**
-     * Test for Routines::getEditorForm
+     * Test for getEditorForm
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
@@ -545,10 +552,10 @@ class RoutinesTest extends TestCase
      */
     public function testGetEditorForm2($data, $matcher)
     {
-        Routines::setGlobals();
+        $this->routines->setGlobals();
         $this->assertContains(
             $matcher,
-            Routines::getEditorForm('edit', 'change', $data)
+            $this->routines->getEditorForm('edit', 'change', $data)
         );
     }
 
@@ -654,7 +661,7 @@ class RoutinesTest extends TestCase
     }
 
     /**
-     * Test for Routines::getEditorForm
+     * Test for getEditorForm
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
@@ -667,10 +674,10 @@ class RoutinesTest extends TestCase
     public function testGetEditorForm3($data, $matcher)
     {
         Response::getInstance()->setAjax(true);
-        Routines::setGlobals();
+        $this->routines->setGlobals();
         $this->assertContains(
             $matcher,
-            Routines::getEditorForm('edit', 'remove', $data)
+            $this->routines->getEditorForm('edit', 'remove', $data)
         );
         Response::getInstance()->setAjax(false);
     }
@@ -777,7 +784,7 @@ class RoutinesTest extends TestCase
     }
 
     /**
-     * Test for Routines::getEditorForm
+     * Test for getEditorForm
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
@@ -789,10 +796,10 @@ class RoutinesTest extends TestCase
      */
     public function testGetEditorForm4($data, $matcher)
     {
-        Routines::setGlobals();
+        $this->routines->setGlobals();
         $this->assertContains(
             $matcher,
-            Routines::getEditorForm('edit', 'change', $data)
+            $this->routines->getEditorForm('edit', 'change', $data)
         );
     }
 
@@ -838,7 +845,7 @@ class RoutinesTest extends TestCase
     }
 
     /**
-     * Test for Routines::getExecuteForm
+     * Test for getExecuteForm
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
@@ -849,12 +856,12 @@ class RoutinesTest extends TestCase
      */
     public function testGetExecuteForm1($data, $matcher)
     {
-        Routines::setGlobals();
+        $this->routines->setGlobals();
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
         $this->assertContains(
             $matcher,
-            Routines::getExecuteForm($data)
+            $this->routines->getExecuteForm($data)
         );
     }
 
@@ -975,7 +982,7 @@ class RoutinesTest extends TestCase
     }
 
     /**
-     * Test for Routines::getExecuteForm
+     * Test for getExecuteForm
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
@@ -987,10 +994,10 @@ class RoutinesTest extends TestCase
     public function testGetExecuteForm2($data, $matcher)
     {
         Response::getInstance()->setAjax(true);
-        Routines::setGlobals();
+        $this->routines->setGlobals();
         $this->assertContains(
             $matcher,
-            Routines::getExecuteForm($data)
+            $this->routines->getExecuteForm($data)
         );
         Response::getInstance()->setAjax(false);
     }
@@ -1088,7 +1095,7 @@ class RoutinesTest extends TestCase
     }
 
     /**
-     * Test for Routines::getQueryFromRequest
+     * Test for getQueryFromRequest
      *
      * @param array  $request Request
      * @param string $query   Query
@@ -1105,7 +1112,7 @@ class RoutinesTest extends TestCase
         $cfg['ShowFunctionFields'] = false;
 
         $errors = array();
-        Routines::setGlobals();
+        $this->routines->setGlobals();
 
         $old_dbi = isset($GLOBALS['dbi']) ? $GLOBALS['dbi'] : null;
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -1127,7 +1134,7 @@ class RoutinesTest extends TestCase
 
         unset($_REQUEST);
         $_REQUEST = $request;
-        $this->assertEquals($query, Routines::getQueryFromRequest());
+        $this->assertEquals($query, $this->routines->getQueryFromRequest());
         $this->assertCount($num_err, $errors);
 
         // reset

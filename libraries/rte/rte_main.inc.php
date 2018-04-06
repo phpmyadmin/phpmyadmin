@@ -17,6 +17,8 @@ if (! defined('PHPMYADMIN')) {
 
 $response = Response::getInstance();
 
+$routines = new Routines();
+
 if (! $response->isAjax()) {
     /**
      * Displays the header and tabs
@@ -78,7 +80,7 @@ case 'RTN':
     if (isset($_REQUEST['type'])) {
         $type = $_REQUEST['type'];
     }
-    Routines::main($type);
+    $routines->main($type);
     break;
 case 'TRI':
     Triggers::main();

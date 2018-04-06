@@ -35,20 +35,26 @@ class Routines
      *
      * @return void
      */
-    public static function setGlobals()
+    public function setGlobals()
     {
         global $param_directions, $param_opts_num, $param_sqldataaccess;
 
-        $param_directions    = array('IN',
-                                     'OUT',
-                                     'INOUT');
-        $param_opts_num      = array('UNSIGNED',
-                                     'ZEROFILL',
-                                     'UNSIGNED ZEROFILL');
-        $param_sqldataaccess = array('NO SQL',
-                                     'CONTAINS SQL',
-                                     'READS SQL DATA',
-                                     'MODIFIES SQL DATA');
+        $param_directions = array(
+            'IN',
+            'OUT',
+            'INOUT'
+        );
+        $param_opts_num = array(
+            'UNSIGNED',
+            'ZEROFILL',
+            'UNSIGNED ZEROFILL'
+        );
+        $param_sqldataaccess = array(
+            'NO SQL',
+            'CONTAINS SQL',
+            'READS SQL DATA',
+            'MODIFIES SQL DATA'
+        );
     }
 
     /**
@@ -60,16 +66,16 @@ class Routines
      *
      * @return void
      */
-    public static function main($type)
+    public function main($type)
     {
         global $db;
 
-        self::setGlobals();
+        $this->setGlobals();
         /**
          * Process all requests
          */
-        self::handleEditor();
-        self::handleExecute();
+        $this->handleEditor();
+        $this->handleExecute();
         Export::routines();
         /**
          * Display a list of available routines
@@ -98,18 +104,18 @@ class Routines
                 E_USER_WARNING
             );
         }
-    } // end self::main()
+    }
 
     /**
      * Handles editor requests for adding or editing an item
      *
      * @return void
      */
-    public static function handleEditor()
+    public function handleEditor()
     {
         global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $errors;
 
-        $errors = self::handleRequestCreateOrEdit($errors, $db);
+        $errors = $this->handleRequestCreateOrEdit($errors, $db);
         $response = Response::getInstance();
 
         /**
@@ -137,14 +143,14 @@ class Routines
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
                 $title = Words::get('add');
-                $routine = self::getDataFromRequest();
+                $routine = $this->getDataFromRequest();
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __("Edit routine");
                 if (! $operation && ! empty($_REQUEST['item_name'])
                     && empty($_REQUEST['editor_process_edit'])
                 ) {
-                    $routine = self::getDataFromName(
+                    $routine = $this->getDataFromName(
                         $_REQUEST['item_name'], $_REQUEST['item_type']
                     );
                     if ($routine !== false) {
@@ -152,17 +158,17 @@ class Routines
                         $routine['item_original_type'] = $routine['item_type'];
                     }
                 } else {
-                    $routine = self::getDataFromRequest();
+                    $routine = $this->getDataFromRequest();
                 }
                 $mode = 'edit';
             }
             if ($routine !== false) {
                 // Show form
-                $editor = self::getEditorForm($mode, $operation, $routine);
+                $editor = $this->getEditorForm($mode, $operation, $routine);
                 if ($response->isAjax()) {
                     $response->addJSON('message', $editor);
                     $response->addJSON('title', $title);
-                    $response->addJSON('param_template', self::getParameterRow());
+                    $response->addJSON('param_template', $this->getParameterRow());
                     $response->addJSON('type', $routine['item_type']);
                 } else {
                     echo "\n\n<h2>$title</h2>\n\n$editor";
@@ -198,7 +204,7 @@ class Routines
      *
      * @return array
      */
-    public static function handleRequestCreateOrEdit(array $errors, $db)
+    public function handleRequestCreateOrEdit(array $errors, $db)
     {
         if (empty($_REQUEST['editor_process_add'])
             && empty($_REQUEST['editor_process_edit'])
@@ -207,8 +213,8 @@ class Routines
         }
 
         $sql_query = '';
-        $routine_query = self::getQueryFromRequest();
-        if (!count($errors)) { // set by self::getQueryFromRequest()
+        $routine_query = $this->getQueryFromRequest();
+        if (!count($errors)) {
             // Execute the created query
             if (!empty($_REQUEST['editor_process_edit'])) {
                 $isProcOrFunc = in_array(
@@ -229,7 +235,7 @@ class Routines
                         $_REQUEST['item_original_name']
                     );
 
-                    $privilegesBackup = self::backupPrivileges();
+                    $privilegesBackup = $this->backupPrivileges();
 
                     $drop_routine = "DROP {$_REQUEST['item_original_type']} "
                         . Util::backquote($_REQUEST['item_original_name'])
@@ -243,7 +249,7 @@ class Routines
                         . '<br />'
                         . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
                     } else {
-                        list($newErrors, $message) = self::create(
+                        list($newErrors, $message) = $this->create(
                             $routine_query,
                             $create_routine,
                             $privilegesBackup
@@ -330,7 +336,7 @@ class Routines
      *
      * @return array
      */
-    public static function backupPrivileges()
+    public function backupPrivileges()
     {
         if (! $GLOBALS['proc_priv'] || ! $GLOBALS['is_reload_priv']) {
             return array();
@@ -369,7 +375,7 @@ class Routines
      *
      * @return array
      */
-    public static function create(
+    public function create(
         $routine_query,
         $create_routine,
         array $privilegesBackup
@@ -425,7 +431,7 @@ class Routines
             }
         }
 
-        $message = self::flushPrivileges($resultAdjust);
+        $message = $this->flushPrivileges($resultAdjust);
 
         return array(array(), $message);
     }
@@ -437,7 +443,7 @@ class Routines
      *
      * @return Message
      */
-    public static function flushPrivileges($flushPrivileges)
+    public function flushPrivileges($flushPrivileges)
     {
         if ($flushPrivileges) {
             // Flush the Privileges
@@ -459,7 +465,7 @@ class Routines
         );
 
         return $message;
-    } // end self::handleEditor()
+    }
 
     /**
      * This function will generate the values that are required to
@@ -469,7 +475,7 @@ class Routines
      *
      * @return array    Data necessary to create the routine editor.
      */
-    public static function getDataFromRequest()
+    public function getDataFromRequest()
     {
         global $_REQUEST, $param_directions, $param_sqldataaccess;
 
@@ -572,7 +578,7 @@ class Routines
         }
 
         return $retval;
-    } // end self::getDataFromRequest()
+    }
 
     /**
      * This function will generate the values that are required to complete
@@ -584,7 +590,7 @@ class Routines
      *
      * @return array    Data necessary to create the routine editor.
      */
-    public static function getDataFromName($name, $type, $all = true)
+    public function getDataFromName($name, $type, $all = true)
     {
         global $db;
 
@@ -682,14 +688,13 @@ class Routines
         $retval['item_comment']       = $routine['ROUTINE_COMMENT'];
 
         return $retval;
-    } // self::getDataFromName()
+    }
 
     /**
      * Creates one row for the parameter table used in the routine editor.
      *
      * @param array  $routine Data for the routine returned by
-     *                        self::getDataFromRequest() or
-     *                        self::getDataFromName()
+     *                        getDataFromRequest() or getDataFromName()
      * @param mixed  $index   Either a numeric index of the row being processed
      *                        or NULL to create a template row for AJAX request
      * @param string $class   Class used to hide the direction column, if the
@@ -697,7 +702,7 @@ class Routines
      *
      * @return string    HTML code of one row of parameter table for the editor.
      */
-    public static function getParameterRow(array $routine = array(), $index = null, $class = '')
+    public function getParameterRow(array $routine = array(), $index = null, $class = '')
     {
         global $param_directions, $param_opts_num, $titles;
 
@@ -795,7 +800,7 @@ class Routines
         $retval .= "        </tr>\n";
 
         return $retval;
-    } // end self::getParameterRow()
+    }
 
     /**
      * Displays a form used to add/edit a routine
@@ -806,12 +811,11 @@ class Routines
      *                          JS turned off, this will hold the name of
      *                          the current operation
      * @param array  $routine   Data for the routine returned by
-     *                          self::getDataFromRequest() or
-     *                          self::getDataFromName()
+     *                          getDataFromRequest() or getDataFromName()
      *
      * @return string   HTML code for the editor.
      */
-    public static function getEditorForm($mode, $operation, array $routine)
+    public function getEditorForm($mode, $operation, array $routine)
     {
         global $db, $errors, $param_sqldataaccess, $param_opts_num;
 
@@ -949,7 +953,7 @@ class Routines
         $retval .= "        </thead>\n";
         $retval .= "        <tbody>\n";
         for ($i = 0; $i < $routine['item_num_params']; $i++) { // each parameter
-            $retval .= self::getParameterRow($routine, $i, $isprocedure_class);
+            $retval .= $this->getParameterRow($routine, $i, $isprocedure_class);
         }
         $retval .= "        </tbody>\n";
         $retval .= "        </table>";
@@ -1088,14 +1092,14 @@ class Routines
         $retval .= "<!-- END " . mb_strtoupper($mode) . " ROUTINE FORM -->";
 
         return $retval;
-    } // end self::getEditorForm()
+    }
 
     /**
      * Composes the query necessary to create a routine from an HTTP request.
      *
      * @return string  The CREATE [ROUTINE | PROCEDURE] query.
      */
-    public static function getQueryFromRequest()
+    public function getQueryFromRequest()
     {
         global $_REQUEST, $errors, $param_sqldataaccess, $param_directions, $dbi;
 
@@ -1306,14 +1310,14 @@ class Routines
         }
 
         return $query;
-    } // end self::getQueryFromRequest()
+    }
 
     /**
      * Handles requests for executing a routine
      *
      * @return void
      */
-    public static function handleExecute()
+    public function handleExecute()
     {
         global $_GET, $_POST, $_REQUEST, $GLOBALS, $db;
 
@@ -1324,7 +1328,7 @@ class Routines
          */
         if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['item_name'])) {
             // Build the queries
-            $routine = self::getDataFromName(
+            $routine = $this->getDataFromName(
                 $_REQUEST['item_name'], $_REQUEST['item_type'], false
             );
             if ($routine === false) {
@@ -1437,7 +1441,7 @@ class Routines
                         $output .= "</tr>";
 
                         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                            $output .= "<tr>" . self::browseRow($row) . "</tr>";
+                            $output .= "<tr>" . $this->browseRow($row) . "</tr>";
                         }
 
                         $output .= "</table>";
@@ -1520,11 +1524,11 @@ class Routines
             /**
              * Display the execute form for a routine.
              */
-            $routine = self::getDataFromName(
+            $routine = $this->getDataFromName(
                 $_GET['item_name'], $_GET['item_type'], true
             );
             if ($routine !== false) {
-                $form = self::getExecuteForm($routine);
+                $form = $this->getExecuteForm($routine);
                 if ($response->isAjax()) {
                     $title = __("Execute routine") . " " . Util::backquote(
                         htmlentities($_GET['item_name'], ENT_QUOTES)
@@ -1560,7 +1564,7 @@ class Routines
      *
      * @return string
      */
-    private static function browseRow(array $row)
+    private function browseRow(array $row)
     {
         $output = null;
         foreach ($row as $value) {
@@ -1578,11 +1582,11 @@ class Routines
      * Creates the HTML code that shows the routine execution dialog.
      *
      * @param array $routine Data for the routine returned by
-     *                       self::getDataFromName()
+     *                       getDataFromName()
      *
      * @return string   HTML code for the routine execution dialog.
      */
-    public static function getExecuteForm(array $routine)
+    public function getExecuteForm(array $routine)
     {
         global $db, $cfg;
 
@@ -1717,5 +1721,5 @@ class Routines
         $retval .= "<!-- END ROUTINE EXECUTE FORM -->\n\n";
 
         return $retval;
-    } // end self::getExecuteForm()
+    }
 }
