@@ -873,9 +873,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * Restores SQL query after timeout login
      */
-    if (codemirror_editor || document.sqlform) {
-        insertQuery('saved');
-    }
+    insertQuery('saved');
 });
 
 /*
