@@ -49,6 +49,29 @@ function PMA_autosaveSQL (query) {
 }
 
 /**
+ * Saves SQL query in local storage or cookie
+ *
+ * @param string database name
+ * @param string table name
+ * @param string SQL query
+ * @return void
+ */
+function PMA_showThisQuery (db, table, query) {
+    var show_this_query_object = {
+        'db': db,
+        'table': table,
+        'query': query
+    };
+    if (isStorageSupported('localStorage')) {
+        window.localStorage.show_this_query = 1;
+        window.localStorage.show_this_query_object = JSON.stringify(show_this_query_object);
+    } else {
+        Cookies.set('show_this_quey', 1);
+        Cookies.set('show_this_query_object', JSON.stringify(show_this_query_object));
+    }
+}
+
+/**
  * Saves SQL query with sort in local storage or cookie
  *
  * @param string SQL query
@@ -157,6 +180,13 @@ AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function () {
+    if (isStorageSupported('localStorage')
+        && window.localStorage.show_this_query !== undefined
+        && window.localStorage.show_this_query === '1') {
+        $('input[name="show_query"]').prop('checked', true);
+    } else {
+        $('input[name="show_query"]').prop('checked', false);
+    }
     $(function () {
         if (codemirror_editor) {
             codemirror_editor.on('change', function () {
@@ -283,8 +313,8 @@ AJAX.registerOnload('sql.js', function () {
         });
 
         $('.table_results .column_heading a').each(function () {
-        	//Don't copy ordering number text within <small> tag
-        	textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
+            // Don't copy ordering number text within <small> tag
+            textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
         });
 
         textArea.value += '\n';
@@ -397,6 +427,21 @@ AJAX.registerOnload('sql.js', function () {
         // import.php about what needs to be done
         $form.find('select[name=id_bookmark]').val('');
         // let normal event propagation happen
+        var isShowQuery =  $('input[name="show_query"').is(':checked');
+        if (isShowQuery) {
+            window.localStorage.show_this_query = '1';
+            var db = $('input[name="db"]').val();
+            var table = $('input[name="table"]').val();
+            var query;
+            if (codemirror_editor) {
+                query = codemirror_editor.getValue();
+            } else {
+                query = $('#sqlquery').val();
+            }
+            PMA_showThisQuery(db, table, query);
+        } else {
+            window.localStorage.show_this_query = '0';
+        }
     });
 
     /**
