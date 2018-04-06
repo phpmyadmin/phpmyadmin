@@ -72,6 +72,30 @@ function PMA_showThisQuery (db, table, query) {
 }
 
 /**
+ * Set query to codemirror if show this query is
+ * checked and query for the db and table pair exists
+ */
+function setShowThisQuery () {
+    if (isStorageSupported('localStorage')
+        && window.localStorage.show_this_query !== undefined
+        && window.localStorage.show_this_query === '1') {
+        $('input[name="show_query"]').prop('checked', true);
+        var db = $('input[name="db"]').val();
+        var table = $('input[name="table"]').val();
+        if (db === JSON.parse(window.localStorage.show_this_query_object).db
+            && table === JSON.parse(window.localStorage.show_this_query_object).table) {
+            if (codemirror_editor) {
+                codemirror_editor.setValue(JSON.parse(window.localStorage.show_this_query_object).query);
+            } else {
+                $('#sqlquery').val = JSON.parse(window.localStorage.show_this_query_object).query;
+            }
+        }
+    } else {
+        $('input[name="show_query"]').prop('checked', false);
+    }
+}
+
+/**
  * Saves SQL query with sort in local storage or cookie
  *
  * @param string SQL query
@@ -180,13 +204,7 @@ AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function () {
-    if (isStorageSupported('localStorage')
-        && window.localStorage.show_this_query !== undefined
-        && window.localStorage.show_this_query === '1') {
-        $('input[name="show_query"]').prop('checked', true);
-    } else {
-        $('input[name="show_query"]').prop('checked', false);
-    }
+    setShowThisQuery();
     $(function () {
         if (codemirror_editor) {
             codemirror_editor.on('change', function () {
