@@ -5,21 +5,26 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
+
+use PhpMyAdmin\Charsets;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for MySQL Charsets
  *
  * @package PhpMyAdmin-test
  */
-class CharsetsTest extends PHPUnit_Framework_TestCase
+class CharsetsTest extends TestCase
 {
     public function setUp()
     {
         $GLOBALS['cfg']['DBG']['sql'] = false;
+        $GLOBALS['cfg']['Server']['DisableIS'] = false;
     }
 
     /**
-     * Test case for PMA\libraries\Charsets::getCollationDescr()
+     * Test case for getCollationDescr()
      *
      * @param string $collation Collation for which description is reqd
      * @param string $desc      Expected Description
@@ -32,7 +37,7 @@ class CharsetsTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             $desc,
-            PMA\libraries\Charsets::getCollationDescr($collation)
+            Charsets::getCollationDescr($collation)
         );
     }
 
@@ -137,14 +142,17 @@ class CharsetsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\Charsets::getCollationDropdownBox
+     * Test for getCollationDropdownBox
      *
      * @return void
      * @test
      */
     public function testGetCollationDropdownBox()
     {
-        $result = PMA\libraries\Charsets::getCollationDropdownBox();
+        $result = Charsets::getCollationDropdownBox(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS']
+        );
 
         $this->assertContains('name="collation"', $result);
         $this->assertNotContains('id="', $result);
@@ -159,15 +167,21 @@ class CharsetsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for PMA\libraries\Charsets::getCharsetDropdownBox
+     * Test for getCharsetDropdownBox
      *
      * @return void
      * @test
      */
     public function testGetCharsetDropdownBox()
     {
-        $result = PMA\libraries\Charsets::getCharsetDropdownBox(
-            null, "test_id", "latin1", false, true
+        $result = Charsets::getCharsetDropdownBox(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['DisableIS'],
+            null,
+            "test_id",
+            "latin1",
+            false,
+            true
         );
         $this->assertContains('name="character_set"', $result);
         $this->assertNotContains('Charset</option>', $result);
@@ -176,4 +190,3 @@ class CharsetsTest extends PHPUnit_Framework_TestCase
         $this->assertContains('selected="selected">latin1', $result);
     }
 }
-

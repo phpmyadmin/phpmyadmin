@@ -27,9 +27,6 @@ set_include_path(
 // Setting constants for testing
 define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
-define('PMA_MYSQL_INT_VERSION', 55000);
-define('PMA_MYSQL_STR_VERSION', '5.50.00');
-define('PMA_MYSQL_VERSION_COMMENT', 'MySQL Community Server (GPL)');
 
 // Selenium tests setup
 $test_defaults = array(
@@ -59,16 +56,19 @@ if (PHP_SAPI == 'cli') {
 }
 
 require_once 'libraries/vendor_config.php';
-require_once 'vendor/autoload.php';
-require_once 'libraries/core.lib.php';
+require_once AUTOLOAD_FILE;
 PhpMyAdmin\MoTranslator\Loader::loadFunctions();
-$CFG = new PMA\libraries\Config();
+$CFG = new PhpMyAdmin\Config();
 // Initialize PMA_VERSION variable
 define('PMA_VERSION', $CFG->get('PMA_VERSION'));
+define('PMA_MAJOR_VERSION', $CFG->get('PMA_MAJOR_VERSION'));
 unset($CFG);
 
 /* Ensure default langauge is active */
-PMA\libraries\LanguageManager::getInstance()->getLanguage('en')->activate();
+PhpMyAdmin\LanguageManager::getInstance()->getLanguage('en')->activate();
+
+/* Load Database interface */
+PhpMyAdmin\DatabaseInterface::load();
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');
@@ -87,53 +87,11 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
-$_SESSION['PMA_Theme'] = PMA\libraries\Theme::load('./themes/pmahomme');
+$GLOBALS['PMA_Theme'] = PhpMyAdmin\Theme::load('./themes/pmahomme');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
-$GLOBALS['cell_align_left'] = 'left';
+$GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
 
 // Check whether we have runkit extension
 define('PMA_HAS_RUNKIT', function_exists('runkit_constant_redefine'));
 $GLOBALS['runkit_internal_override'] = ini_get('runkit.internal_override');
-
-
-/**
- * Function to emulate date() function
- *
- * @param string $date_format arg
- *
- * @return string dummy date
- */
-function test_date($date_format)
-{
-    return '0000-00-00 00:00:00';
-}
-
-/**
- * Overrides date function
- *
- * @return boolean whether function was overridden or not
- */
-function setupForTestsUsingDate()
-{
-    if (PMA_HAS_RUNKIT && $GLOBALS['runkit_internal_override']) {
-        runkit_function_rename('date', 'test_date_override');
-        runkit_function_rename('test_date', 'date');
-        return true;
-    } else {
-        return false;
-    }
-}
-
-/**
- * Restores date function
- *
- * @return void
- */
-function tearDownForTestsUsingDate()
-{
-    if (PMA_HAS_RUNKIT && $GLOBALS['runkit_internal_override']) {
-        runkit_function_rename('date', 'test_date');
-        runkit_function_rename('test_date_override', 'date');
-    }
-}

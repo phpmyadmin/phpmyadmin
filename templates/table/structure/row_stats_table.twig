@@ -1,0 +1,95 @@
+<table id="tablerowstats" class="width100 data">
+<caption class="tblHeaders">{% trans 'Row statistics' %}</caption>
+<tbody>
+    {% if showtable['Row_format'] is defined %}
+        <tr>
+        <th class="name">{% trans 'Format' %}</th>
+        {% if showtable['Row_format'] == 'Fixed' %}
+            <td class="value">{% trans 'static' %}</td>
+        {% elseif showtable['Row_format'] == 'Dynamic' %}
+            <td class="value">{% trans 'dynamic' %}</td>
+        {% else %}
+            <td class="value">{{ showtable['Row_format'] }}</td>
+        {% endif %}
+        </tr>
+    {% endif %}
+
+    {% if showtable['Create_options'] is not empty %}
+        <tr>
+        <th class="name">{% trans 'Options' %}</th>
+        {% if showtable['Create_options'] == 'partitioned' %}
+            <td class="value">{% trans 'partitioned' %}</td>
+        {% else %}
+            <td class="value">{{ showtable['Create_options'] }}</td>
+        {% endif %}
+        </tr>
+    {% endif %}
+
+    {% if tbl_collation is not empty %}
+        <tr>
+        <th class="name">{% trans 'Collation' %}</th>
+        <td class="value">
+            <dfn title="{{ Charsets_getCollationDescr(tbl_collation) }}">
+                {{ tbl_collation }}
+            </dfn>
+        </td>
+        </tr>
+    {% endif %}
+
+    {% if not is_innodb and showtable['Rows'] is defined %}
+        <tr>
+        <th class="name">{% trans 'Rows' %}</th>
+        <td class="value">{{ Util_formatNumber(showtable['Rows'], 0) }}</td>
+        </tr>
+    {% endif %}
+
+    {% if not is_innodb
+        and showtable['Avg_row_length'] is defined
+        and showtable['Avg_row_length'] > 0 %}
+        <tr>
+        <th class="name">{% trans 'Row length' %}</th>
+        {% set avg_row_length = Util_formatByteDown(showtable['Avg_row_length'], 6, 1) %}
+        <td class="value">{{ avg_row_length[0] }} {{ avg_row_length[1] }}</td>
+        </tr>
+    {% endif %}
+
+    {% if not is_innodb
+        and showtable['Data_length'] is defined
+        and showtable['Rows'] is defined
+        and showtable['Rows'] > 0
+        and mergetable == false %}
+        <tr>
+        <th class="name">{% trans 'Row size' %}</th>
+        <td class="value">{{ avg_size }} {{ avg_unit }}</td>
+        </tr>
+    {% endif %}
+
+    {% if showtable['Auto_increment'] is defined %}
+        <tr>
+        <th class="name">{% trans 'Next autoindex' %}</th>
+        <td class="value">{{ Util_formatNumber(showtable['Auto_increment'], 0) }}</td>
+        </tr>
+    {% endif %}
+
+    {% if showtable['Create_time'] is defined %}
+        <tr>
+        <th class="name">{% trans 'Creation' %}</th>
+        <td class="value">{{ Util_localisedDate(showtable['Create_time']|date('U')) }}</td>
+        </tr>
+    {% endif %}
+
+    {% if showtable['Update_time'] is defined %}
+        <tr>
+        <th class="name">{% trans 'Last update' %}</th>
+        <td class="value">{{ Util_localisedDate(showtable['Update_time']|date('U')) }}</td>
+        </tr>
+    {% endif %}
+
+    {% if showtable['Check_time'] is defined %}
+        <tr>
+        <th class="name">{% trans 'Last check' %}</th>
+        <td class="value">{{ Util_localisedDate(showtable['Check_time']|date('U')) }}</td>
+        </tr>
+    {% endif %}
+</tbody>
+</table>

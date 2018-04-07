@@ -1,0 +1,59 @@
+<td class="center print_ignore">
+    <input type="checkbox" class="checkall" name="selected_fld[]" value="{{ row['Field'] }}" id="checkbox_row_{{ rownum }}"/>
+</td>
+<td class="right">{{ rownum }}</td>
+<th class="nowrap">
+    <label for="checkbox_row_{{ rownum }}">
+        {{ displayed_field_name|raw }}
+    </label>
+</th>
+<td {{ type_nowrap }}>
+    <bdo dir="ltr" lang="en">
+        {{ extracted_columnspec['displayed_type']|raw }}
+        {% if relation_commwork and relation_mimework and browse_mime
+            and mime_map[row['Field']]['mimetype'] is defined %}
+            <br />MIME: {{ mime_map[row['Field']]['mimetype']|replace({'_': '/'})|lower }}
+        {% endif %}
+    </bdo>
+</td>
+<td>
+{% if field_charset is not empty %}
+    <dfn title="{{ Charsets_getCollationDescr(field_charset) }}">{{ field_charset }}</dfn>
+{% endif %}
+</td>
+<td class="column_attribute nowrap">{{ attribute }}</td>
+<td>{{ row['Null'] == 'YES' ? 'Yes'|trans : 'No'|trans }}</td>
+<td class="nowrap">
+    {% if row['Default'] is not null %}
+        {% if extracted_columnspec['type'] == 'bit' %}
+            {{ Util_convertBitDefaultValue(row['Default']) }}
+        {% else %}
+            {{ row['Default']|raw }}
+        {% endif %}
+    {% else %}
+        <em>{% trans %}None{% context %}None for default{% endtrans %}</em>
+    {% endif %}
+</td>
+{% if show_column_comments %}
+    <td>
+        {{ comments }}
+    </td>
+{% endif %}
+<td class="nowrap">{{ row['Extra']|upper }}</td>
+{% if not tbl_is_view and not db_is_system_schema %}
+    <td class="edit center print_ignore">
+        <a class="change_column_anchor ajax" href="tbl_structure.php
+            {{- url_query }}&amp;field={{ row['Field']|url_encode }}&amp;change_column=1">
+            {{ titles['Change']|raw }}
+        </a>
+    </td>
+    <td class="drop center print_ignore">
+        <a class="drop_column_anchor ajax" href="sql.php" data-post="{{ url_query }}&amp;sql_query=
+            {{- ('ALTER TABLE ' ~ Util_backquote(table)
+                ~ ' DROP ' ~ Util_backquote(row['Field']) ~ ';')|url_encode -}}
+            &amp;dropped_column={{ row['Field']|url_encode }}&amp;purge=1&amp;message_to_show=
+            {{- ('Column %s has been dropped.'|trans|format(row['Field']|e))|url_encode }}">
+            {{ titles['Drop']|raw }}
+        </a>
+    </td>
+{% endif %}

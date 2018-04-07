@@ -1,0 +1,8 @@
+{
+    "name": "Original",
+    "version": "4.8",
+    "description": "Original phpMyAdmin theme",
+    "author": "phpMyAdmin developers",
+    "url": "https://www.phpmyadmin.net/",
+    "supports": ["4.8"]
+}

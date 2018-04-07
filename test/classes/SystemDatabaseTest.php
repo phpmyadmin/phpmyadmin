@@ -5,15 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\SystemDatabase;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for libraries/SystemDatabase.php
  *
  * @package PhpMyAdmin-test
  */
-class SystemDatabaseTest extends PMATestCase
+class SystemDatabaseTest extends PmaTestCase
 {
     /**
      * Setup function for test cases
@@ -29,7 +31,7 @@ class SystemDatabaseTest extends PMATestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -66,7 +68,7 @@ class SystemDatabaseTest extends PMATestCase
                 )
             );
 
-        $this->sysDb = new PMA\libraries\SystemDatabase($dbi);
+        $this->sysDb = new SystemDatabase($dbi);
     }
 
     /**

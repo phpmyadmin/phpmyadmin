@@ -6,7 +6,7 @@ Copyright
 .. code-block:: none
 
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
-    Copyright (C) 2001-2017 Marc Delisle <marc_at_infomarc.info>
+    Copyright (C) 2001-2018 Marc Delisle <marc_at_infomarc.info>
         Olivier Müller <om_at_omnis.ch>
         Robin Johnson <robbat2_at_users.sourceforge.net>
         Alexander M. Turek <me_at_derrabus.de>
@@ -34,9 +34,9 @@ Third party licenses
 phpMyAdmin includes several third party libraries which come under their
 respective licenses.
 
-jQuery's license, which is where we got the files under js/jquery/ is
+jQuery's license, which is where we got the files under js/vendor/jquery/ is
 (MIT|GPL), a copy of each license is available in this repository (GPL
-is available as LICENSE, MIT as js/jquery/MIT-LICENSE.txt).
+is available as LICENSE, MIT as js/vendor/jquery/MIT-LICENSE.txt).
 
 The download kit additionally includes several composer libraries. See their
 licensing information in the vendor/ directory.

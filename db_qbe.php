@@ -5,20 +5,25 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\SavedSearches;
-use PMA\libraries\URL;
-use PMA\libraries\Response;
+use PhpMyAdmin\Database\Qbe;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\SavedSearches;
+use PhpMyAdmin\Sql;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/sql.lib.php';
 
 $response = Response::getInstance();
 
 // Gets the relation settings
-$cfgRelation = PMA_getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 
 $savedSearchList = array();
 $savedSearch = null;
@@ -81,7 +86,8 @@ if (isset($_REQUEST['submit_sql']) && ! empty($sql_query)) {
         $message_to_display = true;
     } else {
         $goto = 'db_sql.php';
-        PMA_executeQueryAndSendQueryResponse(
+        $sql = new Sql();
+        $sql->executeQueryAndSendQueryResponse(
             null, // analyzed_sql_results
             false, // is_gotofile
             $_REQUEST['db'], // db
@@ -119,10 +125,10 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 if ($message_to_display) {
-    PMA\libraries\Message::error(
+    Message::error(
         __('You have to choose at least one column to display!')
     )
         ->display();
@@ -130,16 +136,16 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new PMA\libraries\DbQbe($GLOBALS['db'], $savedSearchList, $savedSearch);
+$db_qbe = new Qbe($GLOBALS['db'], $savedSearchList, $savedSearch);
 
-$url = 'db_designer.php' . URL::getCommon(
+$url = 'db_designer.php' . Url::getCommon(
     array_merge(
         $url_params,
         array('query' => 1)
     )
 );
 $response->addHTML(
-    PMA\libraries\Message::notice(
+    Message::notice(
         sprintf(
             __('Switch to %svisual builder%s'),
             '<a href="' . $url . '">',

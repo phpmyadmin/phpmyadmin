@@ -1,0 +1,5 @@
+{% include 'login/twofactor/key-https-warning.twig' %}
+<p>
+{% trans "Please connect your FIDO U2F device into your computer's USB port. Then confirm registration on the device." %}
+</p>
+<input id="u2f_registration_response" name="u2f_registration_response" value="" type="hidden" data-request="{{ request }}" data-signatures="{{ signatures }}"/>

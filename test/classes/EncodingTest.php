@@ -5,15 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-use PMA\libraries\Encoding;
+use PhpMyAdmin\Encoding;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for Charset Conversions
  *
  * @package PhpMyAdmin-test
  */
-class EncodingTest extends PHPUnit_Framework_TestCase
+class EncodingTest extends TestCase
 {
     public function setUp()
     {
@@ -53,7 +55,7 @@ class EncodingTest extends PHPUnit_Framework_TestCase
 
     public function testRecode()
     {
-        if (! @function_exists('recode_string')) {
+        if (! function_exists('recode_string')) {
             $this->markTestSkipped('recode extension missing');
         }
 
@@ -68,7 +70,7 @@ class EncodingTest extends PHPUnit_Framework_TestCase
 
     public function testIconv()
     {
-        if (! @function_exists('iconv')) {
+        if (! function_exists('iconv')) {
             $this->markTestSkipped('iconv extension missing');
         }
 
@@ -84,10 +86,6 @@ class EncodingTest extends PHPUnit_Framework_TestCase
 
     public function testMbstring()
     {
-        if (! @function_exists('mb_convert_encoding')) {
-            $this->markTestSkipped('mbstring extension missing');
-        }
-
         Encoding::setEngine(Encoding::ENGINE_MB);
         $this->assertEquals(
             "This is the Euro symbol '?'.",
@@ -206,6 +204,7 @@ class EncodingTest extends PHPUnit_Framework_TestCase
 
     public function testListEncodings()
     {
+        $GLOBALS['cfg']['AvailableCharsets'] = ['utf-8'];
         $result = Encoding::listEncodings();
         $this->assertContains('utf-8', $result);
     }

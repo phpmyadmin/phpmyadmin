@@ -1,9 +1,0 @@
-<?php $cfgRelation = PMA_getRelationsParam(); ?>
-<!-- Do not expand HTML here, invisible characters will make javascript crash -->
-<div id="script_server" class="hide"><?= htmlspecialchars($GLOBALS['server']); ?></div>
-<div id="script_db" class="hide"><?= htmlspecialchars($_GET['db']); ?></div>
-<div id="script_tables" class="hide"><?= htmlspecialchars(json_encode($script_tables)); ?></div>
-<div id="script_contr" class="hide"><?= htmlspecialchars(json_encode($script_contr)); ?></div>
-<div id="script_display_field" class="hide"><?= htmlspecialchars(json_encode($script_display_field)); ?></div>
-<div id="script_display_page" class="hide"><?= htmlspecialchars($display_page); ?></div>
-<div id="pmd_tables_enabled" class="hide"><?= htmlspecialchars($cfgRelation['pdfwork']); ?></div>

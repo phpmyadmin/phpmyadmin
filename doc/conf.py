@@ -44,14 +44,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'phpMyAdmin'
-copyright = u'2012 - 2017, The phpMyAdmin devel team'
+copyright = u'2012 - 2018, The phpMyAdmin devel team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '4.7.9'
+version = '4.8.0'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -311,4 +311,6 @@ linkcheck_ignore = [
     # Site is often down
     r'https://software.opensuse.org/package/.*',
     r'https://pecl.php.net/.*',
+    # Expired SSL certificate
+    r'https://texy.info/.*',
 ]

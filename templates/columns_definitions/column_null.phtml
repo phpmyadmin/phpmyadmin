@@ -1,8 +1,0 @@
-<input name="field_null[<?= $columnNumber; ?>]"
-       id="field_<?= $columnNumber; ?>_<?= ($ci - $ci_offset); ?>"
-       <?php if (! empty($columnMeta['Null']) && $columnMeta['Null'] != 'NO' && $columnMeta['Null'] != 'NOT NULL'): ?>
-           checked="checked"
-       <?php endif; ?>
-       type="checkbox"
-       value="NULL"
-       class="allow_null"/>

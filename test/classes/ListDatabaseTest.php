@@ -5,23 +5,21 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-use PMA\libraries\ListDatabase;
+use PhpMyAdmin\ListDatabase;
+use PhpMyAdmin\Tests\PmaTestCase;
+use ReflectionClass;
 
 $GLOBALS['server'] = 1;
 $GLOBALS['cfg']['Server']['DisableIS'] = false;
-/*
- * Include to test.
- */
-require_once 'libraries/relation.lib.php';
-require_once 'test/PMATestCase.php';
 
 /**
  * tests for ListDatabase class
  *
  * @package PhpMyAdmin-test
  */
-class ListDatabaseTest extends PMATestCase
+class ListDatabaseTest extends PmaTestCase
 {
     /**
      * SetUp for test cases
@@ -44,7 +42,7 @@ class ListDatabaseTest extends PMATestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\ListDatabase');
+        $class = new ReflectionClass(ListDatabase::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);

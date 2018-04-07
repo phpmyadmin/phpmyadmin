@@ -5,7 +5,7 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Sanitize;
+use PhpMyAdmin\Sanitize;
 
 if (! defined('PHPMYADMIN')) {
     exit;

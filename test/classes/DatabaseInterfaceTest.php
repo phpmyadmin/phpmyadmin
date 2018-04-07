@@ -5,20 +5,20 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-use PMA\libraries\DatabaseInterface;
-use PMA\libraries\Util;
-
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Util;
 
 /**
  * Tests basic functionality of dummy dbi driver
  *
  * @package PhpMyAdmin-test
  */
-class DatabaseInterfaceTest extends PMATestCase
+class DatabaseInterfaceTest extends PmaTestCase
 {
-
     private $_dbi;
 
     /**
@@ -26,10 +26,11 @@ class DatabaseInterfaceTest extends PMATestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
-        $extension = new PMA\libraries\dbi\DBIDummy();
-        $this->_dbi = new PMA\libraries\DatabaseInterface($extension);
+        $GLOBALS['server'] = 0;
+        $extension = new DbiDummy();
+        $this->_dbi = new DatabaseInterface($extension);
     }
 
     /**
@@ -43,10 +44,10 @@ class DatabaseInterfaceTest extends PMATestCase
     {
         Util::cacheUnset('mysql_cur_user');
 
-        $extension = new PMA\libraries\dbi\DBIDummy();
+        $extension = new DbiDummy();
         $extension->setResult('SELECT CURRENT_USER();', $value);
 
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new DatabaseInterface($extension);
 
         $this->assertEquals(
             $expected,
@@ -81,7 +82,7 @@ class DatabaseInterfaceTest extends PMATestCase
      */
     public function testPMAGetColumnMap()
     {
-        $extension = $this->getMockBuilder('PMA\libraries\dbi\DBIDummy')
+        $extension = $this->getMockBuilder('PhpMyAdmin\Dbi\DbiDummy')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -107,7 +108,7 @@ class DatabaseInterfaceTest extends PMATestCase
                 )
             );
 
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new DatabaseInterface($extension);
 
         $sql_query = "PMA_sql_query";
         $view_columns = array(
@@ -145,7 +146,7 @@ class DatabaseInterfaceTest extends PMATestCase
     public function testGetSystemDatabase()
     {
         $sd = $this->_dbi->getSystemDatabase();
-        $this->assertInstanceOf('PMA\libraries\SystemDatabase', $sd);
+        $this->assertInstanceOf('PhpMyAdmin\SystemDatabase', $sd);
     }
 
     /**
@@ -348,6 +349,35 @@ class DatabaseInterfaceTest extends PMATestCase
     }
 
     /**
+     * Test error formatting
+     *
+     * @param int    $error_number  Error code
+     * @param string $error_message Error message as returned by server
+     * @param string $match         Expected text
+     *
+     * @dataProvider errorData
+     */
+    public function testFormatError($error_number, $error_message, $match)
+    {
+        $this->assertContains(
+            $match,
+            DatabaseInterface::formatError($error_number, $error_message)
+        );
+    }
+
+    public function errorData()
+    {
+        return array(
+            array(2002, 'msg', 'The server is not responding'),
+            array(2003, 'msg', 'The server is not responding'),
+            array(1698, 'msg', 'logout.php'),
+            array(1005, 'msg', 'server_engines.php'),
+            array(1005, 'errno: 13', 'Please check privileges'),
+            array(-1, 'error message', 'error message'),
+        );
+    }
+
+    /**
      * Tests for DBI::isAmazonRds() method.
      *
      * @return void
@@ -358,10 +388,10 @@ class DatabaseInterfaceTest extends PMATestCase
     {
         Util::cacheUnset('is_amazon_rds');
 
-        $extension = new PMA\libraries\dbi\DBIDummy();
+        $extension = new DbiDummy();
         $extension->setResult('SELECT @@basedir', $value);
 
-        $dbi = new PMA\libraries\DatabaseInterface($extension);
+        $dbi = new DatabaseInterface($extension);
 
         $this->assertEquals(
             $expected,
@@ -382,6 +412,75 @@ class DatabaseInterfaceTest extends PMATestCase
             array(array(array('/rdsdbbin/mysql/')), true),
             array(array(array('/rdsdbbin/mysql-5.7.18/')), true),
         );
+    }
+
+    /**
+     * Test for version parsing
+     *
+     * @param string $version  version to parse
+     * @param int    $expected expected numeric version
+     * @param int    $major    expected major version
+     * @param bool   $upgrade  whether upgrade should ne needed
+     *
+     * @return void
+     *
+     * @dataProvider versionData
+     */
+    public function testVersion($version, $expected, $major, $upgrade)
+    {
+        $ver_int = DatabaseInterface::versionToInt($version);
+        $this->assertEquals($expected, $ver_int);
+        $this->assertEquals($major, (int)($ver_int / 10000));
+        $this->assertEquals($upgrade, $ver_int < $GLOBALS['cfg']['MysqlMinVersion']['internal']);
+    }
+
+    public function versionData()
+    {
+        return array(
+            array('5.0.5', 50005, 5, true),
+            array('5.05.01', 50501, 5, false),
+            array('5.6.35', 50635, 5, false),
+            array('10.1.22-MariaDB-', 100122, 10, false),
+        );
+    }
+
+    /**
+     * Tests for DBI::setCollationl() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testSetCollation()
+    {
+        $extension = $this->getMockBuilder('PhpMyAdmin\Dbi\DbiDummy')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $extension->expects($this->any())->method('escapeString')
+            ->will($this->returnArgument(1));
+
+        $extension->expects($this->exactly(4))
+            ->method('realQuery')
+            ->withConsecutive(
+                array("SET collation_connection = 'utf8_czech_ci';"),
+                array("SET collation_connection = 'utf8mb4_bin_ci';"),
+                array("SET collation_connection = 'utf8_czech_ci';"),
+                array("SET collation_connection = 'utf8_bin_ci';")
+            )
+            ->willReturnOnConsecutiveCalls(
+                true,
+                true,
+                true,
+                true
+            );
+
+        $dbi = new DatabaseInterface($extension);
+
+        $GLOBALS['charset_connection'] = 'utf8mb4';
+        $dbi->setCollation('utf8_czech_ci');
+        $dbi->setCollation('utf8mb4_bin_ci');
+        $GLOBALS['charset_connection'] = 'utf8';
+        $dbi->setCollation('utf8_czech_ci');
+        $dbi->setCollation('utf8mb4_bin_ci');
     }
 }
 

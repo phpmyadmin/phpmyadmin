@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+namespace PhpMyAdmin\Tests\Selenium;
 
 /**
  * Base class for Selenium tests.
@@ -14,7 +15,7 @@
  * @subpackage Selenium
  * @group      selenium
  */
-abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
+abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
 {
     /**
      * mysqli object
@@ -22,7 +23,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * @access private
      * @var mysqli
      */
-    private $_mysqli;
+    protected $_mysqli;
 
     /**
      * Name of database for the test
@@ -57,11 +58,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             self::$_selenium_enabled = true;
 
             $strategy = 'shared';
-            $build_local = false;
+            $build_local = true;
             $build_id = 'Manual';
             $project_name = 'phpMyAdmin';
             if (getenv('BUILD_TAG')) {
                 $build_id = getenv('BUILD_TAG');
+                $build_local = false;
                 $strategy = 'isolated';
                 $project_name = 'phpMyAdmin (Jenkins)';
             } elseif (getenv('TRAVIS_JOB_NUMBER')) {
@@ -92,7 +94,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
                 'port' => 80,
                 'timeout' => 30000,
                 'sessionStrategy' => $strategy,
-                'desiredCapabilities' => $capabilities,
+                'desiredCapabilities' => array_merge(
+                    $capabilities,
+                    array(
+                        'os' => 'Windows',
+                    )
+                )
             );
 
             /* Only one browser for continuous integration for speed */
@@ -178,7 +185,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
 
         parent::setUp();
         $this->setBrowserUrl($GLOBALS['TESTSUITE_URL']);
-        $this->_mysqli = new mysqli(
+        $this->_mysqli = new \mysqli(
             $GLOBALS['TESTSUITE_SERVER'],
             $GLOBALS['TESTSUITE_USER'],
             $GLOBALS['TESTSUITE_PASSWORD']
@@ -196,6 +203,17 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $this->dbQuery(
             'USE ' . $this->database_name
         );
+    }
+
+    /**
+     * Configures the browser window.
+     *
+     * @return void
+     *
+     */
+    public function setUpPage()
+    {
+        $this->currentWindow()->maximize();
     }
 
     /**
@@ -233,7 +251,8 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     protected function skipIfNotPMADB()
     {
         $this->url('chk_rel.php');
-        if ($this->isElementPresent("byXPath", "//*[@color=\"red\"]")) {
+        $this->waitForElement('byId', 'page_content');
+        if ($this->isElementPresent('byXPath', '//span[contains(@style, \'color:red\')]')) {
             $this->markTestSkipped(
                 'The phpMyAdmin configuration storage is not working.'
             );
@@ -291,11 +310,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function isSuccessLogin()
     {
-        if ($this->isElementPresent("byXPath", "//*[@id=\"serverinfo\"]")) {
-            return true;
-        } else {
-            return false;
-        }
+        return $this->isElementPresent("byXPath", "//*[@id=\"serverinfo\"]");
     }
 
     /**
@@ -305,11 +320,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     */
     public function isUnsuccessLogin()
     {
-        if ($this->isElementPresent("byCssSelector", "div.error")) {
-            return true;
-        } else {
-            return false;
-        }
+        return $this->isElementPresent("byCssSelector", "div.error");
     }
 
     /**
@@ -321,7 +332,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     {
         $e = $this->byPartialLinkText("Server: ");
         $e->click();
-        $this->waitForElementNotPresent('byCssSelector', 'div#loading_parent');
+        $this->waitAjax();
     }
 
     /**
@@ -372,6 +383,13 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function waitForElement($func, $arg)
     {
+        try {
+            return call_user_func_array(
+                array($this, $func), array($arg)
+            );
+        } catch(\Exception $e) {
+            // Element not present, fall back to waiting
+        }
         $this->timeouts()->implicitWait(10000);
         $element = call_user_func_array(
             array($this, $func), array($arg)
@@ -399,19 +417,6 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
-     * Sleeps while waiting for browser to perform an action.
-     *
-     * @todo This method should not be used, but rather there would be
-     *       explicit waiting for some elements.
-     *
-     * @return void
-     */
-    public function sleep()
-    {
-        usleep(5000);
-    }
-
-    /**
      * Check if element is present or not
      *
      * @param string $func Locate using - byCss, byXPath, etc
@@ -425,10 +430,10 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
             $element = call_user_func_array(
                 array($this, $func), array($arg)
             );
-        } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
+        } catch (\PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             // Element not present
             return false;
-        } catch (InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException $e) {
             // Element not present
             return false;
         }
@@ -452,7 +457,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $element = $this->byCssSelector(
             $sel
         );
-        return $element->text();
+        $text = $element->attribute('innerText');
+
+        return ($text && is_string($text)) ? trim($text) : '';
     }
 
     /**
@@ -471,7 +478,9 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $element = $this->byCssSelector(
             $sel
         );
-        return $element->text();
+        $text = $element->attribute('innerText');
+
+        return ($text && is_string($text)) ? trim($text) : '';
     }
 
     /**
@@ -536,30 +545,16 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      * Type text in textarea (CodeMirror enabled)
      *
      * @param string $text  Text to type
-     * @param string $index Index of CodeMirror instance to write to
+     * @param int    $index Index of CodeMirror instance to write to
      *
      * @return void
      */
     public function typeInTextArea($text, $index=0)
     {
-        /**
-         * Firefox needs some escaping of a text, see
-         * https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/1723
-         */
-        if (mb_strtolower($this->getBrowser()) == 'firefox') {
-            $text = str_replace(
-                "(",
-                PHPUnit_Extensions_Selenium2TestCase_Keys::SHIFT
-                . PHPUnit_Extensions_Selenium2TestCase_Keys::NUMPAD9
-                . PHPUnit_Extensions_Selenium2TestCase_Keys::NULL,
-                $text
-            );
-        }
-
+        $this->waitForElement('byCssSelector', 'div.cm-s-default');
         $this->execute(
             array(
-                'script' => "var cm = $('.CodeMirror')[" . $index . "].CodeMirror;"
-                    . "cm.setValue('" . $text . "');",
+                'script' => "$('.cm-s-default')[$index].CodeMirror.setValue('" . $text . "');",
                 'args' => array()
             )
         );
@@ -575,7 +570,7 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $ele = null;
         try {
             $ele = $this->waitForElement('byCssSelector', 'li.submenu > a');
-        } catch (PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
+        } catch (\PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
             return;
         }
 
@@ -583,7 +578,12 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
         $ele->click();
         $this->waitForElement('byCssSelector', 'li.submenuhover > a');
 
-        $this->sleep();
+        $this->waitUntil(function () {
+            return $this->isElementPresent(
+                'byCssSelector',
+                'li.submenuhover.submenu.shown'
+            );
+        }, 5000);
     }
 
     /**
@@ -595,25 +595,15 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
      */
     public function navigateTable($table)
     {
-        // go to database page
-        $this->waitForElement("byLinkText", $this->database_name)->click();
-
-        /* Wait for loading and expanding tree */
-        $this->waitForElement(
-            'byCssSelector',
-            'li.last.table'
-        );
-
-        /* TODO: Timing issue of expanding navigation tree */
-        $this->sleep();
+        $this->navigateDatabase($this->database_name);
 
         // go to table page
         $this->waitForElement(
             "byXPath",
-            "//*[@id='pma_navigation_tree_content']//a[contains(., '$table')]"
+            "//th//a[contains(., '$table')]"
         )->click();
+        $this->waitAjax();
 
-        // Wait for it to load
         $this->waitForElement(
             "byXPath",
             "//a[@class='tabactive' and contains(., 'Browse')]"
@@ -621,26 +611,157 @@ abstract class PMA_SeleniumBase extends PHPUnit_Extensions_Selenium2TestCase
     }
 
     /**
-     * Scrolls to a coordinate such that the element with given id is visible
+     * Navigates browser to a database page.
      *
-     * @param string $element_id Id of the element
+     * @param string $database Name of database
      *
      * @return void
      */
-    public function scrollIntoView($element_id)
+    public function navigateDatabase($database, $gotoHomepageRequired = false)
     {
-        // 70pt offset so that the topmenu does not cover the element
+        if ($gotoHomepageRequired) {
+            $this->gotoHomepage();
+        }
+
+        // Go to server databases
+        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitAjax();
+
+        // go to specific database page
+        $this->waitForElement(
+            'byXPath',
+            '//tr[(contains(@class, "db-row"))]//a[contains(., "' . $this->database_name . '")]'
+        )->click();
+        $this->waitAjax();
+
+        // Wait for it to load
+        $this->waitForElement(
+            "byXPath",
+            "//a[@class='tabactive' and contains(., 'Structure')]"
+        );
+    }
+
+    /**
+     * Scrolls to a coordinate such that the element with given id is visible
+     *
+     * @param string $element_id Id of the element
+     * @param int    $offset     Offset from Y-coordinate of element
+     *
+     * @return void
+     */
+    public function scrollIntoView($element_id, $offset = 70)
+    {
+        // 70pt offset by-default so that the topmenu does not cover the element
         $this->execute(
             array(
-                'script' => 'var element = document.getElementById("'
-                            . $element_id . '");'
-                            . 'var position = element.getBoundingClientRect();'
-                            . 'var x = position.left;'
-                            . 'var y = position.top;'
-                            . 'window.scrollTo(x, y-70);',
+                'script' => 'var position = document.getElementById("'
+                            . $element_id . '").getBoundingClientRect();'
+                            . 'window.scrollBy(0, position.top-(' . $offset . '));',
                 'args'   => array()
             )
         );
-        usleep(10000);
+    }
+
+    /**
+     * Scroll to the bottom of page
+     *
+     * @return void
+     */
+    public function scrollToBottom()
+    {
+        $this->execute(
+            array(
+                'script' => 'window.scrollTo(0,document.body.scrollHeight);',
+                'args' => array()
+            )
+        );
+    }
+
+    /**
+     * Wait for AJAX completion
+     *
+     * @return void
+     */
+    public function waitAjax()
+    {
+        /* Wait while code is loading */
+        while ($this->execute(array('script' => 'return AJAX.active;', 'args' => array()))) {
+            usleep(5000);
+        }
+    }
+
+    /**
+     * Wait for AJAX message disappear
+     *
+     * @return void
+     */
+    public function waitAjaxMessage()
+    {
+        /* Get current message count */
+        $ajax_message_count = $this->execute(
+            array(
+                'script' => 'return ajax_message_count;',
+                'args' => array()
+            )
+        );
+        /* Ensure the popup is gone */
+        $this->waitForElementNotPresent(
+            'byId',
+            'ajax_message_num_' . $ajax_message_count
+        );
+    }
+
+    /**
+     * Mark unsuccessful tests as 'Failures' on Browerstack
+     *
+     * @return void
+     */
+    public function onNotSuccessfulTest($e)
+    {
+        // If this is being run on Browerstack,
+        // mark the test on Browerstack as failure
+        if (! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
+            && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])
+            && ! ($e instanceof PHPUnit_Framework_SkippedTestError)
+            && ! ($e instanceof PHPUnit_Framework_IncompleteTestError)
+        ) {
+            $SESSION_REST_URL = 'https://www.browserstack.com/automate/sessions/';
+            $sessionId = $this->getSessionId();
+            $payload = json_encode(
+                array(
+                    'status' => 'failed',
+                    'reason' => $e->getMessage()
+                )
+            );
+
+            $ch = curl_init();
+            curl_setopt(
+                $ch,
+                CURLOPT_URL,
+                $SESSION_REST_URL . $sessionId . ".json"
+            );
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+            curl_setopt(
+                $ch,
+                CURLOPT_USERPWD,
+                $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
+                    . ":" . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
+            );
+
+            $headers = array();
+            $headers[] = "Content-Type: application/json";
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+            $result = curl_exec($ch);
+            if (curl_errno($ch)) {
+                echo 'Error: ' . curl_error($ch);
+            }
+            curl_close ($ch);
+        }
+
+        // Call parent's onNotSuccessful to handle everything else
+        parent::onNotSuccessfulTest($e);
     }
 }

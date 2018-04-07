@@ -1,0 +1,7 @@
+<a href="tbl_tracking.php{{ Url_getCommon({'table': table, 'db': db}) }}">
+    {% if is_tracked -%}
+        {{ Util_getImage('eye', 'Tracking is active.'|trans) }}
+    {%- else -%}
+        {{ Util_getImage('eye_grey', 'Tracking is not active.'|trans) }}
+    {%- endif %}
+</a>

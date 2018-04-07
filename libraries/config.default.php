@@ -39,6 +39,20 @@
 $cfg['PmaAbsoluteUri'] = '';
 
 /**
+ * Configure authentication logging destination
+ *
+ * @global string $cfg['AuthLog']
+ */
+$cfg['AuthLog'] = 'auto';
+
+/**
+ * Whether to log successful authentication attempts
+ *
+ * @global boolean $cfg['AuthLogSuccess']
+ */
+$cfg['AuthLogSuccess'] = false;
+
+/**
  * Disable the default warning that is displayed on the DB Details Structure page if
  * any of the required Tables for the configuration storage could not be found
  *
@@ -540,7 +554,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array();
 /**
  * Disable use of INFORMATION_SCHEMA.
  *
- * @see https://sourceforge.net/p/phpmyadmin/bugs/2606/
+ * @see https://github.com/phpmyadmin/phpmyadmin/issues/8970
  * @see https://bugs.mysql.com/19588
  * @global boolean $cfg['Servers'][$i]['DisableIS']
  */
@@ -1030,6 +1044,13 @@ $cfg['NavigationTreeShowProcedures'] = true;
  * @global boolean $cfg['NavigationTreeShowEvents']
  */
 $cfg['NavigationTreeShowEvents'] = true;
+
+/**
+ * Width of navigation panel
+ *
+ * @global integer $cfg['NavigationWidth']
+ */
+$cfg['NavigationWidth'] = 240;
 
 /*******************************************************************************
  * In the main panel, at startup...
@@ -1839,6 +1860,13 @@ $cfg['Export']['json_structure_or_data'] = 'data';
  * @global string $cfg['Export']['json_pretty_print']
  */
 $cfg['Export']['json_pretty_print'] = false;
+
+/**
+ * Export functions
+ *
+ * @global string $cfg['Export']['json_unicode']
+ */
+$cfg['Export']['json_unicode'] = true;
 
 /**
  *
@@ -2742,7 +2770,7 @@ $cfg['BrowseMIME'] = true;
  *
  * @global integer $cfg['MaxExactCount']
  */
-$cfg['MaxExactCount'] = 500000;
+$cfg['MaxExactCount'] = 50000;
 
 /**
  * Zero means that no row count is done for views; see the doc
@@ -2839,6 +2867,11 @@ $cfg['ThemeDefault'] = 'pmahomme';
 $cfg['ThemePerServer'] = false;
 
 
+/**
+ * Font size to use by default
+ */
+$cfg['FontSize'] = '82%';
+
 /*******************************************************************************
  *
  */
@@ -2929,7 +2962,11 @@ $cfg['SaveDir'] = '';
  *
  * @global string $cfg['TempDir']
  */
-$cfg['TempDir'] = '';
+if (defined('TEMP_DIR')) {
+    $cfg['TempDir'] = TEMP_DIR;
+} else {
+    $cfg['TempDir'] = './tmp/';
+}
 
 
 /**
@@ -3024,7 +3061,7 @@ $cfg['DBG']['sql'] = false;
 /**
  * Log executed queries and their execution times to syslog
  *
- * @global boolean $cfg['DBG']['sql']
+ * @global boolean $cfg['DBG']['sqllog']
  */
 $cfg['DBG']['sqllog'] = false;
 
@@ -3034,6 +3071,13 @@ $cfg['DBG']['sqllog'] = false;
  * @global boolean $cfg['DBG']['demo']
  */
 $cfg['DBG']['demo'] = false;
+
+/**
+ * Enable Simple two-factor authentication
+ *
+ * @global boolean $cfg['DBG']['simple2fa']
+ */
+$cfg['DBG']['simple2fa'] = false;
 
 
 /*******************************************************************************
@@ -3082,3 +3126,97 @@ $cfg['MysqlMinVersion'] = array(
  * @global array $cfg['DisableShortcutKeys']
  */
 $cfg['DisableShortcutKeys'] = false;
+
+/**
+ * Console configuration
+ *
+ * This is mostly meant for user preferences.
+ */
+$cfg['Console'] = [
+    'StartHistory' => false,
+    'AlwaysExpand' => false,
+    'CurrentQuery' => true,
+    'EnterExecutes' => false,
+    'DarkTheme' => false,
+    'Mode' => 'info',
+    'Height' => 92,
+    'GroupQueries' => false,
+    'OrderBy' => 'exec',
+    'Order' => 'asc',
+];
+
+
+/*******************************************************************************
+ * Default options for transformations
+ */
+
+/**
+ * Initialize default transformations array
+ *
+ * @global array $cfg['DefaultTransformations']
+ */
+$cfg['DefaultTransformations'] = array();
+
+/**
+ * Default transformations for Substring
+ *
+ * @global array $cfg['DefaultTransformations']['Substring']
+ */
+$cfg['DefaultTransformations']['Substring'] = array(0, 'all', '…');
+
+/**
+ * Default transformations for Bool2Text
+ *
+ * @global array $cfg['DefaultTransformations']['Bool2Text']
+ */
+$cfg['DefaultTransformations']['Bool2Text'] = array('T', 'F');
+
+/**
+ * Default transformations for External
+ *
+ * @global array $cfg['DefaultTransformations']['External']
+ */
+$cfg['DefaultTransformations']['External'] = array(0, '-f /dev/null -i -wrap -q', 1, 1);
+
+/**
+ * Default transformations for PreApPend
+ *
+ * @global array $cfg['DefaultTransformations']['PreApPend']
+ */
+$cfg['DefaultTransformations']['PreApPend'] = array('', '');
+
+/**
+ * Default transformations for Hex
+ *
+ * @global array $cfg['DefaultTransformations']['Hex']
+ */
+$cfg['DefaultTransformations']['Hex'] = array('2');
+
+/**
+ * Default transformations for DateFormat
+ *
+ * @global array $cfg['DefaultTransformations']['DateFormat']
+ */
+$cfg['DefaultTransformations']['DateFormat'] = array(0, '', 'local');
+
+/**
+ * Default transformations for Inline
+ *
+ * @global array $cfg['DefaultTransformations']['Inline']
+ */
+$cfg['DefaultTransformations']['Inline'] = array('100', 100);
+$cfg['DefaultTransformations']['Inline']['wrapper_link'] = null;
+
+/**
+ * Default transformations for TextImageLink
+ *
+ * @global array $cfg['DefaultTransformations']['TextImageLink']
+ */
+$cfg['DefaultTransformations']['TextImageLink'] = array(null, 100, 50);
+
+/**
+ * Default transformations for TextLink
+ *
+ * @global array $cfg['DefaultTransformations']['TextLink']
+ */
+$cfg['DefaultTransformations']['TextLink'] = array(null, null, null);

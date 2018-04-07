@@ -5,17 +5,17 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\PageSettings;
-use PMA\libraries\Response;
-use PMA\libraries\Util;
-use PMA\libraries\URL;
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\InsertEdit;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 /**
  * Gets the variables sent or posted to this script and displays the header
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
 
 PageSettings::showGroup('Edit');
 
@@ -24,11 +24,7 @@ PageSettings::showGroup('Edit');
  */
 require_once 'libraries/db_table_exists.inc.php';
 
-/**
- * functions implementation for this script
- */
-require_once 'libraries/insert_edit.lib.php';
-require_once 'libraries/transformations.lib.php';
+$insertEdit = new InsertEdit($GLOBALS['dbi']);
 
 /**
  * Determine whether Insert or Edit and set global variables
@@ -36,17 +32,13 @@ require_once 'libraries/transformations.lib.php';
 list(
     $insert_mode, $where_clause, $where_clause_array, $where_clauses,
     $result, $rows, $found_unique_key, $after_insert
-) = PMA_determineInsertOrEdit(
+) = $insertEdit->determineInsertOrEdit(
     isset($where_clause) ? $where_clause : null, $db, $table
 );
 // Increase number of rows if unsaved rows are more
 if (!empty($unsaved_values) && count($rows) < count($unsaved_values)) {
     $rows = array_fill(0, count($unsaved_values), false);
 }
-/**
- * file listing
-*/
-require_once 'libraries/file_listing.lib.php';
 
 /**
  * Defines the url to return to in case of error in a sql statement
@@ -62,11 +54,11 @@ if (empty($GLOBALS['goto'])) {
 }
 
 
-$_url_params = PMA_getUrlParameters($db, $table);
-$err_url = $GLOBALS['goto'] . URL::getCommon($_url_params);
+$_url_params = $insertEdit->getUrlParameters($db, $table);
+$err_url = $GLOBALS['goto'] . Url::getCommon($_url_params);
 unset($_url_params);
 
-$comments_map = PMA_getCommentsMap($db, $table);
+$comments_map = $insertEdit->getCommentsMap($db, $table);
 
 /**
  * START REGULAR OUTPUT
@@ -80,9 +72,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('sql.js');
 $scripts->addFile('tbl_change.js');
-$scripts->addFile('jquery/jquery-ui-timepicker-addon.js');
-$scripts->addFile('jquery/jquery.validate.js');
-$scripts->addFile('jquery/additional-methods.js');
+$scripts->addFile('vendor/jquery/additional-methods.js');
 $scripts->addFile('gis_data_editor.js');
 
 /**
@@ -94,13 +84,14 @@ if (! empty($disp_message)) {
     $response->addHTML(Util::getMessage($disp_message, null));
 }
 
-$table_columns = PMA_getTableColumns($db, $table);
+$table_columns = $insertEdit->getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
-$foreigners = PMA_getForeigners($db, $table);
+$relation = new Relation();
+$foreigners = $relation->getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form
-$_form_params = PMA_getFormParametersForInsertForm(
+$_form_params = $insertEdit->getFormParametersForInsertForm(
     $db, $table, $where_clauses, $where_clause_array, $err_url
 );
 
@@ -127,13 +118,13 @@ $biggest_max_file_size = 0;
 
 $url_params['db'] = $db;
 $url_params['table'] = $table;
-$url_params = PMA_urlParamsInEditMode(
+$url_params = $insertEdit->urlParamsInEditMode(
     $url_params, $where_clause_array, $where_clause
 );
 
 $has_blob_field = false;
 foreach ($table_columns as $column) {
-    if (PMA_isColumn(
+    if ($insertEdit->isColumn(
         $column,
         array('blob', 'tinyblob', 'mediumblob', 'longblob')
     )) {
@@ -144,11 +135,11 @@ foreach ($table_columns as $column) {
 
 //Insert/Edit form
 //If table has blob fields we have to disable ajax.
-$html_output .= PMA_getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
+$html_output .= $insertEdit->getHtmlForInsertEditFormHeader($has_blob_field, $is_upload);
 
-$html_output .= URL::getHiddenInputs($_form_params);
+$html_output .= Url::getHiddenInputs($_form_params);
 
-$titles['Browse'] = Util::getIcon('b_browse.png', __('Browse foreign values'));
+$titles['Browse'] = Util::getIcon('b_browse', __('Browse foreign values'));
 
 // user can toggle the display of Function column and column types
 // (currently does not work for multi-edits)
@@ -157,11 +148,11 @@ if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
 }
 
 if (! $cfg['ShowFunctionFields']) {
-    $html_output .= PMA_showTypeOrFunction('function', $url_params, false);
+    $html_output .= $insertEdit->showTypeOrFunction('function', $url_params, false);
 }
 
 if (! $cfg['ShowFieldTypesInDataEditView']) {
-    $html_output .= PMA_showTypeOrFunction('type', $url_params, false);
+    $html_output .= $insertEdit->showTypeOrFunction('type', $url_params, false);
 }
 
 $GLOBALS['plugin_scripts'] = array();
@@ -183,10 +174,10 @@ foreach ($rows as $row_id => $current_row) {
         $checked = false;
     }
     if ($insert_mode && $row_id > 0) {
-        $html_output .= PMA_getHtmlForIgnoreOption($row_id, $checked);
+        $html_output .= $insertEdit->getHtmlForIgnoreOption($row_id, $checked);
     }
 
-    $html_output .= PMA_getHtmlForInsertEditRow(
+    $html_output .= $insertEdit->getHtmlForInsertEditRow(
         $url_params, $table_columns, $comments_map, $timestamp_seen,
         $current_result, $chg_evt_handler, $jsvkey, $vkey, $insert_mode,
         $current_row, $o_rows, $tabindex, $columns_cnt,
@@ -203,7 +194,7 @@ if (! isset($after_insert)) {
 }
 
 //action panel
-$html_output .= PMA_getActionsPanel(
+$html_output .= $insertEdit->getActionsPanel(
     $where_clause, $after_insert, $tabindex,
     $tabindex_for_value, $found_unique_key
 );
@@ -216,12 +207,12 @@ if ($biggest_max_file_size > 0) {
 }
 $html_output .= '</form>';
 
-$html_output .= PMA_getHtmlForGisEditor();
+$html_output .= $insertEdit->getHtmlForGisEditor();
 // end Insert/Edit form
 
 if ($insert_mode) {
     //Continue insertion form
-    $html_output .= PMA_getContinueInsertionForm(
+    $html_output .= $insertEdit->getContinueInsertionForm(
         $table, $db, $where_clause_array, $err_url
     );
 }

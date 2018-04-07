@@ -8,7 +8,7 @@
  */
 
 // unplanned execution path
-if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
+if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     exit();
 }
 ?>
@@ -24,7 +24,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     position: fixed;
     top: 0;
     <?php echo $left; ?>: 0;
-    height: 100%;
+    height: 100vh;
     border-<?php echo $right; ?>: 1px solid gray;
     z-index: 800;
 }
@@ -155,6 +155,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation_tree_content a.hover_show_full {
     position: relative;
     z-index: 100;
+    vertical-align: sub;
 }
 #pma_navigation_tree a {
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;

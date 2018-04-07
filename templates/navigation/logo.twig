@@ -1,0 +1,12 @@
+{% if display_logo %}
+    <div id="pmalogo">
+        {% if use_logo_link %}
+            <a href="{{ logo_link|default('#')|raw }}"
+                {{- link_attribs is defined ? ' ' ~ link_attribs|raw }}>
+        {% endif %}
+        {{ logo|raw }}
+        {% if use_logo_link %}
+            </a>
+        {% endif %}
+    </div>
+{% endif %}

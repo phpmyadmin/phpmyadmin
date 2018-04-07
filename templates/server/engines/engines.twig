@@ -1,0 +1,22 @@
+<table class="noclick">
+    <thead>
+        <tr>
+            <th>{% trans 'Storage Engine' %}</th>
+            <th>{% trans 'Description' %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for engine, details in engines %}
+            <tr class="
+                {{- details['Support'] == 'NO' or details['Support'] == 'DISABLED' ? ' disabled' }}
+                {{ details['Support'] == 'DEFAULT' ? ' marked' }}">
+                <td>
+                    <a rel="newpage" href="server_engines.php{{ Url_getCommon({'engine': engine}) }}">
+                        {{ details['Engine'] }}
+                    </a>
+                </td>
+                <td>{{ details['Comment'] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

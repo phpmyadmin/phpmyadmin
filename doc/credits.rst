@@ -3,7 +3,6 @@
 Credits
 =======
 
-
 Credits, in chronological order
 +++++++++++++++++++++++++++++++
 
@@ -19,11 +18,9 @@ Credits, in chronological order
 
   * various fixes and improvements
 
-  * :term:`SQL` analyser (most of it)
+  * first version of the :term:`SQL` analyser (most of it)
 
-  * current project maintainer
-
-  * maintains content on our website
+  * maintainer from 2001 to 2015
 
 * Olivier Müller <om\_at\_omnis.ch>
 
@@ -420,6 +417,28 @@ Credits, in chronological order
 
   * Other UI improvements and new features
 
+* Deven Bansod (Google Summer of Code 2017)
+
+  * Improvements to the Error Reporting Server
+
+  * Improved Selenium testing
+
+* Manish Bisht (Google Summer of Code 2017)
+
+  * Mobile user interface
+
+  * Remove inline JavaScript code
+
+  * Other UI improvements
+
+* Raghuram Vadapalli (Google Summer of Code 2017)
+
+  * Multi-table query interface
+
+  * Allow Designer to work with tables from other databases
+
+  * Other UI improvements
+
 And also to the following people who have contributed minor changes,
 enhancements, bugfixes or support for a new language since version
 2.1.0:
@@ -435,18 +454,14 @@ Martijn W. van der Lee, Algis Vainauskas, Daniel Villanueva, Vinay,
 Ignacio Vazquez-Abrams, Chee Wai, Jakub Wilk, Thomas Michael
 Winningham, Vilius Zigmantas, "Manuzhai".
 
-
 Translators
 +++++++++++
 
 Following people have contributed to translation of phpMyAdmin:
 
-
-
 * Albanian
 
     * Arben Çokaj <acokaj\_at\_shkoder.net>
-
 
 * Arabic
 
@@ -454,11 +469,9 @@ Following people have contributed to translation of phpMyAdmin:
     * Ahmed Saad <egbrave\_at\_hotmail.com>
     * hassan mokhtari <persiste1\_at\_gmail.com>
 
-
 * Armenian
 
     * Andrey Aleksanyants <aaleksanyants\_at\_yahoo.com>
-
 
 * Azerbaijani
 
@@ -467,11 +480,9 @@ Following people have contributed to translation of phpMyAdmin:
     * Sevdimali İsa <sevdimaliisayev\_at\_mail.ru>
     * Jafar <sharifov\_at\_programmer.net>
 
-
 * Belarusian
 
     * Viktar Palstsiuk <vipals\_at\_gmail.com>
-
 
 * Bulgarian
 
@@ -481,12 +492,10 @@ Following people have contributed to translation of phpMyAdmin:
     * P <plamen_mbx\_at\_yahoo.com>
     * krasimir <vip\_at\_krasio-valia.com>
 
-
 * Catalan
 
     * josep constanti <jconstanti\_at\_yahoo.es>
     * Xavier Navarro <xvnavarro\_at\_gmail.com>
-
 
 * Chinese (China)
 
@@ -501,18 +510,15 @@ Following people have contributed to translation of phpMyAdmin:
     * Terry Weng <wengshiyu\_at\_gmail.com>
     * whh <whhlcj\_at\_126.com>
 
-
 * Chinese (Taiwan)
 
     * Albert Song <albb0920\_at\_gmail.com>
     * Chien Wei Lin <cwlin0416\_at\_gmail.com>
     * Peter Dave Hello <xs910203\_at\_gmail.com>
 
-
 * Colognian
 
     * Purodha <publi\_at\_web.de>
-
 
 * Czech
 
@@ -523,14 +529,12 @@ Following people have contributed to translation of phpMyAdmin:
     * Jan Palider <palider\_at\_seznam.cz>
     * Petr Kateřiňák <petr.katerinak\_at\_gmail.com>
 
-
 * Danish
 
     * Aputsiaĸ Niels Janussen <aj\_at\_isit.gl>
     * Dennis Jakobsen <dennis.jakobsen\_at\_gmail.com>
     * Jonas <jonas.den.smarte\_at\_gmail.com>
     * Claus Svalekjaer <just.my.smtp.server\_at\_gmail.com>
-
 
 * Dutch
 
@@ -540,7 +544,6 @@ Following people have contributed to translation of phpMyAdmin:
     * Dieter Adriaenssens <ruleant\_at\_users.sourceforge.net>
     * Niko Strijbol <strijbol.niko\_at\_gmail.com>
 
-
 * English (United Kingdom)
 
     * Dries Verschuere <dries.verschuere\_at\_outlook.com>
@@ -548,38 +551,31 @@ Following people have contributed to translation of phpMyAdmin:
     * Marc Delisle <marc\_at\_infomarc.info>
     * Marek Tomaštík <tomastik.m\_at\_gmail.com>
 
-
 * Esperanto
 
     * Eliovir <eliovir\_at\_gmail.com>
     * Robin van der Vliet <info\_at\_robinvandervliet.nl>
 
-
 * Estonian
 
     * Kristjan Räts <kristjanrats\_at\_gmail.com>
-
 
 * Finnish
 
     * Juha Remes <jremes\_at\_outlook.com>
     * Lari Oesch <lari\_at\_oesch.me>
 
-
 * French
 
     * Marc Delisle <marc\_at\_infomarc.info>
-
 
 * Frisian
 
     * Robin van der Vliet <info\_at\_robinvandervliet.nl>
 
-
 * Galician
 
     * Xosé Calvo <xosecalvo\_at\_gmail.com>
-
 
 * German
 
@@ -593,18 +589,15 @@ Following people have contributed to translation of phpMyAdmin:
     * Phillip Rohmberger <rohmberger\_at\_hotmail.de>
     * Hauke Henningsen <sqrt\_at\_entless.org>
 
-
 * Greek
 
     * Παναγιώτης Παπάζογλου <papaz_p\_at\_yahoo.com>
-
 
 * Hebrew
 
     * Moshe Harush <mmh15\_at\_windowslive.com>
     * Yaron Shahrabani <sh.yaron\_at\_gmail.com>
     * Eyal Visoker <visokereyal\_at\_gmail.com>
-
 
 * Hindi
 
@@ -616,14 +609,12 @@ Following people have contributed to translation of phpMyAdmin:
     * Roohan Kazi <roohan_cena\_at\_yahoo.co.in>
     * Yugal Pantola <yug.scorpio\_at\_gmail.com>
 
-
 * Hungarian
 
     * Akos Eros <erosakos02\_at\_gmail.com>
     * Dániel Tóth <leedermeister\_at\_gmail.com>
     * Szász Attila <undernetangel\_at\_gmail.com>
     * Balázs Úr <urbalazs\_at\_gmail.com>
-
 
 * Indonesian
 
@@ -637,18 +628,15 @@ Following people have contributed to translation of phpMyAdmin:
     * Tommy Surbakti <tommy\_at\_surbakti.net>
     * Zufar Fathi Suhardi <zufar.bogor\_at\_gmail.com>
 
-
 * Interlingua
 
     * Giovanni Sora <g.sora\_at\_tiscali.it>
-
 
 * Italian
 
     * Francesco Saverio Giacobazzi <francesco.giacobazzi\_at\_ferrania.it>
     * Marco Pozzato <ironpotts\_at\_gmail.com>
     * Stefano Martinelli <stefano.ste.martinelli\_at\_gmail.com>
-
 
 * Japanese
 
@@ -657,12 +645,10 @@ Following people have contributed to translation of phpMyAdmin:
     * Masahiko HISAKAWA <orzkun\_at\_ageage.jp>
     * worldwideskier <worldwideskier\_at\_yahoo.co.jp>
 
-
 * Kannada
 
     * Robin van der Vliet <info\_at\_robinvandervliet.nl>
     * Shameem Ahmed A Mulla <shameem.sam\_at\_gmail.com>
-
 
 * Korean
 
@@ -677,7 +663,6 @@ Following people have contributed to translation of phpMyAdmin:
     * Yoon Bum-Jong <virusyoon\_at\_gmail.com>
     * Koo Youngmin <youngminz.kr\_at\_gmail.com>
 
-
 * Kurdish Sorani
 
     * Alan Hilal <alan.hilal94\_at\_gmail.com>
@@ -685,34 +670,28 @@ Following people have contributed to translation of phpMyAdmin:
     * muhammad <esy_vb\_at\_yahoo.com>
     * Zrng Abdulla <zhyarabdulla94\_at\_gmail.com>
 
-
 * Latvian
 
     * Latvian TV <dnighttv\_at\_gmail.com>
     * Edgars Neimanis <edgarsneims5092\_at\_inbox.lv>
     * Ukko <perkontevs\_at\_gmail.com>
 
-
 * Limburgish
 
     * Robin van der Vliet <info\_at\_robinvandervliet.nl>
 
-
 * Lithuanian
 
     * Vytautas Motuzas <v.motuzas\_at\_gmail.com>
-
 
 * Malay
 
     * Amir Hamzah <amir.overlord666\_at\_gmail.com>
     * diprofinfiniti <anonynuine-999\_at\_yahoo.com>
 
-
 * Nepali
 
     * Nabin Ghimire <nnabinn\_at\_hotmail.com>
-
 
 * Norwegian Bokmål
 
@@ -724,12 +703,10 @@ Following people have contributed to translation of phpMyAdmin:
     * Sebastian <sebastian\_at\_sgundersen.com>
     * Tomas <tomas\_at\_tomasruud.com>
 
-
 * Persian
 
     * ashkan shirian <ashkan.shirian\_at\_gmail.com>
     * HM <goodlinuxuser\_at\_chmail.ir>
-
 
 * Polish
 
@@ -739,14 +716,12 @@ Following people have contributed to translation of phpMyAdmin:
     * Maciej Gryniuk <maciejka45\_at\_gmail.com>
     * Michał VonFlynee <vonflynee\_at\_gmail.com>
 
-
 * Portuguese
 
     * Alexandre Badalo <alexandre.badalo\_at\_sapo.pt>
     * João Rodrigues <geral\_at\_jonilive.com>
     * Pedro Ribeiro <p.m42.ribeiro\_at\_gmail.com>
     * Sandro Amaral <sandro123iv\_at\_gmail.com>
-
 
 * Portuguese (Brazil)
 
@@ -770,11 +745,9 @@ Following people have contributed to translation of phpMyAdmin:
     * Washington Bruno Rodrigues Cav <washingtonbruno\_at\_msn.com>
     * Yan Gabriel <yansilvagabriel\_at\_gmail.com>
 
-
 * Punjabi
 
     * Robin van der Vliet <info\_at\_robinvandervliet.nl>
-
 
 * Romanian
 
@@ -784,7 +757,6 @@ Following people have contributed to translation of phpMyAdmin:
     * Raul Molnar <molnar.raul\_at\_wservices.eu>
     * Deleted User <noreply\_at\_weblate.org>
     * Stefan Murariu <stefan.murariu\_at\_yahoo.com>
-
 
 * Russian
 
@@ -796,16 +768,13 @@ Following people have contributed to translation of phpMyAdmin:
     * Олег Карпов <salvadoporjc\_at\_gmail.com>
     * Egorov Artyom <unlucky\_at\_inbox.ru>
 
-
 * Serbian
 
     * Smart Kid <kidsmart33\_at\_gmail.com>
 
-
 * Sinhala
 
     * Madhura Jayaratne <madhura.cj\_at\_gmail.com>
-
 
 * Slovak
 
@@ -813,11 +782,9 @@ Following people have contributed to translation of phpMyAdmin:
     * Patrik Kollmann <parkourpotex\_at\_gmail.com>
     * Jozef Pistej <pistej2\_at\_gmail.com>
 
-
 * Slovenian
 
     * Domen <mitenem\_at\_outlook.com>
-
 
 * Spanish
 
@@ -830,11 +797,9 @@ Following people have contributed to translation of phpMyAdmin:
     * FAMMA TV NOTICIAS MEDIOS DE CO <revistafammatvmusic.oficial\_at\_gmail.com>
     * Ronnie Simon <ronniesimonf\_at\_gmail.com>
 
-
 * Swedish
 
     * Anders Jonsson <anders.jonsson\_at\_norsjovallen.se>
-
 
 * Tamil
 
@@ -842,17 +807,14 @@ Following people have contributed to translation of phpMyAdmin:
     * Achchuthan Yogarajah <achch1990\_at\_gmail.com>
     * Rifthy Ahmed <rifthy456\_at\_gmail.com>
 
-
 * Thai
 
     *  <nontawat39\_at\_gmail.com>
     * Somthanat W. <somthanat\_at\_gmail.com>
 
-
 * Turkish
 
     * Burak Yavuz <hitowerdigit\_at\_hotmail.com>
-
 
 * Ukrainian
 
@@ -860,13 +822,11 @@ Following people have contributed to translation of phpMyAdmin:
     * Igor <vmta\_at\_yahoo.com>
     * Vitaliy Perekupka <vperekupka\_at\_gmail.com>
 
-
 * Vietnamese
 
     * Bao Phan <baophan94\_at\_icloud.com>
     * Xuan Hung <mr.hungdx\_at\_gmail.com>
     * Bao trinh minh <trinhminhbao\_at\_gmail.com>
-
 
 * West Flemish
 
@@ -881,30 +841,25 @@ Following people have contributed to translation of phpMyAdmin documentation:
 
     * Arben Çokaj <acokaj\_at\_shkoder.net>
 
-
 * Arabic
 
     * Ahmed El Azzabi <ahmedtek1993\_at\_gmail.com>
     * Omar Essam <omar_2412\_at\_live.com>
 
-
 * Armenian
 
     * Andrey Aleksanyants <aaleksanyants\_at\_yahoo.com>
-
 
 * Azerbaijani
 
     * Mircəlal <01youknowme\_at\_gmail.com>
     * Sevdimali İsa <sevdimaliisayev\_at\_mail.ru>
 
-
 * Catalan
 
     * josep constanti <jconstanti\_at\_yahoo.es>
     * Joan Montané <joan\_at\_montane.cat>
     * Xavier Navarro <xvnavarro\_at\_gmail.com>
-
 
 * Chinese (China)
 
@@ -916,12 +871,10 @@ Following people have contributed to translation of phpMyAdmin documentation:
     * Terry Weng <wengshiyu\_at\_gmail.com>
     * whh <whhlcj\_at\_126.com>
 
-
 * Chinese (Taiwan)
 
     * Chien Wei Lin <cwlin0416\_at\_gmail.com>
     * Peter Dave Hello <xs910203\_at\_gmail.com>
-
 
 * Czech
 
@@ -930,12 +883,10 @@ Following people have contributed to translation of phpMyAdmin documentation:
     * Jan Palider <palider\_at\_seznam.cz>
     * Petr Kateřiňák <petr.katerinak\_at\_gmail.com>
 
-
 * Danish
 
     * Aputsiaĸ Niels Janussen <aj\_at\_isit.gl>
     * Claus Svalekjaer <just.my.smtp.server\_at\_gmail.com>
-
 
 * Dutch
 
@@ -948,16 +899,13 @@ Following people have contributed to translation of phpMyAdmin documentation:
     * Dieter Adriaenssens <ruleant\_at\_users.sourceforge.net>
     * Tom Hofman <tom.hofman\_at\_gmail.com>
 
-
 * Estonian
 
     * Kristjan Räts <kristjanrats\_at\_gmail.com>
 
-
 * Finnish
 
     * Juha <jremes\_at\_outlook.com>
-
 
 * French
 
@@ -966,16 +914,13 @@ Following people have contributed to translation of phpMyAdmin documentation:
     * Marc Delisle <marc\_at\_infomarc.info>
     * Donavan_Martin <mart.donavan\_at\_hotmail.com>
 
-
 * Frisian
 
     * Robin van der Vliet <info\_at\_robinvandervliet.nl>
 
-
 * Galician
 
     * Xosé Calvo <xosecalvo\_at\_gmail.com>
-
 
 * German
 
@@ -988,16 +933,13 @@ Following people have contributed to translation of phpMyAdmin documentation:
     * Phillip Rohmberger <rohmberger\_at\_hotmail.de>
     * Hauke Henningsen <sqrt\_at\_entless.org>
 
-
 * Greek
 
     * Παναγιώτης Παπάζογλου <papaz_p\_at\_yahoo.com>
 
-
 * Hungarian
 
     * Balázs Úr <urbalazs\_at\_gmail.com>
-
 
 * Italian
 
@@ -1006,24 +948,20 @@ Following people have contributed to translation of phpMyAdmin documentation:
     * Stefano Martinelli <stefano.ste.martinelli\_at\_gmail.com>
     * TWS <tablettws\_at\_gmail.com>
 
-
 * Japanese
 
     * Eshin Kunishima <ek\_at\_luna.miko.im>
     * Hiroshi Chiyokawa <hiroshi.chiyokawa\_at\_gmail.com>
-
 
 * Lithuanian
 
     * Jur Kis <atvejis\_at\_gmail.com>
     * Dovydas <dovy.buz\_at\_gmail.com>
 
-
 * Norwegian Bokmål
 
     * Tor Stokkan <danorse\_at\_gmail.com>
     * Kurt Eilertsen <kurt\_at\_kheds.com>
-
 
 * Portuguese (Brazil)
 
@@ -1038,18 +976,15 @@ Following people have contributed to translation of phpMyAdmin documentation:
     * Vinícius Araújo <vinipitta\_at\_gmail.com>
     * Yan Gabriel <yansilvagabriel\_at\_gmail.com>
 
-
 * Slovak
 
     * Martin Lacina <martin\_at\_whistler.sk>
     * Michal Čihař <michal\_at\_cihar.com>
     * Jozef Pistej <pistej2\_at\_gmail.com>
 
-
 * Slovenian
 
     * Domen <mitenem\_at\_outlook.com>
-
 
 * Spanish
 
@@ -1057,7 +992,6 @@ Following people have contributed to translation of phpMyAdmin documentation:
     * Franco <fulanodetal.github1\_at\_openaliasbox.org>
     * Matías Bellone <matiasbellone+weblate\_at\_gmail.com>
     * Ronnie Simon <ronniesimonf\_at\_gmail.com>
-
 
 * Turkish
 
@@ -1107,4 +1041,3 @@ Jannis Hermanns, G. Wieggers.
 
 And thanks to everyone else who sent me email with suggestions, bug-
 reports and or just some feedback.
-

@@ -6,22 +6,21 @@
  * @package PhpMyAdmin
  */
 
-namespace PMA;
-
-use PMA\libraries\controllers\table\TableIndexesController;
-use PMA\libraries\Index;
-use PMA\libraries\Response;
+use PhpMyAdmin\Controllers\Table\TableIndexesController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Index;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\table\TableIndexesController');
+$container = Container::getDefaultContainer();
+$container->factory('PhpMyAdmin\Controllers\Table\TableIndexesController');
 $container->alias(
     'TableIndexesController',
-    'PMA\libraries\controllers\table\TableIndexesController'
+    'PhpMyAdmin\Controllers\Table\TableIndexesController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');

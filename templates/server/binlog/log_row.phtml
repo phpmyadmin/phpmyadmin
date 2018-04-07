@@ -1,8 +1,0 @@
-<tr class="noclick">
-    <td><?= $value['Log_name']; ?></td>
-    <td class="right"><?= $value['Pos']; ?></td>
-    <td><?= $value['Event_type']; ?></td>
-    <td class="right"><?= $value['Server_id']; ?></td>
-    <td class="right"><?= (isset($value['Orig_log_pos']) ? $value['Orig_log_pos'] : $value['End_log_pos']); ?></td>
-    <td><?= \PMA\libraries\Util::formatSql($value['Info'], ! $dontlimitchars); ?></td>
-</tr>

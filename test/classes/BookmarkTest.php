@@ -5,17 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\Bookmark;
+namespace PhpMyAdmin\Tests;
 
-require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/relation.lib.php';
+use PhpMyAdmin\Bookmark;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for Bookmark class
  *
  * @package PhpMyAdmin-test
  */
-class BookmarkTest extends PHPUnit_Framework_TestCase
+class BookmarkTest extends TestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -41,7 +41,7 @@ class BookmarkTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             false,
-            Bookmark::getParams()
+            Bookmark::getParams($GLOBALS['cfg']['Server']['user'])
         );
     }
 
@@ -54,7 +54,11 @@ class BookmarkTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             array(),
-            Bookmark::getList('phpmyadmin')
+            Bookmark::getList(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                'phpmyadmin'
+            )
         );
     }
 
@@ -66,7 +70,12 @@ class BookmarkTest extends PHPUnit_Framework_TestCase
     public function testGet()
     {
         $this->assertNull(
-            Bookmark::get('phpmyadmin', '1')
+            Bookmark::get(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                'phpmyadmin',
+                '1'
+            )
         );
     }
 
@@ -84,7 +93,11 @@ class BookmarkTest extends PHPUnit_Framework_TestCase
             'bkm_label' => 'bookmark1',
         );
 
-        $bookmark = Bookmark::createBookmark($bookmarkData);
+        $bookmark = Bookmark::createBookmark(
+            $GLOBALS['dbi'],
+            $GLOBALS['cfg']['Server']['user'],
+            $bookmarkData
+        );
         $this->assertfalse($bookmark->save());
     }
 }

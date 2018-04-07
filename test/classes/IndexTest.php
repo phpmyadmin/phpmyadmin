@@ -5,18 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Index;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for Index class
  *
  * @package PhpMyAdmin-test
  */
-class IndexTest extends PMATestCase
+class IndexTest extends PmaTestCase
 {
     private $_params = array();
 
@@ -61,7 +60,7 @@ class IndexTest extends PMATestCase
      */
     public function testConstructor()
     {
-        $index = new PMA\libraries\Index($this->_params);
+        $index = new Index($this->_params);
         $this->assertEquals(
             'PMA_Index_comment',
             $index->getComment()
@@ -104,11 +103,8 @@ class IndexTest extends PMATestCase
      */
     public function testGetIndexChoices()
     {
-        $index_choices = PMA\libraries\Index::getIndexChoices();
-        $this->assertEquals(
-            5,
-            count($index_choices)
-        );
+        $index_choices = Index::getIndexChoices();
+        $this->assertCount(5, $index_choices);
         $this->assertEquals(
             'PRIMARY,INDEX,UNIQUE,SPATIAL,FULLTEXT',
             implode(",", $index_choices)
@@ -123,7 +119,7 @@ class IndexTest extends PMATestCase
     public function testIsUniquer()
     {
         $this->_params['Non_unique'] = "0";
-        $index = new PMA\libraries\Index($this->_params);
+        $index = new Index($this->_params);
         $this->assertTrue(
             $index->isUnique()
         );
@@ -140,7 +136,7 @@ class IndexTest extends PMATestCase
      */
     public function testAddColumns()
     {
-        $index = new PMA\libraries\Index();
+        $index = new Index();
         $index->addColumns($this->_params['columns']);
         $this->assertTrue($index->hasColumn("column1"));
         $this->assertTrue($index->hasColumn("column2"));
@@ -158,7 +154,7 @@ class IndexTest extends PMATestCase
      */
     public function testName()
     {
-        $index = new PMA\libraries\Index();
+        $index = new Index();
         $index->setName('PMA_name');
         $this->assertEquals(
             'PMA_name',
@@ -167,13 +163,13 @@ class IndexTest extends PMATestCase
     }
 
     /**
-     * Test for PMA\libraries\Index_Column
+     * Test for PhpMyAdmin\Index Column
      *
      * @return void
      */
     public function testColumns()
     {
-        $index = new PMA\libraries\Index();
+        $index = new Index();
         $index->addColumns($this->_params['columns']);
 
         $index_columns = $index->getColumns();

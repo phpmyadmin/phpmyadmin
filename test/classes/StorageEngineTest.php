@@ -4,22 +4,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-use PMA\libraries\StorageEngine;
-
-require_once 'test/PMATestCase.php';
-/*
- * Include to test.
- */
-require_once 'libraries/config.default.php';
-require_once 'libraries/database_interface.inc.php';
+use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for StorageEngine.php
  *
  * @package PhpMyAdmin-test
  */
-class StorageEngineTest extends PMATestCase
+class StorageEngineTest extends PmaTestCase
 {
     /**
      * @access protected
@@ -37,7 +32,7 @@ class StorageEngineTest extends PMATestCase
     {
         $GLOBALS['server'] = 1;
         $this->object = $this->getMockForAbstractClass(
-            'PMA\libraries\StorageEngine', array('dummy')
+            'PhpMyAdmin\StorageEngine', array('dummy')
         );
     }
 
@@ -125,19 +120,19 @@ class StorageEngineTest extends PMATestCase
     public function providerGetEngine()
     {
         return array(
-            array('PMA\libraries\StorageEngine', 'unknown engine'),
-            array('PMA\libraries\engines\Bdb', 'Bdb'),
-            array('PMA\libraries\engines\Berkeleydb', 'Berkeleydb'),
-            array('PMA\libraries\engines\Binlog', 'Binlog'),
-            array('PMA\libraries\engines\Innobase', 'Innobase'),
-            array('PMA\libraries\engines\Innodb', 'Innodb'),
-            array('PMA\libraries\engines\Memory', 'Memory'),
-            array('PMA\libraries\engines\Merge', 'Merge'),
-            array('PMA\libraries\engines\Mrg_Myisam', 'Mrg_Myisam'),
-            array('PMA\libraries\engines\Myisam', 'Myisam'),
-            array('PMA\libraries\engines\Ndbcluster', 'Ndbcluster'),
-            array('PMA\libraries\engines\Pbxt', 'Pbxt'),
-            array('PMA\libraries\engines\Performance_Schema', 'Performance_Schema'),
+            array('PhpMyAdmin\StorageEngine', 'unknown engine'),
+            array('PhpMyAdmin\Engines\Bdb', 'Bdb'),
+            array('PhpMyAdmin\Engines\Berkeleydb', 'Berkeleydb'),
+            array('PhpMyAdmin\Engines\Binlog', 'Binlog'),
+            array('PhpMyAdmin\Engines\Innobase', 'Innobase'),
+            array('PhpMyAdmin\Engines\Innodb', 'Innodb'),
+            array('PhpMyAdmin\Engines\Memory', 'Memory'),
+            array('PhpMyAdmin\Engines\Merge', 'Merge'),
+            array('PhpMyAdmin\Engines\MrgMyisam', 'Mrg_Myisam'),
+            array('PhpMyAdmin\Engines\Myisam', 'Myisam'),
+            array('PhpMyAdmin\Engines\Ndbcluster', 'Ndbcluster'),
+            array('PhpMyAdmin\Engines\Pbxt', 'Pbxt'),
+            array('PhpMyAdmin\Engines\PerformanceSchema', 'Performance_Schema'),
         );
     }
 

@@ -25,12 +25,12 @@ if (!defined('TESTSUITE')) {
     session_write_close();
 }
 
-$buffer = PMA\libraries\OutputBuffering::getInstance();
+$buffer = PhpMyAdmin\OutputBuffering::getInstance();
 $buffer->start();
 if (!defined('TESTSUITE')) {
     register_shutdown_function(
         function () {
-            echo PMA\libraries\OutputBuffering::getInstance()->getContents();
+            echo PhpMyAdmin\OutputBuffering::getInstance()->getContents();
         }
     );
 }

@@ -36,7 +36,7 @@ Query results for a simple pie chart can be generated with:
 
 .. code-block:: mysql
 
-    SELECT 'Food' AS 'expense', 
+    SELECT 'Food' AS 'expense',
        1250 AS 'amount' UNION
     SELECT 'Accommodation', 500 UNION
     SELECT 'Travel', 720 UNION
@@ -45,7 +45,7 @@ Query results for a simple pie chart can be generated with:
 And the result of this query is:
 
 +---------------+--------+
-| expense       | anount |
+| expense       | amount |
 +===============+========+
 | Food          | 1250   |
 +---------------+--------+
@@ -69,7 +69,7 @@ Query results for a simple bar or column chart can be generated with:
 
 .. code-block:: mysql
 
-    SELECT 
+    SELECT
        'ACADEMY DINOSAUR' AS 'title',
        0.99 AS 'rental_rate',
        20.99 AS 'replacement_cost' UNION
@@ -116,8 +116,8 @@ Query results for a simple line, spline or timeline chart can be generated with:
 
 .. code-block:: mysql
 
-    SELECT 
-       DATE('2006-01-08') AS 'date', 
+    SELECT
+       DATE('2006-01-08') AS 'date',
        2056 AS 'revenue',
        1378 AS 'cost' UNION
     SELECT DATE('2006-01-09'), 1898, 2301 UNION

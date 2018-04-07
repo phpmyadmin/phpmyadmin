@@ -1,0 +1,79 @@
+<div id="tablestatistics">
+    <fieldset>
+        <legend>{% trans 'Information' %}</legend>
+        {% if showtable['TABLE_COMMENT'] %}
+            <p>
+                <strong>{% trans 'Table comments:' %}</strong>
+                {{ showtable['TABLE_COMMENT'] }}
+            </p>
+        {% endif %}
+        <a id="showusage"></a>
+
+        {% if not tbl_is_view and not db_is_system_schema %}
+            <table id="tablespaceusage" class="width100 data">
+                <caption class="tblHeaders">{% trans 'Space usage' %}</caption>
+                <tbody>
+                    <tr>
+                        <th class="name">{% trans 'Data' %}</th>
+                        <td class="value">{{ data_size }}</td>
+                        <td class="unit">{{ data_unit }}</td>
+                    </tr>
+
+                {% if index_size is defined %}
+                    <tr>
+                        <th class="name">{% trans 'Index' %}</th>
+                        <td class="value">{{ index_size }}</td>
+                        <td class="unit">{{ index_unit }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if free_size is defined %}
+                    <tr>
+                        <th class="name">{% trans 'Overhead' %}</th>
+                        <td class="value">{{ free_size }}</td>
+                        <td class="unit">{{ free_unit }}</td>
+                    </tr>
+                    <tr>
+                        <th class="name">{% trans 'Effective' %}</th>
+                        <td class="value">{{ effect_size }}</td>
+                        <td class="unit">{{ effect_unit }}</td>
+                    </tr>
+                {% endif %}
+
+                {% if tot_size is defined and mergetable == false %}
+                    <tr>
+                        <th class="name">{% trans 'Total' %}</th>
+                        <td class="value">{{ tot_size }}</td>
+                        <td class="unit">{{ tot_unit }}</td>
+                    </tr>
+                {% endif %}
+
+                {# Optimize link if overhead #}
+                {% if free_size is defined
+                    and (tbl_storage_engine == 'MYISAM'
+                    or tbl_storage_engine == 'ARIA'
+                    or tbl_storage_engine == 'MARIA'
+                    or tbl_storage_engine == 'BDB') %}
+                    <tr class="tblFooters print_ignore">
+                        <td colspan="3" class="center">
+                            <a href="sql.php" data-post="{{ url_query }}&amp;pos=0&amp;sql_query=
+                                {{- ('OPTIMIZE TABLE ' ~ Util_backquote(table))|url_encode }}">
+                                {{ Util_getIcon('b_tbloptimize', 'Optimize table'|trans) }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        {% include 'table/structure/row_stats_table.twig' with {
+            'showtable': showtable,
+            'tbl_collation': tbl_collation,
+            'is_innodb': is_innodb,
+            'mergetable': mergetable,
+            'avg_size': avg_size is defined ? avg_size : null,
+            'avg_unit': avg_unit is defined ? avg_unit : null
+        } only %}
+    </fieldset>
+</div>

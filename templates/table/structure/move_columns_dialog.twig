@@ -1,0 +1,9 @@
+<div id="move_columns_dialog" class="hide" title="{% trans 'Move columns' %}">
+    <p>{% trans 'Move the columns by dragging them up and down.' %}</p>
+    <form action="tbl_structure.php">
+        <div>
+            {{ Url_getHiddenInputs(db, table) }}
+            <ul></ul>
+        </div>
+    </form>
+</div>

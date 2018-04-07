@@ -5,19 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
-
-use PMA\libraries\LanguageManager;
+use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests behaviour of PMA_Advisor class
  *
  * @package PhpMyAdmin-test
  */
-class LanguageTest extends PMATestCase
+class LanguageTest extends PmaTestCase
 {
     private $manager;
 
@@ -52,7 +50,7 @@ class LanguageTest extends PMATestCase
 
         $langs = $this->manager->availableLocales();
 
-        $this->assertEquals(2, count($langs));
+        $this->assertCount(2, $langs);
         $this->assertContains('cs', $langs);
         $GLOBALS['cfg']['FilterLanguages'] = '';
     }
@@ -108,11 +106,11 @@ class LanguageTest extends PMATestCase
     public function testMySQLLocale()
     {
         $czech = $this->manager->getLanguage('cs');
-        $this->assertNotEquals($czech, false);
+        $this->assertNotFalse($czech);
         $this->assertEquals('cs_CZ', $czech->getMySQLLocale());
 
         $azerbaijani = $this->manager->getLanguage('az');
-        $this->assertNotEquals($azerbaijani, false);
+        $this->assertNotFalse($azerbaijani);
         $this->assertEquals('', $azerbaijani->getMySQLLocale());
     }
 

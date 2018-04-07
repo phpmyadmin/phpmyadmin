@@ -5,8 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Sanitize;
-use PMA\libraries\Response;
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Response;
 
 /**
  * Gets core libraries and defines some variables
@@ -19,11 +21,11 @@ $response = Response::getInstance();
 $response->getHeader()->sendHttpHeaders();
 $response->disable();
 
-if (! PMA_isValid($_REQUEST['url'])
+if (! Core::isValid($_REQUEST['url'])
     || ! preg_match('/^https:\/\/[^\n\r]*$/', $_REQUEST['url'])
-    || ! PMA_isAllowedDomain($_REQUEST['url'])
+    || ! Core::isAllowedDomain($_REQUEST['url'])
 ) {
-    PMA_sendHeaderLocation('./');
+    Core::sendHeaderLocation('./');
 } else {
     // JavaScript redirection is necessary. Because if header() is used
     //  then web browser sometimes does not change the HTTP_REFERER

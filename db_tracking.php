@@ -5,22 +5,24 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
-use PMA\libraries\Tracker;
+use PhpMyAdmin\Display\CreateTable;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Tracking;
+use PhpMyAdmin\Util;
 
 /**
  * Run common work
  */
 require_once 'libraries/common.inc.php';
 
-require_once './libraries/tracking.lib.php';
-require_once 'libraries/display_create_table.lib.php';
-
 //Get some js files needed for Ajax requests
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('db_tracking.js');
 
 /**
@@ -42,21 +44,21 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 
 // Work to do?
 //  (here, do not use $_REQUEST['db] as it can be crafted)
 if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
 
     Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
-    PMA\libraries\Message::success(
+    Message::success(
         __('Tracking data deleted successfully.')
     )->display();
 
 } elseif (isset($_REQUEST['submit_create_version'])) {
 
-    PMA_createTrackingForMultipleTables($_REQUEST['selected']);
-    PMA\libraries\Message::success(
+    Tracking::createTrackingForMultipleTables($_REQUEST['selected']);
+    Message::success(
         sprintf(
             __(
                 'Version %1$s was created for selected tables,'
@@ -74,13 +76,13 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
             foreach ($_REQUEST['selected_tbl'] as $table) {
                 Tracker::deleteTracking($GLOBALS['db'], $table);
             }
-            PMA\libraries\Message::success(
+            Message::success(
                 __('Tracking data deleted successfully.')
             )->display();
 
         } elseif ($_REQUEST['submit_mult'] == 'track') {
 
-            echo PMA_getHtmlForDataDefinitionAndManipulationStatements(
+            echo Tracking::getHtmlForDataDefinitionAndManipulationStatements(
                 'db_tracking.php' . $url_query,
                 0,
                 $GLOBALS['db'],
@@ -89,7 +91,7 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
             exit;
         }
     } else {
-        PMA\libraries\Message::notice(
+        Message::notice(
             __('No tables selected.')
         )->display();
     }
@@ -103,40 +105,41 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
     echo '<p>' , __('No tables found in database.') , '</p>' , "\n";
 
     if (empty($db_is_system_schema)) {
-        echo PMA_getHtmlForCreateTable($db);
+        echo CreateTable::getHtml($db);
     }
     exit;
 }
 
 // ---------------------------------------------------------------------------
-$cfgRelation = PMA_getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 
 // Prepare statement to get HEAD version
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
-    PMA\libraries\Util::backquote($cfgRelation['db']) . '.' .
-    PMA\libraries\Util::backquote($cfgRelation['tracking']) .
+    Util::backquote($cfgRelation['db']) . '.' .
+    Util::backquote($cfgRelation['tracking']) .
     ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($_REQUEST['db']) .
     '\' ' .
     ' GROUP BY table_name' .
     ' ORDER BY table_name ASC';
 
-$all_tables_result = PMA_queryAsControlUser($all_tables_query);
+$all_tables_result = $relation->queryAsControlUser($all_tables_query);
 
 // If a HEAD version exists
 if (is_object($all_tables_result)
     && $GLOBALS['dbi']->numRows($all_tables_result) > 0
 ) {
-    PMA_displayTrackedTables(
+    echo Tracking::getHtmlForTrackedTables(
         $GLOBALS['db'], $all_tables_result, $url_query, $pmaThemeImage,
         $text_dir, $cfgRelation
     );
 }
 
-$untracked_tables = PMA_getUntrackedTables($GLOBALS['db']);
+$untracked_tables = Tracking::getUntrackedTables($GLOBALS['db']);
 
 // If untracked tables exist
 if (count($untracked_tables) > 0) {
-    PMA_displayUntrackedTables(
+    echo Tracking::getHtmlForUntrackedTables(
         $GLOBALS['db'], $untracked_tables, $url_query, $pmaThemeImage, $text_dir
     );
 }
@@ -147,5 +150,5 @@ if (count($data['ddlog']) > 0) {
         $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
             . $entry['statement'] . "\n";
     }
-    echo PMA\libraries\Util::getMessage(__('Database Log'), $log);
+    echo Util::getMessage(__('Database Log'), $log);
 }

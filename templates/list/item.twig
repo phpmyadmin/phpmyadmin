@@ -1,0 +1,19 @@
+<li{% if id is not empty %} id="{{ id }}"{% endif -%}
+    {%- if class is not empty %} class="{{ class }}"{% endif %}>
+
+    {% if url is defined and url is iterable and url['href'] is not empty %}
+        <a{% if url['href'] is not empty %} href="{{ url['href']|raw }}"{% endif -%}
+        {%- if url['target'] is not empty %} target="{{ url['target'] }}"{% endif -%}
+        {%- if url['target'] is not empty and url['target'] == '_blank' %} rel="noopener noreferrer"{% endif -%}
+        {%- if url['id'] is not empty %} id="{{ url['id'] }}"{% endif -%}
+        {%- if url['class'] is not empty %} class="{{ url['class'] }}"{% endif -%}
+        {%- if url['title'] is not empty %} title="{{ url['title'] }}"{% endif %}>
+    {% endif %}
+        {{ content|raw }}
+    {% if url is defined and url is iterable and url['href'] is not empty %}
+        </a>
+    {% endif %}
+    {% if mysql_help_page is not empty %}
+        {{ Util_showMySQLDocu(mysql_help_page) }}
+    {% endif %}
+</li>

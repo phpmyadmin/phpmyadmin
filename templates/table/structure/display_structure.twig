@@ -1,0 +1,225 @@
+<form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm"
+    class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
+    {{ Url_getHiddenInputs(db, table) }}
+    <input type="hidden" name="table_type" value=
+        {%- if db_is_system_schema -%}
+            "information_schema"
+        {%- elseif tbl_is_view -%}
+            "view"
+        {%- else -%}
+            "table"
+        {%- endif %} />
+    <div class="responsivetable">
+    <table id="tablestructure" class="data topmargin">
+        {# Table header #}
+        {% include 'table/structure/table_structure_header.twig' with {
+            'db_is_system_schema': db_is_system_schema,
+            'tbl_is_view': tbl_is_view,
+            'show_column_comments': show_column_comments
+        } only %}
+        <tbody>
+        {# Table body #}
+        {% set rownum = 0 %}
+        {% set columns_list = [] %}
+        {% for row in fields %}
+            {% set rownum = rownum + 1 %}
+            {% set columns_list = columns_list|merge([row['Field']]) %}
+            {% set field_charset = row['Collation'] %}
+
+            {% set extracted_columnspec = Util_extractColumnSpec(row['Type']) %}
+            {% set attribute = extracted_columnspec['attribute'] %}
+            {% if strpos(row['Extra'], 'on update CURRENT_TIMESTAMP')
+                is not same as(false) %}
+                {% set attribute = 'on update CURRENT_TIMESTAMP' %}
+            {% endif %}
+
+            {% if row['Default'] is not defined %}
+                {% if row['Null'] == 'YES' %}
+                    {% set row = row|merge({'Default': '<em>NULL</em>'}) %}
+                {% endif %}
+            {% else %}
+                {% set row = row|merge({'Default': row['Default']|e}) %}
+            {% endif %}
+
+            {% set field_name = row['Field']|e %}
+            {% set displayed_field_name = field_name %}
+            {# For column comments #}
+            {% set comments = '' %}
+            {# Underline commented fields and display a hover-title (CSS only) #}
+
+            {% if comments_map[row['Field']] is defined %}
+                {% set displayed_field_name -%}
+                    <span class="commented_column" title="
+                        {{- comments_map[row['Field']] }}">
+                        {{- field_name|raw -}}
+                    </span>
+                {%- endset %}
+                {% set comments = comments_map[row['Field']]|e %}
+            {% endif %}
+
+            {% if primary and primary.hasColumn(field_name) %}
+                {% set displayed_field_name = displayed_field_name ~ Util_getImage(
+                    'b_primary', 'Primary'|trans
+                ) %}
+            {% endif %}
+            {% if field_name in columns_with_index %}
+                {% set displayed_field_name = displayed_field_name ~ Util_getImage(
+                    'b_key', 'Index'|trans
+                ) %}
+            {% endif %}
+        <tr>
+            {% include 'table/structure/table_structure_row.twig' with {
+                'row': row,
+                'rownum': rownum,
+                'displayed_field_name': preg_replace(
+                    '/[\\x00-\\x1F]/',
+                    '&#x2051;',
+                    displayed_field_name
+                ),
+                'type_nowrap': Util_getClassForType(extracted_columnspec['type']),
+                'extracted_columnspec': extracted_columnspec,
+                'attribute': attribute,
+                'tbl_is_view': tbl_is_view,
+                'db_is_system_schema': db_is_system_schema,
+                'url_query': url_query,
+                'titles': titles,
+                'table': table,
+                'tbl_storage_engine': tbl_storage_engine,
+                'field_charset': field_charset,
+                'comments': comments,
+                'show_column_comments': show_column_comments,
+                'relation_commwork': relation_commwork,
+                'relation_mimework': relation_mimework,
+                'browse_mime': browse_mime
+            } only %}
+            {% if not tbl_is_view and not db_is_system_schema %}
+                {% include 'table/structure/actions_in_table_structure.twig' with {
+                    'row': row,
+                    'rownum': rownum,
+                    'extracted_columnspec': extracted_columnspec,
+                    'type': extracted_columnspec['print_type'] is not empty ? extracted_columnspec['print_type'],
+                    'tbl_storage_engine': tbl_storage_engine,
+                    'primary': primary,
+                    'field_name': field_name,
+                    'url_query': url_query,
+                    'titles': titles,
+                    'columns_with_unique_index': columns_with_unique_index,
+                    'is_in_central_columns': row['Field'] in central_list ? true : false,
+                    'central_columns_work': central_columns_work,
+                    'table': table,
+                    'hide_structure_actions': hide_structure_actions,
+                    'mysql_int_version': mysql_int_version
+                } only %}
+            {% endif %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    {% include 'table/structure/check_all_table_column.twig' with {
+        'pma_theme_image': pma_theme_image,
+        'text_dir': text_dir,
+        'tbl_is_view': tbl_is_view,
+        'db_is_system_schema': db_is_system_schema,
+        'tbl_storage_engine': tbl_storage_engine,
+        'central_columns_work': central_columns_work
+    } only %}
+</form>
+<hr class="print_ignore"/>
+{% include 'table/structure/move_columns_dialog.twig' with {
+    'db': db,
+    'table': table
+} only %}
+{# Work on the table #}
+<div id="structure-action-links">
+    {% if tbl_is_view and not db_is_system_schema %}
+        {{ Util_linkOrButton(
+            edit_view_url,
+            Util_getIcon('b_edit', 'Edit view'|trans, true)
+        ) }}
+    {% endif %}
+    {% include 'table/structure/optional_action_links.twig' with {
+        'url_query': url_query,
+        'tbl_is_view': tbl_is_view,
+        'db_is_system_schema': db_is_system_schema,
+        'table': table,
+        'is_active': is_active
+    } only %}
+</div>
+{% if not tbl_is_view and not db_is_system_schema %}
+    {% include 'table/structure/add_column.twig' with {
+        'columns_list': columns_list,
+        'db': db,
+        'table': table
+    } only %}
+{% endif %}
+
+{# Displays indexes #}
+{% if not tbl_is_view and not db_is_system_schema
+    and 'ARCHIVE' !=  tbl_storage_engine %}
+    {{ Index_getHtmlForDisplayIndexes() }}
+{% endif %}
+
+{# Display partition details #}
+{% if have_partitioning %}
+    {# Detect partitioning #}
+    {% if partition_names is not empty and partition_names[0] is not null %}
+        {% set partitions = Partition_getPartitions(db, table) %}
+        {% set first_partition = partitions[0] %}
+        {% set range_or_list = first_partition.getMethod() == 'RANGE'
+            or first_partition.getMethod() == 'RANGE COLUMNS'
+            or first_partition.getMethod() == 'LIST'
+            or first_partition.getMethod() == 'LIST COLUMNS' %}
+        {% set sub_partitions = first_partition.getSubPartitions() %}
+        {% set has_sub_partitions = first_partition.hasSubPartitions() %}
+        {% if has_sub_partitions %}
+            {% set first_sub_partition = sub_partitions[0] %}
+        {% endif %}
+
+        {% set action_icons = {
+            'ANALYZE': Util_getIcon('b_search', 'Analyze'|trans),
+            'CHECK': Util_getIcon('eye', 'Check'|trans),
+            'OPTIMIZE': Util_getIcon('normalize', 'Optimize'|trans),
+            'REBUILD': Util_getIcon('s_tbl', 'Rebuild'|trans),
+            'REPAIR': Util_getIcon('b_tblops', 'Repair'|trans),
+            'TRUNCATE': Util_getIcon('b_empty', 'Truncate'|trans),
+        } %}
+        {% if range_or_list %}
+            {% set action_icons = action_icons|merge({'DROP': Util_getIcon('b_drop', 'Drop'|trans)}) %}
+        {% endif %}
+
+        {{ Util_getDivForSliderEffect('partitions', 'Partitions'|trans) }}
+
+        {% set remove_sql = 'ALTER TABLE ' ~ Util_backquote(table) ~ ' REMOVE PARTITIONING' %}
+        {% set remove_url = 'sql.php' ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}
+
+        {% include 'table/structure/display_partitions.twig' with {
+            'db': db,
+            'table': table,
+            'url_query': url_query,
+            'partitions': partitions,
+            'partition_method': first_partition.getMethod(),
+            'partition_expression': first_partition.getExpression(),
+            'has_description': first_partition.getDescription() is not empty,
+            'has_sub_partitions': has_sub_partitions,
+            'sub_partition_method': has_sub_partitions ? first_sub_partition.getMethod(),
+            'sub_partition_expression': has_sub_partitions ? first_sub_partition.getExpression(),
+            'action_icons': action_icons,
+            'range_or_list': range_or_list,
+            'remove_url': remove_url
+        } only %}
+    {% else %}
+        {% include 'table/structure/display_partitions.twig' with {
+            'db': db,
+            'table': table
+        } only %}
+    {% endif %}
+    {# For closing Slider effect div #}
+    </div>
+{% endif %}
+
+{# Displays Space usage and row statistics #}
+{% if show_stats %}
+    {{ table_stats|raw }}
+{% endif %}
+<div class="clearfloat"></div>

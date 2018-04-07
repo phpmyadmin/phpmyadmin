@@ -10,13 +10,14 @@
  * Include to test.
  */
 
+use PHPUnit\Framework\TestCase;
 
 /**
  * tests for bookmark.lib.php
  *
  * @package PhpMyAdmin-test
  */
-class FilesTest extends PHPUnit_Framework_TestCase
+class FilesTest extends TestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -67,8 +68,6 @@ class FilesTest extends PHPUnit_Framework_TestCase
         return array(
             array('js/whitelist.php', 'var PMA_gotoWhitelist'),
             array('js/messages.php', 'var PMA_messages = new Array();'),
-            array('js/get_image.js.php', 'function PMA_getImage'),
-            array('js/get_scripts.js.php', 'var AJAX'),
         );
     }
 }

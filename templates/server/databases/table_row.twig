@@ -1,0 +1,65 @@
+<tr{% if tr_class %} class="{{ tr_class }}"{% endif %} data-filter-row="{{ current['SCHEMA_NAME']|upper }}">
+    {% if is_superuser or allow_user_drop_database %}
+        <td class="tool">
+            <input type="checkbox" name="selected_dbs[]" class="checkall" title="
+                {{- current['SCHEMA_NAME'] }}" value="
+                {{- current['SCHEMA_NAME'] }}"
+                {%- if is_system_schema %} disabled="disabled"{% endif %} />
+        </td>
+    {% endif %}
+    <td class="name">
+        <a href="{{ Util_getScriptNameForOption(default_tab_database, 'database') }}
+            {{- Url_getCommon({'db': current['SCHEMA_NAME']}) }}" title="
+            {{- "Jump to database '%s'"|trans|format(current['SCHEMA_NAME']|e) }}">
+            {{ current['SCHEMA_NAME'] }}
+        </a>
+    </td>
+    {% for stat_name, stat in column_order if stat_name in current|keys %}
+        {% if stat['format'] is same as('byte') %}
+            {% set byte_format = Util_formatByteDown(current[stat_name], 3, 1) %}
+            {% set value = byte_format[0] %}
+            {% set unit = byte_format[1] %}
+        {% elseif stat['format'] is same as('number') %}
+            {% set value = Util_formatNumber(current[stat_name], 0) %}
+        {% else %}
+            {% set value = htmlentities(current[stat_name], 0) %}
+        {% endif %}
+
+        <td class="value">
+            {% if stat['description_function'] is defined %}
+                <dfn title="{{ Charsets_getCollationDescr(current[stat_name]) }}">
+                    {{ value }}
+                </dfn>
+            {% else %}
+                {{ value }}
+            {% endif %}
+        </td>
+        {% if stat['format'] is same as('byte') %}
+            <td class="unit">{{ unit }}</td>
+        {% endif %}
+    {% endfor %}
+
+    {% if master_replication_status %}
+        <td class="tool center">
+            {{ master_replication|raw }}
+        </td>
+    {% endif %}
+
+    {% if slave_replication_status %}
+        <td class="tool center">
+            {{ slave_replication|raw }}
+        </td>
+    {% endif %}
+
+    <td class="tool">
+        <a class="server_databases" data="
+            {{- Sanitize_jsFormat(current['SCHEMA_NAME']) }}" href="server_privileges.php
+            {{- Url_getCommon({
+                'db': current['SCHEMA_NAME'],
+                'checkprivsdb': current['SCHEMA_NAME']
+            }) }}" title="
+            {{- 'Check privileges for database "%s".'|trans|format(current['SCHEMA_NAME']|e) }}">
+            {{ Util_getIcon('s_rights', 'Check privileges'|trans) }}
+        </a>
+    </td>
+</tr>

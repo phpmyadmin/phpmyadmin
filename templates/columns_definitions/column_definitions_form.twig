@@ -1,0 +1,152 @@
+<form method="post" action="{{ action }}" class="
+    {{- action == 'tbl_create.php' ? 'create_table' : 'append_fields' -}}
+    _form ajax lock-page">
+    {{ Url_getHiddenInputs(form_params) }}
+    {# happens when an index has been set on a column #}
+    {# and a column is added to the table creation dialog #}
+    {# This contains a JSON-encoded string #}
+    <input type="hidden" name="primary_indexes" value="
+        {{- primary_indexes is not empty ? primary_indexes : '[]' }}">
+    <input type="hidden" name="unique_indexes" value="
+        {{- unique_indexes is not empty ? unique_indexes : '[]' }}">
+    <input type="hidden" name="indexes" value="
+        {{- indexes is not empty ? indexes : '[]' }}">
+    <input type="hidden" name="fulltext_indexes" value="
+        {{- fulltext_indexes is not empty ? fulltext_indexes : '[]' }}">
+    <input type="hidden" name="spatial_indexes" value="
+        {{- spatial_indexes is not empty ? spatial_indexes : '[]' }}">
+
+    {% if action == 'tbl_create.php' %}
+        <div id="table_name_col_no_outer">
+            <table id="table_name_col_no" class="tdblock">
+                <tr class="vmiddle floatleft">
+                    <td>{% trans 'Table name' %}:
+                    <input type="text"
+                        name="table"
+                        size="40"
+                        maxlength="64"
+                        value="{{ table is defined ? table }}"
+                        class="textfield" autofocus required />
+                    </td>
+                    <td>
+                        {% trans 'Add' %}
+                        <input type="number"
+                            id="added_fields"
+                            name="added_fields"
+                            size="2"
+                            value="1"
+                            min="1"
+                            onfocus="this.select()" />
+                        {% trans 'column(s)' %}
+                        <input type="button"
+                            name="submit_num_fields"
+                            value="{% trans 'Go' %}" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    {% endif %}
+    {% if content_cells is iterable %}
+        {% include 'columns_definitions/table_fields_definitions.twig' with {
+            'is_backup': is_backup,
+            'fields_meta': fields_meta,
+            'mimework': mimework,
+            'content_cells': content_cells,
+            'change_column': change_column,
+            'is_virtual_columns_supported': is_virtual_columns_supported,
+            'browse_mime': browse_mime,
+            'server_type': server_type,
+            'max_rows': max_rows,
+            'char_editing': char_editing,
+            'attribute_types': attribute_types,
+            'privs_available': privs_available,
+            'max_length': max_length,
+            'dbi': dbi,
+            'disable_is': disable_is
+        } only %}
+    {% endif %}
+    {% if action == 'tbl_create.php' %}
+        <div class="responsivetable">
+        <table>
+            <tr class="vtop">
+                <th>{% trans 'Table comments:' %}</th>
+                <td width="25">&nbsp;</td>
+                <th>{% trans 'Collation:' %}</th>
+                <td width="25">&nbsp;</td>
+                <th>
+                    {% trans 'Storage Engine:' %}
+                    {{ Util_showMySQLDocu('Storage_engines') }}
+                </th>
+                <td width="25">&nbsp;</td>
+                <th>
+                    {% trans 'Connection:' %}
+                    {{ Util_showMySQLDocu('federated-create-connection') }}
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text"
+                        name="comment"
+                        size="40"
+                        maxlength="60"
+                        value="{{ comment is defined ? comment }}"
+                        class="textfield" />
+                </td>
+                <td width="25">&nbsp;</td>
+                <td>
+                    {{ Charsets_getCollationDropdownBox(
+                        dbi,
+                        disable_is,
+                        'tbl_collation',
+                        null,
+                        tbl_collation,
+                        false
+                    ) }}
+                </td>
+                <td width="25">&nbsp;</td>
+                <td>
+                    {{ StorageEngine_getHtmlSelect(
+                        'tbl_storage_engine',
+                        null,
+                        tbl_storage_engine
+                    ) }}
+                </td>
+                <td width="25">&nbsp;</td>
+                <td>
+                    <input type="text"
+                        name="connection"
+                        size="40"
+                        value="{{ connection is defined ? connection }}"
+                        placeholder="scheme://user_name[:password]@host_name[:port_num]/db_name/tbl_name"
+                        class="textfield"
+                        required="required" />
+                </td>
+            </tr>
+            {% if have_partitioning %}
+                <tr class="vtop">
+                    <th colspan="5">
+                        {% trans 'PARTITION definition:' %}
+                        {{ Util_showMySQLDocu('Partitioning') }}
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        {% include 'columns_definitions/partitions.twig' with {
+                            'partition_details': partition_details
+                        } only %}
+                    </td>
+                </tr>
+            {% endif %}
+        </table>
+        </div>
+    {% endif %}
+    <fieldset class="tblFooters">
+        <input type="button"
+            class="preview_sql"
+            value="{% trans 'Preview SQL' %}" />
+        <input type="submit"
+            name="do_save_data"
+            value="{% trans 'Save' %}" />
+    </fieldset>
+    <div id="properties_message"></div>
+</form>

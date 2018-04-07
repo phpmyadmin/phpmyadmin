@@ -1,0 +1,10 @@
+{{ Url_getHiddenInputs() }}
+<p>
+{% trans "Please scan following QR code into the two-factor authentication app on your device and enter authentication code it generates." %}
+</p>
+<p>
+<img src="{{ image }}" />
+</p>
+<p>
+<label>{% trans "Authentication code:" %} <input type="text" name="2fa_code" autocomplete="off" /></label>
+</p>

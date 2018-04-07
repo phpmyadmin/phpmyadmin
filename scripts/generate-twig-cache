@@ -1,0 +1,78 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
+define('PHPMYADMIN', 1);
+require_once 'libraries/vendor_config.php';
+require_once AUTOLOAD_FILE;
+
+use PhpMyAdmin\Twig\CharsetsExtension;
+use PhpMyAdmin\Twig\CoreExtension;
+use PhpMyAdmin\Twig\I18nExtension;
+use PhpMyAdmin\Twig\IndexExtension;
+use PhpMyAdmin\Twig\MessageExtension;
+use PhpMyAdmin\Twig\PartitionExtension;
+use PhpMyAdmin\Twig\PhpFunctionsExtension;
+use PhpMyAdmin\Twig\PluginsExtension;
+use PhpMyAdmin\Twig\RelationExtension;
+use PhpMyAdmin\Twig\SanitizeExtension;
+use PhpMyAdmin\Twig\ServerPrivilegesExtension;
+use PhpMyAdmin\Twig\StorageEngineExtension;
+use PhpMyAdmin\Twig\TableExtension;
+use PhpMyAdmin\Twig\TrackerExtension;
+use PhpMyAdmin\Twig\TransformationsExtension;
+use PhpMyAdmin\Twig\UrlExtension;
+use PhpMyAdmin\Twig\UtilExtension;
+
+$tplDir = dirname(__FILE__) . '/../templates';
+$tmpDir = dirname(__FILE__) . '/../twig-templates';
+$loader = new Twig\Loader\FilesystemLoader($tplDir);
+
+// force auto-reload to always have the latest version of the template
+$twig = new Twig\Environment($loader, array(
+    'cache' => $tmpDir,
+    'auto_reload' => true
+));
+$twig->addExtension(new CharsetsExtension());
+$twig->addExtension(new CoreExtension());
+$twig->addExtension(new I18nExtension());
+$twig->addExtension(new IndexExtension());
+$twig->addExtension(new MessageExtension());
+$twig->addExtension(new PartitionExtension());
+$twig->addExtension(new PhpFunctionsExtension());
+$twig->addExtension(new PluginsExtension());
+$twig->addExtension(new RelationExtension());
+$twig->addExtension(new SanitizeExtension());
+$twig->addExtension(new ServerPrivilegesExtension());
+$twig->addExtension(new StorageEngineExtension());
+$twig->addExtension(new TableExtension());
+$twig->addExtension(new TrackerExtension());
+$twig->addExtension(new TransformationsExtension());
+$twig->addExtension(new UrlExtension());
+$twig->addExtension(new UtilExtension());
+
+$replacements = [];
+
+// iterate over all templates
+foreach (new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator($tplDir),
+    RecursiveIteratorIterator::LEAVES_ONLY
+) as $file) {
+    // Skip test files
+    if (strpos($file, '/test/') !== false) {
+        continue;
+    }
+    // force compilation
+    if ($file->isFile() && $file->getExtension() == 'twig') {
+        $name = str_replace($tplDir.'/', '', $file);
+        $template = $twig->loadTemplate($name);
+
+        // Generate line map
+        $template_file = 'templates/' . $name;
+        $cache_file = str_replace($tmpDir, 'twig-templates', $twig->getCacheFilename($name));
+        $replacements[$cache_file] = array($template_file, $template->getDebugInfo());
+    }
+}
+
+// Store replacements in JSON
+$handle = fopen($tmpDir . '/replace.json', 'w');
+fwrite($handle, json_encode($replacements));
+fclose($handle);

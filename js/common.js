@@ -31,7 +31,7 @@ var PMA_commonParams = (function () {
             var updateNavigation = false;
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
-                    if (i == 'db' || i == 'table') {
+                    if (i === 'db' || i === 'table') {
                         updateNavigation = true;
                     }
                     reload = true;
@@ -53,7 +53,7 @@ var PMA_commonParams = (function () {
          * @return string
          */
         get: function (name) {
-            return params[name] || '';
+            return params[name];
         },
         /**
          * Saves a single key value pair
@@ -65,7 +65,7 @@ var PMA_commonParams = (function () {
          */
         set: function (name, value) {
             var updateNavigation = false;
-            if (name == 'db' || name == 'table' &&
+            if (name === 'db' || name === 'table' &&
                 params[name] !== value
             ) {
                 updateNavigation = true;
@@ -86,11 +86,12 @@ var PMA_commonParams = (function () {
         getUrlQuery: function () {
             var common = this.get('common_query');
             var separator = '?';
+            var argsep = PMA_commonParams.get('arg_separator');
             if (common.length > 0) {
-                separator = '&';
+                separator = argsep;
             }
             return PMA_sprintf(
-                '%s%sserver=%s&db=%s&table=%s',
+                '%s%sserver=%s' + argsep + 'db=%s' + argsep + 'table=%s',
                 this.get('common_query'),
                 separator,
                 encodeURIComponent(this.get('server')),
@@ -99,7 +100,7 @@ var PMA_commonParams = (function () {
             );
         }
     };
-})();
+}());
 
 /**
  * Holds common parameters such as server, db, table, etc
@@ -117,8 +118,8 @@ var PMA_commonActions = {
      * @return void
      */
     setDb: function (new_db) {
-        if (new_db != PMA_commonParams.get('db')) {
-            PMA_commonParams.setAll({'db': new_db, 'table': ''});
+        if (new_db !== PMA_commonParams.get('db')) {
+            PMA_commonParams.setAll({ 'db': new_db, 'table': '' });
         }
     },
     /**
@@ -150,7 +151,7 @@ var PMA_commonActions = {
             url = url.substring(0, url.indexOf('?'));
         }
         url += PMA_commonParams.getUrlQuery();
-        $('<a />', {href: url})
+        $('<a />', { href: url })
             .appendTo('body')
             .click()
             .remove();
@@ -190,17 +191,17 @@ PMA_DROP_IMPORT = {
      *
      * @return string, extension for valid extension, '' otherwise
      */
-    _getExtension: function(file) {
+    _getExtension: function (file) {
         var arr = file.split('.');
         ext = arr[arr.length - 1];
 
-        //check if compressed
+        // check if compressed
         if (jQuery.inArray(ext.toLowerCase(),
             PMA_DROP_IMPORT.allowedCompressedExtensions) !== -1) {
             ext = arr[arr.length - 2];
         }
 
-        //Now check for extension
+        // Now check for extension
         if (jQuery.inArray(ext.toLowerCase(),
             PMA_DROP_IMPORT.allowedExtensions) !== -1) {
             return ext;
@@ -215,8 +216,8 @@ PMA_DROP_IMPORT = {
      *
      * @return void
      */
-    _setProgress: function(hash, percent) {
-        $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
+    _setProgress: function (hash, percent) {
+        $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
             .children('progress').val(percent);
     },
     /**
@@ -227,33 +228,33 @@ PMA_DROP_IMPORT = {
      *
      * @return void
      */
-    _sendFileToServer: function(formData, hash) {
-        var uploadURL ="./import.php"; //Upload URL
-        var extraData ={};
+    _sendFileToServer: function (formData, hash) {
+        var uploadURL = './import.php'; // Upload URL
+        var extraData = {};
         var jqXHR = $.ajax({
-            xhr: function() {
+            xhr: function () {
                 var xhrobj = $.ajaxSettings.xhr();
                 if (xhrobj.upload) {
-                    xhrobj.upload.addEventListener('progress', function(event) {
+                    xhrobj.upload.addEventListener('progress', function (event) {
                         var percent = 0;
                         var position = event.loaded || event.position;
                         var total = event.total;
                         if (event.lengthComputable) {
                             percent = Math.ceil(position / total * 100);
                         }
-                        //Set progress
+                        // Set progress
                         PMA_DROP_IMPORT._setProgress(hash, percent);
                     }, false);
                 }
                 return xhrobj;
             },
             url: uploadURL,
-            type: "POST",
+            type: 'POST',
             contentType:false,
             processData: false,
             cache: false,
             data: formData,
-            success: function(data){
+            success: function (data) {
                 PMA_DROP_IMPORT._importFinished(hash, false, data.success);
                 if (!data.success) {
                     PMA_DROP_IMPORT.importStatus[PMA_DROP_IMPORT.importStatus.length] = {
@@ -273,26 +274,26 @@ PMA_DROP_IMPORT = {
         // -- add event listener to this link to abort upload operation
         $('.pma_sql_import_status div li[data-hash="' + hash +
             '"] span.filesize span.pma_drop_file_status')
-            .on('click', function() {
+            .on('click', function () {
                 if ($(this).attr('task') === 'cancel') {
                     jqXHR.abort();
-                    $(this).html('<span>' +PMA_messages.dropImportMessageAborted +'</span>');
+                    $(this).html('<span>' + PMA_messages.dropImportMessageAborted + '</span>');
                     PMA_DROP_IMPORT._importFinished(hash, true, false);
-                } else if ($(this).children("span").html() ===
+                } else if ($(this).children('span').html() ===
                     PMA_messages.dropImportMessageFailed) {
                     // -- view information
                     var $this = $(this);
-                    $.each( PMA_DROP_IMPORT.importStatus,
-                    function( key, value ) {
-                        if (value.hash === hash) {
-                            $(".pma_drop_result:visible").remove();
-                            var filename = $this.parent('span').attr('data-filename');
-                            $("body").append('<div class="pma_drop_result"><h2>' +
+                    $.each(PMA_DROP_IMPORT.importStatus,
+                        function (key, value) {
+                            if (value.hash === hash) {
+                                $('.pma_drop_result:visible').remove();
+                                var filename = $this.parent('span').attr('data-filename');
+                                $('body').append('<div class="pma_drop_result"><h2>' +
                                 PMA_messages.dropImportImportResultHeader + ' - ' +
-                                filename +'<span class="close">x</span></h2>' +value.message +'</div>');
-                            $(".pma_drop_result").draggable();  //to make this dialog draggable
-                        }
-                    });
+                                filename + '<span class="close">x</span></h2>' + value.message + '</div>');
+                                $('.pma_drop_result').draggable();  // to make this dialog draggable
+                            }
+                        });
                 }
             });
     },
@@ -304,10 +305,9 @@ PMA_DROP_IMPORT = {
      * @return void
      */
     _dragenter : function (event) {
-
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
-        if ($(".noDragDrop").length !== 0) {
+        if ($('.noDragDrop').length !== 0) {
             return;
         }
 
@@ -317,11 +317,11 @@ PMA_DROP_IMPORT = {
             return;
         }
         if (PMA_commonParams.get('db') === '') {
-            $(".pma_drop_handler").html(PMA_messages.dropImportSelectDB);
+            $('.pma_drop_handler').html(PMA_messages.dropImportSelectDB);
         } else {
-            $(".pma_drop_handler").html(PMA_messages.dropImportDropFiles);
+            $('.pma_drop_handler').html(PMA_messages.dropImportDropFiles);
         }
-        $(".pma_drop_handler").fadeIn();
+        $('.pma_drop_handler').fadeIn();
     },
     /**
      * Check if dragged element contains Files
@@ -348,7 +348,7 @@ PMA_DROP_IMPORT = {
     _dragover: function (event) {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
-        if ($(".noDragDrop").length !== 0) {
+        if ($('.noDragDrop').length !== 0) {
             return;
         }
 
@@ -357,7 +357,7 @@ PMA_DROP_IMPORT = {
         if (!PMA_DROP_IMPORT._hasFiles(event)) {
             return;
         }
-        $(".pma_drop_handler").fadeIn();
+        $('.pma_drop_handler').fadeIn();
     },
     /**
      * Triggered when dragged objects are left
@@ -369,12 +369,12 @@ PMA_DROP_IMPORT = {
     _dragleave: function (event) {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
-        if ($(".noDragDrop").length !== 0) {
+        if ($('.noDragDrop').length !== 0) {
             return;
         }
         event.stopPropagation();
         event.preventDefault();
-        var $pma_drop_handler = $(".pma_drop_handler");
+        var $pma_drop_handler = $('.pma_drop_handler');
         $pma_drop_handler.clearQueue().stop();
         $pma_drop_handler.fadeOut();
         $pma_drop_handler.html(PMA_messages.dropImportDropFiles);
@@ -388,20 +388,20 @@ PMA_DROP_IMPORT = {
      *
      * @return void
      */
-    _importFinished: function(hash, aborted, status) {
-        $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
-            .children("progress").hide();
+    _importFinished: function (hash, aborted, status) {
+        $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
+            .children('progress').hide();
         var icon = 'icon ic_s_success';
         // -- provide link to view upload status
         if (!aborted) {
             if (status) {
                 $('.pma_sql_import_status div li[data-hash="' + hash +
                    '"] span.filesize span.pma_drop_file_status')
-                   .html('<span>' +PMA_messages.dropImportMessageSuccess +'</a>');
+                    .html('<span>' + PMA_messages.dropImportMessageSuccess + '</a>');
             } else {
                 $('.pma_sql_import_status div li[data-hash="' + hash +
                    '"] span.filesize span.pma_drop_file_status')
-                   .html('<span class="underline">' + PMA_messages.dropImportMessageFailed +
+                    .html('<span class="underline">' + PMA_messages.dropImportMessageFailed +
                    '</a>');
                 icon = 'icon ic_s_error';
             }
@@ -413,9 +413,9 @@ PMA_DROP_IMPORT = {
             .attr('task', 'info');
 
         // Set icon
-        $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
+        $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
             .prepend('<img src="./themes/dot.gif" title="finished" class="' +
-            icon +'"> ');
+            icon + '"> ');
 
         // Decrease liveUploadCount by one
         $('.pma_import_count').html(--PMA_DROP_IMPORT.liveUploadCount);
@@ -434,49 +434,49 @@ PMA_DROP_IMPORT = {
     _drop: function (event) {
         // We don't want to prevent users from using
         // browser's default drag-drop feature on some page(s)
-        if ($(".noDragDrop").length !== 0) {
+        if ($('.noDragDrop').length !== 0) {
             return;
         }
 
         var dbname = PMA_commonParams.get('db');
         var server = PMA_commonParams.get('server');
 
-        //if no database is selected -- no
+        // if no database is selected -- no
         if (dbname !== '') {
             var files = event.originalEvent.dataTransfer.files;
             if (!files || files.length === 0) {
                 // No files actually transferred
-                $(".pma_drop_handler").fadeOut();
+                $('.pma_drop_handler').fadeOut();
                 event.stopPropagation();
                 event.preventDefault();
                 return;
             }
-            $(".pma_sql_import_status").slideDown();
+            $('.pma_sql_import_status').slideDown();
             for (var i = 0; i < files.length; i++) {
                 var ext  = (PMA_DROP_IMPORT._getExtension(files[i].name));
                 var hash = AJAX.hash(++PMA_DROP_IMPORT.uploadCount);
 
-                var $pma_sql_import_status_div = $(".pma_sql_import_status div");
-                $pma_sql_import_status_div.append('<li data-hash="' +hash +'">' +
+                var $pma_sql_import_status_div = $('.pma_sql_import_status div');
+                $pma_sql_import_status_div.append('<li data-hash="' + hash + '">' +
                     ((ext !== '') ? '' : '<img src="./themes/dot.gif" title="invalid format" class="icon ic_s_notice"> ') +
                     escapeHtml(files[i].name) + '<span class="filesize" data-filename="' +
-                    escapeHtml(files[i].name) +'">' +(files[i].size/1024).toFixed(2) +
+                    escapeHtml(files[i].name) + '">' + (files[i].size / 1024).toFixed(2) +
                     ' kb</span></li>');
 
-                //scroll the UI to bottom
+                // scroll the UI to bottom
                 $pma_sql_import_status_div.scrollTop(
                     $pma_sql_import_status_div.scrollTop() + 50
-                );  //50 hardcoded for now
+                );  // 50 hardcoded for now
 
                 if (ext !== '') {
                     // Increment liveUploadCount by one
                     $('.pma_import_count').html(++PMA_DROP_IMPORT.liveUploadCount);
                     $('.pma_sql_import_status h2 .close').fadeOut();
 
-                    $('.pma_sql_import_status div li[data-hash="' +hash +'"]')
+                    $('.pma_sql_import_status div li[data-hash="' + hash + '"]')
                         .append('<br><progress max="100" value="2"></progress>');
 
-                    //uploading
+                    // uploading
                     var fd = new FormData();
                     fd.append('import_file', files[i]);
                     fd.append('noplugin', Math.random().toString(36).substring(2, 12));
@@ -504,7 +504,7 @@ PMA_DROP_IMPORT = {
                 }
             }
         }
-        $(".pma_drop_handler").fadeOut();
+        $('.pma_drop_handler').fadeOut();
         event.stopPropagation();
         event.preventDefault();
     }
@@ -520,31 +520,31 @@ $(document).on('dragenter', PMA_DROP_IMPORT._dragenter);
 $(document).on('dragover', PMA_DROP_IMPORT._dragover);
 $(document).on('dragleave', '.pma_drop_handler', PMA_DROP_IMPORT._dragleave);
 
-//when file is dropped to PMA UI
+// when file is dropped to PMA UI
 $(document).on('drop', 'body', PMA_DROP_IMPORT._drop);
 
 // minimizing-maximising the sql ajax upload status
-$(document).on('click', '.pma_sql_import_status h2 .minimize', function() {
+$(document).on('click', '.pma_sql_import_status h2 .minimize', function () {
     if ($(this).attr('toggle') === 'off') {
         $('.pma_sql_import_status div').css('height','270px');
         $(this).attr('toggle','on');
         $(this).html('-');  // to minimize
     } else {
-        $('.pma_sql_import_status div').css("height","0px");
+        $('.pma_sql_import_status div').css('height','0px');
         $(this).attr('toggle','off');
         $(this).html('+');  // to maximise
     }
 });
 
 // closing sql ajax upload status
-$(document).on('click', '.pma_sql_import_status h2 .close', function() {
-    $('.pma_sql_import_status').fadeOut(function() {
+$(document).on('click', '.pma_sql_import_status h2 .close', function () {
+    $('.pma_sql_import_status').fadeOut(function () {
         $('.pma_sql_import_status div').html('');
-        PMA_DROP_IMPORT.importStatus = [];  //clear the message array
+        PMA_DROP_IMPORT.importStatus = [];  // clear the message array
     });
 });
 
 // Closing the import result box
-$(document).on('click', '.pma_drop_result h2 .close', function(){
+$(document).on('click', '.pma_drop_result h2 .close', function () {
     $(this).parent('h2').parent('div').remove();
 });

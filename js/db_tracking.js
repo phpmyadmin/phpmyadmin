@@ -11,17 +11,16 @@ AJAX.registerTeardown('db_tracking.js', function () {
  * Bind event handlers
  */
 AJAX.registerOnload('db_tracking.js', function () {
-
     var $versions = $('#versions');
     $versions.find('tr:first th').append($('<div class="sorticon"></div>'));
     $versions.tablesorter({
         sortList: [[1, 0]],
         headers: {
-            0: {sorter: false},
-            2: {sorter: "integer"},
-            5: {sorter: false},
-            6: {sorter: false},
-            7: {sorter: false}
+            0: { sorter: false },
+            2: { sorter: 'integer' },
+            5: { sorter: false },
+            6: { sorter: false },
+            7: { sorter: false }
         }
     });
 
@@ -30,8 +29,8 @@ AJAX.registerOnload('db_tracking.js', function () {
     $noVersions.tablesorter({
         sortList: [[1, 0]],
         headers: {
-            0: {sorter: false},
-            2: {sorter: false}
+            0: { sorter: false },
+            2: { sorter: false }
         }
     });
 
@@ -44,9 +43,10 @@ AJAX.registerOnload('db_tracking.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
-        var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
+        var argsep = PMA_commonParams.get('arg_separator');
+        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
 
-        if ($button.val() == 'delete_tracking') {
+        if ($button.val() === 'delete_tracking') {
             var question = PMA_messages.strDeleteTrackingDataMultiple;
             $button.PMA_confirm(question, $form.attr('action'), function (url) {
                 PMA_ajaxShowMessage(PMA_messages.strDeletingTrackingData);
@@ -67,7 +67,8 @@ AJAX.registerOnload('db_tracking.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
-        var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
+        var argsep = PMA_commonParams.get('arg_separator');
+        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
@@ -85,8 +86,7 @@ AJAX.registerOnload('db_tracking.js', function () {
             AJAX.source = $anchor;
             var params = {
                 'ajax_page_request': true,
-                'ajax_request': true,
-                'token': PMA_commonParams.get('token')
+                'ajax_request': true
             };
             $.post(url, params, AJAX.responseHandler);
         });

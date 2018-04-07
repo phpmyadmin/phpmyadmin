@@ -1,0 +1,165 @@
+{{ Util_getDivForSliderEffect('query_div', 'Query window'|trans, 'open') }}
+<form action="" id="query_form">
+    <input type="hidden" id="db_name" value="{{ db }}">
+    <fieldset>
+        {% for table in tables %}
+            <div style="display:none" id="{{ table.hash }}">
+                <option value="*">*</option>
+                {% for column in table.columns %}
+                    <option value="{{ column }}">{{ column }}</option>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        {% for id in 0..default_no_of_columns %}
+            {% if id == 0 %}<div style="display:none" id="new_column_layout">{% endif %}
+            <fieldset style="display:inline" class="column_details">
+                <select style="display:inline" class="tableNameSelect">
+                    <option value="">{% trans 'select table' %}</option>
+                    {% for table in tables|keys %}
+                        <option value="{{ table }}">{{ table }}</option>
+                    {% endfor %}
+                </select>
+                <span>.</span>
+                <select style="display:inline" class="columnNameSelect">
+                    <option value="">{% trans 'select column' %}</option>
+                </select>
+                <br>
+                <input type="checkbox" checked="checked" class="show_col">
+                <span>{% trans 'Show' %}</span>
+                <br>
+                <input type="text" placeholder="{% trans 'Table alias' %}" class="table_alias">
+                <input type="text" placeholder="{% trans 'Column alias' %}" class="col_alias">
+                <br>
+                <input type="checkbox"
+                    title="{% trans 'Use this column in criteria' %}"
+                    class="criteria_col">
+                {% include 'div_for_slider_effect.twig' with {
+                    'id': 'criteria_div' ~ id,
+                    'initial_sliders_state': 'closed',
+                    'message': 'criteria'|trans
+                } %}
+                <div>
+                    <table>
+
+                        <tr class="sort_order" style="background:none">
+                            <td>{% trans 'Sort' %}</td>
+                            <td><input type="radio" name="sort[{{ id }}]">{% trans 'Ascending' %}</td>
+                            <td><input type="radio" name="sort[{{ id }}]">{% trans 'Descending' %}</td>
+                        </tr>
+
+                        <tr class="logical_operator" style="background:none;display:none">
+                            <td>{% trans 'Add as' %}</td>
+                            <td>
+                                <input type="radio"
+                                    name="logical_op[{{ id }}]"
+                                    value="AND"
+                                    class="logical_op"
+                                    checked="checked">
+                                AND
+                            </td>
+                            <td>
+                                <input type="radio"
+                                    name="logical_op[{{ id }}]"
+                                    value="OR"
+                                    class="logical_op">
+                                OR
+                            </td>
+                        </tr>
+
+                        <tr style="background:none">
+                            <td>Op </td>
+                            <td>
+                                <select class="criteria_op">
+                                    <option value="=">=</option>
+                                    <option value=">">&gt;</option>
+                                    <option value=">=">&gt;=</option>
+                                    <option value="<">&lt;</option>
+                                    <option value="<=">&lt;=</option>
+                                    <option value="!=">!=</option>
+                                    <option value="LIKE">LIKE</option>
+                                    <option value="LIKE %...%">LIKE %...%</option>
+                                    <option value="NOT LIKE">NOT LIKE</option>
+                                    <option value="IN (...)">IN (...)</option>
+                                    <option value="NOT IN (...)">NOT IN (...)</option>
+                                    <option value="BETWEEN">BETWEEN</option>
+                                    <option value="NOT BETWEEN">NOT BETWEEN</option>
+                                    <option value="IS NULL">IS NULL</option>
+                                    <option value="IS NOT NULL">IS NOT NULL</option>
+                                    <option value="REGEXP">REGEXP</option>
+                                    <option value="REGEXP ^...$">REGEXP ^...$</option>
+                                    <option value="NOT REGEXP">NOT REGEXP</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="criteria_rhs">
+                                    <option value="text">{% trans 'Text' %}</option>
+                                    <option value="anotherColumn">{% trans 'Another column' %}</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr class="rhs_table" style="display:none;background:none">
+                            <td></td>
+                            <td>
+                                <select  class="tableNameSelect">
+                                    <option value="">{% trans 'select table' %}</option>
+                                    {% for table in tables|keys %}
+                                        <option value="{{ table }}">{{ table }}</option>
+                                    {% endfor %}
+                                </select><span>.</span>
+                            </td>
+                            <td>
+                                <select style="display:inline" class="columnNameSelect">
+                                    <option value="">{% trans 'select column' %}</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr style="background:none" class="rhs_text">
+                            <td></td>
+                            <td colspan="2">
+                                <input type="text"
+                                    style="width:91%"
+                                    class="rhs_text_val"
+                                    placeholder="{% trans 'Enter criteria as free text' %}">
+                            </td>
+                        </tr>
+
+                        </table>
+                    </div>
+                </div>
+                <a href="#"
+                    title="{% trans 'Remove this column' %}"
+                    style="float:right;color:red"
+                    class="removeColumn">
+                    X
+                </a>
+            </fieldset>
+            {% if id == 0 %}</div>{% endif %}
+        {% endfor %}
+
+        <fieldset style="display:inline">
+            <input type="button" value="{% trans '+ Add column' %}" id="add_column_button">
+        </fieldset>
+
+        <fieldset>
+            {% spaceless %}
+                <textarea id="MultiSqlquery"
+                    cols="80"
+                    rows="4"
+                    style="float:left"
+                    name="sql_query"
+                    dir="ltr">
+                </textarea>
+            {% endspaceless %}
+        </fieldset>
+    </fieldset>
+
+    <fieldset class="tblFooters">
+        <input type="button" id="update_query_button" value="{% trans 'Update query' %}">
+        <input type="button" id="submit_query" value="{% trans 'Submit query' %}">
+    </fieldset>
+</form>
+</div>{# Slider div #}
+<div id="sql_results"></div>

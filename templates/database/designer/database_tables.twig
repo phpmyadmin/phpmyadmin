@@ -1,0 +1,128 @@
+{% for i in 0..table_names|length - 1 %}
+    {% set t_n = table_names[i] %}
+    {% set t_n_url = table_names_url[i] %}
+    <input name="t_x[{{ t_n_url }}]" type="hidden" id="t_x_{{ t_n_url }}_" />
+    <input name="t_y[{{ t_n_url }}]" type="hidden" id="t_y_{{ t_n_url }}_" />
+    <input name="t_v[{{ t_n_url }}]" type="hidden" id="t_v_{{ t_n_url }}_" />
+    <input name="t_h[{{ t_n_url }}]" type="hidden" id="t_h_{{ t_n_url }}_" />
+    <table id="{{ t_n_url }}"
+        cellpadding="0"
+        cellspacing="0"
+        class="designer_tab"
+        style="position:absolute; left:
+            {{- tab_pos[t_n] is defined ? tab_pos[t_n]['X'] : random(range(20, 700)) }}px; top:
+            {{- tab_pos[t_n] is defined ? tab_pos[t_n]['Y'] : random(range(20, 550)) }}px; display:
+            {{- tab_pos[t_n] is defined or display_page == -1 ? 'block' : 'none' }}; z-index: 1;">
+        <thead>
+            <tr class="header">
+                {% if has_query %}
+                    <td class="select_all">
+                        <input class="select_all_1"
+                            type="checkbox"
+                            style="margin: 0;"
+                            value="select_all_{{ t_n_url }}"
+                            id="select_all_{{ t_n_url }}"
+                            title="select all"
+                            designer_url_table_name="{{ t_n_url }}"
+                            designer_out_owner="{{ owner_out[i]|raw }}">
+                    </td>
+                {% endif %}
+                <td class="small_tab"
+                    title="{% trans 'Show/hide columns' %}"
+                    id="id_hide_tbody_{{ t_n_url }}"
+                    table_name="{{ t_n_url }}">
+                    {{ tab_pos[t_n] is not defined or tab_pos[t_n]['V'] is not empty ? 'v' : '&gt;' }}
+                </td>
+                <td class="small_tab_pref small_tab_pref_1"
+                    table_name_small="{{ table_names_small_url[i] }}">
+                    <img src="{{ theme.getImgPath('designer/exec_small.png') }}"
+                        title="{% trans 'See table structure' %}" />
+                </td>
+                <td id="id_zag_{{ t_n_url }}"
+                    class="tab_zag nowrap tab_zag_noquery"
+                    table_name="{{ t_n_url }}"
+                    query_set="{{ has_query ? 1 : 0 }}">
+                    <span class="owner">
+                        {{ owner_out[i]|raw }}
+                    </span>
+                    {{ table_names_small_out[i]|raw }}
+                </td>
+                {% if has_query %}
+                    <td class="tab_zag tab_zag_query"
+                        id="id_zag_{{ t_n_url }}_2"
+                        table_name="{{ t_n_url }}">
+                    </td>
+               {% endif %}
+            </tr>
+        </thead>
+        <tbody id="id_tbody_{{ t_n_url }}"
+            {{- tab_pos[t_n] is defined and tab_pos[t_n]['V'] is empty ? ' style="display: none"' }}>
+            {% set display_field = Relation_getDisplayField(get_db, table_names_small[i]) %}
+            {% for j in 0..tab_column[t_n]['COLUMN_ID']|length - 1 %}
+                {% set tmp_column = t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j] %}
+                {% set click_field_param = [
+                    table_names_small_url[i],
+                    tab_column[t_n]['COLUMN_NAME'][j]|url_encode
+                ] %}
+                {% if not Util_isForeignKeySupported(table_types[i]) %}
+                    {% set click_field_param = click_field_param|merge([tables_pk_or_unique_keys[tmp_column] is defined ? 1 : 0]) %}
+                {% else %}
+                    {# if foreign keys are supported, it's not necessary that the
+                    index is a primary key #}
+                    {% set click_field_param = click_field_param|merge([tables_all_keys[tmp_column] is defined ? 1 : 0]) %}
+                {% endif %}
+                {% set click_field_param = click_field_param|merge([db]) %}
+                <tr id="id_tr_{{ table_names_small_url[i] }}.{{ tab_column[t_n]['COLUMN_NAME'][j] }}" class="tab_field
+                    {{- display_field == tab_column[t_n]['COLUMN_NAME'][j] ? '_3' }}" click_field_param="
+                    {{- click_field_param|join(',') }}">
+                    {% if has_query %}
+                        <td class="select_all">
+                            <input class="select_all_store_col"
+                                value="{{ t_n_url }}{{ tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}"
+                                type="checkbox"
+                                id="select_{{ t_n_url }}._{{ tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}"
+                                style="margin: 0;"
+                                title="select_{{ tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}"
+                                store_column_param="{{ table_names_small_out[i]|url_encode }},
+                                    {{- owner_out[i] }},
+                                    {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}">
+                        </td>
+                    {% endif %}
+                    <td width="10px" colspan="3" id="{{ t_n_url }}.
+                        {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }}">
+                        <div class="nowrap">
+                            {% if tables_pk_or_unique_keys[t_n ~ '.' ~ tab_column[t_n]['COLUMN_NAME'][j]] is defined %}
+                                <img src="{{ theme.getImgPath('designer/FieldKey_small.png') }}" alt="*" />
+                            {% else %}
+                                {% set type = 'designer/Field_small' %}
+                                {% if strstr(tab_column[t_n]['TYPE'][j], 'char')
+                                    or strstr(tab_column[t_n]['TYPE'][j], 'text') %}
+                                    {% set type = type ~ '_char' %}
+                                {% elseif strstr(tab_column[t_n]['TYPE'][j], 'int')
+                                    or strstr(tab_column[t_n]['TYPE'][j], 'float')
+                                    or strstr(tab_column[t_n]['TYPE'][j], 'double')
+                                    or strstr(tab_column[t_n]['TYPE'][j], 'decimal') %}
+                                    {% set type = type ~ '_int' %}
+                                {% elseif strstr(tab_column[t_n]['TYPE'][j], 'date')
+                                    or strstr(tab_column[t_n]['TYPE'][j], 'time')
+                                    or strstr(tab_column[t_n]['TYPE'][j], 'year') %}
+                                    {% set type = type ~ '_date' %}
+                                {% endif %}
+                                <img src="{{ theme.getImgPath(type) }}.png" alt="*" />
+                            {% endif %}
+                            {{ tab_column[t_n]['COLUMN_NAME'][j] }} : {{ tab_column[t_n]['TYPE'][j] }}
+                        </div>
+                    </td>
+                    {% if has_query %}
+                        <td class="small_tab_pref small_tab_pref_click_opt"
+                            click_option_param="designer_optionse,
+                                {{- tab_column[t_n]['COLUMN_NAME'][j]|url_encode }},
+                                {{- table_names_small_out[i] }}">
+                            <img src="{{ theme.getImgPath('designer/exec_small.png') }}" title="options" />
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endfor %}

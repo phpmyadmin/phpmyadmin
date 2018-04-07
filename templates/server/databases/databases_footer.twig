@@ -1,0 +1,81 @@
+<tfoot>
+    <tr>
+        {% if is_superuser or allow_user_drop_database %}
+            <th></th>
+        {% endif %}
+        <th>
+            {% trans 'Total' %}: <span id="filter-rows-count">
+                {{- database_count -}}
+            </span>
+        </th>
+        {% for stat_name, stat in column_order if stat_name in first_database|keys %}
+            {% if stat['format'] is same as('byte') %}
+                {% set byte_format = Util_formatByteDown(stat['footer'], 3, 1) %}
+                {% set value = byte_format[0] %}
+                {% set unit = byte_format[1] %}
+            {% elseif stat['format'] is same as('number') %}
+                {% set value = Util_formatNumber(stat['footer'], 0) %}
+            {% else %}
+                {% set value = htmlentities(stat['footer'], 0) %}
+            {% endif %}
+
+            <th class="value">
+                {% if stat['description_function'] is defined %}
+                    <dfn title="{{ Charsets_getCollationDescr(stat['footer']) }}">
+                        {{ value }}
+                    </dfn>
+                {% else %}
+                    {{ value }}
+                {% endif %}
+            </th>
+            {% if stat['format'] is same as('byte') %}
+                <th class="unit">{{ unit }}</th>
+            {% endif %}
+        {% endfor %}
+        {% if master_replication %}
+            <th></th>
+        {% endif %}
+        {% if slave_replication %}
+            <th></th>
+        {% endif %}
+        <th></th>
+    </tr>
+</tfoot>
+</table>
+</div>
+
+{# Footer buttons #}
+{% if is_superuser or allow_user_drop_database %}
+    {% include 'select_all.twig' with {
+        'pma_theme_image': pma_theme_image,
+        'text_dir': text_dir,
+        'form_name': 'dbStatsForm'
+    } only %}
+
+    {{ Util_getButtonOrImage(
+        '',
+        'mult_submit ajax',
+        'Drop'|trans,
+        'b_deltbl'
+    ) }}
+{% endif %}
+
+{# Enable statistics #}
+{% if dbstats is empty %}
+    {{ Message_notice('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans) }}
+
+    {% set content %}
+        <strong>{% trans 'Enable statistics' %}</strong>
+    {% endset %}
+    {% set items = [{
+        'content': content,
+        'class': 'li_switch_dbstats',
+        'url': {
+            'href': 'server_databases.php' ~ Url_getCommon({'dbstats': '1'}),
+            'title': 'Enable statistics'|trans
+        }
+    }] %}
+    {% include 'list/unordered.twig' with {'items': items} only %}
+{% endif %}
+</form>
+</div>

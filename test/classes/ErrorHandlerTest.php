@@ -4,21 +4,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
-
-use PMA\libraries\Theme;
-
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Tests\PmaTestCase;
+use ReflectionClass;
 
 /**
- * Test for PMA\libraries\ErrorHandler class.
+ * Test for PhpMyAdmin\ErrorHandler class.
  *
  * @package PhpMyAdmin-test
  */
-class ErrorHandlerTest extends PMATestCase
+class ErrorHandlerTest extends PmaTestCase
 {
     /**
      * @access protected
@@ -34,8 +31,7 @@ class ErrorHandlerTest extends PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA\libraries\ErrorHandler();
-
+        $this->object = new ErrorHandler();
     }
 
     /**
@@ -60,7 +56,7 @@ class ErrorHandlerTest extends PMATestCase
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\ErrorHandler');
+        $class = new ReflectionClass(ErrorHandler::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -168,7 +164,7 @@ class ErrorHandlerTest extends PMATestCase
             'checkSavedErrors',
             array()
         );
-        $this->assertTrue(!isset($_SESSION['errors']));
+        $this->assertArrayNotHasKey('errors', $_SESSION);
     }
 
     /**
@@ -213,9 +209,9 @@ class ErrorHandlerTest extends PMATestCase
             1,
             $this->object->countErrors()
         );
-        $this->assertEquals(
+        $this->assertCount(
             1,
-            count($this->object->sliceErrors(0))
+            $this->object->sliceErrors(0)
         );
         $this->assertEquals(
             0,

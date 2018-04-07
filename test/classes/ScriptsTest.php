@@ -5,21 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
-
-use PMA\libraries\Scripts;
-
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Scripts;
+use PhpMyAdmin\Tests\PmaTestCase;
+use ReflectionClass;
 
 /**
  * Tests for Script.php
  *
  * @package PhpMyAdmin-test
  */
-class ScriptsTest extends PMATestCase
+class ScriptsTest extends PmaTestCase
 {
     /**
      * @access protected
@@ -63,7 +60,7 @@ class ScriptsTest extends PMATestCase
      */
     private function _callPrivateFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\Scripts');
+        $class = new ReflectionClass(Scripts::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -80,8 +77,7 @@ class ScriptsTest extends PMATestCase
     {
         $this->assertEquals(
             '<script data-cfasync="false" type="text/javascript" '
-            . 'src="js/get_scripts.js.php?'
-            . 'scripts%5B%5D=common.js&amp;v=' . PMA_VERSION . '"></script>',
+            . 'src="js/common.js?v=' . PMA_VERSION . '"></script>' . "\n",
             $this->_callPrivateFunction(
                 '_includeFiles',
                 array(
@@ -108,8 +104,7 @@ class ScriptsTest extends PMATestCase
 
         $this->assertRegExp(
             '@<script data-cfasync="false" type="text/javascript" '
-            . 'src="js/get_scripts.js.php\\?'
-            . 'scripts%5B%5D=common.js&amp;v=' . PMA_VERSION . '"></script>'
+            . 'src="js/common.js\?v=' . PMA_VERSION . '"></script>' . "\n"
             . '<script data-cfasync="false" type="text/'
             . 'javascript">// <!\\[CDATA\\[' . "\n"
             . 'AJAX.scriptHandler.add\\("common.js",1\\);' . "\n"
@@ -149,12 +144,12 @@ $(function() {});
     public function testGetFiles()
     {
         // codemirror's onload event is blacklisted
-        $this->object->addFile('codemirror/lib/codemirror.js');
+        $this->object->addFile('vendor/codemirror/lib/codemirror.js');
 
         $this->object->addFile('common.js');
         $this->assertEquals(
             array(
-                array('name' => 'codemirror/lib/codemirror.js', 'fire' => 0),
+                array('name' => 'vendor/codemirror/lib/codemirror.js', 'fire' => 0),
                 array('name' => 'common.js', 'fire' => 1)
             ),
             $this->object->getFiles()
@@ -183,7 +178,6 @@ $(function() {});
             $hash => array(
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'before_statics' => false,
                 'params' => array(),
             )
         );
@@ -212,13 +206,11 @@ $(function() {});
             'd7716810d825f4b55d18727c3ccb24e6' => array(
                 'has_onload' => 1,
                 'filename' => 'common.js',
-                'before_statics' => false,
                 'params' => array(),
             ),
             '347a57484fcd6ea6d8a125e6e1d31f78' => array(
                 'has_onload' => 1,
                 'filename' => 'sql.js',
-                'before_statics' => false,
                 'params' => array(),
             ),
         );

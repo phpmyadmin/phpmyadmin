@@ -5,11 +5,13 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Response;
+
+use PhpMyAdmin\BrowseForeigners;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
-require_once 'libraries/transformations.lib.php';
-require_once 'libraries/browse_foreigners.lib.php';
 
 /**
  * Sets globals from $_REQUEST
@@ -25,7 +27,7 @@ foreach ($request_params as $one_request_param) {
     }
 }
 
-PMA\libraries\Util::checkParameters(array('db', 'table', 'field'));
+Util::checkParameters(array('db', 'table', 'field'));
 
 $response = Response::getInstance();
 $response->getFooter()->setMinimal();
@@ -33,16 +35,24 @@ $header = $response->getHeader();
 $header->disableMenuAndConsole();
 $header->setBodyId('body_browse_foreigners');
 
+$relation = new Relation();
+
 /**
  * Displays the frame
  */
-
-$foreigners  = PMA_getForeigners($db, $table);
-$foreign_limit = PMA_getForeignLimit(
+$foreigners = $relation->getForeigners($db, $table);
+$browseForeigners = new BrowseForeigners(
+    $GLOBALS['cfg']['LimitChars'],
+    $GLOBALS['cfg']['MaxRows'],
+    $GLOBALS['cfg']['RepeatCells'],
+    $GLOBALS['cfg']['ShowAll'],
+    $GLOBALS['pmaThemeImage']
+);
+$foreign_limit = $browseForeigners->getForeignLimit(
     isset($_REQUEST['foreign_showAll']) ? $_REQUEST['foreign_showAll'] : null
 );
 
-$foreignData = PMA_getForeignData(
+$foreignData = $relation->getForeignData(
     $foreigners, $_REQUEST['field'], true,
     isset($_REQUEST['foreign_filter'])
     ? $_REQUEST['foreign_filter']
@@ -52,8 +62,11 @@ $foreignData = PMA_getForeignData(
 );
 
 // HTML output
-$html = PMA_getHtmlForRelationalFieldSelection(
-    $db, $table, $_REQUEST['field'], $foreignData,
+$html = $browseForeigners->getHtmlForRelationalFieldSelection(
+    $db,
+    $table,
+    $_REQUEST['field'],
+    $foreignData,
     isset($fieldkey) ? $fieldkey : null,
     isset($data) ? $data : null
 );

@@ -18,11 +18,11 @@ Contents:
     user
     faq
     developers
+    security
     vendors
     copyright
     credits
     glossary
-
 
 Indices and tables
 ==================

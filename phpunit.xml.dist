@@ -46,6 +46,8 @@
                 <directory>vendor/</directory>
                 <!-- excluding the tests from the coverage -->
                 <directory>test/</directory>
+                <!-- excluding the twig cache from the coverage -->
+                <directory>tmp/</directory>
                 <!-- examples for users -->
                 <directory suffix=".php">examples</directory>
             </exclude>

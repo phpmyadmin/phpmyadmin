@@ -5,8 +5,10 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\URL;
-use PMA\libraries\Response;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
 
 /**
  * Gets the variables sent or posted to this script, then displays headers
@@ -25,32 +27,32 @@ if (! isset($selected_tbl)) {
         $tooltip_truename,
         $tooltip_aliasname,
         $pos
-    ) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+    ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
 }
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $header->enablePrintView();
 
+$relation = new Relation();
+
 /**
  * Gets the relations settings
  */
-$cfgRelation  = PMA_getRelationsParam();
-
-require_once 'libraries/transformations.lib.php';
+$cfgRelation  = $relation->getRelationsParam();
 
 /**
  * Check parameters
  */
-PMA\libraries\Util::checkParameters(array('db'));
+PhpMyAdmin\Util::checkParameters(array('db'));
 
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'db_sql.php' . URL::getCommon(array('db' => $db));
+$err_url = 'db_sql.php' . Url::getCommon(array('db' => $db));
 
 if ($cfgRelation['commwork']) {
-    $comment = PMA_getDbComment($db);
+    $comment = $relation->getDbComment($db);
 
     /**
      * Displays DB comment
@@ -69,7 +71,7 @@ $tables = $GLOBALS['dbi']->getTables($db);
 
 $count  = 0;
 foreach ($tables as $table) {
-    $comments = PMA_getComments($db, $table);
+    $comments = $relation->getComments($db, $table);
 
     echo '<div>' , "\n";
 
@@ -87,7 +89,7 @@ foreach ($tables as $table) {
     $GLOBALS['dbi']->selectDb($db);
     $indexes = $GLOBALS['dbi']->getTableIndexes($db, $table);
     list($primary, $pk_array, $indexes_info, $indexes_data)
-        = PMA\libraries\Util::processIndexData($indexes);
+        = PhpMyAdmin\Util::processIndexData($indexes);
 
     /**
      * Gets columns properties
@@ -95,7 +97,7 @@ foreach ($tables as $table) {
     $columns = $GLOBALS['dbi']->getColumns($db, $table);
 
     // Check if we can use Relations
-    list($res_rel, $have_rel) = PMA_getRelationsAndStatus(
+    list($res_rel, $have_rel) = $relation->getRelationsAndStatus(
         ! empty($cfgRelation['relation']), $db, $table
     );
 
@@ -130,7 +132,7 @@ foreach ($tables as $table) {
             $row['Null'] = 'NO';
         }
         $extracted_columnspec
-            = PMA\libraries\Util::extractColumnSpec($row['Type']);
+            = PhpMyAdmin\Util::extractColumnSpec($row['Type']);
 
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
@@ -155,7 +157,7 @@ foreach ($tables as $table) {
         }
         echo '</td>';
         echo '<td'
-            , PMA\libraries\Util::getClassForType(
+            , PhpMyAdmin\Util::getClassForType(
                 $extracted_columnspec['type']
             )
             , ' lang="en" dir="ltr">' , $type , '</td>';
@@ -171,7 +173,7 @@ foreach ($tables as $table) {
 
         if ($have_rel) {
             echo '    <td>';
-            if ($foreigner = PMA_searchColumnInForeigners($res_rel, $column_name)) {
+            if ($foreigner = $relation->searchColumnInForeigners($res_rel, $column_name)) {
                 echo htmlspecialchars(
                     $foreigner['foreign_table']
                     . ' -> '
@@ -186,7 +188,7 @@ foreach ($tables as $table) {
         }
         echo '</td>' , "\n";
         if ($cfgRelation['mimework']) {
-            $mime_map = PMA_getMIME($db, $table, true);
+            $mime_map = Transformations::getMIME($db, $table, true);
 
             echo '    <td>';
             if (isset($mime_map[$column_name])) {
@@ -201,8 +203,8 @@ foreach ($tables as $table) {
     $count++;
     echo '</table>';
     // display indexes information
-    if (count(PMA\libraries\Index::getFromTable($table, $db)) > 0) {
-        echo PMA\libraries\Index::getHtmlForIndexes($table, $db, true);
+    if (count(PhpMyAdmin\Index::getFromTable($table, $db)) > 0) {
+        echo PhpMyAdmin\Index::getHtmlForIndexes($table, $db, true);
     }
     echo '</div>';
 } //ends main while
@@ -210,4 +212,4 @@ foreach ($tables as $table) {
 /**
  * Displays the footer
  */
-echo PMA\libraries\Util::getButton();
+echo PhpMyAdmin\Util::getButton();

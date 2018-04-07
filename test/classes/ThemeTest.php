@@ -5,16 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\Theme;
+namespace PhpMyAdmin\Tests;
 
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Theme;
 
 /**
  * Test class for Theme.
  *
  * @package PhpMyAdmin-test
  */
-class ThemeTest extends PMATestCase
+class ThemeTest extends PmaTestCase
 {
     /**
      * @var Theme
@@ -35,14 +37,13 @@ class ThemeTest extends PMATestCase
     protected function setUp()
     {
         $this->object = new Theme();
-        $this->backup = $_SESSION['PMA_Theme'];
-        $_SESSION['PMA_Theme'] = $this->object;
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $this->backup = $GLOBALS['PMA_Theme'];
+        $GLOBALS['PMA_Theme'] = $this->object;
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         include 'themes/pmahomme/layout.inc.php';
         $GLOBALS['server'] = '99';
-        $GLOBALS['collation_connection'] = 'utf-8';
     }
 
     /**
@@ -53,7 +54,7 @@ class ThemeTest extends PMATestCase
      */
     protected function tearDown()
     {
-        $_SESSION['PMA_Theme'] = $this->backup;
+        $GLOBALS['PMA_Theme'] = $this->backup;
     }
 
     /**
@@ -92,7 +93,7 @@ class ThemeTest extends PMATestCase
         $this->object->setPath('./test/classes/_data/gen_version_info');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
-        $this->assertEquals('2.0.3', $this->object->getVersion());
+        $this->assertEquals('4.8', $this->object->getVersion());
     }
 
     /**
@@ -103,7 +104,7 @@ class ThemeTest extends PMATestCase
     public function testLoadInfo()
     {
         $this->object->setPath('./themes/original');
-        $infofile = $this->object->getPath() . '/info.inc.php';
+        $infofile = $this->object->getPath() . '/theme.json';
         $this->assertTrue($this->object->loadInfo());
 
         $this->assertEquals(
@@ -286,15 +287,19 @@ class ThemeTest extends PMATestCase
      *
      * @return void
      */
-    public function testPrintPreview()
+    public function testGetPrintPreview()
     {
-        $this->assertEquals(
-            $this->object->getPrintPreview(),
-            '<div class="theme_preview"><h2> (0.0.0.0) </h2><p><a class="take_'
-            . 'theme" name="" href="index.php?set_theme=&amp;server=99&amp;lang=en'
-            . '&amp;collation_connection=utf-8&amp;token=token'
-            . '">No preview available.[ <strong>take it</strong> ]'
-            . '</a></p></div>'
+        $this->assertContains(
+            '<h2>' . "\n" . '         (0.0.0.0)',
+            $this->object->getPrintPreview()
+        );
+        $this->assertContains(
+            'name="" href="index.php?set_theme=&amp;server=99&amp;lang=en">',
+            $this->object->getPrintPreview()
+        );
+        $this->assertContains(
+            'No preview available.',
+            $this->object->getPrintPreview()
         );
     }
 
@@ -310,7 +315,7 @@ class ThemeTest extends PMATestCase
             '82%'
         );
 
-        $GLOBALS['PMA_Config']->set('fontsize', '12px');
+        $GLOBALS['PMA_Config']->set('FontSize', '12px');
         $this->assertEquals(
             $this->object->getFontSize(),
             '12px'
@@ -341,17 +346,18 @@ class ThemeTest extends PMATestCase
     /**
      * Test for getImgPath
      *
-     * @param string $file   file name for image
-     * @param string $output expected output
+     * @param string $file     file name for image
+     * @param string $fallback fallback image
+     * @param string $output   expected output
      *
      * @return void
      *
      * @dataProvider providerForGetImgPath
      */
-    public function testGetImgPath($file, $output)
+    public function testGetImgPath($file, $fallback, $output)
     {
         $this->assertEquals(
-            $this->object->getImgPath($file),
+            $this->object->getImgPath($file, $fallback),
             $output
         );
     }
@@ -366,17 +372,24 @@ class ThemeTest extends PMATestCase
         return array(
             array(
                 null,
+                null,
                 ''
             ),
             array(
                 'screen.png',
+                null,
                 './themes/pmahomme/img/screen.png'
             ),
             array(
                 'arrow_ltr.png',
+                null,
                 './themes/pmahomme/img/arrow_ltr.png'
-            )
-
+            ),
+            array(
+                'logo_right.png',
+                'pma_logo.png',
+                './themes/pmahomme/img/pma_logo.png'
+            ),
         );
     }
 }

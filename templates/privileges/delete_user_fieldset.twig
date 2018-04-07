@@ -1,0 +1,17 @@
+<fieldset id="fieldset_delete_user">
+    <legend>
+        {{ Util_getIcon('b_usrdrop') }}{% trans 'Remove selected user accounts' %}
+    </legend>
+    <input type="hidden" name="mode" value="2" />
+    <p>({% trans 'Revoke all active privileges from the users and delete them afterwards.' %})</p>
+    <input type="checkbox" title="{% trans 'Drop the databases that have the same names as the users.' %}"
+        name="drop_users_db" id="checkbox_drop_users_db" />
+    <label for="checkbox_drop_users_db"
+        title="{% trans 'Drop the databases that have the same names as the users.' %}">
+        {% trans 'Drop the databases that have the same names as the users.' %}
+    </label>
+</fieldset>
+
+<fieldset id="fieldset_delete_user_footer" class="tblFooters">
+    <input type="submit" name="delete" value="{% trans 'Go' %}" id="buttonGo" class="ajax" />
+</fieldset>

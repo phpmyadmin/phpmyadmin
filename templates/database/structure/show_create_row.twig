@@ -1,0 +1,19 @@
+<fieldset>
+    <legend>{{ title }}</legend>
+    <table class="show_create">
+        <thead>
+        <tr>
+            <th>{{ raw_title }}</th>
+            <th>{{ 'Create %s'|trans|format(raw_title) }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for object in db_objects %}
+            <tr>
+                <td><strong>{{ Core_mimeDefaultFunction(object) }}</strong></td>
+                <td>{{ Core_mimeDefaultFunction(dbi.getTable(db, object).showCreate()) }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</fieldset>

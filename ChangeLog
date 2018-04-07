@@ -1,6 +1,54 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.8.0 (2018-04-07)
+- issue #12946 Allow to export JSON with unescaped unicode chars
+- issue #12983 Disable login button without solved reCaptcha
+- issue #12315 Allow to remove individual segments from pie charts
+- issue        Change label from "Improve table structure" to "Normalize" to match standard terminology
+- issue #13087 Offer login as different user on access denied from MySQL
+- issue #13110 Indicate when HTTPS is not properly reported on the server
+- issue #13119 No database selected error when adding foreign key
+- issue #12388 Improved database search to allow search for exact phrase match
+- issue #13099 Report error when trying to copy database to same name
+- issue #13167 Themes now have to contain metadata in theme.json
+- issue #6363  phpMyAdmin no longer requires eval() in PHP
+- issue #12386 The mbstring dependency is now optional
+- issue #13269 Small refactoring in preparation to CSP
+- issue #13384 Database link broken in Databases Page
+- issue #13391 Configurable authentication logging using $cfg['AuthLog']
+- issue #13086 Add support for Google Invisible Captcha
+- issue #13058 Improved error reporting for reCAPTCHA
+- issue #12899 Improved rendering of server variables table
+- issue #12948 Fixed javascript editor for TIME values
+- issue #13095 Fixed alignment of foreign keys editing
+- issue #12944 Improved inline editor for JSON
+- issue #13145 Improved layout of operations pages
+- issue #13448 Add "format" query button in edit view form
+- issue #6241  Implement Responsive Design/mobile interface
+- issue        Use a single location for classes under PhpMyAdmin namespace
+- issue #12354 Indicate SSL status on main page
+- issue #5666  Configuration directives for defaults of Transformation options
+- issue #12261 Remove inline JavaScript
+- issue #13408 Show MySQL warnings when executing SQL queries
+- issue #5827  Allow Designer to show tables from other databases
+- issue #13268 Replace Query-By-Example with multi-table query generator interface
+- issue #13576 Add privileges export to per-database listing
+- issue        Consolidate functions into class files
+- issue #13560 Add support for changing collation for all tables and columns in database
+- issue #13303 Add support for creating fulltext index from table structure
+- issue #13711 Lower default value for $cfg['MaxExactCount']
+- issue #13722 DisableIS is not fully honored
+- issue #6197  Added support for authentication using U2F and 2FA
+- issue #13480 Avoid removing cookies on upgrade
+- issue #13397 Remember state of navigation panel
+- issue #11688 Reduced cookie usage
+- issue #13466 Better utilization of user preferences
+- issue #14042 Rename PMD to Designer
+- issue #13940 Honor arg_separator in AJAX requests
+- issue #14060 Can't edit rows in Internet Explorer
+- issue #14096 Internet Explorer compatibility; fixes JavaScript error Object doesn't support property or method 'startsWith'
+
 4.7.9 (2018-03-05)
 - issue #13931 Fixed browsing tables with more results
 - issue #13927 "Not an integer" when browsing a table

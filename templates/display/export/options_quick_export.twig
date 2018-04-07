@@ -1,0 +1,20 @@
+<div class="exportoptions" id="output_quick_export">
+    <h3>{% trans 'Output:' %}</h3>
+    <ul>
+        <li>
+            <input type="checkbox" name="quick_export_onserver" value="saveit"
+                id="checkbox_quick_dump_onserver"{{ export_is_checked ? ' checked' }}>
+            <label for="checkbox_quick_dump_onserver">
+                {{ 'Save on server in the directory <strong>%s</strong>'|trans|format(save_dir|e)|raw }}
+            </label>
+        </li>
+        <li>
+            <input type="checkbox" name="quick_export_onserver_overwrite"
+                value="saveitover" id="checkbox_quick_dump_onserver_overwrite"
+                {{- export_overwrite_is_checked ? ' checked' }}>
+            <label for="checkbox_quick_dump_onserver_overwrite">
+                {% trans 'Overwrite existing file(s)' %}
+            </label>
+        </li>
+    </ul>
+</div>

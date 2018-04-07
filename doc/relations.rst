@@ -9,7 +9,7 @@ features when needed. There are two ways of editing these relations, with the
 *relation view* and the drag-and-drop *designer* -- both of which are explained
 on this page.
 
-.. note:: 
+.. note::
 
     You need to have configured the :ref:`linked-tables` for using phpMyAdmin
     only relations.
@@ -60,7 +60,6 @@ If you now browse the link table, the `category_id` field will be a clickable hy
 To fix this, open the relation view of the `category` table and in the drop down at the bottom, select "name". If you now browse the link table again and hover the mouse over the `category_id` hyperlink, the value from the related category will be shown as tooltip.
 
 .. image:: images/pma-relations-links.png
-
 
 Designer
 --------

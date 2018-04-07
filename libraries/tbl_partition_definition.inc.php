@@ -6,7 +6,7 @@
  * @package PhpMyAdmin
  */
 
-use PMA\libraries\Template;
+use PhpMyAdmin\Core;
 
 if (!isset($partitionDetails)) {
 
@@ -22,7 +22,7 @@ if (!isset($partitionDetails)) {
             ? $_REQUEST[$partitionParam] : '';
     }
 
-    if (PMA_isValid($_REQUEST['partition_count'], 'numeric')) {
+    if (Core::isValid($_REQUEST['partition_count'], 'numeric')) {
         // MySQL's limit is 8192, so do not allow more
         $partition_count = min(intval($_REQUEST['partition_count']), 8192);
     } else {
@@ -30,7 +30,7 @@ if (!isset($partitionDetails)) {
     }
     $partitionDetails['partition_count']
         = ($partition_count === 0) ? '' : $partition_count;
-    if (PMA_isValid($_REQUEST['subpartition_count'], 'numeric')) {
+    if (Core::isValid($_REQUEST['subpartition_count'], 'numeric')) {
         // MySQL's limit is 8192, so do not allow more
         $subpartition_count = min(intval($_REQUEST['subpartition_count']), 8192);
     } else {
@@ -141,6 +141,3 @@ if (!isset($partitionDetails)) {
         $partitionDetails['partitions'] = $partitions;
     }
 }
-
-echo Template::get('columns_definitions/partitions')
-    ->render(array('partitionDetails' => $partitionDetails));

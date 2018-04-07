@@ -1,0 +1,93 @@
+<div class="print_ignore">
+    {% include 'select_all.twig' with {
+        'pma_theme_image': pma_theme_image,
+        'text_dir': text_dir,
+        'form_name': 'fieldsForm'
+    } only %}
+
+    {{ Util_getButtonOrImage(
+        'submit_mult',
+        'mult_submit',
+        'Browse'|trans,
+        'b_browse',
+        'browse'
+    ) }}
+
+    {% if not tbl_is_view and not db_is_system_schema %}
+        {{ Util_getButtonOrImage(
+            'submit_mult',
+            'mult_submit change_columns_anchor ajax',
+            'Change'|trans,
+            'b_edit',
+            'change'
+        ) }}
+        {{ Util_getButtonOrImage(
+            'submit_mult',
+            'mult_submit',
+            'Drop'|trans,
+            'b_drop',
+            'drop'
+        ) }}
+
+        {% if tbl_storage_engine != 'ARCHIVE' %}
+            {{ Util_getButtonOrImage(
+                'submit_mult',
+                'mult_submit',
+                'Primary'|trans,
+                'b_primary',
+                'primary'
+            ) }}
+            {{ Util_getButtonOrImage(
+                'submit_mult',
+                'mult_submit',
+                'Unique'|trans,
+                'b_unique',
+                'unique'
+            ) }}
+            {{ Util_getButtonOrImage(
+                'submit_mult',
+                'mult_submit',
+                'Index'|trans,
+                'b_index',
+                'index'
+            ) }}
+            {{ Util_getButtonOrImage(
+                'submit_mult',
+                'mult_submit',
+                'Fulltext'|trans,
+                'b_ftext',
+                'ftext'
+            ) }}
+
+            {% if tbl_storage_engine is not empty and (
+                tbl_storage_engine == 'MYISAM'
+                or tbl_storage_engine == 'ARIA'
+                or tbl_storage_engine == 'MARIA') %}
+                {{ Util_getButtonOrImage(
+                    'submit_mult',
+                    'mult_submit',
+                    'Fulltext'|trans,
+                    'b_ftext',
+                    'ftext'
+                ) }}
+            {% endif %}
+
+            {% if central_columns_work %}
+                {{ Util_getButtonOrImage(
+                    'submit_mult',
+                    'mult_submit',
+                    'Add to central columns'|trans,
+                    'centralColumns_add',
+                    'add_to_central_columns'
+                ) }}
+                {{ Util_getButtonOrImage(
+                    'submit_mult',
+                    'mult_submit',
+                    'Remove from central columns'|trans,
+                    'centralColumns_delete',
+                    'remove_from_central_columns'
+                ) }}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+</div>

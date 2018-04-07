@@ -1,0 +1,67 @@
+{{ Util_getDivForSliderEffect('searchoptions', 'Options'|trans) }}
+
+{# Displays columns select list for selecting distinct columns in the search #}
+<fieldset id="fieldset_select_fields">
+    <legend>
+        {% trans 'Select columns (at least one):' %}
+    </legend>
+    <select name="columnsToDisplay[]"
+        size="{{ min(column_names|length, 10) }}"
+        multiple="multiple">
+        {% for each_field in column_names %}
+            <option value="{{ each_field }}"
+                selected="selected">
+                {{ each_field }}
+            </option>
+        {% endfor %}
+    </select>
+    <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" />
+    <label for="oDistinct">DISTINCT</label>
+</fieldset>
+
+{# Displays input box for custom 'Where' clause to be used in the search #}
+<fieldset id="fieldset_search_conditions">
+    <legend>
+        <em>{% trans 'Or' %}</em>
+        {% trans 'Add search conditions (body of the "where" clause):' %}
+    </legend>
+    {{ Util_showMySQLDocu('Functions') }}
+    <input type="text" name="customWhereClause" class="textfield" size="64" />
+</fieldset>
+
+{# Displays option of changing default number of rows displayed per page #}
+<fieldset id="fieldset_limit_rows">
+    <legend>{% trans 'Number of rows per page' %}</legend>
+    <input type="number"
+        name="session_max_rows"
+        required="required"
+        min="1"
+        value="{{ max_rows }}"
+        class="textfield" />
+</fieldset>
+
+{# Displays option for ordering search results by a column value (Asc or Desc) #}
+<fieldset id="fieldset_display_order">
+    <legend>{% trans 'Display order:' %}</legend>
+    <select name="orderByColumn"><option value="--nil--"></option>
+        {% for each_field in column_names %}
+            <option value="{{ each_field }}">
+                {{ each_field }}
+            </option>
+        {% endfor %}
+    </select>
+
+    {{ Util_getRadioFields(
+        'order',
+        {
+            'ASC': 'Ascending'|trans,
+            'DESC': 'Descending'|trans
+        },
+        'ASC',
+        false,
+        true,
+        'formelement'
+    ) }}
+
+</fieldset>
+<div class="clearfloat"></div>

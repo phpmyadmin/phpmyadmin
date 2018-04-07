@@ -1,0 +1,17 @@
+{% if cfg_relation['relwork'] or is_foreign_key_supported %}
+    <ul id="topmenu2">
+        {{ Util_getHtmlTab({
+            'icon': 'b_props',
+            'link': 'tbl_structure.php',
+            'text': 'Table structure'|trans,
+            'id': 'table_strucuture_id'
+        }, url_params) }}
+        {{ Util_getHtmlTab({
+            'icon': 'b_relations',
+            'link': 'tbl_relation.php',
+            'text': 'Relation view'|trans,
+            'id': 'table_relation_id'
+        }, url_params) }}
+    </ul>
+    <div class="clearfloat"></div>
+{% endif %}

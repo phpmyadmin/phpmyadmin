@@ -5,9 +5,9 @@
  *
  * @package PhpMyAdmin-Setup
  */
-namespace PMA\setup\lib;
+namespace PhpMyAdmin\Setup;
 
-use PMA\libraries\config\ConfigFile;
+use PhpMyAdmin\Config\ConfigFile;
 
 /**
  * Config file generation class
@@ -154,7 +154,7 @@ class ConfigGenerator
      *
      * @return string
      */
-    protected static function getServerPart(ConfigFile $cf, $crlf, $servers)
+    protected static function getServerPart(ConfigFile $cf, $crlf, array $servers)
     {
         if ($cf->getServerCount() === 0) {
             return null;

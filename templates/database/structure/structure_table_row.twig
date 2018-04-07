@@ -1,0 +1,225 @@
+<tr id="row_tbl_{{ curr }}"{{ table_is_view ? ' class="is_view"' }} data-filter-row="{{ current_table['TABLE_NAME']|upper }}">
+    <td class="center print_ignore">
+        <input type="checkbox"
+            name="selected_tbl[]"
+            class="{{ input_class }}"
+            value="{{ current_table['TABLE_NAME'] }}"
+            id="checkbox_tbl_{{ curr }}" />
+    </td>
+    <th>
+        {{ browse_table_label|raw }}
+        {{ tracking_icon|raw }}
+    </th>
+    {% if server_slave_status %}
+        <td class="center">
+            {{ ignored ? Util_getImage('s_cancel', 'Not replicated'|trans) }}
+            {{ do ? Util_getImage('s_success', 'Replicated'|trans) }}
+        </td>
+    {% endif %}
+
+    {# Favorite table anchor #}
+    {% if num_favorite_tables > 0 %}
+        <td class="center print_ignore">
+            {# Check if current table is already in favorite list #}
+            {% set fav_params = {
+                'db': db,
+                'ajax_request': true,
+                'favorite_table': current_table['TABLE_NAME'],
+                ((already_favorite ? 'remove' : 'add') ~ '_favorite'): true
+            } %}
+            {% include 'database/structure/favorite_anchor.twig' with {
+                'table_name_hash': md5(current_table['TABLE_NAME']),
+                'db_table_name_hash': md5(db ~ '.' ~ current_table['TABLE_NAME']),
+                'fav_params': fav_params,
+                'already_favorite': already_favorite,
+                'titles': titles
+            } only %}
+        </td>
+    {% endif %}
+
+    <td class="center print_ignore">
+        {{ browse_table|raw }}
+    </td>
+    <td class="center print_ignore">
+        <a href="tbl_structure.php{{ tbl_url_query|raw }}">
+            {{ titles['Structure']|raw }}
+        </a>
+    </td>
+    <td class="center print_ignore">
+        {{ search_table|raw }}
+    </td>
+
+    {% if not db_is_system_schema %}
+        <td class="insert_table center print_ignore">
+            <a href="tbl_change.php{{ tbl_url_query|raw }}">{{ titles['Insert']|raw }}</a>
+        </td>
+        <td class="center print_ignore">{{ empty_table|raw }}</td>
+        <td class="center print_ignore">
+            <a class="ajax drop_table_anchor
+                {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}"
+                href="sql.php" data-post="{{ tbl_url_query|raw }}&amp;reload=1&amp;purge=1&amp;sql_query=
+                {{- drop_query|url_encode }}&amp;message_to_show={{ drop_message|url_encode }}">
+                {{ titles['Drop']|raw }}
+            </a>
+        </td>
+    {% endif %}
+
+    {% if current_table['TABLE_ROWS'] is defined
+        and (current_table['ENGINE'] != null or table_is_view) %}
+        {# Get the row count #}
+        {% set row_count = Util_formatNumber(current_table['TABLE_ROWS'], 0) %}
+
+        {# Content to be appended into 'tbl_rows' cell.
+        If row count is approximate, display it as an anchor to get real count. #}
+        <td class="value tbl_rows"
+            data-table="{{ current_table['TABLE_NAME'] }}">
+            {% if approx_rows %}
+                <a href="db_structure.php{{ Url_getCommon({
+                    'ajax_request': true,
+                    'db': db,
+                    'table': current_table['TABLE_NAME'],
+                    'real_row_count': 'true'
+                }) }}" class="ajax real_row_count">
+                    <bdi>
+                        ~{{ row_count }}
+                    </bdi>
+                </a>
+            {% else %}
+                {{ row_count }}
+            {% endif %}
+            {{ show_superscript|raw }}
+        </td>
+
+        {% if not (properties_num_columns > 1) %}
+            <td class="nowrap">
+                {% if current_table['ENGINE'] is not empty %}
+                    {{ current_table['ENGINE'] }}
+                {% elseif table_is_view %}
+                    {% trans 'View' %}
+                {% endif %}
+            </td>
+            {% if collation|length > 0 %}
+                <td class="nowrap">
+                    {{ collation|raw }}
+                </td>
+            {% endif %}
+        {% endif %}
+
+        {% if is_show_stats %}
+            <td class="value tbl_size">
+                <a href="tbl_structure.php{{ tbl_url_query|raw }}#showusage">
+                    <span>{{ formatted_size }}</span>
+                    <span class="unit">{{ unit }}</span>
+                </a>
+            </td>
+            <td class="value tbl_overhead">
+                {{ overhead|raw }}
+            </td>
+        {% endif %}
+
+        {% if not (show_charset > 1) %}
+            {% if charset|length > 0 %}
+                <td class="nowrap">
+                    {{ charset }}
+                </td>
+            {% endif %}
+        {% endif %}
+
+        {% if show_comment %}
+            {% set comment = current_table['Comment'] %}
+            <td>
+                {% if comment|length > limit_chars %}
+                    <abbr title="{{ comment }}">
+                        {{ comment|slice(0, limit_chars) }}
+                        ...
+                    </abbr>
+                {% else %}
+                    {{ comment }}
+                {% endif %}
+            </td>
+        {% endif %}
+
+        {% if show_creation %}
+            <td class="value tbl_creation">
+                {{ create_time ? Util_localisedDate(strtotime(create_time)) : '-' }}
+            </td>
+        {% endif %}
+
+        {% if show_last_update %}
+            <td class="value tbl_last_update">
+                {{ update_time ? Util_localisedDate(strtotime(update_time)) : '-'}}
+            </td>
+        {% endif %}
+
+        {% if show_last_check %}
+            <td class="value tbl_last_check">
+                {{ check_time ? Util_localisedDate(strtotime(check_time)) : '-' }}
+            </td>
+        {% endif %}
+
+    {% elseif table_is_view %}
+        <td class="value tbl_rows">-</td>
+        <td class="nowrap">
+            {% trans 'View' %}
+        </td>
+        <td class="nowrap">---</td>
+        {% if is_show_stats %}
+            <td class="value tbl_size">-</td>
+            <td class="value tbl_overhead">-</td>
+        {% endif %}
+        {% if show_charset %}
+            <td></td>
+        {% endif %}
+        {% if show_comment %}
+            <td></td>
+        {% endif %}
+        {% if show_creation %}
+            <td class="value tbl_creation">-</td>
+        {% endif %}
+        {% if show_last_update %}
+            <td class="value tbl_last_update">-</td>
+        {% endif %}
+        {% if show_last_check %}
+            <td class="value tbl_last_check">-</td>
+        {% endif %}
+
+    {% else %}
+        {% set count = 0 %}
+        {% if properties_num_columns %}
+            {% set count = count + 2 %}
+        {% endif %}
+        {% if is_show_stats %}
+            {% set count = count + 2 %}
+        {% endif %}
+        {% if show_charset %}
+            {% set count = count + 1 %}
+        {% endif %}
+        {% if show_comment %}
+            {% set count = count + 1 %}
+        {% endif %}
+        {% if show_creation %}
+            {% set count = count + 1 %}
+        {% endif %}
+        {% if show_last_update %}
+            {% set count = count + 1 %}
+        {% endif %}
+        {% if show_last_check %}
+            {% set count = count + 1 %}
+        {% endif %}
+
+        {% if db_is_system_schema %}
+            {% set action_colspan = 3 %}
+        {% else %}
+            {% set action_colspan = 6 %}
+        {% endif %}
+        {% if num_favorite_tables > 0 %}
+            {% set action_colspan = action_colspan + 1 %}
+        {% endif %}
+
+        {% set colspan_for_structure = action_colspan + 3 %}
+        <td colspan="{{ colspan_for_structure - db_is_system_schema ? 6 : 9 }}"
+            class="center">
+            {% trans 'in use' %}
+        </td>
+    {% endif %}
+</tr>

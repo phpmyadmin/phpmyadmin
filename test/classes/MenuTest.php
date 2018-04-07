@@ -5,23 +5,18 @@
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
-use PMA\libraries\Menu;
-use PMA\libraries\Theme;
-
-require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/relation.lib.php';
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Menu;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for Menu class
  *
  * @package PhpMyAdmin-test
  */
-class MenuTest extends PMATestCase
+class MenuTest extends PmaTestCase
 {
     /**
      * Configures global environment.
@@ -36,8 +31,8 @@ class MenuTest extends PMATestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
-        $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table1';

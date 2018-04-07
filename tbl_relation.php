@@ -14,26 +14,23 @@
  * @package PhpMyAdmin
  */
 
-/**
- * Get the TableRelationController
- */
-namespace PMA;
-
-use PMA\libraries\controllers\table\TableRelationController;
-use PMA\libraries\Response;
-use PMA\libraries\Table;
-use PMA\libraries\Util;
+use PhpMyAdmin\Controllers\Table\TableRelationController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\table\TableRelationController');
+$container = Container::getDefaultContainer();
+$container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
 $container->alias(
     'TableRelationController',
-    'PMA\libraries\controllers\table\TableRelationController'
+    'PhpMyAdmin\Controllers\Table\TableRelationController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');
@@ -45,7 +42,8 @@ $options_array = array(
     'NO_ACTION' => 'NO ACTION',
     'RESTRICT' => 'RESTRICT',
 );
-$cfgRelation = PMA_getRelationsParam();
+$relation = new Relation();
+$cfgRelation = $relation->getRelationsParam();
 $tbl_storage_engine = mb_strtoupper(
     $dbi->getTable($db, $table)->getStatusInfo('Engine')
 );
@@ -58,12 +56,12 @@ $dependency_definitions = array(
     "upd_query" => $upd_query
 );
 if ($cfgRelation['relwork']) {
-    $dependency_definitions['existrel'] = PMA_getForeigners(
+    $dependency_definitions['existrel'] = $relation->getForeigners(
         $db, $table, '', 'internal'
     );
 }
 if (Util::isForeignKeySupported($tbl_storage_engine)) {
-    $dependency_definitions['existrel_foreign'] = PMA_getForeigners(
+    $dependency_definitions['existrel_foreign'] = $relation->getForeigners(
         $db, $table, '', 'foreign'
     );
 }

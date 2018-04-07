@@ -1,0 +1,24 @@
+<form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns">
+    {{ Url_getHiddenInputs(db, table) }}
+    {% if Util_showIcons('ActionLinksMode') %}
+        {{ Util_getImage('b_insrow', 'Add column'|trans) }}&nbsp;
+    {% endif %}
+    {% set num_fields -%}
+        <input type="number" name="num_fields" value="1" onfocus="this.select()" min="1" required />
+    {%- endset %}
+    {{ 'Add %s column(s)'|trans|format(num_fields)|raw }}
+    <input type="hidden" name="field_where" value="after"/>&nbsp;
+    {# I tried displaying the drop-down inside the label but with Firefox the drop-down was blinking #}
+    <select name="after_field">
+        <option value="first" data-pos="first">
+            {% trans 'at beginning of table' %}
+        </option>
+        {% for one_column_name in columns_list %}
+            <option value="{{ one_column_name }}"
+                {{- loop.revindex0 == 0 ? ' selected="selected"' }}>
+                {{ 'after %s'|trans|format(one_column_name|e) }}
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="{% trans 'Go' %}" />
+</form>

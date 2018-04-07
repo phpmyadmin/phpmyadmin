@@ -5,17 +5,17 @@
  *
  * @package PhpMyAdmin-test
  */
-/*
- * Include to test
- */
-use PMA\libraries\Sanitize;
+namespace PhpMyAdmin\Tests;
+
+use PhpMyAdmin\Sanitize;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for methods in Sanitize class
  *
  * @package PhpMyAdmin-test
  */
-class SanitizeTest extends PHPUnit_Framework_TestCase
+class SanitizeTest extends TestCase
 {
     /**
      * Setup various pre conditions
@@ -50,7 +50,6 @@ class SanitizeTest extends PHPUnit_Framework_TestCase
 
         unset($GLOBALS['server']);
         unset($GLOBALS['lang']);
-        unset($GLOBALS['collation_connection']);
         $this->assertEquals(
             '<a href="./url.php?url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
             Sanitize::sanitize('[a@https://www.phpmyadmin.net/@target]link[/a]')
@@ -281,9 +280,9 @@ class SanitizeTest extends PHPUnit_Framework_TestCase
         $_REQUEST['second'] = 1;
         $allow_list = array('allow', 'second');
         Sanitize::removeRequestVars($allow_list);
-        $this->assertFalse(isset($_REQUEST['foo']));
-        $this->assertFalse(isset($_REQUEST['second']));
-        $this->assertTrue(isset($_REQUEST['allow']));
+        $this->assertArrayNotHasKey('foo', $_REQUEST);
+        $this->assertArrayNotHasKey('second', $_REQUEST);
+        $this->assertArrayHasKey('allow', $_REQUEST);
     }
 
 }

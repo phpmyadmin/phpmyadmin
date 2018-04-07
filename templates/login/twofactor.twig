@@ -1,0 +1,7 @@
+<form method="POST" class="disableAjax">
+{{ Url_getHiddenInputs() }}
+{{ form|raw }}
+{% if show_submit %}
+<input type="submit" value="{% trans "Verify" %}" />
+{% endif %}
+</form>

@@ -1,0 +1,42 @@
+<table style="display:inline-block;max-width:49%" class="navigation nospacing nopadding">
+    <tr>
+        <td class="navigation_separator"></td>
+        {% if pos - max_rows >= 0 %}
+            <td>
+                <form action="db_central_columns.php" method="post">
+                    {{ Url_getHiddenInputs(db) }}
+                    <input type="hidden" name="pos" value="{{ pos - max_rows }}" />
+                    <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
+                    <input type="submit" name="navig" class="ajax" value="&lt" />
+                </form>
+            </td>
+        {% endif %}
+        {% if nb_total_page > 1 %}
+            <td>
+                <form action="db_central_columns.php" method="post">
+                    {{ Url_getHiddenInputs(db) }}
+                    <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
+                    {{ page_selector|raw }}
+                </form>
+            </td>
+        {% endif %}
+        {% if pos + max_rows < total_rows %}
+            <td>
+                <form action="db_central_columns.php" method="post">
+                    {{ Url_getHiddenInputs(db) }}
+                    <input type="hidden" name="pos" value="{{ pos + max_rows }}"/>
+                    <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
+                    <input type="submit" name="navig" class="ajax" value="&gt" />
+                </form>
+            </td>
+        {% endif %}
+        </form>
+        </td>
+        <td class="navigation_separator"></td>
+        <td>
+            <span>{% trans 'Filter rows' %}:</span>
+            <input type="text" class="filter_rows" placeholder="{% trans 'Search this table' %}">
+        </td>
+        <td class="navigation_separator"></td>
+    </tr>
+</table>

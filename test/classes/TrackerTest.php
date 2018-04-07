@@ -1,28 +1,26 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA\libraries\Tracker
+ * Tests for PhpMyAdmin\Tracker
  *
  * @package PhpMyAdmin-test
  */
+namespace PhpMyAdmin\Tests;
 
-/*
- * Include to test.
- */
-use PMA\libraries\Tracker;
-
-require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/relation.lib.php';
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Util;
+use PHPUnit_Framework_Assert as Assert;
+use ReflectionClass;
 
 /**
- * Tests for PMA\libraries\Tracker
+ * Tests for PhpMyAdmin\Tracker
  *
  * @package PhpMyAdmin-test
  */
-class TrackerTest extends PMATestCase
+class TrackerTest extends PmaTestCase
 {
-
     /**
      * Setup function for test cases
      *
@@ -48,7 +46,7 @@ class TrackerTest extends PMATestCase
             'tracking' => 'tracking'
         );
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -66,7 +64,7 @@ class TrackerTest extends PMATestCase
     {
         Tracker::enable();
         $this->assertTrue(
-            PHPUnit_Framework_Assert::readAttribute('PMA\libraries\Tracker', 'enabled')
+            Assert::readAttribute('PhpMyAdmin\Tracker', 'enabled')
         );
     }
 
@@ -78,7 +76,7 @@ class TrackerTest extends PMATestCase
      */
     public function testIsActive()
     {
-        $attr = new \ReflectionProperty('PMA\libraries\Tracker', 'enabled');
+        $attr = new \ReflectionProperty('PhpMyAdmin\Tracker', 'enabled');
         $attr->setAccessible(true);
         $attr->setValue(false);
 
@@ -121,7 +119,7 @@ class TrackerTest extends PMATestCase
      */
     public function testGetTableName($string, $expected)
     {
-        $reflection = new \ReflectionClass('PMA\libraries\Tracker');
+        $reflection = new ReflectionClass('PhpMyAdmin\Tracker');
         $method = $reflection->getMethod("getTableName");
         $method->setAccessible(true);
 
@@ -154,7 +152,7 @@ class TrackerTest extends PMATestCase
      */
     public function testIsTracked()
     {
-        $attr = new \ReflectionProperty('PMA\libraries\Tracker', 'enabled');
+        $attr = new \ReflectionProperty('PhpMyAdmin\Tracker', 'enabled');
         $attr->setAccessible(true);
         $attr->setValue(false);
 
@@ -190,19 +188,13 @@ class TrackerTest extends PMATestCase
      */
     public function testGetLogComment()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
         $this->assertEquals(
             "# log $date pma_test_user\n",
             Tracker::getLogComment()
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -213,15 +205,11 @@ class TrackerTest extends PMATestCase
      */
     public function testCreateVersion()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -277,8 +265,7 @@ class TrackerTest extends PMATestCase
                 'res'
             );
 
-
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         $expectedMainQuery = "/*NOTRACK*/" .
         "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
@@ -305,12 +292,10 @@ class TrackerTest extends PMATestCase
         "\n',
         '11' )";
 
-        $GLOBALS['controllink'] = null;
-
         $queryResults = array(
             array(
                 $expectedMainQuery,
-                null,
+                DatabaseInterface::CONNECT_CONTROL,
                 0,
                 false,
                 'executed'
@@ -322,14 +307,14 @@ class TrackerTest extends PMATestCase
 
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('getCompatibilities')
+            ->will($this->returnValue(array()));
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             'executed',
             Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true)
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -340,7 +325,7 @@ class TrackerTest extends PMATestCase
      */
     public function testDeleteTracking()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -371,19 +356,15 @@ class TrackerTest extends PMATestCase
      */
     public function testCreateDatabaseVersion()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         $expectedMainQuery = "/*NOTRACK*/" .
         "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
@@ -400,11 +381,9 @@ class TrackerTest extends PMATestCase
         "\n',
         'CREATE DATABASE,ALTER DATABASE,DROP DATABASE' )";
 
-        $GLOBALS['controllink'] = null;
-
         $dbi->expects($this->exactly(1))
             ->method('query')
-            ->with($expectedMainQuery, null, 0, false)
+            ->with($expectedMainQuery, DatabaseInterface::CONNECT_CONTROL, 0, false)
             ->will($this->returnValue("executed"));
 
         $dbi->expects($this->any())->method('escapeString')
@@ -415,8 +394,6 @@ class TrackerTest extends PMATestCase
             'executed',
             Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES')
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -437,7 +414,7 @@ class TrackerTest extends PMATestCase
     public function testChangeTracking($dbname = 'pma_db', $tablename = 'pma_tbl',
         $version = '0.1', $new_state = '1', $type = null
     ) {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -447,11 +424,9 @@ class TrackerTest extends PMATestCase
         " AND `table_name` = '" . $tablename . "' " .
         " AND `version` = '" . $version . "' ";
 
-        $GLOBALS['controllink'] = null;
-
         $dbi->expects($this->exactly(1))
             ->method('query')
-            ->with($sql_query, null, 0, false)
+            ->with($sql_query, DatabaseInterface::CONNECT_CONTROL, 0, false)
             ->will($this->returnValue("executed"));
 
         $dbi->expects($this->any())->method('escapeString')
@@ -460,7 +435,7 @@ class TrackerTest extends PMATestCase
         $GLOBALS['dbi'] = $dbi;
 
         if ($type == null) {
-            $method = new \ReflectionMethod('PMA\libraries\Tracker', '_changeTracking');
+            $method = new \ReflectionMethod('PhpMyAdmin\Tracker', '_changeTracking');
             $method->setAccessible(true);
             $result = $method->invoke(
                 null,
@@ -489,17 +464,11 @@ class TrackerTest extends PMATestCase
      */
     public function testChangeTrackingData()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
         $this->assertFalse(
             Tracker::changeTrackingData("", "", "", "", "")
         );
 
-        $GLOBALS['controllink'] = null;
-
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -509,7 +478,7 @@ class TrackerTest extends PMATestCase
         " AND `table_name` = 'pma_table' " .
         " AND `version` = '1.0' ";
 
-        $date  = date('Y-m-d H:i:s');
+        $date  = Util::date('Y-m-d H:i:s');
 
         $new_data = array(
             array(
@@ -533,8 +502,8 @@ class TrackerTest extends PMATestCase
             ->will(
                 $this->returnValueMap(
                     array(
-                        array($sql_query_1, null, 0, false, "executed_1"),
-                        array($sql_query_2, null, 0, false, "executed_2")
+                        array($sql_query_1, DatabaseInterface::CONNECT_CONTROL, 0, false, "executed_1"),
+                        array($sql_query_2, DatabaseInterface::CONNECT_CONTROL, 0, false, "executed_2")
                     )
                 )
             );
@@ -565,8 +534,6 @@ class TrackerTest extends PMATestCase
                 $new_data
             )
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -603,9 +570,7 @@ class TrackerTest extends PMATestCase
      */
     public function testGetTrackedData($fetchArrayReturn, $expectedArray)
     {
-        $GLOBALS['controllink'] = null;
-
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 

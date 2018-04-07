@@ -1,0 +1,24 @@
+<select name="field_key[{{ column_number }}]"
+    id="field_{{ column_number }}_{{ ci - ci_offset }}" data-index="">
+    <option value="none_{{ column_number }}">---</option>
+    <option value="primary_{{ column_number }}" title="{% trans "Primary" %}"
+        {{- column_meta['Key'] is defined and column_meta['Key'] == 'PRI' ? ' selected="selected"' }}>
+        PRIMARY
+    </option>
+    <option value="unique_{{ column_number }}" title="{% trans "Unique" %}"
+        {{- column_meta['Key'] is defined and column_meta['Key'] == 'UNI' ? ' selected="selected"' }}>
+        UNIQUE
+    </option>
+    <option value="index_{{ column_number }}" title="{% trans "Index" %}"
+        {{- column_meta['Key'] is defined and column_meta['Key'] == 'MUL' ? ' selected="selected"' }}>
+        INDEX
+    </option>
+    <option value="fulltext_{{ column_number }}" title="{% trans "Fulltext" %}"
+        {{- column_meta['Key'] is defined and column_meta['Key'] == 'FULLTEXT' ? ' selected="selected"' }}>
+        FULLTEXT
+    </option>
+    <option value="spatial_{{ column_number }}" title="{% trans "Spatial" %}"
+        {{- column_meta['Key'] is defined and column_meta['Key'] == 'SPATIAL' ? ' selected="selected"' }}>
+        SPATIAL
+    </option>
+</select>

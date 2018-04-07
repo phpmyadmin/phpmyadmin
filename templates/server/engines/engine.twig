@@ -1,0 +1,39 @@
+<h2>
+    {{ Util_getImage('b_engine') }}
+    {{ title }}
+    {{ Util_showMySQLDocu(help_page) }}
+</h2>
+<p><em>{{ comment }}</em></p>
+
+{% if info_pages is not empty and info_pages is iterable %}
+    <p>
+        <strong>[</strong>
+            {% if page is empty %}
+                <strong>{% trans 'Variables' %}</strong>
+            {% else %}
+                <a href="server_engines.php
+                    {{- Url_getCommon({'engine': engine}) }}">
+                    {% trans 'Variables' %}
+                </a>
+            {% endif %}
+            {% for current, label in info_pages %}
+                <strong>|</strong>
+                {% if page is defined and page == current %}
+                    <strong>{{ label }}</strong>
+                {% else %}
+                    <a href="server_engines.php
+                        {{- Url_getCommon({'engine': engine, 'page': current}) }}">
+                        {{ label }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        <strong>]</strong>
+    </p>
+{% endif %}
+
+{% if page_output is not empty %}
+    {{ page_output|raw }}
+{% else %}
+    <p>{{ support }}</p>
+    {{ variables|raw }}
+{% endif %}

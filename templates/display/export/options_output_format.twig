@@ -1,0 +1,13 @@
+<li>
+    <label for="filename_template" class="desc">
+        {% trans 'File name template:' %}
+        {{ Util_showHint(message) }}
+    </label>
+    <input type="text" name="filename_template" id="filename_template" value="
+        {{- filename_template }}">
+    <input type="checkbox" name="remember_template" id="checkbox_remember_template"
+        {{- is_checked ? ' checked' }}>
+    <label for="checkbox_remember_template">
+        {% trans 'use this for future exports' %}
+    </label>
+</li>

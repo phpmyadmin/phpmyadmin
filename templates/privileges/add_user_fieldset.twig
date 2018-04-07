@@ -1,0 +1,8 @@
+<fieldset id="fieldset_add_user">
+    <legend>{% trans %}New{% context %}Create new user{% endtrans %}</legend>
+    <a id="add_user_anchor" href="server_privileges.php{{ Url_getCommon(url_params) }}"
+        {% if rel_params is not empty %}
+            rel="{{ Url_getCommon(rel_params) }}"
+        {% endif %}>
+        {{ Util_getIcon('b_usradd') }}{% trans 'Add user account' %}</a>
+</fieldset>

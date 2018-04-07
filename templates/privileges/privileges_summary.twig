@@ -1,0 +1,62 @@
+<form class="submenu-item" action="server_privileges.php" id="{{ form_id }}" method="post">
+    {{ Url_getHiddenInputs() }}
+    <input type="hidden" name="username" value="{{ username }}" />
+    <input type="hidden" name="hostname" value="{{ hostname }}" />
+
+    <fieldset>
+        <legend data-submenu-label="{{ sub_menu_label }}">
+            {{ legend }}
+        </legend>
+
+        <table class="data">
+            <thead>
+                <tr>
+                    <th>{{ type_label }}</th>
+                    <th>{% trans 'Privileges' %}</th>
+                    <th>{% trans 'Grant' %}</th>
+                    {% if type == 'database' %}
+                        <th>{% trans 'Table-specific privileges' %}</th>
+                    {% elseif type == 'table' %}
+                        <th>{% trans 'Column-specific privileges' %}</th>
+                    {% endif %}
+                    <th colspan="2">{% trans 'Action' %}</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if privileges|length == 0 %}
+                    {% set colspan = type == 'database' ? 7 : (type == 'table' ? 6 : 5) %}
+                    <tr>
+                        <td colspan="{{ colspan }}"><center><em>{% trans 'None' %}</em></center></td>
+                    </tr>
+                {% else %}
+                    {% for privilege in privileges %}
+                        {% include 'privileges/privileges_summary_row.twig' with
+                            privilege|merge({'type': type})
+                        only %}
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+
+        {% if type == 'database' %}
+            {% include 'privileges/add_privileges_database.twig' with {
+                'databases': databases
+            } only %}
+        {% elseif type == 'table' %}
+            {% include 'privileges/add_privileges_table.twig' with {
+                'database': database,
+                'tables': tables
+            } only %}
+        {% else %}
+            {% include 'privileges/add_privileges_routine.twig' with {
+                'database': database,
+                'routines': routines
+            } only %}
+        {% endif %}
+    </fieldset>
+
+    <fieldset class="tblFooters">
+        <input type="submit" value="{% trans 'Go' %}" />
+    </fieldset>
+</form>

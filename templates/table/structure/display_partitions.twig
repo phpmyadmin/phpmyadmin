@@ -1,0 +1,145 @@
+<div id="partitions">
+    <fieldset>
+        <legend>
+            {% trans 'Partitions' %}
+            {{ Util_showMySQLDocu('partitioning') }}
+        </legend>
+        {% if partitions is empty %}
+            {{ Message_notice('No partitioning defined!'|trans) }}
+        {% else %}
+            <p>
+                {% trans 'Partitioned by:' %}
+                <code>{{ partition_method }}({{ partition_expression }})</code>
+            </p>
+            {% if has_sub_partitions %}
+                <p>
+                    {% trans 'Sub partitioned by:' %}
+                    <code>{{ sub_partition_method }}({{ sub_partition_expression }})</code>
+                <p>
+            {% endif %}
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">#</th>
+                        <th>{% trans 'Partition' %}</th>
+                        {% if has_description %}
+                            <th>{% trans 'Expression' %}</th>
+                        {% endif %}
+                        <th>{% trans 'Rows' %}</th>
+                        <th>{% trans 'Data length' %}</th>
+                        <th>{% trans 'Index length' %}</th>
+                        <th>{% trans 'Comment' %}</th>
+                        <th colspan="{{ range_or_list ? '7' : '6' }}">
+                            {% trans 'Action' %}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for partition in partitions %}
+                    <tr class="noclick{{ has_sub_partitions ? ' marked' }}">
+                        {% if has_sub_partitions %}
+                            <td>{{ partition.getOrdinal() }}</td>
+                            <td></td>
+                        {% else %}
+                            <td colspan="2">{{ partition.getOrdinal() }}</td>
+                        {% endif %}
+                        <th>{{ partition.getName() }}</th>
+                        {% if has_description %}
+                            <td>
+                                <code>
+                                    {{- partition.getExpression() -}}
+                                    {{- partition.getMethod() == 'LIST' ? ' IN (' : ' < ' -}}
+                                    {{- partition.getDescription() -}}
+                                    {{- partition.getMethod() == 'LIST' ? ')' -}}
+                                </code>
+                            </td>
+                        {% endif %}
+                        <td class="value">{{ partition.getRows() }}</td>
+                        <td class="value">
+                            {% set data_length = Util_formatByteDown(
+                                partition.getDataLength(),
+                                3,
+                                1
+                            ) %}
+                            <span>{{ data_length[0] }}</span>
+                            <span class="unit">{{ data_length[1] }}</span>
+                        </td>
+                        <td class="value">
+                            {% set index_length = Util_formatByteDown(
+                                partition.getIndexLength(),
+                                3,
+                                1
+                            ) %}
+                            <span>{{ index_length[0] }}</span>
+                            <span class="unit">{{ index_length[1] }}</span>
+                        </td>
+                        <td>{{ partition.getComment() }}</td>
+                        {% for action, icon in action_icons %}
+                            <td>
+                                <a href="tbl_structure.php" data-post="{{ url_query -}}
+                                    &amp;partition_maintenance=1&amp;sql_query=
+                                    {{- ("ALTER TABLE " ~ Util_backquote(table) ~ " " ~ action
+                                        ~ " PARTITION " ~ partition.getName())|url_encode }}"
+                                    id="partition_action_{{ action }}"
+                                    name="partition_action_{{ action }}"
+                                    class="ajax">
+                                    {{ icon|raw }}
+                                </a>
+                            </td>
+                        {% endfor %}
+
+                        {% if has_sub_partitions %}
+                            {% for sub_partition in partition.getSubPartitions() %}
+                                <tr class="noclick">
+                                    <td></td>
+                                    <td>{{ sub_partition.getOrdinal() }}</td>
+                                    <td>{{ sub_partition.getName() }}</td>
+                                    {% if has_description %}
+                                        <td></td>
+                                    {% endif %}
+                                    <td class="value">{{ sub_partition.getRows() }}</td>
+                                    <td class="value">
+                                        {% set data_length = Util_formatByteDown(
+                                            sub_partition.getDataLength(),
+                                            3,
+                                            1
+                                        ) %}
+                                        <span>{{ data_length[0] }}</span>
+                                        <span class="unit">{{ data_length[1] }}</span>
+                                    </td>
+                                    <td class="value">
+                                        {% set index_length = Util_formatByteDown(
+                                            sub_partition.getIndexLength(),
+                                            3,
+                                            1
+                                        ) %}
+                                        <span>{{ index_length[0] }}</span>
+                                        <span class="unit">{{ index_length[1] }}</span>
+                                    </td>
+                                    <td>{{ sub_partition.getComment() }}</td>
+                                    <td colspan="{{ range_or_list ? '7' : '6' }}"></td>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </fieldset>
+    <fieldset class="tblFooters print_ignore">
+        <form action="tbl_structure.php" method="post">
+            {{ Url_getHiddenInputs(db, table) }}
+            <input type="hidden" name="edit_partitioning" value="true" />
+            {% if partitions is empty %}
+                <input type="submit" name="edit_partitioning" value="{% trans 'Partition table' %}" />
+            {% else %}
+                {{ Util_linkOrButton(remove_url, 'Remove partitioning'|trans, {
+                    'class': 'button ajax',
+                    'id': 'remove_partitioning'
+                }) }}
+                <input type="submit" name="edit_partitioning" value="{% trans 'Edit partitioning' %}" />
+            {% endif %}
+        </form>
+    </fieldset>
+</div>

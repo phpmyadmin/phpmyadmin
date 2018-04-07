@@ -1,0 +1,39 @@
+<form method="post"
+      action="tbl_find_replace.php"
+      name="previewForm"
+      id="previewForm">
+    {{ Url_getHiddenInputs(db, table) }}
+    <input type="hidden" name="replace" value="true" />
+    <input type="hidden" name="columnIndex" value="{{ column_index }}" />
+    <input type="hidden" name="findString" value="{{ find }}" />
+    <input type="hidden" name="replaceWith" value="{{ replace_with }}" />
+    <input type="hidden" name="useRegex" value="{{ use_regex }}" />
+
+    <fieldset id="fieldset_find_replace_preview">
+        <legend>{% trans 'Find and replace - preview' %}</legend>
+        <table id="previewTable">
+            <thead>
+            <tr>
+                <th>{% trans 'Count' %}</th>
+                <th>{% trans 'Original string' %}</th>
+                <th>{% trans 'Replaced string' %}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if result is iterable %}
+                {% for row in result %}
+                    <tr>
+                        <td class="right">{{ row[2] }}</td>{# count #}
+                        <td>{{ row[0] }}</td>{# original #}
+                        <td>{{ row[1] }}</td>{# replaced #}
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </fieldset>
+
+    <fieldset class="tblFooters">
+        <input type="submit" name="replace" value="{% trans 'Replace' %}" />
+    </fieldset>
+</form>

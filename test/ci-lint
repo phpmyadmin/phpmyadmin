@@ -7,5 +7,7 @@ else
 fi
 
 for FILE in $FILES ; do
-    php -l $FILE
+    if [ -f $FILE ] ; then
+        php -l $FILE
+    fi
 done

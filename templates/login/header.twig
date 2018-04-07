@@ -1,0 +1,13 @@
+<div class="container">
+<a href="{{ Url_link('https://www.phpmyadmin.net/') }}" target="_blank" rel="noopener noreferrer" class="logo">
+<img src="{{ theme.getImgPath('logo_right.png', 'pma_logo.png') }}" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />
+</a>
+<h1>{{ 'Welcome to %s'|trans|format('<bdo dir="ltr" lang="en">phpMyAdmin</bdo>')|raw }}</h1>
+
+<noscript>
+{{ Message_error("Javascript must be enabled past this point!"|trans) }}
+</noscript>
+
+<div class="hide" id="js-https-mismatch">
+{{ Message_error("There is mismatch between HTTPS indicated on the server and client. This can lead to non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly."|trans) }}
+</div>

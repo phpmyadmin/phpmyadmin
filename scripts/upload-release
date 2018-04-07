@@ -61,9 +61,9 @@ put phpMyAdmin-$REL-source.tar.xz.sha1
 EOT
 
 # Upload to our file server
-sftp -P 11022 -f -b $BATCH files@klutz.phpmyadmin.net
+sftp -P 11022 -f -b $BATCH files@hertz.phpmyadmin.net
 
 rm $BATCH
 
 # Sync files to CDN
-ssh -xka2 -p 11022 files@klutz.phpmyadmin.net ./bin/sync-files-cdn
+ssh -xka2 -p 11022 files@hertz.phpmyadmin.net ./bin/sync-files-cdn

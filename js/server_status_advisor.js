@@ -9,20 +9,19 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('server_status_advisor.js', function () {
-    $('a[href="#openAdvisorInstructions"]').unbind('click');
+    $('a[href="#openAdvisorInstructions"]').off('click');
     $('#statustabs_advisor').html('');
     $('#advisorDialog').remove();
     $('#instructionsDialog').remove();
 });
 
 AJAX.registerOnload('server_status_advisor.js', function () {
+    // if no advisor is loaded
+    if ($('#advisorData').length === 0) {
+        return;
+    }
 
-	// if no advisor is loaded
-	if ($('#advisorData').length == 0) {
-		return;
-	}
-
-    /**** Server config advisor ****/
+    /** ** Server config advisor ****/
     var $dialog = $('<div />').attr('id', 'advisorDialog');
     var $instructionsDialog = $('<div />')
         .attr('id', 'instructionsDialog')
@@ -41,7 +40,10 @@ AJAX.registerOnload('server_status_advisor.js', function () {
     });
 
     var $cnt = $('#statustabs_advisor');
-    var $tbody, $tr, str, even = true;
+    var $tbody;
+    var $tr;
+    var str;
+    var even = true;
 
     data = JSON.parse($('#advisorData').text());
     $cnt.html('');
@@ -78,14 +80,14 @@ AJAX.registerOnload('server_status_advisor.js', function () {
             $tr.click(function () {
                 var rule = $(this).data('rule');
                 $dialog
-                .dialog({title: PMA_messages.strRuleDetails})
-                .html(
-                    '<p><b>' + PMA_messages.strIssuse + ':</b><br />' + rule.issue + '</p>' +
+                    .dialog({ title: PMA_messages.strRuleDetails })
+                    .html(
+                        '<p><b>' + PMA_messages.strIssuse + ':</b><br />' + rule.issue + '</p>' +
                     '<p><b>' + PMA_messages.strRecommendation + ':</b><br />' + rule.recommendation + '</p>' +
                     '<p><b>' + PMA_messages.strJustification + ':</b><br />' + rule.justification + '</p>' +
                     '<p><b>' + PMA_messages.strFormula + ':</b><br />' + rule.formula + '</p>' +
                     '<p><b>' + PMA_messages.strTest + ':</b><br />' + rule.test + '</p>'
-                );
+                    );
 
                 var dlgBtns = {};
                 dlgBtns[PMA_messages.strClose] = function () {

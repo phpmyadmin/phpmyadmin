@@ -194,8 +194,8 @@ big or your hosting provider is unwilling to change the settings:
 1.17 Which Database versions does phpMyAdmin support?
 -----------------------------------------------------
 
-For `MySQL <https://www.mysql.com/>`_, versions 5.5 and newer are supported. 
-For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions 
+For `MySQL <https://www.mysql.com/>`_, versions 5.5 and newer are supported.
+For older MySQL versions, our `Downloads <https://www.phpmyadmin.net/downloads/>`_ page offers older phpMyAdmin versions
 (which may have become unsupported).
 
 For `MariaDB <https://mariadb.org/>`_, versions 5.5 and newer are supported.
@@ -215,7 +215,7 @@ The proper solution is to use the `mysqli extension
 <https://secure.php.net/mysqli>`_ with the proper client library to match
 your MySQL installation. More
 information (and several workarounds) are located in the `MySQL
-Documentation <https://dev.mysql.com/doc/refman/5.7/en/old-client.html>`_.
+Documentation <https://dev.mysql.com/doc/refman/5.7/en/common-errors.html>`_.
 
 .. _faq1_18:
 
@@ -313,7 +313,7 @@ directory and add the following line to the group [mysqld]:
     set-variable = lower_case_table_names=0
 
 .. note::
-    
+
     Forcing this variable to 0 with --lower-case-table-names=0 on a
     case-insensitive filesystem and access MyISAM tablenames using different
     lettercases, index corruption may result.
@@ -341,7 +341,6 @@ A tip from Jose Fandos: put a comment on the following two lines in
 httpd.conf, like this:
 
 .. code-block:: apache
-
 
     # mod_gzip_item_include file \.php$
     # mod_gzip_item_include mime "application/x-httpd-php.*"
@@ -394,7 +393,6 @@ directives are used:
 
 .. code-block:: apache
 
-
     SetOutputFilter PHP
     SetInputFilter PHP
 
@@ -411,7 +409,6 @@ with ``AddType``, so just comment out the first set of lines and
 restart Apache:
 
 .. code-block:: apache
-
 
     #SetOutputFilter PHP
     #SetInputFilter PHP
@@ -483,7 +480,6 @@ forget to change directory name inside of it):
 
 .. code-block:: apache
 
-
     RewriteEngine On
     RewriteBase /path_to_phpMyAdmin
     RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)/([a-z_]+\.php)$ index.php?db=$1&table=$2&target=$3 [R]
@@ -500,7 +496,6 @@ Yes. However you need to pass authentication variable to :term:`CGI` using
 following rewrite rule:
 
 .. code-block:: apache
-
 
     RewriteEngine On
     RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
@@ -609,7 +604,6 @@ the set-cookie headers. Example from the Apache 2.2 documentation:
 
 .. code-block:: apache
 
-
     ProxyPass /mirror/foo/ http://backend.example.com/
     ProxyPassReverse /mirror/foo/ http://backend.example.com/
     ProxyPassReverseCookieDomain backend.example.com public.example.com
@@ -620,7 +614,6 @@ tilde (~) must be url encoded as %7E in the ProxyPassReverse\* lines.
 This is not specific to phpmyadmin, it's just the behavior of Apache.
 
 .. code-block:: apache
-
 
     ProxyPass /mirror/foo/ http://backend.example.com/~user/phpmyadmin
     ProxyPassReverse /mirror/foo/ http://backend.example.com/%7Euser/phpmyadmin
@@ -646,7 +639,6 @@ field. This is quite easy to circumvent, but could prevent at least
 some robots accessing your installation.
 
 .. code-block:: apache
-
 
     RewriteEngine on
 
@@ -686,13 +678,13 @@ A list of files and corresponding functionality which degrade gracefully when re
 * :file:`./vendor/tecnickcom/tcpdf` folder (exporting to PDF)
 * :file:`./locale/` folder, or unused subfolders (interface translations)
 * Any unused themes in :file:`./themes/`
-* :file:`./js/jquery/src/` (included for licensing reasons)
-* :file:`./js/line_counts.php`
+* :file:`./js/vendor/jquery/src/` (included for licensing reasons)
+* :file:`./js/line_counts.php` (removed in phpMyAdmin 4.8)
 * :file:`./doc/` (documentation)
 * :file:`./setup/` (setup script)
 * :file:`./examples/`
 * :file:`./sql/` (SQL scripts to configure advanced functionality)
-* :file:`./js/openlayers/` (GIS visualization)
+* :file:`./js/vendor/openlayers/` (GIS visualization)
 
 .. _faqconfig:
 
@@ -706,10 +698,7 @@ Configuration
 
 Edit your :file:`config.inc.php` file and ensure there is nothing (I.E. no
 blank lines, no spaces, no characters...) neither before the ``<?php`` tag at
-the beginning, neither after the ``?>`` tag at the end. We also got a report
-from a user under :term:`IIS`, that used a zipped distribution kit: the file
-:file:`libraries/Config.php` contained an end-of-line character (hex 0A)
-at the end; removing this character cleared his errors.
+the beginning, neither after the ``?>`` tag at the end.
 
 .. _faq2_2:
 
@@ -802,38 +791,7 @@ doesn't work in this configuration with port forwarding. If you enter
 2.7 Using and creating themes
 -----------------------------
 
-Themes are configured with :config:option:`$cfg['ThemeManager']` and
-:config:option:`$cfg['ThemeDefault']`.  Under :file:`./themes/`, you should not
-delete the directory ``pmahomme`` or its underlying structure, because this is
-the system theme used by phpMyAdmin. ``pmahomme`` contains all images and
-styles, for backwards compatibility and for all themes that would not include
-images or css-files.  If :config:option:`$cfg['ThemeManager']` is enabled, you
-can select your favorite theme on the main page. Your selected theme will be
-stored in a cookie.
-
-To create a theme:
-
-* make a new subdirectory (for example "your\_theme\_name") under :file:`./themes/`.
-* copy the files and directories from ``pmahomme`` to "your\_theme\_name"
-* edit the css-files in "your\_theme\_name/css"
-* put your new images in "your\_theme\_name/img"
-* edit :file:`layout.inc.php` in "your\_theme\_name"
-* edit :file:`info.inc.php` in "your\_theme\_name" to contain your chosen
-  theme name, that will be visible in user interface
-* make a new screenshot of your theme and save it under
-  "your\_theme\_name/screen.png"
-
-In theme directory there is file :file:`info.inc.php` which contains theme
-verbose name, theme generation and theme version. These versions and
-generations are enumerated from 1 and do not have any direct
-dependence on phpMyAdmin version. Themes within same generation should
-be backwards compatible - theme with version 2 should work in
-phpMyAdmin requiring version 1. Themes with different generation are
-incompatible.
-
-If you do not want to use your own symbols and buttons, remove the
-directory "img" in "your\_theme\_name". phpMyAdmin will use the
-default icons and buttons (from the system-theme ``pmahomme``).
+See :ref:`themes`.
 
 .. _faqmissingparameters:
 
@@ -922,7 +880,6 @@ comments like this:
 
 .. code-block:: mysql
 
-
     -- MySQL dump 8.22
     --
     -- Host: localhost Database: database
@@ -960,7 +917,7 @@ TableSeparator or disabling that feature.
 
 Your table neither have a :term:`primary key` nor an :term:`unique key`, so we must
 use a long expression to identify this row. This causes problems to
-parse\_url function. The workaround is to create a :term:`primary key` 
+parse\_url function. The workaround is to create a :term:`primary key`
 or :term:`unique key`.
 
 .. _faq3_8:
@@ -1185,7 +1142,6 @@ network :term:`IP` blocks.
 
 .. code-block:: php
 
-
     //block root from logging in except from the private networks
     $cfg['Servers'][$i]['AllowDeny']['order'] = 'deny,allow';
     $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
@@ -1220,6 +1176,11 @@ usage of 'cookie' ``auth_type``.
 
 For example direct login URL can be constructed as
 ``https://example.com/phpmyadmin/?pma_username=user&pma_password=password``.
+
+.. warning::
+
+    Passing password and username in URL is insecure and should not be used in
+    production environments.
 
 .. _faqbrowsers:
 
@@ -1415,7 +1376,7 @@ If you see errors like:
     A potentially unsafe operation has been detected in your request to this site.
 
 This is usually caused by web application firewall doing requests filtering. It
-tries to prevent SQL injection, however phpMyAdmin is tool designed to execute 
+tries to prevent SQL injection, however phpMyAdmin is tool designed to execute
 SQL queries, thus it makes it unusable.
 
 Please whitelist phpMyAdmin scripts from the web application firewall settings
@@ -1509,7 +1470,6 @@ table, create it as explained in the configuration section. Then
 create the example tables:
 
 .. code-block:: mysql
-
 
     CREATE TABLE REL_countries (
     country_code char(1) NOT NULL default '',
@@ -1609,7 +1569,7 @@ schema layout. Which tables will go on which pages?
   Browsers on other operating systems, and other browsers on Windows, do
   not have this problem.
 
-.. seealso:: 
+.. seealso::
 
     :ref:`relations`
 
@@ -1746,7 +1706,6 @@ have table exported in file :file:`table.tex`):
 
 .. code-block:: latex
 
-
     \documentclass{article} % or any class you want
     \usepackage{longtable}  % for displaying table
     \begin{document}        % start of document
@@ -1780,7 +1739,6 @@ this is to be able to type the first letter of either the key or the
 display column. For 100 values or more, a distinct window will appear,
 to browse foreign key values and choose one. To change the default
 limit of 100, see :config:option:`$cfg['ForeignKeyMaxLimit']`.
-
 
 .. _faq6_22:
 
@@ -2093,7 +2051,7 @@ PetType depends on PetBreed.
 
 .. _faq6_38:
 
-6.38 How can I reassign auto-incremented values? 
+6.38 How can I reassign auto-incremented values?
 ------------------------------------------------
 
 Some users prefer their AUTO_INCREMENT values to be consecutive; this is not
@@ -2246,7 +2204,6 @@ If you use Apache web server, phpMyAdmin exports information about
 authentication to the Apache environment and it can be used in Apache
 logs. Currently there are two variables available:
 
-
 ``userID``
     User name of currently active user (he does not have to be logged in).
 ``userStatus``
@@ -2301,4 +2258,3 @@ Synchronization
 
 9.2 (withdrawn).
 ----------------
-

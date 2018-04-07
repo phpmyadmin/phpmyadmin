@@ -64,7 +64,7 @@ will see in the phpMyAdmin navigation.
     functions. So this can not be considered as a security limitation. Should
     you want to limit what users can do, use MySQL privileges to achieve that.
 
-With this feature enabled, the :guilabel:`User accounts` management interface gains 
+With this feature enabled, the :guilabel:`User accounts` management interface gains
 a second tab for managing :guilabel:`User groups`, where you can define what each
 group will view (see image below) and you can then assign each user to one of
 these groups. Users will be presented with a simplified user interface, which might be

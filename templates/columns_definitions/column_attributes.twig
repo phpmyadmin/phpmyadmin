@@ -1,0 +1,237 @@
+{# Cell index: If certain fields get left out, the counter shouldn't change. #}
+{% set ci = 0 %}
+
+{# Every time a cell shall be left out the STRG-jumping feature, $ci_offset has
+   to be incremented ($ci_offset++) #}
+{% set ci_offset = -1 %}
+
+<td class="center">
+    {# column name #}
+    {% include 'columns_definitions/column_name.twig' with {
+        'column_number': column_number,
+        'ci': ci,
+        'ci_offset': ci_offset,
+        'column_meta': column_meta,
+        'cfg_relation': cfg_relation,
+        'max_rows': max_rows
+    } only %}
+    {% set ci = ci + 1 %}
+</td>
+<td class="center">
+    {# column type #}
+    {% include 'columns_definitions/column_type.twig' with {
+        'column_number': column_number,
+        'ci': ci,
+        'ci_offset': ci_offset,
+        'column_meta': column_meta,
+        'type_upper': type_upper
+    } only %}
+    {% set ci = ci + 1 %}
+</td>
+<td class="center">
+    {# column length #}
+    {% include 'columns_definitions/column_length.twig' with {
+        'column_number': column_number,
+        'ci': ci,
+        'ci_offset': ci_offset,
+        'length_values_input_size': length_values_input_size,
+        'length_to_display': length
+    } only %}
+    {% set ci = ci + 1 %}
+</td>
+<td class="center">
+    {# column default #}
+    {% include 'columns_definitions/column_default.twig' with {
+        'column_number': column_number,
+        'ci': ci,
+        'ci_offset': ci_offset,
+        'column_meta': column_meta,
+        'type_upper': type_upper,
+        'char_editing': char_editing
+    } only %}
+    {% set ci = ci + 1 %}
+</td>
+<td class="center">
+    {# column collation #}
+    {{ Charsets_getCollationDropdownBox(
+        dbi,
+        disable_is,
+        'field_collation[' ~ column_number ~ ']',
+        'field_' ~ column_number ~ '_' ~ (ci - ci_offset),
+        column_meta['Collation'] is not empty ? column_meta['Collation'] : null,
+        false
+    ) }}
+</td>
+<td class="center">
+    {# column attribute #}
+    {% include 'columns_definitions/column_attribute.twig' with {
+        'column_number': column_number,
+        'ci': ci,
+        'ci_offset': ci_offset,
+        'column_meta': column_meta,
+        'extracted_columnspec': extracted_columnspec,
+        'submit_attribute': submit_attribute,
+        'attribute_types': attribute_types
+    } only %}
+    {% set ci = ci + 1 %}
+</td>
+<td class="center">
+    {# column NULL #}
+    {% include 'columns_definitions/column_null.twig' with {
+        'column_number': column_number,
+        'ci': ci,
+        'ci_offset': ci_offset,
+        'column_meta': column_meta
+    } only %}
+    {% set ci = ci + 1 %}
+</td>
+{% if change_column is defined and change_column is not empty %}
+    {# column Adjust privileges, Only for 'Edit' Column(s) #}
+    <td class="center">
+        {% include 'columns_definitions/column_adjust_privileges.twig' with {
+            'column_number': column_number,
+            'ci': ci,
+            'ci_offset': ci_offset,
+            'privs_available': privs_available
+        } only %}
+        {% set ci = ci + 1 %}
+    </td>
+{% endif %}
+{% if not is_backup %}
+    {# column indexes, See my other comment about  this 'if'. #}
+    <td class="center">
+        {% include 'columns_definitions/column_indexes.twig' with {
+            'column_number': column_number,
+            'ci': ci,
+            'ci_offset': ci_offset,
+            'column_meta': column_meta
+        } only %}
+        {% set ci = ci + 1 %}
+    </td>
+{% endif %}
+<td class="center">
+    {# column auto_increment #}
+    {% include 'columns_definitions/column_auto_increment.twig' with {
+        'column_number': column_number,
+        'ci': ci,
+        'ci_offset': ci_offset,
+        'column_meta': column_meta
+    } only %}
+    {% set ci = ci + 1 %}
+</td>
+<td class="center">
+    {# column comments #}
+    {% include 'columns_definitions/column_comment.twig' with {
+        'column_number': column_number,
+        'ci': ci,
+        'ci_offset': ci_offset,
+        'max_length': max_length,
+        'value': column_meta['Field'] is defined
+            and comments_map is iterable
+            and comments_map[column_meta['Field']] is defined
+            ? comments_map[column_meta['Field']]|e
+    } only %}
+    {% set ci = ci + 1 %}
+</td>
+ {# column virtuality #}
+{% if is_virtual_columns_supported %}
+    <td class="center">
+        {% include 'columns_definitions/column_virtuality.twig' with {
+            'column_number': column_number,
+            'ci': ci,
+            'ci_offset': ci_offset,
+            'column_meta': column_meta,
+            'char_editing': char_editing,
+            'expression': column_meta['Expression'] is defined ? column_meta['Expression'],
+            'options': options
+        } only %}
+        {% set ci = ci + 1 %}
+    </td>
+{% endif %}
+{# move column #}
+{% if fields_meta is defined %}
+    {% set current_index = 0 %}
+    {% set cols = move_columns|length - 1 %}
+    {% set break = false %}
+    {% for mi in 0..cols if move_columns[mi].name == column_meta['Field'] and not break %}
+        {% set current_index = mi %}
+        {% set break = true %}
+    {% endfor %}
+
+    <td class="center">
+        {% include 'columns_definitions/move_column.twig' with {
+            'column_number': column_number,
+            'ci': ci,
+            'ci_offset': ci_offset,
+            'column_meta': column_meta,
+            'move_columns': move_columns,
+            'current_index': current_index
+        } only %}
+        {% set ci = ci + 1 %}
+    </td>
+{% endif %}
+
+{% if cfg_relation['mimework'] and browse_mime and cfg_relation['commwork'] %}
+    <td class="center">
+        {# Column Mime-type #}
+        {% include 'columns_definitions/mime_type.twig' with {
+            'column_number': column_number,
+            'ci': ci,
+            'ci_offset': ci_offset,
+            'column_meta': column_meta,
+            'available_mime': available_mime,
+            'mime_map': mime_map
+        } only %}
+        {% set ci = ci + 1 %}
+    </td>
+    <td class="center">
+        {# Column Browser transformation #}
+        {% include 'columns_definitions/transformation.twig' with {
+            'column_number': column_number,
+            'ci': ci,
+            'ci_offset': ci_offset,
+            'column_meta': column_meta,
+            'available_mime': available_mime,
+            'mime_map': mime_map,
+            'type': 'transformation'
+        } only %}
+        {% set ci = ci + 1 %}
+    </td>
+    <td class="center">
+        {# column Transformation options #}
+        {% include 'columns_definitions/transformation_option.twig' with {
+            'column_number': column_number,
+            'ci': ci,
+            'ci_offset': ci_offset,
+            'column_meta': column_meta,
+            'mime_map': mime_map,
+            'type_prefix': ''
+        } only %}
+        {% set ci = ci + 1 %}
+    </td>
+    <td class="center">
+        {# Column Input transformation #}
+        {% include 'columns_definitions/transformation.twig' with {
+            'column_number': column_number,
+            'ci': ci,
+            'ci_offset': ci_offset,
+            'column_meta': column_meta,
+            'available_mime': available_mime,
+            'mime_map': mime_map,
+            'type': 'input_transformation'
+        } only %}
+        {% set ci = ci + 1 %}
+    </td>
+    <td class="center">
+        {# column Input transformation options #}
+        {% include 'columns_definitions/transformation_option.twig' with {
+            'column_number': column_number,
+            'ci': ci,
+            'ci_offset': ci_offset,
+            'column_meta': column_meta,
+            'mime_map': mime_map,
+            'type_prefix': 'input_'
+        } only %}
+        {% set ci = ci + 1 %}
+    </td>
+{% endif %}
