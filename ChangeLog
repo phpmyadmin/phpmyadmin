@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.8.0 (not yet released)
+4.8.0 (2018-04-07)
 - issue #12946 Allow to export JSON with unescaped unicode chars
 - issue #12983 Disable login button without solved reCaptcha
 - issue #12315 Allow to remove individual segments from pie charts
@@ -46,8 +46,6 @@ phpMyAdmin - ChangeLog
 - issue #13466 Better utilization of user preferences
 - issue #14042 Rename PMD to Designer
 - issue #13940 Honor arg_separator in AJAX requests
-
-4.7.10 (not yet released)
 - issue #14060 Can't edit rows in Internet Explorer
 - issue #14096 Internet Explorer compatibility; fixes JavaScript error Object doesn't support property or method 'startsWith'
 
