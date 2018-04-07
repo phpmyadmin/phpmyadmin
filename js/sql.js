@@ -88,7 +88,7 @@ function setShowThisQuery () {
             if (db === stored_db && table === stored_table) {
                 if (codemirror_editor) {
                     codemirror_editor.setValue(stored_query);
-                } else {
+                } else if (document.sqlform) {
                     document.sqlform.sql_query.value = stored_query;
                 }
             }
@@ -950,7 +950,9 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * Check if there is any saved query
      */
-    checkSavedQuery();
+    if (codemirror_editor || document.sqlform) {
+        checkSavedQuery();
+    }
 });
 
 /*
