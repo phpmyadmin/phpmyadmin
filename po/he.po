@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-08 06:30+0000\n"
+"PO-Revision-Date: 2018-04-09 12:37+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -3216,7 +3216,7 @@ msgstr "קידוד"
 
 #: libraries/classes/Charsets.php:310
 msgid "Unknown"
-msgstr "לא ידוע"
+msgstr "לא ידועה"
 
 #: libraries/classes/Charsets.php:324
 msgctxt "Collation"
@@ -3554,42 +3554,39 @@ msgid "multi-level"
 msgstr ""
 
 #: libraries/classes/Charsets.php:645
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "בינארי"
+msgstr "בינרי"
 
 #: libraries/classes/Config.php:1073
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "קובץ התצורה הקיים (%s) אינו קריא."
 
 #: libraries/classes/Config.php:1103
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "ההרשאות של קובץ התצורה שגויות, הקובץ אמור להיות קריא לכל העולם!"
 
 #: libraries/classes/Config.php:1123
 #, php-format
 msgid "Could not load default configuration from: %1$s"
-msgstr ""
+msgstr "לא ניתן לטעון את תצורת בררת המחדל מהמיקום: %1$s"
 
 #: libraries/classes/Config.php:1130
-#, fuzzy
-#| msgid "Local monitor configuration incompatible"
 msgid "Failed to read configuration file!"
-msgstr "תצורת מעקב מקומית אינה נתמכת"
+msgstr "קריאת קובץ התצורה נכשלה!"
 
 #: libraries/classes/Config.php:1133
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"על פי רוב משמעות הדבר היא שיש שגיאת תחביר, נא לעיין בשגיאות שמופיעות להלן."
 
 #: libraries/classes/Config.php:1449
 #: libraries/classes/Config/Descriptions.php:1486
 msgid "Font size"
-msgstr ""
+msgstr "גודל הגופן"
 
 #: libraries/classes/Config.php:1770
 #, php-format
@@ -3597,20 +3594,20 @@ msgid "Invalid server index: %s"
 msgstr ""
 
 #: libraries/classes/Config.php:1783
-#, fuzzy, php-format
-#| msgid "Server"
+#, php-format
 msgid "Server %d"
-msgstr "שרת"
+msgstr "שרת %d"
 
 #: libraries/classes/Config/Descriptions.php:62
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
+"אם האפשרות פעילה, המשתמש יכול להיכנס לכל שרת MySQL דרך טופס הכניסה לטובת "
+"אימות באמצעות עוגיות."
 
 #: libraries/classes/Config/Descriptions.php:64
-#, fuzzy
 msgid "Allow login to any MySQL server"
-msgstr "נכשל בכניסה לשרת MySQL"
+msgstr "לאפשר כניסה לכל שרת MySQL"
 
 #: libraries/classes/Config/Descriptions.php:67
 msgid ""
