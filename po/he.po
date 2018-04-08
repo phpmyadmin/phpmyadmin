@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-08 06:28+0000\n"
+"PO-Revision-Date: 2018-04-08 06:30+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -3108,14 +3108,12 @@ msgstr "לא"
 #: libraries/classes/CentralColumns.php:749
 #: libraries/classes/Display/Results.php:961
 msgid "Filter rows"
-msgstr "סינון שדות"
+msgstr "סינון שורות"
 
 #: libraries/classes/CentralColumns.php:751
 #: libraries/classes/Display/Results.php:963
-#, fuzzy
-#| msgid "Search in database"
 msgid "Search this table"
-msgstr "חיפוש במסד הנתונים"
+msgstr "חיפוש בטבלה זו"
 
 #: libraries/classes/CentralColumns.php:774 libraries/classes/Index.php:717
 #: libraries/classes/Rte/RteList.php:89 libraries/classes/Rte/RteList.php:104
@@ -3179,7 +3177,7 @@ msgstr "איסוף"
 #, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "תכונות"
+msgstr "מאפיין"
 
 #: libraries/classes/CentralColumns.php:797
 #: libraries/classes/CentralColumns.php:1480
@@ -3187,29 +3185,21 @@ msgid "A_I"
 msgstr ""
 
 #: libraries/classes/CentralColumns.php:833
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a table"
-msgstr "בחירת טבלאות"
+msgstr "נא לבחור טבלה"
 
 #: libraries/classes/CentralColumns.php:890
 #: templates/table/structure/add_column.twig:4
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Add column"
-msgstr "הוספת %s תאים"
+msgstr "הוספת עמודה"
 
 #: libraries/classes/CentralColumns.php:902
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select a column."
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "נא לבחור עמודה."
 
 #: libraries/classes/CentralColumns.php:1355
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Add new column"
-msgstr "הוספת %s תאים"
+msgstr "הוספת עמודה חדשה"
 
 #: libraries/classes/CentralColumns.php:1480
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
@@ -3225,36 +3215,28 @@ msgid "Charset"
 msgstr "קידוד"
 
 #: libraries/classes/Charsets.php:310
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
 msgstr "לא ידוע"
 
 #: libraries/classes/Charsets.php:324
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
-msgstr "בינארי"
+msgstr "בינרי"
 
 #: libraries/classes/Charsets.php:336 libraries/classes/Charsets.php:566
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
-msgstr "Unicode"
+msgstr "יוניקוד"
 
 #: libraries/classes/Charsets.php:346 libraries/classes/Charsets.php:517
 msgctxt "Collation"
 msgid "West European"
-msgstr ""
+msgstr "מערב אירופי"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "מרכז אירופאי"
 
 #: libraries/classes/Charsets.php:358
 #, fuzzy
