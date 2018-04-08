@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-03 15:37+0000\n"
+"PO-Revision-Date: 2018-04-08 06:28+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 2.20\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -3009,22 +3009,22 @@ msgstr "שגיאה בקריאת הקובץ: הקובץ ‚%s’ לא קיים א
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule."
-msgstr ""
+msgstr "הצהרת כל שגויה בשורה %1$s, השורה הצפויה %2$s של כלל קודם."
 
 #: libraries/classes/Advisor.php:540
 #, php-format
 msgid "Invalid rule declaration on line %s."
-msgstr ""
+msgstr "הצהרת כלל שגויה בשורה %s."
 
 #: libraries/classes/Advisor.php:548
 #, php-format
 msgid "Unexpected characters on line %s."
-msgstr ""
+msgstr "תווים בלתי צפויים בשורה %s."
 
 #: libraries/classes/Advisor.php:563
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\"."
-msgstr ""
+msgstr "תו בלתי צפוי בשורה %1$s. אמור להיות טאב אך נמצא „%2$s” במקום."
 
 #: libraries/classes/Advisor.php:598
 msgid "per second"
@@ -3042,7 +3042,7 @@ msgstr "לשעה"
 
 #: libraries/classes/Advisor.php:607
 msgid "per day"
-msgstr ""
+msgstr "ליום"
 
 #: libraries/classes/BrowseForeigners.php:193
 msgid "Search:"
@@ -3075,44 +3075,40 @@ msgstr "מספר העמוד:"
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
-msgstr ""
+msgstr "אחסון התצורה לא מוכן לתכונת רשימת העמודות המרכזית."
 
 #: libraries/classes/CentralColumns.php:355
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "לא ניתן להוסיף %1$s כיוון שהם כבר קיימים ברשימה מרכזית!"
 
 #: libraries/classes/CentralColumns.php:370
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Could not add columns!"
-msgstr "הוספת %s תאים"
+msgstr "לא ניתן להוסיף עמודות!"
 
 #: libraries/classes/CentralColumns.php:447
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
+"לא ניתן להסיר את העמודות %1$s כיוון שהן לא קיימות ברשימת העמודות המרכזית!"
 
 #: libraries/classes/CentralColumns.php:459
-#, fuzzy
-#| msgid "Documentation"
 msgid "Could not remove columns!"
-msgstr "תיעוד"
+msgstr "לא ניתן להסיר עמודות!"
 
 #: libraries/classes/CentralColumns.php:618
 msgid "YES"
-msgstr ""
+msgstr "כן"
 
 #: libraries/classes/CentralColumns.php:618
 msgid "NO"
-msgstr ""
+msgstr "לא"
 
 #: libraries/classes/CentralColumns.php:749
 #: libraries/classes/Display/Results.php:961
-#, fuzzy
 msgid "Filter rows"
-msgstr "שדות"
+msgstr "סינון שדות"
 
 #: libraries/classes/CentralColumns.php:751
 #: libraries/classes/Display/Results.php:963
