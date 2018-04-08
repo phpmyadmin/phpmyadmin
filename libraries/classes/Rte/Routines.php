@@ -907,9 +907,9 @@ class Routines
         $retval .= Url::getHiddenInputs($db) . "\n";
         $retval .= "<fieldset>\n";
         $retval .= "<legend>" . __('Details') . "</legend>\n";
-        $retval .= "<table class='rte_table' style='width: 100%'>\n";
+        $retval .= "<table class='rte_table'>\n";
         $retval .= "<tr>\n";
-        $retval .= "    <td style='width: 20%;'>" . __('Routine name') . "</td>\n";
+        $retval .= "    <td>" . __('Routine name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' maxlength='64'\n";
         $retval .= "               value='{$routine['item_name']}' /></td>\n";
         $retval .= "</tr>\n";
@@ -924,11 +924,10 @@ class Routines
         } else {
             $retval .= "<input name='item_type' type='hidden'"
                 . " value='{$routine['item_type']}' />\n"
-                . "<div class='floatleft center' style='width: 49%;"
-                . " font-weight: bold;'>\n"
+                . "<div class='floatleft center' >\n"
                 . $routine['item_type'] . "\n"
                 . "</div>\n"
-                . "<input style='width: 49%;' type='submit' name='routine_changetype'\n"
+                . "<input type='submit' name='routine_changetype'\n"
                 . " value='" . sprintf(__('Change to %s'), $routine['item_type_toggle'])
                 . "' />\n";
         }
@@ -962,10 +961,10 @@ class Routines
         $retval .= "<tr>";
         $retval .= "    <td>&nbsp;</td>";
         $retval .= "    <td>";
-        $retval .= "        <input style='width: 49%;' type='button'";
+        $retval .= "        <input  type='button'";
         $retval .= "               name='routine_addparameter'";
         $retval .= "               value='" . __('Add parameter') . "' />";
-        $retval .= "        <input style='width: 49%;" . $disableRemoveParam . "'";
+        $retval .= "        <input id='routine_removeparameter' ";
         $retval .= "               type='submit' ";
         $retval .= "               name='routine_removeparameter'";
         $retval .= "               value='" . __('Remove last parameter') . "' />";
@@ -1620,7 +1619,7 @@ class Routines
             $retval .= "</caption>\n";
         } else {
             $retval .= "<legend>" . __('Routine parameters') . "</legend>\n";
-            $retval .= "<table class='rte_table' style='width: 100%;'>\n";
+            $retval .= "<table class='rte_table'>\n";
         }
         $retval .= "<tr>\n";
         $retval .= "<th>" . __('Name') . "</th>\n";
