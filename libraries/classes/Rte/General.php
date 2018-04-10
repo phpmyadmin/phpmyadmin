@@ -64,13 +64,14 @@ class General
      */
     public static function sendEditor($type, $mode, array $item, $title, $db, $operation = null)
     {
+        $events = new Events();
         $response = Response::getInstance();
         if ($item !== false) {
             // Show form
             if ($type == 'TRI') {
                 $editor = Triggers::getEditorForm($mode, $item);
             } else { // EVN
-                $editor = Events::getEditorForm($mode, $operation, $item);
+                $editor = $events->getEditorForm($mode, $operation, $item);
             }
             if ($response->isAjax()) {
                 $response->addJSON('message', $editor);

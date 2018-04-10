@@ -19,6 +19,11 @@ use PHPUnit\Framework\TestCase;
 class EventsTest extends TestCase
 {
     /**
+     * @var Events
+     */
+    private $events;
+
+    /**
      * Set up
      *
      * @return void
@@ -41,6 +46,8 @@ class EventsTest extends TestCase
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
         $GLOBALS['cfg']['ServerDefault'] = '';
         $GLOBALS['tear_down']['server'] = true;
+
+        $this->events = new Events();
     }
 
     /**
@@ -57,7 +64,7 @@ class EventsTest extends TestCase
     }
 
     /**
-     * Test for Events::getDataFromRequest
+     * Test for getDataFromRequest
      *
      * @param array $in  Input
      * @param array $out Expected output
@@ -76,7 +83,7 @@ class EventsTest extends TestCase
                 $_REQUEST[$key] = $value;
             }
         }
-        $this->assertEquals($out, Events::getDataFromRequest());
+        $this->assertEquals($out, $this->events->getDataFromRequest());
     }
 
     /**
@@ -157,7 +164,7 @@ class EventsTest extends TestCase
     }
 
     /**
-     * Test for Events::getEditorForm
+     * Test for getEditorForm
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
@@ -168,10 +175,10 @@ class EventsTest extends TestCase
      */
     public function testGetEditorFormAdd($data, $matcher)
     {
-        Events::setGlobals();
+        $this->events->setGlobals();
         $this->assertContains(
             $matcher,
-            Events::getEditorForm('add', 'change', $data)
+            $this->events->getEditorForm('add', 'change', $data)
         );
     }
 
@@ -244,7 +251,7 @@ class EventsTest extends TestCase
     }
 
     /**
-     * Test for Events::getEditorForm
+     * Test for getEditorForm
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
@@ -255,10 +262,10 @@ class EventsTest extends TestCase
      */
     public function testGetEditorFormEdit($data, $matcher)
     {
-        Events::setGlobals();
+        $this->events->setGlobals();
         $this->assertContains(
             $matcher,
-            Events::getEditorForm('edit', 'change', $data)
+            $this->events->getEditorForm('edit', 'change', $data)
         );
     }
 
@@ -331,7 +338,7 @@ class EventsTest extends TestCase
     }
 
     /**
-     * Test for Events::getEditorForm
+     * Test for getEditorForm
      *
      * @param array $data    Data for routine
      * @param array $matcher Matcher
@@ -343,10 +350,10 @@ class EventsTest extends TestCase
     public function testGetEditorFormAjax($data, $matcher)
     {
         Response::getInstance()->setAjax(true);
-        Events::setGlobals();
+        $this->events->setGlobals();
         $this->assertContains(
             $matcher,
-            Events::getEditorForm('edit', 'change', $data)
+            $this->events->getEditorForm('edit', 'change', $data)
         );
         Response::getInstance()->setAjax(false);
     }
@@ -392,7 +399,7 @@ class EventsTest extends TestCase
     }
 
     /**
-     * Test for Events::getQueryFromRequest
+     * Test for getQueryFromRequest
      *
      * @param array  $request Request
      * @param string $query   Query
@@ -407,7 +414,7 @@ class EventsTest extends TestCase
         global $_REQUEST, $errors;
 
         $errors = array();
-        Events::setGlobals();
+        $this->events->setGlobals();
 
         unset($_REQUEST);
         $_REQUEST = $request;
@@ -420,7 +427,7 @@ class EventsTest extends TestCase
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
 
-        $this->assertEquals($query, Events::getQueryFromRequest());
+        $this->assertEquals($query, $this->events->getQueryFromRequest());
         $this->assertCount($num_err, $errors);
     }
 

@@ -29,35 +29,43 @@ class Events
      *
      * @return void
      */
-    public static function setGlobals()
+    public function setGlobals()
     {
         global $event_status, $event_type, $event_interval;
 
-        $event_status        = array(
-                                   'query'   => array('ENABLE',
-                                                      'DISABLE',
-                                                      'DISABLE ON SLAVE'),
-                                   'display' => array('ENABLED',
-                                                      'DISABLED',
-                                                      'SLAVESIDE_DISABLED')
-                               );
-        $event_type          = array('RECURRING',
-                                     'ONE TIME');
-        $event_interval      = array('YEAR',
-                                     'QUARTER',
-                                     'MONTH',
-                                     'DAY',
-                                     'HOUR',
-                                     'MINUTE',
-                                     'WEEK',
-                                     'SECOND',
-                                     'YEAR_MONTH',
-                                     'DAY_HOUR',
-                                     'DAY_MINUTE',
-                                     'DAY_SECOND',
-                                     'HOUR_MINUTE',
-                                     'HOUR_SECOND',
-                                     'MINUTE_SECOND');
+        $event_status = array(
+            'query' => array(
+                'ENABLE',
+                'DISABLE',
+                'DISABLE ON SLAVE',
+            ),
+            'display' => array(
+                'ENABLED',
+                'DISABLED',
+                'SLAVESIDE_DISABLED',
+            ),
+        );
+        $event_type = array(
+            'RECURRING',
+            'ONE TIME',
+        );
+        $event_interval = array(
+            'YEAR',
+            'QUARTER',
+            'MONTH',
+            'DAY',
+            'HOUR',
+            'MINUTE',
+            'WEEK',
+            'SECOND',
+            'YEAR_MONTH',
+            'DAY_HOUR',
+            'DAY_MINUTE',
+            'DAY_SECOND',
+            'HOUR_MINUTE',
+            'HOUR_SECOND',
+            'MINUTE_SECOND',
+        );
     }
 
     /**
@@ -65,15 +73,15 @@ class Events
      *
      * @return void
      */
-    public static function main()
+    public function main()
     {
         global $db;
 
-        self::setGlobals();
+        $this->setGlobals();
         /**
          * Process all requests
          */
-        self::handleEditor();
+        $this->handleEditor();
         Export::events();
         /**
          * Display a list of available events
@@ -86,14 +94,14 @@ class Events
          * toggle the state of the event scheduler.
          */
         echo Footer::events();
-    } // end self::main()
+    }
 
     /**
      * Handles editor requests for adding or editing an item
      *
      * @return void
      */
-    public static function handleEditor()
+    public function handleEditor()
     {
         global $_REQUEST, $_POST, $errors, $db;
 
@@ -102,7 +110,7 @@ class Events
         ) {
             $sql_query = '';
 
-            $item_query = self::getQueryFromRequest();
+            $item_query = $this->getQueryFromRequest();
 
             if (! count($errors)) { // set by PhpMyAdmin\Rte\Routines::getQueryFromRequest()
                 // Execute the created query
@@ -232,7 +240,7 @@ class Events
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
                 $title = Words::get('add');
-                $item = self::getDataFromRequest();
+                $item = $this->getDataFromRequest();
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __("Edit event");
@@ -240,25 +248,25 @@ class Events
                     && empty($_REQUEST['editor_process_edit'])
                     && empty($_REQUEST['item_changetype'])
                 ) {
-                    $item = self::getDataFromName($_REQUEST['item_name']);
+                    $item = $this->getDataFromName($_REQUEST['item_name']);
                     if ($item !== false) {
                         $item['item_original_name'] = $item['item_name'];
                     }
                 } else {
-                    $item = self::getDataFromRequest();
+                    $item = $this->getDataFromRequest();
                 }
                 $mode = 'edit';
             }
             General::sendEditor('EVN', $mode, $item, $title, $db, $operation);
         }
-    } // end self::handleEditor()
+    }
 
     /**
      * This function will generate the values that are required to for the editor
      *
      * @return array    Data necessary to create the editor.
      */
-    public static function getDataFromRequest()
+    public function getDataFromRequest()
     {
         $retval = array();
         $indices = array('item_name',
@@ -283,7 +291,7 @@ class Events
             $retval['item_type_toggle'] = 'ONE TIME';
         }
         return $retval;
-    } // end self::getDataFromRequest()
+    }
 
     /**
      * This function will generate the values that are required to complete
@@ -293,7 +301,7 @@ class Events
      *
      * @return array Data necessary to create the editor.
      */
-    public static function getDataFromName($name)
+    public function getDataFromName($name)
     {
         global $db;
 
@@ -331,23 +339,22 @@ class Events
         $retval['item_comment']    = $item['EVENT_COMMENT'];
 
         return $retval;
-    } // end self::getDataFromName()
+    }
 
     /**
      * Displays a form used to add/edit an event
      *
      * @param string $mode      If the editor will be used to edit an event
-     *                              or add a new one: 'edit' or 'add'.
+     *                          or add a new one: 'edit' or 'add'.
      * @param string $operation If the editor was previously invoked with
-     *                              JS turned off, this will hold the name of
-     *                              the current operation
+     *                          JS turned off, this will hold the name of
+     *                          the current operation
      * @param array  $item      Data for the event returned by
-     *                              self::getDataFromRequest() or
-     *                              self::getDataFromName()
+     *                          getDataFromRequest() or getDataFromName()
      *
      * @return string   HTML code for the editor.
      */
-    public static function getEditorForm($mode, $operation, array $item)
+    public function getEditorForm($mode, $operation, array $item)
     {
         global $db, $table, $event_status, $event_type, $event_interval;
 
@@ -533,14 +540,14 @@ class Events
         $retval .= "<!-- END " . $modeToUpper . " EVENT FORM -->\n\n";
 
         return $retval;
-    } // end self::getEditorForm()
+    }
 
     /**
      * Composes the query necessary to create an event from an HTTP request.
      *
      * @return string  The CREATE EVENT query.
      */
-    public static function getQueryFromRequest()
+    public function getQueryFromRequest()
     {
         global $_REQUEST, $errors, $event_status, $event_type, $event_interval;
 
@@ -625,5 +632,5 @@ class Events
         }
 
         return $query;
-    } // end self::getQueryFromRequest()
+    }
 }
