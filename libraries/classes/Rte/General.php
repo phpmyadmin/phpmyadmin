@@ -65,11 +65,12 @@ class General
     public static function sendEditor($type, $mode, array $item, $title, $db, $operation = null)
     {
         $events = new Events();
+        $triggers = new Triggers();
         $response = Response::getInstance();
         if ($item !== false) {
             // Show form
             if ($type == 'TRI') {
-                $editor = Triggers::getEditorForm($mode, $item);
+                $editor = $triggers->getEditorForm($mode, $item);
             } else { // EVN
                 $editor = $events->getEditorForm($mode, $operation, $item);
             }
