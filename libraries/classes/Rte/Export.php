@@ -27,7 +27,7 @@ class Export
      *
      * @return void
      */
-    private static function handle($export_data)
+    private function handle($export_data)
     {
         global $db;
 
@@ -63,15 +63,15 @@ class Export
                 $message->display();
             }
         }
-    } // end self::handle()
+    }
 
     /**
      * If necessary, prepares event information and passes
-     * it to self::handle() for the actual export.
+     * it to handle() for the actual export.
      *
      * @return void
      */
-    public static function events()
+    public function events()
     {
         global $_GET, $db;
 
@@ -81,17 +81,17 @@ class Export
             if (! $export_data) {
                 $export_data = false;
             }
-            self::handle($export_data);
+            $this->handle($export_data);
         }
-    } // end self::events()
+    }
 
     /**
      * If necessary, prepares routine information and passes
-     * it to self::handle() for the actual export.
+     * it to handle() for the actual export.
      *
      * @return void
      */
-    public static function routines()
+    public function routines()
     {
         global $_GET, $db;
 
@@ -114,18 +114,18 @@ class Export
                         . "$$\nDELIMITER ;\n";
                 }
 
-                self::handle($export_data);
+                $this->handle($export_data);
             }
         }
-    } // end self::routines()
+    }
 
     /**
      * If necessary, prepares trigger information and passes
-     * it to self::handle() for the actual export.
+     * it to handle() for the actual export.
      *
      * @return void
      */
-    public static function triggers()
+    public function triggers()
     {
         global $_GET, $db, $table;
 
@@ -139,7 +139,7 @@ class Export
                     break;
                 }
             }
-            self::handle($export_data);
+            $this->handle($export_data);
         }
-    } // end self::triggers()
+    }
 }

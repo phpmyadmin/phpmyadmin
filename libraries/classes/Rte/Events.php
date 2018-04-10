@@ -25,6 +25,19 @@ use PhpMyAdmin\Util;
 class Events
 {
     /**
+     * @var Export
+     */
+    private $export;
+
+    /**
+     * Events constructor.
+     */
+    public function __construct()
+    {
+        $this->export = new Export();
+    }
+
+    /**
      * Sets required globals
      *
      * @return void
@@ -82,7 +95,7 @@ class Events
          * Process all requests
          */
         $this->handleEditor();
-        Export::events();
+        $this->export->events();
         /**
          * Display a list of available events
          */

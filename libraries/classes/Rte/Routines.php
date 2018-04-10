@@ -31,6 +31,19 @@ use PhpMyAdmin\Util;
 class Routines
 {
     /**
+     * @var Export
+     */
+    private $export;
+
+    /**
+     * Routines constructor.
+     */
+    public function __construct()
+    {
+        $this->export = new Export();
+    }
+
+    /**
      * Sets required globals
      *
      * @return void
@@ -42,18 +55,18 @@ class Routines
         $param_directions = array(
             'IN',
             'OUT',
-            'INOUT'
+            'INOUT',
         );
         $param_opts_num = array(
             'UNSIGNED',
             'ZEROFILL',
-            'UNSIGNED ZEROFILL'
+            'UNSIGNED ZEROFILL',
         );
         $param_sqldataaccess = array(
             'NO SQL',
             'CONTAINS SQL',
             'READS SQL DATA',
-            'MODIFIES SQL DATA'
+            'MODIFIES SQL DATA',
         );
     }
 
@@ -76,7 +89,7 @@ class Routines
          */
         $this->handleEditor();
         $this->handleExecute();
-        Export::routines();
+        $this->export->routines();
         /**
          * Display a list of available routines
          */

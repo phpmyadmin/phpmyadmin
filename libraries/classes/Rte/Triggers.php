@@ -25,6 +25,19 @@ use PhpMyAdmin\Util;
 class Triggers
 {
     /**
+     * @var Export
+     */
+    private $export;
+
+    /**
+     * Triggers constructor.
+     */
+    public function __construct()
+    {
+        $this->export = new Export();
+    }
+
+    /**
      * Sets required globals
      *
      * @return void
@@ -59,7 +72,7 @@ class Triggers
          * Process all requests
          */
         $this->handleEditor();
-        Export::triggers();
+        $this->export->triggers();
         /**
          * Display a list of available triggers
          */
