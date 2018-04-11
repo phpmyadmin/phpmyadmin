@@ -74,7 +74,6 @@ matrix:
       env: CI_MODE=test
       before_install:
         - brew update
-        - brew tap homebrew/php
         - brew install gettext php72 mariadb
         - brew link --force gettext
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
