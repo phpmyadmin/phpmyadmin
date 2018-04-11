@@ -13,11 +13,6 @@ services:
 php:
   - "7.2"
   - "7.1"
-  - "7.0"
-  - "5.6"
-  - "5.5"
-  - "hhvm-3.12"
-  - "hhvm-3.18"
   - "nightly"
 
 sudo: required
@@ -63,7 +58,7 @@ matrix:
   include:
     - php: "7.1"
       env: CI_MODE=selenium
-    - php: "7.0"
+    - php: "7.1"
       env: CI_MODE=release
     - php: "7.1"
       env: CI_MODE=docs
