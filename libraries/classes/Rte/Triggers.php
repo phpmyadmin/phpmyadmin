@@ -30,11 +30,17 @@ class Triggers
     private $export;
 
     /**
+     * @var Footer
+     */
+    private $footer;
+
+    /**
      * Triggers constructor.
      */
     public function __construct()
     {
         $this->export = new Export();
+        $this->footer = new Footer();
     }
 
     /**
@@ -82,7 +88,7 @@ class Triggers
          * Display a link for adding a new trigger,
          * if the user has the necessary privileges
          */
-        echo Footer::triggers();
+        echo $this->footer->triggers();
     }
 
     /**

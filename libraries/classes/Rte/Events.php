@@ -30,11 +30,17 @@ class Events
     private $export;
 
     /**
+     * @var Footer
+     */
+    private $footer;
+
+    /**
      * Events constructor.
      */
     public function __construct()
     {
         $this->export = new Export();
+        $this->footer = new Footer();
     }
 
     /**
@@ -106,7 +112,7 @@ class Events
          * the user has the privileges and a link to
          * toggle the state of the event scheduler.
          */
-        echo Footer::events();
+        echo $this->footer->events();
     }
 
     /**

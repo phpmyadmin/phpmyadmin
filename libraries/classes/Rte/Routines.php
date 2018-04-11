@@ -36,11 +36,17 @@ class Routines
     private $export;
 
     /**
+     * @var Footer
+     */
+    private $footer;
+
+    /**
      * Routines constructor.
      */
     public function __construct()
     {
         $this->export = new Export();
+        $this->footer = new Footer();
     }
 
     /**
@@ -101,7 +107,7 @@ class Routines
         /**
          * Display the form for adding a new routine, if the user has the privileges.
          */
-        echo Footer::routines();
+        echo $this->footer->routines();
         /**
          * Display a warning for users with PHP's old "mysql" extension.
          */
