@@ -17,7 +17,9 @@ if (! defined('PHPMYADMIN')) {
 
 $response = Response::getInstance();
 
+$events = new Events();
 $routines = new Routines();
+$triggers = new Triggers();
 
 if (! $response->isAjax()) {
     /**
@@ -83,9 +85,9 @@ case 'RTN':
     $routines->main($type);
     break;
 case 'TRI':
-    Triggers::main();
+    $triggers->main();
     break;
 case 'EVN':
-    Events::main();
+    $events->main();
     break;
 }

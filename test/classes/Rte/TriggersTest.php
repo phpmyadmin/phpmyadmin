@@ -19,6 +19,11 @@ use PHPUnit\Framework\TestCase;
 class TriggersTest extends TestCase
 {
     /**
+     * @var Triggers
+     */
+    private $triggers;
+
+    /**
      * Set up
      *
      * @return void
@@ -40,10 +45,12 @@ class TriggersTest extends TestCase
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+
+        $this->triggers = new Triggers();
     }
 
     /**
-     * Test for Triggers::getDataFromRequest
+     * Test for getDataFromRequest
      *
      * @param array $in  Input
      * @param array $out Expected output
@@ -62,7 +69,7 @@ class TriggersTest extends TestCase
                 $_REQUEST[$key] = $value;
             }
         }
-        $this->assertEquals($out, Triggers::getDataFromRequest());
+        $this->assertEquals($out, $this->triggers->getDataFromRequest());
     }
 
     /**
@@ -117,7 +124,7 @@ class TriggersTest extends TestCase
     }
 
     /**
-     * Test for Triggers::getEditorForm
+     * Test for getEditorForm
      *
      * @param array $data    Data for trigger
      * @param array $matcher Matcher
@@ -130,10 +137,10 @@ class TriggersTest extends TestCase
     public function testGetEditorFormAdd($data, $matcher)
     {
         $GLOBALS['server'] = 1;
-        Triggers::setGlobals();
+        $this->triggers->setGlobals();
         $this->assertContains(
             $matcher,
-            Triggers::getEditorForm('add', $data)
+            $this->triggers->getEditorForm('add', $data)
         );
     }
 
@@ -191,7 +198,7 @@ class TriggersTest extends TestCase
     }
 
     /**
-     * Test for Triggers::getEditorForm
+     * Test for getEditorForm
      *
      * @param array $data    Data for trigger
      * @param array $matcher Matcher
@@ -204,10 +211,10 @@ class TriggersTest extends TestCase
     public function testGetEditorFormEdit($data, $matcher)
     {
         $GLOBALS['server'] = 1;
-        Triggers::setGlobals();
+        $this->triggers->setGlobals();
         $this->assertContains(
             $matcher,
-            Triggers::getEditorForm('edit', $data)
+            $this->triggers->getEditorForm('edit', $data)
         );
     }
 
@@ -265,7 +272,7 @@ class TriggersTest extends TestCase
     }
 
     /**
-     * Test for Triggers::getEditorForm
+     * Test for getEditorForm
      *
      * @param array $data    Data for trigger
      * @param array $matcher Matcher
@@ -278,10 +285,10 @@ class TriggersTest extends TestCase
     {
         $GLOBALS['server'] = 1;
         Response::getInstance()->setAjax(true);
-        Triggers::setGlobals();
+        $this->triggers->setGlobals();
         $this->assertContains(
             $matcher,
-            Triggers::getEditorForm('edit', $data)
+            $this->triggers->getEditorForm('edit', $data)
         );
         Response::getInstance()->setAjax(false);
     }
@@ -316,7 +323,7 @@ class TriggersTest extends TestCase
     }
 
     /**
-     * Test for Triggers::getQueryFromRequest
+     * Test for getQueryFromRequest
      *
      * @param string $definer    Definer
      * @param string $name       Name
@@ -337,7 +344,7 @@ class TriggersTest extends TestCase
         global $_REQUEST, $errors;
 
         $errors = array();
-        Triggers::setGlobals();
+        $this->triggers->setGlobals();
 
         $_REQUEST['item_definer']    = $definer;
         $_REQUEST['item_name']       = $name;
@@ -347,7 +354,7 @@ class TriggersTest extends TestCase
         $_REQUEST['item_definition'] = $definition;
         $GLOBALS['server'] = 1;
 
-        $this->assertEquals($query, Triggers::getQueryFromRequest());
+        $this->assertEquals($query, $this->triggers->getQueryFromRequest());
         $this->assertCount($num_err, $errors);
     }
 

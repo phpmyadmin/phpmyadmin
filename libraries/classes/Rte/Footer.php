@@ -18,6 +18,19 @@ use PhpMyAdmin\Util;
 class Footer
 {
     /**
+     * @var Words
+     */
+    private $words;
+
+    /**
+     * Footer constructor.
+     */
+    public function __construct()
+    {
+        $this->words = new Words();
+    }
+
+    /**
      * Creates a fieldset for adding a new item, if the user has the privileges.
      *
      * @param string $docu String used to create a link to the MySQL docs
@@ -26,7 +39,7 @@ class Footer
      *
      * @return string An HTML snippet with the link to add a new item
      */
-    private static function getLinks($docu, $priv, $name)
+    private function getLinks($docu, $priv, $name)
     {
         global $db, $table, $url_query;
 
@@ -43,11 +56,11 @@ class Footer
             $retval .= "onclick='$.datepicker.initialized = false;'>";
             $icon = 'b_' . $icon;
             $retval .= Util::getIcon($icon);
-            $retval .= Words::get('add') . "</a>\n";
+            $retval .= $this->words->get('add') . "</a>\n";
         } else {
             $icon = 'bd_' . $icon;
             $retval .= Util::getIcon($icon);
-            $retval .= Words::get('add') . "\n";
+            $retval .= $this->words->get('add') . "\n";
         }
         $retval .= "            " . Util::showMySQLDocu($docu) . "\n";
         $retval .= "        </div>\n";
@@ -55,34 +68,34 @@ class Footer
         $retval .= "<!-- ADD " . $name . " FORM END -->\n\n";
 
         return $retval;
-    } // end self::getLinks()
+    }
 
     /**
      * Creates a fieldset for adding a new routine, if the user has the privileges.
      *
      * @return string    HTML code with containing the footer fieldset
      */
-    public static function routines()
+    public function routines()
     {
-        return self::getLinks('CREATE_PROCEDURE', 'CREATE ROUTINE', 'ROUTINE');
-    }// end self::routines()
+        return $this->getLinks('CREATE_PROCEDURE', 'CREATE ROUTINE', 'ROUTINE');
+    }
 
     /**
      * Creates a fieldset for adding a new trigger, if the user has the privileges.
      *
      * @return string    HTML code with containing the footer fieldset
      */
-    public static function triggers()
+    public function triggers()
     {
-        return self::getLinks('CREATE_TRIGGER', 'TRIGGER', 'TRIGGER');
-    } // end self::triggers()
+        return $this->getLinks('CREATE_TRIGGER', 'TRIGGER', 'TRIGGER');
+    }
 
     /**
      * Creates a fieldset for adding a new event, if the user has the privileges.
      *
      * @return string    HTML code with containing the footer fieldset
      */
-    public static function events()
+    public function events()
     {
         global $db, $url_query;
 
@@ -113,7 +126,7 @@ class Footer
         $retval  = "<!-- FOOTER LINKS START -->\n";
         $retval .= "<div class='doubleFieldset'>\n";
         // show the usual footer
-        $retval .= self::getLinks('CREATE_EVENT', 'EVENT', 'EVENT');
+        $retval .= $this->getLinks('CREATE_EVENT', 'EVENT', 'EVENT');
         $retval .= "    <fieldset class='right'>\n";
         $retval .= "        <legend>\n";
         $retval .= "            " . __('Event scheduler status') . "\n";
@@ -133,5 +146,5 @@ class Footer
         $retval .= "<!-- FOOTER LINKS END -->\n";
 
         return $retval;
-    } // end self::events()
+    }
 }

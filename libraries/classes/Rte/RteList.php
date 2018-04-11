@@ -24,6 +24,19 @@ use PhpMyAdmin\Util;
 class RteList
 {
     /**
+     * @var Words
+     */
+    private $words;
+
+    /**
+     * RteList constructor.
+     */
+    public function __construct()
+    {
+        $this->words = new Words();
+    }
+
+    /**
      * Creates a list of items containing the relevant
      * information and some action links.
      *
@@ -32,7 +45,7 @@ class RteList
      *
      * @return string HTML code of the list of items
      */
-    public static function get($type, array $items)
+    public function get($type, array $items)
     {
         global $table;
 
@@ -48,7 +61,7 @@ class RteList
         /**
          * Generate output
          */
-        $retval  = "<!-- LIST OF " . Words::get('docu') . " START -->\n";
+        $retval  = "<!-- LIST OF " . $this->words->get('docu') . " START -->\n";
         $retval .= '<form id="rteListForm" class="ajax" action="';
         switch ($type) {
         case 'routine':
@@ -71,12 +84,12 @@ class RteList
         $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
         $retval .= "<fieldset>\n";
         $retval .= "    <legend>\n";
-        $retval .= "        " . Words::get('title') . "\n";
+        $retval .= "        " . $this->words->get('title') . "\n";
         $retval .= "        "
-            . Util::showMySQLDocu(Words::get('docu')) . "\n";
+            . Util::showMySQLDocu($this->words->get('docu')) . "\n";
         $retval .= "    </legend>\n";
         $retval .= "    <div class='$class1' id='nothing2display'>\n";
-        $retval .= "      " . Words::get('nothing') . "\n";
+        $retval .= "      " . $this->words->get('nothing') . "\n";
         $retval .= "    </div>\n";
         $retval .= "    <table class='data$class2'>\n";
         $retval .= "        <!-- TABLE HEADERS -->\n";
@@ -138,13 +151,13 @@ class RteList
             // Get each row from the correct function
             switch ($type) {
             case 'routine':
-                $retval .= self::getRoutineRow($item, $rowclass);
+                $retval .= $this->getRoutineRow($item, $rowclass);
                 break;
             case 'trigger':
-                $retval .= self::getTriggerRow($item, $rowclass);
+                $retval .= $this->getTriggerRow($item, $rowclass);
                 break;
             case 'event':
-                $retval .= self::getEventRow($item, $rowclass);
+                $retval .= $this->getEventRow($item, $rowclass);
                 break;
             default:
                 break;
@@ -176,10 +189,10 @@ class RteList
 
         $retval .= "</fieldset>\n";
         $retval .= "</form>\n";
-        $retval .= "<!-- LIST OF " . Words::get('docu') . " END -->\n";
+        $retval .= "<!-- LIST OF " . $this->words->get('docu') . " END -->\n";
 
         return $retval;
-    } // end self::get()
+    }
 
     /**
      * Creates the contents for a row in the list of routines
@@ -189,7 +202,7 @@ class RteList
      *
      * @return string HTML code of a row for the list of routines
      */
-    public static function getRoutineRow(array $routine, $rowclass = '')
+    public function getRoutineRow(array $routine, $rowclass = '')
     {
         global $url_query, $db, $titles;
 
@@ -330,7 +343,7 @@ class RteList
         $retval .= "        </tr>\n";
 
         return $retval;
-    } // end self::getRoutineRow()
+    }
 
     /**
      * Creates the contents for a row in the list of triggers
@@ -340,7 +353,7 @@ class RteList
      *
      * @return string HTML code of a cell for the list of triggers
      */
-    public static function getTriggerRow(array $trigger, $rowclass = '')
+    public function getTriggerRow(array $trigger, $rowclass = '')
     {
         global $url_query, $db, $table, $titles;
 
@@ -406,7 +419,7 @@ class RteList
         $retval .= "        </tr>\n";
 
         return $retval;
-    } // end self::getTriggerRow()
+    }
 
     /**
      * Creates the contents for a row in the list of events
@@ -416,7 +429,7 @@ class RteList
      *
      * @return string HTML code of a cell for the list of events
      */
-    public static function getEventRow(array $event, $rowclass = '')
+    public function getEventRow(array $event, $rowclass = '')
     {
         global $url_query, $db, $titles;
 
@@ -481,5 +494,5 @@ class RteList
         $retval .= "        </tr>\n";
 
         return $retval;
-    } // end self::getEventRow()
+    }
 }

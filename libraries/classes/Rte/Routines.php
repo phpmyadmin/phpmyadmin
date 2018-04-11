@@ -31,6 +31,43 @@ use PhpMyAdmin\Util;
 class Routines
 {
     /**
+     * @var Export
+     */
+    private $export;
+
+    /**
+     * @var Footer
+     */
+    private $footer;
+
+    /**
+     * @var General
+     */
+    private $general;
+
+    /**
+     * @var RteList
+     */
+    private $rteList;
+
+    /**
+     * @var Words
+     */
+    private $words;
+
+    /**
+     * Routines constructor.
+     */
+    public function __construct()
+    {
+        $this->export = new Export();
+        $this->footer = new Footer();
+        $this->general = new General();
+        $this->rteList = new RteList();
+        $this->words = new Words();
+    }
+
+    /**
      * Sets required globals
      *
      * @return void
@@ -42,18 +79,18 @@ class Routines
         $param_directions = array(
             'IN',
             'OUT',
-            'INOUT'
+            'INOUT',
         );
         $param_opts_num = array(
             'UNSIGNED',
             'ZEROFILL',
-            'UNSIGNED ZEROFILL'
+            'UNSIGNED ZEROFILL',
         );
         $param_sqldataaccess = array(
             'NO SQL',
             'CONTAINS SQL',
             'READS SQL DATA',
-            'MODIFIES SQL DATA'
+            'MODIFIES SQL DATA',
         );
     }
 
@@ -76,7 +113,7 @@ class Routines
          */
         $this->handleEditor();
         $this->handleExecute();
-        Export::routines();
+        $this->export->routines();
         /**
          * Display a list of available routines
          */
@@ -84,11 +121,11 @@ class Routines
             $type = null;
         }
         $items = $GLOBALS['dbi']->getRoutines($db, $type);
-        echo RteList::get('routine', $items);
+        echo $this->rteList->get('routine', $items);
         /**
          * Display the form for adding a new routine, if the user has the privileges.
          */
-        echo Footer::routines();
+        echo $this->footer->routines();
         /**
          * Display a warning for users with PHP's old "mysql" extension.
          */
@@ -142,7 +179,7 @@ class Routines
             }
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
-                $title = Words::get('add');
+                $title = $this->words->get('add');
                 $routine = $this->getDataFromRequest();
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {
@@ -177,7 +214,7 @@ class Routines
             } else {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
-                    Words::get('no_edit'),
+                    $this->words->get('no_edit'),
                     htmlspecialchars(
                         Util::backquote($_REQUEST['item_name'])
                     ),
@@ -325,7 +362,7 @@ class Routines
                 mb_strtoupper($_REQUEST['item_name'])
             )
         );
-        $response->addJSON('new_row', RteList::getRoutineRow($routine));
+        $response->addJSON('new_row', $this->rteList->getRoutineRow($routine));
         $response->addJSON('insert', !empty($routine));
         $response->addJSON('message', $output);
         exit;
@@ -393,7 +430,7 @@ class Routines
             // but were unable to create the new one
             // Try to restore the backup query
             $result = $GLOBALS['dbi']->tryQuery($create_routine);
-            $errors = General::checkResult(
+            $errors = $this->general->checkResult(
                 $result,
                 __(
                     'Sorry, we failed to restore'
@@ -1334,7 +1371,7 @@ class Routines
             if ($routine === false) {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
-                    Words::get('not_found'),
+                    $this->words->get('not_found'),
                     htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
                     htmlspecialchars(Util::backquote($db))
                 );
@@ -1544,7 +1581,7 @@ class Routines
             } elseif (($response->isAjax())) {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
-                    Words::get('not_found'),
+                    $this->words->get('not_found'),
                     htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
                     htmlspecialchars(Util::backquote($db))
                 );
