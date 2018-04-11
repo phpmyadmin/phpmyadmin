@@ -35,6 +35,11 @@ class Events
     private $footer;
 
     /**
+     * @var General
+     */
+    private $general;
+
+    /**
      * @var RteList
      */
     private $rteList;
@@ -51,6 +56,7 @@ class Events
     {
         $this->export = new Export();
         $this->footer = new Footer();
+        $this->general = new General();
         $this->rteList = new RteList();
         $this->words = new Words();
     }
@@ -175,7 +181,7 @@ class Events
                             // We dropped the old item, but were unable to create
                             // the new one. Try to restore the backup query
                             $result = $GLOBALS['dbi']->tryQuery($create_item);
-                            $errors = General::checkResult(
+                            $errors = $this->general->checkResult(
                                 $result,
                                 __(
                                     'Sorry, we failed to restore the dropped event.'
@@ -288,7 +294,7 @@ class Events
                 }
                 $mode = 'edit';
             }
-            General::sendEditor('EVN', $mode, $item, $title, $db, $operation);
+            $this->general->sendEditor('EVN', $mode, $item, $title, $db, $operation);
         }
     }
 

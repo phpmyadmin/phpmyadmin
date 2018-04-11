@@ -35,6 +35,11 @@ class Triggers
     private $footer;
 
     /**
+     * @var General
+     */
+    private $general;
+
+    /**
      * @var RteList
      */
     private $rteList;
@@ -51,6 +56,7 @@ class Triggers
     {
         $this->export = new Export();
         $this->footer = new Footer();
+        $this->general = new General();
         $this->rteList = new RteList();
         $this->words = new Words();
     }
@@ -147,7 +153,7 @@ class Triggers
                             // new one. Try to restore the backup query.
                             $result = $GLOBALS['dbi']->tryQuery($create_item);
 
-                            $errors = General::checkResult(
+                            $errors = $this->general->checkResult(
                                 $result,
                                 __(
                                     'Sorry, we failed to restore the dropped trigger.'
@@ -266,7 +272,7 @@ class Triggers
                 }
                 $mode = 'edit';
             }
-            General::sendEditor('TRI', $mode, $item, $title, $db);
+            $this->general->sendEditor('TRI', $mode, $item, $title, $db);
         }
     }
 

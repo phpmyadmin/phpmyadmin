@@ -41,6 +41,11 @@ class Routines
     private $footer;
 
     /**
+     * @var General
+     */
+    private $general;
+
+    /**
      * @var RteList
      */
     private $rteList;
@@ -57,6 +62,7 @@ class Routines
     {
         $this->export = new Export();
         $this->footer = new Footer();
+        $this->general = new General();
         $this->rteList = new RteList();
         $this->words = new Words();
     }
@@ -424,7 +430,7 @@ class Routines
             // but were unable to create the new one
             // Try to restore the backup query
             $result = $GLOBALS['dbi']->tryQuery($create_routine);
-            $errors = General::checkResult(
+            $errors = $this->general->checkResult(
                 $result,
                 __(
                     'Sorry, we failed to restore'
