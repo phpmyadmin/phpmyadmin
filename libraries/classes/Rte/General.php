@@ -66,6 +66,7 @@ class General
     {
         $events = new Events();
         $triggers = new Triggers();
+        $words = new Words();
         $response = Response::getInstance();
         if ($item !== false) {
             // Show form
@@ -85,7 +86,7 @@ class General
         } else {
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
-                Words::get('not_found'),
+                $words->get('not_found'),
                 htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
                 htmlspecialchars(Util::backquote($db))
             );

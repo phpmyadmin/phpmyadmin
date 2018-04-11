@@ -24,6 +24,19 @@ use PhpMyAdmin\Util;
 class RteList
 {
     /**
+     * @var Words
+     */
+    private $words;
+
+    /**
+     * RteList constructor.
+     */
+    public function __construct()
+    {
+        $this->words = new Words();
+    }
+
+    /**
      * Creates a list of items containing the relevant
      * information and some action links.
      *
@@ -48,7 +61,7 @@ class RteList
         /**
          * Generate output
          */
-        $retval  = "<!-- LIST OF " . Words::get('docu') . " START -->\n";
+        $retval  = "<!-- LIST OF " . $this->words->get('docu') . " START -->\n";
         $retval .= '<form id="rteListForm" class="ajax" action="';
         switch ($type) {
         case 'routine':
@@ -71,12 +84,12 @@ class RteList
         $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
         $retval .= "<fieldset>\n";
         $retval .= "    <legend>\n";
-        $retval .= "        " . Words::get('title') . "\n";
+        $retval .= "        " . $this->words->get('title') . "\n";
         $retval .= "        "
-            . Util::showMySQLDocu(Words::get('docu')) . "\n";
+            . Util::showMySQLDocu($this->words->get('docu')) . "\n";
         $retval .= "    </legend>\n";
         $retval .= "    <div class='$class1' id='nothing2display'>\n";
-        $retval .= "      " . Words::get('nothing') . "\n";
+        $retval .= "      " . $this->words->get('nothing') . "\n";
         $retval .= "    </div>\n";
         $retval .= "    <table class='data$class2'>\n";
         $retval .= "        <!-- TABLE HEADERS -->\n";
@@ -176,7 +189,7 @@ class RteList
 
         $retval .= "</fieldset>\n";
         $retval .= "</form>\n";
-        $retval .= "<!-- LIST OF " . Words::get('docu') . " END -->\n";
+        $retval .= "<!-- LIST OF " . $this->words->get('docu') . " END -->\n";
 
         return $retval;
     }

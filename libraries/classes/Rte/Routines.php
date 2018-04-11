@@ -46,6 +46,11 @@ class Routines
     private $rteList;
 
     /**
+     * @var Words
+     */
+    private $words;
+
+    /**
      * Routines constructor.
      */
     public function __construct()
@@ -53,6 +58,7 @@ class Routines
         $this->export = new Export();
         $this->footer = new Footer();
         $this->rteList = new RteList();
+        $this->words = new Words();
     }
 
     /**
@@ -167,7 +173,7 @@ class Routines
             }
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
-                $title = Words::get('add');
+                $title = $this->words->get('add');
                 $routine = $this->getDataFromRequest();
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {
@@ -202,7 +208,7 @@ class Routines
             } else {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
-                    Words::get('no_edit'),
+                    $this->words->get('no_edit'),
                     htmlspecialchars(
                         Util::backquote($_REQUEST['item_name'])
                     ),
@@ -1359,7 +1365,7 @@ class Routines
             if ($routine === false) {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
-                    Words::get('not_found'),
+                    $this->words->get('not_found'),
                     htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
                     htmlspecialchars(Util::backquote($db))
                 );
@@ -1569,7 +1575,7 @@ class Routines
             } elseif (($response->isAjax())) {
                 $message  = __('Error in processing request:') . ' ';
                 $message .= sprintf(
-                    Words::get('not_found'),
+                    $this->words->get('not_found'),
                     htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
                     htmlspecialchars(Util::backquote($db))
                 );

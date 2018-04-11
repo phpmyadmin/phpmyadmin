@@ -18,6 +18,19 @@ use PhpMyAdmin\Util;
 class Footer
 {
     /**
+     * @var Words
+     */
+    private $words;
+
+    /**
+     * Footer constructor.
+     */
+    public function __construct()
+    {
+        $this->words = new Words();
+    }
+
+    /**
      * Creates a fieldset for adding a new item, if the user has the privileges.
      *
      * @param string $docu String used to create a link to the MySQL docs
@@ -43,11 +56,11 @@ class Footer
             $retval .= "onclick='$.datepicker.initialized = false;'>";
             $icon = 'b_' . $icon;
             $retval .= Util::getIcon($icon);
-            $retval .= Words::get('add') . "</a>\n";
+            $retval .= $this->words->get('add') . "</a>\n";
         } else {
             $icon = 'bd_' . $icon;
             $retval .= Util::getIcon($icon);
-            $retval .= Words::get('add') . "\n";
+            $retval .= $this->words->get('add') . "\n";
         }
         $retval .= "            " . Util::showMySQLDocu($docu) . "\n";
         $retval .= "        </div>\n";

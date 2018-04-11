@@ -40,6 +40,11 @@ class Triggers
     private $rteList;
 
     /**
+     * @var Words
+     */
+    private $words;
+
+    /**
      * Triggers constructor.
      */
     public function __construct()
@@ -47,6 +52,7 @@ class Triggers
         $this->export = new Export();
         $this->footer = new Footer();
         $this->rteList = new RteList();
+        $this->words = new Words();
     }
 
     /**
@@ -243,7 +249,7 @@ class Triggers
         ) {
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
-                $title = Words::get('add');
+                $title = $this->words->get('add');
                 $item = $this->getDataFromRequest();
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {

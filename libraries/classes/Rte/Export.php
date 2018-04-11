@@ -20,6 +20,19 @@ use PhpMyAdmin\Util;
 class Export
 {
     /**
+     * @var Words
+     */
+    private $words;
+
+    /**
+     * Export constructor.
+     */
+    public function __construct()
+    {
+        $this->words = new Words();
+    }
+
+    /**
      * This function is called from one of the other functions in this file
      * and it completes the handling of the export functionality.
      *
@@ -36,7 +49,7 @@ class Export
         $item_name = htmlspecialchars(Util::backquote($_GET['item_name']));
         if ($export_data !== false) {
             $export_data = htmlspecialchars(trim($export_data));
-            $title = sprintf(Words::get('export'), $item_name);
+            $title = sprintf($this->words->get('export'), $item_name);
             if ($response->isAjax()) {
                 $response->addJSON('message', $export_data);
                 $response->addJSON('title', $title);
@@ -52,7 +65,7 @@ class Export
         } else {
             $_db = htmlspecialchars(Util::backquote($db));
             $message  = __('Error in processing request:') . ' '
-                      . sprintf(Words::get('no_view'), $item_name, $_db);
+                      . sprintf($this->words->get('no_view'), $item_name, $_db);
             $message = Message::error($message);
 
             if ($response->isAjax()) {

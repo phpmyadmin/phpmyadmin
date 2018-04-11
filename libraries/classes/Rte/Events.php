@@ -40,6 +40,11 @@ class Events
     private $rteList;
 
     /**
+     * @var Words
+     */
+    private $words;
+
+    /**
      * Events constructor.
      */
     public function __construct()
@@ -47,6 +52,7 @@ class Events
         $this->export = new Export();
         $this->footer = new Footer();
         $this->rteList = new RteList();
+        $this->words = new Words();
     }
 
     /**
@@ -264,7 +270,7 @@ class Events
             }
             // Get the data for the form (if any)
             if (! empty($_REQUEST['add_item'])) {
-                $title = Words::get('add');
+                $title = $this->words->get('add');
                 $item = $this->getDataFromRequest();
                 $mode = 'add';
             } elseif (! empty($_REQUEST['edit_item'])) {
