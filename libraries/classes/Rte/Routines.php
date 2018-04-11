@@ -41,12 +41,18 @@ class Routines
     private $footer;
 
     /**
+     * @var RteList
+     */
+    private $rteList;
+
+    /**
      * Routines constructor.
      */
     public function __construct()
     {
         $this->export = new Export();
         $this->footer = new Footer();
+        $this->rteList = new RteList();
     }
 
     /**
@@ -103,7 +109,7 @@ class Routines
             $type = null;
         }
         $items = $GLOBALS['dbi']->getRoutines($db, $type);
-        echo RteList::get('routine', $items);
+        echo $this->rteList->get('routine', $items);
         /**
          * Display the form for adding a new routine, if the user has the privileges.
          */
@@ -344,7 +350,7 @@ class Routines
                 mb_strtoupper($_REQUEST['item_name'])
             )
         );
-        $response->addJSON('new_row', RteList::getRoutineRow($routine));
+        $response->addJSON('new_row', $this->rteList->getRoutineRow($routine));
         $response->addJSON('insert', !empty($routine));
         $response->addJSON('message', $output);
         exit;

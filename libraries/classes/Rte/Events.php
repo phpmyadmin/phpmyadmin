@@ -35,12 +35,18 @@ class Events
     private $footer;
 
     /**
+     * @var RteList
+     */
+    private $rteList;
+
+    /**
      * Events constructor.
      */
     public function __construct()
     {
         $this->export = new Export();
         $this->footer = new Footer();
+        $this->rteList = new RteList();
     }
 
     /**
@@ -106,7 +112,7 @@ class Events
          * Display a list of available events
          */
         $items = $GLOBALS['dbi']->getEvents($db);
-        echo RteList::get('event', $items);
+        echo $this->rteList->get('event', $items);
         /**
          * Display a link for adding a new event, if
          * the user has the privileges and a link to
@@ -231,7 +237,7 @@ class Events
                         )
                     );
                     if (! empty($event)) {
-                        $response->addJSON('new_row', RteList::getEventRow($event));
+                        $response->addJSON('new_row', $this->rteList->getEventRow($event));
                     }
                     $response->addJSON('insert', ! empty($event));
                     $response->addJSON('message', $output);

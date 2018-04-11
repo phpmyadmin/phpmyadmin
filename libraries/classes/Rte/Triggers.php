@@ -35,12 +35,18 @@ class Triggers
     private $footer;
 
     /**
+     * @var RteList
+     */
+    private $rteList;
+
+    /**
      * Triggers constructor.
      */
     public function __construct()
     {
         $this->export = new Export();
         $this->footer = new Footer();
+        $this->rteList = new RteList();
     }
 
     /**
@@ -83,7 +89,7 @@ class Triggers
          * Display a list of available triggers
          */
         $items = $GLOBALS['dbi']->getTriggers($db, $table);
-        echo RteList::get('trigger', $items);
+        echo $this->rteList->get('trigger', $items);
         /**
          * Display a link for adding a new trigger,
          * if the user has the necessary privileges
@@ -206,7 +212,7 @@ class Triggers
                         || ($trigger !== false && $table == $trigger['table'])
                     ) {
                         $insert = true;
-                        $response->addJSON('new_row', RteList::getTriggerRow($trigger));
+                        $response->addJSON('new_row', $this->rteList->getTriggerRow($trigger));
                         $response->addJSON(
                             'name',
                             htmlspecialchars(
