@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-09 12:37+0000\n"
+"PO-Revision-Date: 2018-04-12 22:39+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 2.20\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -758,6 +758,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"הרחבת ה־curl לא נמצאה והאפשרות allow_url_fopen מושבתת. עקב כך חלק מהתכונות "
+"כגון דיווח על שגיאות או בדיקת גרסאות מושבתות."
 
 #: index.php:532
 #, fuzzy
@@ -786,7 +788,7 @@ msgstr "קובץ התצורה צריכה ביטוי סיסמה סודית (blowf
 
 #: index.php:573
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "מילת הצופן הסודית בהגדרות שלך (blowfish_secret) קצרה מדי."
 
 #: index.php:587
 msgid ""
@@ -811,6 +813,7 @@ msgstr ""
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
+"או לחלופין יש לגשת ללשונית ‚פעולות’ של כל מסד נתונים כדי להגדיר אותו כאן."
 
 #: index.php:635
 #, php-format
@@ -818,6 +821,7 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"השרת פעיל עם Suhosin. נא לעיין ב%sתיעוד%s כדי לחקור עוד על תקלות אפשריות."
 
 #: index.php:649
 #, php-format
@@ -825,6 +829,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"ההגדרה $cfg['TempDir'] (%s) אינה נגישה. ל־phpMyAdmin אין אפשרות לשמור תבניות "
+"והמערכת תאט בעקבות כך."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -948,7 +954,7 @@ msgstr "נתונים מעורבבים"
 
 #: js/messages.php:96
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "לשנות את האוסף ולהמיר את הנתונים?"
 
 #: js/messages.php:98
 msgid ""
@@ -8228,10 +8234,8 @@ msgid "Data only"
 msgstr "נתונים בלבד"
 
 #: libraries/classes/MultSubmits.php:366
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "הוספת ערך AUTO_INCREMENT (מספור אוטומטי)"
+msgstr "הוספת ערך AUTO INCREMENT (מספור אוטומטי)"
 
 #: libraries/classes/MultSubmits.php:368 libraries/classes/Operations.php:232
 #: libraries/classes/Operations.php:1291
@@ -8243,10 +8247,8 @@ msgstr "הוספת הגבלות"
 #: libraries/classes/Operations.php:956 libraries/classes/Operations.php:1310
 #: libraries/classes/Rte/Routines.php:1024
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Adjust privileges"
-msgstr "עריכת הרשאות"
+msgstr "התאמת הרשאות"
 
 #: libraries/classes/MultSubmits.php:392
 #, fuzzy
@@ -8259,54 +8261,41 @@ msgid "To"
 msgstr ""
 
 #: libraries/classes/MultSubmits.php:426
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add prefix"
-msgstr "הוספת שדה חדש"
+msgstr "הוספת קידומת"
 
 #: libraries/classes/MultSubmits.php:459
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "האם אתה באמת רוצה "
+msgstr "להריץ את השאילתה הבאה?"
 
 #: libraries/classes/Navigation/Navigation.php:56
 msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:194
-#, fuzzy
-#| msgid "Column names"
 msgid "Groups:"
-msgstr "שמות עמודה"
+msgstr "קבוצות:"
 
 #: libraries/classes/Navigation/Navigation.php:195
-#, fuzzy
 msgid "Events:"
-msgstr "נשלח"
+msgstr "אירועים:"
 
 #: libraries/classes/Navigation/Navigation.php:196
-#, fuzzy
 msgid "Functions:"
-msgstr "פונקציה"
+msgstr "פונקציות:"
 
 #: libraries/classes/Navigation/Navigation.php:197
-#, fuzzy
 msgid "Procedures:"
-msgstr "תהליכים"
+msgstr "נהלים:"
 
 #: libraries/classes/Navigation/Navigation.php:198
 #: templates/display/export/selection.twig:5
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "טבלאות"
+msgstr "טבלאות:"
 
 #: libraries/classes/Navigation/Navigation.php:199
-#, fuzzy
-#| msgid "View"
 msgid "Views:"
-msgstr "תצוגה"
+msgstr "תצוגות:"
 
 #: libraries/classes/Navigation/Navigation.php:223
 #: libraries/classes/Tracking.php:163 tbl_change.php:146
@@ -8324,24 +8313,20 @@ msgid "Log out"
 msgstr "יציאה"
 
 #: libraries/classes/Navigation/NavigationHeader.php:175
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "הוצאת מידע עבור טבלה"
+msgstr "נתוני הפעלה ריקים"
 
 #: libraries/classes/Navigation/NavigationHeader.php:193
 msgid "phpMyAdmin documentation"
 msgstr "תיעוד phpMyAdmin"
 
 #: libraries/classes/Navigation/NavigationHeader.php:213
-#, fuzzy
 msgid "Navigation panel settings"
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "הגדרות לוח ניווט"
 
 #: libraries/classes/Navigation/NavigationHeader.php:224
-#, fuzzy
 msgid "Reload navigation panel"
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "טעינת לוח הניווט מחדש"
 
 #: libraries/classes/Navigation/NavigationTree.php:755
 msgid ""
@@ -8363,10 +8348,8 @@ msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1399
-#, fuzzy
-#| msgid "Save as file"
 msgid "Clear fast filter"
-msgstr "שמירה כקובץ"
+msgstr "פינוי המסנן המהיר"
 
 #: libraries/classes/Navigation/NavigationTree.php:1425
 msgid "Collapse all"
@@ -8379,10 +8362,9 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Add %s field(s)"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "הוספת %s תאים"
+msgstr "לא ניתן לטעון את המחלקה „%1$s”"
 
 #: libraries/classes/Navigation/Nodes/Node.php:796
 msgid "Expand/Collapse"
@@ -8391,10 +8373,8 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
 #: libraries/classes/SqlQueryForm.php:269
-#, fuzzy
-#| msgid "Column names"
 msgid "Columns"
-msgstr "שמות עמודה"
+msgstr "עמודות"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:35
 msgctxt "Create new column"
@@ -8405,13 +8385,11 @@ msgstr ""
 #, fuzzy
 #| msgid "Database export options"
 msgid "Database operations"
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "פעולות במסד נתונים"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:685
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show hidden items"
-msgstr "הראה רשת"
+msgstr "הצגת פריטים מוסתרים"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:36
 msgctxt "Create new database"
@@ -8429,7 +8407,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportXml.php:109
 #, fuzzy
 msgid "Functions"
-msgstr "פונקציה"
+msgstr "פונקציות"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:35
 msgctxt "Create new function"
@@ -8442,17 +8420,15 @@ msgid "New"
 msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:30
-#, fuzzy
 msgid "Procedure"
-msgstr "תהליכים"
+msgstr "נוהל"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:562
 #: libraries/classes/Plugins/Export/ExportXml.php:114
-#, fuzzy
 msgid "Procedures"
-msgstr "תהליכים"
+msgstr "נהלים"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:35
 #: libraries/classes/Rte/Footer.php:37
@@ -8515,24 +8491,18 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:200 normalization.php:19
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select one…"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "נא לבחור אחד…"
 
 #: libraries/classes/Normalization.php:201 normalization.php:20
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "No such column"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "אין כזו עמודה"
 
 #: libraries/classes/Normalization.php:205 libraries/classes/Types.php:722
 #: normalization.php:25
-#, fuzzy
-#| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "מחרוזת שורה"
+msgstr "מחרוזת"
 
 #: libraries/classes/Normalization.php:208
 msgid "split into "
@@ -17151,10 +17121,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
-#| msgid "Start"
 msgid "Sort rows"
-msgstr "שבת"
+msgstr "סידור שורות"
 
 #: libraries/advisory_rules.txt:221
 msgid "There are lots of rows being sorted."
@@ -17242,14 +17210,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:247
-#, fuzzy
 msgid "Rate of reading next table row"
-msgstr "יצירת עמוד חדש"
+msgstr "קצב קריאת השורה הבאה בטבלה"
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
 msgid "The rate of reading the next table row is high."
-msgstr "יצירת עמוד חדש"
+msgstr "קצב קריאת השורה הבאה בטבלה גבוה."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -17285,10 +17251,8 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
-#| msgid "Table of contents"
 msgid "Percentage of temp tables on disk"
-msgstr "תוכן עניניים"
+msgstr "אחוז הטבלאות הזמניות בכונן"
 
 #: libraries/advisory_rules.txt:265 libraries/advisory_rules.txt:272
 msgid ""
@@ -17315,10 +17279,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:269
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Temp disk rate"
-msgstr "%s טבלאות"
+msgstr "קצב זמניות בכונן"
 
 #: libraries/advisory_rules.txt:273
 msgid ""
@@ -17410,14 +17372,12 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:309
-#, fuzzy
 msgid "Rate of table open"
-msgstr "יצירת עמוד חדש"
+msgstr "קצב פתיחת טבלאות"
 
 #: libraries/advisory_rules.txt:312
-#, fuzzy
 msgid "The rate of opening tables is high."
-msgstr "חבילת הקידוד של הקובץ:"
+msgstr "קצב פתיחת הטבלאות גבוה."
 
 #: libraries/advisory_rules.txt:313
 msgid ""
@@ -17431,9 +17391,8 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: libraries/advisory_rules.txt:316
-#, fuzzy
 msgid "Percentage of used open files limit"
-msgstr "חבילת הקידוד של הקובץ:"
+msgstr "אחוז מגבלת הקבצים הפתוחים שנוצל"
 
 #: libraries/advisory_rules.txt:319
 msgid ""
@@ -17454,14 +17413,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:323
-#, fuzzy
 msgid "Rate of open files"
-msgstr "חבילת הקידוד של הקובץ:"
+msgstr "קצב פתיחת קבצים"
 
 #: libraries/advisory_rules.txt:326
-#, fuzzy
 msgid "The rate of opening files is high."
-msgstr "חבילת הקידוד של הקובץ:"
+msgstr "קצב פתיחת קבצים גבוה."
 
 #: libraries/advisory_rules.txt:328
 #, php-format
@@ -17600,16 +17557,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:381
-#, fuzzy
-#| msgid "Connections"
 msgid "Percentage of aborted connections"
-msgstr "חיבורים"
+msgstr "אחוז החיבורים הנקטעים"
 
 #: libraries/advisory_rules.txt:384 libraries/advisory_rules.txt:391
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "מאפשר יצירת טבלאות זמניות."
+msgstr "יותר מדי חיבורים נקטעים."
 
 #: libraries/advisory_rules.txt:385 libraries/advisory_rules.txt:392
 msgid ""
@@ -17624,10 +17577,8 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:388
-#, fuzzy
-#| msgid "Connections"
 msgid "Rate of aborted connections"
-msgstr "חיבורים"
+msgstr "קצב החיבורים הנקטעים"
 
 #: libraries/advisory_rules.txt:393
 #, php-format
@@ -17636,16 +17587,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:395
-#, fuzzy
-#| msgid "Table of contents"
 msgid "Percentage of aborted clients"
-msgstr "תוכן עניניים"
+msgstr "אחוז הלקוחות הנקטעים"
 
 #: libraries/advisory_rules.txt:398 libraries/advisory_rules.txt:405
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "מאפשר יצירת טבלאות זמניות."
+msgstr "יותר מדי לקוחות נקטעו."
 
 #: libraries/advisory_rules.txt:399 libraries/advisory_rules.txt:406
 msgid ""
@@ -17660,10 +17607,8 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:402
-#, fuzzy
-#| msgid "Table of contents"
 msgid "Rate of aborted clients"
-msgstr "תוכן עניניים"
+msgstr "קצב הלקוחות שנקטעו"
 
 #: libraries/advisory_rules.txt:407
 #, php-format
@@ -17719,11 +17664,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:425
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "גודל יומן ה־InnoDB המרבי"
 
 #: libraries/advisory_rules.txt:428
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "גודל קובץ היומן של InnoDB גדול באופן בלתי הולם."
 
 #: libraries/advisory_rules.txt:429
 #, php-format
@@ -17742,7 +17687,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:430
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "גודל המוחלט של יומן ה־InnoDB שלך הוא %s ‏MiB"
 
 #: libraries/advisory_rules.txt:432
 msgid "InnoDB buffer pool size"
@@ -17778,11 +17723,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:441
 msgid "MyISAM concurrent inserts"
-msgstr ""
+msgstr "הכנסות בו זמניות של MyISAM"
 
 #: libraries/advisory_rules.txt:444
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "הפעלת {concurrent_insert} על ידי שינוי ההגדרה ל־1"
 
 #: libraries/advisory_rules.txt:445
 msgid ""
