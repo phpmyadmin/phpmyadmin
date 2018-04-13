@@ -8,6 +8,11 @@
  */
 namespace PhpMyAdmin\Tests\Selenium;
 
+use PHPUnit_Extensions_Selenium2TestCase as Selenium2TestCase;
+use PHPUnit_Extensions_Selenium2TestCase_WebDriverException as WebDriverException;
+use PHPUnit\Framework\SkippedTestError;
+use PHPUnit\Framework\IncompleteTestError;
+
 /**
  * Base class for Selenium tests.
  *
@@ -15,7 +20,7 @@ namespace PhpMyAdmin\Tests\Selenium;
  * @subpackage Selenium
  * @group      selenium
  */
-abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
+abstract class TestBase extends Selenium2TestCase
 {
     /**
      * mysqli object
@@ -430,7 +435,7 @@ abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
             $element = call_user_func_array(
                 array($this, $func), array($arg)
             );
-        } catch (\PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
+        } catch (WebDriverException $e) {
             // Element not present
             return false;
         } catch (\InvalidArgumentException $e) {
@@ -570,7 +575,7 @@ abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
         $ele = null;
         try {
             $ele = $this->waitForElement('byCssSelector', 'li.submenu > a');
-        } catch (\PHPUnit_Extensions_Selenium2TestCase_WebDriverException $e) {
+        } catch (WebDriverException $e) {
             return;
         }
 
@@ -714,16 +719,18 @@ abstract class TestBase extends \PHPUnit_Extensions_Selenium2TestCase
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
      *
+     * @param \Throwable $e
+     *
      * @return void
      */
-    public function onNotSuccessfulTest($e)
+    public function onNotSuccessfulTest(\Throwable $e)
     {
         // If this is being run on Browerstack,
         // mark the test on Browerstack as failure
         if (! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
             && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])
-            && ! ($e instanceof PHPUnit_Framework_SkippedTestError)
-            && ! ($e instanceof PHPUnit_Framework_IncompleteTestError)
+            && ! ($e instanceof SkippedTestError)
+            && ! ($e instanceof IncompleteTestError)
         ) {
             $SESSION_REST_URL = 'https://www.browserstack.com/automate/sessions/';
             $sessionId = $this->getSessionId();
