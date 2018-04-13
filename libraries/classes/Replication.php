@@ -27,7 +27,7 @@ class Replication
      *
      * @return array
      */
-    public static function fillInfo(
+    public function fillInfo(
         $type, $replicationInfoKey, array $mysqlInfo, $mysqlKey
     ) {
         $GLOBALS['replication_info'][$type][$replicationInfoKey]
@@ -49,7 +49,7 @@ class Replication
      *
      * @return string the extracted part
      */
-    public static function extractDbOrTable($string, $what = 'db')
+    public function extractDbOrTable($string, $what = 'db')
     {
         $list = explode(".", $string);
         if ('db' == $what) {
@@ -71,7 +71,7 @@ class Replication
      *
      * @return mixed output of DatabaseInterface::tryQuery
      */
-    public static function slaveControl($action, $control = null, $link = null)
+    public function slaveControl($action, $control = null, $link = null)
     {
         $action = mb_strtoupper($action);
         $control = mb_strtoupper($control);
@@ -101,11 +101,11 @@ class Replication
      *
      * @return string output of CHANGE MASTER mysql command
      */
-    public static function slaveChangeMaster($user, $password, $host, $port,
+    public function slaveChangeMaster($user, $password, $host, $port,
         array $pos, $stop = true, $start = true, $link = null
     ) {
         if ($stop) {
-            self::slaveControl("STOP", null, $link);
+            $this->slaveControl("STOP", null, $link);
         }
 
         $out = $GLOBALS['dbi']->tryQuery(
@@ -119,7 +119,7 @@ class Replication
         );
 
         if ($start) {
-            self::slaveControl("START", null, $link);
+            $this->slaveControl("START", null, $link);
         }
 
         return $out;
@@ -136,7 +136,7 @@ class Replication
      *
      * @return mixed $link mysql link on success
      */
-    public static function connectToMaster(
+    public function connectToMaster(
         $user, $password, $host = null, $port = null, $socket = null
     ) {
         $server = array();
@@ -157,9 +157,9 @@ class Replication
      * @param mixed $link mysql link
      *
      * @return array an array containing File and Position in MySQL replication
-     * on master server, useful for self::slaveChangeMaster
+     * on master server, useful for slaveChangeMaster()
      */
-    public static function slaveBinLogMaster($link = null)
+    public function slaveBinLogMaster($link = null)
     {
         $data = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS', null, null, $link);
         $output = array();
