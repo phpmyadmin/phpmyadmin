@@ -52,7 +52,7 @@ Basic settings
 
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
-    ``https://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
+    ``https://www.example.net/path_to_your_phpMyAdmin_directory/``. Note also
     that the :term:`URL` on most of web servers are case sensitive (even on
     Windows). Don’t forget the trailing slash at the end.
 
