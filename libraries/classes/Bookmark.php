@@ -61,7 +61,7 @@ class Bookmark
      */
     private $user;
 
-    public function __construct(DatabaseInterface $dbi, $user)
+    public function __construct(DatabaseInterface $dbi, string $user)
     {
         $this->dbi = $dbi;
         $this->user = $user;
@@ -72,7 +72,7 @@ class Bookmark
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->_id;
     }
@@ -82,7 +82,7 @@ class Bookmark
      *
      * @return string
      */
-    public function getDatabase()
+    public function getDatabase(): string
     {
         return $this->_database;
     }
@@ -92,7 +92,7 @@ class Bookmark
      *
      * @return string
      */
-    public function getUser()
+    public function getUser(): string
     {
         return $this->_user;
     }
@@ -102,7 +102,7 @@ class Bookmark
      *
      * @return string
      */
-    public function getLabel()
+    public function getLabel(): string
     {
         return $this->_label;
     }
@@ -112,7 +112,7 @@ class Bookmark
      *
      * @return string
      */
-    public function getQuery()
+    public function getQuery(): string
     {
         return $this->_query;
     }
@@ -124,7 +124,7 @@ class Bookmark
      *
      * @access public
      */
-    public function save()
+    public function save(): bool
     {
         $cfgBookmark = self::getParams($this->user);
         if (empty($cfgBookmark)) {
@@ -148,7 +148,7 @@ class Bookmark
      *
      * @access public
      */
-    public function delete()
+    public function delete(): bool
     {
         $cfgBookmark = self::getParams($this->user);
         if (empty($cfgBookmark)) {
@@ -166,7 +166,7 @@ class Bookmark
      *
      * @return number number of variables
      */
-    public function getVariableCount()
+    public function getVariableCount(): int
     {
         $matches = array();
         preg_match_all("/\[VARIABLE[0-9]*\]/", $this->_query, $matches, PREG_SET_ORDER);
@@ -180,7 +180,7 @@ class Bookmark
      *
      * @return string query with variables applied
      */
-    public function applyVariables(array $variables)
+    public function applyVariables(array $variables): string
     {
         // remove comments that encloses a variable placeholder
         $query = preg_replace(
@@ -207,10 +207,10 @@ class Bookmark
     /**
      * Defines the bookmark parameters for the current user
      *
-     * @return array the bookmark parameters for the current user
+     * @return array|bool the bookmark parameters for the current user
      * @access  public
      */
-    public static function getParams($user)
+    public static function getParams(string $user)
     {
         static $cfgBookmark = null;
 
@@ -245,9 +245,9 @@ class Bookmark
      */
     public static function createBookmark(
         DatabaseInterface $dbi,
-        $user,
+        string $user,
         array $bkm_fields,
-        $all_users = false
+        bool $all_users = false
     ) {
         if (!(isset($bkm_fields['bkm_sql_query'])
             && strlen($bkm_fields['bkm_sql_query']) > 0
@@ -275,8 +275,11 @@ class Bookmark
      *
      * @access public
      */
-    public static function getList(DatabaseInterface $dbi, $user, $db = false)
-    {
+    public static function getList(
+        DatabaseInterface $dbi,
+        string $user,
+        $db = false
+    ): array {
         $cfgBookmark = self::getParams($user);
         if (empty($cfgBookmark)) {
             return array();
@@ -334,13 +337,13 @@ class Bookmark
      */
     public static function get(
         DatabaseInterface $dbi,
-        $user,
-        $db,
+        string $user,
+        string $db,
         $id,
-        $id_field = 'id',
-        $action_bookmark_all = false,
-        $exact_user_match = false
-    ) {
+        string $id_field = 'id',
+        bool $action_bookmark_all = false,
+        bool $exact_user_match = false
+    ): ?self {
         $cfgBookmark = self::getParams($user);
         if (empty($cfgBookmark)) {
             return null;
