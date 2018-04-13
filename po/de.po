@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-04 11:37+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"PO-Revision-Date: 2018-04-13 21:24+0000\n"
+"Last-Translator: Florian Knodt <git@adlerweb.info>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -10248,10 +10248,8 @@ msgstr ""
 "unterstützen."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Signon-Authentifizierung"
+msgstr "Einfache Zwei-Faktor-Authentifizierung"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 #, fuzzy
@@ -10259,16 +10257,13 @@ msgid "For testing purposes only!"
 msgstr "Nur für Testzwecke!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Hardware Authentisierung fehlgeschlagen!"
+msgstr "Zwei-Faktor-Authentifizierung fehlgeschlagen: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Hardware Authentisierung fehlgeschlagen!"
+msgstr "Zwei-Faktor-Authentifizierung fehlgeschlagen."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
@@ -14162,10 +14157,8 @@ msgid "Manage your settings"
 msgstr "Einstellungen verwalten"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Config-Authentifizierung"
+msgstr "Zwei-Faktor-Authentifizierung"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:296
 msgid "Configuration has been saved."
@@ -14273,16 +14266,12 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr "Sie können alle Einstellungen auf die Standardwerte zurücksetzen."
 
 #: prefs_twofactor.php:29
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Interne Verknüpfung wurde beseitigt."
+msgstr "Zwei-Faktor-Authentifizierung wurde entfernt."
 
 #: prefs_twofactor.php:39
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Ungültige Authentifikationsmethode:"
+msgstr "Zwei-Faktor-Authentifizierung wurde eingerichtet."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
@@ -14660,10 +14649,8 @@ msgid ""
 msgstr ""
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Config-Authentifizierung"
+msgstr "Zwei-Faktor-Authentifizierung deaktivieren"
 
 #: templates/database/tracking/tracked_tables.twig:2
 msgid "Tracked tables"
@@ -14706,16 +14693,13 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "Datei kann komprimiert (%s) oder unkomprimiert sein."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"Der Dateiname einer komprimierten Datei muss mit <b>.[Format]."
-"[Komprimierung]</b> enden. Beispiel: <b>.sql.zip</b>"
+"Der Dateiname einer komprimierten Datei muss mit "
+"<strong>.[Format].[Komprimierung]</strong> enden. Beispiel: "
+"<strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -14746,19 +14730,14 @@ msgstr ""
 "abgebrochen. Er wird nun bei Position %d fortgesetzt."
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"Import abbrechen, wenn die maximale PHP-Scriptlaufzeit erreicht wird. "
-"<i>(Damit ist es möglich, große Dateien zu importieren, allerdings kann es "
-"Transaktionen zerstören.)</i>"
+"Import abbrechen, wenn die maximale PHP-Scriptlaufzeit erreicht wird. <em>("
+"Damit ist es möglich, große Dateien zu importieren, allerdings kann es "
+"Transaktionen zerstören.)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -14892,10 +14871,9 @@ msgstr "Ausgabe:"
 
 #: templates/display/export/options_quick_export.twig:8
 #: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Speichere auf dem Server im Verzeichnis <b>%s</b>"
+msgstr "Speichere auf dem Server im Verzeichnis <strong>%s</strong>"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -14909,10 +14887,9 @@ msgid ""
 msgstr ""
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Springe zu Datenbank"
+msgstr "Springe zu Datenbank '%s'"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -15500,10 +15477,8 @@ msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Überflüssige Spalten entfernen"
+msgstr "Diese Spalte entfernen"
 
 #: templates/database/multi_table_query/form.twig:143
 #: templates/table/relation/foreign_key_row.twig:91
@@ -15964,16 +15939,13 @@ msgid ""
 msgstr "Fehlende phpMyAdmin-Konfigurationsspeicher-Tabellen %sanlegen%s."
 
 #: templates/prefs_twofactor.twig:33
-#, fuzzy
 msgid "You have enabled two factor authentication."
 msgstr "Sie haben Zwei-Faktor-Authentifizierung aktiviert."
 
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Config-Authentifizierung"
+msgstr "Zwei-Faktor-Authentifizierung konfigurieren"
 
 #: templates/database/search/results.twig:12
 #, php-format
@@ -15983,13 +15955,10 @@ msgstr[0] "%1$s Treffer in <strong>%2$s</strong>"
 msgstr[1] "%1$s Treffer in <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Insgesamt</b> <i>%s</i> Treffer"
-msgstr[1] "<b>Insgesamt</b> <i>%s</i> Treffer"
+msgstr[0] "<strong>Insgesamt</strong> <em>%s</em> Treffer"
+msgstr[1] "<strong>Insgesamt</strong> <em>%s</em> Treffer"
 
 #: templates/display/export/template_loading.twig:2
 msgid "Export templates:"
@@ -16046,10 +16015,9 @@ msgid "Save output to a file"
 msgstr "Speichere Ausgabe in Datei"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Überspringe Tabellen größer als"
+msgstr "Überspringe Tabellen größer als %s MiB"
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -16151,12 +16119,12 @@ msgid "Add privileges on the following routine:"
 msgstr "Rechte zu folgender Routine hinzufügen:"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
-msgstr "Fehlende phpMyAdmin-Konfigurationsspeicher-Tabellen %sanlegen%s."
+msgstr ""
+"Die konfigurierte Zwei-Faktor-Authentifizierung ist nicht verfügbar, bitte "
+"installieren Sie fehlende Abhängigkeiten."
 
 #: templates/table/tracking/structure_snapshot_columns.twig:47
 #: templates/table/structure/table_structure_row.twig:34
@@ -16259,8 +16227,6 @@ msgid "Hide/Show all"
 msgstr "Alles ein-/ausblenden"
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
 msgstr "Tabellen ohne Verknüpfung aus-/einblenden"
 
@@ -16481,10 +16447,8 @@ msgid "Index choice:"
 msgstr "Index Auswahl:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Aktive Optionen"
+msgstr "Zusätzliche Optionen"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -16519,16 +16483,13 @@ msgid "Effective"
 msgstr "Effektiv"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Config-Authentifizierung"
+msgstr "Zwei-Faktor-Authentifizierung aktivieren"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Erzeuge Benutzer"
+msgstr "Erzeuge %s"
 
 #: templates/database/structure/structure_table_row.twig:222
 msgid "in use"
