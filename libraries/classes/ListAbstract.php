@@ -55,17 +55,17 @@ abstract class ListAbstract extends ArrayObject
      * checks if the given db names exists in the current list, if there is
      * missing at least one item it returns false otherwise true
      *
-     * @return boolean true if all items exists, otherwise false
+     * @param mixed ...$params
+     * @return bool true if all items exists, otherwise false
      */
-    public function exists()
+    public function exists(...$params)
     {
         $this_elements = $this->getArrayCopy();
-        foreach (func_get_args() as $result) {
+        foreach ($params as $result) {
             if (! in_array($result, $this_elements)) {
                 return false;
             }
         }
-
         return true;
     }
 

@@ -33,11 +33,11 @@ class PmaTestCase extends TestCase
     /**
      * Creates mock of Response object for header testing
      *
-     * @param mixed $param parameter for header method
+     * @param mixed ...$param parameter for header method
      *
      * @return void
      */
-    public function mockResponse()
+    public function mockResponse(...$param)
     {
         $this->restoreInstance = Response::getInstance();
 
@@ -54,8 +54,6 @@ class PmaTestCase extends TestCase
             ->method('headersSent')
             ->with()
             ->will($this->returnValue(false));
-
-        $param = func_get_args();
 
         if (count($param) > 0) {
             if (is_array($param[0])) {
