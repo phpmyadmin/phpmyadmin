@@ -11,7 +11,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\DatabaseList;
 use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Dbi\DbiDummy;
-use PhpMyAdmin\Dbi\DbiMysql;
 use PhpMyAdmin\Dbi\DbiMysqli;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Error;
@@ -2987,64 +2986,20 @@ class DatabaseInterface
              */
             $extension = new DbiDummy();
         } else {
-
-            /**
-             * First check for the mysqli extension, as it's the one recommended
-             * for the MySQL server's version that we support
-             * (if PHP 7+, it's the only one supported)
-             */
-            $extension = 'mysqli';
-            if (! self::checkDbExtension($extension)) {
-
+            if (! self::checkDbExtension('mysqli')) {
                 $docurl = Util::getDocuLink('faq', 'faqmysql');
                 $doclink = sprintf(
                     __('See %sour documentation%s for more information.'),
                     '[a@' . $docurl  . '@documentation]',
                     '[/a]'
                 );
-
-                if (PHP_VERSION_ID < 70000) {
-                    $extension = 'mysql';
-                    if (! self::checkDbExtension($extension)) {
-                        // warn about both extensions missing and exit
-                        Core::warnMissingExtension(
-                            'mysqli',
-                            true,
-                            $doclink
-                        );
-                    } elseif (empty($_SESSION['mysqlwarning'])) {
-                        trigger_error(
-                            __(
-                                'You are using the mysql extension which is deprecated in '
-                                . 'phpMyAdmin. Please consider installing the mysqli '
-                                . 'extension.'
-                            ) . ' ' . $doclink,
-                            E_USER_WARNING
-                        );
-                        // tell the user just once per session
-                        $_SESSION['mysqlwarning'] = true;
-                    }
-                } else {
-                    // mysql extension is not part of PHP 7+, so warn and exit
-                    Core::warnMissingExtension(
-                        'mysqli',
-                        true,
-                        $doclink
-                    );
-                }
+                Core::warnMissingExtension(
+                    'mysqli',
+                    true,
+                    $doclink
+                );
             }
-
-            /**
-             * Including The DBI Plugin
-             */
-            switch($extension) {
-            case 'mysql' :
-                $extension = new DbiMysql();
-                break;
-            case 'mysqli' :
-                $extension = new DbiMysqli();
-                break;
-            }
+            $extension = new DbiMysqli();
         }
         $GLOBALS['dbi'] = new DatabaseInterface($extension);
 
