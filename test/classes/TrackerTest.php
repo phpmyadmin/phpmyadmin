@@ -11,7 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
-use PHPUnit_Framework_Assert as Assert;
+use PHPUnit\Framework\Assert;
 use ReflectionClass;
 
 /**

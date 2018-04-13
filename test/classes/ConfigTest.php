@@ -10,8 +10,8 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
-use PHPUnit_Framework_Assert as Assert;
+use PHPUnit\Framework\Assert;
+use PHPUnit\Framework\Exception;
 
 /**
  * Tests behaviour of PhpMyAdmin\Config class
@@ -923,7 +923,7 @@ class ConfigTest extends PmaTestCase
     public function testCheckServers($settings, $expected, $error = false)
     {
         if ($error) {
-            $this->setExpectedException('PHPUnit_Framework_Error');
+            $this->expectException(Exception::class);
         }
 
         $this->object->settings['Servers'] = $settings;
