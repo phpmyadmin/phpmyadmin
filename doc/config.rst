@@ -3228,6 +3228,18 @@ Theme manager settings
 
     Whether to allow different theme for each server.
 
+.. config:option:: $cfg['FontSize']	
+
+    :type: string	
+    :default: '82%'	
+	
+	.. deprecated:: 4.8.0
+
+		This setting was removed as the browser is more efficient,
+		thus no need of this option.
+
+    Font size to use, is applied in CSS.	
+
 Default queries
 ---------------
 
