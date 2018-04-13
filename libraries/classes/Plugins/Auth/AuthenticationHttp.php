@@ -15,8 +15,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 
-require_once './libraries/hash.lib.php';
-
 /**
  * Handles the HTTP authentication methods
  *

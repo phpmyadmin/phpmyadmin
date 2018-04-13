@@ -10,8 +10,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
 
-require_once './libraries/hash.lib.php';
-
 /**
  * PhpMyAdmin\IpAllowDeny class
  *

@@ -73,11 +73,6 @@ define('PHPMYADMIN', true);
 require_once './libraries/vendor_config.php';
 
 /**
- * Load hash polyfill.
- */
-require_once './libraries/hash.lib.php';
-
-/**
  * Activate autoloader
  */
 if (! @is_readable(AUTOLOAD_FILE)) {
