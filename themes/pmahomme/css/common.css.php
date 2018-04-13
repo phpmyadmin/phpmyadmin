@@ -3591,6 +3591,13 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
 .responsivetable {
     overflow-x: auto;
 }
+
+#horizontal_scroll_reflect {
+    height: 13px;
+    overflow-x: auto;
+    z-index: 2;
+}
+
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     #main_pane_left {
