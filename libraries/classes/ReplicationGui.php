@@ -22,6 +22,19 @@ use PhpMyAdmin\Util;
 class ReplicationGui
 {
     /**
+     * @var Replication
+     */
+    private $replication;
+
+    /**
+     * ReplicationGui constructor.
+     */
+    public function __construct()
+    {
+        $this->replication = new Replication();
+    }
+
+    /**
      * returns HTML for error message
      *
      * @return string HTML code
@@ -986,7 +999,7 @@ class ReplicationGui
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
         // Attempt to connect to the new master server
-        $link_to_master = Replication::connectToMaster(
+        $link_to_master = $this->replication->connectToMaster(
             $sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']
         );
 
@@ -998,7 +1011,7 @@ class ReplicationGui
             );
         } else {
             // Read the current master position
-            $position = Replication::slaveBinLogMaster($link_to_master);
+            $position = $this->replication->slaveBinLogMaster($link_to_master);
 
             if (empty($position)) {
                 $_SESSION['replication']['sr_action_status'] = 'error';
@@ -1010,7 +1023,7 @@ class ReplicationGui
             } else {
                 $_SESSION['replication']['m_correct']  = true;
 
-                if (! Replication::slaveChangeMaster(
+                if (! $this->replication->slaveChangeMaster(
                     $sr['username'],
                     $sr['pma_pw'],
                     $sr['hostname'],
@@ -1047,15 +1060,15 @@ class ReplicationGui
             $_REQUEST['sr_slave_control_parm'] = null;
         }
         if ($_REQUEST['sr_slave_action'] == 'reset') {
-            $qStop = Replication::slaveControl("STOP");
+            $qStop = $this->replication->slaveControl("STOP");
             $qReset = $GLOBALS['dbi']->tryQuery("RESET SLAVE;");
-            $qStart = Replication::slaveControl("START");
+            $qStart = $this->replication->slaveControl("START");
 
             $result = ($qStop !== false && $qStop !== -1 &&
                 $qReset !== false && $qReset !== -1 &&
                 $qStart !== false && $qStart !== -1);
         } else {
-            $qControl = Replication::slaveControl(
+            $qControl = $this->replication->slaveControl(
                 $_REQUEST['sr_slave_action'],
                 $_REQUEST['sr_slave_control_parm']
             );
@@ -1078,11 +1091,11 @@ class ReplicationGui
             $count = $_REQUEST['sr_skip_errors_count'] * 1;
         }
 
-        $qStop = Replication::slaveControl("STOP");
+        $qStop = $this->replication->slaveControl("STOP");
         $qSkip = $GLOBALS['dbi']->tryQuery(
             "SET GLOBAL SQL_SLAVE_SKIP_COUNTER = " . $count . ";"
         );
-        $qStart = Replication::slaveControl("START");
+        $qStart = $this->replication->slaveControl("START");
 
         $result = ($qStop !== false && $qStop !== -1 &&
             $qSkip !== false && $qSkip !== -1 &&
