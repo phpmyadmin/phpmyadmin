@@ -385,12 +385,12 @@ class CentralColumnsTest extends TestCase
     {
         $this->assertTrue(
             $this->centralColumns->updateOneColumn(
-                "phpmyadmin", "", "", "", "", "", "", "", "", ""
+                "phpmyadmin", "", "", "", "", "", 0, "", "", ""
             )
         );
         $this->assertTrue(
             $this->centralColumns->updateOneColumn(
-                "phpmyadmin", "col1", "", "", "", "", "", "", "", ""
+                "phpmyadmin", "col1", "", "", "", "", 0, "", "", ""
             )
         );
     }

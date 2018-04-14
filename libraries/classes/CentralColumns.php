@@ -82,7 +82,7 @@ class CentralColumns
     /**
      * Defines the central_columns parameters for the current user
      *
-     * @return array the central_columns parameters for the current user
+     * @return array|bool the central_columns parameters for the current user
      * @access public
      */
     public function getParams()
@@ -119,7 +119,7 @@ class CentralColumns
      * @return array list of $num columns present in central columns list
      * starting at offset $from for the given database
      */
-    public function getColumnsList($db, $from = 0, $num = 25)
+    public function getColumnsList(string $db, int $from = 0, int $num = 25): array
     {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
@@ -151,7 +151,7 @@ class CentralColumns
      *
      * @return int number of columns in central list of columns for $db
      */
-    public function getCount($db)
+    public function getCount(string $db): int
     {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
@@ -184,10 +184,10 @@ class CentralColumns
      * @return array list of columns in central columns among given set of columns
      */
     private function findExistingColNames(
-        $db,
-        $cols,
-        $allFields = false
-    ) {
+        string $db,
+        string $cols,
+        bool $allFields = false
+    ): array {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
             return array();
@@ -220,7 +220,7 @@ class CentralColumns
      *
      * @return Message
      */
-    private function configErrorMessage()
+    private function configErrorMessage(): Message
     {
         return Message::error(
             __(
@@ -243,11 +243,11 @@ class CentralColumns
      * with definition into central list
      */
     private function getInsertQuery(
-        $column,
+        string $column,
         array $def,
-        $db,
-        $central_list_table
-    ) {
+        string $db,
+        string $central_list_table
+    ): string {
         $type = "";
         $length = 0;
         $attribute = "";
@@ -292,8 +292,8 @@ class CentralColumns
      */
     public function syncUniqueColumns(
         array $field_select,
-        $isTable = true,
-        $table = null
+        bool $isTable = true,
+        ?string $table = null
     ) {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
@@ -400,7 +400,7 @@ class CentralColumns
      */
     public function deleteColumnsFromList(
         array $field_select,
-        $isTable = true
+        bool $isTable = true
     ) {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
@@ -484,7 +484,7 @@ class CentralColumns
      * @return true|PhpMyAdmin\Message
      */
     public function makeConsistentWithList(
-        $db,
+        string $db,
         array $selected_tables
     ) {
         $message = true;
@@ -556,10 +556,10 @@ class CentralColumns
      * @return array columns present in central list from given table of given db.
      */
     public function getFromTable(
-        $db,
-        $table,
-        $allFields = false
-    ) {
+        string $db,
+        string $table,
+        bool $allFields = false
+    ): array {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
             return array();
@@ -598,16 +598,16 @@ class CentralColumns
      * @return true|PhpMyAdmin\Message
      */
     public function updateOneColumn(
-        $db,
-        $orig_col_name,
-        $col_name,
-        $col_type,
-        $col_attribute,
-        $col_length,
-        $col_isNull,
-        $collation,
-        $col_extra,
-        $col_default
+        string $db,
+        string $orig_col_name,
+        string $col_name,
+        string $col_type,
+        string $col_attribute,
+        string $col_length,
+        int $col_isNull,
+        string $collation,
+        string $col_extra,
+        string $col_default
     ) {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
@@ -699,8 +699,11 @@ class CentralColumns
      *
      * @return string html for table navigation in Central columns page
      */
-    public function getHtmlForTableNavigation($total_rows, $pos, $db)
-    {
+    public function getHtmlForTableNavigation(
+        int $total_rows,
+        int $pos,
+        string $db
+    ): string {
         $pageNow = ($pos / $this->maxRows) + 1;
         $nbTotalPage = ceil($total_rows / $this->maxRows);
         $page_selector = ($nbTotalPage > 1)?(Util::pageselector(
@@ -725,8 +728,11 @@ class CentralColumns
      *
      * @return string html for table header in central columns view/edit page
      */
-    public function getTableHeader($class = '', $title = '', $actionCount = 0)
-    {
+    public function getTableHeader(
+        string $class = '',
+        string $title = '',
+        int $actionCount = 0
+    ): string {
         $action = '';
         if ($actionCount > 0) {
             $action .= '<th class="column_action" colspan="' . $actionCount . '">'
@@ -767,7 +773,7 @@ class CentralColumns
      *
      * @return string html for table header in central columns multi edit page
      */
-    private function getEditTableHeader(array $headers)
+    private function getEditTableHeader(array $headers): string
     {
         return Template::get(
             'database/central_columns/edit_table_header'
@@ -783,7 +789,7 @@ class CentralColumns
      *
      * @return string html dropdown for selecting table
      */
-    private function getHtmlForTableDropdown($db)
+    private function getHtmlForTableDropdown(string $db): string
     {
         $this->dbi->selectDb($db);
         $tables = $this->dbi->getTables($db);
@@ -807,8 +813,10 @@ class CentralColumns
      *
      * @return string html to select column
      */
-    public function getHtmlForColumnDropdown($db, $selected_tbl)
-    {
+    public function getHtmlForColumnDropdown(
+        string $db,
+        string $selected_tbl
+    ): string {
         $existing_cols = $this->getFromTable($db, $selected_tbl);
         $this->dbi->selectDb($db);
         $columns = (array) $this->dbi->getColumnNames(
@@ -835,10 +843,10 @@ class CentralColumns
      * @return string html to add a column in the central list
      */
      public function getHtmlForAddColumn(
-         $total_rows,
-         $pos,
-         $db
-     ) {
+         int $total_rows,
+         int $pos,
+         string $db
+     ): string {
          $icon = Util::getIcon(
              'centralColumns_add',
              __('Add column')
@@ -862,7 +870,7 @@ class CentralColumns
      *
      * @return string html of a particular row in the central columns table.
      */
-    public function getHtmlForTableRow(array $row, $row_num, $db)
+    public function getHtmlForTableRow(array $row, int $row_num, string $db): string
     {
         $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '">'
             . Url::getHiddenInputs(
@@ -1034,7 +1042,7 @@ class CentralColumns
      *
      * @return string html of a particular row in the central columns table.
      */
-    private function getHtmlForEditTableRow(array $row, $row_num)
+    private function getHtmlForEditTableRow(array $row, int $row_num): string
     {
         $tableHtml = '<tr>'
             . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
@@ -1171,7 +1179,7 @@ class CentralColumns
      * @return string encoded list of columns present in central list for the given
      *                database
      */
-    public function getListRaw($db, $table)
+    public function getListRaw(string $db, string $table): string
     {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
@@ -1214,7 +1222,7 @@ class CentralColumns
      *
      * @return string $html_output
      */
-    public function getTableFooter($pmaThemeImage, $text_dir)
+    public function getTableFooter(string $pmaThemeImage, string $text_dir): string
     {
         $html_output = Template::get('select_all')
             ->render(
@@ -1242,7 +1250,7 @@ class CentralColumns
      *
      * @return string html for table footer in central columns multi edit page
      */
-    private function getEditTableFooter()
+    private function getEditTableFooter(): string
     {
         $html_output = '<fieldset class="tblFooters">'
             . '<input type="submit" '
@@ -1259,7 +1267,7 @@ class CentralColumns
      *
      * @return void
      */
-    private function handleColumnExtra(array &$columns_list)
+    private function handleColumnExtra(array &$columns_list): void
     {
         foreach ($columns_list as &$row) {
             $vals = explode(',', $row['col_extra']);
@@ -1293,7 +1301,7 @@ class CentralColumns
      * @return string html of the form to let user add a new user defined column to the
      *                list
      */
-    public function getHtmlForAddNewColumn($db, $total_rows)
+    public function getHtmlForAddNewColumn(string $db, int $total_rows): string
     {
         $addNewColumn = '<div id="add_col_div" class="topmargin"><a href="#">'
             . '<span>+</span> ' . __('Add new column') . '</a>'
@@ -1416,7 +1424,7 @@ class CentralColumns
      *
      * @return string HTML for complete editing page for central columns
      */
-    public function getHtmlForEditingPage(array $selected_fld, $selected_db)
+    public function getHtmlForEditingPage(array $selected_fld, string $selected_db): string
     {
         $html = '<form id="multi_edit_central_columns">';
         $header_cells = array(
