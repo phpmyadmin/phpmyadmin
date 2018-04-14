@@ -16,7 +16,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 
 /* general tags */
 html {
-    font-size: <?php echo $theme->getFontSize(); ?>
+    font-size: 82%;
 }
 
 input,

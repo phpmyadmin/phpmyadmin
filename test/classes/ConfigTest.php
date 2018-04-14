@@ -81,71 +81,6 @@ class ConfigTest extends PmaTestCase
     }
 
     /**
-     * Test for GetFontsizeForm
-     *
-     * @return void
-     */
-    public function testGetFontsizeForm()
-    {
-        $this->assertContains(
-            '<form name="form_fontsize_selection" id="form_fontsize_selection"',
-            Config::getFontsizeForm()
-        );
-
-        $this->assertContains(
-            '<label for="select_fontsize">',
-            Config::getFontsizeForm()
-        );
-
-        //test getFontsizeOptions for "em" unit
-        $fontsize = $GLOBALS['PMA_Config']->get('FontSize');
-        $GLOBALS['PMA_Config']->set('FontSize', '10em');
-        $this->assertContains(
-            '<option value="7em"',
-            Config::getFontsizeForm()
-        );
-        $this->assertContains(
-            '<option value="8em"',
-            Config::getFontsizeForm()
-        );
-
-        //test getFontsizeOptions for "pt" unit
-        $GLOBALS['PMA_Config']->set('FontSize', '10pt');
-        $this->assertContains(
-            '<option value="2pt"',
-            Config::getFontsizeForm()
-        );
-        $this->assertContains(
-            '<option value="4pt"',
-            Config::getFontsizeForm()
-        );
-
-        //test getFontsizeOptions for "px" unit
-        $GLOBALS['PMA_Config']->set('FontSize', '10px');
-        $this->assertContains(
-            '<option value="5px"',
-            Config::getFontsizeForm()
-        );
-        $this->assertContains(
-            '<option value="6px"',
-            Config::getFontsizeForm()
-        );
-
-        //test getFontsizeOptions for unknown unit
-        $GLOBALS['PMA_Config']->set('FontSize', '10abc');
-        $this->assertContains(
-            '<option value="7abc"',
-            Config::getFontsizeForm()
-        );
-        $this->assertContains(
-            '<option value="8abc"',
-            Config::getFontsizeForm()
-        );
-        //rollback the fontsize setting
-        $GLOBALS['PMA_Config']->set('FontSize', $fontsize);
-    }
-
-    /**
      * Test for checkOutputCompression
      *
      * @return void
@@ -822,15 +757,7 @@ class ConfigTest extends PmaTestCase
             $GLOBALS['PMA_Theme']->filesize_info
         );
 
-        $this->object->set('FontSize', 10);
-        $this->assertEquals(10 + $partial_sum, $this->object->getThemeUniqueValue());
-
-        $this->object->set('FontSize', 20);
-        $this->assertEquals(20 + $partial_sum, $this->object->getThemeUniqueValue());
-        $this->object->set('FontSize', null);
-
         $this->assertEquals($partial_sum, $this->object->getThemeUniqueValue());
-        $this->object->set('FontSize', '82%');
 
     }
 

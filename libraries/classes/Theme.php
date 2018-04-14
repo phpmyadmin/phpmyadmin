@@ -416,20 +416,6 @@ class Theme
     }
 
     /**
-     * Gets currently configured font size.
-     *
-     * @return String with font size.
-     */
-    function getFontSize()
-    {
-        $fs = $GLOBALS['PMA_Config']->get('FontSize');
-        if (!is_null($fs)) {
-            return $fs;
-        }
-        return '82%';
-    }
-
-    /**
      * Generates code for CSS gradient using various browser extensions.
      *
      * @param string $start_color Color of gradient start, hex value without #
