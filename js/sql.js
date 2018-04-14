@@ -79,9 +79,11 @@ function setShowThisQuery () {
     var db = $('input[name="db"]').val();
     var table = $('input[name="table"]').val();
     if (isStorageSupported('localStorage')) {
-        var stored_db = JSON.parse(window.localStorage.show_this_query_object).db;
-        var stored_table = JSON.parse(window.localStorage.show_this_query_object).table;
-        var stored_query = JSON.parse(window.localStorage.show_this_query_object).query;
+        if (window.localStorage.show_this_query_object !== undefined) {
+            var stored_db = JSON.parse(window.localStorage.show_this_query_object).db;
+            var stored_table = JSON.parse(window.localStorage.show_this_query_object).table;
+            var stored_query = JSON.parse(window.localStorage.show_this_query_object).query;
+        }
         if (window.localStorage.show_this_query !== undefined
             && window.localStorage.show_this_query === '1') {
             $('input[name="show_query"]').prop('checked', true);
@@ -207,7 +209,9 @@ AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function () {
-    setShowThisQuery();
+    if (codemirror_editor || document.sqlform) {
+        setShowThisQuery();
+    }
     $(function () {
         if (codemirror_editor) {
             codemirror_editor.on('change', function () {
