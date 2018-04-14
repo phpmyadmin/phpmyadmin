@@ -3233,7 +3233,7 @@ Theme manager settings
     :type: string
     :default: '82%'
     
-    .. deprecated:: 4.8.0
+    .. deprecated:: 5.0.0
 
         This setting was removed as the browser is more efficient,
         thus no need of this option.
