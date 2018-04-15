@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2017-01-17 17:34+0000\n"
-"Last-Translator: Sevdimali İsa <sevdimaliisayev@mail.ru>\n"
+"PO-Revision-Date: 2018-04-16 15:34+0000\n"
+"Last-Translator: Orkhan Guliyev <orkhan@our.az>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/az/>\n"
 "Language: az\n"
@@ -13,23 +13,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
 msgstr "Pis tip!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"%s faylı sistemdə yoxdur. Bütün lazımi informasiyanı www.phpmyadmin.net "
-"saytından tapa bilərsiniz."
+"%s faylı sistemdə yoxdur. Bütün lazımi informasiyanı %s saytından tapa "
+"bilərsiniz."
 
 #: db_central_columns.php:127
 msgid "The central list of columns for the current database is empty."
@@ -313,6 +310,8 @@ msgstr "Cədvəlin adı göstərilməyib!"
 #: db_operations.php:67
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"Eyniadlı məlumat bazasını kopyalamaq mümkün deyil. Adı dəyişin və yenidən "
+"cəhd edin."
 
 #: db_operations.php:154
 #, php-format
@@ -606,6 +605,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"Sonuncu start zamanı məlumatlar emal edilmədi. Bir qayda olaraq bu o "
+"deməkdir ki, php skriptin icrası üçün məhdudiyyət yüksəldilməyənədək "
+"phpMyAdmin idxal prosesini bitirə bilməyəcək."
 
 #: import.php:704 sql.php:157
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -627,6 +629,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Siz bir serverdən çıxdınız. PhpMyAdmin-dən tam çıxmaq üçün bütün "
+"serverlərdən çıxış etməniz gərəkir."
 
 #: index.php:193 libraries/classes/Footer.php:75
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
@@ -680,10 +684,8 @@ msgid "Server type:"
 msgstr "Server tipi:"
 
 #: index.php:342
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "Master əlaqə:"
+msgstr "Server bağlantısı:"
 
 #: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
