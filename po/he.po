@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-14 06:37+0000\n"
+"PO-Revision-Date: 2018-04-17 13:39+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -2311,7 +2311,7 @@ msgstr "יש ללחוץ לחיצה כפולה כדי להעתיק שם עמוד�
 
 #: js/messages.php:596
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
-msgstr ""
+msgstr "יש ללחוץ על חץ הפתיחה<br />כדי לחשוף או להסתיר את העמודה."
 
 #: js/messages.php:598 libraries/classes/BrowseForeigners.php:340
 #: templates/display/results/show_all_checkbox.twig:11
@@ -2607,28 +2607,22 @@ msgid "Prev"
 msgstr "הקודם"
 
 #: js/messages.php:781
-#, fuzzy
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "הבא"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:784
-#, fuzzy
-#| msgid "Total"
 msgid "Today"
-msgstr "סה\"כ"
+msgstr "היום"
 
 #: js/messages.php:788
-#, fuzzy
-#| msgid "Binary"
 msgid "January"
-msgstr "בינארי"
+msgstr "ינואר"
 
 #: js/messages.php:789
 msgid "February"
-msgstr ""
+msgstr "פברואר"
 
 #: js/messages.php:790
 #, fuzzy
@@ -2666,7 +2660,7 @@ msgstr "אוגוסט"
 
 #: js/messages.php:796
 msgid "September"
-msgstr ""
+msgstr "ספטמבר"
 
 #: js/messages.php:797
 #, fuzzy
@@ -2676,11 +2670,11 @@ msgstr "אוקטובר"
 
 #: js/messages.php:798
 msgid "November"
-msgstr ""
+msgstr "נובמבר"
 
 #: js/messages.php:799
 msgid "December"
-msgstr ""
+msgstr "דצמבר"
 
 #. l10n: Short month name
 #: js/messages.php:806 libraries/classes/Util.php:1479
@@ -2749,45 +2743,42 @@ msgstr "דצמבר"
 #, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
-msgstr "יום ראשון"
+msgstr "‏‏יום ראשון"
 
 #: js/messages.php:835
 #, fuzzy
 #| msgid "Mon"
 msgid "Monday"
-msgstr "יום שני"
+msgstr "‏‏יום שני"
 
 #: js/messages.php:836
 #, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
-msgstr "יום שלישי"
+msgstr "‏‏יום שלישי"
 
 #: js/messages.php:837
 msgid "Wednesday"
-msgstr ""
+msgstr "‏‏יום רביעי"
 
 #: js/messages.php:838
 msgid "Thursday"
-msgstr ""
+msgstr "‏‏יום חמישי"
 
 #: js/messages.php:839
 #, fuzzy
 #| msgid "Fri"
 msgid "Friday"
-msgstr "יום שישי"
+msgstr "‏‏יום שישי"
 
 #: js/messages.php:840
 msgid "Saturday"
-msgstr ""
+msgstr "שבת"
 
 #. l10n: Short week day name
 #: js/messages.php:847
-#, fuzzy
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
-msgstr "יום ראשון"
+msgstr "יום א׳"
 
 #. l10n: Short week day name
 #: js/messages.php:849 libraries/classes/Util.php:1506
@@ -2821,64 +2812,50 @@ msgstr "שבת"
 
 #. l10n: Minimal week day name
 #: js/messages.php:866
-#, fuzzy
-#| msgid "Sun"
 msgid "Su"
-msgstr "יום ראשון"
+msgstr "א׳"
 
 #. l10n: Minimal week day name
 #: js/messages.php:868
-#, fuzzy
-#| msgid "Mon"
 msgid "Mo"
-msgstr "יום שני"
+msgstr "ב׳"
 
 #. l10n: Minimal week day name
 #: js/messages.php:870
-#, fuzzy
-#| msgid "Tue"
 msgid "Tu"
-msgstr "יום שלישי"
+msgstr "ג׳"
 
 #. l10n: Minimal week day name
 #: js/messages.php:872
-#, fuzzy
-#| msgid "Wed"
 msgid "We"
-msgstr "יום רביעי"
+msgstr "ד׳"
 
 #. l10n: Minimal week day name
 #: js/messages.php:874
-#, fuzzy
-#| msgid "Thu"
 msgid "Th"
-msgstr "יום חמישי"
+msgstr "ה"
 
 #. l10n: Minimal week day name
 #: js/messages.php:876
-#, fuzzy
-#| msgid "Fri"
 msgid "Fr"
-msgstr "יום שישי"
+msgstr "ו׳"
 
 #. l10n: Minimal week day name
 #: js/messages.php:878
-#, fuzzy
-#| msgid "Sat"
 msgid "Sa"
-msgstr "שבת"
+msgstr "ש׳"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:882
 msgid "Wk"
-msgstr ""
+msgstr "שב׳"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:889
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendar-year-month"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:892
@@ -2890,7 +2867,7 @@ msgstr "ללא"
 
 #: js/messages.php:904
 msgid "Hour"
-msgstr ""
+msgstr "שעה"
 
 #: js/messages.php:905
 msgid "Minute"
@@ -3181,7 +3158,7 @@ msgstr "איסוף"
 #, fuzzy
 #| msgid "Attributes"
 msgid "Attribute"
-msgstr "מאפיין"
+msgstr "תכונה"
 
 #: libraries/classes/CentralColumns.php:797
 #: libraries/classes/CentralColumns.php:1480
@@ -3243,319 +3220,244 @@ msgid "Central European"
 msgstr "מרכז אירופאי"
 
 #: libraries/classes/Charsets.php:358
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
-msgstr "רוסית"
+msgstr "רוסי"
 
 #: libraries/classes/Charsets.php:363
 msgctxt "Collation"
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "סיני מפושט"
 
 #: libraries/classes/Charsets.php:370 libraries/classes/Charsets.php:488
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
-msgstr "יפנית"
+msgstr "יפני"
 
 #: libraries/classes/Charsets.php:375
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "בלטית"
+msgstr "בלטי"
 
 #: libraries/classes/Charsets.php:380
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
-msgstr "ארמנית"
+msgstr "ארמני"
 
 #: libraries/classes/Charsets.php:383
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
-msgstr "סינית מסורתית"
+msgstr "סיני מסורתי"
 
 #: libraries/classes/Charsets.php:386
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr "קירילית"
+msgstr "קירילי"
 
 #: libraries/classes/Charsets.php:389
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
-msgstr "ערבית"
+msgstr "ערבי"
 
 #: libraries/classes/Charsets.php:392 libraries/classes/Charsets.php:503
 msgctxt "Collation"
 msgid "Korean"
-msgstr ""
+msgstr "קוריאני"
 
 #: libraries/classes/Charsets.php:395
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
-msgstr "עברית"
+msgstr "עברי"
 
 #: libraries/classes/Charsets.php:398
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
-msgstr "גרוזינית"
+msgstr "גיאורגי"
 
 #: libraries/classes/Charsets.php:401
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
-msgstr "יוונית"
+msgstr "יווני"
 
 #: libraries/classes/Charsets.php:404
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "סלובקית"
+msgstr "צ׳כו-סלובקי"
 
 #: libraries/classes/Charsets.php:407 libraries/classes/Charsets.php:558
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
-msgstr "אוקראינית"
+msgstr "אוקראיני"
 
 #: libraries/classes/Charsets.php:410 libraries/classes/Charsets.php:554
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
-msgstr "טורקית"
+msgstr "טורקי"
 
 #: libraries/classes/Charsets.php:413 libraries/classes/Charsets.php:546
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
-msgstr "שוודית"
+msgstr "שוודי"
 
 #: libraries/classes/Charsets.php:416 libraries/classes/Charsets.php:550
 msgctxt "Collation"
 msgid "Thai"
-msgstr ""
+msgstr "תאי"
 
 #: libraries/classes/Charsets.php:419
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "לא ידוע"
 
 #: libraries/classes/Charsets.php:435
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
-msgstr "בולגרית"
+msgstr "בולגרי"
 
 #: libraries/classes/Charsets.php:440
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "סיני"
 
 #: libraries/classes/Charsets.php:445
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
-msgstr "קרואטית"
+msgstr "קרואטי"
 
 #: libraries/classes/Charsets.php:449
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
-msgstr "צ'יכית"
+msgstr "צ׳כי"
 
 #: libraries/classes/Charsets.php:453
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
-msgstr "דנית"
+msgstr "דני"
 
 #: libraries/classes/Charsets.php:457
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
-msgstr "אנגלית"
+msgstr "אנגלי"
 
 #: libraries/classes/Charsets.php:461
-#, fuzzy
 msgctxt "Collation"
 msgid "Esperanto"
-msgstr "פעולות"
+msgstr "אספרנטו"
 
 #: libraries/classes/Charsets.php:465
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
-msgstr "אסטונית"
+msgstr "אסטוני"
 
 #: libraries/classes/Charsets.php:468 libraries/classes/Charsets.php:585
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "מילון נתונים"
+msgstr "גרמני (סדר מילוני)"
 
 #: libraries/classes/Charsets.php:471 libraries/classes/Charsets.php:582
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "גרמני (סדר של ספר טלפונים)"
 
 #: libraries/classes/Charsets.php:480
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
-msgstr "הונגרית"
+msgstr "הונגרי"
 
 #: libraries/classes/Charsets.php:484
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
-msgstr "איסלנדית"
+msgstr "איסלנדי"
 
 #: libraries/classes/Charsets.php:491
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "לטיני קלסי"
 
 #: libraries/classes/Charsets.php:495
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
-msgstr "לטבית"
+msgstr "לטבי"
 
 #: libraries/classes/Charsets.php:499
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
-msgstr "ליטאית"
+msgstr "ליטאי"
 
 #: libraries/classes/Charsets.php:507
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "בורמי"
 
 #: libraries/classes/Charsets.php:510
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
-msgstr "פרסית"
+msgstr "פרסי"
 
 #: libraries/classes/Charsets.php:514
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
-msgstr "פולנית"
+msgstr "פולני"
 
 #: libraries/classes/Charsets.php:521
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
-msgstr "רומנית"
+msgstr "רומני"
 
 #: libraries/classes/Charsets.php:525
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr ""
+msgstr "סינהלי"
 
 #: libraries/classes/Charsets.php:529
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
-msgstr "סלובקית"
+msgstr "סלובקי"
 
 #: libraries/classes/Charsets.php:533
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
-msgstr "סלובנית"
+msgstr "סלובני"
 
 #: libraries/classes/Charsets.php:536 libraries/classes/Charsets.php:596
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "ספרדית"
+msgstr "ספרדי (מודרני)"
 
 #: libraries/classes/Charsets.php:543 libraries/classes/Charsets.php:593
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "ספרדי (מסורתי)"
 
 #: libraries/classes/Charsets.php:562
-#, fuzzy
-#| msgid "User name"
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "שם משתמש"
+msgstr "וייטנאמי"
 
 #: libraries/classes/Charsets.php:629
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr "אין חשיבות לרישיות (case)"
+msgstr "אין חשיבות לרישיות"
 
 #: libraries/classes/Charsets.php:632
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr "יש חשיבות לרישיות (case)"
+msgstr "יש חשיבות לרישיות"
 
 #: libraries/classes/Charsets.php:635
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "אין חשיבות לרישיות (case)"
+msgstr "אין חשיבות לדיאקריטים"
 
 #: libraries/classes/Charsets.php:638
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "יש חשיבות לרישיות (case)"
+msgstr "יש חשיבות לדיאקריטים"
 
 #: libraries/classes/Charsets.php:642
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr ""
+msgstr "ריבוי שכבות"
 
 #: libraries/classes/Charsets.php:645
 msgctxt "Collation variant"
@@ -3595,7 +3497,7 @@ msgstr "גודל הגופן"
 #: libraries/classes/Config.php:1770
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "אינדקס השרת שגוי: %s"
 
 #: libraries/classes/Config.php:1783
 #, php-format
@@ -3621,10 +3523,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:72
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "נכשל בכניסה לשרת MySQL"
+msgstr "הגבלת גישה לשרת MySQL"
 
 #: libraries/classes/Config/Descriptions.php:75
 msgid ""
@@ -3639,7 +3539,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:82
 msgid "Show \"Drop database\" link to normal users"
-msgstr ""
+msgstr "הצגת קישור „השמטת מסד נתונים” למשתמשים רגילים"
 
 #: libraries/classes/Config/Descriptions.php:85
 msgid ""
@@ -3900,11 +3800,11 @@ msgstr "לתבנית זאת אין אפשרויות"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
-msgstr ""
+msgstr "הצגת רישום השרתים כרשימה במקום תפריט נגלל."
 
 #: libraries/classes/Config/Descriptions.php:234
 msgid "Display servers as a list"
-msgstr ""
+msgstr "הצגת שרתים כרשימה"
 
 #: libraries/classes/Config/Descriptions.php:237
 msgid ""
@@ -3926,7 +3826,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:248
 msgid "Maximum execution time"
-msgstr ""
+msgstr "זמן ההרצה המרבי"
 
 #: libraries/classes/Config/Descriptions.php:251
 #: templates/display/export/options_output.twig:17
@@ -3970,16 +3870,14 @@ msgstr "דחיסה"
 #: libraries/classes/Plugins/Export/ExportOdt.php:128
 #: libraries/classes/Plugins/Export/ExportTexytext.php:85
 msgid "Put columns names in the first row"
-msgstr ""
+msgstr "תיעוד שמות העמודות בשורה הראשונה"
 
 #: libraries/classes/Config/Descriptions.php:264
 #: libraries/classes/Config/Descriptions.php:633
 #: libraries/classes/Config/Descriptions.php:652
 #: libraries/classes/Plugins/Import/ImportCsv.php:137
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with"
-msgstr "שדות מוקפים ע\"י"
+msgstr "עמודות מוקפות ע״י"
 
 #: libraries/classes/Config/Descriptions.php:266
 #: libraries/classes/Config/Descriptions.php:635
@@ -4025,25 +3923,20 @@ msgid "Lines terminated with"
 msgstr "שורות מסתיימות ע\"י"
 
 #: libraries/classes/Config/Descriptions.php:278
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "מהדורת Excel"
 
 #: libraries/classes/Config/Descriptions.php:284
-#, fuzzy
 msgid "Database name template"
-msgstr "תבנית שם קובץ"
+msgstr "תבנית שם מסד נתונים"
 
 #: libraries/classes/Config/Descriptions.php:286
-#, fuzzy
 msgid "Server name template"
-msgstr "תבנית שם קובץ"
+msgstr "תבנית שם שרת"
 
 #: libraries/classes/Config/Descriptions.php:288
-#, fuzzy
 msgid "Table name template"
-msgstr "תבנית שם קובץ"
+msgstr "תבנית שם טבלה"
 
 #: libraries/classes/Config/Descriptions.php:296
 #: libraries/classes/Config/Descriptions.php:322
@@ -4094,39 +3987,32 @@ msgstr "סוג MIME"
 #: libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Config/Descriptions.php:338
 #: libraries/classes/Config/Descriptions.php:403
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "יחסים"
 
 #: libraries/classes/Config/Descriptions.php:324
-#, fuzzy
-#| msgid "Export type"
 msgid "Export method"
-msgstr "סוג ייצוא"
+msgstr "שיטת ייצוא"
 
 #: libraries/classes/Config/Descriptions.php:342
 #: libraries/classes/Config/Descriptions.php:348
 msgid "Save on server"
-msgstr ""
+msgstr "שמירה על השרת"
 
 #: libraries/classes/Config/Descriptions.php:344
 #: libraries/classes/Config/Descriptions.php:350
 #: templates/display/export/options_quick_export.twig:16
 #: templates/display/export/options_output_save_dir.twig:13
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "שכתוב על קבצים קיימים"
 
 #: libraries/classes/Config/Descriptions.php:346
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export as separate files"
-msgstr "מאוזן (headers מסובבים)"
+msgstr "ייצוא כקבצים נפרדים"
 
 #: libraries/classes/Config/Descriptions.php:352
-#, fuzzy
 msgid "Remember file name template"
-msgstr "תבנית שם קובץ"
+msgstr "שמירת תבנית שם קובץ"
 
 #: libraries/classes/Config/Descriptions.php:354
 #: libraries/classes/Operations.php:228 libraries/classes/Operations.php:851
@@ -4143,31 +4029,29 @@ msgstr "צירוף תוי ציטוט (backquotes) אל שמות טבלאות ו�
 #: libraries/classes/Config/Descriptions.php:358
 #: libraries/classes/Config/Descriptions.php:678
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "מצב תאימות SQL"
 
 #: libraries/classes/Config/Descriptions.php:360
 msgid "Creation/Update/Check dates"
-msgstr "יצירת/עדכון/בדיקת תאריכים"
+msgstr "תאריכי יצירה/עדכון/בדיקה"
 
 #: libraries/classes/Config/Descriptions.php:362
 msgid "Use delayed inserts"
-msgstr "השתמש בהכנסות מעוכבות"
+msgstr "שימוש בהכנסות מעוכבות"
 
 #: libraries/classes/Config/Descriptions.php:364
 #: libraries/classes/Plugins/Export/ExportSql.php:154
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "השבתת בדיקות מפתחות זרים"
 
 #: libraries/classes/Config/Descriptions.php:366
 #: libraries/classes/Plugins/Export/ExportSql.php:168
-#, fuzzy
-#| msgid "Create table on database %s"
 msgid "Export views as tables"
-msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+msgstr "ייצוא תצוגות כטבלאות"
 
 #: libraries/classes/Config/Descriptions.php:368
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr ""
+msgstr "ייצוא נתוני העל הקשורים מאחסון התצורה של phpMyAdmin"
 
 #: libraries/classes/Config/Descriptions.php:370
 #: libraries/classes/Config/Descriptions.php:372
@@ -4190,22 +4074,23 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"הוספת „אם לא קיים” - IF NOT EXISTS (פחות יעיל כיוון שהאינדקסים ייווצרו במהלך "
+"יצירת הטבלה)"
 
 #: libraries/classes/Config/Descriptions.php:391
 msgid "Use ignore inserts"
-msgstr "השתמש בהעלמות מהכנסות"
+msgstr "שימוש בהתעלמות מהכנסות"
 
 #: libraries/classes/Config/Descriptions.php:395
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "תחביר לשימוש לצורך הוספת נתונים"
 
 #: libraries/classes/Config/Descriptions.php:397
 #: libraries/classes/Plugins/Export/ExportSql.php:440
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "אורך מרבי של שאילתה שנוצרה"
 
 #: libraries/classes/Config/Descriptions.php:407
-#, fuzzy
 msgid "Export type"
 msgstr "סוג ייצוא"
 
@@ -4215,9 +4100,8 @@ msgid "Enclose export in a transaction"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:411
-#, fuzzy
 msgid "Export time in UTC"
-msgstr "סוג ייצוא"
+msgstr "סוג ייצוא ב־UTC"
 
 #: libraries/classes/Config/Descriptions.php:420
 msgid ""
@@ -4235,25 +4119,23 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:428
 msgid "Foreign key limit"
-msgstr ""
+msgstr "מגבלת מפתחות זרים"
 
 #: libraries/classes/Config/Descriptions.php:430
 msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:432
-#, fuzzy
-#| msgid "Add constraints"
 msgid "Foreign key checks"
-msgstr "הוספת הגבלות"
+msgstr "בדיקת מפתחות זרים"
 
 #: libraries/classes/Config/Descriptions.php:434
 msgid "Browse mode"
-msgstr ""
+msgstr "מצב עיון"
 
 #: libraries/classes/Config/Descriptions.php:436
 msgid "Customize browse mode."
-msgstr ""
+msgstr "התאמת מצב עיון."
 
 #: libraries/classes/Config/Descriptions.php:440
 #: libraries/classes/Config/Descriptions.php:444
@@ -4261,9 +4143,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:498
 #: libraries/classes/Config/Descriptions.php:502
 #: libraries/classes/Config/Descriptions.php:559
-#, fuzzy
 msgid "Customize default options."
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "התאמת אפשרויות בררת המחדל."
 
 #: libraries/classes/Config/Descriptions.php:442
 #: libraries/classes/Config/Forms/User/ExportForm.php:75
@@ -4273,57 +4154,51 @@ msgstr "CSV"
 
 #: libraries/classes/Config/Descriptions.php:446
 msgid "Developer"
-msgstr ""
+msgstr "מפתח"
 
 #: libraries/classes/Config/Descriptions.php:448
 msgid "Settings for phpMyAdmin developers."
-msgstr ""
+msgstr "הגדרות למפתחי phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:450
 msgid "Edit mode"
-msgstr ""
+msgstr "מצב עריכה"
 
 #: libraries/classes/Config/Descriptions.php:452
-#, fuzzy
 msgid "Customize edit mode."
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "התאמת מצב עריכה."
 
 #: libraries/classes/Config/Descriptions.php:454
 msgid "Export defaults"
-msgstr ""
+msgstr "בררות מחדל של ייצוא"
 
 #: libraries/classes/Config/Descriptions.php:456
-#, fuzzy
 msgid "Customize default export options."
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "התאמת אפשרויות בררת המחדל לייצוא."
 
 #: libraries/classes/Config/Descriptions.php:458
-#, fuzzy
-#| msgid "Generate"
 msgid "General"
-msgstr "ייצור"
+msgstr "כללי"
 
 #: libraries/classes/Config/Descriptions.php:460
 msgid "Set some commonly used options."
-msgstr ""
+msgstr "הגדרת מגוון אפשרויות נפוצות."
 
 #: libraries/classes/Config/Descriptions.php:462
-#, fuzzy
 msgid "Import defaults"
-msgstr "קבצי ייבוא"
+msgstr "בררות מחדל של ייבוא"
 
 #: libraries/classes/Config/Descriptions.php:464
-#, fuzzy
 msgid "Customize default common import options."
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "התאמת אפשרויות בררת המחדל לייצוא."
 
 #: libraries/classes/Config/Descriptions.php:466
 msgid "Import / export"
-msgstr ""
+msgstr "ייבוא / ייצוא"
 
 #: libraries/classes/Config/Descriptions.php:468
 msgid "Set import and export directories and compression options."
-msgstr ""
+msgstr "הגדרת תיקיות ייבוא וייצוא לרבות אפשרויות דחיסה."
 
 #: libraries/classes/Config/Descriptions.php:470
 msgid "LaTeX"
@@ -4335,75 +4210,62 @@ msgstr "LaTeX"
 #: libraries/classes/Server/Privileges.php:4536 libraries/classes/Util.php:3957
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
 msgid "Databases"
-msgstr "מאגרי נתונים"
+msgstr "מסדי נתונים"
 
 #: libraries/classes/Config/Descriptions.php:476
-#, fuzzy
 msgid "Databases display options."
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "אפשרויות תצוגת מסדי נתונים."
 
 #: libraries/classes/Config/Descriptions.php:478
 #: libraries/classes/Config/Forms/User/NaviForm.php:59
 msgid "Navigation panel"
-msgstr ""
+msgstr "חלונית ניווט"
 
 #: libraries/classes/Config/Descriptions.php:480
-#, fuzzy
 msgid "Customize appearance of the navigation panel."
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "התאמת תצוגת חלונית הניווט."
 
 #: libraries/classes/Config/Descriptions.php:482
-#, fuzzy
 msgid "Navigation tree"
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "עץ ניווט"
 
 #: libraries/classes/Config/Descriptions.php:484
-#, fuzzy
 msgid "Customize the navigation tree."
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "התאמת עץ הניווט."
 
 #: libraries/classes/Config/Descriptions.php:486
 #: libraries/classes/Server/Select.php:56 setup/frames/index.inc.php:123
-#, fuzzy
 msgid "Servers"
-msgstr "שרת"
+msgstr "שרתים"
 
 #: libraries/classes/Config/Descriptions.php:488
-#, fuzzy
 msgid "Servers display options."
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "אפשרויות הצגת שרתים."
 
 #: libraries/classes/Config/Descriptions.php:492
-#, fuzzy
 msgid "Tables display options."
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "אפשרויות הצגת טבלאות."
 
 #: libraries/classes/Config/Descriptions.php:494
 #: libraries/classes/Config/Forms/User/MainForm.php:84
-#, fuzzy
-#| msgid "Add new field"
 msgid "Main panel"
-msgstr "הוספת שדה חדש"
+msgstr "חלונית ראשית"
 
 #: libraries/classes/Config/Descriptions.php:496
-#, fuzzy
-#| msgid "Microsoft Excel 2000"
 msgid "Microsoft Office"
-msgstr "Microsoft Excel 2000"
+msgstr "Microsoft Office"
 
 #: libraries/classes/Config/Descriptions.php:504
 msgid "Other core settings"
-msgstr ""
+msgstr "הגדרות ליבה אחרות"
 
 #: libraries/classes/Config/Descriptions.php:506
 msgid "Settings that didn't fit anywhere else."
-msgstr ""
+msgstr "הגדרות שאינן מתאימות לאף סיווג אחר."
 
 #: libraries/classes/Config/Descriptions.php:508
-#, fuzzy
-#| msgid "Page number:"
 msgid "Page titles"
-msgstr "מספר דף:"
+msgstr "כותרות עמודים"
 
 #: libraries/classes/Config/Descriptions.php:511
 msgid ""
