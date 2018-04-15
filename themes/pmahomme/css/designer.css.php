@@ -290,6 +290,7 @@ canvas.designer * {
     position: absolute;
     background-color: #fff;
     color: #000;
+    margin-top: 50px; 
 }
 
 .designer_header {
@@ -476,6 +477,7 @@ a.active.trigger:hover {
     overflow: hidden;
     z-index: 50;
     padding: 2px;
+    margin-top: 50px; 
 }
 
 .side-menu.right {
