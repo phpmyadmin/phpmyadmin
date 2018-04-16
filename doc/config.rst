@@ -728,6 +728,12 @@ Server connection settings
     :type: string
     :default: ``'mysqli'``
 
+    .. deprecated:: 4.2.0
+
+        This setting was removed. The ``mysql`` extension will only be used when
+        the ``mysqli`` extension is not available. As of 5.0.0, only the
+        ``mysqli`` extension can be used.
+
     The PHP MySQL extension to use (``mysql`` or ``mysqli``).
 
     It is recommended to use ``mysqli`` in all installations.
@@ -3232,7 +3238,7 @@ Theme manager settings
 
     :type: string
     :default: '82%'
-    
+
     .. deprecated:: 5.0.0
 
         This setting was removed as the browser is more efficient,
