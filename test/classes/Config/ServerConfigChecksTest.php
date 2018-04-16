@@ -46,7 +46,6 @@ class ServeConfigChecksTest extends PmaTestCase
             '1' => array(
                 'host' => 'localhost',
                 'ssl' => false,
-                'extension' => 'mysql',
                 'auth_type' => 'config',
                 'user' => 'username',
                 'password' => 'password',
@@ -105,7 +104,6 @@ class ServeConfigChecksTest extends PmaTestCase
             '1' => array(
                 'host' => 'localhost',
                 'ssl' => true,
-                'extension' => 'mysqli',
                 'auth_type' => 'cookie',
                 'AllowRoot' => false
             )
