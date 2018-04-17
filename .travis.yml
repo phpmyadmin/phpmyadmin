@@ -20,6 +20,7 @@ sudo: required
 env:
   matrix:
     - CI_MODE=test
+    - CI_MODE=apidocs
   global:
     - TESTSUITE_USER=root
     - TESTSUITE_URL=http://127.0.0.1:8000
@@ -62,8 +63,6 @@ matrix:
       env: CI_MODE=release
     - php: "7.1"
       env: CI_MODE=docs
-    - php: "7.1"
-      env: CI_MODE=apidocs
     - os: osx
       language: generic
       env: CI_MODE=test
@@ -75,8 +74,14 @@ matrix:
         - curl https://getcomposer.org/installer | php
         - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start
-
+  exclude:
+    - php: "7.2"
+      env: CI_MODE=apidocs
+    - php: "nightly"
+      env: CI_MODE=apidocs
   allow_failures:
+    - php: "7.1"
+      env: CI_MODE=apidocs
     - php: "nightly"
       env: CI_MODE=test
 
