@@ -53,7 +53,7 @@ class ExportXml extends ExportPlugin
     }
 
     /**
-     * Initialize the local variables that are used for export PDF
+     * Initialize the local variables that are used for export XML
      *
      * @return void
      */
@@ -61,7 +61,9 @@ class ExportXml extends ExportPlugin
     {
         global $table, $tables;
         $this->_setTable($table);
-        $this->_setTables($tables);
+        if (is_array($tables)) {
+            $this->_setTables($tables);
+        }
     }
 
     /**
