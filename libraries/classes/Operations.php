@@ -1559,10 +1559,11 @@ class Operations
      */
     public function getDeleteDataOrTablelink(array $url_params, $syntax, $link, $htmlId)
     {
-        return  '<li><a '
-            . 'href="sql.php' . Url::getCommon($url_params) . '"'
-            . ' id="' . $htmlId . '" class="ajax">'
-            . $link . '</a>'
+        return '<li>' . Util::linkOrButton(
+                'sql.php' . Url::getCommon($url_params),
+                $link,
+                array('id' => $htmlId, 'class' => 'ajax')
+            )
             . Util::showMySQLDocu($syntax)
             . '</li>';
     }
