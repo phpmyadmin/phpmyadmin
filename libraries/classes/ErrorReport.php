@@ -252,7 +252,7 @@ class ErrorReport
 
         $reportData = $this->getData();
         if (!empty($reportData)) {
-            $datas['hidden_fields'] = Url::getHiddenFields($reportData);
+            $datas['hidden_fields'] = Url::getHiddenFields($reportData, '', true);
         }
 
         return Template::get('error/report_form')->render($datas);
