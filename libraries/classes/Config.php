@@ -32,56 +32,56 @@ class Config
     /**
      * @var string  default config source
      */
-    var $default_source = './libraries/config.default.php';
+    public $default_source = './libraries/config.default.php';
 
     /**
      * @var array   default configuration settings
      */
-    var $default = array();
+    public $default = array();
 
     /**
      * @var array   configuration settings, without user preferences applied
      */
-    var $base_settings = array();
+    public $base_settings = array();
 
     /**
      * @var array   configuration settings
      */
-    var $settings = array();
+    public $settings = array();
 
     /**
      * @var string  config source
      */
-    var $source = '';
+    public $source = '';
 
     /**
      * @var int     source modification time
      */
-    var $source_mtime = 0;
-    var $default_source_mtime = 0;
-    var $set_mtime = 0;
+    public $source_mtime = 0;
+    public $default_source_mtime = 0;
+    public $set_mtime = 0;
 
     /**
      * @var boolean
      */
-    var $error_config_file = false;
+    public $error_config_file = false;
 
     /**
      * @var boolean
      */
-    var $error_config_default_file = false;
+    public $error_config_default_file = false;
 
     /**
      * @var array
      */
-    var $default_server = array();
+    public $default_server = array();
 
     /**
      * @var boolean whether init is done or not
      * set this to false to force some initial checks
      * like checking for required functions
      */
-    var $done = false;
+    public $done = false;
 
     /**
      * @var UserPreferences
