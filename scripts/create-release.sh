@@ -222,7 +222,8 @@ rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
 rm -f README.rst
 
 if [ ! -d libraries/tcpdf ] ; then
-    PHP_REQ=`sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\).*/\1/p' composer.json`
+    PHP_REQ=`sed -n '/"php"/ s/.*"(\^|>=)\([0-9]\.[0-9]\).*/\2/p' composer.json`
+
     if [ -z "$PHP_REQ" ] ; then
         echo "Failed to figure out required PHP version from composer.json"
         exit 2
