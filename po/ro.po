@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-04 10:40+0000\n"
-"Last-Translator: Cristian Gherman <c_gherman@yahoo.com>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/ro/>\n"
+"PO-Revision-Date: 2018-04-18 14:20+0000\n"
+"Last-Translator: S.C. MEGAHOST S.R.L. <admin@megahost.md>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -26,7 +26,7 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Fișierul %s nu este disponibil pe acest sistem, vă rugam să vizitați %s "
+"Fișierul %s nu este disponibil pe acest sistem, vă rugăm să vizitați %s "
 "pentru mai multe informații."
 
 #: db_central_columns.php:127
@@ -700,7 +700,7 @@ msgstr "Tipul server-ului:"
 #: index.php:342
 #, fuzzy
 msgid "Server connection:"
-msgstr "Comprimă conexiunea"
+msgstr "Conexiune server:"
 
 #: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
