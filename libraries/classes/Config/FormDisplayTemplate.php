@@ -49,7 +49,7 @@ class FormDisplayTemplate
                 . ' id="check_page_refresh" value="" />' . "\n";
         }
         $htmlOutput .= Url::getHiddenInputs('', '', 0, 'server') . "\n";
-        $htmlOutput .= Url::getHiddenFields((array)$hidden_fields);
+        $htmlOutput .= Url::getHiddenFields((array)$hidden_fields, '', true);
         return $htmlOutput;
     }
 

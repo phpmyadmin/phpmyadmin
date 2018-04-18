@@ -100,15 +100,16 @@ class Url
      *
      * @param array  $values hidden values
      * @param string $pre    prefix
+     * @param bool   $is_token if token already added in hidden input field
      *
      * @return string form fields of type hidden
      */
-    public static function getHiddenFields(array $values, $pre = '')
+    public static function getHiddenFields(array $values, $pre = '', $is_token = false)
     {
         $fields = '';
 
         /* Always include token in plain forms */
-        if ($pre === '') {
+        if ($is_token === false) {
             $values['token'] = $_SESSION[' PMA_token '];
         }
 
@@ -118,7 +119,7 @@ class Url
             }
 
             if (is_array($value)) {
-                $fields .= Url::getHiddenFields($value, $name);
+                $fields .= Url::getHiddenFields($value, $name, true);
             } else {
                 // do not generate an ending "\n" because
                 // Url::getHiddenInputs() is sometimes called

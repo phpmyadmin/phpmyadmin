@@ -1416,7 +1416,7 @@ class Results
             . Url::getHiddenInputs(
                 $this->__get('db'), $this->__get('table')
             )
-            . Url::getHiddenFields(array('sort_by_key' => '1'))
+            . Url::getHiddenFields(array('sort_by_key' => '1'), '', true)
             . __('Sort by key')
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
