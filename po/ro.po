@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-18 14:20+0000\n"
+"PO-Revision-Date: 2018-04-18 14:41+0000\n"
 "Last-Translator: S.C. MEGAHOST S.R.L. <admin@megahost.md>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ro/>\n"
@@ -40,7 +40,7 @@ msgstr "Clic pentru sortare."
 #: db_central_columns.php:175
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Afișează înregistrarile %1$s - %2$s."
+msgstr "Afişarea rândurilor %1$s - %2$s."
 
 #: db_datadict.php:59 libraries/classes/Operations.php:47
 msgid "Database comment"
@@ -593,12 +593,12 @@ msgid "Bookmark %s has been created."
 msgstr "Semnul de carte %s a fost creat."
 
 #: import.php:595
-#, php-format
+#, fuzzy, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importul s-a terminat cu succes, %d interogare executată."
-msgstr[1] "Importul s-a terminat cu succes, %d interogări executate."
-msgstr[2] "Importul s-a terminat cu succes, %d interogări executate."
+msgstr[0] "Importul s-a finalizat cu succes, %d solicitare finalizată."
+msgstr[1] "Importul s-a finalizat cu succes, %d solicitări finalizate."
+msgstr[2] "Importul s-a finalizat cu succes, %d solicitări finalizate."
 
 #: import.php:626
 #, php-format
