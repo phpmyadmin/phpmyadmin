@@ -159,7 +159,7 @@ class Core
      * @todo add some more var types like hex, bin, ...?
      * @see https://secure.php.net/gettype
      */
-    public static function isValid(&$var, $type = 'length', $compare = null)
+    public static function isValid(&$var, $type = 'length', $compare = null): bool
     {
         if (! isset($var)) {
             // var is not even set
@@ -247,7 +247,7 @@ class Core
      *
      * @access  public
      */
-    public static function securePath($path)
+    public static function securePath(string $path): string
     {
         // change .. to .
         $path = preg_replace('@\.\.*@', '.', $path);
@@ -266,7 +266,10 @@ class Core
      *
      * @return void
      */
-    public static function fatalError($error_message, $message_args = null) {
+    public static function fatalError(
+        string $error_message,
+        $message_args = null
+    ): void {
         /* Use format string if applicable */
         if (is_string($message_args)) {
             $error_message = sprintf($error_message, $message_args);
@@ -314,7 +317,7 @@ class Core
      *
      * @access  public
      */
-    public static function getPHPDocLink($target)
+    public static function getPHPDocLink(string $target): string
     {
         /* List of PHP documentation translations */
         $php_doc_languages = array(
@@ -338,8 +341,11 @@ class Core
      *
      * @return void
      */
-    public static function warnMissingExtension($extension, $fatal = false, $extra = '')
-    {
+    public static function warnMissingExtension(
+        string $extension,
+        bool $fatal = false,
+        string $extra = ''
+    ): void {
         /* Gettext does not have to be loaded yet here */
         if (function_exists('__')) {
             $message = __(
@@ -378,7 +384,7 @@ class Core
      *
      * @return integer count of tables in $db
      */
-    public static function getTableCount($db)
+    public static function getTableCount(string $db): int
     {
         $tables = $GLOBALS['dbi']->tryQuery(
             'SHOW TABLES FROM ' . Util::backquote($db) . ';',
@@ -405,7 +411,7 @@ class Core
      *
      * @return integer $size
      */
-    public static function getRealSize($size = 0)
+    public static function getRealSize($size = 0): int
     {
         if (! $size) {
             return 0;
@@ -435,12 +441,12 @@ class Core
      * checks given $page against given $whitelist and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
-     * @param string &$page     page to check
-     * @param array  $whitelist whitelist to check page against
+     * @param string|null $page      page to check
+     * @param array       $whitelist whitelist to check page against
      *
      * @return boolean whether $page is valid or not (in $whitelist or not)
      */
-    public static function checkPageValidity(&$page, array $whitelist = [])
+    public static function checkPageValidity(?string $page, array $whitelist = []): bool
     {
         if (empty($whitelist)) {
             $whitelist = self::$goto_whitelist;
@@ -485,7 +491,7 @@ class Core
      *
      * @return string  value of $var or empty string
      */
-    public static function getenv($var_name)
+    public static function getenv(string $var_name): string
     {
         if (isset($_SERVER[$var_name])) {
             return $_SERVER[$var_name];
@@ -516,7 +522,7 @@ class Core
      *
      * @return void
      */
-    public static function sendHeaderLocation($uri, $use_refresh = false)
+    public static function sendHeaderLocation(string $uri, bool $use_refresh = false): void
     {
         if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
             Response::getInstance()->disable();
@@ -559,7 +565,7 @@ class Core
      *
      * @return void
      */
-    public static function headerJSON()
+    public static function headerJSON(): void
     {
         if (defined('TESTSUITE')) {
             return;
@@ -579,7 +585,7 @@ class Core
      *
      * @return void
      */
-    public static function noCacheHeader()
+    public static function noCacheHeader(): void
     {
         if (defined('TESTSUITE')) {
             return;
@@ -611,8 +617,12 @@ class Core
      *
      * @return void
      */
-    public static function downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
-    {
+    public static function downloadHeader(
+        string $filename,
+        string $mimetype,
+        int $length = 0,
+        bool $no_cache = true
+    ): void {
         if ($no_cache) {
             self::noCacheHeader();
         }
@@ -647,7 +657,7 @@ class Core
      *
      * @return mixed    array element or $default
      */
-    public static function arrayRead($path, array $array, $default = null)
+    public static function arrayRead(string $path, array $array, $default = null)
     {
         $keys = explode('/', $path);
         $value =& $array;
@@ -669,7 +679,7 @@ class Core
      *
      * @return void
      */
-    public static function arrayWrite($path, array &$array, $value)
+    public static function arrayWrite(string $path, array &$array, $value): void
     {
         $keys = explode('/', $path);
         $last_key = array_pop($keys);
@@ -691,7 +701,7 @@ class Core
      *
      * @return void
      */
-    public static function arrayRemove($path, array &$array)
+    public static function arrayRemove(string $path, array &$array): void
     {
         $keys = explode('/', $path);
         $keys_last = array_pop($keys);
@@ -732,7 +742,7 @@ class Core
      *
      * @return string URL for a link.
      */
-    public static function linkURL($url)
+    public static function linkURL(string $url): string
     {
         if (!preg_match('#^https?://#', $url)) {
             return $url;
@@ -765,7 +775,7 @@ class Core
      * @return boolean True: if domain of $url is allowed domain,
      *                 False: otherwise.
      */
-    public static function isAllowedDomain($url)
+    public static function isAllowedDomain(string $url): bool
     {
         $arr = parse_url($url);
         // We need host to be set
@@ -814,7 +824,7 @@ class Core
      *
      * @return string Escaped and cleaned up text suitable for html
      */
-    public static function mimeDefaultFunction($buffer)
+    public static function mimeDefaultFunction(string $buffer): string
     {
         $buffer = htmlspecialchars($buffer);
         $buffer = str_replace('  ', ' &nbsp;', $buffer);
@@ -830,7 +840,7 @@ class Core
      *
      * @return void
      */
-    public static function previewSQL($query_data)
+    public static function previewSQL($query_data): void
     {
         $retval = '<div class="preview_sql">';
         if (empty($query_data)) {
@@ -855,7 +865,7 @@ class Core
      *
      * @return bool true if empty
      */
-    public static function emptyRecursive($value)
+    public static function emptyRecursive($value): bool
     {
         $empty = true;
         if (is_array($value)) {
@@ -878,7 +888,7 @@ class Core
      *
      * @return void
      */
-    public static function setPostAsGlobal(array $post_patterns)
+    public static function setPostAsGlobal(array $post_patterns): void
     {
         foreach (array_keys($_POST) as $post_key) {
             foreach ($post_patterns as $one_post_pattern) {
@@ -896,7 +906,7 @@ class Core
      *
      * @return void
      */
-    public static function setGlobalDbOrTable($param)
+    public static function setGlobalDbOrTable(string $param): void
     {
         $GLOBALS[$param] = '';
         if (self::isValid($_REQUEST[$param])) {
@@ -913,7 +923,7 @@ class Core
      *
      * @return void
      */
-    public static function cleanupPathInfo()
+    public static function cleanupPathInfo(): void
     {
         global $PMA_PHP_SELF;
 
@@ -959,7 +969,7 @@ class Core
      * Checks that required PHP extensions are there.
      * @return void
      */
-    public static function checkExtensions()
+    public static function checkExtensions(): void
     {
         /**
          * Warning about mbstring.
@@ -1004,7 +1014,7 @@ class Core
      *
      * @access  private
      */
-    public static function getIp()
+    public static function getIp(): string
     {
         /* Get the address of user */
         if (empty($_SERVER['REMOTE_ADDR'])) {
@@ -1049,7 +1059,7 @@ class Core
      *
      * @return string
      */
-    public static function sanitizeMySQLHost($name)
+    public static function sanitizeMySQLHost(string $name): string
     {
         while (strtolower(substr($name, 0, 2)) == 'p:') {
             $name = substr($name, 2);
@@ -1067,7 +1077,7 @@ class Core
      *
      * @return string
      */
-    public static function sanitizeMySQLUser($name)
+    public static function sanitizeMySQLUser(string $name): string
     {
         $position = strpos($name, chr(0));
         if ($position !== false) {
@@ -1085,7 +1095,7 @@ class Core
      *
      * @return mixed
      */
-    public static function safeUnserialize($data)
+    public static function safeUnserialize(string $data)
     {
         if (! is_string($data)) {
             return null;
@@ -1169,7 +1179,7 @@ class Core
      *
      * @return void
      */
-    public static function configure()
+    public static function configure(): void
     {
         /**
          * Set utf-8 encoding for PHP
@@ -1197,7 +1207,7 @@ class Core
      *
      * @return void
      */
-    public static function checkConfiguration()
+    public static function checkConfiguration(): void
     {
         /**
          * As we try to handle charsets by ourself, mbstring overloads just
@@ -1245,10 +1255,16 @@ class Core
      *
      * @return void
      */
-    public static function printListItem($name, $listId = null, $url = null,
-        $mysql_help_page = null, $target = null, $a_id = null, $class = null,
-        $a_class = null
-    ) {
+    public static function printListItem(
+        string $name,
+        ?string $listId = null,
+        ?string $url = null,
+        ?string $mysql_help_page = null,
+        ?string $target = null,
+        ?string $a_id = null,
+        ?string $class = null,
+        ?string $a_class = null
+    ): void {
         echo Template::get('list/item')
             ->render(
                 array(
@@ -1271,7 +1287,7 @@ class Core
      *
      * @return void
      */
-    public static function checkRequest()
+    public static function checkRequest(): void
     {
         if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
             self::fatalError(__("GLOBALS overwrite attempt"));
