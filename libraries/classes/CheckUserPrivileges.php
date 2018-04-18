@@ -39,7 +39,7 @@ class CheckUserPrivileges
      *
      * @return array
      */
-    public function getItemsFromShowGrantsRow($row)
+    public function getItemsFromShowGrantsRow(string $row): array
     {
         $db_name_offset = mb_strpos($row, ' ON ') + 4;
         $show_grants_dbname = mb_substr(
@@ -83,10 +83,10 @@ class CheckUserPrivileges
      * @return void
      */
     public function checkRequiredPrivilegesForAdjust(
-        $show_grants_str,
-        $show_grants_dbname,
-        $show_grants_tblname
-    ) {
+        string $show_grants_str,
+        string $show_grants_dbname,
+        string $show_grants_tblname
+    ): void {
         // '... ALL PRIVILEGES ON *.* ...' OR '... ALL PRIVILEGES ON `mysql`.* ..'
         // OR
         // SELECT, INSERT, UPDATE, DELETE .... ON *.* OR `mysql`.*
@@ -157,7 +157,7 @@ class CheckUserPrivileges
      *
      * @return void
      */
-    public function analyseShowGrant()
+    public function analyseShowGrant(): void
     {
         if (Util::cacheExists('is_create_db_priv')) {
             $GLOBALS['is_create_db_priv'] = Util::cacheGet(
