@@ -69,8 +69,8 @@ if (! isset($err_url)) {
 // Coming from a bookmark dialog
 if (isset($_POST['bkm_fields']['bkm_sql_query'])) {
     $sql_query = $_POST['bkm_fields']['bkm_sql_query'];
-} elseif (isset($_GET['sql_query'])) {
-    $sql_query = $_GET['sql_query'];
+} elseif (isset($_POST['sql_query'])) {
+    $sql_query = $_POST['sql_query'];
 }
 
 // This one is just to fill $db
