@@ -219,7 +219,7 @@ Core::setGlobalDbOrTable('table');
  * Store currently selected recent table.
  * Affect $GLOBALS['db'] and $GLOBALS['table']
  */
-if (Core::isValid($_REQUEST['selected_recent_table'])) {
+if (isset($_REQUEST['selected_recent_table']) && Core::isValid($_REQUEST['selected_recent_table'])) {
     $recent_table = json_decode($_REQUEST['selected_recent_table'], true);
 
     $GLOBALS['db']
