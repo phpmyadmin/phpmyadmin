@@ -134,6 +134,7 @@ AJAX.registerOnload('db_operations.js', function () {
      */
     $(document).on('click', '#drop_db_anchor.ajax', function (event) {
         event.preventDefault();
+        var $link = $(this);
         /**
          * @var question    String containing the question to be asked for confirmation
          */
@@ -142,10 +143,8 @@ AJAX.registerOnload('db_operations.js', function () {
             PMA_messages.strDoYouReally,
             'DROP DATABASE `' + escapeHtml(PMA_commonParams.get('db') + '`')
         );
-        var params = {
-            'is_js_confirmed': '1',
-            'ajax_request': true
-        };
+        var params = getJSConfirmCommonParam(this, $link.getPostData());
+
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $.post(url, params, function (data) {
