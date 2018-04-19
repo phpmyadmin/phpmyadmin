@@ -436,22 +436,20 @@ class Core
     } // end getRealSize()
 
     /**
-     * boolean phpMyAdmin.Core::checkPageValidity(string &$page, array $whitelist)
-     *
-     * checks given $page against given $whitelist and returns true if valid
+     * Checks given $page against given $whitelist and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
-     * @param string|null $page      page to check
-     * @param array       $whitelist whitelist to check page against
+     * @param string $page      page to check
+     * @param array  $whitelist whitelist to check page against
      *
      * @return boolean whether $page is valid or not (in $whitelist or not)
      */
-    public static function checkPageValidity(?string $page, array $whitelist = []): bool
+    public static function checkPageValidity(string $page, array $whitelist = []): bool
     {
         if (empty($whitelist)) {
             $whitelist = self::$goto_whitelist;
         }
-        if (! isset($page) || !is_string($page)) {
+        if (empty($page)) {
             return false;
         }
 
