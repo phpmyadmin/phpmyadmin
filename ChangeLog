@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.8.0.1 (2018-04-19)
+- issue        [security] Multiple CSRF vulnerabilities, See PMASA-2018-02
+
 4.8.0 (2018-04-07)
 - issue #12946 Allow to export JSON with unescaped unicode chars
 - issue #12983 Disable login button without solved reCaptcha
