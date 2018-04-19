@@ -280,7 +280,8 @@ class CoreTest extends PmaTestCase
     public function providerTestGotoNowhere()
     {
         return array(
-            array(null, [], false),
+            array('', [], false),
+            array('', [''], false),
             array('export.php', [], true),
             array('export.php', $this->goto_whitelist, true),
             array('shell.php', $this->goto_whitelist, false),

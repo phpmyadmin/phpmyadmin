@@ -140,7 +140,7 @@ $GLOBALS['url_params'] = array();
  */
 $GLOBALS['goto'] = '';
 // Security fix: disallow accessing serious server files via "?goto="
-if (Core::checkPageValidity($_REQUEST['goto'])) {
+if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
     $GLOBALS['goto'] = $_REQUEST['goto'];
     $GLOBALS['url_params']['goto'] = $_REQUEST['goto'];
 } else {
@@ -151,7 +151,7 @@ if (Core::checkPageValidity($_REQUEST['goto'])) {
  * returning page
  * @global string $GLOBALS['back']
  */
-if (Core::checkPageValidity($_REQUEST['back'])) {
+if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
     $GLOBALS['back'] = $_REQUEST['back'];
 } else {
     unset($_REQUEST['back'], $_GET['back'], $_POST['back'], $_COOKIE['back']);
