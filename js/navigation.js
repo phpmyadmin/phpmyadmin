@@ -259,6 +259,9 @@ function traverseNavigationForPaths () {
                     .find('span.pos2_value:last')
                     .text();
             }
+            if ($('#pma_navigation_tree').find('li.database.selected').children('div.list_container').find('li.table').length === 1) {
+                pos2_value = 0;
+            }
 
             params['n' + count + '_pos2_name'] = pos2_name;
             params['n' + count + '_pos2_value'] = pos2_value;
