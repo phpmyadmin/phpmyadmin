@@ -1678,9 +1678,14 @@ class Results
      */
     private function _getOptionsBlock()
     {
+        if(isset($_SESSION['tmpval']['possible_as_geomtery']) && $_SESSION['tmpval']['possible_as_geomtery'] == false) {
+            if($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
+                $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
+            }
+        }
         return Template::get('display/results/options_block')->render([
             'unique_id' => $this->__get('unique_id'),
-            'geo_option' => ($_SESSION['tmpval']['possible_as_geomtery'] ? $_SESSION['tmpval']['geoOption'] : (self::GEOMETRY_DISP_WKT)),
+            'geo_option' => $_SESSION['tmpval']['geoOption'],
             'hide_transformation' => $_SESSION['tmpval']['hide_transformation'],
             'display_blob' => $_SESSION['tmpval']['display_blob'],
             'display_binary' => $_SESSION['tmpval']['display_binary'],
@@ -3678,7 +3683,7 @@ class Results
         }
 
         // Display as [GEOMETRY - (size)]
-        if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM && $_SESSION['tmpval']['possible_as_geomtery']) {
+        if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
             $geometry_text = $this->_handleNonPrintableContents(
                 strtoupper(self::GEOMETRY_FIELD), $column, $transformation_plugin,
                 $transform_options, $default_function, $meta, $_url_params
@@ -3690,7 +3695,7 @@ class Results
             return $cell;
         }
 
-        if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_WKT || !$_SESSION['tmpval']['possible_as_geomtery']) {
+        if ($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_WKT) {
             // Prepare in Well Known Text(WKT) format.
             $where_comparison = ' = ' . $column;
 
