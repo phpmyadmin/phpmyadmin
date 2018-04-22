@@ -1678,7 +1678,7 @@ class Results
      */
     private function _getOptionsBlock()
     {
-        if(isset($_SESSION['tmpval']['possible_as_geomtery']) && $_SESSION['tmpval']['possible_as_geomtery'] == false) {
+        if(isset($_SESSION['tmpval']['possible_as_geometry']) && $_SESSION['tmpval']['possible_as_geometry'] == false) {
             if($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
                 $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
             }
@@ -1692,7 +1692,7 @@ class Results
             'relational_display' => $_SESSION['tmpval']['relational_display'],
             'displaywork' => $GLOBALS['cfgRelation']['displaywork'],
             'relwork' => $GLOBALS['cfgRelation']['relwork'],
-            'possible_as_geometry' => $_SESSION['tmpval']['possible_as_geomtery'],
+            'possible_as_geometry' => $_SESSION['tmpval']['possible_as_geometry'],
             'pftext' => $_SESSION['tmpval']['pftext'],
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
