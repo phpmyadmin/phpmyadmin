@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-16 22:22+0000\n"
+"PO-Revision-Date: 2018-04-23 22:57+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -4275,49 +4275,44 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:516
 msgid "Security"
-msgstr ""
+msgstr "אבטחה"
 
 #: libraries/classes/Config/Descriptions.php:519
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
+"נא לשים לב כי phpMyAdmin הוא מנשק משתמש והתכונות שלו אינן מגבילות את MySQL."
 
 #: libraries/classes/Config/Descriptions.php:523
 msgid "Basic settings"
-msgstr ""
+msgstr "הגדרות בסיסיות"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication"
-msgstr "תיעוד"
+msgstr "אימות"
 
 #: libraries/classes/Config/Descriptions.php:527
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication settings."
-msgstr "תיעוד"
+msgstr "הגדרות אימות."
 
 #: libraries/classes/Config/Descriptions.php:529
 msgid "Server configuration"
-msgstr ""
+msgstr "הגדרות שרת"
 
 #: libraries/classes/Config/Descriptions.php:532
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
-msgstr ""
+msgstr "הגדרות שרת מתקדמות, אינן לשנות אפשרויות אלא אלמלא ידוע לך מה מטרתן."
 
 #: libraries/classes/Config/Descriptions.php:536
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Enter server connection parameters."
-msgstr "איסוף חיבור שרת"
+msgstr "נא להכניס משתני חיבור לשרת."
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid "Configuration storage"
-msgstr ""
+msgstr "אחסון הגדרות"
 
 #: libraries/classes/Config/Descriptions.php:541
 msgid ""
@@ -4328,13 +4323,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:546
 msgid "Changes tracking"
-msgstr ""
+msgstr "מעקב אחר שינויים"
 
 #: libraries/classes/Config/Descriptions.php:549
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
-msgstr ""
+msgstr "מעקב אחר שינויים שנערכים במסד הנתונים. נדרש אחסון הגדרות של phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:553 libraries/classes/Menu.php:358
 #: libraries/classes/Menu.php:461 libraries/classes/Menu.php:574
@@ -4348,72 +4343,60 @@ msgid "SQL"
 msgstr "SQL"
 
 #: libraries/classes/Config/Descriptions.php:555
-#, fuzzy
 msgid "SQL Query box"
-msgstr "שאילתת SQL"
+msgstr "תיבת שאילתת SQL"
 
 #: libraries/classes/Config/Descriptions.php:557
 msgid "Customize links shown in SQL Query boxes."
-msgstr ""
+msgstr "התאמת הקישורים שמופיעים בתיבות שאילתות SQL."
 
 #: libraries/classes/Config/Descriptions.php:561
 #: libraries/classes/Config/Forms/User/SqlForm.php:40
-#, fuzzy
 msgid "SQL queries"
-msgstr "שאילתת SQL"
+msgstr "שאילתות SQL"
 
 #: libraries/classes/Config/Descriptions.php:563
-#, fuzzy
 msgid "SQL queries settings."
-msgstr "שאילתת SQL"
+msgstr "הגדרות שאילתות SQL."
 
 #: libraries/classes/Config/Descriptions.php:565
-#, fuzzy
 msgid "Startup"
-msgstr "מצב"
+msgstr "הפעלה"
 
 #: libraries/classes/Config/Descriptions.php:567
-#, fuzzy
 msgid "Customize startup page."
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "התאמת דף הפעלה."
 
 #: libraries/classes/Config/Descriptions.php:569
-#, fuzzy
-#| msgid "Databases"
 msgid "Database structure"
-msgstr "מאגרי נתונים"
+msgstr "מבנה מסד נתונים"
 
 #: libraries/classes/Config/Descriptions.php:571
 msgid ""
 "Choose which details to show in the database structure (list of tables)."
-msgstr ""
+msgstr "נא לבחור אילו פרטים יופיעו במבנה מסד הנתונים (רשימת טבלאות)."
 
 #: libraries/classes/Config/Descriptions.php:573
 #: libraries/classes/Plugins/Export/ExportPdf.php:277
 #: templates/table/secondary_tabs.twig:3
-#, fuzzy
-#| msgid "Databases"
 msgid "Table structure"
-msgstr "מאגרי נתונים"
+msgstr "מבנה טבלה"
 
 #: libraries/classes/Config/Descriptions.php:575
 msgid "Settings for the table structure (list of columns)."
-msgstr ""
+msgstr "הגדרת מבנה הטבלה (רשימת עמודות)."
 
 #: libraries/classes/Config/Descriptions.php:577
-#, fuzzy
 msgid "Tabs"
-msgstr "טבלה"
+msgstr "טאבים"
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Choose how you want tabs to work."
-msgstr ""
+msgstr "נא לבחור כיצד יעבדו הטאבים."
 
 #: libraries/classes/Config/Descriptions.php:581
-#, fuzzy
-#| msgid "Display PDF schema"
 msgid "Display relational schema"
-msgstr "הצגת תרשים PDF"
+msgstr "הצגת סכמה יחסית"
 
 #: libraries/classes/Config/Descriptions.php:585
 #: libraries/classes/Plugins/Schema/SchemaDia.php:72
@@ -4422,10 +4405,8 @@ msgid "Paper size"
 msgstr "גודל דף"
 
 #: libraries/classes/Config/Descriptions.php:591
-#, fuzzy
-#| msgid "Use text field"
 msgid "Text fields"
-msgstr "השתמש בשדה טקסט"
+msgstr "שדות טקסט"
 
 #: libraries/classes/Config/Descriptions.php:593
 #, fuzzy
