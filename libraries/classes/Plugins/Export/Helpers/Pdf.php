@@ -829,7 +829,7 @@ class Pdf extends PdfLib
         }
 
         for ($i = 0; $i < $this->numFields; $i++) {
-            if (!in_array($i, array_keys($colFits))) {
+            if (!array_key_exists($i, $colFits)) {
                 $this->tablewidths[$i] = $this->sColWidth + $surplusToAdd;
             }
             if ($this->display_column[$i] == false) {
