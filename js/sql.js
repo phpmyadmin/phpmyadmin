@@ -309,6 +309,50 @@ AJAX.registerOnload('sql.js', function () {
     }); // end of Copy to Clipboard action
 
     /**
+    *   Stick top horizontal scrollbar
+    */
+    $(document).on('scroll', function () {
+        var windowOffset = $(window).scrollTop();
+        var $table_results = $("#horizontal_scroll").find(".table_results");
+        var tableStartOffset = $table_results.offset().top;
+        var tableEndOffset = tableStartOffset + $table_results.height();
+        if (windowOffset >= tableStartOffset && windowOffset <= tableEndOffset) {
+            $("#horizontal_scroll_reflect")
+                .css('position', 'sticky')
+                .css('top', $('#floating_menubar').height());
+        } else {
+            $("#horizontal_scroll_reflect").css('position', 'initial').scrollLeft($("#horizontal_scroll").scrollLeft());
+        }
+    });
+
+    /**
+    *   Set top horizontal scrollbar width
+    */
+    $(function () {
+        $("#horizontal_scroll_reflect > div").width($("#horizontal_scroll").find(".table_results").width()).height(20);
+    });
+
+    /**
+     * Attach Event Handler for top 'horizontal scroll'
+    */
+    $('#horizontal_scroll').on('scroll', function () {
+        $("#horizontal_scroll_reflect").scrollLeft($("#horizontal_scroll").scrollLeft());
+        var windowOffset = $(window).scrollTop();
+        var $table_results = $("#horizontal_scroll").find(".table_results");
+        var tableStartOffset = $table_results.offset().top;
+        $(".sticky_columns")
+        .css('position', 'absolute')
+        .css('top', $('#floating_menubar').height() + windowOffset - tableStartOffset+12)
+        .css('margin-left', '0px')
+        .css('left', 'auto')
+        .css('width', $table_results.width());
+    });
+
+    $('#horizontal_scroll_reflect').on('scroll', function () {
+        $("#horizontal_scroll").scrollLeft($("#horizontal_scroll_reflect").scrollLeft());
+    }); // end of 'horizontal scroll' event handler
+
+    /**
      * Attach Event Handler for 'Print' link
      */
     $(document).on('click', '#printView', function (event) {
@@ -940,7 +984,7 @@ function initProfilingTables () {
 function setStickyColumnsPosition ($sticky_columns, $table_results, position, top, left, margin_left) {
     $sticky_columns
         .css('position', position)
-        .css('top', top)
+        .css('top', top+12)
         .css('left', left ? left : 'auto')
         .css('margin-left', margin_left ? margin_left : '0px')
         .css('width', $table_results.width());
