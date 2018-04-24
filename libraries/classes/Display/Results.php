@@ -4210,7 +4210,7 @@ class Results
         }
 
         // can the result be sorted?
-        if ($displayParts['sort_lnk'] == '1' && ! is_null($analyzed_sql_results['statement'])) {
+        if ($displayParts['sort_lnk'] == '1' && array_key_exists('statement', $analyzed_sql_results) && ! is_null($analyzed_sql_results['statement'])) {
 
             // At this point, $sort_expression is an array but we only verify
             // the first element in case we could find that the table is
