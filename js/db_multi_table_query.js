@@ -73,12 +73,22 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
         }
 
         query = 'SELECT ';
-        query += '`' + escapeBacktick(columns[0][0]) + '`.`' + escapeBacktick(columns[0][1]) + '`';
+        if(columns[0][1] === '*'){
+            query += '`' + escapeBacktick(columns[0][0]) + '`.' + escapeBacktick(columns[0][1]) + '';
+        }
+        else{
+            query += '`' + escapeBacktick(columns[0][0]) + '`.`' + escapeBacktick(columns[0][1]) + '`';
+        }
         if (columns[0][2] !== '') {
             query += ' AS ' + columns[0][2];
         }
         for (var i = 1; i < columns.length; i++) {
-            query += ', `' + escapeBacktick(columns[i][0]) + '`.`' + escapeBacktick(columns[i][1]) + '`';
+            if(columns[i][1] === '*'){
+                query += ', `' + escapeBacktick(columns[i][0]) + '`.' + escapeBacktick(columns[i][1]) + '';
+            }
+            else{
+                query += ', `' + escapeBacktick(columns[i][0]) + '`.`' + escapeBacktick(columns[i][1]) + '`';
+            }
             if (columns[i][2] !== '') {
                 query += ' AS `' + escapeBacktick(columns[0][2]) + '`';
             }
