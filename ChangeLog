@@ -2,7 +2,8 @@ phpMyAdmin - ChangeLog
 ======================
 
 4.8.1 (not yet released)
-- issue #12772 Fix the case where the central columns attributes don't get filled in
+- issue #12772 Fix case where the central columns attributes don't get filled in
+- issue #14049 Fix case where the query builder doesn't work when selected column is *
 
 4.8.0.1 (2018-04-19)
 - issue        [security] Multiple CSRF vulnerabilities, See PMASA-2018-02
