@@ -115,6 +115,8 @@ function PMA_addDatepicker ($this_element, type, options) {
         altFieldTimeOnly: false,
         showAnim: '',
         beforeShow: function (input, inst) {
+            //temporary adding the class for visible datepicker
+            $( ".responsivetable" ).removeClass('responsivetable').addClass('temp');
             // Remember that we came from the datepicker; this is used
             // in tbl_change.js by verificationsAfterFieldChange()
             $this_element.data('comes_from', 'datepicker');

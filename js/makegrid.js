@@ -730,6 +730,8 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 // change the cursor in edit box back to normal
                 // (the cursor become a hand pointer when we add datepicker)
                 $(g.cEdit).find('.edit_box').css('cursor', 'inherit');
+                // remvoing the temp class and adding table responsive back
+                $( ".temp" ).removeClass('temp').addClass('responsivetable');
             }
         },
 
