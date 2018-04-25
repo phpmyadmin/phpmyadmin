@@ -474,7 +474,7 @@ class Header
                 $retval .= '<div id="page_content">';
                 $retval .= $this->getMessage();
             }
-            if ($this->_isEnabled && isset($_REQUEST['recent_table']) && strlen($_REQUEST['recent_table'])) {
+            if ($this->_isEnabled && empty($_REQUEST['recent_table'])) {
                 $retval .= $this->_addRecentTable(
                     $GLOBALS['db'],
                     $GLOBALS['table']
