@@ -3588,9 +3588,6 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
 }
 /* end of styles for jQuery-ui to support rtl languages */
 
-.responsivetable {
-    overflow-x: auto;
-}
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     #main_pane_left {
