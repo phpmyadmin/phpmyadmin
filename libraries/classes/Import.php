@@ -1479,7 +1479,11 @@ class Import
         $diff = array();
         foreach ($analyzed_sql_results['statement']->set as $set) {
             $columns[] = $set->column;
-            $diff[] = $set->column . ' <> ' . $set->value;
+            $not_equal_operator = ' <> ';
+            if(strtoupper($set->value) == 'NULL'){
+                $not_equal_operator = ' IS NOT ';
+            }
+            $diff[] = $set->column . $not_equal_operator . $set->value;
         }
         if (!empty($diff)) {
             $where .= ' AND (' . implode(' OR ', $diff) . ')';
