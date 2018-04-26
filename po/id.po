@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-04-26 14:28+0000\n"
-"Last-Translator: anonymous <>\n"
+"Last-Translator: Ahnaf Hadi Fathulloh <ahnafhadi@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -43,7 +43,7 @@ msgstr "Tampilkan baris %1$s s/d %2$s."
 
 #: db_datadict.php:59 libraries/classes/Operations.php:47
 msgid "Database comment"
-msgstr "Komentari database"
+msgstr "Komentar database"
 
 #: db_datadict.php:106
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
