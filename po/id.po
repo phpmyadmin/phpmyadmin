@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-04-26 14:29+0000\n"
-"Last-Translator: Eurecode <jason.yonathan.h@gmail.com>\n"
+"Last-Translator: fidella <fidellawi@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -6813,7 +6813,7 @@ msgstr "Tidak ada query SQL ditetapkan untuk mengambil data."
 
 #: libraries/classes/Controllers/Table/TableChartController.php:158
 msgid "No numeric columns present in the table to plot."
-msgstr "Tidak ada kolom numerik yang muncul dalam tabel untuk direncanakan."
+msgstr "Tidak ada kolom numerik pada tabel yang dapat dibuat grafik."
 
 #: libraries/classes/Controllers/Table/TableChartController.php:216
 msgid "No data to display"
@@ -6829,7 +6829,7 @@ msgstr "Tabel %1$s berhasil diubah."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:224
 msgid "Display column was successfully updated."
-msgstr "Kolom tampilan telah sukses diupdate."
+msgstr "Kolom display sukses diperbarui."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:265
 #: libraries/classes/Controllers/Table/TableSearchController.php:578
