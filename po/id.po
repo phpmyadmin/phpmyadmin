@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-26 14:29+0000\n"
+"PO-Revision-Date: 2018-04-26 20:15+0000\n"
 "Last-Translator: fidella <fidellawi@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
@@ -6869,7 +6869,7 @@ msgstr "Tidak ada kolom yang dipilih."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:474
 msgid "The columns have been moved successfully."
-msgstr "Kolum telah sukses dipindahkan."
+msgstr "Kolom sukses dipindah."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:510
 #, fuzzy, php-format
@@ -7000,7 +7000,7 @@ msgstr "Urutan:"
 
 #: libraries/classes/Database/Qbe.php:607
 msgid "Sort order:"
-msgstr "Urutan:"
+msgstr "Pengurutan:"
 
 #: libraries/classes/Database/Qbe.php:656
 msgid "Show:"
