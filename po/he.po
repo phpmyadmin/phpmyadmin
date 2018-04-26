@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-25 18:59+0000\n"
+"PO-Revision-Date: 2018-04-27 15:37+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -3508,35 +3508,35 @@ msgstr "הצגת קישור „השמטת מסד נתונים” למשתמשי�
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
-msgstr ""
+msgstr "מילת צופן שמשמשת להצפנת עוגיות באימות עם [kbd]עוגיות[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid "Blowfish secret"
-msgstr ""
+msgstr "סוד Blowfish"
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Highlight selected rows."
-msgstr ""
+msgstr "הדגשת השורות הנבחרות."
 
 #: libraries/classes/Config/Descriptions.php:93
 msgid "Row marker"
-msgstr ""
+msgstr "סמן שורות"
 
 #: libraries/classes/Config/Descriptions.php:95
 msgid "Highlight row pointed by the mouse cursor."
-msgstr ""
+msgstr "הדגשת שורות עליהן סמן העכבר מצביע."
 
 #: libraries/classes/Config/Descriptions.php:97
 msgid "Highlight pointer"
-msgstr ""
+msgstr "סמן הדגשה"
 
 #: libraries/classes/Config/Descriptions.php:100
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
+msgstr "הפעלת דחיסת bzip2 לפעולות ייבוא."
 
 #: libraries/classes/Config/Descriptions.php:104
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/classes/Config/Descriptions.php:107
 msgid ""
@@ -3544,26 +3544,31 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
+"הגדרה באיזה סוג של פקדי עריכה יש להשתמש עבור עמודות CHAR (תווים) ו־VARCHAR ("
+"תווים באורך משתנה קיצונית);‏ [kbd]input[/kbd] - מאפשר את הגבלת אורך הקלט, "
+"[kbd]textarea[/kbd] - מאפשר שורות חדשות בעמודות."
 
 #: libraries/classes/Config/Descriptions.php:112
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "עריכת עמודות CHAR"
 
 #: libraries/classes/Config/Descriptions.php:115
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
+"שימוש בעורך ידידותי למשתמש לטובת עריכת שאילתות SQL‏ (CodeMirror) עם הדגשת "
+"תחביר ומספור שורות."
 
 #: libraries/classes/Config/Descriptions.php:120
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "הפעלת CodeMirror"
 
 #: libraries/classes/Config/Descriptions.php:123
 msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
-msgstr ""
+msgstr "איתור שגיאות בשאילתה בטרם הרצתה. דורש את הפעלת CodeMirror."
 
 #: libraries/classes/Config/Descriptions.php:127
 #, fuzzy
@@ -3575,7 +3580,7 @@ msgstr "מופעל"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr ""
+msgstr "הגדרת הגודל המזערי לשדות קלט שנוצרו עבור עמודות CHAR ו־VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:134
 msgid "Minimum size for input field"
@@ -3585,7 +3590,7 @@ msgstr "גודל מזערי לשדה קלט"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
-msgstr ""
+msgstr "הגדרת הגודל המרבי לשדות קלט שנוצרו עבור עמודות CHAR ו־VARCHAR."
 
 #: libraries/classes/Config/Descriptions.php:141
 msgid "Maximum size for input field"
