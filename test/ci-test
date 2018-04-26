@@ -10,3 +10,5 @@ case "$TRAVIS_PHP_VERSION" in
 esac
 
 ./vendor/bin/phpunit --configuration $CONFIG --exclude-group selenium
+
+sed -i -e 's/<skipped\/>//g' "build/logs/junit.xml"
