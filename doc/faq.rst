@@ -433,7 +433,9 @@ releases.
 PHP 7 is supported since phpMyAdmin 4.6, PHP 7.1 is supported since 4.6.5,
 PHP 7.2 is supported since 4.7.4.
 
-phpMyAdmin also works fine with HHVM.
+HHVM is supported up to phpMyAdmin 4.8.
+
+Since release 5.0, phpMyAdmin supports only PHP 7.1 and newer.
 
 .. _faq1_32:
 
