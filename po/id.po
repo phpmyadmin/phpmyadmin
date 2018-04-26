@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-04-26 14:29+0000\n"
-"Last-Translator: Hizkia Felix <hizkifw@gmail.com>\n"
+"Last-Translator: Ellianto Sarono Putro <elliantosarono.p@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -5122,7 +5122,7 @@ msgstr "Urutan default untuk tabel dengan primary key."
 
 #: libraries/classes/Config/Descriptions.php:951
 msgid "Primary key default sort order"
-msgstr "Urutan default primary key"
+msgstr "Urutan bawaan Primary Key"
 
 #: libraries/classes/Config/Descriptions.php:953
 msgid ""
