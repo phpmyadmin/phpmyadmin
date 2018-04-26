@@ -35,7 +35,7 @@
     </testsuites>
 
     <logging>
-        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
+        <!--<log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>-->
         <log type="json" target="build/logs/phpunit.json" />
     </logging>
 </phpunit>
