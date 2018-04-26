@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-04-26 14:28+0000\n"
-"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
+"Last-Translator: anonymous <>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -541,7 +541,7 @@ msgstr ""
 
 #: import.php:71
 msgid "Succeeded"
-msgstr "Telah berhasil"
+msgstr "Berhasil"
 
 #: import.php:75 js/messages.php:614
 msgid "Failed"
