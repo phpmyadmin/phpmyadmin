@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-04-26 14:29+0000\n"
-"Last-Translator: Ellianto Sarono Putro <elliantosarono.p@gmail.com>\n"
+"Last-Translator: Eurecode <jason.yonathan.h@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -6645,7 +6645,7 @@ msgstr "Alamat IP tidak tepat: %s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] "Menampilkan penanda %1$d (baik privat maupun bersama)"
+msgstr[0] "Menampilkan bookmark %1$d (baik privat maupun publik)"
 
 #: libraries/classes/Console.php:94
 msgid "No bookmarks"
