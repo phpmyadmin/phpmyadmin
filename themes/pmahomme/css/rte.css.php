@@ -15,12 +15,14 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 ?>
 
 .rte_table {
-    table-layout: fixed;
+    table-layout: auto;
+    width: 100%;
 }
 
 .rte_table td {
     vertical-align: middle;
     padding: 0.2em;
+    width: 20%;
 }
 
 .rte_table tr td:nth-child(1) {
@@ -47,4 +49,14 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 
 .rte_table .routine_params_table {
     width: 100%;
+}
+.rte_table .floatleft {
+    width: 49%;
+    font-weight: bold;
+}
+.rte_table input[type=submit] {
+    width: 49%;
+}
+.isdisableremoveparam_class {
+    color: gray;
 }

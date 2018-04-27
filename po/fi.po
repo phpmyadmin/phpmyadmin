@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-27 09:37+0000\n"
-"Last-Translator: Aki Kettunen <aki@akikettu.net>\n"
-"Language-Team: Finnish "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/fi/>\n"
+"PO-Revision-Date: 2018-04-21 08:37+0000\n"
+"Last-Translator: Pyscowicz <janne.ertman@gmail.com>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -313,8 +313,7 @@ msgstr "Tietokannan nimi on tyhjä!"
 #| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Tietokannalle ei voi antaa samaa nimeä uudelleen. Vaihda nimi ja yritä "
-"uudelleen"
+"Tietokantaa ei voi kopioida samalle nimelle. Vaihda nimi ja yritä uudelleen."
 
 #: db_operations.php:154
 #, php-format
@@ -686,10 +685,8 @@ msgid "Server type:"
 msgstr "Palvelintyyppi:"
 
 #: index.php:342
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "Salaamaton yhteys"
+msgstr "Palvelinyhteys:"
 
 #: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
@@ -1777,10 +1774,8 @@ msgid "No databases selected."
 msgstr "Yhtään tietokantaa ei ole valittu."
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Ei valittua saraketta."
+msgstr "Ei valittua tiliä."
 
 #: js/messages.php:371
 msgid "Dropping column"
@@ -11414,7 +11409,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add routine"
-msgstr "Käytä indeksiä/indeksejä"
+msgstr "Lisää rutiini"
 
 #: libraries/classes/Rte/Words.php:34
 #, fuzzy, php-format
