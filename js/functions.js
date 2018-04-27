@@ -4700,18 +4700,22 @@ $(document).on('keyup', '#filterText', function () {
     var count = 0;
     $('[data-filter-row]').each(function () {
         var $row = $(this);
-        console.log($row);
+        //console.log($row);
         /* Can not use data() here as it does magic conversion to int for numeric values */
         if ($row.attr('data-filter-row').indexOf(filterInput) > -1) {
             count += 1;
             $row.show();
-            $row.find('input.checkall').removeClass('row-hidden').trigger('change');
+            $row.find('input.checkall').removeClass('row-hidden');
         } else {
             $row.hide();
-            $row.find('input.checkall').addClass('row-hidden').prop('checked', false).trigger('change');
+            $row.find('input.checkall').addClass('row-hidden').prop('checked', false);
             $row.removeClass('marked');
         }
     });
+    setTimeout(function(){
+        $(checkboxes_sel).trigger('change');
+    }, 300);
+    
     $('#filter-rows-count').html(count);
 });
 AJAX.registerOnload('functions.js', function () {
