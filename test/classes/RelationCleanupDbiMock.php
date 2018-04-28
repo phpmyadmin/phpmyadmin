@@ -72,9 +72,9 @@ class RelationCleanupDbiMock extends DatabaseInterface
      *
      * @param object $result result set identifier
      *
-     * @return array
+     * @return array|bool
      */
-    function fetchRow($result)
+    public function fetchRow($result)
     {
         $curr_table = array();
         if ($this->index < count($this->values)) {
@@ -98,8 +98,12 @@ class RelationCleanupDbiMock extends DatabaseInterface
      *
      * @return mixed
      */
-    function query($sql, $link = null, $options = 0, $cache_affected_rows = true)
-    {
+    public function query(
+        string $sql,
+        $link = null,
+        int $options = 0,
+        bool $cache_affected_rows = true
+    ) {
         if (mb_stripos($sql, "column_info") !== false) {
             unset($this->values[$this->indexs['column_info']]);
         }
@@ -137,7 +141,10 @@ class RelationCleanupDbiMock extends DatabaseInterface
      * @return mixed
      */
     public function tryQuery(
-        $query, $link = null, $options = 0, $cache_affected_rows = true
+        string $query,
+        $link = null,
+        int $options = 0,
+        bool $cache_affected_rows = true
     ) {
         return true;
     }
@@ -150,7 +157,7 @@ class RelationCleanupDbiMock extends DatabaseInterface
      *
      * @return boolean
      */
-    public function selectDb($dbname, $link = null)
+    public function selectDb(string $dbname, $link = null): bool
     {
         return true;
     }
@@ -160,11 +167,11 @@ class RelationCleanupDbiMock extends DatabaseInterface
      *
      * @param object $result database result
      *
-     * @return bool
+     * @return void
      */
-    public function freeResult($result)
+    public function freeResult($result): void
     {
-        return true;
+        return;
     }
 
     /**
@@ -177,17 +184,20 @@ class RelationCleanupDbiMock extends DatabaseInterface
      * // $user = array('id' => 123, 'name' => 'John Doe')
      * </code>
      *
-     * @param string|mysql_result $result query or mysql result
-     * @param string              $type   NUM|ASSOC|BOTH
-     *                                    returned array should either numeric
-     *                                    associative or booth
-     * @param resource            $link   mysql link
+     * @param string   $result query or mysql result
+     * @param string   $type   NUM|ASSOC|BOTH
+     *                         returned array should either numeric
+     *                         associative or booth
+     * @param resource $link   mysql link
      *
      * @return array|boolean first row from result
      *                       or false if result is empty
      */
-    public function fetchSingleRow($result, $type = 'ASSOC', $link = null)
-    {
+    public function fetchSingleRow(
+        string $result,
+        string $type = 'ASSOC',
+        $link = null
+    ) {
         return array(
             'display_field' => "PMA_display_field"
         );
@@ -198,7 +208,7 @@ class RelationCleanupDbiMock extends DatabaseInterface
      *
      * @param object $result result set identifier
      *
-     * @return array
+     * @return array|bool
      */
     public function fetchAssoc($result)
     {
