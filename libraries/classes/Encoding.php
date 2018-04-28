@@ -92,7 +92,7 @@ class Encoding
      *
      * @return void
      */
-    public static function initEngine()
+    public static function initEngine(): void
     {
         $engine = 'auto';
         if (isset($GLOBALS['cfg']['RecodingEngine'])) {
@@ -124,11 +124,11 @@ class Encoding
     /**
      * Setter for engine. Use with caution, mostly useful for testing.
      *
-     * @param int $engine Engine enconding
+     * @param int $engine Engine encoding
      *
      * @return void
      */
-    public static function setEngine($engine)
+    public static function setEngine(int $engine): void
     {
         self::$_engine = $engine;
     }
@@ -138,7 +138,7 @@ class Encoding
      *
      * @return bool
      */
-    public static function isSupported()
+    public static function isSupported(): bool
     {
         if (is_null(self::$_engine)) {
             self::initEngine();
@@ -158,8 +158,11 @@ class Encoding
      *
      * @access  public
      */
-    public static function convertString($src_charset, $dest_charset, $what)
-    {
+    public static function convertString(
+        string $src_charset,
+        string $dest_charset,
+        string $what
+    ): string {
         if ($src_charset == $dest_charset) {
             return $what;
         }
@@ -195,7 +198,7 @@ class Encoding
      *
      * @return bool
      */
-    public static function canConvertKanji()
+    public static function canConvertKanji(): bool
     {
         return $GLOBALS['lang'] == 'ja';
     }
@@ -205,7 +208,7 @@ class Encoding
      *
      * @return string
      */
-    public static function getKanjiEncodings()
+    public static function getKanjiEncodings(): string
     {
         return self::$_kanji_encodings;
     }
@@ -217,7 +220,7 @@ class Encoding
      *
      * @return void
      */
-    public static function setKanjiEncodings($value)
+    public static function setKanjiEncodings(string $value): void
     {
         self::$_kanji_encodings = $value;
     }
@@ -227,7 +230,7 @@ class Encoding
      *
      * @return void
      */
-    public static function kanjiChangeOrder()
+    public static function kanjiChangeOrder(): void
     {
         $parts = explode(',', self::$_kanji_encodings);
         if ($parts[1] == 'EUC-JP') {
@@ -246,7 +249,7 @@ class Encoding
      *
      * @return string   the converted string
      */
-    public static function kanjiStrConv($str, $enc, $kana)
+    public static function kanjiStrConv(string $str, string $enc, string $kana): string
     {
         if ($enc == '' && $kana == '') {
             return $str;
@@ -279,7 +282,7 @@ class Encoding
      *
      * @return string   the name of the converted file
      */
-    public static function kanjiFileConv($file, $enc, $kana)
+    public static function kanjiFileConv(string $file, string $enc, string $kana): string
     {
         if ($enc == '' && $kana == '') {
             return $file;
@@ -304,9 +307,9 @@ class Encoding
     /**
      * Defines radio form fields to switch between encoding modes
      *
-     * @return string   xhtml code for the radio controls
+     * @return string HTML code for the radio controls
      */
-    public static function kanjiEncodingForm()
+    public static function kanjiEncodingForm(): string
     {
         return Template::get('encoding/kanji_encoding_form')->render();
     }
@@ -316,7 +319,7 @@ class Encoding
      *
      * @return array
      */
-    public static function listEncodings()
+    public static function listEncodings(): array
     {
         if (is_null(self::$_engine)) {
             self::initEngine();
