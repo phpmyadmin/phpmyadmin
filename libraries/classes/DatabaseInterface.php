@@ -34,34 +34,34 @@ class DatabaseInterface
     /**
      * Force STORE_RESULT method, ignored by classic MySQL.
      */
-    const QUERY_STORE = 1;
+    public const QUERY_STORE = 1;
     /**
      * Do not read whole query.
      */
-    const QUERY_UNBUFFERED = 2;
+    public const QUERY_UNBUFFERED = 2;
     /**
      * Get session variable.
      */
-    const GETVAR_SESSION = 1;
+    public const GETVAR_SESSION = 1;
     /**
      * Get global variable.
      */
-    const GETVAR_GLOBAL = 2;
+    public const GETVAR_GLOBAL = 2;
 
     /**
      * User connection.
      */
-    const CONNECT_USER = 0x100;
+    public const CONNECT_USER = 0x100;
     /**
      * Control user connection.
      */
-    const CONNECT_CONTROL = 0x101;
+    public const CONNECT_CONTROL = 0x101;
     /**
      * Auxiliary connection.
      *
      * Used for example for replication setup.
      */
-    const CONNECT_AUXILIARY = 0x102;
+    public const CONNECT_AUXILIARY = 0x102;
 
     /**
      * @var DbiExtension
