@@ -1199,7 +1199,7 @@ class Config
      */
     public function getThemeUniqueValue(): int
     {
-        return (
+        return (int) (
             $this->source_mtime +
             $this->default_source_mtime +
             $this->get('user_preferences_mtime') +
