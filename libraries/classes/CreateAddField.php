@@ -40,7 +40,7 @@ class CreateAddField
      *
      * @return array An array of arrays which represents column keys for each index type
      */
-    private function getIndexedColumns()
+    private function getIndexedColumns(): array
     {
         $fieldCount = count($_REQUEST['field_name']);
         $fieldPrimary = json_decode($_REQUEST['primary_indexes'], true);
@@ -71,9 +71,9 @@ class CreateAddField
      *                             according to the request
      */
     private function buildColumnCreationStatement(
-        $fieldCount,
-        $isCreateTable = true
-    ) {
+        int $fieldCount,
+        bool $isCreateTable = true
+    ): array {
         $definitions = [];
         $previousField = -1;
         for ($i = 0; $i < $fieldCount; ++$i) {
@@ -110,7 +110,10 @@ class CreateAddField
                         : ''
                     );
 
-            $definition .= $this->setColumnCreationStatementSuffix($i, $previousField, $isCreateTable);
+            $definition .= $this->setColumnCreationStatementSuffix(
+                $previousField,
+                $isCreateTable
+            );
             $previousField = $i;
             $definitions[] = $definition;
         } // end for
@@ -121,18 +124,16 @@ class CreateAddField
     /**
      * Set column creation suffix according to requested position of the new column
      *
-     * @param int     $currentFieldNumber current column number
-     * @param int     $previousField      previous field for ALTER statement
-     * @param boolean $isCreateTable      true if requirement is to get the statement
-     *                                    for table creation
+     * @param int  $previousField previous field for ALTER statement
+     * @param bool $isCreateTable true if requirement is to get the statement
+     *                            for table creation
      *
      * @return string $sqlSuffix suffix
      */
     private function setColumnCreationStatementSuffix(
-        $currentFieldNumber,
-        $previousField,
-        $isCreateTable = true
-    ) {
+        int $previousField,
+        bool $isCreateTable = true
+    ): string {
         // no suffix is needed if request is a table creation
         $sqlSuffix = ' ';
         if ($isCreateTable) {
@@ -174,9 +175,9 @@ class CreateAddField
      */
     private function buildIndexStatements(
         array $index,
-        $indexChoice,
-        $isCreateTable = true
-    ) {
+        string $indexChoice,
+        bool $isCreateTable = true
+    ): array {
         $statement = [];
         if (!count($index)) {
             return $statement;
@@ -240,7 +241,7 @@ class CreateAddField
      *
      * @return string $sqlPrefix prefix
      */
-    private function getStatementPrefix($isCreateTable = true)
+    private function getStatementPrefix(bool $isCreateTable = true): string
     {
         $sqlPrefix = " ";
         if (! $isCreateTable) {
@@ -262,10 +263,10 @@ class CreateAddField
      */
     private function mergeIndexStatements(
         array $definitions,
-        $isCreateTable,
+        bool $isCreateTable,
         array $indexedColumns,
-        $indexKeyword
-    ) {
+        string $indexKeyword
+    ): array {
         foreach ($indexedColumns as $index) {
             $statements = $this->buildIndexStatements(
                 $index,
@@ -286,7 +287,7 @@ class CreateAddField
      *
      * @return string sql statement
      */
-    private function getColumnCreationStatements($isCreateTable = true)
+    private function getColumnCreationStatements(bool $isCreateTable = true): string
     {
         $sqlStatement = "";
         list(
@@ -355,7 +356,7 @@ class CreateAddField
      *
      * @return string partitioning clause
      */
-    public function getPartitionsDefinition()
+    public function getPartitionsDefinition(): string
     {
         $sqlQuery = "";
         if (! empty($_REQUEST['partition_by'])
@@ -399,8 +400,10 @@ class CreateAddField
      *
      * @return string partition/subpartition definition
      */
-    private function getPartitionDefinition(array $partition, $isSubPartition = false)
-    {
+    private function getPartitionDefinition(
+        array $partition,
+        bool $isSubPartition = false
+    ): string {
         $sqlQuery = " " . ($isSubPartition ? "SUB" : "") . "PARTITION ";
         $sqlQuery .= $partition['name'];
 
@@ -461,7 +464,7 @@ class CreateAddField
      *
      * @return string
      */
-    public function getTableCreationQuery($db, $table)
+    public function getTableCreationQuery(string $db, string $table): string
     {
         // get column addition statements
         $sqlStatement = $this->getColumnCreationStatements(true);
@@ -501,7 +504,7 @@ class CreateAddField
      *
      * @return int
      */
-    public function getNumberOfFieldsFromRequest()
+    public function getNumberOfFieldsFromRequest(): int
     {
         // Limit to 4096 fields (MySQL maximal value)
         $mysqlLimit = 4096;
@@ -530,8 +533,11 @@ class CreateAddField
      *
      * @return array
      */
-    public function tryColumnCreationQuery($db, $table, $errorUrl)
-    {
+    public function tryColumnCreationQuery(
+        string $db,
+        string $table,
+        string $errorUrl
+    ): array {
         // get column addition statements
         $sqlStatement = $this->getColumnCreationStatements(false);
 
