@@ -65,7 +65,7 @@ AJAX.registerOnload('import.js', function () {
             // remote upload.
 
             if (radioImport.is(':checked') && $('#input_import_file').val() === '') {
-                $('#input_import_file').focus();
+                $('#input_import_file').trigger('focus');
                 PMA_ajaxShowMessage(fileMsg, false);
                 return false;
             }
@@ -77,7 +77,7 @@ AJAX.registerOnload('import.js', function () {
                 }
 
                 if ($('#select_local_import_file').val() === '') {
-                    $('#select_local_import_file').focus();
+                    $('#select_local_import_file').trigger('focus');
                     PMA_ajaxShowMessage(fileMsg, false);
                     return false;
                 }
@@ -85,7 +85,7 @@ AJAX.registerOnload('import.js', function () {
         } else {
             // local upload.
             if ($('#input_import_file').val() === '') {
-                $('#input_import_file').focus();
+                $('#input_import_file').trigger('focus');
                 PMA_ajaxShowMessage(fileMsg, false);
                 return false;
             }
@@ -100,15 +100,15 @@ AJAX.registerOnload('import.js', function () {
     changePluginOpts();
 
     // Whenever the selected plugin changes, change the options displayed
-    $('#plugins').change(function () {
+    $('#plugins').on('change', function () {
         changePluginOpts();
     });
 
-    $('#input_import_file').change(function () {
+    $('#input_import_file').on('change', function () {
         matchFile($(this).val());
     });
 
-    $('#select_local_import_file').change(function () {
+    $('#select_local_import_file').on('change', function () {
         matchFile($(this).val());
     });
 
@@ -120,7 +120,7 @@ AJAX.registerOnload('import.js', function () {
         $('#radio_import_file').prop('checked', true);
         $('#radio_local_import_file').prop('checked', false);
     });
-    $('#select_local_import_file').focus(function () {
+    $('#select_local_import_file').on('focus', function () {
         $('#radio_local_import_file').prop('checked', true);
         $('#radio_import_file').prop('checked', false);
     });
