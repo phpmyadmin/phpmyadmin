@@ -10,6 +10,8 @@ phpMyAdmin - ChangeLog
 - issue #12772 Fix case where the central columns attributes don't get filled in
 - issue #14049 Fix case where the query builder doesn't work when selected column is *
 - issue #14029 Revert "Browse" table CSS overflow
+- issue #14241 Dropping indexes and foreign keys fail
+- issue #14227 Relational linking broken
 
 4.8.0.1 (2018-04-19)
 - issue        [security] Multiple CSRF vulnerabilities, See PMASA-2018-02

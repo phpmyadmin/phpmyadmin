@@ -5301,11 +5301,11 @@ class Results
                     // user chose "relational key" in the display options, so
                     // the title contains the display field
                     $title = (! empty($dispval))
-                        ? ' title="' . htmlspecialchars($dispval) . '"'
+                        ? htmlspecialchars($dispval)
                         : '';
 
                 } else {
-                    $title = ' title="' . htmlspecialchars($data) . '"';
+                    $title = htmlspecialchars($data);
                 }
 
                 $_url_params = array(
@@ -5320,14 +5320,10 @@ class Results
                         . $where_comparison,
                 );
 
-                $result .= '<a class="ajax" href="sql.php'
-                    . Url::getCommon($_url_params)
-                    . '"' . $title . '>';
-
                 if ($transformation_plugin != $default_function) {
                     // always apply a transformation on the real data,
                     // not on the display field
-                    $result .= $transformation_plugin->applyTransformation(
+                    $message = $transformation_plugin->applyTransformation(
                         $data,
                         $transform_options,
                         $meta
@@ -5339,14 +5335,18 @@ class Results
                     ) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $result .= $default_function($dispval);
+                        $message = $default_function($dispval);
                     } else {
                         // otherwise display data in the cell
-                        $result .= $default_function($data);
+                        $message = $default_function($data);
                     }
 
                 }
-                $result .= '</a>';
+                $result .= Util::linkOrButton(
+                    'sql.php' . Url::getCommon($_url_params),
+                    $message,
+                    array('class' => 'ajax', 'title' => $title)
+                );
             }
 
         } else {
