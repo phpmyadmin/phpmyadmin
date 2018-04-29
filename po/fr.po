@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-04-29 06:00-0300\n"
-"PO-Revision-Date: 2018-04-15 04:22+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2018-04-29 09:24+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -951,6 +951,9 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Vous êtes en train d'essayer de réduire le nombre de rangées, mais vous avez "
+"déjà entré des données dans ces rangées qui seront perdues. Souhaitez-vous "
+"continuer ?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2314,7 +2317,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "value/subQuery est vide"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
