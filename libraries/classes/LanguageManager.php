@@ -27,7 +27,7 @@ class LanguageManager
      * - Language code
      * - English language name
      * - Native language name
-     * - Match regullar expression
+     * - Match regular expression
      * - MySQL locale
      */
     private static $_language_data = array(
@@ -458,19 +458,19 @@ class LanguageManager
             'pl|polish',
             'pl_PL',
         ),
-        'pt_br' => array(
-            'pt_BR',
-            'Brazilian Portuguese',
-            'Portugu&ecirc;s',
-            'pt[-_]br|brazilian portuguese',
-            'pt_BR',
-        ),
         'pt' => array(
             'pt',
             'Portuguese',
             'Portugu&ecirc;s',
             'pt|portuguese',
             'pt_PT',
+        ),
+        'pt_br' => array(
+            'pt_BR',
+            'Portuguese (Brazil)',
+            'Portugu&ecirc;s (Brasil)',
+            'pt[-_]br|portuguese (brazil)',
+            'pt_BR',
         ),
         'ro' => array(
             'ro',
