@@ -222,10 +222,7 @@ AJAX.registerOnload('tbl_relation.js', function () {
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingForeignKey, false);
-            var params = {
-                'is_js_confirmed': 1,
-                'ajax_request': true
-            };
+            var params = getJSConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
