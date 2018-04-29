@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-04-29 06:00-0300\n"
-"PO-Revision-Date: 2018-04-25 19:00+0000\n"
+"PO-Revision-Date: 2018-04-29 15:36+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -950,6 +950,9 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Sie versuchen, die Anzahl der Zeilen zu reduzieren, haben aber bereits Daten "
+"in den Zeilen eingegeben, die verloren gehen werden. Möchten Sie "
+"weitermachen?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2322,7 +2325,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "Wert/Unterabfrage ist leer"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -16189,7 +16192,8 @@ msgstr ""
 
 #: templates/table/search/selection_form.twig:42
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Suche über Beispielwerte (\"query by example\") (Platzhalter: \"%\")"
+msgstr ""
+"Suche über Abfrage-durch-Beispiel (\"query by example\") (Platzhalter: \"%\")"
 
 #: templates/export/alias_item.twig:8
 msgid "Remove"
