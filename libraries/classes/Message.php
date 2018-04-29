@@ -43,21 +43,21 @@ use PhpMyAdmin\Util;
  */
 class Message
 {
-    const SUCCESS = 1; // 0001
-    const NOTICE  = 2; // 0010
-    const ERROR   = 8; // 1000
+    public const SUCCESS = 1; // 0001
+    public const NOTICE  = 2; // 0010
+    public const ERROR   = 8; // 1000
 
-    const SANITIZE_NONE   = 0;  // 0000 0000
-    const SANITIZE_STRING = 16; // 0001 0000
-    const SANITIZE_PARAMS = 32; // 0010 0000
-    const SANITIZE_BOOTH  = 48; // 0011 0000
+    public const SANITIZE_NONE   = 0;  // 0000 0000
+    public const SANITIZE_STRING = 16; // 0001 0000
+    public const SANITIZE_PARAMS = 32; // 0010 0000
+    public const SANITIZE_BOOTH  = 48; // 0011 0000
 
     /**
      * message levels
      *
      * @var array
      */
-    static public $level = array (
+    public static $level = array (
         Message::SUCCESS => 'success',
         Message::NOTICE  => 'notice',
         Message::ERROR   => 'error',
@@ -166,7 +166,7 @@ class Message
      * @return Message
      * @static
      */
-    static public function success($string = '')
+    public static function success($string = '')
     {
         if (empty($string)) {
             $string = __('Your SQL query has been executed successfully.');
@@ -185,7 +185,7 @@ class Message
      * @return Message
      * @static
      */
-    static public function error($string = '')
+    public static function error($string = '')
     {
         if (empty($string)) {
             $string = __('Error');
@@ -207,7 +207,7 @@ class Message
      * @return Message
      * @static
      */
-    static public function notice($string)
+    public static function notice($string)
     {
         return new Message($string, Message::NOTICE);
     }
@@ -223,7 +223,7 @@ class Message
      * @return Message
      * @static
      */
-    static public function raw($message, $type = Message::NOTICE)
+    public static function raw($message, $type = Message::NOTICE)
     {
         $r = new Message('', $type);
         $r->setMessage($message);
@@ -241,7 +241,7 @@ class Message
      * @return Message
      * @static
      */
-    static public function getMessageForAffectedRows($rows)
+    public static function getMessageForAffectedRows($rows)
     {
         $message = Message::success(
             _ngettext('%1$d row affected.', '%1$d rows affected.', $rows)
@@ -260,7 +260,7 @@ class Message
      * @return Message
      * @static
      */
-    static public function getMessageForDeletedRows($rows)
+    public static function getMessageForDeletedRows($rows)
     {
         $message = Message::success(
             _ngettext('%1$d row deleted.', '%1$d rows deleted.', $rows)
@@ -279,7 +279,7 @@ class Message
      * @return Message
      * @static
      */
-    static public function getMessageForInsertedRows($rows)
+    public static function getMessageForInsertedRows($rows)
     {
         $message = Message::success(
             _ngettext('%1$d row inserted.', '%1$d rows inserted.', $rows)
@@ -298,7 +298,7 @@ class Message
      * @return Message
      * @static
      */
-    static public function rawError($message)
+    public static function rawError($message)
     {
         return Message::raw($message, Message::ERROR);
     }
@@ -313,7 +313,7 @@ class Message
      * @return Message
      * @static
      */
-    static public function rawNotice($message)
+    public static function rawNotice($message)
     {
         return Message::raw($message, Message::NOTICE);
     }
@@ -328,7 +328,7 @@ class Message
      * @return Message
      * @static
      */
-    static public function rawSuccess($message)
+    public static function rawSuccess($message)
     {
         return Message::raw($message, Message::SUCCESS);
     }
@@ -617,7 +617,7 @@ class Message
      * @access  public
      * @static
      */
-    static public function sanitize($message)
+    public static function sanitize($message)
     {
         if (is_array($message)) {
             foreach ($message as $key => $val) {
@@ -640,7 +640,7 @@ class Message
      * @access  public
      * @static
      */
-    static public function decodeBB($message)
+    public static function decodeBB($message)
     {
         return Sanitize::sanitize($message, false, true);
     }
@@ -651,7 +651,7 @@ class Message
      * @param mixed ...$params
      * @return string formatted
      */
-    static public function format(...$params)
+    public static function format(...$params)
     {
         if (isset($params[1]) && is_array($params[1])) {
             array_unshift($params[1], $params[0]);
