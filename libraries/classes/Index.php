@@ -765,12 +765,12 @@ class Index
                 $r .= '<td ' . $row_span . ' class="print_ignore">';
                 $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
                     . ' value="' . $js_msg . '" />';
-                $r .= '    <a class="drop_primary_key_index_anchor';
-                $r .= ' ajax';
-                $r .= '" href="sql.php' . Url::getCommon($this_params)
-                   . '" >'
-                   . Util::getIcon('b_drop', __('Drop'))  . '</a>'
-                   . '</td>' . "\n";
+                $r .= Util::linkOrButton(
+                    'sql.php' . Url::getCommon($this_params),
+                    Util::getIcon('b_drop', __('Drop')),
+                    array('class' => 'drop_primary_key_index_anchor ajax')
+                );
+                $r .= '</td>' . "\n";
             }
 
             if (! $print_mode) {
