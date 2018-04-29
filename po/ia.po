@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-04-29 06:00-0300\n"
-"PO-Revision-Date: 2018-01-24 12:17+0000\n"
+"PO-Revision-Date: 2018-04-29 18:03+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:205 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -949,6 +949,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Tu es essayante reducer le numero de rangos, ma tu ja ha insertate datos in "
+"ille rangos que essera perdite. Tu vole continuar?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1788,6 +1790,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Il sembla que le connexion con le servitor ha essite perdite. Pro favor tu "
+"verifica tu connexion de rete e le status de servitor."
 
 #: js/messages.php:371
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
@@ -2311,7 +2315,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "valor/sunQuery es vacue"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -2737,7 +2741,7 @@ msgstr ""
 #: js/messages.php:750
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Le activation de clave de securitate  (%s) falleva."
 
 #: js/messages.php:779
 msgctxt "Previous month"
@@ -3464,7 +3468,7 @@ msgstr "Germano (ordine de dictionario)"
 #: libraries/classes/Charsets.php:471 libraries/classes/Charsets.php:582
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Germano (ordine de libro de telephono)"
 
 #: libraries/classes/Charsets.php:480
 msgctxt "Collation"
@@ -3479,7 +3483,7 @@ msgstr "Islandese"
 #: libraries/classes/Charsets.php:491
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Latino classico"
 
 #: libraries/classes/Charsets.php:495
 msgctxt "Collation"
@@ -3534,7 +3538,7 @@ msgstr "Espaniol (moderne)"
 #: libraries/classes/Charsets.php:543 libraries/classes/Charsets.php:593
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Espaniol (traditional)"
 
 #: libraries/classes/Charsets.php:562
 msgctxt "Collation"
@@ -7224,7 +7228,7 @@ msgstr ""
 
 #: libraries/classes/Display/Export.php:571
 msgid "Defined aliases"
-msgstr ""
+msgstr "Aliases definite"
 
 #: libraries/classes/Display/Export.php:627
 #: templates/display/export/options_output.twig:7
