@@ -15,7 +15,8 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 ?>
 
 .CodeMirror {
-    height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
+   height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
+  <!--   height: 500px;-->
     direction: ltr;
 }
 #inline_editor_outer .CodeMirror {

@@ -210,7 +210,7 @@ class DbiMysqli implements DbiExtension
             $method = 0;
         }
 
-        return mysqli_query($link, $query, $method);
+        return     mysqli_query($link, $query, $method);
     }
 
     /**

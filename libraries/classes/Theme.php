@@ -83,6 +83,7 @@ class Theme
         'icons',
     );
 
+
     /**
      * Loads theme information
      *
