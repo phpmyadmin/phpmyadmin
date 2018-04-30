@@ -55,6 +55,7 @@ class DbiMysqliTest extends PmaTestCase
      * @return void
      *
      * @group medium
+     * @group runkit
      */
     public function testMysqliDBI()
     {

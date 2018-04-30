@@ -7,7 +7,7 @@
  <property name="env.PHPUNIT_XML" value="phpunit.xml.dist"/>
  <property name="env.PHPUNIT_XML_NOCOVERAGE" value="phpunit.xml.nocoverage"/>
  <property name="env.PHPUNIT_XML_HHVM" value="phpunit.xml.hhvm"/>
- <property name="env.PHPUNIT_ARGS" value=""/>
+ <property name="env.PHPUNIT_ARGS" value="--exclude-group selenium,runkit"/>
 
  <target name="clean" description="Clean up and create artifact directories">
   <delete dir="${basedir}/build/api"/>
