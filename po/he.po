@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-29 13:54+0000\n"
+"PO-Revision-Date: 2018-05-01 12:38+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -4737,48 +4737,36 @@ msgid "Whether to show tables under database in the navigation tree"
 msgstr "האם להציג טבלאות תחת מסד נתונים בעץ הניווט"
 
 #: libraries/classes/Config/Descriptions.php:841
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show views in tree"
-msgstr "הראה רשת"
+msgstr "הצג תצוגות בעץ"
 
 #: libraries/classes/Config/Descriptions.php:843
-#, fuzzy
-#| msgid "Show grid"
 msgid "Whether to show views under database in the navigation tree"
-msgstr "הראה רשת"
+msgstr "האם להציג תצוגות תחת מסד נתונים בעץ הניווט"
 
 #: libraries/classes/Config/Descriptions.php:845
-#, fuzzy
-#| msgid "Connections since last refresh"
 msgid "Show functions in tree"
-msgstr "התחברויות מאז הרענון האחרון"
+msgstr "הצגת פונקציות בעץ"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:849
-#, fuzzy
-#| msgid "Show processes"
 msgid "Show procedures in tree"
-msgstr "ראיית תהליכים"
+msgstr "הצגת תהליכים בעץ"
 
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:853
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show events in tree"
-msgstr "הראה רשת"
+msgstr "הצגת אירועים בעץ"
 
 #: libraries/classes/Config/Descriptions.php:855
-#, fuzzy
-#| msgid "Show grid"
 msgid "Whether to show events under database in the navigation tree"
-msgstr "הראה רשת"
+msgstr "האם להציג אירועים תחת מסד הנתונים בעץ הניווט"
 
 #: libraries/classes/Config/Descriptions.php:857
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -4789,17 +4777,13 @@ msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:861
-#, fuzzy
-#| msgid "Analyze table"
 msgid "Recently used tables"
-msgstr "ניתוח טבלה"
+msgstr "טבלאות שהיו בשימוש לאחרונה"
 
 #: libraries/classes/Config/Descriptions.php:863
 #: libraries/classes/RecentFavoriteTable.php:255
-#, fuzzy
-#| msgid "Variables"
 msgid "Favorite tables"
-msgstr "משתנים"
+msgstr "טבלאות מועדפות"
 
 #: libraries/classes/Config/Descriptions.php:865
 msgid "These are Edit, Copy and Delete links."
@@ -4819,20 +4803,16 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:873
 #: libraries/classes/Config/Descriptions.php:875
-#, fuzzy
-#| msgid "Disable Statistics"
 msgid "Disable shortcut keys"
-msgstr "ביטול סטטיסטיקה"
+msgstr "השבתת מקשי קיצור"
 
 #: libraries/classes/Config/Descriptions.php:877
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:879
-#, fuzzy
-#| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "שינוי סדר הטבלה לפי"
+msgstr "סדר טבעי"
 
 #: libraries/classes/Config/Descriptions.php:881
 #: libraries/classes/Config/Descriptions.php:915
@@ -4841,10 +4821,8 @@ msgid "Use only icons, only text or both."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:883
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table navigation bar"
-msgstr "כותרת טבלה"
+msgstr "סרגל ניווט בטבלה"
 
 #: libraries/classes/Config/Descriptions.php:885
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
@@ -4941,20 +4919,16 @@ msgid "When browsing tables, the sorting of each table is remembered."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:947
-#, fuzzy
-#| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "שינוי שם טבלה אל"
+msgstr "שמירת סדר הטבלה"
 
 #: libraries/classes/Config/Descriptions.php:949
 msgid "Default sort order for tables with a primary key."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:951
-#, fuzzy
-#| msgid "A primary key has been added on %s."
 msgid "Primary key default sort order"
-msgstr "מפתח ראשי נוסף אל %s"
+msgstr "אופן סידור המפתח הראשי כבררת מחדל"
 
 #: libraries/classes/Config/Descriptions.php:953
 msgid ""
@@ -4970,14 +4944,12 @@ msgid "Grid editing: trigger action"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
 msgid "Relational display"
-msgstr "תצוגת יחסים"
+msgstr "תצוגה יחסית"
 
 #: libraries/classes/Config/Descriptions.php:961
-#, fuzzy
 msgid "For display Options"
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "לאפשרויות תצוגה"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Grid editing: save all edited cells at once"
@@ -4988,9 +4960,8 @@ msgid "Directory where exports can be saved on server."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:967
-#, fuzzy
 msgid "Save directory"
-msgstr "תיקיית בית של נתונים"
+msgstr "שמירת תיקייה"
 
 #: libraries/classes/Config/Descriptions.php:969
 msgid "Leave blank if not used."
@@ -5017,10 +4988,8 @@ msgid "Allow root login"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:981
-#, fuzzy
-#| msgid "Session value"
 msgid "Session timezone"
-msgstr "ערך זמן חיבור (Session)"
+msgstr "אזור הזמן של ההפעלה"
 
 #: libraries/classes/Config/Descriptions.php:984
 msgid ""
@@ -5037,10 +5006,8 @@ msgid "HTTP Realm"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:992
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication method to use."
-msgstr "תיעוד"
+msgstr "שיטת אימות לשימוש."
 
 #: libraries/classes/Config/Descriptions.php:994 setup/frames/index.inc.php:142
 msgid "Authentication type"
@@ -5097,10 +5064,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1028
-#, fuzzy
-#| msgid "Any host"
 msgid "Control host"
-msgstr "כל שרת מארח"
+msgstr "מארח בקרה"
 
 #: libraries/classes/Config/Descriptions.php:1031
 msgid ""
@@ -5110,10 +5075,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1036
-#, fuzzy
-#| msgid "Any host"
 msgid "Control port"
-msgstr "כל שרת מארח"
+msgstr "פתחת בקרה"
 
 #: libraries/classes/Config/Descriptions.php:1038
 msgid "Hide databases matching regular expression (PCRE)."
@@ -5131,9 +5094,8 @@ msgid "Disable use of INFORMATION_SCHEMA"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1047
-#, fuzzy
 msgid "Hide databases"
-msgstr "אין מאגרי נתונים"
+msgstr "הסתרת מסדי נתונים"
 
 #: libraries/classes/Config/Descriptions.php:1050
 msgid ""
@@ -5150,9 +5112,8 @@ msgid "Hostname where MySQL server is running."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1058
-#, fuzzy
 msgid "Server hostname"
-msgstr "בחירת שרת"
+msgstr "שם המארח לשרת"
 
 #: libraries/classes/Config/Descriptions.php:1060
 msgid "Logout URL"
@@ -5179,10 +5140,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1076
-#, fuzzy
-#| msgid "Create table on database %s"
 msgid "Export templates table"
-msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+msgstr "ייצוא טבלת תבניות"
 
 #: libraries/classes/Config/Descriptions.php:1079
 msgid ""
@@ -5191,10 +5150,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1083
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Central columns table"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "טבלת עמודות מרכזית"
 
 #: libraries/classes/Config/Descriptions.php:1086
 msgid ""
@@ -5240,19 +5197,16 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
-#, fuzzy
-#| msgid "Database"
 msgid "Database name"
-msgstr "מאגר נתונים"
+msgstr "שם מסד הנתונים"
 
 #: libraries/classes/Config/Descriptions.php:1114
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1116
-#, fuzzy
 msgid "Server port"
-msgstr "קוד שרת (ID)"
+msgstr "פתחת השרת"
 
 #: libraries/classes/Config/Descriptions.php:1119
 msgid ""
@@ -5261,10 +5215,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1123
-#, fuzzy
-#| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "ניתוח טבלה"
+msgstr "טבלה שהייתה בשימוש לאחרונה"
 
 #: libraries/classes/Config/Descriptions.php:1126
 msgid ""
@@ -5273,10 +5225,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1130
-#, fuzzy
-#| msgid "Variables"
 msgid "Favorites table"
-msgstr "משתנים"
+msgstr "טבלת מועדפים"
 
 #: libraries/classes/Config/Descriptions.php:1133
 msgid ""
@@ -5285,9 +5235,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1138
-#, fuzzy
 msgid "Relation table"
-msgstr "תיקון טבלה"
+msgstr "טבלת יחסים"
 
 #: libraries/classes/Config/Descriptions.php:1141
 msgid ""
@@ -5307,15 +5256,12 @@ msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1151
-#, fuzzy
 msgid "Server socket"
-msgstr "בחירת שרת"
+msgstr "שקע לשרת"
 
 #: libraries/classes/Config/Descriptions.php:1153
-#, fuzzy
-#| msgid "%s has been disabled for this MySQL server."
 msgid "Enable SSL for connection to MySQL server."
-msgstr "%s מובטל על שרת MySQL זה."
+msgstr "הפעלת SSL לחיבור לשרת MySQL."
 
 #: libraries/classes/Config/Descriptions.php:1155
 msgid "Use SSL"
@@ -5338,10 +5284,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1166
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "מציג הערות עמודה"
+msgstr "הצגת טבלת עמודות"
 
 #: libraries/classes/Config/Descriptions.php:1169
 msgid ""
@@ -5350,10 +5294,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1173
-#, fuzzy
-#| msgid "Defragment table"
 msgid "UI preferences table"
-msgstr "איחוי טבלה"
+msgstr "טבלת העדפות מנשק משתמש"
 
 #: libraries/classes/Config/Descriptions.php:1176
 msgid ""
@@ -5391,10 +5333,8 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1198
-#, fuzzy
-#| msgid "Statements"
 msgid "Statements to track"
-msgstr "משפטים"
+msgstr "משפטים למעקב"
 
 #: libraries/classes/Config/Descriptions.php:1201
 msgid ""
@@ -5413,9 +5353,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1212
-#, fuzzy
 msgid "Automatically create versions"
-msgstr "גרסת שרת"
+msgstr "יצירת גרסאות אוטומטית"
 
 #: libraries/classes/Config/Descriptions.php:1215
 msgid ""
@@ -5435,10 +5374,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1227
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Users table"
-msgstr "שימוש בטבלאות"
+msgstr "טבלת משתמשים"
 
 #: libraries/classes/Config/Descriptions.php:1230
 msgid ""
@@ -5503,20 +5440,16 @@ msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1271
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table comments"
-msgstr "הערות לטבלה"
+msgstr "הצגת הערות טבלה"
 
 #: libraries/classes/Config/Descriptions.php:1273
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1275
-#, fuzzy
-#| msgid "Show PHP information"
 msgid "Show creation timestamp"
-msgstr "ראיית מידע PHP"
+msgstr "הצגת חותמת זמן היצירה"
 
 #: libraries/classes/Config/Descriptions.php:1277
 msgid ""
@@ -5524,10 +5457,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1279
-#, fuzzy
-#| msgid "Show PHP information"
 msgid "Show last update timestamp"
-msgstr "ראיית מידע PHP"
+msgstr "הצגת חותמת זמן העדכון האחרון"
 
 #: libraries/classes/Config/Descriptions.php:1281
 msgid ""
@@ -5535,20 +5466,16 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1283
-#, fuzzy
-#| msgid "Show PHP information"
 msgid "Show last check timestamp"
-msgstr "ראיית מידע PHP"
+msgstr "הצגת חותמת זמן הבדיקה האחרונה"
 
 #: libraries/classes/Config/Descriptions.php:1285
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1287
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table charset"
-msgstr "הערות לטבלה"
+msgstr "הצגת ערכת התווים של הטבלה"
 
 #: libraries/classes/Config/Descriptions.php:1290
 msgid ""
@@ -5557,9 +5484,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1294
-#, fuzzy
 msgid "Show field types"
-msgstr "ראיית טבלאות"
+msgstr "הצגת סוגי שדות"
 
 #: libraries/classes/Config/Descriptions.php:1296
 msgid "Display the function fields in edit/insert mode."
@@ -5574,10 +5500,8 @@ msgid "Whether to show hint or not."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1302
-#, fuzzy
-#| msgid "Show grid"
 msgid "Show hint"
-msgstr "הראה רשת"
+msgstr "הצגת רמז"
 
 #: libraries/classes/Config/Descriptions.php:1305
 msgid ""
@@ -5599,9 +5523,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1315
-#, fuzzy
 msgid "Show SQL queries"
-msgstr "הראה שאילתות שלמות"
+msgstr "הצגת שאילתות SQL"
 
 #: libraries/classes/Config/Descriptions.php:1317
 msgid ""
@@ -5610,18 +5533,16 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1319
 #: libraries/classes/SqlQueryForm.php:356
-#, fuzzy
 msgid "Retain query box"
-msgstr "שאילתת SQL"
+msgstr "שימור תוכן תיבת השאילתה"
 
 #: libraries/classes/Config/Descriptions.php:1321
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1323
-#, fuzzy
 msgid "Show statistics"
-msgstr "סטטיסטיקת שורה"
+msgstr "הצגת סטטיסטיקה"
 
 #: libraries/classes/Config/Descriptions.php:1325
 msgid ""
@@ -5647,10 +5568,8 @@ msgstr "רענון"
 
 #: libraries/classes/Config/Descriptions.php:1335
 #: libraries/classes/Util.php:1107
-#, fuzzy
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
-msgstr "ייצור קוד PHP"
+msgstr "יצירת קוד PHP"
 
 #: libraries/classes/Config/Descriptions.php:1338
 msgid ""
@@ -5921,10 +5840,8 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
-#, fuzzy
-#| msgid "Switch to copied table"
 msgid "Switch to dark theme"
-msgstr "מעבר לטבלה שהועתקה"
+msgstr "החלפה לערכת עיצוב כהה"
 
 #: libraries/classes/Config/Descriptions.php:1476
 msgid "Console height"
@@ -5936,21 +5853,16 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
-#, fuzzy
 msgid "Group queries"
-msgstr "שאילתת SQL"
+msgstr "שאילתות קבוצתיות"
 
 #: libraries/classes/Config/Descriptions.php:1482 libraries/classes/Sql.php:254
-#, fuzzy
-#| msgid "Other"
 msgid "Order"
-msgstr "אחר"
+msgstr "סידור"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Other"
 msgid "Order by"
-msgstr "אחר"
+msgstr "סידור לפי"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:524
@@ -5964,10 +5876,8 @@ msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:101
 #: libraries/classes/Config/Validator.php:502
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Not a valid port number!"
-msgstr "%d הוא לא מספר שורה תקין."
+msgstr "מספר הפתחה אינו תקין!"
 
 #: libraries/classes/Config/FormDisplay.php:102
 #: libraries/classes/Config/FormDisplay.php:656
@@ -5988,10 +5898,8 @@ msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:806
 #: libraries/classes/Config/FormDisplay.php:812
-#, fuzzy
-#| msgid "Variable"
 msgid "unavailable"
-msgstr "משתנה"
+msgstr "לא זמין"
 
 #: libraries/classes/Config/FormDisplay.php:808
 #: libraries/classes/Config/FormDisplay.php:814
@@ -6067,16 +5975,12 @@ msgstr "Microsoft Word 2000"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:114
 #: libraries/classes/Config/Forms/User/ImportForm.php:46
-#, fuzzy
-#| msgid "Documentation"
 msgid "OpenDocument Spreadsheet"
-msgstr "תיעוד"
+msgstr "גיליון של OpenDocument"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:118
-#, fuzzy
-#| msgid "Documentation"
 msgid "OpenDocument Text"
-msgstr "תיעוד"
+msgstr "טקסט של OpenDocument"
 
 #: libraries/classes/Config/Forms/User/FeaturesForm.php:82
 msgid "Features"
@@ -6087,9 +5991,8 @@ msgid "CSV using LOAD DATA"
 msgstr ""
 
 #: libraries/classes/Config/Forms/User/MainForm.php:32
-#, fuzzy
 msgid "Default transformations"
-msgstr "שינויי צורה זמינים"
+msgstr "התמרות כבררת מחדל"
 
 #: libraries/classes/Config/PageSettings.php:134
 msgid "Cannot save settings, submitted configuration form contains errors!"
@@ -6208,10 +6111,8 @@ msgid "Could not connect to the database server!"
 msgstr ""
 
 #: libraries/classes/Config/Validator.php:249
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Invalid authentication type!"
-msgstr "סוג הייצוא שגוי"
+msgstr "סוג האימות שגוי!"
 
 #: libraries/classes/Config/Validator.php:256
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
@@ -6255,15 +6156,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Console.php:94
-#, fuzzy
-#| msgid "Search"
 msgid "No bookmarks"
-msgstr "חיפוש"
+msgstr "אין סימניות"
 
 #: libraries/classes/Console.php:129
-#, fuzzy
 msgid "SQL Query Console"
-msgstr "שאילתת SQL"
+msgstr "מסוף שאילתות SQL"
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:270
 msgid "Favorite List is full!"
@@ -6277,17 +6175,15 @@ msgstr "הטבלה %s רוקנה."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:592
 #: tbl_operations.php:423 view_operations.php:128
-#, fuzzy, php-format
-#| msgid "View %s has been dropped."
+#, php-format
 msgid "View %s has been dropped."
-msgstr "התצוגה %s נשמטה"
+msgstr "התצוגה %s נשמטה."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:593
 #: tbl_operations.php:424
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Table %s has been dropped."
-msgstr "הטבלה %s נשמטה"
+msgstr "הטבלה %s נשמטה."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:804
 #: libraries/classes/Display/Results.php:4530
@@ -6332,8 +6228,6 @@ msgstr "מידע"
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:200
 #: libraries/classes/Display/Results.php:997 libraries/classes/Util.php:2304
 #: libraries/classes/Util.php:2307
-#, fuzzy
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "הקודם"
@@ -6352,8 +6246,6 @@ msgstr "הראה שאילתות שלמות"
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:234
 #: libraries/classes/Display/Results.php:1051 libraries/classes/Util.php:2335
 #: libraries/classes/Util.php:2345
-#, fuzzy
-#| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "הבא"
@@ -6364,12 +6256,11 @@ msgid "Database %1$s has been created."
 msgstr "מסד הנתונים %1$s נוצר."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:202
-#, fuzzy, php-format
-#| msgid "%s databases have been dropped successfully."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s מסדי נתונים נמחקו בהצלחה."
-msgstr[1] "%s מסדי נתונים נמחקו בהצלחה."
+msgstr[0] "מסד נתונים אחד הושמט בהצלחה."
+msgstr[1] "%1$d מסדי נתונים הושמטו בהצלחה."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:337
 #: libraries/classes/Import.php:122
@@ -6410,15 +6301,13 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:437
 #: templates/database/structure/structure_table_row.twig:16
-#, fuzzy
 msgid "Replicated"
-msgstr "יחסים"
+msgstr "משוכפל"
 
 #: libraries/classes/Controllers/Server/ServerVariablesController.php:116
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "משתני והגדרות שרת"
+msgstr "אין מספיק הרשאות כדי לצפות במשתני והגדרות השרת. %s"
 
 #: libraries/classes/Controllers/Server/ServerVariablesController.php:234
 msgid "Setting variable failed"
@@ -6434,10 +6323,8 @@ msgid "No numeric columns present in the table to plot."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/TableChartController.php:216
-#, fuzzy
-#| msgid "No databases"
 msgid "No data to display"
-msgstr "אין מאגרי נתונים"
+msgstr "אין נתונים להצגה"
 
 #: libraries/classes/Controllers/Table/TableIndexesController.php:157
 #: libraries/classes/Controllers/Table/TableStructureController.php:735
@@ -6457,33 +6344,25 @@ msgstr ""
 #: libraries/classes/Rte/Routines.php:1462
 #: libraries/classes/SqlQueryForm.php:93 tbl_row_action.php:142
 #: view_operations.php:67
-#, fuzzy
-#| msgid "Your SQL query has been executed successfully."
 msgid "Your SQL query has been executed successfully."
-msgstr "שאילתת ה־SQL שלך בוצעה בהצלחה"
+msgstr "שאילתת ה־SQL שלך רצה בהצלחה."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:294
-#, fuzzy
 msgid "Internal relationships were successfully updated."
-msgstr "יחסים פנימיים"
+msgstr "היחסים פנימיים עודכנו בהצלחה."
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:778
-#, fuzzy
-#| msgid "Search"
 msgid "Table search"
-msgstr "חיפוש"
+msgstr "חיפוש טבלאות"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:785
-#, fuzzy
-#| msgid "Search"
 msgid "Zoom search"
-msgstr "חיפוש"
+msgstr "חיפוש תקריב"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:790
 #: templates/table/search/selection_form.twig:75
-#, fuzzy
 msgid "Find and replace"
-msgstr "שאילתת SQL"
+msgstr "חיפוש והחלפה"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:172
 #, php-format
@@ -6493,36 +6372,29 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:260
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No column selected."
-msgstr "לא נבחרו שורות"
+msgstr "לא נבחרו עמודות."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:474
-#, fuzzy
 msgid "The columns have been moved successfully."
-msgstr "%s מסדי נתונים נמחקו בהצלחה."
+msgstr "העמודות הועברו בהצלחה."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:510
-#, fuzzy, php-format
-#| msgid "Local monitor configuration incompatible"
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "תצורת מעקב מקומית אינה נתמכת"
+msgstr "קבלת תיאור העמודה %s נכשלה!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:746
 #: libraries/classes/Controllers/Table/TableStructureController.php:1030
 #: libraries/classes/Tracking.php:789
-#, fuzzy
-#| msgid "Query type"
 msgid "Query error"
-msgstr "סוג שאילתה"
+msgstr "שגיאת שאילתה"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:975
-#, fuzzy, php-format
-#| msgid "Table %s has been moved to %s."
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
-msgstr "הטבלה %s הועברה ל- %s."
+msgstr "הטבלה %1$s נערכה בהצלחה. ההרשאות השתנו."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1191
 #: templates/table/structure/check_all_table_column.twig:17
@@ -6578,10 +6450,8 @@ msgid "Fulltext"
 msgstr "Fulltext"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1204
-#, fuzzy
-#| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "עיין בערכים נפרדים"
+msgstr "ערכים נפרדים"
 
 #: libraries/classes/Core.php:346
 #, php-format
@@ -6594,23 +6464,21 @@ msgid "No change"
 msgstr "ללא שינוי"
 
 #: libraries/classes/Core.php:1212
-#, fuzzy
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
-"הפכת mbstring.func_overload בתצורת ה-PHP שלך. אפשרות זו אינו תואם ל- "
-"phpMyAdmin, עלול לגרום לנתונים פגומים!"
+"הפעלת את mbstring.func_overload בתצורת ה־PHP שלך. אפשרות זו אינה תואמת ל־"
+"phpMyAdmin ועלולה לגרום לפגם בנתונים!"
 
 #: libraries/classes/Core.php:1226
-#, fuzzy
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"הפכת mbstring.func_overload בתצורת ה-PHP שלך. אפשרות זו אינו תואם ל- "
-"phpMyAdmin, עלול לגרום לנתונים פגומים!"
+"השבתת את ini_get and/or ini_set ב־php.ini שלך. אפשרות זו אינה תואמת "
+"ל־phpMyAdmin!"
 
 #: libraries/classes/Core.php:1277
 msgid "GLOBALS overwrite attempt"
@@ -6628,38 +6496,28 @@ msgstr "לא ניתן לטעון את תוספי הייבוא, נא לבדוק �
 
 #: libraries/classes/Database/Qbe.php:447
 #: templates/table/search/search_and_replace.twig:6
-#, fuzzy
-#| msgid "Column"
 msgid "Column:"
-msgstr "עמודה"
+msgstr "עמודה:"
 
 #: libraries/classes/Database/Qbe.php:493
 msgid "Alias:"
 msgstr ""
 
 #: libraries/classes/Database/Qbe.php:545
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort:"
-msgstr "סידור"
+msgstr "סידור:"
 
 #: libraries/classes/Database/Qbe.php:607
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort order:"
-msgstr "סידור"
+msgstr "אופן הסידור:"
 
 #: libraries/classes/Database/Qbe.php:656
-#, fuzzy
-#| msgid "Show"
 msgid "Show:"
-msgstr "הצגה"
+msgstr "הצגה:"
 
 #: libraries/classes/Database/Qbe.php:705
-#, fuzzy
-#| msgid "Criteria"
 msgid "Criteria:"
-msgstr "קריטריונים"
+msgstr "קריטריונים:"
 
 #: libraries/classes/Database/Qbe.php:788
 #: libraries/classes/Database/Qbe.php:820
@@ -6672,10 +6530,8 @@ msgstr "שימוש בטבלאות"
 
 #: libraries/classes/Database/Qbe.php:841
 #: libraries/classes/Database/Qbe.php:952
-#, fuzzy
-#| msgid "Or"
 msgid "Or:"
-msgstr "או"
+msgstr "או:"
 
 #: libraries/classes/Database/Qbe.php:845
 #: libraries/classes/Database/Qbe.php:937
@@ -6691,10 +6547,8 @@ msgid "Del"
 msgstr "מחיקה"
 
 #: libraries/classes/Database/Qbe.php:869
-#, fuzzy
-#| msgid "Modify"
 msgid "Modify:"
-msgstr "שינוי"
+msgstr "שינוי:"
 
 #: libraries/classes/Database/Qbe.php:932
 msgid "Ins:"
@@ -6714,56 +6568,40 @@ msgid "Submit Query"
 msgstr "שליחת שאילתה"
 
 #: libraries/classes/Database/Qbe.php:1847
-#, fuzzy
-#| msgid "Search"
 msgid "Saved bookmarked search:"
-msgstr "חיפוש"
+msgstr "חיפושים שנשמרו כסימניות:"
 
 #: libraries/classes/Database/Qbe.php:1849
-#, fuzzy
-#| msgid "Search"
 msgid "New bookmark"
-msgstr "חיפוש"
+msgstr "סימנייה חדשה"
 
 #: libraries/classes/Database/Qbe.php:1875
-#, fuzzy
-#| msgid "Search"
 msgid "Create bookmark"
-msgstr "חיפוש"
+msgstr "יצירת סימנייה"
 
 #: libraries/classes/Database/Qbe.php:1878
-#, fuzzy
-#| msgid "Showing bookmark"
 msgid "Update bookmark"
-msgstr "הצגת סימנייה"
+msgstr "עדכון סימנייה"
 
 #: libraries/classes/Database/Qbe.php:1880
-#, fuzzy
-#| msgid "Search"
 msgid "Delete bookmark"
-msgstr "חיפוש"
+msgstr "מחיקת סימנייה"
 
 #: libraries/classes/Database/Search.php:93
 msgid "at least one of the words"
 msgstr "לפחות אחת מהמילים"
 
 #: libraries/classes/Database/Search.php:94
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "לפחות אחת מהמילים"
+msgstr "כל המילים"
 
 #: libraries/classes/Database/Search.php:95
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "הביטוי במדויק"
+msgstr "הביטוי במדויק כתת־מחרוזת"
 
 #: libraries/classes/Database/Search.php:96
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "הביטוי במדויק"
+msgstr "הביטוי במדויק כשדה שלם"
 
 #: libraries/classes/Database/Search.php:97
 msgid "as regular expression"
@@ -6795,10 +6633,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:2127
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "השרת אינו מגיב"
+msgstr "השרת אינו מגיב."
 
 #: libraries/classes/DatabaseInterface.php:2131
 msgid "Logout and try as another user."
@@ -6813,10 +6649,8 @@ msgid "Details…"
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:2452
-#, fuzzy
-#| msgid "Add new field"
 msgid "Missing connection parameters!"
-msgstr "הוספת שדה חדש"
+msgstr "חסרים משתני חיבור!"
 
 #: libraries/classes/DatabaseInterface.php:2479
 msgid "Connection for controluser as defined in your configuration failed."
@@ -6858,17 +6692,13 @@ msgstr ""
 #: libraries/classes/Display/ChangePassword.php:86
 #: libraries/classes/ReplicationGui.php:878
 #: libraries/classes/Server/Privileges.php:1693
-#, fuzzy
-#| msgid "Re-type"
 msgid "Re-type:"
-msgstr "הקלדה נוספת"
+msgstr "הקלדה מחדש:"
 
 #: libraries/classes/Display/ChangePassword.php:117
 #: libraries/classes/Display/ChangePassword.php:150
-#, fuzzy
-#| msgid "Password:"
 msgid "Password Hashing:"
-msgstr "סיסמא:"
+msgstr "גיבוב ססמה:"
 
 #: libraries/classes/Display/ChangePassword.php:130
 #: libraries/classes/Server/Privileges.php:1737
@@ -6925,38 +6755,31 @@ msgid "Git revision:"
 msgstr ""
 
 #: libraries/classes/Display/GitRevision.php:76
-#, fuzzy, php-format
+#, php-format
 msgid "committed on %1$s by %2$s"
-msgstr "גרסת שרת"
+msgstr "הוגש ב־%1$s ע״י %2$s"
 
 #: libraries/classes/Display/GitRevision.php:86
-#, fuzzy, php-format
+#, php-format
 msgid "authored on %1$s by %2$s"
-msgstr "גרסת שרת"
+msgstr "נוצר ב־%1$s ע״י %2$s"
 
 #: libraries/classes/Display/Results.php:907
-#, fuzzy
 msgid "Save edited data"
-msgstr "תיקיית בית של נתונים"
+msgstr "שמירת נתונים שנערכו"
 
 #: libraries/classes/Display/Results.php:913
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "שחזור סדר עמודות"
 
 #: libraries/classes/Display/Results.php:994 libraries/classes/Util.php:2303
 #: libraries/classes/Util.php:2306
-#, fuzzy
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "התחלה"
 
 #: libraries/classes/Display/Results.php:1081 libraries/classes/Util.php:2336
 #: libraries/classes/Util.php:2346
-#, fuzzy
-#| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "סיום"
@@ -6971,15 +6794,11 @@ msgstr ""
 
 #: libraries/classes/Display/Results.php:1718
 #: templates/display/results/options_block.twig:14
-#, fuzzy
-#| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "טקסטים חלקיים"
 
 #: libraries/classes/Display/Results.php:1722
 #: templates/display/results/options_block.twig:14
-#, fuzzy
-#| msgid "Full Texts"
 msgid "Full texts"
 msgstr "טקסטים מלאים"
 
@@ -7011,10 +6830,8 @@ msgstr "עולה"
 
 #: libraries/classes/Display/Results.php:3371
 #: libraries/classes/Display/Results.php:3386
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "The row has been deleted."
-msgstr "השורה נמחקה"
+msgstr "השורה נמחקה."
 
 #: libraries/classes/Display/Results.php:3419
 #: libraries/classes/Display/Results.php:4669
@@ -7023,16 +6840,13 @@ msgid "Kill"
 msgstr ""
 
 #: libraries/classes/Display/Results.php:4110
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "יכול להיות הערכה. ראה [doc@faq3-11]FAQ 3.11[/doc]"
+msgstr "כנראה הערכה. יש לעיין ב[doc@faq3-11]שו״ת 3.11[/doc]."
 
 #: libraries/classes/Display/Results.php:4543
-#, fuzzy, php-format
-#| msgid "Showing rows"
+#, php-format
 msgid "Showing rows %1s - %2s"
-msgstr "מראה שורות"
+msgstr "מוצגות שורות %1s‏ - %2s"
 
 #: libraries/classes/Display/Results.php:4558
 #, php-format
@@ -7040,16 +6854,14 @@ msgid "%1$d total, %2$d in query"
 msgstr ""
 
 #: libraries/classes/Display/Results.php:4563
-#, fuzzy, php-format
-#| msgid "total"
+#, php-format
 msgid "%d total"
-msgstr "סה\"כ"
+msgstr "%d סה״כ"
 
 #: libraries/classes/Display/Results.php:4575 libraries/classes/Sql.php:1412
-#, fuzzy, php-format
-#| msgid "Query took %01.4f sec"
+#, php-format
 msgid "Query took %01.4f seconds."
-msgstr "שאילתה לקחה %01.4f שניות"
+msgstr "השאילתה ארכה %01.4f שניות."
 
 #: libraries/classes/Display/Results.php:4674
 #: libraries/classes/Display/Results.php:4681 libraries/mult_submits.inc.php:53
@@ -7068,8 +6880,6 @@ msgstr "עם הנבחרים:"
 #: templates/database/structure/check_all_tables.twig:4
 #: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
 #: templates/select_all.twig:5
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
 msgstr "סימון הכול"
 
@@ -7083,20 +6893,16 @@ msgstr ""
 
 #: libraries/classes/Display/Results.php:4986
 #: templates/table/chart/tbl_chart.twig:10
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Display chart"
-msgstr "מציג הערות עמודה"
+msgstr "הצגת תרשים"
 
 #: libraries/classes/Display/Results.php:5007
 msgid "Visualize GIS data"
 msgstr ""
 
 #: libraries/classes/Display/Results.php:5189
-#, fuzzy
-#| msgid "Link not found"
 msgid "Link not found!"
-msgstr "קישור לא נמצא"
+msgstr "קישור לא נמצא!"
 
 #: libraries/classes/Engines/Bdb.php:28
 msgid "Version information"
@@ -7180,9 +6986,8 @@ msgid "Buffer Pool Activity"
 msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:255
-#, fuzzy
 msgid "Read requests"
-msgstr "בקשות כתיבה"
+msgstr "בקשות קריאה"
 
 #: libraries/classes/Engines/Innodb.php:264
 msgid "Write requests"
@@ -7400,14 +7205,12 @@ msgid "Too many error messages, some are not displayed."
 msgstr ""
 
 #: libraries/classes/ErrorHandler.php:360
-#, fuzzy
 msgid "Report"
-msgstr "ייצוא"
+msgstr "דיווח"
 
 #: libraries/classes/ErrorHandler.php:365 templates/error/report_form.twig:25
-#, fuzzy
 msgid "Automatically send report next time"
-msgstr "גרסת שרת"
+msgstr "בפעם הבאה יש לשלוח דיווח אוטומטית"
 
 #: libraries/classes/Export.php:132 libraries/classes/Export.php:167
 #: libraries/classes/Export.php:394
@@ -7470,15 +7273,12 @@ msgid "File is a symbolic link"
 msgstr ""
 
 #: libraries/classes/File.php:453 libraries/classes/File.php:545
-#, fuzzy
-#| msgid "File could not be read"
 msgid "File could not be read!"
-msgstr "לא ניתן לקרוא את הקובץ"
+msgstr "לא ניתן לקרוא את הקובץ!"
 
 #: libraries/classes/File.php:493
-#, fuzzy
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
-msgstr "יכול להיות הערכה. ראה FAQ 3.11"
+msgstr "שגיאה בהעברת הקובץ שהועלה, יש לעיין ב[doc@faq1-11]שו״ת 1.11[/doc]."
 
 #: libraries/classes/File.php:512
 msgid "Error while moving uploaded file."
@@ -9213,10 +9013,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:235
-#, fuzzy
-#| msgid "Statements"
 msgid "Add statements:"
-msgstr "משפטים"
+msgstr "הוספת משפטים:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:243
 #: libraries/classes/Plugins/Export/ExportSql.php:252
@@ -9225,20 +9023,18 @@ msgstr "משפטים"
 #: libraries/classes/Plugins/Export/ExportSql.php:306
 #: libraries/classes/Plugins/Export/ExportSql.php:313
 #: libraries/classes/Plugins/Export/ExportSql.php:322
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Add %s statement"
-msgstr "משפטים"
+msgstr "הוספת משפט %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:289
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:297
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "ערך זמן חיבור (Session)"
+msgstr "ערך %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:331
 msgid ""
@@ -9247,9 +9043,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:345
-#, fuzzy
 msgid "Data creation options"
-msgstr "לתבנית זאת אין אפשרויות"
+msgstr "אפשרויות יצירת נתונים"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:350
 #: libraries/classes/Plugins/Export/ExportSql.php:2293
@@ -9326,22 +9121,18 @@ msgid "alias export may not work reliably in all cases."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1009
-#, fuzzy
-#| msgid "Static data"
 msgid "Metadata"
-msgstr "נתונים סטטיים"
+msgstr "נתוני על"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1079
-#, fuzzy, php-format
-#| msgid "Dumping data for table"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "הוצאת מידע עבור טבלה"
+msgstr "נתוני על של הטבלה %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1086
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Metadata for database %s"
-msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+msgstr "נתוני על של מסד הנתונים %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1418
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:603
@@ -9359,10 +9150,9 @@ msgid "Last check:"
 msgstr "נבדק לאחרונה:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1491
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "מבנה טבלה עבור טבלה"
+msgstr "קריאת מבנה הטבלה %s הובילה לשגיאה:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1545
 msgid "It appears your database uses views;"
@@ -9383,10 +9173,8 @@ msgid "Indexes for dumped tables"
 msgstr "הגבלות לטבלאות שהוצאו"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1754
-#, fuzzy
-#| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "בתוך הטבלאות:"
+msgstr "אינדקסים לטבלה"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1782
 #, fuzzy
@@ -9893,63 +9681,48 @@ msgid "Login using password only."
 msgstr ""
 
 #: libraries/classes/PmdCommon.php:550
-#, fuzzy
 msgid "Error: relationship already exists."
-msgstr "שם המשתמש %s כבר קיים!"
+msgstr "שגיאה: היחס כבר קיים."
 
 #: libraries/classes/PmdCommon.php:596
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been added."
-msgstr "שינויים נשמרו"
+msgstr "נוסף יחס מפתח זר (FOREIGN KEY)."
 
 #: libraries/classes/PmdCommon.php:602
-#, fuzzy
-#| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "לא ניתן לקרוא את הקובץ"
+msgstr "שגיאה: לא ניתן להוסיף יחס מפתח זר (FOREIGN KEY)!"
 
 #: libraries/classes/PmdCommon.php:607
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "שגיאה: חסר אינדקס בעמודה/ות."
 
 #: libraries/classes/PmdCommon.php:612
 msgid "Error: Relational features are disabled!"
-msgstr ""
+msgstr "שגיאה: תכונות היחסים מושבתות!"
 
 #: libraries/classes/PmdCommon.php:634
-#, fuzzy
 msgid "Internal relationship has been added."
-msgstr "יחסים פנימיים"
+msgstr "נוסף יחס פנימי."
 
 #: libraries/classes/PmdCommon.php:640
-#, fuzzy
-#| msgid "File could not be read"
 msgid "Error: Internal relationship could not be added!"
-msgstr "לא ניתן לקרוא את הקובץ"
+msgstr "שגיאה: לא ניתן להוסיף יחס פנימי!"
 
 #: libraries/classes/PmdCommon.php:678
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "שינויים נשמרו"
+msgstr "יחס מפתח זר (FOREIGN KEY) הוסר."
 
 #: libraries/classes/PmdCommon.php:684
-#, fuzzy
-#| msgid "File could not be read"
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "לא ניתן לקרוא את הקובץ"
+msgstr "שגיאה: לא ניתן להסיר יחס מפתח זר (FOREIGN KEY)!"
 
 #: libraries/classes/PmdCommon.php:711
-#, fuzzy
-#| msgid "File could not be read"
 msgid "Error: Internal relationship could not be removed!"
-msgstr "לא ניתן לקרוא את הקובץ"
+msgstr "שגיאה: לא ניתן להסיר יחס פנימי!"
 
 #: libraries/classes/PmdCommon.php:715
-#, fuzzy
 msgid "Internal relationship has been removed."
-msgstr "יחסים פנימיים"
+msgstr "הוסר יחס פנימי."
 
 #: libraries/classes/RecentFavoriteTable.php:139
 #, fuzzy
@@ -17494,7 +17267,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
-msgstr ""
+msgstr "concurrent_insert מוגדר ל־0"
 
 #~ msgid "Search results for \"<i>%s</i>\" %s:"
 #~ msgstr "תוצאות החיפוש אחר „<i>%s</i>“ %s:"
