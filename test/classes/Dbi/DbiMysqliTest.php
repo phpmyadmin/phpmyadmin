@@ -204,23 +204,6 @@ class DbiMysqliTest extends PmaTestCase
     }
 
     /**
-     * Test for selectDb
-     *
-     * @return void
-     *
-     * @group medium
-     */
-    public function testSelectDb()
-    {
-        $this->markTestIncomplete('Not testing anything');
-        //$link is empty
-        $this->assertEquals(
-            false,
-            $this->object->selectDb("PMA", null)
-        );
-    }
-
-    /**
      * Test for numRows
      *
      * @return void

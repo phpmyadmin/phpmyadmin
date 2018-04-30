@@ -165,44 +165,6 @@ class ResultsTest extends PmaTestCase
     }
 
     /**
-     * Test for table navigation
-     *
-     * @return void
-     *
-     * @dataProvider providerForTestGetTableNavigation
-     */
-    public function testGetTableNavigation(
-        // $pos_next, $pos_prev, $is_innodb, $output
-    ) {
-        $_SESSION['tmpval']['max_rows'] = '20';
-        $_SESSION['tmpval']['pos'] = true;
-        $GLOBALS['num_rows'] = '20';
-        $GLOBALS['unlim_num_rows'] = '50';
-        $GLOBALS['cfg']['ShowAll'] = true;
-        $_SESSION['tmpval']['repeat_cells'] = '1';
-
-        /**
-         * FIXME Counting words of a generated large HTML is not a good way
-         * of testing IMO. Introduce more granular assertions that assert for
-         * existence of important content inside the generated HTML.
-         */
-        /*
-        $this->assertEquals(
-            $output,
-            str_word_count(
-                $this->_callPrivateFunction(
-                    '_getTableNavigation',
-                    array(
-                        $pos_next, $pos_prev, $is_innodb
-                    )
-                )
-            )
-        );
-        */
-        $this->markTestIncomplete('Not yet implemented!');
-    }
-
-    /**
      * Provider for testing table navigation
      *
      * @return array data for testGetTableNavigation
