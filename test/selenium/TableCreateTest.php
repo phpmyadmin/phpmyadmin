@@ -54,8 +54,8 @@ class TableCreateTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('byName', 'do_save_data');
 
-        $this->waitForElement('byId', "field_1_6")->click(); // null
-        $this->waitForElement('byId', "field_0_8")->click(); // auto increment
+        $this->waitForElement('byId', "field_1_7")->click(); // null
+        $this->waitForElement('byId', "field_0_9")->click(); // auto increment
 
         // Do this separately since this opens a dialog
         // Since auto-increment auto sets a PRIMARY key since no key present
@@ -66,10 +66,10 @@ class TableCreateTest extends TestBase
         $column_text_details = array(
             "field_0_1" => "test_id",
             "field_0_3" => "14",
-            "field_0_9" => "comm1",
+            "field_0_10" => "comm1",
             "field_1_1" => "test_column",
             "field_1_3" => "10",
-            "field_1_9" => "comm2",
+            "field_1_10" => "comm2",
         );
 
         foreach ($column_text_details as $field => $val) {
@@ -77,7 +77,7 @@ class TableCreateTest extends TestBase
         }
 
         $column_dropdown_details = array(
-            "field_0_5" => "UNSIGNED",
+            "field_0_6" => "UNSIGNED",
             "field_1_2" => "VARCHAR",
             "field_1_5" => "utf8_general_ci",
             "field_1_4" => "As defined:"
