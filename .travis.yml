@@ -90,7 +90,6 @@ cache:
   directories:
     - $HOME/.composer/cache/
     - $HOME/browserstack
-    - $HOME/runkit
 # Install APT packages
 #  - git > 2.5.1 needed for worktrees
 #  - mysql server does not seem to be always present on Travis Trusty environment

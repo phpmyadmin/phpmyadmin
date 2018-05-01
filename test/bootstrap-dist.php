@@ -91,7 +91,3 @@ $GLOBALS['PMA_Theme'] = PhpMyAdmin\Theme::load('./themes/pmahomme');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
 $GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
-
-// Check whether we have runkit extension
-define('PMA_HAS_RUNKIT', function_exists('runkit_constant_redefine'));
-$GLOBALS['runkit_internal_override'] = ini_get('runkit.internal_override');
