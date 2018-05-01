@@ -150,6 +150,20 @@ class DatabaseInterfaceTest extends PmaTestCase
     }
 
     /**
+     * Tests for DBI::postConnectControl() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testPostConnectControl()
+    {
+        $GLOBALS['db'] = '';
+        $GLOBALS['cfg']['Server']['only_db'] = array();
+        $this->_dbi->postConnectControl();
+        $this->assertInstanceOf('PhpMyAdmin\Database\DatabaseList', $GLOBALS['dblist']);
+    }
+
+    /**
      * Test for getDbCollation
      *
      * @return void

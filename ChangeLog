@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - issue #14029 Revert "Browse" table CSS overflow
 - issue #14241 Dropping indexes and foreign keys fail
 - issue #14227 Relational linking broken
+- issue #14246 Fixed error in configuration storage zero config
 
 4.8.0.1 (2018-04-19)
 - issue        [security] Multiple CSRF vulnerabilities, See PMASA-2018-02
