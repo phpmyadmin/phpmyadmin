@@ -234,6 +234,7 @@ class Sql
                 . '</a>';
         } else {
             $dropdown = $this->relation->foreignDropdown(
+                array( 'is_binary' => false ),
                 $foreignData['disp_row'],
                 $foreignData['foreign_field'],
                 $foreignData['foreign_display'],

@@ -1222,37 +1222,61 @@ class Relation
         }
 
         foreach ($foreign as $key => $value) {
-            if (mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']
+            $vtitle = '';
+
+            if (mb_check_encoding($key, 'utf-8')
+                && !preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $key)
             ) {
-                $vtitle = '';
-                $value  = htmlspecialchars($value);
+                $selected = ((string) $key == (string) $data);
+                // show as text if it's valid utf-8
+                $key = htmlspecialchars($key);
             } else {
-                $vtitle  = htmlspecialchars($value);
-                $value  = htmlspecialchars(
-                    mb_substr(
-                        $value, 0, $GLOBALS['cfg']['LimitChars']
-                    ) . '...'
-                );
+                $key = '0x' . bin2hex($key);
+                if (preg_match('/0x/', $data)) {
+                    $selected = ($key == trim($data));
+                } else {
+                    $selected = ($key == '0x' .$data);
+                }
+                $key .= $selected;
             }
 
-            $reloption = '<option value="' . htmlspecialchars($key) . '"';
+            if (mb_check_encoding($value, 'utf-8')
+                && !preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $value)
+            ) {
+                if (mb_strlen($value) <= $GLOBALS['cfg']['LimitChars']
+                ) {
+                    // show as text if it's valid utf-8
+                    $value = htmlspecialchars($value);
+                } else {
+                    // show as truncated text if it's valid utf-8
+                    $value  = htmlspecialchars(
+                        mb_substr(
+                            $value, 0, $GLOBALS['cfg']['LimitChars']
+                        ) . '...'
+                    );
+                }
+            } else {
+                $value = '0x' . bin2hex($value);
+            }
+
+            $reloption = '<option value="' . $key . '"';
             if ($vtitle != '') {
                 $reloption .= ' title="' . $vtitle . '"';
             }
 
-            if ((string) $key == (string) $data) {
+            if ($selected) {
                 $reloption .= ' selected="selected"';
             }
 
             if ($mode == 'content-id') {
                 $reloptions[] = $reloption . '>'
-                    . $value . '&nbsp;-&nbsp;' . htmlspecialchars($key) .  '</option>';
+                    . $value . '&nbsp;-&nbsp;' . $key .  '</option>';
             } elseif ($mode == 'id-content') {
                 $reloptions[] = $reloption . '>'
-                    . htmlspecialchars($key) .  '&nbsp;-&nbsp;' . $value . '</option>';
+                    . $key .  '&nbsp;-&nbsp;' . $value . '</option>';
             } elseif ($mode == 'id-only') {
                 $reloptions[] = $reloption . '>'
-                    . htmlspecialchars($key) . '</option>';
+                    . $key . '</option>';
             }
         } // end foreach
 
@@ -1262,6 +1286,7 @@ class Relation
     /**
      * Outputs dropdown with values of foreign fields
      *
+     * @param array  $column          description of column in given table
      * @param array  $disp_row        array of the displayed row
      * @param string $foreign_field   the foreign field
      * @param string $foreign_display the foreign field to display
@@ -1272,7 +1297,7 @@ class Relation
      *
      * @access  public
      */
-    public function foreignDropdown(array $disp_row, $foreign_field, $foreign_display, $data,
+    public function foreignDropdown($column, array $disp_row, $foreign_field, $foreign_display, $data,
         $max = null
     ) {
         if (null === $max) {
