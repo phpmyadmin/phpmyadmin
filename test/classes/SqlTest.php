@@ -53,8 +53,8 @@ class SqlTest extends TestCase
     /**
      * Call protected functions by setting visibility to public.
      *
-     * @param string         $name   method name
-     * @param array          $params parameters for the invocation
+     * @param string $name   method name
+     * @param array  $params parameters for the invocation
      *
      * @return mixed the output from the protected method.
      */

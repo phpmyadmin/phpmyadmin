@@ -181,8 +181,8 @@ class DbiMysqli implements DbiExtension
     /**
      * Run the multi query and output the results
      *
-     * @param \mysqli $mysqli  mysqli object
-     * @param string  $query   multi query statement to execute
+     * @param \mysqli $mysqli mysqli object
+     * @param string  $query  multi query statement to execute
      *
      * @return bool
      */
