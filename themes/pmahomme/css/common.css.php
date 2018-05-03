@@ -1027,7 +1027,7 @@ span.caution {
     color: #FF0000;
 }
 span.success {
-    color: green; 
+    color: green;
 }
 fieldset.caution a {
     color: #FF0000;

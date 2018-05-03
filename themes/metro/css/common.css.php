@@ -1198,6 +1198,13 @@ ul#topmenu2 a {
     background-color: #f6f6f6;
 }
 
+span.caution {
+    color: #f00;
+}
+span.success {
+    color: green;
+}
+
 fieldset.caution
 {
     background: <?php echo $GLOBALS['cfg']['BrowseWarningColor']; ?>;
