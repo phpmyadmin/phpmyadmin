@@ -689,6 +689,7 @@ class InsertEdit
             );
         } elseif (is_array($foreignData['disp_row'])) {
             $html_output .= $this->dispRowForeignData(
+                $column,
                 $backup_field,
                 $column_name_appendix,
                 $onChangeClause,
@@ -872,6 +873,7 @@ class InsertEdit
     /**
      * Get HTML to display foreign data
      *
+     * @param array   $column               description of column in given table
      * @param string  $backup_field         hidden input field
      * @param string  $column_name_appendix the name attribute
      * @param string  $onChangeClause       onchange clause for fields
@@ -885,6 +887,7 @@ class InsertEdit
      * @return string                       an html snippet
      */
     private function dispRowForeignData(
+        $column,
         $backup_field,
         $column_name_appendix,
         $onChangeClause,
@@ -898,8 +901,13 @@ class InsertEdit
         $html_output = '';
         $html_output .= $backup_field . "\n";
         $html_output .= '<input type="hidden"'
-            . ' name="fields_type' . $column_name_appendix . '"'
-            . ' value="foreign" />';
+            . ' name="fields_type' . $column_name_appendix . '"';
+        if ($column['is_binary']) {
+          $html_output .= ' value="hex" />';
+        } else {
+          $html_output .= ' value="foreign" />';
+        }
+
 
         $html_output .= '<select name="fields' . $column_name_appendix . '"'
             . ' ' . $onChangeClause
@@ -908,6 +916,7 @@ class InsertEdit
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
             . ' id="field_' . $idindex . '_3">';
         $html_output .= $this->relation->foreignDropdown(
+            $column,
             $foreignData['disp_row'],
             $foreignData['foreign_field'],
             $foreignData['foreign_display'],

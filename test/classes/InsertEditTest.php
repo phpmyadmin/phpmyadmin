@@ -817,6 +817,8 @@ class InsertEditTest extends TestCase
      */
     public function testDispRowForeignData()
     {
+        $column = array();
+        $column['is_binary'] = false;
         $foreignData = array();
         $foreignData['disp_row'] = array();
         $foreignData['foreign_field'] = null;
@@ -824,7 +826,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 1;
         $GLOBALS['cfg']['NaturalOrder'] = false;
         $result = $this->callProtectedMethod('dispRowForeignData', [
-            'a', 'b', 'd', 2, 0, 1, "<s>", $foreignData, false
+            $column, 'a', 'b', 'd', 2, 0, 1, "<s>", $foreignData, false
         ]);
 
         $this->assertContains(
@@ -840,6 +842,42 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<input type="hidden" name="fields_typeb" value="foreign"',
+            $result
+        );
+    }
+
+    /**
+     * Test for dispRowForeignData
+     *
+     * @return void
+     */
+    public function testDispRowForeignDataWithHex()
+    {
+        $column = array();
+        $column['is_binary'] = true;
+        $foreignData = array();
+        $foreignData['disp_row'] = array();
+        $foreignData['foreign_field'] = null;
+        $foreignData['foreign_display'] = null;
+        $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 1;
+        $GLOBALS['cfg']['NaturalOrder'] = false;
+        $result = $this->callProtectedMethod('dispRowForeignData', [
+            $column, 'a', 'b', 'd', 2, 0, 1, "<s>", $foreignData, false
+        ]);
+
+        $this->assertContains(
+            "a\n",
+            $result
+        );
+
+        $this->assertContains(
+            '<select name="fieldsb" d class="textfield" tabindex="2" '
+            . 'id="field_1_3">',
+            $result
+        );
+
+        $this->assertContains(
+            '<input type="hidden" name="fields_typeb" value="hex"',
             $result
         );
     }
