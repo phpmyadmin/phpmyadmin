@@ -6,5 +6,9 @@
 <img src="{{ image }}" />
 </p>
 <p>
+  {% trans "Secret/key:" %} <b>{{ secret }}</b>
+</p>
+<p>
+<label>{% trans "Authentication code:" %} <input type="text" name="2fa_code" /></label>
 <label>{% trans "Authentication code:" %} <input type="text" name="2fa_code" autocomplete="off" /></label>
 </p>
