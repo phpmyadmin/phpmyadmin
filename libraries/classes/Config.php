@@ -358,12 +358,12 @@ class Config
 
     /**
      * detects if Git revision
-     *
+     * @param string &$git_location (optional) verified git directory
      * @return boolean
      */
-    public function isGitRevision(): bool
+    public function isGitRevision(&$git_location = NULL): bool
     {
-        if (!$this->get('ShowGitRevision')) {
+        if (! $this->get('ShowGitRevision')) {
             return false;
         }
 
@@ -372,16 +372,41 @@ class Config
             if ($_SESSION['is_git_revision']) {
                 $this->set('PMA_VERSION_GIT', 1);
             }
+            $git_location = $_SESSION['git_location'];
             return $_SESSION['is_git_revision'];
         }
         // find out if there is a .git folder
-        $git_folder = '.git';
-        if (! @file_exists($git_folder)
-            || ! @file_exists($git_folder . '/config')
-        ) {
+        // or a .git file (--separate-git-dir)
+        $git = '.git';
+        if (is_dir($git)) {
+            if (@is_file($git . '/config')) {
+                $git_location = $git;
+            } else {
+                $_SESSION['is_git_revision'] = false;
+                return false;
+            }
+        } elseif (is_file($git)) {
+            $contents = file_get_contents($git);
+            $gitmatch = array();
+            // Matches expected format
+            if (! preg_match('/^gitdir: (.*)$/',
+                $contents, $gitmatch)) {
+                $_SESSION['is_git_revision'] = false;
+                return false;
+            } else {
+                if (@is_dir($gitmatch[1])) {
+                    //Detected git external folder location
+                    $git_location = $gitmatch[1];
+                } else {
+                    $_SESSION['is_git_revision'] = false;
+                    return false;
+                }
+            }
+        } else {
             $_SESSION['is_git_revision'] = false;
             return false;
         }
+        $_SESSION['git_location'] = $git_location;
         $_SESSION['is_git_revision'] = true;
         return true;
     }
@@ -394,8 +419,8 @@ class Config
     public function checkGitRevision(): void
     {
         // find out if there is a .git folder
-        $git_folder = '.git';
-        if (! $this->isGitRevision()) {
+        $git_folder = '';
+        if (! $this->isGitRevision($git_folder)) {
             return;
         }
 
