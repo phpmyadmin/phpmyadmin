@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-05-01 12:38+0000\n"
+"PO-Revision-Date: 2018-05-03 16:42+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -1341,6 +1341,8 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log מופעל, אך בפועל מתבצע רישום לשאילתות שאורכות למעלה מ־%d "
+"שניות. עדיף להגדיר את הערך long_query_time ל־0-2 שניות, בהתאם למערכת שלך."
 
 #: js/messages.php:233
 #, php-format
@@ -1796,7 +1798,7 @@ msgstr "האם למחוק את התוצאות עבור הטבלה %s?"
 
 #: js/messages.php:398
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "הגדרה של פונקציה מאוחסנת חייבת להכיל משפט RETURN!"
 
 #: js/messages.php:399 libraries/classes/Config/Forms/User/ExportForm.php:140
 #: libraries/classes/Display/Results.php:4701
@@ -1818,7 +1820,7 @@ msgstr "יצוא"
 
 #: js/messages.php:401
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr ""
+msgstr "אין שגרה שניתן לייצא. יכול להיות שחסרות הרשאות."
 
 #: js/messages.php:404 libraries/classes/Rte/Routines.php:760
 msgid "ENUM/SET editor"
@@ -1908,7 +1910,7 @@ msgstr "משתנה %d:"
 
 #: js/messages.php:426 libraries/classes/Normalization.php:961
 msgid "Pick"
-msgstr ""
+msgstr "בחירה"
 
 #: js/messages.php:427
 msgid "Column selector"
