@@ -118,20 +118,20 @@ class RelationTest extends TestCase
 
         //$cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['pmadb']  ... </th><td class=\"right\">"
-            . "<span style=\"color:green\"><strong>OK</strong></span>";
+            . "<span class=\"success\"><strong>OK</strong></span>";
         $this->assertContains(
             $result,
             $retval
         );
         // $cfg['Servers'][$i]['relation']
         $result = "\$cfg['Servers'][\$i]['relation']  ... </th><td class=\"right\">"
-            . "<span style=\"color:red\"><strong>not OK</strong></span>";
+            . "<span class=\"caution\"><strong>not OK</strong></span>";
         $this->assertContains(
             $result,
             $retval
         );
         // General relation features
-        $result = 'General relation features: <span style="color:red">Disabled</span>';
+        $result = 'General relation features: <span class="caution">Disabled</span>';
         $this->assertContains(
             $result,
             $retval
@@ -139,13 +139,13 @@ class RelationTest extends TestCase
         // $cfg['Servers'][$i]['table_info']
         $result = "\$cfg['Servers'][\$i]['table_info']  ... </th>"
             . "<td class=\"right\">"
-            . "<span style=\"color:red\"><strong>not OK</strong></span>";
+            . "<span class=\"caution\"><strong>not OK</strong></span>";
         $this->assertContains(
             $result,
             $retval
         );
         // Display Features:
-        $result = 'Display Features: <span style="color:red">Disabled</span>';
+        $result = 'Display Features: <span class="caution">Disabled</span>';
         $this->assertContains(
             $result,
             $retval

@@ -26,7 +26,7 @@ class ConfigTest extends PmaTestCase
     protected $backupGlobals = false;
 
     /**
-     * @var PhpMyAdmin\Config
+     * @var Config
      */
     protected $object;
 
