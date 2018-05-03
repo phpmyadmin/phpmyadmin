@@ -90,14 +90,15 @@ class Application extends TwoFactorPlugin
      */
     public function setup()
     {
+        $secret = $this->_twofactor->config['settings']['secret'];
         $inlineUrl = $this->_google2fa->getQRCodeInline(
             'phpMyAdmin (' . $this->getAppId(false) . ')',
             $this->_twofactor->user,
-            $this->_twofactor->config['settings']['secret']
+            $secret
         );
         return Template::get('login/twofactor/application_configure')->render([
             'image' => $inlineUrl,
-            'secret' => $_SESSION['2fa_application_key']
+            'secret' => $secret
         ]);
     }
 
