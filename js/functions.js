@@ -1182,8 +1182,6 @@ function insertQuery (queryType) {
             setQuery(window.localStorage.auto_saved_sql);
         } else if (Cookies.get('auto_saved_sql')) {
             setQuery(Cookies.get('auto_saved_sql'));
-        } else {
-            PMA_ajaxShowMessage(PMA_messages.strNoAutoSavedQuery);
         }
         return;
     }
