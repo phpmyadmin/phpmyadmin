@@ -421,7 +421,8 @@ $js_messages['strEdit'] = __('Edit');
 $js_messages['strDelete'] = __('Delete');
 $js_messages['strNotValidRowNumber'] = __('%d is not valid row number.');
 $js_messages['strBrowseForeignValues'] = __('Browse foreign values');
-$js_messages['strNoAutoSavedQuery'] = __('No auto-saved query');
+$js_messages['strNoAutoSavedQuery'] = __('No previously auto-saved query. Loading default query.');
+$js_messages['strPreviousSaveQuery'] = __('You have previously saved query. Click Get auto-saved query to get query.');
 $js_messages['strBookmarkVariable'] = __('Variable %d:');
 
 /* For Central list of columns */

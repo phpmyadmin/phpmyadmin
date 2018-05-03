@@ -338,7 +338,7 @@ class SqlQueryForm
 
         $html .= '<div class="formelement">';
         $html .= '<input type="checkbox" name="show_query" value="1" '
-            . 'id="checkbox_show_query" tabindex="132" checked="checked" />'
+            . 'id="checkbox_show_query" tabindex="132"/>'
             . '<label for="checkbox_show_query">' . __('Show this query here again')
             . '</label>';
         $html .= '</div>';

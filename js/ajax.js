@@ -245,10 +245,17 @@ var AJAX = {
         // the click event is not triggered by script
         if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
-            !jQuery.isEmptyObject(AJAX.lockedTargets) &&
-            confirm(PMA_messages.strConfirmNavigation) === false
+            !jQuery.isEmptyObject(AJAX.lockedTargets)
         ) {
-            return false;
+            if (confirm(PMA_messages.strConfirmNavigation) === false) {
+                return false;
+            } else {
+                if (isStorageSupported('localStorage')) {
+                    window.localStorage.removeItem('auto_saved_sql');
+                } else {
+                    Cookies.set('auto_saved_sql', '');
+                }
+            }
         }
         AJAX.resetLock();
         var isLink = !! href || false;
