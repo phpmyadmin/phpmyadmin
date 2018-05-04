@@ -733,36 +733,11 @@ class CentralColumns
         string $title = '',
         int $actionCount = 0
     ): string {
-        $action = '';
-        if ($actionCount > 0) {
-            $action .= '<th class="column_action" colspan="' . $actionCount . '">'
-                . __('Action') . '</th>';
-        }
-        $tableheader = '<thead>';
-        $tableheader .= '<tr>'
-            . '<th class="' . $class . '"></th>'
-            . '<th class="hide"></th>'
-            . $action
-            . '<th class="' . $class . '" title="' . $title . '" data-column="name">'
-            . __('Name') . '<div class="sorticon"></div></th>'
-            . '<th class="' . $class . '" title="' . $title . '" data-column="type">'
-            . __('Type') . '<div class="sorticon"></div></th>'
-            . '<th class="' . $class . '" title="' . $title . '" data-column="length">'
-            . __('Length/Values') . '<div class="sorticon"></div></th>'
-            . '<th class="' . $class . '" title="' . $title . '" data-column="default">'
-            . __('Default') . '<div class="sorticon"></div></th>'
-            . '<th class="' . $class . '" title="' . $title . '" data-column="collation"'
-            . '>' . __('Collation') . '<div class="sorticon"></div></th>'
-            . '<th class="' . $class . '" title="' . $title
-            . '" data-column="attribute">'
-            . __('Attribute') . '<div class="sorticon"></div></th>'
-            . '<th class="' . $class . '" title="' . $title . '" data-column="isnull">'
-            . __('Null') . '<div class="sorticon"></div></th>'
-            . '<th class="' . $class . '" title="' . $title . '" data-column="extra">'
-            . __('A_I') . '<div class="sorticon"></div></th>'
-            . '</tr>';
-        $tableheader .= '</thead>';
-        return $tableheader;
+        return  Template::get('database/central_columns/table_header')->render(array(
+            "class" => $class,
+            "title" => $title,
+            "actionCount" => $actionCount,
+        ));
     }
 
     /**
