@@ -13,6 +13,8 @@ phpMyAdmin - ChangeLog
 - issue #14241 Dropping indexes and foreign keys fail
 - issue #14227 Relational linking broken
 - issue #14246 Fixed error in configuration storage zero config
+- issue #14128 Show 2FA Secret next to QR code
+- issue #14212 XML Export from single table throws fatal error
 
 4.8.0.1 (2018-04-19)
 - issue        [security] Multiple CSRF vulnerabilities, See PMASA-2018-02
