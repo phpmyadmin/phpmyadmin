@@ -473,28 +473,40 @@ class TableStructureController extends TableController
             // insert moved column
             array_splice($column_names, $i, 0, $column);
         }
-        if (empty($changes)) { // should never happen
+        if (empty($changes) && !isset($_REQUEST['preview_sql'])) { // should never happen
             $this->response->setRequestStatus(false);
             return;
         }
-        // move columns
-        $this->dbi->tryQuery(
-            sprintf(
-                'ALTER TABLE %s %s',
-                Util::backquote($this->table),
-                implode(', ', $changes)
-            )
+        // query for moving the columns
+        $sql_query = sprintf(
+            'ALTER TABLE %s %s',
+            Util::backquote($this->table),
+            implode(', ', $changes)
         );
-        $tmp_error = $this->dbi->getError();
-        if ($tmp_error) {
-            $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', Message::error($tmp_error));
-        } else {
-            $message = Message::success(
-                __('The columns have been moved successfully.')
+
+        if (isset($_REQUEST['preview_sql'])) { // preview sql
+            $this->response->addJSON(
+                'sql_data',
+                Template::get('preview_sql')
+                    ->render(
+                        array(
+                            'query_data' => $sql_query
+                        )
+                    )
             );
-            $this->response->addJSON('message', $message);
-            $this->response->addJSON('columns', $column_names);
+        } else { // move column
+            $this->dbi->tryQuery($sql_query);
+            $tmp_error = $this->dbi->getError();
+            if ($tmp_error) {
+                $this->response->setRequestStatus(false);
+                $this->response->addJSON('message', Message::error($tmp_error));
+            } else {
+                $message = Message::success(
+                    __('The columns have been moved successfully.')
+                );
+                $this->response->addJSON('message', $message);
+                $this->response->addJSON('columns', $column_names);
+            }
         }
     }
 

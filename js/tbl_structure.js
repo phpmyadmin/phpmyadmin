@@ -297,14 +297,12 @@ AJAX.registerOnload('tbl_structure.js', function () {
             var $this = $(this);
             var $form = $this.find('form');
             var serialized = $form.serialize();
-
             // check if any columns were moved at all
             if (serialized === $form.data('serialized-unmoved')) {
                 PMA_ajaxRemoveMessage($msgbox);
                 $this.dialog('close');
                 return;
             }
-
             $.post($form.prop('action'), serialized + PMA_commonParams.get('arg_separator') + 'ajax_request=true', function (data) {
                 if (data.success === false) {
                     PMA_ajaxRemoveMessage($msgbox);
@@ -346,6 +344,11 @@ AJAX.registerOnload('tbl_structure.js', function () {
                     $this.dialog('close');
                 }
             });
+        };
+        button_options[PMA_messages.strPreviewSQL] = function () {
+            // Function for Previewing SQL
+            var $form = $('#move_column_form');
+            PMA_previewSQL($form);
         };
         button_options[PMA_messages.strCancel] = function () {
             $(this).dialog('close');
