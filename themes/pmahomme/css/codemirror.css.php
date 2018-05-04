@@ -73,7 +73,7 @@ span.cm-number {
     margin-left: 1em;
 }
 .CodeMirror-hints {
-    z-index: 200;
+    z-index: 999;
 }
 .CodeMirror-lint-tooltip {
     z-index: 200;
