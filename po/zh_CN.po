@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-12 15:28+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2018-05-07 00:18+0000\n"
+"Last-Translator: Edward FANG <fangyd1997@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_Hans/>\n"
+"phpmyadmin/4-8/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -1722,10 +1722,8 @@ msgid "No databases selected."
 msgstr "没有已选择的数据库。"
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "没有选中任何列。"
+msgstr "没有选中任何账户。"
 
 #: js/messages.php:371
 msgid "Dropping column"
@@ -1818,9 +1816,8 @@ msgid "Export"
 msgstr "导出"
 
 #: js/messages.php:401
-#, fuzzy
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr "权限不足，无法输出routine"
+msgstr "可能权限不足，无法输出 routine。"
 
 #: js/messages.php:404 libraries/classes/Rte/Routines.php:760
 msgid "ENUM/SET editor"
@@ -2213,10 +2210,8 @@ msgstr "尚未保存当前布局。如果继续将会丢失本次的修改。是
 
 #: js/messages.php:560 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "数据库中没有表。"
+msgstr "从其他数据库中添加表"
 
 #: js/messages.php:561
 msgid "Page name"
