@@ -5342,10 +5342,14 @@ class Results
                     }
 
                 }
+
+                $tag_params = array('title' => $title);
+                if (strpos($class, 'grid_edit') !== false) {
+                    $tag_params['class'] = 'ajax';
+                }
                 $result .= Util::linkOrButton(
                     'sql.php' . Url::getCommon($_url_params),
-                    $message,
-                    array('class' => 'ajax', 'title' => $title)
+                    $message, $tag_params
                 );
             }
 
