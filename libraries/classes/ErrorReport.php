@@ -55,7 +55,7 @@ class ErrorReport
      *
      * @return string the report
      */
-    private function getPrettyData()
+    private function getPrettyData(): string
     {
         $report = $this->getData();
 
@@ -70,7 +70,7 @@ class ErrorReport
      *
      * @return array error report if success, Empty Array otherwise
      */
-    public function getData($exceptionType = 'js')
+    public function getData(string $exceptionType = 'js'): array
     {
         $relParams = $this->relation->getRelationsParam();
         // common params for both, php & js exceptions
@@ -115,7 +115,7 @@ class ErrorReport
                 return [];
             }
             foreach ($_SESSION['prev_errors'] as $errorObj) {
-                /* @var $errorObj PhpMyAdmin\Error */
+                /* @var $errorObj \PhpMyAdmin\Error */
                 if ($errorObj->getLine()
                     && $errorObj->getType()
                     && $errorObj->getNumber() != E_USER_WARNING
@@ -133,7 +133,7 @@ class ErrorReport
 
             // if there were no 'actual' errors to be submitted.
             if ($i==0) {
-                return [];   // then return empty array
+                return []; // then return empty array
             }
             $report["exception_type"] = 'php';
             $report["errors"] = $errors;
@@ -156,7 +156,7 @@ class ErrorReport
      *
      * @return array the uri and script name
      */
-    private function sanitizeUrl($url)
+    private function sanitizeUrl(string $url): array
     {
         $components = parse_url($url);
         if (isset($components["fragment"])
@@ -198,7 +198,7 @@ class ErrorReport
      *
      * @return string the reply of the server
      */
-    public function send(array $report)
+    public function send(array $report): string
     {
         $response = $this->httpRequest->create(
             $this->submissionUrl,
@@ -218,7 +218,7 @@ class ErrorReport
      *
      * @return array $stack the modified stack trace
      */
-    private function translateStacktrace(array $stack)
+    private function translateStacktrace(array $stack): array
     {
         foreach ($stack as &$level) {
             foreach ($level["context"] as &$line) {
@@ -242,7 +242,7 @@ class ErrorReport
      *
      * @return string the form
      */
-    public function getForm()
+    public function getForm(): string
     {
         $datas = [
             'report_data' => $this->getPrettyData(),
