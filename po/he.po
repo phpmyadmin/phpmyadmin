@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-05-03 16:42+0000\n"
+"PO-Revision-Date: 2018-05-07 21:10+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -695,7 +695,7 @@ msgstr "שרת אינטרנט"
 
 #: index.php:388
 msgid "Database client version:"
-msgstr "גרסת לקוח מאגר הנתונים:"
+msgstr "גרסת לקוח מסד הנתונים:"
 
 #: index.php:392
 msgid "PHP extension:"
@@ -972,7 +972,7 @@ msgstr ""
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
-msgstr ""
+msgstr "לשנות את אוספי העמודות ולהמיר את הנתונים?"
 
 #: js/messages.php:111
 msgid "Save & close"
@@ -1722,7 +1722,7 @@ msgstr "נראה כי הקישור לשרת אבד. נא לבדוק את החי�
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
 #: libraries/db_common.inc.php:72 libraries/db_table_exists.inc.php:34
 msgid "No databases selected."
-msgstr "אף מאגר נתונים לא נבחר."
+msgstr "לא נבחר אף מסד נתונים."
 
 #: js/messages.php:370
 msgid "No accounts selected."
@@ -1926,6 +1926,8 @@ msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
+"אין עמודות ברשימה המרכזית. נא לוודא שלרשימת העמודות המרכזית של מסד הנתונים %"
+"s יש עמודות שאין קיימות בטבלה הנוכחית."
 
 #: js/messages.php:433
 msgid "See more"
@@ -5036,10 +5038,8 @@ msgid "Column information table"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1010
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Compress connection to MySQL server."
-msgstr "נכשל בכניסה לשרת MySQL"
+msgstr "דחיסת חיבור לשרת MySQL."
 
 #: libraries/classes/Config/Descriptions.php:1012
 msgid "Compress connection"
@@ -5435,7 +5435,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1267
 msgid "Show create database form"
-msgstr ""
+msgstr "הצגת טופס יצירת מסד נתונים"
 
 #: libraries/classes/Config/Descriptions.php:1269
 msgid "Show or hide a column displaying the comments for all tables."
@@ -5510,14 +5510,16 @@ msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
 msgstr ""
+"הצגת קישור אל הפלט של [a@https://php.net/manual/"
+"function.phpinfo.php]phpinfo()‎[/a]."
 
 #: libraries/classes/Config/Descriptions.php:1309
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "הצגת קישור phpinfo()‎"
 
 #: libraries/classes/Config/Descriptions.php:1311
 msgid "Show detailed MySQL server information"
-msgstr ""
+msgstr "הצגת פירוט נרחב על שרת ה־MySQL"
 
 #: libraries/classes/Config/Descriptions.php:1313
 msgid ""
@@ -5540,7 +5542,7 @@ msgstr "שימור תוכן תיבת השאילתה"
 
 #: libraries/classes/Config/Descriptions.php:1321
 msgid "Allow to display database and table statistics (eg. space usage)."
-msgstr ""
+msgstr "לאפשר הצגת סטטיסטיקה של מסד נתונים ושל טבלה (ניצול מקום למשל)."
 
 #: libraries/classes/Config/Descriptions.php:1323
 msgid "Show statistics"
@@ -5581,7 +5583,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1342
 msgid "Suhosin warning"
-msgstr ""
+msgstr "אזהרת Suhosin"
 
 #: libraries/classes/Config/Descriptions.php:1345
 msgid ""
@@ -5618,7 +5620,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1366
 msgid "Title of browser window when a database is selected."
-msgstr ""
+msgstr "כותרת חלון הדפדפן כאשר נבחר מסד נתונים."
 
 #: libraries/classes/Config/Descriptions.php:1368
 #: libraries/classes/Menu.php:233 libraries/classes/MultSubmits.php:351
@@ -5642,17 +5644,15 @@ msgstr "מסד נתונים"
 
 #: libraries/classes/Config/Descriptions.php:1370
 msgid "Title of browser window when nothing is selected."
-msgstr ""
+msgstr "כותרת חלון הדפדפן כאשר לא נבחר שום דבר."
 
 #: libraries/classes/Config/Descriptions.php:1372
-#, fuzzy
-#| msgid "Default"
 msgid "Default title"
-msgstr "ברירת מחדל"
+msgstr "כותרת בררת מחדל"
 
 #: libraries/classes/Config/Descriptions.php:1374
 msgid "Title of browser window when a server is selected."
-msgstr ""
+msgstr "כותרת חלון הדפדפן כאשר נבחר שרת."
 
 #: libraries/classes/Config/Descriptions.php:1376
 #: libraries/classes/Menu.php:214 libraries/classes/Server/Status/Data.php:425
@@ -5661,7 +5661,7 @@ msgstr "שרת"
 
 #: libraries/classes/Config/Descriptions.php:1378
 msgid "Title of browser window when a table is selected."
-msgstr ""
+msgstr "כותרת חלון הדפדפן בעת בחירת טבלה."
 
 #: libraries/classes/Config/Descriptions.php:1380
 #: libraries/classes/Menu.php:271
@@ -5692,7 +5692,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1389
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "רשימה של מתווכים מורשים להרשאה/דחייה של IP"
 
 #: libraries/classes/Config/Descriptions.php:1391
 msgid "Directory on server where you can upload files for import."
@@ -5700,35 +5700,37 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1393
 msgid "Upload directory"
-msgstr ""
+msgstr "העלאת תיקייה"
 
 #: libraries/classes/Config/Descriptions.php:1395
 msgid "Allow for searching inside the entire database."
-msgstr ""
+msgstr "לאפשר חיפוש בתוך כל מסד הנתונים."
 
 #: libraries/classes/Config/Descriptions.php:1397
 msgid "Use database search"
-msgstr ""
+msgstr "שימוש בחיפוש במסד הנתונים"
 
 #: libraries/classes/Config/Descriptions.php:1400
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
+"כאשר האפשרות מושבתת, משתמשים לא יכולים להגדיר אף אחת מהאפשרויות שלהלן, ללא "
+"תלות בתיבת הסימון שמימין."
 
 #: libraries/classes/Config/Descriptions.php:1404
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "הפעלת לשונית המפתח בהגדרות"
 
 #: libraries/classes/Config/Descriptions.php:1406
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr ""
+msgstr "הפעלת איתור הגרסה העדכנית ביותר בעמוד הראשי של phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:1408 setup/lib/Index.php:122
 #: setup/lib/Index.php:145 setup/lib/Index.php:158 setup/lib/Index.php:170
 #: setup/lib/Index.php:178 setup/lib/Index.php:185
 msgid "Version check"
-msgstr ""
+msgstr "בדיקת גרסה"
 
 #: libraries/classes/Config/Descriptions.php:1411
 msgid ""
@@ -5740,7 +5742,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1417
 msgid "Proxy url"
-msgstr ""
+msgstr "כתובת מתווך"
 
 #: libraries/classes/Config/Descriptions.php:1420
 msgid ""
@@ -5750,9 +5752,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1426
-#, fuzzy
 msgid "Proxy username"
-msgstr "שם משתמש:"
+msgstr "שם משתמש במתווך"
 
 #: libraries/classes/Config/Descriptions.php:1428
 msgid "The password for authenticating with the proxy."
@@ -7390,9 +7391,9 @@ msgid "Options"
 msgstr "פעולות"
 
 #: libraries/classes/Import.php:1224
-#, fuzzy, php-format
+#, php-format
 msgid "Go to database: %s"
-msgstr "אין מאגרי נתונים"
+msgstr "מעבר למסד נתונים: %s"
 
 #: libraries/classes/Import.php:1230 libraries/classes/Import.php:1274
 #, php-format
@@ -7400,9 +7401,9 @@ msgid "Edit settings for %s"
 msgstr ""
 
 #: libraries/classes/Import.php:1259
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
-msgstr "אין מאגרי נתונים"
+msgstr "מעבר לטבלה: %s"
 
 #: libraries/classes/Import.php:1267
 #, fuzzy, php-format
@@ -8097,10 +8098,8 @@ msgid "+ Add a new primary key column"
 msgstr "הוספת %s תאים"
 
 #: libraries/classes/Normalization.php:280
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove redundant columns"
-msgstr "שינוי שם מאגר נתונים אל"
+msgstr "הסרת עמודות מיותרות"
 
 #: libraries/classes/Normalization.php:283
 msgid ""
@@ -8462,9 +8461,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
 #: libraries/classes/Operations.php:1528
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "אין מאגרי נתונים"
+msgstr "השמטת הטבלה (DROP)"
 
 #: libraries/classes/Operations.php:1568
 #: templates/table/structure/display_structure.twig:179
@@ -8620,32 +8618,28 @@ msgid "Username:"
 msgstr "שם משתמש:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:189
-#, fuzzy
-#| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "בחירת שרת"
+msgstr "בחירת שרת:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:313
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr ""
+msgstr "ההתחברות לשירות ה־reCAPTCHA נכשלה!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:315
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "המלל שהוקלד כאימות שגוי, נא לנסות שוב!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:320
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "אימות ה־reCAPTCHA חסר, יכול להיות שהוא נחסם על ידי חוסם פרסומות?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "נכשל בכניסה לשרת MySQL"
+msgstr "אין לך הרשאה להיכנס לשרת ה־MySQL הזה!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:88
 msgid "Wrong username/password. Access denied."
-msgstr "שם משתמש/סיסמה שגויים. הגישה נדחתה."
+msgstr "שם משתמש/ססמה שגויים. הגישה נדחתה."
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:83
 msgid "Can not find signon authentication script:"
@@ -8654,43 +8648,37 @@ msgstr ""
 #: libraries/classes/Plugins/AuthenticationPlugin.php:167
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
+msgstr "כניסה ללא ססמה אסורה לפי ההגדרות (לחפש אחר AllowNoPassword)"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:174
 #, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr ""
+msgstr "לא התרחשה פעילות במהלך %s שניות, נא להיכנס שוב."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:184
 #: libraries/classes/Plugins/AuthenticationPlugin.php:187
 msgid "Cannot log in to the MySQL server"
-msgstr "נכשל בכניסה לשרת MySQL"
+msgstr "הכניסה לשרת ה־MySQL נכשלה"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:335
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr ""
+msgstr "הפעלת אימות דו־שלבי, נא לאשר את את הכניסה שלך למערכת."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #: templates/display/import/import.twig:168
 #: templates/display/export/format_dropdown.twig:2
-#, fuzzy
-#| msgid "Format"
 msgid "Format:"
-msgstr "תבנית"
+msgstr "תבנית:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:58
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "שורות מסתיימות ע\"י"
+msgstr "עמודות מופרדות ב־:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:68
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:64
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "שדות מוקפים ע\"י"
+msgstr "עמודות תחומות ב־:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:73
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:71
@@ -8701,10 +8689,8 @@ msgstr "הורדת שדות עם"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:78
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:78
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "שורות מסתיימות ע\"י"
+msgstr "שורות מסתיימות ב־:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:83
 #: libraries/classes/Plugins/Export/ExportExcel.php:52
@@ -8713,10 +8699,8 @@ msgstr "שורות מסתיימות ע\"י"
 #: libraries/classes/Plugins/Export/ExportOds.php:67
 #: libraries/classes/Plugins/Export/ExportOdt.php:133
 #: libraries/classes/Plugins/Export/ExportTexytext.php:90
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "החלפת NULL ע\"י"
+msgstr "החלפת NULL ב־:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:88
 #: libraries/classes/Plugins/Export/ExportExcel.php:57
@@ -8724,10 +8708,8 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:67
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "מהדורת Excel"
+msgstr "מהדורת Excel:"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:69
 #: libraries/classes/Plugins/Export/ExportLatex.php:103
@@ -8737,7 +8719,6 @@ msgstr "מהדורת Excel"
 #: libraries/classes/Plugins/Export/ExportSql.php:213
 #: libraries/classes/Plugins/Export/ExportTexytext.php:68
 #: libraries/config.values.php:164
-#, fuzzy
 msgid "structure"
 msgstr "מבנה"
 
@@ -8750,7 +8731,7 @@ msgstr "מבנה"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:69
 #: libraries/config.values.php:165
 msgid "data"
-msgstr ""
+msgstr "נתונים"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:71
 #: libraries/classes/Plugins/Export/ExportLatex.php:105
@@ -8760,10 +8741,8 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:215
 #: libraries/classes/Plugins/Export/ExportTexytext.php:70
 #: libraries/config.values.php:166
-#, fuzzy
-#| msgid "Structure and data"
 msgid "structure and data"
-msgstr "מבנה ומידע"
+msgstr "מבנה ונתונים"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:80
 #: libraries/classes/Plugins/Export/ExportLatex.php:162
@@ -8786,9 +8765,8 @@ msgstr "הוצאת מידע עבור טבלה"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:451
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:316
 #: libraries/classes/Rte/RteList.php:106 libraries/classes/Rte/Triggers.php:379
-#, fuzzy
 msgid "Event"
-msgstr "נשלח"
+msgstr "אירוע"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:488
 #: libraries/classes/Plugins/Export/ExportOdt.php:613
@@ -8796,10 +8774,8 @@ msgstr "נשלח"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:318
 #: libraries/classes/Rte/Events.php:500 libraries/classes/Rte/Routines.php:1010
 #: libraries/classes/Rte/Triggers.php:393
-#, fuzzy
-#| msgid "Description"
 msgid "Definition"
-msgstr "תיאור"
+msgstr "הגדרה"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:560
 #: libraries/classes/Plugins/Export/ExportOdt.php:692
@@ -17060,19 +17036,17 @@ msgstr ""
 #: libraries/advisory_rules.txt:370
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr ""
+msgstr "slow_launch_time מוגדר לערך %s"
 
 #: libraries/advisory_rules.txt:374
-#, fuzzy
-#| msgid "Connections"
 msgid "Percentage of used connections"
-msgstr "חיבורים"
+msgstr "אחוז החיבורים בשימוש"
 
 #: libraries/advisory_rules.txt:377
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
-msgstr ""
+msgstr "המספר המרבי של חיבורים בשימוש מתקרב לערך {max_connections}."
 
 #: libraries/advisory_rules.txt:378
 msgid ""
@@ -17144,15 +17118,15 @@ msgstr "קצב הלקוחות שנקטעו"
 #: libraries/advisory_rules.txt:407
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "קצב הלקוחות שנקטעו הוא %s, ערך זה אמור להיות מתחת ל־1 בשעה"
 
 #: libraries/advisory_rules.txt:411
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB מושבת?"
 
 #: libraries/advisory_rules.txt:414
 msgid "You do not have InnoDB enabled."
-msgstr ""
+msgstr "ה־InnoDB אינו מופעל אצלך."
 
 #: libraries/advisory_rules.txt:415
 msgid "InnoDB is usually the better choice for table engines."
@@ -17164,7 +17138,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:418
 msgid "InnoDB log size"
-msgstr ""
+msgstr "גודל יומן ה־InnoDB"
 
 #: libraries/advisory_rules.txt:421
 msgid ""
