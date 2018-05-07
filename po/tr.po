@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-04-29 09:43+0000\n"
+"PO-Revision-Date: 2018-05-07 09:54+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -1960,12 +1960,15 @@ msgstr "Dış değerlere gözat"
 #: js/messages.php:424
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Önceden otomatik kaydedilmiş mevcut sorgu yok. Varsayılan sorgu yükleniyor."
 
 #: js/messages.php:425
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Önceden bir sorgu kaydettiniz. Sorguyu yüklemek için Otomatik kaydedilmiş "
+"sorguyu al'a tıklayın."
 
 #: js/messages.php:426
 #, php-format
@@ -14503,7 +14506,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:9
 msgid "Secret/key:"
-msgstr ""
+msgstr "Gizli/anahtar:"
 
 #: templates/login/twofactor/application_configure.twig:12
 #: templates/login/twofactor/application.twig:2
@@ -16199,10 +16202,8 @@ msgid "Edit partitioning"
 msgstr "Bölümlemeyi düzenle"
 
 #: templates/database/central_columns/table_header.twig:17
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Lenght/Value"
-msgstr "Uzunluk/Değerler"
+msgstr "Uzunluk/Değer"
 
 #: templates/database/central_columns/table_header.twig:29
 msgid "Attribute"
