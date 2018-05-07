@@ -30,7 +30,7 @@ class Export
      *
      * @return void
      */
-    public function shutdown()
+    public function shutdown(): void
     {
         $error = error_get_last();
         if ($error != null && mb_strpos($error['message'], "execution time")) {
@@ -44,7 +44,7 @@ class Export
      *
      * @return bool
      */
-    public function isGzHandlerEnabled()
+    public function isGzHandlerEnabled(): bool
     {
         return in_array('ob_gzhandler', ob_list_handlers());
     }
@@ -55,7 +55,7 @@ class Export
      *
      * @return bool Whether gzencode is needed
      */
-    public function gzencodeNeeded()
+    public function gzencodeNeeded(): bool
     {
         /*
          * We should gzencode only if the function exists
@@ -87,7 +87,7 @@ class Export
      *
      * @return bool Whether output succeeded
      */
-    public function outputHandler($line)
+    public function outputHandler(?string $line): bool
     {
         global $time_start, $dump_buffer, $dump_buffer_len, $save_filename;
 
@@ -194,8 +194,10 @@ class Export
      *
      * @return string $html the HTML output
      */
-    public function getHtmlForDisplayedExportFooter($back_button, $refreshButton)
-    {
+    public function getHtmlForDisplayedExportFooter(
+        string $back_button,
+        string $refreshButton
+    ): string {
         /**
          * Close the html tags and add the footers for on-screen export
          */
@@ -222,7 +224,7 @@ class Export
      *
      * @return int $memory_limit the memory limit
      */
-    public function getMemoryLimit()
+    public function getMemoryLimit(): int
     {
         $memory_limit = trim(ini_get('memory_limit'));
         $memory_limit_num = (int)substr($memory_limit, 0, -1);
@@ -264,9 +266,12 @@ class Export
      * @return string[] the filename template and mime type
      */
     public function getFilenameAndMimetype(
-        $export_type, $remember_template, $export_plugin, $compression,
-        $filename_template
-    ) {
+        string $export_type,
+        string $remember_template,
+        ExportPlugin $export_plugin,
+        string $compression,
+        string $filename_template
+    ): array {
         if ($export_type == 'server') {
             if (! empty($remember_template)) {
                 $GLOBALS['PMA_Config']->setUserValue(
@@ -332,7 +337,7 @@ class Export
      *
      * @return array the full save filename, possible message and the file handle
      */
-    public function openFile($filename, $quick_export)
+    public function openFile(string $filename, bool $quick_export): array
     {
         $file_handle = null;
         $message = '';
@@ -381,8 +386,11 @@ class Export
      *
      * @return Message $message a message object (or empty string)
      */
-    public function closeFile($file_handle, $dump_buffer, $save_filename)
-    {
+    public function closeFile(
+        $file_handle,
+        string $dump_buffer,
+        string $save_filename
+    ): Message {
         $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
         // Here, use strlen rather than mb_strlen to get the length
@@ -414,7 +422,7 @@ class Export
      *
      * @return object $message a message object (or empty string)
      */
-    public function compress($dump_buffer, $compression, $filename)
+    public function compress($dump_buffer, string $compression, string $filename)
     {
         if ($compression == 'zip' && function_exists('gzcompress')) {
             $zipExtension = new ZipExtension();
@@ -436,9 +444,8 @@ class Export
      *
      * @return void
      */
-    public function saveObjectInBuffer($object_name, $append = false)
+    public function saveObjectInBuffer(string $object_name, bool $append = false): void
     {
-
         global $dump_buffer_objects, $dump_buffer, $dump_buffer_len;
 
         if (! empty($dump_buffer)) {
@@ -452,7 +459,6 @@ class Export
         // Re - initialize
         $dump_buffer = '';
         $dump_buffer_len = 0;
-
     }
 
     /**
@@ -464,8 +470,11 @@ class Export
      *
      * @return string[] the generated HTML and back button
      */
-    public function getHtmlForDisplayedExportHeader($export_type, $db, $table)
-    {
+    public function getHtmlForDisplayedExportHeader(
+        string $export_type,
+        string $db,
+        string $table
+    ): array {
         $html = '<div>';
 
         /**
@@ -556,10 +565,19 @@ class Export
      * @return void
      */
     public function exportServer(
-        $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-        $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-        array $aliases, $separate_files
-    ) {
+        string $db_select,
+        string $whatStrucOrData,
+        ExportPlugin $export_plugin,
+        string $crlf,
+        string $err_url,
+        string $export_type,
+        bool $do_relation,
+        bool $do_comments,
+        bool $do_mime,
+        bool $do_dates,
+        array $aliases,
+        string $separate_files
+    ): void {
         if (! empty($db_select)) {
             $tmp_select = implode($db_select, '|');
             $tmp_select = '|' . $tmp_select . '|';
@@ -605,10 +623,22 @@ class Export
      * @return void
      */
     public function exportDatabase(
-        $db, array $tables, $whatStrucOrData, array $table_structure, array $table_data,
-        $export_plugin, $crlf, $err_url, $export_type, $do_relation,
-        $do_comments, $do_mime, $do_dates, array $aliases, $separate_files
-    ) {
+        string $db,
+        array $tables,
+        string $whatStrucOrData,
+        array $table_structure,
+        array $table_data,
+        ExportPlugin $export_plugin,
+        string $crlf,
+        string $err_url,
+        string $export_type,
+        bool $do_relation,
+        bool $do_comments,
+        bool $do_mime,
+        bool $do_dates,
+        array $aliases,
+        string $separate_files
+    ): void {
         $db_alias = !empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
 
@@ -814,10 +844,23 @@ class Export
      * @return void
      */
     public function exportTable(
-        $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-        $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-        $allrows, $limit_to, $limit_from, $sql_query, array $aliases
-    ) {
+        string $db,
+        string $table,
+        string $whatStrucOrData,
+        ExportPlugin $export_plugin,
+        string $crlf,
+        string $err_url,
+        string $export_type,
+        bool $do_relation,
+        bool $do_comments,
+        bool $do_mime,
+        bool $do_dates,
+        string $allrows,
+        string $limit_to,
+        string $limit_from,
+        string $sql_query,
+        array $aliases
+    ): void {
         $db_alias = !empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
         if (! $export_plugin->exportDBHeader($db, $db_alias)) {
@@ -929,7 +972,7 @@ class Export
      *
      * @return void
      */
-    public function showPage($db, $table, $export_type)
+    public function showPage(string $db, string $table, string $export_type): void
     {
         global $cfg;
         if ($export_type == 'server') {
@@ -955,7 +998,7 @@ class Export
      *
      * @return array resultant merged aliases info
      */
-    public function mergeAliases(array $aliases1, array $aliases2)
+    public function mergeAliases(array $aliases1, array $aliases2): array
     {
         // First do a recursive array merge
         // on aliases arrays.
@@ -1008,7 +1051,7 @@ class Export
      *
      * @return mixed result of the query
      */
-    public function lockTables($db, array $tables, $lockType = "WRITE")
+    public function lockTables(string $db, array $tables, string $lockType = "WRITE")
     {
         $locks = array();
         foreach ($tables as $table) {
@@ -1035,7 +1078,7 @@ class Export
      *
      * @return string[] metadata types.
      */
-    public function getMetadataTypes()
+    public function getMetadataTypes(): array
     {
         return array(
             'column_info',
@@ -1059,7 +1102,7 @@ class Export
      *
      * @return string the checked clause
      */
-    public function getCheckedClause($key, array $array)
+    public function getCheckedClause(string $key, array $array): string
     {
         if (in_array($key, $array)) {
             return ' checked="checked"';
@@ -1076,7 +1119,7 @@ class Export
      *
      * @return void
      */
-    public function processExportSchema($export_type)
+    public function processExportSchema(string $export_type): void
     {
         /**
          * default is PDF, otherwise validate it's only letters a-z
