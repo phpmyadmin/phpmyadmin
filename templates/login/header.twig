@@ -1,4 +1,7 @@
-<div class="container">
+{% if check_timeout == true %}
+    <div id="modalOverlay">
+{% endif %}
+<div class="container{{ add_class }}">
 <a href="{{ Url_link('https://www.phpmyadmin.net/') }}" target="_blank" rel="noopener noreferrer" class="logo">
 <img src="{{ theme.getImgPath('logo_right.png', 'pma_logo.png') }}" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />
 </a>

@@ -358,6 +358,19 @@ var AJAX = {
             return;
         }
         if (typeof data.success !== 'undefined' && data.success) {
+            
+            if(typeof data.user_changed !== 'undefined' && data.user_changed == 1) {
+                window.location.reload();
+                PMA_ajaxShowMessage("Loading...", false);
+                AJAX.active = false;
+                AJAX.xhr = null;
+                return;
+            } else if(typeof data.logged_in !== 'undefined' && data.logged_in == 1) {
+                if($("#modalOverlay")) {
+                    $("#modalOverlay").remove();
+                }
+            }
+
             $('html, body').animate({ scrollTop: 0 }, 'fast');
             PMA_ajaxRemoveMessage(AJAX.$msgbox);
 
@@ -411,6 +424,7 @@ var AJAX = {
                     .not('#pma_demo')
                     .not('#pma_console_container')
                     .not('#prefs_autoload')
+                    .not("#modalOverlay")
                     .remove();
                 // Replace #page_content with new content
                 if (data.message && data.message.length > 0) {
@@ -505,6 +519,45 @@ var AJAX = {
                 }
                 AJAX._callback = function () {};
             });
+        } else if(typeof data.logged_in !== 'undefined' && data.logged_in == 0) {
+            // window.location.reload();
+            // console.log(data.error)
+            PMA_ajaxRemoveMessage(AJAX.$msgbox);
+            AJAX.scriptHandler.reset(function(){
+                if (data._selflink) {
+                    var source = data._selflink.split('?')[0];
+                    // Check for faulty links
+                    $selflink_replace = {
+                        'import.php': 'tbl_sql.php',
+                        'tbl_chart.php': 'sql.php',
+                        'tbl_gis_visualization.php': 'sql.php'
+                    };
+                    if ($selflink_replace[source]) {
+                        var replacement = $selflink_replace[source];
+                        data._selflink = data._selflink.replace(source, replacement);
+                    }
+                    $('#selflink').find('> a').attr('href', data._selflink);
+                }
+                if (data._params) {
+                    PMA_commonParams.setAll(data._params);
+                }
+                if (data._scripts) {
+                    AJAX.scriptHandler.load(data._scripts);
+                }
+                if (data._selflink && data._scripts && data._menuHash && data._params) {
+                    if (! (history && history.pushState)) {
+                        PMA_MicroHistory.add(
+                            data._selflink,
+                            data._scripts,
+                            data._menuHash,
+                            data._params,
+                            AJAX.source.attr('rel')
+                        );
+                    }
+                }
+            });
+            $("#modalOverlay").replaceWith(data.error);
+            // alert("asdf");
         } else {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;

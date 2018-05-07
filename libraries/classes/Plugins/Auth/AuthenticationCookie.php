@@ -86,12 +86,23 @@ class AuthenticationCookie extends AuthenticationPlugin
         global $conn_error;
 
         $response = Response::getInstance();
-        if ($response->loginPage()) {
+        $xyz = isset($_REQUEST['check_timeout']) || isset($_REQUEST['login_aftertimeout']); 
+        if (!$xyz && $response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return true;
             } else {
                 exit;
             }
+        }
+        if($xyz) {
+            $response->setRequestStatus(false);
+        }
+
+        if(isset($_REQUEST['login_aftertimeout'])) {
+            $response->addJSON(
+                'logged_in',
+                0
+            );
         }
 
         // No recall if blowfish secret is not configured as it would produce
@@ -108,9 +119,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             // skip the IE autocomplete feature.
             $autocomplete   = ' autocomplete="off"';
         }
-
-        echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
-
+        echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'], 'add_class' => $xyz ? ' modal_form' : '', 'check_timeout' => $xyz ? 1 : 0]);
         if ($GLOBALS['cfg']['DBG']['demo']) {
             echo '<fieldset>';
             echo '<legend>' , __('phpMyAdmin Demo Server') , '</legend>';
@@ -148,10 +157,13 @@ class AuthenticationCookie extends AuthenticationPlugin
     <br />
     <!-- Login form -->
     <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
-            ' class="disableAjax login hide js-show">
+            ' class="' . ($xyz ? "" : "disableAjax hide ") . 'login js-show">
         <fieldset>
         <legend>';
         echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '" />';
+        if($xyz) {
+            echo '<input type="hidden" name="login_aftertimeout" value="1" />';
+        }
         echo __('Log in');
         echo Util::showDocu('index');
         echo '</legend>';
@@ -236,8 +248,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             $GLOBALS['error_handler']->dispErrors();
             echo '</div>';
         }
-        echo $this->template->render('login/footer');
+
+        echo $this->template->render('login/footer', ['check_timeout' => $xyz ? 1 : 0]);
+
         echo Config::renderFooter();
+        
         if (! defined('TESTSUITE')) {
             exit;
         } else {
@@ -472,6 +487,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
+        $user_changed = !hash_equals($_COOKIE['pmaUserHashed-' . $GLOBALS['server']], crypt($this->user, "SillYSAlTstRInG"));
         $this->storeUsernameCookie($this->user);
 
         // Duration = as configured
@@ -480,28 +496,50 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! isset($_POST['change_pw'])) {
             $this->storePasswordCookie($this->password);
         }
+        // URL where to go:
+        $redirect_url = './index.php';
 
+        // any parameters to pass?
+        $url_params = array();
+        if (strlen($GLOBALS['db']) > 0) {
+            $url_params['db'] = $GLOBALS['db'];
+        }
+        if (strlen($GLOBALS['table']) > 0) {
+            $url_params['table'] = $GLOBALS['table'];
+        }
+        // any target to pass?
+        if (! empty($GLOBALS['target'])
+            && $GLOBALS['target'] != 'index.php'
+        ) {
+            $url_params['target'] = $GLOBALS['target'];
+        }
+
+        if(isset($_REQUEST['login_aftertimeout'])) {
+            $response = Response::getInstance();
+            $response->addJSON(
+                'logged_in',
+                1
+            );
+            $response->addJSON(
+                'success',
+                1
+            );
+            if($user_changed) {
+                $response->addJSON(
+                    'user_changed',
+                    1
+                );
+            }
+            if (! defined('TESTSUITE')) {
+                exit;
+            } else {
+                return false;
+            }
+        }
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
         if (! $GLOBALS['from_cookie']) {
-            // URL where to go:
-            $redirect_url = './index.php';
-
-            // any parameters to pass?
-            $url_params = [];
-            if (strlen($GLOBALS['db']) > 0) {
-                $url_params['db'] = $GLOBALS['db'];
-            }
-            if (strlen($GLOBALS['table']) > 0) {
-                $url_params['table'] = $GLOBALS['table'];
-            }
-            // any target to pass?
-            if (! empty($GLOBALS['target'])
-                && $GLOBALS['target'] != 'index.php'
-            ) {
-                $url_params['target'] = $GLOBALS['target'];
-            }
-
+            
             /**
              * Clear user cache.
              */
@@ -541,6 +579,10 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $username,
                 $this->_getEncryptionSecret()
             )
+        );
+        $GLOBALS['PMA_Config']->setCookie(
+            'pmaUserHashed-' . $GLOBALS['server'],
+            crypt($username, "SillYSAlTstRInG")
         );
     }
 
@@ -598,7 +640,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         // needed for PHP-CGI (not need for FastCGI or mod-php)
         $response->header('Cache-Control: no-store, no-cache, must-revalidate');
         $response->header('Pragma: no-cache');
-
         $this->showLoginForm();
     }
 

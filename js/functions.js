@@ -949,7 +949,8 @@ AJAX.registerOnload('functions.js', function () {
             'server' : PMA_commonParams.get('server'),
             'db' : PMA_commonParams.get('db'),
             'guid': guid,
-            'access_time':_idleSecondsCounter
+            'access_time': _idleSecondsCounter,
+            'check_timeout': 1
         };
         $.ajax({
             type: 'POST',
@@ -972,13 +973,20 @@ AJAX.registerOnload('functions.js', function () {
                         // max value for setInterval() function
                         interval = Math.min((remaining - 1) * 1000, Math.pow(2, 31) - 1);
                     }
+                    // console.log(_idleSecondsCounter);
                     updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                 } else { // timeout occurred
                     clearInterval(IncInterval);
                     if (isStorageSupported('sessionStorage')) {
                         window.sessionStorage.clear();
                     }
-                    window.location.reload(true);
+                    // window.location.reload(true);
+                    if ($("#modalOverlay").length) {
+                        $("#modalOverlay").replaceWith(data.error);
+                    } else {
+                        $('body').append(data.error);
+                    }
+                    _idleSecondsCounter = 0;
                 }
             }
         });

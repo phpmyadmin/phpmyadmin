@@ -350,7 +350,7 @@ class Response
             unset($this->_JSON['message']);
         }
 
-        if ($this->_isSuccess) {
+        if ($this->_isSuccess || (array_key_exists("logged_in", $this->_JSON) && $this->_JSON["logged_in"] == 0)) {
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
 
             if (isset($GLOBALS['dbi'])) {

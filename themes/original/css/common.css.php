@@ -621,6 +621,15 @@ body#loginform div.container {
     margin: 0 auto;
 }
 
+div.container.overlay {
+    text-align: center;
+    position: fixed;
+    top: 10%;
+    left: 40%;
+    background: #fff;
+    z-index: 999;
+}
+
 form.login label {
     float: <?php echo $left; ?>;
     width: 10em;

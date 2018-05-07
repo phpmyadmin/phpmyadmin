@@ -441,6 +441,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         );
         exit;
     }
+
 }
 
 // load user preferences
