@@ -158,25 +158,25 @@ class LanguageTest extends PmaTestCase
      */
     public function testSelect($lang, $post, $get, $cookie, $accept, $agent, $default, $expect)
     {
-        $GLOBALS['cfg']['Lang'] = $lang;
+        $GLOBALS['PMA_Config']->set('Lang', $lang);
         $_POST['lang'] = $post;
         $_GET['lang'] = $get;
         $_COOKIE['pma_lang'] = $cookie;
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = $accept;
         $_SERVER['HTTP_USER_AGENT'] = $agent;
-        $GLOBALS['cfg']['DefaultLang'] = $default;
+        $GLOBALS['PMA_Config']->set('DefaultLang', $default);
 
         $lang = $this->manager->selectLanguage();
 
         $this->assertEquals($expect, $lang->getEnglishName());
 
-        $GLOBALS['cfg']['Lang'] = '';
+        $GLOBALS['PMA_Config']->set('Lang', '');
         $_POST['lang'] = '';
         $_GET['lang'] = '';
         $_COOKIE['pma_lang'] = '';
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = '';
         $_SERVER['HTTP_USER_AGENT'] = '';
-        $GLOBALS['cfg']['DefaultLang'] = 'en';
+        $GLOBALS['PMA_Config']->set('DefaultLang', 'en');
     }
 
     /**
@@ -191,6 +191,7 @@ class LanguageTest extends PmaTestCase
             array('', 'cs', '', '' ,'' ,'', '', 'Czech'),
             array('', 'cs', 'en', '' ,'' ,'', '', 'Czech'),
             array('', '', 'cs', '' ,'' ,'', '', 'Czech'),
+            array('', '', '', 'cs' ,'' ,'', '', 'Czech'),
             array('', '', '', '' ,'cs,en-US;q=0.7,en;q=0.3' ,'', '', 'Czech'),
             array(
                 '', '', '', '', '',
