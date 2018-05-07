@@ -822,8 +822,8 @@ class LanguageManager
     public function selectLanguage()
     {
         // check forced language
-        if (! empty($GLOBALS['cfg']['Lang'])) {
-            $lang = $this->getLanguage($GLOBALS['cfg']['Lang']);
+        if (! empty($GLOBALS['PMA_Config']->get('Lang'))) {
+            $lang = $this->getLanguage($GLOBALS['PMA_Config']->get('Lang'));
             if ($lang !== false) {
                 return $lang;
             }
@@ -883,8 +883,8 @@ class LanguageManager
         }
 
         // Didn't catch any valid lang : we use the default settings
-        if (isset($langs[$GLOBALS['cfg']['DefaultLang']])) {
-            return $langs[$GLOBALS['cfg']['DefaultLang']];
+        if (isset($langs[$GLOBALS['PMA_Config']->get('DefaultLang')])) {
+            return $langs[$GLOBALS['PMA_Config']->get('DefaultLang')];
         }
 
         // Fallback to English
