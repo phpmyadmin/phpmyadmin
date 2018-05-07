@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-04-29 06:00-0300\n"
+"POT-Creation-Date: 2018-05-07 03:27-0300\n"
 "PO-Revision-Date: 2015-10-15 11:03+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uighur <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-#: ajax.php:21 ajax.php:50 export.php:205 libraries/classes/Export.php:1101
+#: ajax.php:21 ajax.php:50 export.php:205 libraries/classes/Export.php:1144
 #, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
@@ -61,7 +61,7 @@ msgid "Table comments:"
 msgstr "جەدۋەل ئىزاھى"
 
 #: db_datadict.php:118 libraries/classes/Index.php:723
-#: libraries/classes/InsertEdit.php:1922
+#: libraries/classes/InsertEdit.php:1931
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:30
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:291
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:387
@@ -74,8 +74,8 @@ msgstr "جەدۋەل ئىزاھى"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:636
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:659
 #: templates/table/index_form.twig:115
-#: templates/table/relation/foreign_key_row.twig:123
-#: templates/table/relation/foreign_key_row.twig:133
+#: templates/table/relation/foreign_key_row.twig:122
+#: templates/table/relation/foreign_key_row.twig:132
 #: templates/table/search/zoom_result_form.twig:34
 #: templates/table/search/table_header.twig:6
 #: templates/table/relation/internal_relational_row.twig:24
@@ -89,9 +89,8 @@ msgstr "جەدۋەل ئىزاھى"
 msgid "Column"
 msgstr "سۆزلەم"
 
-#: db_datadict.php:119 libraries/classes/CentralColumns.php:749
-#: libraries/classes/CentralColumns.php:1431 libraries/classes/Index.php:720
-#: libraries/classes/InsertEdit.php:314
+#: db_datadict.php:119 libraries/classes/CentralColumns.php:1406
+#: libraries/classes/Index.php:720 libraries/classes/InsertEdit.php:314
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:294
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:390
 #: libraries/classes/Plugins/Export/ExportLatex.php:527
@@ -113,12 +112,12 @@ msgstr "سۆزلەم"
 #: templates/table/structure/table_structure_header.twig:6
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/database/central_columns/table_header.twig:13
 msgid "Type"
 msgstr "تۈرى"
 
-#: db_datadict.php:120 libraries/classes/CentralColumns.php:760
-#: libraries/classes/CentralColumns.php:1432 libraries/classes/Index.php:726
-#: libraries/classes/InsertEdit.php:1931
+#: db_datadict.php:120 libraries/classes/CentralColumns.php:1407
+#: libraries/classes/Index.php:726 libraries/classes/InsertEdit.php:1940
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:297
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:393
 #: libraries/classes/Plugins/Export/ExportLatex.php:528
@@ -134,11 +133,11 @@ msgstr "تۈرى"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/database/central_columns/table_header.twig:33
 msgid "Null"
 msgstr "بوش"
 
-#: db_datadict.php:121 libraries/classes/CentralColumns.php:753
-#: libraries/classes/CentralColumns.php:1431
+#: db_datadict.php:121 libraries/classes/CentralColumns.php:1406
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:300
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:396
 #: libraries/classes/Plugins/Export/ExportLatex.php:529
@@ -154,6 +153,7 @@ msgstr "بوش"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
+#: templates/database/central_columns/table_header.twig:21
 msgid "Default"
 msgstr "ئەندىز"
 
@@ -183,8 +183,8 @@ msgid "Comments"
 msgstr "ئىزاھلار"
 
 #: db_datadict.php:157
-#: libraries/classes/Controllers/Table/TableStructureController.php:1215
-#: libraries/classes/Controllers/Table/TableStructureController.php:1220
+#: libraries/classes/Controllers/Table/TableStructureController.php:1227
+#: libraries/classes/Controllers/Table/TableStructureController.php:1232
 #: templates/table/structure/check_all_table_column.twig:33
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/structure/display_structure.twig:61
@@ -193,7 +193,7 @@ msgid "Primary"
 msgstr ""
 
 #: db_datadict.php:167 js/messages.php:382
-#: libraries/classes/CentralColumns.php:1003
+#: libraries/classes/CentralColumns.php:978
 #: libraries/classes/Config/FormDisplayTemplate.php:281
 #: libraries/classes/Index.php:568 libraries/classes/Index.php:596
 #: libraries/classes/IndexColumn.php:141 libraries/classes/MultSubmits.php:527
@@ -218,16 +218,16 @@ msgstr ""
 msgid "No"
 msgstr "يوق"
 
-#: db_datadict.php:167 js/messages.php:530
-#: libraries/classes/CentralColumns.php:1003
+#: db_datadict.php:167 js/messages.php:531
+#: libraries/classes/CentralColumns.php:978
 #: libraries/classes/Config/FormDisplayTemplate.php:281
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
-#: libraries/classes/Controllers/Table/TableStructureController.php:794
-#: libraries/classes/Controllers/Table/TableStructureController.php:1481
-#: libraries/classes/Controllers/Table/TableStructureController.php:1490
-#: libraries/classes/Controllers/Table/TableStructureController.php:1495
-#: libraries/classes/Controllers/Table/TableStructureController.php:1500
-#: libraries/classes/Controllers/Table/TableStructureController.php:1505
+#: libraries/classes/Controllers/Table/TableStructureController.php:806
+#: libraries/classes/Controllers/Table/TableStructureController.php:1493
+#: libraries/classes/Controllers/Table/TableStructureController.php:1502
+#: libraries/classes/Controllers/Table/TableStructureController.php:1507
+#: libraries/classes/Controllers/Table/TableStructureController.php:1512
+#: libraries/classes/Controllers/Table/TableStructureController.php:1517
 #: libraries/classes/Index.php:595 libraries/classes/IndexColumn.php:144
 #: libraries/classes/MultSubmits.php:426 libraries/classes/MultSubmits.php:459
 #: libraries/classes/MultSubmits.php:488 libraries/classes/MultSubmits.php:525
@@ -268,7 +268,7 @@ msgstr "سانداندا جەدۋەل يوق."
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportXml.php:122
 #: libraries/classes/Server/Status/Data.php:128
 #: templates/database/structure/show_create.twig:14
 msgid "Tables"
@@ -439,23 +439,23 @@ msgid "Point:"
 msgstr ""
 
 #: gis_data_editor.php:220 gis_data_editor.php:247 gis_data_editor.php:303
-#: gis_data_editor.php:376 js/messages.php:519
+#: gis_data_editor.php:376 js/messages.php:520
 msgid "X"
 msgstr ""
 
 #: gis_data_editor.php:223 gis_data_editor.php:251 gis_data_editor.php:307
-#: gis_data_editor.php:382 js/messages.php:520
+#: gis_data_editor.php:382 js/messages.php:521
 msgid "Y"
 msgstr ""
 
 #: gis_data_editor.php:245 gis_data_editor.php:301 gis_data_editor.php:374
-#: js/messages.php:522
+#: js/messages.php:523
 #, php-format
 msgid "Point %d"
 msgstr ""
 
 #: gis_data_editor.php:258 gis_data_editor.php:314 gis_data_editor.php:392
-#: js/messages.php:528
+#: js/messages.php:529
 #, fuzzy
 #| msgid "Routines"
 msgid "Add a point"
@@ -482,7 +482,7 @@ msgstr ""
 msgid "Add a linestring"
 msgstr "مەجبۇرى قوشۇش"
 
-#: gis_data_editor.php:318 gis_data_editor.php:397 js/messages.php:529
+#: gis_data_editor.php:318 gis_data_editor.php:397 js/messages.php:530
 msgid "Add an inner ring"
 msgstr ""
 
@@ -504,8 +504,8 @@ msgstr "مەجبۇرى قوشۇش"
 #: gis_data_editor.php:415 js/messages.php:352
 #: libraries/classes/BrowseForeigners.php:199
 #: libraries/classes/Display/ChangePassword.php:160
-#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1900
-#: libraries/classes/InsertEdit.php:1938
+#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1909
+#: libraries/classes/InsertEdit.php:1947
 #: libraries/classes/Normalization.php:222
 #: libraries/classes/Normalization.php:904 libraries/classes/Operations.php:67
 #: libraries/classes/Operations.php:132 libraries/classes/Operations.php:273
@@ -564,7 +564,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "رەت قىلىندى"
 
-#: import.php:79 js/messages.php:617
+#: import.php:79 js/messages.php:618
 msgid "Failed"
 msgstr ""
 
@@ -603,7 +603,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "قىستۇرمىلار كىرگۈزىشكە ئامالسىز، قاچىلانمىنى تەكشۈرۈپ بىقىڭ!"
 
-#: import.php:589 libraries/classes/Sql.php:828 libraries/classes/Sql.php:1615
+#: import.php:589 libraries/classes/Sql.php:829 libraries/classes/Sql.php:1616
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
@@ -637,8 +637,8 @@ msgstr "ساندان ئۆچۈرۈش بۇيرۇقى (\"DROP DATABASE\") چەكل�
 msgid "Could not load the progress of the import."
 msgstr ""
 
-#: import_status.php:116 js/messages.php:459 js/messages.php:625
-#: libraries/classes/Export.php:515
+#: import_status.php:116 js/messages.php:460 js/messages.php:626
+#: libraries/classes/Export.php:524
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:305
 #: libraries/classes/UserPassword.php:261 libraries/classes/Util.php:665
 msgid "Back"
@@ -669,7 +669,7 @@ msgstr ""
 msgid "General settings"
 msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
-#: index.php:225 js/messages.php:650
+#: index.php:225 js/messages.php:651
 #: libraries/classes/Display/ChangePassword.php:59
 #: libraries/classes/Display/ChangePassword.php:62
 #: libraries/classes/UserPassword.php:255
@@ -718,7 +718,7 @@ msgstr "كىرگۈزگەن ھۆججەت شەكلى"
 
 #: index.php:332 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
-#: libraries/classes/Plugins/Export/ExportXml.php:244
+#: libraries/classes/Plugins/Export/ExportXml.php:246
 #, fuzzy
 #| msgid "Server version"
 msgid "Server version:"
@@ -1059,7 +1059,7 @@ msgstr ""
 msgid "Save & close"
 msgstr "ھۆججەتنى باشقا ساقلاش"
 
-#: js/messages.php:114 libraries/classes/InsertEdit.php:1904
+#: js/messages.php:114 libraries/classes/InsertEdit.php:1913
 #: prefs_manage.php:357 prefs_manage.php:368
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
@@ -1135,7 +1135,7 @@ msgstr "مەزمۇن ئايرىش بەلگىسى"
 msgid "Please select column(s) for the index."
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
-#: js/messages.php:131 libraries/classes/InsertEdit.php:1902
+#: js/messages.php:131 libraries/classes/InsertEdit.php:1911
 #: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:188
@@ -1635,14 +1635,14 @@ msgstr "SQL ئىزاھى"
 msgid "Status"
 msgstr "ھالەت"
 
-#: js/messages.php:291 js/messages.php:906
+#: js/messages.php:291 js/messages.php:907
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:487
 #: libraries/classes/Plugins/Export/ExportOdt.php:607
 #: libraries/classes/Plugins/Export/ExportTexytext.php:451
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:360
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Status/Processes.php:97
-#: libraries/classes/Sql.php:278
+#: libraries/classes/Sql.php:279
 msgid "Time"
 msgstr "ۋاقىت"
 
@@ -2066,8 +2066,8 @@ msgstr ""
 msgid "Show query box"
 msgstr "SQL سورىقى"
 
-#: js/messages.php:420 libraries/classes/CentralColumns.php:886
-#: libraries/classes/CentralColumns.php:1237
+#: js/messages.php:420 libraries/classes/CentralColumns.php:861
+#: libraries/classes/CentralColumns.php:1212
 #: libraries/classes/Config/Descriptions.php:1329
 #: libraries/classes/Display/Results.php:3335
 #: libraries/classes/Display/Results.php:4695 libraries/classes/Index.php:745
@@ -2081,8 +2081,8 @@ msgstr "SQL سورىقى"
 msgid "Edit"
 msgstr "تەھىرلەش"
 
-#: js/messages.php:421 libraries/classes/CentralColumns.php:888
-#: libraries/classes/CentralColumns.php:1241
+#: js/messages.php:421 libraries/classes/CentralColumns.php:863
+#: libraries/classes/CentralColumns.php:1216
 #: libraries/classes/Display/Results.php:3404
 #: libraries/classes/Display/Results.php:4679
 #: libraries/classes/Server/UserGroups.php:140
@@ -2109,163 +2109,169 @@ msgid "Browse foreign values"
 msgstr ""
 
 #: js/messages.php:424
-msgid "No auto-saved query"
+msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
 
 #: js/messages.php:425
+msgid ""
+"You have a previously saved query. Click Get auto-saved query to load the "
+"query."
+msgstr ""
+
+#: js/messages.php:426
 #, fuzzy, php-format
 #| msgid "Disabled"
 msgid "Variable %d:"
 msgstr "تاقالدى"
 
-#: js/messages.php:428 libraries/classes/Normalization.php:973
+#: js/messages.php:429 libraries/classes/Normalization.php:973
 msgid "Pick"
 msgstr ""
 
-#: js/messages.php:429
+#: js/messages.php:430
 #, fuzzy
 #| msgid "Click to unselect"
 msgid "Column selector"
 msgstr "بىر چىكىپ بىكار قىلىڭ"
 
-#: js/messages.php:430
+#: js/messages.php:431
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "سانداندىن ئىزدەش"
 
-#: js/messages.php:432
+#: js/messages.php:433
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: js/messages.php:435
+#: js/messages.php:436
 msgid "See more"
 msgstr ""
 
-#: js/messages.php:436
+#: js/messages.php:437
 msgid "Are you sure?"
 msgstr ""
 
-#: js/messages.php:438
+#: js/messages.php:439
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
 msgstr ""
 
-#: js/messages.php:441
+#: js/messages.php:442
 #, fuzzy
 #| msgid "(continued)"
 msgid "Continue"
 msgstr "داۋاملاشتۇرلىدىغان"
 
-#: js/messages.php:444
+#: js/messages.php:445
 msgid "Add primary key"
 msgstr ""
 
-#: js/messages.php:445
+#: js/messages.php:446
 #, fuzzy
 #| msgid "The primary key has been dropped."
 msgid "Primary key added."
 msgstr "ئاساسىي قىممەت ئۆچۈرۈلدى"
 
-#: js/messages.php:446 libraries/classes/Normalization.php:248
+#: js/messages.php:447 libraries/classes/Normalization.php:248
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "ئىزلاش خاتىرىسى"
 
-#: js/messages.php:448
+#: js/messages.php:449
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: js/messages.php:449 libraries/classes/Normalization.php:516
+#: js/messages.php:450 libraries/classes/Normalization.php:516
 #: libraries/classes/Normalization.php:563
 #: libraries/classes/Normalization.php:649
 #: libraries/classes/Normalization.php:713
 msgid "End of step"
 msgstr ""
 
-#: js/messages.php:450
+#: js/messages.php:451
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:451 js/messages.php:775
+#: js/messages.php:452 js/messages.php:776
 #: libraries/classes/Normalization.php:346
 msgid "Done"
 msgstr "تامام"
 
-#: js/messages.php:452
+#: js/messages.php:453
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: js/messages.php:453
+#: js/messages.php:454
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:455
+#: js/messages.php:456
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: js/messages.php:458
+#: js/messages.php:459
 msgid "No partial dependencies selected!"
 msgstr ""
 
-#: js/messages.php:461
+#: js/messages.php:462
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: js/messages.php:462
+#: js/messages.php:463
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: js/messages.php:464
+#: js/messages.php:465
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: js/messages.php:467
+#: js/messages.php:468
 msgid "Step"
 msgstr ""
 
-#: js/messages.php:469
+#: js/messages.php:470
 msgid "The following actions will be performed:"
 msgstr ""
 
-#: js/messages.php:470
+#: js/messages.php:471
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: js/messages.php:471
+#: js/messages.php:472
 msgid "Create the following table"
 msgstr ""
 
-#: js/messages.php:474
+#: js/messages.php:475
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: js/messages.php:475
+#: js/messages.php:476
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: js/messages.php:476
+#: js/messages.php:477
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: js/messages.php:477
+#: js/messages.php:478
 msgid "No dependencies selected!"
 msgstr ""
 
-#: js/messages.php:480 libraries/classes/CentralColumns.php:1257
-#: libraries/classes/InsertEdit.php:1814
+#: js/messages.php:481 libraries/classes/CentralColumns.php:1232
+#: libraries/classes/InsertEdit.php:1823
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/relation/common_form.twig:189
@@ -2274,454 +2280,454 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: js/messages.php:483
+#: js/messages.php:484
 msgid "Hide search criteria"
 msgstr ""
 
-#: js/messages.php:484
+#: js/messages.php:485
 #, fuzzy
 #| msgid "SQL query"
 msgid "Show search criteria"
 msgstr "SQL سورىقى"
 
-#: js/messages.php:485
+#: js/messages.php:486
 #, fuzzy
 #| msgid "Search"
 msgid "Range search"
 msgstr "ئىزدەش"
 
-#: js/messages.php:486
+#: js/messages.php:487
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Column maximum:"
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: js/messages.php:487
+#: js/messages.php:488
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Column minimum:"
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: js/messages.php:488
+#: js/messages.php:489
 msgid "Minimum value:"
 msgstr ""
 
-#: js/messages.php:489
+#: js/messages.php:490
 msgid "Maximum value:"
 msgstr ""
 
-#: js/messages.php:492
+#: js/messages.php:493
 #, fuzzy
 #| msgid "SQL query"
 msgid "Hide find and replace criteria"
 msgstr "SQL سورىقى"
 
-#: js/messages.php:493
+#: js/messages.php:494
 #, fuzzy
 #| msgid "SQL query"
 msgid "Show find and replace criteria"
 msgstr "SQL سورىقى"
 
-#: js/messages.php:497
+#: js/messages.php:498
 msgid "Each point represents a data row."
 msgstr ""
 
-#: js/messages.php:499
+#: js/messages.php:500
 msgid "Hovering over a point will show its label."
 msgstr ""
 
-#: js/messages.php:501
+#: js/messages.php:502
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
-#: js/messages.php:503
+#: js/messages.php:504
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: js/messages.php:505
+#: js/messages.php:506
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 
-#: js/messages.php:507
+#: js/messages.php:508
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
-#: js/messages.php:510
+#: js/messages.php:511
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
-#: js/messages.php:512
+#: js/messages.php:513
 msgid "Select two different columns"
 msgstr ""
 
-#: js/messages.php:514
+#: js/messages.php:515
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "سانلىق مەلۇمات قوللانمىسىنىڭ چوڭ كىچىكلىكى"
 
-#: js/messages.php:517 js/messages.php:685 js/messages.php:702
-#: libraries/classes/ErrorHandler.php:371 libraries/classes/InsertEdit.php:2982
+#: js/messages.php:518 js/messages.php:686 js/messages.php:703
+#: libraries/classes/ErrorHandler.php:380 libraries/classes/InsertEdit.php:2991
 #: templates/table/index_form.twig:141 templates/table/index_form.twig:177
 msgid "Ignore"
 msgstr ""
 
-#: js/messages.php:518 libraries/classes/Display/Results.php:3338
+#: js/messages.php:519 libraries/classes/Display/Results.php:3338
 #: libraries/classes/Display/Results.php:4700
 msgid "Copy"
 msgstr ""
 
-#: js/messages.php:521
+#: js/messages.php:522
 msgid "Point"
 msgstr ""
 
-#: js/messages.php:523
+#: js/messages.php:524
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
-#: js/messages.php:524
+#: js/messages.php:525
 msgid "Polygon"
 msgstr ""
 
-#: js/messages.php:525 templates/display/results/options_block.twig:77
+#: js/messages.php:526 templates/display/results/options_block.twig:77
 msgid "Geometry"
 msgstr ""
 
-#: js/messages.php:526
+#: js/messages.php:527
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Inner ring"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
-#: js/messages.php:527
+#: js/messages.php:528
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Outer ring"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
-#: js/messages.php:531
+#: js/messages.php:532
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: js/messages.php:532
+#: js/messages.php:533
 msgid "Encryption key"
 msgstr ""
 
-#: js/messages.php:536
+#: js/messages.php:537
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: js/messages.php:542
+#: js/messages.php:543
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: js/messages.php:548
+#: js/messages.php:549
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: js/messages.php:553
+#: js/messages.php:554
 msgid "Select referenced key"
 msgstr "سېرتقى ئۇلىنىشنى تاللاش"
 
-#: js/messages.php:554
+#: js/messages.php:555
 msgid "Select Foreign Key"
 msgstr "تاشقى ئاچقۇق قىممىتى"
 
-#: js/messages.php:556
+#: js/messages.php:557
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "ئاساسىي قىممەت ياكى بىردىنبىر قىمەتنى تاللاڭ"
 
 # column نى سۆزلەم دەپ ئالساق مۇۋاپىق بولغىدەك
-#: js/messages.php:557 templates/database/designer/side_menu.twig:92
+#: js/messages.php:558 templates/database/designer/side_menu.twig:92
 #: templates/database/designer/side_menu.twig:95
 msgid "Choose column to display"
 msgstr "سۆزلەمنى كۆرسەتمەسلىك"
 
-#: js/messages.php:559
+#: js/messages.php:560
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 
-#: js/messages.php:562
+#: js/messages.php:563
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: js/messages.php:563 templates/database/designer/side_menu.twig:34
+#: js/messages.php:564 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "Add tables from other databases"
 msgstr "سانداندا جەدۋەل يوق."
 
-#: js/messages.php:564
+#: js/messages.php:565
 msgid "Page name"
 msgstr ""
 
-#: js/messages.php:565 templates/database/designer/side_menu.twig:57
+#: js/messages.php:566 templates/database/designer/side_menu.twig:57
 #: templates/database/designer/side_menu.twig:60
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page"
 msgstr "ھەممىنى تاللاش"
 
-#: js/messages.php:566 templates/database/designer/side_menu.twig:64
+#: js/messages.php:567 templates/database/designer/side_menu.twig:64
 #: templates/database/designer/side_menu.twig:67
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page as"
 msgstr "ھەممىنى تاللاش"
 
-#: js/messages.php:567 templates/database/designer/side_menu.twig:50
+#: js/messages.php:568 templates/database/designer/side_menu.twig:50
 #: templates/database/designer/side_menu.twig:53
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
 msgstr "ئاق(قۇرۇق)بەت"
 
-#: js/messages.php:568
+#: js/messages.php:569
 #, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
 msgstr "ھەممىنى تاللاش"
 
-#: js/messages.php:569 templates/database/designer/side_menu.twig:4
+#: js/messages.php:570 templates/database/designer/side_menu.twig:4
 msgid "Untitled"
 msgstr ""
 
-#: js/messages.php:570
+#: js/messages.php:571
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select a page to continue"
 msgstr "ئاساسىي قىممەت ياكى بىردىنبىر قىمەتنى تاللاڭ"
 
-#: js/messages.php:571
+#: js/messages.php:572
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid page name"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:573
+#: js/messages.php:574
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: js/messages.php:574
+#: js/messages.php:575
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: js/messages.php:575
+#: js/messages.php:576
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Export relational schema"
 msgstr "PDF تىزىىسىنى كۆرسىتىش"
 
-#: js/messages.php:576
+#: js/messages.php:577
 msgid "Modifications have been saved"
 msgstr "ئۆزگەرتىشلەر ساقلاندى"
 
-#: js/messages.php:579
+#: js/messages.php:580
 #, fuzzy, php-format
 #| msgid "Number of columns"
 msgid "Add an option for column \"%s\"."
 msgstr "سۆزلەم سانى"
 
-#: js/messages.php:580
+#: js/messages.php:581
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: js/messages.php:581 libraries/classes/SqlQueryForm.php:413
+#: js/messages.php:582 libraries/classes/SqlQueryForm.php:413
 msgid "Submit"
 msgstr ""
 
-#: js/messages.php:584
+#: js/messages.php:585
 msgid "Press escape to cancel editing."
 msgstr ""
 
-#: js/messages.php:586
+#: js/messages.php:587
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
 
-#: js/messages.php:589
+#: js/messages.php:590
 msgid "Drag to reorder."
 msgstr ""
 
-#: js/messages.php:590
+#: js/messages.php:591
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: js/messages.php:592
+#: js/messages.php:593
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
 
-#: js/messages.php:596
+#: js/messages.php:597
 msgid "Click to mark/unmark."
 msgstr ""
 
-#: js/messages.php:597
+#: js/messages.php:598
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Double-click to copy column name."
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: js/messages.php:599
+#: js/messages.php:600
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
-#: js/messages.php:601 libraries/classes/BrowseForeigners.php:340
+#: js/messages.php:602 libraries/classes/BrowseForeigners.php:340
 #: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "ھەممىسىنى كۆرسىتىش"
 
-#: js/messages.php:603
+#: js/messages.php:604
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
 
-#: js/messages.php:607
+#: js/messages.php:608
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: js/messages.php:609
+#: js/messages.php:610
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: js/messages.php:612
+#: js/messages.php:613
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Original length"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
-#: js/messages.php:615
+#: js/messages.php:616
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "بىكار قىلىش"
 
-#: js/messages.php:616 libraries/classes/Server/Status.php:289
+#: js/messages.php:617 libraries/classes/Server/Status.php:289
 msgid "Aborted"
 msgstr ""
 
-#: js/messages.php:618
+#: js/messages.php:619
 msgid "Success"
 msgstr ""
 
-#: js/messages.php:619
+#: js/messages.php:620
 #, fuzzy
 #| msgid "Import"
 msgid "Import status"
 msgstr "كىرگۈزۈش"
 
-#: js/messages.php:620 libraries/classes/Navigation/Navigation.php:127
+#: js/messages.php:621 libraries/classes/Navigation/Navigation.php:127
 msgid "Drop files here"
 msgstr ""
 
-#: js/messages.php:621
+#: js/messages.php:622
 #, fuzzy
 #| msgid "Select All"
 msgid "Select database first"
 msgstr "ھەممىنى تاللاش"
 
-#: js/messages.php:624 libraries/classes/Display/Results.php:4881
+#: js/messages.php:625 libraries/classes/Display/Results.php:4881
 #: libraries/classes/Util.php:3860
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/optional_action_links.twig:1
 msgid "Print"
 msgstr "يازدۇر"
 
-#: js/messages.php:631
+#: js/messages.php:632
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr ""
 
-#: js/messages.php:636
+#: js/messages.php:637
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr ""
 
-#: js/messages.php:642
+#: js/messages.php:643
 msgid "Go to link:"
 msgstr ""
 
-#: js/messages.php:643
+#: js/messages.php:644
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Copy column name."
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: js/messages.php:645
+#: js/messages.php:646
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
-#: js/messages.php:648
+#: js/messages.php:649
 msgid "Generate password"
 msgstr "پارول ھاسىللاش"
 
-#: js/messages.php:649 libraries/classes/ReplicationGui.php:903
+#: js/messages.php:650 libraries/classes/ReplicationGui.php:903
 msgid "Generate"
 msgstr "ھاسىللاش"
 
-#: js/messages.php:653
+#: js/messages.php:654
 #: templates/table/structure/actions_in_table_structure.twig:4
 msgid "More"
 msgstr "تېخىمۇ كۆپ"
 
-#: js/messages.php:656
+#: js/messages.php:657
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "ھەممىسىنى كۆرسىتىش"
 
-#: js/messages.php:657
+#: js/messages.php:658
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide panel"
 msgstr "تېزىسلار"
 
-#: js/messages.php:658
+#: js/messages.php:659
 #, fuzzy
 #| msgid "Indexes"
 msgid "Show hidden navigation tree items."
 msgstr "تېزىسلار"
 
-#: js/messages.php:659 libraries/classes/Config/Descriptions.php:778
+#: js/messages.php:660 libraries/classes/Config/Descriptions.php:778
 #: libraries/classes/Navigation/NavigationTree.php:1431
 #, fuzzy
 #| msgid "Indexes"
 msgid "Link with main panel"
 msgstr "تېزىسلار"
 
-#: js/messages.php:660 libraries/classes/Navigation/NavigationTree.php:1434
+#: js/messages.php:661 libraries/classes/Navigation/NavigationTree.php:1434
 #, fuzzy
 #| msgid "Indexes"
 msgid "Unlink from main panel"
 msgstr "تېزىسلار"
 
-#: js/messages.php:664
+#: js/messages.php:665
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 
-#: js/messages.php:668 setup/lib/Index.php:171
+#: js/messages.php:669 setup/lib/Index.php:171
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2729,123 +2735,123 @@ msgid ""
 msgstr ""
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:672
+#: js/messages.php:673
 #, fuzzy
 #| msgid "Last version"
 msgid ", latest stable version:"
 msgstr "ېيڭى نەشىر"
 
-#: js/messages.php:673
+#: js/messages.php:674
 #, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "up to date"
 msgstr "%s جەدۋەل"
 
-#: js/messages.php:675 libraries/classes/Display/Results.php:4815
+#: js/messages.php:676 libraries/classes/Display/Results.php:4815
 #: templates/view_create.twig:11
 #, fuzzy
 #| msgid "Create version"
 msgid "Create view"
 msgstr "نەشىرنى قۇىماق"
 
-#: js/messages.php:678
+#: js/messages.php:679
 msgid "Send error report"
 msgstr ""
 
-#: js/messages.php:679
+#: js/messages.php:680
 msgid "Submit error report"
 msgstr ""
 
-#: js/messages.php:681
+#: js/messages.php:682
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: js/messages.php:683
+#: js/messages.php:684
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change report settings"
 msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
-#: js/messages.php:684
+#: js/messages.php:685
 #, fuzzy
 #| msgid "Report title"
 msgid "Show report details"
 msgstr "دوكلات تېمىسى"
 
-#: js/messages.php:687
+#: js/messages.php:688
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: js/messages.php:691
+#: js/messages.php:692
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: js/messages.php:697 js/messages.php:710
+#: js/messages.php:698 js/messages.php:711
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: js/messages.php:699
+#: js/messages.php:700
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: js/messages.php:705 libraries/classes/ErrorHandler.php:375
+#: js/messages.php:706 libraries/classes/ErrorHandler.php:384
 msgid "Ignore All"
 msgstr ""
 
-#: js/messages.php:713
+#: js/messages.php:714
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: js/messages.php:723
+#: js/messages.php:724
 #, fuzzy
 #| msgid "Select All"
 msgid "Execute this query again?"
 msgstr "ھەممىنى تاللاش"
 
-#: js/messages.php:725
+#: js/messages.php:726
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
 msgstr "راستىنلا ئجرا قىلىمسىز"
 
-#: js/messages.php:727
+#: js/messages.php:728
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
-
-#: js/messages.php:729
-#, php-format
-msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
 #: js/messages.php:730
 #, php-format
-msgid "%s argument(s) passed"
+msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
 #: js/messages.php:731
+#, php-format
+msgid "%s argument(s) passed"
+msgstr ""
+
+#: js/messages.php:732
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "جەدۋەل ئىزاھى"
 
-#: js/messages.php:732
+#: js/messages.php:733
 msgid "Hide arguments"
 msgstr ""
 
-#: js/messages.php:733
+#: js/messages.php:734
 msgid "Time taken:"
 msgstr ""
 
-#: js/messages.php:734
+#: js/messages.php:735
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2854,65 +2860,65 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:736
+#: js/messages.php:737
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "كۆچۈرۈلگەن ساندان"
 
-#: js/messages.php:737
+#: js/messages.php:738
 #, fuzzy
 #| msgid "Repair table"
 msgid "Add table prefix"
 msgstr "جەدۋەلنى ئوڭشاش"
 
-#: js/messages.php:738
+#: js/messages.php:739
 #, fuzzy
 #| msgid "Repair table"
 msgid "Replace table with prefix"
 msgstr "جەدۋەلنى ئوڭشاش"
 
-#: js/messages.php:739 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:740 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr ""
 
-#: js/messages.php:742
+#: js/messages.php:743
 msgid "Extremely weak"
 msgstr ""
 
-#: js/messages.php:743
+#: js/messages.php:744
 msgid "Very weak"
 msgstr ""
 
-#: js/messages.php:744
+#: js/messages.php:745
 msgid "Weak"
 msgstr ""
 
-#: js/messages.php:745
+#: js/messages.php:746
 msgid "Good"
 msgstr ""
 
-#: js/messages.php:746
+#: js/messages.php:747
 msgid "Strong"
 msgstr ""
 
-#: js/messages.php:749
+#: js/messages.php:750
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
-#: js/messages.php:750
+#: js/messages.php:751
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr ""
 
-#: js/messages.php:779
+#: js/messages.php:780
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "ئالدىنقى ئاي"
 
-#: js/messages.php:784
+#: js/messages.php:785
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -2920,149 +2926,149 @@ msgid "Next"
 msgstr "كىيىنكى ئاي"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:787
+#: js/messages.php:788
 msgid "Today"
 msgstr "بۈگۈن"
 
-#: js/messages.php:791
+#: js/messages.php:792
 msgid "January"
 msgstr "قەھرىتان"
 
-#: js/messages.php:792
+#: js/messages.php:793
 msgid "February"
 msgstr "ھۇت"
 
-#: js/messages.php:793
+#: js/messages.php:794
 msgid "March"
 msgstr "نورۇز"
 
-#: js/messages.php:794
+#: js/messages.php:795
 msgid "April"
 msgstr "ئۈمىد"
 
-#: js/messages.php:795
+#: js/messages.php:796
 msgid "May"
 msgstr "باھار"
 
-#: js/messages.php:796
+#: js/messages.php:797
 msgid "June"
 msgstr "6-ئاي"
 
-#: js/messages.php:797
+#: js/messages.php:798
 msgid "July"
 msgstr "7-ئاي"
 
-#: js/messages.php:798
+#: js/messages.php:799
 msgid "August"
 msgstr "8-ئاي"
 
-#: js/messages.php:799
+#: js/messages.php:800
 msgid "September"
 msgstr "9-ئاي"
 
-#: js/messages.php:800
+#: js/messages.php:801
 msgid "October"
 msgstr "10-ئاي"
 
-#: js/messages.php:801
+#: js/messages.php:802
 msgid "November"
 msgstr "11-ئاي"
 
-#: js/messages.php:802
+#: js/messages.php:803
 msgid "December"
 msgstr "12-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:809 libraries/classes/Util.php:1479
+#: js/messages.php:810 libraries/classes/Util.php:1479
 msgid "Jan"
 msgstr "1-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:811 libraries/classes/Util.php:1481
+#: js/messages.php:812 libraries/classes/Util.php:1481
 msgid "Feb"
 msgstr "2-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:813 libraries/classes/Util.php:1483
+#: js/messages.php:814 libraries/classes/Util.php:1483
 msgid "Mar"
 msgstr "3-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:815 libraries/classes/Util.php:1485
+#: js/messages.php:816 libraries/classes/Util.php:1485
 msgid "Apr"
 msgstr "4-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:817 libraries/classes/Util.php:1487
+#: js/messages.php:818 libraries/classes/Util.php:1487
 msgctxt "Short month name"
 msgid "May"
 msgstr "5-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:819 libraries/classes/Util.php:1489
+#: js/messages.php:820 libraries/classes/Util.php:1489
 msgid "Jun"
 msgstr "6-ئاي"
 
 #. l10n: Short month name
-#: js/messages.php:821 libraries/classes/Util.php:1491
+#: js/messages.php:822 libraries/classes/Util.php:1491
 msgid "Jul"
 msgstr "چىللە"
 
 #. l10n: Short month name
-#: js/messages.php:823 libraries/classes/Util.php:1493
+#: js/messages.php:824 libraries/classes/Util.php:1493
 msgid "Aug"
 msgstr "تومۇز"
 
 #. l10n: Short month name
-#: js/messages.php:825 libraries/classes/Util.php:1495
+#: js/messages.php:826 libraries/classes/Util.php:1495
 msgid "Sep"
 msgstr "مىزان"
 
 #. l10n: Short month name
-#: js/messages.php:827 libraries/classes/Util.php:1497
+#: js/messages.php:828 libraries/classes/Util.php:1497
 msgid "Oct"
 msgstr "ئوغۇز"
 
 #. l10n: Short month name
-#: js/messages.php:829 libraries/classes/Util.php:1499
+#: js/messages.php:830 libraries/classes/Util.php:1499
 msgid "Nov"
 msgstr "ئوغلاق"
 
 #. l10n: Short month name
-#: js/messages.php:831 libraries/classes/Util.php:1501
+#: js/messages.php:832 libraries/classes/Util.php:1501
 msgid "Dec"
 msgstr "كۆنەك"
 
-#: js/messages.php:837
+#: js/messages.php:838
 msgid "Sunday"
 msgstr "يەكشەنبە"
 
-#: js/messages.php:838
+#: js/messages.php:839
 msgid "Monday"
 msgstr "دۈشەنبە"
 
-#: js/messages.php:839
+#: js/messages.php:840
 msgid "Tuesday"
 msgstr "سەيشەنبە"
 
-#: js/messages.php:840
+#: js/messages.php:841
 msgid "Wednesday"
 msgstr "چارشەنبە"
 
-#: js/messages.php:841
+#: js/messages.php:842
 msgid "Thursday"
 msgstr "پەيشەنبە"
 
-#: js/messages.php:842
+#: js/messages.php:843
 msgid "Friday"
 msgstr "جۈمە"
 
-#: js/messages.php:843
+#: js/messages.php:844
 msgid "Saturday"
 msgstr "شەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:850
+#: js/messages.php:851
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -3070,204 +3076,204 @@ msgid "Sun"
 msgstr "يەكشەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:852 libraries/classes/Util.php:1506
+#: js/messages.php:853 libraries/classes/Util.php:1506
 msgid "Mon"
 msgstr "دۈشەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:854 libraries/classes/Util.php:1508
+#: js/messages.php:855 libraries/classes/Util.php:1508
 msgid "Tue"
 msgstr "سەيشەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:856 libraries/classes/Util.php:1510
+#: js/messages.php:857 libraries/classes/Util.php:1510
 msgid "Wed"
 msgstr "چارشەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:858 libraries/classes/Util.php:1512
+#: js/messages.php:859 libraries/classes/Util.php:1512
 msgid "Thu"
 msgstr "پەيشەنبە"
 
 #. l10n: Short week day name
-#: js/messages.php:860 libraries/classes/Util.php:1514
+#: js/messages.php:861 libraries/classes/Util.php:1514
 msgid "Fri"
 msgstr "جۈمە"
 
 #. l10n: Short week day name
-#: js/messages.php:862 libraries/classes/Util.php:1516
+#: js/messages.php:863 libraries/classes/Util.php:1516
 msgid "Sat"
 msgstr "شەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:869
+#: js/messages.php:870
 msgid "Su"
 msgstr "يەكشەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:871
+#: js/messages.php:872
 msgid "Mo"
 msgstr "دۈشەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:873
+#: js/messages.php:874
 msgid "Tu"
 msgstr "سەيشەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:875
+#: js/messages.php:876
 msgid "We"
 msgstr "چارشەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:877
+#: js/messages.php:878
 msgid "Th"
 msgstr "پەيشەنبە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:879
+#: js/messages.php:880
 msgid "Fr"
 msgstr "جۈمە"
 
 #. l10n: Minimal week day name
-#: js/messages.php:881
+#: js/messages.php:882
 msgid "Sa"
 msgstr "شەنبە"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:885
+#: js/messages.php:886
 msgid "Wk"
 msgstr "ھەپتە"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:892
+#: js/messages.php:893
 msgid "calendar-month-year"
 msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:895
+#: js/messages.php:896
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "يوق"
 
-#: js/messages.php:907
+#: js/messages.php:908
 msgid "Hour"
 msgstr "سائەت"
 
-#: js/messages.php:908
+#: js/messages.php:909
 msgid "Minute"
 msgstr "مىنۇت"
 
-#: js/messages.php:909
+#: js/messages.php:910
 msgid "Second"
 msgstr "سېكنۇت"
 
-#: js/messages.php:920
+#: js/messages.php:921
 msgid "This field is required"
 msgstr ""
 
-#: js/messages.php:921
+#: js/messages.php:922
 msgid "Please fix this field"
 msgstr ""
 
-#: js/messages.php:922
+#: js/messages.php:923
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid email address"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:923
+#: js/messages.php:924
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid URL"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:924
+#: js/messages.php:925
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:927
+#: js/messages.php:928
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date ( ISO )"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:929
+#: js/messages.php:930
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid number"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:932
+#: js/messages.php:933
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid credit card number"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:934
+#: js/messages.php:935
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter only digits"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:937
+#: js/messages.php:938
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter the same value again"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:941
+#: js/messages.php:942
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: js/messages.php:946
+#: js/messages.php:947
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter at least {0} characters"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:951
+#: js/messages.php:952
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: js/messages.php:956
+#: js/messages.php:957
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value between {0} and {1}"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:961
+#: js/messages.php:962
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value less than or equal to {0}"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:966
+#: js/messages.php:967
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:972
+#: js/messages.php:973
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date or time"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:977
+#: js/messages.php:978
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid HEX input"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:982 libraries/classes/Core.php:299
-#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1502
+#: js/messages.php:983 libraries/classes/Core.php:299
+#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1511
 #: libraries/classes/Message.php:194 libraries/classes/Util.php:542
 #: view_operations.php:72
 msgid "Error"
@@ -3409,27 +3415,24 @@ msgstr ""
 msgid "NO"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:739 libraries/classes/Index.php:717
-#: libraries/classes/Rte/RteList.php:102 libraries/classes/Rte/RteList.php:117
-#: libraries/classes/Rte/RteList.php:130
-#: libraries/classes/Server/Privileges.php:2564
-#: libraries/classes/Server/Privileges.php:3546
-#: libraries/classes/Server/UserGroups.php:93
-#: libraries/classes/Tracking.php:176
-#: templates/table/tracking/report_table.twig:8
-#: templates/server/variables/variable_table_head.twig:3
-#: templates/server/databases/table_header.twig:37
-#: templates/database/tracking/tracked_tables.twig:16
-#: templates/database/structure/table_header.twig:22
-#: templates/database/tracking/untracked_tables.twig:10
-#: templates/privileges/privileges_summary.twig:22
-#: templates/table/structure/table_structure_header.twig:18
-#: templates/table/structure/display_partitions.twig:33
-msgid "Action"
-msgstr "ئامال"
+#: libraries/classes/CentralColumns.php:773
+#, fuzzy
+#| msgid "Select All"
+msgid "Select a table"
+msgstr "ھەممىنى تاللاش"
 
-#: libraries/classes/CentralColumns.php:747
-#: libraries/classes/CentralColumns.php:1431
+#: libraries/classes/CentralColumns.php:827
+#: templates/table/structure/add_column.twig:4
+msgid "Add column"
+msgstr ""
+
+#: libraries/classes/CentralColumns.php:1282
+#, fuzzy
+#| msgid "Add/Delete columns"
+msgid "Add new column"
+msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
+
+#: libraries/classes/CentralColumns.php:1406
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:486
 #: libraries/classes/Plugins/Export/ExportOdt.php:604
 #: libraries/classes/Plugins/Export/ExportTexytext.php:450
@@ -3441,18 +3444,17 @@ msgstr "ئامال"
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/table/structure/table_structure_header.twig:5
 #: templates/database/create_table.twig:11
+#: templates/database/central_columns/table_header.twig:9
 msgid "Name"
 msgstr "ئىسمى"
 
-#: libraries/classes/CentralColumns.php:751
-#: libraries/classes/CentralColumns.php:1431
+#: libraries/classes/CentralColumns.php:1406
 #: libraries/classes/Rte/Routines.php:985
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:755
-#: libraries/classes/CentralColumns.php:1432 libraries/classes/Charsets.php:273
+#: libraries/classes/CentralColumns.php:1407 libraries/classes/Charsets.php:273
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:303
 #: libraries/classes/Operations.php:1073
@@ -3464,41 +3466,21 @@ msgstr ""
 #: templates/table/structure/table_structure_header.twig:7
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/database/central_columns/table_header.twig:25
 msgid "Collation"
 msgstr "تاسقاش"
 
-#: libraries/classes/CentralColumns.php:758
-msgid "Attribute"
-msgstr ""
-
-#: libraries/classes/CentralColumns.php:762
-#: libraries/classes/CentralColumns.php:1432
-msgid "A_I"
-msgstr ""
-
-#: libraries/classes/CentralColumns.php:798
-#, fuzzy
-#| msgid "Select All"
-msgid "Select a table"
-msgstr "ھەممىنى تاللاش"
-
-#: libraries/classes/CentralColumns.php:852
-#: templates/table/structure/add_column.twig:4
-msgid "Add column"
-msgstr ""
-
-#: libraries/classes/CentralColumns.php:1307
-#, fuzzy
-#| msgid "Add/Delete columns"
-msgid "Add new column"
-msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
-
-#: libraries/classes/CentralColumns.php:1432
+#: libraries/classes/CentralColumns.php:1407
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:638
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:661
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/table/structure/table_structure_header.twig:8
 msgid "Attributes"
+msgstr ""
+
+#: libraries/classes/CentralColumns.php:1407
+#: templates/database/central_columns/table_header.twig:37
+msgid "A_I"
 msgstr ""
 
 #: libraries/classes/Charsets.php:219
@@ -3785,38 +3767,38 @@ msgctxt "Collation variant"
 msgid "binary"
 msgstr ""
 
-#: libraries/classes/Config.php:1081
+#: libraries/classes/Config.php:1106
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
-#: libraries/classes/Config.php:1111
+#: libraries/classes/Config.php:1136
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/classes/Config.php:1131
+#: libraries/classes/Config.php:1156
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: libraries/classes/Config.php:1138
+#: libraries/classes/Config.php:1163
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Failed to read configuration file!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: libraries/classes/Config.php:1141
+#: libraries/classes/Config.php:1166
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/classes/Config.php:1669
+#: libraries/classes/Config.php:1694
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "ئۈنۈمسىز مۇلازىمىتېر :%s"
 
-#: libraries/classes/Config.php:1682
+#: libraries/classes/Config.php:1707
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
@@ -6048,7 +6030,7 @@ msgid "Explain SQL"
 msgstr "SQL ئىزاھى"
 
 #: libraries/classes/Config/Descriptions.php:1333
-#: libraries/classes/Export.php:519
+#: libraries/classes/Export.php:528
 #: libraries/classes/Server/Status/Processes.php:233
 #: libraries/classes/Server/Status/Variables.php:50
 #: libraries/classes/Util.php:1122 templates/console/display.twig:99
@@ -6121,7 +6103,7 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:4537
 #: libraries/classes/Server/Status/Processes.php:89
 #: templates/server/databases/table_header.twig:8
-#: templates/table/relation/foreign_key_row.twig:101
+#: templates/table/relation/foreign_key_row.twig:100
 #: templates/console/bookmark_content.twig:7
 #: templates/table/relation/internal_relational_row.twig:10
 #: templates/table/relation/common_form.twig:32
@@ -6154,7 +6136,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1380
 #: libraries/classes/Menu.php:277
-#: libraries/classes/Plugins/Export/ExportXml.php:495
+#: libraries/classes/Plugins/Export/ExportXml.php:497
 #: libraries/classes/Rte/RteList.php:115 libraries/classes/Rte/Triggers.php:388
 #: libraries/classes/Server/Privileges.php:1004
 #: libraries/classes/Server/Privileges.php:1169
@@ -6165,7 +6147,7 @@ msgstr ""
 #: templates/database/tracking/tracked_tables.twig:11
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/untracked_tables.twig:9
-#: templates/table/relation/foreign_key_row.twig:111
+#: templates/table/relation/foreign_key_row.twig:110
 #: templates/table/relation/internal_relational_row.twig:17
 #: templates/table/relation/common_form.twig:33
 msgid "Table"
@@ -6349,7 +6331,7 @@ msgstr ""
 msgid "Group queries"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:1482 libraries/classes/Sql.php:273
+#: libraries/classes/Config/Descriptions.php:1482 libraries/classes/Sql.php:274
 msgid "Order"
 msgstr ""
 
@@ -6837,25 +6819,25 @@ msgstr ""
 msgid "Setting variable failed"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/TableChartController.php:82
+#: libraries/classes/Controllers/Table/TableChartController.php:84
 #: libraries/classes/Controllers/Table/TableGisVisualizationController.php:101
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/TableChartController.php:158
+#: libraries/classes/Controllers/Table/TableChartController.php:160
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
 # column نى سۆزلەم دەپ ئالساق مۇۋاپىق بولغىدەك
-#: libraries/classes/Controllers/Table/TableChartController.php:216
+#: libraries/classes/Controllers/Table/TableChartController.php:228
 #, fuzzy
 #| msgid "Choose column to display"
 msgid "No data to display"
 msgstr "سۆزلەمنى كۆرسەتمەسلىك"
 
 #: libraries/classes/Controllers/Table/TableIndexesController.php:157
-#: libraries/classes/Controllers/Table/TableStructureController.php:755
-#: libraries/classes/Controllers/Table/TableStructureController.php:1002
+#: libraries/classes/Controllers/Table/TableStructureController.php:767
+#: libraries/classes/Controllers/Table/TableStructureController.php:1014
 #: tbl_addfield.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -6911,53 +6893,53 @@ msgstr[0] ""
 msgid "No column selected."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:494
+#: libraries/classes/Controllers/Table/TableStructureController.php:505
 #, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "The columns have been moved successfully."
 msgstr "ساندان %s ئۆچۈرۈلدى."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:530
+#: libraries/classes/Controllers/Table/TableStructureController.php:542
 #, fuzzy, php-format
 #| msgid "Failed to fetch headers"
 msgid "Failed to get description of column %s!"
 msgstr "ھۆججەتنى دېسكىغا يىزىشتا خاتالىق كۆرۈلدى."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:766
-#: libraries/classes/Controllers/Table/TableStructureController.php:1051
+#: libraries/classes/Controllers/Table/TableStructureController.php:778
+#: libraries/classes/Controllers/Table/TableStructureController.php:1063
 #: libraries/classes/Tracking.php:804
 #, fuzzy
 #| msgid "Query"
 msgid "Query error"
 msgstr "تەكشۈرۈش"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:996
+#: libraries/classes/Controllers/Table/TableStructureController.php:1008
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%s كۆرۈنمە ئۆچۈرۈلدى"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1212
+#: libraries/classes/Controllers/Table/TableStructureController.php:1224
 #: templates/table/structure/check_all_table_column.twig:17
 msgid "Change"
 msgstr "ئۆزگەرتتىش"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1213
-#: libraries/classes/Controllers/Table/TableStructureController.php:1214
-#: libraries/classes/Index.php:772 libraries/classes/Operations.php:1599
+#: libraries/classes/Controllers/Table/TableStructureController.php:1225
+#: libraries/classes/Controllers/Table/TableStructureController.php:1226
+#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1599
 #: libraries/classes/Rte/RteList.php:185 libraries/classes/Util.php:3323
 #: libraries/classes/Util.php:3324
 #: templates/table/structure/check_all_table_column.twig:24
-#: templates/table/relation/foreign_key_row.twig:31
+#: templates/table/relation/foreign_key_row.twig:30
 #: templates/table/structure/display_structure.twig:188
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/server/databases/databases_footer.twig:55
 msgid "Drop"
 msgstr "ئۆچۈرۈش"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1216
-#: libraries/classes/Controllers/Table/TableStructureController.php:1221
+#: libraries/classes/Controllers/Table/TableStructureController.php:1228
+#: libraries/classes/Controllers/Table/TableStructureController.php:1233
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
 #: templates/table/structure/check_all_table_column.twig:47
 #: templates/columns_definitions/column_indexes.twig:12
@@ -6968,8 +6950,8 @@ msgstr "ئۆچۈرۈش"
 msgid "Index"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1217
-#: libraries/classes/Controllers/Table/TableStructureController.php:1222
+#: libraries/classes/Controllers/Table/TableStructureController.php:1229
+#: libraries/classes/Controllers/Table/TableStructureController.php:1234
 #: libraries/classes/Index.php:721
 #: templates/table/structure/check_all_table_column.twig:40
 #: templates/columns_definitions/column_indexes.twig:8
@@ -6977,21 +6959,21 @@ msgstr ""
 msgid "Unique"
 msgstr "بىردىنبىر"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1218
-#: libraries/classes/Controllers/Table/TableStructureController.php:1223
+#: libraries/classes/Controllers/Table/TableStructureController.php:1230
+#: libraries/classes/Controllers/Table/TableStructureController.php:1235
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1219
-#: libraries/classes/Controllers/Table/TableStructureController.php:1224
+#: libraries/classes/Controllers/Table/TableStructureController.php:1231
+#: libraries/classes/Controllers/Table/TableStructureController.php:1236
 #: templates/table/structure/check_all_table_column.twig:54
 #: templates/table/structure/check_all_table_column.twig:66
 #: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1225
+#: libraries/classes/Controllers/Table/TableStructureController.php:1237
 #, fuzzy
 #| msgid "Use this value"
 msgid "Distinct values"
@@ -7260,7 +7242,7 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: libraries/classes/DatabaseInterface.php:2193
+#: libraries/classes/DatabaseInterface.php:2198
 #, fuzzy
 #| msgid "(or the local MySQL server's socket is not correctly configured)"
 msgid ""
@@ -7268,40 +7250,40 @@ msgid ""
 "configured)."
 msgstr "(يەرلىك MySQL مۇلازىمىتېرى توغرا تەڭشەلمىگەن)"
 
-#: libraries/classes/DatabaseInterface.php:2198
+#: libraries/classes/DatabaseInterface.php:2203
 #, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "مۇلازىمىتېردا ئىنكاس يوق"
 
-#: libraries/classes/DatabaseInterface.php:2202
+#: libraries/classes/DatabaseInterface.php:2207
 msgid "Logout and try as another user."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2208
+#: libraries/classes/DatabaseInterface.php:2213
 msgid "Please check privileges of directory containing database."
 msgstr ""
 
-#: libraries/classes/DatabaseInterface.php:2219
+#: libraries/classes/DatabaseInterface.php:2224
 msgid "Details…"
 msgstr "تەپسىلاتلار…"
 
-#: libraries/classes/DatabaseInterface.php:2525
+#: libraries/classes/DatabaseInterface.php:2530
 #, fuzzy
 #| msgid "Routines"
 msgid "Missing connection parameters!"
 msgstr "دائىملىق"
 
-#: libraries/classes/DatabaseInterface.php:2552
+#: libraries/classes/DatabaseInterface.php:2557
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "تەڭشەك ھۆججىتى ئىچىدىكى ئىشلەنكۈچى ئۇلۈنما كونتىرولى مەغلۇب بولدى."
 
-#: libraries/classes/DatabaseInterface.php:3062
+#: libraries/classes/DatabaseInterface.php:3067
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Dbi/DbiMysqli.php:169
+#: libraries/classes/Dbi/DbiMysqli.php:134
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -7525,7 +7507,7 @@ msgstr ""
 msgid "%d total"
 msgstr "ئۇمۇمىي"
 
-#: libraries/classes/Display/Results.php:4585 libraries/classes/Sql.php:1431
+#: libraries/classes/Display/Results.php:4585 libraries/classes/Sql.php:1432
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
@@ -7877,23 +7859,23 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:360
+#: libraries/classes/ErrorHandler.php:369
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
 msgstr "كىرگۈزۈش"
 
-#: libraries/classes/ErrorHandler.php:365 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:374 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr ""
 
 #: libraries/classes/Export.php:132 libraries/classes/Export.php:167
-#: libraries/classes/Export.php:394
+#: libraries/classes/Export.php:402
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "ھۆججەتنى ساقلاشقا يىتەرلىك بوشلۇق يوق %s。"
 
-#: libraries/classes/Export.php:350
+#: libraries/classes/Export.php:355
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -7901,12 +7883,12 @@ msgstr ""
 "%s بۇ ھۆججەت مۇلازىمىتېردا باركەن، ھۆججەت ئىسمىنى ئۆزگەرتىڭ ياكى قاپلاپ "
 "كۆچۈرۈش تۈرىنى تالالڭ."
 
-#: libraries/classes/Export.php:358 libraries/classes/Export.php:366
+#: libraries/classes/Export.php:363 libraries/classes/Export.php:371
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "بۇ %s ھۆججەتنى  مۇلازىمىتېردا ساقلاش ھوقۇقىڭىز يېتەرسىز."
 
-#: libraries/classes/Export.php:400
+#: libraries/classes/Export.php:408
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "%s ھۆججىتىدە ساقلاندى."
@@ -8007,12 +7989,12 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Cookies نى قوزغاتقاندىن كېيىن ئاندىن كېرىڭ."
 
 #: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:184
-#: libraries/classes/Rte/Routines.php:1525 libraries/classes/Sql.php:1425
+#: libraries/classes/Rte/Routines.php:1525 libraries/classes/Sql.php:1426
 #: tbl_get_field.php:50
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
-#: libraries/classes/Import.php:290 libraries/classes/Sql.php:1439
+#: libraries/classes/Import.php:290 libraries/classes/Sql.php:1440
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -8049,7 +8031,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportPhparray.php:49
 #: libraries/classes/Plugins/Export/ExportSql.php:85
 #: libraries/classes/Plugins/Export/ExportTexytext.php:52
-#: libraries/classes/Plugins/Export/ExportXml.php:80
+#: libraries/classes/Plugins/Export/ExportXml.php:82
 #: libraries/classes/Plugins/Export/ExportYaml.php:49
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:43
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:58
@@ -8111,6 +8093,25 @@ msgstr ""
 msgid "No index defined!"
 msgstr "index قىممىتى بەلگىلەنمىگەن!"
 
+#: libraries/classes/Index.php:717 libraries/classes/Rte/RteList.php:102
+#: libraries/classes/Rte/RteList.php:117 libraries/classes/Rte/RteList.php:130
+#: libraries/classes/Server/Privileges.php:2564
+#: libraries/classes/Server/Privileges.php:3546
+#: libraries/classes/Server/UserGroups.php:93
+#: libraries/classes/Tracking.php:176
+#: templates/table/tracking/report_table.twig:8
+#: templates/server/variables/variable_table_head.twig:3
+#: templates/server/databases/table_header.twig:37
+#: templates/database/tracking/tracked_tables.twig:16
+#: templates/database/structure/table_header.twig:22
+#: templates/database/tracking/untracked_tables.twig:10
+#: templates/privileges/privileges_summary.twig:22
+#: templates/table/structure/table_structure_header.twig:18
+#: templates/table/structure/display_partitions.twig:33
+#: templates/database/central_columns/table_header.twig:6
+msgid "Action"
+msgstr "ئامال"
+
 #: libraries/classes/Index.php:722
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
@@ -8164,75 +8165,75 @@ msgstr ""
 msgid "Binary"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:736
+#: libraries/classes/InsertEdit.php:737
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1343
+#: libraries/classes/InsertEdit.php:1352
 msgid "Binary - do not edit"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1503 libraries/classes/Util.php:3289
+#: libraries/classes/InsertEdit.php:1512 libraries/classes/Util.php:3289
 msgid "The directory you set for upload work cannot be reached."
 msgstr "كۆرسىتىلگەن مۇندەرىجىگە يۈكلىيەلمىدى."
 
-#: libraries/classes/InsertEdit.php:1506
+#: libraries/classes/InsertEdit.php:1515
 #: templates/privileges/column_privileges.twig:17
 #: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "ياكى"
 
-#: libraries/classes/InsertEdit.php:1507
+#: libraries/classes/InsertEdit.php:1516
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "مۇلازىمىتېردىكى يۈكلەش مۇندەرىجىسى"
 
-#: libraries/classes/InsertEdit.php:1712
+#: libraries/classes/InsertEdit.php:1721
 #: templates/table/search/input_box.twig:39
 #, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "قىستۇرۇش"
 
-#: libraries/classes/InsertEdit.php:1779
+#: libraries/classes/InsertEdit.php:1788
 msgid "and then"
 msgstr "كېيىن"
 
-#: libraries/classes/InsertEdit.php:1817
+#: libraries/classes/InsertEdit.php:1826
 msgid "Insert as new row"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1820
+#: libraries/classes/InsertEdit.php:1829
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1823
+#: libraries/classes/InsertEdit.php:1832
 msgid "Show insert query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1843
+#: libraries/classes/InsertEdit.php:1852
 msgid "Go back to previous page"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1846
+#: libraries/classes/InsertEdit.php:1855
 msgid "Insert another new row"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1851
+#: libraries/classes/InsertEdit.php:1860
 msgid "Go back to this page"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1874
+#: libraries/classes/InsertEdit.php:1883
 msgid "Edit next row"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1894
+#: libraries/classes/InsertEdit.php:1903
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1932
+#: libraries/classes/InsertEdit.php:1941
 #: libraries/classes/ReplicationGui.php:569
 #: libraries/classes/Rte/Routines.php:1667
 #: libraries/classes/Server/Status/Variables.php:228
@@ -8246,11 +8247,11 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:2302 libraries/classes/Sql.php:1422
+#: libraries/classes/InsertEdit.php:2311 libraries/classes/Sql.php:1423
 msgid "Showing SQL query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:2327 libraries/classes/Sql.php:1400
+#: libraries/classes/InsertEdit.php:2336 libraries/classes/Sql.php:1401
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -8350,7 +8351,7 @@ msgstr "ئىز قۇغلاش"
 #: libraries/classes/Plugins/Export/ExportPdf.php:283
 #: libraries/classes/Plugins/Export/ExportSql.php:2036
 #: libraries/classes/Plugins/Export/ExportTexytext.php:537
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportXml.php:127
 #: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:3988
 #: libraries/classes/Util.php:4004
 msgid "Triggers"
@@ -8373,7 +8374,7 @@ msgstr "دائىملىق"
 #: libraries/classes/Menu.php:515
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:964
-#: libraries/classes/Plugins/Export/ExportXml.php:105
+#: libraries/classes/Plugins/Export/ExportXml.php:107
 #: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:3987
 msgid "Events"
 msgstr "ھادىسە"
@@ -8655,7 +8656,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:573
-#: libraries/classes/Plugins/Export/ExportXml.php:110
+#: libraries/classes/Plugins/Export/ExportXml.php:112
 msgid "Functions"
 msgstr ""
 
@@ -8676,7 +8677,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:562
-#: libraries/classes/Plugins/Export/ExportXml.php:115
+#: libraries/classes/Plugins/Export/ExportXml.php:117
 msgid "Procedures"
 msgstr ""
 
@@ -8698,7 +8699,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:130
+#: libraries/classes/Plugins/Export/ExportXml.php:132
 #: templates/database/structure/show_create.twig:24
 #, fuzzy
 #| msgid "View"
@@ -9454,7 +9455,7 @@ msgstr "تۈزۈلىشى ۋە ئۇچۇر"
 #: libraries/classes/Plugins/Export/ExportLatex.php:162
 #: libraries/classes/Plugins/Export/ExportOdt.php:122
 #: libraries/classes/Plugins/Export/ExportTexytext.php:80
-#: libraries/classes/Plugins/Export/ExportXml.php:137
+#: libraries/classes/Plugins/Export/ExportXml.php:139
 msgid "Data dump options"
 msgstr ""
 
@@ -9583,7 +9584,7 @@ msgstr "خەت ئايرىش بەلگىسى"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
 #: libraries/classes/Plugins/Export/ExportSql.php:694
-#: libraries/classes/Plugins/Export/ExportXml.php:237
+#: libraries/classes/Plugins/Export/ExportXml.php:239
 #: libraries/classes/ReplicationGui.php:460
 #: libraries/classes/ReplicationGui.php:722
 #, fuzzy
@@ -9593,7 +9594,7 @@ msgstr "ئاساسىي ماشىنا"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:700
-#: libraries/classes/Plugins/Export/ExportXml.php:242
+#: libraries/classes/Plugins/Export/ExportXml.php:244
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -9601,7 +9602,7 @@ msgstr "قۇرۇلغان ۋاقتى"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:224
 #: libraries/classes/Plugins/Export/ExportSql.php:706
-#: libraries/classes/Plugins/Export/ExportXml.php:245
+#: libraries/classes/Plugins/Export/ExportXml.php:247
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
@@ -9609,7 +9610,7 @@ msgstr "PHPنۇسخىسى"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:254
 #: libraries/classes/Plugins/Export/ExportSql.php:895
-#: libraries/classes/Plugins/Export/ExportXml.php:406
+#: libraries/classes/Plugins/Export/ExportXml.php:408
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:164
 #, fuzzy
 #| msgid "Database"
@@ -9913,11 +9914,11 @@ msgstr ""
 msgid "Error reading data for table %s:"
 msgstr "سانلىق مەلۇماتنى ئىزقوغلاپ ئۈچۈرۈش"
 
-#: libraries/classes/Plugins/Export/ExportXml.php:99
+#: libraries/classes/Plugins/Export/ExportXml.php:101
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportXml.php:142
+#: libraries/classes/Plugins/Export/ExportXml.php:144
 msgid "Export contents"
 msgstr ""
 
@@ -10333,13 +10334,13 @@ msgstr ""
 msgid "Formats text as XML with syntax highlighting."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:129
+#: libraries/classes/Plugins/TwoFactor/Application.php:131
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Authentication Application (2FA)"
 msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:139
+#: libraries/classes/Plugins/TwoFactor/Application.php:141
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
@@ -10553,31 +10554,31 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/classes/Relation.php:1697
+#: libraries/classes/Relation.php:1722
 msgid "no description"
 msgstr ""
 
-#: libraries/classes/Relation.php:1888
+#: libraries/classes/Relation.php:1913
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2003
+#: libraries/classes/Relation.php:2028
 #, php-format
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2011
+#: libraries/classes/Relation.php:2036
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
-#: libraries/classes/Relation.php:2019
+#: libraries/classes/Relation.php:2044
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
@@ -13127,93 +13128,93 @@ msgstr "ساندان"
 msgid "Table-level tabs"
 msgstr "جەدۋەل ئىزاھى"
 
-#: libraries/classes/Sql.php:267 libraries/classes/Util.php:1145
+#: libraries/classes/Sql.php:268 libraries/classes/Util.php:1145
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Profiling"
 msgstr "ئاساسىي مەزمۇن"
 
-#: libraries/classes/Sql.php:270
+#: libraries/classes/Sql.php:271
 #, fuzzy
 #| msgid "Data file grow size"
 msgid "Detailed profile"
 msgstr "سانلىق مەلۇمات ھۆججىتىنىڭ ئېشىش چوڭ-كىچىكلىكى"
 
-#: libraries/classes/Sql.php:275 libraries/classes/Sql.php:291
+#: libraries/classes/Sql.php:276 libraries/classes/Sql.php:292
 #, fuzzy
 #| msgid "Sat"
 msgid "State"
 msgstr "شەنبە"
 
-#: libraries/classes/Sql.php:288
+#: libraries/classes/Sql.php:289
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/classes/Sql.php:294
+#: libraries/classes/Sql.php:295
 #, fuzzy
 #| msgid "Total"
 msgid "Total Time"
 msgstr "يىغىندىسى"
 
-#: libraries/classes/Sql.php:296
+#: libraries/classes/Sql.php:297
 #, fuzzy
 #| msgid "Time"
 msgid "% Time"
 msgstr "ۋاقىت"
 
-#: libraries/classes/Sql.php:298
+#: libraries/classes/Sql.php:299
 msgid "Calls"
 msgstr ""
 
-#: libraries/classes/Sql.php:300
+#: libraries/classes/Sql.php:301
 #, fuzzy
 #| msgid "Time"
 msgid "ø Time"
 msgstr "ۋاقىت"
 
-#: libraries/classes/Sql.php:605 libraries/classes/Sql.php:623
+#: libraries/classes/Sql.php:606 libraries/classes/Sql.php:624
 msgid "Bookmark this SQL query"
 msgstr ""
 
-#: libraries/classes/Sql.php:609
+#: libraries/classes/Sql.php:610
 #, fuzzy
 #| msgid "Label key"
 msgid "Label:"
 msgstr "ئاچقۇچلۇق ئېمزا"
 
-#: libraries/classes/Sql.php:616 libraries/classes/SqlQueryForm.php:312
+#: libraries/classes/Sql.php:617 libraries/classes/SqlQueryForm.php:312
 msgid "Let every user access this bookmark"
 msgstr ""
 
-#: libraries/classes/Sql.php:832
+#: libraries/classes/Sql.php:833
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
 msgstr "قۇرۇلغان خەتكۈچ %s"
 
-#: libraries/classes/Sql.php:942
+#: libraries/classes/Sql.php:943
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:1419
+#: libraries/classes/Sql.php:1420
 msgid "Showing as PHP code"
 msgstr ""
 
-#: libraries/classes/Sql.php:1794
+#: libraries/classes/Sql.php:1795
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1808
+#: libraries/classes/Sql.php:1809
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1850
+#: libraries/classes/Sql.php:1851
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -14698,6 +14699,10 @@ msgid ""
 msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:9
+msgid "Secret/key:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:12
 #: templates/login/twofactor/application.twig:2
 #, fuzzy
 #| msgid "Authenticating…"
@@ -14857,7 +14862,7 @@ msgid "Remove this column"
 msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
 
 #: templates/database/multi_table_query/form.twig:143
-#: templates/table/relation/foreign_key_row.twig:91
+#: templates/table/relation/foreign_key_row.twig:90
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "+ Add column"
@@ -15243,7 +15248,7 @@ msgstr "مۇلازىمىتېرنىڭ  %s مۇندەرىجىسىدە ساقلاش
 msgid "Foreign key constraint %s has been dropped"
 msgstr "مەجبۇرى قوشۇش"
 
-#: templates/table/relation/foreign_key_row.twig:39
+#: templates/table/relation/foreign_key_row.twig:38
 #, fuzzy
 #| msgid "Routines"
 msgid "Constraint name"
@@ -16655,6 +16660,14 @@ msgstr "مۇناسىۋىتى"
 #| msgid "Print view"
 msgid "Edit partitioning"
 msgstr "بېسىپ كۆرسىتىش"
+
+#: templates/database/central_columns/table_header.twig:17
+msgid "Lenght/Value"
+msgstr ""
+
+#: templates/database/central_columns/table_header.twig:29
+msgid "Attribute"
+msgstr ""
 
 #: templates/database/designer/page_save_as.twig:17
 #, fuzzy

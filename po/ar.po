@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-04-29 06:00-0300\n"
+"POT-Creation-Date: 2018-05-07 03:27-0300\n"
 "PO-Revision-Date: 2018-04-16 18:34+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16,7 +16,7 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 3.0-dev\n"
 
-#: ajax.php:21 ajax.php:50 export.php:205 libraries/classes/Export.php:1101
+#: ajax.php:21 ajax.php:50 export.php:205 libraries/classes/Export.php:1144
 msgid "Bad type!"
 msgstr "نوع غير جيد!"
 
@@ -52,7 +52,7 @@ msgid "Table comments:"
 msgstr "تعليقات الجدول:"
 
 #: db_datadict.php:118 libraries/classes/Index.php:723
-#: libraries/classes/InsertEdit.php:1922
+#: libraries/classes/InsertEdit.php:1931
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:30
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:291
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:387
@@ -65,8 +65,8 @@ msgstr "تعليقات الجدول:"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:636
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:659
 #: templates/table/index_form.twig:115
-#: templates/table/relation/foreign_key_row.twig:123
-#: templates/table/relation/foreign_key_row.twig:133
+#: templates/table/relation/foreign_key_row.twig:122
+#: templates/table/relation/foreign_key_row.twig:132
 #: templates/table/search/zoom_result_form.twig:34
 #: templates/table/search/table_header.twig:6
 #: templates/table/relation/internal_relational_row.twig:24
@@ -80,9 +80,8 @@ msgstr "تعليقات الجدول:"
 msgid "Column"
 msgstr "عمود"
 
-#: db_datadict.php:119 libraries/classes/CentralColumns.php:749
-#: libraries/classes/CentralColumns.php:1431 libraries/classes/Index.php:720
-#: libraries/classes/InsertEdit.php:314
+#: db_datadict.php:119 libraries/classes/CentralColumns.php:1406
+#: libraries/classes/Index.php:720 libraries/classes/InsertEdit.php:314
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:294
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:390
 #: libraries/classes/Plugins/Export/ExportLatex.php:527
@@ -104,12 +103,12 @@ msgstr "عمود"
 #: templates/table/structure/table_structure_header.twig:6
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/database/central_columns/table_header.twig:13
 msgid "Type"
 msgstr "النوع"
 
-#: db_datadict.php:120 libraries/classes/CentralColumns.php:760
-#: libraries/classes/CentralColumns.php:1432 libraries/classes/Index.php:726
-#: libraries/classes/InsertEdit.php:1931
+#: db_datadict.php:120 libraries/classes/CentralColumns.php:1407
+#: libraries/classes/Index.php:726 libraries/classes/InsertEdit.php:1940
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:297
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:393
 #: libraries/classes/Plugins/Export/ExportLatex.php:528
@@ -125,11 +124,11 @@ msgstr "النوع"
 #: templates/table/structure/table_structure_header.twig:9
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
+#: templates/database/central_columns/table_header.twig:33
 msgid "Null"
 msgstr "خالي"
 
-#: db_datadict.php:121 libraries/classes/CentralColumns.php:753
-#: libraries/classes/CentralColumns.php:1431
+#: db_datadict.php:121 libraries/classes/CentralColumns.php:1406
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:300
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:396
 #: libraries/classes/Plugins/Export/ExportLatex.php:529
@@ -145,6 +144,7 @@ msgstr "خالي"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
+#: templates/database/central_columns/table_header.twig:21
 msgid "Default"
 msgstr "إفتراضي"
 
@@ -174,8 +174,8 @@ msgid "Comments"
 msgstr "التعليقات"
 
 #: db_datadict.php:157
-#: libraries/classes/Controllers/Table/TableStructureController.php:1215
-#: libraries/classes/Controllers/Table/TableStructureController.php:1220
+#: libraries/classes/Controllers/Table/TableStructureController.php:1227
+#: libraries/classes/Controllers/Table/TableStructureController.php:1232
 #: templates/table/structure/check_all_table_column.twig:33
 #: templates/columns_definitions/column_indexes.twig:4
 #: templates/table/structure/display_structure.twig:61
@@ -184,7 +184,7 @@ msgid "Primary"
 msgstr "أساسي"
 
 #: db_datadict.php:167 js/messages.php:382
-#: libraries/classes/CentralColumns.php:1003
+#: libraries/classes/CentralColumns.php:978
 #: libraries/classes/Config/FormDisplayTemplate.php:281
 #: libraries/classes/Index.php:568 libraries/classes/Index.php:596
 #: libraries/classes/IndexColumn.php:141 libraries/classes/MultSubmits.php:527
@@ -209,16 +209,16 @@ msgstr "أساسي"
 msgid "No"
 msgstr "لا"
 
-#: db_datadict.php:167 js/messages.php:530
-#: libraries/classes/CentralColumns.php:1003
+#: db_datadict.php:167 js/messages.php:531
+#: libraries/classes/CentralColumns.php:978
 #: libraries/classes/Config/FormDisplayTemplate.php:281
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:194
-#: libraries/classes/Controllers/Table/TableStructureController.php:794
-#: libraries/classes/Controllers/Table/TableStructureController.php:1481
-#: libraries/classes/Controllers/Table/TableStructureController.php:1490
-#: libraries/classes/Controllers/Table/TableStructureController.php:1495
-#: libraries/classes/Controllers/Table/TableStructureController.php:1500
-#: libraries/classes/Controllers/Table/TableStructureController.php:1505
+#: libraries/classes/Controllers/Table/TableStructureController.php:806
+#: libraries/classes/Controllers/Table/TableStructureController.php:1493
+#: libraries/classes/Controllers/Table/TableStructureController.php:1502
+#: libraries/classes/Controllers/Table/TableStructureController.php:1507
+#: libraries/classes/Controllers/Table/TableStructureController.php:1512
+#: libraries/classes/Controllers/Table/TableStructureController.php:1517
 #: libraries/classes/Index.php:595 libraries/classes/IndexColumn.php:144
 #: libraries/classes/MultSubmits.php:426 libraries/classes/MultSubmits.php:459
 #: libraries/classes/MultSubmits.php:488 libraries/classes/MultSubmits.php:525
@@ -259,7 +259,7 @@ msgstr "لم يعثر على جداول في قاعدة البيانات."
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:120
+#: libraries/classes/Plugins/Export/ExportXml.php:122
 #: libraries/classes/Server/Status/Data.php:128
 #: templates/database/structure/show_create.twig:14
 msgid "Tables"
@@ -413,23 +413,23 @@ msgid "Point:"
 msgstr "نقطة:"
 
 #: gis_data_editor.php:220 gis_data_editor.php:247 gis_data_editor.php:303
-#: gis_data_editor.php:376 js/messages.php:519
+#: gis_data_editor.php:376 js/messages.php:520
 msgid "X"
 msgstr "س"
 
 #: gis_data_editor.php:223 gis_data_editor.php:251 gis_data_editor.php:307
-#: gis_data_editor.php:382 js/messages.php:520
+#: gis_data_editor.php:382 js/messages.php:521
 msgid "Y"
 msgstr "ص"
 
 #: gis_data_editor.php:245 gis_data_editor.php:301 gis_data_editor.php:374
-#: js/messages.php:522
+#: js/messages.php:523
 #, php-format
 msgid "Point %d"
 msgstr "نقطة %d"
 
 #: gis_data_editor.php:258 gis_data_editor.php:314 gis_data_editor.php:392
-#: js/messages.php:528
+#: js/messages.php:529
 msgid "Add a point"
 msgstr "إضافة نقطة"
 
@@ -451,7 +451,7 @@ msgstr "الحلقة الداخلية %d :"
 msgid "Add a linestring"
 msgstr "إضافة منحنى"
 
-#: gis_data_editor.php:318 gis_data_editor.php:397 js/messages.php:529
+#: gis_data_editor.php:318 gis_data_editor.php:397 js/messages.php:530
 msgid "Add an inner ring"
 msgstr "﻿إضافة حلقة الداخلية"
 
@@ -471,8 +471,8 @@ msgstr "أضف هندسة"
 #: gis_data_editor.php:415 js/messages.php:352
 #: libraries/classes/BrowseForeigners.php:199
 #: libraries/classes/Display/ChangePassword.php:160
-#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1900
-#: libraries/classes/InsertEdit.php:1938
+#: libraries/classes/Index.php:664 libraries/classes/InsertEdit.php:1909
+#: libraries/classes/InsertEdit.php:1947
 #: libraries/classes/Normalization.php:222
 #: libraries/classes/Normalization.php:904 libraries/classes/Operations.php:67
 #: libraries/classes/Operations.php:132 libraries/classes/Operations.php:273
@@ -531,7 +531,7 @@ msgstr ""
 msgid "Succeeded"
 msgstr "نجحت"
 
-#: import.php:79 js/messages.php:617
+#: import.php:79 js/messages.php:618
 msgid "Failed"
 msgstr "فشل"
 
@@ -570,7 +570,7 @@ msgstr ""
 msgid "Could not load import plugins, please check your installation!"
 msgstr "لم أتمكن من تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
-#: import.php:589 libraries/classes/Sql.php:828 libraries/classes/Sql.php:1615
+#: import.php:589 libraries/classes/Sql.php:829 libraries/classes/Sql.php:1616
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "تم إنشاء العلامة المرجعية %s."
@@ -611,8 +611,8 @@ msgstr "أمر \"حذف قاعدة البيانات\" معطل."
 msgid "Could not load the progress of the import."
 msgstr "تعذّر تحميل حالة تقدم الاستيراد."
 
-#: import_status.php:116 js/messages.php:459 js/messages.php:625
-#: libraries/classes/Export.php:515
+#: import_status.php:116 js/messages.php:460 js/messages.php:626
+#: libraries/classes/Export.php:524
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:305
 #: libraries/classes/UserPassword.php:261 libraries/classes/Util.php:665
 msgid "Back"
@@ -645,7 +645,7 @@ msgstr ""
 msgid "General settings"
 msgstr "الإعدادات العامة"
 
-#: index.php:225 js/messages.php:650
+#: index.php:225 js/messages.php:651
 #: libraries/classes/Display/ChangePassword.php:59
 #: libraries/classes/Display/ChangePassword.php:62
 #: libraries/classes/UserPassword.php:255
@@ -684,7 +684,7 @@ msgstr "فرض إتصال SSL"
 
 #: index.php:332 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
-#: libraries/classes/Plugins/Export/ExportXml.php:244
+#: libraries/classes/Plugins/Export/ExportXml.php:246
 msgid "Server version:"
 msgstr "إصدار الخادم:"
 
@@ -1000,7 +1000,7 @@ msgstr "هل تريد بالتأكيد تغيير جميع عمليات تصني
 msgid "Save & close"
 msgstr "حفظ واغلاق"
 
-#: js/messages.php:114 libraries/classes/InsertEdit.php:1904
+#: js/messages.php:114 libraries/classes/InsertEdit.php:1913
 #: prefs_manage.php:357 prefs_manage.php:368
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
@@ -1055,7 +1055,7 @@ msgstr "مركب مع:"
 msgid "Please select column(s) for the index."
 msgstr "أضف s% عمود/ اعمدة إلى الفهرس ."
 
-#: js/messages.php:131 libraries/classes/InsertEdit.php:1902
+#: js/messages.php:131 libraries/classes/InsertEdit.php:1911
 #: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:188
@@ -1518,14 +1518,14 @@ msgstr "إشرح الخرج"
 msgid "Status"
 msgstr "الحالة"
 
-#: js/messages.php:291 js/messages.php:906
+#: js/messages.php:291 js/messages.php:907
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:487
 #: libraries/classes/Plugins/Export/ExportOdt.php:607
 #: libraries/classes/Plugins/Export/ExportTexytext.php:451
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:360
 #: libraries/classes/Rte/RteList.php:118
 #: libraries/classes/Server/Status/Processes.php:97
-#: libraries/classes/Sql.php:278
+#: libraries/classes/Sql.php:279
 msgid "Time"
 msgstr "وقت"
 
@@ -1887,8 +1887,8 @@ msgstr "إخفاء صندوق الإستعلام"
 msgid "Show query box"
 msgstr "إظهار صندوق الإستعلام"
 
-#: js/messages.php:420 libraries/classes/CentralColumns.php:886
-#: libraries/classes/CentralColumns.php:1237
+#: js/messages.php:420 libraries/classes/CentralColumns.php:861
+#: libraries/classes/CentralColumns.php:1212
 #: libraries/classes/Config/Descriptions.php:1329
 #: libraries/classes/Display/Results.php:3335
 #: libraries/classes/Display/Results.php:4695 libraries/classes/Index.php:745
@@ -1902,8 +1902,8 @@ msgstr "إظهار صندوق الإستعلام"
 msgid "Edit"
 msgstr "تعديل"
 
-#: js/messages.php:421 libraries/classes/CentralColumns.php:888
-#: libraries/classes/CentralColumns.php:1241
+#: js/messages.php:421 libraries/classes/CentralColumns.php:863
+#: libraries/classes/CentralColumns.php:1216
 #: libraries/classes/Display/Results.php:3404
 #: libraries/classes/Display/Results.php:4679
 #: libraries/classes/Server/UserGroups.php:140
@@ -1930,27 +1930,33 @@ msgid "Browse foreign values"
 msgstr "استعرض القيم الغريبة"
 
 #: js/messages.php:424
-msgid "No auto-saved query"
-msgstr "لا يوجد طلب بحث تم حفظه تلقائيا"
+msgid "No previously auto-saved query is available. Loading default query."
+msgstr ""
 
 #: js/messages.php:425
+msgid ""
+"You have a previously saved query. Click Get auto-saved query to load the "
+"query."
+msgstr ""
+
+#: js/messages.php:426
 #, php-format
 msgid "Variable %d:"
 msgstr "المتغير %d:"
 
-#: js/messages.php:428 libraries/classes/Normalization.php:973
+#: js/messages.php:429 libraries/classes/Normalization.php:973
 msgid "Pick"
 msgstr "اختيار"
 
-#: js/messages.php:429
+#: js/messages.php:430
 msgid "Column selector"
 msgstr "محدد العمود"
 
-#: js/messages.php:430
+#: js/messages.php:431
 msgid "Search this list"
 msgstr "ابحث في هذه القائمة"
 
-#: js/messages.php:432
+#: js/messages.php:433
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -1959,15 +1965,15 @@ msgstr ""
 "لا توجد أعمدة في القائمة المركزية. تأكد من أن قائمة الأعمدة المركزية لقاعدة "
 "البيانات %s يحتوي على أعمدة غير موجودة في الجدول الحالي ."
 
-#: js/messages.php:435
+#: js/messages.php:436
 msgid "See more"
 msgstr "شاهد المزيد"
 
-#: js/messages.php:436
+#: js/messages.php:437
 msgid "Are you sure?"
 msgstr "هل أنت متأكد؟"
 
-#: js/messages.php:438
+#: js/messages.php:439
 msgid ""
 "This action may change some of the columns definition.<br/>Are you sure you "
 "want to continue?"
@@ -1975,53 +1981,53 @@ msgstr ""
 "هذا الإجراء قي يغيير بعض معرفات الأعمدة .<br/> هل انت متاكد انك تريد "
 "المتابعة؟"
 
-#: js/messages.php:441
+#: js/messages.php:442
 msgid "Continue"
 msgstr "استمر"
 
-#: js/messages.php:444
+#: js/messages.php:445
 msgid "Add primary key"
 msgstr "إضافة مفتاح رئيسي"
 
-#: js/messages.php:445
+#: js/messages.php:446
 msgid "Primary key added."
 msgstr "تم إضافة المفتاح الأساسي ."
 
-#: js/messages.php:446 libraries/classes/Normalization.php:248
+#: js/messages.php:447 libraries/classes/Normalization.php:248
 msgid "Taking you to next step…"
 msgstr "نقلك إلى الخطوة التالية …"
 
-#: js/messages.php:448
+#: js/messages.php:449
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "الخطوة الاولي في التطبيع هي اكمال الجدول '%s'."
 
-#: js/messages.php:449 libraries/classes/Normalization.php:516
+#: js/messages.php:450 libraries/classes/Normalization.php:516
 #: libraries/classes/Normalization.php:563
 #: libraries/classes/Normalization.php:649
 #: libraries/classes/Normalization.php:713
 msgid "End of step"
 msgstr "نهاية الخطوة"
 
-#: js/messages.php:450
+#: js/messages.php:451
 msgid "Second step of normalization (2NF)"
 msgstr "الخطوة الثانية في التطبيع (2NF)"
 
 #. l10n: Display text for calendar close link
-#: js/messages.php:451 js/messages.php:775
+#: js/messages.php:452 js/messages.php:776
 #: libraries/classes/Normalization.php:346
 msgid "Done"
 msgstr "إنتهى"
 
-#: js/messages.php:452
+#: js/messages.php:453
 msgid "Confirm partial dependencies"
 msgstr "تأكيد تبعيات جزئية"
 
-#: js/messages.php:453
+#: js/messages.php:454
 msgid "Selected partial dependencies are as follows:"
 msgstr "اخترالتبعيات الجزئية كما يلي:"
 
-#: js/messages.php:455
+#: js/messages.php:456
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -2029,19 +2035,19 @@ msgstr ""
 "ملاحظة: a,b -> d,f تدل على أن قيم الأعمدة a و b مجتمعة يمكن أن تحدد قيم "
 "العمود d و العمود f."
 
-#: js/messages.php:458
+#: js/messages.php:459
 msgid "No partial dependencies selected!"
 msgstr "لم يتم تحديد أي تبعيات جزئية!"
 
-#: js/messages.php:461
+#: js/messages.php:462
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "اظهر لي التبعيات الجزئية المحتملة استنادا إلى البيانات في الجدول"
 
-#: js/messages.php:462
+#: js/messages.php:463
 msgid "Hide partial dependencies list"
 msgstr "إخفاء قائمة التبعيات الجزئية"
 
-#: js/messages.php:464
+#: js/messages.php:465
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -2049,41 +2055,41 @@ msgstr ""
 "اجلس بثبات! قد يستغرق بضع ثوان اعتمادا على حجم البيانات وعدد الأعمدة من "
 "الجدول."
 
-#: js/messages.php:467
+#: js/messages.php:468
 msgid "Step"
 msgstr "خطوة"
 
-#: js/messages.php:469
+#: js/messages.php:470
 msgid "The following actions will be performed:"
 msgstr "سيتم تنفيذ الإجراءات التالية:"
 
-#: js/messages.php:470
+#: js/messages.php:471
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "الغي الاعمدة %s من جدول %s"
 
-#: js/messages.php:471
+#: js/messages.php:472
 msgid "Create the following table"
 msgstr "قم بإنشاء الجدول التالي"
 
-#: js/messages.php:474
+#: js/messages.php:475
 msgid "Third step of normalization (3NF)"
 msgstr "خطوة التطبيع الثالثة (3NF)"
 
-#: js/messages.php:475
+#: js/messages.php:476
 msgid "Confirm transitive dependencies"
 msgstr "تأكيد التبعيات المتعدية"
 
-#: js/messages.php:476
+#: js/messages.php:477
 msgid "Selected dependencies are as follows:"
 msgstr "التبعيات المحددة كما يلي:"
 
-#: js/messages.php:477
+#: js/messages.php:478
 msgid "No dependencies selected!"
 msgstr "لم يتم تحديد أي تبعيات!"
 
-#: js/messages.php:480 libraries/classes/CentralColumns.php:1257
-#: libraries/classes/InsertEdit.php:1814
+#: js/messages.php:481 libraries/classes/CentralColumns.php:1232
+#: libraries/classes/InsertEdit.php:1823
 #: templates/table/gis_visualization/gis_visualization.twig:48
 #: templates/columns_definitions/column_definitions_form.twig:149
 #: templates/table/relation/common_form.twig:189
@@ -2092,123 +2098,123 @@ msgstr "لم يتم تحديد أي تبعيات!"
 msgid "Save"
 msgstr "حفظ"
 
-#: js/messages.php:483
+#: js/messages.php:484
 msgid "Hide search criteria"
 msgstr "إخفاء معايير البحث"
 
-#: js/messages.php:484
+#: js/messages.php:485
 msgid "Show search criteria"
 msgstr "إظهار معايير البحث"
 
-#: js/messages.php:485
+#: js/messages.php:486
 msgid "Range search"
 msgstr "مدي البحث"
 
-#: js/messages.php:486
+#: js/messages.php:487
 msgid "Column maximum:"
 msgstr "اكبر قيمة للعمود :"
 
-#: js/messages.php:487
+#: js/messages.php:488
 msgid "Column minimum:"
 msgstr "اقل قيمة للعمود:"
 
-#: js/messages.php:488
+#: js/messages.php:489
 msgid "Minimum value:"
 msgstr "اقل قيمة:"
 
-#: js/messages.php:489
+#: js/messages.php:490
 msgid "Maximum value:"
 msgstr "اكبر قيمة:"
 
-#: js/messages.php:492
+#: js/messages.php:493
 msgid "Hide find and replace criteria"
 msgstr "إخفاء البحث عن المعايير واستبدالها"
 
-#: js/messages.php:493
+#: js/messages.php:494
 msgid "Show find and replace criteria"
 msgstr "إظهار إيجاد واستبدال المعايير"
 
-#: js/messages.php:497
+#: js/messages.php:498
 msgid "Each point represents a data row."
 msgstr "كل نقطة تمثل صف بيانات."
 
-#: js/messages.php:499
+#: js/messages.php:500
 msgid "Hovering over a point will show its label."
 msgstr "سيؤدي التمرير فوق نقطة إلى عرض تصنيفها."
 
-#: js/messages.php:501
+#: js/messages.php:502
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "لإستعمال المقربة، إختر جزء من رسم البيانات بواسطة الفأرة."
 
-#: js/messages.php:503
+#: js/messages.php:504
 msgid "Click reset zoom button to come back to original state."
 msgstr "أنقر زر الإسعادة للمقربة للرجوع إلى الحالة الأصلية."
 
-#: js/messages.php:505
+#: js/messages.php:506
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "أنقر على نقطة من البيانات لمشاهدة و ربما تحرير سطر البيانات."
 
-#: js/messages.php:507
+#: js/messages.php:508
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "يمكن تغيير قياس الرسم البياني من خلال سحبه على طول القرنة في أسفل اليمين."
 
-#: js/messages.php:510
+#: js/messages.php:511
 msgid "Select two columns"
 msgstr "إختر عمودين"
 
-#: js/messages.php:512
+#: js/messages.php:513
 msgid "Select two different columns"
 msgstr "إختر عمودين مختلفين"
 
-#: js/messages.php:514
+#: js/messages.php:515
 msgid "Data point content"
 msgstr "محتوى نقطة البيانات"
 
-#: js/messages.php:517 js/messages.php:685 js/messages.php:702
-#: libraries/classes/ErrorHandler.php:371 libraries/classes/InsertEdit.php:2982
+#: js/messages.php:518 js/messages.php:686 js/messages.php:703
+#: libraries/classes/ErrorHandler.php:380 libraries/classes/InsertEdit.php:2991
 #: templates/table/index_form.twig:141 templates/table/index_form.twig:177
 msgid "Ignore"
 msgstr "تجاهل"
 
-#: js/messages.php:518 libraries/classes/Display/Results.php:3338
+#: js/messages.php:519 libraries/classes/Display/Results.php:3338
 #: libraries/classes/Display/Results.php:4700
 msgid "Copy"
 msgstr "نسخ"
 
-#: js/messages.php:521
+#: js/messages.php:522
 msgid "Point"
 msgstr "نقطة"
 
-#: js/messages.php:523
+#: js/messages.php:524
 msgid "Linestring"
 msgstr "منحنى"
 
-#: js/messages.php:524
+#: js/messages.php:525
 msgid "Polygon"
 msgstr "مضلع"
 
-#: js/messages.php:525 templates/display/results/options_block.twig:77
+#: js/messages.php:526 templates/display/results/options_block.twig:77
 msgid "Geometry"
 msgstr "هندسة"
 
-#: js/messages.php:526
+#: js/messages.php:527
 msgid "Inner ring"
 msgstr "الحلقة الداخلية"
 
-#: js/messages.php:527
+#: js/messages.php:528
 msgid "Outer ring"
 msgstr "الحلقة الخارجية"
 
-#: js/messages.php:531
+#: js/messages.php:532
 msgid "Do you want to copy encryption key?"
 msgstr "هل تريد نسخ مفتاح التشفير؟"
 
-#: js/messages.php:532
+#: js/messages.php:533
 msgid "Encryption key"
 msgstr "مفتاح التشفير"
 
-#: js/messages.php:536
+#: js/messages.php:537
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -2216,7 +2222,7 @@ msgstr ""
 "قبول MySQL قيم إضافية لا يمكن تحديدها بواسطة شريط التمرير؛ المفتاح في تلك "
 "القيم مباشرة إذا رغبت في ذلك"
 
-#: js/messages.php:542
+#: js/messages.php:543
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -2224,7 +2230,7 @@ msgstr ""
 "قبول MySQL القيم الإضافية لا يمكن اختيارها من قبل منتقي التاريخ. المفتاح في "
 "تلك القيم مباشرة إذا رغبت في ذلك"
 
-#: js/messages.php:548
+#: js/messages.php:549
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -2232,111 +2238,111 @@ msgstr ""
 "اشارة إلى أنك أجريت تغييرات على هذه الصفحة؛ ستتم مطالبتك بالتأكيد قبل التخلي "
 "عن تلك التغييرات"
 
-#: js/messages.php:553
+#: js/messages.php:554
 msgid "Select referenced key"
 msgstr "إختيار المفتاح المرجع"
 
-#: js/messages.php:554
+#: js/messages.php:555
 msgid "Select Foreign Key"
 msgstr "إختيار المفتاح الغريب"
 
-#: js/messages.php:556
+#: js/messages.php:557
 msgid "Please select the primary key or a unique key!"
 msgstr "فضلاً أختر المفتاح الرئيسي أو المفتاح الفريد !"
 
-#: js/messages.php:557 templates/database/designer/side_menu.twig:92
+#: js/messages.php:558 templates/database/designer/side_menu.twig:92
 #: templates/database/designer/side_menu.twig:95
 msgid "Choose column to display"
 msgstr "اختر الحقل لإظهاره"
 
-#: js/messages.php:559
+#: js/messages.php:560
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
 "لم تحفظ التغييرات في التخطيط. وسوف تضيع إذا كنت لم تحفظها. هل تريد الاستمرار؟"
 
-#: js/messages.php:562
+#: js/messages.php:563
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: js/messages.php:563 templates/database/designer/side_menu.twig:34
+#: js/messages.php:564 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "Add tables from other databases"
 msgstr "لم يعثر على جداول في قاعدة البيانات."
 
-#: js/messages.php:564
+#: js/messages.php:565
 msgid "Page name"
 msgstr "اسم الصفحة"
 
-#: js/messages.php:565 templates/database/designer/side_menu.twig:57
+#: js/messages.php:566 templates/database/designer/side_menu.twig:57
 #: templates/database/designer/side_menu.twig:60
 msgid "Save page"
 msgstr "احفظ الصفحة"
 
-#: js/messages.php:566 templates/database/designer/side_menu.twig:64
+#: js/messages.php:567 templates/database/designer/side_menu.twig:64
 #: templates/database/designer/side_menu.twig:67
 msgid "Save page as"
 msgstr "حفظ الصفحة في صيغة"
 
-#: js/messages.php:567 templates/database/designer/side_menu.twig:50
+#: js/messages.php:568 templates/database/designer/side_menu.twig:50
 #: templates/database/designer/side_menu.twig:53
 msgid "Open page"
 msgstr "فتح الصفحة"
 
-#: js/messages.php:568
+#: js/messages.php:569
 msgid "Delete page"
 msgstr "حذف الصفحة"
 
-#: js/messages.php:569 templates/database/designer/side_menu.twig:4
+#: js/messages.php:570 templates/database/designer/side_menu.twig:4
 msgid "Untitled"
 msgstr "بدون عنوان"
 
-#: js/messages.php:570
+#: js/messages.php:571
 msgid "Please select a page to continue"
 msgstr "يرجى تحديد صفحة للمتابعة"
 
-#: js/messages.php:571
+#: js/messages.php:572
 msgid "Please enter a valid page name"
 msgstr "الرجاء إدخال اسم صفحة صالح"
 
-#: js/messages.php:573
+#: js/messages.php:574
 msgid "Do you want to save the changes to the current page?"
 msgstr "هل تريد حفظ التغييرات في الصفحة الحالية؟"
 
-#: js/messages.php:574
+#: js/messages.php:575
 msgid "Successfully deleted the page"
 msgstr "تم حذف الصفحة بنجاح"
 
-#: js/messages.php:575
+#: js/messages.php:576
 msgid "Export relational schema"
 msgstr "تصدير المخطط العلائقي"
 
-#: js/messages.php:576
+#: js/messages.php:577
 msgid "Modifications have been saved"
 msgstr "تمت التعديلات"
 
-#: js/messages.php:579
+#: js/messages.php:580
 #, php-format
 msgid "Add an option for column \"%s\"."
 msgstr "إضافة خيار للعمود‘%s‘ ."
 
-#: js/messages.php:580
+#: js/messages.php:581
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d تم انشاء كائن / كائنات."
 
-#: js/messages.php:581 libraries/classes/SqlQueryForm.php:413
+#: js/messages.php:582 libraries/classes/SqlQueryForm.php:413
 msgid "Submit"
 msgstr "إرسال"
 
-#: js/messages.php:584
+#: js/messages.php:585
 msgid "Press escape to cancel editing."
 msgstr "إضغط escape  لإلغاء التعديل ."
 
-#: js/messages.php:586
+#: js/messages.php:587
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -2344,15 +2350,15 @@ msgstr ""
 "لقد تم التعديل على بعض البيانات ولم يتم حفظها. هل تريد ترك هذه الصفحة بدون "
 "حفظ البيانات الجديدة؟"
 
-#: js/messages.php:589
+#: js/messages.php:590
 msgid "Drag to reorder."
 msgstr "إسحب لإعادة الترتيب ."
 
-#: js/messages.php:590
+#: js/messages.php:591
 msgid "Click to sort results by this column."
 msgstr "انقر لترتيب النتائج حسب هذا العمود."
 
-#: js/messages.php:592
+#: js/messages.php:593
 #, fuzzy
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
@@ -2363,26 +2369,26 @@ msgstr ""
 "> - Ctrl+Click أو Alt+انقر (Mac: Shift+Option+Click) لإزالة عمود من بند "
 "ORDER BY"
 
-#: js/messages.php:596
+#: js/messages.php:597
 msgid "Click to mark/unmark."
 msgstr "إضغط لوضع علامة / إزالة علامة ."
 
-#: js/messages.php:597
+#: js/messages.php:598
 msgid "Double-click to copy column name."
 msgstr "أنقر مرتين لنسخ اسم العمود ."
 
-#: js/messages.php:599
+#: js/messages.php:600
 msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "انقر على السهم المنسدل <br /> 0 لتبديل مستوى رؤية العمود."
 
-#: js/messages.php:601 libraries/classes/BrowseForeigners.php:340
+#: js/messages.php:602 libraries/classes/BrowseForeigners.php:340
 #: templates/privileges/initials_row.twig:20
 #: templates/display/results/show_all_checkbox.twig:11
 #: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "عرض الكل"
 
-#: js/messages.php:603
+#: js/messages.php:604
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -2390,11 +2396,11 @@ msgstr ""
 "لا يحتوي هذا الجدول على عمود فريد. الميزات المتعلقة بتحرير الشبكة، خانة "
 "الاختيار، تحرير، نسخ وحذف الروابط قد لا تعمل بعد الحفظ ."
 
-#: js/messages.php:607
+#: js/messages.php:608
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "الرجاء إدخال سلسلة سداسية عشرية صالحة. الأحرف الصالحة هي 0-9، A-F."
 
-#: js/messages.php:609
+#: js/messages.php:610
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -2402,101 +2408,101 @@ msgstr ""
 "هل تريد حقا أن ترى كل الصفوف؟ لجدول كبير مثل هذا يمكن أن تحطم او يغلق "
 "المتصفح."
 
-#: js/messages.php:612
+#: js/messages.php:613
 msgid "Original length"
 msgstr "طول الأصلي"
 
-#: js/messages.php:615
+#: js/messages.php:616
 msgid "cancel"
 msgstr "ألغاء"
 
-#: js/messages.php:616 libraries/classes/Server/Status.php:289
+#: js/messages.php:617 libraries/classes/Server/Status.php:289
 msgid "Aborted"
 msgstr "ألغي"
 
-#: js/messages.php:618
+#: js/messages.php:619
 msgid "Success"
 msgstr "نجاح"
 
-#: js/messages.php:619
+#: js/messages.php:620
 msgid "Import status"
 msgstr "حالة الاستيراد"
 
-#: js/messages.php:620 libraries/classes/Navigation/Navigation.php:127
+#: js/messages.php:621 libraries/classes/Navigation/Navigation.php:127
 msgid "Drop files here"
 msgstr "إسقاط الملفات هنا"
 
-#: js/messages.php:621
+#: js/messages.php:622
 msgid "Select database first"
 msgstr "حدد قاعدة البيانات أولا"
 
-#: js/messages.php:624 libraries/classes/Display/Results.php:4881
+#: js/messages.php:625 libraries/classes/Display/Results.php:4881
 #: libraries/classes/Util.php:3860
 #: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/optional_action_links.twig:1
 msgid "Print"
 msgstr "طباعة"
 
-#: js/messages.php:631
+#: js/messages.php:632
 msgid "You can also edit most values<br />by double-clicking directly on them."
 msgstr "يمكنك أيضا تعديل معظم القيم <br /> بالنقر المزدوج عليها مباشرة."
 
-#: js/messages.php:636
+#: js/messages.php:637
 msgid "You can also edit most values<br />by clicking directly on them."
 msgstr "يمكنك أيضا تعديل معظم القيم <br /> بالنقر عليها مباشرة."
 
-#: js/messages.php:642
+#: js/messages.php:643
 msgid "Go to link:"
 msgstr "الانتقال إلى الرابط:"
 
-#: js/messages.php:643
+#: js/messages.php:644
 msgid "Copy column name."
 msgstr "أنسخ اسم العمود ."
 
-#: js/messages.php:645
+#: js/messages.php:646
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr "انقر بزر الماوس الأيمن فوق اسم العمود لنسخه إلى الحافظة الخاصة بك."
 
-#: js/messages.php:648
+#: js/messages.php:649
 msgid "Generate password"
 msgstr "توليد كلمة مرور"
 
-#: js/messages.php:649 libraries/classes/ReplicationGui.php:903
+#: js/messages.php:650 libraries/classes/ReplicationGui.php:903
 msgid "Generate"
 msgstr "توليد"
 
-#: js/messages.php:653
+#: js/messages.php:654
 #: templates/table/structure/actions_in_table_structure.twig:4
 msgid "More"
 msgstr "أكثر"
 
-#: js/messages.php:656
+#: js/messages.php:657
 msgid "Show panel"
 msgstr "إظهار اللوحة"
 
-#: js/messages.php:657
+#: js/messages.php:658
 msgid "Hide panel"
 msgstr "إخفاء اللوحة"
 
-#: js/messages.php:658
+#: js/messages.php:659
 msgid "Show hidden navigation tree items."
 msgstr "إظهار عناصر شجرة التنقل المخفية."
 
-#: js/messages.php:659 libraries/classes/Config/Descriptions.php:778
+#: js/messages.php:660 libraries/classes/Config/Descriptions.php:778
 #: libraries/classes/Navigation/NavigationTree.php:1431
 msgid "Link with main panel"
 msgstr "ربط مع اللوحة الرئيسية"
 
-#: js/messages.php:660 libraries/classes/Navigation/NavigationTree.php:1434
+#: js/messages.php:661 libraries/classes/Navigation/NavigationTree.php:1434
 msgid "Unlink from main panel"
 msgstr "إلغاء الربط من اللوحة الرئيسية"
 
-#: js/messages.php:664
+#: js/messages.php:665
 msgid "The requested page was not found in the history, it may have expired."
 msgstr ""
 "لم يتم العثور على الصفحة المطلوبة في السجل، فقد تكون قد انتهت صلاحيتها."
 
-#: js/messages.php:668 setup/lib/Index.php:171
+#: js/messages.php:669 setup/lib/Index.php:171
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -2506,48 +2512,48 @@ msgstr ""
 "هو %s, released on %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: js/messages.php:672
+#: js/messages.php:673
 msgid ", latest stable version:"
 msgstr ", آخر إصدار مستقر:"
 
-#: js/messages.php:673
+#: js/messages.php:674
 msgid "up to date"
 msgstr "محدثة"
 
-#: js/messages.php:675 libraries/classes/Display/Results.php:4815
+#: js/messages.php:676 libraries/classes/Display/Results.php:4815
 #: templates/view_create.twig:11
 msgid "Create view"
 msgstr "إنشاء عرض"
 
-#: js/messages.php:678
+#: js/messages.php:679
 msgid "Send error report"
 msgstr "إرسال تقرير عن الخطأ"
 
-#: js/messages.php:679
+#: js/messages.php:680
 msgid "Submit error report"
 msgstr "إرسال تقرير الخطأ"
 
-#: js/messages.php:681
+#: js/messages.php:682
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr "حدث خطأ فادح في جافا سكريبت. هل تريد إرسال تقرير عن الخطأ؟"
 
-#: js/messages.php:683
+#: js/messages.php:684
 msgid "Change report settings"
 msgstr "تغيير إعدادات التقرير"
 
-#: js/messages.php:684
+#: js/messages.php:685
 msgid "Show report details"
 msgstr "عرض تفاصيل التقرير"
 
-#: js/messages.php:687
+#: js/messages.php:688
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr "التصدير الخاص بك غير مكتمل، بسبب انخفاض وقت التنفيذ على مستوى PHP!"
 
-#: js/messages.php:691
+#: js/messages.php:692
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -2556,62 +2562,62 @@ msgstr ""
 "تحذير: يحتوي النموذج الموجود في هذه الصفحة على أكثر من %d من الحقول. عند "
 "الإرسال، قد يتم تجاهل بعض الحقول، وذلك بسبب تكوين ترتيب PHP max_input_vars ."
 
-#: js/messages.php:697 js/messages.php:710
+#: js/messages.php:698 js/messages.php:711
 msgid "Some errors have been detected on the server!"
 msgstr "تم اكتشاف بعض الأخطاء على الخادم!"
 
-#: js/messages.php:699
+#: js/messages.php:700
 msgid "Please look at the bottom of this window."
 msgstr "يرجى النظر في الجزء السفلي من هذه النافذة."
 
-#: js/messages.php:705 libraries/classes/ErrorHandler.php:375
+#: js/messages.php:706 libraries/classes/ErrorHandler.php:384
 msgid "Ignore All"
 msgstr "تجاهل الكل"
 
-#: js/messages.php:713
+#: js/messages.php:714
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "وفقا للإعدادات الخاصة بك، يتم تقديمها حاليا، يرجى التحلي بالصبر."
 
-#: js/messages.php:723
+#: js/messages.php:724
 msgid "Execute this query again?"
 msgstr "هل تريد تنفيذ هذا الاستعلام مرة أخرى؟"
 
-#: js/messages.php:725
+#: js/messages.php:726
 msgid "Do you really want to delete this bookmark?"
 msgstr "هل تريد حقا حذف هذه الإشارة المرجعية؟"
 
-#: js/messages.php:727
+#: js/messages.php:728
 msgid "Some error occurred while getting SQL debug info."
 msgstr "حدث خطأ ما أثناء الحصول على معلومات تصحيح أخطاء SQL."
 
-#: js/messages.php:729
+#: js/messages.php:730
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "نفذت %s من طلبات البحث%s  من المرات في %s من الثواني."
 
-#: js/messages.php:730
+#: js/messages.php:731
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: js/messages.php:731
+#: js/messages.php:732
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "تعليقات الجدول"
 
-#: js/messages.php:732
+#: js/messages.php:733
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "إخفاء نتائج البحث"
 
-#: js/messages.php:733
+#: js/messages.php:734
 msgid "Time taken:"
 msgstr "الوقت المستغرق:"
 
-#: js/messages.php:734
+#: js/messages.php:735
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -2620,379 +2626,379 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: js/messages.php:736
+#: js/messages.php:737
 msgid "Copy tables to"
 msgstr "نسخ الجداول إلى"
 
-#: js/messages.php:737
+#: js/messages.php:738
 msgid "Add table prefix"
 msgstr "إضافة بادئة الجدول"
 
-#: js/messages.php:738
+#: js/messages.php:739
 msgid "Replace table with prefix"
 msgstr "استبدال الجدول مع البادئة"
 
-#: js/messages.php:739 templates/database/structure/check_all_tables.twig:28
+#: js/messages.php:740 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
 msgstr "نسخ الجدول مع البادئة"
 
-#: js/messages.php:742
+#: js/messages.php:743
 #, fuzzy
 msgid "Extremely weak"
 msgstr "ضعيف جدا"
 
-#: js/messages.php:743
+#: js/messages.php:744
 msgid "Very weak"
 msgstr "ضعيف جدا"
 
-#: js/messages.php:744
+#: js/messages.php:745
 msgid "Weak"
 msgstr "ضعيف"
 
-#: js/messages.php:745
+#: js/messages.php:746
 msgid "Good"
 msgstr "جيد"
 
-#: js/messages.php:746
+#: js/messages.php:747
 msgid "Strong"
 msgstr "قوي"
 
-#: js/messages.php:749
+#: js/messages.php:750
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
-#: js/messages.php:750
+#: js/messages.php:751
 #, php-format
 msgid "Failed security key activation (%s)."
 msgstr ""
 
-#: js/messages.php:779
+#: js/messages.php:780
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "سابق"
 
-#: js/messages.php:784
+#: js/messages.php:785
 msgctxt "Next month"
 msgid "Next"
 msgstr "التالي"
 
 #. l10n: Display text for current month link in calendar
-#: js/messages.php:787
+#: js/messages.php:788
 msgid "Today"
 msgstr "اليوم"
 
-#: js/messages.php:791
+#: js/messages.php:792
 msgid "January"
 msgstr "يناير"
 
-#: js/messages.php:792
+#: js/messages.php:793
 msgid "February"
 msgstr "فبراير"
 
-#: js/messages.php:793
+#: js/messages.php:794
 msgid "March"
 msgstr "مارس"
 
-#: js/messages.php:794
+#: js/messages.php:795
 msgid "April"
 msgstr "أبريل"
 
-#: js/messages.php:795
+#: js/messages.php:796
 msgid "May"
 msgstr "مايو"
 
-#: js/messages.php:796
+#: js/messages.php:797
 msgid "June"
 msgstr "يونيو"
 
-#: js/messages.php:797
+#: js/messages.php:798
 msgid "July"
 msgstr "يوليو"
 
-#: js/messages.php:798
+#: js/messages.php:799
 msgid "August"
 msgstr "أغسطس"
 
-#: js/messages.php:799
+#: js/messages.php:800
 msgid "September"
 msgstr "سبتمبر"
 
-#: js/messages.php:800
+#: js/messages.php:801
 msgid "October"
 msgstr "أكتوبر"
 
-#: js/messages.php:801
+#: js/messages.php:802
 msgid "November"
 msgstr "نوفمبر"
 
-#: js/messages.php:802
+#: js/messages.php:803
 msgid "December"
 msgstr "ديسمبر"
 
 #. l10n: Short month name
-#: js/messages.php:809 libraries/classes/Util.php:1479
+#: js/messages.php:810 libraries/classes/Util.php:1479
 msgid "Jan"
 msgstr "يناير"
 
 #. l10n: Short month name
-#: js/messages.php:811 libraries/classes/Util.php:1481
+#: js/messages.php:812 libraries/classes/Util.php:1481
 msgid "Feb"
 msgstr "فبراير"
 
 #. l10n: Short month name
-#: js/messages.php:813 libraries/classes/Util.php:1483
+#: js/messages.php:814 libraries/classes/Util.php:1483
 msgid "Mar"
 msgstr "مارس"
 
 #. l10n: Short month name
-#: js/messages.php:815 libraries/classes/Util.php:1485
+#: js/messages.php:816 libraries/classes/Util.php:1485
 msgid "Apr"
 msgstr "أبريل"
 
 #. l10n: Short month name
-#: js/messages.php:817 libraries/classes/Util.php:1487
+#: js/messages.php:818 libraries/classes/Util.php:1487
 msgctxt "Short month name"
 msgid "May"
 msgstr "مايو"
 
 #. l10n: Short month name
-#: js/messages.php:819 libraries/classes/Util.php:1489
+#: js/messages.php:820 libraries/classes/Util.php:1489
 msgid "Jun"
 msgstr "يونيو"
 
 #. l10n: Short month name
-#: js/messages.php:821 libraries/classes/Util.php:1491
+#: js/messages.php:822 libraries/classes/Util.php:1491
 msgid "Jul"
 msgstr "يوليو"
 
 #. l10n: Short month name
-#: js/messages.php:823 libraries/classes/Util.php:1493
+#: js/messages.php:824 libraries/classes/Util.php:1493
 msgid "Aug"
 msgstr "أغسطس"
 
 #. l10n: Short month name
-#: js/messages.php:825 libraries/classes/Util.php:1495
+#: js/messages.php:826 libraries/classes/Util.php:1495
 msgid "Sep"
 msgstr "سبتمبر"
 
 #. l10n: Short month name
-#: js/messages.php:827 libraries/classes/Util.php:1497
+#: js/messages.php:828 libraries/classes/Util.php:1497
 msgid "Oct"
 msgstr "أكتوبر"
 
 #. l10n: Short month name
-#: js/messages.php:829 libraries/classes/Util.php:1499
+#: js/messages.php:830 libraries/classes/Util.php:1499
 msgid "Nov"
 msgstr "نوفمبر"
 
 #. l10n: Short month name
-#: js/messages.php:831 libraries/classes/Util.php:1501
+#: js/messages.php:832 libraries/classes/Util.php:1501
 msgid "Dec"
 msgstr "ديسمبر"
 
-#: js/messages.php:837
+#: js/messages.php:838
 msgid "Sunday"
 msgstr "الأحد"
 
-#: js/messages.php:838
+#: js/messages.php:839
 msgid "Monday"
 msgstr "الإثنين"
 
-#: js/messages.php:839
+#: js/messages.php:840
 msgid "Tuesday"
 msgstr "الثلاثاء"
 
-#: js/messages.php:840
+#: js/messages.php:841
 msgid "Wednesday"
 msgstr "الأربعاء"
 
-#: js/messages.php:841
+#: js/messages.php:842
 msgid "Thursday"
 msgstr "الخميس"
 
-#: js/messages.php:842
+#: js/messages.php:843
 msgid "Friday"
 msgstr "الجمعة"
 
-#: js/messages.php:843
+#: js/messages.php:844
 msgid "Saturday"
 msgstr "السبت"
 
 #. l10n: Short week day name
-#: js/messages.php:850
+#: js/messages.php:851
 msgid "Sun"
 msgstr "الأحد"
 
 #. l10n: Short week day name
-#: js/messages.php:852 libraries/classes/Util.php:1506
+#: js/messages.php:853 libraries/classes/Util.php:1506
 msgid "Mon"
 msgstr "الإثنين"
 
 #. l10n: Short week day name
-#: js/messages.php:854 libraries/classes/Util.php:1508
+#: js/messages.php:855 libraries/classes/Util.php:1508
 msgid "Tue"
 msgstr "الثلاثاء"
 
 #. l10n: Short week day name
-#: js/messages.php:856 libraries/classes/Util.php:1510
+#: js/messages.php:857 libraries/classes/Util.php:1510
 msgid "Wed"
 msgstr "الأربعاء"
 
 #. l10n: Short week day name
-#: js/messages.php:858 libraries/classes/Util.php:1512
+#: js/messages.php:859 libraries/classes/Util.php:1512
 msgid "Thu"
 msgstr "الخميس"
 
 #. l10n: Short week day name
-#: js/messages.php:860 libraries/classes/Util.php:1514
+#: js/messages.php:861 libraries/classes/Util.php:1514
 msgid "Fri"
 msgstr "الجمعة"
 
 #. l10n: Short week day name
-#: js/messages.php:862 libraries/classes/Util.php:1516
+#: js/messages.php:863 libraries/classes/Util.php:1516
 msgid "Sat"
 msgstr "السبت"
 
 #. l10n: Minimal week day name
-#: js/messages.php:869
+#: js/messages.php:870
 msgid "Su"
 msgstr "الأحد"
 
 #. l10n: Minimal week day name
-#: js/messages.php:871
+#: js/messages.php:872
 msgid "Mo"
 msgstr "الإثنين"
 
 #. l10n: Minimal week day name
-#: js/messages.php:873
+#: js/messages.php:874
 msgid "Tu"
 msgstr "الثلاثاء"
 
 #. l10n: Minimal week day name
-#: js/messages.php:875
+#: js/messages.php:876
 msgid "We"
 msgstr "الأربعاء"
 
 #. l10n: Minimal week day name
-#: js/messages.php:877
+#: js/messages.php:878
 msgid "Th"
 msgstr "الخميس"
 
 #. l10n: Minimal week day name
-#: js/messages.php:879
+#: js/messages.php:880
 msgid "Fr"
 msgstr "الجمعة"
 
 #. l10n: Minimal week day name
-#: js/messages.php:881
+#: js/messages.php:882
 msgid "Sa"
 msgstr "السبت"
 
 #. l10n: Column header for week of the year in calendar
-#: js/messages.php:885
+#: js/messages.php:886
 msgid "Wk"
 msgstr "الأسبوع"
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year"
 #. * or "calendar-year-month".
 #.
-#: js/messages.php:892
+#: js/messages.php:893
 #, fuzzy
 msgid "calendar-month-year"
 msgstr "التقويم-الشهر-السنة"
 
 #. l10n: Year suffix for calendar, "none" is empty.
-#: js/messages.php:895
+#: js/messages.php:896
 msgctxt "Year suffix"
 msgid "none"
 msgstr "لا شيء"
 
-#: js/messages.php:907
+#: js/messages.php:908
 msgid "Hour"
 msgstr "الساعة"
 
-#: js/messages.php:908
+#: js/messages.php:909
 msgid "Minute"
 msgstr "الدقيقة"
 
-#: js/messages.php:909
+#: js/messages.php:910
 msgid "Second"
 msgstr "الثانية"
 
-#: js/messages.php:920
+#: js/messages.php:921
 msgid "This field is required"
 msgstr "هذا الحقل مطلوب"
 
-#: js/messages.php:921
+#: js/messages.php:922
 msgid "Please fix this field"
 msgstr "الرجاء إصلاح هذا الحقل"
 
-#: js/messages.php:922
+#: js/messages.php:923
 msgid "Please enter a valid email address"
 msgstr "رجاء قم بإدخال بريد الكتروني صحيح"
 
-#: js/messages.php:923
+#: js/messages.php:924
 msgid "Please enter a valid URL"
 msgstr "أدخل رابط صحيح من فضلك"
 
-#: js/messages.php:924
+#: js/messages.php:925
 msgid "Please enter a valid date"
 msgstr "ارجوك ادخل تاريخ صحيح"
 
-#: js/messages.php:927
+#: js/messages.php:928
 msgid "Please enter a valid date ( ISO )"
 msgstr "الرجاء إدخال تاريخ صالح ( ISO )"
 
-#: js/messages.php:929
+#: js/messages.php:930
 msgid "Please enter a valid number"
 msgstr "الرجاء إدخال رقم صحيح"
 
-#: js/messages.php:932
+#: js/messages.php:933
 msgid "Please enter a valid credit card number"
 msgstr "الرجاء إدخال رقم بطاقة ائتمان صالحة"
 
-#: js/messages.php:934
+#: js/messages.php:935
 msgid "Please enter only digits"
 msgstr "الرجاء إدخال أرقام فقط"
 
-#: js/messages.php:937
+#: js/messages.php:938
 msgid "Please enter the same value again"
 msgstr "من فظلك ادخل نفس القيمة مرة أخرى"
 
-#: js/messages.php:941
+#: js/messages.php:942
 msgid "Please enter no more than {0} characters"
 msgstr "الرجاء إدخال أكثر من {0} حرفا"
 
-#: js/messages.php:946
+#: js/messages.php:947
 msgid "Please enter at least {0} characters"
 msgstr "الرجاء إدخال {0} حرفا على الأقل"
 
-#: js/messages.php:951
+#: js/messages.php:952
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "يرجى إدخال قيمة بين {0} و {1} حرفا"
 
-#: js/messages.php:956
+#: js/messages.php:957
 msgid "Please enter a value between {0} and {1}"
 msgstr "يرجى إدخال قيمة بين {0} و {1}"
 
-#: js/messages.php:961
+#: js/messages.php:962
 msgid "Please enter a value less than or equal to {0}"
 msgstr "يرجى إدخال قيمة أقل من أو تساوي {0}"
 
-#: js/messages.php:966
+#: js/messages.php:967
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "يرجى إدخال قيمة أكبر من أو تساوي {0}"
 
-#: js/messages.php:972
+#: js/messages.php:973
 msgid "Please enter a valid date or time"
 msgstr "الرجاء إدخال تاريخ أو وقت صالح"
 
-#: js/messages.php:977
+#: js/messages.php:978
 msgid "Please enter a valid HEX input"
 msgstr "الرجاء إدخال إدخال  HEX  صالح"
 
-#: js/messages.php:982 libraries/classes/Core.php:299
-#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1502
+#: js/messages.php:983 libraries/classes/Core.php:299
+#: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1511
 #: libraries/classes/Message.php:194 libraries/classes/Util.php:542
 #: view_operations.php:72
 msgid "Error"
@@ -3129,27 +3135,20 @@ msgstr "نعم"
 msgid "NO"
 msgstr "لا"
 
-#: libraries/classes/CentralColumns.php:739 libraries/classes/Index.php:717
-#: libraries/classes/Rte/RteList.php:102 libraries/classes/Rte/RteList.php:117
-#: libraries/classes/Rte/RteList.php:130
-#: libraries/classes/Server/Privileges.php:2564
-#: libraries/classes/Server/Privileges.php:3546
-#: libraries/classes/Server/UserGroups.php:93
-#: libraries/classes/Tracking.php:176
-#: templates/table/tracking/report_table.twig:8
-#: templates/server/variables/variable_table_head.twig:3
-#: templates/server/databases/table_header.twig:37
-#: templates/database/tracking/tracked_tables.twig:16
-#: templates/database/structure/table_header.twig:22
-#: templates/database/tracking/untracked_tables.twig:10
-#: templates/privileges/privileges_summary.twig:22
-#: templates/table/structure/table_structure_header.twig:18
-#: templates/table/structure/display_partitions.twig:33
-msgid "Action"
-msgstr "العملية"
+#: libraries/classes/CentralColumns.php:773
+msgid "Select a table"
+msgstr "اختر الجدول"
 
-#: libraries/classes/CentralColumns.php:747
-#: libraries/classes/CentralColumns.php:1431
+#: libraries/classes/CentralColumns.php:827
+#: templates/table/structure/add_column.twig:4
+msgid "Add column"
+msgstr "إضافة عمود"
+
+#: libraries/classes/CentralColumns.php:1282
+msgid "Add new column"
+msgstr "إضافة عمود جديد"
+
+#: libraries/classes/CentralColumns.php:1406
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:486
 #: libraries/classes/Plugins/Export/ExportOdt.php:604
 #: libraries/classes/Plugins/Export/ExportTexytext.php:450
@@ -3161,18 +3160,17 @@ msgstr "العملية"
 #: templates/columns_definitions/table_fields_definitions.twig:9
 #: templates/table/structure/table_structure_header.twig:5
 #: templates/database/create_table.twig:11
+#: templates/database/central_columns/table_header.twig:9
 msgid "Name"
 msgstr "الاسم"
 
-#: libraries/classes/CentralColumns.php:751
-#: libraries/classes/CentralColumns.php:1431
+#: libraries/classes/CentralColumns.php:1406
 #: libraries/classes/Rte/Routines.php:985
 #: templates/columns_definitions/table_fields_definitions.twig:16
 msgid "Length/Values"
 msgstr "الطول/القيمة"
 
-#: libraries/classes/CentralColumns.php:755
-#: libraries/classes/CentralColumns.php:1432 libraries/classes/Charsets.php:273
+#: libraries/classes/CentralColumns.php:1407 libraries/classes/Charsets.php:273
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:303
 #: libraries/classes/Operations.php:1073
@@ -3184,40 +3182,22 @@ msgstr "الطول/القيمة"
 #: templates/table/structure/table_structure_header.twig:7
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/database/central_columns/table_header.twig:25
 msgid "Collation"
 msgstr ""
 
-#: libraries/classes/CentralColumns.php:758
-#, fuzzy
-#| msgid "Attributes"
-msgid "Attribute"
-msgstr "الخواص"
-
-#: libraries/classes/CentralColumns.php:762
-#: libraries/classes/CentralColumns.php:1432
-msgid "A_I"
-msgstr ""
-
-#: libraries/classes/CentralColumns.php:798
-msgid "Select a table"
-msgstr "اختر الجدول"
-
-#: libraries/classes/CentralColumns.php:852
-#: templates/table/structure/add_column.twig:4
-msgid "Add column"
-msgstr "إضافة عمود"
-
-#: libraries/classes/CentralColumns.php:1307
-msgid "Add new column"
-msgstr "إضافة عمود جديد"
-
-#: libraries/classes/CentralColumns.php:1432
+#: libraries/classes/CentralColumns.php:1407
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:638
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:661
 #: templates/columns_definitions/table_fields_definitions.twig:27
 #: templates/table/structure/table_structure_header.twig:8
 msgid "Attributes"
 msgstr "الخواص"
+
+#: libraries/classes/CentralColumns.php:1407
+#: templates/database/central_columns/table_header.twig:37
+msgid "A_I"
+msgstr ""
 
 #: libraries/classes/Charsets.php:219
 #: templates/database/structure/table_header.twig:44
@@ -3503,36 +3483,36 @@ msgctxt "Collation variant"
 msgid "binary"
 msgstr "ثنائي"
 
-#: libraries/classes/Config.php:1081
+#: libraries/classes/Config.php:1106
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "ملف الإعدادت (%s) غير قابل للقراءة."
 
-#: libraries/classes/Config.php:1111
+#: libraries/classes/Config.php:1136
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "صلاحيات خاطئة على ملف الإعدادات , لاينبغى أن يكون قابل للكتابة!"
 
-#: libraries/classes/Config.php:1131
+#: libraries/classes/Config.php:1156
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "لا يمكن تحميل الإعدادات الإفتراضية من : %1$s"
 
-#: libraries/classes/Config.php:1138
+#: libraries/classes/Config.php:1163
 msgid "Failed to read configuration file!"
 msgstr "أخفق قراءة ملف التهيئة!"
 
-#: libraries/classes/Config.php:1141
+#: libraries/classes/Config.php:1166
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr "يبدو أن هناك خطأ في بناء الجملة."
 
-#: libraries/classes/Config.php:1669
+#: libraries/classes/Config.php:1694
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "فهرس خادم غير صحيح: %s"
 
-#: libraries/classes/Config.php:1682
+#: libraries/classes/Config.php:1707
 #, php-format
 msgid "Server %d"
 msgstr "خادم %d"
@@ -5764,7 +5744,7 @@ msgid "Explain SQL"
 msgstr "شرح SQL"
 
 #: libraries/classes/Config/Descriptions.php:1333
-#: libraries/classes/Export.php:519
+#: libraries/classes/Export.php:528
 #: libraries/classes/Server/Status/Processes.php:233
 #: libraries/classes/Server/Status/Variables.php:50
 #: libraries/classes/Util.php:1122 templates/console/display.twig:99
@@ -5845,7 +5825,7 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:4537
 #: libraries/classes/Server/Status/Processes.php:89
 #: templates/server/databases/table_header.twig:8
-#: templates/table/relation/foreign_key_row.twig:101
+#: templates/table/relation/foreign_key_row.twig:100
 #: templates/console/bookmark_content.twig:7
 #: templates/table/relation/internal_relational_row.twig:10
 #: templates/table/relation/common_form.twig:32
@@ -5876,7 +5856,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1380
 #: libraries/classes/Menu.php:277
-#: libraries/classes/Plugins/Export/ExportXml.php:495
+#: libraries/classes/Plugins/Export/ExportXml.php:497
 #: libraries/classes/Rte/RteList.php:115 libraries/classes/Rte/Triggers.php:388
 #: libraries/classes/Server/Privileges.php:1004
 #: libraries/classes/Server/Privileges.php:1169
@@ -5887,7 +5867,7 @@ msgstr ""
 #: templates/database/tracking/tracked_tables.twig:11
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/untracked_tables.twig:9
-#: templates/table/relation/foreign_key_row.twig:111
+#: templates/table/relation/foreign_key_row.twig:110
 #: templates/table/relation/internal_relational_row.twig:17
 #: templates/table/relation/common_form.twig:33
 msgid "Table"
@@ -6077,7 +6057,7 @@ msgstr "وضع الإستعراض"
 msgid "Group queries"
 msgstr "إستعلام SQL"
 
-#: libraries/classes/Config/Descriptions.php:1482 libraries/classes/Sql.php:273
+#: libraries/classes/Config/Descriptions.php:1482 libraries/classes/Sql.php:274
 msgid "Order"
 msgstr "طلب"
 
@@ -6566,22 +6546,22 @@ msgstr "متغيرات وإعدادات الخادم"
 msgid "Setting variable failed"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/TableChartController.php:82
+#: libraries/classes/Controllers/Table/TableChartController.php:84
 #: libraries/classes/Controllers/Table/TableGisVisualizationController.php:101
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/TableChartController.php:158
+#: libraries/classes/Controllers/Table/TableChartController.php:160
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: libraries/classes/Controllers/Table/TableChartController.php:216
+#: libraries/classes/Controllers/Table/TableChartController.php:228
 msgid "No data to display"
 msgstr "لايوجد بيانات لعرضها"
 
 #: libraries/classes/Controllers/Table/TableIndexesController.php:157
-#: libraries/classes/Controllers/Table/TableStructureController.php:755
-#: libraries/classes/Controllers/Table/TableStructureController.php:1002
+#: libraries/classes/Controllers/Table/TableStructureController.php:767
+#: libraries/classes/Controllers/Table/TableStructureController.php:1014
 #: tbl_addfield.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully."
@@ -6638,49 +6618,49 @@ msgstr[5] ""
 msgid "No column selected."
 msgstr "لايوجد صفوف مختارة."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:494
+#: libraries/classes/Controllers/Table/TableStructureController.php:505
 msgid "The columns have been moved successfully."
 msgstr "تم حذف الاعمده بنجاح."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:530
+#: libraries/classes/Controllers/Table/TableStructureController.php:542
 #, fuzzy, php-format
 #| msgid "Failed to get real row count."
 msgid "Failed to get description of column %s!"
 msgstr "أخفق الحصول على عدد الصفوف الحقيقية."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:766
-#: libraries/classes/Controllers/Table/TableStructureController.php:1051
+#: libraries/classes/Controllers/Table/TableStructureController.php:778
+#: libraries/classes/Controllers/Table/TableStructureController.php:1063
 #: libraries/classes/Tracking.php:804
 msgid "Query error"
 msgstr "خطأ في الإستعلام"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:996
+#: libraries/classes/Controllers/Table/TableStructureController.php:1008
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%s جدول تم نقله إلى %s."
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1212
+#: libraries/classes/Controllers/Table/TableStructureController.php:1224
 #: templates/table/structure/check_all_table_column.twig:17
 msgid "Change"
 msgstr "تغيير"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1213
-#: libraries/classes/Controllers/Table/TableStructureController.php:1214
-#: libraries/classes/Index.php:772 libraries/classes/Operations.php:1599
+#: libraries/classes/Controllers/Table/TableStructureController.php:1225
+#: libraries/classes/Controllers/Table/TableStructureController.php:1226
+#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1599
 #: libraries/classes/Rte/RteList.php:185 libraries/classes/Util.php:3323
 #: libraries/classes/Util.php:3324
 #: templates/table/structure/check_all_table_column.twig:24
-#: templates/table/relation/foreign_key_row.twig:31
+#: templates/table/relation/foreign_key_row.twig:30
 #: templates/table/structure/display_structure.twig:188
 #: templates/database/structure/check_all_tables.twig:16
 #: templates/server/databases/databases_footer.twig:55
 msgid "Drop"
 msgstr "سقّط"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1216
-#: libraries/classes/Controllers/Table/TableStructureController.php:1221
+#: libraries/classes/Controllers/Table/TableStructureController.php:1228
+#: libraries/classes/Controllers/Table/TableStructureController.php:1233
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:30
 #: templates/table/structure/check_all_table_column.twig:47
 #: templates/columns_definitions/column_indexes.twig:12
@@ -6691,8 +6671,8 @@ msgstr "سقّط"
 msgid "Index"
 msgstr "فهرست"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1217
-#: libraries/classes/Controllers/Table/TableStructureController.php:1222
+#: libraries/classes/Controllers/Table/TableStructureController.php:1229
+#: libraries/classes/Controllers/Table/TableStructureController.php:1234
 #: libraries/classes/Index.php:721
 #: templates/table/structure/check_all_table_column.twig:40
 #: templates/columns_definitions/column_indexes.twig:8
@@ -6700,21 +6680,21 @@ msgstr "فهرست"
 msgid "Unique"
 msgstr "فريد"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1218
-#: libraries/classes/Controllers/Table/TableStructureController.php:1223
+#: libraries/classes/Controllers/Table/TableStructureController.php:1230
+#: libraries/classes/Controllers/Table/TableStructureController.php:1235
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
 msgstr ""
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1219
-#: libraries/classes/Controllers/Table/TableStructureController.php:1224
+#: libraries/classes/Controllers/Table/TableStructureController.php:1231
+#: libraries/classes/Controllers/Table/TableStructureController.php:1236
 #: templates/table/structure/check_all_table_column.twig:54
 #: templates/table/structure/check_all_table_column.twig:66
 #: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "النص كاملا"
 
-#: libraries/classes/Controllers/Table/TableStructureController.php:1225
+#: libraries/classes/Controllers/Table/TableStructureController.php:1237
 #, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
@@ -6951,42 +6931,42 @@ msgstr ""
 msgid "Failed to set configured collation connection!"
 msgstr "فشل قراءة ملف الإعدادات"
 
-#: libraries/classes/DatabaseInterface.php:2193
+#: libraries/classes/DatabaseInterface.php:2198
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr "الملقم لا يستجيب (أو لم يتم تكوين مأخذ الملقم المحلي بشكل صحيح)."
 
-#: libraries/classes/DatabaseInterface.php:2198
+#: libraries/classes/DatabaseInterface.php:2203
 msgid "The server is not responding."
 msgstr "الخادم لا يستجيب."
 
-#: libraries/classes/DatabaseInterface.php:2202
+#: libraries/classes/DatabaseInterface.php:2207
 msgid "Logout and try as another user."
 msgstr "الخروج والمحاولة كمستخدم آخر."
 
-#: libraries/classes/DatabaseInterface.php:2208
+#: libraries/classes/DatabaseInterface.php:2213
 msgid "Please check privileges of directory containing database."
 msgstr "يرجى التحقق من امتيازات الدليل الذي يحتوي على قاعدة البيانات."
 
-#: libraries/classes/DatabaseInterface.php:2219
+#: libraries/classes/DatabaseInterface.php:2224
 msgid "Details…"
 msgstr "التفاصيل…"
 
-#: libraries/classes/DatabaseInterface.php:2525
+#: libraries/classes/DatabaseInterface.php:2530
 msgid "Missing connection parameters!"
 msgstr "معلمات اتصال مفقودة!"
 
-#: libraries/classes/DatabaseInterface.php:2552
+#: libraries/classes/DatabaseInterface.php:2557
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "أخفق الاتصال بمستخدم التحكم كما هو معرف في التهيئة."
 
-#: libraries/classes/DatabaseInterface.php:3062
+#: libraries/classes/DatabaseInterface.php:3067
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
-#: libraries/classes/Dbi/DbiMysqli.php:169
+#: libraries/classes/Dbi/DbiMysqli.php:134
 msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
@@ -7194,7 +7174,7 @@ msgstr "%1$d جملة %2$d طلب بحث"
 msgid "%d total"
 msgstr "المجموع %d"
 
-#: libraries/classes/Display/Results.php:4585 libraries/classes/Sql.php:1431
+#: libraries/classes/Display/Results.php:4585 libraries/classes/Sql.php:1432
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "استغرق الاستعلام %01.4f ثانية."
@@ -7540,32 +7520,32 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr "كثيراً من رسائل الخطأ، لن تعرض كلها."
 
-#: libraries/classes/ErrorHandler.php:360
+#: libraries/classes/ErrorHandler.php:369
 msgid "Report"
 msgstr "أبلغ عن"
 
-#: libraries/classes/ErrorHandler.php:365 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:374 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "إرسال التقرير تلقائيا في المرة القادمة"
 
 #: libraries/classes/Export.php:132 libraries/classes/Export.php:167
-#: libraries/classes/Export.php:394
+#: libraries/classes/Export.php:402
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "لا توجد مساحة كافية لحفظ الملف %s."
 
-#: libraries/classes/Export.php:350
+#: libraries/classes/Export.php:355
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "الملف %s موجود على الخادم بالفعل , غير الاسم أو حدد خيار الكتابة عليه."
 
-#: libraries/classes/Export.php:358 libraries/classes/Export.php:366
+#: libraries/classes/Export.php:363 libraries/classes/Export.php:371
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "خادم الويب ليس لديه صلاحية لحفظ الملف %s."
 
-#: libraries/classes/Export.php:400
+#: libraries/classes/Export.php:408
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "تم حفظ الـDump إلى الملف %s."
@@ -7662,12 +7642,12 @@ msgid "Javascript must be enabled past this point!"
 msgstr "يجب تفعيل Javascript بعد هذه النقطة!"
 
 #: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:184
-#: libraries/classes/Rte/Routines.php:1525 libraries/classes/Sql.php:1425
+#: libraries/classes/Rte/Routines.php:1525 libraries/classes/Sql.php:1426
 #: tbl_get_field.php:50
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "قام MySQL  بإرجاع نتيجة فارغة."
 
-#: libraries/classes/Import.php:290 libraries/classes/Sql.php:1439
+#: libraries/classes/Import.php:290 libraries/classes/Sql.php:1440
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -7704,7 +7684,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportPhparray.php:49
 #: libraries/classes/Plugins/Export/ExportSql.php:85
 #: libraries/classes/Plugins/Export/ExportTexytext.php:52
-#: libraries/classes/Plugins/Export/ExportXml.php:80
+#: libraries/classes/Plugins/Export/ExportXml.php:82
 #: libraries/classes/Plugins/Export/ExportYaml.php:49
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:43
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:58
@@ -7768,6 +7748,25 @@ msgstr "إنشاء فهرس للعمود %s"
 msgid "No index defined!"
 msgstr "لم يتم تعريف الفهرس!"
 
+#: libraries/classes/Index.php:717 libraries/classes/Rte/RteList.php:102
+#: libraries/classes/Rte/RteList.php:117 libraries/classes/Rte/RteList.php:130
+#: libraries/classes/Server/Privileges.php:2564
+#: libraries/classes/Server/Privileges.php:3546
+#: libraries/classes/Server/UserGroups.php:93
+#: libraries/classes/Tracking.php:176
+#: templates/table/tracking/report_table.twig:8
+#: templates/server/variables/variable_table_head.twig:3
+#: templates/server/databases/table_header.twig:37
+#: templates/database/tracking/tracked_tables.twig:16
+#: templates/database/structure/table_header.twig:22
+#: templates/database/tracking/untracked_tables.twig:10
+#: templates/privileges/privileges_summary.twig:22
+#: templates/table/structure/table_structure_header.twig:18
+#: templates/table/structure/display_partitions.twig:33
+#: templates/database/central_columns/table_header.twig:6
+msgid "Action"
+msgstr "العملية"
+
 #: libraries/classes/Index.php:722
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
@@ -7821,75 +7820,75 @@ msgstr "دالة"
 msgid "Binary"
 msgstr "ثنائي"
 
-#: libraries/classes/InsertEdit.php:736
+#: libraries/classes/InsertEdit.php:737
 #, fuzzy
 #| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr "بسبب طوله,<br /> فمن المحتمل أن هذا الحقل غير قابل للتحرير "
 
-#: libraries/classes/InsertEdit.php:1343
+#: libraries/classes/InsertEdit.php:1352
 msgid "Binary - do not edit"
 msgstr "ثنائي - لاتحرره"
 
-#: libraries/classes/InsertEdit.php:1503 libraries/classes/Util.php:3289
+#: libraries/classes/InsertEdit.php:1512 libraries/classes/Util.php:3289
 msgid "The directory you set for upload work cannot be reached."
 msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل."
 
-#: libraries/classes/InsertEdit.php:1506
+#: libraries/classes/InsertEdit.php:1515
 #: templates/privileges/column_privileges.twig:17
 #: templates/table/search/options.twig:25
 msgid "Or"
 msgstr "أو"
 
-#: libraries/classes/InsertEdit.php:1507
+#: libraries/classes/InsertEdit.php:1516
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "دليل تحميل الملفات على خادم الشبكة"
 
-#: libraries/classes/InsertEdit.php:1712
+#: libraries/classes/InsertEdit.php:1721
 #: templates/table/search/input_box.twig:39
 msgid "Edit/Insert"
 msgstr "تحرير/إدخال"
 
-#: libraries/classes/InsertEdit.php:1779
+#: libraries/classes/InsertEdit.php:1788
 msgid "and then"
 msgstr "وبعدها"
 
-#: libraries/classes/InsertEdit.php:1817
+#: libraries/classes/InsertEdit.php:1826
 msgid "Insert as new row"
 msgstr "إدخال كتسجيل جديد"
 
-#: libraries/classes/InsertEdit.php:1820
+#: libraries/classes/InsertEdit.php:1829
 msgid "Insert as new row and ignore errors"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1823
+#: libraries/classes/InsertEdit.php:1832
 msgid "Show insert query"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1843
+#: libraries/classes/InsertEdit.php:1852
 msgid "Go back to previous page"
 msgstr "الرجوع إلى الصفحة السابقة"
 
-#: libraries/classes/InsertEdit.php:1846
+#: libraries/classes/InsertEdit.php:1855
 msgid "Insert another new row"
 msgstr "إدخال تسجيل جديد"
 
-#: libraries/classes/InsertEdit.php:1851
+#: libraries/classes/InsertEdit.php:1860
 msgid "Go back to this page"
 msgstr "ارجع إلى هذه الصفحة"
 
-#: libraries/classes/InsertEdit.php:1874
+#: libraries/classes/InsertEdit.php:1883
 msgid "Edit next row"
 msgstr "عدل الصف التالي"
 
-#: libraries/classes/InsertEdit.php:1894
+#: libraries/classes/InsertEdit.php:1903
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:1932
+#: libraries/classes/InsertEdit.php:1941
 #: libraries/classes/ReplicationGui.php:569
 #: libraries/classes/Rte/Routines.php:1667
 #: libraries/classes/Server/Status/Variables.php:228
@@ -7903,11 +7902,11 @@ msgstr ""
 msgid "Value"
 msgstr "القيمة"
 
-#: libraries/classes/InsertEdit.php:2302 libraries/classes/Sql.php:1422
+#: libraries/classes/InsertEdit.php:2311 libraries/classes/Sql.php:1423
 msgid "Showing SQL query"
 msgstr "عرض استعلام SQL"
 
-#: libraries/classes/InsertEdit.php:2327 libraries/classes/Sql.php:1400
+#: libraries/classes/InsertEdit.php:2336 libraries/classes/Sql.php:1401
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -8007,7 +8006,7 @@ msgstr "تتبع"
 #: libraries/classes/Plugins/Export/ExportPdf.php:283
 #: libraries/classes/Plugins/Export/ExportSql.php:2036
 #: libraries/classes/Plugins/Export/ExportTexytext.php:537
-#: libraries/classes/Plugins/Export/ExportXml.php:125
+#: libraries/classes/Plugins/Export/ExportXml.php:127
 #: libraries/classes/Rte/Words.php:63 libraries/classes/Util.php:3988
 #: libraries/classes/Util.php:4004
 msgid "Triggers"
@@ -8030,7 +8029,7 @@ msgstr "روتينات"
 #: libraries/classes/Menu.php:515
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:964
-#: libraries/classes/Plugins/Export/ExportXml.php:105
+#: libraries/classes/Plugins/Export/ExportXml.php:107
 #: libraries/classes/Rte/Words.php:77 libraries/classes/Util.php:3987
 msgid "Events"
 msgstr "أحداث"
@@ -8322,7 +8321,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:573
-#: libraries/classes/Plugins/Export/ExportXml.php:110
+#: libraries/classes/Plugins/Export/ExportXml.php:112
 msgid "Functions"
 msgstr ""
 
@@ -8343,7 +8342,7 @@ msgstr "اجراء"
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:562
-#: libraries/classes/Plugins/Export/ExportXml.php:115
+#: libraries/classes/Plugins/Export/ExportXml.php:117
 msgid "Procedures"
 msgstr "الإجراءات"
 
@@ -8365,7 +8364,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
-#: libraries/classes/Plugins/Export/ExportXml.php:130
+#: libraries/classes/Plugins/Export/ExportXml.php:132
 #: templates/database/structure/show_create.twig:24
 msgid "Views"
 msgstr ""
@@ -9119,7 +9118,7 @@ msgstr "البنية والبيانات"
 #: libraries/classes/Plugins/Export/ExportLatex.php:162
 #: libraries/classes/Plugins/Export/ExportOdt.php:122
 #: libraries/classes/Plugins/Export/ExportTexytext.php:80
-#: libraries/classes/Plugins/Export/ExportXml.php:137
+#: libraries/classes/Plugins/Export/ExportXml.php:139
 #, fuzzy
 #| msgid "Database export options"
 msgid "Data dump options"
@@ -9254,7 +9253,7 @@ msgstr "ضع أسماء الحقول في السطر الأول"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:216
 #: libraries/classes/Plugins/Export/ExportSql.php:694
-#: libraries/classes/Plugins/Export/ExportXml.php:237
+#: libraries/classes/Plugins/Export/ExportXml.php:239
 #: libraries/classes/ReplicationGui.php:460
 #: libraries/classes/ReplicationGui.php:722
 #, fuzzy
@@ -9264,7 +9263,7 @@ msgstr "المزود"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:221
 #: libraries/classes/Plugins/Export/ExportSql.php:700
-#: libraries/classes/Plugins/Export/ExportXml.php:242
+#: libraries/classes/Plugins/Export/ExportXml.php:244
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
@@ -9272,7 +9271,7 @@ msgstr "أنشئ في"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:224
 #: libraries/classes/Plugins/Export/ExportSql.php:706
-#: libraries/classes/Plugins/Export/ExportXml.php:245
+#: libraries/classes/Plugins/Export/ExportXml.php:247
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
@@ -9280,7 +9279,7 @@ msgstr "PHP إصدارة"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:254
 #: libraries/classes/Plugins/Export/ExportSql.php:895
-#: libraries/classes/Plugins/Export/ExportXml.php:406
+#: libraries/classes/Plugins/Export/ExportXml.php:408
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:164
 #, fuzzy
 #| msgid "Database"
@@ -9579,11 +9578,11 @@ msgstr ""
 msgid "Error reading data for table %s:"
 msgstr "يسمح بقراءة البيانات."
 
-#: libraries/classes/Plugins/Export/ExportXml.php:99
+#: libraries/classes/Plugins/Export/ExportXml.php:101
 msgid "Object creation options (all are recommended)"
 msgstr ""
 
-#: libraries/classes/Plugins/Export/ExportXml.php:142
+#: libraries/classes/Plugins/Export/ExportXml.php:144
 msgid "Export contents"
 msgstr ""
 
@@ -10045,13 +10044,13 @@ msgstr ""
 msgid "Formats text as XML with syntax highlighting."
 msgstr ""
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:129
+#: libraries/classes/Plugins/TwoFactor/Application.php:131
 #, fuzzy
 #| msgid "Authentication"
 msgid "Authentication Application (2FA)"
 msgstr "المصادقة"
 
-#: libraries/classes/Plugins/TwoFactor/Application.php:139
+#: libraries/classes/Plugins/TwoFactor/Application.php:141
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
@@ -10255,18 +10254,18 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: libraries/classes/Relation.php:1697
+#: libraries/classes/Relation.php:1722
 msgid "no description"
 msgstr "بدون وصف"
 
-#: libraries/classes/Relation.php:1888
+#: libraries/classes/Relation.php:1913
 msgid ""
 "You do not have necessary privileges to create a database named "
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
 
-#: libraries/classes/Relation.php:2003
+#: libraries/classes/Relation.php:2028
 #, fuzzy, php-format
 #| msgid ""
 #| "Tracking of changes made in database. Requires the phpMyAdmin "
@@ -10276,13 +10275,13 @@ msgid ""
 "configuration storage there."
 msgstr "تعقب التغيرات الحاصلة على قاعدة البيانات."
 
-#: libraries/classes/Relation.php:2011
+#: libraries/classes/Relation.php:2036
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
-#: libraries/classes/Relation.php:2019
+#: libraries/classes/Relation.php:2044
 #, fuzzy, php-format
 #| msgid ""
 #| "Tracking of changes made in database. Requires the phpMyAdmin "
@@ -12953,81 +12952,81 @@ msgstr "قاعدة بيانات"
 msgid "Table-level tabs"
 msgstr "اسم الجدول"
 
-#: libraries/classes/Sql.php:267 libraries/classes/Util.php:1145
+#: libraries/classes/Sql.php:268 libraries/classes/Util.php:1145
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Profiling"
 msgstr "جانبي"
 
-#: libraries/classes/Sql.php:270
+#: libraries/classes/Sql.php:271
 msgid "Detailed profile"
 msgstr "ملف تعريف مفصل"
 
-#: libraries/classes/Sql.php:275 libraries/classes/Sql.php:291
+#: libraries/classes/Sql.php:276 libraries/classes/Sql.php:292
 msgid "State"
 msgstr "حالة"
 
-#: libraries/classes/Sql.php:288
+#: libraries/classes/Sql.php:289
 msgid "Summary by state"
 msgstr ""
 
-#: libraries/classes/Sql.php:294
+#: libraries/classes/Sql.php:295
 msgid "Total Time"
 msgstr "الوقت الكلي"
 
-#: libraries/classes/Sql.php:296
+#: libraries/classes/Sql.php:297
 msgid "% Time"
 msgstr "% وقت"
 
-#: libraries/classes/Sql.php:298
+#: libraries/classes/Sql.php:299
 msgid "Calls"
 msgstr "اتصالات"
 
-#: libraries/classes/Sql.php:300
+#: libraries/classes/Sql.php:301
 msgid "ø Time"
 msgstr "ø وقت"
 
-#: libraries/classes/Sql.php:605 libraries/classes/Sql.php:623
+#: libraries/classes/Sql.php:606 libraries/classes/Sql.php:624
 msgid "Bookmark this SQL query"
 msgstr "اجعل علامة مرجعية SQL-استعلام"
 
-#: libraries/classes/Sql.php:609
+#: libraries/classes/Sql.php:610
 #, fuzzy
 #| msgid "Label"
 msgid "Label:"
 msgstr "علامة"
 
-#: libraries/classes/Sql.php:616 libraries/classes/SqlQueryForm.php:312
+#: libraries/classes/Sql.php:617 libraries/classes/SqlQueryForm.php:312
 msgid "Let every user access this bookmark"
 msgstr "اسمح لكل المستخدمين الوصول إلى هذه العلامة المرجعية"
 
-#: libraries/classes/Sql.php:832
+#: libraries/classes/Sql.php:833
 msgid "Bookmark not created!"
 msgstr "المرجعية لم يتم إنشاؤها!"
 
-#: libraries/classes/Sql.php:942
+#: libraries/classes/Sql.php:943
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: libraries/classes/Sql.php:1419
+#: libraries/classes/Sql.php:1420
 msgid "Showing as PHP code"
 msgstr "تظهر كملف PHP"
 
-#: libraries/classes/Sql.php:1794
+#: libraries/classes/Sql.php:1795
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1808
+#: libraries/classes/Sql.php:1809
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 
-#: libraries/classes/Sql.php:1850
+#: libraries/classes/Sql.php:1851
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -14493,6 +14492,10 @@ msgid ""
 msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:9
+msgid "Secret/key:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:12
 #: templates/login/twofactor/application.twig:2
 #, fuzzy
 #| msgid "Authentication"
@@ -14651,7 +14654,7 @@ msgid "Remove this column"
 msgstr "حذف الرسم البياني"
 
 #: templates/database/multi_table_query/form.twig:143
-#: templates/table/relation/foreign_key_row.twig:91
+#: templates/table/relation/foreign_key_row.twig:90
 #, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
@@ -15026,7 +15029,7 @@ msgstr "إحفظ على الخادم في الدليل <b>%s</b>"
 msgid "Foreign key constraint %s has been dropped"
 msgstr "قيود المفتاح الغريب"
 
-#: templates/table/relation/foreign_key_row.twig:39
+#: templates/table/relation/foreign_key_row.twig:38
 #, fuzzy
 #| msgid "Constraints for table"
 msgid "Constraint name"
@@ -16490,6 +16493,18 @@ msgstr "مقسم"
 msgid "Edit partitioning"
 msgstr "إزالة التقسيم"
 
+#: templates/database/central_columns/table_header.twig:17
+#, fuzzy
+#| msgid "Length/Values"
+msgid "Lenght/Value"
+msgstr "الطول/القيمة"
+
+#: templates/database/central_columns/table_header.twig:29
+#, fuzzy
+#| msgid "Attributes"
+msgid "Attribute"
+msgstr "الخواص"
+
 #: templates/database/designer/page_save_as.twig:17
 #, fuzzy
 #| msgid "Import files"
@@ -17718,6 +17733,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "تم تعيين concurrent_insert الى 0"
+
+#~ msgid "No auto-saved query"
+#~ msgstr "لا يوجد طلب بحث تم حفظه تلقائيا"
 
 #~ msgid "Font size"
 #~ msgstr "حجم الخط"
