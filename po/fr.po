@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-04-29 09:24+0000\n"
+"PO-Revision-Date: 2018-05-07 08:11+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -1983,12 +1983,16 @@ msgstr "Parcourir les valeurs étrangères"
 #: js/messages.php:424
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Aucune demande auto-sauvegardée n'est disponible. Chargement de la demande "
+"par défaut."
 
 #: js/messages.php:425
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Vous avez une demande auto-sauvegardée précédemment. Cliquer sur la demande "
+"auto-sauvegardée Get pour charger la demande."
 
 #: js/messages.php:426
 #, php-format
@@ -14688,7 +14692,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:9
 msgid "Secret/key:"
-msgstr ""
+msgstr "Secret/clef :"
 
 #: templates/login/twofactor/application_configure.twig:12
 #: templates/login/twofactor/application.twig:2
@@ -16394,10 +16398,8 @@ msgid "Edit partitioning"
 msgstr "Éditer le partitionnement"
 
 #: templates/database/central_columns/table_header.twig:17
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Lenght/Value"
-msgstr "Taille/Valeurs*"
+msgstr "Taille/valeur*"
 
 #: templates/database/central_columns/table_header.twig:29
 msgid "Attribute"
