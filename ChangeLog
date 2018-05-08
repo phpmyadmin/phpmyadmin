@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - issue #14239 Line and some other charts ignore result set order of values chosen for the x-axis
 - issue #14260 Fixed configuration for DefaultLang and Lang
 - issue #14264 Linking for 'Distinct values' broken
+- issue #13968 Fix MariaDB 10.2 current_timestamp()
 
 4.8.0.1 (2018-04-19)
 - issue        [security] Multiple CSRF vulnerabilities, See PMASA-2018-02

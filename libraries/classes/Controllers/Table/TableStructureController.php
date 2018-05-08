@@ -417,7 +417,8 @@ class TableStructureController extends TableController
             }
             $current_timestamp = ($data['Type'] == 'timestamp'
                     || $data['Type'] == 'datetime')
-                && $data['Default'] == 'CURRENT_TIMESTAMP';
+                && ($data['Default'] == 'CURRENT_TIMESTAMP'
+                    || $data['Default'] == 'current_timestamp()');
 
             if ($data['Null'] === 'YES' && $data['Default'] === null) {
                 $default_type = 'NULL';

@@ -1767,12 +1767,12 @@ class Util
              */
             $tag_params_strings[] = 'data-post="' . (isset($parts[1]) ? $parts[1] : '') . '"';
             $url = $parts[0];
-            if(array_key_exists('class', $tag_params) 
+            if(array_key_exists('class', $tag_params)
                 && strpos($tag_params['class'], 'create_view') !== false
             ) {
-                $url .= '?' . explode('&', $parts[1], 2)[0];    
+                $url .= '?' . explode('&', $parts[1], 2)[0];
             }
-            
+
         }
 
         foreach ($tag_params as $par_name => $par_value) {
@@ -4025,7 +4025,8 @@ class Util
      */
     public static function addMicroseconds($value)
     {
-        if (empty($value) || $value == 'CURRENT_TIMESTAMP') {
+        if (empty($value) || $value == 'CURRENT_TIMESTAMP'
+            || $value == 'current_timestamp()') {
             return $value;
         }
 

@@ -347,7 +347,7 @@ AJAX.registerOnload('tbl_change.js', function () {
             } else if (theType === 'datetime' || theType === 'timestamp') {
                 var tmstmp = false;
                 dt_value = dt_value.trim();
-                if (dt_value === 'CURRENT_TIMESTAMP') {
+                if (dt_value === 'CURRENT_TIMESTAMP' || dt_value === 'current_timestamp()') {
                     return true;
                 }
                 if (theType === 'timestamp') {
