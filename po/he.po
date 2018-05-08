@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-05-07 21:10+0000\n"
+"PO-Revision-Date: 2018-05-09 02:18+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -17109,7 +17109,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:400
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
+msgstr "%s%% מכל הלקוחות נקטעים. ערך זה אמור להיות מתחת ל־2%%"
 
 #: libraries/advisory_rules.txt:402
 msgid "Rate of aborted clients"
@@ -17130,11 +17130,11 @@ msgstr "ה־InnoDB אינו מופעל אצלך."
 
 #: libraries/advisory_rules.txt:415
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB היא בחירה טובה יותר למנועי טבלאות."
 
 #: libraries/advisory_rules.txt:416
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb מוגדר לערך ‚value’"
 
 #: libraries/advisory_rules.txt:418
 msgid "InnoDB log size"
@@ -17144,7 +17144,7 @@ msgstr "גודל יומן ה־InnoDB"
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr ""
+msgstr "קובץ הרישום של InnoDB אינו בגודל מתאים, ביחס למאגר החוצצים של InnoDB."
 
 #: libraries/advisory_rules.txt:422
 #, php-format
@@ -17196,11 +17196,11 @@ msgstr "גודל המוחלט של יומן ה־InnoDB שלך הוא %s ‏MiB"
 
 #: libraries/advisory_rules.txt:432
 msgid "InnoDB buffer pool size"
-msgstr ""
+msgstr "גודל מאגר החוצצים של InnoDB"
 
 #: libraries/advisory_rules.txt:435
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "מאגר החוצצים של InnoDB קטן למדי."
 
 #: libraries/advisory_rules.txt:436
 #, php-format
