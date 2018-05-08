@@ -212,12 +212,14 @@ Basic settings
 
 .. config:option:: $cfg['AllowThirdPartyFraming']
 
-    :type: boolean
+    :type: boolean|string
     :default: false
 
     Setting this to ``true`` allows phpMyAdmin to be included inside a frame,
     and is a potential security hole allowing cross-frame scripting attacks or
-    clickjacking.
+    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be 
+    included from another document in a frame, unless that document belongs 
+    to the same domain.
 
 Server connection settings
 --------------------------
