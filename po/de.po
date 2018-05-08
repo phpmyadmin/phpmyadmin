@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-05-07 21:11+0000\n"
-"Last-Translator: Alpix <contact@alpix.eu>\n"
+"PO-Revision-Date: 2018-05-08 15:19+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -1995,6 +1995,8 @@ msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Sie haben eine zuvor gespeicherte Abfrage. Klicken Sie auf Automatisch "
+"gespeicherte Abfrage laden zum Laden der Abfrage."
 
 #: js/messages.php:426
 #, php-format
@@ -14715,7 +14717,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:9
 msgid "Secret/key:"
-msgstr ""
+msgstr "Geheimnis/Schlüssel:"
 
 #: templates/login/twofactor/application_configure.twig:12
 #: templates/login/twofactor/application.twig:2
@@ -16425,8 +16427,6 @@ msgid "Edit partitioning"
 msgstr "Bearbeite die Partitionierung"
 
 #: templates/database/central_columns/table_header.twig:17
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Lenght/Value"
 msgstr "Länge/Werte"
 
