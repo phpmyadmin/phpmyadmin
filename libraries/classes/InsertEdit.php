@@ -2087,11 +2087,13 @@ class InsertEdit
             $special_chars = Util::convertBitDefaultValue(
                 $column['Default']
             );
-        } elseif (substr($trueType, 0, 9) == 'timestamp'
-            || $trueType == 'datetime'
+        }  elseif (substr($trueType, 0, 9) == 'timestamp'
+            || ($trueType == 'datetime' && $column['Default'] == null)
             || $trueType == 'time'
-        ) {
-            $special_chars = Util::addMicroseconds($column['Default']);
+        ) {            
+            $special_chars = Util::addMicroseconds($column['Default']);            
+        } elseif($trueType == 'datetime' && $column['Default'] != null){
+            $special_chars = date("Y-m-d h:i:s");
         } elseif ($trueType == 'binary' || $trueType == 'varbinary') {
             $special_chars = bin2hex($column['Default']);
         } else {
