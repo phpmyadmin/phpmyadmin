@@ -204,6 +204,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             break;
         case 'NULL':
         case 'CURRENT_TIMESTAMP':
+        case 'current_timestamp()':
             $columnMeta['Default'] = $columnMeta['DefaultType'];
             break;
         }
@@ -257,6 +258,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             }
             break;
         case 'CURRENT_TIMESTAMP':
+        case 'current_timestamp()':
             $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
             $columnMeta['DefaultValue'] = '';
             break;

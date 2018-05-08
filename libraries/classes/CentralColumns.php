@@ -514,7 +514,8 @@ class CentralColumns
 
                     $query .= ' ' . $column['col_extra'];
                     if ($column['col_default']) {
-                        if ($column['col_default'] != 'CURRENT_TIMESTAMP') {
+                        if ($column['col_default'] != 'CURRENT_TIMESTAMP'
+                            || $column['col_default'] != 'current_timestamp()') {
                             $query .= ' DEFAULT \'' . $this->dbi->escapeString(
                                 $column['col_default']
                             ) . '\'';
@@ -919,8 +920,10 @@ class CentralColumns
             $meta['DefaultType'] = 'NONE';
         } else {
             if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-                || $row['col_default'] == 'NULL'
+                || $row['col_default'] == 'current_timestamp()'
             ) {
+                $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
+            } elseif ($row['col_default'] == 'NULL') {
                 $meta['DefaultType'] = $row['col_default'];
             } else {
                 $meta['DefaultType'] = 'USER_DEFINED';
@@ -1066,8 +1069,10 @@ class CentralColumns
             $meta['DefaultType'] = 'NONE';
         } else {
             if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-                || $row['col_default'] == 'NULL'
+                || $row['col_default'] == 'current_timestamp()'
             ) {
+                $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
+            } elseif ($row['col_default'] == 'NULL') {
                 $meta['DefaultType'] = $row['col_default'];
             } else {
                 $meta['DefaultType'] = 'USER_DEFINED';

@@ -3291,7 +3291,7 @@ function autoPopulate (input_id, offset) {
     }
     var col_default = central_column_list[db + '_' + table][offset].col_default.toUpperCase();
     var $input4 = $('#' + input_id + '4');
-    if (col_default !== '' && col_default !== 'NULL' && col_default !== 'CURRENT_TIMESTAMP') {
+    if (col_default !== '' && col_default !== 'NULL' && col_default !== 'CURRENT_TIMESTAMP' && col_default !== 'CURRENT_TIMESTAMP()') {
         $input4.val('USER_DEFINED');
         $input4.next().next().show();
         $input4.next().next().val(central_column_list[db + '_' + table][offset].col_default);

@@ -4025,7 +4025,8 @@ class Util
      */
     public static function addMicroseconds($value)
     {
-        if (empty($value) || $value == 'CURRENT_TIMESTAMP') {
+        if (empty($value) || $value == 'CURRENT_TIMESTAMP'
+            || $value == 'current_timestamp()') {
             return $value;
         }
 
