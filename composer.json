@@ -44,7 +44,6 @@
         "ext-xml": "*",
         "ext-pcre": "*",
         "ext-json": "*",
-        "ext-ctype": "*",
         "ext-hash": "*",
         "phpmyadmin/sql-parser": "^4.2.3",
         "phpmyadmin/motranslator": "^4.0",
@@ -55,7 +54,8 @@
         "twig/twig": "^1.34",
         "twig/extensions": "~1.5.1",
         "symfony/expression-language": "^3.2",
-        "symfony/polyfill-mbstring": "^1.3"
+        "symfony/polyfill-mbstring": "^1.3",
+        "symfony/polyfill-ctype": "^1.8"
     },
     "conflict": {
         "phpseclib/phpseclib": "2.0.8",
