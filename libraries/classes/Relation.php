@@ -1286,7 +1286,6 @@ class Relation
     /**
      * Outputs dropdown with values of foreign fields
      *
-     * @param array  $column          description of column in given table
      * @param array  $disp_row        array of the displayed row
      * @param string $foreign_field   the foreign field
      * @param string $foreign_display the foreign field to display
@@ -1297,7 +1296,7 @@ class Relation
      *
      * @access  public
      */
-    public function foreignDropdown($column, array $disp_row, $foreign_field, $foreign_display, $data,
+    public function foreignDropdown(array $disp_row, $foreign_field, $foreign_display, $data,
         $max = null
     ) {
         if (null === $max) {
