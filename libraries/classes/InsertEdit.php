@@ -916,7 +916,6 @@ class InsertEdit
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
             . ' id="field_' . $idindex . '_3">';
         $html_output .= $this->relation->foreignDropdown(
-            $column,
             $foreignData['disp_row'],
             $foreignData['foreign_field'],
             $foreignData['foreign_display'],
