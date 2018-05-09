@@ -982,9 +982,13 @@ AJAX.registerOnload('functions.js', function () {
                     }
                     // window.location.reload(true);
                     if ($("#modalOverlay").length) {
-                        $("#modalOverlay").replaceWith(data.error);
-                    } else {
+
+                    }
+                    else {
                         $('body').append(data.error);
+                    }
+                    if($("#input_username").length) {
+                        $("#input_username").focus();
                     }
                     _idleSecondsCounter = 0;
                 }

@@ -360,7 +360,7 @@ var AJAX = {
         if (typeof data.success !== 'undefined' && data.success) {
             
             if(typeof data.user_changed !== 'undefined' && data.user_changed == 1) {
-                window.location.reload();
+                window.location = "index.php";
                 PMA_ajaxShowMessage("Loading...", false);
                 AJAX.active = false;
                 AJAX.xhr = null;
@@ -382,9 +382,6 @@ var AJAX = {
             }
 
             AJAX.scriptHandler.reset(function () {
-                if (data._reloadNavigation) {
-                    PMA_reloadNavigation();
-                }
                 if (data._title) {
                     $('title').replaceWith(data._title);
                 }
@@ -505,6 +502,11 @@ var AJAX = {
                         $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     }
                 }
+
+                if (data._reloadNavigation) {
+                    PMA_reloadNavigation();
+                }
+                
                 PMA_ajaxShowMessage(msg, false);
                 // bind for php error reporting forms (popup)
                 $('#pma_ignore_errors_popup').on('click', function () {
