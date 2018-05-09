@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-05-09 02:18+0000\n"
+"PO-Revision-Date: 2018-05-10 08:38+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -16918,6 +16918,7 @@ msgstr ""
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"מספר הקבצים הפתוחים עומד על %s%% מתוך המגבלה. הערך הזה אמור להיות מתחת ל־85%%"
 
 #: libraries/advisory_rules.txt:323
 msgid "Rate of open files"
@@ -16930,55 +16931,53 @@ msgstr "קצב פתיחת קבצים גבוה."
 #: libraries/advisory_rules.txt:328
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
+msgstr "קצב קבצים פתוחים: %s, הערך הזה אמור להיות פחות מ־5 בשעה"
 
 #: libraries/advisory_rules.txt:330
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Immediate table locks %%"
-msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+msgstr "נעילות טבלאות מיידיות ב־%%"
 
 #: libraries/advisory_rules.txt:333 libraries/advisory_rules.txt:340
 msgid "Too many table locks were not granted immediately."
-msgstr ""
+msgstr "יותר מדי נעילות טבלאות מיידיות לא קיבלו אישור מיידית."
 
 #: libraries/advisory_rules.txt:334 libraries/advisory_rules.txt:341
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
+msgstr "שיפור שאילתות ו/או שימוש ב־InnoDB כדי להפחית את זמן ההמתנה לנעילות."
 
 #: libraries/advisory_rules.txt:335
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "נעילות טבלאות מיידיות: %s%%, הערך הזה אמור להיות מעל 95%%"
 
 #: libraries/advisory_rules.txt:337
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "קצב המתנה לנעילת טבלאות"
 
 #: libraries/advisory_rules.txt:342
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "קצב המתנה לנעילת טבלאות: %s, הערך הזה אמור להיות מתחת ל־1 לשעה"
 
 #: libraries/advisory_rules.txt:344
-#, fuzzy
 msgid "Thread cache"
-msgstr "סוג שאילתה"
+msgstr "מטמון תהליכי משנה"
 
 #: libraries/advisory_rules.txt:347
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"מטמון תהליכי המשנה מושבת, מצב זה גורם לעומס מוסף עקב חיבורים חדשים ל־MySQL."
 
 #: libraries/advisory_rules.txt:348
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "יש להפעיל את מטמון תהליכי המשנה על ידי הגדרת {thread_cache_size} > 0."
 
 #: libraries/advisory_rules.txt:349
-#, fuzzy
 msgid "The thread cache is set to 0"
-msgstr "סוג שאילתה"
+msgstr "מטמון תהליכי המשנה מוגדר ל־0"
 
 #: libraries/advisory_rules.txt:351
 #, fuzzy, php-format
@@ -16986,14 +16985,12 @@ msgid "Thread cache hit rate %%"
 msgstr "סוג שאילתה"
 
 #: libraries/advisory_rules.txt:354
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "Thread cache is not efficient."
-msgstr "השרת אינו מגיב"
+msgstr "מטמון תהליכי המשנה אינו יעיל."
 
 #: libraries/advisory_rules.txt:355
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "יש להגדיל את {thread_cache_size}."
 
 #: libraries/advisory_rules.txt:356
 #, php-format
@@ -17002,17 +16999,19 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:358
 msgid "Threads that are slow to launch"
-msgstr ""
+msgstr "תהליכי משנה שהטעינה שלהם אטית"
 
 #: libraries/advisory_rules.txt:361
 msgid "There are too many threads that are slow to launch."
-msgstr ""
+msgstr "יש יותר מדי תהליכי משנה שטעינתם אטית."
 
 #: libraries/advisory_rules.txt:362
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"מצב כזה קורה בדרך כלל עקב עומס כללי על המערכת כיוון שמדובר בפעולות יחסית "
+"פשוטות. אולי מוטב לך לעקוב אחר העומס במערכת שלך ביתר קפידה."
 
 #: libraries/advisory_rules.txt:363
 #, php-format
@@ -17021,17 +17020,19 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:365
 msgid "Slow launch time"
-msgstr ""
+msgstr "זמן הפעלה אטי"
 
 #: libraries/advisory_rules.txt:368
 msgid "Slow_launch_time is above 2s."
-msgstr ""
+msgstr "Slow_launch_time הוא מעל 2 שניות."
 
 #: libraries/advisory_rules.txt:369
 msgid ""
 "Set {slow_launch_time} to 1s or 2s to correctly count threads that are slow "
 "to launch."
 msgstr ""
+"יש להגדיר את {slow_launch_time} לשנייה או 2 שניות כדי לספור נכון את תהליכי "
+"המשנה שטעינתם אטית."
 
 #: libraries/advisory_rules.txt:370
 #, php-format
@@ -17060,6 +17061,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"הערך של Max_used_connections עומד על %s%% מתוך max_connections, הוא אמור "
+"להיות מתחת ל־80%%"
 
 #: libraries/advisory_rules.txt:381
 msgid "Percentage of aborted connections"
@@ -17075,11 +17078,15 @@ msgid ""
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
+"חיבורים בדרך כלל נקטעים כשאין אפשרות לאמת אותם. <a href=\""
+"https://www.percona.com/blog/2008/08/23/"
+"how-to-track-down-the-source-of-aborted_connects/\">הערך הזה</a> עשוי לסייע "
+"לך לרדת לשורש הבעיה."
 
 #: libraries/advisory_rules.txt:386
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "%s%% מכל החיבורים נקטעים. הערך הזה אמור להיות מתחת ל־1%%"
 
 #: libraries/advisory_rules.txt:388
 msgid "Rate of aborted connections"
@@ -17089,7 +17096,7 @@ msgstr "קצב החיבורים הנקטעים"
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "כמות החיבורים שנקטעו עומד על %s, הערך הזה אמור להיות מתחת ל־1 בשעה"
 
 #: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
@@ -17105,6 +17112,9 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"לקוחות בדרך כלל נקטעים כשהם לא סוגרים את החיבור שלהם ל־MySQL כנדרש. מצב זה "
+"יכול לקרות עקב תקלות ברשת או קוד שלא סוגר את מנגנון הטיפול במסד הנתונים "
+"כראוי. נא לבדוק את הרשת ואת הקוד שלך."
 
 #: libraries/advisory_rules.txt:400
 #, php-format
