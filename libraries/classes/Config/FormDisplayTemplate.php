@@ -163,7 +163,7 @@ class FormDisplayTemplate
                 'edit'   => array('b_edit.png',   ''),
                 'help'   => array('b_help.png',   __('Documentation')),
                 'reload' => array('s_reload.png', ''),
-                'tblops' => array('b_tblops.png', '')
+                'tblops' => array('b_tblops', '')
             );
             if ($is_setup_script) {
                 // When called from the setup script, we don't have access to the
