@@ -223,12 +223,6 @@ class FontTest extends PmaTestCase
      */
     function testGetStringWidthCharLists()
     {
-        // string "a", with invalid charlist (= string)
-        $this->assertEquals(
-            6,
-            $this->font->getStringWidth("a", "arial", "10", "list")
-        );
-
         // string "a", with invalid charlist (= array without proper structure)
         $this->assertEquals(
             6,

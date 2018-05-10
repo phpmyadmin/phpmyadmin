@@ -20,7 +20,7 @@ class Font
      * @return array with characters and corresponding width modifier
      * @access public
      */
-    public function getCharLists()
+    public function getCharLists(): array
     {
         // list of characters and their width modifiers
         $charLists = array();
@@ -86,9 +86,13 @@ class Font
      * @return integer width of the text
      * @access public
      */
-    public function getStringWidth($text, $font, $fontSize, $charLists = null)
-    {
-        if (empty($charLists) || !is_array($charLists)
+    public function getStringWidth(
+        string $text,
+        string $font,
+        int $fontSize,
+        ?array $charLists = null
+    ): int {
+        if (empty($charLists)
             || !isset($charLists[0]["chars"]) || !is_array($charLists[0]["chars"])
             || !isset($charLists[0]["modifier"])
         ) {
@@ -137,6 +141,6 @@ class Font
             break;
         }
         $textWidth = $count * $fontSize;
-        return (int)ceil($textWidth * $modifier);
+        return (int) ceil($textWidth * $modifier);
     }
 }
