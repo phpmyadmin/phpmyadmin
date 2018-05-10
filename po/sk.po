@@ -4,32 +4,29 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2016-11-18 10:30+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"sk/>\n"
+"PO-Revision-Date: 2018-05-10 23:08+0000\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/4-8/sk/"
+">\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.10-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
 msgstr "Nesprávny typ!"
 
 #: changelog.php:39 license.php:34
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
 "Súbor %s nie je dostupný na tomto systéme. Viac informácií nájdete na "
-"stránke www.phpmyadmin.net."
+"stránke %s."
 
 #: db_central_columns.php:127
 msgid "The central list of columns for the current database is empty."
@@ -312,7 +309,7 @@ msgstr "Meno databázy je prázdne!"
 
 #: db_operations.php:67
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr ""
+msgstr "Nemôžem skopírovať databázu s rovnakým menom. Zmeň meno a skús znovu."
 
 #: db_operations.php:154
 #, php-format
@@ -635,6 +632,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Odhlásili ste sa z jedného servera. Pre úplné odhlásenie z phpMyAdmina sa "
+"musíte odhlásiť zo všetkých serverov."
 
 #: index.php:193 libraries/classes/Footer.php:75
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
@@ -687,10 +686,8 @@ msgid "Server type:"
 msgstr "Typ servera:"
 
 #: index.php:342
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "Master spojenie:"
+msgstr "Server spojenie:"
 
 #: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
@@ -780,6 +777,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"Rozšírenie curl nebolo nájdené a allow_url_fopen je vzpnuté. Z toho dôvodu "
+"sp niektoré funkcie, ako je hlásenie chýb alebo kontrola verzie, vypnuté."
 
 #: index.php:532
 msgid ""
@@ -810,7 +809,7 @@ msgstr ""
 
 #: index.php:573
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "Tajné heslo v konfigurácii (blowfish_secret) je príliš krátke."
 
 #: index.php:587
 msgid ""
@@ -853,6 +852,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$cfg['TempDir'] (%s) nie je dostupný. phpMyAdmin nie je schopný ukladať "
+"šablóny do vyrovnávacej pamäte a bude kvôli tomu pomalý."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -870,6 +871,7 @@ msgstr "Chystáte sa ZMAZAŤ celú databázu!"
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
 msgstr ""
+"Nemôžem premenovať databázu na rovnaké meno. Zmeňte meno a skúste to znovu"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
@@ -1550,22 +1552,16 @@ msgid "Chart"
 msgstr "Graf"
 
 #: js/messages.php:295 libraries/classes/Display/Export.php:566
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Databáza"
 
 #: js/messages.php:296 libraries/classes/Display/Export.php:578
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Tabuľka"
 
 #: js/messages.php:297 libraries/classes/Display/Export.php:589
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Stĺpec"
@@ -1765,10 +1761,8 @@ msgid "No databases selected."
 msgstr "Neboli vybrané žiadne databázy."
 
 #: js/messages.php:370
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "Nebol vybraný žiadny stĺpec."
+msgstr "Neboli vybrané žiadne účty."
 
 #: js/messages.php:371
 msgid "Dropping column"
@@ -2994,10 +2988,9 @@ msgid "Error"
 msgstr "Chyba"
 
 #: libraries/classes/Advisor.php:249
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Chyba pri vytváraní PDF:"
+msgstr "Chyba pri vyhodnocovaní : %s"
 
 #: libraries/classes/Advisor.php:280
 #, php-format
@@ -3234,10 +3227,8 @@ msgid "Charset"
 msgstr "Znaková sada"
 
 #: libraries/classes/Charsets.php:310
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "neznámy"
+msgstr "Neznámy"
 
 #: libraries/classes/Charsets.php:324
 #, fuzzy
@@ -3247,25 +3238,19 @@ msgid "Binary"
 msgstr "Binárny"
 
 #: libraries/classes/Charsets.php:336 libraries/classes/Charsets.php:566
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/classes/Charsets.php:346 libraries/classes/Charsets.php:517
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
-msgstr "Západná Európa"
+msgstr "Západoeurópsky"
 
 #: libraries/classes/Charsets.php:353
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "Stredná Európa"
+msgstr "Stredoeurópsky"
 
 #: libraries/classes/Charsets.php:358
 #, fuzzy
@@ -6226,8 +6211,6 @@ msgstr "Vždy rozbaliť správy dopytu"
 
 #: libraries/classes/Config/Descriptions.php:1470
 #: templates/console/display.twig:157
-#, fuzzy
-#| msgid "Show current browsing query"
 msgid "Show current browsing query"
 msgstr "Zobraziť aktuálne prehliadaný dopyt"
 
@@ -6241,10 +6224,8 @@ msgid "Switch to dark theme"
 msgstr "Prepnúť na tmavú tému"
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Konzola"
+msgstr "Výška konzoly"
 
 #: libraries/classes/Config/Descriptions.php:1478
 #, fuzzy
