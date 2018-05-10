@@ -54,7 +54,7 @@
                         {{- field_name|raw -}}
                     </span>
                 {%- endset %}
-                {% set comments = comments_map[row['Field']]|e %}
+                {% set comments = comments_map[row['Field']] %}
             {% endif %}
 
             {% if primary and primary.hasColumn(field_name) %}
