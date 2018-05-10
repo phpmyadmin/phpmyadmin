@@ -66,7 +66,7 @@ class Footer
     public function __construct()
     {
         $this->_isEnabled = true;
-        $this->_scripts   = new Scripts();
+        $this->_scripts = new Scripts();
         $this->_isMinimal = false;
         $this->relation = new Relation();
     }
@@ -76,7 +76,7 @@ class Footer
      *
      * @return string
      */
-    private function _getDemoMessage()
+    private function _getDemoMessage(): string
     {
         $message = '<a href="/">' . __('phpMyAdmin Demo Server') . '</a>: ';
         if (@file_exists('./revision-info.php')) {
@@ -126,7 +126,7 @@ class Footer
      *
      * @return string
      */
-    public function getDebugMessage()
+    public function getDebugMessage(): string
     {
         $retval = '\'null\'';
         if ($GLOBALS['cfg']['DBG']['sql']
@@ -149,7 +149,7 @@ class Footer
      *
      * @return string
      */
-    public function getSelfUrl()
+    public function getSelfUrl(): string
     {
         $db = isset($GLOBALS['db']) && strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = isset($GLOBALS['table']) && strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
@@ -199,7 +199,7 @@ class Footer
      *
      * @return string
      */
-    private function _getSelfLink($url)
+    private function _getSelfLink(string $url): string
     {
         $retval  = '';
         $retval .= '<div id="selflink" class="print_ignore">';
@@ -223,7 +223,7 @@ class Footer
      *
      * @return string
      */
-    public function getErrorMessages()
+    public function getErrorMessages(): string
     {
         $retval = '';
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
@@ -243,7 +243,7 @@ class Footer
      *
      * @return void
      */
-    private function _setHistory()
+    private function _setHistory(): void
     {
         if (! Core::isValid($_REQUEST['no_history'])
             && empty($GLOBALS['error_message'])
@@ -265,7 +265,7 @@ class Footer
      *
      * @return void
      */
-    public function disable()
+    public function disable(): void
     {
         $this->_isEnabled = false;
     }
@@ -278,9 +278,9 @@ class Footer
      *
      * @return void
      */
-    public function setAjax($isAjax)
+    public function setAjax(bool $isAjax): void
     {
-        $this->_isAjax = (boolean) $isAjax;
+        $this->_isAjax = $isAjax;
     }
 
     /**
@@ -288,7 +288,7 @@ class Footer
      *
      * @return void
      */
-    public function setMinimal()
+    public function setMinimal(): void
     {
         $this->_isMinimal = true;
     }
@@ -298,7 +298,7 @@ class Footer
      *
      * @return Scripts object
      */
-    public function getScripts()
+    public function getScripts(): Scripts
     {
         return $this->_scripts;
     }
@@ -308,7 +308,7 @@ class Footer
      *
      * @return string
      */
-    public function getDisplay()
+    public function getDisplay(): string
     {
         $retval = '';
         $this->_setHistory();
