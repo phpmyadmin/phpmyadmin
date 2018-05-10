@@ -231,10 +231,10 @@ class File
     /**
      * accessor
      *
-     * @access  public
-     * @return string  File::$_name
+     * @access public
+     * @return string|null File::$_name
      */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
