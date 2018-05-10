@@ -549,7 +549,7 @@ class Export
     /**
      * Export at the server level
      *
-     * @param string       $db_select       the selected databases to export
+     * @param string|array $db_select       the selected databases to export
      * @param string       $whatStrucOrData structure or data or both
      * @param ExportPlugin $export_plugin   the selected export plugin
      * @param string       $crlf            end of line character(s)
@@ -565,7 +565,7 @@ class Export
      * @return void
      */
     public function exportServer(
-        string $db_select,
+        $db_select,
         string $whatStrucOrData,
         ExportPlugin $export_plugin,
         string $crlf,
