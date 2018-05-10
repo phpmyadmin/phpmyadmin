@@ -843,73 +843,6 @@ class CentralColumns
      */
     public function getHtmlForTableRow(array $row, int $row_num, string $db): string
     {
-        $tableHtml = '<tr data-rownum="' . $row_num . '" id="f_' . $row_num . '">'
-            . Url::getHiddenInputs(
-                $db
-            )
-            . '<input type="hidden" name="edit_save" value="save">'
-            . '<td class="nowrap">'
-            . '<input type="checkbox" class="checkall" name="selected_fld[]" '
-            . 'value="' . htmlspecialchars($row['col_name']) . '" '
-            . 'id="checkbox_row_' . $row_num . '"/>'
-            . '</td>'
-            . '<td id="edit_' . $row_num . '" class="edit center">'
-            . '<a href="#">' . Util::getIcon('b_edit', __('Edit')) . '</a></td>'
-            . '<td class="del_row" data-rownum = "' . $row_num . '">'
-            . '<a hrf="#">' . Util::getIcon('b_drop', __('Delete')) . '</a>'
-            . '<input type="submit" data-rownum = "' . $row_num . '"'
-            . ' class="edit_cancel_form" value="Cancel"></td>'
-            . '<td id="save_' . $row_num . '" class="hide">'
-            . '<input type="submit" data-rownum = "' . $row_num . '"'
-            . ' class="edit_save_form" value="Save"></td>';
-
-        $tableHtml .=
-            '<td name="col_name" class="nowrap">'
-            . '<span>' . htmlspecialchars($row['col_name']) . '</span>'
-            . '<input name="orig_col_name" type="hidden" '
-            . 'value="' . htmlspecialchars($row['col_name']) . '">'
-            . Template::get('columns_definitions/column_name')->render(array(
-                'column_number' => $row_num,
-                'ci' => 0,
-                'ci_offset' => 0,
-                'column_meta' => array(
-                    'Field'=>$row['col_name']
-                ),
-                'cfg_relation' => array(
-                    'centralcolumnswork' => false
-                ),
-                'max_rows' => $this->maxRows,
-            ))
-            . '</td>';
-        $tableHtml .=
-            '<td name = "col_type" class="nowrap"><span>'
-            . htmlspecialchars($row['col_type']) . '</span>'
-            . Template::get('columns_definitions/column_type')
-                ->render(
-                    array(
-                    'column_number' => $row_num,
-                    'ci' => 1,
-                    'ci_offset' => 0,
-                    'type_upper' => mb_strtoupper($row['col_type']),
-                    'column_meta' => array()
-                    )
-                )
-            . '</td>';
-        $tableHtml .=
-            '<td class="nowrap" name="col_length">'
-            . '<span>' . ($row['col_length']?htmlspecialchars($row['col_length']):"")
-            . '</span>'
-            . Template::get('columns_definitions/column_length')->render(
-                array(
-                    'column_number' => $row_num,
-                    'ci' => 2,
-                    'ci_offset' => 0,
-                    'length_values_input_size' => 8,
-                    'length_to_display' => $row['col_length']
-                )
-            )
-            . '</td>';
-
         $meta = array();
         if (!isset($row['col_default']) || $row['col_default'] == '') {
             $meta['DefaultType'] = 'NONE';
@@ -925,85 +858,78 @@ class CentralColumns
                 $meta['DefaultValue'] = $row['col_default'];
             }
         }
-        $tableHtml .=
-            '<td class="nowrap" name="col_default"><span>' . (isset($row['col_default'])
-                ? htmlspecialchars($row['col_default']) : 'None')
-            . '</span>'
-            . Template::get('columns_definitions/column_default')
-                ->render(
-                    array(
-                    'column_number' => $row_num,
-                    'ci' => 3,
-                    'ci_offset' => 0,
-                    'type_upper' => mb_strtoupper($row['col_type']),
-                    'column_meta' => $meta,
-                    'char_editing' => $this->charEditing,
-                    )
-                )
-            . '</td>';
-
-        $tableHtml .=
-            '<td name="collation" class="nowrap">'
-            . '<span>' . htmlspecialchars($row['col_collation']) . '</span>'
-            . Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $this->disableIs,
-                'field_collation[' . $row_num . ']',
-                'field_' . $row_num . '_4', $row['col_collation'], false
+        $column_name = Template::get('columns_definitions/column_name')->render(array(
+            'column_number' => $row_num,
+            'ci' => 0,
+            'ci_offset' => 0,
+            'column_meta' => array(
+                'Field'=>$row['col_name']
+            ),
+            'cfg_relation' => array(
+                'centralcolumnswork' => false
+            ),
+            'max_rows' => $this->maxRows,
+        ));
+        $column_type = Template::get('columns_definitions/column_type')->render(array(
+            'column_number' => $row_num,
+            'ci' => 1,
+            'ci_offset' => 0,
+            'type_upper' => mb_strtoupper($row['col_type']),
+            'column_meta' => array()
+        ));
+        $column_length = Template::get('columns_definitions/column_length')->render(array(
+            'column_number' => $row_num,
+            'ci' => 2,
+            'ci_offset' => 0,
+            'length_values_input_size' => 8,
+            'length_to_display' => $row['col_length']
+        ));
+        $column_default = Template::get('columns_definitions/column_default')->render(array(
+            'column_number' => $row_num,
+            'ci' => 3,
+            'ci_offset' => 0,
+            'type_upper' => mb_strtoupper($row['col_type']),
+            'column_meta' => $meta,
+            'char_editing' => $this->charEditing,
+        ));
+        $column_attribute = Template::get('columns_definitions/column_attribute')->render(array(
+            'column_number' => $row_num,
+            'ci' => 5,
+            'ci_offset' => 0,
+            'extracted_columnspec' => array(),
+            'column_meta' => $row['col_attribute'],
+            'submit_attribute' => false,
+            'attribute_types' => $this->dbi->types->getAttributes(),
+        ));
+        $column_null = Template::get('columns_definitions/column_null')->render(array(
+            'column_number' => $row_num,
+            'ci' => 6,
+            'ci_offset' => 0,
+            'column_meta' => array(
+                'Null' => $row['col_isNull']
             )
-            . '</td>';
-        $tableHtml .=
-            '<td class="nowrap" name="col_attribute">'
-            . '<span>' .
-            ($row['col_attribute']
-                ? htmlspecialchars($row['col_attribute']) : "" )
-            . '</span>'
-            . Template::get('columns_definitions/column_attribute')
-                ->render(
-                    array(
-                    'column_number' => $row_num,
-                    'ci' => 5,
-                    'ci_offset' => 0,
-                    'extracted_columnspec' => array(),
-                    'column_meta' => $row['col_attribute'],
-                    'submit_attribute' => false,
-                    'attribute_types' => $this->dbi->types->getAttributes(),
-                    )
-                )
-            . '</td>';
-        $tableHtml .=
-            '<td class="nowrap" name="col_isNull">'
-            . '<span>' . ($row['col_isNull'] ? __('Yes') : __('No'))
-            . '</span>'
-            . Template::get('columns_definitions/column_null')
-                ->render(
-                    array(
-                    'column_number' => $row_num,
-                    'ci' => 6,
-                    'ci_offset' => 0,
-                    'column_meta' => array(
-                        'Null' => $row['col_isNull']
-                    )
-                    )
-                )
-            . '</td>';
+        ));
+        $column_extra = Template::get('columns_definitions/column_extra')->render(array(
+            'column_number' => $row_num,
+            'ci' => 7,
+            'ci_offset' => 0,
+            'column_meta' => array('Extra'=>$row['col_extra'])
+        ));
 
-        $tableHtml .=
-            '<td class="nowrap" name="col_extra"><span>'
-            . htmlspecialchars($row['col_extra']) . '</span>'
-            . Template::get('columns_definitions/column_extra')->render(
-                array(
-                    'column_number' => $row_num,
-                    'ci' => 7,
-                    'ci_offset' => 0,
-                    'column_meta' => array('Extra'=>$row['col_extra'])
-                )
-            )
-            . '</td>';
-
-        $tableHtml .= '</tr>';
-
-        return $tableHtml;
+        return Template::get('database/central_columns/table_row')->render(array(
+            'column_name' => $column_name,
+            'column_type' => $column_type,
+            'column_length' => $column_length,
+            'column_default' => $column_default,
+            'column_attribute' => $column_attribute,
+            'column_null' => $column_null,
+            'column_extra' => $column_extra,
+            'row_num' => $row_num,
+            'row' => $row,
+            'db' => $db,
+            'dbi' => $this->dbi,
+            'disableIs' => $this->disableIs,
+        ));
     }
 
     /**

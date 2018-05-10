@@ -1,0 +1,60 @@
+<tr data-rownum="{{ row_num }}" id="{{ 'f_' ~ row_num }}">
+    {{ Url_getHiddenInputs(db) }}
+    <input type="hidden" name="edit_save" value="save">
+    <td class="nowrap">
+        <input type="checkbox" class="checkall" name="selected_fld[]"
+        value="{{ row['col_name']|raw }}" id="{{ 'checkbox_row_' ~ row_num }}"/>
+    </td>
+    <td id="{{ 'edit_' ~ row_num }}" class="edit center">
+        <a href="#"> {{ Util_getIcon('b_edit', 'Edit'|trans) |raw }}</a>
+    </td>
+    <td class="del_row" data-rownum = "{{ row_num }}">
+        <a hrf="#">{{ Util_getIcon('b_drop', 'Delete'|trans) }}</a>
+        <input type="submit" data-rownum = "{{ row_num }}" class="edit_cancel_form" value="Cancel">
+    </td>
+    <td id="{{ 'save_' ~ row_num  }}" class="hide">
+        <input type="submit" data-rownum="{{ row_num }}" class="edit_save_form" value="Save">
+    </td>
+    <td name="col_name" class="nowrap">
+        <span>{{ row['col_name'] |raw }}</span>
+        <input name="orig_col_name" type="hidden" value="{{ row['col_name'] |raw }}">
+        {{ column_name |raw }}
+    </td>
+    <td name = "col_type" class="nowrap">
+        <span>{{ row['col_type'] |raw }}</span>
+        {{ column_type |raw }}
+    </td>
+    <td class="nowrap" name="col_length">
+        <span>{{ (row['col_length']?(row['col_length'] | raw):'') }}</span>
+        {{ column_length |raw }}
+    </td>
+    <td class="nowrap" name="col_default">
+        {% if row['col_default'] is defined %}
+            <span>{{ row['col_default'] }}</span>
+        {% else %}
+            <span>None</span>
+        {% endif %}
+        {{ column_default |raw }}
+    </td>
+    <td name="collation" class="nowrap">
+        <span>{{ row['col_collation'] |raw }}</span>
+        {{ Charsets_getCollationDropdownBox(
+            dbi,
+            disableIs,
+            'field_collation[' ~ row_num ~ ']',
+            'field_' ~ row_num ~ '_4', row['col_collation'], false
+        ) |raw }}
+    </td>
+    <td class="nowrap" name="col_attribute">
+        <span>{{ row['col_attribute']?(row['col_attribute'] |raw):"" }}</span>
+        {{ column_attribute |raw }}
+    </td>
+    <td class="nowrap" name="col_isNull">
+        <span>{{ row['col_isNull'] ? 'Yes' |trans : 'No' |trans }}</span>
+        {{ column_null |raw }}
+    </td>
+    <td class="nowrap" name="col_extra">
+        <span>{{ row['col_extra'] |raw }}</span>
+        {{ column_extra |raw }}
+    </td>
+</tr>
