@@ -44,6 +44,11 @@ class InsertEdit
     private $transformations;
 
     /**
+     * @var FileListing
+     */
+    private $fileListing;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -53,6 +58,7 @@ class InsertEdit
         $this->dbi = $dbi;
         $this->relation = new Relation();
         $this->transformations = new Transformations();
+        $this->fileListing = new FileListing();
     }
 
     /**
@@ -1502,7 +1508,7 @@ class InsertEdit
      */
     private function getSelectOptionForUpload($vkey, array $column)
     {
-        $files = FileListing::getFileSelectOptions(
+        $files = $this->fileListing->getFileSelectOptions(
             Util::userDir($GLOBALS['cfg']['UploadDir'])
         );
 

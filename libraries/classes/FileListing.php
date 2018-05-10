@@ -22,7 +22,7 @@ class FileListing
      *
      * @return array   sorted file list on success, false on failure
      */
-    public static function getDirContent($dir, $expression = '')
+    public function getDirContent($dir, $expression = '')
     {
         if (!@file_exists($dir) || !($handle = @opendir($dir))) {
             return false;
@@ -54,9 +54,9 @@ class FileListing
      *
      * @return array   sorted file list on success, false on failure
      */
-    public static function getFileSelectOptions($dir, $extensions = '', $active = '')
+    public function getFileSelectOptions($dir, $extensions = '', $active = '')
     {
-        $list = self::getDirContent($dir, $extensions);
+        $list = $this->getDirContent($dir, $extensions);
         if ($list === false) {
             return false;
         }
@@ -74,9 +74,9 @@ class FileListing
     /**
      * Get currently supported decompressions.
      *
-     * @return string separated list of extensions usable in self::getDirContent
+     * @return string separated list of extensions usable in getDirContent
      */
-    public static function supportedDecompressions()
+    public function supportedDecompressions()
     {
         global $cfg;
 

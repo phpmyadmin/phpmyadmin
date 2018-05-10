@@ -3254,6 +3254,8 @@ class Util
      */
     public static function getSelectUploadFileBlock($import_list, $uploaddir)
     {
+        $fileListing = new FileListing();
+
         $block_html = '';
         $block_html .= '<label for="radio_local_import_file">'
             . sprintf(
@@ -3271,14 +3273,14 @@ class Util
         }
 
         $matcher = '@\.(' . $extensions . ')(\.('
-            . FileListing::supportedDecompressions() . '))?$@';
+            . $fileListing->supportedDecompressions() . '))?$@';
 
         $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed']
             && isset($GLOBALS['local_import_file']))
             ? $GLOBALS['local_import_file']
             : '';
 
-        $files = FileListing::getFileSelectOptions(
+        $files = $fileListing->getFileSelectOptions(
             self::userDir($uploaddir),
             $matcher,
             $active
