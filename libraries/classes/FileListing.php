@@ -1,14 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Functions for listing directories
+ * Holds the PhpMyAdmin\FileListing class
  *
  * @package PhpMyAdmin
  */
 namespace PhpMyAdmin;
 
 /**
- * PhpMyAdmin\FileListing class
+ * Functions for listing directories
  *
  * @package PhpMyAdmin
  */
@@ -20,9 +20,9 @@ class FileListing
      * @param string $dir        directory to list
      * @param string $expression regular expression to match files
      *
-     * @return array   sorted file list on success, false on failure
+     * @return array|bool sorted file list on success, false on failure
      */
-    public function getDirContent($dir, $expression = '')
+    public function getDirContent(string $dir, string $expression = '')
     {
         if (!@file_exists($dir) || !($handle = @opendir($dir))) {
             return false;
@@ -52,10 +52,13 @@ class FileListing
      * @param string $extensions regular expression to match files
      * @param string $active     currently active choice
      *
-     * @return array   sorted file list on success, false on failure
+     * @return array|bool sorted file list on success, false on failure
      */
-    public function getFileSelectOptions($dir, $extensions = '', $active = '')
-    {
+    public function getFileSelectOptions(
+        string $dir,
+        string $extensions = '',
+        string $active = ''
+    ) {
         $list = $this->getDirContent($dir, $extensions);
         if ($list === false) {
             return false;
@@ -76,7 +79,7 @@ class FileListing
      *
      * @return string separated list of extensions usable in getDirContent
      */
-    public function supportedDecompressions()
+    public function supportedDecompressions(): string
     {
         global $cfg;
 
