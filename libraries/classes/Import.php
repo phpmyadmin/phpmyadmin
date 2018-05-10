@@ -34,24 +34,24 @@ require_once './libraries/check_user_privileges.inc.php';
 class Import
 {
     /* MySQL type defs */
-    const NONE = 0;
-    const VARCHAR = 1;
-    const INT = 2;
-    const DECIMAL = 3;
-    const BIGINT = 4;
-    const GEOMETRY = 5;
+    public const NONE = 0;
+    public const VARCHAR = 1;
+    public const INT = 2;
+    public const DECIMAL = 3;
+    public const BIGINT = 4;
+    public const GEOMETRY = 5;
     /* Decimal size defs */
-    const M = 0;
-    const D = 1;
-    const FULL = 2;
+    public const M = 0;
+    public const D = 1;
+    public const FULL = 2;
     /* Table array defs */
-    const TBL_NAME = 0;
-    const COL_NAMES = 1;
-    const ROWS = 2;
+    public const TBL_NAME = 0;
+    public const COL_NAMES = 1;
+    public const ROWS = 2;
     /* Analysis array defs */
-    const TYPES = 0;
-    const SIZES = 1;
-    const FORMATTEDSQL = 2;
+    public const TYPES = 0;
+    public const SIZES = 1;
+    public const FORMATTEDSQL = 2;
 
     /**
      * Checks whether timeout is getting close
