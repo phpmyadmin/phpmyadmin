@@ -26,56 +26,56 @@ class File
      * @var string the temporary file name
      * @access protected
      */
-    var $_name = null;
+    protected $_name = null;
 
     /**
      * @var string the content
      * @access protected
      */
-    var $_content = null;
+    protected $_content = null;
 
     /**
      * @var Message|null the error message
      * @access protected
      */
-    var $_error_message = null;
+    protected $_error_message = null;
 
     /**
      * @var bool whether the file is temporary or not
      * @access protected
      */
-    var $_is_temp = false;
+    protected $_is_temp = false;
 
     /**
      * @var string type of compression
      * @access protected
      */
-    var $_compression = null;
+    protected $_compression = null;
 
     /**
      * @var integer
      */
-    var $_offset = 0;
+    protected $_offset = 0;
 
     /**
      * @var integer size of chunk to read with every step
      */
-    var $_chunk_size = 32768;
+    protected $_chunk_size = 32768;
 
     /**
      * @var resource file handle
      */
-    var $_handle = null;
+    protected $_handle = null;
 
     /**
      * @var boolean whether to decompress content before returning
      */
-    var $_decompress = false;
+    protected $_decompress = false;
 
     /**
      * @var string charset of file
      */
-    var $_charset = null;
+    protected $_charset = null;
 
     /**
      * @var ZipExtension
