@@ -126,11 +126,11 @@ class Header
         $this->_isEnabled = true;
         $this->_isAjax = false;
         $this->_bodyId = '';
-        $this->_title  = '';
+        $this->_title = '';
         $this->_console = new Console();
         $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
-        $this->_menu   = new Menu(
+        $this->_menu = new Menu(
             $GLOBALS['server'],
             $db,
             $table
@@ -159,7 +159,7 @@ class Header
      *
      * @return void
      */
-    private function _addDefaultScripts()
+    private function _addDefaultScripts(): void
     {
         // Localised strings
         $this->_scripts->addFile('vendor/jquery/jquery.min.js');
@@ -220,7 +220,7 @@ class Header
      *
      * @return array
      */
-    public function getJsParams()
+    public function getJsParams(): array
     {
         $db = strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
@@ -235,7 +235,7 @@ class Header
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
             'table' => $table,
-            'db'    => $db,
+            'db' => $db,
             'token' => $_SESSION[' PMA_token '],
             'text_dir' => $GLOBALS['text_dir'],
             'show_databases_navigation_as_tree' => $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'],
@@ -277,7 +277,7 @@ class Header
      *
      * @return string
      */
-    public function getJsParamsCode()
+    public function getJsParamsCode(): string
     {
         $params = $this->getJsParams();
         foreach ($params as $key => $value) {
@@ -295,7 +295,7 @@ class Header
      *
      * @return void
      */
-    public function disable()
+    public function disable(): void
     {
         $this->_isEnabled = false;
     }
@@ -308,9 +308,9 @@ class Header
      *
      * @return void
      */
-    public function setAjax($isAjax)
+    public function setAjax(bool $isAjax): void
     {
-        $this->_isAjax = (boolean) $isAjax;
+        $this->_isAjax = $isAjax;
         $this->_console->setAjax($isAjax);
     }
 
@@ -319,7 +319,7 @@ class Header
      *
      * @return Scripts object
      */
-    public function getScripts()
+    public function getScripts(): Scripts
     {
         return $this->_scripts;
     }
@@ -329,7 +329,7 @@ class Header
      *
      * @return Menu object
      */
-    public function getMenu()
+    public function getMenu(): Menu
     {
         return $this->_menu;
     }
@@ -341,7 +341,7 @@ class Header
      *
      * @return void
      */
-    public function setBodyId($id)
+    public function setBodyId(string $id): void
     {
         $this->_bodyId = htmlspecialchars($id);
     }
@@ -353,7 +353,7 @@ class Header
      *
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle(string $title): void
     {
         $this->_title = htmlspecialchars($title);
     }
@@ -363,7 +363,7 @@ class Header
      *
      * @return void
      */
-    public function disableMenuAndConsole()
+    public function disableMenuAndConsole(): void
     {
         $this->_menuEnabled = false;
         $this->_console->disable();
@@ -374,7 +374,7 @@ class Header
      *
      * @return void
      */
-    public function disableWarnings()
+    public function disableWarnings(): void
     {
         $this->_warningsEnabled = false;
     }
@@ -384,7 +384,7 @@ class Header
      *
      * @return void
      */
-    public function enablePrintView()
+    public function enablePrintView(): void
     {
         $this->disableMenuAndConsole();
         $this->setTitle(__('Print view') . ' - phpMyAdmin ' . PMA_VERSION);
@@ -396,7 +396,7 @@ class Header
      *
      * @return string The header
      */
-    public function getDisplay()
+    public function getDisplay(): string
     {
         $retval = '';
         if (! $this->_headerIsSent) {
@@ -490,7 +490,7 @@ class Header
      *
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         $retval = '';
         $message = '';
@@ -517,7 +517,7 @@ class Header
      *
      * @return void
      */
-    public function sendHttpHeaders()
+    public function sendHttpHeaders(): void
     {
         if (defined('TESTSUITE')) {
             return;
@@ -628,7 +628,7 @@ class Header
      *
      * @return string DOCTYPE and HTML tags
      */
-    private function _getHtmlStart()
+    private function _getHtmlStart(): string
     {
         $lang = $GLOBALS['lang'];
         $dir  = $GLOBALS['text_dir'];
@@ -645,7 +645,7 @@ class Header
      *
      * @return string the META tags
      */
-    private function _getMetaTags()
+    private function _getMetaTags(): string
     {
         $retval  = '<meta charset="utf-8" />';
         $retval .= '<meta name="referrer" content="no-referrer" />';
@@ -663,7 +663,7 @@ class Header
      *
      * @return string the LINK tags
      */
-    private function _getLinkTags()
+    private function _getLinkTags(): string
     {
         $retval = '<link rel="icon" href="favicon.ico" '
             . 'type="image/x-icon" />'
@@ -708,7 +708,7 @@ class Header
      *
      * @return string the TITLE tag
      */
-    public function getTitleTag()
+    public function getTitleTag(): string
     {
         $retval  = "<title>";
         $retval .= $this->_getPageTitle();
@@ -722,7 +722,7 @@ class Header
      *
      * @return string
      */
-    private function _getPageTitle()
+    private function _getPageTitle(): string
     {
         if (strlen($this->_title) == 0) {
             if ($GLOBALS['server'] > 0) {
@@ -751,7 +751,7 @@ class Header
      *
      * @return string HEAD and BODY tags
      */
-    private function _getBodyStart()
+    private function _getBodyStart(): string
     {
         $retval = "</head><body";
         if (strlen($this->_bodyId)) {
@@ -766,7 +766,7 @@ class Header
      *
      * @return string The warnings
      */
-    private function _getWarnings()
+    private function _getWarnings(): string
     {
         $retval = '';
         if ($this->_warningsEnabled) {
@@ -787,15 +787,17 @@ class Header
      *
      * @return string
      */
-    private function _addRecentTable($db, $table)
+    private function _addRecentTable(string $db, string $table): string
     {
         $retval = '';
         if ($this->_menuEnabled
             && strlen($table) > 0
             && $GLOBALS['cfg']['NumRecentTables'] > 0
         ) {
-            $tmp_result = RecentFavoriteTable::getInstance('recent')
-                              ->add($db, $table);
+            $tmp_result = RecentFavoriteTable::getInstance('recent')->add(
+                $db,
+                $table
+            );
             if ($tmp_result === true) {
                 $retval = RecentFavoriteTable::getHtmlUpdateRecentTables();
             } else {
@@ -812,7 +814,7 @@ class Header
      *
      * @return string urlenocded pma version as a parameter
      */
-    public static function getVersionParameter()
+    public static function getVersionParameter(): string
     {
         return "v=" . urlencode(PMA_VERSION);
     }
