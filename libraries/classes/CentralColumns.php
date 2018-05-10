@@ -823,13 +823,8 @@ class CentralColumns
          int $pos,
          string $db
      ): string {
-         $icon = Util::getIcon(
-             'centralColumns_add',
-             __('Add column')
-         );
          $table_drop_down = $this->getHtmlForTableDropdown($db);
          return Template::get('database/central_columns/add_column')->render(array(
-             'icon' => $icon,
              'pos' => $pos,
              'db' => $db,
              'total_rows' => $total_rows,

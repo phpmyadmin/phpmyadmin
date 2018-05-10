@@ -2,9 +2,9 @@
     <tr>
         <td class="navigation_separator largescreenonly"></td>
         <td class="central_columns_navigation">
-            {{ icon|raw }}
+            {{ Util_getIcon('centralColumns_add', 'Add column'|trans)|raw }}
             <form id="add_column" action="db_central_columns.php" method="post">
-                {{ Url_getHiddenInputs(db)}}
+                {{ Url_getHiddenInputs(db) |raw }}
                 <input type="hidden" name="add_column" value="add">
                 <input type="hidden" name="pos" value="{{ pos }}" />
                 <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
