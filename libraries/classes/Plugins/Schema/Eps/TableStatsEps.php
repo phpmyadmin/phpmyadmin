@@ -108,10 +108,10 @@ class TableStatsEps extends TableStats
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                Font::getStringWidth($field, $font, $fontSize)
+                $this->font->getStringWidth($field, $font, $fontSize)
             );
         }
-        $this->width += Font::getStringWidth(
+        $this->width += $this->font->getStringWidth(
             '      ',
             $font,
             $fontSize
@@ -121,7 +121,7 @@ class TableStatsEps extends TableStats
         * table title is affected by the table width value
         */
         while ($this->width
-            < Font::getStringWidth(
+            < $this->font->getStringWidth(
                 $this->getTitle(),
                 $font,
                 $fontSize

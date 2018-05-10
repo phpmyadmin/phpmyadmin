@@ -8,6 +8,7 @@
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
@@ -43,6 +44,11 @@ abstract class TableStats
     protected $relation;
 
     /**
+     * @var Font
+     */
+    protected $font;
+
+    /**
      * Constructor
      *
      * @param object  $diagram        schema diagram
@@ -69,6 +75,7 @@ abstract class TableStats
         $this->offline    = $offline;
 
         $this->relation = new Relation();
+        $this->font = new Font();
 
         // checks whether the table exists
         // and loads fields

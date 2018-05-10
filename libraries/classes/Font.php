@@ -20,7 +20,7 @@ class Font
      * @return array with characters and corresponding width modifier
      * @access public
      */
-    public static function getCharLists()
+    public function getCharLists()
     {
         // list of characters and their width modifiers
         $charLists = array();
@@ -86,13 +86,13 @@ class Font
      * @return integer width of the text
      * @access public
      */
-    public static function getStringWidth($text, $font, $fontSize, $charLists = null)
+    public function getStringWidth($text, $font, $fontSize, $charLists = null)
     {
         if (empty($charLists) || !is_array($charLists)
             || !isset($charLists[0]["chars"]) || !is_array($charLists[0]["chars"])
             || !isset($charLists[0]["modifier"])
         ) {
-            $charLists = self::getCharLists();
+            $charLists = $this->getCharLists();
         }
 
         /*
