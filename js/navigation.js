@@ -1618,7 +1618,7 @@ PMA_fastFilter.filter.prototype.restore = function (focus) {
  * @return void
  */
 function PMA_showFullName ($containerELem) {
-    $containerELem.find('.hover_show_full').mouseenter(function () {
+    $containerELem.find('.hover_show_full').on('mouseenter', function () {
         /** mouseenter */
         var $this = $(this);
         var thisOffset = $this.offset();
@@ -1635,7 +1635,7 @@ function PMA_showFullName ($containerELem) {
                     /** mouseleave */
                     $(this).addClass('hide')
                         .removeClass('hovering');
-                }).mouseenter(function () {
+                }).on('mouseenter', function () {
                     /** mouseenter */
                     $(this).addClass('hovering');
                 });

@@ -1588,7 +1588,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         g.dragStartReorder(e, this);
                     }
                 })
-                .mouseenter(function () {
+                .on('mouseenter', function () {
                     if (g.visibleHeadersCount > 1) {
                         $(this).css('cursor', 'move');
                     } else {
@@ -1738,7 +1738,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             }
 
             // hide column visibility list if we move outside the list
-            $(g.t).find('td, th.draggable').mouseenter(function () {
+            $(g.t).find('td, th.draggable').on('mouseenter', function () {
                 g.hideColList();
             });
 
@@ -2202,7 +2202,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
     // register events for hint tooltip (anchors inside draggable th)
     $(t).find('th.draggable a')
-        .mouseenter(function () {
+        .on('mouseenter', function () {
             g.showSortHint = true;
             g.showMultiSortHint = true;
             $(t).find('th.draggable').tooltip('option', {
