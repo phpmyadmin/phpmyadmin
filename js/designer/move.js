@@ -621,7 +621,7 @@ function Add_Other_db_tables () {
             }
         });
 
-    $('#add_table_from').change(function () {
+    $('#add_table_from').on('change', function () {
         if ($(this).val()) {
             var db_name = $(this).val();
             var sql_query = 'SHOW tables;';
@@ -1093,7 +1093,7 @@ function Export_pages () {
                 $form.append(input);
             });
             var $formatDropDown = $form.find('#plugins');
-            $formatDropDown.change(function () {
+            $formatDropDown.on('change', function () {
                 var format = $formatDropDown.val();
                 $form.find('.format_specific_options').hide();
                 $form.find('#' + format + '_options').show();

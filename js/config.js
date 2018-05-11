@@ -742,7 +742,7 @@ AJAX.registerOnload('config.js', function () {
     if (ls_exists) {
         updatePrefsDate();
     }
-    $('form.prefs-form').change(function () {
+    $('form.prefs-form').on('change', function () {
         var $form = $(this);
         var disabled = false;
         if (!ls_supported) {

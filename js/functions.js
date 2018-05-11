@@ -2985,7 +2985,7 @@ AJAX.registerOnload('functions.js', function () {
             col = col[0];
             var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
             if ($selectFieldKey.val() === 'none_' + col) {
-                $selectFieldKey.val('primary_' + col).change();
+                $selectFieldKey.val('primary_' + col).trigger('change');
             }
         }
     });
@@ -3306,7 +3306,7 @@ function autoPopulate (input_id, offset) {
         $input6.val(central_column_list[db + '_' + table][offset].col_extra);
     }
     if (central_column_list[db + '_' + table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
-        $('#' + input_id + '9').prop('checked',true).change();
+        $('#' + input_id + '9').prop('checked',true).trigger('change');
     } else {
         $('#' + input_id + '9').prop('checked',false);
     }
@@ -3713,7 +3713,7 @@ AJAX.registerOnload('functions.js', function () {
                 );
             $newrow.find(':input').each(tempEmptyVal);
             // focus index size input on column picked
-            $newrow.find('select').change(tempSetFocus);
+            $newrow.find('select').on('change', tempSetFocus);
         }
     });
 });
@@ -3850,7 +3850,7 @@ function showIndexEditDialog ($outer) {
     });
     $('div.add_fields').removeClass('hide');
     // focus index size input on column picked
-    $outer.find('table#index_columns select').change(function () {
+    $outer.find('table#index_columns select').on('change', function () {
         if ($(this).find('option:selected').val() === '') {
             return true;
         }

@@ -23,17 +23,17 @@ AJAX.registerOnload('server_status_variables.js', function () {
     var text = ''; // Holds filter text
 
     /* 3 Filtering functions */
-    $('#filterAlert').change(function () {
+    $('#filterAlert').on('change', function () {
         alertFilter = this.checked;
         filterVariables();
     });
 
-    $('#filterCategory').change(function () {
+    $('#filterCategory').on('change', function () {
         categoryFilter = $(this).val();
         filterVariables();
     });
 
-    $('#dontFormat').change(function () {
+    $('#dontFormat').on('change', function () {
         // Hiding the table while changing values speeds up the process a lot
         $('#serverstatusvariables').hide();
         $('#serverstatusvariables').find('td.value span.original').toggle(this.checked);

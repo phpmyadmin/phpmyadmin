@@ -228,7 +228,7 @@ AJAX.registerOnload('sql.js', function () {
             // If sql query with sort for current table is stored, change sort by key select value
             var sortStoredQuery = (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql_sort !== 'undefined') ? window.localStorage.auto_saved_sql_sort : Cookies.get('auto_saved_sql_sort');
             if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
-                $('select[name="sql_query"]').val(sortStoredQuery).change();
+                $('select[name="sql_query"]').val(sortStoredQuery).trigger('change');
             }
         }
     });

@@ -147,7 +147,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
      **/
 
     // first column choice corresponds to the X axis
-    $('#tableid_0').change(function () {
+    $('#tableid_0').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
@@ -171,7 +171,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     });
 
     // second column choice corresponds to the Y axis
-    $('#tableid_1').change(function () {
+    $('#tableid_1').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
@@ -194,7 +194,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         });
     });
 
-    $('#tableid_2').change(function () {
+    $('#tableid_2').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
@@ -215,7 +215,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         });
     });
 
-    $('#tableid_3').change(function () {
+    $('#tableid_3').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,

@@ -273,7 +273,7 @@ AJAX.registerOnload('export.js', function () {
      * Toggles the hiding and showing of each plugin's options
      * according to the currently selected plugin from the dropdown list
      */
-    $('#plugins').change(function () {
+    $('#plugins').on('change', function () {
         $('#format_specific_opts').find('div.format_specific_options').hide();
         var selected_plugin_name = $('#plugins').find('option:selected').val();
         $('#' + selected_plugin_name + '_options').show();
@@ -282,7 +282,7 @@ AJAX.registerOnload('export.js', function () {
     /**
      * Toggles the enabling and disabling of the SQL plugin's comment options that apply only when exporting structure
      */
-    $('input[type=\'radio\'][name=\'sql_structure_or_data\']').change(function () {
+    $('input[type=\'radio\'][name=\'sql_structure_or_data\']').on('change', function () {
         var comments_are_present = $('#checkbox_sql_include_comments').prop('checked');
         var show = $('input[type=\'radio\'][name=\'sql_structure_or_data\']:checked').val();
         if (show === 'data') {
@@ -309,13 +309,13 @@ AJAX.registerOnload('export.js', function () {
     });
 
     // For separate-file exports only ZIP compression is allowed
-    $('input[type="checkbox"][name="as_separate_files"]').change(function () {
+    $('input[type="checkbox"][name="as_separate_files"]').on('change', function () {
         if ($(this).is(':checked')) {
             $('#compression').val('zip');
         }
     });
 
-    $('#compression').change(function () {
+    $('#compression').on('change', function () {
         if ($('option:selected').val() !== 'zip') {
             $('input[type="checkbox"][name="as_separate_files"]').prop('checked', false);
         }
@@ -413,14 +413,14 @@ function toggle_save_to_file () {
 
 AJAX.registerOnload('export.js', function () {
     toggle_save_to_file();
-    $('input[type=\'radio\'][name=\'output_format\']').change(toggle_save_to_file);
+    $('input[type=\'radio\'][name=\'output_format\']').on('change', toggle_save_to_file);
 });
 
 /**
  * For SQL plugin, toggles the disabling of the "display comments" options
  */
 function toggle_sql_include_comments () {
-    $('#checkbox_sql_include_comments').change(function () {
+    $('#checkbox_sql_include_comments').on('change', function () {
         var $ulIncludeComments = $('#ul_include_comments');
         if (!$('#checkbox_sql_include_comments').prop('checked')) {
             $ulIncludeComments.find('> li').fadeTo('fast', 0.4);
@@ -547,10 +547,10 @@ AJAX.registerOnload('export.js', function () {
      */
     var $create = $('#checkbox_sql_create_table_statements');
     var $create_options = $('#ul_create_table_statements').find('input');
-    $create.change(function () {
+    $create.on('change', function () {
         $create_options.prop('checked', $(this).prop('checked'));
     });
-    $create_options.change(function () {
+    $create_options.on('change', function () {
         if ($create_options.is(':checked')) {
             $create.prop('checked', true);
         }
@@ -559,7 +559,7 @@ AJAX.registerOnload('export.js', function () {
     /**
      * Disables the view output as text option if the output must be saved as a file
      */
-    $('#plugins').change(function () {
+    $('#plugins').on('change', function () {
         var active_plugin = $('#plugins').find('option:selected').val();
         var force_file = $('#force_file_' + active_plugin).val();
         if (force_file === 'true') {
@@ -648,7 +648,7 @@ AJAX.registerOnload('export.js', function () {
     /**
      * Handle force structure_or_data
      */
-    $('#plugins').change(setup_table_structure_or_data);
+    $('#plugins').on('change', setup_table_structure_or_data);
 });
 
 /**
@@ -731,7 +731,7 @@ function aliasSelectHandler (event) {
             $inputWrapper.replaceWith(newTag);
         }
     } else if (type === '_tables') {
-        $('.table_alias_select:visible').change();
+        $('.table_alias_select:visible').trigger('change');
     }
     $('#alias_modal').dialog('option', 'position', 'center');
 }
@@ -763,7 +763,7 @@ function createAliasModal (event) {
                 var option = $('<option></option>');
                 option.text(db);
                 option.attr('value', db);
-                $('#db_alias_select').append(option).val(db).change();
+                $('#db_alias_select').append(option).val(db).trigger('change');
             } else {
                 var params = {
                     ajax_request : true,
@@ -833,7 +833,7 @@ function addAlias (type, name, field, value) {
 }
 
 AJAX.registerOnload('export.js', function () {
-    $('input[type=\'radio\'][name=\'quick_or_custom\']').change(toggle_quick_or_custom);
+    $('input[type=\'radio\'][name=\'quick_or_custom\']').on('change', toggle_quick_or_custom);
 
     $('#scroll_to_options_msg').hide();
     $('#format_specific_opts').find('div.format_specific_options')
@@ -859,7 +859,7 @@ AJAX.registerOnload('export.js', function () {
     /**
      * Disables the "Dump some row(s)" sub-options when it is not selected
      */
-    $('input[type=\'radio\'][name=\'allrows\']').change(function () {
+    $('input[type=\'radio\'][name=\'allrows\']').on('change', function () {
         if ($('input[type=\'radio\'][name=\'allrows\']').prop('checked')) {
             enable_dump_some_rows_sub_options();
         } else {
@@ -880,7 +880,7 @@ AJAX.registerOnload('export.js', function () {
             var option = $('<option></option>');
             option.text(table);
             option.attr('value', table);
-            $('#table_alias_select').append(option).val(table).change();
+            $('#table_alias_select').append(option).val(table).trigger('change');
         } else {
             var params = {
                 ajax_request : true,

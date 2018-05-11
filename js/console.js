@@ -152,7 +152,7 @@ var PMA_console = {
                 PMA_console.hideCard($(this).closest('.card'));
             });
 
-            $('#pma_console_options').find('input[type=checkbox]').change(function () {
+            $('#pma_console_options').find('input[type=checkbox]').on('change', function () {
                 PMA_console.updateConfig();
             });
 
@@ -165,7 +165,7 @@ var PMA_console = {
                 PMA_console.updateConfig();
             });
 
-            $('#pma_console_options').find('input[name=enter_executes]').change(function () {
+            $('#pma_console_options').find('input[name=enter_executes]').on('change', function () {
                 PMA_consoleMessages.showInstructions(PMA_console.config.EnterExecutes);
             });
 

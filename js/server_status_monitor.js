@@ -400,7 +400,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     });
 
     // global settings
-    $('div.popupContent select[name="chartColumns"]').change(function () {
+    $('div.popupContent select[name="chartColumns"]').on('change', function () {
         monitorSettings.columns = parseInt(this.value, 10);
 
         calculateChartSize();
@@ -466,7 +466,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         saveMonitor(); // Save settings
     });
 
-    $('div.popupContent select[name="gridChartRefresh"]').change(function () {
+    $('div.popupContent select[name="gridChartRefresh"]').on('change', function () {
         monitorSettings.gridRefresh = parseInt(this.value, 10) * 1000;
         clearTimeout(runtime.refreshTimeout);
 
@@ -524,7 +524,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             $.each(presetCharts, function (key, value) {
                 $presetList.append('<option value="' + key + '">' + value.title + '</option>');
             });
-            $presetList.change(function () {
+            $presetList.on('change', function () {
                 $('input[name="chartTitle"]').val(
                     $presetList.find(':selected').text()
                 );
@@ -540,7 +540,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     $('#chartSeries').find(':selected').text().replace(/_/g, ' ')
                 );
             });
-            $('#chartSeries').change(function () {
+            $('#chartSeries').on('change', function () {
                 $('input[name="chartTitle"]').val(
                     $('#chartSeries').find(':selected').text().replace(/_/g, ' ')
                 );
@@ -809,7 +809,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         return false;
     });
 
-    $('input[name="chartType"]').change(function () {
+    $('input[name="chartType"]').on('change', function () {
         $('#chartVariableSettings').toggle(this.checked && this.value === 'variable');
         var title = $('input[name="chartTitle"]').val();
         if (title === PMA_messages.strChartTitle ||
@@ -821,15 +821,15 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }
     });
 
-    $('input[name="useDivisor"]').change(function () {
+    $('input[name="useDivisor"]').on('change', function () {
         $('span.divisorInput').toggle(this.checked);
     });
 
-    $('input[name="useUnit"]').change(function () {
+    $('input[name="useUnit"]').on('change', function () {
         $('span.unitInput').toggle(this.checked);
     });
 
-    $('select[name="varChartList"]').change(function () {
+    $('select[name="varChartList"]').on('change', function () {
         if (this.selectedIndex !== 0) {
             $('#variableInput').val(this.value);
         }
@@ -1652,7 +1652,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         '</fieldset>'
                     );
 
-                    $('#noWHEREData').change(function () {
+                    $('#noWHEREData').on('change', function () {
                         filterQueries(true);
                     });
 

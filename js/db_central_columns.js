@@ -190,7 +190,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
             }
         });
     });
-    $('#table-select').change(function (e) {
+    $('#table-select').on('change', function (e) {
         var selectvalue = $(this).val();
         var default_column_select = $('#column-select').find('option:first');
         var href = 'db_central_columns.php';
@@ -228,7 +228,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
     $('#add_new').submit(function (event) {
         $('#add_new').toggle();
     });
-    $('#tableslistcontainer').find('select.default_type').change(function () {
+    $('#tableslistcontainer').find('select.default_type').on('change', function () {
         if ($(this).val() === 'USER_DEFINED') {
             $(this).siblings('.default_value').attr('name','col_default');
             $(this).attr('name','col_default_sel');

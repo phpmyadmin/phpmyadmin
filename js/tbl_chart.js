@@ -323,25 +323,25 @@ AJAX.registerOnload('tbl_chart.js', function () {
         });
 
     // handle changing the x-axis
-    $('select[name="chartXAxis"]').change(function () {
+    $('select[name="chartXAxis"]').on('change', function () {
         onXAxisChange();
         drawChart();
     });
 
     // handle changing the selected data series
-    $('select[name="chartSeries"]').change(function () {
+    $('select[name="chartSeries"]').on('change', function () {
         onDataSeriesChange();
         drawChart();
     });
 
     // handle changing the series column
-    $('select[name="chartSeriesColumn"]').change(function () {
+    $('select[name="chartSeriesColumn"]').on('change', function () {
         currentSettings.seriesColumn = parseInt($(this).val(), 10);
         drawChart();
     });
 
     // handle changing the value column
-    $('select[name="chartValueColumn"]').change(function () {
+    $('select[name="chartValueColumn"]').on('change', function () {
         currentSettings.valueColumn = parseInt($(this).val(), 10);
         drawChart();
     });

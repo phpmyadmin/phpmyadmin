@@ -887,7 +887,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         // hide the value next to 'Browse foreign values' link
                         $editArea.find('span.curr_value').hide();
                         // handle update for new values selected from new window
-                        $editArea.find('span.curr_value').change(function () {
+                        $editArea.find('span.curr_value').on('change', function () {
                             $(g.cEdit).find('.edit_box').val($(this).text());
                         });
                     }); // end $.post()

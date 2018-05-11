@@ -46,8 +46,8 @@ AJAX.registerTeardown('replication.js', function () {
 
 AJAX.registerOnload('replication.js', function () {
     $('#rep').text(conf_prefix);
-    $('#db_type').change(update_config);
-    $('#db_select').change(update_config);
+    $('#db_type').on('change', update_config);
+    $('#db_select').on('change', update_config);
 
     $('#master_status_href').click(function () {
         $('#replication_master_section').toggle();
