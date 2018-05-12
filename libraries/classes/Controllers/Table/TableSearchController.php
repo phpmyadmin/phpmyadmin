@@ -1020,7 +1020,10 @@ class TableSearchController extends TableController
         $geom_funcs = Util::getGISFunctions($types, true, false);
 
         // If the function takes multiple parameters
-        if ($geom_funcs[$geom_func]['params'] > 1) {
+        if(strpos($func_type, "IS NULL") !== false || strpos($func_type, "IS NOT NULL") !== false) {
+            $where = Util::backquote($names) . " " . $func_type;
+            return $where;
+        } elseif ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
             $gis_data = Util::createGISData($criteriaValues);
             $where = $geom_func . '(' . Util::backquote($names)
