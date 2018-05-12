@@ -1755,7 +1755,6 @@ function Close_option () {
     document.getElementById('h_operator').value = '---';
     document.getElementById('having').value = '';
     document.getElementById('orderby').value = '---';
-
 }
 
 function Select_all (id_this, owner) {
