@@ -92,7 +92,7 @@ AJAX.registerOnload('server_variables.js', function () {
                     .data('content', $valueCell.html())
                     .html($editor)
                     .find('input')
-                    .trigger('focus')
+                    .focus()
                     .on('keydown', function (event) { // Keyboard shortcuts
                         if (event.keyCode === 13) { // Enter key
                             $mySaveLink.trigger('click');

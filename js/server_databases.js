@@ -102,7 +102,7 @@ AJAX.registerOnload('server_databases.js', function () {
         // TODO Remove this section when all browsers support HTML5 "required" property
         var newDbNameInput = $form.find('input[name=new_db]');
         if (newDbNameInput.val() === '') {
-            newDbNameInput.trigger('focus');
+            newDbNameInput.focus();
             alert(PMA_messages.strFormEmpty);
             return;
         }

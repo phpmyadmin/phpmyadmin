@@ -743,7 +743,7 @@ AJAX.registerOnload('sql.js', function () {
 
         if (query.length === 0) {
             alert(PMA_messages.strFormEmpty);
-            $('#sqlquery').trigger('focus');
+            $('#sqlquery').focus();
             return false;
         }
 

@@ -17,13 +17,13 @@
 function checkAddUser (the_form) {
     if (the_form.elements.pred_hostname.value === 'userdefined' && the_form.elements.hostname.value === '') {
         alert(PMA_messages.strHostEmpty);
-        the_form.elements.hostname.trigger('focus');
+        the_form.elements.hostname.focus();
         return false;
     }
 
     if (the_form.elements.pred_username.value === 'userdefined' && the_form.elements.username.value === '') {
         alert(PMA_messages.strUserEmpty);
-        the_form.elements.username.trigger('focus');
+        the_form.elements.username.focus();
         return false;
     }
 
@@ -466,7 +466,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
     };
 
-    $('input.autofocus').trigger('focus');
+    $('input.autofocus').focus();
     $(checkboxes_sel).trigger('change');
     displayPasswordGenerateButton();
     if ($('#edit_user_dialog').length > 0) {

@@ -606,7 +606,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     $(g.cEdit).find('.edit_box').val(value);
 
                     g.currentEditCell = cell;
-                    $(g.cEdit).find('.edit_box').trigger('focus');
+                    $(g.cEdit).find('.edit_box').focus();
                     moveCursorToEnd($(g.cEdit).find('.edit_box'));
                     $(g.cEdit).find('*').prop('disabled', false);
                 }
@@ -616,7 +616,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 var originalValue = input.val();
                 var originallength = originalValue.length;
                 input.val('');
-                input.blur().trigger('focus').val(originalValue);
+                input.blur().focus().val(originalValue);
                 input[0].setSelectionRange(originallength, originallength);
             }
         },
@@ -1616,7 +1616,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                             resizable: false,
                             modal: true
                         })
-                        .find('input').trigger('focus').select();
+                        .find('input').focus().select();
                 });
             $(g.t).find('th.draggable a')
                 .dblclick(function (e) {
@@ -2032,7 +2032,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
             $(g.cEditStd).on('keydown', 'input.edit_box, select', handleCtrlNavigation);
 
-            $(g.cEditStd).find('.edit_box').on('focus', function () {
+            $(g.cEditStd).find('.edit_box').focus(function () {
                 g.showEditArea();
             });
             $(g.cEditStd).on('keydown', '.edit_box, select', function (e) {
@@ -2051,7 +2051,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
             $(g.cEditTextarea).on('keydown', 'textarea.edit_box, select', handleCtrlNavigation);
 
-            $(g.cEditTextarea).find('.edit_box').on('focus', function () {
+            $(g.cEditTextarea).find('.edit_box').focus(function () {
                 g.showEditArea();
             });
             $(g.cEditTextarea).on('keydown', '.edit_box, select', function (e) {

@@ -309,7 +309,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
 
     // handle changes in chart title
     $('input[name="chartTitle"]')
-        .on('focus', function () {
+        .focus(function () {
             temp_chart_title = $(this).val();
         })
         .on('keyup', function () {

@@ -135,7 +135,7 @@ var PMA_console = {
 
             PMA_console.$consoleContent.on('click', function (event) {
                 if (event.target === this) {
-                    PMA_consoleInput.trigger('focus');
+                    PMA_consoleInput.focus();
                 }
             });
 
@@ -292,7 +292,7 @@ var PMA_console = {
             'fast', 'easeOutQuart', function () {
                 $(window).trigger('resize');
                 if (inputFocus) {
-                    PMA_consoleInput.trigger('focus');
+                    PMA_consoleInput.focus();
                 }
             });
     },
@@ -664,7 +664,7 @@ var PMA_consoleInput = {
      * @return void
      */
     focus: function () {
-        PMA_consoleInput._inputs.console.trigger('focus');
+        PMA_consoleInput._inputs.console.focus();
     },
     /**
      * Used for blur input
@@ -873,7 +873,7 @@ var PMA_consoleMessages = {
         });
         $targetMessage.find('.action.edit').on('click', function () {
             PMA_consoleInput.setText($(this).parent().siblings('.query').text());
-            PMA_consoleInput.trigger('focus');
+            PMA_consoleInput.focus();
         });
         $targetMessage.find('.action.requery').on('click', function () {
             var query = $(this).parent().siblings('.query').text();
