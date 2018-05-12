@@ -272,7 +272,7 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
-    $('input#bkm_label').keyup(function () {
+    $('input#bkm_label').on('keyup', function () {
         $('input#id_bkm_all_users, input#id_bkm_replace')
             .parent()
             .toggle($(this).val().length > 0);

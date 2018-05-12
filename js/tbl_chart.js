@@ -312,7 +312,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
         .focus(function () {
             temp_chart_title = $(this).val();
         })
-        .keyup(function () {
+        .on('keyup', function () {
             currentSettings.title = $('input[name="chartTitle"]').val();
             drawChart();
         })
@@ -347,13 +347,13 @@ AJAX.registerOnload('tbl_chart.js', function () {
     });
 
     // handle manual changes to the chart x-axis labels
-    $('input[name="xaxis_label"]').keyup(function () {
+    $('input[name="xaxis_label"]').on('keyup', function () {
         currentSettings.xaxisLabel = $(this).val();
         drawChart();
     });
 
     // handle manual changes to the chart y-axis labels
-    $('input[name="yaxis_label"]').keyup(function () {
+    $('input[name="yaxis_label"]').on('keyup', function () {
         currentSettings.yaxisLabel = $(this).val();
         drawChart();
     });

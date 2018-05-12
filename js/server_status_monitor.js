@@ -1659,7 +1659,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     if (logData.numRows > 250) {
                         $('#startFilterQueryText').on('click', filterQueries);
                     } else {
-                        $('#filterQueryText').keyup(filterQueries);
+                        $('#filterQueryText').on('keyup', filterQueries);
                     }
                 }
 

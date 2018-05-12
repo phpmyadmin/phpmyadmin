@@ -517,7 +517,7 @@ function setupValidation () {
         var tagName = $el.attr('tagName');
         // text fields can be validated after each change
         if (tagName === 'INPUT' && $el.attr('type') === 'text') {
-            $el.keyup(function () {
+            $el.on('keyup', function () {
                 validate_field_and_fieldset($el, true);
                 markField($el);
             });
