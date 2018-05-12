@@ -34,7 +34,7 @@ AJAX.registerOnload('db_search.js', function () {
     $('#table-info').prepend(icon).hide();
 
     /** Hide the browse and deleted results in the new search criteria */
-    $('#buttonGo').click(function () {
+    $('#buttonGo').on('click', function () {
         $('#table-info').hide();
         $('#browse-results').hide();
         $('#sqlqueryform').hide();
@@ -183,7 +183,7 @@ AJAX.registerOnload('db_search.js', function () {
 
                 $('#sqlqueryform').html(data.sql_query);
                 /** Refresh the search results after the deletion */
-                document.getElementById('buttonGo').click();
+                document.getElementById('buttonGo').trigger('click');
                 $('#togglequerybox').html(PMA_messages.strHideQueryBox);
                 /** Show the results of the deletion option */
                 $('#browse-results').hide();

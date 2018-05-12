@@ -153,7 +153,7 @@ var PMA_commonActions = {
         url += PMA_commonParams.getUrlQuery();
         $('<a />', { href: url })
             .appendTo('body')
-            .click()
+            .trigger('click')
             .remove();
         AJAX._callback = callback;
     }

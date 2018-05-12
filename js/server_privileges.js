@@ -439,7 +439,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         });
 
         // click handlers for submenu
-        $topmenu2.find('a').click(function (e) {
+        $topmenu2.find('a').on('click', function (e) {
             e.preventDefault();
             // if already active, ignore click
             if ($(this).hasClass('tabactive')) {

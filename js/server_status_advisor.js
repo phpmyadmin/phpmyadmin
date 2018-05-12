@@ -27,7 +27,7 @@ AJAX.registerOnload('server_status_advisor.js', function () {
         .attr('id', 'instructionsDialog')
         .html($('#advisorInstructionsDialog').html());
 
-    $('a[href="#openAdvisorInstructions"]').click(function () {
+    $('a[href="#openAdvisorInstructions"]').on('click', function () {
         var dlgBtns = {};
         dlgBtns[PMA_messages.strClose] = function () {
             $(this).dialog('close');
@@ -77,7 +77,7 @@ AJAX.registerOnload('server_status_advisor.js', function () {
             even = !even;
             $tr.data('rule', value);
 
-            $tr.click(function () {
+            $tr.on('click', function () {
                 var rule = $(this).data('rule');
                 $dialog
                     .dialog({ title: PMA_messages.strRuleDetails })

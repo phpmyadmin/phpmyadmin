@@ -516,7 +516,7 @@ AJAX.registerOnload('sql.js', function () {
             // because when you are in the Bookmarked SQL query
             // section and hit enter, you expect it to do the
             // same action as the Go button in that section.
-            $('#button_submit_bookmark').click();
+            $('#button_submit_bookmark').trigger('click');
             return false;
         } else  {
             return true;

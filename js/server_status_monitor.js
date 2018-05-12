@@ -32,7 +32,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
     $('#addChartDialog')
         .appendTo('#page_content');
 
-    $('a.popupLink').click(function () {
+    $('a.popupLink').on('click', function () {
         var $link = $(this);
         $('div.' + $link.attr('href').substr(1))
             .show()
@@ -41,7 +41,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         return false;
     });
-    $('body').click(function (event) {
+    $('body').on('click', function (event) {
         $('div.openedPopup').each(function () {
             var $cnt = $(this);
             var pos = $cnt.offset();
@@ -371,7 +371,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         defaultChartGrid.c5 = presetCharts.swap;
     }
 
-    $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').click(function (event) {
+    $('a[href="#rearrangeCharts"], a[href="#endChartEditMode"]').on('click', function (event) {
         event.preventDefault();
         editMode = !editMode;
         if ($(this).attr('href') === '#endChartEditMode') {
@@ -482,7 +482,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         saveMonitor(); // Save settings
     });
 
-    $('a[href="#addNewChart"]').click(function (event) {
+    $('a[href="#addNewChart"]').on('click', function (event) {
         event.preventDefault();
         var dlgButtons = { };
 
@@ -530,12 +530,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 );
                 $('#chartPreset').prop('checked', true);
             });
-            $('#chartPreset').click(function () {
+            $('#chartPreset').on('click', function () {
                 $('input[name="chartTitle"]').val(
                     $presetList.find(':selected').text()
                 );
             });
-            $('#chartStatusVar').click(function () {
+            $('#chartStatusVar').on('click', function () {
                 $('input[name="chartTitle"]').val(
                     $('#chartSeries').find(':selected').text().replace(/_/g, ' ')
                 );
@@ -558,7 +558,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         return false;
     });
 
-    $('a[href="#exportMonitorConfig"]').click(function (event) {
+    $('a[href="#exportMonitorConfig"]').on('click', function (event) {
         event.preventDefault();
         var gridCopy = {};
         $.each(runtime.charts, function (key, elem) {
@@ -578,7 +578,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         window.URL.revokeObjectURL(url);
     });
 
-    $('a[href="#importMonitorConfig"]').click(function (event) {
+    $('a[href="#importMonitorConfig"]').on('click', function (event) {
         event.preventDefault();
         $('#emptyDialog').dialog({ title: PMA_messages.strImportDialogTitle });
         $('#emptyDialog').html(PMA_messages.strImportDialogMessage + ':<br/><form>' +
@@ -644,7 +644,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         });
     });
 
-    $('a[href="#clearMonitorConfig"]').click(function (event) {
+    $('a[href="#clearMonitorConfig"]').on('click', function (event) {
         event.preventDefault();
         if (isStorageSupported('localStorage')) {
             window.localStorage.removeItem('monitorCharts');
@@ -655,7 +655,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         rebuildGrid();
     });
 
-    $('a[href="#pauseCharts"]').click(function (event) {
+    $('a[href="#pauseCharts"]').on('click', function (event) {
         event.preventDefault();
         runtime.redrawCharts = ! runtime.redrawCharts;
         if (! runtime.redrawCharts) {
@@ -670,7 +670,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         return false;
     });
 
-    $('a[href="#monitorInstructionsDialog"]').click(function (event) {
+    $('a[href="#monitorInstructionsDialog"]').on('click', function (event) {
         event.preventDefault();
 
         var $dialog = $('#monitorInstructionsDialog');
@@ -794,7 +794,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
                     $dialog.find('div.ajaxContent').html(str);
                     $dialog.find('img.ajaxIcon').hide();
-                    $dialog.find('a.set').click(function () {
+                    $dialog.find('a.set').on('click', function () {
                         var nameValue = $(this).attr('href').split('-');
                         loadLogVars({ varName: nameValue[0].substr(1), varValue: nameValue[1] });
                         $dialog.find('img.ajaxIcon').show();
@@ -835,7 +835,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         }
     });
 
-    $('a[href="#kibDivisor"]').click(function (event) {
+    $('a[href="#kibDivisor"]').on('click', function (event) {
         event.preventDefault();
         $('input[name="valueDivisor"]').val(1024);
         $('input[name="valueUnit"]').val(PMA_messages.strKiB);
@@ -844,7 +844,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         return false;
     });
 
-    $('a[href="#mibDivisor"]').click(function (event) {
+    $('a[href="#mibDivisor"]').on('click', function (event) {
         event.preventDefault();
         $('input[name="valueDivisor"]').val(1024 * 1024);
         $('input[name="valueUnit"]').val(PMA_messages.strMiB);
@@ -853,14 +853,14 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         return false;
     });
 
-    $('a[href="#submitClearSeries"]').click(function (event) {
+    $('a[href="#submitClearSeries"]').on('click', function (event) {
         event.preventDefault();
         $('#seriesPreview').html('<i>' + PMA_messages.strNone + '</i>');
         newChart = null;
         $('#clearSeriesLink').hide();
     });
 
-    $('a[href="#submitAddSeries"]').click(function (event) {
+    $('a[href="#submitAddSeries"]').on('click', function (event) {
         event.preventDefault();
         if ($('#variableInput').val() === '') {
             return false;
@@ -1657,7 +1657,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     });
 
                     if (logData.numRows > 250) {
-                        $('#startFilterQueryText').click(filterQueries);
+                        $('#startFilterQueryText').on('click', filterQueries);
                     } else {
                         $('#filterQueryText').keyup(filterQueries);
                     }
@@ -1896,7 +1896,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 // Assuming the query column is the second last
                 if (j === cols.length - 2 && rows[i][cols[j]].match(/^SELECT/i)) {
                     $tRow.append($tCell = $('<td class="linkElem">' + formatValue(cols[j], rows[i][cols[j]]) + '</td>'));
-                    $tCell.click(openQueryAnalyzer);
+                    $tCell.on('click', openQueryAnalyzer);
                 } else {
                     $tRow.append('<td>' + formatValue(cols[j], rows[i][cols[j]]) + '</td>');
                 }
@@ -2051,7 +2051,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
             $('#queryAnalyzerDialog').find('div.placeHolder td.explain').append(explain);
 
-            $('#queryAnalyzerDialog').find('div.placeHolder a[href*="#showExplain"]').click(function () {
+            $('#queryAnalyzerDialog').find('div.placeHolder a[href*="#showExplain"]').on('click', function () {
                 var id = $(this).attr('href').split('-')[1];
                 $(this).parent().find('div[class*="explain"]').hide();
                 $(this).parent().find('div[class*="explain-' + id + '"]').show();
@@ -2094,13 +2094,13 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                     '(<a href="#showNums">' + PMA_messages.strTable + '</a>, <a href="#showChart">' + PMA_messages.strChart + '</a>)<br/>' +
                     numberTable + ' <div id="queryProfiling"></div>');
 
-                $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showNums"]').click(function () {
+                $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showNums"]').on('click', function () {
                     $('#queryAnalyzerDialog').find('#queryProfiling').hide();
                     $('#queryAnalyzerDialog').find('table.queryNums').show();
                     return false;
                 });
 
-                $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showChart"]').click(function () {
+                $('#queryAnalyzerDialog').find('div.placeHolder a[href="#showChart"]').on('click', function () {
                     $('#queryAnalyzerDialog').find('#queryProfiling').show();
                     $('#queryAnalyzerDialog').find('table.queryNums').hide();
                     return false;

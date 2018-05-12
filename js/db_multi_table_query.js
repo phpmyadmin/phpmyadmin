@@ -185,7 +185,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
                     });
                 });
                 $('#sql_results').html($results_dom);
-                $('#page_content').find('a').first().click();
+                $('#page_content').find('a').first().trigger('click');
             }
         });
     });

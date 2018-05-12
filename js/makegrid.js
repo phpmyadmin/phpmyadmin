@@ -825,7 +825,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     }
 
                     // if null checkbox is clicked empty the corresponding select/editor.
-                    $checkbox.click(function () {
+                    $checkbox.on('click', function () {
                         if ($td.is('.enum')) {
                             $editArea.find('select').val('');
                         } else if ($td.is('.set')) {
@@ -1073,7 +1073,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     $(g.cEdit).append(datepicker_div);
 
                     // cancel any click on the datepicker element
-                    $editArea.find('> *').click(function (e) {
+                    $editArea.find('> *').on('click', function (e) {
                         e.stopPropagation();
                     });
 
@@ -1623,7 +1623,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     e.stopPropagation();
                 });
             // restore column order when the restore button is clicked
-            $(g.o).find('div.restore_column').click(function () {
+            $(g.o).find('div.restore_column').on('click', function () {
                 g.restoreColOrder();
             });
 
@@ -1690,7 +1690,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     var cd = document.createElement('div'); // column drop-down arrow
                     var pos = $th.position();
                     $(cd).addClass('coldrop')
-                        .click(function () {
+                        .on('click', function () {
                             if (g.cList.style.display === 'none') {
                                 g.showColList(this);
                             } else {
@@ -1717,21 +1717,21 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/>');
                     $listDiv.append(listElmt);
                     // add event on click
-                    $(listElmt).click(tempClick);
+                    $(listElmt).on('click', tempClick);
                 }
                 // add "show all column" button
                 var showAll = document.createElement('div');
                 $(showAll).addClass('showAllColBtn')
                     .text(g.showAllColText);
                 $(g.cList).append(showAll);
-                $(showAll).click(function () {
+                $(showAll).on('click', function () {
                     g.showAllColumns();
                 });
                 // prepend "show all column" button at top if the list is too long
                 if ($firstRowCols.length > 10) {
                     var clone = showAll.cloneNode(true);
                     $(g.cList).prepend(clone);
-                    $(clone).click(function () {
+                    $(clone).on('click', function () {
                         g.showAllColumns();
                     });
                 }
@@ -1979,7 +1979,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
             // register events
             $(g.t).find('td.data.click1')
-                .click(function (e) {
+                .on('click', function (e) {
                     startGridEditing(e, this);
                     // prevent default action when clicking on "link" in a table
                     if ($(e.target).is('.grid_edit a')) {
@@ -1988,7 +1988,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 });
 
             $(g.t).find('td.data.click2')
-                .click(function (e) {
+                .on('click', function (e) {
                     var $cell = $(this);
                     // In the case of relational link, We want single click on the link
                     // to goto the link and double click to start grid-editing.
@@ -2067,7 +2067,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     e.preventDefault();
                 }
             });
-            $('html').click(function (e) {
+            $('html').on('click', function (e) {
                 // hide edit cell if the click is not fromDat edit area
                 if ($(e.target).parents().index($(g.cEdit)) === -1 &&
                     !$(e.target).parents('.ui-datepicker-header').length &&
@@ -2082,7 +2082,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     g.hideEditCell(true);
                 }
             });
-            $(g.o).find('div.save_edited').click(function () {
+            $(g.o).find('div.save_edited').on('click', function () {
                 g.hideEditCell();
                 g.postEditedCell();
             });

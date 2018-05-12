@@ -264,7 +264,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
     });
 
     // handle chart type changes
-    $('input[name="chartType"]').click(function () {
+    $('input[name="chartType"]').on('click', function () {
         var type = currentSettings.type = $(this).val();
         if (type === 'bar' || type === 'column' || type === 'area') {
             $('span.barStacked').show();
@@ -277,7 +277,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
     });
 
     // handle chosing alternative data format
-    $('input[name="chkAlternative"]').click(function () {
+    $('input[name="chkAlternative"]').on('click', function () {
         var $seriesColumn = $('select[name="chartSeriesColumn"]');
         var $valueColumn  = $('select[name="chartValueColumn"]');
         var $chartSeries  = $('select[name="chartSeries"]');
@@ -298,7 +298,7 @@ AJAX.registerOnload('tbl_chart.js', function () {
     });
 
     // handle stacking for bar, column and area charts
-    $('input[name="barStacked"]').click(function () {
+    $('input[name="barStacked"]').on('click', function () {
         if ($(this).is(':checked')) {
             $.extend(true, currentSettings, { stackSeries : true });
         } else {

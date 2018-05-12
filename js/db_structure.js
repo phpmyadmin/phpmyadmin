@@ -147,7 +147,7 @@ function PMA_fetchRealRowCount ($target) {
         .first()
         .clone()
         .css({ visibility: 'visible', display: 'inline-block' })
-        .click(false);
+        .on('click', false);
     $target.html($throbber);
     $.ajax({
         type: 'GET',

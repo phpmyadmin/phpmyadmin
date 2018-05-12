@@ -239,7 +239,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     /**
      * Input form validation
      **/
-    $('#inputFormSubmitId').click(function () {
+    $('#inputFormSubmitId').on('click', function () {
         if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
             PMA_ajaxShowMessage(PMA_messages.strInputNull);
         } else if (xLabel === yLabel) {
@@ -568,7 +568,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         currentChart = $.jqplot('querychart', series, options);
         currentChart.resetZoom();
 
-        $('button.button-reset').click(function (event) {
+        $('button.button-reset').on('click', function (event) {
             event.preventDefault();
             currentChart.resetZoom();
         });
@@ -622,7 +622,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         );
     }
 
-    $('#help_dialog').click(function () {
+    $('#help_dialog').on('click', function () {
         displayHelp();
     });
 });

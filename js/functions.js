@@ -2962,7 +2962,7 @@ AJAX.registerOnload('functions.js', function () {
             $(this)
                 .closest('form')
                 .find('input[name=submit_num_fields]')
-                .click();
+                .trigger('click');
         }
     });
 
@@ -3192,7 +3192,7 @@ AJAX.registerOnload('functions.js', function () {
                     .closest('.ui-dialog')
                     .find('.ui-dialog-buttonpane .ui-button')
                     .first()
-                    .click();
+                    .trigger('click');
             });
         }); // end $.get()
     }); // end handler for change password anchor
@@ -3578,7 +3578,7 @@ AJAX.registerOnload('functions.js', function () {
                 $('.filter_rows').on('keyup', function () {
                     $.uiTableFilter($('#col_list'), $(this).val());
                 });
-                $('#seeMore').click(function () {
+                $('#seeMore').on('click', function () {
                     fields = '';
                     min = (list_size <= maxRows + result_pointer) ? list_size : maxRows + result_pointer;
                     for (i = result_pointer; i < min; i++) {
@@ -3998,7 +3998,7 @@ var toggleButton = function ($obj) {
         }
     }
     // Attach an 'onclick' event to the switch
-    $('div.container', $obj).click(function () {
+    $('div.container', $obj).on('click', function () {
         if ($(this).hasClass('isActive')) {
             return false;
         } else {
@@ -4190,7 +4190,7 @@ function PMA_init_slider () {
             .text($this.attr('title'))
             .prepend($('<span>'))
             .insertBefore($this)
-            .click(function () {
+            .on('click', function () {
                 var $wrapper = $this.closest('.slide-wrapper');
                 var visible = $this.is(':visible');
                 if (!visible) {
@@ -4429,7 +4429,7 @@ AJAX.registerOnload('functions.js', function () {
     /**
      * Theme changer.
      */
-    $('a.take_theme').click(function (e) {
+    $('a.take_theme').on('click', function (e) {
         var what = this.name;
         if (window.opener && window.opener.document.forms.setTheme.elements.set_theme) {
             window.opener.document.forms.setTheme.elements.set_theme.value = what;
@@ -4458,14 +4458,14 @@ function createPrintAndBackButtons () {
         value: PMA_messages.back,
         id: 'back_button_print_view'
     });
-    back_button.click(removePrintAndBackButton);
+    back_button.on('click', removePrintAndBackButton);
     back_button.appendTo('#page_content');
     var print_button = $('<input/>',{
         type: 'button',
         value: PMA_messages.print,
         id: 'print_button_print_view'
     });
-    print_button.click(printPage);
+    print_button.on('click', printPage);
     print_button.appendTo('#page_content');
 }
 
@@ -4498,8 +4498,8 @@ AJAX.registerTeardown('functions.js', function () {
 });
 
 AJAX.registerOnload('functions.js', function () {
-    $('input#print').click(printPage);
-    $('.logout').click(function () {
+    $('input#print').on('click', printPage);
+    $('.logout').on('click', function () {
         var form = $(
             '<form method="POST" action="' + $(this).attr('href') + '" class="disableAjax">' +
             '<input type="hidden" name="token" value="' + escapeHtml(PMA_commonParams.get('token')) + '"/>' +
@@ -4529,7 +4529,7 @@ AJAX.registerOnload('functions.js', function () {
                 // was also prevented in IE
                 $(this).blur();
 
-                $(this).closest('.ui-dialog').find('.ui-button:first').click();
+                $(this).closest('.ui-dialog').find('.ui-button:first').trigger('click');
             }
         }); // end $(document).on()
     }
@@ -4883,7 +4883,7 @@ AJAX.registerOnload('functions.js', function () {
         if ((e.ctrlKey && e.which === 13) || (e.altKey && e.which === 13)) {
             $form = $(this).closest('form');
             if (! $form.find('input[type="submit"]') ||
-                ! $form.find('input[type="submit"]').click()
+                ! $form.find('input[type="submit"]').trigger('click')
             ) {
                 $form.submit();
             }
