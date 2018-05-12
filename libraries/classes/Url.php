@@ -98,8 +98,8 @@ class Url
      * <input type="hidden" name="ccc[b]" Value="ccc_b" />
      * </code>
      *
-     * @param array  $values hidden values
-     * @param string $pre    prefix
+     * @param array  $values   hidden values
+     * @param string $pre      prefix
      * @param bool   $is_token if token already added in hidden input field
      *
      * @return string form fields of type hidden

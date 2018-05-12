@@ -914,7 +914,6 @@ class InsertEdit
           $html_output .= ' value="foreign" />';
         }
 
-
         $html_output .= '<select name="fields' . $column_name_appendix . '"'
             . ' ' . $onChangeClause
             . ' class="textfield"'

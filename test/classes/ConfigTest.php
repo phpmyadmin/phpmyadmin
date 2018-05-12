@@ -972,7 +972,6 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-
         file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
         $this->assertEmpty(
