@@ -1534,7 +1534,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
             $firstRowCols.each(function () {
                 var cb = document.createElement('div'); // column border
                 $(cb).addClass('colborder')
-                    .mousedown(function (e) {
+                    .on('mousedown', function (e) {
                         g.dragStartRsz(e, this);
                     });
                 $(g.cRsz).append(cb);
@@ -1582,7 +1582,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
             // register events
             $(g.t).find('th.draggable')
-                .mousedown(function (e) {
+                .on('mousedown', function (e) {
                     $(g.o).addClass('turnOffSelect');
                     if (g.visibleHeadersCount > 1) {
                         g.dragStartReorder(e, this);

@@ -112,7 +112,7 @@ var PMA_console = {
 
             PMA_console.$consoleToolbar.children('.console_switch').on('click', PMA_console.toggle);
 
-            $('#pma_console').find('.toolbar').children().mousedown(function (event) {
+            $('#pma_console').find('.toolbar').children().on('mousedown', function (event) {
                 event.preventDefault();
                 event.stopImmediatePropagation();
             });
@@ -478,7 +478,7 @@ var PMA_consoleResizer = {
      */
     initialize: function () {
         $('#pma_console').find('.toolbar').off('mousedown');
-        $('#pma_console').find('.toolbar').mousedown(PMA_consoleResizer._mousedown);
+        $('#pma_console').find('.toolbar').on('mousedown', PMA_consoleResizer._mousedown);
     }
 };
 
