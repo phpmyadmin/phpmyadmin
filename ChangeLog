@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #14264 Linking for 'Distinct values' broken
 - issue #13968 Fix MariaDB 10.2 current_timestamp()
 - issue #14249 Fix for missing go button in view edit
+- issue #14125 Fix for issues with spatial fields
 
 4.8.0.1 (2018-04-19)
 - issue        [security] Multiple CSRF vulnerabilities, See PMASA-2018-02
