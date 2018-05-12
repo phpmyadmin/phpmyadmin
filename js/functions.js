@@ -155,7 +155,7 @@ function PMA_addDatepicker ($this_element, type, options) {
             }
         }
     };
-    if (type == "time") {
+    if (type === 'time') {
         $this_element.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
         PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTipTime);
@@ -674,7 +674,7 @@ function confirmLink (theLink, theSqlQuery) {
     if (is_confirmed) {
         if (typeof(theLink.href) !== 'undefined') {
             theLink.href += PMA_commonParams.get('arg_separator') + 'is_js_confirmed=1';
-        } else if (typeof(theLink.form) != 'undefined') {
+        } else if (typeof(theLink.form) !== 'undefined') {
             theLink.form.action += '?is_js_confirmed=1';
         }
     }
@@ -1797,7 +1797,7 @@ function getJSConfirmCommonParam (elem, params) {
     var sep = PMA_commonParams.get('arg_separator');
     if (params) {
         // Strip possible leading ?
-        if (params.substring(0,1) == '?') {
+        if (params.substring(0,1) === '?') {
             params = params.substr(1);
         }
         params += sep;
@@ -3738,9 +3738,9 @@ function indexEditorDialog (url, title, callback_success, callback_failure) {
         var $form = $('#index_frm');
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + "do_save_data=1", function (data) {
-            var $sqlqueryresults = $(".sqlqueryresults");
+        // User wants to submit the form
+        $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'do_save_data=1', function (data) {
+            var $sqlqueryresults = $('.sqlqueryresults');
             if ($sqlqueryresults.length !== 0) {
                 $sqlqueryresults.remove();
             }
@@ -4940,7 +4940,7 @@ AJAX.registerOnload('functions.js', function () {
  *                  .attr(name, value) - Sets a particular attribute of the IMG
  *                                       tag to the given value
  */
-function PMA_getImage(image, alternate, attributes) {
+function PMA_getImage (image, alternate, attributes) {
     // custom image object, it will eventually be returned by this functions
     var retval = {
         data: {
@@ -4950,8 +4950,8 @@ function PMA_getImage(image, alternate, attributes) {
             src: 'themes/dot.gif',
         },
         attr: function (name, value) {
-            if (value == undefined) {
-                if (this.data[name] == undefined) {
+            if (value === undefined) {
+                if (this.data[name] === undefined) {
                     return '';
                 } else {
                     return this.data[name];
@@ -4970,20 +4970,20 @@ function PMA_getImage(image, alternate, attributes) {
         }
     };
     // initialise missing parameters
-    if (attributes == undefined) {
+    if (attributes === undefined) {
         attributes = {};
     }
-    if (alternate == undefined) {
+    if (alternate === undefined) {
         alternate = '';
     }
     // set alt
-    if (attributes.alt != undefined) {
+    if (attributes.alt !== undefined) {
         retval.attr('alt', escapeHtml(attributes.alt));
     } else {
         retval.attr('alt', escapeHtml(alternate));
     }
     // set title
-    if (attributes.title != undefined) {
+    if (attributes.title !== undefined) {
         retval.attr('title', escapeHtml(attributes.title));
     } else {
         retval.attr('title', escapeHtml(alternate));
@@ -4992,7 +4992,7 @@ function PMA_getImage(image, alternate, attributes) {
     retval.attr('class', 'icon ic_' + image);
     // set all other attrubutes
     for (var i in attributes) {
-        if (i == 'src') {
+        if (i === 'src') {
             // do not allow to override the 'src' attribute
             continue;
         }
@@ -5020,18 +5020,17 @@ function PMA_getImage(image, alternate, attributes) {
  * @param  {object}     value       Configuration value.
  * @param  {boolean}    only_local  Configuration type.
  */
-function configSet(key, value, only_local)
-{
+function configSet (key, value, only_local) {
     only_local = (typeof only_local !== 'undefined') ? only_local : false;
     var serialized = JSON.stringify(value);
     localStorage.setItem(key, serialized);
     $.ajax({
-        url: "ajax.php",
-        type: "POST",
-        dataType: "json",
+        url: 'ajax.php',
+        type: 'POST',
+        dataType: 'json',
         data: {
             key: key,
-            type: "config-set",
+            type: 'config-set',
             server: PMA_commonParams.get('server'),
             value: serialized,
         },
@@ -5058,8 +5057,7 @@ function configSet(key, value, only_local)
  *
  * @return {object}                 Configuration value.
  */
-function configGet(key, cached)
-{
+function configGet (key, cached) {
     cached = (typeof cached !== 'undefined') ? cached : true;
     var value = localStorage.getItem(key);
     if (cached && value !== undefined && value !== null) {
@@ -5073,11 +5071,11 @@ function configGet(key, cached)
         // processing cannot continue until that value is found.
         // Another solution is to provide a callback as a parameter.
         async: false,
-        url: "ajax.php",
-        type: "POST",
-        dataType: "json",
+        url: 'ajax.php',
+        type: 'POST',
+        dataType: 'json',
         data: {
-            type: "config-get",
+            type: 'config-get',
             server: PMA_commonParams.get('server'),
             key: key
         },
@@ -5097,10 +5095,10 @@ function configGet(key, cached)
 /**
  * Return POST data as stored by Util::linkOrButton
  */
-jQuery.fn.getPostData = function() {
+jQuery.fn.getPostData = function () {
     var dataPost = this.attr('data-post');
     // Strip possible leading ?
-    if (dataPost !== undefined && dataPost.substring(0,1) == '?') {
+    if (dataPost !== undefined && dataPost.substring(0,1) === '?') {
         dataPost = dataPost.substr(1);
     }
     return dataPost;
