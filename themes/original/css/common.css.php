@@ -621,13 +621,22 @@ body#loginform div.container {
     margin: 0 auto;
 }
 
-div.container.overlay {
+div.container.modal_form {
+    margin: 0 auto;
+    width: 30em;
     text-align: center;
-    position: fixed;
-    top: 10%;
-    left: 40%;
     background: #fff;
     z-index: 999;
+}
+
+div#modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    z-index: 900;
 }
 
 form.login label {

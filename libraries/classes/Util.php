@@ -1879,6 +1879,7 @@ class Util
                     . self::showDocu('faq', 'faqmissingparameters', true)
                     . '[br]';
                 $found_error = true;
+                var_dump($GLOBALS);
             }
         }
         if ($found_error) {

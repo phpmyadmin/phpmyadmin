@@ -986,9 +986,9 @@ AJAX.registerOnload('functions.js', function () {
                     }
                     else {
                         $('body').append(data.error);
-                    }
-                    if($("#input_username").length) {
-                        $("#input_username").focus();
+                        $(".ui-dialog").each(function(i) {
+                            $("#" + $(this).attr("aria-describedby")).dialog("close");
+                        });
                     }
                     _idleSecondsCounter = 0;
                 }

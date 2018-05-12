@@ -366,8 +366,11 @@ var AJAX = {
                 AJAX.xhr = null;
                 return;
             } else if(typeof data.logged_in !== 'undefined' && data.logged_in == 1) {
-                if($("#modalOverlay")) {
+                if($("#modalOverlay").length) {
                     $("#modalOverlay").remove();
+                }
+                if(typeof data.new_token !== 'undefined') {
+                    $("input[name=token]").val(data.new_token);
                 }
             }
 

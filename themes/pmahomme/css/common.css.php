@@ -909,6 +909,10 @@ div.container.modal_form {
     z-index: 999;
 }
 
+#input_username {
+    z-index: 999;    
+}
+
 div#modalOverlay {
     position: fixed;
     top: 0;
