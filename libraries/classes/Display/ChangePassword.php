@@ -72,7 +72,7 @@ class ChangePassword
             . '<tr class="vmiddle">'
             . '<td>'
             . '<input type="radio" name="nopass" value="0" id="nopass_0" '
-            . 'onclick="document.getElementById(\'text_pma_change_pw\').focus();" '
+            . 'onclick="document.getElementById(\'text_pma_change_pw\').trigger('focus');" '
             . 'checked="checked" />'
             . '<label for="nopass_0">' . __('Password:') . '&nbsp;</label>'
             . '</td>'

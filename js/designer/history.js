@@ -821,10 +821,10 @@ function build_query (formtitle, fadin) {
     }
     if (vqb_editor) {
         vqb_editor.setValue(q_select);
-        vqb_editor.focus();
+        vqb_editor.trigger('focus');
     } else {
         $elm.val(q_select);
-        $elm.focus();
+        $elm.trigger('focus');
     }
 }
 

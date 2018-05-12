@@ -77,16 +77,16 @@ RTE.COMMON = {
         // and the definition must be provided for an item
         $elm = $('table.rte_table').last().find('input[name=item_name]');
         if ($elm.val() === '') {
-            $elm.focus();
+            $elm.trigger('focus');
             alert(PMA_messages.strFormEmpty);
             return false;
         }
         $elm = $('table.rte_table').find('textarea[name=item_definition]');
         if ($elm.val() === '') {
             if (this.syntaxHiglighter !== null) {
-                this.syntaxHiglighter.focus();
+                this.syntaxHiglighter.trigger('focus');
             } else {
-                $('textarea[name=item_definition]').last().focus();
+                $('textarea[name=item_definition]').last().trigger('focus');
             }
             alert(PMA_messages.strFormEmpty);
             return false;
@@ -344,7 +344,7 @@ RTE.COMMON = {
                         if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
                             $('#rteDialog').dialog('option', 'height', $(window).height());
                         }
-                        $(this).find('input[name=item_name]').focus();
+                        $(this).find('input[name=item_name]').trigger('focus');
                         $(this).find('input.datefield').each(function () {
                             PMA_addDatepicker($(this).css('width', '95%'), 'date');
                         });
@@ -554,7 +554,7 @@ RTE.EVENT = {
             // The interval field must not be empty for recurring events
             $elm = this.$ajaxDialog.find('input[name=item_interval_value]');
             if ($elm.val() === '') {
-                $elm.focus();
+                $elm.trigger('focus');
                 alert(PMA_messages.strFormEmpty);
                 return false;
             }
@@ -562,7 +562,7 @@ RTE.EVENT = {
             // The execute_at field must not be empty for "once off" events
             $elm = this.$ajaxDialog.find('input[name=item_execute_at]');
             if ($elm.val() === '') {
-                $elm.focus();
+                $elm.trigger('focus');
                 alert(PMA_messages.strFormEmpty);
                 return false;
             }
@@ -672,7 +672,7 @@ RTE.ROUTINE = {
                         inputname.substr(0, 15) === 'item_param_name' ||
                         inputname.substr(0, 15) === 'item_param_type') {
                         if ($(this).val() === '') {
-                            $(this).focus();
+                            $(this).trigger('focus');
                             isSuccess = false;
                             return false;
                         }
@@ -694,7 +694,7 @@ RTE.ROUTINE = {
                 if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().substr(0, 3) === 'VAR') &&
                     $inputlen.val() === ''
                 ) {
-                    $inputlen.focus();
+                    $inputlen.trigger('focus');
                     isSuccess = false;
                     return false;
                 }
@@ -712,7 +712,7 @@ RTE.ROUTINE = {
             if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().substr(0, 3) === 'VAR') &&
                 $returnlen.val() === ''
             ) {
-                $returnlen.focus();
+                $returnlen.trigger('focus');
                 alert(PMA_messages.strFormEmpty);
                 return false;
             }
@@ -720,7 +720,7 @@ RTE.ROUTINE = {
         if ($('select[name=item_type]').find(':selected').val() === 'FUNCTION') {
             // A function must contain a RETURN statement in its definition
             if (this.$ajaxDialog.find('table.rte_table').find('textarea[name=item_definition]').val().toUpperCase().indexOf('RETURN') < 0) {
-                this.syntaxHiglighter.focus();
+                this.syntaxHiglighter.trigger('focus');
                 alert(PMA_messages.MissingReturn);
                 return false;
             }
@@ -869,7 +869,7 @@ RTE.ROUTINE = {
                             $(this).remove();
                         }
                     });
-                    $ajaxDialog.find('input[name^=params]').first().focus();
+                    $ajaxDialog.find('input[name^=params]').first().trigger('focus');
                     /**
                      * Attach the datepickers to the relevant form fields
                      */

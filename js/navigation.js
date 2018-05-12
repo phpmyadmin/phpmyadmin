@@ -1602,7 +1602,7 @@ PMA_fastFilter.filter.prototype.restore = function (focus) {
         this.$this.html(this.$clone.html()).children().show();
         this.$this.data('fastFilter', this);
         if (focus) {
-            this.$this.find('li.fast_filter input.searchClause').focus();
+            this.$this.find('li.fast_filter input.searchClause').trigger('focus');
         }
     }
     this.searchClause = '';

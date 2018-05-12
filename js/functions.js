@@ -393,7 +393,7 @@ function PMA_sprintf () {
  */
 function PMA_hideShowDefaultValue ($default_type) {
     if ($default_type.val() === 'USER_DEFINED') {
-        $default_type.siblings('.default_value').show().focus();
+        $default_type.siblings('.default_value').show().trigger('focus');
     } else {
         $default_type.siblings('.default_value').hide();
         if ($default_type.val() === 'NULL') {
@@ -731,7 +731,7 @@ function confirmQuery (theForm1, sqlQuery1) {
             return true;
         } else {
             // statement is rejected -> do not submit the form
-            window.focus();
+            window.trigger('focus');
             return false;
         } // end if (handle confirm box result)
     } // end if (display confirm box)
@@ -777,9 +777,9 @@ function checkSqlQuery (theForm) {
     }
 
     if (codemirror_editor) {
-        codemirror_editor.focus();
+        codemirror_editor.trigger('focus');
     } else if (codemirror_inline_editor) {
-        codemirror_inline_editor.focus();
+        codemirror_inline_editor.trigger('focus');
     }
     return result;
 } // end of the 'checkSqlQuery()' function
@@ -823,12 +823,12 @@ function checkFormElementInRange (theForm, theFieldName, message, min, max) {
     if (isNaN(val)) {
         theField.select();
         alert(PMA_messages.strEnterValidNumber);
-        theField.focus();
+        theField.trigger('focus');
         return false;
     } else if (val < min || val > max) {
         theField.select();
         alert(PMA_sprintf(message, val));
-        theField.focus();
+        theField.trigger('focus');
         return false;
     } else {
         theField.value = val;
@@ -860,7 +860,7 @@ function checkTableEditForm (theForm, fieldsCnt) {
             if (isNaN(val) && elm3.val() !== '') {
                 elm2.select();
                 alert(PMA_messages.strEnterValidLength);
-                elm2.focus();
+                elm2.trigger('focus');
                 return false;
             }
         }
@@ -875,7 +875,7 @@ function checkTableEditForm (theForm, fieldsCnt) {
     if (atLeastOneField === 0) {
         var theField = theForm.elements.field_0_1;
         alert(PMA_messages.strFormEmpty);
-        theField.focus();
+        theField.trigger('focus');
         return false;
     }
 
@@ -883,7 +883,7 @@ function checkTableEditForm (theForm, fieldsCnt) {
     var $input = $('input.textfield[name=\'table\']');
     if ($input.val() === '') {
         alert(PMA_messages.strFormEmpty);
-        $input.focus();
+        $input.trigger('focus');
         return false;
     }
 
@@ -1107,10 +1107,10 @@ function setSelectOptions (the_form, the_select, do_check) {
 function setQuery (query) {
     if (codemirror_editor) {
         codemirror_editor.setValue(query);
-        codemirror_editor.focus();
+        codemirror_editor.trigger('focus');
     } else if (document.sqlform) {
         document.sqlform.sql_query.value = query;
-        document.sqlform.sql_query.focus();
+        document.sqlform.sql_query.trigger('focus');
     }
 }
 
@@ -1251,10 +1251,10 @@ function insertValueQuery () {
         /* CodeMirror support */
         if (codemirror_editor) {
             codemirror_editor.replaceSelection(columnsList);
-            codemirror_editor.focus();
+            codemirror_editor.trigger('focus');
         // IE support
         } else if (document.selection) {
-            myQuery.focus();
+            myQuery.trigger('focus');
             var sel = document.selection.createRange();
             sel.text = columnsList;
         // MOZILLA/NETSCAPE support
@@ -1264,7 +1264,7 @@ function insertValueQuery () {
             var SqlString = document.sqlform.sql_query.value;
 
             myQuery.value = SqlString.substring(0, startPos) + columnsList + SqlString.substring(endPos, SqlString.length);
-            myQuery.focus();
+            myQuery.trigger('focus');
         } else {
             myQuery.value += columnsList;
         }
@@ -2035,12 +2035,12 @@ function bindCodeMirrorToInlineEditor () {
             codemirror_inline_editor = PMA_getSQLEditor($inline_editor);
             codemirror_inline_editor.getWrapperElement().style.height = height;
             codemirror_inline_editor.refresh();
-            codemirror_inline_editor.focus();
+            codemirror_inline_editor.trigger('focus');
             $(codemirror_inline_editor.getWrapperElement())
                 .on('keydown', catchKeypressesFromSqlInlineEdit);
         } else {
             $inline_editor
-                .focus()
+                .trigger('focus')
                 .on('keydown', catchKeypressesFromSqlInlineEdit);
         }
     }
@@ -3031,7 +3031,7 @@ function PMA_checkPassword ($the_form) {
         alert(alert_msg);
         $password.val('');
         $password_repeat.val('');
-        $password.focus();
+        $password.trigger('focus');
         return false;
     }
     return true;
@@ -3053,7 +3053,7 @@ AJAX.registerOnload('functions.js', function () {
         } else if (this.value === 'hosttable') {
             hostname.val('').prop('required', false);
         } else if (this.value === 'userdefined') {
-            hostname.focus().select().prop('required', true);
+            hostname.trigger('focus').select().prop('required', true);
         }
     });
 
@@ -3069,7 +3069,7 @@ AJAX.registerOnload('functions.js', function () {
             $('#pma_username').val('').prop('required', false);
             $('#user_exists_warning').css('display', 'none');
         } else if (this.value === 'userdefined') {
-            $('#pma_username').focus().select().prop('required', true);
+            $('#pma_username').trigger('focus').select().prop('required', true);
         }
     });
 
@@ -3086,7 +3086,7 @@ AJAX.registerOnload('functions.js', function () {
             $('#text_pma_pw').prop('required', false).val('');
         } else if (this.value === 'userdefined') {
             $('#text_pma_pw2').prop('required', true);
-            $('#text_pma_pw').prop('required', true).focus().select();
+            $('#text_pma_pw').prop('required', true).trigger('focus').select();
         } else {
             $('#text_pma_pw2').prop('required', false);
             $('#text_pma_pw').prop('required', false);
@@ -3183,7 +3183,7 @@ AJAX.registerOnload('functions.js', function () {
             $('fieldset#fieldset_change_password')
                 .find('legend').remove().end()
                 .find('table.noclick').unwrap().addClass('some-margin')
-                .find('input#text_pma_pw').focus();
+                .find('input#text_pma_pw').trigger('focus');
             $('#fieldset_change_password_footer').hide();
             PMA_ajaxRemoveMessage($msgbox);
             $('#change_password_form').on('submit', function (e) {
@@ -3462,7 +3462,7 @@ AJAX.registerOnload('functions.js', function () {
             buttons: buttonOptions,
             open: function () {
                 // Focus the "Go" button after opening the dialog
-                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').focus();
+                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').trigger('focus');
             },
             close: function () {
                 $(this).remove();
@@ -3608,7 +3608,7 @@ AJAX.registerOnload('functions.js', function () {
                     }
                     return false;
                 });
-                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').focus();
+                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button:first').trigger('focus');
             },
             close: function () {
                 $('#col_list').off('click', '.pick');
@@ -3700,7 +3700,7 @@ AJAX.registerOnload('functions.js', function () {
             if ($(this).find('option:selected').val() === '') {
                 return true;
             }
-            $(this).closest('tr').find('input').focus();
+            $(this).closest('tr').find('input').trigger('focus');
         };
 
         while (rows_to_add--) {
@@ -3854,14 +3854,14 @@ function showIndexEditDialog ($outer) {
         if ($(this).find('option:selected').val() === '') {
             return true;
         }
-        $(this).closest('tr').find('input').focus();
+        $(this).closest('tr').find('input').trigger('focus');
     });
     // Focus the slider, otherwise it looks nearly transparent
     $('a.ui-slider-handle').addClass('ui-state-focus');
     // set focus on index name input, if empty
     var input = $outer.find('input#input_index_name');
     if (! input.val()) {
-        input.focus();
+        input.trigger('focus');
     }
 }
 
@@ -4324,11 +4324,11 @@ AJAX.registerOnload('functions.js', function () {
     if ($elm.length > 0) {
         if (typeof CodeMirror !== 'undefined') {
             codemirror_editor = PMA_getSQLEditor($elm);
-            codemirror_editor.focus();
+            codemirror_editor.trigger('focus');
             codemirror_editor.on('blur', updateQueryParameters);
         } else {
             // without codemirror
-            $elm.focus().on('blur', updateQueryParameters);
+            $elm.trigger('focus').on('blur', updateQueryParameters);
         }
     }
     PMA_highlightSQL($('body'));
@@ -4578,7 +4578,7 @@ function PMA_createViewDialog ($this) {
             });
             // Attach syntax highlighted editor
             codemirror_editor = PMA_getSQLEditor($dialog.find('textarea'));
-            $('input:visible[type=text]', $dialog).first().focus();
+            $('input:visible[type=text]', $dialog).first().trigger('focus');
         } else {
             PMA_ajaxShowMessage(data.error);
         }

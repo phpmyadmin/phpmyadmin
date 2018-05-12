@@ -90,7 +90,7 @@ function onKeyDownArrowsHandler (e) {
     var lvalue = o.selectedIndex;
     var nOvalue = nO.selectedIndex;
 
-    nO.focus();
+    nO.trigger('focus');
 
     if (is_firefox) {
         var ffcheck = 0;

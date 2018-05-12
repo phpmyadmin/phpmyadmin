@@ -424,11 +424,11 @@ function moveRepeatingGroup (repeatingCols) {
     var newTable = $('input[name=repeatGroupTable]').val();
     var newColumn = $('input[name=repeatGroupColumn]').val();
     if (!newTable) {
-        $('input[name=repeatGroupTable]').focus();
+        $('input[name=repeatGroupTable]').trigger('focus');
         return false;
     }
     if (!newColumn) {
-        $('input[name=repeatGroupColumn]').focus();
+        $('input[name=repeatGroupColumn]').trigger('focus');
         return false;
     }
     datastring = {
@@ -521,7 +521,7 @@ AJAX.registerOnload('normalization.js', function () {
     $('.tblFooters').on('click','#saveSplit', function () {
         central_column_list = [];
         if ($('#newCols #field_0_1').val() === '') {
-            $('#newCols #field_0_1').focus();
+            $('#newCols #field_0_1').trigger('focus');
             return false;
         }
         var argsep = PMA_commonParams.get('arg_separator');
