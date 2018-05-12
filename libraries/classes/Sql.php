@@ -1947,6 +1947,8 @@ EOT;
             || $updatableView)
             && $just_one_table;
 
+        $_SESSION['tmpval']['possible_as_geometry'] = $editable;
+
         $displayParts = array(
             'edit_lnk' => $displayResultsObject::UPDATE_ROW,
             'del_lnk' => $displayResultsObject::DELETE_ROW,
