@@ -2042,7 +2042,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     g.saveOrPostEditedCell();
                 }
             });
-            $(g.cEditStd).keydown(function (e) {
+            $(g.cEditStd).on('keydown', function (e) {
                 if (!g.isEditCellTextEditable) {
                     // prevent text editing
                     e.preventDefault();
@@ -2061,7 +2061,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     g.saveOrPostEditedCell();
                 }
             });
-            $(g.cEditTextarea).keydown(function (e) {
+            $(g.cEditTextarea).on('keydown', function (e) {
                 if (!g.isEditCellTextEditable) {
                     // prevent text editing
                     e.preventDefault();
@@ -2076,7 +2076,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 ) {
                     g.hideEditCell();
                 }
-            }).keydown(function (e) {
+            }).on('keydown', function (e) {
                 if (e.which === 27 && g.isCellEditActive) {
                     // cancel on pressing "Esc"
                     g.hideEditCell(true);

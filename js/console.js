@@ -562,7 +562,7 @@ var PMA_consoleInput = {
                     $('<textarea>').appendTo('#pma_console .bookmark_add_input');
             }
         }
-        $('#pma_console').find('.console_query_input').keydown(PMA_consoleInput._keydown);
+        $('#pma_console').find('.console_query_input').on('keydown', PMA_consoleInput._keydown);
     },
     _historyNavigate: function (event) {
         if (event.keyCode === 38 || event.keyCode === 40) {
