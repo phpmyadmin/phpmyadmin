@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-01-26 16:40+0000\n"
+"PO-Revision-Date: 2018-05-13 19:43+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:205 libraries/classes/Export.php:1144
 msgid "Bad type!"
@@ -937,6 +937,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Sa proovid vähendada ridade arvu, kuid oled juba sisestanud nendesse "
+"ridadesse andmeid, mis lähevad nüüd kaduma. Kas sa soovid jätkata?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -16054,10 +16056,8 @@ msgid "Edit partitioning"
 msgstr "Muuda partitsioneerimist"
 
 #: templates/database/central_columns/table_header.twig:17
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Lenght/Value"
-msgstr "Pikkus/Väärtused"
+msgstr "Pikkus/Väärtus"
 
 #: templates/database/central_columns/table_header.twig:29
 msgid "Attribute"
