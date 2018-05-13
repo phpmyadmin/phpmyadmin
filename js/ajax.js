@@ -336,7 +336,189 @@ var AJAX = {
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
                 AJAX.active = true;
                 AJAX.$msgbox = PMA_ajaxShowMessage();
-                $.post(url, params, AJAX.responseHandler);
+                if($(this).attr('id') == 'login_form') {
+                    $.post(url, params, AJAX.loginResponseHandler);
+                    alert("asdf");
+                }
+                else {
+                    $.post(url, params, AJAX.responseHandler);
+                }
+            }
+        }
+    },
+    /**
+     *
+     * To refer to self use 'AJAX', instead of 'this' as this function
+     * is called in the jQuery context.
+     *
+     * @param object e Event data
+     *
+     * @return void
+     */
+    loginResponseHandler: function (data) {
+        if (typeof data === 'undefined' || data === null) {
+            return;
+        }
+
+        PMA_ajaxRemoveMessage(AJAX.$msgbox);
+        if (data._title) {
+            $('title').replaceWith(data._title);
+        }
+        if (data._menu) {
+            if (history && history.pushState) {
+                var state = {
+                    url : data._selflink,
+                    menu : data._menu
+                };
+                history.replaceState(state, null);
+                AJAX.handleMenu.replace(data._menu);
+            } else {
+                PMA_MicroHistory.menus.replace(data._menu);
+                PMA_MicroHistory.menus.add(data._menuHash, data._menu);
+            }
+        } else if (data._menuHash) {
+            if (! (history && history.pushState)) {
+                PMA_MicroHistory.menus.replace(PMA_MicroHistory.menus.get(data._menuHash));
+            }
+        }
+        if (data._disableNaviSettings) {
+            PMA_disableNaviSettings();
+        } else {
+            PMA_ensureNaviSettings(data._selflink);
+        }
+
+        // Remove all containers that may have
+        // been added outside of #page_content
+        $('body').children()
+            .not('#pma_navigation')
+            .not('#floating_menubar')
+            .not('#page_nav_icons')
+            .not('#page_content')
+            .not('#selflink')
+            .not('#pma_header')
+            .not('#pma_footer')
+            .not('#pma_demo')
+            .not('#pma_console_container')
+            .not('#prefs_autoload')
+            .not("#modalOverlay")
+            .remove();
+
+        if (data._selflink) {
+            var source = data._selflink.split('?')[0];
+            // Check for faulty links
+            $selflink_replace = {
+                'import.php': 'tbl_sql.php',
+                'tbl_chart.php': 'sql.php',
+                'tbl_gis_visualization.php': 'sql.php'
+            };
+            if ($selflink_replace[source]) {
+                var replacement = $selflink_replace[source];
+                data._selflink = data._selflink.replace(source, replacement);
+            }
+            $('#selflink').find('> a').attr('href', data._selflink);
+        }
+        if (data._params) {
+            PMA_commonParams.setAll(data._params);
+        } else if(data.new_token){
+            PMA_commonParams.set("token", data.new_token);
+        }
+        if (data._scripts) {
+            AJAX.scriptHandler.load(data._scripts);
+        } else {
+            AJAX.scriptHandler.load([]);
+        }
+        if (data._selflink && data._scripts && data._menuHash && data._params) {
+            if (! (history && history.pushState)) {
+                PMA_MicroHistory.add(
+                    data._selflink,
+                    data._scripts,
+                    data._menuHash,
+                    data._params,
+                    AJAX.source.attr('rel')
+                );
+            }
+        }
+        if (data._displayMessage) {
+            $('#page_content').prepend(data._displayMessage);
+            PMA_highlightSQL($('#page_content'));
+        }
+
+        $('#pma_errors').remove();
+
+        var msg = '';
+        if (data._errSubmitMsg) {
+            msg = data._errSubmitMsg;
+        }
+        if (data._errors) {
+            $('<div/>', { id : 'pma_errors', class : 'clearfloat' })
+                .insertAfter('#selflink')
+                .append(data._errors);
+            // bind for php error reporting forms (bottom)
+            $('#pma_ignore_errors_bottom').on('click', function (e) {
+                e.preventDefault();
+                PMA_ignorePhpErrors();
+            });
+            $('#pma_ignore_all_errors_bottom').on('click', function (e) {
+                e.preventDefault();
+                PMA_ignorePhpErrors(false);
+            });
+            // In case of 'sendErrorReport'='always'
+            // submit the hidden error reporting form.
+            if (data._sendErrorAlways === '1' &&
+                data._stopErrorReportLoop !== '1'
+            ) {
+                $('#pma_report_errors_form').submit();
+                PMA_ajaxShowMessage(PMA_messages.phpErrorsBeingSubmitted, false);
+                $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
+            } else if (data._promptPhpErrors) {
+                // otherwise just prompt user if it is set so.
+                msg = msg + PMA_messages.phpErrorsFound;
+                // scroll to bottom where all the errors are displayed.
+                $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
+            }
+        }
+
+        if (data._reloadNavigation) {
+            PMA_reloadNavigation();
+        }
+
+        PMA_ajaxShowMessage(msg, false);
+        // bind for php error reporting forms (popup)
+        $('#pma_ignore_errors_popup').on('click', function () {
+            PMA_ignorePhpErrors();
+        });
+        $('#pma_ignore_all_errors_popup').on('click', function () {
+            PMA_ignorePhpErrors(false);
+        });
+
+        if (typeof data.success !== 'undefined' && data.success) {
+
+            if(typeof data.user_changed !== 'undefined' && data.user_changed == 1) {
+                window.location = "index.php";
+                PMA_ajaxShowMessage("Loading...", false);
+                AJAX.active = false;
+                AJAX.xhr = null;
+                return;
+            }
+            if(typeof data.logged_in !== 'undefined' && data.logged_in == 1) {
+                if($("#modalOverlay").length) {
+                    $("#modalOverlay").remove();
+                }
+            }
+            if(typeof data.new_token !== 'undefined') {
+                $("input[name=token]").val(data.new_token);
+            }
+
+        } else if(typeof data.logged_in !== 'undefined' && data.logged_in == 0) {
+            $("#modalOverlay").replaceWith(data.error);
+        } else {
+            PMA_ajaxShowMessage(data.error, false);
+            AJAX.active = false;
+            AJAX.xhr = null;
+            PMA_handleRedirectAndReload(data);
+            if (data.fieldWithError) {
+                $(':input.error').removeClass('error');
+                $('#' + data.fieldWithError).addClass('error');
             }
         }
     },
@@ -528,39 +710,37 @@ var AJAX = {
             // window.location.reload();
             // console.log(data.error)
             PMA_ajaxRemoveMessage(AJAX.$msgbox);
-            AJAX.scriptHandler.reset(function(){
-                if (data._selflink) {
-                    var source = data._selflink.split('?')[0];
-                    // Check for faulty links
-                    $selflink_replace = {
-                        'import.php': 'tbl_sql.php',
-                        'tbl_chart.php': 'sql.php',
-                        'tbl_gis_visualization.php': 'sql.php'
-                    };
-                    if ($selflink_replace[source]) {
-                        var replacement = $selflink_replace[source];
-                        data._selflink = data._selflink.replace(source, replacement);
-                    }
-                    $('#selflink').find('> a').attr('href', data._selflink);
+            if (data._selflink) {
+                var source = data._selflink.split('?')[0];
+                // Check for faulty links
+                $selflink_replace = {
+                    'import.php': 'tbl_sql.php',
+                    'tbl_chart.php': 'sql.php',
+                    'tbl_gis_visualization.php': 'sql.php'
+                };
+                if ($selflink_replace[source]) {
+                    var replacement = $selflink_replace[source];
+                    data._selflink = data._selflink.replace(source, replacement);
                 }
-                if (data._params) {
-                    PMA_commonParams.setAll(data._params);
+                $('#selflink').find('> a').attr('href', data._selflink);
+            }
+            if (data._params) {
+                PMA_commonParams.setAll(data._params);
+            }
+            if (data._scripts) {
+                AJAX.scriptHandler.load(data._scripts);
+            }
+            if (data._selflink && data._scripts && data._menuHash && data._params) {
+                if (! (history && history.pushState)) {
+                    PMA_MicroHistory.add(
+                        data._selflink,
+                        data._scripts,
+                        data._menuHash,
+                        data._params,
+                        AJAX.source.attr('rel')
+                    );
                 }
-                if (data._scripts) {
-                    AJAX.scriptHandler.load(data._scripts);
-                }
-                if (data._selflink && data._scripts && data._menuHash && data._params) {
-                    if (! (history && history.pushState)) {
-                        PMA_MicroHistory.add(
-                            data._selflink,
-                            data._scripts,
-                            data._menuHash,
-                            data._params,
-                            AJAX.source.attr('rel')
-                        );
-                    }
-                }
-            });
+            }
             $("#modalOverlay").replaceWith(data.error);
             // alert("asdf");
         } else {

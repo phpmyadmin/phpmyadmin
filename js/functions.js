@@ -981,10 +981,7 @@ AJAX.registerOnload('functions.js', function () {
                         window.sessionStorage.clear();
                     }
                     // window.location.reload(true);
-                    if ($("#modalOverlay").length) {
-
-                    }
-                    else {
+                    if (!$("#modalOverlay").length) {
                         $('body').append(data.error);
                         $(".ui-dialog").each(function(i) {
                             $("#" + $(this).attr("aria-describedby")).dialog("close");

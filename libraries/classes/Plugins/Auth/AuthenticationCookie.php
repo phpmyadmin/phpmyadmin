@@ -86,19 +86,23 @@ class AuthenticationCookie extends AuthenticationPlugin
         global $conn_error;
 
         $response = Response::getInstance();
-        $xyz = isset($_REQUEST['check_timeout']) || isset($_REQUEST['login_aftertimeout']); 
-        if (!$xyz && $response->loginPage()) {
+        $session_expired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
+        if (!$session_expired && $response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return true;
             } else {
                 exit;
             }
         }
-        if($xyz) {
+        if($session_expired) {
             $response->setRequestStatus(false);
+            $response->addJSON(
+                'new_token',
+                $_SESSION[' PMA_token ']
+            );
         }
 
-        if(isset($_REQUEST['login_aftertimeout'])) {
+        if(isset($_REQUEST['session_timedout'])) {
             $response->addJSON(
                 'logged_in',
                 0
@@ -119,7 +123,13 @@ class AuthenticationCookie extends AuthenticationPlugin
             // skip the IE autocomplete feature.
             $autocomplete   = ' autocomplete="off"';
         }
-        echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'], 'add_class' => $xyz ? ' modal_form' : '', 'check_timeout' => $xyz ? 1 : 0]);
+
+        if($session_expired) {
+            echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'], 'add_class' => ' modal_form', 'session_expired' => 1]);
+        } else {
+            echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'], 'add_class' => '', 'session_expired' => 0]);
+        }
+
         if ($GLOBALS['cfg']['DBG']['demo']) {
             echo '<fieldset>';
             echo '<legend>' , __('phpMyAdmin Demo Server') , '</legend>';
@@ -157,12 +167,12 @@ class AuthenticationCookie extends AuthenticationPlugin
     <br />
     <!-- Login form -->
     <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
-            ' class="' . ($xyz ? "" : "disableAjax hide ") . 'login js-show">
+            ' class="' . ($session_expired ? "" : "disableAjax hide ") . 'login js-show">
         <fieldset>
         <legend>';
         echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '" />';
-        if($xyz) {
-            echo '<input type="hidden" name="login_aftertimeout" value="1" />';
+        if($session_expired) {
+            echo '<input type="hidden" name="session_timedout" value="1" />';
         }
         echo __('Log in');
         echo Util::showDocu('index');
@@ -249,7 +259,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</div>';
         }
 
-        echo $this->template->render('login/footer', ['check_timeout' => $xyz ? 1 : 0]);
+        if($session_expired) {
+            echo $this->template->render('login/footer', ['session_expired' => 1]);
+        } else {
+            echo $this->template->render('login/footer', ['session_expired' => 0]);
+        }
 
         echo Config::renderFooter();
         
@@ -514,7 +528,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $url_params['target'] = $GLOBALS['target'];
         }
 
-        if(isset($_REQUEST['login_aftertimeout'])) {
+        if(isset($_REQUEST['session_timedout'])) {
             $response = Response::getInstance();
             $response->addJSON(
                 'logged_in',
