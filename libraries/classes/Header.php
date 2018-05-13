@@ -542,6 +542,10 @@ class Header
             header(
                 'X-Frame-Options: DENY'
             );
+        } else if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === 'sameorigin') {
+            header(
+                'X-Frame-Options: SAMEORIGIN'
+            );
         }
         header('Referrer-Policy: no-referrer');
         header(
