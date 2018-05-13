@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-05-10 08:38+0000\n"
+"PO-Revision-Date: 2018-05-14 14:38+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -10631,10 +10631,8 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:32
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add routine"
-msgstr "הוספת שדה חדש"
+msgstr "הוספת שגרה"
 
 #: libraries/classes/Rte/Words.php:34
 #, php-format
@@ -10642,16 +10640,12 @@ msgid "Export of routine %s"
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:35
-#, fuzzy
-#| msgid "Add new field"
 msgid "routine"
-msgstr "הוספת שדה חדש"
+msgstr "שגרה"
 
 #: libraries/classes/Rte/Words.php:37
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "אין לך הרשאות מספיקות להיות כאן כרגע!"
+msgstr "אין לך את ההרשאות הנדרשות לצורך יצירת שגרה."
 
 #: libraries/classes/Rte/Words.php:40
 #, php-format
@@ -10668,10 +10662,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:47
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "לא נמצאו טבלאות במאגר נתונים."
+msgstr "לא נמצאה שגרה עם השם %1$s במסד הנתונים %2$s."
 
 #: libraries/classes/Rte/Words.php:48
 msgid "There are no routines to display."
@@ -10709,32 +10702,26 @@ msgid "There are no triggers to display."
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:68
-#, fuzzy
 msgid "Add event"
-msgstr "הוספת משתמש חדש"
+msgstr "הוספת אירוע"
 
 #: libraries/classes/Rte/Words.php:70
-#, fuzzy, php-format
-#| msgid "No rows selected"
+#, php-format
 msgid "Export of event %s"
-msgstr "לא נבחרו שורות"
+msgstr "ייצוא של אירועים %s"
 
 #: libraries/classes/Rte/Words.php:71
-#, fuzzy
 msgid "event"
-msgstr "נשלח"
+msgstr "אירוע"
 
 #: libraries/classes/Rte/Words.php:73
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "אין לך הרשאות מספיקות להיות כאן כרגע!"
+msgstr "אין לך את ההרשאות הנדרשות לצורך יצירת אירוע."
 
 #: libraries/classes/Rte/Words.php:75
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "לא נמצאו טבלאות במאגר נתונים."
+msgstr "לא נמצא אירוע בשם %1$s במסד הנתונים %2$s."
 
 #: libraries/classes/Rte/Words.php:76
 msgid "There are no events to display."
@@ -10750,10 +10737,8 @@ msgstr ""
 
 #: libraries/classes/SavedSearches.php:298
 #: libraries/classes/SavedSearches.php:335
-#, fuzzy
-#| msgid "The user %s already exists!"
 msgid "An entry with this name already exists."
-msgstr "שם המשתמש %s כבר קיים!"
+msgstr "כבר קיימת רשומה בשם הזה."
 
 #: libraries/classes/SavedSearches.php:362
 msgid "Missing information to delete the search."
@@ -10764,9 +10749,8 @@ msgid "Missing information to load the search."
 msgstr ""
 
 #: libraries/classes/SavedSearches.php:409
-#, fuzzy
 msgid "Error while loading the search."
-msgstr "מאפשר מחיקת מידע."
+msgstr "טעינת החיפוש נתקלה בשגיאה."
 
 #: libraries/classes/Server/Privileges.php:222 server_privileges.php:118
 msgid "No privileges."
@@ -10779,9 +10763,8 @@ msgstr "כלול כל ההרשאות חוץ מ- GRANT."
 #: libraries/classes/Server/Privileges.php:304
 #: libraries/classes/Server/Privileges.php:1036
 #: libraries/classes/Server/Privileges.php:1210 server_privileges.php:107
-#, fuzzy
 msgid "Allows reading data."
-msgstr "מאפשר מחיקת מידע."
+msgstr "אפשרות לקריאת נתונים."
 
 #: libraries/classes/Server/Privileges.php:309
 #: libraries/classes/Server/Privileges.php:1041
@@ -10792,9 +10775,8 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:314
 #: libraries/classes/Server/Privileges.php:1046
 #: libraries/classes/Server/Privileges.php:1212 server_privileges.php:117
-#, fuzzy
 msgid "Allows changing data."
-msgstr "מאפשר מחיקת מידע."
+msgstr "אפשרות לשינוי נתונים."
 
 #: libraries/classes/Server/Privileges.php:319
 #: libraries/classes/Server/Privileges.php:1213 server_privileges.php:72
@@ -10803,9 +10785,8 @@ msgstr "מאפשר מחיקת מידע."
 
 #: libraries/classes/Server/Privileges.php:324
 #: libraries/classes/Server/Privileges.php:1239 server_privileges.php:66
-#, fuzzy
 msgid "Allows creating new databases and tables."
-msgstr "מאפשר מחיקת מאגרי נתונים וטבלאות."
+msgstr "אפשרות לייצר מסדי נתונים וטבלאות חדשים."
 
 #: libraries/classes/Server/Privileges.php:329
 #: libraries/classes/Server/Privileges.php:1251 server_privileges.php:73
@@ -10885,9 +10866,8 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:419
 #: libraries/classes/Server/Privileges.php:1277
 #: libraries/classes/Server/Privileges.php:1284 server_privileges.php:71
-#, fuzzy
 msgid "Allows creating new views."
-msgstr "מאפשר יצירת טבלאות חדשות."
+msgstr "אפשרות ליצירת תצוגות חדשות."
 
 #: libraries/classes/Server/Privileges.php:408
 #: libraries/classes/Server/Privileges.php:1291 server_privileges.php:75
@@ -10913,9 +10893,8 @@ msgstr "מאפשר יצירת שגרות מאוחסנות."
 
 #: libraries/classes/Server/Privileges.php:440
 #: libraries/classes/Server/Privileges.php:1269 server_privileges.php:65
-#, fuzzy
 msgid "Allows altering and dropping stored routines."
-msgstr "מאפשר יצירת שגרות מאוחסנות."
+msgstr "אפשרות לשינוי ולהשמטה של שגרות מאוחסנות."
 
 #: libraries/classes/Server/Privileges.php:445
 #: libraries/classes/Server/Privileges.php:1376 server_privileges.php:70
@@ -10924,21 +10903,16 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:450
 #: libraries/classes/Server/Privileges.php:1271 server_privileges.php:76
-#, fuzzy
 msgid "Allows executing stored routines."
-msgstr "מאפשר יצירת שגרות מאוחסנות."
+msgstr "אפשרות להרצת שגרות מאוחסנות."
 
 #: libraries/classes/Server/Privileges.php:726
-#, fuzzy
-#| msgid "Connections"
 msgid "Does not require SSL-encrypted connections."
-msgstr "חיבורים"
+msgstr "לא נדרשים חיבורים בהצפנת SSL."
 
 #: libraries/classes/Server/Privileges.php:742
-#, fuzzy
-#| msgid "Connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "חיבורים"
+msgstr "נדרשים חיבורים בהצפנת SSL."
 
 #: libraries/classes/Server/Privileges.php:756
 msgid "Requires a valid X509 certificate."
@@ -10979,10 +10953,8 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3347
 #: libraries/classes/Server/Privileges.php:4565
 #: templates/privileges/edit_routine_privileges.twig:11
-#, fuzzy
-#| msgid "Add new field"
 msgid "Routine"
-msgstr "הוספת שדה חדש"
+msgstr "שגרה"
 
 #: libraries/classes/Server/Privileges.php:940
 msgid ""
@@ -10991,14 +10963,12 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:947
-#, fuzzy
 msgid "Allows altering and dropping this routine."
-msgstr "מאפשר יצירת שגרות מאוחסנות."
+msgstr "אפשרות לשינוי ולהשמטה של שגרה זו."
 
 #: libraries/classes/Server/Privileges.php:952
-#, fuzzy
 msgid "Allows executing this routine."
-msgstr "מאפשר יצירת שגרות מאוחסנות."
+msgstr "אפשרות להרצת שגרה זו."
 
 #: libraries/classes/Server/Privileges.php:1002
 #: libraries/classes/Server/Privileges.php:1171
@@ -11011,10 +10981,8 @@ msgstr "הרשאות ספציפיות-לטבלאות"
 #: libraries/classes/Server/Privileges.php:1181
 #: libraries/classes/Server/Privileges.php:3538
 #: templates/privileges/edit_routine_privileges.twig:16
-#, fuzzy
-#| msgid "Note: MySQL privilege names are expressed in English"
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr "הערה: שמות הרשאות MySQL מובטאות באנגלית"
+msgstr "הערה: שמות הרשאות MySQL מיוצגות באנגלית."
 
 #: libraries/classes/Server/Privileges.php:1145
 msgid "Administration"
@@ -11057,16 +11025,12 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1429
 #: libraries/classes/Server/Privileges.php:1460
-#, fuzzy
-#| msgid "Documentation"
 msgid "Native MySQL authentication"
-msgstr "תיעוד"
+msgstr "אימות MySQL מובנה"
 
 #: libraries/classes/Server/Privileges.php:1462
-#, fuzzy
-#| msgid "Change password"
 msgid "SHA256 password authentication"
-msgstr "שינוי סיסמא"
+msgstr "אימות ססמה SHA256"
 
 #: libraries/classes/Server/Privileges.php:1496
 #: libraries/classes/Server/Privileges.php:3102
@@ -11087,35 +11051,27 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1554
-#, fuzzy
-#| msgid "User name"
 msgid "Host name:"
-msgstr "שם משתמש"
+msgstr "שם מארח:"
 
 #: libraries/classes/Server/Privileges.php:1559
 #: libraries/classes/Server/Privileges.php:1644
 #: libraries/classes/Server/Privileges.php:2563
 #: libraries/classes/Server/Privileges.php:3534
-#, fuzzy
-#| msgid "Log name"
 msgid "Host name"
-msgstr "שם דו\"ח"
+msgstr "שם מארח"
 
 #: libraries/classes/Server/Privileges.php:1667
 msgid "Do not change the password"
 msgstr "אל תשנה את הסיסמא"
 
 #: libraries/classes/Server/Privileges.php:1717
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication Plugin"
-msgstr "תיעוד"
+msgstr "תוסף אימות"
 
 #: libraries/classes/Server/Privileges.php:1724
-#, fuzzy
-#| msgid "Password:"
 msgid "Password Hashing Method"
-msgstr "סיסמא:"
+msgstr "שיטת גיבוב ססמה"
 
 #: libraries/classes/Server/Privileges.php:2014
 #, php-format
@@ -11125,20 +11081,16 @@ msgstr "הסיסמא עבור %s שונתה בהצלחה."
 #: libraries/classes/Server/Privileges.php:2058
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr "אתה שללת הרשאות עבור %s."
+msgstr "שללת את הרשאות של %s."
 
 #: libraries/classes/Server/Privileges.php:2156
 #: templates/privileges/add_user_fieldset.twig:7
-#, fuzzy
-#| msgid "Add user"
 msgid "Add user account"
-msgstr "הוספת משתמש"
+msgstr "הוספת חשבון משתמש"
 
 #: libraries/classes/Server/Privileges.php:2165
-#, fuzzy
-#| msgid "Database export options"
 msgid "Database for user account"
-msgstr "אפשרויות ייצוא מאגר נתונים"
+msgstr "מסד נתונים לחשבון משתמש"
 
 #: libraries/classes/Server/Privileges.php:2171
 msgid "Create database with same name and grant all privileges."
@@ -11149,9 +11101,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2195
-#, fuzzy, php-format
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "בדיקת הראשות עבור מאגר נתונים \"%s\"."
+msgstr "הענקת כל ההרשאות על מסד הנתונים %s."
 
 #: libraries/classes/Server/Privileges.php:2369
 #: libraries/classes/Server/Privileges.php:2443
@@ -11160,9 +11112,8 @@ msgid "Users having access to \"%s\""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2413
-#, fuzzy
 msgid "User has been added."
-msgstr "שדה %s נמחק"
+msgstr "נוסף משתמש."
 
 #: libraries/classes/Server/Privileges.php:2566
 #: libraries/classes/Server/Privileges.php:3544
@@ -11176,8 +11127,6 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2600
 #: libraries/classes/Server/Privileges.php:3966
-#, fuzzy
-#| msgid "No user(s) found."
 msgid "No user found."
 msgstr "לא נמצאו משתמשים."
 
@@ -11206,8 +11155,6 @@ msgid "table-specific"
 msgstr "ספציפי למאגר הנתונים"
 
 #: libraries/classes/Server/Privileges.php:2832
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges"
 msgstr "עריכת הרשאות"
 
@@ -11216,10 +11163,8 @@ msgid "Revoke"
 msgstr "שלילה"
 
 #: libraries/classes/Server/Privileges.php:2859
-#, fuzzy
-#| msgid "Edit next row"
 msgid "Edit user group"
-msgstr "עריכת השורה הבאה"
+msgstr "עריכת קבוצת משתמשים"
 
 #: libraries/classes/Server/Privileges.php:3074
 msgid "… keep the old one."
@@ -11241,16 +11186,12 @@ msgid ""
 msgstr "… מחיקת הישן מטבלאות המשתמשים וטען מחדש את ההרשאות לאחר מכן."
 
 #: libraries/classes/Server/Privileges.php:3103
-#, fuzzy
-#| msgid "Change Login Information / Copy User"
 msgid "Change login information / Copy user account"
-msgstr "שינוי מידע כניסה / העתקת משתמש"
+msgstr "החלפת פרטי כניסה / העתקת חשבון משתמש"
 
 #: libraries/classes/Server/Privileges.php:3109
-#, fuzzy
-#| msgid "Create a new user with the same privileges and …"
 msgid "Create a new user account with the same privileges and …"
-msgstr "יצירת משתמש חדש עם אותן ההרשאות וגם …"
+msgstr "יצירת חשבון משתמש חדש עם אותן ההרשאות וגם …"
 
 #: libraries/classes/Server/Privileges.php:3346
 #: templates/privileges/edit_routine_privileges.twig:12
@@ -11280,9 +11221,8 @@ msgid "Reloading the privileges"
 msgstr "טוען מחדש הרשאות"
 
 #: libraries/classes/Server/Privileges.php:3864
-#, fuzzy
 msgid "The selected users have been deleted successfully."
-msgstr "%s מסדי נתונים נמחקו בהצלחה."
+msgstr "המשתמשים הנבחרים נמחקו בהצלחה."
 
 #: libraries/classes/Server/Privileges.php:3939
 #, php-format
@@ -11304,10 +11244,9 @@ msgid "The user %s already exists!"
 msgstr "שם המשתמש %s כבר קיים!"
 
 #: libraries/classes/Server/Privileges.php:4438
-#, fuzzy, php-format
-#| msgid "Privileges"
+#, php-format
 msgid "Privileges for %s"
-msgstr "הרשאות"
+msgstr "הרשאות עבור %s"
 
 #: libraries/classes/Server/Privileges.php:4447
 #: libraries/classes/Server/Status/Processes.php:81
@@ -11316,16 +11255,12 @@ msgid "User"
 msgstr "משתמש"
 
 #: libraries/classes/Server/Privileges.php:4515
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges:"
-msgstr "עריכת הרשאות"
+msgstr "עריכת הרשאות:"
 
 #: libraries/classes/Server/Privileges.php:4516
-#, fuzzy
-#| msgid "User"
 msgid "User account"
-msgstr "משתמש"
+msgstr "חשבון משתמש"
 
 #: libraries/classes/Server/Privileges.php:4590
 msgid ""
@@ -11335,10 +11270,8 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:4610
 #: libraries/classes/Server/Users.php:30
-#, fuzzy
-#| msgid "User overview"
 msgid "User accounts overview"
-msgstr "סקירת משתמשים"
+msgstr "סקירת חשבונות משתמשים"
 
 #: libraries/classes/Server/Privileges.php:4685
 msgid ""
