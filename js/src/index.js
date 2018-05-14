@@ -7,6 +7,7 @@ import './variables/import_variables';
 import { $ } from './utils/JqueryExtended';
 import { AJAX } from './ajax';
 import './variables/get_config';
+import './variables/InlineScripting';
 import files from './consts/files';
 import Console from './console';
 import { PMA_sprintf } from './utils/sprintf';
@@ -14,6 +15,7 @@ import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { escapeHtml } from './utils/Sanitise';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 import PMA_commonParams from './variables/common_params';
+import PMA_MicroHistory from './classes/MicroHistory';
 
 /**
  * Page load event handler

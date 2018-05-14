@@ -38,7 +38,7 @@ var $data_a;
 /**
  * Unbind all event handlers before tearing down a page
  */
-export function teardown1 () {
+export function teardownSqlQueryExecute () {
     $(document).off('click', 'a.delete_row.ajax');
     $(document).off('submit', '.bookmarkQueryForm');
     $('input#bkm_label').off('keyup');
@@ -67,6 +67,8 @@ export function teardown1 () {
     $('body').off('click', '#simulate_dml');
     $('body').off('keyup', '#sqlqueryform');
     $('body').off('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]');
+    $('#tablefields').off('dblclick');
+    $('#tablefieldsSubmitLinkMode,#tablefieldsSubmitNonLinkMode').off('click');
 }
 
 /**
@@ -85,7 +87,7 @@ export function teardown1 () {
  * @name        document.ready
  * @memberOf    jQuery
  */
-export function onload1 () {
+export function onloadSqlQueryExecute () {
     if (sqlQueryOptions.codemirror_editor || document.sqlform) {
         setShowThisQuery();
     }
@@ -826,7 +828,7 @@ function browseForeignDialog ($this_a) {
     });
 }
 
-export function onload2 () {
+export function onloadSqlBrowsing () {
     $('body').on('click', 'a.browse_foreign', function (e) {
         e.preventDefault();
         browseForeignDialog($(this));
@@ -862,7 +864,7 @@ export function onload2 () {
     }
 }
 
-export function onload4 () {
+export function onloadSqlProfiling () {
     makeProfilingChart();
     initProfilingTables();
 }
