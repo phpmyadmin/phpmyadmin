@@ -32,7 +32,7 @@ export function loadForeignKeyCheckbox () {
     });
 }
 
-function getJSConfirmCommonParam (elem, params) {
+export function getJSConfirmCommonParam (elem, params) {
     var $elem = $(elem);
     var sep = PMA_commonParams.get('arg_separator');
     if (params) {
