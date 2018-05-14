@@ -47,6 +47,28 @@ function PMA_tooltip ($elements, item, myContent, additionalOptions) {
 }
 
 /**
+ * Function to display tooltips that were
+ * generated on the PHP side by PhpMyAdmin\Util::showHint()
+ *
+ * @param object $div a div jquery object which specifies the
+ *                    domain for searching for tooltips. If we
+ *                    omit this parameter the function searches
+ *                    in the whole body
+ **/
+export function PMA_showHints ($div) {
+    if ($div === undefined || ! $div instanceof jQuery || $div.length === 0) {
+        $div = $('body');
+    }
+    $div.find('.pma_hint').each(function () {
+        PMA_tooltip(
+            $(this).children('img'),
+            'img',
+            $(this).children('span').html()
+        );
+    });
+}
+
+/**
  * Show a message on the top of the page for an Ajax request
  *
  * Sample usage:
