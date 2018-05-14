@@ -420,14 +420,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * pages like sql, tbl_sql, db_sql, tbl_select
      */
     $response = Response::getInstance();
-    if (isset($_SESSION['profiling'])) {
-        $scripts  = $response->getHeader()->getScripts();
-        $scripts->addFile('chart.js');
-        $scripts->addFile('vendor/jqplot/jquery.jqplot.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
-        $scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
-        $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-    }
 
     /*
      * There is no point in even attempting to process

@@ -98,11 +98,7 @@ export function onload1 () {
      * Automatic form submission on change.
      */
     $(document).on('change', '.autosubmit', function (e) {
-        e.preventDefault();
-        debugger;
-        console.log($(this).closest('form').submit());
         $(this).closest('form').submit();
-        debugger;
     });
 
     /**

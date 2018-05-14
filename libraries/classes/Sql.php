@@ -324,10 +324,7 @@ EOT;
             $profiling_table .= '<div id="profilingchart" class="hide">';
             $profiling_table .= '</div>';
             $profiling_table .= '<script type="text/javascript">';
-            $profiling_table .= "AJAX.registerOnload('sql.js', function () {";
-            $profiling_table .= 'makeProfilingChart();';
-            $profiling_table .= 'initProfilingTables();';
-            $profiling_table .= '});';
+            $profiling_table .= "makeProfilingChartInline();";
             $profiling_table .= '</script>';
             $profiling_table .= '</fieldset>' . "\n";
         } else {
@@ -2121,8 +2118,7 @@ EOT;
         }
 
         if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
-            $scripts->addFile('makegrid.js');
-            $scripts->addFile('sql.js');
+            $scripts->addFile('sql');
             unset($GLOBALS['message']);
             //we don't need to buffer the output in getMessage here.
             //set a global variable and check against it in the function

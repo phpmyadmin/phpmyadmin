@@ -5,6 +5,7 @@ import 'jquery-ui-timepicker-addon';
 import 'jquery-mousewheel';
 import 'jquery.event.drag';
 import 'jquery-validation';
+import '../plugins/jquery/jquery.uitablefilter';
 import { methods } from './menu_resizer';
 // TODO: To use this import for replacing variables used in this file for
 // extending various strings for localization.

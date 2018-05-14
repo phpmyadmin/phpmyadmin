@@ -4271,49 +4271,6 @@ $(window).on('popstate', function (event, data) {
     return true;
 });
 
-/**
- * Unbind all event handlers before tearing down a page
- */
-AJAX.registerTeardown('functions.js', function () {
-    $(document).off('click', 'a.themeselect');
-    $(document).off('change', '.autosubmit');
-    $('a.take_theme').off('click');
-});
-
-AJAX.registerOnload('functions.js', function () {
-    /**
-     * Theme selector.
-     */
-    $(document).on('click', 'a.themeselect', function (e) {
-        window.open(
-            e.target,
-            'themes',
-            'left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes'
-        );
-        return false;
-    });
-
-    /**
-     * Automatic form submission on change.
-     */
-    $(document).on('change', '.autosubmit', function (e) {
-        $(this).closest('form').submit();
-    });
-
-    /**
-     * Theme changer.
-     */
-    $('a.take_theme').on('click', function (e) {
-        var what = this.name;
-        if (window.opener && window.opener.document.forms.setTheme.elements.set_theme) {
-            window.opener.document.forms.setTheme.elements.set_theme.value = what;
-            window.opener.document.forms.setTheme.submit();
-            window.close();
-            return false;
-        }
-        return true;
-    });
-});
 
 /**
  * Produce print preview
