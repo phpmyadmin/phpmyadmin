@@ -49,27 +49,32 @@ function removeColumnFromMultiSort (target, parent) {
         // is remembered via the RememberSorting directive
         URL.tail += PMA_commonParams.get('arg_separator') + 'discard_remembered_sort=1';
     }
+    URL.head = URL.head.substring(URL.head.indexOf('?') + 1);
     var middle_part = columns.join('%2C+');
-    url = URL.head + middle_part + URL.tail;
-    return url;
+    params = URL.head + middle_part + URL.tail;
+    return params;
 }
 
 AJAX.registerOnload('keyhandler.js', function () {
     $('th.draggable.column_heading.pointer.marker a').on('click', function (event) {
         var url = $(this).parent().find('input').val();
+        var argsep = PMA_commonParams.get('arg_separator')
         if (event.ctrlKey || event.altKey) {
             event.preventDefault();
-            url = removeColumnFromMultiSort(url, $(this).parent());
-            if (url) {
+            var params = removeColumnFromMultiSort(url, $(this).parent());
+            if (params) {
                 AJAX.source = $(this);
                 PMA_ajaxShowMessage();
-                $.get(url, { 'ajax_request' : true, 'ajax_page_request' : true }, AJAX.responseHandler);
+                params += argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+                $.post('sql.php', params, AJAX.responseHandler);
             }
         } else if (event.shiftKey) {
             event.preventDefault();
             AJAX.source = $(this);
             PMA_ajaxShowMessage();
-            $.get(url, { 'ajax_request' : true, 'ajax_page_request' : true }, AJAX.responseHandler);
+            var params = url.substring(url.indexOf('?') + 1);
+            params += argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
+            $.post('sql.php', params, AJAX.responseHandler);
         }
     });
 });
