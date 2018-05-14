@@ -1,7 +1,14 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Console input object
+ * @namespace ConsoleInput
  */
-export default class PMA_consoleInput {
+export default class ConsoleInput {
+    /**
+     * @constructor
+     *
+     * @param {object} pmaConsoleInstance Instance of pma console
+     */
     constructor (pmaConsoleInstance) {
         /**
          * @var array, contains Codemirror objects or input jQuery objects
@@ -23,9 +30,16 @@ export default class PMA_consoleInput {
          * @access private
          */
         this._historyPreserveCurrent = null;
-
+        /**
+         * @var object
+         * @access private
+         */
         this.pmaConsole = null;
 
+        /**
+         * Bindings for accessing the instance of the class using this
+         * insde the methods.
+         */
         this.setPmaConsole = this.setPmaConsole.bind(this);
         this.initialize = this.initialize.bind(this);
         this._historyNavigate = this._historyNavigate.bind(this);
@@ -214,6 +228,7 @@ export default class PMA_consoleInput {
      *
      * @param string text
      * @param string target
+     *
      * @return void
      */
     setText (text, target) {
@@ -237,6 +252,13 @@ export default class PMA_consoleInput {
             }
         }
     }
+    /**
+     * Used for getting the text of input
+     *
+     * @param {string} target
+     *
+     * @return {string}
+     */
     getText (target) {
         if (this._codemirror) {
             switch (target) {

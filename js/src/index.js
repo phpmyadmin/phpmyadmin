@@ -4,7 +4,7 @@
  * Module import
  */
 import './variables/import_variables';
-import { jQuery as $ } from './utils/JqueryExtended';
+import { $ } from './utils/JqueryExtended';
 import { AJAX } from './ajax';
 import './variables/get_config';
 import files from './consts/files';
@@ -14,9 +14,6 @@ import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { escapeHtml } from './utils/Sanitise';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 import PMA_commonParams from './variables/common_params';
-
-// console.log(PMA_messages);
-// console.log(PMA_ajaxShowMessage);
 
 /**
  * Page load event handler
@@ -116,7 +113,6 @@ $(document).ajaxError(function (event, request, settings) {
 for (let i in files.global) {
     AJAX.scriptHandler.add(files.global[i]);
 }
-
 /**
  * This block of code is for importing javascript files needed
  * for the first time loading of the page.
@@ -132,10 +128,6 @@ if (typeof files[firstPage] !== 'undefined' && firstPage.toLocaleLowerCase() !==
 } else if (typeof files[indexPage] !== 'undefined' && firstPage.toLocaleLowerCase() === 'index') {
     for (let i in files[indexPage]) {
         AJAX.scriptHandler.add(files[indexPage][i], 1);
-    }
-} else if (typeof files[indexPage] !== 'undefined' && firstPage.toLocaleLowerCase() === 'index') {
-    for (let i in files[indexPage]) {
-        AJAX.scriptHandler.add(files[indexPage][i]);
     }
 }
 

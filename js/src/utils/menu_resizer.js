@@ -1,4 +1,10 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
+import { PMA_getImage } from '../functions/get_image';
+import { PMA_messages as messages } from '../variables/export_variables';
 /**
  * Handles the resizing of a menu according to the available screen width
  *
@@ -17,7 +23,13 @@
  * To restore the menu to a state like before it was initialized:
  * $('#myMenu').menuResizer('destroy');
  *
- * @package PhpMyAdmin
+ * @access private
+ *
+ * @param {Element} $container
+ *
+ * @param {function} widthCalculator
+ *
+ * @return {void}
  */
 function MenuResizer ($container, widthCalculator) {
     var self = this;
@@ -45,7 +57,7 @@ function MenuResizer ($container, widthCalculator) {
 
     // create submenu container
     var link = $('<a />', { href: '#', 'class': 'tab nowrap' })
-        .text(PMA_messages.strMore)
+        .text(messages.strMore)
         .on('click', false); // same as event.preventDefault()
     var img = $container.find('li img');
     if (img.length) {
@@ -80,54 +92,54 @@ MenuResizer.prototype.resize = function () {
     var wmax = this.widthCalculator.call(this.$container);
     var windowWidth = $(window).width();
     var $submenu = this.$container.find('.submenu:last');
-    var submenu_w = $submenu.outerWidth(true);
-    var $submenu_ul = $submenu.find('ul');
+    var submenuW = $submenu.outerWidth(true);
+    var $submenuUl = $submenu.find('ul');
     var $li = this.$container.find('> li');
-    var $li2 = $submenu_ul.find('li');
-    var more_shown = $li2.length > 0;
+    var $li2 = $submenuUl.find('li');
+    var moreShown = $li2.length > 0;
     // Calculate the total width used by all the shown tabs
-    var total_len = more_shown ? submenu_w : 0;
+    var totalLen = moreShown ? submenuW : 0;
     var l = $li.length - 1;
     var i;
     for (i = 0; i < l; i++) {
-        total_len += $($li[i]).outerWidth(true);
+        totalLen += $($li[i]).outerWidth(true);
     }
 
     var hasVScroll = document.body.scrollHeight > document.body.clientHeight;
     if (hasVScroll) {
         windowWidth += 15;
     }
-    var navigationwidth = wmax;
+    // var navigationwidth = wmax;
     if (windowWidth < 768) {
         wmax = 2000;
     }
 
     // Now hide menu elements that don't fit into the menubar
     var hidden = false; // Whether we have hidden any tabs
-    while (total_len >= wmax && --l >= 0) { // Process the tabs backwards
+    while (totalLen >= wmax && --l >= 0) { // Process the tabs backwards
         hidden = true;
         var el = $($li[l]);
-        var el_width = el.outerWidth(true);
-        el.data('width', el_width);
-        if (! more_shown) {
-            total_len -= el_width;
-            el.prependTo($submenu_ul);
-            total_len += submenu_w;
-            more_shown = true;
+        var elWidth = el.outerWidth(true);
+        el.data('width', elWidth);
+        if (! moreShown) {
+            totalLen -= elWidth;
+            el.prependTo($submenuUl);
+            totalLen += submenuW;
+            moreShown = true;
         } else {
-            total_len -= el_width;
-            el.prependTo($submenu_ul);
+            totalLen -= elWidth;
+            el.prependTo($submenuUl);
         }
     }
     // If we didn't hide any tabs, then there might be some space to show some
     if (! hidden) {
         // Show menu elements that do fit into the menubar
         for (i = 0, l = $li2.length; i < l; i++) {
-            total_len += $($li2[i]).data('width');
+            totalLen += $($li2[i]).data('width');
             // item fits or (it is the last item
             // and it would fit if More got removed)
-            if (total_len < wmax ||
-                (i === $li2.length - 1 && total_len - submenu_w < wmax)
+            if (totalLen < wmax ||
+                (i === $li2.length - 1 && totalLen - submenuW < wmax)
             ) {
                 $($li2[i]).insertBefore($submenu);
             } else {
@@ -143,7 +155,7 @@ MenuResizer.prototype.resize = function () {
     } else {
         $('.navigationbar').css({ 'width': 'auto' });
         $('.navigationbar').css({ 'overflow': 'visible' });
-        if ($submenu_ul.find('li').length > 0) {
+        if ($submenuUl.find('li').length > 0) {
             $submenu.addClass('shown');
         } else {
             $submenu.removeClass('shown');
@@ -152,10 +164,10 @@ MenuResizer.prototype.resize = function () {
     if (this.$container.find('> li').length === 1) {
         // If there is only the "More" tab left, then we need
         // to align the submenu to the left edge of the tab
-        $submenu_ul.removeClass().addClass('only');
+        $submenuUl.removeClass().addClass('only');
     } else {
         // Otherwise we align the submenu to the right edge of the tab
-        $submenu_ul.removeClass().addClass('notonly');
+        $submenuUl.removeClass().addClass('notonly');
     }
     if ($submenu.find('.tabactive').length) {
         $submenu

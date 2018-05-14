@@ -11,9 +11,9 @@ import { PMA_Messages as messages } from '../variables/export_variables';
 import { PMA_highlightSQL } from './sql';
 
 /**
- * @var {int} ajax_message_count   Number of AJAX messages shown since page load
+ * @var {int} ajaxMessageCount   Number of AJAX messages shown since page load
  */
-let ajax_message_count = 0;
+let ajaxMessageCount = 0;
 
 /**
  * Create a jQuery UI tooltip
@@ -129,7 +129,7 @@ const PMA_ajaxShowMessage = (message, timeout, type) => {
             .prependTo('#page_content');
     }
     // Update message count to create distinct message elements every time
-    ajax_message_count++;
+    ajaxMessageCount++;
     // Remove all old messages, if any
     $('span.ajax_notification[id^=ajax_message_num]').remove();
     /**
@@ -138,7 +138,7 @@ const PMA_ajaxShowMessage = (message, timeout, type) => {
      */
     var $retval = $(
         '<span class="ajax_notification" id="ajax_message_num_' +
-            ajax_message_count +
+            ajaxMessageCount +
             '"></span>'
     )
         .hide()
@@ -186,7 +186,7 @@ const PMA_ajaxShowMessage = (message, timeout, type) => {
  * @return nothing
  */
 function PMA_ajaxRemoveMessage ($thisMsgbox) {
-    if ($thisMsgbox !== undefined && $thisMsgbox instanceof jQuery) {
+    if ($thisMsgbox !== undefined && $thisMsgbox instanceof $) {
         $thisMsgbox
             .stop(true, true)
             .fadeOut('medium');
