@@ -599,7 +599,7 @@ export let AJAX = {
                 var fileImports = ['server_privileges', 'server_databases', 'error_report', 'navigation', 'server_status_advisor',
                     'server_status_processes', 'server_status_variables', 'server_plugins', 'server_status_sorter', 'server_status_queries',
                     'server_status_monitor', 'server_variables', 'server_user_groups', 'replication', 'export', 'import', 'config',
-                    'page_settings', 'shortcuts_handler', 'db_search', 'sql', 'functions', 'multi_column_sort'
+                    'page_settings', 'shortcuts_handler', 'db_search', 'sql', 'functions', 'multi_column_sort', 'db_structure'
                 ];
                 if ($.inArray(file, fileImports) !== -1) {
                     // Dynamic import to load the files dynamically

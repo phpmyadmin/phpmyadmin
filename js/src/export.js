@@ -136,7 +136,7 @@ function onloadExportTemplate () {
     // Handle submit of form to export sql
     $('form[name=\'dump\']').on('submit', function (e) {
         var timeout = $('input[type=\'submit\'][id=\'buttonGo\']').data().timeout;
-        check_time_out(timeout);
+        Export.check_time_out(timeout);
     });
 }
 

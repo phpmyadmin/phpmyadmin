@@ -26,7 +26,8 @@ const files = {
     server_sql: ['sql', 'multi_column_sort'],
     tbl_sql: ['sql', 'multi_column_sort'],
     db_sql: ['sql', 'multi_column_sort'],
-    sql: ['sql', 'multi_column_sort']
+    sql: ['sql', 'multi_column_sort'],
+    db_structure: ['db_structure']
 };
 
 export default files;
