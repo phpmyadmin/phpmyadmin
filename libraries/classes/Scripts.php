@@ -51,7 +51,7 @@ class Scripts
             if (strpos($value['filename'], ".php") !== false) {
                 $file_name = $value['filename'] . Url::getCommon($value['params'] + ['v' => PMA_VERSION]);
                 $result .= "<script data-cfasync='false' "
-                    . "type='text/javascript' src='js/" . $file_name
+                    . "type='text/javascript' src='http://localhost:3307/js/dist/" . $file_name
                     . "'></script>\n";
             } else {
                 $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
