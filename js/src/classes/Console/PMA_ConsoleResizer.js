@@ -1,9 +1,12 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
  * Resizer object
  * Careful: this object UI logics highly related with functions under PMA_console
  * Resizing min-height is 32, if small than it, console will collapse
+ * @namespace ConsoleResizer
  */
-export default class PMA_consoleResizer {
+export default class ConsoleResizer {
     constructor (instance) {
         this._posY = 0;
         this._height = 0;

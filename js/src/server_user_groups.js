@@ -3,7 +3,7 @@
 /**
  * Module import
  */
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
+import { PMA_Messages as messages } from './variables/export_variables';
 import { PMA_sprintf } from './utils/sprintf';
 import { escapeHtml } from './utils/Sanitise';
 
@@ -25,6 +25,7 @@ function teardownServerUserGroups () {
  */
 function onloadServerUserGroups () {
     // update the checkall checkbox on Edit user group page
+    // console.log($('input.checkall:checkbox:enabled'));
     $(checkboxes_sel).trigger('change');
 
     $(document).on('click', 'a.deleteUserGroup.ajax', function (event) {
@@ -32,22 +33,22 @@ function onloadServerUserGroups () {
         var $link = $(this);
         var groupName = $link.parents('tr').find('td:first').text();
         var buttonOptions = {};
-        buttonOptions[PMA_messages.strGo] = function () {
+        buttonOptions[messages.strGo] = function () {
             $(this).dialog('close');
             $link.removeClass('ajax').trigger('click');
         };
-        buttonOptions[PMA_messages.strClose] = function () {
+        buttonOptions[messages.strClose] = function () {
             $(this).dialog('close');
         };
         $('<div/>')
             .attr('id', 'confirmUserGroupDeleteDialog')
-            .append(PMA_sprintf(PMA_messages.strDropUserGroupWarning, escapeHtml(groupName)))
+            .append(PMA_sprintf(messages.strDropUserGroupWarning, escapeHtml(groupName)))
             .dialog({
                 width: 300,
                 minWidth: 200,
                 modal: true,
                 buttons: buttonOptions,
-                title: PMA_messages.strConfirm,
+                title: messages.strConfirm,
                 close: function () {
                     $(this).remove();
                 }
