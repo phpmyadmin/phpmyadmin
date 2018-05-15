@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-GIS
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Gis;
 
 use TCPDF;
@@ -253,7 +255,7 @@ class GisPolygon extends GisGeometry
 
         $row .= '"';
         foreach ($polygon_options as $option => $val) {
-            $row .= ' ' . $option . '="' . trim($val) . '"';
+            $row .= ' ' . $option . '="' . trim((string) $val) . '"';
         }
         $row .= '/>';
 

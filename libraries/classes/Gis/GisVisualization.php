@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-GIS
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 

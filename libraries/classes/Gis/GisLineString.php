@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-GIS
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
@@ -223,7 +224,7 @@ class GisLineString extends GisGeometry
         }
         $row .= '"';
         foreach ($line_options as $option => $val) {
-            $row .= ' ' . $option . '="' . trim($val) . '"';
+            $row .= ' ' . $option . '="' . trim((string) $val) . '"';
         }
         $row .= '/>';
 
@@ -292,10 +293,10 @@ class GisLineString extends GisGeometry
         $wkt = 'LINESTRING(';
         for ($i = 0; $i < $no_of_points; $i++) {
             $wkt .= ((isset($gis_data[$index]['LINESTRING'][$i]['x'])
-                    && trim($gis_data[$index]['LINESTRING'][$i]['x']) != '')
+                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['x']) != '')
                     ? $gis_data[$index]['LINESTRING'][$i]['x'] : $empty)
                 . ' ' . ((isset($gis_data[$index]['LINESTRING'][$i]['y'])
-                    && trim($gis_data[$index]['LINESTRING'][$i]['y']) != '')
+                    && trim((string) $gis_data[$index]['LINESTRING'][$i]['y']) != '')
                     ? $gis_data[$index]['LINESTRING'][$i]['y'] : $empty) . ',';
         }
 

@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-GIS
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
@@ -286,7 +287,7 @@ class GisMultiPolygon extends GisGeometry
             $polygon_options['id'] = $label . rand();
             $row .= '"';
             foreach ($polygon_options as $option => $val) {
-                $row .= ' ' . $option . '="' . trim($val) . '"';
+                $row .= ' ' . $option . '="' . trim((string) $val) . '"';
             }
             $row .= '/>';
         }
