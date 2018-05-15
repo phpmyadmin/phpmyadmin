@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -356,7 +358,7 @@ class Table
         if ($table_storage_engine === false) {
             return '';
         }
-        return strtoupper($table_storage_engine);
+        return strtoupper((string) $table_storage_engine);
     }
 
     /**
@@ -541,7 +543,7 @@ class Table
                         . preg_replace('/[^01]/', '0', $default_value)
                         . '\'';
                 } elseif ($type == 'BOOLEAN') {
-                    if (preg_match('/^1|T|TRUE|YES$/i', $default_value)) {
+                    if (preg_match('/^1|T|TRUE|YES$/i', (string) $default_value)) {
                         $query .= ' DEFAULT TRUE';
                     } elseif (preg_match('/^0|F|FALSE|NO$/i', $default_value)) {
                         $query .= ' DEFAULT FALSE';
@@ -554,7 +556,7 @@ class Table
                     $query .= ' DEFAULT 0x' . $default_value;
                 } else {
                     $query .= ' DEFAULT \''
-                        . $GLOBALS['dbi']->escapeString($default_value) . '\'';
+                        . $GLOBALS['dbi']->escapeString((string) $default_value) . '\'';
                 }
                 break;
             /** @noinspection PhpMissingBreakStatementInspection */

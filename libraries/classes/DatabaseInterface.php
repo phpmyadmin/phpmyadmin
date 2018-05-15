@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-DBI
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
@@ -233,12 +235,12 @@ class DatabaseInterface
      * Caches table data so Table does not require to issue
      * SHOW TABLE STATUS again
      *
-     * @param array  $tables information for tables of some databases
-     * @param string $table  table name
+     * @param array       $tables information for tables of some databases
+     * @param string|bool $table  table name
      *
      * @return void
      */
-    private function _cacheTableData(array $tables, string $table): void
+    private function _cacheTableData(array $tables, $table): void
     {
         // Note: I don't see why we would need array_merge_recursive() here,
         // as it creates double entries for the same table (for example a double
@@ -270,11 +272,11 @@ class DatabaseInterface
      * @param string         $query  Query text
      * @param mixed          $link   link type
      * @param object|boolean $result Query result
-     * @param integer        $time   Time to execute query
+     * @param integer|float  $time   Time to execute query
      *
      * @return void
      */
-    private function _dbgQuery(string $query, $link, $result, int $time): void
+    private function _dbgQuery(string $query, $link, $result, $time): void
     {
         $dbgInfo = array();
         $error_message = $this->getError($link);
@@ -1723,12 +1725,12 @@ class DatabaseInterface
     /**
      * Returns row or element of a row
      *
-     * @param array       $row   Row to process
-     * @param string|null $value Which column to return
+     * @param array           $row   Row to process
+     * @param string|null|int $value Which column to return
      *
      * @return mixed
      */
-    private function _fetchValue(array $row, ?string $value)
+    private function _fetchValue(array $row, $value)
     {
         if (is_null($value)) {
             return $row;
@@ -2368,9 +2370,9 @@ class DatabaseInterface
     /**
      * Returns value for lower_case_table_names variable
      *
-     * @return string
+     * @return string|bool
      */
-    public function getLowerCaseNames(): string
+    public function getLowerCaseNames()
     {
         if (is_null($this->_lower_case_table_names)) {
             $this->_lower_case_table_names = $this->fetchValue(
@@ -2696,9 +2698,9 @@ class DatabaseInterface
      *
      * @param integer $link link type
      *
-     * @return string type of connection used
+     * @return string|bool type of connection used
      */
-    public function getHostInfo($link = DatabaseInterface::CONNECT_USER): string
+    public function getHostInfo($link = DatabaseInterface::CONNECT_USER)
     {
         if (! isset($this->_links[$link])) {
             return false;
@@ -2711,9 +2713,9 @@ class DatabaseInterface
      *
      * @param integer $link link type
      *
-     * @return integer version of the MySQL protocol used
+     * @return int|bool version of the MySQL protocol used
      */
-    public function getProtoInfo($link = DatabaseInterface::CONNECT_USER): int
+    public function getProtoInfo($link = DatabaseInterface::CONNECT_USER)
     {
         if (! isset($this->_links[$link])) {
             return false;

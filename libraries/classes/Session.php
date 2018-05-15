@@ -7,6 +7,8 @@
  *
  * @see     https://secure.php.net/session
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config;

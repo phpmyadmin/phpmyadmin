@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\UserPreferences;
@@ -30,7 +32,7 @@ class TwoFactor
     protected $_writable;
 
     /**
-     * @var PhpMyAdmin\Plugins\TwoFactorPlugin
+     * @var \PhpMyAdmin\Plugins\TwoFactorPlugin
      */
     protected $_backend;
 

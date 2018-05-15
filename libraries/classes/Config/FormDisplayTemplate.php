@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Sanitize;
@@ -263,7 +265,7 @@ class FormDisplayTemplate
             break;
         case 'number_text':
             $htmlOutput .= '<input type="number" ' . $name_id . $field_class
-                . ' value="' . htmlspecialchars($value) . '" />';
+                . ' value="' . htmlspecialchars((string) $value) . '" />';
             break;
         case 'checkbox':
             $htmlOutput .= '<span' . $field_class . '><input type="checkbox" ' . $name_id
@@ -283,8 +285,8 @@ class FormDisplayTemplate
                 }
                 // escape if necessary
                 if ($escape) {
-                    $display = htmlspecialchars($opt_value);
-                    $display_value = htmlspecialchars($opt_value_key);
+                    $display = htmlspecialchars((string) $opt_value);
+                    $display_value = htmlspecialchars((string) $opt_value_key);
                 } else {
                     $display = $opt_value;
                     $display_value = $opt_value_key;

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Charsets;
@@ -167,7 +169,7 @@ class CentralColumns
             $query, null, null, DatabaseInterface::CONNECT_CONTROL
         );
         if (isset($res[0])) {
-            return $res[0];
+            return (int) $res[0];
         }
 
         return 0;
@@ -260,16 +262,16 @@ class CentralColumns
         if (isset($def['Attribute'])) {
             $attribute = $def['Attribute'];
         };
-        $collation = isset($def['Collation'])?$def['Collation']:"";
-        $isNull = ($def['Null'] == "NO")?0:1;
-        $extra = isset($def['Extra'])?$def['Extra']:"";
-        $default = isset($def['Default'])?$def['Default']:"";
+        $collation = isset($def['Collation']) ? $def['Collation'] : "";
+        $isNull = ($def['Null'] == "NO") ? '0' : '1';
+        $extra = isset($def['Extra']) ? $def['Extra'] : "";
+        $default = isset($def['Default']) ? $def['Default'] : "";
         $insQuery = 'INSERT INTO '
             . Util::backquote($central_list_table) . ' '
             . 'VALUES ( \'' . $this->dbi->escapeString($db) . '\' ,'
             . '\'' . $this->dbi->escapeString($column) . '\',\''
             . $this->dbi->escapeString($type) . '\','
-            . '\'' . $this->dbi->escapeString($length) . '\',\''
+            . '\'' . $this->dbi->escapeString((string) $length) . '\',\''
             . $this->dbi->escapeString($collation) . '\','
             . '\'' . $this->dbi->escapeString($isNull) . '\','
             . '\'' . implode(',', array($extra, $attribute))
@@ -288,7 +290,7 @@ class CentralColumns
      * @param string $table        if $isTable is false, then table name to
      *                             which columns belong
      *
-     * @return true|PhpMyAdmin\Message
+     * @return true|\PhpMyAdmin\Message
      */
     public function syncUniqueColumns(
         array $field_select,
@@ -396,7 +398,7 @@ class CentralColumns
      *                            selected list of columns to remove from central list
      * @param bool  $isTable      if passed array is of tables or columns
      *
-     * @return true|PhpMyAdmin\Message
+     * @return true|\PhpMyAdmin\Message
      */
     public function deleteColumnsFromList(
         array $field_select,
@@ -481,7 +483,7 @@ class CentralColumns
      * @param string $db              current database
      * @param array  $selected_tables list of selected tables.
      *
-     * @return true|PhpMyAdmin\Message
+     * @return true|\PhpMyAdmin\Message
      */
     public function makeConsistentWithList(
         string $db,
@@ -515,9 +517,9 @@ class CentralColumns
                     $query .= ' ' . $column['col_extra'];
                     if ($column['col_default']) {
                         if ($column['col_default'] != 'CURRENT_TIMESTAMP'
-                            || $column['col_default'] != 'current_timestamp()') {
+                            && $column['col_default'] != 'current_timestamp()') {
                             $query .= ' DEFAULT \'' . $this->dbi->escapeString(
-                                $column['col_default']
+                                (string) $column['col_default']
                             ) . '\'';
                         } else {
                             $query .= ' DEFAULT ' . $this->dbi->escapeString(
@@ -596,7 +598,7 @@ class CentralColumns
      * @param string $col_extra     new column extra property
      * @param string $col_default   new column default value
      *
-     * @return true|PhpMyAdmin\Message
+     * @return true|\PhpMyAdmin\Message
      */
     public function updateOneColumn(
         string $db,
@@ -653,7 +655,7 @@ class CentralColumns
     /**
      * Update Multiple column in central columns list if a chnage is requested
      *
-     * @return true|PhpMyAdmin\Message
+     * @return true|\PhpMyAdmin\Message
      */
     public function updateMultipleColumn()
     {
@@ -1008,7 +1010,7 @@ class CentralColumns
                     'column_number' => $row_num,
                     'ci' => 3,
                     'ci_offset' => 0,
-                    'type_upper' => mb_strtoupper($row['col_default']),
+                    'type_upper' => mb_strtoupper((string) $row['col_default']),
                     'column_meta' => $meta,
                     'char_editing' => $this->charEditing,
                     )

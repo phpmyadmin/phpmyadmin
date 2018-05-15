@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use DirectoryIterator;
@@ -146,7 +148,7 @@ class Config
         }
 
         // enable output-buffering (if set to 'auto')
-        if (strtolower($this->get('OBGzip')) == 'auto') {
+        if (strtolower((string) $this->get('OBGzip')) == 'auto') {
             $this->set('OBGzip', true);
         }
     }
@@ -704,7 +706,7 @@ class Config
                     $user2 = array(
                         'name' => trim($user[1]),
                         'email' => trim($user[2]),
-                        'date' => date('Y-m-d H:i:s', $user[3]));
+                        'date' => date('Y-m-d H:i:s', (int) $user[3]));
                     if (isset($user[4])) {
                         $user2['date'] .= $user[4];
                     }
@@ -1668,7 +1670,7 @@ class Config
             }
         }
 
-        return $server;
+        return (int) $server;
     }
 
     /**

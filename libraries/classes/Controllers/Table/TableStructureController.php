@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Controllers
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\CentralColumns;
@@ -917,7 +919,7 @@ class TableStructureController extends TableController
             );
             // if the old column name is part of the remembered sort expression
             if (mb_strpos(
-                $sorted_col,
+                (string) $sorted_col,
                 Util::backquote($_REQUEST['field_orig'][$i])
             ) !== false) {
                 // delete the whole remembered sort expression

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Config\Forms\Page;
 
 use PhpMyAdmin\Config\Forms\BaseFormList;

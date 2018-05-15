@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Import
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Encoding;
@@ -332,7 +334,7 @@ class Import
      */
     public function lookForUse(?string $buffer, ?string $db, ?bool $reload): array
     {
-        if (preg_match('@^[\s]*USE[[:space:]]+([\S]+)@i', $buffer, $match)) {
+        if (preg_match('@^[\s]*USE[[:space:]]+([\S]+)@i', (string) $buffer, $match)) {
             $db = trim($match[1]);
             $db = trim($db, ';'); // for example, USE abc;
 
@@ -582,24 +584,24 @@ class Import
     /**
      * Obtains the size of the given cell
      *
-     * @param string $last_cumulative_size Last cumulative column size
-     * @param int    $last_cumulative_type Last cumulative column type
-     *                                     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
-     * @param int    $curr_type            Type of the current cell
-     *                                     (NONE or VARCHAR or DECIMAL or INT or BIGINT)
-     * @param string $cell                 The current cell
+     * @param string|int $last_cumulative_size Last cumulative column size
+     * @param int        $last_cumulative_type Last cumulative column type
+     *                                         (NONE or VARCHAR or DECIMAL or INT or BIGINT)
+     * @param int        $curr_type            Type of the current cell
+     *                                         (NONE or VARCHAR or DECIMAL or INT or BIGINT)
+     * @param string $cell                     The current cell
      *
-     * @return string  Size of the given cell in the type-appropriate format
+     * @return string|int Size of the given cell in the type-appropriate format
      * @access  public
      *
      * @todo    Handle the error cases more elegantly
      */
     public function detectSize(
-        string $last_cumulative_size,
+        $last_cumulative_size,
         int $last_cumulative_type,
         int $curr_type,
         string $cell
-    ): string {
+    ) {
         $curr_size = mb_strlen($cell);
 
         /**
@@ -803,7 +805,7 @@ class Import
          * Else, we call it varchar for simplicity
          */
 
-        if (! strcmp('NULL', $cell)) {
+        if (! strcmp('NULL', (string) $cell)) {
             if ($last_cumulative_type === null || $last_cumulative_type == self::NONE) {
                 return self::NONE;
             }
@@ -918,7 +920,7 @@ class Import
         /* Check to ensure that all types are valid */
         $len = count($types);
         for ($n = 0; $n < $len; ++$n) {
-            if (! strcmp(self::NONE, $types[$n])) {
+            if (! strcmp((string) self::NONE, (string) $types[$n])) {
                 $types[$n] = self::VARCHAR;
                 $sizes[$n] = '10';
             }

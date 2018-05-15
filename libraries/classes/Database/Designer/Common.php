@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Designer
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Database\Designer;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -75,7 +77,7 @@ class Common
             );
 
             $GLOBALS['designer']['TABLE_TYPE'][$i] = mb_strtoupper(
-                $one_table['ENGINE']
+                (string) $one_table['ENGINE']
             );
 
             $DF = $this->relation->getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);

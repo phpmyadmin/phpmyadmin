@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
@@ -157,7 +159,11 @@ class Export
                     );
                 }
                 if ($GLOBALS['save_on_server'] && mb_strlen($line) > 0) {
-                    $write_result = @fwrite($GLOBALS['file_handle'], $line);
+                    if (! is_null($GLOBALS['file_handle'])) {
+                        $write_result = @fwrite($GLOBALS['file_handle'], $line);
+                    } else {
+                        $write_result = false;
+                    }
                     // Here, use strlen rather than mb_strlen to get the length
                     // in bytes to compare against the number of bytes written.
                     if (! $write_result
@@ -518,7 +524,7 @@ class Export
 
         foreach ($_REQUEST as $name => $value) {
             if (!is_array($value)) {
-                $back_button .= '&amp;' . urlencode($name) . '=' . urlencode($value);
+                $back_button .= '&amp;' . urlencode((string) $name) . '=' . urlencode((string) $value);
             }
         }
         $back_button .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';

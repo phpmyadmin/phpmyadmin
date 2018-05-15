@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage MySQLi
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Dbi;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -112,7 +114,7 @@ class DbiMysqli implements DbiExtension
             $password,
             '',
             $server['port'],
-            $server['socket'],
+            (string) $server['socket'],
             $client_flags
         );
 
