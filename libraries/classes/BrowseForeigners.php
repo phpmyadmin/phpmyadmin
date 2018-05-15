@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Template;
@@ -58,7 +60,7 @@ class BrowseForeigners
      * @param integer $indexByDescription index by description
      * @param string  $current_value      current value on the edit form
      *
-     * @return string $html the generated html
+     * @return array $html the generated html
      */
     private function getHtmlForOneKey(
         int $horizontal_count,
@@ -68,7 +70,7 @@ class BrowseForeigners
         array $descriptions,
         int $indexByDescription,
         string $current_value
-    ): string {
+    ): array {
         $horizontal_count++;
         $output = '';
 
@@ -184,7 +186,7 @@ class BrowseForeigners
 
         if (isset($_REQUEST['rownumber'])) {
             $output .= '<input type="hidden" name="rownumber" value="'
-                . htmlspecialchars($_REQUEST['rownumber']) . '" />';
+                . htmlspecialchars((string) $_REQUEST['rownumber']) . '" />';
         }
         $filter_value = (isset($_REQUEST['foreign_filter'])
             ? htmlspecialchars($_REQUEST['foreign_filter'])

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -587,7 +589,7 @@ class InsertEdit
     ) {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $column['Field']);
         if (mb_strstr($column['True_Type'], 'enum')) {
-            if (mb_strlen($column['Type']) > 20) {
+            if (mb_strlen((string) $column['Type']) > 20) {
                 $nullify_code = '1';
             } else {
                 $nullify_code = '2';

@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -224,7 +226,7 @@ class Core
         if ($type === 'length' || $type === 'scalar') {
             $is_scalar = is_scalar($var);
             if ($is_scalar && $type === 'length') {
-                return strlen($var) > 0;
+                return strlen((string) $var) > 0;
             }
             return $is_scalar;
         }
@@ -492,11 +494,11 @@ class Core
     public static function getenv(string $var_name): string
     {
         if (isset($_SERVER[$var_name])) {
-            return $_SERVER[$var_name];
+            return (string) $_SERVER[$var_name];
         }
 
         if (isset($_ENV[$var_name])) {
-            return $_ENV[$var_name];
+            return (string) $_ENV[$var_name];
         }
 
         if (getenv($var_name)) {
@@ -783,7 +785,7 @@ class Core
         // We do not want these to be present
         $blocked = array('user', 'pass', 'port');
         foreach ($blocked as $part) {
-            if (isset($arr[$part]) && strlen($arr[$part]) != 0) {
+            if (isset($arr[$part]) && strlen((string) $arr[$part]) != 0) {
                 return false;
             }
         }
@@ -1008,11 +1010,11 @@ class Core
     /**
      * Gets the "true" IP address of the current user
      *
-     * @return string   the ip of the user
+     * @return string|bool the ip of the user
      *
      * @access  private
      */
-    public static function getIp(): string
+    public static function getIp()
     {
         /* Get the address of user */
         if (empty($_SERVER['REMOTE_ADDR'])) {
@@ -1190,7 +1192,7 @@ class Core
          * things behave slightly unexpectedly, for example
          * round(1.2, 2) returns 1.199999999999999956.
          */
-        ini_set('precision', 14);
+        ini_set('precision', '14');
 
         /**
          * check timezone setting

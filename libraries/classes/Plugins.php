@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
@@ -179,10 +181,10 @@ class Plugins
         /* Possibly replace localised texts */
         if (!preg_match_all(
             '/(str[A-Z][A-Za-z0-9]*)/',
-            $GLOBALS['cfg'][$section][$opt],
+            (string) $GLOBALS['cfg'][$section][$opt],
             $matches
         )) {
-            return htmlspecialchars($GLOBALS['cfg'][$section][$opt]);
+            return htmlspecialchars((string) $GLOBALS['cfg'][$section][$opt]);
         }
 
         $val = $GLOBALS['cfg'][$section][$opt];

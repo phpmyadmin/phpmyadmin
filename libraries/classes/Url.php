@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 /**
@@ -41,10 +43,10 @@ class Url
             $skip    =& $_skip;
         } else {
             $params = array();
-            if (strlen($db) > 0) {
+            if (strlen((string) $db) > 0) {
                 $params['db'] = $db;
             }
-            if (strlen($table) > 0) {
+            if (strlen((string) $table) > 0) {
                 $params['table'] = $table;
             }
         }
@@ -124,8 +126,8 @@ class Url
                 // do not generate an ending "\n" because
                 // Url::getHiddenInputs() is sometimes called
                 // from a JS document.write()
-                $fields .= '<input type="hidden" name="' . htmlspecialchars($name)
-                    . '" value="' . htmlspecialchars($value) . '" />';
+                $fields .= '<input type="hidden" name="' . htmlspecialchars((string) $name)
+                    . '" value="' . htmlspecialchars((string) $value) . '" />';
             }
         }
 
@@ -214,7 +216,7 @@ class Url
             $params['lang'] = $GLOBALS['lang'];
         }
 
-        $query = http_build_query($params, null, $separator);
+        $query = http_build_query($params, '', $separator);
 
         if ($divider != '?' || strlen($query) > 0) {
             return $divider . $query;

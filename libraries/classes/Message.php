@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Sanitize;
@@ -418,12 +420,12 @@ class Message
     /**
      * set string (does not take effect if raw message is set)
      *
-     * @param string  $string   string to set
-     * @param boolean $sanitize whether to sanitize $string or not
+     * @param string      $string   string to set
+     * @param boolean|int $sanitize whether to sanitize $string or not
      *
      * @return void
      */
-    public function setString(string $string, bool $sanitize = true): void
+    public function setString(string $string, $sanitize = true): void
     {
         if ($sanitize) {
             $string = Message::sanitize($string);
@@ -460,7 +462,7 @@ class Message
         if ($param instanceof Message) {
             $this->params[] = $param;
         } else {
-            $this->params[] = htmlspecialchars($param);
+            $this->params[] = htmlspecialchars((string) $param);
         }
     }
 
@@ -570,11 +572,11 @@ class Message
      * set all params at once, usually used in conjunction with string
      *
      * @param array|string $params   parameters to set
-     * @param boolean      $sanitize whether to sanitize params
+     * @param bool|int     $sanitize whether to sanitize params
      *
      * @return void
      */
-    public function setParams($params, bool $sanitize = false): void
+    public function setParams($params, $sanitize = false): void
     {
         if ($sanitize) {
             $params = Message::sanitize($params);
@@ -621,7 +623,7 @@ class Message
             return $message;
         }
 
-        return htmlspecialchars($message);
+        return htmlspecialchars((string) $message);
     }
 
     /**

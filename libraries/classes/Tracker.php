@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -402,7 +404,7 @@ class Tracker
         " SET `tracking_active` = '" . $new_state . "' " .
         " WHERE `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname) . "' " .
         " AND `table_name` = '" . $GLOBALS['dbi']->escapeString($tablename) . "' " .
-        " AND `version` = '" . $GLOBALS['dbi']->escapeString($version) . "' ";
+        " AND `version` = '" . $GLOBALS['dbi']->escapeString((string) $version) . "' ";
 
         $result = $relation->queryAsControlUser($sql_query);
 
@@ -550,8 +552,8 @@ class Tracker
         $mixed = $GLOBALS['dbi']->fetchAssoc($relation->queryAsControlUser($sql_query));
 
         // Parse log
-        $log_schema_entries = explode('# log ',  $mixed['schema_sql']);
-        $log_data_entries   = explode('# log ',  $mixed['data_sql']);
+        $log_schema_entries = explode('# log ',  (string) $mixed['schema_sql']);
+        $log_data_entries   = explode('# log ',  (string) $mixed['data_sql']);
 
         $ddl_date_from = $date = Util::date('Y-m-d H:i:s');
 

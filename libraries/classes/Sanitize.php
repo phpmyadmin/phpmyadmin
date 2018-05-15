@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
@@ -167,7 +169,7 @@ class Sanitize
     public static function sanitize($message, $escape = false, $safe = false)
     {
         if (!$safe) {
-            $message = strtr($message, array('<' => '&lt;', '>' => '&gt;'));
+            $message = strtr((string) $message, array('<' => '&lt;', '>' => '&gt;'));
         }
 
         /* Interpret bb code */
@@ -262,7 +264,7 @@ class Sanitize
      */
     public static function jsFormat($a_string = '', $add_backquotes = true)
     {
-        $a_string = htmlspecialchars($a_string);
+        $a_string = htmlspecialchars((string) $a_string);
         $a_string = self::escapeJsString($a_string);
         // Needed for inline javascript to prevent some browsers
         // treating it as a anchor
@@ -290,7 +292,7 @@ class Sanitize
         return preg_replace(
             '@</script@i', '</\' + \'script',
             strtr(
-                $string,
+                (string) $string,
                 array(
                     "\000" => '',
                     '\\' => '\\\\',

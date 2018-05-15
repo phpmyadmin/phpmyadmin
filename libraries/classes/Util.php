@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
@@ -844,7 +846,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (strlen($a_name) > 0 && $a_name !== '*') {
+        if (strlen((string) $a_name) > 0 && $a_name !== '*') {
             return '`' . str_replace('`', '``', $a_name) . '`';
         }
 
@@ -1343,7 +1345,7 @@ class Util
         //number_format is not multibyte safe, str_replace is safe
         if ($digits_left === 0) {
             $value = number_format(
-                $value,
+                (float) $value,
                 $digits_right,
                 /* l10n: Decimal separator */
                 __('.'),
@@ -1395,7 +1397,7 @@ class Util
          * This gives us the right SI prefix already,
          * but $digits_left parameter not incorporated
          */
-        $d = floor(log10($value) / 3);
+        $d = floor(log10((float) $value) / 3);
         /*
          * Lowering the SI prefix by 1 gives us an additional 3 zeros
          * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
@@ -1448,6 +1450,8 @@ class Util
     public static function extractValueFromFormattedSize($formatted_size)
     {
         $return_value = -1;
+
+        $formatted_size = (string) $formatted_size;
 
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
             $return_value = mb_substr($formatted_size, 0, -2)
@@ -1526,17 +1530,17 @@ class Util
 
         $date = preg_replace(
             '@%[aA]@',
-            $day_of_week[(int)strftime('%w', $timestamp)],
+            $day_of_week[(int)strftime('%w', (int) $timestamp)],
             $format
         );
         $date = preg_replace(
             '@%[bB]@',
-            $month[(int)strftime('%m', $timestamp)-1],
+            $month[(int) strftime('%m', (int) $timestamp)-1],
             $date
         );
 
         /* Fill in AM/PM */
-        $hours = (int)date('H', $timestamp);
+        $hours = (int) date('H', (int) $timestamp);
         if ($hours >= 12) {
             $am_pm = _pgettext('AM/PM indication in time', 'PM');
         } else {
@@ -1544,11 +1548,11 @@ class Util
         }
         $date = preg_replace('@%[pP]@', $am_pm, $date);
 
-        $ret = strftime($date, $timestamp);
+        $ret = strftime($date, (int) $timestamp);
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
         if (mb_detect_encoding($ret, 'UTF-8', true) != 'UTF-8') {
-            $ret = date('Y-m-d H:i:s', $timestamp);
+            $ret = date('Y-m-d H:i:s', (int) $timestamp);
         }
 
         return $ret;
@@ -2401,10 +2405,10 @@ class Util
      *
      * @return string  html link to default db page
      */
-    public static function getDbLink($database = null)
+    public static function getDbLink($database = '')
     {
-        if (strlen($database) === 0) {
-            if (strlen($GLOBALS['db']) === 0) {
+        if (strlen((string) $database) === 0) {
+            if (strlen((string) $GLOBALS['db']) === 0) {
                 return '';
             }
             $database = $GLOBALS['db'];
@@ -2894,7 +2898,7 @@ class Util
             if (substr($ndbver, 0, 4) == 'ndb-') {
                 $ndbver = substr($ndbver, 4);
             }
-            return version_compare($ndbver, 7.3, '>=');
+            return version_compare($ndbver, '7.3', '>=');
         }
 
         return false;
@@ -3211,7 +3215,7 @@ class Util
         }
 
         /* Do the replacement */
-        return strtr(strftime($string), $replace);
+        return strtr((string) strftime($string), $replace);
     }
 
     /**
@@ -3508,7 +3512,7 @@ class Util
         $funcs['IsEmpty']      = array('params' => 1, 'type' => 'int');
         $funcs['IsSimple']     = array('params' => 1, 'type' => 'int');
 
-        $geom_type = trim(mb_strtolower($geom_type));
+        $geom_type = trim(mb_strtolower((string) $geom_type));
         if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
             $funcs[] = array('display' => '--------');
         }
