@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Controllers
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Controller;
