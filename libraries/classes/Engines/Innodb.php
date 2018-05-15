@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Engines
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Engines;
 
 use PhpMyAdmin\StorageEngine;
@@ -331,10 +333,11 @@ class Innodb extends StorageEngine
     public function getPageStatus()
     {
         return '<pre id="pre_innodb_status">' . "\n"
-        . htmlspecialchars(
-            $GLOBALS['dbi']->fetchValue('SHOW ENGINE INNODB STATUS;', 0, 'Status')
-        ) . "\n"
-        . '</pre>' . "\n";
+            . htmlspecialchars((string) $GLOBALS['dbi']->fetchValue(
+                'SHOW ENGINE INNODB STATUS;',
+                0,
+                'Status'
+            )) . "\n" . '</pre>' . "\n";
     }
 
     /**
