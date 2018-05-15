@@ -10,6 +10,8 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage Dummy
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Dbi;
 
 require_once 'libraries/dbi/dbi_dummy.inc.php';
