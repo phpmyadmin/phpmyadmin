@@ -282,6 +282,17 @@ if ($GLOBALS['cfg']['ThemeManager']) {
     echo Util::getImage('s_theme') , " "
             ,  ThemeManager::getInstance()->getHtmlSelectBox();
     echo '</li>';
+    Core::printListItem(
+        Util::getImage('s_theme') . "&nbsp;" . __(
+            'Theme Generator'
+        ),
+        'li_theme_generator',
+        'theme_generator.php' . $common_url_query,
+        null,
+        null,
+        null,
+        "no_bullets"
+    );
 }
 
 echo '</ul>';
