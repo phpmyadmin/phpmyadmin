@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
 use PhpMyAdmin\Rte\Routines;
