@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Server\Status\Data;
@@ -292,7 +294,7 @@ class Variables
                     $retval .= '<span class="allfine">';
                 }
             }
-            $retval .= htmlspecialchars($value);
+            $retval .= htmlspecialchars((string) $value);
             if (isset($alerts[$name])) {
                 $retval .= '</span>';
             }

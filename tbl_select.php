@@ -8,6 +8,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\TableSearchController;
 use PhpMyAdmin\Di\Container;

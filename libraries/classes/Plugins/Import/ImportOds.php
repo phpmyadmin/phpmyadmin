@@ -8,6 +8,8 @@
  * @package    PhpMyAdmin-Import
  * @subpackage ODS
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Import;
@@ -397,16 +399,16 @@ class ImportOds extends ImportPlugin
         if ($_REQUEST['ods_recognize_percentages']
             && !strcmp(
                 'percentage',
-                $cell_attrs['value-type']
+                (string) $cell_attrs['value-type']
             )
         ) {
-            $value = (double)$cell_attrs['value'];
+            $value = (double) $cell_attrs['value'];
 
             return $value;
         } elseif ($_REQUEST['ods_recognize_currency']
-            && !strcmp('currency', $cell_attrs['value-type'])
+            && !strcmp('currency', (string) $cell_attrs['value-type'])
         ) {
-            $value = (double)$cell_attrs['value'];
+            $value = (double) $cell_attrs['value'];
 
             return $value;
         }
@@ -414,7 +416,7 @@ class ImportOds extends ImportPlugin
         /* We need to concatenate all paragraphs */
         $values = array();
         foreach ($text as $paragraph) {
-            $values[] = (string)$paragraph;
+            $values[] = (string) $paragraph;
         }
         $value = implode("\n", $values);
 

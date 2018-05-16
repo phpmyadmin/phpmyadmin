@@ -11,9 +11,7 @@ some plugins for your use, you can directly use texts in plugin.
  * @package    PhpMyAdmin-Export
  * @subpackage [Name]
  */
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
+declare(strict_types=1);
 
 /**
  * Handles the export for the [Name] format

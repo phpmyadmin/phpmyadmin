@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage Config
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Plugins\AuthenticationPlugin;

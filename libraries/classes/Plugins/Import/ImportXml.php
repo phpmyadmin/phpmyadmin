@@ -7,6 +7,7 @@
  * @package    PhpMyAdmin-Import
  * @subpackage XML
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import;
 
@@ -343,7 +344,7 @@ class ImportXml extends ImportPlugin
          */
 
         /* Set database name to the currently selected one, if applicable */
-        if (strlen($db)) {
+        if (strlen((string) $db)) {
             /* Override the database name in the XML file, if one is selected */
             $db_name = $db;
             $options = array('create_db' => false);

@@ -4,6 +4,7 @@
  * Script to parse advisor rules and output them as Gettext POT formatted
  * strings for translation.
  */
+declare(strict_types=1);
 
 $messages = array();
 $locations = array();

@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Selenium;
 
 use PHPUnit_Extensions_Selenium2TestCase as Selenium2TestCase;
@@ -201,7 +203,7 @@ abstract class TestBase extends Selenium2TestCase
             );
         }
         $this->database_name = $GLOBALS['TESTSUITE_DATABASE']
-            . mb_substr(md5(rand()), 0, 7);
+            . mb_substr(md5((string) rand()), 0, 7);
         $this->dbQuery(
             'CREATE DATABASE IF NOT EXISTS ' . $this->database_name
         );

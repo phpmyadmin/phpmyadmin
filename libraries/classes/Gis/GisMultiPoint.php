@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-GIS
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
@@ -213,7 +214,7 @@ class GisMultiPoint extends GisGeometry
                     . $point[1] . '" r="3"';
                 $point_options['id'] = $label . rand();
                 foreach ($point_options as $option => $val) {
-                    $row .= ' ' . $option . '="' . trim($val) . '"';
+                    $row .= ' ' . $option . '="' . trim((string) $val) . '"';
                 }
                 $row .= '/>';
             }

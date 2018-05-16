@@ -18,6 +18,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 /**
  * Your phpMyAdmin URL.
@@ -91,9 +92,11 @@ $cfg['TranslationWarningThreshold'] = 80;
 
 /**
  * Allows phpMyAdmin to be included from a other document in a frame;
- * setting this to true is a potential security hole
+ * setting this to true is a potential security hole. Setting this to
+ * 'sameorigin' prevents phpMyAdmin to be included from another document
+ * in a frame, unless that document belongs to the same domain.
  *
- * @global boolean $cfg['AllowThirdPartyFraming']
+ * @global boolean|string $cfg['AllowThirdPartyFraming']
  */
 $cfg['AllowThirdPartyFraming'] = false;
 

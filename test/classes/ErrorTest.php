@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Error;
@@ -32,7 +34,7 @@ class ErrorTest extends PmaTestCase
      */
     protected function setUp()
     {
-        $this->object = new Error('2', 'Compile Error', 'error.txt', 15);
+        $this->object = new Error(2, 'Compile Error', 'error.txt', 15);
     }
 
     /**

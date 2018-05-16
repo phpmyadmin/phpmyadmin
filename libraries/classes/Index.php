@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\IndexColumn;
@@ -803,10 +805,10 @@ class Index
                 }
                 $r .= '</td>';
                 $r .= '<td>'
-                    . htmlspecialchars($column->getCardinality())
+                    . htmlspecialchars((string) $column->getCardinality())
                     . '</td>';
                 $r .= '<td>'
-                    . htmlspecialchars($column->getCollation())
+                    . htmlspecialchars((string) $column->getCollation())
                     . '</td>';
                 $r .= '<td>'
                     . htmlspecialchars($column->getNull(true))

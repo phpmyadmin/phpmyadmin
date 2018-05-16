@@ -7,6 +7,8 @@
  * @package    PhpMyAdmin-Import
  * @subpackage CSV
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Import;
@@ -616,7 +618,7 @@ class ImportCsv extends AbstractImportCsv
                 }
             }
 
-            if (mb_strlen($db)) {
+            if (mb_strlen((string) $db)) {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
                 $tbl_name = 'TABLE ' . (count($result) + 1);
             } else {

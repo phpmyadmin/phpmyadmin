@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use Exception;
@@ -76,7 +78,7 @@ class Advisor
             'ADVISOR_timespanFormat',
             function (){},
             function ($arguments, $seconds) {
-                return self::timespanFormat($seconds);
+                return self::timespanFormat((int) $seconds);
             }
         );
         $this->expression->register(
@@ -635,13 +637,13 @@ class Advisor
      *
      * This function is used when evaluating advisory_rules.txt
      *
-     * @param double $value the value to format
-     * @param int    $limes the sensitiveness
-     * @param int    $comma the number of decimals to retain
+     * @param double|string $value the value to format
+     * @param int           $limes the sensitiveness
+     * @param int           $comma the number of decimals to retain
      *
      * @return string the formatted value with unit
      */
-    public static function formatByteDown(float $value, int $limes = 6, int $comma = 0): string
+    public static function formatByteDown($value, int $limes = 6, int $comma = 0): string
     {
         return implode(' ', Util::formatByteDown($value, $limes, $comma));
     }

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Engines\Bdb;
@@ -109,7 +111,7 @@ class StorageEngine
             $storage_engines
                 = $GLOBALS['dbi']->fetchResult('SHOW STORAGE ENGINES', 'Engine');
             if ($GLOBALS['dbi']->getVersion() >= 50708) {
-                $disabled = Util::cacheGet(
+                $disabled = (string) Util::cacheGet(
                     'disabled_storage_engines',
                     function () {
                         return $GLOBALS['dbi']->fetchValue(
@@ -146,8 +148,8 @@ class StorageEngine
         $selected = null, $offerUnavailableEngines = false,
         $addEmpty = false
     ) {
-        $selected   = mb_strtolower($selected);
-        $output     = '<select name="' . $name . '"'
+        $selected = mb_strtolower((string) $selected);
+        $output = '<select name="' . $name . '"'
             . (empty($id) ? '' : ' id="' . $id . '"') . '>' . "\n";
 
         if ($addEmpty) {

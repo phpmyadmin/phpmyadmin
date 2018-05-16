@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config;
@@ -541,6 +543,10 @@ class Header
         if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
             header(
                 'X-Frame-Options: DENY'
+            );
+        } else if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === 'sameorigin') {
+            header(
+                'X-Frame-Options: SAMEORIGIN'
             );
         }
         header('Referrer-Policy: no-referrer');

@@ -10,7 +10,7 @@
  * @package    PhpMyAdmin
  * @subpackage Example
  */
-
+declare(strict_types=1);
 
 /**
  * This function returns username and password.

@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage PreApPend
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations;
 
 use PhpMyAdmin\Plugins\Transformations\Abs\PreApPendTransformationsPlugin;

@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Link
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations;
 
 use PhpMyAdmin\Plugins\Transformations\Abs\TextLinkTransformationsPlugin;

@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Import
  * @subpackage SQL
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Import;

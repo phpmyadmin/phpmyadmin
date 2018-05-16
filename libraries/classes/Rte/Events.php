@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Rte;
 
 use PhpMyAdmin\Message;
@@ -413,7 +415,7 @@ class Events
                            'item_comment'
                        );
         foreach ($need_escape as $index) {
-            $item[$index] = htmlentities($item[$index], ENT_QUOTES);
+            $item[$index] = htmlentities((string) $item[$index], ENT_QUOTES);
         }
         $original_data = '';
         if ($mode == 'edit') {

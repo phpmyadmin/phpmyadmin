@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
 /**
  *

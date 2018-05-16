@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
@@ -158,12 +160,12 @@ class File
     /**
      * accessor
      *
-     * @param string $name file name
+     * @param string|null $name file name
      *
      * @return void
      * @access  public
      */
-    public function setName(string $name): void
+    public function setName(?string $name): void
     {
         $this->_name = trim($name);
     }
@@ -483,7 +485,7 @@ class File
     {
         // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
-        return @is_readable($this->getName());
+        return @is_readable((string) $this->getName());
     }
 
     /**

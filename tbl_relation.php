@@ -13,6 +13,7 @@
  * in the select dropdown
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\TableRelationController;
 use PhpMyAdmin\Di\Container;

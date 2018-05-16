@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config\ConfigFile;
@@ -81,7 +83,7 @@ class Form
         $key = ltrim(
             mb_substr(
                 $option_name,
-                mb_strrpos($option_name, '/')
+                (int) mb_strrpos($option_name, '/')
             ),
             '/'
         );
@@ -184,7 +186,7 @@ class Form
         $this->fields = array();
         foreach ($paths as $path) {
             $key = ltrim(
-                mb_substr($path, mb_strrpos($path, '/')),
+                mb_substr($path, (int) mb_strrpos($path, '/')),
                 '/'
             );
             $this->fields[$key] = $path;
@@ -201,7 +203,7 @@ class Form
     {
         $cf = $this->_configFile;
         foreach ($this->fields as $name => $path) {
-            if (mb_strpos($name, ':group:') === 0) {
+            if (mb_strpos((string) $name, ':group:') === 0) {
                 $this->_fieldsTypes[$name] = 'group';
                 continue;
             }

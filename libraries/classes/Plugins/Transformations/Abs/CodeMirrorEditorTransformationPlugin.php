@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Transformations
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;

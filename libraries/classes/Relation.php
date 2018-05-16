@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
@@ -112,7 +114,7 @@ class Relation
         $messages['enabled']  = '<span class="success">' . __('Enabled') . '</span>';
         $messages['disabled'] = '<span class="caution">'   . __('Disabled') . '</span>';
 
-        if (strlen($cfgRelation['db']) == 0) {
+        if (strlen((string) $cfgRelation['db']) == 0) {
             $retval .= __('Configuration of pmadb…') . ' '
                  . $messages['error']
                  . Util::showDocu('setup', 'linked-tables')

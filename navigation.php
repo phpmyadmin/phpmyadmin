@@ -5,8 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+declare(strict_types=1);
 
-// Include common functionalities
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Relation;

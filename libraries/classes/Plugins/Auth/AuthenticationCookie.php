@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage Cookie
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
@@ -125,7 +127,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Show error message
         if (! empty($conn_error)) {
-            Message::rawError($conn_error)->display();
+            Message::rawError((string) $conn_error)->display();
         } elseif (isset($_GET['session_expired'])
             && intval($_GET['session_expired']) == 1
         ) {
@@ -564,7 +566,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $this->_getSessionEncryptionSecret()
             ),
             null,
-            $GLOBALS['cfg']['LoginCookieStore']
+            (int) $GLOBALS['cfg']['LoginCookieStore']
         );
     }
 

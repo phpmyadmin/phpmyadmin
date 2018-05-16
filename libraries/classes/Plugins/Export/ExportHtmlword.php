@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Export
  * @subpackage HTML-Word
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -260,7 +262,7 @@ class ExportHtmlword extends ExportPlugin
                     $value = '';
                 }
                 $schema_insert .= '<td class="print">'
-                    . htmlspecialchars($value)
+                    . htmlspecialchars((string) $value)
                     . '</td>';
             } // end for
             $schema_insert .= '</tr>';
