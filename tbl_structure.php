@@ -6,6 +6,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\TableStructureController;
 use PhpMyAdmin\Di\Container;

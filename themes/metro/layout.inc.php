@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 $GLOBALS['cfg']['NaviWidth']                = '250';
 $GLOBALS['cfg']['FontFamily']               = '"Open Sans", "Segoe UI"';

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Designer
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\Response;

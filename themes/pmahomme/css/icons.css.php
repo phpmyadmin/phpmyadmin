@@ -6,8 +6,9 @@
  * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
  */
+declare(strict_types=1);
 
- $theme->getImgPath('designer/left_panel_butt.png');
+$theme->getImgPath('designer/left_panel_butt.png');
 
 // unplanned execution path
 if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {

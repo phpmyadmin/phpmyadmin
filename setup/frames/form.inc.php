@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Core;

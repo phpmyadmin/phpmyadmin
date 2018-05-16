@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 // unplanned execution path
 if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {

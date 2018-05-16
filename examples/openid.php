@@ -15,6 +15,7 @@
  * @package    PhpMyAdmin
  * @subpackage Example
  */
+declare(strict_types=1);
 
 if (false === @include_once 'OpenID/RelyingParty.php') {
     exit;

@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Bookmark;
 use PhpMyAdmin\Core;
@@ -437,15 +438,15 @@ if ($memory_limit == -1) {
 }
 
 // Calculate value of the limit
-$memoryUnit = mb_strtolower(substr($memory_limit, -1));
+$memoryUnit = mb_strtolower(substr((string) $memory_limit, -1));
 if ('m' == $memoryUnit) {
-    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024;
+    $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024 * 1024;
 } elseif ('k' == $memoryUnit) {
-    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024;
+    $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024;
 } elseif ('g' == $memoryUnit) {
-    $memory_limit = (int)substr($memory_limit, 0, -1) * 1024 * 1024 * 1024;
+    $memory_limit = (int) substr((string) $memory_limit, 0, -1) * 1024 * 1024 * 1024;
 } else {
-    $memory_limit = (int)$memory_limit;
+    $memory_limit = (int) $memory_limit;
 }
 
 // Just to be sure, there might be lot of memory needed for uncompression

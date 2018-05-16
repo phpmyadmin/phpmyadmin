@@ -5,5 +5,6 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 require_once './db_triggers.php';

@@ -11,6 +11,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\File;
@@ -211,7 +212,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         // available in $multi_edit_columns_name[$key]
 
         $file_to_insert = new File();
-        $file_to_insert->checkTblChangeForm($key, $rownumber);
+        $file_to_insert->checkTblChangeForm((string) $key, (string) $rownumber);
 
         $possibly_uploaded_val = $file_to_insert->getContent();
         if ($possibly_uploaded_val !== false) {

@@ -8,6 +8,7 @@
  * @package    PhpMyAdmin
  * @subpackage Example
  */
+declare(strict_types=1);
 
 $i=0;
 $hosts = array (

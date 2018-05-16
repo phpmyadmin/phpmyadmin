@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\FormDisplay;
