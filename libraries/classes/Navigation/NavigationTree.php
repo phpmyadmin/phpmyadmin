@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Navigation\Nodes\Node;
@@ -979,7 +981,7 @@ class NavigationTree
             $retval .= $paths['aPath_clean'][2];
             $retval .= "</span>";
             $retval .= "<span class='hide pos2_value'>";
-            $retval .= htmlspecialchars($node->pos2);
+            $retval .= htmlspecialchars((string) $node->pos2);
             $retval .= "</span>";
         }
         if (isset($paths['aPath_clean'][4])) {
@@ -987,7 +989,7 @@ class NavigationTree
             $retval .= $paths['aPath_clean'][4];
             $retval .= "</span>";
             $retval .= "<span class='hide pos3_value'>";
-            $retval .= htmlspecialchars($node->pos3);
+            $retval .= htmlspecialchars((string) $node->pos3);
             $retval .= "</span>";
         }
 

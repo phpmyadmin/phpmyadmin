@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-theme
  */
+declare(strict_types=1);
+
 header('Content-Type: image/svg+xml');
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 

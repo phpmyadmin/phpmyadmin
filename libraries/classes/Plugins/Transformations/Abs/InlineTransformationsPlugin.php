@@ -6,13 +6,11 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Inline
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Provides common methods for all of the inline transformations plugins.

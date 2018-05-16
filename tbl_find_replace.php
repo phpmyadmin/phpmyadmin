@@ -7,6 +7,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;

@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
  */
+declare(strict_types=1);
 
 // unplanned execution path
 if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {

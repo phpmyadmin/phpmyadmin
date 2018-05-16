@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Import
  * @subpackage ESRI_Shape
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Gis\GisFactory;
@@ -250,7 +252,7 @@ class ImportShp extends ImportPlugin
         }
 
         // Set table name based on the number of tables
-        if (strlen($db) > 0) {
+        if (strlen((string) $db) > 0) {
             $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
             $table_name = 'TABLE ' . (count($result) + 1);
         } else {
@@ -268,7 +270,7 @@ class ImportShp extends ImportPlugin
         $analyses[$table_no][Import::FORMATTEDSQL][$spatial_col] = true;
 
         // Set database name to the currently selected one, if applicable
-        if (strlen($db) > 0) {
+        if (strlen((string) $db) > 0) {
             $db_name = $db;
             $options = array('create_db' => false);
         } else {
@@ -306,7 +308,7 @@ class ImportShp extends ImportPlugin
 
         $import = new Import();
 
-        if (strlen($buffer) < $length) {
+        if (strlen((string) $buffer) < $length) {
             if ($GLOBALS['finished']) {
                 $eof = true;
             } else {

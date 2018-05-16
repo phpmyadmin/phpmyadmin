@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage SignOn
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Core;

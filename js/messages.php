@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 if (!defined('TESTSUITE')) {
     chdir('..');

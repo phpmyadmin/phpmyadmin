@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;

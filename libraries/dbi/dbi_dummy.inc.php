@@ -10,6 +10,7 @@
  * @package    PhpMyAdmin-DBI
  * @subpackage Dummy
  */
+declare(strict_types=1);
 
 if (!defined('PHPMYADMIN')) {
     exit;

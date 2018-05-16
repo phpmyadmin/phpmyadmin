@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Import
  * @subpackage CSV
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;

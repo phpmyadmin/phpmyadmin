@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Data;

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-navigation
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Navigation\Nodes\Node;

@@ -6,6 +6,7 @@
  * @package PhpMyAdmin-Setup
  * @license https://www.gnu.org/licenses/gpl.html GNU GPL 2.0
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 

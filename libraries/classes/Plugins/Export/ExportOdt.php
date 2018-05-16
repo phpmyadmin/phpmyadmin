@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Export
  * @subpackage ODT
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;

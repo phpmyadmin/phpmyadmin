@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Twig\I18n
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Twig\I18n;
 
 use Twig\Extensions\TokenParser\TransTokenParser;

@@ -10,6 +10,7 @@
  * @package    PhpMyAdmin
  * @subpackage Example
  */
+declare(strict_types=1);
 
 /* Use cookies for session */
 ini_set('session.use_cookies', 'true');

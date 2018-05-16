@@ -6,10 +6,7 @@
  * @package PhpMyAdmin-test
  * @group common.lib-tests
  */
-
-/*
- * Include to test.
- */
+declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 

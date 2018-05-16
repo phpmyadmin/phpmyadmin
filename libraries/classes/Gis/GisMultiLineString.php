@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-GIS
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
@@ -250,7 +251,7 @@ class GisMultiLineString extends GisGeometry
             $row .= '"';
             $line_options['id'] = $label . rand();
             foreach ($line_options as $option => $val) {
-                $row .= ' ' . $option . '="' . trim($val) . '"';
+                $row .= ' ' . $option . '="' . trim((string) $val) . '"';
             }
             $row .= '/>';
         }

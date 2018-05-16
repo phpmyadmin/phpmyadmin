@@ -30,6 +30,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;

@@ -5,8 +5,10 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Response;
+
 require_once 'libraries/common.inc.php';
 
 if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {

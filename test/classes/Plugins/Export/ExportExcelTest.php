@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Plugins\Export\ExportExcel;

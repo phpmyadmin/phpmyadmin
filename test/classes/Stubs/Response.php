@@ -10,6 +10,8 @@
  * @package    PhpMyAdmin
  * @subpackage Stubs
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Header;

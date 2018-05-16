@@ -7,6 +7,7 @@
  * @todo (also validate if js is disabled, after form submission?)
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Url;

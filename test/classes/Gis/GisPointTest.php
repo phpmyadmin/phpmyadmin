@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisPoint;
@@ -211,7 +213,7 @@ class GisPointTest extends GisGeomTestCase
                     'scale' => 2,
                     'height' => 150
                 ),
-                imagecreatetruecolor('120', '150')
+                imagecreatetruecolor(120, 150)
             )
         );
     }

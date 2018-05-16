@@ -7,6 +7,7 @@
  * @todo    display executed query, optional?
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Response;

@@ -7,6 +7,7 @@ phpMyAdmin - ChangeLog
 - issue #13919 Remove font size feature
 - issue #12373 Add Metro theme
 - issue #14155 Add move columns preview SQL button
+- issue #14296 Enable strict mode in PHP files
 
 4.8.1 (not yet released)
 - issue #12772 Fix case where the central columns attributes don't get filled in

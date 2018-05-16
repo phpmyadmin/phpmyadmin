@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 // unplanned execution path
 if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
@@ -228,7 +229,7 @@ table.jqplot-cursor-tooltip {
     font-size: 0.75em;
     z-index: 2;
 }
-      
+
 td.jqplot-cursor-legend-swatch {
     vertical-align: middle;
     text-align: center;

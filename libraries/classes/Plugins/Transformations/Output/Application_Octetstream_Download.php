@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Download
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
 use PhpMyAdmin\Plugins\Transformations\Abs\DownloadTransformationsPlugin;
