@@ -6,6 +6,8 @@
  * @package PhpMyAdmin-test
  * @group current
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;

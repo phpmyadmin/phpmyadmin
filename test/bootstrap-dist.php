@@ -5,13 +5,14 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
 /**
  * Set precision to sane value, with higher values
  * things behave slightly unexpectedly, for example
  * round(1.2, 2) returns 1.199999999999999956.
  */
-ini_set('precision', 14);
+ini_set('precision', '14');
 
 // Let PHP complain about all errors
 error_reporting(E_ALL);
@@ -21,7 +22,7 @@ date_default_timezone_set('UTC');
 
 // Adding phpMyAdmin sources to include path
 set_include_path(
-    get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php"))
+    get_include_path() . PATH_SEPARATOR . dirname((string) realpath("../index.php"))
 );
 
 // Setting constants for testing

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
@@ -864,15 +866,15 @@ class UtilTest extends PmaTestCase
         // Test with various precisions
         $old_precision = ini_get('precision');
         try {
-            ini_set('precision', 20);
+            ini_set('precision', '20');
             $this->assertFormatNumber($a, $b, $c, $d);
-            ini_set('precision', 14);
+            ini_set('precision', '14');
             $this->assertFormatNumber($a, $b, $c, $d);
-            ini_set('precision', 10);
+            ini_set('precision', '10');
             $this->assertFormatNumber($a, $b, $c, $d);
-            ini_set('precision', 5);
+            ini_set('precision', '5');
             $this->assertFormatNumber($a, $b, $c, $d);
-            ini_set('precision', -1);
+            ini_set('precision', '-1');
             $this->assertFormatNumber($a, $b, $c, $d);
         } finally {
             ini_set('precision', $old_precision);

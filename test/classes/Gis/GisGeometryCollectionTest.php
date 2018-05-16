@@ -1,11 +1,12 @@
 <?php
-
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Test for PhpMyAdmin\Gis\GisGeometry
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisGeometryCollection;
@@ -19,7 +20,6 @@ use TCPDF;
  */
 class GisGeometryCollectionTest extends TestCase
 {
-
     /**
      * @access protected
      */
@@ -225,7 +225,7 @@ class GisGeometryCollectionTest extends TestCase
                     'scale' => 2,
                     'height' => 150
                 ),
-                imagecreatetruecolor('120', '150')
+                imagecreatetruecolor(120, 150)
             )
         );
     }

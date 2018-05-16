@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
