@@ -47,7 +47,7 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
     cursor: default;
 }
 
-/* HSV format - Hue-Saturation-Value(Brightness) */
+/* HSB format - Hue-Saturation-Value(Brightness) */
 .ui-color-picker .picking-area {
     background: url(<?php echo $pickerMask; ?>) center center;
 
@@ -122,7 +122,7 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
 
 .ui-color-picker .alpha {
     border: 1px solid #CCC;
-    background: url(<?php echo $alplha; ?>);
+    background: url(<?php echo $alpha; ?>);
 }
 
 .ui-color-picker .alpha-mask {
@@ -140,7 +140,7 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
     top: -1px;
 }
 
-/* input HSV and RGB */
+/* input HSB and RGB */
 
 .ui-color-picker .info {
     width: 200px;
