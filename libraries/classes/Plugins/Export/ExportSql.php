@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Export
  * @subpackage SQL
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Charsets;

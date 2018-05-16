@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Export
  * @subpackage CodeGen
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\Plugins\Export\ExportCodegen;
@@ -67,12 +69,12 @@ class TableProperty
      */
     public function __construct(array $row)
     {
-        $this->name = trim($row[0]);
-        $this->type = trim($row[1]);
-        $this->nullable = trim($row[2]);
-        $this->key = trim($row[3]);
-        $this->defaultValue = trim($row[4]);
-        $this->ext = trim($row[5]);
+        $this->name = trim((string) $row[0]);
+        $this->type = trim((string) $row[1]);
+        $this->nullable = trim((string) $row[2]);
+        $this->key = trim((string) $row[3]);
+        $this->defaultValue = trim((string) $row[4]);
+        $this->ext = trim((string) $row[5]);
     }
 
     /**

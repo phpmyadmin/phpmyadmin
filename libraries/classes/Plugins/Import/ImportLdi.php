@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Import
  * @subpackage LDI
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Import;
@@ -14,10 +16,6 @@ use PhpMyAdmin\Plugins\Import\AbstractImportCsv;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\Util;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
 
 // We need relations enabled and we work only on database
 if ($GLOBALS['plugin_param'] !== 'table') {
@@ -131,18 +129,18 @@ class ImportLdi extends AbstractImportCsv
         }
         $sql .= ' INTO TABLE ' . Util::backquote($table);
 
-        if (strlen($ldi_terminated) > 0) {
+        if (strlen((string) $ldi_terminated) > 0) {
             $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
         }
-        if (strlen($ldi_enclosed) > 0) {
+        if (strlen((string) $ldi_enclosed) > 0) {
             $sql .= ' ENCLOSED BY \''
                 . $GLOBALS['dbi']->escapeString($ldi_enclosed) . '\'';
         }
-        if (strlen($ldi_escaped) > 0) {
+        if (strlen((string) $ldi_escaped) > 0) {
             $sql .= ' ESCAPED BY \''
                 . $GLOBALS['dbi']->escapeString($ldi_escaped) . '\'';
         }
-        if (strlen($ldi_new_line) > 0) {
+        if (strlen((string) $ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
                 $ldi_new_line
                     = (PHP_EOL == "\n")
@@ -155,7 +153,7 @@ class ImportLdi extends AbstractImportCsv
             $sql .= ' IGNORE ' . $skip_queries . ' LINES';
             $skip_queries = 0;
         }
-        if (strlen($ldi_columns) > 0) {
+        if (strlen((string) $ldi_columns) > 0) {
             $sql .= ' (';
             $tmp = preg_split('/,( ?)/', $ldi_columns);
             $cnt_tmp = count($tmp);

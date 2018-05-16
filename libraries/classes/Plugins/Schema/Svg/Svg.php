@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Svg;
 
 use PhpMyAdmin\Core;
@@ -233,13 +235,13 @@ class Svg extends XMLWriter
         $styles = ''
     ) {
         $this->startElement($name);
-        $this->writeAttribute('width', $width);
-        $this->writeAttribute('height', $height);
-        $this->writeAttribute('x', $x);
-        $this->writeAttribute('y', $y);
-        $this->writeAttribute('style', $styles);
+        $this->writeAttribute('width', (string) $width);
+        $this->writeAttribute('height', (string) $height);
+        $this->writeAttribute('x', (string) $x);
+        $this->writeAttribute('y', (string) $y);
+        $this->writeAttribute('style', (string) $styles);
         if (isset($text)) {
-            $this->writeAttribute('font-family', $this->font);
+            $this->writeAttribute('font-family', (string) $this->font);
             $this->writeAttribute('font-size', $this->fontSize . 'px');
             $this->text($text);
         }

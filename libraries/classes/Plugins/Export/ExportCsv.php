@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-Export
  * @subpackage CSV
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 

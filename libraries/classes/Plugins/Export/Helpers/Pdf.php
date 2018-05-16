@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Export
  * @subpackage PDF
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\DatabaseInterface;

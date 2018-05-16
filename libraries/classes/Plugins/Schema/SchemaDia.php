@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Schema
  * @subpackage Dia
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;

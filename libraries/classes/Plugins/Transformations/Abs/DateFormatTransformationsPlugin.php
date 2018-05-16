@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage DateFormat
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
@@ -50,6 +52,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, array $options = array(), $meta = '')
     {
+        $buffer = (string) $buffer;
         // possibly use a global transform and feed it with special options
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['DateFormat']);
@@ -141,10 +144,10 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                 $text = 'INVALID DATE TYPE';
             }
             return '<dfn onclick="alert(\'' . Sanitize::jsFormat($source, false) . '\');" title="'
-                . htmlspecialchars($source) . '">' . htmlspecialchars($text) . '</dfn>';
+                . htmlspecialchars((string) $source) . '">' . htmlspecialchars((string) $text) . '</dfn>';
         }
 
-        return htmlspecialchars($buffer);
+        return htmlspecialchars((string) $buffer);
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
