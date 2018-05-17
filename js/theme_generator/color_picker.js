@@ -1384,7 +1384,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             var b = color.value;
             if (steps) {
                 if (b < 20) {
-                    var brightness = (100 / (size - 1)) * steps;                    
+                    var brightness = (100 / (size - 1)) * steps;
                 }
                 else if (3*b / 2 >= 100) {
                     var brightness = (((200 - b) * (size - steps)) + (b * (size - 1) - 200))/(2 * (size - 2));
