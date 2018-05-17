@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-03-30 20:15+0000\n"
-"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
+"PO-Revision-Date: 2018-05-18 01:25+0000\n"
+"Last-Translator: Nicola Lombardi <nicolaandroid23@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/it/>\n"
 "Language: it\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:205 libraries/classes/Export.php:1144
 msgid "Bad type!"
@@ -949,6 +949,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Stai cercando di ridurre il numero di righe, ma hai già inserito dei dati "
+"all'interno di quelle righe che verranno persi. Desideri procedere?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1978,12 +1980,16 @@ msgstr "Naviga tra i valori esterni"
 #: js/messages.php:424
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Nessuna query automaticamente salvata presente. Caricamento query "
+"predefinita in corso."
 
 #: js/messages.php:425
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Hai una query precedentemente salvata. Clicca \"Ottieni query\" per caricare "
+"la query."
 
 #: js/messages.php:426
 #, php-format
@@ -14683,7 +14689,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:9
 msgid "Secret/key:"
-msgstr ""
+msgstr "Segreto/chiave:"
 
 #: templates/login/twofactor/application_configure.twig:12
 #: templates/login/twofactor/application.twig:2
@@ -16383,10 +16389,8 @@ msgid "Edit partitioning"
 msgstr "Modifica partizionamento"
 
 #: templates/database/central_columns/table_header.twig:17
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Lenght/Value"
-msgstr "Lunghezza/Valori"
+msgstr "Lunghezza/Valore"
 
 #: templates/database/central_columns/table_header.twig:29
 msgid "Attribute"
