@@ -20,6 +20,7 @@ $alpha = $theme->getImgPath('theme_generator/alpha.png');
 $alphaMask = $theme->getImgPath('theme_generator/alpha_mask.png');
 $grain = $theme->getImgPath('theme_generator/grain.png');
 ?>
+
 .ui-color-picker {
     width: 420px;
     margin: 0;
@@ -629,7 +630,7 @@ body {
  */
 
 #palette {
-    width: 1000px;
+    width: 700px;
     height: 220px;
     padding: 10px 0;
     background-image: url(<?php echo $grain; ?>);
@@ -693,17 +694,6 @@ body {
     border-color: #BBB;
     transform: scale(1.15);
     border-radius: 3px;
-}
-
-#color-palette .controls {
-}
-
-#color-palette .controls > * {
-    float: left;
-}
-
-#color-palette .controls > *:hover {
-    cursor: pointer;
 }
 
 #zindex {
