@@ -1301,6 +1301,8 @@ var ColorPickerTool = (function ColorPickerTool() {
         var samples = [];
         var color_palette;
         var complementary;
+        // Keep pallete_size odd number
+        var pallete_size = 7;
 
         var hideNode = function(node) {
             node.setAttribute('data-hidden', 'true');
@@ -1378,15 +1380,32 @@ var ColorPickerTool = (function ColorPickerTool() {
         };
 
         ColorSample.prototype.updateMonochrome = function updateMonochrome(color, size, steps) {
+            var s = color.saturation;
+            var b = color.value;
             if (steps) {
-                var brightness = (100 / (size - 1)) * steps;
-                var saturation = 100 - ((100 / size) * steps);
+                if (b < 20) {
+                    var brightness = (100 / (size - 1)) * steps;                    
+                }
+                else if (3*b / 2 >= 100) {
+                    var brightness = (((200 - b) * (size - steps)) + (b * (size - 1) - 200))/(2 * (size - 2));
+                } else {
+                    var brightness = ((b / (size - 2))*((size - steps) - 1)) + (b / 2);
+                }
+
+                if (s < 20) {
+                    var saturation = 100 - ((100 / size) * steps);
+                }
+                else if (3*s / 2 >= 100) {
+                    var saturation = (((200 - s) * steps) + (s * (size - 1) - 200))/(2 * (size - 2));
+                } else {
+                    var saturation = ((s / (size - 2))*(steps - 1)) + (s / 2);
+                }
             } else {
-                var brightness = color.value;
-                var saturation = color.saturation;
+                var brightness = b;
+                var saturation = s;
             }
 
-            if (brightness > 100) {
+            if (saturation > 100) {
                 this.node.setAttribute('data-hidden', 'true');
                 return;
             }
@@ -1479,12 +1498,12 @@ var ColorPickerTool = (function ColorPickerTool() {
         };
 
         var createMonochromePalette = function createMonochromePalette() {
-            var size = 8;
-            var palette = new Palette('Monochrome', size);
+
+            var palette = new Palette('Monochrome', pallete_size);
 
             UIColorPicker.subscribe('picker', function(color) {
-                for(var i = 0; i < size; i++) {
-                    palette.samples[i].updateMonochrome(color, size, i);
+                for(var i = 0; i < pallete_size; i++) {
+                    palette.samples[i].updateMonochrome(color, pallete_size, i);
                 }
             });
 
