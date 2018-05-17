@@ -6,6 +6,13 @@
         "es6": true
     },
     "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": false
+        }
+    },
     "rules": {
         "array-bracket-spacing": "error",
         "brace-style": "error",
