@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-05-16 17:58+0000\n"
+"PO-Revision-Date: 2018-05-18 08:37+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -2193,7 +2193,7 @@ msgstr ""
 
 #: js/messages.php:551
 msgid "Select referenced key"
-msgstr ""
+msgstr "בחירת מפתח עם הפניה"
 
 #: js/messages.php:552
 msgid "Select Foreign Key"
@@ -12426,22 +12426,16 @@ msgid "Group name:"
 msgstr "שמות עמודה"
 
 #: libraries/classes/Server/UserGroups.php:282
-#, fuzzy
-#| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "גרסת שרת"
+msgstr "טאבים ברמת השרת"
 
 #: libraries/classes/Server/UserGroups.php:285
-#, fuzzy
-#| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "שרת מסד נתונים"
+msgstr "לשוניות ברמת מסד הנתונים"
 
 #: libraries/classes/Server/UserGroups.php:288
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "הערות לטבלה"
+msgstr "טאבים ברמת הטבלה"
 
 #: libraries/classes/Sql.php:248 libraries/classes/Util.php:1145
 #: templates/console/display.twig:31 templates/console/display.twig:175
@@ -12449,13 +12443,10 @@ msgid "Profiling"
 msgstr ""
 
 #: libraries/classes/Sql.php:251
-#, fuzzy
-#| msgid "Data files"
 msgid "Detailed profile"
-msgstr "קבצי נתונים"
+msgstr "פרופיל מפורט"
 
 #: libraries/classes/Sql.php:256 libraries/classes/Sql.php:272
-#, fuzzy
 msgid "State"
 msgstr "מצב"
 
@@ -12464,48 +12455,36 @@ msgid "Summary by state"
 msgstr ""
 
 #: libraries/classes/Sql.php:275
-#, fuzzy
-#| msgid "Total"
 msgid "Total Time"
-msgstr "סה\"כ"
+msgstr "סך כל הזמן"
 
 #: libraries/classes/Sql.php:277
-#, fuzzy
-#| msgid "Time"
 msgid "% Time"
-msgstr "זמן"
+msgstr "% זמן"
 
 #: libraries/classes/Sql.php:279
-#, fuzzy
-#| msgid "Close"
 msgid "Calls"
-msgstr "סגירה"
+msgstr "קריאות"
 
 #: libraries/classes/Sql.php:281
-#, fuzzy
-#| msgid "Time"
 msgid "ø Time"
-msgstr "זמן"
+msgstr "ø זמן"
 
 #: libraries/classes/Sql.php:586 libraries/classes/Sql.php:604
 msgid "Bookmark this SQL query"
 msgstr "הכנס שאילתת SQL זאת למועדפים"
 
 #: libraries/classes/Sql.php:590
-#, fuzzy
-#| msgid "Label"
 msgid "Label:"
-msgstr "תווית"
+msgstr "תווית:"
 
 #: libraries/classes/Sql.php:597 libraries/classes/SqlQueryForm.php:316
 msgid "Let every user access this bookmark"
 msgstr "אפשר לכל משתמש לגשת לכתובת מועדפת זאת"
 
 #: libraries/classes/Sql.php:813
-#, fuzzy
-#| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
-msgstr "הסימנייה %s נוצרה"
+msgstr "לא נוצרה סימנייה!"
 
 #: libraries/classes/Sql.php:923
 #, php-format
@@ -12536,9 +12515,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "בעיות עם אינדקסים של טבלה `%s`"
 
 #: libraries/classes/SqlQueryForm.php:140
-#, fuzzy, php-format
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "הרצת את שאילתה/שאילתות על מסד הנתונים %s"
+msgstr "הרצת את שאילתה/שאילתות על השרת „%s”"
 
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
@@ -12546,16 +12525,14 @@ msgid "Run SQL query/queries on database %s"
 msgstr "הרצת את שאילתה/שאילתות על מסד הנתונים %s"
 
 #: libraries/classes/SqlQueryForm.php:178
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "הרצת את שאילתה/שאילתות על מסד הנתונים %s"
+msgstr "הרצת את שאילתה/שאילתות על הטבלה „%s”"
 
 #: libraries/classes/SqlQueryForm.php:248 setup/frames/index.inc.php:254
 #: templates/console/display.twig:7
-#, fuzzy
 msgid "Clear"
-msgstr "לוח שנה"
+msgstr "פינוי"
 
 #: libraries/classes/SqlQueryForm.php:254
 msgid "Get auto-saved query"
@@ -12568,10 +12545,8 @@ msgid "Bind parameters"
 msgstr "פרמטרים שגויים!"
 
 #: libraries/classes/SqlQueryForm.php:308
-#, fuzzy
-#| msgid "Bookmark this SQL query"
 msgid "Bookmark this SQL query:"
-msgstr "הכנס שאילתת SQL זאת למועדפים"
+msgstr "הוספת שאילתת SQL זאת לסימניות:"
 
 #: libraries/classes/SqlQueryForm.php:322
 msgid "Replace existing bookmark of same name"
@@ -12624,42 +12599,36 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "שרת MySQL לא תומך במנוע אחסון %s."
 
 #: libraries/classes/Table.php:332
-#, fuzzy
-#| msgid "Show tables"
 msgid "Unknown table status:"
-msgstr "ראיית טבלאות"
+msgstr "מצב הטבלה אינו ידוע:"
 
 #: libraries/classes/Table.php:884
-#, fuzzy, php-format
+#, php-format
 msgid "Source database `%s` was not found!"
-msgstr "חפש במסד הנתונים"
+msgstr "מסד נתוני המקור ‚%s’ לא נמצא!"
 
 #: libraries/classes/Table.php:892
-#, fuzzy, php-format
+#, php-format
 msgid "Target database `%s` was not found!"
-msgstr "חפש במסד הנתונים"
+msgstr "מסד נתוני היעד ‚%s’ לא נמצא!"
 
 #: libraries/classes/Table.php:1435
-#, fuzzy
 msgid "Invalid database:"
-msgstr "אין מאגרי נתונים"
+msgstr "מסד נתונים שגוי:"
 
 #: libraries/classes/Table.php:1452
-#, fuzzy
-#| msgid "Inside tables:"
 msgid "Invalid table name:"
-msgstr "בתוך הטבלאות:"
+msgstr "שם הטבלה שגוי:"
 
 #: libraries/classes/Table.php:1487
-#, fuzzy, php-format
+#, php-format
 msgid "Failed to rename table %1$s to %2$s!"
-msgstr "גרסת שרת"
+msgstr "שינוי שם הטבלה מ־%1$s ל־%2$s נכשל!"
 
 #: libraries/classes/Table.php:1506
-#, fuzzy, php-format
-#| msgid "Table %s has been renamed to %s."
+#, php-format
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "טבלה %s שונתה אל %s"
+msgstr "שם הטבלה %1$s הוחלף לשם %2$s."
 
 #: libraries/classes/Table.php:1737
 msgid "Could not save table UI preferences!"
@@ -12698,9 +12667,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: libraries/classes/Template.php:127
-#, fuzzy, php-format
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "מאפשר מחיקת מידע."
+msgstr "אירעה שגיאה בעת עבודה מול מטמון התבניות: %s"
 
 #: libraries/classes/Theme.php:186
 #, php-format
@@ -12727,9 +12696,8 @@ msgid "Theme:"
 msgstr ""
 
 #: libraries/classes/Tracking.php:158 templates/server/plugins/section.twig:11
-#, fuzzy
 msgid "Version"
-msgstr "Persian"
+msgstr "גרסה"
 
 #: libraries/classes/Tracking.php:159
 #: templates/database/tracking/tracked_tables.twig:13
@@ -12742,9 +12710,8 @@ msgid "Updated"
 msgstr "עודכנה"
 
 #: libraries/classes/Tracking.php:169 libraries/classes/Tracking.php:233
-#, fuzzy
 msgid "Delete version"
-msgstr "גרסת שרת"
+msgstr "מחיקת גרסה"
 
 #: libraries/classes/Tracking.php:170 libraries/classes/Tracking.php:332
 #: templates/database/tracking/tracked_tables.twig:60
@@ -12765,10 +12732,8 @@ msgid "Delete tracking data row from report"
 msgstr ""
 
 #: libraries/classes/Tracking.php:359
-#, fuzzy
-#| msgid "No databases"
 msgid "No data"
-msgstr "אין מאגרי נתונים"
+msgstr "אין נתונים"
 
 #: libraries/classes/Tracking.php:449 libraries/classes/Tracking.php:499
 #, php-format
@@ -12847,9 +12812,9 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
 #: libraries/classes/Tracking.php:995
-#, fuzzy, php-format
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "גרסת שרת"
+msgstr "גרסה %1$s מתוך %2$s נמחקה."
 
 #: libraries/classes/Tracking.php:1026
 #, php-format
@@ -12937,9 +12902,9 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/classes/Types.php:265
-#, fuzzy, php-format
+#, php-format
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "גרסת שרת"
+msgstr "תאריך, הטווח הנתמך הוא %1$s עד %2$s"
 
 #: libraries/classes/Types.php:270
 #, php-format
@@ -12953,9 +12918,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Types.php:281
-#, fuzzy, php-format
+#, php-format
 msgid "A time, range is %1$s to %2$s"
-msgstr "גרסת שרת"
+msgstr "שעה, הטווח הוא %1$s עד %2$s"
 
 #: libraries/classes/Types.php:285
 msgid ""
@@ -13060,10 +13025,8 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/classes/Types.php:371
-#, fuzzy
-#| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "הוספת מצולע"
+msgstr "מצולע"
 
 #: libraries/classes/Types.php:373
 msgid "A collection of points"
@@ -13093,28 +13056,22 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/classes/Types.php:713
-#, fuzzy
-#| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "יצירת אינדקס חדש"
+msgstr "תאריך ושעה"
 
 #: libraries/classes/Types.php:743
-#, fuzzy
-#| msgid "Total"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "סה\"כ"
+msgstr "מרחבי"
 
 #: libraries/classes/UserPassword.php:62
 msgid "The profile has been updated."
 msgstr "הפרופיל עודכן בהצלחה."
 
 #: libraries/classes/UserPassword.php:74
-#, fuzzy
-#| msgid "Password:"
 msgid "Password is too long!"
-msgstr "סיסמא:"
+msgstr "הססמה ארוכה מדי!"
 
 #: libraries/classes/UserPreferences.php:144
 msgid "Could not save configuration"
@@ -13144,24 +13101,18 @@ msgid "Analyze Explain at %s"
 msgstr ""
 
 #: libraries/classes/Util.php:1091
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "ללא קוד PHP"
 
 #: libraries/classes/Util.php:1098
 #: templates/database/multi_table_query/form.twig:161
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "שליחת שאילתה"
 
 #: libraries/classes/Util.php:1164
-#, fuzzy
-#| msgid "Add new field"
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "הוספת שדה חדש"
+msgstr "עריכה במקום"
 
 #. l10n: Short week day name
 #: libraries/classes/Util.php:1504
@@ -13185,16 +13136,13 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s ימים, %s שעות, %s דקות ו- %s שניות"
 
 #: libraries/classes/Util.php:1872
-#, fuzzy
-#| msgid "Add new field"
 msgid "Missing parameter:"
-msgstr "הוספת שדה חדש"
+msgstr "חסר משתנה:"
 
 #: libraries/classes/Util.php:2416
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
-msgstr "קפיצה אל מאגר נתונים \"%s\"."
+msgstr "קפיצה אל מסד הנתונים „%s”."
 
 #: libraries/classes/Util.php:2441
 #, php-format
@@ -13206,9 +13154,9 @@ msgid "Browse your computer:"
 msgstr ""
 
 #: libraries/classes/Util.php:3254
-#, fuzzy, php-format
+#, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "שמירת שרת בתוך תיקיית %s"
+msgstr "נא לבחור מתיקיית ההעלאה של השרת <b>%s</b>:"
 
 #: libraries/classes/Util.php:3294
 msgid "There are no files to upload!"
@@ -13240,10 +13188,8 @@ msgid "SSL is used"
 msgstr ""
 
 #: libraries/classes/Util.php:3960
-#, fuzzy
-#| msgid "User"
 msgid "Users"
-msgstr "משתמש"
+msgstr "משתמשים"
 
 #: libraries/classes/Util.php:4652
 #: templates/database/multi_table_query/form.twig:46
@@ -13279,18 +13225,14 @@ msgstr ""
 
 #: libraries/config.values.php:56 libraries/config.values.php:76
 #: libraries/config.values.php:88
-#, fuzzy
-#| msgid "Ins"
 msgid "Icons"
-msgstr "הכנסה"
+msgstr "סמלים"
 
 #: libraries/config.values.php:57 libraries/config.values.php:77
 #: libraries/config.values.php:89
 #: templates/database/multi_table_query/form.twig:96
-#, fuzzy
-#| msgid "Next"
 msgid "Text"
-msgstr "הבא"
+msgstr "טקסט"
 
 #: libraries/config.values.php:58 libraries/config.values.php:66
 #: libraries/config.values.php:78 libraries/config.values.php:90
@@ -13328,10 +13270,8 @@ msgid "display column"
 msgstr "מציג הערות עמודה"
 
 #: libraries/config.values.php:103
-#, fuzzy
-#| msgid "Welcome to %s"
 msgid "Welcome"
-msgstr "ברוך הבא אל %s"
+msgstr "ברוך בואך"
 
 #: libraries/config.values.php:123
 msgid "Open"
@@ -13354,21 +13294,16 @@ msgid "Never send error reports"
 msgstr ""
 
 #: libraries/config.values.php:133
-#, fuzzy
 msgid "Server default"
-msgstr "קבצי ייבוא"
+msgstr "בררת המחדל של השרת"
 
 #: libraries/config.values.php:134
-#, fuzzy
-#| msgid "Enabled"
 msgid "Enable"
-msgstr "מופעל"
+msgstr "הפעלה"
 
 #: libraries/config.values.php:135
-#, fuzzy
-#| msgid "Disabled"
 msgid "Disable"
-msgstr "מבוטל"
+msgstr "השבתה"
 
 #: libraries/config.values.php:169
 msgid "Quick - display only the minimal options to configure"
@@ -13407,22 +13342,16 @@ msgid "Success!"
 msgstr ""
 
 #: libraries/user_preferences.inc.php:31
-#, fuzzy
-#| msgid "General relation features"
 msgid "Manage your settings"
-msgstr "תכונות קשר כלליות"
+msgstr "ניהול ההגדרות שלך"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Documentation"
 msgid "Two-factor authentication"
-msgstr "תיעוד"
+msgstr "אימות דו־שלבי"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:296
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
-msgstr "שינויים נשמרו"
+msgstr "התצוגה נשמרה."
 
 #: libraries/user_preferences.inc.php:70
 #, php-format
@@ -13470,10 +13399,8 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:234
-#, fuzzy
-#| msgid "Import files"
 msgid "Import from file"
-msgstr "קבצי ייבוא"
+msgstr "ייבוא מקובץ"
 
 #: prefs_manage.php:242
 msgid "Import from browser's storage"
@@ -13503,10 +13430,8 @@ msgid ""
 msgstr ""
 
 #: prefs_manage.php:312
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
-msgstr "שמירה כקובץ"
+msgstr "שמירה כקובץ PHP"
 
 #: prefs_manage.php:317
 msgid "Save to browser's storage"
@@ -13525,9 +13450,8 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr ""
 
 #: prefs_twofactor.php:29
-#, fuzzy
 msgid "Two-factor authentication has been removed."
-msgstr "יחסים פנימיים"
+msgstr "האימות הדו־שלבי הוסר."
 
 #: prefs_twofactor.php:39
 msgid "Two-factor authentication has been configured."
@@ -13543,10 +13467,8 @@ msgid "No Privileges"
 msgstr "ללא הרשאות"
 
 #: server_privileges.php:150
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have privileges to manipulate with the users!"
-msgstr "אין לך הרשאות מספיקות להיות כאן כרגע!"
+msgstr "אין לך מספיק הרשאות לערוך שינויים במשתמשים!"
 
 #: server_privileges.php:164
 msgid ""
@@ -13606,10 +13528,8 @@ msgid "Insecure connection"
 msgstr ""
 
 #: setup/frames/index.inc.php:84
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration saved."
-msgstr "שינויים נשמרו"
+msgstr "התצוגה נשמרה."
 
 #: setup/frames/index.inc.php:87
 msgid ""
@@ -13618,10 +13538,8 @@ msgid ""
 msgstr ""
 
 #: setup/frames/index.inc.php:97
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration not saved!"
-msgstr "שינויים נשמרו"
+msgstr "התצורה לא נשמרה!"
 
 #: setup/frames/index.inc.php:100
 msgid ""
@@ -13671,9 +13589,8 @@ msgid "Display"
 msgstr ""
 
 #: setup/frames/index.inc.php:264
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "תיעוד phpMyAdmin"
+msgstr "דף הבית של phpMyAdmin"
 
 #: setup/frames/index.inc.php:266
 msgid "Donate"
@@ -13688,9 +13605,8 @@ msgid "Edit server"
 msgstr ""
 
 #: setup/frames/servers.inc.php:37
-#, fuzzy
 msgid "Add a new server"
-msgstr "הוספת משתמש חדש"
+msgstr "הוספת שרת חדש"
 
 #: setup/index.php:18
 msgid "Configuration already exists, setup is disabled!"
@@ -13717,9 +13633,8 @@ msgid "Ignore errors"
 msgstr ""
 
 #: setup/lib/FormProcessing.php:73
-#, fuzzy
 msgid "Show form"
-msgstr "ראיית צבע"
+msgstr "הצגת טופס"
 
 #: setup/lib/Index.php:124
 msgid ""
@@ -13747,10 +13662,8 @@ msgid "No newer stable version is available"
 msgstr ""
 
 #: setup/validate.php:26
-#, fuzzy
-#| msgid "No databases"
 msgid "Wrong data"
-msgstr "אין מאגרי נתונים"
+msgstr "נתונים שגויים"
 
 #: setup/validate.php:32
 #, php-format
@@ -13763,9 +13676,9 @@ msgid "'%s' database does not exist."
 msgstr ""
 
 #: tbl_create.php:46
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s already exists!"
-msgstr "שם המשתמש %s כבר קיים!"
+msgstr "הטבלה %s כבר קיימת!"
 
 #: tbl_export.php:44
 msgid "View dump (schema) of table"
@@ -13781,10 +13694,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_row_action.php:73
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
-msgstr "לא נבחרו שורות"
+msgstr "לא נבחרו שורות."
 
 #: tbl_tracking.php:34
 #, php-format
@@ -13792,15 +13703,12 @@ msgid "Tracking of %s is activated."
 msgstr ""
 
 #: tbl_tracking.php:103
-#, fuzzy
 msgid "Tracking versions deleted successfully."
-msgstr "%s מסדי נתונים נמחקו בהצלחה."
+msgstr "גרסאות המעקב נמחקו בהצלחה."
 
 #: tbl_tracking.php:108
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No versions selected."
-msgstr "לא נבחרו שורות"
+msgstr "לא נבחרו גרסאות."
 
 #: tbl_tracking.php:139
 msgid "SQL statements executed."
@@ -13843,18 +13751,14 @@ msgid "Input transformation"
 msgstr "שינויי צורה זמינים"
 
 #: transformation_overview.php:55
-#, fuzzy
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "תיאור"
 
 #: templates/table/structure/move_columns_dialog.twig:1
 #: templates/table/structure/optional_action_links.twig:19
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Move columns"
-msgstr "הוספת %s תאים"
+msgstr "העברת עמודות"
 
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
@@ -13938,25 +13842,21 @@ msgstr "הגרסה האחרונה"
 
 #: templates/database/tracking/tracked_tables.twig:49
 #: templates/database/tracking/tracked_tables.twig:77
-#, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete tracking"
-msgstr "נתוני המעקב נמחקים"
+msgstr "מחיקת מעקב"
 
 #: templates/database/tracking/tracked_tables.twig:55
 msgid "Versions"
 msgstr "גרסאות"
 
 #: templates/display/import/import.twig:40
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "נכשל בכניסה לשרת MySQL"
+msgstr "מתבצע ייבוא לתוך השרת הנוכחי"
 
 #: templates/display/import/import.twig:42
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "אין מאגרי נתונים"
+msgstr "מתבצע ייבוא לתוך מסד הנתונים „%s”"
 
 #: templates/display/import/import.twig:44
 #, fuzzy, php-format
@@ -14098,48 +13998,34 @@ msgid "Define new aliases"
 msgstr ""
 
 #: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select database:"
-msgstr "בחירת טבלאות"
+msgstr "בחירת מסד נתונים:"
 
 #: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "Database"
 msgid "New database name"
-msgstr "מאגר נתונים"
+msgstr "שם חדש למסד הנתונים"
 
 #: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
 #: templates/export/alias_add.twig:46 templates/console/display.twig:99
 #: templates/columns_definitions/column_definitions_form.twig:32
-#, fuzzy
-#| msgid "And"
 msgid "Add"
-msgstr "וגם"
+msgstr "הוספה"
 
 #: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select table:"
-msgstr "בחירת טבלאות"
+msgstr "בחירת טבלה:"
 
 #: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "New table"
 msgid "New table name"
-msgstr "אין טבלאות"
+msgstr "שם חדש לטבלה"
 
 #: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Select column:"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "בחירת עמודה:"
 
 #: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Column names"
 msgid "New column name"
-msgstr "שמות עמודה"
+msgstr "שם חדש לעמודה"
 
 #: templates/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
@@ -14153,10 +14039,9 @@ msgstr ""
 
 #: templates/display/export/options_quick_export.twig:8
 #: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "שמירת שרת בתוך תיקיית %s"
+msgstr "שמירה בשרת בתיקיית <strong>%s</strong>"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
@@ -14170,9 +14055,9 @@ msgid ""
 msgstr ""
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "אין מאגרי נתונים"
+msgstr "קפיצה למסד הנתונים ‚%s’"
 
 #: templates/server/databases/table_row.twig:61
 #, php-format
@@ -14180,8 +14065,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "בדיקת הראשות עבור מאגר נתונים \"%s\"."
 
 #: templates/server/databases/table_row.twig:62
-#, fuzzy
-#| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "בדיקת הרשאות"
 
@@ -14191,10 +14074,8 @@ msgstr ""
 
 #: templates/database/designer/aggregate_query_panel.twig:22
 #: templates/database/designer/options_panel.twig:100
-#, fuzzy
-#| msgid "Create"
 msgid "Aggregate"
-msgstr "יצירה"
+msgstr "צבירה"
 
 #: templates/database/designer/aggregate_query_panel.twig:30
 #: templates/database/designer/where_query_panel.twig:30
@@ -14325,16 +14206,12 @@ msgid "Server variables and settings"
 msgstr "משתני והגדרות שרת"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "מנועי אחסון"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "חבילות קידוד"
+msgstr "ערכות תווים ואוספים"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -14396,10 +14273,8 @@ msgstr ""
 #: templates/display/export/options_rows.twig:10
 #: templates/start_and_number_of_rows_panel.twig:10
 #: templates/display/results/additional_fields.twig:6
-#, fuzzy
-#| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "מספר שדות"
+msgstr "מספר שורות:"
 
 #: templates/display/export/options_rows.twig:23
 msgid "Row to begin at:"
@@ -14411,10 +14286,8 @@ msgstr ""
 
 #: templates/view_create.twig:13
 #: templates/table/structure/display_structure.twig:137
-#, fuzzy
-#| msgid "Print view"
 msgid "Edit view"
-msgstr "תצוגת הדפסה"
+msgstr "עריכת תצוגה"
 
 #: templates/view_create.twig:65
 msgid "VIEW name"
@@ -14429,8 +14302,6 @@ msgid "No databases"
 msgstr "אין מאגרי נתונים"
 
 #: templates/table/structure/row_stats_table.twig:2
-#, fuzzy
-#| msgid "Row Statistics"
 msgid "Row statistics"
 msgstr "סטטיסטיקת שורה"
 
@@ -14492,16 +14363,12 @@ msgid "use this for future exports"
 msgstr ""
 
 #: templates/database/designer/database_tables.twig:31
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Show/hide columns"
-msgstr "הוספת %s תאים"
+msgstr "הצגה/הסתרה של עמודות"
 
 #: templates/database/designer/database_tables.twig:39
-#, fuzzy
-#| msgid "Databases"
 msgid "See table structure"
-msgstr "מאגרי נתונים"
+msgstr "הצגת מבנה הטבלה"
 
 #: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
@@ -14547,23 +14414,18 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: templates/display/export/template_options.twig:1
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a template"
-msgstr "בחירת טבלאות"
+msgstr "בחירת טבלה"
 
 #: templates/database/designer/rename_to_panel.twig:22
 #: templates/database/designer/options_panel.twig:85
-#, fuzzy
 msgid "Rename to"
-msgstr "שינוי שם טבלה אל"
+msgstr "שינוי שם טבלה לשם"
 
 #: templates/database/designer/rename_to_panel.twig:30
 #: templates/database/designer/options_panel.twig:91
-#, fuzzy
-#| msgid "User name"
 msgid "New name"
-msgstr "שם משתמש"
+msgstr "שם חדש"
 
 #: templates/database/structure/table_header.twig:27
 #, fuzzy
@@ -14638,10 +14500,8 @@ msgstr "קח זאת"
 
 #: templates/columns_definitions/column_virtuality.twig:29
 #: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
 msgid "Expression"
-msgstr "דחיסה"
+msgstr "ביטוי"
 
 #: templates/prefs_autoload.twig:7
 msgid ""
@@ -14656,10 +14516,8 @@ msgid "Delete settings"
 msgstr "נתוני המעקב נמחקים"
 
 #: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Deleting tracking data"
 msgid "Delete relationship"
-msgstr "נתוני המעקב נמחקים"
+msgstr "מחיקת יחס"
 
 #: templates/database/structure/show_create.twig:2
 #, fuzzy
@@ -14700,10 +14558,8 @@ msgstr "יחסים"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:9
-#, fuzzy
-#| msgid "Documentation"
 msgid "Authentication code:"
-msgstr "תיעוד"
+msgstr "קוד אימות:"
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -14712,14 +14568,14 @@ msgid ""
 msgstr ""
 
 #: templates/table/tracking/create_version.twig:11
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s of %2$s"
-msgstr "גרסת שרת"
+msgstr "יצירת גרסה %1$s מתוך %2$s"
 
 #: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
+#, php-format
 msgid "Create version %1$s"
-msgstr "גרסת שרת"
+msgstr "יצירת גרסה %1$s"
 
 #: templates/table/tracking/create_version.twig:20
 msgid "Track these data definition statements:"
@@ -14730,9 +14586,8 @@ msgid "Track these data manipulation statements:"
 msgstr ""
 
 #: templates/table/tracking/create_version.twig:76
-#, fuzzy
 msgid "Create version"
-msgstr "גרסת שרת"
+msgstr "יצירת גרסה"
 
 #: templates/table/structure/optional_action_links.twig:6
 msgid "Propose table structure"
@@ -14779,72 +14634,52 @@ msgstr "חלון שאילתה"
 
 #: templates/database/multi_table_query/form.twig:18
 #: templates/database/multi_table_query/form.twig:106
-#, fuzzy
-#| msgid "Select Tables"
 msgid "select table"
-msgstr "בחירת טבלאות"
+msgstr "בחירת טבלה"
 
 #: templates/database/multi_table_query/form.twig:25
 #: templates/database/multi_table_query/form.twig:114
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "select column"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "בחירת עמודה"
 
 #: templates/database/multi_table_query/form.twig:31
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "טבלאות"
+msgstr "כינוי לטבלה"
 
 #: templates/database/multi_table_query/form.twig:32
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "שמות עמודה"
+msgstr "כינוי לעמודה"
 
 #: templates/database/multi_table_query/form.twig:35
 msgid "Use this column in criteria"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:38
-#, fuzzy
-#| msgid "Criteria"
 msgid "criteria"
 msgstr "קריטריונים"
 
 #: templates/database/multi_table_query/form.twig:52
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "הוספת %s"
+msgstr "הוספה בתור"
 
 #: templates/database/multi_table_query/form.twig:97
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Another column"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "עמודה אחרת"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove this column"
-msgstr "שינוי שם מאגר נתונים אל"
+msgstr "הסרת עמודה זו"
 
 #: templates/database/multi_table_query/form.twig:143
 #: templates/table/relation/foreign_key_row.twig:91
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "+ Add column"
-msgstr "הוספת %s תאים"
+msgstr "+ הוספת עמודה"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "עדכון שאילתה"
 
@@ -14855,14 +14690,12 @@ msgid "#"
 msgstr ""
 
 #: templates/table/tracking/report_table.twig:5
-#, fuzzy
 msgid "Date"
-msgstr "נתונים"
+msgstr "תאריך"
 
 #: templates/table/tracking/report_table.twig:6
-#, fuzzy
 msgid "Username"
-msgstr "שם משתמש:"
+msgstr "שם משתמש"
 
 #: templates/export/alias_item.twig:8
 msgid "Remove"
@@ -15129,24 +14962,18 @@ msgid "Foreign key constraint %s has been dropped"
 msgstr "הוספת הגבלות"
 
 #: templates/table/relation/foreign_key_row.twig:39
-#, fuzzy
-#| msgid "Constraints for table"
 msgid "Constraint name"
-msgstr "הגבלות לטבלה"
+msgstr "שם האילוץ"
 
 #: templates/table/structure/check_all_table_column.twig:76
 #: templates/table/structure/actions_in_table_structure.twig:131
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Add to central columns"
-msgstr "הוספת %s תאים"
+msgstr "הוספה לעמודות המרכזיות"
 
 #: templates/table/structure/check_all_table_column.twig:83
 #: templates/table/structure/actions_in_table_structure.twig:127
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Remove from central columns"
-msgstr "שינוי שם מאגר נתונים אל"
+msgstr "הסרה מהעמודות המרכזיות"
 
 #: templates/server/databases/databases_footer.twig:65
 msgid ""
@@ -15164,10 +14991,8 @@ msgid "Enable statistics"
 msgstr "הפעלת סטטיסטיקה"
 
 #: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
-msgstr "מאגרי נתונים"
+msgstr "מסדי נתונים:"
 
 #: templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
@@ -15181,19 +15006,15 @@ msgstr "המעקב אינו פעיל."
 #: templates/database/designer/having_query_panel.twig:90
 #: templates/database/designer/options_panel.twig:63
 #: templates/database/designer/options_panel.twig:229
-#, fuzzy
-#| msgid "Export"
 msgid "Except"
-msgstr "ייצוא"
+msgstr "למעט"
 
 #: templates/database/designer/where_query_panel.twig:71
 #: templates/database/designer/having_query_panel.twig:102
 #: templates/database/designer/options_panel.twig:75
 #: templates/database/designer/options_panel.twig:241
-#, fuzzy
-#| msgid "in query"
 msgid "subquery"
-msgstr "בשאילתה"
+msgstr "תת־שאילתה"
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
@@ -15436,16 +15257,12 @@ msgid "Export templates:"
 msgstr "סוג ייצוא"
 
 #: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "File name template"
 msgid "New template:"
-msgstr "תבנית שם קובץ"
+msgstr "תבנית חדשה:"
 
 #: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "User name"
 msgid "Template name"
-msgstr "שם משתמש"
+msgstr "שם טבלה"
 
 #: templates/display/export/template_loading.twig:10
 #: templates/server/databases/create.twig:30
@@ -15453,23 +15270,16 @@ msgid "Create"
 msgstr "יצירה"
 
 #: templates/display/export/template_loading.twig:16
-#, fuzzy
-#| msgid "File name template"
 msgid "Existing templates:"
-msgstr "תבנית שם קובץ"
+msgstr "תבניות קיימות:"
 
 #: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "%s table(s)"
 msgid "Template:"
-msgstr "%s טבלאות"
+msgstr "תבנית:"
 
 #: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgctxt "Create UPDATE query"
-#| msgid "Update"
 msgid "Update"
-msgstr "עדכון שאילתה"
+msgstr "עדכון"
 
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
@@ -15477,10 +15287,8 @@ msgstr ""
 
 #: templates/server/databases/create.twig:8
 #: templates/server/databases/create.twig:36
-#, fuzzy
-#| msgid "Create new database"
 msgid "Create database"
-msgstr "יצירת מאגר נתונים חדש"
+msgstr "יצירת מסד נתונים"
 
 #: templates/server/variables/session_variable_row.twig:3
 msgid "Session value"
@@ -15615,10 +15423,8 @@ msgid "Reset zoom"
 msgstr "איפוס"
 
 #: templates/privileges/add_privileges_routine.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
 msgid "Add privileges on the following routine:"
-msgstr "הוספת הראשאות לטבלה הבאה"
+msgstr "הוספת הרשאות לשגרה הבאה:"
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
@@ -15635,16 +15441,12 @@ msgid "None"
 msgstr "ללא"
 
 #: templates/table/search/search_and_replace.twig:3
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace with:"
-msgstr "החלפת NULL ע\"י"
+msgstr "החלפה ב־:"
 
 #: templates/table/search/search_and_replace.twig:19
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Use regular expression"
-msgstr "כביטוי רגולרי"
+msgstr "שימוש בביטוי רגולרי"
 
 #: templates/table/search/options.twig:6
 #, fuzzy
@@ -15752,20 +15554,16 @@ msgid "Display GIS Visualization"
 msgstr ""
 
 #: templates/table/gis_visualization/gis_visualization.twig:8
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Label column"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "תווית עמודה"
 
 #: templates/table/gis_visualization/gis_visualization.twig:11
 msgid "-- None --"
 msgstr ""
 
 #: templates/table/gis_visualization/gis_visualization.twig:19
-#, fuzzy
-#| msgid "Total"
 msgid "Spatial column"
-msgstr "סה\"כ"
+msgstr "עמודה מרחבית"
 
 #: templates/display/export/method.twig:3
 #, fuzzy
@@ -15901,10 +15699,8 @@ msgid "Choose column to display:"
 msgstr "בחירת שדה להצגה"
 
 #: templates/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "Remove selected user accounts"
-msgstr "הסרת משתמשים שנבחרו"
+msgstr "הסרת חשבונות המשתמשים שנבחרו"
 
 #: templates/privileges/delete_user_fieldset.twig:6
 msgid "Revoke all active privileges from the users and delete them afterwards."
@@ -15933,15 +15729,12 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "ביצוע \"שאילתה לדוגמה\" (תו כללי: \"%\")"
 
 #: templates/display/results/options_block.twig:30
-#, fuzzy
 msgid "Relational key"
-msgstr "תצוגת יחסים"
+msgstr "מפתח יחסי"
 
 #: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Display column for relationships"
-msgstr "מציג הערות עמודה"
+msgstr "הצגת עמודת יחסים"
 
 #: templates/display/results/options_block.twig:46
 msgid "Show binary contents"
@@ -15990,10 +15783,8 @@ msgid "Index choice:"
 msgstr "שם אינדקס:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Table options"
 msgid "Advanced Options"
-msgstr "אפשרויות טבלה"
+msgstr "אפשרויות מתקדמות"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
@@ -16004,15 +15795,12 @@ msgid "Index type:"
 msgstr "סוג אינדקס:"
 
 #: templates/table/index_form.twig:77
-#, fuzzy
-#| msgid "User:"
 msgid "Parser:"
-msgstr "משתמש:"
+msgstr "מפענח:"
 
 #: templates/table/index_form.twig:93
-#, fuzzy
 msgid "Comment:"
-msgstr "הערות"
+msgstr "הערה:"
 
 #: templates/table/index_form.twig:136 templates/table/index_form.twig:173
 msgid "Drag to reorder"
@@ -16047,10 +15835,8 @@ msgid "in use"
 msgstr "בשימוש"
 
 #: templates/privileges/add_privileges_table.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table"
 msgid "Add privileges on the following table:"
-msgstr "הוספת הראשאות לטבלה הבאה"
+msgstr "הוספת הרשאות לטבלה הבאה:"
 
 #: templates/display/export/options_output_compression.twig:4
 #, fuzzy
