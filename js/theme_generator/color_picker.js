@@ -1393,7 +1393,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.node.removeAttribute('data-hidden');
             this.color.copy(color);
             this.color.setValue(brightness);
-            this.color.setSaturation(saturation);            
+            this.color.setSaturation(saturation);
             this.updateBgColor();
         };
 
@@ -1479,7 +1479,7 @@ var ColorPickerTool = (function ColorPickerTool() {
         };
 
         var createMonochromePalette = function createMonochromePalette() {
-            var size = 5;
+            var size = 8;
             var palette = new Palette('Monochrome', size);
 
             UIColorPicker.subscribe('picker', function(color) {
