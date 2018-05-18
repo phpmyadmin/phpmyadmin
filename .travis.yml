@@ -21,7 +21,6 @@ env:
   matrix:
     - CI_MODE=test
     - CI_MODE=apidocs
-    - CI_MODE=lint
   global:
     - TESTSUITE_USER=root
     - TESTSUITE_URL=http://127.0.0.1:8000
@@ -61,6 +60,8 @@ matrix:
     - php: "7.1"
       env: CI_MODE=selenium
     - php: "7.1"
+      env: CI_MODE=lint
+    - php: "7.1"
       env: CI_MODE=release
     - php: "7.1"
       env: CI_MODE=docs
@@ -80,15 +81,9 @@ matrix:
       env: CI_MODE=apidocs
     - php: "nightly"
       env: CI_MODE=apidocs
-    - php: "7.2"
-      env: CI_MODE=lint
-    - php: "nightly"
-      env: CI_MODE=lint
   allow_failures:
     - php: "7.1"
       env: CI_MODE=apidocs
-    - php: "7.1"
-      env: CI_MODE=lint
     - php: "nightly"
       env: CI_MODE=test
 
