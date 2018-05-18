@@ -44,7 +44,7 @@ class EnvironmentTest extends TestCase
     public function testMySQL()
     {
         try {
-            $pdo = new PDO(
+            $pdo = new \PDO(
                 "mysql:host=" . $GLOBALS['TESTSUITE_SERVER'],
                 $GLOBALS['TESTSUITE_USER'],
                 $GLOBALS['TESTSUITE_PASSWORD']

@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -33,7 +34,7 @@ class GetCheckboxTest extends TestCase
         // assertXmlStringEqualsXmlString require both inputs to be a valid xml string
         // dummy <root> tag will make input a valid xml string
         $this->assertXmlStringEqualsXmlString(
-            '<root> ' . PhpMyAdmin\Template::get('checkbox')
+            '<root> ' . Template::get('checkbox')
             ->render(
                 array(
                     'html_field_name'   => $name,
@@ -60,7 +61,7 @@ class GetCheckboxTest extends TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertXmlStringEqualsXmlString(
-            '<root>' . PhpMyAdmin\Template::get('checkbox')
+            '<root>' . Template::get('checkbox')
             ->render(
                 array(
                     'html_field_name'   => $name,
@@ -87,7 +88,7 @@ class GetCheckboxTest extends TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertXmlStringEqualsXmlString(
-            '<root>' . PhpMyAdmin\Template::get('checkbox')
+            '<root>' . Template::get('checkbox')
             ->render(
                 array(
                     'html_field_name'   => $name,
@@ -114,7 +115,7 @@ class GetCheckboxTest extends TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertXmlStringEqualsXmlString(
-            '<root>' . PhpMyAdmin\Template::get('checkbox')
+            '<root>' . Template::get('checkbox')
             ->render(
                 array(
                     'html_field_name'   => $name,
