@@ -179,6 +179,10 @@ class Header
         $this->_scripts->addFile('vendor/jquery/jquery.ba-hashchange-1.3.js');
         $this->_scripts->addFile('vendor/jquery/jquery.debounce-1.0.5.js');
         $this->_scripts->addFile('menu_resizer.js');
+        // New files added. The modules of these files will be available globally
+        $this->_scripts->addFile('global/ajax_global.js');
+        $this->_scripts->addFile('global/pma_common_params.js');
+        $this->_scripts->addFile('global/jQuery.js');
 
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
@@ -290,7 +294,7 @@ class Header
                 $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
             }
         }
-        return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
+        return 'pma_common_params.PMA_commonParams.setAll({' . implode(',', $params) . '});';
     }
 
     /**

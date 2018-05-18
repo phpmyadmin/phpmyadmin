@@ -51,7 +51,7 @@ class Scripts
             if (strpos($value['filename'], ".php") !== false) {
                 $file_name = $value['filename'] . Url::getCommon($value['params'] + ['v' => PMA_VERSION]);
                 $result .= "<script data-cfasync='false' "
-                    . "type='text/javascript' src='js/" . $file_name
+                    . "type='text/javascript' src='http://localhost:3307/js/dist/" . $file_name
                     . "'></script>\n";
             } else {
                 $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
@@ -181,7 +181,7 @@ class Scripts
             );
         }
 
-        $code = 'AJAX.scriptHandler';
+        $code = 'ajax_global.AJAX.scriptHandler';
         foreach ($this->_files as $file) {
             $code .= sprintf(
                 '.add("%s",%d)',
@@ -192,10 +192,10 @@ class Scripts
         $code .= ';';
         $this->addCode($code);
 
-        $code = '$(function() {';
+        $code = 'jQuery.jQuery(function() {';
         foreach ($this->_files as $file) {
             if ($file['has_onload']) {
-                $code .= 'AJAX.fireOnload("';
+                $code .= 'ajax_global.AJAX.fireOnload("';
                 $code .= Sanitize::escapeJsString($file['filename']);
                 $code .= '");';
             }
