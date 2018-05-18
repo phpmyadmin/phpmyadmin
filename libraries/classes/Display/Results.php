@@ -3892,7 +3892,7 @@ class Results
         $function_nowrap = 'applyTransformationNoWrap';
 
         $bool_nowrap = (($default_function != $transformation_plugin)
-            && function_exists($transformation_plugin->$function_nowrap()))
+            && function_exists((string) $transformation_plugin->$function_nowrap()))
             ? $transformation_plugin->$function_nowrap($transform_options)
             : false;
 
