@@ -1386,7 +1386,7 @@ var ColorPickerTool = (function ColorPickerTool() {
         };
 
         ColorSample.prototype.updateAdjacent = function updateAdjacent(color, size, steps) {
-            
+
             var h = color.hue;
             if ((steps * 3 / size) < 1 ) {
                 var hue = h;
