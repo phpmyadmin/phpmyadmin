@@ -76,7 +76,7 @@ class Bookmark
      */
     public function getId(): int
     {
-        return $this->_id;
+        return (int)$this->_id;
     }
 
     /**
