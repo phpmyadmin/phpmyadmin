@@ -31,6 +31,9 @@ class CreateDropDatabaseTest extends TestBase
         $this->skipIfNotSuperUser();
     }
 
+    /**
+     * @return void
+     */
     public function setUpPage()
     {
         parent::setUpPage();

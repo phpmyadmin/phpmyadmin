@@ -30,6 +30,9 @@ class DbOperationsTest extends TestBase
         $this->login();
     }
 
+    /**
+     * @return void
+     */
     private function _getToDBOperations()
     {
         $this->gotoHomepage();

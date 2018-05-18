@@ -8,6 +8,8 @@
  */
 declare(strict_types=1);
 
+namespace PhpMyAdmin\Tests;
+
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,7 +18,7 @@ use PHPUnit\Framework\TestCase;
  * @package PhpMyAdmin-test
  * @group common.lib-tests
  */
-class PMA_GetCheckboxTest extends TestCase
+class GetCheckboxTest extends TestCase
 {
     /**
      * Test for checkbox.phtml

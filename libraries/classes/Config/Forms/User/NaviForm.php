@@ -11,8 +11,15 @@ namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+/**
+ * Class NaviForm
+ * @package PhpMyAdmin\Config\Forms\User
+ */
 class NaviForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
         return array(
@@ -56,6 +63,9 @@ class NaviForm extends BaseForm
         );
     }
 
+    /**
+     * @return string
+     */
     public static function getName()
     {
         return __('Navigation panel');

@@ -19,6 +19,9 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class LanguageTest extends PmaTestCase
 {
+    /**
+     * @var LanguageManager
+     */
     private $manager;
 
     /**
@@ -35,6 +38,9 @@ class LanguageTest extends PmaTestCase
         $this->manager = new LanguageManager();
     }
 
+    /**
+     * @return void
+     */
     public function tearDown()
     {
         // Ensure we have English locale after tests

@@ -48,6 +48,9 @@ class CreateRemoveUserTest extends TestBase
         $this->_txtPassword = 'abc_123';
     }
 
+    /**
+     * @return void
+     */
     public function setUpPage()
     {
         parent::setUpPage();

@@ -14,6 +14,8 @@ use PhpMyAdmin\Config\FormDisplay;
 
 /**
  * Base form for user preferences
+ *
+ * @package PhpMyAdmin
  */
 abstract class BaseForm extends FormDisplay
 {

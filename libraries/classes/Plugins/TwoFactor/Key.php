@@ -20,6 +20,8 @@ use Samyoul\U2F\U2FServer\U2FException;
  * Hardware key based two-factor authentication
  *
  * Supports FIDO U2F tokens
+ *
+ * @package PhpMyAdmin
  */
 class Key extends TwoFactorPlugin
 {

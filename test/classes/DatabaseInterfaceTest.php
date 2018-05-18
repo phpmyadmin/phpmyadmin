@@ -21,6 +21,9 @@ use PhpMyAdmin\Util;
  */
 class DatabaseInterfaceTest extends PmaTestCase
 {
+    /**
+     * @var DatabaseInterface
+     */
     private $_dbi;
 
     /**
@@ -37,6 +40,10 @@ class DatabaseInterfaceTest extends PmaTestCase
 
     /**
      * Tests for DBI::getCurrentUser() method.
+     *
+     * @param array  $value    value
+     * @param string $string   string
+     * @param array  $expected expected result
      *
      * @return void
      * @test
@@ -92,11 +99,11 @@ class DatabaseInterfaceTest extends PmaTestCase
             ->method('realQuery')
             ->will($this->returnValue(true));
 
-        $meta1 = new FieldMeta();
+        $meta1 = new \stdClass();
         $meta1->table = "meta1_table";
         $meta1->name = "meta1_name";
 
-        $meta2 = new FieldMeta();
+        $meta2 = new \stdClass();
         $meta2->table = "meta2_table";
         $meta2->name = "meta2_name";
 
@@ -371,6 +378,8 @@ class DatabaseInterfaceTest extends PmaTestCase
      * @param string $error_message Error message as returned by server
      * @param string $match         Expected text
      *
+     * @return void
+     *
      * @dataProvider errorData
      */
     public function testFormatError($error_number, $error_message, $match)
@@ -381,6 +390,9 @@ class DatabaseInterfaceTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return array
+     */
     public function errorData()
     {
         return array(
@@ -395,6 +407,9 @@ class DatabaseInterfaceTest extends PmaTestCase
 
     /**
      * Tests for DBI::isAmazonRds() method.
+     *
+     * @param mixed $value    value
+     * @param mixed $expected expected result
      *
      * @return void
      * @test
@@ -450,6 +465,9 @@ class DatabaseInterfaceTest extends PmaTestCase
         $this->assertEquals($upgrade, $ver_int < $GLOBALS['cfg']['MysqlMinVersion']['internal']);
     }
 
+    /**
+     * @return array
+     */
     public function versionData()
     {
         return array(
@@ -498,15 +516,4 @@ class DatabaseInterfaceTest extends PmaTestCase
         $dbi->setCollation('utf8_czech_ci');
         $dbi->setCollation('utf8mb4_bin_ci');
     }
-}
-
-/**
- * class for Table Field Meta
- *
- * @package PhpMyAdmin-test
- */
-class FieldMeta
-{
-    public $table;
-    public $name;
 }

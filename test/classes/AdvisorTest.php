@@ -79,6 +79,9 @@ class AdvisorTest extends PmaTestCase
     /**
      * test for Advisor::byTime
      *
+     * @param float  $time     time
+     * @param string $expected expected result
+     *
      * @return void
      *
      * @dataProvider advisorTimes
@@ -89,6 +92,9 @@ class AdvisorTest extends PmaTestCase
         $this->assertEquals($expected, $result);
     }
 
+    /**
+     * @return array
+     */
     public function advisorTimes()
     {
         return array(

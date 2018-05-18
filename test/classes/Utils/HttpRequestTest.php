@@ -1,4 +1,10 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * tests for PhpMyAdmin\Utils\HttpRequest class
+ *
+ * @package PhpMyAdmin-test
+ */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Utils;
@@ -7,10 +13,20 @@ use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
+/**
+ * Class HttpRequestTest
+ * @package PhpMyAdmin\Tests\Utils
+ */
 class HttpRequestTest extends PmaTestCase
 {
+    /**
+     * @var HttpRequest
+     */
     private $httpRequest;
 
+    /**
+     * @return void
+     */
     protected function setUp()
     {
         $this->httpRequest = new HttpRequest();
@@ -66,6 +82,11 @@ class HttpRequestTest extends PmaTestCase
     /**
      * Test for http request using Curl
      *
+     * @param string $url                url
+     * @param string $method             method
+     * @param bool   $return_only_status return only status
+     * @param bool   $expected           expected result
+     *
      * @group medium
      *
      * @return void
@@ -83,6 +104,11 @@ class HttpRequestTest extends PmaTestCase
 
     /**
      * Test for http request using Curl with CURLOPT_CAPATH
+     *
+     * @param string $url                url
+     * @param string $method             method
+     * @param bool   $return_only_status return only status
+     * @param bool   $expected           expected result
      *
      * @group medium
      *
@@ -109,6 +135,11 @@ class HttpRequestTest extends PmaTestCase
     /**
      * Test for http request using Curl with CURLOPT_CAINFO
      *
+     * @param string $url                url
+     * @param string $method             method
+     * @param bool   $return_only_status return only status
+     * @param bool   $expected           expected result
+     *
      * @group medium
      *
      * @return void
@@ -134,6 +165,11 @@ class HttpRequestTest extends PmaTestCase
     /**
      * Test for http request using fopen
      *
+     * @param string $url                url
+     * @param string $method             method
+     * @param bool   $return_only_status return only status
+     * @param bool   $expected           expected result
+     *
      * @group medium
      *
      * @return void
@@ -154,6 +190,11 @@ class HttpRequestTest extends PmaTestCase
 
     /**
      * Test for http request using generic interface
+     *
+     * @param string $url                url
+     * @param string $method             method
+     * @param bool   $return_only_status return only status
+     * @param bool   $expected           expected result
      *
      * @group medium
      *

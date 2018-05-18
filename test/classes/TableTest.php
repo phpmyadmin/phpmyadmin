@@ -46,8 +46,18 @@ class TableTest extends PmaTestCase
 
         $relation = new Relation();
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
-        $GLOBALS['dblist'] = new DataBasePMAMock();
-        $GLOBALS['dblist']->databases = new DataBaseMock();
+        $GLOBALS['dblist'] = new \stdClass();
+        $GLOBALS['dblist']->databases = new class
+        {
+            /**
+             * @param mixed $name name
+             * @return bool
+             */
+            public function exists($name)
+            {
+                return true;
+            }
+        };
 
         $sql_isView_true =  "SELECT TABLE_NAME
             FROM information_schema.VIEWS
@@ -377,14 +387,15 @@ class TableTest extends PmaTestCase
     /**
      * Test name validation
      *
-     * @param string  $name   name to test
-     * @param boolean $result expected result
+     * @param string  $name          name to test
+     * @param boolean $result        expected result
+     * @param boolean $is_backquoted is backquoted
      *
      * @return void
      *
      * @dataProvider dataValidateName
      */
-    public function testValidateName($name, $result, $is_backquoted=false)
+    public function testValidateName($name, $result, $is_backquoted = false)
     {
         $this->assertEquals(
             $result,
@@ -1352,36 +1363,5 @@ class TableTest extends PmaTestCase
             $expect,
             $create_options
         );
-    }
-
-}
-
-/**
- * Mock class for DataBasePMAMock
- *
- * @package PhpMyAdmin-test
- */
-Class DataBasePMAMock
-{
-    var $databases;
-}
-
-/**
- * Mock class for DataBaseMock
- *
- * @package PhpMyAdmin-test
- */
-Class DataBaseMock
-{
-    /**
-     * mock function to return table is existed
-     *
-     * @param string $name table name
-     *
-     * @return bool
-     */
-    function exists($name)
-    {
-        return true;
     }
 }

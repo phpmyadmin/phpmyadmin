@@ -36,7 +36,7 @@ class AuthenticationCookieTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
@@ -92,6 +92,9 @@ class AuthenticationCookieTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return void
+     */
     private function getAuthErrorMockResponse()
     {
         $mockResponse = $this->mockResponse();
@@ -769,6 +772,9 @@ class AuthenticationCookieTest extends PmaTestCase
 
     }
 
+    /**
+     * @return void
+     */
     public function testAuthFailsDeny()
     {
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
@@ -791,6 +797,9 @@ class AuthenticationCookieTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testAuthFailsActivity()
     {
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
@@ -816,6 +825,9 @@ class AuthenticationCookieTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testAuthFailsDBI()
     {
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
@@ -849,6 +861,9 @@ class AuthenticationCookieTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testAuthFailsErrno()
     {
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationCookie')
@@ -1036,6 +1051,10 @@ class AuthenticationCookieTest extends PmaTestCase
     /**
      * Test for secret splitting using getAESSecret
      *
+     * @param string $secret secret
+     * @param string $mac    mac
+     * @param string $aes    aes
+     *
      * @return void
      *
      * @dataProvider secretsProvider
@@ -1051,6 +1070,10 @@ class AuthenticationCookieTest extends PmaTestCase
     /**
      * Test for secret splitting using getMACSecret and getAESSecret
      *
+     * @param string $secret secret
+     * @param string $mac    mac
+     * @param string $aes    aes
+     *
      * @return void
      *
      * @dataProvider secretsProvider
@@ -1063,6 +1086,11 @@ class AuthenticationCookieTest extends PmaTestCase
         );
     }
 
+    /**
+     * @throws \ReflectionException
+     *
+     * @return void
+     */
     public function testPasswordChange()
     {
         $newPassword = 'PMAPASSWD2';
@@ -1167,6 +1195,14 @@ class AuthenticationCookieTest extends PmaTestCase
     /**
      * Test for PhpMyAdmin\Plugins\Auth\AuthenticationCookie::checkRules
      *
+     * @param string $user     user
+     * @param string $pass     pass
+     * @param string $ip       ip
+     * @param bool   $root     root
+     * @param bool   $nopass   nopass
+     * @param array  $rules    rules
+     * @param string $expected expected result
+     *
      * @return void
      *
      * @dataProvider checkRulesProvider
@@ -1198,6 +1234,9 @@ class AuthenticationCookieTest extends PmaTestCase
         }
     }
 
+    /**
+     * @return array
+     */
     public function checkRulesProvider()
     {
         return array(

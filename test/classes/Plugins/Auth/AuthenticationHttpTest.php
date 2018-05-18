@@ -57,6 +57,14 @@ class AuthenticationHttpTest extends PmaTestCase
         unset($this->object);
     }
 
+    /**
+     * @param mixed     $set_minimal set minimal
+     * @param mixed     $body_id     body id
+     * @param mixed     $set_title   set title
+     * @param mixed ... $headers     headers
+     *
+     * @return void
+     */
     public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers)
     {
         // mock footer
@@ -133,6 +141,9 @@ class AuthenticationHttpTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testAuthVerbose()
     {
         $_REQUEST['old_usr'] = '';
@@ -146,6 +157,9 @@ class AuthenticationHttpTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testAuthHost()
     {
         $GLOBALS['cfg']['Server']['verbose'] = '';
@@ -159,6 +173,9 @@ class AuthenticationHttpTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testAuthRealm()
     {
         $GLOBALS['cfg']['Server']['host'] = '';

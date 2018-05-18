@@ -19,11 +19,17 @@ use PHPUnit\Framework\TestCase;
  */
 class EncodingTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function setUp()
     {
         Encoding::initEngine();
     }
 
+    /**
+     * @return void
+     */
     public function tearDown()
     {
         Encoding::initEngine();
@@ -45,6 +51,9 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testInvalidConversion()
     {
         // Invalid value to use default case
@@ -55,6 +64,9 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testRecode()
     {
         if (! function_exists('recode_string')) {
@@ -70,6 +82,9 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testIconv()
     {
         if (! function_exists('iconv')) {
@@ -86,6 +101,9 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testMbstring()
     {
         Encoding::setEngine(Encoding::ENGINE_MB);
@@ -99,9 +117,6 @@ class EncodingTest extends TestCase
 
     /**
      * Test for kanjiChangeOrder
-     *
-     * @param string $kanji_test_list current list
-     * @param string $expected        expected list
      *
      * @return void
      * @test
@@ -204,6 +219,9 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testListEncodings()
     {
         $GLOBALS['cfg']['AvailableCharsets'] = ['utf-8'];

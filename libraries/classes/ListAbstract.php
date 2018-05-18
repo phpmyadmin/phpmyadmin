@@ -57,7 +57,7 @@ abstract class ListAbstract extends ArrayObject
      * checks if the given db names exists in the current list, if there is
      * missing at least one item it returns false otherwise true
      *
-     * @param mixed ... $params
+     * @param mixed ... $params params
      * @return bool true if all items exists, otherwise false
      */
     public function exists(...$params)

@@ -19,7 +19,6 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class SqlQueryTest extends TestBase
 {
-
     /**
      * Setup the browser environment to run the selenium test case
      *
@@ -168,6 +167,9 @@ class SqlQueryTest extends TestBase
         $this->_testInlineEdit();
     }
 
+    /**
+     * @return void
+     */
     private function _testInlineEdit()
     {
         $this->waitForElement('byCssSelector', 'a.inline_edit_sql')->click();

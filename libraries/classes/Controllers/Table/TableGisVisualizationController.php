@@ -16,9 +16,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/common.inc.php';
-require_once 'libraries/db_common.inc.php';
-
 /**
  * Class TableGisVisualizationController
  *
@@ -26,7 +23,6 @@ require_once 'libraries/db_common.inc.php';
  */
 class TableGisVisualizationController extends TableController
 {
-
     /**
      * @var array $url_params
      */
@@ -50,11 +46,15 @@ class TableGisVisualizationController extends TableController
     /**
      * Constructor
      *
-     * @param string $sql_query             SQL query for retrieving GIS data
-     * @param array  $url_params            array of URL parameters
-     * @param string $goto                  goto script
-     * @param string $back                  back script
-     * @param array  $visualizationSettings visualization settings
+     * @param \PhpMyAdmin\Response          $response              Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi                   DatabaseInterface object
+     * @param string                        $db                    Database name
+     * @param string                        $table                 Table name
+     * @param string                        $sql_query             SQL query for retrieving GIS data
+     * @param array                         $url_params            array of URL parameters
+     * @param string                        $goto                  goto script
+     * @param string                        $back                  back script
+     * @param array                         $visualizationSettings visualization settings
      */
     public function __construct(
         $response,
@@ -68,6 +68,9 @@ class TableGisVisualizationController extends TableController
         array $visualizationSettings
     ) {
         parent::__construct($response, $dbi, $db, $table);
+
+        require_once 'libraries/common.inc.php';
+        require_once 'libraries/db_common.inc.php';
 
         $this->sql_query = $sql_query;
         $this->url_params = $url_params;

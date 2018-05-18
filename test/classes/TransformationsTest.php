@@ -261,6 +261,11 @@ class TransformationsTest extends TestCase
     }
 
     /**
+     * @param string $value    value
+     * @param string $expected expected result
+     *
+     * @return void
+     *
      * @dataProvider fixupData
      */
     public function testFixup($value, $expected)
@@ -271,6 +276,9 @@ class TransformationsTest extends TestCase
         );
     }
 
+    /**
+     * @return array
+     */
     public function fixupData()
     {
         return array(

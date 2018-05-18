@@ -88,20 +88,22 @@ class TableStructureController extends TableController
     /**
      * TableStructureController constructor
      *
-     * @param string $db                  DB name
-     * @param string $table               Table name
-     * @param string $type                Indicate the db_structure or tbl_structure
-     * @param int    $num_tables          Number of tables
-     * @param int    $pos                 Current position in the list
-     * @param bool   $db_is_system_schema DB is information_schema
-     * @param int    $total_num_tables    Number of tables
-     * @param array  $tables              Tables in the DB
-     * @param bool   $is_show_stats       Whether stats show or not
-     * @param bool   $tbl_is_view         Table is a view
-     * @param string $tbl_storage_engine  Table storage engine
-     * @param int    $table_info_num_rows Number of rows
-     * @param string $tbl_collation       Table collation
-     * @param array  $showtable           Show table info
+     * @param \PhpMyAdmin\Response          $response            Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi                 DatabaseInterface object
+     * @param string                        $db                  Database name
+     * @param string                        $table               Table name
+     * @param string                        $type                Indicate the db_structure or tbl_structure
+     * @param int                           $num_tables          Number of tables
+     * @param int                           $pos                 Current position in the list
+     * @param bool                          $db_is_system_schema DB is information_schema
+     * @param int                           $total_num_tables    Number of tables
+     * @param array                         $tables              Tables in the DB
+     * @param bool                          $is_show_stats       Whether stats show or not
+     * @param bool                          $tbl_is_view         Table is a view
+     * @param string                        $tbl_storage_engine  Table storage engine
+     * @param int                           $table_info_num_rows Number of rows
+     * @param string                        $tbl_collation       Table collation
+     * @param array                         $showtable           Show table info
      */
     public function __construct(
         $response,

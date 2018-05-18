@@ -13,6 +13,8 @@ use PhpMyAdmin\UserPreferences;
 
 /**
  * Two factor authentication wrapper class
+ *
+ * @package PhpMyAdmin
  */
 class TwoFactor
 {

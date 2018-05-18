@@ -13,6 +13,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\DatabaseController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
@@ -69,6 +70,10 @@ class DatabaseStructureController extends DatabaseController
 
     /**
      * Constructor
+     *
+     * @param Response          $response Response object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
+     * @param string            $db       Database name
      */
     public function __construct($response, $dbi, $db)
     {

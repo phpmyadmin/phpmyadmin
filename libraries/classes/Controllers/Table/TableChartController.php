@@ -43,9 +43,13 @@ class TableChartController extends TableController
     /**
      * Constructor
      *
-     * @param string $sql_query Query
-     * @param string $url_query Query URL
-     * @param array  $cfg       Configuration
+     * @param Response                      $response  Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi       DatabaseInterface object
+     * @param string                        $db        Database name
+     * @param string                        $table     Table name
+     * @param string                        $sql_query Query
+     * @param string                        $url_query Query URL
+     * @param array                         $cfg       Configuration
      */
     public function __construct(
         $response,

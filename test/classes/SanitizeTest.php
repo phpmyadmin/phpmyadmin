@@ -20,15 +20,6 @@ use PHPUnit\Framework\TestCase;
 class SanitizeTest extends TestCase
 {
     /**
-     * Setup various pre conditions
-     *
-     * @return void
-     */
-    function setUp()
-    {
-    }
-
-    /**
      * Tests for proper escaping of XSS.
      *
      * @return void
@@ -62,6 +53,9 @@ class SanitizeTest extends TestCase
 
     /**
      * Tests links to documentation.
+     *
+     * @param string $link     link
+     * @param string $expected expected result
      *
      * @return void
      *

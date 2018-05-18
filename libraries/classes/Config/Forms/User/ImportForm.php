@@ -11,8 +11,15 @@ namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+/**
+ * Class ImportForm
+ * @package PhpMyAdmin\Config\Forms\User
+ */
 class ImportForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
         return array(
@@ -55,6 +62,9 @@ class ImportForm extends BaseForm
         );
     }
 
+    /**
+     * @return string
+     */
     public static function getName()
     {
         return __('Import');

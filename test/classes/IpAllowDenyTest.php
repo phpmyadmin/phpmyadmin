@@ -55,6 +55,11 @@ class IpAllowDenyTest extends TestCase
     /**
      * Test for Core::getIp
      *
+     * @param string $remote   remote
+     * @param string $header   header
+     * @param string $expected expected result
+     * @param string $proxyip  proxyip
+     *
      * @return void
      *
      * @dataProvider proxyIPs

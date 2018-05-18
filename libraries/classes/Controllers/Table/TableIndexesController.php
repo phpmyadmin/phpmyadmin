@@ -31,7 +31,11 @@ class TableIndexesController extends TableController
     /**
      * Constructor
      *
-     * @param Index $index Index
+     * @param Response                      $response Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
+     * @param string                        $db       Database name
+     * @param string                        $table    Table name
+     * @param Index                         $index    Index object
      */
     public function __construct(
         $response,

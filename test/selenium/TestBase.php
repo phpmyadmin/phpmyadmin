@@ -28,7 +28,7 @@ abstract class TestBase extends Selenium2TestCase
      * mysqli object
      *
      * @access private
-     * @var mysqli
+     * @var \mysqli
      */
     protected $_mysqli;
 
@@ -620,7 +620,8 @@ abstract class TestBase extends Selenium2TestCase
     /**
      * Navigates browser to a database page.
      *
-     * @param string $database Name of database
+     * @param string $database             Name of database
+     * @param bool   $gotoHomepageRequired Go to homepage required
      *
      * @return void
      */
@@ -721,7 +722,7 @@ abstract class TestBase extends Selenium2TestCase
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
      *
-     * @param \Throwable $e
+     * @param \Throwable $e Throwable
      *
      * @return void
      */

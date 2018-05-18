@@ -1,4 +1,10 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * ENUM editor styles for the Metro theme
+ *
+ * @package PhpMyAdmin-theme
+ */
 declare(strict_types=1);
 
 // unplanned execution path

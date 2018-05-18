@@ -19,6 +19,9 @@ use PHPUnit\Framework\TestCase;
  */
 class CharsetsTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['cfg']['DBG']['sql'] = false;

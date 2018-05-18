@@ -20,11 +20,19 @@ use ReflectionProperty;
  */
 class PmaTestCase extends TestCase
 {
+    /**
+     * @var Response
+     */
     protected $restoreInstance = null;
+    /**
+     * @var Response
+     */
     protected $attrInstance = null;
 
     /**
      * This method is called before the first test of this test class is run.
+     *
+     * @return void
      */
     public static function setUpBeforeClass()
     {

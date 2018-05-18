@@ -486,6 +486,15 @@ class ConfigTest extends PmaTestCase
     /**
      * test for IsHttp
      *
+     * @param string $scheme   http scheme
+     * @param string $https    https
+     * @param string $uri      request uri
+     * @param string $lb       http https from lb
+     * @param string $front    http front end https
+     * @param string $proto    http x forwarded proto
+     * @param int    $port     server port
+     * @param bool   $expected expected result
+     *
      * @return void
      *
      * @dataProvider httpsParams
@@ -1024,6 +1033,10 @@ class ConfigTest extends PmaTestCase
     /**
      * Test for checkServers
      *
+     * @param array $settings settings array
+     * @param array $expected expected result
+     * @param bool  $error    error
+     *
      * @return void
      *
      * @dataProvider serverSettingsProvider
@@ -1074,6 +1087,10 @@ class ConfigTest extends PmaTestCase
 
     /**
      * Test for selectServer
+     *
+     * @param array  $settings settings array
+     * @param string $request  request
+     * @param int    $expected expected result
      *
      * @return void
      *

@@ -11,8 +11,15 @@ namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+/**
+ * Class SqlForm
+ * @package PhpMyAdmin\Config\Forms\User
+ */
 class SqlForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
         return array(
@@ -37,6 +44,9 @@ class SqlForm extends BaseForm
         );
     }
 
+    /**
+     * @return string
+     */
     public static function getName()
     {
         return __('SQL queries');

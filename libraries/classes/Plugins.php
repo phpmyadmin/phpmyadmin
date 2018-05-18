@@ -203,7 +203,7 @@ class Plugins
      * @param string $section name of config section in
      *                        $GLOBALS['cfg'][$section] for plugin
      * @param string $name    name of select element
-     * @param array  &$list   array with plugin instances
+     * @param array  $list    array with plugin instances
      * @param string $cfgname name of config value, if none same as $name
      *
      * @return string  html select tag
@@ -525,7 +525,7 @@ class Plugins
      * Returns html div with editable options for plugin
      *
      * @param string $section name of config section in $GLOBALS['cfg'][$section]
-     * @param array  &$list   array with plugin instances
+     * @param array  $list    array with plugin instances
      *
      * @return string  html fieldset with plugin options
      */

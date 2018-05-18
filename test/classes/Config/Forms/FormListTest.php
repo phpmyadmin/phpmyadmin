@@ -23,6 +23,9 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class FormListTest extends PmaTestCase
 {
+    /**
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -34,6 +37,8 @@ class FormListTest extends PmaTestCase
      *
      * @param string $class  Class to test
      * @param string $prefix Reuturned class prefix
+     *
+     * @return void
      *
      * @dataProvider formObjects
      */
@@ -65,6 +70,9 @@ class FormListTest extends PmaTestCase
         $this->assertEquals('', $forms->displayErrors());
     }
 
+    /**
+     * @return array
+     */
     public function formObjects()
     {
         return array(

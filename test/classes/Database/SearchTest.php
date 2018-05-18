@@ -76,7 +76,7 @@ class SearchTest extends PmaTestCase
      * @param string $name   method name
      * @param array  $params parameters for the invocation
      *
-     * @return the output from the protected method.
+     * @return mixed the output from the protected method.
      */
     private function callProtectedFunction($name, $params)
     {
@@ -88,6 +88,11 @@ class SearchTest extends PmaTestCase
 
     /**
      * Test for generating where clause for different search types
+     *
+     * @param string $type     type
+     * @param string $expected expected result
+     *
+     * @return void
      *
      * @dataProvider searchTypes
      */

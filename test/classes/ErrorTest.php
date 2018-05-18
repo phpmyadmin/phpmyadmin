@@ -21,6 +21,7 @@ use PhpMyAdmin\Theme;
 class ErrorTest extends PmaTestCase
 {
     /**
+     * @var Error
      * @access protected
      */
     protected $object;
@@ -75,6 +76,9 @@ class ErrorTest extends PmaTestCase
 
     /**
      * Test for setFile
+     *
+     * @param string $file     actual
+     * @param string $expected expected
      *
      * @return void
      *

@@ -589,7 +589,7 @@ class Import
      *                                         (NONE or VARCHAR or DECIMAL or INT or BIGINT)
      * @param int        $curr_type            Type of the current cell
      *                                         (NONE or VARCHAR or DECIMAL or INT or BIGINT)
-     * @param string $cell                     The current cell
+     * @param string     $cell                 The current cell
      *
      * @return string|int Size of the given cell in the type-appropriate format
      * @access  public

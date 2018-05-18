@@ -90,8 +90,12 @@ class TableSearchController extends TableController
     /**
      * Constructor
      *
-     * @param string $searchType Search type
-     * @param string $url_query  URL query
+     * @param \PhpMyAdmin\Response $response   Response object
+     * @param DatabaseInterface    $dbi        DatabaseInterface object
+     * @param string               $db         Database name
+     * @param string               $table      Table name
+     * @param string               $searchType Search type
+     * @param string               $url_query  URL query
      */
     public function __construct(
         $response,

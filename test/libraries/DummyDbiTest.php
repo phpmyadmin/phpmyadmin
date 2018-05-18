@@ -7,6 +7,8 @@
  */
 declare(strict_types=1);
 
+namespace PhpMyAdmin\Tests;
+
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,14 +16,14 @@ use PHPUnit\Framework\TestCase;
  *
  * @package PhpMyAdmin-test
  */
-class PMA_DBI_Test extends TestCase
+class DummyDbiTest extends TestCase
 {
     /**
      * Configures test parameters.
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['cfg']['IconvExtraParams'] = '';

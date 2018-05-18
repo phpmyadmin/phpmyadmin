@@ -11,8 +11,15 @@ namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+/**
+ * Class ExportForm
+ * @package PhpMyAdmin\Config\Forms\User
+ */
 class ExportForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
         return array(
@@ -137,6 +144,9 @@ class ExportForm extends BaseForm
         );
     }
 
+    /**
+     * @return string
+     */
     public static function getName()
     {
         return __('Export');

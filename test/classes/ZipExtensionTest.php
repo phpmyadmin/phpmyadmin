@@ -19,8 +19,14 @@ use ZipArchive;
  */
 class ZipExtensionTest extends PmaTestCase
 {
+    /**
+     * @var ZipExtension
+     */
     private $zipExtension;
 
+    /**
+     * @return void
+     */
     protected function setUp()
     {
         $this->zipExtension = new ZipExtension();
@@ -141,6 +147,8 @@ class ZipExtensionTest extends PmaTestCase
 
     /**
      * Helper function to get ZipArchive for content.
+     *
+     * @param mixed $file file
      *
      * @return ZipArchive
      */

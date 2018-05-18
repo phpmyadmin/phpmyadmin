@@ -22,8 +22,16 @@ use ReflectionProperty;
  */
 class ServeConfigChecksTest extends PmaTestCase
 {
+    /**
+     * @var string
+     */
     private $sessionID;
 
+    /**
+     * @throws \ReflectionException
+     *
+     * @return void
+     */
     public function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
@@ -42,6 +50,9 @@ class ServeConfigChecksTest extends PmaTestCase
         unset($_SESSION[$this->sessionID]);
     }
 
+    /**
+     * @return void
+     */
     public function testManyErrors()
     {
         $_SESSION[$this->sessionID]['Servers'] = array(
@@ -100,6 +111,9 @@ class ServeConfigChecksTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testBlowfishCreate()
     {
         $_SESSION[$this->sessionID]['Servers'] = array(
@@ -134,9 +148,11 @@ class ServeConfigChecksTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testBlowfish()
     {
-
         $_SESSION[$this->sessionID]['blowfish_secret'] = 'sec';
 
         $_SESSION[$this->sessionID]['Servers'] = array(

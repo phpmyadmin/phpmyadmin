@@ -19,6 +19,9 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class LoginTest extends TestBase
 {
+    /**
+     * @return void
+     */
     public function setUpPage()
     {
         parent::setUpPage();

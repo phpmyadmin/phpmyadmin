@@ -28,6 +28,11 @@ abstract class TableController extends Controller
 
     /**
      * Constructor
+     *
+     * @param \PhpMyAdmin\Response          $response Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
+     * @param string                        $db       Database name
+     * @param string                        $table    Table name
      */
     public function __construct(
         $response,

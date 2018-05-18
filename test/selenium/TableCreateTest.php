@@ -19,7 +19,9 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class TableCreateTest extends TestBase
 {
-
+    /**
+     * @return void
+     */
     public function setUpPage()
     {
         parent::setUpPage();

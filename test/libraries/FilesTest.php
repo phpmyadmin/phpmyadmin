@@ -7,6 +7,8 @@
  */
 declare(strict_types=1);
 
+namespace PhpMyAdmin\Tests;
+
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -17,21 +19,10 @@ use PHPUnit\Framework\TestCase;
 class FilesTest extends TestCase
 {
     /**
-     * Sets up the fixture, for example, opens a network connection.
-     * This method is called before a test is executed.
-     *
-     * @access protected
-     * @return void
-     */
-    public function setUp()
-    {
-    }
-
-    /**
      * Test for dynamic javascript files
      *
-     * @param $name     string Filename to test
-     * @param $expected string Expected output
+     * @param string $name     Filename to test
+     * @param string $expected Expected output
      *
      * @return void
      *

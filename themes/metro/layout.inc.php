@@ -1,4 +1,11 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * configures general layout
+ * for detailed layout configuration please refer to the css files
+ *
+ * @package PhpMyAdmin-theme
+ */
 declare(strict_types=1);
 
 $GLOBALS['cfg']['NaviWidth']                = '250';

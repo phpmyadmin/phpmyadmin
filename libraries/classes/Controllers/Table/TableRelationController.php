@@ -63,12 +63,16 @@ class TableRelationController extends TableController
     /**
      * Constructor
      *
-     * @param array|null $options_array      Options
-     * @param array|null $cfgRelation        Config relation
-     * @param string     $tbl_storage_engine Table storage engine
-     * @param array|null $existrel           Relations
-     * @param array|null $existrel_foreign   External relations
-     * @param string     $upd_query          Update query
+     * @param \PhpMyAdmin\Response $response           Response object
+     * @param DatabaseInterface    $dbi                DatabaseInterface object
+     * @param string               $db                 Database name
+     * @param string               $table              Table name
+     * @param array|null           $options_array      Options
+     * @param array|null           $cfgRelation        Config relation
+     * @param string               $tbl_storage_engine Table storage engine
+     * @param array|null           $existrel           Relations
+     * @param array|null           $existrel_foreign   External relations
+     * @param string               $upd_query          Update query
      */
     public function __construct(
         $response,

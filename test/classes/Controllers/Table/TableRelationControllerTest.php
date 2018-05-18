@@ -41,8 +41,18 @@ class TableRelationControllerTest extends PmaTestCase
         $_REQUEST['foreignDb'] = 'db';
         $_REQUEST['foreignTable'] = 'table';
 
-        $GLOBALS['dblist'] = new DataBasePMAMockForTblRelation();
-        $GLOBALS['dblist']->databases = new DataBaseMockForTblRelation();
+        $GLOBALS['dblist'] = new \stdClass();
+        $GLOBALS['dblist']->databases = new class
+        {
+            /**
+             * @param mixed $name name
+             * @return bool
+             */
+            public function exists($name)
+            {
+                return true;
+            }
+        };
 
         $indexes = array(
             array(
@@ -257,35 +267,5 @@ class TableRelationControllerTest extends PmaTestCase
             array('table'),
             $json['tables']
         );
-    }
-}
-
-/**
- * Mock class for DataBasePMAMock
- *
- * @package PhpMyAdmin-test
- */
-Class DataBasePMAMockForTblRelation
-{
-    var $databases;
-}
-
-/**
- * Mock class for DataBaseMock
- *
- * @package PhpMyAdmin-test
- */
-Class DataBaseMockForTblRelation
-{
-    /**
-     * mock function to return table is existed
-     *
-     * @param string $name table name
-     *
-     * @return bool
-     */
-    function exists($name)
-    {
-        return true;
     }
 }

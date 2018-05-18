@@ -32,6 +32,9 @@ class ServerVariablesController extends Controller
 
     /**
      * Constructs ServerVariablesController
+     *
+     * @param \PhpMyAdmin\Response          $response Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
      */
     public function __construct($response, $dbi)
     {

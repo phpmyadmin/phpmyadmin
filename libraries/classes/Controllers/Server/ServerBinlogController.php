@@ -31,6 +31,9 @@ class ServerBinlogController extends Controller
 
     /**
      * Constructs ServerBinlogController
+     *
+     * @param \PhpMyAdmin\Response          $response Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
      */
     public function __construct($response, $dbi)
     {

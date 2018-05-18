@@ -138,6 +138,8 @@ class UtilTest extends PmaTestCase
 
     /**
      * Test for random generation
+     *
+     * @return void
      */
     public function testGenerateRandom()
     {
@@ -2048,6 +2050,10 @@ class UtilTest extends PmaTestCase
 
     /**
      * Test for Util::linkOrButton
+     *
+     * @param array  $params params
+     * @param int    $limit  limit
+     * @param string $match  match
      *
      * @return void
      *

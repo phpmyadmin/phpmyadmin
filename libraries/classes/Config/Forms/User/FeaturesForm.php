@@ -11,8 +11,15 @@ namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+/**
+ * Class FeaturesForm
+ * @package PhpMyAdmin\Config\Forms\User
+ */
 class FeaturesForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
         $result = array(
@@ -78,6 +85,9 @@ class FeaturesForm extends BaseForm
         return $result;
     }
 
+    /**
+     * @return string
+     */
     public static function getName()
     {
         return __('Features');
