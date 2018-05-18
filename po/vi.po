@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-01-13 02:26+0000\n"
-"Last-Translator: Dao Nguyen <quynh.d.nguyen@student.fh-kiel.de>\n"
+"PO-Revision-Date: 2018-05-18 01:25+0000\n"
+"Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vi/>\n"
 "Language: vi\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:205 libraries/classes/Export.php:1144
 msgid "Bad type!"
@@ -860,6 +860,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"Thư mục $cfg['TempDir'] (%s) không thể truy cập được. phpMyAdmin không thể "
+"tạo được cache cho giao diện và điều này sẽ làm chậm quá trình tải trang."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -943,6 +945,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Bạn đang muốn giảm số lượng các hàng, Những dữ liệu đã nhập trong các hàng "
+"này sẽ bị mất. Bạn có muốn tiếp tục không?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -977,7 +981,6 @@ msgid "Do you really want to RESET SLAVE?"
 msgstr "Bạn có thực sự muốn RESET SLAVE?"
 
 #: js/messages.php:90
-#, fuzzy
 msgid ""
 "This operation will attempt to convert your data to the new collation. In "
 "rare cases, especially where a character doesn't exist in the new collation, "
@@ -986,10 +989,10 @@ msgid ""
 "refer to the tips at "
 msgstr ""
 "Thao tác này sẽ cố gắng chuyển đổi dữ liệu của bạn sang sự đối chiếu mới. "
-"Trong một số ít trường hợp, đặc biệt là khi một ký tự không tồn tại trong sự "
-"đối chiếu mới, quá trình này có thể làm cho dữ liệu xuất hiện không đúng "
-"theo đối chiếu mới; trong trường hợp này, chúng tôi khuyên bạn nên hoàn "
-"nguyên về đối chiếu ban đầu và tham khảo các mẹo tại "
+"Trong một số ít trường hợp, một số ký tự đặc biệt không tồn tại trong sự đối "
+"chiếu mới, quá trình này có thể làm cho dữ liệu xuất hiện không đúng theo "
+"đối chiếu mới; trong trường hợp này, chúng tôi khuyên bạn nên hoàn nguyên về "
+"đối chiếu ban đầu và tham khảo các mẹo tại "
 
 #: js/messages.php:96
 msgid "Garbled Data"
@@ -1580,15 +1583,11 @@ msgid "Database"
 msgstr "Cơ sở dữ liệu"
 
 #: js/messages.php:298 libraries/classes/Display/Export.php:591
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Bảng"
 
 #: js/messages.php:299 libraries/classes/Display/Export.php:602
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Cột"
@@ -1965,6 +1964,8 @@ msgstr "Duyệt giá trị khóa ngoại"
 #: js/messages.php:424
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Không có câu truy vấn nào được tự động lưu lại trước đó. Đang tải câu truy "
+"vấn mặc định."
 
 #: js/messages.php:425
 msgid ""

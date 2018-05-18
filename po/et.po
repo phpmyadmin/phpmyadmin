@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-05-13 19:43+0000\n"
+"PO-Revision-Date: 2018-05-18 01:25+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -1955,6 +1955,8 @@ msgstr "Sirvi võõrvõtme väärtusi"
 #: js/messages.php:424
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Puuduvad varasemad automaatselt salvestatud päringud. Laaditakse vaikimisi "
+"päring."
 
 #: js/messages.php:425
 msgid ""
