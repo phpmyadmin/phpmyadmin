@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-03-11 12:00+0000\n"
-"Last-Translator: Akom Chotiphantawanon <knight2000@gmail.com>\n"
+"PO-Revision-Date: 2018-05-19 17:39+0000\n"
+"Last-Translator: Anawin Wongsadit <imonmac@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
 "Language: th\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:205 libraries/classes/Export.php:1144
 msgid "Bad type!"
@@ -624,7 +624,7 @@ msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
 
 #: import_status.php:107
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "ไม่สามารถโหลดข้อมูลความคืบหน้าของการนำเข้าได้"
 
 #: import_status.php:116 js/messages.php:460 js/messages.php:626
 #: libraries/classes/Export.php:524
@@ -638,6 +638,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"คุณได้ออกจากระบบจากเครื่องแม่ข่ายหนึ่งแล้ว หากต้องการออกจากระบบ phpMyAdmin "
+"โดยสมบูรณ์ คุณต้องออกจากระบบจากเครื่องแม่ข่ายทั้งหมด"
 
 #: index.php:182 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:114
@@ -653,6 +655,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"คุณกำลังใช้งานเครื่องแม่ข่ายตัวอย่าง คุณสามารถทำอะไรก็ได้ในนี้ "
+"เพียงอย่าแก้ไขผู้ใช้ root, debian-sys-maint และ pma "
+"ข้อมูลเพิ่มเติมสามารถดูได้ที่ %s"
 
 #: index.php:196
 #, fuzzy
@@ -785,7 +790,7 @@ msgstr "รายการของการเปลี่ยนแปลง"
 
 #: index.php:468 templates/server/plugins/section.twig:13
 msgid "License"
-msgstr ""
+msgstr "ลิขสิทธิ์"
 
 #: index.php:488
 msgid ""
@@ -801,6 +806,8 @@ msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
+"ไม่พบส่วนขยาย curl และ allow_url_fopen ถูกปิดใช้งานอยู่ "
+"ทำให้บางคุณลักษณะอย่างการรายงานข้อผิดพลาดหรือตรวจสอบรุ่นล่าสุดจะถูกปิดไว้"
 
 #: index.php:518
 msgid ""
@@ -809,20 +816,28 @@ msgid ""
 "than cookie validity configured in phpMyAdmin, because of this, your login "
 "might expire sooner than configured in phpMyAdmin."
 msgstr ""
+"พารามิเตอร์ PHP [a@https://secure.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetim[/a] "
+"ของคุณต่ำกว่าระยะเวลามีผลของคุกกี้ที่ได้กำหนดไว้ใน phpMyAdmin "
+"สิ่งนี้จะทำให้การเข้าสู่ระบบของคุณอาจหมดอายุเร็วกว่าที่กำหนดไว้ใน phpMyAdmin"
 
 #: index.php:537
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"การจัดเก็บคุกกี้เข้าสู่ระบบต่ำกว่าระยะเวลามีผลของคุกกี้ที่ได้กำหนดไว้ใน "
+"phpMyAdmin สิ่งนี้จะทำให้การเข้าสู่ระบบของคุณอาจหมดอายุเร็วกว่าที่กำหนดไว้ใน "
+"phpMyAdmin"
 
 #: index.php:552
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
-msgstr "ในขณะนี้ไฟล์การกำหนดค่าต้องการรหัสผ่านลับ (blowfish_secret)"
+msgstr "จากนี้ไป ไฟล์การกำหนดค่าจะต้องมีการระบุชุดรหัสผ่านลับ (blowfish_secret)"
 
 #: index.php:559
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr ""
+msgstr "ชุดรหัสผ่านลับที่อยู่ในการกำหนดค่า (blowfish_secret) สั้นเกินไป"
 
 #: index.php:573
 msgid ""
@@ -831,22 +846,25 @@ msgid ""
 "once phpMyAdmin has been configured. Otherwise the security of your server "
 "may be compromised by unauthorized people downloading your configuration."
 msgstr ""
+"ไดเรกทอรี [code]config[/code] "
+"ซึ่งถูกใช้โดยสคริปต์ตัวติดตั้งยังคงอยู่ในไดเรกทอรี phpMyAdmin ของคุณ "
+"เราขอแนะนำเป็นอย่างยิ่งว่าให้ลบออกหากได้กำหนดค่า phpMyAdmin เรียบร้อยแล้ว มิเ"
+"ช่นนั้นความปลอดภัยของเครื่องแม่ข่ายของคุณอาจถูกบุกรุกโดยบุคคลที่ไม่ได้รับอนุญ"
+"าตที่เข้ามาดาวน์โหลดไฟล์กำหนดค่าของคุณ"
 
 #: index.php:591
-#, fuzzy, php-format
-#| msgid ""
-#| " additional features for working with linked tables have been ctivated. "
-#| "To find out why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr ""
-"ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere%s"
+"พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin ยังตั้งค่าไม่เสร็จสมบูรณ์ "
+"คุณลักษณะเพิ่มเติมบางอย่างได้ถูกปิดใช้งานแล้ว %sเรียนรู้เพิ่มเติม%s "
 
 #: index.php:598
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
-msgstr ""
+msgstr "หรือเข้าไปที่แท็บ 'การดำเนินการ' ของฐานข้อมูลใดๆ เพื่อตั้งค่า"
 
 #: index.php:623
 #, php-format
@@ -854,6 +872,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
+"เครื่องแม่ข่ายกำลังทำงานโดยใช้ Suhosin "
+"โปรดศึกษา%sเอกสารกำกับโปรแกรม%sเพื่อดูปัญหาที่อาจเกิดขึ้นได้"
 
 #: index.php:637
 #, php-format
@@ -861,99 +881,85 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"ไม่สามารถเข้าถึง $cfg['TempDir'] (%s) ได้ phpMyAdmin "
+"จึงไม่สามารถทำการแคชแม่แบบได้และจะทำงานช้าลง"
 
 #: js/messages.php:43
 msgid "Confirm"
-msgstr ""
+msgstr "ยืนยัน"
 
 #: js/messages.php:44
 #, php-format
 msgid "Do you really want to execute \"%s\"?"
-msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
+msgstr "คุณแน่ใจหรือว่าต้องการดำเนินการ \"%s\"?"
 
 #: js/messages.php:46 libraries/classes/MultSubmits.php:511
 msgid "You are about to DESTROY a complete database!"
-msgstr "คุณกำลังจะทำลายฐานข้อมูลทั้งหมด"
+msgstr "คุณกำลังจะ ทํ า ล า ย ฐานข้อมูลหนึ่งโดยสมบูรณ์!"
 
 #: js/messages.php:48
 msgid "Cannot rename database to the same name. Change the name and try again"
-msgstr ""
+msgstr "ไม่สามารถเปลี่ยนชื่อฐานข้อมูลให้เป็นชื่อเดิมได้ ให้แก้ไขชื่อแล้วลองใหม่"
 
 #: js/messages.php:50
 msgid "You are about to DESTROY a complete table!"
-msgstr "คุณกำลังจะทำลายตารางทั้งหมด!"
+msgstr "คุณกำลังจะ ทํ า ล า ย ตารางหนึ่งโดยสมบูรณ์!"
 
 #: js/messages.php:52
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "คุณกำลังจะลบข้อมูลในตารางทั้งหมด!"
+msgstr "คุณกำลังจะ ล้ า ง ข้ อ มู ล ตารางหนึ่งโดยสมบูรณ์!"
 
 #: js/messages.php:53
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this table?"
-msgstr "ลบการติดตามตารางนี้"
+msgstr "ลบข้อมูลการติดตามของตารางนี้?"
 
 #: js/messages.php:55
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these tables?"
-msgstr "ลบการติดตามตารางนี้"
+msgstr "ลบข้อมูลการติดตามของตารางเหล่านี้?"
 
 #: js/messages.php:57
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for this version?"
-msgstr "ลบการติดตามตารางนี้"
+msgstr "ลบข้อมูลการติดตามของรุ่นนี้?"
 
 #: js/messages.php:59
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete tracking data for these versions?"
-msgstr "ลบการติดตามตารางนี้"
+msgstr "ลบข้อมูลการติดตามของรุ่นเหล่านี้?"
 
 #: js/messages.php:60
-#, fuzzy
-#| msgid "Delete tracking data for this table"
 msgid "Delete entry from tracking report?"
-msgstr "ลบการติดตามตารางนี้"
+msgstr "ลบแถวข้อมูลจากรายงานการติดตาม?"
 
 #: js/messages.php:61
 msgid "Deleting tracking data"
-msgstr "กำลังลบข้อมูลติดตามตาราง"
+msgstr "กำลังลบข้อมูลการติดตาม"
 
 #: js/messages.php:62
 msgid "Dropping Primary Key/Index"
-msgstr "กำลังทิ้ง คีย์หลัก และดัชนี"
+msgstr "กำลังทิ้งคีย์หลัก/ดัชนี"
 
 #: js/messages.php:63
-#, fuzzy
-#| msgid "Select Foreign Key"
 msgid "Dropping Foreign key."
-msgstr "เลือกคีย์นอก"
+msgstr "กำลังทิ้งคีย์นอก"
 
 #: js/messages.php:65
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "การทำงานนี้อาจจะใช้เวลาในการประมวลผลนาน คุณแน่ใจที่จะทำมันหรือไม่?"
+msgstr "การดำเนินการนี้อาจใช้ระยะเวลานาน ดำเนินการต่อไปหรือไม่?"
 
 #: js/messages.php:67
-#, fuzzy, php-format
-#| msgid "Do you really want to execute \"%s\"?"
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
+msgstr "คุณแน่ใจหรือว่าต้องการลบกลุ่มผู้ใช้ \"%s\"?"
 
 #: js/messages.php:69
-#, fuzzy, php-format
-#| msgid "Do you really want to execute \"%s\"?"
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
-msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
+msgstr "คุณแน่ใจหรือว่าต้องการลบการค้นหา \"%s\"?"
 
 #: js/messages.php:71
-#, fuzzy
-#| msgid ""
-#| "You have edited some data and they have not been saved. Are you sure you "
-#| "want to leave this page before saving the data?"
 msgid "You have unsaved changes; are you sure you want to leave this page?"
-msgstr "คุณได้ทำการแก้ไขข้อมูลบางอย่าง แต่ยังไม่ได้บันทึก คุณแน่ใจว่าจะออกจากหน้านี้โดยยังไม่บันทึก?"
+msgstr ""
+"คุณมีการเปลี่ยนแปลงข้อมูลที่ยังไม่ได้บันทึก "
+"คุณแน่ใจหรือว่าต้องการออกจากหน้านี้?"
 
 #: js/messages.php:73
 msgid ""
@@ -962,46 +968,36 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:75
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
+msgstr "คุณแน่ใจหรือว่าต้องการยกเลิกสิทธิ์ของผู้ใช้ที่เลือกไว้?"
 
 #: js/messages.php:77
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this central column?"
-msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
+msgstr "คุณแน่ใจหรือว่าต้องการลบสดมภ์ส่วนกลางนี้?"
 
 #: js/messages.php:79
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete the selected items?"
-msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
+msgstr "คุณแน่ใจหรือว่าต้องการลบรายการที่เลือกไว้?"
 
 #: js/messages.php:81
 msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
+"คุณแน่ใจหรือว่าต้องการ ทิ้ ง พาร์ติชั่นที่เลือกไว้? นี่จะเป็นการ ล บ "
+"ข้อมูลที่เกี่ยวข้องกับพาร์ติชั่นที่เลือกไว้ออกไปด้วย!"
 
 #: js/messages.php:85
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
+msgstr "คุณแน่ใจหรือว่าต้องการ ล้ า ง ข้ อ มู ล ในพาร์ติชั่นที่เลือกไว้?"
 
 #: js/messages.php:87
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to remove partitioning?"
-msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
+msgstr "คุณแน่ใจหรือว่าต้องการนำการพาร์ติชั่นออก?"
 
 #: js/messages.php:88
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
+msgstr "คุณแน่ใจหรือว่าต้องการ RESET SLAVE?"
 
 #: js/messages.php:90
 msgid ""
@@ -1011,6 +1007,11 @@ msgid ""
 "collation; in this case we suggest you revert to the original collation and "
 "refer to the tips at "
 msgstr ""
+"การดำเนินการนี้จะพยายามแปลงข้อมูลของคุณให้อยู่ในชุดอักขระใหม่ ในกรณีสุดวิสัย "
+"หากมีอักขระใดที่ไม่มีอยู่ในชุดอักขระใหม่ "
+"กระบวนการนี้อาจทำให้ข้อมูลนั้นแสดงผลไม่ถูกต้องเมื่ออยู่ในชุดอักขระใหม่ "
+"ในกรณีนี้ "
+"เราแนะนำให้คุณแปลงกลับไปเป็นชุดอักขระเดิมแล้วดำเนินการตามเคล็ดลับที่ "
 
 #: js/messages.php:96
 msgid "Garbled Data"
@@ -1018,7 +1019,7 @@ msgstr ""
 
 #: js/messages.php:98
 msgid "Are you sure you wish to change the collation and convert the data?"
-msgstr ""
+msgstr "คุณแน่ใจหรือว่าต้องการเปลี่ยนชุดอักขระและแปลงข้อมูล?"
 
 #: js/messages.php:100
 msgid ""
@@ -1029,138 +1030,113 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"ในการดำเนินการนี้, MySQL จะพยายามเชื่อมค่าของข้อมูลในแต่ละชุดอักขระ "
+"หากชุดอักขระไม่เข้ากันอาจทำให้เกิดการสูญเสียข้อมูล และข้อมูลในส่วนที่สูญเสียไ"
+"ปนี้อาจ<b>ไม่</b>สามารถกู้คืนได้จากการเปลี่ยนชุดอักขระสดมภ์กลับคืน "
+"<b>หากต้องการแปลงข้อมูลที่มีอยู่เดิม, แนะนำให้ใช้คุณลักษณะการแก้ไขสดมภ์ "
+"(ลิงก์ \"เปลี่ยน\") ที่อยู่ในหน้าโครงสร้างตาราง </b>"
 
 #: js/messages.php:109
 msgid ""
 "Are you sure you wish to change all the column collations and convert the "
 "data?"
-msgstr ""
+msgstr "คุณแน่ใจหรือว่าต้องการเปลี่ยนชุดอักขระสดมภ์ทั้งหมดและแปลงตัวข้อมูล?"
 
 #: js/messages.php:113
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save & close"
-msgstr "บันทึกเป็นไฟล์"
+msgstr "บันทึกและปิด"
 
 #: js/messages.php:114 libraries/classes/InsertEdit.php:1913
 #: prefs_manage.php:357 prefs_manage.php:368
 #: templates/config/form_display/fieldset_bottom.twig:9
 msgid "Reset"
-msgstr "ตั้งค่าใหม่"
+msgstr "รีเซ็ต"
 
 #: js/messages.php:115
-#, fuzzy
-#| msgid "Select All"
 msgid "Reset all"
-msgstr "เลือกทั้งหมด"
+msgstr "รีเซ็ตทั้งหมด"
 
 #: js/messages.php:118
 msgid "Missing value in the form!"
-msgstr "ค่าในแบบฟอร์มไม่มี !"
+msgstr "ข้อมูลในแบบฟอร์มขาดหาย!"
 
 #: js/messages.php:119
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "Select at least one of the options!"
-msgstr "อย่างน้อยหนึ่งคำ"
+msgstr "เลือกอย่างน้อยหนึ่งตัวเลือก!"
 
 #: js/messages.php:120
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid number!"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "โปรดกรอกตัวเลขที่ถูกต้อง!"
 
 #: js/messages.php:121
-#, fuzzy
-#| msgid "%d is not valid row number."
 msgid "Please enter a valid length!"
-msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
+msgstr "โปรดกรอกความยาวที่ถูกต้อง!"
 
 #: js/messages.php:122
-#, fuzzy
-#| msgid "Add new field"
 msgid "Add index"
-msgstr "เพิ่มฟิลด์ใหม่"
+msgstr "เพิ่มดัชนี"
 
 #: js/messages.php:123
-#, fuzzy
-#| msgid "Edit Index"
 msgid "Edit index"
 msgstr "แก้ไขดัชนี"
 
 #: js/messages.php:124 templates/table/index_form.twig:211
 #, php-format
 msgid "Add %s column(s) to index"
-msgstr "เพิ่มคอลัมน์ %s ไปยังดัชนี"
+msgstr "เพิ่ม %s คอลัมน์ไปยังดัชนี"
 
 #: js/messages.php:125
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create single-column index"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr "สร้างดัชนีชนิดหนึ่งคอลัมน์"
 
 #: js/messages.php:126
-#, fuzzy
-#| msgid "Create routine"
 msgid "Create composite index"
-msgstr "รุ่นของเซิร์ฟเวอร์"
+msgstr "สร้างดัชนีผสม"
 
 #: js/messages.php:127
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Composite with:"
-msgstr "คร่อมฟิลด์ด้วย"
+msgstr "ผสมกับ:"
 
 #: js/messages.php:128
-#, fuzzy
-#| msgid "Add %s column(s) to index"
 msgid "Please select column(s) for the index."
-msgstr "เพิ่มคอลัมน์ %s ไปยังดัชนี"
+msgstr "โปรดเลือกคอลัมน์ให้กับดัชนี"
 
 #: js/messages.php:131 libraries/classes/InsertEdit.php:1911
 #: templates/table/index_form.twig:216
 #: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:188
 msgid "Preview SQL"
-msgstr ""
+msgstr "ดูตัวอย่าง SQL"
 
 #: js/messages.php:134
-#, fuzzy
-#| msgid "in query"
 msgid "Simulate query"
-msgstr "ในคำค้น"
+msgstr "จำลองการทำงาน"
 
 #: js/messages.php:135
-#, fuzzy
-#| msgid "Affected rows:"
 msgid "Matched rows:"
-msgstr "ระเบียนที่มีผล:"
+msgstr "ระเบียนที่ตรงกัน:"
 
 #: js/messages.php:136 libraries/classes/Util.php:566
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL query:"
-msgstr "คำค้น SQL"
+msgstr "คำค้น SQL:"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:140
-#, fuzzy
-#| msgid "Value"
 msgid "Y values"
-msgstr "ค่า"
+msgstr "ค่าแกน Y"
 
 #: js/messages.php:143
 msgid "The host name is empty!"
-msgstr "ชื่อโฮสต์ยังว่างอยู่!"
+msgstr "ชื่อโฮสต์ยังว่างเปล่าอยู่!"
 
 #: js/messages.php:144
 msgid "The user name is empty!"
-msgstr "ชื่อผู้ใช้ยังว่างอยู่!"
+msgstr "ชื่อผู้ใช้ยังว่างเปล่าอยู่!"
 
 #: js/messages.php:145 libraries/classes/Server/Privileges.php:1873
 #: libraries/classes/UserPassword.php:79
 msgid "The password is empty!"
-msgstr "รหัสผ่านยังว่างอยู่!"
+msgstr "รหัสผ่านยังว่างเปล่าอยู่!"
 
 #: js/messages.php:146 libraries/classes/Server/Privileges.php:1871
 #: libraries/classes/UserPassword.php:83
@@ -1169,7 +1145,7 @@ msgstr "รหัสผ่านไม่ตรงกัน!"
 
 #: js/messages.php:147
 msgid "Removing Selected Users"
-msgstr "ถอนผู้ใช้ที่เลือก"
+msgstr "กำลังลบผู้ใช้ที่เลือกออก"
 
 #: js/messages.php:148 js/messages.php:215 libraries/classes/Tracking.php:348
 #: libraries/classes/Tracking.php:675
@@ -1177,25 +1153,20 @@ msgid "Close"
 msgstr "ปิด"
 
 #: js/messages.php:151
-#, fuzzy
 msgid "Template was created."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "แม่แบบถูกสร้างขึ้นแล้ว"
 
 #: js/messages.php:152
 msgid "Template was loaded."
-msgstr ""
+msgstr "โหลดแม่แบบแล้ว"
 
 #: js/messages.php:153
-#, fuzzy
-#| msgid "The profile has been updated."
 msgid "Template was updated."
-msgstr "ปรับปรุงโพรไฟล์เรียบร้อยแล้ว"
+msgstr "อัปเดตแม่แบบแล้ว"
 
 #: js/messages.php:154
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "Template was deleted."
-msgstr "ลบเรียบร้อยแล้ว"
+msgstr "แม่แบบถูกลบออกแล้ว"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:157 libraries/classes/Server/Status/Data.php:132
@@ -1217,13 +1188,11 @@ msgstr "."
 
 #: js/messages.php:163
 msgid "Connections / Processes"
-msgstr "การเชื่อมต่อ"
+msgstr "การเชื่อมต่อ / กระบวนการ"
 
 #: js/messages.php:167
-#, fuzzy
-#| msgid "Local monitor configuration incompatible"
 msgid "Local monitor configuration incompatible!"
-msgstr "การตั้งค่าติดตามภายในเครื่องไม่เข้ากัน"
+msgstr "การกำหนดค่าเครื่องภายในไม่สอดคล้องกัน!"
 
 #: js/messages.php:169
 msgid ""
