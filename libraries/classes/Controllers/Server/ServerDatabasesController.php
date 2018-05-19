@@ -405,7 +405,7 @@ class ServerDatabasesController extends Controller
      * @param array  $replication_info  replication info
      * @param string $tr_class          HTMl class for the row
      *
-     * @return array $column_order, $out
+     * @return string $column_order, $out
      */
     function _buildHtmlForDb(
         array $current, array $column_order,
@@ -419,7 +419,7 @@ class ServerDatabasesController extends Controller
                     $current["SCHEMA_NAME"],
                     $replication_info[$type]['Ignore_DB']
                 );
-                if (strlen($key) > 0) {
+                if (strlen((string) $key) > 0) {
                     $out = Util::getIcon(
                         's_cancel',
                         __('Not replicated')
@@ -429,7 +429,7 @@ class ServerDatabasesController extends Controller
                         $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
                     );
 
-                    if (strlen($key) > 0
+                    if (strlen((string) $key) > 0
                         || count($replication_info[$type]['Do_DB']) == 0
                     ) {
                         // if ($key != null) did not work for index "0"
