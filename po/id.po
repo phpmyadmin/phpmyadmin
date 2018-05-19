@@ -3,8 +3,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-29 13:54+0000\n"
-"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
+"PO-Revision-Date: 2018-05-19 17:03+0000\n"
+"Last-Translator: Muhammad Rifqi Priyo Susanto "
+"<muhammadrifqipriyosusanto@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-8/id/>\n"
 "Language: id\n"
@@ -591,7 +592,7 @@ msgstr "Markah %s telah dibuat."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Impor telah selesai, %d kueri dieksekusi."
+msgstr[0] "Impor telah selesai, %d kueri dilakukan."
 
 #: import.php:626
 #, php-format
