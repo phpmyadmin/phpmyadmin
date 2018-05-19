@@ -28,6 +28,8 @@ phpMyAdmin - ChangeLog
 - issue #14289 Fix multi-column sorting
 - issue #14278 Fix central columns in-line edit bug
 - issue #14066 Fix AUTO_INCREMENT error when only exporting table structure in database-level exports
+- issue #13893 Simulating queries produces unexpected results
+- issue #14309 Setup script icons missing
 
 4.8.0.1 (2018-04-19)
 - issue        [security] Multiple CSRF vulnerabilities, See PMASA-2018-02
