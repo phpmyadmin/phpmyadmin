@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-05-19 17:08+0000\n"
-"Last-Translator: Muhammad Rifqi Priyo Susanto "
-"<muhammadrifqipriyosusanto@gmail.com>\n"
+"Last-Translator: fidella <fidellawi@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-8/id/>\n"
 "Language: id\n"
@@ -8395,7 +8394,7 @@ msgstr "Apakah anda benar-benar ingin untuk mengesekusi queri di ikuti?"
 
 #: libraries/classes/Navigation/Navigation.php:56
 msgid "An error has occurred while loading the navigation display"
-msgstr "Sebuah kesalahan telah terjadi saat memuat tampilan navigasi"
+msgstr "Sebuah kesalahan telah terjadi saat memuat display navigasi"
 
 #: libraries/classes/Navigation/Navigation.php:194
 msgid "Groups:"
