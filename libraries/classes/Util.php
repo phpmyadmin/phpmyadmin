@@ -1879,7 +1879,6 @@ class Util
                     . self::showDocu('faq', 'faqmissingparameters', true)
                     . '[br]';
                 $found_error = true;
-                var_dump($GLOBALS);
             }
         }
         if ($found_error) {
@@ -4242,19 +4241,27 @@ class Util
     public static function getStartAndNumberOfRowsPanel($sql_query)
     {
         $template = new Template();
-        $pos = isset($_REQUEST['pos'])
-            ? $_REQUEST['pos']
-            : $_SESSION['tmpval']['pos'];
+
+        if(isset($_REQUEST['pos'])) {
+            $pos = $_REQUEST['pos'];
+        } else if(isset($_SESSION['tmpval']['pos'])) {
+            $pos = $_SESSION['tmpval']['pos'];
+        } else {
+            $number_of_line = intval($_REQUEST['unlim_num_rows']);
+            $pos = ((ceil($number_of_line / $rows) - 1) * $rows);
+            $_SESSION['tmpval']['pos'] = $pos;
+        }
+
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = $_REQUEST['session_max_rows'];
         } else {
-            if ($_SESSION['tmpval']['max_rows'] != 'all') {
+            if (isset($_SESSION['tmpval']['max_rows']) && $_SESSION['tmpval']['max_rows'] != 'all') {
                 $rows = $_SESSION['tmpval']['max_rows'];
             } else {
                 $rows = $GLOBALS['cfg']['MaxRows'];
+                $_SESSION['tmpval']['max_rows'] = $rows;
             }
         }
-
         return $template->render('start_and_number_of_rows_panel', [
             'pos' => $pos,
             'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),

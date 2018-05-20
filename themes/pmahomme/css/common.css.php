@@ -909,8 +909,8 @@ div.container.modal_form {
     z-index: 999;
 }
 
-#input_username {
-    z-index: 999;    
+#login_form {
+    text-align: left;
 }
 
 div#modalOverlay {

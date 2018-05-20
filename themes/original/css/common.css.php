@@ -629,6 +629,10 @@ div.container.modal_form {
     z-index: 999;
 }
 
+#login_form {
+    text-align: left;
+}
+
 div#modalOverlay {
     position: fixed;
     top: 0;

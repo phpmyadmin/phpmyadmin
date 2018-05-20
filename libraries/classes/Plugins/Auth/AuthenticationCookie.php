@@ -86,7 +86,10 @@ class AuthenticationCookie extends AuthenticationPlugin
         global $conn_error;
 
         $response = Response::getInstance();
+
+        // When sending login modal after session has expired, send the new token explicitly with the response to update the token in all the forms having a hidden token.
         $session_expired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
+
         if (!$session_expired && $response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return true;
@@ -94,6 +97,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                 exit;
             }
         }
+
+        // When sending login modal after session has expired, send the new token explicitly with the response to update the token in all the forms having a hidden token.
         if($session_expired) {
             $response->setRequestStatus(false);
             $response->addJSON(
@@ -102,6 +107,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             );
         }
 
+        // logged_in response parameter is used to check if the login, using the modal was successful after session expiration
         if(isset($_REQUEST['session_timedout'])) {
             $response->addJSON(
                 'logged_in',
@@ -124,6 +130,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $autocomplete   = ' autocomplete="off"';
         }
 
+        // wrap the login form in a div which overlays the whole page. 
         if($session_expired) {
             echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'], 'add_class' => ' modal_form', 'session_expired' => 1]);
         } else {
@@ -171,6 +178,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         <fieldset>
         <legend>';
         echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '" />';
+        
+        // Add a hidden element session_timedout which is used to check if the user requested login after session expiration
         if($session_expired) {
             echo '<input type="hidden" name="session_timedout" value="1" />';
         }
@@ -259,6 +268,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</div>';
         }
 
+        // close the wrapping div tag, if the request is after session timeout
         if($session_expired) {
             echo $this->template->render('login/footer', ['session_expired' => 1]);
         } else {
@@ -501,6 +511,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
+        
+        // check if the user trying to login after session expiration is the same user as before
         $user_changed = !hash_equals($_COOKIE['pmaUserHashed-' . $GLOBALS['server']], crypt($this->user, "SillYSAlTstRInG"));
         $this->storeUsernameCookie($this->user);
 
@@ -528,6 +540,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $url_params['target'] = $GLOBALS['target'];
         }
 
+        // user logged in successfully after session expiration
         if(isset($_REQUEST['session_timedout'])) {
             $response = Response::getInstance();
             $response->addJSON(
@@ -658,6 +671,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // needed for PHP-CGI (not need for FastCGI or mod-php)
         $response->header('Cache-Control: no-store, no-cache, must-revalidate');
         $response->header('Pragma: no-cache');
+        
         $this->showLoginForm();
     }
 

@@ -338,7 +338,6 @@ var AJAX = {
                 AJAX.$msgbox = PMA_ajaxShowMessage();
                 if($(this).attr('id') == 'login_form') {
                     $.post(url, params, AJAX.loginResponseHandler);
-                    alert("asdf");
                 }
                 else {
                     $.post(url, params, AJAX.responseHandler);
@@ -347,6 +346,7 @@ var AJAX = {
         }
     },
     /**
+     * Response handler to handle login request from login modal after session expiration
      *
      * To refer to self use 'AJAX', instead of 'this' as this function
      * is called in the jQuery context.
@@ -492,7 +492,7 @@ var AJAX = {
         });
 
         if (typeof data.success !== 'undefined' && data.success) {
-
+            // reload page if user trying to login has changed
             if(typeof data.user_changed !== 'undefined' && data.user_changed == 1) {
                 window.location = "index.php";
                 PMA_ajaxShowMessage("Loading...", false);
@@ -500,10 +500,12 @@ var AJAX = {
                 AJAX.xhr = null;
                 return;
             }
+            // removet the login modal if the login is successful otherwise show error.
             if(typeof data.logged_in !== 'undefined' && data.logged_in == 1) {
                 if($("#modalOverlay").length) {
                     $("#modalOverlay").remove();
                 }
+                $("fieldset.disabled_for_expiration").removeAttr("disabled").removeClass("disabled_for_expiration");
             }
             if(typeof data.new_token !== 'undefined') {
                 $("input[name=token]").val(data.new_token);
@@ -540,22 +542,6 @@ var AJAX = {
             return;
         }
         if (typeof data.success !== 'undefined' && data.success) {
-            
-            if(typeof data.user_changed !== 'undefined' && data.user_changed == 1) {
-                window.location = "index.php";
-                PMA_ajaxShowMessage("Loading...", false);
-                AJAX.active = false;
-                AJAX.xhr = null;
-                return;
-            } else if(typeof data.logged_in !== 'undefined' && data.logged_in == 1) {
-                if($("#modalOverlay").length) {
-                    $("#modalOverlay").remove();
-                }
-                if(typeof data.new_token !== 'undefined') {
-                    $("input[name=token]").val(data.new_token);
-                }
-            }
-
             $('html, body').animate({ scrollTop: 0 }, 'fast');
             PMA_ajaxRemoveMessage(AJAX.$msgbox);
 
@@ -567,6 +553,9 @@ var AJAX = {
             }
 
             AJAX.scriptHandler.reset(function () {
+                if (data._reloadNavigation) {
+                    PMA_reloadNavigation();
+                }
                 if (data._title) {
                     $('title').replaceWith(data._title);
                 }
@@ -606,7 +595,6 @@ var AJAX = {
                     .not('#pma_demo')
                     .not('#pma_console_container')
                     .not('#prefs_autoload')
-                    .not("#modalOverlay")
                     .remove();
                 // Replace #page_content with new content
                 if (data.message && data.message.length > 0) {
@@ -687,11 +675,6 @@ var AJAX = {
                         $('html, body').animate({ scrollTop:$(document).height() }, 'slow');
                     }
                 }
-
-                if (data._reloadNavigation) {
-                    PMA_reloadNavigation();
-                }
-                
                 PMA_ajaxShowMessage(msg, false);
                 // bind for php error reporting forms (popup)
                 $('#pma_ignore_errors_popup').on('click', function () {
@@ -706,43 +689,6 @@ var AJAX = {
                 }
                 AJAX._callback = function () {};
             });
-        } else if(typeof data.logged_in !== 'undefined' && data.logged_in == 0) {
-            // window.location.reload();
-            // console.log(data.error)
-            PMA_ajaxRemoveMessage(AJAX.$msgbox);
-            if (data._selflink) {
-                var source = data._selflink.split('?')[0];
-                // Check for faulty links
-                $selflink_replace = {
-                    'import.php': 'tbl_sql.php',
-                    'tbl_chart.php': 'sql.php',
-                    'tbl_gis_visualization.php': 'sql.php'
-                };
-                if ($selflink_replace[source]) {
-                    var replacement = $selflink_replace[source];
-                    data._selflink = data._selflink.replace(source, replacement);
-                }
-                $('#selflink').find('> a').attr('href', data._selflink);
-            }
-            if (data._params) {
-                PMA_commonParams.setAll(data._params);
-            }
-            if (data._scripts) {
-                AJAX.scriptHandler.load(data._scripts);
-            }
-            if (data._selflink && data._scripts && data._menuHash && data._params) {
-                if (! (history && history.pushState)) {
-                    PMA_MicroHistory.add(
-                        data._selflink,
-                        data._scripts,
-                        data._menuHash,
-                        data._params,
-                        AJAX.source.attr('rel')
-                    );
-                }
-            }
-            $("#modalOverlay").replaceWith(data.error);
-            // alert("asdf");
         } else {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;

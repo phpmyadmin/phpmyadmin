@@ -973,19 +973,20 @@ AJAX.registerOnload('functions.js', function () {
                         // max value for setInterval() function
                         interval = Math.min((remaining - 1) * 1000, Math.pow(2, 31) - 1);
                     }
-                    // console.log(_idleSecondsCounter);
                     updateTimeout = window.setTimeout(UpdateIdleTime, interval);
                 } else { // timeout occurred
                     clearInterval(IncInterval);
                     if (isStorageSupported('sessionStorage')) {
                         window.sessionStorage.clear();
                     }
-                    // window.location.reload(true);
+                    // append the login form on the page, disable all the forms which were not disabled already, close all the open jqueryui modal boxes
                     if (!$("#modalOverlay").length) {
+                        $("fieldset").not(':disabled').attr("disabled", "disabled").addClass("disabled_for_expiration");
                         $('body').append(data.error);
                         $(".ui-dialog").each(function(i) {
                             $("#" + $(this).attr("aria-describedby")).dialog("close");
                         });
+                        $("#input_username").focus();
                     }
                     _idleSecondsCounter = 0;
                 }
