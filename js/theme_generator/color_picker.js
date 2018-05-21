@@ -299,7 +299,7 @@ var UIColorPicker = (function UIColorPicker() {
         if (delta) {
             if (cmax === red ) {
                 hue = (green - blue) / delta;
-        }
+            }
             if (cmax === green ) {
                 hue = 2 + (blue - red) / delta;
             }
@@ -335,7 +335,7 @@ var UIColorPicker = (function UIColorPicker() {
         if (delta) {
             if (cmax === red ) {
                 hue = ((green - blue) / delta);
-        }
+            }
             if (cmax === green ) {
                 hue = 2 + (blue - red) / delta;
             }
@@ -361,9 +361,15 @@ var UIColorPicker = (function UIColorPicker() {
         var r = this.r.toString(16);
         var g = this.g.toString(16);
         var b = this.b.toString(16);
-        if (this.r < 16) r = '0' + r;
-        if (this.g < 16) g = '0' + g;
-        if (this.b < 16) b = '0' + b;
+        if (this.r < 16) {
+            r = '0' + r;
+        }
+        if (this.g < 16) {
+            g = '0' + g;
+        }
+        if (this.b < 16) {
+            b = '0' + b;
+        }
         var value = '#' + r + g + b;
         return value.toUpperCase();
     };
@@ -799,10 +805,6 @@ var UIColorPicker = (function UIColorPicker() {
     /*************************************************************************/
 
     ColorPicker.prototype.setColor = function setColor(color) {
-        if(color instanceof Color !== true) {
-            console.log('Typeof parameter not Color');
-            return;
-        }
 
         if (color.format !== this.picker_mode) {
             color.setFormat(this.picker_mode);
@@ -1333,10 +1335,35 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.updateBgColor();
         };
 
-        ColorSample.prototype.updateHue = function updateHue(color, degree, steps) {
+        ColorSample.prototype.updateTriadic = function updateTriadic(color, size, steps) {
+
+            var h = color.hue;
+            if ((steps * 3 / size) < 1 ) {
+                var hue = h;
+            } else if ((steps * 3 / size) < 2 ) {
+                if (h - 120 < 0) {
+                    var hue = 240 + h;
+                } else {
+                    var hue = h - 120;
+                }
+            } else {
+                if (h + 120 >= 360) {
+                    var hue = h - 240;
+                } else {
+                    var hue = h + 120;
+                }
+            }
+            var saturation = this.updateSaturation(color.saturation, size/3, steps % (size/3));
+            var brightness = this.updateBrightness(color.value, size/3, steps % (size/3));
+
+            if (saturation > 100 || brightness > 100) {
+                this.node.setAttribute('data-hidden', 'true');
+                return;
+            }
+            this.node.removeAttribute('data-hidden');
             this.color.copy(color);
-            var hue = (steps * degree + this.color.hue) % 360;
-            if (hue < 0) hue += 360;
+            this.color.setValue(brightness);
+            this.color.setSaturation(saturation);
             this.color.setHue(hue);
             this.updateBgColor();
         };
@@ -1434,20 +1461,35 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.updateBgColor();
         };
 
-        ColorSample.prototype.updateComplementary = function updateComplementary(color, value, steps) {
-            var saturation = color.saturation + value * steps;
-            if (saturation <= 0) {
+        ColorSample.prototype.updateComplementary = function updateComplementary(color, size, steps) {
+
+            var h = color.hue;
+            if ((steps * 2 / size) < 1 ) {
+                var hue = h;
+            } else {
+                if (h  < 180) {
+                    var hue = h + 180;
+                } else {
+                    var hue = h - 180;
+                }
+            }
+            var saturation = this.updateSaturation(color.saturation, size/2, steps % (size/2));
+            var brightness = this.updateBrightness(color.value, size/2, steps % (size/2));
+
+            if (saturation > 100 || brightness > 100) {
                 this.node.setAttribute('data-hidden', 'true');
                 return;
             }
-
             this.node.removeAttribute('data-hidden');
             this.color.copy(color);
+            this.color.setValue(brightness);
             this.color.setSaturation(saturation);
+            this.color.setHue(hue);
             this.updateBgColor();
         };
 
         ColorSample.prototype.pickColor = function pickColor() {
+            // @TODO - setcolor should not change whole pallete
             UIColorPicker.setColor('picker', this.color);
         };
 
@@ -1481,12 +1523,12 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.title = title;
         };
 
-        var createHuePalette = function createHuePalette() {
-            var palette = new Palette('Hue', 12);
+        var createTriadicPalette = function createTriadicPalette() {
+            var palette = new Palette('Triadic', pallete_size);
 
             UIColorPicker.subscribe('picker', function(color) {
-                for(var i = 0; i < 12; i++) {
-                    palette.samples[i].updateHue(color, 30, i);
+                for(var i = 0; i < pallete_size; i++) {
+                    palette.samples[i].updateTriadic(color, pallete_size, i);
                 }
             });
 
@@ -1494,11 +1536,11 @@ var ColorPickerTool = (function ColorPickerTool() {
         };
 
         var createComplementaryPalette = function createComplementaryPalette() {
-            var palette = new Palette('Complementary', 11);
+            var palette = new Palette('Complementary', pallete_size);
 
             UIColorPicker.subscribe('picker', function(color) {
-                for(var i = 0; i < 11; i++) {
-                    palette.samples[i].updateComplementary(color, -10, i);
+                for(var i = 0; i < pallete_size; i++) {
+                    palette.samples[i].updateComplementary(color, pallete_size, i);
                 }
             });
 
@@ -1549,7 +1591,7 @@ var ColorPickerTool = (function ColorPickerTool() {
         var init = function init() {
             color_palette = getElemById('color-palette');
 
-            createHuePalette();
+            createTriadicPalette();
             createComplementaryPalette();
             createAdjacentPalette();
             createMonochromePalette();
