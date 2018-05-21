@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-05-18 01:25+0000\n"
+"PO-Revision-Date: 2018-05-23 01:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -2361,7 +2361,7 @@ msgstr ""
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
-msgstr ""
+msgstr "להציג את כל השורות? בטבלאות גדולות פעולה כזאת יכולה להקריס את הדפדפן."
 
 #: js/messages.php:613
 msgid "Original length"
@@ -2369,7 +2369,7 @@ msgstr "אורך מקורי"
 
 #: js/messages.php:616
 msgid "cancel"
-msgstr ""
+msgstr "ביטול"
 
 #: js/messages.php:617 libraries/classes/Server/Status.php:289
 msgid "Aborted"
@@ -2377,7 +2377,7 @@ msgstr "בוטל"
 
 #: js/messages.php:619
 msgid "Success"
-msgstr ""
+msgstr "הצלחה"
 
 #: js/messages.php:620
 msgid "Import status"
@@ -2385,7 +2385,7 @@ msgstr "מצב ייבוא"
 
 #: js/messages.php:621 libraries/classes/Navigation/Navigation.php:127
 msgid "Drop files here"
-msgstr ""
+msgstr "ניתן להשליך קבצים לכאן"
 
 #: js/messages.php:622
 msgid "Select database first"
@@ -2400,11 +2400,11 @@ msgstr "הדפסה"
 
 #: js/messages.php:632
 msgid "You can also edit most values<br />by double-clicking directly on them."
-msgstr ""
+msgstr "ניתן לערוך את רוב הערכים<br />על ידי לחיצה כפולה ישירות עליהם."
 
 #: js/messages.php:637
 msgid "You can also edit most values<br />by clicking directly on them."
-msgstr ""
+msgstr "ניתן לערוך את רוב הערכים<br />על ידי לחיצה ישירה עליהם."
 
 #: js/messages.php:643
 msgid "Go to link:"
@@ -2416,7 +2416,7 @@ msgstr "העתקת שם העמודה."
 
 #: js/messages.php:646
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "יש ללחוץ על שם העמודה עם הכפתור הימני כדי להעתיק אותו ללוח הגזירים שלך."
 
 #: js/messages.php:649
 msgid "Generate password"
@@ -2462,6 +2462,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"גרסה חדשה יותר של phpMyAdmin זמינה ומומלץ לשקול לשדרג. הגרסה העדכנית ביותר "
+"היא %s, יצאה לאור ב־%s."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:673
@@ -15782,84 +15784,61 @@ msgid "Data length"
 msgstr "אורך שורה"
 
 #: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
 msgid "Index length"
-msgstr "אורך שורה"
+msgstr "אורך אינדקס"
 
 #: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "Position"
 msgid "Partition table"
-msgstr "מיקום"
+msgstr "טבלת מחיצות"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Add new field"
 msgid "Edit partitioning"
-msgstr "הוספת שדה חדש"
+msgstr "עריכת הפרדת המחיצות"
 
 #: templates/database/central_columns/table_header.twig:17
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Lenght/Value"
-msgstr "אורך/ערכים*"
+msgstr "אורך/ערך"
 
 #: templates/database/central_columns/table_header.twig:29
 msgid "Attribute"
 msgstr "תכונה"
 
 #: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "No rows selected"
 msgid "Save to selected page"
-msgstr "לא נבחרו שורות"
+msgstr "שמירה לעמוד הנבחר"
 
 #: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a new index"
 msgid "Create a page and save to it"
-msgstr "יצירת אינדקס חדש"
+msgstr "יצירת עמוד ושמירה אליו"
 
 #: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "User name"
 msgid "New page name"
-msgstr "שם משתמש"
+msgstr "שם עמוד חדש"
 
 #: templates/database/designer/page_selector.twig:2
-#, fuzzy
-#| msgid "Select All"
 msgid "Select page"
-msgstr "בחירת הכל"
+msgstr "בחירת עמוד"
 
 #: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
 msgid "Add to Favorites"
-msgstr "הוספת משתמש חדש"
+msgstr "הוספה למועדפים"
 
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
 msgstr ""
 
 #: templates/display/export/options_output_separate_files.twig:7
-#, fuzzy
-#| msgid "Create table on database %s"
 msgid "Export databases as separate files"
-msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+msgstr "ייצוא מסדי נתונים כקבצים נפרדים"
 
 #: templates/display/export/options_output_separate_files.twig:9
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export tables as separate files"
-msgstr "מאוזן (headers מסובבים)"
+msgstr "ייצוא טבלאות כקבצים נפרדים"
 
 #: templates/display/export/options_rows.twig:2
-#, fuzzy
-#| msgid "Rows"
 msgid "Rows:"
-msgstr "שורות"
+msgstr "שורות:"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
@@ -15878,10 +15857,8 @@ msgid "Session value"
 msgstr "ערך זמן חיבור (Session)"
 
 #: url.php:41
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Taking you to the target site."
-msgstr "דוח המעקב"
+msgstr "מתבצעת העברה לאתר היעד."
 
 #: user_password.php:37
 msgid "You don't have sufficient privileges to be here right now!"
@@ -15892,14 +15869,12 @@ msgid "View name can not be empty!"
 msgstr ""
 
 #: view_operations.php:105
-#, fuzzy
 msgid "Rename view to"
-msgstr "שינוי שם טבלה אל"
+msgstr "שינוי שם התצוגה אל"
 
 #: view_operations.php:144
-#, fuzzy
 msgid "Delete the view (DROP)"
-msgstr "אין מאגרי נתונים"
+msgstr "מחיקת התצוגה (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -15921,9 +15896,8 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:56
-#, fuzzy
 msgid "Questions below 1,000"
-msgstr "Persian"
+msgstr "שאלות מתחת ל־1,000"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
@@ -15938,15 +15912,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:61
-#, fuzzy, php-format
-#| msgid "Connections"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "חיבורים"
+msgstr "כמות השאלות הנוכחית: %s"
 
 #: libraries/advisory_rules.txt:63
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "הראה שאילתות שלמות"
+msgstr "אחוז שאילתות אטיות"
 
 #: libraries/advisory_rules.txt:66
 msgid ""
@@ -15965,9 +15937,8 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:70
-#, fuzzy
 msgid "Slow query rate"
-msgstr "שאילתת SQL"
+msgstr "קצב שאילתות אטיות"
 
 #: libraries/advisory_rules.txt:73
 msgid ""
@@ -15982,9 +15953,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:77
-#, fuzzy
 msgid "Long query time"
-msgstr "שאילתת SQL"
+msgstr "זמן שאילתה ארוך"
 
 #: libraries/advisory_rules.txt:80
 msgid ""
@@ -16004,15 +15974,12 @@ msgid "long_query_time is currently set to %ds."
 msgstr ""
 
 #: libraries/advisory_rules.txt:84 libraries/advisory_rules.txt:91
-#, fuzzy
 msgid "Slow query logging"
-msgstr "שאילתת SQL"
+msgstr "רישום שאילתות אטיות"
 
 #: libraries/advisory_rules.txt:87 libraries/advisory_rules.txt:94
-#, fuzzy
-#| msgid "The server is not responding"
 msgid "The slow query log is disabled."
-msgstr "השרת אינו מגיב"
+msgstr "רישום השאילתות האטיות מושבת."
 
 #: libraries/advisory_rules.txt:88
 msgid ""
@@ -16052,14 +16019,13 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
-#, fuzzy, php-format
+#, php-format
 msgid "Current version: %s"
-msgstr "גרסת שרת"
+msgstr "גרסה נוכחית: %s"
 
 #: libraries/advisory_rules.txt:107 libraries/advisory_rules.txt:114
-#, fuzzy
 msgid "Minor Version"
-msgstr "Persian"
+msgstr "גרסה מזערית"
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
@@ -16076,16 +16042,12 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: libraries/advisory_rules.txt:118
-#, fuzzy
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr "אתה צריך לשדרג אל %s %s לפחות."
+msgstr "עליך לשדרג לגרסה היציבה של MySQL 5.5."
 
 #: libraries/advisory_rules.txt:121 libraries/advisory_rules.txt:128
-#, fuzzy
-#| msgid "Description"
 msgid "Distribution"
-msgstr "תיאור"
+msgstr "הפצה"
 
 #: libraries/advisory_rules.txt:124
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -16117,10 +16079,8 @@ msgid "'percona' found in version_comment"
 msgstr ""
 
 #: libraries/advisory_rules.txt:135
-#, fuzzy
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "קידוד MySQL"
+msgstr "ארכיטקטורת MySQL"
 
 #: libraries/advisory_rules.txt:138
 msgid "MySQL is not compiled as a 64-bit package."
@@ -16139,9 +16099,8 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:146
-#, fuzzy
 msgid "Query cache disabled"
-msgstr "סוג שאילתה"
+msgstr "זיכרון מטמון השאילתות מושבת"
 
 #: libraries/advisory_rules.txt:149
 #, fuzzy
