@@ -3,9 +3,9 @@
  * Library for the Color Picker Tool
  */
 
-var UIColorPicker = (function UIColorPicker() {
+var UIColorPicker = (function UIColorPicker (){
 
-    function getElemById(id) {
+    function getElemById (id) {
         return document.getElementById(id);
     }
 
@@ -22,9 +22,9 @@ var UIColorPicker = (function UIColorPicker() {
      * @param lightness		0-100
      */
 
-    function Color(color) {
+    function Color (color){
 
-        if(color instanceof Color === true) {
+        if (color instanceof Color === true) {
             this.copy(color);
             return;
         }
@@ -40,46 +40,46 @@ var UIColorPicker = (function UIColorPicker() {
         this.format = 'HSB';
     }
 
-    function RGBColor(r, g, b) {
+    function RGBColor (r, g, b) {
         var color = new Color();
         color.setRGBA(r, g, b, 1);
         return color;
     }
 
-    function RGBAColor(r, g, b, a) {
+    function RGBAColor (r, g, b, a) {
         var color = new Color();
         color.setRGBA(r, g, b, a);
         return color;
     }
 
-    function HSBColor(h, s, v) {
+    function HSBColor (h, s, v) {
         var color = new Color();
         color.setHSB(h, s, v);
         return color;
     }
 
-    function HSBAColor(h, s, v, a) {
+    function HSBAColor (h, s, v, a) {
         var color = new Color();
         color.setHSB(h, s, v);
         color.a = a;
         return color;
     }
 
-    function HSLColor(h, s, l) {
+    function HSLColor (h, s, l) {
         var color = new Color();
         color.setHSL(h, s, l);
         return color;
     }
 
-    function HSLAColor(h, s, l, a) {
+    function HSLAColor (h, s, l, a) {
         var color = new Color();
         color.setHSL(h, s, l);
         color.a = a;
         return color;
     }
 
-    Color.prototype.copy = function copy(obj) {
-        if(obj instanceof Color !== true) {
+    Color.prototype.copy = function copy (obj) {
+        if (obj instanceof Color !== true) {
             console.log('Typeof parameter not Color');
             return;
         }
@@ -95,14 +95,16 @@ var UIColorPicker = (function UIColorPicker() {
         this.lightness = obj.lightness;
     };
 
-    Color.prototype.setFormat = function setFormat(format) {
-        if (format === 'HSB')
+    Color.prototype.setFormat = function setFormat (format) {
+        if (format === 'HSB') {
             this.format = 'HSB';
-        if (format === 'HSL')
+        }
+        if (format === 'HSL') {
             this.format = 'HSL';
+        }
     };
 
-    /*========== Methods to set Color Properties ==========*/
+    /* ========== Methods to set Color Properties ========== */
 
     Color.prototype.isValidRGBValue = function isValidRGBValue(value) {
         return (typeof(value) === 'number' && isNaN(value) === false &&
