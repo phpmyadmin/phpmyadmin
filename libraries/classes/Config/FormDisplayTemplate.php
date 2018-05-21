@@ -171,12 +171,6 @@ class FormDisplayTemplate
                 // When called from the setup script, we don't have access to the
                 // sprite-aware getImage() function because the PMA_theme class
                 // has not been loaded, so we generate the img tags manually.
-                $icon_init = array(
-                    'edit'   => array('b_edit.png', ''),
-                    'help'   => array('b_help.png', __('Documentation')),
-                    'reload' => array('s_reload.png', ''),
-                    'tblops' => array('b_tblops.png', '')
-                );
                 foreach ($icon_init as $k => $v) {
                     $title = '';
                     if (! empty($v[1])) {
@@ -185,7 +179,7 @@ class FormDisplayTemplate
                     $icons[$k] = sprintf(
                         '<img alt="%s" src="%s"%s />',
                         $v[1],
-                        "../themes/pmahomme/img/{$v[0]}",
+                        "../themes/pmahomme/img/{$v[0]}.png",
                         $title
                     );
                 }
