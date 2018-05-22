@@ -344,29 +344,6 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
     cursor: pointer;
 }
 
-/*
- * COLOR PICKER TOOL
- */
-
-body {
-    max-width: 1000px;
-    margin: 0 auto;
-
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-
-    box-shadow: 0 0 5px 0 #999;
-
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-}
-
 /**
  * 	Container
  */
