@@ -217,7 +217,7 @@ $compression_methods = array(
 /**
  * init and variable checking
  */
-$compression = false;
+$compression = '';
 $onserver = false;
 $save_on_server = false;
 $buffer_needed = false;
