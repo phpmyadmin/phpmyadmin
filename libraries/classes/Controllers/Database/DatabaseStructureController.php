@@ -735,7 +735,7 @@ class DatabaseStructureController extends DatabaseController
                     'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
                     'db' => $GLOBALS['db'],
                     'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                    'dbi' => $GLOBALS['dbi'],
+                    'dbi' => $this->dbi,
                     'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
                     'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
                     'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],

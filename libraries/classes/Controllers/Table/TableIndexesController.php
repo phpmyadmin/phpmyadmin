@@ -71,7 +71,7 @@ class TableIndexesController extends TableController
      */
     public function displayFormAction()
     {
-        $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb($GLOBALS['db']);
         $add_fields = 0;
         if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
             // coming already from form

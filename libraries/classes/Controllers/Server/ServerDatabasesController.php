@@ -1,6 +1,5 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * Holds the PhpMyAdmin\Controllers\Server\ServerDatabasesController
  *
@@ -15,7 +14,6 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -65,7 +63,7 @@ class ServerDatabasesController extends Controller
 
         if (isset($_REQUEST['drop_selected_dbs'])
             && $response->isAjax()
-            && ($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
+            && ($this->dbi->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
             $this->dropDatabasesAction();
             return;
@@ -112,9 +110,9 @@ class ServerDatabasesController extends Controller
             'is_create_db_priv' => $GLOBALS['is_create_db_priv'],
             'dbstats' => $this->_dbstats,
             'db_to_create' => $GLOBALS['db_to_create'],
-            'server_collation' => $GLOBALS['dbi']->getServerCollation(),
+            'server_collation' => $this->dbi->getServerCollation(),
             'databases' => isset($databases) ? $databases : null,
-            'dbi' => $GLOBALS['dbi'],
+            'dbi' => $this->dbi,
             'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
         ]));
     }
@@ -133,11 +131,11 @@ class ServerDatabasesController extends Controller
         if (! empty($_POST['db_collation'])) {
             list($db_charset) = explode('_', $_POST['db_collation']);
             $charsets = Charsets::getMySQLCharsets(
-                $GLOBALS['dbi'],
+                $this->dbi,
                 $GLOBALS['cfg']['Server']['DisableIS']
             );
             $collations = Charsets::getMySQLCollations(
-                $GLOBALS['dbi'],
+                $this->dbi,
                 $GLOBALS['cfg']['Server']['DisableIS']
             );
             if (in_array($db_charset, $charsets)
@@ -149,13 +147,13 @@ class ServerDatabasesController extends Controller
         }
         $sql_query .= ';';
 
-        $result = $GLOBALS['dbi']->tryQuery($sql_query);
+        $result = $this->dbi->tryQuery($sql_query);
 
         if (! $result) {
             // avoid displaying the not-created db name in header or navi panel
             $GLOBALS['db'] = '';
 
-            $message = Message::rawError($GLOBALS['dbi']->getError());
+            $message = Message::rawError($this->dbi->getError());
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message);
         } else {
@@ -293,7 +291,7 @@ class ServerDatabasesController extends Controller
             'first_database' => $first_database,
             'master_replication' => $GLOBALS['replication_info']['master']['status'],
             'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
-            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'is_superuser' => $this->dbi->isSuperuser(),
             'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
         ]);
 
@@ -305,7 +303,7 @@ class ServerDatabasesController extends Controller
             'master_replication' => $GLOBALS['replication_info']['master']['status'],
             'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
             'database_count' => $this->_database_count,
-            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'is_superuser' => $this->dbi->isSuperuser(),
             'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
@@ -456,9 +454,9 @@ class ServerDatabasesController extends Controller
             'master_replication' => $master_replication,
             'slave_replication_status' => $GLOBALS['replication_info']['slave']['status'],
             'slave_replication' => $slave_replication,
-            'is_superuser' => $GLOBALS['dbi']->isSuperuser(),
+            'is_superuser' => $this->dbi->isSuperuser(),
             'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
-            'is_system_schema' => $GLOBALS['dbi']->isSystemSchema($current['SCHEMA_NAME'], true),
+            'is_system_schema' => $this->dbi->isSystemSchema($current['SCHEMA_NAME'], true),
             'default_tab_database' => $GLOBALS['cfg']['DefaultTabDatabase'],
         ]);
     }

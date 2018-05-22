@@ -210,7 +210,7 @@ class TableRelationController extends TableController
                 'save_row' => array_values($columns),
                 'url_params' => $GLOBALS['url_params'],
                 'databases' => $GLOBALS['dblist']->databases,
-                'dbi' => $GLOBALS['dbi'],
+                'dbi' => $this->dbi,
             ])
         );
 

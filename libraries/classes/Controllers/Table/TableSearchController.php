@@ -532,7 +532,7 @@ class TableSearchController extends TableController
                 'data_label' => $dataLabel,
                 'criteria_column_names' => isset($_POST['criteriaColumnNames']) ? $_POST['criteriaColumnNames'] : null,
                 'criteria_column_types' => isset($_POST['criteriaColumnTypes']) ? $_POST['criteriaColumnTypes'] : null,
-                'sql_types' => $GLOBALS['dbi']->types,
+                'sql_types' => $this->dbi->types,
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
                 'max_plot_limit' => ((! empty($_POST['maxPlotLimit']))
                     ? intval($_POST['maxPlotLimit'])
@@ -668,7 +668,7 @@ class TableSearchController extends TableController
             . " FROM " . Util::backquote($this->db)
             . "." . Util::backquote($this->table)
             . " WHERE " . Util::backquote($column)
-            . " RLIKE '" . $GLOBALS['dbi']->escapeString($find) . "' COLLATE "
+            . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
             . $charSet . "_bin"; // here we
         // change the collation of the 2nd operand to a case sensitive
         // binary collation to make sure that the comparison is case sensitive
@@ -726,13 +726,13 @@ class TableSearchController extends TableController
             if (is_array($toReplace)) {
                 foreach ($toReplace as $row) {
                     $sql_query .= "\n WHEN " . Util::backquote($column)
-                        . " = '" . $GLOBALS['dbi']->escapeString($row[0])
-                        . "' THEN '" . $GLOBALS['dbi']->escapeString($row[1]) . "'";
+                        . " = '" . $this->dbi->escapeString($row[0])
+                        . "' THEN '" . $this->dbi->escapeString($row[1]) . "'";
                 }
             }
             $sql_query .= " END"
                 . " WHERE " . Util::backquote($column)
-                . " RLIKE '" . $GLOBALS['dbi']->escapeString($find) . "' COLLATE "
+                . " RLIKE '" . $this->dbi->escapeString($find) . "' COLLATE "
                 . $charSet . "_bin"; // here we
             // change the collation of the 2nd operand to a case sensitive
             // binary collation to make sure that the comparison
@@ -871,7 +871,7 @@ class TableSearchController extends TableController
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
         //Gets column's comparison operators depending on column type
-        $typeOperators = $GLOBALS['dbi']->types->getTypeOperatorsHtml(
+        $typeOperators = $this->dbi->types->getTypeOperatorsHtml(
             preg_replace('@\(.*@s', '', $this->_columnTypes[$column_index]),
             $this->_columnNullFlags[$column_index], $selected_operator
         );
@@ -937,7 +937,7 @@ class TableSearchController extends TableController
         // else continue to form the where clause from column criteria values
         $fullWhereClause = array();
         foreach ($_POST['criteriaColumnOperators'] as $column_index => $operator) {
-            $unaryFlag =  $GLOBALS['dbi']->types->isUnaryOperator($operator);
+            $unaryFlag =  $this->dbi->types->isUnaryOperator($operator);
             $tmp_geom_func = isset($_POST['geom_func'][$column_index])
                 ? $_POST['geom_func'][$column_index] : null;
 
@@ -990,10 +990,10 @@ class TableSearchController extends TableController
             $parens_close = '';
         }
         $enum_where = '\''
-            . $GLOBALS['dbi']->escapeString($criteriaValues[0]) . '\'';
+            . $this->dbi->escapeString($criteriaValues[0]) . '\'';
         for ($e = 1; $e < $enum_selected_count; $e++) {
             $enum_where .= ', \''
-                . $GLOBALS['dbi']->escapeString($criteriaValues[$e]) . '\'';
+                . $this->dbi->escapeString($criteriaValues[$e]) . '\'';
         }
 
         return ' ' . $func_type . ' ' . $parens_open
@@ -1122,7 +1122,7 @@ class TableSearchController extends TableController
                 && 'NOT BETWEEN' != $func_type
             ) {
                 return $backquoted_name . ' ' . $func_type . ' ' . $quot
-                        . $GLOBALS['dbi']->escapeString($criteriaValues) . $quot;
+                        . $this->dbi->escapeString($criteriaValues) . $quot;
             }
             $func_type = str_replace(' (...)', '', $func_type);
 
@@ -1141,7 +1141,7 @@ class TableSearchController extends TableController
                     $value = 'NULL';
                     continue;
                 }
-                $value = $quot . $GLOBALS['dbi']->escapeString(trim($value))
+                $value = $quot . $this->dbi->escapeString(trim($value))
                     . $quot;
             }
 
