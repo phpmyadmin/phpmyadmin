@@ -141,19 +141,19 @@
 
         {% if show_creation %}
             <td class="value tbl_creation">
-                {{ create_time ? Util_localisedDate(strtotime(create_time)) : '-' }}
+                {{ create_time }}
             </td>
         {% endif %}
 
         {% if show_last_update %}
             <td class="value tbl_last_update">
-                {{ update_time ? Util_localisedDate(strtotime(update_time)) : '-'}}
+                {{ update_time }}
             </td>
         {% endif %}
 
         {% if show_last_check %}
             <td class="value tbl_last_check">
-                {{ check_time ? Util_localisedDate(strtotime(check_time)) : '-' }}
+                {{ check_time }}
             </td>
         {% endif %}
 

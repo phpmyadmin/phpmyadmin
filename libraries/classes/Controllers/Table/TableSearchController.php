@@ -525,6 +525,27 @@ class TableSearchController extends TableController
                     )
                 )
         );
+
+        $column_names = $this->_columnNames;
+        $column_types = $this->_columnTypes;
+        $types = array();
+        if ($this->_searchType == 'replace') {
+            $num_cols = count($column_names);
+            for ($i= 0; $i < $num_cols; $i++) {
+                $types[$column_names[$i]] = preg_replace('@\\(.*@s', '', $column_types[$i]);
+            }
+        }
+
+        $criteria_column_names = isset($_POST['criteriaColumnNames']) ? $_POST['criteriaColumnNames'] : null;
+        $keys = array();
+        for ($i= 0; $i < 4; $i++) {
+            if (isset($criteria_column_names[$i])) {
+                if ($criteria_column_names[$i] != 'pma_null') {
+                    $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $column_names);
+                }
+            }
+        }
+
         $this->response->addHTML(
             Template::get('table/search/selection_form')->render(array(
                 'search_type' => $this->_searchType,
@@ -533,11 +554,13 @@ class TableSearchController extends TableController
                 'goto' => $goto,
                 'self' => $this,
                 'geom_column_flag' => $this->_geomColumnFlag,
-                'column_names' => $this->_columnNames,
-                'column_types' => $this->_columnTypes,
+                'column_names' => $column_names,
+                'column_types' => $column_types,
+                'types' => $types,
                 'column_collations' => $this->_columnCollations,
                 'data_label' => $dataLabel,
-                'criteria_column_names' => isset($_POST['criteriaColumnNames']) ? $_POST['criteriaColumnNames'] : null,
+                'keys' => $keys,
+                'criteria_column_names' => $criteria_column_names,
                 'criteria_column_types' => isset($_POST['criteriaColumnTypes']) ? $_POST['criteriaColumnTypes'] : null,
                 'sql_types' => $this->dbi->types,
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),

@@ -68,8 +68,8 @@ $html = $browseForeigners->getHtmlForRelationalFieldSelection(
     $table,
     $_REQUEST['field'],
     $foreignData,
-    isset($fieldkey) ? $fieldkey : null,
-    isset($data) ? $data : null
+    isset($fieldkey) ? $fieldkey : '',
+    isset($data) ? $data : ''
 );
 
 $response->addHtml($html);

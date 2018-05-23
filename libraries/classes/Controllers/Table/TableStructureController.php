@@ -1308,6 +1308,58 @@ class TableStructureController extends TableController
             $hideStructureActions = true;
         }
 
+        // logic removed from Template
+        $rownum = 0;
+        $columns_list = array();
+        $attributes = array();
+        $displayed_field_names = array();
+        $displayed_field_names_replaced = array();
+        $row_comments = array();
+        $extracted_columnspecs = array();
+        foreach ($fields as $field) {
+            $rownum += 1;
+            $columns_list[] = $field['Field'];
+
+            $extracted_columnspecs[$rownum] = Util::extractColumnSpec($field['Type']);
+            $attributes[$rownum] = $extracted_columnspecs[$rownum]['attribute'];
+            if (strpos($field['Extra'], 'on update CURRENT_TIMESTAMP') !== false) {
+                $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
+            }
+
+            if (isset($field['Default'])) {
+                if ($field['Null'] == 'Yes') {
+                    $field = array_merge($field, array('Default' => '<em>NULL</em>'));
+                }
+            } else {
+                $field = array_merge($field, array('Default' => $field['Default']));
+            }
+
+            $displayed_field_names[$rownum] = $field['Field'];
+            $row_comments[$rownum] = '';
+
+            if (isset($comments_map[$field['Field']])) {
+                $displayed_field_names[$rownum] = '<span ' .
+                'class="commented_column" title="' . $comments_map[$field['Field']] .
+                '">' . htmlspecialchars($field['Field']) . "</span>";
+                $row_comments[$rownum] = $comments_map[$field['Field']];
+            }
+
+            if ($primary_index && $primary_index->hasColumn($field['Field'])) {
+                $displayed_field_names[$rownum] = $displayed_field_names[$rownum] .
+                Util::getImage('b_primary', __('Primary'));
+            }
+
+            if (in_array($field['Field'], $columns_with_index)) {
+                $displayed_field_names[$rownum] = $displayed_field_names[$rownum] .
+                Util::getImage('b_key', __('Index'));
+            }
+            $displayed_field_names_replaced[$rownum] = preg_replace(
+                '/[\\x00-\\x1F]/',
+                '&#x2051;',
+                $displayed_field_names[$rownum]
+            );
+        }
+
         return Template::get('table/structure/display_structure')->render(
             array(
                 'hide_structure_actions' => $hideStructureActions,
@@ -1325,6 +1377,7 @@ class TableStructureController extends TableController
                 'columns_list' => $columns_list,
                 'table_stats' => isset($tablestats) ? $tablestats : null,
                 'fields' => $fields,
+                'extracted_columnspecs' => $extracted_columnspecs,
                 'columns_with_index' => $columns_with_index,
                 'central_list' => $central_list,
                 'comments_map' => $comments_map,
@@ -1340,6 +1393,11 @@ class TableStructureController extends TableController
                 'is_active' => Tracker::isActive(),
                 'have_partitioning' => Partition::havePartitioning(),
                 'partition_names' => Partition::getPartitionNames($this->db, $this->table),
+                'columns_list' => $columns_list,
+                'attributes' => $attributes,
+                'displayed_field_names' => $displayed_field_names,
+                'displayed_field_names_replaced' => $displayed_field_names_replaced,
+                'row_comments' => $row_comments,
             )
         );
     }

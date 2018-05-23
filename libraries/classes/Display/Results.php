@@ -4448,7 +4448,7 @@ class Results
 
         $column_for_first_row = mb_strtoupper(
             mb_substr(
-                $column_for_first_row, 0, $GLOBALS['cfg']['LimitChars']
+                (string) $column_for_first_row, 0, $GLOBALS['cfg']['LimitChars']
             ) . '...'
         );
 
