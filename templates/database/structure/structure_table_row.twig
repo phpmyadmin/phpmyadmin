@@ -28,8 +28,8 @@
                 ((already_favorite ? 'remove' : 'add') ~ '_favorite'): true
             } %}
             {% include 'database/structure/favorite_anchor.twig' with {
-                'table_name_hash': md5(current_table['TABLE_NAME']),
-                'db_table_name_hash': md5(db ~ '.' ~ current_table['TABLE_NAME']),
+                'table_name_hash': table_name_hash,
+                'db_table_name_hash': db_table_name_hash,
                 'fav_params': fav_params,
                 'already_favorite': already_favorite,
                 'titles': titles
@@ -184,28 +184,6 @@
         {% endif %}
 
     {% else %}
-        {% set count = 0 %}
-        {% if properties_num_columns %}
-            {% set count = count + 2 %}
-        {% endif %}
-        {% if is_show_stats %}
-            {% set count = count + 2 %}
-        {% endif %}
-        {% if show_charset %}
-            {% set count = count + 1 %}
-        {% endif %}
-        {% if show_comment %}
-            {% set count = count + 1 %}
-        {% endif %}
-        {% if show_creation %}
-            {% set count = count + 1 %}
-        {% endif %}
-        {% if show_last_update %}
-            {% set count = count + 1 %}
-        {% endif %}
-        {% if show_last_check %}
-            {% set count = count + 1 %}
-        {% endif %}
 
         {% if db_is_system_schema %}
             {% set action_colspan = 3 %}

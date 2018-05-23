@@ -189,6 +189,7 @@ class TableRelationController extends TableController
                 || ! empty($column['Key'])
             ) {
                 $column_array[$column['Field']] = $column['Field'];
+                $column_array[$column['Field'] . '_hash'] = md5($column['Field']);
             }
         }
         if ($GLOBALS['cfg']['NaturalOrder']) {

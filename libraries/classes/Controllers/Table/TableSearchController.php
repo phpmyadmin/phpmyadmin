@@ -371,11 +371,18 @@ class TableSearchController extends TableController
                 __('Browse foreign values')
             )
         );
+        $column_names_hashes = [];
+
+        foreach ($this->_columnNames as $columnName) {
+            $column_names_hashes[$columnName] = md5($columnName);
+        }
+
         $this->response->addHTML(
             Template::get('table/search/zoom_result_form')->render([
                 'db' => $this->db,
                 'table' => $this->table,
                 'column_names' => $this->_columnNames,
+                'column_names_hashes' => $column_names_hashes,
                 'foreigners' => $this->_foreigners,
                 'column_null_flags' => $this->_columnNullFlags,
                 'column_types' => $this->_columnTypes,
