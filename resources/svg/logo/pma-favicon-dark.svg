@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="64" height="64" viewBox="0 0 64 64" version="1.1" id="svg" inkscape:version="0.92.3 (2405546, 2018-03-11)" sodipodi:docname="pma-favicon-2018-alt.svg">
+ <sodipodi:namedview id="svgbase" pagecolor="#fff" bordercolor="#666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:document-units="px" inkscape:current-layer="svg" showgrid="true" units="px" inkscape:snap-bbox="true" inkscape:snap-global="true">
+  <inkscape:grid type="xygrid" id="xygrid" />
+ </sodipodi:namedview>
+ <defs id="defs" />
+ <metadata id="meta">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:title>phpMyAdmin Fav Icon (Alternative)</dc:title>
+    <cc:license rdf:resource="http://creativecommons.org/licenses/by-nd/4.0/" />
+    <dc:date>2018-04-30</dc:date>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Michael Keck, https://github.com/mkkeck</dc:title>
+     </cc:Agent>
+    </dc:creator>
+    <dc:rights>
+     <cc:Agent>
+      <dc:title>(c) 2018 phpMyAdmin Team</dc:title>
+     </cc:Agent>
+    </dc:rights>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+   </cc:Work>
+   <cc:License rdf:about="http://creativecommons.org/licenses/by-nd/4.0/">
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction" />
+    <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution" />
+    <cc:requires rdf:resource="http://creativecommons.org/ns#Notice" />
+    <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution" />
+   </cc:License>
+  </rdf:RDF>
+ </metadata>
+ <title id="title">phpMyAdmin Fav Icon (Alternative)</title>
+ <path style="fill:#22232f" id="back" d="M 64,0 H 0 v 64 h 64 z" />
+ <path style="fill:#d38012" id="boat-sail" d="M 35,4 C 31.647146,16.397403 27.157618,30.625631 18,45.8 l 14,-1.3 z m 2,6 c 2.896522,8.68966 3.03448,15.103438 4,18 l 3,6 c 1.931049,2.896528 5.241379,7.034481 12,8 z M 17,14 5.9,46.9 15.2,46.1 Z m 19,10 c 0.938659,3.754575 1.535596,14.215619 0.7,20.1 l 9.300003,-0.9 z" />
+ <path style="fill:#8a8ebd" id="boat-body" d="M 60,46 4,52 c 0,2.896559 1.8666676,8 5.6,8 13.06668,0 26.099997,-1.9 37.3,-1.9 1.210915,-0.110803 2.367915,-1.04618 2.8,-1.8 1.866675,-4.666675 5.830401,-6.665211 7.5,-7.5 C 59.066675,47.866676 60,46.965523 60,46 Z" />
+</svg>
