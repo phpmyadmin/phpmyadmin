@@ -126,7 +126,7 @@ class TableChartController extends TableController
             );
             $url_params['back'] = 'tbl_sql.php';
             include 'libraries/tbl_common.inc.php';
-            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+            $this->dbi->selectDb($GLOBALS['db']);
         } elseif (strlen($this->db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabDatabase'], 'database'

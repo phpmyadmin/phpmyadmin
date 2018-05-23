@@ -44,7 +44,6 @@ class CommonTest extends TestCase
                 )
             )
         );
-        $this->designerCommon = new Common();
     }
 
     /**
@@ -80,6 +79,8 @@ class CommonTest extends TestCase
             );
         $GLOBALS['dbi'] = $dbi;
 
+        $this->designerCommon = new Common($GLOBALS['dbi']);
+
         $this->designerCommon->getTablePositions($pg);
     }
 
@@ -112,6 +113,8 @@ class CommonTest extends TestCase
             ->will($this->returnValue(array($pageName)));
         $GLOBALS['dbi'] = $dbi;
 
+        $this->designerCommon = new Common($GLOBALS['dbi']);
+
         $result = $this->designerCommon->getPageName($pg);
 
         $this->assertEquals($pageName, $result);
@@ -140,6 +143,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->designerCommon = new Common($GLOBALS['dbi']);
 
         $result = $this->designerCommon->deletePage($pg);
         $this->assertEquals(true, $result);
@@ -176,6 +180,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->designerCommon = new Common($GLOBALS['dbi']);
 
         $result = $this->designerCommon->getDefaultPage($db);
         $this->assertEquals($default_pg, $result);
@@ -210,6 +215,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->designerCommon = new Common($GLOBALS['dbi']);
 
         $result = $this->designerCommon->getDefaultPage($db);
         $this->assertEquals(-1, $result);
@@ -245,6 +251,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->designerCommon = new Common($GLOBALS['dbi']);
 
         $result = $this->designerCommon->getLoadingPage($db);
         $this->assertEquals($default_pg, $result);
@@ -274,6 +281,7 @@ class CommonTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->designerCommon = new Common($GLOBALS['dbi']);
 
         $result = $this->designerCommon->getLoadingPage($db);
         $this->assertEquals($first_pg, $result);

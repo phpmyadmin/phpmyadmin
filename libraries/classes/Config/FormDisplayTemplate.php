@@ -162,8 +162,8 @@ class FormDisplayTemplate
             // The first element contains the filename and the second
             // element is used for the "alt" and "title" attributes.
             $icon_init = array(
-                'edit'   => array('b_edit',   ''),
-                'help'   => array('b_help',   __('Documentation')),
+                'edit'   => array('b_edit', ''),
+                'help'   => array('b_help', __('Documentation')),
                 'reload' => array('s_reload', ''),
                 'tblops' => array('b_tblops', '')
             );
@@ -179,7 +179,7 @@ class FormDisplayTemplate
                     $icons[$k] = sprintf(
                         '<img alt="%s" src="%s"%s />',
                         $v[1],
-                        "../themes/original/img/{$v[0]}",
+                        "../themes/pmahomme/img/{$v[0]}.png",
                         $title
                     );
                 }

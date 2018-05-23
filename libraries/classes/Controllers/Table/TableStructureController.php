@@ -1218,7 +1218,7 @@ class TableStructureController extends TableController
                 $mime_map = $this->transformations->getMime($this->db, $this->table, true);
             }
         }
-        $centralColumns = new CentralColumns($GLOBALS['dbi']);
+        $centralColumns = new CentralColumns($this->dbi);
         $central_list = $centralColumns->getFromTable(
             $this->db,
             $this->table
@@ -1253,8 +1253,8 @@ class TableStructureController extends TableController
                     FROM `INFORMATION_SCHEMA`.`VIEWS`
                     WHERE TABLE_SCHEMA='%s'
                     AND TABLE_NAME='%s';",
-                    $GLOBALS['dbi']->escapeString($this->db),
-                    $GLOBALS['dbi']->escapeString($this->table)
+                    $this->dbi->escapeString($this->db),
+                    $this->dbi->escapeString($this->table)
                 )
             );
 
@@ -1334,7 +1334,7 @@ class TableStructureController extends TableController
                 'relation_commwork' => $GLOBALS['cfgRelation']['commwork'],
                 'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
                 'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
-                'mysql_int_version' => $GLOBALS['dbi']->getVersion(),
+                'mysql_int_version' => $this->dbi->getVersion(),
                 'pma_theme_image' => $GLOBALS['pmaThemeImage'],
                 'text_dir' => $GLOBALS['text_dir'],
                 'is_active' => Tracker::isActive(),
@@ -1478,7 +1478,7 @@ class TableStructureController extends TableController
      */
     protected function getDataForSubmitMult($submit_mult, $selected, $action)
     {
-        $centralColumns = new CentralColumns($GLOBALS['dbi']);
+        $centralColumns = new CentralColumns($this->dbi);
         $what = null;
         $query_type = null;
         $is_unset_submit_mult = false;

@@ -189,6 +189,7 @@ class TableRelationController extends TableController
                 || ! empty($column['Key'])
             ) {
                 $column_array[$column['Field']] = $column['Field'];
+                $column_array[$column['Field'] . '_hash'] = md5($column['Field']);
             }
         }
         if ($GLOBALS['cfg']['NaturalOrder']) {
@@ -210,7 +211,7 @@ class TableRelationController extends TableController
                 'save_row' => array_values($columns),
                 'url_params' => $GLOBALS['url_params'],
                 'databases' => $GLOBALS['dblist']->databases,
-                'dbi' => $GLOBALS['dbi'],
+                'dbi' => $this->dbi,
             ])
         );
 

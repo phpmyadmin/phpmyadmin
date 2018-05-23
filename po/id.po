@@ -3,8 +3,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-04-29 18:02+0000\n"
-"Last-Translator: Dadan Setia <da2n_s@yahoo.co.id>\n"
+"PO-Revision-Date: 2018-05-19 17:38+0000\n"
+"Last-Translator: Muhammad Rifqi Priyo Susanto "
+"<muhammadrifqipriyosusanto@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
 "Language: id\n"
@@ -591,7 +592,7 @@ msgstr "Markah %s telah dibuat."
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Impor telah selesai, %d kueri dieksekusi."
+msgstr[0] "Impor telah selesai, %d kueri dilakukan."
 
 #: import.php:630
 #, php-format
@@ -767,9 +768,10 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"Ekstensi PHP mbstring tidak ditemukan dan Anda juga menggunakan multibyte "
-"charset. Tanpa ekstensi mbstring phpMyAdmin tidak bisa memecang string "
-"secara benar dan juga akan menghasilkan hasil yang tak terduga."
+"Ekstensi PHP mbstring tidak ditemukan dan sepertinya Anda menggunakan "
+"multibyte charset. Tanpa ekstensi mbstring, phpMyAdmin tidak bisa membagikan "
+"baris-baris dengan benar. Hal ini mampu mengakibatkan hasil yang tidak "
+"diinginkan."
 
 #: index.php:503
 msgid ""
@@ -2639,7 +2641,7 @@ msgstr "%s kueri tereksekusi %s kali dalam waktu %s detik."
 #: js/messages.php:731
 #, php-format
 msgid "%s argument(s) passed"
-msgstr "%s argumen cocok"
+msgstr "%s argumen diberikan"
 
 #: js/messages.php:732
 msgid "Show arguments"
@@ -4880,7 +4882,7 @@ msgstr "Apakah akan menonaktifkan kemungkinan ekspansi database atau tidak."
 
 #: libraries/classes/Config/Descriptions.php:835
 msgid "Enable navigation tree expansion"
-msgstr "Aktifkan Perluasan pada Cabang Navigasi"
+msgstr "Bolehkan perluasan pohon navigasi"
 
 #: libraries/classes/Config/Descriptions.php:837
 msgid "Show tables in tree"
@@ -7648,9 +7650,9 @@ msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"Ini adalah jumlah memori yang dialokasikan untuk cache indeks. Nilai default "
-"adalah 32MB. Memori yang dialokasikan di sini hanya digunakan untuk "
-"penyimpanan halaman indeks."
+"Ini adalah jumlah memori yang dijatah untuk tembolok indeks. Nilai bawaan "
+"adalah 32MB. Memori yang dijatah di sini hanya digunakan untuk pembuatan "
+"tembolok halaman indeks."
 
 #: libraries/classes/Engines/Pbxt.php:39
 msgid "Record cache size"
@@ -8450,7 +8452,7 @@ msgstr "Apakah anda benar-benar ingin untuk mengesekusi queri di ikuti?"
 
 #: libraries/classes/Navigation/Navigation.php:69
 msgid "An error has occurred while loading the navigation display"
-msgstr "Sebuah kesalahan telah terjadi saat memuat tampilan navigasi"
+msgstr "Sebuah kesalahan terjadi saat memuat tampilan navigasi"
 
 #: libraries/classes/Navigation/Navigation.php:207
 msgid "Groups:"

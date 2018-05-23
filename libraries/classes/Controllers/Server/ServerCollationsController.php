@@ -27,9 +27,8 @@ class ServerCollationsController extends Controller
      *
      * @return void
      */
-    public function indexAction()
+    public function indexAction(): void
     {
-        $dbi = $GLOBALS['dbi'];
         $disableIs = $GLOBALS['cfg']['Server']['DisableIS'];
 
         /**
@@ -44,10 +43,10 @@ class ServerCollationsController extends Controller
         );
         $this->response->addHTML(
             $this->_getHtmlForCharsets(
-                Charsets::getMySQLCharsets($dbi, $disableIs),
-                Charsets::getMySQLCollations($dbi, $disableIs),
-                Charsets::getMySQLCharsetsDescriptions($dbi, $disableIs),
-                Charsets::getMySQLCollationsDefault($dbi, $disableIs)
+                Charsets::getMySQLCharsets($this->dbi, $disableIs),
+                Charsets::getMySQLCollations($this->dbi, $disableIs),
+                Charsets::getMySQLCharsetsDescriptions($this->dbi, $disableIs),
+                Charsets::getMySQLCollationsDefault($this->dbi, $disableIs)
             )
         );
     }
@@ -62,9 +61,12 @@ class ServerCollationsController extends Controller
      *
      * @return string
      */
-    function _getHtmlForCharsets(array $mysqlCharsets, array $mysqlCollations,
-        array $mysqlCharsetsDesc, array $mysqlDftCollations
-    ) {
+    function _getHtmlForCharsets(
+        array $mysqlCharsets,
+        array $mysqlCollations,
+        array $mysqlCharsetsDesc,
+        array $mysqlDftCollations
+    ): string {
         return Template::get('server/collations/charsets')->render(
             array(
                 'mysql_charsets' => $mysqlCharsets,

@@ -127,7 +127,7 @@ class DbiDummy implements DbiExtension
     public function fetchAny($result)
     {
         $query_data = &$this->getQueryData($result);
-        if ($query_data['pos'] >= count($query_data['result'])) {
+        if ($query_data['pos'] >= count((array) $query_data['result'])) {
             return false;
         }
         $ret = $query_data['result'][$query_data['pos']];

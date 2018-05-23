@@ -659,6 +659,8 @@ class DatabaseStructureController extends DatabaseController
                 Template::get('database/structure/structure_table_row')
                     ->render(
                         array(
+                            'table_name_hash'       => md5($current_table['TABLE_NAME']),
+                            'db_table_name_hash'    => md5($this->db . '.' . $current_table['TABLE_NAME']),
                             'db'                    => $this->db,
                             'curr'                  => $i,
                             'input_class'           => implode(' ', $input_class),
@@ -735,7 +737,7 @@ class DatabaseStructureController extends DatabaseController
                     'num_favorite_tables' => $GLOBALS['cfg']['NumFavoriteTables'],
                     'db' => $GLOBALS['db'],
                     'properties_num_columns' => $GLOBALS['cfg']['PropertiesNumColumns'],
-                    'dbi' => $GLOBALS['dbi'],
+                    'dbi' => $this->dbi,
                     'show_charset' => $GLOBALS['cfg']['ShowDbStructureCharset'],
                     'show_comment' => $GLOBALS['cfg']['ShowDbStructureComment'],
                     'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],

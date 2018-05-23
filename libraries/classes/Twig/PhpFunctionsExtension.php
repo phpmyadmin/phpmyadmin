@@ -30,7 +30,6 @@ class PhpFunctionsExtension extends AbstractExtension
             new TwigFunction('array_search', 'array_search'),
             new TwigFunction('bin2hex', 'bin2hex'),
             new TwigFunction('htmlentities', 'htmlentities'),
-            new TwigFunction('md5', 'md5'),
             new TwigFunction('preg_quote', 'preg_quote'),
             new TwigFunction('preg_replace', 'preg_replace'),
             new TwigFunction('strpos', 'strpos'),

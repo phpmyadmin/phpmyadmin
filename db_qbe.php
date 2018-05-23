@@ -138,7 +138,7 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new Qbe($GLOBALS['db'], $savedSearchList, $savedSearch);
+$db_qbe = new Qbe($GLOBALS['dbi'], $GLOBALS['db'], $savedSearchList, $savedSearch);
 
 $url = 'db_designer.php' . Url::getCommon(
     array_merge(
