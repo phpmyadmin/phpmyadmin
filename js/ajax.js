@@ -359,85 +359,12 @@ var AJAX = {
         if (typeof data === 'undefined' || data === null) {
             return;
         }
-
         PMA_ajaxRemoveMessage(AJAX.$msgbox);
-        if (data._title) {
-            $('title').replaceWith(data._title);
-        }
-        if (data._menu) {
-            if (history && history.pushState) {
-                var state = {
-                    url : data._selflink,
-                    menu : data._menu
-                };
-                history.replaceState(state, null);
-                AJAX.handleMenu.replace(data._menu);
-            } else {
-                PMA_MicroHistory.menus.replace(data._menu);
-                PMA_MicroHistory.menus.add(data._menuHash, data._menu);
-            }
-        } else if (data._menuHash) {
-            if (! (history && history.pushState)) {
-                PMA_MicroHistory.menus.replace(PMA_MicroHistory.menus.get(data._menuHash));
-            }
-        }
-        if (data._disableNaviSettings) {
-            PMA_disableNaviSettings();
-        } else {
-            PMA_ensureNaviSettings(data._selflink);
-        }
 
-        // Remove all containers that may have
-        // been added outside of #page_content
-        $('body').children()
-            .not('#pma_navigation')
-            .not('#floating_menubar')
-            .not('#page_nav_icons')
-            .not('#page_content')
-            .not('#selflink')
-            .not('#pma_header')
-            .not('#pma_footer')
-            .not('#pma_demo')
-            .not('#pma_console_container')
-            .not('#prefs_autoload')
-            .not("#modalOverlay")
-            .remove();
+        PMA_commonParams.set("token", data.new_token);
 
-        if (data._selflink) {
-            var source = data._selflink.split('?')[0];
-            // Check for faulty links
-            $selflink_replace = {
-                'import.php': 'tbl_sql.php',
-                'tbl_chart.php': 'sql.php',
-                'tbl_gis_visualization.php': 'sql.php'
-            };
-            if ($selflink_replace[source]) {
-                var replacement = $selflink_replace[source];
-                data._selflink = data._selflink.replace(source, replacement);
-            }
-            $('#selflink').find('> a').attr('href', data._selflink);
-        }
-        if (data._params) {
-            PMA_commonParams.setAll(data._params);
-        } else if(data.new_token){
-            PMA_commonParams.set("token", data.new_token);
-        }
-        if (data._scripts) {
-            AJAX.scriptHandler.load(data._scripts);
-        } else {
-            AJAX.scriptHandler.load([]);
-        }
-        if (data._selflink && data._scripts && data._menuHash && data._params) {
-            if (! (history && history.pushState)) {
-                PMA_MicroHistory.add(
-                    data._selflink,
-                    data._scripts,
-                    data._menuHash,
-                    data._params,
-                    AJAX.source.attr('rel')
-                );
-            }
-        }
+        AJAX.scriptHandler.load([]);
+
         if (data._displayMessage) {
             $('#page_content').prepend(data._displayMessage);
             PMA_highlightSQL($('#page_content'));
@@ -478,10 +405,6 @@ var AJAX = {
             }
         }
 
-        if (data._reloadNavigation) {
-            PMA_reloadNavigation();
-        }
-
         PMA_ajaxShowMessage(msg, false);
         // bind for php error reporting forms (popup)
         $('#pma_ignore_errors_popup').on('click', function () {
@@ -500,8 +423,10 @@ var AJAX = {
                 AJAX.xhr = null;
                 return;
             }
-            // removet the login modal if the login is successful otherwise show error.
+            // remove the login modal if the login is successful otherwise show error.
             if(typeof data.logged_in !== 'undefined' && data.logged_in == 1) {
+                AJAX.fireTeardown("functions.js");
+                AJAX.fireOnload("functions.js");
                 if($("#modalOverlay").length) {
                     $("#modalOverlay").remove();
                 }
@@ -512,6 +437,8 @@ var AJAX = {
             }
 
         } else if(typeof data.logged_in !== 'undefined' && data.logged_in == 0) {
+            AJAX.fireTeardown("functions.js");
+            AJAX.fireOnload("functions.js");
             $("#modalOverlay").replaceWith(data.error);
         } else {
             PMA_ajaxShowMessage(data.error, false);

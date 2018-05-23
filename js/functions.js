@@ -987,6 +987,9 @@ AJAX.registerOnload('functions.js', function () {
                             $("#" + $(this).attr("aria-describedby")).dialog("close");
                         });
                         $("#input_username").focus();
+                    } else {
+                        PMA_commonParams.set("token", data.new_token);
+                        $("input[name=token]").val(data.new_token);
                     }
                     _idleSecondsCounter = 0;
                 }
@@ -4331,6 +4334,9 @@ function PMA_slidingMessage (msg, $obj) {
  */
 AJAX.registerOnload('functions.js', function () {
     var $elm = $('#sqlquery');
+    if ($elm.siblings().filter(".CodeMirror").length > 0) {
+        return;
+    }
     if ($elm.length > 0) {
         if (typeof CodeMirror !== 'undefined') {
             codemirror_editor = PMA_getSQLEditor($elm);

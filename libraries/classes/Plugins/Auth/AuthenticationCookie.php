@@ -89,7 +89,6 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // When sending login modal after session has expired, send the new token explicitly with the response to update the token in all the forms having a hidden token.
         $session_expired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
-
         if (!$session_expired && $response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return true;
@@ -130,7 +129,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $autocomplete   = ' autocomplete="off"';
         }
 
-        // wrap the login form in a div which overlays the whole page. 
+        // wrap the login form in a div which overlays the whole page.
         if($session_expired) {
             echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'], 'add_class' => ' modal_form', 'session_expired' => 1]);
         } else {
