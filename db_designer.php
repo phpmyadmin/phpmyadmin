@@ -15,8 +15,8 @@ require_once 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 
-$databaseDesigner = new Designer();
-$designerCommon = new Common();
+$databaseDesigner = new Designer($GLOBALS['dbi']);
+$designerCommon = new Common($GLOBALS['dbi']);
 
 if (isset($_REQUEST['dialog'])) {
 

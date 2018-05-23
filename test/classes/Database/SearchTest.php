@@ -34,7 +34,6 @@ class SearchTest extends PmaTestCase
      */
     protected function setUp()
     {
-        $this->object = new Search('pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma';
 
@@ -56,6 +55,7 @@ class SearchTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object = new Search($dbi, 'pma_test');
     }
 
     /**
@@ -101,7 +101,7 @@ class SearchTest extends PmaTestCase
         $_REQUEST['criteriaSearchType'] = $type;
         $_REQUEST['criteriaSearchString'] = 'search string';
 
-        $this->object = new Search('pma_test');
+        $this->object = new Search($GLOBALS['dbi'], 'pma_test');
         $this->assertEquals(
             $expected,
             $this->callProtectedFunction(

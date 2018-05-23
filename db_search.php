@@ -37,7 +37,7 @@ $url_query .= '&amp;goto=db_search.php';
 $url_params['goto'] = 'db_search.php';
 
 // Create a database search instance
-$db_search = new Search($GLOBALS['db']);
+$db_search = new Search($GLOBALS['dbi'], $GLOBALS['db']);
 
 // Display top links if we are not in an Ajax request
 if (! $response->isAjax()) {

@@ -25,15 +25,23 @@ use PhpMyAdmin\Util;
 class Designer
 {
     /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
      * @var Relation $relation
      */
     private $relation;
 
     /**
-     * Constructor
+     * Designer constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
      */
-    public function __construct()
+    public function __construct(DatabaseInterface $dbi)
     {
+        $this->dbi = $dbi;
         $this->relation = new Relation();
     }
 
@@ -86,7 +94,7 @@ class Designer
         $page_query = "SELECT `page_nr`, `page_descr` FROM "
             . Util::backquote($cfgRelation['db']) . "."
             . Util::backquote($cfgRelation['pdf_pages'])
-            . " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($db) . "'"
+            . " WHERE db_name = '" . $this->dbi->escapeString($db) . "'"
             . " ORDER BY `page_descr`";
         $page_rs = $this->relation->queryAsControlUser(
             $page_query,
@@ -95,7 +103,7 @@ class Designer
         );
 
         $result = [];
-        while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
+        while ($curr_page = $this->dbi->fetchAssoc($page_rs)) {
             $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
         }
         return $result;
@@ -202,7 +210,7 @@ class Designer
                 . ' WHERE ' . Util::backquote('username') . ' = "'
                 . $GLOBALS['cfg']['Server']['user'] . '";';
 
-            $result = $GLOBALS['dbi']->fetchSingleRow($query);
+            $result = $this->dbi->fetchSingleRow($query);
 
             $params = json_decode($result['settings_data'], true);
         }

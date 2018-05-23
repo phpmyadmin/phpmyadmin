@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Qbe;
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
@@ -33,11 +34,11 @@ class QbeTest extends PmaTestCase
      */
     protected function setUp()
     {
-        $this->object = new Qbe('pma_test');
+        $this->object = new Qbe($GLOBALS['dbi'], 'pma_test');
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'pma_test';
         //mock DBI
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+        $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -58,6 +59,7 @@ class QbeTest extends PmaTestCase
             ->will($this->returnValue(array()));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->dbi = $dbi;
     }
 
     /**

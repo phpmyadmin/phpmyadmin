@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Database;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
@@ -84,13 +85,20 @@ class Search
     private $criteriaColumnName;
 
     /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
      * Public Constructor
      *
-     * @param string $db Database name
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     * @param string            $db  Database name
      */
-    public function __construct($db)
+    public function __construct(DatabaseInterface $dbi, $db)
     {
         $this->db = $db;
+        $this->dbi = $dbi;
         $this->searchTypes = array(
             '1' => __('at least one of the words'),
             '2' => __('all of the words'),
@@ -109,7 +117,7 @@ class Search
      */
     private function setSearchParams()
     {
-        $this->tablesNamesOnly = $GLOBALS['dbi']->getTables($this->db);
+        $this->tablesNamesOnly = $this->dbi->getTables($this->db);
 
         if (empty($_REQUEST['criteriaSearchType'])
             || ! is_string($_REQUEST['criteriaSearchType'])
@@ -151,7 +159,7 @@ class Search
         ) {
             unset($this->criteriaColumnName);
         } else {
-            $this->criteriaColumnName = $GLOBALS['dbi']->escapeString(
+            $this->criteriaColumnName = $this->dbi->escapeString(
                 $_REQUEST['criteriaColumnName']
             );
         }
@@ -207,7 +215,7 @@ class Search
     private function getWhereClause($table)
     {
         // Columns to select
-        $allColumns = $GLOBALS['dbi']->getColumns($GLOBALS['db'], $table);
+        $allColumns = $this->dbi->getColumns($GLOBALS['db'], $table);
         $likeClauses = array();
         // Based on search type, decide like/regex & '%'/''
         $like_or_regex   = (($this->criteriaSearchType == 5) ? 'REGEXP' : 'LIKE');
@@ -215,7 +223,7 @@ class Search
         // For "as regular expression" (search option 5), LIKE won't be used
         // Usage example: If user is searching for a literal $ in a regexp search,
         // he should enter \$ as the value.
-        $criteriaSearchStringEscaped = $GLOBALS['dbi']->escapeString(
+        $criteriaSearchStringEscaped = $this->dbi->escapeString(
             $this->criteriaSearchString
         );
         // Extract search words or pattern
@@ -275,7 +283,7 @@ class Search
             // Gets the SQL statements
             $newSearchSqls = $this->getSearchSqls($eachTable);
             // Executes the "COUNT" statement
-            $resultCount = intval($GLOBALS['dbi']->fetchValue(
+            $resultCount = intval($this->dbi->fetchValue(
                 $newSearchSqls['select_count']
             ));
             $resultTotal += $resultCount;

@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
@@ -220,13 +221,20 @@ class Qbe
     private $relation;
 
     /**
+     * @var DatabaseInterface
+     */
+    public $dbi;
+
+    /**
      * Public Constructor
      *
-     * @param string        $dbname          Database name
-     * @param array         $savedSearchList List of saved searches
-     * @param SavedSearches $currentSearch   Current search id
+     * @param DatabaseInterface $dbi             DatabaseInterface object
+     * @param string            $dbname          Database name
+     * @param array             $savedSearchList List of saved searches
+     * @param SavedSearches     $currentSearch   Current search id
      */
     public function __construct(
+        $dbi,
         $dbname,
         array $savedSearchList = array(),
         $currentSearch = null
@@ -234,11 +242,13 @@ class Qbe
         $this->_db = $dbname;
         $this->_savedSearchList = $savedSearchList;
         $this->_currentSearch = $currentSearch;
+        $this->relation = new Relation();
+        $this->dbi = $dbi;
+
         $this->_loadCriterias();
         // Sets criteria parameters
         $this->_setSearchParams();
         $this->_setCriteriaTablesAndColumns();
-        $this->relation = new Relation();
     }
 
     /**
@@ -332,19 +342,19 @@ class Qbe
                 $this->_criteriaTables[$each_table] = ' selected="selected"';
             }
         } // end if
-        $all_tables = $GLOBALS['dbi']->query(
+        $all_tables = $this->dbi->query(
             'SHOW TABLES FROM ' . Util::backquote($this->_db) . ';',
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
-        $all_tables_count = $GLOBALS['dbi']->numRows($all_tables);
+        $all_tables_count = $this->dbi->numRows($all_tables);
         if (0 == $all_tables_count) {
             Message::error(__('No tables found in database.'))->display();
             exit;
         }
         // The tables list gets from MySQL
-        while (list($table) = $GLOBALS['dbi']->fetchRow($all_tables)) {
-            $columns = $GLOBALS['dbi']->getColumns($this->_db, $table);
+        while (list($table) = $this->dbi->fetchRow($all_tables)) {
+            $columns = $this->dbi->getColumns($this->_db, $table);
 
             if (empty($this->_criteriaTables[$table])
                 && ! empty($_REQUEST['TableList'])
@@ -370,7 +380,7 @@ class Qbe
                 } // end foreach
             } // end if
         } // end while
-        $GLOBALS['dbi']->freeResult($all_tables);
+        $this->dbi->freeResult($all_tables);
 
         // sets the largest width found
         $this->_realwidth = $this->_form_column_width . 'ex';
@@ -1286,7 +1296,7 @@ class Qbe
         $index_columns = array();
 
         foreach ($search_tables as $table) {
-            $indexes = $GLOBALS['dbi']->getTableIndexes($this->_db, $table);
+            $indexes = $this->dbi->getTableIndexes($this->_db, $table);
             foreach ($indexes as $index) {
                 $column = $table . '.' . $index['Column_name'];
                 if (isset($search_columns[$column])) {
@@ -1325,7 +1335,7 @@ class Qbe
     private function _getLeftJoinColumnCandidates(array $search_tables, array $search_columns,
         array $where_clause_columns
     ) {
-        $GLOBALS['dbi']->selectDb($this->_db);
+        $this->dbi->selectDb($this->_db);
 
         // Get unique columns and index columns
         $indexes = $this->_getIndexes(
