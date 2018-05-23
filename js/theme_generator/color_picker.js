@@ -2,7 +2,7 @@
 /**
  * Library for the Color Picker Tool
  */
-
+var globalChange = 0;
 var UIColorPicker = (function UIColorPicker (){
 
     function getElemById (id) {
@@ -880,8 +880,9 @@ var UIColorPicker = (function UIColorPicker (){
             return;
 
         var color = new Color(value);
-        for (var i in subscribers[topic])
+        for (var i in subscribers[topic]) {
             subscribers[topic][i](color);
+        }
     };
 
     var init = function init() {
@@ -1312,16 +1313,18 @@ var ColorPickerTool = (function ColorPickerTool() {
         };
 
         var ColorSample = function ColorSample(id) {
+            var title = ['Base Colour','Header','Navigation Panel'];
             var node = document.createElement('div');
             node.className = 'sample';
 
             this.uid = samples.length;
+            var index = this.uid % pallete_size;
             this.node = node;
             this.color = new Color();
 
             node.setAttribute('sample-id', this.uid);
             node.setAttribute('draggable', 'true');
-            node.setAttribute('title', 'Header');
+            node.setAttribute('title', title[index]);
             node.addEventListener('dragstart', this.dragStart.bind(this));
             node.addEventListener('click', this.pickColor.bind(this));
 
@@ -1491,7 +1494,11 @@ var ColorPickerTool = (function ColorPickerTool() {
         };
 
         ColorSample.prototype.pickColor = function pickColor() {
-            // @TODO - setcolor should not change whole pallete
+            if (this.uid%pallete_size == 0) {
+                globalChange = 0;
+            } else {
+                globalChange = this.uid;
+            }
             UIColorPicker.setColor('picker', this.color);
         };
 
@@ -1529,8 +1536,12 @@ var ColorPickerTool = (function ColorPickerTool() {
             var palette = new Palette('Triadic', pallete_size);
 
             UIColorPicker.subscribe('picker', function(color) {
-                for(var i = 0; i < pallete_size; i++) {
-                    palette.samples[i].updateTriadic(color, pallete_size, i);
+                if (globalChange/pallete_size > 0 && globalChange/pallete_size < 1) {
+                    palette.samples[globalChange%pallete_size].updateTriadic(color, pallete_size, i);
+                } else if (globalChange == 0){
+                    for(var i = 0; i < pallete_size; i++) {
+                        palette.samples[i].updateTriadic(color, pallete_size, i);
+                    }
                 }
             });
 
@@ -1541,8 +1552,12 @@ var ColorPickerTool = (function ColorPickerTool() {
             var palette = new Palette('Complementary', pallete_size);
 
             UIColorPicker.subscribe('picker', function(color) {
-                for(var i = 0; i < pallete_size; i++) {
-                    palette.samples[i].updateComplementary(color, pallete_size, i);
+                if (globalChange/pallete_size > 1 && globalChange/pallete_size < 2) {
+                    palette.samples[globalChange%pallete_size].updateComplementary(color, pallete_size, i);
+                } else if (globalChange == 0){
+                    for(var i = 0; i < pallete_size; i++) {
+                        palette.samples[i].updateComplementary(color, pallete_size, i);
+                    }
                 }
             });
 
@@ -1554,8 +1569,12 @@ var ColorPickerTool = (function ColorPickerTool() {
             var palette = new Palette('Adjacent', pallete_size);
 
             UIColorPicker.subscribe('picker', function(color) {
-                for(var i = 0; i < pallete_size; i++) {
-                    palette.samples[i].updateAdjacent(color, pallete_size, i);
+                if (globalChange/pallete_size > 2 && globalChange/pallete_size < 3) {
+                    palette.samples[globalChange%pallete_size].updateAdjacent(color, pallete_size, i);
+                } else if (globalChange == 0){
+                    for(var i = 0; i < pallete_size; i++) {
+                        palette.samples[i].updateAdjacent(color, pallete_size, i);
+                    }
                 }
             });
 
@@ -1577,8 +1596,12 @@ var ColorPickerTool = (function ColorPickerTool() {
             var palette = new Palette('Monochrome', pallete_size);
 
             UIColorPicker.subscribe('picker', function(color) {
-                for(var i = 0; i < pallete_size; i++) {
-                    palette.samples[i].updateMonochrome(color, pallete_size, i);
+                if (globalChange/pallete_size > 3) {
+                    palette.samples[globalChange%pallete_size].updateMonochrome(color, pallete_size, i);
+                } else if (globalChange == 0){
+                    for(var i = 0; i < pallete_size; i++) {
+                        palette.samples[i].updateMonochrome(color, pallete_size, i);
+                    }
                 }
             });
 
@@ -1603,222 +1626,6 @@ var ColorPickerTool = (function ColorPickerTool() {
         return {
             init : init,
             getSampleColor : getSampleColor
-        };
-
-    })();
-
-    /**
-     * ColorPicker Samples
-     */
-    var ColorPickerSamples = (function ColorPickerSamples() {
-
-        var samples = [];
-        var nr_samples = 0;
-        var active = null;
-        var container = null;
-        var	samples_per_line = 10;
-        var base_color = new HSLColor(0, 0, 100);
-        var add_btn;
-        var add_btn_pos;
-
-        var ColorSample = function ColorSample() {
-
-            // @TODO : MAYBE REMOVE IT AT THE END.
-            var node = document.createElement('div');
-            node.className = 'sample';
-
-            this.uid = samples.length;
-            this.index = nr_samples++;
-            this.node = node;
-            this.color = new Color(base_color);
-
-            node.setAttribute('sample-id', this.uid);
-            node.setAttribute('draggable', 'false');
-
-            node.addEventListener('dragstart', this.dragStart.bind(this));
-            node.addEventListener('dragover' , allowDropEvent);
-            node.addEventListener('drop'     , this.dragDrop.bind(this));
-
-            this.updatePosition(this.index);
-            this.updateBgColor();
-            samples.push(this);
-        };
-
-        ColorSample.prototype.updateBgColor = function updateBgColor() {
-            this.node.style.backgroundColor = this.color.getColor();
-        };
-
-        ColorSample.prototype.updatePosition = function updatePosition(index) {
-            this.index = index;
-            this.posY = 5 + ((index / samples_per_line) | 0) * 52;
-            this.posX = 5 + ((index % samples_per_line) | 0) * 52;
-            this.node.style.top  = this.posY + 'px';
-            this.node.style.left = this.posX + 'px';
-        };
-
-        ColorSample.prototype.updateColor = function updateColor(color) {
-            this.color.copy(color);
-            this.updateBgColor();
-        };
-
-        ColorSample.prototype.activate = function activate() {
-            UIColorPicker.setColor('picker', this.color);
-            this.node.setAttribute('data-active', 'true');
-        };
-
-        ColorSample.prototype.deactivate = function deactivate() {
-            this.node.removeAttribute('data-active');
-        };
-
-        ColorSample.prototype.dragStart = function dragStart(e) {
-            e.dataTransfer.setData('sampleID', this.uid);
-            e.dataTransfer.setData('location', 'picker-samples');
-        };
-
-        ColorSample.prototype.dragDrop = function dragDrop(e) {
-            e.stopPropagation();
-            this.color = Tool.getSampleColorFrom(e);
-            this.updateBgColor();
-        };
-
-        ColorSample.prototype.deleteSample = function deleteSample() {
-            container.removeChild(this.node);
-            samples[this.uid] = null;
-            nr_samples--;
-        };
-
-        var updateUI = function updateUI() {
-            updateContainerProp();
-
-            var index = 0;
-            var nr = samples.length;
-            for (var i=0; i < nr; i++)
-                if (samples[i] !== null) {
-                    samples[i].updatePosition(index);
-                    index++;
-                }
-
-            AddSampleButton.updatePosition(index);
-        };
-
-        var deleteSample = function deleteSample(e) {
-            trash_can.parentElement.setAttribute('drag-state', 'none');
-
-            var location = e.dataTransfer.getData('location');
-            if (location !== 'picker-samples')
-                return;
-
-            var sampleID = e.dataTransfer.getData('sampleID');
-            samples[sampleID].deleteSample();
-            console.log(samples);
-
-            updateUI();
-        };
-
-        var createDropSample = function createDropSample() {
-            var sample = document.createElement('div');
-            sample.id = 'drop-effect-sample';
-            sample.className = 'sample';
-            container.appendChild(sample);
-        };
-
-        var setActivateSample = function setActivateSample(e) {
-            if (e.target.className !== 'sample')
-                return;
-
-            unsetActiveSample(active);
-            CanvasSamples.unsetActiveSample();
-            active = samples[e.target.getAttribute('sample-id')];
-            active.activate();
-        };
-
-        var unsetActiveSample = function unsetActiveSample() {
-            if (active)
-                active.deactivate();
-            active = null;
-        };
-
-        var getSampleColor = function getSampleColor(id) {
-            if (samples[id] !== undefined && samples[id]!== null)
-                return new Color(samples[id].color);
-        };
-
-        var updateContainerProp = function updateContainerProp() {
-            samples_per_line = ((container.clientWidth - 5) / 52) | 0;
-            var height = 52 * (1 + (nr_samples / samples_per_line) | 0);
-            container.style.height = height + 10 + 'px';
-        };
-
-        var AddSampleButton = (function AddSampleButton() {
-            var node;
-            var _index = 0;
-            var _posX;
-            var _posY;
-
-            var updatePosition = function updatePosition(index) {
-                _index = index;
-                _posY = 5 + ((index / samples_per_line) | 0) * 52;
-                _posX = 5 + ((index % samples_per_line) | 0) * 52;
-
-                node.style.top  = _posY + 'px';
-                node.style.left = _posX + 'px';
-            };
-
-            var addButtonClick = function addButtonClick() {
-                var sample = new ColorSample();
-                container.appendChild(sample.node);
-                updatePosition(_index + 1);
-                updateUI();
-            };
-
-            var init = function init() {
-                node = document.createElement('div');
-                var icon = document.createElement('div');
-
-                node.className = 'sample';
-                icon.id = 'add-icon';
-                node.appendChild(icon);
-                node.addEventListener('click', addButtonClick);
-
-                updatePosition(0);
-                container.appendChild(node);
-            };
-
-            return {
-                init : init,
-                updatePosition : updatePosition
-            };
-        })();
-
-        var init = function init() {
-            container = getElemById('picker-samples');
-
-            AddSampleButton.init();
-
-            for (var i=0; i<16; i++) {
-                var sample = new ColorSample();
-                container.appendChild(sample.node);
-            }
-
-            AddSampleButton.updatePosition(samples.length);
-            updateUI();
-
-            active = samples[0];
-            active.activate();
-
-            container.addEventListener('click', setActivateSample);
-
-            UIColorPicker.subscribe('picker', function(color) {
-                if (active)
-                    active.updateColor(color);
-            });
-
-        };
-
-        return {
-            init : init,
-            getSampleColor : getSampleColor,
-            unsetActiveSample : unsetActiveSample
         };
 
     })();
@@ -1978,7 +1785,6 @@ var ColorPickerTool = (function ColorPickerTool() {
         UIColorPicker.init();
         InputSliderManager.init();
         ColorPalette.init();
-        ColorPickerSamples.init();
     };
 
     return {
