@@ -832,7 +832,6 @@ var UIColorPicker = (function UIColorPicker (){
 
         this.notify('alpha', this.color.a);
         this.notify('hexa', this.color.getHexa());
-        notify(this.topic, this.color);
     };
 
     ColorPicker.prototype.setPickerMode = function setPickerMode(mode) {
@@ -1343,7 +1342,7 @@ var ColorPickerTool = (function ColorPickerTool() {
         ColorSample.prototype.updateTriadic = function updateTriadic(color, size, steps) {
 
             var h = color.hue;
-            if ((steps * 3 / size) < 1 ) {
+            if ((steps * 3 / size) < 1 || globalChange) {
                 var hue = h;
             } else if ((steps * 3 / size) < 2 ) {
                 if (h - 120 < 0) {
@@ -1358,8 +1357,14 @@ var ColorPickerTool = (function ColorPickerTool() {
                     var hue = h + 120;
                 }
             }
-            var saturation = this.updateSaturation(color.saturation, size/3, steps % (size/3));
-            var brightness = this.updateBrightness(color.value, size/3, steps % (size/3));
+
+            if (globalChange) {
+                var saturation = color.saturation;
+                var brightness = color.value;
+            } else {
+                var saturation = this.updateSaturation(color.saturation, size/3, steps % (size/3));
+                var brightness = this.updateBrightness(color.value, size/3, steps % (size/3));
+            }
 
             if (saturation > 100 || brightness > 100) {
                 this.node.setAttribute('data-hidden', 'true');
@@ -1420,7 +1425,7 @@ var ColorPickerTool = (function ColorPickerTool() {
         ColorSample.prototype.updateAdjacent = function updateAdjacent(color, size, steps) {
 
             var h = color.hue;
-            if ((steps * 3 / size) < 1 ) {
+            if ((steps * 3 / size) < 1 || globalChange) {
                 var hue = h;
             } else if ((steps * 3 / size) < 2 ) {
                 if (h - 60 < 0) {
@@ -1435,13 +1440,20 @@ var ColorPickerTool = (function ColorPickerTool() {
                     var hue = h + 60;
                 }
             }
-            var saturation = this.updateSaturation(color.saturation, size/3, steps % (size/3));
-            var brightness = this.updateBrightness(color.value, size/3, steps % (size/3));
+
+            if (globalChange) {
+                var saturation = color.saturation;
+                var brightness = color.value;
+            } else {
+                var saturation = this.updateSaturation(color.saturation, size/3, steps % (size/3));
+                var brightness = this.updateBrightness(color.value, size/3, steps % (size/3));
+            }
 
             if (saturation > 100 || brightness > 100) {
                 this.node.setAttribute('data-hidden', 'true');
                 return;
             }
+
             this.node.removeAttribute('data-hidden');
             this.color.copy(color);
             this.color.setValue(brightness);
@@ -1452,8 +1464,13 @@ var ColorPickerTool = (function ColorPickerTool() {
 
         ColorSample.prototype.updateMonochrome = function updateMonochrome(color, size, steps) {
 
-            var saturation = this.updateSaturation(color.saturation, size, steps);
-            var brightness = this.updateBrightness(color.value, size, steps);
+            if (globalChange) {
+                var saturation = color.saturation;
+                var brightness = color.value;
+            } else {
+                var saturation = this.updateSaturation(color.saturation, size, steps % (size));
+                var brightness = this.updateBrightness(color.value, size, steps % (size));
+            }
 
             if (saturation > 100 || brightness > 100) {
                 this.node.setAttribute('data-hidden', 'true');
@@ -1469,7 +1486,7 @@ var ColorPickerTool = (function ColorPickerTool() {
         ColorSample.prototype.updateComplementary = function updateComplementary(color, size, steps) {
 
             var h = color.hue;
-            if ((steps * 2 / size) < 1 ) {
+            if ((steps * 2 / size) < 1 || globalChange) {
                 var hue = h;
             } else {
                 if (h  < 180) {
@@ -1478,8 +1495,14 @@ var ColorPickerTool = (function ColorPickerTool() {
                     var hue = h - 180;
                 }
             }
-            var saturation = this.updateSaturation(color.saturation, size/2, steps % (size/2));
-            var brightness = this.updateBrightness(color.value, size/2, steps % (size/2));
+
+            if (globalChange) {
+                var saturation = color.saturation;
+                var brightness = color.value;
+            } else {
+                var saturation = this.updateSaturation(color.saturation, size/2, steps % (size/2));
+                var brightness = this.updateBrightness(color.value, size/2, steps % (size/2));
+            }
 
             if (saturation > 100 || brightness > 100) {
                 this.node.setAttribute('data-hidden', 'true');
@@ -1537,7 +1560,8 @@ var ColorPickerTool = (function ColorPickerTool() {
 
             UIColorPicker.subscribe('picker', function(color) {
                 if (globalChange/pallete_size > 0 && globalChange/pallete_size < 1) {
-                    palette.samples[globalChange%pallete_size].updateTriadic(color, pallete_size, i);
+                    var i = globalChange%pallete_size;
+                    palette.samples[i].updateTriadic(color, pallete_size, i);
                 } else if (globalChange == 0){
                     for(var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateTriadic(color, pallete_size, i);
@@ -1553,7 +1577,8 @@ var ColorPickerTool = (function ColorPickerTool() {
 
             UIColorPicker.subscribe('picker', function(color) {
                 if (globalChange/pallete_size > 1 && globalChange/pallete_size < 2) {
-                    palette.samples[globalChange%pallete_size].updateComplementary(color, pallete_size, i);
+                    var i = globalChange%pallete_size;
+                    palette.samples[i].updateComplementary(color, pallete_size, i);
                 } else if (globalChange == 0){
                     for(var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateComplementary(color, pallete_size, i);
@@ -1570,7 +1595,8 @@ var ColorPickerTool = (function ColorPickerTool() {
 
             UIColorPicker.subscribe('picker', function(color) {
                 if (globalChange/pallete_size > 2 && globalChange/pallete_size < 3) {
-                    palette.samples[globalChange%pallete_size].updateAdjacent(color, pallete_size, i);
+                    var i = globalChange%pallete_size;
+                    palette.samples[i].updateAdjacent(color, pallete_size, i);
                 } else if (globalChange == 0){
                     for(var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateAdjacent(color, pallete_size, i);
@@ -1597,7 +1623,8 @@ var ColorPickerTool = (function ColorPickerTool() {
 
             UIColorPicker.subscribe('picker', function(color) {
                 if (globalChange/pallete_size > 3) {
-                    palette.samples[globalChange%pallete_size].updateMonochrome(color, pallete_size, i);
+                    var i = globalChange%pallete_size;
+                    palette.samples[i].updateMonochrome(color, pallete_size, i);
                 } else if (globalChange == 0){
                     for(var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateMonochrome(color, pallete_size, i);
