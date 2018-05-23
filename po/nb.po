@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-28 19:39+0000\n"
+"PO-Revision-Date: 2018-05-24 23:40+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nb/>\n"
@@ -2936,79 +2936,71 @@ msgstr ""
 
 #: js/messages.php:918
 msgid "Please fix this field"
-msgstr "Vennligst ordne dette feltet"
+msgstr "Ordne dette feltet"
 
 #: js/messages.php:919
 msgid "Please enter a valid email address"
-msgstr "Vennligst tast inn en gyldig e-post adresse"
+msgstr "Tast inn en gyldig e-postadresse"
 
 #: js/messages.php:920
 msgid "Please enter a valid URL"
-msgstr "Vennligst tast inn en gyldig URL"
+msgstr "Tast inn en gyldig nettadresse"
 
 #: js/messages.php:921
 msgid "Please enter a valid date"
-msgstr "Vennligst tast inn en gyldig dato"
+msgstr "Tast inn en gyldig dato"
 
 #: js/messages.php:924
 msgid "Please enter a valid date ( ISO )"
-msgstr "Vennligst tast inn en gyldig dato ( ISO )"
+msgstr "Tast inn en gyldig dato ( ISO )"
 
 #: js/messages.php:926
 msgid "Please enter a valid number"
-msgstr "Vennligst tast inn et gyldig tall"
+msgstr "Tast inn et gyldig tall"
 
 #: js/messages.php:929
 msgid "Please enter a valid credit card number"
-msgstr "Vennligst tast inn et gyldig kreditkort nummer"
+msgstr "Tast inn et gyldig bankkortnummer"
 
 #: js/messages.php:931
 msgid "Please enter only digits"
-msgstr "Vennligst oppgi kun tall"
+msgstr "Kun skriv inn tall"
 
 #: js/messages.php:934
 msgid "Please enter the same value again"
-msgstr "Vennligst tast inn den samme verdien igjen"
+msgstr "Tast inn den samme verdien igjen"
 
 #: js/messages.php:938
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "Ikke skriv inn mer enn {0} tegn"
 
 #: js/messages.php:943
 msgid "Please enter at least {0} characters"
-msgstr "Vennligst tast inn minst {0} tegn"
+msgstr "Tast inn minst {0} tegn"
 
 #: js/messages.php:948
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Skriv inn en verdi mellom {0} og {1} tegn lang"
 
 #: js/messages.php:953
 msgid "Please enter a value between {0} and {1}"
-msgstr "Vennligst tast inn en verdi mellom {0} og {1}"
+msgstr "Tast inn en verdi mellom {0} og {1}"
 
 #: js/messages.php:958
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Vennligst oppgi en gyldig lengde!"
+msgstr "Angi en verdi mindre eller lik {0}"
 
 #: js/messages.php:963
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Vennligst tast inn et gyldig tall!"
+msgstr "Tast inn en verdi større eller lik {0}"
 
 #: js/messages.php:969
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid date or time"
-msgstr "Vennligst tast inn et gyldig tall!"
+msgstr "Skriv inn gyldig dato eller tid"
 
 #: js/messages.php:974
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Vennligst tast inn et gyldig tall!"
+msgstr "Fyll inn gyldig heksadesimal inndata"
 
 #: js/messages.php:979 libraries/classes/Core.php:296
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1490
@@ -3117,18 +3109,18 @@ msgid "Page number:"
 msgstr "Sidenummer:"
 
 #: libraries/classes/CentralColumns.php:220
+#, fuzzy
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
-"Konfigurasjon's lagring er ikke klar for den sentrale liste over kolonner "
+"Oppsettets lager er ikke klar for den sentrale liste over kolonner "
 "funksjonen."
 
 #: libraries/classes/CentralColumns.php:355
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
-"Kunne ikke legge til %1$s ettersom den allerede finnes i sentral listen!"
+msgstr "Kunne ikke legge til %1$s ettersom den allerede finnes i sentrallisten!"
 
 #: libraries/classes/CentralColumns.php:370
 msgid "Could not add columns!"
