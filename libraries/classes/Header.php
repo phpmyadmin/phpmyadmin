@@ -164,6 +164,7 @@ class Header
     private function _addDefaultScripts(): void
     {
         // Localised strings
+
         $this->_scripts->addFile('vendor/jquery/jquery.min.js');
         $this->_scripts->addFile('vendor/jquery/jquery-migrate.js');
         $this->_scripts->addFile('whitelist.php');
@@ -179,10 +180,11 @@ class Header
         $this->_scripts->addFile('vendor/jquery/jquery.ba-hashchange-1.3.js');
         $this->_scripts->addFile('vendor/jquery/jquery.debounce-1.0.5.js');
         $this->_scripts->addFile('menu_resizer.js');
-        // New files added. The modules of these files will be available globally
-        $this->_scripts->addFile('global/ajax_global.js');
-        $this->_scripts->addFile('global/pma_common_params.js');
-        $this->_scripts->addFile('global/jQuery.js');
+
+        // Here would not be a good place to add CodeMirror because
+        // the user preferences have not been merged at this point
+
+        $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
 
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
@@ -195,10 +197,6 @@ class Header
             $this->_scripts->addFile('error_report.js');
         }
 
-        // Here would not be a good place to add CodeMirror because
-        // the user preferences have not been merged at this point
-
-        $this->_scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.
@@ -234,6 +232,8 @@ class Header
             ? $_SESSION['tmpval']['pftext'] : '';
 
         $params = [
+            'environment' => $GLOBALS['cfg']['environment'],
+            'webpack_port' => $GLOBALS['cfg']['webpack_port'],
             'common_query' => Url::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
@@ -294,7 +294,7 @@ class Header
                 $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
             }
         }
-        return 'pma_common_params.PMA_commonParams.setAll({' . implode(',', $params) . '});';
+        return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
     }
 
     /**

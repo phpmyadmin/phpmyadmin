@@ -51,8 +51,18 @@ class Scripts
             if (strpos($value['filename'], ".php") !== false) {
                 $file_name = $value['filename'] . Url::getCommon($value['params'] + ['v' => PMA_VERSION]);
                 $result .= "<script data-cfasync='false' "
-                    . "type='text/javascript' src='http://localhost:3307/js/dist/" . $file_name
+                    . "type='text/javascript' src='js/" . $file_name
                     . "'></script>\n";
+            } else if (strpos($value['filename'], "_new") !== false) {
+                /* new directory */
+                if ($GLOBALS['cfg']['environment'] === 'development') {
+                    $src = "http://localhost:" . $GLOBALS['cfg']['webpack_port'] . "/";
+                } else if ($GLOBALS['cfg']['environment'] === 'production'){
+                    $src = "";
+                }
+                $result .= '<script data-cfasync="false" type="text/javascript" src="' . $src . 'js/dist/'
+                    .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
+                /* new directory */
             } else {
                 $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
                     . $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
@@ -181,7 +191,7 @@ class Scripts
             );
         }
 
-        $code = 'ajax_global.AJAX.scriptHandler';
+        $code = 'AJAX.scriptHandler';
         foreach ($this->_files as $file) {
             $code .= sprintf(
                 '.add("%s",%d)',
@@ -192,10 +202,10 @@ class Scripts
         $code .= ';';
         $this->addCode($code);
 
-        $code = 'jQuery.jQuery(function() {';
+        $code = '$(function() {';
         foreach ($this->_files as $file) {
             if ($file['has_onload']) {
-                $code .= 'ajax_global.AJAX.fireOnload("';
+                $code .= 'AJAX.fireOnload("';
                 $code .= Sanitize::escapeJsString($file['filename']);
                 $code .= '");';
             }
