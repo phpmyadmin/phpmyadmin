@@ -164,6 +164,7 @@ class Header
     private function _addDefaultScripts(): void
     {
         // Localised strings
+
         $this->_scripts->addFile('vendor/jquery/jquery.min.js');
         $this->_scripts->addFile('vendor/jquery/jquery-migrate.js');
         $this->_scripts->addFile('whitelist.php');
@@ -180,6 +181,11 @@ class Header
         $this->_scripts->addFile('vendor/jquery/jquery.debounce-1.0.5.js');
         $this->_scripts->addFile('menu_resizer.js');
 
+        // Here would not be a good place to add CodeMirror because
+        // the user preferences have not been merged at this point
+
+        $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
+
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
             $this->_scripts->addFile('cross_framing_protection.js');
@@ -191,10 +197,6 @@ class Header
             $this->_scripts->addFile('error_report.js');
         }
 
-        // Here would not be a good place to add CodeMirror because
-        // the user preferences have not been merged at this point
-
-        $this->_scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.
@@ -233,6 +235,8 @@ class Header
             ? $_SESSION['tmpval']['pftext'] : '';
 
         $params = [
+            'environment' => $GLOBALS['cfg']['environment'],
+            'webpack_port' => $GLOBALS['cfg']['webpack_port'],
             'common_query' => Url::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
