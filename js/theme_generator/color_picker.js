@@ -3,7 +3,7 @@
  * Library for the Color Picker Tool
  */
 var globalChange = 0;
-var UIColorPicker = (function UIColorPicker (){
+var UIColorPicker = (function UIColorPicker () {
 
     function getElemById (id) {
         return document.getElementById(id);
@@ -22,7 +22,7 @@ var UIColorPicker = (function UIColorPicker (){
      * @param lightness		0-100
      */
 
-    function Color (color){
+    function Color (color) {
 
         if (color instanceof Color === true) {
             this.copy(color);
@@ -106,26 +106,28 @@ var UIColorPicker = (function UIColorPicker (){
 
     /* ========== Methods to set Color Properties ========== */
 
-    Color.prototype.isValidRGBValue = function isValidRGBValue(value) {
+    Color.prototype.isValidRGBValue = function isValidRGBValue (value) {
         return (typeof(value) === 'number' && isNaN(value) === false &&
             value >= 0 && value <= 255);
     };
 
-    Color.prototype.setRGBA = function setRGBA(red, green, blue, alpha) {
+    Color.prototype.setRGBA = function setRGBA (red, green, blue, alpha) {
         if (this.isValidRGBValue(red) === false ||
             this.isValidRGBValue(green) === false ||
-            this.isValidRGBValue(blue) === false)
+            this.isValidRGBValue(blue) === false) {
             return;
+        }
 
             this.r = red | 0;
             this.g = green | 0;
             this.b = blue | 0;
 
-        if (this.isValidRGBValue(alpha) === true)
+        if (this.isValidRGBValue(alpha) === true) {
             this.a = alpha | 0;
+        }
     };
 
-    Color.prototype.setByName = function setByName(name, value) {
+    Color.prototype.setByName = function setByName (name, value) {
         if (name === 'r' || name === 'g' || name === 'b') {
             if(this.isValidRGBValue(value) === false)
                 return;
@@ -135,21 +137,21 @@ var UIColorPicker = (function UIColorPicker (){
         }
     };
 
-    Color.prototype.setHSB = function setHSB(hue, saturation, value) {
+    Color.prototype.setHSB = function setHSB (hue, saturation, value) {
         this.hue = hue;
         this.saturation = saturation;
         this.value = value;
         this.HSBtoRGB();
     };
 
-    Color.prototype.setHSL = function setHSL(hue, saturation, lightness) {
+    Color.prototype.setHSL = function setHSL (hue, saturation, lightness) {
         this.hue = hue;
         this.saturation = saturation;
         this.lightness = lightness;
         this.HSLtoRGB();
     };
 
-    Color.prototype.setHue = function setHue(value) {
+    Color.prototype.setHue = function setHue (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
             value < 0 || value > 359)
             return;
@@ -157,7 +159,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.updateRGB();
     };
 
-    Color.prototype.setSaturation = function setSaturation(value) {
+    Color.prototype.setSaturation = function setSaturation (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
             value < 0 || value > 100)
             return;
@@ -165,7 +167,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.updateRGB();
     };
 
-    Color.prototype.setValue = function setValue(value) {
+    Color.prototype.setValue = function setValue (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
             value < 0 || value > 100)
             return;
@@ -173,7 +175,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.HSBtoRGB();
     };
 
-    Color.prototype.setLightness = function setLightness(value) {
+    Color.prototype.setLightness = function setLightness (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
             value < 0 || value > 100)
             return;
@@ -181,7 +183,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.HSLtoRGB();
     };
 
-    Color.prototype.setHexa = function setHexa(value) {
+    Color.prototype.setHexa = function setHexa (value) {
         var valid  = /(^#{0,1}[0-9A-F]{6}$)|(^#{0,1}[0-9A-F]{3}$)/i.test(value);
 
         if (valid !== true)
@@ -201,9 +203,9 @@ var UIColorPicker = (function UIColorPicker (){
         this.RGBtoHSB();
     };
 
-    /*========== Conversion Methods ==========*/
+    /* ========== Conversion Methods ========== */
 
-    Color.prototype.convertToHSL = function convertToHSL() {
+    Color.prototype.convertToHSL = function convertToHSL () {
         if (this.format === 'HSL')
             return;
 
@@ -211,7 +213,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.RGBtoHSL();
     };
 
-    Color.prototype.convertToHSB = function convertToHSB() {
+    Color.prototype.convertToHSB = function convertToHSB () {
         if (this.format === 'HSB')
             return;
 
@@ -219,9 +221,9 @@ var UIColorPicker = (function UIColorPicker (){
         this.RGBtoHSB();
     };
 
-    /*========== Update Methods ==========*/
+    /* ========== Update Methods ========== */
 
-    Color.prototype.updateRGB = function updateRGB() {
+    Color.prototype.updateRGB = function updateRGB () {
         if (this.format === 'HSB') {
             this.HSBtoRGB();
             return;
@@ -233,7 +235,7 @@ var UIColorPicker = (function UIColorPicker (){
         }
     };
 
-    Color.prototype.updateHSX = function updateHSX() {
+    Color.prototype.updateHSX = function updateHSX () {
         if (this.format === 'HSB') {
             this.RGBtoHSB();
             return;
@@ -245,7 +247,7 @@ var UIColorPicker = (function UIColorPicker (){
         }
     };
 
-    Color.prototype.HSBtoRGB = function HSBtoRGB() {
+    Color.prototype.HSBtoRGB = function HSBtoRGB () {
         var sat = this.saturation / 100;
         var value = this.value / 100;
         var C = sat * value;
@@ -266,7 +268,7 @@ var UIColorPicker = (function UIColorPicker (){
         if (H >= 5 && H < 6) {	this.setRGBA(C, m, X);	return; }
     };
 
-    Color.prototype.HSLtoRGB = function HSLtoRGB() {
+    Color.prototype.HSLtoRGB = function HSLtoRGB () {
         var sat = this.saturation / 100;
         var light = this.lightness / 100;
         var C = sat * (1 - Math.abs(2 * light - 1));
@@ -287,7 +289,7 @@ var UIColorPicker = (function UIColorPicker (){
         if (H >= 5 && H < 6) {	this.setRGBA(C, m, X);	return; }
     };
 
-    Color.prototype.RGBtoHSB = function RGBtoHSB() {
+    Color.prototype.RGBtoHSB = function RGBtoHSB () {
         var red		= this.r / 255;
         var green	= this.g / 255;
         var blue	= this.b / 255;
@@ -321,7 +323,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.value = (cmax * 100) | 0;
     };
 
-    Color.prototype.RGBtoHSL = function RGBtoHSL() {
+    Color.prototype.RGBtoHSL = function RGBtoHSL () {
         var red		= this.r / 255;
         var green	= this.g / 255;
         var blue	= this.b / 255;
@@ -357,9 +359,9 @@ var UIColorPicker = (function UIColorPicker (){
         this.lightness = (lightness * 100) | 0;
     };
 
-    /*========== Get Methods ==========*/
+    /* ========== Get Methods ========== */
 
-    Color.prototype.getHexa = function getHexa() {
+    Color.prototype.getHexa = function getHexa () {
         var r = this.r.toString(16);
         var g = this.g.toString(16);
         var b = this.b.toString(16);
@@ -376,7 +378,7 @@ var UIColorPicker = (function UIColorPicker (){
         return value.toUpperCase();
     };
 
-    Color.prototype.getRGBA = function getRGBA() {
+    Color.prototype.getRGBA = function getRGBA () {
 
         var rgb = '(' + this.r + ', ' + this.g + ', ' + this.b;
         var a = '';
@@ -391,33 +393,30 @@ var UIColorPicker = (function UIColorPicker (){
         return value;
     };
 
-    Color.prototype.getColor = function getColor() {
+    Color.prototype.getColor = function getColor () {
         if (this.a | 0 === 1)
             return this.getHexa();
         return this.getRGBA();
     };
 
-    /*=======================================================================*/
-    /*=======================================================================*/
+    /* ========== Capture Mouse Movement ========== */
 
-    /*========== Capture Mouse Movement ==========*/
-
-    var setMouseTracking = function setMouseTracking(elem, callback) {
-        elem.addEventListener('mousedown', function(e) {
+    var setMouseTracking = function setMouseTracking (elem, callback) {
+        elem.addEventListener('mousedown', function (e) {
             callback(e);
             document.addEventListener('mousemove', callback);
         });
 
-        document.addEventListener('mouseup', function(e) {
+        document.addEventListener('mouseup', function (e) {
             document.removeEventListener('mousemove', callback);
         });
     };
 
-    /*====================*/
+    /* ==================== */
     // Color Picker Class
-    /*====================*/
+    /* ==================== */
 
-    function ColorPicker(node) {
+    function ColorPicker (node) {
         this.color = new Color();
         this.node = node;
         this.subscribers = [];
@@ -453,11 +452,11 @@ var UIColorPicker = (function UIColorPicker (){
         pickers[topic] = this;
     }
 
-    /*************************************************************************/
+    /** ********************************************************************* **/
     //				Function for generating the color-picker
-    /*************************************************************************/
+    /** ********************************************************************* **/
 
-    ColorPicker.prototype.createPickingArea = function createPickingArea() {
+    ColorPicker.prototype.createPickingArea = function createPickingArea () {
         var area = document.createElement('div');
         var picker = document.createElement('div');
 
@@ -472,7 +471,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.node.appendChild(area);
     };
 
-    ColorPicker.prototype.createHueArea = function createHueArea() {
+    ColorPicker.prototype.createHueArea = function createHueArea () {
         var area = document.createElement('div');
         var picker = document.createElement('div');
 
@@ -487,7 +486,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.node.appendChild(area);
     };
 
-    ColorPicker.prototype.createAlphaArea = function createAlphaArea() {
+    ColorPicker.prototype.createAlphaArea = function createAlphaArea () {
         var area = document.createElement('div');
         var mask = document.createElement('div');
         var picker = document.createElement('div');
@@ -506,7 +505,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.node.appendChild(area);
     };
 
-    ColorPicker.prototype.createPreviewBox = function createPreviewBox(e) {
+    ColorPicker.prototype.createPreviewBox = function createPreviewBox (e) {
         var preview_box = document.createElement('div');
         var preview_color = document.createElement('div');
 
@@ -519,7 +518,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.node.appendChild(preview_box);
     };
 
-    ColorPicker.prototype.newInputComponent = function newInputComponent(title, topic, onChangeFunc) {
+    ColorPicker.prototype.newInputComponent = function newInputComponent (title, topic, onChangeFunc) {
         var wrapper = document.createElement('div');
         var input = document.createElement('input');
         var info = document.createElement('span');
@@ -535,20 +534,20 @@ var UIColorPicker = (function UIColorPicker (){
         this.node.appendChild(wrapper);
 
         input.addEventListener('change', onChangeFunc);
-        input.addEventListener('click', function() {
+        input.addEventListener('click', function () {
             this.select();
         });
 
-        this.subscribe(topic, function(value) {
+        this.subscribe(topic, function (value) {
             input.value = value;
         });
     };
 
-    ColorPicker.prototype.createChangeModeButton = function createChangeModeButton() {
+    ColorPicker.prototype.createChangeModeButton = function createChangeModeButton () {
 
         var button = document.createElement('div');
         button.className = 'switch_mode';
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             if (this.picker_mode === 'HSB')
                 this.setPickerMode('HSL');
             else
@@ -563,7 +562,7 @@ var UIColorPicker = (function UIColorPicker (){
     //					Updates properties of UI elements
     /*************************************************************************/
 
-    ColorPicker.prototype.updateColor = function updateColor(e) {
+    ColorPicker.prototype.updateColor = function updateColor (e) {
         var x = e.pageX - this.picking_area.offsetLeft;
         var y = e.pageY - this.picking_area.offsetTop;
         var picker_offset = 5;
@@ -602,7 +601,7 @@ var UIColorPicker = (function UIColorPicker (){
         notify(this.topic, this.color);
     };
 
-    ColorPicker.prototype.updateHueSlider = function updateHueSlider(e) {
+    ColorPicker.prototype.updateHueSlider = function updateHueSlider (e) {
         var x = e.pageX - this.hue_area.offsetLeft;
         var width = this.hue_area.clientWidth;
 
@@ -617,7 +616,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.setHue(hue);
     };
 
-    ColorPicker.prototype.updateAlphaSlider = function updateAlphaSlider(e) {
+    ColorPicker.prototype.updateAlphaSlider = function updateAlphaSlider (e) {
         var x = e.pageX - this.alpha_area.offsetLeft;
         var width = this.alpha_area.clientWidth;
 
@@ -633,7 +632,7 @@ var UIColorPicker = (function UIColorPicker (){
         notify(this.topic, this.color);
     };
 
-    ColorPicker.prototype.setHue = function setHue(value) {
+    ColorPicker.prototype.setHue = function setHue (value) {
         this.color.setHue(value);
 
         this.updatePickerBackground();
@@ -650,7 +649,7 @@ var UIColorPicker = (function UIColorPicker (){
     };
 
     // Updates when one of Saturation/Value/Lightness changes
-    ColorPicker.prototype.updateSLV = function updateSLV() {
+    ColorPicker.prototype.updateSLV = function updateSLV () {
         this.updatePickerPosition();
         this.updateAlphaGradient();
         this.updatePreviewColor();
@@ -663,11 +662,11 @@ var UIColorPicker = (function UIColorPicker (){
         notify(this.topic, this.color);
     };
 
-    /*************************************************************************/
+    /** ********************************************************************* **/
     //				Update positions of various UI elements
-    /*************************************************************************/
+    /** ********************************************************************* **/
 
-    ColorPicker.prototype.updatePickerPosition = function updatePickerPosition() {
+    ColorPicker.prototype.updatePickerPosition = function updatePickerPosition () {
         var size = this.picking_area.clientWidth;
         var value = 0;
         var offset = 5;
@@ -684,95 +683,95 @@ var UIColorPicker = (function UIColorPicker (){
         this.color_picker.style.top = y - offset + 'px';
     };
 
-    ColorPicker.prototype.updateSliderPosition = function updateSliderPosition(elem, pos) {
+    ColorPicker.prototype.updateSliderPosition = function updateSliderPosition (elem, pos) {
         elem.style.left = Math.max(pos - 3, -2) + 'px';
     };
 
-    ColorPicker.prototype.updateHuePicker = function updateHuePicker() {
+    ColorPicker.prototype.updateHuePicker = function updateHuePicker () {
         var size = this.hue_area.clientWidth;
         var offset = 1;
         var pos = (this.color.hue * size / 360 ) | 0;
         this.hue_picker.style.left = pos - offset + 'px';
     };
 
-    ColorPicker.prototype.updateAlphaPicker = function updateAlphaPicker() {
+    ColorPicker.prototype.updateAlphaPicker = function updateAlphaPicker () {
         var size = this.alpha_area.clientWidth;
         var offset = 1;
         var pos = (this.color.a * size) | 0;
         this.alpha_picker.style.left = pos - offset + 'px';
     };
 
-    /*************************************************************************/
+    /** ********************************************************************* **/
     //						Update background colors
-    /*************************************************************************/
+    /** ********************************************************************* **/
 
-    ColorPicker.prototype.updatePickerBackground = function updatePickerBackground() {
+    ColorPicker.prototype.updatePickerBackground = function updatePickerBackground () {
         var nc = new Color(this.color);
         nc.setHSB(nc.hue, 100, 100);
         this.picking_area.style.backgroundColor = nc.getHexa();
     };
 
-    ColorPicker.prototype.updateAlphaGradient = function updateAlphaGradient() {
+    ColorPicker.prototype.updateAlphaGradient = function updateAlphaGradient () {
         this.alpha_mask.style.backgroundColor = this.color.getHexa();
     };
 
-    ColorPicker.prototype.updatePreviewColor = function updatePreviewColor() {
+    ColorPicker.prototype.updatePreviewColor = function updatePreviewColor () {
         this.preview_color.style.backgroundColor = this.color.getColor();
     };
 
-    /*************************************************************************/
+    /** ********************************************************************* **/
     //						Update input elements
-    /*************************************************************************/
+    /** ********************************************************************* **/
 
-    ColorPicker.prototype.inputChangeHue = function inputChangeHue(e) {
+    ColorPicker.prototype.inputChangeHue = function inputChangeHue (e) {
         var value = parseInt(e.target.value);
         this.setHue(value);
         this.updateHuePicker();
     };
 
-    ColorPicker.prototype.inputChangeSaturation = function inputChangeSaturation(e) {
+    ColorPicker.prototype.inputChangeSaturation = function inputChangeSaturation (e) {
         var value = parseInt(e.target.value);
         this.color.setSaturation(value);
         e.target.value = this.color.saturation;
         this.updateSLV();
     };
 
-    ColorPicker.prototype.inputChangeValue = function inputChangeValue(e) {
+    ColorPicker.prototype.inputChangeValue = function inputChangeValue (e) {
         var value = parseInt(e.target.value);
         this.color.setValue(value);
         e.target.value = this.color.value;
         this.updateSLV();
     };
 
-    ColorPicker.prototype.inputChangeLightness = function inputChangeLightness(e) {
+    ColorPicker.prototype.inputChangeLightness = function inputChangeLightness (e) {
         var value = parseInt(e.target.value);
         this.color.setLightness(value);
         e.target.value = this.color.lightness;
         this.updateSLV();
     };
 
-    ColorPicker.prototype.inputChangeRed = function inputChangeRed(e) {
+    ColorPicker.prototype.inputChangeRed = function inputChangeRed (e) {
         var value = parseInt(e.target.value);
         this.color.setByName('r', value);
         e.target.value = this.color.r;
         this.setColor(this.color);
     };
 
-    ColorPicker.prototype.inputChangeGreen = function inputChangeGreen(e) {
+    ColorPicker.prototype.inputChangeGreen = function inputChangeGreen (e) {
         var value = parseInt(e.target.value);
         this.color.setByName('g', value);
         e.target.value = this.color.g;
         this.setColor(this.color);
     };
 
-    ColorPicker.prototype.inputChangeBlue = function inputChangeBlue(e) {
+    ColorPicker.prototype.inputChangeBlue = function inputChangeBlue (e) {
         var value = parseInt(e.target.value);
         this.color.setByName('b', value);
         e.target.value = this.color.b;
         this.setColor(this.color);
     };
 
-    ColorPicker.prototype.inputChangeAlpha = function inputChangeAlpha(e) {
+    ColorPicker.prototype.inputChangeAlpha = function inputChangeAlpha (e) {
         var value = parseFloat(e.target.value);
 
         if (typeof value === 'number' && isNaN(value) === false &&
@@ -783,30 +782,30 @@ var UIColorPicker = (function UIColorPicker (){
         this.updateAlphaPicker();
     };
 
-    ColorPicker.prototype.inputChangeHexa = function inputChangeHexa(e) {
+    ColorPicker.prototype.inputChangeHexa = function inputChangeHexa (e) {
         var value = e.target.value;
         this.color.setHexa(value);
         this.setColor(this.color);
     };
 
-    /*************************************************************************/
+    /** ********************************************************************* **/
     //							Internal Pub/Sub
-    /*************************************************************************/
+    /** ********************************************************************* **/
 
-    ColorPicker.prototype.subscribe = function subscribe(topic, callback) {
+    ColorPicker.prototype.subscribe = function subscribe (topic, callback) {
         this.subscribers[topic] = callback;
     };
 
-    ColorPicker.prototype.notify = function notify(topic, value) {
+    ColorPicker.prototype.notify = function notify (topic, value) {
         if (this.subscribers[topic])
             this.subscribers[topic](value);
     };
 
-    /*************************************************************************/
+    /** ********************************************************************* **/
     //							Set Picker Properties
-    /*************************************************************************/
+    /** ********************************************************************* **/
 
-    ColorPicker.prototype.setColor = function setColor(color) {
+    ColorPicker.prototype.setColor = function setColor (color) {
 
         if (color.format !== this.picker_mode) {
             color.setFormat(this.picker_mode);
@@ -834,7 +833,7 @@ var UIColorPicker = (function UIColorPicker (){
         this.notify('hexa', this.color.getHexa());
     };
 
-    ColorPicker.prototype.setPickerMode = function setPickerMode(mode) {
+    ColorPicker.prototype.setPickerMode = function setPickerMode (mode) {
         if (mode !== 'HSB' && mode !== 'HSL')
             return;
 
@@ -843,38 +842,38 @@ var UIColorPicker = (function UIColorPicker (){
         this.setColor(this.color);
     };
 
-    /*************************************************************************/
+    /** ********************************************************************* **/
     //								UNUSED
-    /*************************************************************************/
+    /** ********************************************************************* **/
 
-    var setPickerMode = function setPickerMode(topic, mode) {
+    var setPickerMode = function setPickerMode (topic, mode) {
         if (pickers[topic])
             pickers[topic].setPickerMode(mode);
     };
 
-    var setColor = function setColor(topic, color) {
+    var setColor = function setColor (topic, color) {
         if (pickers[topic])
             pickers[topic].setColor(color);
     };
 
-    var getColor = function getColor(topic) {
+    var getColor = function getColor (topic) {
         if (pickers[topic])
             return new Color(pickers[topic].color);
     };
 
-    var subscribe = function subscribe(topic, callback) {
+    var subscribe = function subscribe (topic, callback) {
         if (subscribers[topic] === undefined)
             subscribers[topic] = [];
 
         subscribers[topic].push(callback);
     };
 
-    var unsubscribe = function unsubscribe(callback) {
+    var unsubscribe = function unsubscribe (callback) {
         subscribers.indexOf(callback);
         subscribers.splice(index, 1);
     };
 
-    var notify = function notify(topic, value) {
+    var notify = function notify (topic, value) {
         if (subscribers[topic] === undefined || subscribers[topic].length === 0)
             return;
 
@@ -884,7 +883,7 @@ var UIColorPicker = (function UIColorPicker (){
         }
     };
 
-    var init = function init() {
+    var init = function init () {
         var elem = document.querySelectorAll('.ui-color-picker');
         var size = elem.length;
         for (var i = 0; i < size; i++)
@@ -915,21 +914,21 @@ var UIColorPicker = (function UIColorPicker (){
  * UI-SlidersManager
  */
 
-var InputSliderManager = (function InputSliderManager() {
+var InputSliderManager = (function InputSliderManager () {
 
     var subscribers = {};
     var sliders = [];
 
-    var InputComponent = function InputComponent(obj) {
+    var InputComponent = function InputComponent (obj) {
         var input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.style.width = 50 + obj.precision * 10 + 'px';
 
-        input.addEventListener('click', function(e) {
+        input.addEventListener('click', function (e) {
             this.select();
         });
 
-        input.addEventListener('change', function(e) {
+        input.addEventListener('change', function (e) {
             var value = parseFloat(e.target.value);
 
             if (isNaN(value) === true)
@@ -941,17 +940,17 @@ var InputSliderManager = (function InputSliderManager() {
         return input;
     };
 
-    var SliderComponent = function SliderComponent(obj, sign) {
+    var SliderComponent = function SliderComponent (obj, sign) {
         var slider = document.createElement('div');
         var startX = null;
         var start_value = 0;
 
-        slider.addEventListener("click", function(e) {
+        slider.addEventListener("click", function (e) {
             document.removeEventListener("mousemove", sliderMotion);
             setValue(obj.topic, obj.value + obj.step * sign);
         });
 
-        slider.addEventListener("mousedown", function(e) {
+        slider.addEventListener("mousedown", function (e) {
             startX = e.clientX;
             start_value = obj.value;
             document.body.style.cursor = "e-resize";
@@ -960,13 +959,13 @@ var InputSliderManager = (function InputSliderManager() {
             document.addEventListener("mousemove", sliderMotion);
         });
 
-        var slideEnd = function slideEnd(e) {
+        var slideEnd = function slideEnd (e) {
             document.removeEventListener("mousemove", sliderMotion);
             document.body.style.cursor = "auto";
             slider.style.cursor = "pointer";
         };
 
-        var sliderMotion = function sliderMotion(e) {
+        var sliderMotion = function sliderMotion (e) {
             slider.style.cursor = "e-resize";
             var delta = (e.clientX - startX) / obj.sensivity | 0;
             var value = delta * obj.step + start_value;
@@ -976,7 +975,7 @@ var InputSliderManager = (function InputSliderManager() {
         return slider;
     };
 
-    var InputSlider = function(node) {
+    var InputSlider = function (node) {
         var min		= parseFloat(node.getAttribute('data-min'));
         var max		= parseFloat(node.getAttribute('data-max'));
         var step	= parseFloat(node.getAttribute('data-step'));
@@ -1020,11 +1019,11 @@ var InputSliderManager = (function InputSliderManager() {
         setValue(topic, value);
     };
 
-    InputSlider.prototype.setInputValue = function setInputValue() {
+    InputSlider.prototype.setInputValue = function setInputValue () {
         this.input.value = this.value.toFixed(this.precision) + this.unit;
     };
 
-    var setValue = function setValue(topic, value, send_notify) {
+    var setValue = function setValue (topic, value, send_notify) {
         var slider = sliders[topic];
         if (slider === undefined)
             return;
@@ -1045,7 +1044,7 @@ var InputSliderManager = (function InputSliderManager() {
         notify.call(slider);
     };
 
-    var setMax = function setMax(topic, value) {
+    var setMax = function setMax (topic, value) {
         var slider = sliders[topic];
         if (slider === undefined)
             return;
@@ -1054,7 +1053,7 @@ var InputSliderManager = (function InputSliderManager() {
         setValue(topic, slider.value);
     };
 
-    var setMin = function setMin(topic, value) {
+    var setMin = function setMin (topic, value) {
         var slider = sliders[topic];
         if (slider === undefined)
             return;
@@ -1063,7 +1062,7 @@ var InputSliderManager = (function InputSliderManager() {
         setValue(topic, slider.value);
     };
 
-    var setUnit = function setUnit(topic, unit) {
+    var setUnit = function setUnit (topic, unit) {
         var slider = sliders[topic];
         if (slider === undefined)
             return;
@@ -1072,7 +1071,7 @@ var InputSliderManager = (function InputSliderManager() {
         setValue(topic, slider.value);
     };
 
-    var setStep = function setStep(topic, value) {
+    var setStep = function setStep (topic, value) {
         var slider = sliders[topic];
         if (slider === undefined)
             return;
@@ -1081,7 +1080,7 @@ var InputSliderManager = (function InputSliderManager() {
         setValue(topic, slider.value);
     };
 
-    var setPrecision = function setPrecision(topic, value) {
+    var setPrecision = function setPrecision (topic, value) {
         var slider = sliders[topic];
         if (slider === undefined)
             return;
@@ -1096,7 +1095,7 @@ var InputSliderManager = (function InputSliderManager() {
         setValue(topic, slider.value);
     };
 
-    var setSensivity = function setSensivity(topic, value) {
+    var setSensivity = function setSensivity (topic, value) {
         var slider = sliders[topic];
         if (slider === undefined)
             return;
@@ -1106,37 +1105,37 @@ var InputSliderManager = (function InputSliderManager() {
         slider.sensivity = value > 0 ? value : 5;
     };
 
-    var getNode =  function getNode(topic) {
+    var getNode =  function getNode (topic) {
         return sliders[topic].node;
     };
 
-    var getPrecision =  function getPrecision(topic) {
+    var getPrecision =  function getPrecision (topic) {
         return sliders[topic].precision;
     };
 
-    var getStep =  function getStep(topic) {
+    var getStep =  function getStep (topic) {
         return sliders[topic].step;
     };
 
-    var subscribe = function subscribe(topic, callback) {
+    var subscribe = function subscribe (topic, callback) {
         if (subscribers[topic] === undefined)
             subscribers[topic] = [];
         subscribers[topic].push(callback);
     };
 
-    var unsubscribe = function unsubscribe(topic, callback) {
+    var unsubscribe = function unsubscribe (topic, callback) {
         subscribers[topic].indexOf(callback);
         subscribers[topic].splice(index, 1);
     };
 
-    var notify = function notify() {
+    var notify = function notify () {
         if (subscribers[this.topic] === undefined)
             return;
         for (var i = 0; i < subscribers[this.topic].length; i++)
             subscribers[this.topic][i](this.value);
     };
 
-    var createSlider = function createSlider(topic, label) {
+    var createSlider = function createSlider (topic, label) {
         var slider = document.createElement('div');
         slider.className = 'ui-input-slider';
         slider.setAttribute('data-topic', topic);
@@ -1148,7 +1147,7 @@ var InputSliderManager = (function InputSliderManager() {
         return slider;
     };
 
-    var init = function init() {
+    var init = function init () {
         var elem = document.querySelectorAll('.ui-input-slider');
         var size = elem.length;
         for (var i = 0; i < size; i++)
@@ -1181,28 +1180,28 @@ window.addEventListener("load", function() {
     ColorPickerTool.init();
 });
 
-var ColorPickerTool = (function ColorPickerTool() {
+var ColorPickerTool = (function ColorPickerTool () {
 
-    /*========== Get DOM Element By ID ==========*/
+    /* ========== Get DOM Element By ID ========== */
 
-    function getElemById(id) {
+    function getElemById (id) {
         return document.getElementById(id);
     }
 
-    function allowDropEvent(e) {
+    function allowDropEvent (e) {
         e.preventDefault();
     }
 
-    /*========== Make an element resizable relative to it's parent ==========*/
+    /* ========== Make an element resizable relative to it's parent ========== */
 
-    var UIComponent = (function UIComponent() {
+    var UIComponent = (function UIComponent () {
 
-        function makeResizable(elem, axis) {
+        function makeResizable (elem, axis) {
             var valueX = 0;
             var valueY = 0;
             var action = 0;
 
-            var resizeStart = function resizeStart(e) {
+            var resizeStart = function resizeStart (e) {
                 e.stopPropagation();
                 e.preventDefault();
                 if (e.button !== 0)
@@ -1216,14 +1215,14 @@ var ColorPickerTool = (function ColorPickerTool() {
                 document.addEventListener('mouseup', resizeEnd);
             };
 
-            var mouseMove = function mouseMove(e) {
+            var mouseMove = function mouseMove (e) {
                 if (action >= 0)
                     elem.style.width = e.clientX - valueX + 'px';
                 if (action <= 0)
                     elem.style.height = e.clientY - valueY + 'px';
             };
 
-            var resizeEnd = function resizeEnd(e) {
+            var resizeEnd = function resizeEnd (e) {
                 if (e.button !== 0)
                     return;
 
@@ -1245,16 +1244,16 @@ var ColorPickerTool = (function ColorPickerTool() {
             elem.appendChild(handle);
         };
 
-        /*========== Make an element draggable relative to it's parent ==========*/
+        /* ========== Make an element draggable relative to it's parent ========== */
 
-        var makeDraggable = function makeDraggable(elem, endFunction) {
+        var makeDraggable = function makeDraggable (elem, endFunction) {
 
             var offsetTop;
             var offsetLeft;
 
             elem.setAttribute('data-draggable', 'true');
 
-            var dragStart = function dragStart(e) {
+            var dragStart = function dragStart (e) {
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -1269,7 +1268,7 @@ var ColorPickerTool = (function ColorPickerTool() {
                 document.addEventListener('mouseup', dragEnd);
             };
 
-            var dragEnd = function dragEnd(e) {
+            var dragEnd = function dragEnd (e) {
                 if (e.button !== 0)
                     return;
 
@@ -1277,7 +1276,7 @@ var ColorPickerTool = (function ColorPickerTool() {
                 document.removeEventListener('mouseup', dragEnd);
             };
 
-            var mouseDrag = function mouseDrag(e) {
+            var mouseDrag = function mouseDrag (e) {
                 elem.style.left = e.clientX - offsetLeft + 'px';
                 elem.style.top = e.clientY - offsetTop + 'px';
             };
@@ -1292,7 +1291,7 @@ var ColorPickerTool = (function ColorPickerTool() {
 
     })();
 
-    /*========== Color Class ==========*/
+    /* ========== Color Class ========== */
 
     var Color = UIColorPicker.Color;
     var HSLColor = UIColorPicker.HSLColor;
@@ -1300,7 +1299,7 @@ var ColorPickerTool = (function ColorPickerTool() {
     /**
      * ColorPalette
      */
-    var ColorPalette = (function ColorPalette() {
+    var ColorPalette = (function ColorPalette () {
 
         var samples = [];
         var color_palette;
@@ -1311,7 +1310,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             node.setAttribute('data-hidden', 'true');
         };
 
-        var ColorSample = function ColorSample(id) {
+        var ColorSample = function ColorSample (id) {
             var title = ['Base Colour','Header','Navigation Panel'];
             var node = document.createElement('div');
             node.className = 'sample';
@@ -1330,16 +1329,16 @@ var ColorPickerTool = (function ColorPickerTool() {
             samples.push(this);
         };
 
-        ColorSample.prototype.updateBgColor = function updateBgColor() {
+        ColorSample.prototype.updateBgColor = function updateBgColor () {
             this.node.style.backgroundColor = this.color.getColor();
         };
 
-        ColorSample.prototype.updateColor = function updateColor(color) {
+        ColorSample.prototype.updateColor = function updateColor (color) {
             this.color.copy(color);
             this.updateBgColor();
         };
 
-        ColorSample.prototype.updateTriadic = function updateTriadic(color, size, steps) {
+        ColorSample.prototype.updateTriadic = function updateTriadic (color, size, steps) {
 
             var h = color.hue;
             if ((steps * 3 / size) < 1 || globalChange) {
@@ -1378,7 +1377,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.updateBgColor();
         };
 
-        ColorSample.prototype.updateSaturation = function updateSaturation(s, size, steps) {
+        ColorSample.prototype.updateSaturation = function updateSaturation (s, size, steps) {
             if (steps) {
                 if (s < 20) {
                     var saturation = 100 - ((100 / size) * steps);
@@ -1394,7 +1393,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             return saturation;
         };
 
-        ColorSample.prototype.updateBrightness = function updateBrightness(b, size, steps) {
+        ColorSample.prototype.updateBrightness = function updateBrightness (b, size, steps) {
             if (steps) {
                 if (b < 20) {
                     var brightness = (100 / (size - 1)) * steps;
@@ -1410,7 +1409,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             return brightness;
         };
 
-        ColorSample.prototype.updateLightness = function updateLightness(color, value, steps) {
+        ColorSample.prototype.updateLightness = function updateLightness (color, value, steps) {
             var lightness = color.lightness + value * steps;
             if (lightness <= 0) {
                 this.node.setAttribute('data-hidden', 'true');
@@ -1422,7 +1421,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.updateBgColor();
         };
 
-        ColorSample.prototype.updateAdjacent = function updateAdjacent(color, size, steps) {
+        ColorSample.prototype.updateAdjacent = function updateAdjacent (color, size, steps) {
 
             var h = color.hue;
             if ((steps * 3 / size) < 1 || globalChange) {
@@ -1462,7 +1461,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.updateBgColor();
         };
 
-        ColorSample.prototype.updateMonochrome = function updateMonochrome(color, size, steps) {
+        ColorSample.prototype.updateMonochrome = function updateMonochrome (color, size, steps) {
 
             if (globalChange) {
                 var saturation = color.saturation;
@@ -1483,7 +1482,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.updateBgColor();
         };
 
-        ColorSample.prototype.updateComplementary = function updateComplementary(color, size, steps) {
+        ColorSample.prototype.updateComplementary = function updateComplementary (color, size, steps) {
 
             var h = color.hue;
             if ((steps * 2 / size) < 1 || globalChange) {
@@ -1516,7 +1515,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.updateBgColor();
         };
 
-        ColorSample.prototype.pickColor = function pickColor() {
+        ColorSample.prototype.pickColor = function pickColor () {
             if (this.uid%pallete_size == 0) {
                 globalChange = 0;
             } else {
@@ -1525,12 +1524,12 @@ var ColorPickerTool = (function ColorPickerTool() {
             UIColorPicker.setColor('picker', this.color);
         };
 
-        ColorSample.prototype.dragStart = function dragStart(e) {
+        ColorSample.prototype.dragStart = function dragStart (e) {
             e.dataTransfer.setData('sampleID', this.uid);
             e.dataTransfer.setData('location', 'palette-samples');
         };
 
-        var Palette = function Palette(text, size) {
+        var Palette = function Palette (text, size) {
             this.samples = [];
 
             var palette = document.createElement('div');
@@ -1545,7 +1544,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             container.appendChild(title);
             container.appendChild(palette);
 
-            for(var i = 0; i < size; i++) {
+            for (var i = 0; i < size; i++) {
                 var sample = new ColorSample();
                 this.samples.push(sample);
                 palette.appendChild(sample.node);
@@ -1555,7 +1554,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             this.title = title;
         };
 
-        var createTriadicPalette = function createTriadicPalette() {
+        var createTriadicPalette = function createTriadicPalette () {
             var palette = new Palette('Triadic', pallete_size);
 
             UIColorPicker.subscribe('picker', function(color) {
@@ -1563,7 +1562,7 @@ var ColorPickerTool = (function ColorPickerTool() {
                     var i = globalChange%pallete_size;
                     palette.samples[i].updateTriadic(color, pallete_size, i);
                 } else if (globalChange == 0){
-                    for(var i = 0; i < pallete_size; i++) {
+                    for (var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateTriadic(color, pallete_size, i);
                     }
                 }
@@ -1572,7 +1571,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             color_palette.appendChild(palette.container);
         };
 
-        var createComplementaryPalette = function createComplementaryPalette() {
+        var createComplementaryPalette = function createComplementaryPalette () {
             var palette = new Palette('Complementary', pallete_size);
 
             UIColorPicker.subscribe('picker', function(color) {
@@ -1580,7 +1579,7 @@ var ColorPickerTool = (function ColorPickerTool() {
                     var i = globalChange%pallete_size;
                     palette.samples[i].updateComplementary(color, pallete_size, i);
                 } else if (globalChange == 0){
-                    for(var i = 0; i < pallete_size; i++) {
+                    for (var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateComplementary(color, pallete_size, i);
                     }
                 }
@@ -1590,7 +1589,7 @@ var ColorPickerTool = (function ColorPickerTool() {
         };
 
         /* Brightness or Lightness - depends on the picker mode */
-        var createAdjacentPalette = function createAdjacentPalette() {
+        var createAdjacentPalette = function createAdjacentPalette () {
             var palette = new Palette('Adjacent', pallete_size);
 
             UIColorPicker.subscribe('picker', function(color) {
@@ -1598,7 +1597,7 @@ var ColorPickerTool = (function ColorPickerTool() {
                     var i = globalChange%pallete_size;
                     palette.samples[i].updateAdjacent(color, pallete_size, i);
                 } else if (globalChange == 0){
-                    for(var i = 0; i < pallete_size; i++) {
+                    for (var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateAdjacent(color, pallete_size, i);
                     }
                 }
@@ -1607,7 +1606,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             color_palette.appendChild(palette.container);
         };
 
-        var isBlankPalette = function isBlankPalette(container, value) {
+        var isBlankPalette = function isBlankPalette (container, value) {
             if (value === 0) {
                 container.setAttribute('data-collapsed', 'true');
                 return true;
@@ -1617,7 +1616,7 @@ var ColorPickerTool = (function ColorPickerTool() {
             return false;
         };
 
-        var createMonochromePalette = function createMonochromePalette() {
+        var createMonochromePalette = function createMonochromePalette () {
 
             var palette = new Palette('Monochrome', pallete_size);
 
@@ -1626,7 +1625,7 @@ var ColorPickerTool = (function ColorPickerTool() {
                     var i = globalChange%pallete_size;
                     palette.samples[i].updateMonochrome(color, pallete_size, i);
                 } else if (globalChange == 0){
-                    for(var i = 0; i < pallete_size; i++) {
+                    for (var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateMonochrome(color, pallete_size, i);
                     }
                 }
@@ -1635,12 +1634,12 @@ var ColorPickerTool = (function ColorPickerTool() {
             color_palette.appendChild(palette.container);
         };
 
-        var getSampleColor = function getSampleColor(id) {
+        var getSampleColor = function getSampleColor (id) {
             if (samples[id] !== undefined && samples[id]!== null)
                 return new Color(samples[id].color);
         };
 
-        var init = function init() {
+        var init = function init () {
             color_palette = getElemById('color-palette');
 
             createTriadicPalette();
@@ -1660,7 +1659,7 @@ var ColorPickerTool = (function ColorPickerTool() {
     /**
      * Canvas Samples
      */
-    var CanvasSamples = (function CanvasSamples() {
+    var CanvasSamples = (function CanvasSamples () {
 
         var active = null;
         var canvas = null;
@@ -1668,7 +1667,7 @@ var ColorPickerTool = (function ColorPickerTool() {
         var zindex = null;
         var tutorial = true;
 
-        var CanvasSample = function CanvasSample(color, posX, posY) {
+        var CanvasSample = function CanvasSample (color, posX, posY) {
 
             var node = document.createElement('div');
             var pick = document.createElement('div');
@@ -1706,21 +1705,21 @@ var ColorPickerTool = (function ColorPickerTool() {
             return this;
         };
 
-        CanvasSample.prototype.updateBgColor = function updateBgColor() {
+        CanvasSample.prototype.updateBgColor = function updateBgColor () {
             this.node.style.backgroundColor = this.color.getColor();
         };
 
-        CanvasSample.prototype.updateColor = function updateColor(color) {
+        CanvasSample.prototype.updateColor = function updateColor (color) {
             this.color.copy(color);
             this.updateBgColor();
         };
 
-        CanvasSample.prototype.updateZIndex = function updateZIndex(value) {
+        CanvasSample.prototype.updateZIndex = function updateZIndex (value) {
             this.zIndex = value;
             this.node.style.zIndex = value;
         };
 
-        CanvasSample.prototype.activate = function activate() {
+        CanvasSample.prototype.activate = function activate () {
             this.node.setAttribute('data-active', 'true');
             zindex.setAttribute('data-active', 'true');
 
@@ -1728,24 +1727,24 @@ var ColorPickerTool = (function ColorPickerTool() {
             InputSliderManager.setValue('z-index', this.zIndex);
         };
 
-        CanvasSample.prototype.deactivate = function deactivate() {
+        CanvasSample.prototype.deactivate = function deactivate () {
             this.node.removeAttribute('data-active');
             zindex.removeAttribute('data-active');
         };
 
-        CanvasSample.prototype.deleteSample = function deleteSample() {
+        CanvasSample.prototype.deleteSample = function deleteSample () {
             if (active === this)
                 unsetActiveSample();
             canvas.removeChild(this.node);
             samples[this.uid] = null;
         };
 
-        CanvasSample.prototype.updatePosition = function updatePosition(posX, posY) {
+        CanvasSample.prototype.updatePosition = function updatePosition (posX, posY) {
             this.node.style.top = posY - this.startY + 'px';
             this.node.style.left = posX - this.startX + 'px';
         };
 
-        var canvasDropEvent = function canvasDropEvent(e) {
+        var canvasDropEvent = function canvasDropEvent (e) {
             var color = Tool.getSampleColorFrom(e);
 
             if (color) {
@@ -1762,14 +1761,14 @@ var ColorPickerTool = (function ColorPickerTool() {
 
         };
 
-        var setActiveSample = function setActiveSample(sample) {
+        var setActiveSample = function setActiveSample (sample) {
             ColorPickerSamples.unsetActiveSample();
             unsetActiveSample();
             active = sample;
             active.activate();
         };
 
-        var unsetActiveSample = function unsetActiveSample() {
+        var unsetActiveSample = function unsetActiveSample () {
             if (active)
                 active.deactivate();
             active = null;
@@ -1781,30 +1780,30 @@ var ColorPickerTool = (function ColorPickerTool() {
 
     })();
 
-    var StateButton = function StateButton(node, state) {
+    var StateButton = function StateButton (node, state) {
         this.state = false;
         this.callback = null;
 
-        node.addEventListener('click', function() {
+        node.addEventListener('click', function () {
             this.state = !this.state;
-            if (typeof this.callback === "function")
+            if (typeof this.callback === 'function')
                 this.callback(this.state);
         }.bind(this));
     };
 
-    StateButton.prototype.set = function set() {
+    StateButton.prototype.set = function set () {
         this.state = true;
-        if (typeof this.callback === "function")
+        if (typeof this.callback === 'function')
             this.callback(this.state);
     };
 
-    StateButton.prototype.unset = function unset() {
+    StateButton.prototype.unset = function unset () {
         this.state = false;
-        if (typeof this.callback === "function")
+        if (typeof this.callback === 'function')
             this.callback(this.state);
     };
 
-    StateButton.prototype.subscribe = function subscribe(func) {
+    StateButton.prototype.subscribe = function subscribe (func) {
         this.callback = func;
     };
 
