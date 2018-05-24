@@ -4,7 +4,6 @@
  */
 var globalChange = 0;
 var UIColorPicker = (function UIColorPicker () {
-
     function getElemById (id) {
         return document.getElementById(id);
     }
@@ -23,7 +22,6 @@ var UIColorPicker = (function UIColorPicker () {
      */
 
     function Color (color) {
-
         if (color instanceof Color === true) {
             this.copy(color);
             return;
@@ -118,9 +116,9 @@ var UIColorPicker = (function UIColorPicker () {
             return;
         }
 
-            this.r = red | 0;
-            this.g = green | 0;
-            this.b = blue | 0;
+        this.r = red | 0;
+        this.g = green | 0;
+        this.b = blue | 0;
 
         if (this.isValidRGBValue(alpha) === true) {
             this.a = alpha | 0;
@@ -129,8 +127,9 @@ var UIColorPicker = (function UIColorPicker () {
 
     Color.prototype.setByName = function setByName (name, value) {
         if (name === 'r' || name === 'g' || name === 'b') {
-            if(this.isValidRGBValue(value) === false)
+            if (this.isValidRGBValue(value) === false) {
                 return;
+            }
 
             this[name] = value;
             this.updateHSX();
@@ -153,32 +152,36 @@ var UIColorPicker = (function UIColorPicker () {
 
     Color.prototype.setHue = function setHue (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
-            value < 0 || value > 359)
-            return;
+            value < 0 || value > 359) {
+                return;
+            }
         this.hue = value;
         this.updateRGB();
     };
 
     Color.prototype.setSaturation = function setSaturation (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
-            value < 0 || value > 100)
-            return;
+            value < 0 || value > 100) {
+                return;
+            }
         this.saturation = value;
         this.updateRGB();
     };
 
     Color.prototype.setValue = function setValue (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
-            value < 0 || value > 100)
-            return;
+            value < 0 || value > 100) {
+                return;
+        }
         this.value = value;
         this.HSBtoRGB();
     };
 
     Color.prototype.setLightness = function setLightness (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
-            value < 0 || value > 100)
+            value < 0 || value > 100) {
             return;
+        }
         this.lightness = value;
         this.HSLtoRGB();
     };
@@ -186,14 +189,15 @@ var UIColorPicker = (function UIColorPicker () {
     Color.prototype.setHexa = function setHexa (value) {
         var valid  = /(^#{0,1}[0-9A-F]{6}$)|(^#{0,1}[0-9A-F]{3}$)/i.test(value);
 
-        if (valid !== true)
+        if (valid !== true) {
             return;
-
-        if (value[0] === '#')
+        }
+        if (value[0] === '#') {
             value = value.slice(1, value.length);
-
-        if (value.length === 3)
+        }
+        if (value.length === 3) {
             value = value.replace(/([0-9A-F])([0-9A-F])([0-9A-F])/i,'$1$1$2$2$3$3');
+        }
 
         this.r = parseInt(value.substr(0, 2), 16);
         this.g = parseInt(value.substr(2, 2), 16);
@@ -206,16 +210,18 @@ var UIColorPicker = (function UIColorPicker () {
     /* ========== Conversion Methods ========== */
 
     Color.prototype.convertToHSL = function convertToHSL () {
-        if (this.format === 'HSL')
+        if (this.format === 'HSL') {
             return;
+        }
 
         this.setFormat('HSL');
         this.RGBtoHSL();
     };
 
     Color.prototype.convertToHSB = function convertToHSB () {
-        if (this.format === 'HSB')
+        if (this.format === 'HSB') {
             return;
+        }
 
         this.setFormat('HSB');
         this.RGBtoHSB();
@@ -260,12 +266,30 @@ var UIColorPicker = (function UIColorPicker () {
         X = (X + m) * precision | 0;
         m = m * precision | 0;
 
-        if (H >= 0 && H < 1) {	this.setRGBA(C, X, m);	return; }
-        if (H >= 1 && H < 2) {	this.setRGBA(X, C, m);	return; }
-        if (H >= 2 && H < 3) {	this.setRGBA(m, C, X);	return; }
-        if (H >= 3 && H < 4) {	this.setRGBA(m, X, C);	return; }
-        if (H >= 4 && H < 5) {	this.setRGBA(X, m, C);	return; }
-        if (H >= 5 && H < 6) {	this.setRGBA(C, m, X);	return; }
+        if (H >= 0 && H < 1) {
+            this.setRGBA(C, X, m);
+            return;
+        }
+        if (H >= 1 && H < 2) {
+            this.setRGBA(X, C, m);
+            return;
+        }
+        if (H >= 2 && H < 3) {
+            this.setRGBA(m, C, X);
+            return;
+        }
+        if (H >= 3 && H < 4) {
+            this.setRGBA(m, X, C);
+            return;
+        }
+        if (H >= 4 && H < 5) {
+            this.setRGBA(X, m, C);
+            return;
+        }
+        if (H >= 5 && H < 6) {
+            this.setRGBA(C, m, X);
+            return;
+        }
     };
 
     Color.prototype.HSLtoRGB = function HSLtoRGB () {
@@ -274,19 +298,37 @@ var UIColorPicker = (function UIColorPicker () {
         var C = sat * (1 - Math.abs(2 * light - 1));
         var H = this.hue / 60;
         var X = C * (1 - Math.abs(H % 2 - 1));
-        var m = light - C/2;
+        var m = light - C / 2;
         var precision = 255;
 
         C = (C + m) * precision | 0;
         X = (X + m) * precision | 0;
         m = m * precision | 0;
 
-        if (H >= 0 && H < 1) {	this.setRGBA(C, X, m);	return; }
-        if (H >= 1 && H < 2) {	this.setRGBA(X, C, m);	return; }
-        if (H >= 2 && H < 3) {	this.setRGBA(m, C, X);	return; }
-        if (H >= 3 && H < 4) {	this.setRGBA(m, X, C);	return; }
-        if (H >= 4 && H < 5) {	this.setRGBA(X, m, C);	return; }
-        if (H >= 5 && H < 6) {	this.setRGBA(C, m, X);	return; }
+        if (H >= 0 && H < 1) {
+            this.setRGBA(C, X, m);
+            return;
+        }
+        if (H >= 1 && H < 2) {
+            this.setRGBA(X, C, m);
+            return;
+        }
+        if (H >= 2 && H < 3) {
+            this.setRGBA(m, C, X);
+            return;
+        }
+        if (H >= 3 && H < 4) {
+            this.setRGBA(m, X, C);
+            return;
+        }
+        if (H >= 4 && H < 5) {
+            this.setRGBA(X, m, C);
+            return;
+        }
+        if (H >= 5 && H < 6) {
+            this.setRGBA(C, m, X);
+            return;
+        }
     };
 
     Color.prototype.RGBtoHSB = function RGBtoHSB () {
@@ -301,13 +343,13 @@ var UIColorPicker = (function UIColorPicker () {
         var saturation = 0;
 
         if (delta) {
-            if (cmax === red ) {
+            if (cmax === red) {
                 hue = (green - blue) / delta;
             }
-            if (cmax === green ) {
+            if (cmax === green) {
                 hue = 2 + (blue - red) / delta;
             }
-            if (cmax === blue ) {
+            if (cmax === blue) {
                 hue = 4 + (red - green) / delta;
             }
             if (cmax) {
@@ -337,13 +379,13 @@ var UIColorPicker = (function UIColorPicker () {
         var X = (1 - Math.abs(2 * lightness - 1));
 
         if (delta) {
-            if (cmax === red ) {
+            if (cmax === red) {
                 hue = ((green - blue) / delta);
             }
-            if (cmax === green ) {
+            if (cmax === green) {
                 hue = 2 + (blue - red) / delta;
             }
-            if (cmax === blue ) {
+            if (cmax === blue) {
                 hue = 4 + (red - green) / delta;
             }
             if (cmax) {
@@ -379,7 +421,6 @@ var UIColorPicker = (function UIColorPicker () {
     };
 
     Color.prototype.getRGBA = function getRGBA () {
-
         var rgb = '(' + this.r + ', ' + this.g + ', ' + this.b;
         var a = '';
         var v = '';
@@ -394,8 +435,9 @@ var UIColorPicker = (function UIColorPicker () {
     };
 
     Color.prototype.getColor = function getColor () {
-        if (this.a | 0 === 1)
+        if (this.a | 0 === 1) {
             return this.getHexa();
+        }
         return this.getRGBA();
     };
 
@@ -476,7 +518,7 @@ var UIColorPicker = (function UIColorPicker () {
         var picker = document.createElement('div');
 
         area.className = 'hue';
-        picker.className ='slider-picker';
+        picker.className = 'slider-picker';
 
         this.hue_area = area;
         this.hue_picker = picker;
@@ -544,23 +586,23 @@ var UIColorPicker = (function UIColorPicker () {
     };
 
     ColorPicker.prototype.createChangeModeButton = function createChangeModeButton () {
-
         var button = document.createElement('div');
         button.className = 'switch_mode';
         button.addEventListener('click', function () {
-            if (this.picker_mode === 'HSB')
+            if (this.picker_mode === 'HSB') {
                 this.setPickerMode('HSL');
-            else
+            }
+            else  {
                 this.setPickerMode('HSB');
-
+            }
         }.bind(this));
 
         this.node.appendChild(button);
     };
 
-    /*************************************************************************/
+    /** ********************************************************************* **/
     //					Updates properties of UI elements
-    /*************************************************************************/
+    /** ********************************************************************* **/
 
     ColorPicker.prototype.updateColor = function updateColor (e) {
         var x = e.pageX - this.picking_area.offsetLeft;
@@ -570,18 +612,28 @@ var UIColorPicker = (function UIColorPicker () {
         // width and height should be the same
         var size = this.picking_area.clientWidth;
 
-        if (x > size) x = size;
-        if (y > size) y = size;
-        if (x < 0) x = 0;
-        if (y < 0) y = 0;
+        if (x > size) {
+            x = size;
+        }
+        if (y > size) {
+            y = size;
+        }
+        if (x < 0) {
+            x = 0;
+        }
+        if (y < 0) {
+            y = 0;
+        }
 
         var value = 100 - (y * 100 / size) | 0;
         var saturation = x * 100 / size | 0;
 
-        if (this.picker_mode === 'HSB')
+        if (this.picker_mode === 'HSB') {
             this.color.setHSB(this.color.hue, saturation, value);
-        if (this.picker_mode === 'HSL')
+        }
+        if (this.picker_mode === 'HSL') {
             this.color.setHSL(this.color.hue, saturation, value);
+        }
 
         this.color_picker.style.left = x - picker_offset + 'px';
         this.color_picker.style.top = y - picker_offset + 'px';
@@ -605,8 +657,12 @@ var UIColorPicker = (function UIColorPicker () {
         var x = e.pageX - this.hue_area.offsetLeft;
         var width = this.hue_area.clientWidth;
 
-        if (x < 0) x = 0;
-        if (x > width) x = width;
+        if (x < 0) {
+            x = 0;
+        }
+        if (x > width) {
+            x = width;
+        }
 
         // TODO 360 => 359
         var hue = ((359 * x) / width) | 0;
@@ -620,8 +676,12 @@ var UIColorPicker = (function UIColorPicker () {
         var x = e.pageX - this.alpha_area.offsetLeft;
         var width = this.alpha_area.clientWidth;
 
-        if (x < 0) x = 0;
-        if (x > width) x = width;
+        if (x < 0) {
+            x = 0;
+        }
+        if (x > width) {
+            x = width;
+        }
 
         this.color.a = (x / width).toFixed(2);
 
@@ -671,10 +731,12 @@ var UIColorPicker = (function UIColorPicker () {
         var value = 0;
         var offset = 5;
 
-        if (this.picker_mode === 'HSB')
+        if (this.picker_mode === 'HSB') {
             value = this.color.value;
-        if (this.picker_mode === 'HSL')
+        }
+        if (this.picker_mode === 'HSL'){
             value = this.color.lightness;
+        }
 
         var x = (this.color.saturation * size / 100) | 0;
         var y = size - (value * size / 100) | 0;
@@ -690,7 +752,7 @@ var UIColorPicker = (function UIColorPicker () {
     ColorPicker.prototype.updateHuePicker = function updateHuePicker () {
         var size = this.hue_area.clientWidth;
         var offset = 1;
-        var pos = (this.color.hue * size / 360 ) | 0;
+        var pos = (this.color.hue * size / 360) | 0;
         this.hue_picker.style.left = pos - offset + 'px';
     };
 
@@ -775,8 +837,9 @@ var UIColorPicker = (function UIColorPicker () {
         var value = parseFloat(e.target.value);
 
         if (typeof value === 'number' && isNaN(value) === false &&
-            value >= 0 && value <= 1)
-            this.color.a = value.toFixed(2);
+            value >= 0 && value <= 1) {
+                this.color.a = value.toFixed(2);
+            }
 
         e.target.value = this.color.a;
         this.updateAlphaPicker();
@@ -797,8 +860,9 @@ var UIColorPicker = (function UIColorPicker () {
     };
 
     ColorPicker.prototype.notify = function notify (topic, value) {
-        if (this.subscribers[topic])
+        if (this.subscribers[topic]) {
             this.subscribers[topic](value);
+        }
     };
 
     /** ********************************************************************* **/
@@ -806,7 +870,6 @@ var UIColorPicker = (function UIColorPicker () {
     /** ********************************************************************* **/
 
     ColorPicker.prototype.setColor = function setColor (color) {
-
         if (color.format !== this.picker_mode) {
             color.setFormat(this.picker_mode);
             color.updateHSX();
@@ -834,8 +897,9 @@ var UIColorPicker = (function UIColorPicker () {
     };
 
     ColorPicker.prototype.setPickerMode = function setPickerMode (mode) {
-        if (mode !== 'HSB' && mode !== 'HSL')
+        if (mode !== 'HSB' && mode !== 'HSL') {
             return;
+        }
 
         this.picker_mode = mode;
         this.node.setAttribute('data-mode', this.picker_mode);
@@ -847,23 +911,27 @@ var UIColorPicker = (function UIColorPicker () {
     /** ********************************************************************* **/
 
     var setPickerMode = function setPickerMode (topic, mode) {
-        if (pickers[topic])
+        if (pickers[topic]) {
             pickers[topic].setPickerMode(mode);
+        }
     };
 
     var setColor = function setColor (topic, color) {
-        if (pickers[topic])
+        if (pickers[topic]) {
             pickers[topic].setColor(color);
+        }
     };
 
     var getColor = function getColor (topic) {
-        if (pickers[topic])
+        if (pickers[topic]) {
             return new Color(pickers[topic].color);
+        }
     };
 
     var subscribe = function subscribe (topic, callback) {
-        if (subscribers[topic] === undefined)
+        if (subscribers[topic] === undefined) {
             subscribers[topic] = [];
+        }
 
         subscribers[topic].push(callback);
     };
@@ -874,8 +942,9 @@ var UIColorPicker = (function UIColorPicker () {
     };
 
     var notify = function notify (topic, value) {
-        if (subscribers[topic] === undefined || subscribers[topic].length === 0)
+        if (subscribers[topic] === undefined || subscribers[topic].length === 0) {
             return;
+        }
 
         var color = new Color(value);
         for (var i in subscribers[topic]) {
@@ -886,8 +955,9 @@ var UIColorPicker = (function UIColorPicker () {
     var init = function init () {
         var elem = document.querySelectorAll('.ui-color-picker');
         var size = elem.length;
-        for (var i = 0; i < size; i++)
+        for (var i = 0; i < size; i++) {
             new ColorPicker(elem[i]);
+        }
     };
 
     return {
@@ -905,17 +975,13 @@ var UIColorPicker = (function UIColorPicker () {
         unsubscribe : unsubscribe,
         setPickerMode : setPickerMode
     };
-
 })();
-
-
 
 /**
  * UI-SlidersManager
  */
 
 var InputSliderManager = (function InputSliderManager () {
-
     var subscribers = {};
     var sliders = [];
 
@@ -931,10 +997,11 @@ var InputSliderManager = (function InputSliderManager () {
         input.addEventListener('change', function (e) {
             var value = parseFloat(e.target.value);
 
-            if (isNaN(value) === true)
+            if (isNaN(value) === true) {
                 setValue(obj.topic, obj.value);
-            else
+            } else {
                 setValue(obj.topic, value);
+            }
         });
 
         return input;
@@ -945,28 +1012,28 @@ var InputSliderManager = (function InputSliderManager () {
         var startX = null;
         var start_value = 0;
 
-        slider.addEventListener("click", function (e) {
-            document.removeEventListener("mousemove", sliderMotion);
+        slider.addEventListener('click', function (e) {
+            document.removeEventListener('mousemove', sliderMotion);
             setValue(obj.topic, obj.value + obj.step * sign);
         });
 
-        slider.addEventListener("mousedown", function (e) {
+        slider.addEventListener('mousedown', function (e) {
             startX = e.clientX;
             start_value = obj.value;
-            document.body.style.cursor = "e-resize";
+            document.body.style.cursor = 'e-resize';
 
-            document.addEventListener("mouseup", slideEnd);
-            document.addEventListener("mousemove", sliderMotion);
+            document.addEventListener('mouseup', slideEnd);
+            document.addEventListener('mousemove', sliderMotion);
         });
 
         var slideEnd = function slideEnd (e) {
-            document.removeEventListener("mousemove", sliderMotion);
-            document.body.style.cursor = "auto";
-            slider.style.cursor = "pointer";
+            document.removeEventListener('mousemove', sliderMotion);
+            document.body.style.cursor = 'auto';
+            slider.style.cursor = 'pointer';
         };
 
         var sliderMotion = function sliderMotion (e) {
-            slider.style.cursor = "e-resize";
+            slider.style.cursor = 'e-resize';
             var delta = (e.clientX - startX) / obj.sensivity | 0;
             var value = delta * obj.step + start_value;
             setValue(obj.topic, value);
@@ -1025,29 +1092,36 @@ var InputSliderManager = (function InputSliderManager () {
 
     var setValue = function setValue (topic, value, send_notify) {
         var slider = sliders[topic];
-        if (slider === undefined)
+        if (slider === undefined) {
             return;
+        }
 
         value = parseFloat(value.toFixed(slider.precision));
 
-        if (value > slider.max) value = slider.max;
-        if (value < slider.min)	value = slider.min;
+        if (value > slider.max) {
+            value = slider.max;
+        }
+        if (value < slider.min)	{
+            value = slider.min;
+        }
 
         slider.value = value;
         slider.node.setAttribute('data-value', value);
 
         slider.setInputValue();
 
-        if (send_notify === false)
+        if (send_notify === false) {
             return;
+        }
 
         notify.call(slider);
     };
 
     var setMax = function setMax (topic, value) {
         var slider = sliders[topic];
-        if (slider === undefined)
+        if (slider === undefined) {
             return;
+        }
 
         slider.max = value;
         setValue(topic, slider.value);
@@ -1055,8 +1129,9 @@ var InputSliderManager = (function InputSliderManager () {
 
     var setMin = function setMin (topic, value) {
         var slider = sliders[topic];
-        if (slider === undefined)
+        if (slider === undefined) {
             return;
+        }
 
         slider.min = value;
         setValue(topic, slider.value);
@@ -1064,8 +1139,9 @@ var InputSliderManager = (function InputSliderManager () {
 
     var setUnit = function setUnit (topic, unit) {
         var slider = sliders[topic];
-        if (slider === undefined)
+        if (slider === undefined) {
             return;
+        }
 
         slider.unit = unit;
         setValue(topic, slider.value);
@@ -1073,8 +1149,9 @@ var InputSliderManager = (function InputSliderManager () {
 
     var setStep = function setStep (topic, value) {
         var slider = sliders[topic];
-        if (slider === undefined)
+        if (slider === undefined) {
             return;
+        }
 
         slider.step = parseFloat(value);
         setValue(topic, slider.value);
@@ -1082,23 +1159,26 @@ var InputSliderManager = (function InputSliderManager () {
 
     var setPrecision = function setPrecision (topic, value) {
         var slider = sliders[topic];
-        if (slider === undefined)
+        if (slider === undefined) {
             return;
+        }
 
         value = value | 0;
         slider.precision = value;
 
         var step = parseFloat(slider.step.toFixed(value));
-        if (step === 0)
+        if (step === 0) {
             slider.step = 1 / Math.pow(10, value);
+        }
 
         setValue(topic, slider.value);
     };
 
     var setSensivity = function setSensivity (topic, value) {
         var slider = sliders[topic];
-        if (slider === undefined)
+        if (slider === undefined) {
             return;
+        }
 
         value = value | 0;
 
@@ -1118,8 +1198,9 @@ var InputSliderManager = (function InputSliderManager () {
     };
 
     var subscribe = function subscribe (topic, callback) {
-        if (subscribers[topic] === undefined)
+        if (subscribers[topic] === undefined) {
             subscribers[topic] = [];
+        }
         subscribers[topic].push(callback);
     };
 
@@ -1129,10 +1210,12 @@ var InputSliderManager = (function InputSliderManager () {
     };
 
     var notify = function notify () {
-        if (subscribers[this.topic] === undefined)
+        if (subscribers[this.topic] === undefined) {
             return;
-        for (var i = 0; i < subscribers[this.topic].length; i++)
+        }
+        for (var i = 0; i < subscribers[this.topic].length; i++) {
             subscribers[this.topic][i](this.value);
+        }
     };
 
     var createSlider = function createSlider (topic, label) {
@@ -1140,8 +1223,9 @@ var InputSliderManager = (function InputSliderManager () {
         slider.className = 'ui-input-slider';
         slider.setAttribute('data-topic', topic);
 
-        if (label !== undefined)
+        if (label !== undefined) {
             slider.setAttribute('data-info', label);
+        }
 
         new InputSlider(slider);
         return slider;
@@ -1150,8 +1234,9 @@ var InputSliderManager = (function InputSliderManager () {
     var init = function init () {
         var elem = document.querySelectorAll('.ui-input-slider');
         var size = elem.length;
-        for (var i = 0; i < size; i++)
+        for (var i = 0; i < size; i++) {
             new InputSlider(elem[i]);
+        }
     };
 
     return {
@@ -1170,18 +1255,16 @@ var InputSliderManager = (function InputSliderManager () {
         getPrecision : getPrecision,
         createSlider : createSlider,
     };
-
 })();
 
 
 'use strict';
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     ColorPickerTool.init();
 });
 
 var ColorPickerTool = (function ColorPickerTool () {
-
     /* ========== Get DOM Element By ID ========== */
 
     function getElemById (id) {
@@ -1195,7 +1278,6 @@ var ColorPickerTool = (function ColorPickerTool () {
     /* ========== Make an element resizable relative to it's parent ========== */
 
     var UIComponent = (function UIComponent () {
-
         function makeResizable (elem, axis) {
             var valueX = 0;
             var valueY = 0;
@@ -1204,8 +1286,9 @@ var ColorPickerTool = (function ColorPickerTool () {
             var resizeStart = function resizeStart (e) {
                 e.stopPropagation();
                 e.preventDefault();
-                if (e.button !== 0)
+                if (e.button !== 0) {
                     return;
+                }
 
                 valueX = e.clientX - elem.clientWidth;
                 valueY = e.clientY - elem.clientHeight;
@@ -1216,15 +1299,18 @@ var ColorPickerTool = (function ColorPickerTool () {
             };
 
             var mouseMove = function mouseMove (e) {
-                if (action >= 0)
+                if (action >= 0) {
                     elem.style.width = e.clientX - valueX + 'px';
-                if (action <= 0)
+                }
+                if (action <= 0) {
                     elem.style.height = e.clientY - valueY + 'px';
+                }
             };
 
             var resizeEnd = function resizeEnd (e) {
-                if (e.button !== 0)
+                if (e.button !== 0) {
                     return;
+                }
 
                 document.body.removeAttribute('data-resize', axis);
                 document.removeEventListener('mousemove', mouseMove);
@@ -1234,9 +1320,13 @@ var ColorPickerTool = (function ColorPickerTool () {
             var handle = document.createElement('div');
             handle.className = 'resize-handle';
 
-            if (axis === 'width') action = 1;
-            else if (axis === 'height') action = -1;
-            else axis = 'both';
+            if (axis === 'width') {
+                action = 1;
+            } else if (axis === 'height') {
+                action = -1;
+            } else {
+                axis = 'both';
+            }
 
             handle.className = 'resize-handle';
             handle.setAttribute('data-resize', axis);
@@ -1247,7 +1337,6 @@ var ColorPickerTool = (function ColorPickerTool () {
         /* ========== Make an element draggable relative to it's parent ========== */
 
         var makeDraggable = function makeDraggable (elem, endFunction) {
-
             var offsetTop;
             var offsetLeft;
 
@@ -1258,8 +1347,9 @@ var ColorPickerTool = (function ColorPickerTool () {
                 e.stopPropagation();
 
                 if (e.target.getAttribute('data-draggable') !== 'true' ||
-                    e.target !== elem || e.button !== 0)
-                    return;
+                    e.target !== elem || e.button !== 0) {
+                        return;
+                    }
 
                 offsetLeft = e.clientX - elem.offsetLeft;
                 offsetTop = e.clientY - elem.offsetTop;
@@ -1269,8 +1359,9 @@ var ColorPickerTool = (function ColorPickerTool () {
             };
 
             var dragEnd = function dragEnd (e) {
-                if (e.button !== 0)
+                if (e.button !== 0) {
                     return;
+                }
 
                 document.removeEventListener('mousemove', mouseDrag);
                 document.removeEventListener('mouseup', dragEnd);
@@ -1288,7 +1379,6 @@ var ColorPickerTool = (function ColorPickerTool () {
             makeResizable : makeResizable,
             makeDraggable : makeDraggable
         };
-
     })();
 
     /* ========== Color Class ========== */
@@ -1300,13 +1390,12 @@ var ColorPickerTool = (function ColorPickerTool () {
      * ColorPalette
      */
     var ColorPalette = (function ColorPalette () {
-
         var samples = [];
         var color_palette;
         var complementary;
         var pallete_size = 12;
 
-        var hideNode = function(node) {
+        var hideNode = function (node) {
             node.setAttribute('data-hidden', 'true');
         };
 
@@ -1339,11 +1428,10 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         ColorSample.prototype.updateTriadic = function updateTriadic (color, size, steps) {
-
             var h = color.hue;
             if ((steps * 3 / size) < 1 || globalChange) {
                 var hue = h;
-            } else if ((steps * 3 / size) < 2 ) {
+            } else if ((steps * 3 / size) < 2) {
                 if (h - 120 < 0) {
                     var hue = 240 + h;
                 } else {
@@ -1361,8 +1449,8 @@ var ColorPickerTool = (function ColorPickerTool () {
                 var saturation = color.saturation;
                 var brightness = color.value;
             } else {
-                var saturation = this.updateSaturation(color.saturation, size/3, steps % (size/3));
-                var brightness = this.updateBrightness(color.value, size/3, steps % (size/3));
+                var saturation = this.updateSaturation(color.saturation, size / 3, steps % (size / 3));
+                var brightness = this.updateBrightness(color.value, size / 3, steps % (size / 3));
             }
 
             if (saturation > 100 || brightness > 100) {
@@ -1381,11 +1469,10 @@ var ColorPickerTool = (function ColorPickerTool () {
             if (steps) {
                 if (s < 20) {
                     var saturation = 100 - ((100 / size) * steps);
-                }
-                else if (3*s / 2 >= 100) {
-                    var saturation = (((200 - s) * steps) + (s * (size - 1) - 200))/(2 * (size - 2));
+                } else if (3 * s / 2 >= 100) {
+                    var saturation = (((200 - s) * steps) + (s * (size - 1) - 200)) / (2 * (size - 2));
                 } else {
-                    var saturation = ((s / (size - 2))*(steps - 1)) + (s / 2);
+                    var saturation = ((s / (size - 2)) * (steps - 1)) + (s / 2);
                 }
             } else {
                 var saturation = s;
@@ -1397,11 +1484,10 @@ var ColorPickerTool = (function ColorPickerTool () {
             if (steps) {
                 if (b < 20) {
                     var brightness = (100 / (size - 1)) * steps;
-                }
-                else if (3*b / 2 >= 100) {
-                    var brightness = (((200 - b) * (size - steps)) + (b * (size - 1) - 200))/(2 * (size - 2));
+                } else if (3 * b / 2 >= 100) {
+                    var brightness = (((200 - b) * (size - steps)) + (b * (size - 1) - 200)) / (2 * (size - 2));
                 } else {
-                    var brightness = ((b / (size - 2))*((size - steps) - 1)) + (b / 2);
+                    var brightness = ((b / (size - 2)) * ((size - steps) - 1)) + (b / 2);
                 }
             } else {
                 var brightness = b;
@@ -1422,11 +1508,10 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         ColorSample.prototype.updateAdjacent = function updateAdjacent (color, size, steps) {
-
             var h = color.hue;
             if ((steps * 3 / size) < 1 || globalChange) {
                 var hue = h;
-            } else if ((steps * 3 / size) < 2 ) {
+            } else if ((steps * 3 / size) < 2) {
                 if (h - 60 < 0) {
                     var hue = 300 + h;
                 } else {
@@ -1444,8 +1529,8 @@ var ColorPickerTool = (function ColorPickerTool () {
                 var saturation = color.saturation;
                 var brightness = color.value;
             } else {
-                var saturation = this.updateSaturation(color.saturation, size/3, steps % (size/3));
-                var brightness = this.updateBrightness(color.value, size/3, steps % (size/3));
+                var saturation = this.updateSaturation(color.saturation, size / 3, steps % (size / 3));
+                var brightness = this.updateBrightness(color.value, size / 3, steps % (size / 3));
             }
 
             if (saturation > 100 || brightness > 100) {
@@ -1462,7 +1547,6 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         ColorSample.prototype.updateMonochrome = function updateMonochrome (color, size, steps) {
-
             if (globalChange) {
                 var saturation = color.saturation;
                 var brightness = color.value;
@@ -1483,7 +1567,6 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         ColorSample.prototype.updateComplementary = function updateComplementary (color, size, steps) {
-
             var h = color.hue;
             if ((steps * 2 / size) < 1 || globalChange) {
                 var hue = h;
@@ -1499,8 +1582,8 @@ var ColorPickerTool = (function ColorPickerTool () {
                 var saturation = color.saturation;
                 var brightness = color.value;
             } else {
-                var saturation = this.updateSaturation(color.saturation, size/2, steps % (size/2));
-                var brightness = this.updateBrightness(color.value, size/2, steps % (size/2));
+                var saturation = this.updateSaturation(color.saturation, size / 2, steps % (size / 2));
+                var brightness = this.updateBrightness(color.value, size / 2, steps % (size / 2));
             }
 
             if (saturation > 100 || brightness > 100) {
@@ -1516,7 +1599,7 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         ColorSample.prototype.pickColor = function pickColor () {
-            if (this.uid%pallete_size == 0) {
+            if (this.uid % pallete_size === 0) {
                 globalChange = 0;
             } else {
                 globalChange = this.uid;
@@ -1557,11 +1640,11 @@ var ColorPickerTool = (function ColorPickerTool () {
         var createTriadicPalette = function createTriadicPalette () {
             var palette = new Palette('Triadic', pallete_size);
 
-            UIColorPicker.subscribe('picker', function(color) {
-                if (globalChange/pallete_size > 0 && globalChange/pallete_size < 1) {
-                    var i = globalChange%pallete_size;
+            UIColorPicker.subscribe('picker', function (color) {
+                if (globalChange / pallete_size > 0 && globalChange / pallete_size < 1) {
+                    var i = globalChange % pallete_size;
                     palette.samples[i].updateTriadic(color, pallete_size, i);
-                } else if (globalChange == 0){
+                } else if (globalChange === 0) {
                     for (var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateTriadic(color, pallete_size, i);
                     }
@@ -1574,11 +1657,11 @@ var ColorPickerTool = (function ColorPickerTool () {
         var createComplementaryPalette = function createComplementaryPalette () {
             var palette = new Palette('Complementary', pallete_size);
 
-            UIColorPicker.subscribe('picker', function(color) {
-                if (globalChange/pallete_size > 1 && globalChange/pallete_size < 2) {
-                    var i = globalChange%pallete_size;
+            UIColorPicker.subscribe('picker', function (color) {
+                if (globalChange / pallete_size > 1 && globalChange / pallete_size < 2) {
+                    var i = globalChange % pallete_size;
                     palette.samples[i].updateComplementary(color, pallete_size, i);
-                } else if (globalChange == 0){
+                } else if (globalChange === 0) {
                     for (var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateComplementary(color, pallete_size, i);
                     }
@@ -1592,11 +1675,11 @@ var ColorPickerTool = (function ColorPickerTool () {
         var createAdjacentPalette = function createAdjacentPalette () {
             var palette = new Palette('Adjacent', pallete_size);
 
-            UIColorPicker.subscribe('picker', function(color) {
-                if (globalChange/pallete_size > 2 && globalChange/pallete_size < 3) {
-                    var i = globalChange%pallete_size;
+            UIColorPicker.subscribe('picker', function (color) {
+                if (globalChange / pallete_size > 2 && globalChange / pallete_size < 3) {
+                    var i = globalChange % pallete_size;
                     palette.samples[i].updateAdjacent(color, pallete_size, i);
-                } else if (globalChange == 0){
+                } else if (globalChange === 0) {
                     for (var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateAdjacent(color, pallete_size, i);
                     }
@@ -1617,14 +1700,13 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         var createMonochromePalette = function createMonochromePalette () {
-
             var palette = new Palette('Monochrome', pallete_size);
 
-            UIColorPicker.subscribe('picker', function(color) {
-                if (globalChange/pallete_size > 3) {
-                    var i = globalChange%pallete_size;
+            UIColorPicker.subscribe('picker', function (color) {
+                if (globalChange / pallete_size > 3) {
+                    var i = globalChange % pallete_size;
                     palette.samples[i].updateMonochrome(color, pallete_size, i);
-                } else if (globalChange == 0){
+                } else if (globalChange === 0) {
                     for (var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateMonochrome(color, pallete_size, i);
                     }
@@ -1635,8 +1717,9 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         var getSampleColor = function getSampleColor (id) {
-            if (samples[id] !== undefined && samples[id]!== null)
+            if (samples[id] !== undefined && samples[id] !== null) {
                 return new Color(samples[id].color);
+            }
         };
 
         var init = function init () {
@@ -1646,21 +1729,18 @@ var ColorPickerTool = (function ColorPickerTool () {
             createComplementaryPalette();
             createAdjacentPalette();
             createMonochromePalette();
-
         };
 
         return {
             init : init,
             getSampleColor : getSampleColor
         };
-
     })();
 
     /**
      * Canvas Samples
      */
     var CanvasSamples = (function CanvasSamples () {
-
         var active = null;
         var canvas = null;
         var samples = [];
@@ -1668,7 +1748,6 @@ var ColorPickerTool = (function ColorPickerTool () {
         var tutorial = true;
 
         var CanvasSample = function CanvasSample (color, posX, posY) {
-
             var node = document.createElement('div');
             var pick = document.createElement('div');
             var delete_btn = document.createElement('div');
@@ -1689,7 +1768,7 @@ var ColorPickerTool = (function ColorPickerTool () {
             node.appendChild(pick);
             node.appendChild(delete_btn);
 
-            var activate = function activate() {
+            var activate = function activate () {
                 setActiveSample(this);
             }.bind(this);
 
@@ -1733,8 +1812,9 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         CanvasSample.prototype.deleteSample = function deleteSample () {
-            if (active === this)
+            if (active === this) {
                 unsetActiveSample();
+            }
             canvas.removeChild(this.node);
             samples[this.uid] = null;
         };
@@ -1758,7 +1838,6 @@ var ColorPickerTool = (function ColorPickerTool () {
                     info.node.setAttribute('data-tutorial', 'dblclick');
                 }
             }
-
         };
 
         var setActiveSample = function setActiveSample (sample) {
@@ -1769,8 +1848,9 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         var unsetActiveSample = function unsetActiveSample () {
-            if (active)
+            if (active) {
                 active.deactivate();
+            }
             active = null;
         };
 
@@ -1786,28 +1866,31 @@ var ColorPickerTool = (function ColorPickerTool () {
 
         node.addEventListener('click', function () {
             this.state = !this.state;
-            if (typeof this.callback === 'function')
+            if (typeof this.callback === 'function') {
                 this.callback(this.state);
+            }
         }.bind(this));
     };
 
     StateButton.prototype.set = function set () {
         this.state = true;
-        if (typeof this.callback === 'function')
+        if (typeof this.callback === 'function') {
             this.callback(this.state);
+        }
     };
 
     StateButton.prototype.unset = function unset () {
         this.state = false;
-        if (typeof this.callback === 'function')
+        if (typeof this.callback === 'function') {
             this.callback(this.state);
+        }
     };
 
     StateButton.prototype.subscribe = function subscribe (func) {
         this.callback = func;
     };
 
-    var init = function init() {
+    var init = function init () {
         UIColorPicker.init();
         InputSliderManager.init();
         ColorPalette.init();
@@ -1816,5 +1899,4 @@ var ColorPickerTool = (function ColorPickerTool () {
     return {
         init : init
     };
-
 })();
