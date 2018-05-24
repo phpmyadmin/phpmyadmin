@@ -51,8 +51,18 @@ class Scripts
             if (strpos($value['filename'], ".php") !== false) {
                 $file_name = $value['filename'] . Url::getCommon($value['params'] + ['v' => PMA_VERSION]);
                 $result .= "<script data-cfasync='false' "
-                    . "type='text/javascript' src='http://localhost:3307/js/dist/" . $file_name
+                    . "type='text/javascript' src='js/" . $file_name
                     . "'></script>\n";
+            } else if (strpos($value['filename'], "_new") !== false) {
+                /* new directory */
+                if ($GLOBALS['cfg']['environment'] === 'development') {
+                    $src = "http://localhost:" . $GLOBALS['cfg']['webpack_port'] . "/";
+                } else if ($GLOBALS['cfg']['environment'] === 'production'){
+                    $src = "";
+                }
+                $result .= '<script data-cfasync="false" type="text/javascript" src="' . $src . 'js/dist/'
+                    .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
+                /* new directory */
             } else {
                 $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
                     . $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";

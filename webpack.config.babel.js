@@ -9,13 +9,10 @@ var module = {
         { test: /\.(js)$/, use: 'babel-loader', exclude: /node_modules/ }
     ]
 };
-var resolve = {
-    extensions: ['.js']
-};
 var devServer = {
     // port number of dev server
     port: 3307,
-    // hot: true,
+    hot: false,
     headers: {
         'Access-Control-Allow-Origin': '*'
     }
@@ -24,7 +21,7 @@ var plugins = [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
 ];
 
 export default [{
@@ -40,7 +37,9 @@ export default [{
     },
     module: module,
     // devtool: 'source-map',
-    resolve: resolve,
+    resolve: {
+        extensions: ['.js']
+    },
     devServer: devServer,
     plugins: plugins
 }];

@@ -746,7 +746,20 @@ var AJAX = {
             var self = this;
 
             script.type = 'text/javascript';
-            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+            /* new directory */
+            var check = name.split('_');
+            if (check[check.length - 1] === 'new') {
+                var script_src = '';
+                if (PMA_commonParams.get('environment') === 'development') {
+                    script_src += 'http://localhost:' + PMA_commonParams.get('webpack_port') + '/js/dist/';
+                } else if (PMA_commonParams.get('environment') === 'production') {
+                    script_src = 'js/dist/';
+                }
+                script.src = script_src + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+            } else {
+                script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+            }
+            /* new directory */
             script.async = false;
             script.onload = function () {
                 self.done(name, callback);

@@ -12,6 +12,7 @@ build:
         test:
             environment:
                 php: 7.1
+                node: '8.11.3'
             dependencies:
                 before:
                     - composer install
