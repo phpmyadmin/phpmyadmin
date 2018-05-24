@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-05-11 08:12+0000\n"
+"PO-Revision-Date: 2018-05-25 03:36+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -13649,7 +13649,7 @@ msgstr "Največja velikost: %s %s"
 
 #: libraries/classes/Util.php:549
 msgid "Static analysis:"
-msgstr "Statični analiza:"
+msgstr "Statična analiza:"
 
 #: libraries/classes/Util.php:552
 #, php-format
