@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\SqlParser\Components\Limit;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
@@ -199,12 +201,22 @@ class TableChartController extends TableController
             include './libraries/tbl_common.inc.php';
         }
 
-        $sql_with_limit = sprintf(
-            'SELECT * FROM(%s) AS `temp_res` LIMIT %s, %s',
-            $this->sql_query,
-            $_REQUEST['pos'],
-            $_REQUEST['session_max_rows']
-        );
+        $parser = new Parser($this->sql_query);
+        $statement = $parser->statements[0];
+        if (empty($statement->limit)) {
+            $statement->limit = new Limit(
+                $_REQUEST['session_max_rows'], $_REQUEST['pos']
+            );
+        } else {
+            $start = $statement->limit->offset + $_REQUEST['pos'];
+            $rows = min(
+                $_REQUEST['session_max_rows'],
+                $statement->limit->rowCount - $_REQUEST['pos']
+            );
+            $statement->limit = new Limit($rows, $start);
+        }
+        $sql_with_limit = $statement->build();
+
         $data = array();
         $result = $this->dbi->tryQuery($sql_with_limit);
         while ($row = $this->dbi->fetchAssoc($result)) {

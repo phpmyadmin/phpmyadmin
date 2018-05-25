@@ -316,20 +316,20 @@ class TableSearchControllerTest extends PmaTestCase
         );
 
         $_POST['criteriaColumnNames'] = array(
-            'b', 'a'
+            'b', 'a', 'c', 'd'
         );
         $_POST['criteriaColumnOperators'] = array(
-            '<=', '='
+            '<=', '=', 'IS NULL', 'IS NOT NULL'
         );
         $_POST['criteriaValues'] = array(
-            '10', '2'
+            '10', '2', '', ''
         );
         $_POST['criteriaColumnTypes'] = array(
-            'int(11)', 'int(11)'
+            'int(11)', 'int(11)', 'int(11)', 'int(11)'
         );
         $result = $method->invoke($ctrl);
         $this->assertEquals(
-            ' WHERE `b` <= 10 AND `a` = 2',
+            ' WHERE `b` <= 10 AND `a` = 2 AND `c` IS NULL AND `d` IS NOT NULL',
             $result
         );
     }

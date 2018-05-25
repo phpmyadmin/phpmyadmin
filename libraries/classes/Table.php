@@ -566,6 +566,7 @@ class Table
                 }
                 // else fall-through intended, no break here
             case 'CURRENT_TIMESTAMP' :
+            case 'current_timestamp()':
                 $query .= ' DEFAULT ' . $default_type;
 
                 if (strlen($length) !== 0

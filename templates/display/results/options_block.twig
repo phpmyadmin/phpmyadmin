@@ -73,22 +73,40 @@
                 } only %}
             </div>
 
-            <div class="formelement">
-                {{ Util_getRadioFields(
-                    'geoOption',
-                    {
-                        'GEOM': 'Geometry'|trans,
-                        'WKT': 'Well Known Text'|trans,
-                        'WKB': 'Well Known Binary'|trans
-                    },
-                    geo_option,
-                    true,
-                    true,
-                    '',
-                    'geoOption_' ~ unique_id
-                ) }}
-            </div>
 
+            {% if possible_as_geometry %}
+                <div class="formelement">
+                    {{ Util_getRadioFields(
+                        'geoOption',
+                        {
+                            'GEOM': 'Geometry'|trans,
+                            'WKT': 'Well Known Text'|trans,
+                            'WKB': 'Well Known Binary'|trans
+                        },
+                        geo_option,
+                        true,
+                        true,
+                        '',
+                        'geoOption_' ~ unique_id
+                    ) }}
+                </div>
+            {% else %}
+                <div class="formelement">
+                    {{ possible_as_geometry }}
+                    {{ Util_getRadioFields(
+                        'geoOption',
+                        {
+                            'WKT': 'Well Known Text'|trans,
+                            'WKB': 'Well Known Binary'|trans
+                        },
+                        geo_option,
+                        true,
+                        true,
+                        '',
+                        'geoOption_' ~ unique_id
+                    ) }}
+                </div>
+            {% endif %}
             <div class="clearfloat"></div>
         </fieldset>
 

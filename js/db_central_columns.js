@@ -165,6 +165,7 @@ AJAX.registerOnload('db_central_columns.js', function () {
                         false
                     );
                 } else {
+                    $('#f_' + rownum + ' td input[id=checkbox_row_' + rownum + ']').val($('#f_' + rownum + ' input[name=col_name]').val()).html();
                     $('#f_' + rownum + ' td[name=col_name] span').text($('#f_' + rownum + ' input[name=col_name]').val()).html();
                     $('#f_' + rownum + ' td[name=col_type] span').text($('#f_' + rownum + ' select[name=col_type]').val()).html();
                     $('#f_' + rownum + ' td[name=col_length] span').text($('#f_' + rownum + ' input[name=col_length]').val()).html();

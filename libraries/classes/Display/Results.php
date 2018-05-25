@@ -1678,6 +1678,11 @@ class Results
      */
     private function _getOptionsBlock()
     {
+        if(isset($_SESSION['tmpval']['possible_as_geometry']) && $_SESSION['tmpval']['possible_as_geometry'] == false) {
+            if($_SESSION['tmpval']['geoOption'] == self::GEOMETRY_DISP_GEOM) {
+                $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
+            }
+        }
         return Template::get('display/results/options_block')->render([
             'unique_id' => $this->__get('unique_id'),
             'geo_option' => $_SESSION['tmpval']['geoOption'],
@@ -1687,6 +1692,7 @@ class Results
             'relational_display' => $_SESSION['tmpval']['relational_display'],
             'displaywork' => $GLOBALS['cfgRelation']['displaywork'],
             'relwork' => $GLOBALS['cfgRelation']['relwork'],
+            'possible_as_geometry' => $_SESSION['tmpval']['possible_as_geometry'],
             'pftext' => $_SESSION['tmpval']['pftext'],
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
@@ -5295,11 +5301,11 @@ class Results
                     // user chose "relational key" in the display options, so
                     // the title contains the display field
                     $title = (! empty($dispval))
-                        ? ' title="' . htmlspecialchars($dispval) . '"'
+                        ? htmlspecialchars($dispval)
                         : '';
 
                 } else {
-                    $title = ' title="' . htmlspecialchars($data) . '"';
+                    $title = htmlspecialchars($data);
                 }
 
                 $_url_params = array(
@@ -5314,14 +5320,10 @@ class Results
                         . $where_comparison,
                 );
 
-                $result .= '<a class="ajax" href="sql.php'
-                    . Url::getCommon($_url_params)
-                    . '"' . $title . '>';
-
                 if ($transformation_plugin != $default_function) {
                     // always apply a transformation on the real data,
                     // not on the display field
-                    $result .= $transformation_plugin->applyTransformation(
+                    $message = $transformation_plugin->applyTransformation(
                         $data,
                         $transform_options,
                         $meta
@@ -5333,14 +5335,22 @@ class Results
                     ) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $result .= $default_function($dispval);
+                        $message = $default_function($dispval);
                     } else {
                         // otherwise display data in the cell
-                        $result .= $default_function($data);
+                        $message = $default_function($data);
                     }
 
                 }
-                $result .= '</a>';
+
+                $tag_params = array('title' => $title);
+                if (strpos($class, 'grid_edit') !== false) {
+                    $tag_params['class'] = 'ajax';
+                }
+                $result .= Util::linkOrButton(
+                    'sql.php' . Url::getCommon($_url_params),
+                    $message, $tag_params
+                );
             }
 
         } else {

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-11 23:39+0000\n"
+"PO-Revision-Date: 2018-05-24 23:40+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nb/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -657,7 +657,7 @@ msgstr "Endre passord"
 
 #: index.php:253 libraries/classes/Config/Descriptions.php:1488
 msgid "Server connection collation"
-msgstr "Servertilkobling kollasjon"
+msgstr "Tjenertilkobling kollasjon"
 
 #: index.php:276
 msgid "Appearance settings"
@@ -703,7 +703,7 @@ msgstr "Tjener-tegnsett:"
 
 #: index.php:377
 msgid "Web server"
-msgstr "Webserver"
+msgstr "Vevtjener"
 
 #: index.php:388
 msgid "Database client version:"
@@ -1370,7 +1370,7 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
-"slow_query_log er aktivert, men serveren loggfører kun spørringer som tar "
+"slow_query_log er aktivert, men tjeneren loggfører kun spørringer som tar "
 "lenger enn %d sekunder. Avhengig av ditt system, er det tilrådelig å sette "
 "long_query_time til 0-2 sekunder."
 
@@ -1385,7 +1385,7 @@ msgid ""
 "restart:"
 msgstr ""
 "Følgende innstillinger blir lagt til globalt og endret til default ved "
-"omstart av server:"
+"omstart av tjener:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:239
@@ -1455,7 +1455,7 @@ msgstr "Fra generell logg"
 
 #: js/messages.php:262
 msgid "The database name is not known for this query in the server's logs."
-msgstr "Databasenavnet er ukjent for denne spørring i serverens logger."
+msgstr "Databasenavnet er ukjent for denne spørringen i tjenerens logger."
 
 #: js/messages.php:264
 msgid "Analysing logs"
@@ -2569,11 +2569,11 @@ msgstr ""
 
 #: js/messages.php:694 js/messages.php:707
 msgid "Some errors have been detected on the server!"
-msgstr "Noen feil har blitt oppdaget på serveren!"
+msgstr "Noen feil har blitt oppdaget på tjeneren!"
 
 #: js/messages.php:696
 msgid "Please look at the bottom of this window."
-msgstr "Vennligst se nederst i dette vinduet."
+msgstr "Ta en titt nederst i dette vinduet."
 
 #: js/messages.php:702 libraries/classes/ErrorHandler.php:375
 msgid "Ignore All"
@@ -2936,79 +2936,71 @@ msgstr ""
 
 #: js/messages.php:918
 msgid "Please fix this field"
-msgstr "Vennligst ordne dette feltet"
+msgstr "Ordne dette feltet"
 
 #: js/messages.php:919
 msgid "Please enter a valid email address"
-msgstr "Vennligst tast inn en gyldig e-post adresse"
+msgstr "Tast inn en gyldig e-postadresse"
 
 #: js/messages.php:920
 msgid "Please enter a valid URL"
-msgstr "Vennligst tast inn en gyldig URL"
+msgstr "Tast inn en gyldig nettadresse"
 
 #: js/messages.php:921
 msgid "Please enter a valid date"
-msgstr "Vennligst tast inn en gyldig dato"
+msgstr "Tast inn en gyldig dato"
 
 #: js/messages.php:924
 msgid "Please enter a valid date ( ISO )"
-msgstr "Vennligst tast inn en gyldig dato ( ISO )"
+msgstr "Tast inn en gyldig dato ( ISO )"
 
 #: js/messages.php:926
 msgid "Please enter a valid number"
-msgstr "Vennligst tast inn et gyldig tall"
+msgstr "Tast inn et gyldig tall"
 
 #: js/messages.php:929
 msgid "Please enter a valid credit card number"
-msgstr "Vennligst tast inn et gyldig kreditkort nummer"
+msgstr "Tast inn et gyldig bankkortnummer"
 
 #: js/messages.php:931
 msgid "Please enter only digits"
-msgstr "Vennligst oppgi kun tall"
+msgstr "Kun skriv inn tall"
 
 #: js/messages.php:934
 msgid "Please enter the same value again"
-msgstr "Vennligst tast inn den samme verdien igjen"
+msgstr "Tast inn den samme verdien igjen"
 
 #: js/messages.php:938
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "Ikke skriv inn mer enn {0} tegn"
 
 #: js/messages.php:943
 msgid "Please enter at least {0} characters"
-msgstr "Vennligst tast inn minst {0} tegn"
+msgstr "Tast inn minst {0} tegn"
 
 #: js/messages.php:948
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "Skriv inn en verdi mellom {0} og {1} tegn lang"
 
 #: js/messages.php:953
 msgid "Please enter a value between {0} and {1}"
-msgstr "Vennligst tast inn en verdi mellom {0} og {1}"
+msgstr "Tast inn en verdi mellom {0} og {1}"
 
 #: js/messages.php:958
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
-msgstr "Vennligst oppgi en gyldig lengde!"
+msgstr "Angi en verdi mindre eller lik {0}"
 
 #: js/messages.php:963
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "Vennligst tast inn et gyldig tall!"
+msgstr "Tast inn en verdi større eller lik {0}"
 
 #: js/messages.php:969
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid date or time"
-msgstr "Vennligst tast inn et gyldig tall!"
+msgstr "Skriv inn gyldig dato eller tid"
 
 #: js/messages.php:974
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
-msgstr "Vennligst tast inn et gyldig tall!"
+msgstr "Fyll inn gyldig heksadesimal inndata"
 
 #: js/messages.php:979 libraries/classes/Core.php:296
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1490
@@ -3117,18 +3109,18 @@ msgid "Page number:"
 msgstr "Sidenummer:"
 
 #: libraries/classes/CentralColumns.php:220
+#, fuzzy
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
-"Konfigurasjon's lagring er ikke klar for den sentrale liste over kolonner "
+"Oppsettets lager er ikke klar for den sentrale liste over kolonner "
 "funksjonen."
 
 #: libraries/classes/CentralColumns.php:355
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
-"Kunne ikke legge til %1$s ettersom den allerede finnes i sentral listen!"
+msgstr "Kunne ikke legge til %1$s ettersom den allerede finnes i sentrallisten!"
 
 #: libraries/classes/CentralColumns.php:370
 msgid "Could not add columns!"
@@ -3665,21 +3657,18 @@ msgstr "Ugyldig tjenerindeks: \"%s\""
 #: libraries/classes/Config.php:1783
 #, php-format
 msgid "Server %d"
-msgstr "Server %d"
+msgstr "Tjener %d"
 
 #: libraries/classes/Config/Descriptions.php:62
-#, fuzzy
-#| msgid ""
-#| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
-"Hvis tillatt kan brukere skrive inn hvilke som helst MySQL tjener i "
-"innloggingsskjemaet for cookie autentisering"
+"Hvis tillatt, kan brukere skrive inn hvilke som helst MySQL tjener i "
+"innloggingsskjemaet for kakeidentifisering."
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
-msgstr "Tillat innlogging til hvilke som helst MySQL tjener"
+msgstr "Tillat innlogging til vilkårlig MySQL-tjener"
 
 #: libraries/classes/Config/Descriptions.php:67
 msgid ""
@@ -6905,7 +6894,7 @@ msgstr ""
 #: libraries/classes/Config/ServerConfigChecks.php:169
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
-"Du bør bruke SSL tilkobling dersom din database server har støtte for det."
+"Du bør bruke SSL-tilkobling dersom din databasetjener har støtte for det."
 
 #: libraries/classes/Config/ServerConfigChecks.php:176
 #, fuzzy
@@ -8294,13 +8283,13 @@ msgstr "Ikke nok plass til å lagre filen %s."
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"Filen %s eksisterer alt på serveren, endre navnet eller merk av for "
+"Filen %s eksisterer alt på tjeneren, endre navnet eller merk av for "
 "overskriving av fil."
 
 #: libraries/classes/Export.php:358 libraries/classes/Export.php:366
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "Webserveren har ikke tillatelse til å lagre filen %s."
+msgstr "Vevtjeneren har ikke tillatelse til å lagre filen %s."
 
 #: libraries/classes/Export.php:400
 #, php-format
@@ -9718,18 +9707,18 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
-"phpMyAdmin forsøkte å koble til MySQL-serveren, og serveren avviste "
+"phpMyAdmin forsøkte å koble til MySQL-tjeneren, og tjeneren avviste "
 "tilkoblingen. Du må kontrollere vert (host), brukernavn (username) og "
 "passord (password) i config.inc.php og sjekke at de tilsvarer den "
-"informasjonen du fikk fra MySQL-server administratoren."
+"informasjonen du fikk fra MySQL-tjeneradministratoren."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:153
 msgid "Retry to connect"
-msgstr ""
+msgstr "Prøv igjen for å koble til"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:134
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "Økten din har utløpt. Prøv igjen."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:154
 msgid "Log in"
@@ -10102,14 +10091,14 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
-"Vis kommentarer <i>(inkluderer info som eksport tidsstempel, PHP versjon, og "
-"server versjon)</i>"
+"Vis kommentarer <i>(inkluderer info som eksporteringstidsstempel, PHP-"
+"versjon, og tjenerversjon)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:110
-#, fuzzy
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Legg til egen kommentar i hodet (\\n lager linjeskift)"
+msgstr ""
+"Ytterligere egendefinert kommentar hodekommentar (\\n"
+" lager linjeskift):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:116
 msgid ""
@@ -11363,16 +11352,14 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
-"Forsikre deg om at du har unik server-id i din konfigurasjonsfil(my.cnf). "
-"Hvis ikke, legg til følgende linje i [mysqld] seksjonen:"
+"Forsikre deg om at du har unik server-id i din oppsettsfil(my.cnf). Hvis "
+"ikke, legg til følgende linje i [mysqld] seksjonen:"
 
 #: libraries/classes/ReplicationGui.php:424
 #: libraries/classes/ReplicationGui.php:795
 #: libraries/classes/Server/Privileges.php:1499
-#, fuzzy
-#| msgid "User name"
 msgid "User name:"
-msgstr "Brukernavn"
+msgstr "Brukernavn:"
 
 #: libraries/classes/ReplicationGui.php:430
 #: libraries/classes/ReplicationGui.php:799

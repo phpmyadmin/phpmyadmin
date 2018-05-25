@@ -1533,6 +1533,11 @@ class DatabaseInterface
     {
         // If Zero configuration mode enabled, check PMA tables in current db.
         if ($GLOBALS['cfg']['ZeroConf'] == true) {
+            /**
+             * the DatabaseList class as a stub for the ListDatabase class
+             */
+            $GLOBALS['dblist'] = new DatabaseList();
+
             if (strlen($GLOBALS['db'])) {
                 $cfgRelation = $this->relation->getRelationsParam();
                 if (empty($cfgRelation['db'])) {
