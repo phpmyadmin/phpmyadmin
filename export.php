@@ -1,11 +1,12 @@
 <?php
+declare(strict_types=1);
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Main export handling code
  *
  * @package PhpMyAdmin
  */
-declare(strict_types=1);
+
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
@@ -217,7 +218,7 @@ $compression_methods = array(
 /**
  * init and variable checking
  */
-$compression = false;
+$compression = '';
 $onserver = false;
 $save_on_server = false;
 $buffer_needed = false;
