@@ -153,8 +153,8 @@ var UIColorPicker = (function UIColorPicker () {
     Color.prototype.setHue = function setHue (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
             value < 0 || value > 359) {
-                return;
-            }
+            return;
+        }
         this.hue = value;
         this.updateRGB();
     };
@@ -162,8 +162,8 @@ var UIColorPicker = (function UIColorPicker () {
     Color.prototype.setSaturation = function setSaturation (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
             value < 0 || value > 100) {
-                return;
-            }
+            return;
+        }
         this.saturation = value;
         this.updateRGB();
     };
@@ -171,7 +171,7 @@ var UIColorPicker = (function UIColorPicker () {
     Color.prototype.setValue = function setValue (value) {
         if (typeof(value) !== 'number' || isNaN(value) === true ||
             value < 0 || value > 100) {
-                return;
+            return;
         }
         this.value = value;
         this.HSBtoRGB();
@@ -591,8 +591,7 @@ var UIColorPicker = (function UIColorPicker () {
         button.addEventListener('click', function () {
             if (this.picker_mode === 'HSB') {
                 this.setPickerMode('HSL');
-            }
-            else  {
+            } else {
                 this.setPickerMode('HSB');
             }
         }.bind(this));
@@ -734,7 +733,7 @@ var UIColorPicker = (function UIColorPicker () {
         if (this.picker_mode === 'HSB') {
             value = this.color.value;
         }
-        if (this.picker_mode === 'HSL'){
+        if (this.picker_mode === 'HSL') {
             value = this.color.lightness;
         }
 
@@ -838,8 +837,8 @@ var UIColorPicker = (function UIColorPicker () {
 
         if (typeof value === 'number' && isNaN(value) === false &&
             value >= 0 && value <= 1) {
-                this.color.a = value.toFixed(2);
-            }
+            this.color.a = value.toFixed(2);
+        }
 
         e.target.value = this.color.a;
         this.updateAlphaPicker();
@@ -975,7 +974,7 @@ var UIColorPicker = (function UIColorPicker () {
         unsubscribe : unsubscribe,
         setPickerMode : setPickerMode
     };
-})();
+}());
 
 /**
  * UI-SlidersManager
@@ -1255,12 +1254,12 @@ var InputSliderManager = (function InputSliderManager () {
         getPrecision : getPrecision,
         createSlider : createSlider,
     };
-})();
+}());
 
 
 'use strict';
 
-window.addEventListener("load", function () {
+window.addEventListener('load', function () {
     ColorPickerTool.init();
 });
 
@@ -1348,8 +1347,8 @@ var ColorPickerTool = (function ColorPickerTool () {
 
                 if (e.target.getAttribute('data-draggable') !== 'true' ||
                     e.target !== elem || e.button !== 0) {
-                        return;
-                    }
+                    return;
+                }
 
                 offsetLeft = e.clientX - elem.offsetLeft;
                 offsetTop = e.clientY - elem.offsetTop;
@@ -1379,7 +1378,7 @@ var ColorPickerTool = (function ColorPickerTool () {
             makeResizable : makeResizable,
             makeDraggable : makeDraggable
         };
-    })();
+    }());
 
     /* ========== Color Class ========== */
 
@@ -1735,7 +1734,7 @@ var ColorPickerTool = (function ColorPickerTool () {
             init : init,
             getSampleColor : getSampleColor
         };
-    })();
+    }());
 
     /**
      * Canvas Samples
@@ -1857,8 +1856,7 @@ var ColorPickerTool = (function ColorPickerTool () {
         return {
             unsetActiveSample : unsetActiveSample
         };
-
-    })();
+    }());
 
     var StateButton = function StateButton (node, state) {
         this.state = false;
@@ -1899,4 +1897,4 @@ var ColorPickerTool = (function ColorPickerTool () {
     return {
         init : init
     };
-})();
+}());
