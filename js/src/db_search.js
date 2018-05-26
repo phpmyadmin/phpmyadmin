@@ -15,6 +15,8 @@
  * Retrieve result of SQL query
  */
 
+import { PMA_ajaxShowMessage, PMA_sprintf, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
+
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -166,6 +168,7 @@ AJAX.registerOnload('db_search_new.js', function () {
             PMA_messages.strConfirmDeleteResults,
             $(this).data('table-name')
         );
+        console.log(msg);
         if (confirm(msg)) {
             let $msg = PMA_ajaxShowMessage(PMA_messages.strDeleting, false);
             /** Load the deleted option to the page*/
