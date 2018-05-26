@@ -21,12 +21,13 @@ $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
  * Working environment configuration
  * for development mode $cfg['environment'] = 'development',
  * for making production build $cfg['environment'] = 'production'
- * 
+ *
  */
 $cfg['environment'] = 'production';
 
 /**
- * Port number for running development sever of webpack
+ * Port number for running development sever of webpack while you
+ * are in development environment
  */
 $cfg['webpack_port'] = 3307;
 
