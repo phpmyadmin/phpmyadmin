@@ -6,6 +6,7 @@
  * @package PhpMyAdmin
  */
 use PhpMyAdmin\Response;
+use PhpMyAdmin\ThemeGenerator;
 
 require_once 'libraries/common.inc.php';
 
@@ -14,12 +15,8 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('theme_generator/color_picker.js');
 
-$response->addHTML('<div id="container">');
-$response->addHTML('<div id="palette" class="block">');
-$response->addHTML('<div id="color-palette"></div>');
-$response->addHTML('</div>');
-$response->addHTML('<div id="picker" class="block">');
-$response->addHTML('<div class="ui-color-picker" data-topic="picker" data-mode="HSB"></div>');
-$response->addHTML('<div id="picker-samples" sample-id="master"></div>');
-$response->addHTML('</div>');
-$response->addHTML('</div>');
+$theme = new ThemeGenerator();
+
+$response->addHTML($theme->colorPicker());
+$response->addHTML($theme->form());
+// $response->addHTML($_POST['Base_Colour']);
