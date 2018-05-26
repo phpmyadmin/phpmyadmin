@@ -1916,12 +1916,12 @@ window.onload = function () {
             input.value = tempHex;
             container.appendChild(input);
         }
+        console.log($(this).serialize());
         $.ajax({
             url: 'theme_generator.php',
             type: 'POST',
             data: $(this).serialize(),
             success: function (result) {
-                alert('success');
             }
         });
     });

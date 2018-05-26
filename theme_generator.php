@@ -20,3 +20,6 @@ $theme = new ThemeGenerator();
 $response->addHTML($theme->colorPicker());
 $response->addHTML($theme->form());
 // $response->addHTML($_POST['Base_Colour']);
+if (isset($_POST['Base_Colour'])) {
+    $theme->createLayoutFile($_POST['theme_name']);
+}
