@@ -40,10 +40,10 @@ var plugins = [
 export default [{
     mode: MODE,
     entry: {
-        db_search_new: './js/src/db_search.js'
+        index_new: './js/src/index.js'
     },
     output: {
-        filename: 'db_search_new.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'js/dist'),
         publicPath: PUBLIC_PATH
     },
