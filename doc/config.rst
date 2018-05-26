@@ -3406,7 +3406,7 @@ Developer
     :default: 3307
 
     Enable you to start webpack development server for serving js files
-    when woking in the development environment
+    when working in the development environment
 
 .. config:option:: $cfg['DBG']
 
