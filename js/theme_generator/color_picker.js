@@ -1900,18 +1900,18 @@ var ColorPickerTool = (function ColorPickerTool () {
 }());
 
 window.onload = function () {
-    $("#save").submit(function (event) {
+    $('#save').submit(function (event) {
         event.preventDefault();
         var selected = document.getElementById('theme').options.selectedIndex;
-        var palette = document.getElementsByClassName("palette")[selected];
+        var palette = document.getElementsByClassName('palette')[selected];
         var paletteLength = palette.childNodes.length;
-        var container = document.getElementById("save");
+        var container = document.getElementById('save');
 
         for (var i = 0; i < paletteLength; i++) {
             var temp = palette.childNodes[i].style.backgroundColor;
             var tempHex = rgbToHex(temp);
-            var input = document.createElement("input");
-            input.type = "hidden";
+            var input = document.createElement('input');
+            input.type = 'hidden';
             input.name = palette.childNodes[i].title;
             input.value = tempHex;
             container.appendChild(input);
@@ -1927,13 +1927,15 @@ window.onload = function () {
     });
 
     function rgbToHex (col) {
-        if(col.charAt(0)=='r') {
-            col=col.replace('rgb(','').replace(')','').split(',');
-            var r=parseInt(col[0], 10).toString(16);
-            var g=parseInt(col[1], 10).toString(16);
-            var b=parseInt(col[2], 10).toString(16);
-            r=r.length==1?'0'+r:r; g=g.length==1?'0'+g:g; b=b.length==1?'0'+b:b;
-            var colHex='#'+r+g+b;
+        if (col.charAt(0) === 'r') {
+            col = col.replace('rgb(','').replace(')','').split(',');
+            var r = parseInt(col[0], 10).toString(16);
+            var g = parseInt(col[1], 10).toString(16);
+            var b = parseInt(col[2], 10).toString(16);
+            r = r.length === 1 ? '0' + r : r;
+            g = g.length === 1 ? '0' + g : g;
+            b = b.length === 1 ? '0' + b : b;
+            var colHex = '#' + r + g + b;
             return colHex;
         }
     }
