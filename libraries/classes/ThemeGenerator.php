@@ -103,9 +103,9 @@ class ThemeGenerator
 
     /**
      * Creates navigation.css.php
-     * 
+     *
      * @param string $name name of new theme
-     * 
+     *
      * @return null
      */
     public function createNavigationFile($name)
@@ -503,7 +503,6 @@ class ThemeGenerator
         $txt .= '    float: left;';
         $txt .= '    padding: .1em .3em 0;';
         $txt .= '}';
-        
         fwrite($file, $txt);
         fclose($file);
         return null;
