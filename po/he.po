@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-05-23 01:55+0000\n"
+"PO-Revision-Date: 2018-05-29 00:08+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -5741,10 +5741,8 @@ msgid "The password for authenticating with the proxy."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1430
-#, fuzzy
-#| msgid "Password"
 msgid "Proxy password"
-msgstr "סיסמא"
+msgstr "ססמת המתווך"
 
 #: libraries/classes/Config/Descriptions.php:1433
 msgid "Enable ZIP compression for import and export operations."
@@ -5775,9 +5773,8 @@ msgid "Choose the default action when sending error reports."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1448
-#, fuzzy
 msgid "Send error reports"
-msgstr "קוד שרת (ID)"
+msgstr "שליחת דוחות שגיאה"
 
 #: libraries/classes/Config/Descriptions.php:1452
 msgid ""
@@ -5786,9 +5783,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1456
-#, fuzzy
 msgid "Enter executes queries in console"
-msgstr "שאילתת SQL"
+msgstr "Enter מפעיל שאילתות במסוף"
 
 #: libraries/classes/Config/Descriptions.php:1460
 msgid ""
@@ -5797,16 +5793,13 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1464
-#, fuzzy
-#| msgid "Local monitor configuration incompatible"
 msgid "Enable Zero Configuration mode"
-msgstr "תצורת מעקב מקומית אינה נתמכת"
+msgstr "הפעלת מצב אפס תצורה"
 
 #: libraries/classes/Config/Descriptions.php:1466
 #: templates/console/display.twig:153
-#, fuzzy
 msgid "Show query history at start"
-msgstr "שאילתת SQL"
+msgstr "הצגת היסטוריית שאילתות בהתחלה"
 
 #: libraries/classes/Config/Descriptions.php:1468
 #: templates/console/display.twig:149
@@ -6473,10 +6466,8 @@ msgid "possible exploit"
 msgstr ""
 
 #: libraries/classes/Database/Designer.php:123
-#, fuzzy
-#| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
-msgstr "לא ניתן לטעון את תוספי הייבוא, נא לבדוק האם ההתקנה שלך תקינה!"
+msgstr "לא ניתן לטעון את תוספי הסכמה, נא לבדוק האם ההתקנה שלך תקינה!"
 
 #: libraries/classes/Database/Designer/Common.php:563
 msgid "Error: relationship already exists."
@@ -7335,10 +7326,8 @@ msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
 #: libraries/classes/Footer.php:92
-#, fuzzy
-#| msgid "Version information"
 msgid "Git information missing!"
-msgstr "מידע גרסאות"
+msgstr "פרטי ה־Git חסרים!"
 
 #: libraries/classes/Footer.php:207 libraries/classes/Footer.php:211
 #: libraries/classes/Footer.php:214
@@ -7354,10 +7343,8 @@ msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
 #: libraries/classes/Header.php:775 templates/login/header.twig:8
-#, fuzzy
-#| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point!"
-msgstr "עוגיות (Cookies) חייבות לפעול מנקודה זאת."
+msgstr "יש להפעיל Javascript מעבר לנקודה זו!"
 
 #: libraries/classes/Import.php:130 libraries/classes/InsertEdit.php:184
 #: libraries/classes/Rte/Routines.php:1525 libraries/classes/Sql.php:1426
@@ -7415,9 +7402,8 @@ msgstr ""
 #: templates/table/structure/row_stats_table.twig:19
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
-#, fuzzy
 msgid "Options"
-msgstr "פעולות"
+msgstr "אפשרויות"
 
 #: libraries/classes/Import.php:1224
 #, php-format
@@ -7435,10 +7421,9 @@ msgid "Go to table: %s"
 msgstr "מעבר לטבלה: %s"
 
 #: libraries/classes/Import.php:1267
-#, fuzzy, php-format
-#| msgid "Structure only"
+#, php-format
 msgid "Structure of %s"
-msgstr "מבנה בלבד"
+msgstr "מבנה של %s"
 
 #: libraries/classes/Import.php:1285
 #, php-format
@@ -7456,10 +7441,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Index.php:658
-#, fuzzy, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "יצירת אינדקס על&nbsp;%s&nbsp; עמודות"
+msgstr "יצירת אינדקס על &nbsp;%s&nbsp; עמודות"
 
 #: libraries/classes/Index.php:690
 msgid "No index defined!"
@@ -7501,9 +7485,8 @@ msgstr "מספור"
 #: templates/table/tracking/structure_snapshot_columns.twig:12
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
 #: templates/table/structure/display_partitions.twig:31
-#, fuzzy
 msgid "Comment"
-msgstr "הערות"
+msgstr "הערה"
 
 #: libraries/classes/Index.php:753
 msgid "The primary key has been dropped."
@@ -16951,6 +16934,9 @@ msgid ""
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"הגדרת {concurrent_insert} ל־1 מקטינה את המחלוקת בין הקוראים והכותבים לטבלה "
+"מסוימת. ניתן גם לעיין ב<a href=\"https://dev.mysql.com/doc/refman/5.5/en/"
+"concurrent-inserts.html\">תיעוד שלMySQL</a>"
 
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
