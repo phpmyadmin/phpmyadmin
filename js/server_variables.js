@@ -29,11 +29,11 @@ AJAX.registerOnload('server_variables.js', function () {
         var $cell = $link.parent();
         var $valueCell = $link.parents('.var-row').find('.var-value');
         var varName = $link.data('variable');
+
         var $mySaveLink = $saveLink.clone().css('display', 'inline-block');
         var $myCancelLink = $cancelLink.clone().css('display', 'inline-block');
         var $msgbox = PMA_ajaxShowMessage();
         var $myEditLink = $cell.find('a.editLink');
-
         $cell.addClass('edit'); // variable is being edited
         $myEditLink.remove(); // remove edit link
 
@@ -87,7 +87,9 @@ AJAX.registerOnload('server_variables.js', function () {
                     );
                     // Save and replace content
                 $cell
-                    .html($links);
+                    .html($links)
+                    .children()
+                    .css('display', 'flex');
                 $valueCell
                     .data('content', $valueCell.html())
                     .html($editor)
