@@ -624,12 +624,12 @@ class ImportCsv extends AbstractImportCsv
                     $i = 0;
                     $lasti = -1;
                     $ch = mb_substr($buffer, 0, 1);
-                    if($max_lines > 0 && $line == $max_lines_constraint){
+                    if($max_lines > 0 && $line == $max_lines_constraint) {
                         break;
                     }
                 }
             } // End of parser loop
-            if($max_lines > 0 && $line == $max_lines_constraint){
+            if($max_lines > 0 && $line == $max_lines_constraint) {
                 break;
             }
         } // End of import loop

@@ -1005,6 +1005,29 @@ AJAX.registerOnload('functions.js', function () {
 AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', 'input:checkbox.checkall');
 });
+AJAX.registerOnload('functions.js', function(){
+    if($("#new_csv_db_name").length > 0) {
+        var params = {
+            'ajax_request' : true,
+            'server' : PMA_commonParams.get('server'),
+            'db' : $("#new_csv_db_name").val(),
+            'table' : $("#new_csv_tbl_name").val(),
+            'table_type' : 'table',
+            'selected_fld' : $("#new_csv_tblcol_names").val().split(","),
+            'submit_mult' : 'change'
+        };
+        $.ajax({
+            type: 'POST',
+            url: 'tbl_structure.php',
+            data: params,
+            success: function (data) {
+                if (data.success) {
+                    $("<h3>You can change the table structure here</h3>" + data.message).insertAfter($("#new_csv_db_name").parent());
+                }
+            }
+        });
+    }
+});
 AJAX.registerOnload('functions.js', function () {
     /**
      * Row marking in horizontal mode (use "on" so that it works also for
