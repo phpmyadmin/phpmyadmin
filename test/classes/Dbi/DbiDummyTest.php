@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Dbi;
 
 use PHPUnit\Framework\TestCase;
 
@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @package PhpMyAdmin-test
  */
-class DummyDbiTest extends TestCase
+class DbiDummyTest extends TestCase
 {
     /**
      * Configures test parameters.
@@ -37,7 +37,7 @@ class DummyDbiTest extends TestCase
      *
      * @return void
      */
-    function testQuery()
+    public function testQuery()
     {
         $this->assertEquals(1000, $GLOBALS['dbi']->tryQuery('SELECT 1'));
     }
@@ -49,7 +49,7 @@ class DummyDbiTest extends TestCase
      *
      * @return void
      */
-    function testFetch()
+    public function testFetch()
     {
         $result = $GLOBALS['dbi']->tryQuery('SELECT 1');
         $this->assertEquals(array('1'), $GLOBALS['dbi']->fetchArray($result));
@@ -65,7 +65,7 @@ class DummyDbiTest extends TestCase
      *
      * @dataProvider schemaData
      */
-    function testSystemSchema($schema, $expected)
+    public function testSystemSchema($schema, $expected)
     {
         $this->assertEquals($expected, $GLOBALS['dbi']->isSystemSchema($schema));
     }
@@ -75,7 +75,7 @@ class DummyDbiTest extends TestCase
      *
      * @return array with test data
      */
-    function schemaData()
+    public function schemaData()
     {
         return array(
             array('information_schema', true),
@@ -94,7 +94,7 @@ class DummyDbiTest extends TestCase
      *
      * @dataProvider errorData
      */
-    function testFormatError($number, $message, $expected)
+    public function testFormatError($number, $message, $expected)
     {
         $GLOBALS['server'] = 1;
         $this->assertEquals(
@@ -108,7 +108,7 @@ class DummyDbiTest extends TestCase
      *
      * @return array with test data
      */
-    function errorData()
+    public function errorData()
     {
         return array(
             array(1234, '', '#1234 - '),
