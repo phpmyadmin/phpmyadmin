@@ -20,7 +20,8 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Util;
 
-if (strlen($GLOBALS['db']) === 0) { /* Can't do server export */
+/* Can't do server export */
+if (!isset($GLOBALS['db']) || strlen($GLOBALS['db']) === 0) {
     $GLOBALS['skip_import'] = true;
     return;
 }
