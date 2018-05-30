@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-02-23 15:09+0000\n"
+"PO-Revision-Date: 2018-05-30 07:55+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ca/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -949,6 +949,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Esteu intentant reduir el nombre de files, però ja heu introduït dades en "
+"aquestes files, les quals es perdran. Voleu continuar?"
 
 #: js/messages.php:76
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1978,12 +1980,16 @@ msgstr "Navega pels valors forans"
 #: js/messages.php:425
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"No hi ha disponible cap consulta auto-desada prèviament. Es carrega la "
+"consulta predeterminada."
 
 #: js/messages.php:426
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Teniu una consulta desada prèviament. Feu clic a obtén la consulta auto-"
+"desada per carregar la consulta."
 
 #: js/messages.php:427
 #, php-format
@@ -2314,7 +2320,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "el valor/subconsulta està en blanc"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -13182,7 +13188,7 @@ msgstr "Neteja"
 
 #: libraries/classes/SqlQueryForm.php:252
 msgid "Get auto-saved query"
-msgstr "Obtén una consulta desada automàticament"
+msgstr "Obtén la consulta auto-desada"
 
 #: libraries/classes/SqlQueryForm.php:258
 msgid "Bind parameters"
@@ -14519,7 +14525,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:9
 msgid "Secret/key:"
-msgstr ""
+msgstr "Secret/clau:"
 
 #: templates/login/twofactor/application_configure.twig:12
 #: templates/login/twofactor/application.twig:2
@@ -16231,10 +16237,8 @@ msgstr ""
 "continuació, confirmeu la inscripció al dispositiu."
 
 #: templates/database/central_columns/table_header.twig:17
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Lenght/Value"
-msgstr "Longitud/Valors*"
+msgstr "Longitud/Valor"
 
 #: templates/database/central_columns/table_header.twig:29
 msgid "Attribute"
