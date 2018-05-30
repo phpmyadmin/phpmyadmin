@@ -210,7 +210,9 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT count(db_name) FROM `pma_central_columns` "
                 . "WHERE db_name = 'phpmyadmin';",
-                null, null, DatabaseInterface::CONNECT_CONTROL
+                null,
+                null,
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue([3])
@@ -255,7 +257,9 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT col_name FROM `pma_central_columns` "
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('col1');",
-                null, null, DatabaseInterface::CONNECT_CONTROL
+                null,
+                null,
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue(['col1'])
@@ -281,14 +285,16 @@ class CentralColumnsTest extends TestCase
 
         // when column does not exist in the central column list
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message', $this->centralColumns->deleteColumnsFromList(
+            'PhpMyAdmin\Message',
+            $this->centralColumns->deleteColumnsFromList(
                 ['column1'],
                 false
             )
         );
 
         $this->assertInstanceOf(
-            'PhpMyAdmin\Message', $this->centralColumns->deleteColumnsFromList(
+            'PhpMyAdmin\Message',
+            $this->centralColumns->deleteColumnsFromList(
                 ['PMA_table']
             )
         );
@@ -334,7 +340,9 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT col_name FROM `pma_central_columns` "
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
-                null, null, DatabaseInterface::CONNECT_CONTROL
+                null,
+                null,
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue(['id','col1'])
@@ -363,7 +371,9 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT * FROM `pma_central_columns` "
                 . "WHERE db_name = 'PMA_db' AND col_name IN ('id','col1','col2');",
-                null, null, DatabaseInterface::CONNECT_CONTROL
+                null,
+                null,
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue(array_slice($this->columnData, 0, 2))
@@ -387,12 +397,30 @@ class CentralColumnsTest extends TestCase
     {
         $this->assertTrue(
             $this->centralColumns->updateOneColumn(
-                "phpmyadmin", "", "", "", "", "", 0, "", "", ""
+                "phpmyadmin",
+                "",
+                "",
+                "",
+                "",
+                "",
+                0,
+                "",
+                "",
+                ""
             )
         );
         $this->assertTrue(
             $this->centralColumns->updateOneColumn(
-                "phpmyadmin", "col1", "", "", "", "", 0, "", "", ""
+                "phpmyadmin",
+                "col1",
+                "",
+                "",
+                "",
+                "",
+                0,
+                "",
+                "",
+                ""
             )
         );
     }
@@ -416,7 +444,6 @@ class CentralColumnsTest extends TestCase
         $this->assertTrue(
             $this->centralColumns->updateMultipleColumn()
         );
-
     }
 
     /**
@@ -431,7 +458,9 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT * FROM `pma_central_columns` "
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",
-                null, null, DatabaseInterface::CONNECT_CONTROL
+                null,
+                null,
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue($this->columnData)
@@ -477,7 +506,6 @@ class CentralColumnsTest extends TestCase
             $this->callProtectedMethod('getEditTableFooter'),
             $result
         );
-
     }
 
     /**
@@ -523,7 +551,10 @@ class CentralColumnsTest extends TestCase
         );
         $this->assertContains(
             Util::pageselector(
-                'pos', 10, 2, 3
+                'pos',
+                10,
+                2,
+                3
             ),
             $result_1
         );
@@ -545,7 +576,9 @@ class CentralColumnsTest extends TestCase
         $this->assertContains(
             '<thead',
             $this->centralColumns->getTableHeader(
-                'column_heading', __('Click to sort'), 2
+                'column_heading',
+                __('Click to sort'),
+                2
             )
         );
     }
@@ -562,7 +595,9 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT * FROM `pma_central_columns` "
                 . "WHERE db_name = 'phpmyadmin';",
-                null, null, DatabaseInterface::CONNECT_CONTROL
+                null,
+                null,
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue($this->columnData)
@@ -589,7 +624,9 @@ class CentralColumnsTest extends TestCase
                 "SELECT * FROM `pma_central_columns` "
                 . "WHERE db_name = 'phpmyadmin' AND col_name "
                 . "NOT IN ('id','col1','col2');",
-                null, null, DatabaseInterface::CONNECT_CONTROL
+                null,
+                null,
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue($this->columnData)
@@ -601,7 +638,6 @@ class CentralColumnsTest extends TestCase
                 'table1'
             )
         );
-
     }
 
     /**
@@ -658,7 +694,9 @@ class CentralColumnsTest extends TestCase
             ->with(
                 "SELECT * FROM `pma_central_columns` WHERE db_name = 'phpmyadmin'"
                 . " AND col_name IN ('col1');",
-                null, null, DatabaseInterface::CONNECT_CONTROL
+                null,
+                null,
+                DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
                 $this->returnValue(array_slice($this->columnData, 1, 1))

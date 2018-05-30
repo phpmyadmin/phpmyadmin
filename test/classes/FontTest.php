@@ -185,7 +185,6 @@ class FontTest extends PmaTestCase
             73,
             $this->font->getStringWidth("phpMyAdmin", "broadway", 10)
         );
-
     }
 
     /**
@@ -238,7 +237,9 @@ class FontTest extends PmaTestCase
         $this->assertEquals(
             6,
             $this->font->getStringWidth(
-                "a", "arial", 10,
+                "a",
+                "arial",
+                10,
                 [["chars" => "a"]]
             )
         );
@@ -248,7 +249,9 @@ class FontTest extends PmaTestCase
         $this->assertEquals(
             6,
             $this->font->getStringWidth(
-                "a", "arial", 10,
+                "a",
+                "arial",
+                10,
                 [["modifier" => 0.61]]
             )
         );
@@ -258,7 +261,9 @@ class FontTest extends PmaTestCase
         $this->assertEquals(
             6,
             $this->font->getStringWidth(
-                "a", "arial", 10,
+                "a",
+                "arial",
+                10,
                 [["chars" => "a", "modifier" => 0.61]]
             )
         );
@@ -267,7 +272,9 @@ class FontTest extends PmaTestCase
         $this->assertEquals(
             7,
             $this->font->getStringWidth(
-                "a", "arial", 10,
+                "a",
+                "arial",
+                10,
                 [["chars" => ["a"], "modifier" => 0.61]]
             )
         );

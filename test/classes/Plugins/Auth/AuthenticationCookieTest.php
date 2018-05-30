@@ -618,7 +618,6 @@ class AuthenticationCookieTest extends PmaTestCase
             '',
             $this->object->password
         );
-
     }
 
     /**
@@ -705,7 +704,6 @@ class AuthenticationCookieTest extends PmaTestCase
             $arr,
             $GLOBALS['cfg']['Server']
         );
-
     }
 
     /**
@@ -769,7 +767,6 @@ class AuthenticationCookieTest extends PmaTestCase
             'Login without a password is forbidden by configuration'
             . ' (see AllowNoPassword)'
         );
-
     }
 
     /**
@@ -1112,9 +1109,9 @@ class AuthenticationCookieTest extends PmaTestCase
         $method->setAccessible(true);
 
         $encryptedCookie = $this->object->cookieEncrypt(
-                                json_encode($payload),
-                                $method->invoke($this->object, null)
-                            );
+            json_encode($payload),
+            $method->invoke($this->object, null)
+        );
         $this->assertEquals(
             $_COOKIE['pmaAuth-' . $GLOBALS['server']],
             $encryptedCookie

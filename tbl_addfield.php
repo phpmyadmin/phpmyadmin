@@ -82,7 +82,8 @@ if (isset($_REQUEST['do_save_data'])) {
                     && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
                     $transformations->setMime(
-                        $db, $table,
+                        $db,
+                        $table,
                         $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],

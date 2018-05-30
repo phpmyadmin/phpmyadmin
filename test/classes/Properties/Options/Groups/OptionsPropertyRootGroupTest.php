@@ -66,5 +66,4 @@ class OptionsPropertyRootGroupTest extends TestCase
             $this->object
         );
     }
-
 }

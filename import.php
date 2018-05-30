@@ -49,7 +49,8 @@ $sql = new Sql();
 // If it's a refresh console bookmarks request
 if (isset($_REQUEST['console_bookmark_refresh'])) {
     $response->addJSON(
-        'console_message_bookmark', PhpMyAdmin\Console::getBookmarkContent()
+        'console_message_bookmark',
+        PhpMyAdmin\Console::getBookmarkContent()
     );
     exit;
 }
@@ -125,7 +126,6 @@ $ajax_reload = [];
 // Are we just executing plain query or sql file?
 // (eg. non import, but query box/window run)
 if (! empty($sql_query)) {
-
     // apply values for parameters
     if (! empty($_REQUEST['parameterized'])
         && ! empty($_REQUEST['parameters'])
@@ -337,86 +337,86 @@ $msg = 'Sorry an unexpected error happened!';
 if (! empty($_REQUEST['id_bookmark'])) {
     $id_bookmark = (int)$_REQUEST['id_bookmark'];
     switch ($_REQUEST['action_bookmark']) {
-    case 0: // bookmarked query that have to be run
-        $bookmark = Bookmark::get(
-            $GLOBALS['dbi'],
-            $GLOBALS['cfg']['Server']['user'],
-            $db,
-            $id_bookmark,
-            'id',
-            isset($_REQUEST['action_bookmark_all'])
-        );
-
-        if (! empty($_REQUEST['bookmark_variable'])) {
-            $import_text = $bookmark->applyVariables(
-                $_REQUEST['bookmark_variable']
+        case 0: // bookmarked query that have to be run
+            $bookmark = Bookmark::get(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                $db,
+                $id_bookmark,
+                'id',
+                isset($_REQUEST['action_bookmark_all'])
             );
-        } else {
-            $import_text = $bookmark->getQuery();
-        }
 
-        // refresh navigation and main panels
-        if (preg_match(
-            '/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
-            $import_text
-        )) {
-            $GLOBALS['reload'] = true;
-            $ajax_reload['reload'] = true;
-        }
-
-        // refresh navigation panel only
-        if (preg_match(
-            '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
-            $import_text
-        )
-        ) {
-            $ajax_reload['reload'] = true;
-        }
-        break;
-    case 1: // bookmarked query that have to be displayed
-        $bookmark = Bookmark::get(
-            $GLOBALS['dbi'],
-            $GLOBALS['cfg']['Server']['user'],
-            $db,
-            $id_bookmark
-        );
-        $import_text = $bookmark->getQuery();
-        if ($response->isAjax()) {
-            $message = PhpMyAdmin\Message::success(__('Showing bookmark'));
-            $response->setRequestStatus($message->isSuccess());
-            $response->addJSON('message', $message);
-            $response->addJSON('sql_query', $import_text);
-            $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
-            exit;
-        } else {
-            $run_query = false;
-        }
-        break;
-    case 2: // bookmarked query that have to be deleted
-        $bookmark = Bookmark::get(
-            $GLOBALS['dbi'],
-            $GLOBALS['cfg']['Server']['user'],
-            $db,
-            $id_bookmark
-        );
-        if (! empty($bookmark)) {
-            $bookmark->delete();
-            if ($response->isAjax()) {
-                $message = PhpMyAdmin\Message::success(
-                    __('The bookmark has been deleted.')
+            if (! empty($_REQUEST['bookmark_variable'])) {
+                $import_text = $bookmark->applyVariables(
+                    $_REQUEST['bookmark_variable']
                 );
+            } else {
+                $import_text = $bookmark->getQuery();
+            }
+
+            // refresh navigation and main panels
+            if (preg_match(
+                '/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+                $import_text
+            )) {
+                $GLOBALS['reload'] = true;
+                $ajax_reload['reload'] = true;
+            }
+
+            // refresh navigation panel only
+            if (preg_match(
+                '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
+                $import_text
+            )
+            ) {
+                $ajax_reload['reload'] = true;
+            }
+            break;
+        case 1: // bookmarked query that have to be displayed
+            $bookmark = Bookmark::get(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                $db,
+                $id_bookmark
+            );
+            $import_text = $bookmark->getQuery();
+            if ($response->isAjax()) {
+                $message = PhpMyAdmin\Message::success(__('Showing bookmark'));
                 $response->setRequestStatus($message->isSuccess());
                 $response->addJSON('message', $message);
+                $response->addJSON('sql_query', $import_text);
                 $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
-                $response->addJSON('id_bookmark', $id_bookmark);
                 exit;
             } else {
                 $run_query = false;
-                $error = true; // this is kind of hack to skip processing the query
             }
-        }
+            break;
+        case 2: // bookmarked query that have to be deleted
+            $bookmark = Bookmark::get(
+                $GLOBALS['dbi'],
+                $GLOBALS['cfg']['Server']['user'],
+                $db,
+                $id_bookmark
+            );
+            if (! empty($bookmark)) {
+                $bookmark->delete();
+                if ($response->isAjax()) {
+                    $message = PhpMyAdmin\Message::success(
+                        __('The bookmark has been deleted.')
+                    );
+                    $response->setRequestStatus($message->isSuccess());
+                    $response->addJSON('message', $message);
+                    $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
+                    $response->addJSON('id_bookmark', $id_bookmark);
+                    exit;
+                } else {
+                    $run_query = false;
+                    $error = true; // this is kind of hack to skip processing the query
+                }
+            }
 
-        break;
+            break;
     }
 } // end bookmarks reading
 
@@ -457,7 +457,6 @@ if (isset($_FILES['import_file'])) {
     $import_file = $_FILES['import_file']['tmp_name'];
 }
 if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
-
     // sanitize $local_import_file as it comes from a POST
     $local_import_file = Core::securePath($local_import_file);
 
@@ -472,7 +471,6 @@ if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
     if (@is_link($import_file)) {
         $import_file  = 'none';
     }
-
 } elseif (empty($import_file) || ! is_uploaded_file($import_file)) {
     $import_file  = 'none';
 }
@@ -586,7 +584,7 @@ if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
 } elseif (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 1) {
     $message = PhpMyAdmin\Message::notice(__('Showing bookmark'));
 } elseif ($bookmark_created) {
-    $special_message = '[br]'  . sprintf(
+    $special_message = '[br]' . sprintf(
         __('Bookmark %s has been created.'),
         htmlspecialchars($_POST['bkm_label'])
     );
@@ -674,13 +672,16 @@ if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 if (isset($my_die)) {
     foreach ($my_die as $key => $die) {
         PhpMyAdmin\Util::mysqlDie(
-            $die['error'], $die['sql'], false, $err_url, $error
+            $die['error'],
+            $die['sql'],
+            false,
+            $err_url,
+            $error
         );
     }
 }
 
 if ($go_sql) {
-
     if (! empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
         $_SESSION['is_multi_query'] = true;
         $sql_queries = $sql_data['valid_sql'];
@@ -691,7 +692,6 @@ if ($go_sql) {
     $html_output = '';
 
     foreach ($sql_queries as $sql_query) {
-
         // parse sql query
         list(
             $analyzed_sql_results,
@@ -703,7 +703,9 @@ if ($go_sql) {
 
         // Check if User is allowed to issue a 'DROP DATABASE' Statement
         if ($sql->hasNoRightsToDropDatabase(
-            $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['dbi']->isSuperuser()
+            $analyzed_sql_results,
+            $cfg['AllowUserDropDatabase'],
+            $GLOBALS['dbi']->isSuperuser()
         )) {
             PhpMyAdmin\Util::mysqlDie(
                 __('"DROP DATABASE" statements are disabled.'),
@@ -746,8 +748,10 @@ if ($go_sql) {
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $sql->storeTheQueryAsBookmark(
-            $db, $cfgBookmark['user'],
-            $_POST['sql_query'], $_POST['bkm_label'],
+            $db,
+            $cfgBookmark['user'],
+            $_POST['sql_query'],
+            $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
         );
     }
@@ -755,14 +759,15 @@ if ($go_sql) {
     $response->addJSON('ajax_reload', $ajax_reload);
     $response->addHTML($html_output);
     exit();
-
 } elseif ($result) {
     // Save a Bookmark with more than one queries (if Bookmark label given).
     if (! empty($_POST['bkm_label']) && ! empty($import_text)) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $sql->storeTheQueryAsBookmark(
-            $db, $cfgBookmark['user'],
-            $_POST['sql_query'], $_POST['bkm_label'],
+            $db,
+            $cfgBookmark['user'],
+            $_POST['sql_query'],
+            $_POST['bkm_label'],
             isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
         );
     }

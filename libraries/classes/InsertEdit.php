@@ -501,8 +501,8 @@ class InsertEdit
                 $foreignData
             ) . "\n";
 
-            $html_output .= '</select>' .  "\n";
-            $html_output .= '</td>' .  "\n";
+            $html_output .= '</select>' . "\n";
+            $html_output .= '</td>' . "\n";
         }
         return $html_output;
     }
@@ -565,7 +565,7 @@ class InsertEdit
         $html_output .= '<input type="hidden" class="nullify_code" name="nullify_code'
             . $column_name_appendix . '" value="' . $nullify_code . '" />';
         $html_output .= '<input type="hidden" class="hashed_field" name="hashed_field'
-            . $column_name_appendix . '" value="' .  $column['Field_md5'] . '" />';
+            . $column_name_appendix . '" value="' . $column['Field_md5'] . '" />';
         $html_output .= '<input type="hidden" class="multi_edit" name="multi_edit'
             . $column_name_appendix . '" value="' . Sanitize::escapeJsString($vkey) . '" />';
         $html_output .= '</td>' . "\n";
@@ -911,9 +911,9 @@ class InsertEdit
         $html_output .= '<input type="hidden"'
             . ' name="fields_type' . $column_name_appendix . '"';
         if ($column['is_binary']) {
-          $html_output .= ' value="hex" />';
+            $html_output .= ' value="hex" />';
         } else {
-          $html_output .= ' value="foreign" />';
+            $html_output .= ' value="foreign" />';
         }
 
         $html_output .= '<select name="fields' . $column_name_appendix . '"'
@@ -1193,7 +1193,7 @@ class InsertEdit
                 . '<input type="radio" name="fields' . $column_name_appendix . '"'
                 . ' class="textfield"'
                 . ' value="' . $enum_value['html'] . '"'
-                . ' id="field_' . ($idindex) . '_3_'  . $j . '"'
+                . ' id="field_' . ($idindex) . '_3_' . $j . '"'
                 . ' ' . $onChangeClause;
             if ($data == $enum_value['plain']
                 || ($data == ''
@@ -1515,7 +1515,7 @@ class InsertEdit
 
         if ($files === false) {
             return '<span style="color:red">' . __('Error') . '</span><br />' . "\n"
-                .  __('The directory you set for upload work cannot be reached.') . "\n";
+                . __('The directory you set for upload work cannot be reached.') . "\n";
         } elseif (!empty($files)) {
             return "<br />\n"
                 . '<i>' . __('Or') . '</i>' . ' '

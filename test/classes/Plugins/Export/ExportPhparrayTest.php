@@ -250,14 +250,18 @@ class ExportPhparrayTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", 'phpmyadmin.net/err', 'SELECT'
+                'db',
+                'table',
+                "\n",
+                'phpmyadmin.net/err',
+                'SELECT'
             )
         );
         $result = ob_get_clean();
 
         $this->assertEquals(
             "\n" . '/* `db`.`table` */' . "\n" .
-            '$table = array('  . "\n" .
+            '$table = array(' . "\n" .
             '  array(\'c1\' => 1,\'\' => \'a\')' . "\n" .
             ');' . "\n",
             $result
@@ -288,7 +292,11 @@ class ExportPhparrayTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db', '0`932table', "\n", 'phpmyadmin.net/err', 'SELECT'
+                'db',
+                '0`932table',
+                "\n",
+                'phpmyadmin.net/err',
+                'SELECT'
             )
         );
         $result = ob_get_clean();

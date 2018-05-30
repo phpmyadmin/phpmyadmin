@@ -149,22 +149,24 @@ class Linter
 
         // Building the response.
         foreach ($errors as $idx => $error) {
-
             // Starting position of the string that caused the error.
             list($fromLine, $fromColumn) = static::findLineNumberAndColumn(
-                $lines, $error[3]
+                $lines,
+                $error[3]
             );
 
             // Ending position of the string that caused the error.
             list($toLine, $toColumn) = static::findLineNumberAndColumn(
-                $lines, $error[3] + mb_strlen($error[2])
+                $lines,
+                $error[3] + mb_strlen($error[2])
             );
 
             // Building the response.
             $response[] = [
                 'message' => sprintf(
                     __('%1$s (near <code>%2$s</code>)'),
-                    htmlspecialchars($error[0]), htmlspecialchars($error[2])
+                    htmlspecialchars($error[0]),
+                    htmlspecialchars($error[2])
                 ),
                 'fromLine' => $fromLine,
                 'fromColumn' => $fromColumn,
@@ -177,5 +179,4 @@ class Linter
         // Sending back the answer.
         return $response;
     }
-
 }

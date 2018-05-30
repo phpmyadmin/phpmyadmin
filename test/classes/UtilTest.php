@@ -395,7 +395,8 @@ class UtilTest extends PmaTestCase
     public function testContainsNonPrintableAscii($str, $res)
     {
         $this->assertEquals(
-            $res, Util::containsNonPrintableAscii($str)
+            $res,
+            Util::containsNonPrintableAscii($str)
         );
     }
 
@@ -429,7 +430,8 @@ class UtilTest extends PmaTestCase
     public function testConvertBitDefaultValue($bit, $val)
     {
         $this->assertEquals(
-            $val, Util::convertBitDefaultValue($bit)
+            $val,
+            Util::convertBitDefaultValue($bit)
         );
     }
 
@@ -480,7 +482,8 @@ class UtilTest extends PmaTestCase
     public function testEscapeMysqlWildcards($a, $b)
     {
         $this->assertEquals(
-            $a, Util::escapeMysqlWildcards($b)
+            $a,
+            Util::escapeMysqlWildcards($b)
         );
     }
 
@@ -498,7 +501,8 @@ class UtilTest extends PmaTestCase
     public function testUnescapeMysqlWildcards($a, $b)
     {
         $this->assertEquals(
-            $b, Util::unescapeMysqlWildcards($a)
+            $b,
+            Util::unescapeMysqlWildcards($a)
         );
     }
 
@@ -529,13 +533,15 @@ class UtilTest extends PmaTestCase
         $out = str_replace('PMA_VERSION', PMA_VERSION, $out);
 
         $this->assertEquals(
-            $out, Util::expandUserString($in)
+            $out,
+            Util::expandUserString($in)
         );
 
         $this->assertEquals(
             htmlspecialchars($out),
             Util::expandUserString(
-                $in, 'htmlspecialchars'
+                $in,
+                'htmlspecialchars'
             )
         );
     }
@@ -573,7 +579,8 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg']['LimitChars'] = 1000;
 
         $this->assertEquals(
-            $out, Util::extractColumnSpec($in)
+            $out,
+            Util::extractColumnSpec($in)
         );
     }
 
@@ -743,7 +750,8 @@ class UtilTest extends PmaTestCase
         $GLOBALS['server'] = 1;
 
         $this->assertEquals(
-            $e, Util::isForeignKeySupported($a)
+            $e,
+            Util::isForeignKeySupported($a)
         );
     }
 
@@ -843,7 +851,10 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(
             $d,
             (string) Util::formatNumber(
-                $a, $b, $c, false
+                $a,
+                $b,
+                $c,
+                false
             )
         );
     }
@@ -996,7 +1007,8 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(
             '<a href="'
             . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
             )
             . '?db=' . $database
             . '&amp;server=99&amp;lang=en" '
@@ -1021,7 +1033,8 @@ class UtilTest extends PmaTestCase
         $database = 'test_database';
         $this->assertEquals(
             '<a href="' . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
             )
             . '?db=' . $database
             . '&amp;server=99&amp;lang=en" title="Jump to database “'
@@ -1046,7 +1059,8 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(
             '<a href="'
             . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
             )
             . '?db='
             . htmlspecialchars(urlencode($database))
@@ -1099,7 +1113,6 @@ class UtilTest extends PmaTestCase
             "<root><div id=\"$id\" style=\"display: none; overflow:auto;\" class=\"pma_auto_slider\"\ntitle=\""
             . htmlspecialchars($message) . "\" >\n</div></root>"
         );
-
     }
 
     /**
@@ -1143,7 +1156,10 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(
             $result,
             Util::getDropdown(
-                $name, $choices, $active_choice, $id
+                $name,
+                $choices,
+                $active_choice,
+                $id
             )
         );
     }
@@ -1176,7 +1192,10 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(
             $result,
             Util::getDropdown(
-                $name, $choices, $active_choice, $id
+                $name,
+                $choices,
+                $active_choice,
+                $id
             )
         );
     }
@@ -1211,7 +1230,10 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(
             $result,
             Util::getDropdown(
-                $name, $choices, $active_choice, $id
+                $name,
+                $choices,
+                $active_choice,
+                $id
             )
         );
     }
@@ -1410,7 +1432,9 @@ class UtilTest extends PmaTestCase
 
         $this->assertEquals(
             Util::getRadioFields(
-                $name, $choices, $checked_choice
+                $name,
+                $choices,
+                $checked_choice
             ),
             $out
         );
@@ -1452,7 +1476,12 @@ class UtilTest extends PmaTestCase
 
         $this->assertEquals(
             Util::getRadioFields(
-                $name, $choices, $checked_choice, true, false, $class
+                $name,
+                $choices,
+                $checked_choice,
+                true,
+                false,
+                $class
             ),
             $out
         );
@@ -1487,7 +1516,10 @@ class UtilTest extends PmaTestCase
 
         $this->assertEquals(
             Util::getRadioFields(
-                $name, $choices, $checked_choice, false
+                $name,
+                $choices,
+                $checked_choice,
+                false
             ),
             $out
         );
@@ -1524,7 +1556,11 @@ class UtilTest extends PmaTestCase
 
         $this->assertEquals(
             Util::getRadioFields(
-                $name, $choices, $checked_choice, true, true
+                $name,
+                $choices,
+                $checked_choice,
+                true,
+                true
             ),
             $out
         );
@@ -1561,7 +1597,11 @@ class UtilTest extends PmaTestCase
 
         $this->assertEquals(
             Util::getRadioFields(
-                $name, $choices, $checked_choice, true, false
+                $name,
+                $choices,
+                $checked_choice,
+                true,
+                false
             ),
             $out
         );
@@ -1603,7 +1643,12 @@ class UtilTest extends PmaTestCase
 
         $this->assertEquals(
             Util::getRadioFields(
-                $name, $choices, $checked_choice, true, true, $class
+                $name,
+                $choices,
+                $checked_choice,
+                true,
+                true,
+                $class
             ),
             $out
         );
@@ -1623,7 +1668,8 @@ class UtilTest extends PmaTestCase
     public function testGetTitleForTarget($target, $result)
     {
         $this->assertEquals(
-            $result, Util::getTitleForTarget($target)
+            $result,
+            Util::getTitleForTarget($target)
         );
     }
 
@@ -1665,7 +1711,8 @@ class UtilTest extends PmaTestCase
         date_default_timezone_set('Europe/London');
 
         $this->assertEquals(
-            $e, Util::localisedDate($a, $b)
+            $e,
+            Util::localisedDate($a, $b)
         );
 
         date_default_timezone_set($tmpTimezone);
@@ -1702,7 +1749,8 @@ class UtilTest extends PmaTestCase
         date_default_timezone_set('Europe/London');
 
         $this->assertEquals(
-            $e, Util::timespanFormat($a)
+            $e,
+            Util::timespanFormat($a)
         );
 
         date_default_timezone_set($tmpTimezone);
@@ -1736,7 +1784,8 @@ class UtilTest extends PmaTestCase
     public function testPrintableBitValue($a, $b, $e)
     {
         $this->assertEquals(
-            $e, Util::printableBitValue($a, $b)
+            $e,
+            Util::printableBitValue($a, $b)
         );
     }
 
@@ -1771,7 +1820,8 @@ class UtilTest extends PmaTestCase
     public function testUnQuote($param, $expected)
     {
         $this->assertEquals(
-            $expected, Util::unQuote($param)
+            $expected,
+            Util::unQuote($param)
         );
     }
 
@@ -1804,7 +1854,8 @@ class UtilTest extends PmaTestCase
     public function testUnQuoteSelectedChar($param, $expected)
     {
         $this->assertEquals(
-            $expected, Util::unQuote($param, '"')
+            $expected,
+            Util::unQuote($param, '"')
         );
     }
 
@@ -1965,7 +2016,8 @@ class UtilTest extends PmaTestCase
             . __('Documentation') . '" class="icon ic_b_help" /></a>';
 
         $this->assertEquals(
-            $expected, Util::showPHPDocu($target)
+            $expected,
+            Util::showPHPDocu($target)
         );
     }
 
@@ -2014,7 +2066,8 @@ class UtilTest extends PmaTestCase
     public function testDuplicateFirstNewline($a, $e)
     {
         $this->assertEquals(
-            $e, Util::duplicateFirstNewline($a)
+            $e,
+            Util::duplicateFirstNewline($a)
         );
     }
 
@@ -2044,7 +2097,8 @@ class UtilTest extends PmaTestCase
     {
         $no_support_types = [];
         $this->assertEquals(
-            $no_support_types, Util::unsupportedDatatypes()
+            $no_support_types,
+            Util::unsupportedDatatypes()
         );
     }
 

@@ -55,7 +55,6 @@ if (! empty($sql_query)) {
     if ((!empty($parser->statements[0]))
         && ($parser->statements[0] instanceof PhpMyAdmin\SqlParser\Statements\SelectStatement)
     ) {
-
         // Finding aliases and removing them, but we keep track of them to be
         // able to replace them in select expression too.
         $aliases = [];
@@ -115,7 +114,7 @@ if (! empty($sql_query)) {
                 ],
                 [
                     new PhpMyAdmin\SqlParser\Token($table),
-                    new PhpMyAdmin\SqlParser\Token('.',PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR)
+                    new PhpMyAdmin\SqlParser\Token('.', PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR)
                 ]
             );
         }
@@ -140,7 +139,12 @@ if (! isset($multi_values)) {
 $response = Response::getInstance();
 $response->addHTML(
     $displayExport->getDisplay(
-        'table', $db, $table, $sql_query, $num_tables,
-        $unlim_num_rows, $multi_values
+        'table',
+        $db,
+        $table,
+        $sql_query,
+        $num_tables,
+        $unlim_num_rows,
+        $multi_values
     )
 );

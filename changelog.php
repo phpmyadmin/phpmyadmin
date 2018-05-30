@@ -25,7 +25,6 @@ $filename = CHANGELOG_FILE;
  */
 // Check if the file is available, some distributions remove these.
 if (@is_readable($filename)) {
-
     // Test if the if is in a compressed format
     if (substr($filename, -3) == '.gz') {
         ob_start();

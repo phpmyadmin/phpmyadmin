@@ -143,13 +143,13 @@ class RecentFavoriteTable
         if (! $success) {
             $error_msg = '';
             switch ($this->_tableType) {
-            case 'recent':
-                $error_msg = __('Could not save recent table!');
-                break;
+                case 'recent':
+                    $error_msg = __('Could not save recent table!');
+                    break;
 
-            case 'favorite':
-                $error_msg = __('Could not save favorite table!');
-                break;
+                case 'favorite':
+                    $error_msg = __('Could not save favorite table!');
+                    break;
             }
             $message = Message::error($error_msg);
             $message->addMessage(
@@ -172,7 +172,8 @@ class RecentFavoriteTable
     public function trim()
     {
         $max = max(
-            $GLOBALS['cfg']['Num' . ucfirst($this->_tableType) . 'Tables'], 0
+            $GLOBALS['cfg']['Num' . ucfirst($this->_tableType) . 'Tables'],
+            0
         );
         $trimming_occurred = count($this->_tables) > $max;
         while (count($this->_tables) > $max) {

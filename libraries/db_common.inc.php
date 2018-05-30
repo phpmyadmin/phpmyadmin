@@ -37,7 +37,8 @@ if ($db_is_system_schema) {
 $err_url_0 = 'index.php' . Url::getCommon();
 
 $err_url = PhpMyAdmin\Util::getScriptNameForOption(
-    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+    $GLOBALS['cfg']['DefaultTabDatabase'],
+    'database'
 )
     . Url::getCommon(['db' => $db]);
 
@@ -96,12 +97,11 @@ if (isset($_REQUEST['submitcollation'])
     /**
     * Changes tables charset if requested by the user
     */
-    if (
-        isset($_REQUEST['change_all_tables_collations']) &&
+    if (isset($_REQUEST['change_all_tables_collations']) &&
         $_REQUEST['change_all_tables_collations'] == 'on'
     ) {
         list($tables, , , , , , , ,) = PhpMyAdmin\Util::getDbInfo($db, null);
-        foreach($tables as $tableName => $data) {
+        foreach ($tables as $tableName => $data) {
             $sql_query      = 'ALTER TABLE '
             . PhpMyAdmin\Util::backquote($db)
             . '.'
@@ -113,14 +113,12 @@ if (isset($_REQUEST['submitcollation'])
             /**
             * Changes columns charset if requested by the user
             */
-            if (
-                isset($_REQUEST['change_all_tables_columns_collations']) &&
+            if (isset($_REQUEST['change_all_tables_columns_collations']) &&
                 $_REQUEST['change_all_tables_columns_collations'] == 'on'
             ) {
                 $operations = new Operations();
                 $operations->changeAllColumnsCollation($db, $tableName, $_REQUEST['db_collation']);
             }
-
         }
     }
     unset($db_charset);

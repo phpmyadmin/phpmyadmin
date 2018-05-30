@@ -120,7 +120,6 @@ class ImportShpTest extends PmaTestCase
             __('Options'),
             $properties->getOptionsText()
         );
-
     }
 
     /**

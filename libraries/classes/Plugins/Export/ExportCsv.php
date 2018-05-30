@@ -124,16 +124,16 @@ class ExportCsv extends ExportPlugin
         if ($what == 'excel') {
             $csv_terminated = "\015\012";
             switch ($GLOBALS['excel_edition']) {
-            case 'win':
-                // as tested on Windows with Excel 2002 and Excel 2007
-                $csv_separator = ';';
-                break;
-            case 'mac_excel2003':
-                $csv_separator = ';';
-                break;
-            case 'mac_excel2008':
-                $csv_separator = ',';
-                break;
+                case 'win':
+                    // as tested on Windows with Excel 2002 and Excel 2007
+                    $csv_separator = ';';
+                    break;
+                case 'mac_excel2003':
+                    $csv_separator = ';';
+                    break;
+                case 'mac_excel2008':
+                    $csv_separator = ',';
+                    break;
             }
             $csv_enclosed = '"';
             $csv_escaped = '"';

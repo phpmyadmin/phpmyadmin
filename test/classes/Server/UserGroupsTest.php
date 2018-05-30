@@ -38,7 +38,6 @@ class UserGroupsTest extends TestCase
             'users' => 'users',
             'usergroups' => 'usergroups'
         ];
-
     }
 
     /**

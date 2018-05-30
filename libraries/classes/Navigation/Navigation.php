@@ -101,7 +101,10 @@ class Navigation
      * @return void
      */
     public function hideNavigationItem(
-        $itemName, $itemType, $dbName, $tableName = null
+        $itemName,
+        $itemType,
+        $dbName,
+        $tableName = null
     ) {
         $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
@@ -150,7 +153,10 @@ class Navigation
      * @return void
      */
     public function unhideNavigationItem(
-        $itemName, $itemType, $dbName, $tableName = null
+        $itemName,
+        $itemType,
+        $dbName,
+        $tableName = null
     ) {
         $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
@@ -236,7 +242,7 @@ class Navigation
                             . Url::getCommon($params) . '"'
                             . ' class="unhideNavItem ajax">'
                             . Util::getIcon('show.png', __('Show'))
-                            .  '</a></td>';
+                            . '</a></td>';
                     }
                     $html .= '</tbody></table>';
                     $first = false;

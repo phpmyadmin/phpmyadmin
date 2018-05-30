@@ -291,38 +291,38 @@ class File
         // we do not use the PHP constants here cause not all constants
         // are defined in all versions of PHP - but the correct constants names
         // are given as comment
-        case 0: //UPLOAD_ERR_OK:
-            return $this->setUploadedFile($file['tmp_name']);
-        case 4: //UPLOAD_ERR_NO_FILE:
-            break;
-        case 1: //UPLOAD_ERR_INI_SIZE:
-            $this->_error_message = Message::error(__(
-                'The uploaded file exceeds the upload_max_filesize directive in '
-                . 'php.ini.'
-            ));
-            break;
-        case 2: //UPLOAD_ERR_FORM_SIZE:
-            $this->_error_message = Message::error(__(
-                'The uploaded file exceeds the MAX_FILE_SIZE directive that was '
-                . 'specified in the HTML form.'
-            ));
-            break;
-        case 3: //UPLOAD_ERR_PARTIAL:
-            $this->_error_message = Message::error(__(
-                'The uploaded file was only partially uploaded.'
-            ));
-            break;
-        case 6: //UPLOAD_ERR_NO_TMP_DIR:
-            $this->_error_message = Message::error(__('Missing a temporary folder.'));
-            break;
-        case 7: //UPLOAD_ERR_CANT_WRITE:
-            $this->_error_message = Message::error(__('Failed to write file to disk.'));
-            break;
-        case 8: //UPLOAD_ERR_EXTENSION:
-            $this->_error_message = Message::error(__('File upload stopped by extension.'));
-            break;
-        default:
-            $this->_error_message = Message::error(__('Unknown error in file upload.'));
+            case 0: //UPLOAD_ERR_OK:
+                return $this->setUploadedFile($file['tmp_name']);
+            case 4: //UPLOAD_ERR_NO_FILE:
+                break;
+            case 1: //UPLOAD_ERR_INI_SIZE:
+                $this->_error_message = Message::error(__(
+                    'The uploaded file exceeds the upload_max_filesize directive in '
+                    . 'php.ini.'
+                ));
+                break;
+            case 2: //UPLOAD_ERR_FORM_SIZE:
+                $this->_error_message = Message::error(__(
+                    'The uploaded file exceeds the MAX_FILE_SIZE directive that was '
+                    . 'specified in the HTML form.'
+                ));
+                break;
+            case 3: //UPLOAD_ERR_PARTIAL:
+                $this->_error_message = Message::error(__(
+                    'The uploaded file was only partially uploaded.'
+                ));
+                break;
+            case 6: //UPLOAD_ERR_NO_TMP_DIR:
+                $this->_error_message = Message::error(__('Missing a temporary folder.'));
+                break;
+            case 7: //UPLOAD_ERR_CANT_WRITE:
+                $this->_error_message = Message::error(__('Failed to write file to disk.'));
+                break;
+            case 8: //UPLOAD_ERR_EXTENSION:
+                $this->_error_message = Message::error(__('File upload stopped by extension.'));
+                break;
+            default:
+                $this->_error_message = Message::error(__('Unknown error in file upload.'));
         } // end switch
 
         return false;
@@ -634,37 +634,37 @@ class File
         }
 
         switch ($this->getCompression()) {
-        case false:
-            return false;
-        case 'application/bzip2':
-            if ($GLOBALS['cfg']['BZipDump'] && function_exists('bzopen')) {
-                $this->_handle = @bzopen($this->getName(), 'r');
-            } else {
-                $this->errorUnsupported();
+            case false:
                 return false;
-            }
-            break;
-        case 'application/gzip':
-            if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzopen')) {
-                $this->_handle = @gzopen($this->getName(), 'r');
-            } else {
-                $this->errorUnsupported();
-                return false;
-            }
-            break;
-        case 'application/zip':
-            if ($GLOBALS['cfg']['ZipDump'] && function_exists('zip_open')) {
-                return $this->openZip();
-            }
+            case 'application/bzip2':
+                if ($GLOBALS['cfg']['BZipDump'] && function_exists('bzopen')) {
+                    $this->_handle = @bzopen($this->getName(), 'r');
+                } else {
+                    $this->errorUnsupported();
+                    return false;
+                }
+                break;
+            case 'application/gzip':
+                if ($GLOBALS['cfg']['GZipDump'] && function_exists('gzopen')) {
+                    $this->_handle = @gzopen($this->getName(), 'r');
+                } else {
+                    $this->errorUnsupported();
+                    return false;
+                }
+                break;
+            case 'application/zip':
+                if ($GLOBALS['cfg']['ZipDump'] && function_exists('zip_open')) {
+                    return $this->openZip();
+                }
 
-            $this->errorUnsupported();
-            return false;
-        case 'none':
-            $this->_handle = @fopen($this->getName(), 'r');
-            break;
-        default:
-            $this->errorUnsupported();
-            return false;
+                $this->errorUnsupported();
+                return false;
+            case 'none':
+                $this->_handle = @fopen($this->getName(), 'r');
+                break;
+            default:
+                $this->errorUnsupported();
+                return false;
         }
 
         return ($this->_handle !== false);
@@ -729,17 +729,17 @@ class File
     public function read(int $size): string
     {
         switch ($this->_compression) {
-        case 'application/bzip2':
-            return bzread($this->_handle, $size);
-        case 'application/gzip':
-            return gzread($this->_handle, $size);
-        case 'application/zip':
-            $result = mb_strcut($this->_content, $this->_offset, $size);
-            $this->_offset += strlen($result);
-            return $result;
-        case 'none':
-        default:
-            return fread($this->_handle, $size);
+            case 'application/bzip2':
+                return bzread($this->_handle, $size);
+            case 'application/gzip':
+                return gzread($this->_handle, $size);
+            case 'application/zip':
+                $result = mb_strcut($this->_content, $this->_offset, $size);
+                $this->_offset += strlen($result);
+                return $result;
+            case 'none':
+            default:
+                return fread($this->_handle, $size);
         }
     }
 

@@ -121,7 +121,10 @@ class ResultsTest extends PmaTestCase
      * @dataProvider providerForTestGetTableNavigationButton
      */
     public function testGetTableNavigationButton(
-        $caption, $title, $pos, $html_sql_query
+        $caption,
+        $title,
+        $pos,
+        $html_sql_query
     ) {
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
         $_SESSION[' PMA_token '] = 'token';
@@ -217,8 +220,12 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForTestGetClassesForColumn
      */
     public function testGetClassesForColumn(
-        $grid_edit_class, $not_null_class, $relation_class,
-        $hide_class, $field_type_class, $output
+        $grid_edit_class,
+        $not_null_class,
+        $relation_class,
+        $hide_class,
+        $field_type_class,
+        $output
     ) {
         $GLOBALS['cfg']['BrowsePointerEnable'] = true;
         $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
@@ -369,8 +376,14 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForGetCheckboxForMultiRowSubmissions
      */
     public function testGetCheckboxForMultiRowSubmissions(
-        $del_url, $displayParts, $row_no, $where_clause_html, $condition_array,
-        $id_suffix, $class, $output
+        $del_url,
+        $displayParts,
+        $row_no,
+        $where_clause_html,
+        $condition_array,
+        $id_suffix,
+        $class,
+        $output
     ) {
         $this->assertEquals(
             $output,
@@ -431,7 +444,12 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForGetEditLink
      */
     public function testGetEditLink(
-        $edit_url, $class, $edit_str, $where_clause, $where_clause_html, $output
+        $edit_url,
+        $class,
+        $edit_str,
+        $where_clause,
+        $where_clause_html,
+        $output
     ) {
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
@@ -494,7 +512,12 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForGetCopyLink
      */
     public function testGetCopyLink(
-        $copy_url, $copy_str, $where_clause, $where_clause_html, $class, $output
+        $copy_url,
+        $copy_str,
+        $where_clause,
+        $where_clause_html,
+        $class,
+        $output
     ) {
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
@@ -559,7 +582,11 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForGetDeleteLink
      */
     public function testGetDeleteLink(
-        $del_url, $del_str, $js_conf, $class, $output
+        $del_url,
+        $del_str,
+        $js_conf,
+        $class,
+        $output
     ) {
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
@@ -796,9 +823,21 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForGetCheckboxAndLinks
      */
     public function testGetCheckboxAndLinks(
-        $position, $del_url, $displayParts, $row_no, $where_clause,
-        $where_clause_html, $condition_array, $edit_url,
-        $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
+        $position,
+        $del_url,
+        $displayParts,
+        $row_no,
+        $where_clause,
+        $where_clause_html,
+        $condition_array,
+        $edit_url,
+        $copy_url,
+        $class,
+        $edit_str,
+        $copy_str,
+        $del_str,
+        $js_conf,
+        $output
     ) {
         $this->assertEquals(
             $output,
@@ -892,9 +931,21 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForGetPlacedLinks
      */
     public function testGetPlacedLinks(
-        $dir, $del_url, $displayParts, $row_no, $where_clause, $where_clause_html,
-        $condition_array, $edit_url, $copy_url,
-        $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf, $output
+        $dir,
+        $del_url,
+        $displayParts,
+        $row_no,
+        $where_clause,
+        $where_clause_html,
+        $condition_array,
+        $edit_url,
+        $copy_url,
+        $edit_anchor_class,
+        $edit_str,
+        $copy_str,
+        $del_str,
+        $js_conf,
+        $output
     ) {
         $this->assertEquals(
             $output,
@@ -977,7 +1028,12 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
     public function testGetSpecialLinkUrl(
-        $db, $table, $column_value, $row_info, $field_name,  $output
+        $db,
+        $table,
+        $column_value,
+        $row_info,
+        $field_name,
+        $output
     ) {
         $GLOBALS['special_schema_links'] = [
             'information_schema' => [
@@ -1089,7 +1145,11 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
     public function testGetRowInfoForSpecialLinks(
-        $fields_meta, $fields_count, $row, $col_order,  $output
+        $fields_meta,
+        $fields_count,
+        $row,
+        $col_order,
+        $output
     ) {
         $this->object->__set('fields_meta', $fields_meta);
         $this->object->__set('fields_cnt', $fields_count);
@@ -1152,7 +1212,12 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForTestGetShowAllCheckboxForTableNavigation
      */
     public function testGetShowAllCheckboxForTableNavigation(
-        $db, $table, $goto, $unique_id , $html_sql_query, $output
+        $db,
+        $table,
+        $goto,
+        $unique_id,
+        $html_sql_query,
+        $output
     ) {
         $this->object->__set('db', $db);
         $this->object->__set('table', $table);
@@ -1388,9 +1453,17 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForTestHandleNonPrintableContents
      */
     public function testHandleNonPrintableContents(
-        $display_binary, $display_blob, $category, $content,
-        $transformation_plugin, array $transform_options, $default_function,
-        $meta, $url_params, $is_truncated, $output
+        $display_binary,
+        $display_blob,
+        $category,
+        $content,
+        $transformation_plugin,
+        array $transform_options,
+        $default_function,
+        $meta,
+        $url_params,
+        $is_truncated,
+        $output
     ) {
         $_SESSION['tmpval']['display_binary'] = $display_binary;
         $_SESSION['tmpval']['display_blob'] = $display_blob;
@@ -1550,10 +1623,21 @@ class ResultsTest extends PmaTestCase
      * @dataProvider dataProviderForTestGetDataCellForNonNumericColumns
      */
     public function testGetDataCellForNonNumericColumns(
-        $protectBinary, $column, $class, $meta, $map,
-        $_url_params, $condition_field, $transformation_plugin,
-        $default_function, array $transform_options, $is_field_truncated,
-        $analyzed_sql_results, $dt_result, $col_index, $output
+        $protectBinary,
+        $column,
+        $class,
+        $meta,
+        $map,
+        $_url_params,
+        $condition_field,
+        $transformation_plugin,
+        $default_function,
+        array $transform_options,
+        $is_field_truncated,
+        $analyzed_sql_results,
+        $dt_result,
+        $col_index,
+        $output
     ) {
         $_SESSION['tmpval']['display_binary'] = true;
         $_SESSION['tmpval']['display_blob'] = false;

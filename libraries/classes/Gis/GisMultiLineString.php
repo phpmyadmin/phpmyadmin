@@ -342,7 +342,8 @@ class GisMultiLineString extends GisGeometry
             $wkt
                 = mb_substr(
                     $wkt,
-                    0, mb_strlen($wkt) - 1
+                    0,
+                    mb_strlen($wkt) - 1
                 );
             $wkt .= '),';
         }

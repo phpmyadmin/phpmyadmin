@@ -110,7 +110,10 @@ class SystemDatabaseTest extends PmaTestCase
         $view_name = "view_name";
 
         $ret = $this->sysDb->getNewTransformationDataSql(
-            $pma_transformation_data, $column_map, $view_name, $db
+            $pma_transformation_data,
+            $column_map,
+            $view_name,
+            $db
         );
 
         $sql = "INSERT INTO `information_schema`.`column_info` "

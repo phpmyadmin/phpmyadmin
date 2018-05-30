@@ -207,7 +207,9 @@ if (isset($ret_message)) {
  */
 if (isset($_REQUEST['change_copy'])) {
     $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
-        $queries, $username, $hostname
+        $queries,
+        $username,
+        $hostname
     );
 }
 
@@ -277,7 +279,9 @@ if (isset($_REQUEST['revokeall'])) {
  */
 if (isset($_REQUEST['change_pw'])) {
     $message = $serverPrivileges->updatePassword(
-        $err_url, $username, $hostname
+        $err_url,
+        $username,
+        $hostname
     );
 }
 
@@ -416,7 +420,8 @@ if (isset($_REQUEST['adduser'])) {
         // check the privileges for a particular table.
         $response->addHTML(
             $serverPrivileges->getHtmlForSpecificTablePrivileges(
-                $_REQUEST['checkprivsdb'], $_REQUEST['checkprivstable']
+                $_REQUEST['checkprivsdb'],
+                $_REQUEST['checkprivstable']
             )
         );
     } else {
@@ -444,7 +449,10 @@ if (isset($_REQUEST['adduser'])) {
     } elseif (!empty($routinename)) {
         $response->addHTML(
             $serverPrivileges->getHtmlForRoutineSpecificPrivileges(
-                $username, $hostname, $dbname, $routinename,
+                $username,
+                $hostname,
+                $dbname,
+                $routinename,
                 (isset($url_dbname) ? $url_dbname : '')
             )
         );
@@ -459,7 +467,8 @@ if (isset($_REQUEST['adduser'])) {
             $serverPrivileges->getHtmlForUserProperties(
                 (isset($dbname_is_wildcard) ? $dbname_is_wildcard : ''),
                 (isset($url_dbname) ? $url_dbname : ''),
-                $username, $hostname,
+                $username,
+                $hostname,
                 (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )

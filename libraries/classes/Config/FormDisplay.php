@@ -130,7 +130,10 @@ class FormDisplay
     public function registerForm($form_name, array $form, $server_id = null)
     {
         $this->_forms[$form_name] = new Form(
-            $form_name, $form, $this->_configFile, $server_id
+            $form_name,
+            $form,
+            $this->_configFile,
+            $server_id
         );
         $this->_isValidated = false;
         foreach ($this->_forms[$form_name]->fields as $path) {
@@ -190,7 +193,10 @@ class FormDisplay
 
         // run validation
         $errors = Validator::validate(
-            $this->_configFile, $paths, $values, false
+            $this->_configFile,
+            $paths,
+            $values,
+            false
         );
 
         // change error keys from canonical paths to work paths
@@ -222,7 +228,10 @@ class FormDisplay
      * @return string $htmlOutput
      */
     private function _displayForms(
-        $show_restore_default, array &$js_default, array &$js, $show_buttons
+        $show_restore_default,
+        array &$js_default,
+        array &$js,
+        $show_buttons
     ) {
         $htmlOutput = '';
         $validators = Validator::getValidators($this->_configFile);
@@ -322,7 +331,10 @@ class FormDisplay
 
         // display forms
         $htmlOutput .= $this->_displayForms(
-            $show_restore_default, $js_default, $js, $show_buttons
+            $show_restore_default,
+            $js_default,
+            $js,
+            $show_buttons
         );
 
         if ($tabbed_form) {
@@ -368,8 +380,14 @@ class FormDisplay
      * @return string HTML for input field
      */
     private function _displayFieldInput(
-        Form $form, $field, $system_path, $work_path,
-        $translated_path, $show_restore_default, $userprefs_allow, array &$js_default
+        Form $form,
+        $field,
+        $system_path,
+        $work_path,
+        $translated_path,
+        $show_restore_default,
+        $userprefs_allow,
+        array &$js_default
     ) {
         $name = Descriptions::get($system_path);
         $description = Descriptions::get($system_path, 'desc');
@@ -398,42 +416,42 @@ class FormDisplay
 
         $type = '';
         switch ($form->getOptionType($field)) {
-        case 'string':
-            $type = 'text';
-            break;
-        case 'short_string':
-            $type = 'short_text';
-            break;
-        case 'double':
-        case 'integer':
-            $type = 'number_text';
-            break;
-        case 'boolean':
-            $type = 'checkbox';
-            break;
-        case 'select':
-            $type = 'select';
-            $opts['values'] = $form->getOptionValueList($form->fields[$field]);
-            break;
-        case 'array':
-            $type = 'list';
-            $value = (array) $value;
-            $value_default = (array) $value_default;
-            break;
-        case 'group':
-            // :group:end is changed to :group:end:{unique id} in Form class
-            $htmlOutput = '';
-            if (mb_substr($field, 7, 4) != 'end:') {
-                $htmlOutput .= FormDisplayTemplate::displayGroupHeader(
-                    mb_substr($field, 7)
-                );
-            } else {
-                FormDisplayTemplate::displayGroupFooter();
-            }
-            return $htmlOutput;
-        case 'NULL':
-            trigger_error("Field $system_path has no type", E_USER_WARNING);
-            return null;
+            case 'string':
+                $type = 'text';
+                break;
+            case 'short_string':
+                $type = 'short_text';
+                break;
+            case 'double':
+            case 'integer':
+                $type = 'number_text';
+                break;
+            case 'boolean':
+                $type = 'checkbox';
+                break;
+            case 'select':
+                $type = 'select';
+                $opts['values'] = $form->getOptionValueList($form->fields[$field]);
+                break;
+            case 'array':
+                $type = 'list';
+                $value = (array) $value;
+                $value_default = (array) $value_default;
+                break;
+            case 'group':
+                // :group:end is changed to :group:end:{unique id} in Form class
+                $htmlOutput = '';
+                if (mb_substr($field, 7, 4) != 'end:') {
+                    $htmlOutput .= FormDisplayTemplate::displayGroupHeader(
+                        mb_substr($field, 7)
+                    );
+                } else {
+                    FormDisplayTemplate::displayGroupFooter();
+                }
+                return $htmlOutput;
+            case 'NULL':
+                trigger_error("Field $system_path has no type", E_USER_WARNING);
+                return null;
         }
 
         // detect password fields
@@ -458,31 +476,36 @@ class FormDisplay
         // send default value to form's JS
         $js_line = '\'' . $translated_path . '\': ';
         switch ($type) {
-        case 'text':
-        case 'short_text':
-        case 'number_text':
-        case 'password':
-            $js_line .= '\'' . Sanitize::escapeJsString($value_default) . '\'';
-            break;
-        case 'checkbox':
-            $js_line .= $value_default ? 'true' : 'false';
-            break;
-        case 'select':
-            $value_default_js = is_bool($value_default)
+            case 'text':
+            case 'short_text':
+            case 'number_text':
+            case 'password':
+                $js_line .= '\'' . Sanitize::escapeJsString($value_default) . '\'';
+                break;
+            case 'checkbox':
+                $js_line .= $value_default ? 'true' : 'false';
+                break;
+            case 'select':
+                $value_default_js = is_bool($value_default)
                 ? (int) $value_default
                 : $value_default;
-            $js_line .= '[\'' . Sanitize::escapeJsString($value_default_js) . '\']';
-            break;
-        case 'list':
-            $js_line .= '\'' . Sanitize::escapeJsString(implode("\n", $value_default))
+                $js_line .= '[\'' . Sanitize::escapeJsString($value_default_js) . '\']';
+                break;
+            case 'list':
+                $js_line .= '\'' . Sanitize::escapeJsString(implode("\n", $value_default))
                 . '\'';
-            break;
+                break;
         }
         $js_default[] = $js_line;
 
         return FormDisplayTemplate::displayInput(
-            $translated_path, $name, $type, $value,
-            $description, $value_is_default, $opts
+            $translated_path,
+            $name,
+            $type,
+            $value,
+            $description,
+            $value_is_default,
+            $opts
         );
     }
 
@@ -638,40 +661,40 @@ class FormDisplay
 
                 // cast variables to correct type
                 switch ($type) {
-                case 'double':
-                    $_POST[$key] = Util::requestString($_POST[$key]);
-                    settype($_POST[$key], 'float');
-                    break;
-                case 'boolean':
-                case 'integer':
-                    if ($_POST[$key] !== '') {
+                    case 'double':
                         $_POST[$key] = Util::requestString($_POST[$key]);
-                        settype($_POST[$key], $type);
-                    }
-                    break;
-                case 'select':
-                    $successfully_validated = $this->_validateSelect(
-                        $_POST[$key],
-                        $form->getOptionValueList($system_path)
-                    );
-                    if (! $successfully_validated) {
-                        $this->_errors[$work_path][] = __('Incorrect value!');
-                        $result = false;
-                        continue;
-                    }
-                    break;
-                case 'string':
-                case 'short_string':
-                    $_POST[$key] = Util::requestString($_POST[$key]);
-                    break;
-                case 'array':
-                    // eliminate empty values and ensure we have an array
-                    $post_values = is_array($_POST[$key])
+                        settype($_POST[$key], 'float');
+                        break;
+                    case 'boolean':
+                    case 'integer':
+                        if ($_POST[$key] !== '') {
+                            $_POST[$key] = Util::requestString($_POST[$key]);
+                            settype($_POST[$key], $type);
+                        }
+                        break;
+                    case 'select':
+                        $successfully_validated = $this->_validateSelect(
+                            $_POST[$key],
+                            $form->getOptionValueList($system_path)
+                        );
+                        if (! $successfully_validated) {
+                            $this->_errors[$work_path][] = __('Incorrect value!');
+                            $result = false;
+                            continue;
+                        }
+                        break;
+                    case 'string':
+                    case 'short_string':
+                        $_POST[$key] = Util::requestString($_POST[$key]);
+                        break;
+                    case 'array':
+                        // eliminate empty values and ensure we have an array
+                        $post_values = is_array($_POST[$key])
                         ? $_POST[$key]
                         : explode("\n", $_POST[$key]);
-                    $_POST[$key] = [];
-                    $this->_fillPostArrayParameters($post_values, $key);
-                    break;
+                        $_POST[$key] = [];
+                        $this->_fillPostArrayParameters($post_values, $key);
+                        break;
                 }
 
                 // now we have value with proper type
@@ -679,7 +702,8 @@ class FormDisplay
                 if ($change_index !== false) {
                     $work_path = str_replace(
                         "Servers/$form->index/",
-                        "Servers/$change_index/", $work_path
+                        "Servers/$change_index/",
+                        $work_path
                     );
                 }
                 $to_save[$work_path] = $system_path;
@@ -701,7 +725,9 @@ class FormDisplay
                 foreach ($values[$path] as $value) {
                     $matches = [];
                     $match = preg_match(
-                        "/^(.+):(?:[ ]?)(\\w+)$/", $value, $matches
+                        "/^(.+):(?:[ ]?)(\\w+)$/",
+                        $value,
+                        $matches
                     );
                     if ($match) {
                         // correct 'IP: HTTP header' pair
@@ -756,7 +782,7 @@ class FormDisplay
         }
         return Util::getDocuLink(
             'config',
-            'cfg_' .  $this->_getOptName($path)
+            'cfg_' . $this->_getOptName($path)
         );
     }
 
@@ -807,14 +833,17 @@ class FormDisplay
             if (!function_exists('iconv')) {
                 $opts['values']['iconv'] .= ' (' . __('unavailable') . ')';
                 $comment = sprintf(
-                    __('"%s" requires %s extension'), 'iconv', 'iconv'
+                    __('"%s" requires %s extension'),
+                    'iconv',
+                    'iconv'
                 );
             }
             if (!function_exists('recode_string')) {
                 $opts['values']['recode'] .= ' (' . __('unavailable') . ')';
                 $comment .= ($comment ? ", " : '') . sprintf(
                     __('"%s" requires %s extension'),
-                    'recode', 'recode'
+                    'recode',
+                    'recode'
                 );
             }
             /* mbstring is always there thanks to polyfill */
@@ -855,7 +884,8 @@ class FormDisplay
                 || $system_path == 'QueryHistoryMax')
             ) {
                 $opts['comment'] = sprintf(
-                    __('maximum %s'), $GLOBALS['cfg'][$system_path]
+                    __('maximum %s'),
+                    $GLOBALS['cfg'][$system_path]
                 );
             }
         }

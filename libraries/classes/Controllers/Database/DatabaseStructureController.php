@@ -200,8 +200,12 @@ class DatabaseStructureController extends DatabaseController
 
         $this->response->addHTML(
             Util::getListNavigator(
-                $this->_total_num_tables, $this->_pos, $_url_params,
-                'db_structure.php', 'frame_content', $GLOBALS['cfg']['MaxTableList']
+                $this->_total_num_tables,
+                $this->_pos,
+                $_url_params,
+                'db_structure.php',
+                'frame_content',
+                $GLOBALS['cfg']['MaxTableList']
             )
         );
 
@@ -210,8 +214,11 @@ class DatabaseStructureController extends DatabaseController
         // display again the table list navigator
         $this->response->addHTML(
             Util::getListNavigator(
-                $this->_total_num_tables, $this->_pos, $_url_params,
-                'db_structure.php', 'frame_content',
+                $this->_total_num_tables,
+                $this->_pos,
+                $_url_params,
+                'db_structure.php',
+                'frame_content',
                 $GLOBALS['cfg']['MaxTableList']
             )
         );
@@ -448,7 +455,9 @@ class DatabaseStructureController extends DatabaseController
             list($current_table, $formatted_size, $unit, $formatted_overhead,
                 $overhead_unit, $overhead_size, $table_is_view, $sum_size)
                     = $this->getStuffForEngineTypeTable(
-                        $current_table, $sum_size, $overhead_size
+                        $current_table,
+                        $sum_size,
+                        $overhead_size
                     );
 
             $curTable = $this->dbi
@@ -530,7 +539,7 @@ class DatabaseStructureController extends DatabaseController
             $row_count++;
             if ($table_is_view) {
                 $hidden_fields[] = '<input type="hidden" name="views[]" value="'
-                    .  htmlspecialchars($current_table['TABLE_NAME']) . '" />';
+                    . htmlspecialchars($current_table['TABLE_NAME']) . '" />';
             }
 
             /*
@@ -616,7 +625,8 @@ class DatabaseStructureController extends DatabaseController
                         ? __('View %s has been dropped.')
                         : __('Table %s has been dropped.')),
                     str_replace(
-                        ' ', '&nbsp;',
+                        ' ',
+                        '&nbsp;',
                         htmlspecialchars($current_table['TABLE_NAME'])
                     )
                 );
@@ -650,7 +660,8 @@ class DatabaseStructureController extends DatabaseController
             }
 
             list($approx_rows, $show_superscript) = $this->isRowCountApproximated(
-                $current_table, $table_is_view
+                $current_table,
+                $table_is_view
             );
 
             list($do, $ignored) = $this->getReplicationStatus($truename);
@@ -830,7 +841,8 @@ class DatabaseStructureController extends DatabaseController
                                 'This view has at least this number of '
                                 . 'rows. Please refer to %sdocumentation%s.'
                             ),
-                            '[doc@cfg_MaxExactCountViews]', '[/doc]'
+                            '[doc@cfg_MaxExactCountViews]',
+                            '[/doc]'
                         )
                     )
                 );
@@ -851,7 +863,6 @@ class DatabaseStructureController extends DatabaseController
     {
         $do = $ignored = false;
         if ($GLOBALS['replication_info']['slave']['status']) {
-
             $nbServSlaveDoDb = count(
                 $GLOBALS['replication_info']['slave']['Do_DB']
             );
@@ -859,10 +870,12 @@ class DatabaseStructureController extends DatabaseController
                 $GLOBALS['replication_info']['slave']['Ignore_DB']
             );
             $searchDoDBInTruename = array_search(
-                $table, $GLOBALS['replication_info']['slave']['Do_DB']
+                $table,
+                $GLOBALS['replication_info']['slave']['Do_DB']
             );
             $searchDoDBInDB = array_search(
-                $this->db, $GLOBALS['replication_info']['slave']['Do_DB']
+                $this->db,
+                $GLOBALS['replication_info']['slave']['Do_DB']
             );
 
             $do = strlen($searchDoDBInTruename) > 0
@@ -940,9 +953,7 @@ class DatabaseStructureController extends DatabaseController
     {
         // ensure $_SESSION['tmpval']['favorite_tables'] is initialized
         RecentFavoriteTable::getInstance('favorite');
-        foreach (
-            $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value
-        ) {
+        foreach ($_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] as $value) {
             if ($value['db'] == $this->db && $value['table'] == $current_table) {
                 return true;
             }
@@ -985,7 +996,9 @@ class DatabaseStructureController extends DatabaseController
      * @internal param bool $table_is_view whether table is view or not
      */
     protected function getStuffForEngineTypeTable(
-        array $current_table, $sum_size, $overhead_size
+        array $current_table,
+        $sum_size,
+        $overhead_size
     ) {
         $formatted_size = '-';
         $unit = '';
@@ -993,59 +1006,65 @@ class DatabaseStructureController extends DatabaseController
         $overhead_unit = '';
         $table_is_view = false;
 
-        switch ( $current_table['ENGINE']) {
+        switch ($current_table['ENGINE']) {
         // MyISAM, ISAM or Heap table: Row count, data size and index size
         // are accurate; data size is accurate for ARCHIVE
-        case 'MyISAM' :
-        case 'ISAM' :
-        case 'HEAP' :
-        case 'MEMORY' :
-        case 'ARCHIVE' :
-        case 'Aria' :
-        case 'Maria' :
-            list($current_table, $formatted_size, $unit, $formatted_overhead,
+            case 'MyISAM':
+            case 'ISAM':
+            case 'HEAP':
+            case 'MEMORY':
+            case 'ARCHIVE':
+            case 'Aria':
+            case 'Maria':
+                list($current_table, $formatted_size, $unit, $formatted_overhead,
                 $overhead_unit, $overhead_size, $sum_size)
                     = $this->getValuesForAriaTable(
-                        $current_table, $sum_size, $overhead_size,
-                        $formatted_size, $unit, $formatted_overhead, $overhead_unit
+                        $current_table,
+                        $sum_size,
+                        $overhead_size,
+                        $formatted_size,
+                        $unit,
+                        $formatted_overhead,
+                        $overhead_unit
                     );
-            break;
-        case 'InnoDB' :
-        case 'PBMS' :
-        case 'TokuDB' :
-            // InnoDB table: Row count is not accurate but data and index sizes are.
-            // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
-            // so it may be unavailable
-            list($current_table, $formatted_size, $unit, $sum_size)
+                break;
+            case 'InnoDB':
+            case 'PBMS':
+            case 'TokuDB':
+                // InnoDB table: Row count is not accurate but data and index sizes are.
+                // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
+                // so it may be unavailable
+                list($current_table, $formatted_size, $unit, $sum_size)
                 = $this->getValuesForInnodbTable(
-                    $current_table, $sum_size
+                    $current_table,
+                    $sum_size
                 );
-            break;
+                break;
         // Mysql 5.0.x (and lower) uses MRG_MyISAM
         // and MySQL 5.1.x (and higher) uses MRG_MYISAM
         // Both are aliases for MERGE
-        case 'MRG_MyISAM' :
-        case 'MRG_MYISAM' :
-        case 'MERGE' :
-        case 'BerkeleyDB' :
-            // Merge or BerkleyDB table: Only row count is accurate.
-            if ($this->_is_show_stats) {
-                $formatted_size =  ' - ';
-                $unit          =  '';
-            }
-            break;
+            case 'MRG_MyISAM':
+            case 'MRG_MYISAM':
+            case 'MERGE':
+            case 'BerkeleyDB':
+                // Merge or BerkleyDB table: Only row count is accurate.
+                if ($this->_is_show_stats) {
+                    $formatted_size =  ' - ';
+                    $unit          =  '';
+                }
+                break;
         // for a view, the ENGINE is sometimes reported as null,
         // or on some servers it's reported as "SYSTEM VIEW"
-        case null :
-        case 'SYSTEM VIEW' :
-            // possibly a view, do nothing
-            break;
-        default :
-            // Unknown table type.
-            if ($this->_is_show_stats) {
-                $formatted_size =  __('unknown');
-                $unit          =  '';
-            }
+            case null:
+            case 'SYSTEM VIEW':
+                // possibly a view, do nothing
+                break;
+            default:
+                // Unknown table type.
+                if ($this->_is_show_stats) {
+                    $formatted_size =  __('unknown');
+                    $unit          =  '';
+                }
         } // end switch
 
         if ($current_table['TABLE_TYPE'] == 'VIEW'
@@ -1077,8 +1096,13 @@ class DatabaseStructureController extends DatabaseController
      * @return array
      */
     protected function getValuesForAriaTable(
-        array $current_table, $sum_size, $overhead_size, $formatted_size, $unit,
-        $formatted_overhead, $overhead_unit
+        array $current_table,
+        $sum_size,
+        $overhead_size,
+        $formatted_size,
+        $unit,
+        $formatted_overhead,
+        $overhead_unit
     ) {
         if ($this->_db_is_system_schema) {
             $current_table['Rows'] = $this->dbi
@@ -1091,14 +1115,17 @@ class DatabaseStructureController extends DatabaseController
                 + $current_table['Index_length'];
             $sum_size += $tblsize;
             list($formatted_size, $unit) = Util::formatByteDown(
-                $tblsize, 3, ($tblsize > 0) ? 1 : 0
+                $tblsize,
+                3,
+                ($tblsize > 0) ? 1 : 0
             );
             if (isset($current_table['Data_free'])
                 && $current_table['Data_free'] > 0
             ) {
                 list($formatted_overhead, $overhead_unit)
                     = Util::formatByteDown(
-                        $current_table['Data_free'], 3,
+                        $current_table['Data_free'],
+                        3,
                         (($current_table['Data_free'] > 0) ? 1 : 0)
                     );
                 $overhead_size += $current_table['Data_free'];
@@ -1118,7 +1145,8 @@ class DatabaseStructureController extends DatabaseController
      * @return array
      */
     protected function getValuesForInnodbTable(
-        array $current_table, $sum_size
+        array $current_table,
+        $sum_size
     ) {
         $formatted_size = $unit = '';
 
@@ -1139,7 +1167,9 @@ class DatabaseStructureController extends DatabaseController
                 + $current_table['Index_length'];
             $sum_size += $tblsize;
             list($formatted_size, $unit) = Util::formatByteDown(
-                $tblsize, 3, (($tblsize > 0) ? 1 : 0)
+                $tblsize,
+                3,
+                (($tblsize > 0) ? 1 : 0)
             );
         }
 

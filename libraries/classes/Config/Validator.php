@@ -95,7 +95,10 @@ class Validator
      * @return bool|array
      */
     public static function validate(
-        ConfigFile $cf, $validator_id, array &$values, $isPostSource
+        ConfigFile $cf,
+        $validator_id,
+        array &$values,
+        $isPostSource
     ) {
         // find validators
         $validator_id = (array) $validator_id;
@@ -148,7 +151,8 @@ class Validator
                         $result[$key] = [];
                     }
                     $result[$key] = array_merge(
-                        $result[$key], (array)$error_list
+                        $result[$key],
+                        (array)$error_list
                     );
                 }
             }

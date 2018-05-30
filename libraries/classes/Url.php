@@ -32,8 +32,11 @@ class Url
      *
      * @access  public
      */
-    public static function getHiddenInputs($db = '', $table = '',
-        $indent = 0, $skip = []
+    public static function getHiddenInputs(
+        $db = '',
+        $table = '',
+        $indent = 0,
+        $skip = []
     ) {
         if (is_array($db)) {
             $params  =& $db;
@@ -232,7 +235,7 @@ class Url
      * we do not use arg_separator.output to avoid problems with &amp; and &
      *
      * @param string $encode whether to encode separator or not,
-     * currently 'none' or 'html'
+     *                       currently 'none' or 'html'
      *
      * @return string  character used for separating url parts usually ; or &
      * @access  public
@@ -259,12 +262,12 @@ class Url
         }
 
         switch ($encode) {
-        case 'html':
-            return $html_separator;
-        case 'text' :
-        case 'none' :
-        default :
-            return $separator;
+            case 'html':
+                return $html_separator;
+            case 'text':
+            case 'none':
+            default:
+                return $separator;
         }
     }
 }

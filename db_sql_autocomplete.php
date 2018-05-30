@@ -18,7 +18,8 @@ if ($GLOBALS['cfg']['EnableAutocompleteForTablesAndColumns']) {
         $tableNames = $GLOBALS['dbi']->getTables($db);
         foreach ($tableNames as $tableName) {
             $sql_autocomplete[$tableName] = $GLOBALS['dbi']->getColumns(
-                $db, $tableName
+                $db,
+                $tableName
             );
         }
     }

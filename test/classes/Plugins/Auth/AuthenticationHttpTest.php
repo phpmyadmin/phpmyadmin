@@ -136,7 +136,9 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
 
         $this->doMockResponse(
-            0, 0, 0,
+            0,
+            0,
+            0,
             ['Location: https://example.com/logout']
         );
     }
@@ -150,7 +152,9 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['verbose'] = 'verboseMessagê';
 
         $this->doMockResponse(
-            1, 1, 1,
+            1,
+            1,
+            1,
             ['WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"'],
             ['status: 401 Unauthorized'],
             401
@@ -166,7 +170,9 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['host'] = 'hòst';
 
         $this->doMockResponse(
-            1, 1, 1,
+            1,
+            1,
+            1,
             ['WWW-Authenticate: Basic realm="phpMyAdmin hst"'],
             ['status: 401 Unauthorized'],
             401
@@ -182,7 +188,9 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['auth_http_realm'] = 'rêäealmmessage';
 
         $this->doMockResponse(
-            1, 1, 1,
+            1,
+            1,
+            1,
             ['WWW-Authenticate: Basic realm="realmmessage"'],
             ['status: 401 Unauthorized'],
             401
@@ -204,8 +212,15 @@ class AuthenticationHttpTest extends PmaTestCase
      * @return void
      * @dataProvider readCredentialsProvider
      */
-    public function testAuthCheck($user, $pass, $userIndex, $passIndex,
-        $expectedReturn, $expectedUser, $expectedPass, $old_usr = ''
+    public function testAuthCheck(
+        $user,
+        $pass,
+        $userIndex,
+        $passIndex,
+        $expectedReturn,
+        $expectedUser,
+        $expectedPass,
+        $old_usr = ''
     ) {
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;

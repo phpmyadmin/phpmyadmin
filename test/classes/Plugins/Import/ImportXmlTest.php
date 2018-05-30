@@ -99,7 +99,6 @@ class ImportXmlTest extends PmaTestCase
             __('Options'),
             $properties->getOptionsText()
         );
-
     }
 
     /**
@@ -161,6 +160,5 @@ class ImportXmlTest extends PmaTestCase
             true,
             $GLOBALS['finished']
         );
-
     }
 }

@@ -159,8 +159,13 @@ class FormDisplayTemplateTest extends TestCase
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
         $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'text', 'val',
-            'desc', false, $opts
+            'test/path',
+            'testName',
+            'text',
+            'val',
+            'desc',
+            false,
+            $opts
         );
 
         $this->assertContains(
@@ -229,8 +234,13 @@ class FormDisplayTemplateTest extends TestCase
         $opts['userprefs_allow'] = true;
 
         $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'checkbox', 'val',
-            '', false, $opts
+            'test/path',
+            'testName',
+            'checkbox',
+            'val',
+            '',
+            false,
+            $opts
         );
 
         $this->assertContains(
@@ -267,8 +277,13 @@ class FormDisplayTemplateTest extends TestCase
         $opts['errors'] = [];
 
         $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'short_text', 'val',
-            '', true, $opts
+            'test/path',
+            'testName',
+            'short_text',
+            'val',
+            '',
+            true,
+            $opts
         );
 
         $this->assertContains(
@@ -279,8 +294,13 @@ class FormDisplayTemplateTest extends TestCase
 
         // number_text
         $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'number_text', 'val',
-            '', true, $opts
+            'test/path',
+            'testName',
+            'number_text',
+            'val',
+            '',
+            true,
+            $opts
         );
 
         $this->assertContains(
@@ -298,8 +318,13 @@ class FormDisplayTemplateTest extends TestCase
             'key2' => false,
         ];
         $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'select', true,
-            '', true, $opts
+            'test/path',
+            'testName',
+            'select',
+            true,
+            '',
+            true,
+            $opts
         );
         $this->assertContains(
             '<select class="all85" name="test/path" id="test/path">',
@@ -330,8 +355,13 @@ class FormDisplayTemplateTest extends TestCase
             'key2' => false,
         ];
         $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'select', false,
-            '', true, $opts
+            'test/path',
+            'testName',
+            'select',
+            false,
+            '',
+            true,
+            $opts
         );
 
         $this->assertContains(
@@ -347,8 +377,13 @@ class FormDisplayTemplateTest extends TestCase
 
         // list
         $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'list', ['foo', 'bar'],
-            '', true, $opts
+            'test/path',
+            'testName',
+            'list',
+            ['foo', 'bar'],
+            '',
+            true,
+            $opts
         );
 
         $this->assertContains(
@@ -390,7 +425,6 @@ class FormDisplayTemplateTest extends TestCase
             '<tr class="group-header group-header-4">',
             $result
         );
-
     }
 
     /**
@@ -530,7 +564,7 @@ class FormDisplayTemplateTest extends TestCase
             . '});' . "\n"
             . 'if (typeof configScriptLoaded !== "undefined"'
             . ' && configInlineParams) loadInlineConfig();'
-            . "\n" . '</script>'. "\n",
+            . "\n" . '</script>' . "\n",
             $result
         );
     }

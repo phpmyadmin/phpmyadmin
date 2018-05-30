@@ -756,25 +756,25 @@ class Pdf extends PdfLib
             $this->display_column[$i] = true;
 
             switch ($this->fields[$i]->type) {
-            case 'int':
-                $this->colAlign[$i] = 'R';
-                break;
-            case 'blob':
-            case 'tinyblob':
-            case 'mediumblob':
-            case 'longblob':
-                /**
+                case 'int':
+                    $this->colAlign[$i] = 'R';
+                    break;
+                case 'blob':
+                case 'tinyblob':
+                case 'mediumblob':
+                case 'longblob':
+                    /**
                  * @todo do not deactivate completely the display
                  * but show the field's name and [BLOB]
                  */
-                if (stristr($this->fields[$i]->flags, 'BINARY')) {
-                    $this->display_column[$i] = false;
-                    unset($this->colTitles[$i]);
-                }
-                $this->colAlign[$i] = 'L';
-                break;
-            default:
-                $this->colAlign[$i] = 'L';
+                    if (stristr($this->fields[$i]->flags, 'BINARY')) {
+                        $this->display_column[$i] = false;
+                        unset($this->colTitles[$i]);
+                    }
+                    $this->colAlign[$i] = 'L';
+                    break;
+                default:
+                    $this->colAlign[$i] = 'L';
             }
         }
 

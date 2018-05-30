@@ -395,4 +395,3 @@ class Innodb extends StorageEngine
         );
     }
 }
-

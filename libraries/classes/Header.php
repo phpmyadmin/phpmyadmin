@@ -232,7 +232,8 @@ class Header
         $params = [
             'common_query' => Url::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
             ),
             'lang' => $GLOBALS['lang'],
             'server' => $GLOBALS['server'],
@@ -544,7 +545,7 @@ class Header
             header(
                 'X-Frame-Options: DENY'
             );
-        } else if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === 'sameorigin') {
+        } elseif ($GLOBALS['cfg']['AllowThirdPartyFraming'] === 'sameorigin') {
             header(
                 'X-Frame-Options: SAMEORIGIN'
             );

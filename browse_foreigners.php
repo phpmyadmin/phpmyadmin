@@ -54,7 +54,9 @@ $foreign_limit = $browseForeigners->getForeignLimit(
 );
 
 $foreignData = $relation->getForeignData(
-    $foreigners, $_REQUEST['field'], true,
+    $foreigners,
+    $_REQUEST['field'],
+    true,
     isset($_REQUEST['foreign_filter'])
     ? $_REQUEST['foreign_filter']
     : '',

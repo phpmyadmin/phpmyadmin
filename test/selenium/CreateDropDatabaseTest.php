@@ -54,7 +54,7 @@ class CreateDropDatabaseTest extends TestBase
             'DROP DATABASE IF EXISTS ' . $this->database_name . ';'
         );
 
-        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElement('byPartialLinkText', 'Databases')->click();
         $this->waitAjax();
 
         $element = $this->waitForElement('byId', 'text_create_db');
@@ -99,7 +99,8 @@ class CreateDropDatabaseTest extends TestBase
         );
 
         $this->waitForElement(
-            "byCssSelector", "span.ajax_notification div.success"
+            "byCssSelector",
+            "span.ajax_notification div.success"
         );
 
         $result = $this->dbQuery(

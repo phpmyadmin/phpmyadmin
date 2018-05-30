@@ -218,30 +218,30 @@ class ErrorHandler
         $this->errors[$error->getHash()] = $error;
 
         switch ($error->getNumber()) {
-        case E_STRICT:
-        case E_DEPRECATED:
-        case E_NOTICE:
-        case E_WARNING:
-        case E_CORE_WARNING:
-        case E_COMPILE_WARNING:
-        case E_RECOVERABLE_ERROR:
-            /* Avoid rendering BB code in PHP errors */
-            $error->setBBCode(false);
-            break;
-        case E_USER_NOTICE:
-        case E_USER_WARNING:
-        case E_USER_ERROR:
-            // just collect the error
-            // display is called from outside
-            break;
-        case E_ERROR:
-        case E_PARSE:
-        case E_CORE_ERROR:
-        case E_COMPILE_ERROR:
-        default:
-            // FATAL error, display it and exit
-            $this->dispFatalError($error);
-            exit;
+            case E_STRICT:
+            case E_DEPRECATED:
+            case E_NOTICE:
+            case E_WARNING:
+            case E_CORE_WARNING:
+            case E_COMPILE_WARNING:
+            case E_RECOVERABLE_ERROR:
+                /* Avoid rendering BB code in PHP errors */
+                $error->setBBCode(false);
+                break;
+            case E_USER_NOTICE:
+            case E_USER_WARNING:
+            case E_USER_ERROR:
+                // just collect the error
+                // display is called from outside
+                break;
+            case E_ERROR:
+            case E_PARSE:
+            case E_CORE_ERROR:
+            case E_COMPILE_ERROR:
+            default:
+                // FATAL error, display it and exit
+                $this->dispFatalError($error);
+                exit;
         }
     }
 
@@ -408,7 +408,6 @@ class ErrorHandler
     protected function checkSavedErrors(): void
     {
         if (isset($_SESSION['errors'])) {
-
             // restore saved errors
             foreach ($_SESSION['errors'] as $hash => $error) {
                 if ($error instanceof Error && ! isset($this->errors[$hash])) {

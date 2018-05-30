@@ -45,7 +45,9 @@ class SqlQueryForm
      * @usedby  tbl_tracking.php
      */
     public function getHtml(
-        $query = true, $display_tab = false, $delimiter = ';'
+        $query = true,
+        $display_tab = false,
+        $delimiter = ';'
     ) {
         $html = '';
         if (! $display_tab) {
@@ -99,7 +101,8 @@ class SqlQueryForm
         // display querybox
         if ($display_tab === 'full' || $display_tab === 'sql') {
             $html .= $this->getHtmlForInsert(
-                $query, $delimiter
+                $query,
+                $delimiter
             );
         }
 
@@ -149,7 +152,8 @@ class SqlQueryForm
             $db     = $GLOBALS['db'];
             // if you want navigation:
             $tmp_db_link = '<a href="' . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
             )
                 . Url::getCommon(['db' => $db]) . '"';
             $tmp_db_link .= '>'
@@ -157,7 +161,8 @@ class SqlQueryForm
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
             if (empty($query)) {
                 $query = Util::expandUserString(
-                    $GLOBALS['cfg']['DefaultQueryDatabase'], 'backquote'
+                    $GLOBALS['cfg']['DefaultQueryDatabase'],
+                    'backquote'
                 );
             }
         } else {
@@ -167,18 +172,23 @@ class SqlQueryForm
             // we do a try_query here, because we could be in the query window,
             // trying to synchronize and the table has not yet been created
             $columns_list = $GLOBALS['dbi']->getColumns(
-                $db, $GLOBALS['table'], null, true
+                $db,
+                $GLOBALS['table'],
+                null,
+                true
             );
 
             $tmp_tbl_link = '<a href="' . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                $GLOBALS['cfg']['DefaultTabTable'],
+                'table'
             ) . Url::getCommon(['db' => $db, 'table' => $table]) . '" >';
             $tmp_tbl_link .= htmlspecialchars($db)
                 . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
             if (empty($query)) {
                 $query = Util::expandUserString(
-                    $GLOBALS['cfg']['DefaultQueryTable'], 'backquote'
+                    $GLOBALS['cfg']['DefaultQueryTable'],
+                    'backquote'
                 );
             }
         }
@@ -196,7 +206,8 @@ class SqlQueryForm
      * @return string
      */
     public function getHtmlForInsert(
-        $query = '', $delimiter = ';'
+        $query = '',
+        $delimiter = ';'
     ) {
         // enable auto select text in textarea
         if ($GLOBALS['cfg']['TextareaAutoSelect']) {

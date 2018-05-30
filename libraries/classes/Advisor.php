@@ -48,49 +48,56 @@ class Advisor
          */
         $this->expression->register(
             'round',
-            function (){},
+            function () {
+            },
             function ($arguments, $num) {
                 return round($num);
             }
         );
         $this->expression->register(
             'substr',
-            function (){},
+            function () {
+            },
             function ($arguments, $string, $start, $length) {
                 return substr($string, $start, $length);
             }
         );
         $this->expression->register(
             'preg_match',
-            function (){},
-            function ($arguments, $pattern , $subject) {
+            function () {
+            },
+            function ($arguments, $pattern, $subject) {
                 return preg_match($pattern, $subject);
             }
         );
         $this->expression->register(
             'ADVISOR_bytime',
-            function (){},
+            function () {
+            },
             function ($arguments, $num, $precision) {
                 return self::byTime($num, $precision);
             }
         );
         $this->expression->register(
             'ADVISOR_timespanFormat',
-            function (){},
+            function () {
+            },
             function ($arguments, $seconds) {
                 return self::timespanFormat((int) $seconds);
             }
         );
         $this->expression->register(
             'ADVISOR_formatByteDown',
-            function (){},
+            function () {
+            },
             function ($arguments, $value, $limes = 6, $comma = 0) {
                 return self::formatByteDown($value, $limes, $comma);
             }
         );
         $this->expression->register(
             'fired',
-            function (){},
+            function () {
+            },
             function ($arguments, $value) {
                 if (!isset($this->runResult['fired'])) {
                     return 0;
@@ -110,7 +117,6 @@ class Advisor
         $this->globals = [
             'PMA_MYSQL_INT_VERSION' => $this->dbi->getVersion(),
         ];
-
     }
 
     /**
@@ -385,47 +391,47 @@ class Advisor
     public function addRule(string $type, array $rule): void
     {
         switch ($type) {
-        case 'notfired':
-        case 'fired':
-            $jst = self::splitJustification($rule);
-            if (count($jst) > 1) {
-                try {
-                    /* Translate */
-                    $str = $this->translate($jst[0], $jst[1]);
-                } catch (Exception $e) {
-                    $this->storeError(
-                        sprintf(
-                            __('Failed formatting string for rule \'%s\'.'),
-                            $rule['name']
-                        ),
-                        $e
-                    );
-                    return;
+            case 'notfired':
+            case 'fired':
+                $jst = self::splitJustification($rule);
+                if (count($jst) > 1) {
+                    try {
+                        /* Translate */
+                        $str = $this->translate($jst[0], $jst[1]);
+                    } catch (Exception $e) {
+                        $this->storeError(
+                            sprintf(
+                                __('Failed formatting string for rule \'%s\'.'),
+                                $rule['name']
+                            ),
+                            $e
+                        );
+                        return;
+                    }
+
+                    $rule['justification'] = $str;
+                } else {
+                    $rule['justification'] = $this->translate($rule['justification']);
                 }
+                $rule['id'] = $rule['name'];
+                $rule['name'] = $this->translate($rule['name']);
+                $rule['issue'] = $this->translate($rule['issue']);
 
-                $rule['justification'] = $str;
-            } else {
-                $rule['justification'] = $this->translate($rule['justification']);
-            }
-            $rule['id'] = $rule['name'];
-            $rule['name'] = $this->translate($rule['name']);
-            $rule['issue'] = $this->translate($rule['issue']);
+                // Replaces {server_variable} with 'server_variable'
+                // linking to server_variables.php
+                $rule['recommendation'] = preg_replace_callback(
+                    '/\{([a-z_0-9]+)\}/Ui',
+                    [$this, 'replaceVariable'],
+                    $this->translate($rule['recommendation'])
+                );
 
-            // Replaces {server_variable} with 'server_variable'
-            // linking to server_variables.php
-            $rule['recommendation'] = preg_replace_callback(
-                '/\{([a-z_0-9]+)\}/Ui',
-                [$this, 'replaceVariable'],
-                $this->translate($rule['recommendation'])
-            );
-
-            // Replaces external Links with Core::linkURL() generated links
-            $rule['recommendation'] = preg_replace_callback(
-                '#href=("|\')(https?://[^\1]+)\1#i',
-                [$this, 'replaceLinkURL'],
-                $rule['recommendation']
-            );
-            break;
+                // Replaces external Links with Core::linkURL() generated links
+                $rule['recommendation'] = preg_replace_callback(
+                    '#href=("|\')(https?://[^\1]+)\1#i',
+                    [$this, 'replaceLinkURL'],
+                    $rule['recommendation']
+                );
+                break;
         }
 
         $this->runResult[$type][] = $rule;
@@ -601,7 +607,7 @@ class Advisor
         } elseif ($num * 60 >= 1) { // per minute
             $num = $num * 60;
             $per = __('per minute');
-        } elseif ($num * 60 * 60 >= 1 ) { // per hour
+        } elseif ($num * 60 * 60 >= 1) { // per hour
             $num = $num * 60 * 60;
             $per = __('per hour');
         } else {

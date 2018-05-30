@@ -76,23 +76,23 @@ class NodeDatabase extends Node
     {
         $retval = 0;
         switch ($type) {
-        case 'tables':
-            $retval = $this->_getTableCount($searchClause, $singleItem);
-            break;
-        case 'views':
-            $retval = $this->_getViewCount($searchClause, $singleItem);
-            break;
-        case 'procedures':
-            $retval = $this->_getProcedureCount($searchClause, $singleItem);
-            break;
-        case 'functions':
-            $retval = $this->_getFunctionCount($searchClause, $singleItem);
-            break;
-        case 'events':
-            $retval = $this->_getEventCount($searchClause, $singleItem);
-            break;
-        default:
-            break;
+            case 'tables':
+                $retval = $this->_getTableCount($searchClause, $singleItem);
+                break;
+            case 'views':
+                $retval = $this->_getViewCount($searchClause, $singleItem);
+                break;
+            case 'procedures':
+                $retval = $this->_getProcedureCount($searchClause, $singleItem);
+                break;
+            case 'functions':
+                $retval = $this->_getFunctionCount($searchClause, $singleItem);
+                break;
+            case 'events':
+                $retval = $this->_getEventCount($searchClause, $singleItem);
+                break;
+            default:
+                break;
         }
 
         return $retval;
@@ -369,23 +369,23 @@ class NodeDatabase extends Node
     {
         $retval = [];
         switch ($type) {
-        case 'tables':
-            $retval = $this->_getTables($pos, $searchClause);
-            break;
-        case 'views':
-            $retval = $this->_getViews($pos, $searchClause);
-            break;
-        case 'procedures':
-            $retval = $this->_getProcedures($pos, $searchClause);
-            break;
-        case 'functions':
-            $retval = $this->_getFunctions($pos, $searchClause);
-            break;
-        case 'events':
-            $retval = $this->_getEvents($pos, $searchClause);
-            break;
-        default:
-            break;
+            case 'tables':
+                $retval = $this->_getTables($pos, $searchClause);
+                break;
+            case 'views':
+                $retval = $this->_getViews($pos, $searchClause);
+                break;
+            case 'procedures':
+                $retval = $this->_getProcedures($pos, $searchClause);
+                break;
+            case 'functions':
+                $retval = $this->_getFunctions($pos, $searchClause);
+                break;
+            case 'events':
+                $retval = $this->_getEvents($pos, $searchClause);
+                break;
+            default:
+                break;
         }
 
         // Remove hidden items so that they are not displayed in navigation tree

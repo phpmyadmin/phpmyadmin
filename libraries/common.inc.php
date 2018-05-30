@@ -396,7 +396,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // TODO: Set SQL modes too.
-
     } else { // end server connecting
         $response = Response::getInstance();
         $response->getHeader()->disableMenuAndConsole();

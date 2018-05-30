@@ -168,7 +168,6 @@ class ExportOdsTest extends PmaTestCase
             'structure_or_data',
             $property->getName()
         );
-
     }
 
     /**
@@ -361,7 +360,11 @@ class ExportOdsTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "example.com", "SELECT"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
 
@@ -444,7 +447,11 @@ class ExportOdsTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "example.com", "SELECT"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
 
@@ -497,7 +504,11 @@ class ExportOdsTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "example.com", "SELECT"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
 

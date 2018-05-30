@@ -144,7 +144,6 @@ class TableIndexesController extends TableController
 
         // If there is a request for SQL previewing.
         if (isset($_REQUEST['preview_sql'])) {
-
             $this->response->addJSON(
                 'sql_data',
                 Template::get('preview_sql')
@@ -155,7 +154,6 @@ class TableIndexesController extends TableController
                     )
             );
         } elseif (!$error) {
-
             $this->dbi->query($sql_query);
             $response = Response::getInstance();
             if ($response->isAjax()) {
@@ -164,12 +162,14 @@ class TableIndexesController extends TableController
                 );
                 $message->addParam($this->table);
                 $this->response->addJSON(
-                    'message', Util::getMessage($message, $sql_query, 'success')
+                    'message',
+                    Util::getMessage($message, $sql_query, 'success')
                 );
                 $this->response->addJSON(
                     'index_table',
                     Index::getHtmlForIndexes(
-                        $this->table, $this->db
+                        $this->table,
+                        $this->db
                     )
                 );
             } else {

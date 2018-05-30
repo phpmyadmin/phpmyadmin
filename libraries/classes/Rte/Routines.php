@@ -190,7 +190,8 @@ class Routines
                     && empty($_REQUEST['editor_process_edit'])
                 ) {
                     $routine = $this->getDataFromName(
-                        $_REQUEST['item_name'], $_REQUEST['item_type']
+                        $_REQUEST['item_name'],
+                        $_REQUEST['item_type']
                     );
                     if ($routine !== false) {
                         $routine['item_original_name'] = $routine['item_name'];
@@ -791,7 +792,8 @@ class Routines
             . " value='{$routine['item_param_name'][$i]}' /></td>\n";
         $retval .= "            <td><select name='item_param_type[$index]'>";
         $retval .= Util::getSupportedDatatypes(
-            true, $routine['item_param_type'][$i]
+            true,
+            $routine['item_param_type'][$i]
         ) . "\n";
         $retval .= "            </select></td>\n";
         $retval .= "            <td>\n";
@@ -1244,7 +1246,7 @@ class Routines
                     }
                     if (! empty($_REQUEST['item_param_opts_text'][$i])) {
                         if ($dbi->types->getTypeClass($item_param_type[$i]) == 'CHAR') {
-                            if(! in_array($item_param_type[$i], ['VARBINARY', 'BINARY'])) {
+                            if (! in_array($item_param_type[$i], ['VARBINARY', 'BINARY'])) {
                                 $params .= ' CHARSET '
                                     . mb_strtolower(
                                         $_REQUEST['item_param_opts_text'][$i]
@@ -1279,7 +1281,8 @@ class Routines
 
             if (! empty($item_returntype)
                 && in_array(
-                    $item_returntype, Util::getSupportedDatatypes()
+                    $item_returntype,
+                    Util::getSupportedDatatypes()
                 )
             ) {
                 $query .= "RETURNS " . $item_returntype;
@@ -1296,7 +1299,8 @@ class Routines
                 $query .= "(" . $_REQUEST['item_returnlength'] . ")";
             } elseif (empty($_REQUEST['item_returnlength'])
                 && preg_match(
-                    '@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $item_returntype
+                    '@^(ENUM|SET|VARCHAR|VARBINARY)$@i',
+                    $item_returntype
                 )
             ) {
                 if (! $warned_about_length) {
@@ -1367,7 +1371,9 @@ class Routines
         if (! empty($_REQUEST['execute_routine']) && ! empty($_REQUEST['item_name'])) {
             // Build the queries
             $routine = $this->getDataFromName(
-                $_REQUEST['item_name'], $_REQUEST['item_type'], false
+                $_REQUEST['item_name'],
+                $_REQUEST['item_type'],
+                false
             );
             if ($routine === false) {
                 $message  = __('Error in processing request:') . ' ';
@@ -1449,7 +1455,6 @@ class Routines
 
             // Generate output
             if ($outcome) {
-
                 // Pass the SQL queries through the "pretty printer"
                 $output  = Util::formatSql(implode($queries, "\n"));
 
@@ -1464,12 +1469,10 @@ class Routines
                 $nbResultsetToDisplay = 0;
 
                 do {
-
                     $result = $GLOBALS['dbi']->storeResult();
                     $num_rows = $GLOBALS['dbi']->numRows($result);
 
                     if (($result !== false) && ($num_rows > 0)) {
-
                         $output .= "<table><tr>";
                         foreach ($GLOBALS['dbi']->getFieldsMeta($result) as $field) {
                             $output .= "<th>";
@@ -1485,7 +1488,6 @@ class Routines
                         $output .= "</table>";
                         $nbResultsetToDisplay++;
                         $affected = $num_rows;
-
                     }
 
                     if (! $GLOBALS['dbi']->moreResults()) {
@@ -1495,12 +1497,10 @@ class Routines
                     $output .= "<br/>";
 
                     $GLOBALS['dbi']->freeResult($result);
-
                 } while ($outcome = $GLOBALS['dbi']->nextResult());
             }
 
             if ($outcome) {
-
                 $output .= "</fieldset>";
 
                 $message = __('Your SQL query has been executed successfully.');
@@ -1528,7 +1528,6 @@ class Routines
                     );
                     $output .= Message::notice($notice)->getDisplay();
                 }
-
             } else {
                 $output = '';
                 $message = Message::error(
@@ -1563,7 +1562,9 @@ class Routines
              * Display the execute form for a routine.
              */
             $routine = $this->getDataFromName(
-                $_GET['item_name'], $_GET['item_type'], true
+                $_GET['item_name'],
+                $_GET['item_type'],
+                true
             );
             if ($routine !== false) {
                 $form = $this->getExecuteForm($routine);
@@ -1666,7 +1667,7 @@ class Routines
         if ($cfg['ShowFunctionFields']) {
             $retval .= "<th>" . __('Function') . "</th>\n";
         }
-        $retval .= "<th>" . __('Value')    . "</th>\n";
+        $retval .= "<th>" . __('Value') . "</th>\n";
         $retval .= "</tr>\n";
         // Get a list of data types that are not yet supported.
         $no_support_types = Util::unsupportedDatatypes();

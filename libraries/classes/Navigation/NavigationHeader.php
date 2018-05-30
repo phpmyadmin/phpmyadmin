@@ -122,20 +122,20 @@ class NavigationHeader
             $logoLink = 'index.php';
         }
         switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
-        case 'new':
-            $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
-            break;
-        case 'main':
-            // do not add our parameters for an external link
-            $host = parse_url(
-                $GLOBALS['cfg']['NavigationLogoLink'],
-                PHP_URL_HOST
-            );
-            if (empty($host)) {
-                $logoLink .= Url::getCommon();
-            } else {
+            case 'new':
                 $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
-            }
+                break;
+            case 'main':
+                // do not add our parameters for an external link
+                $host = parse_url(
+                    $GLOBALS['cfg']['NavigationLogoLink'],
+                    PHP_URL_HOST
+                );
+                if (empty($host)) {
+                    $logoLink .= Url::getCommon();
+                } else {
+                    $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
+                }
         }
 
         return Template::get('navigation/logo')->render([

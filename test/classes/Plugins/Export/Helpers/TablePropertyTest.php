@@ -341,5 +341,4 @@ class TablePropertyTest extends PmaTestCase
             )
         );
     }
-
 }

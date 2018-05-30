@@ -98,7 +98,6 @@ class ImportMediawikiTest extends PmaTestCase
             __('Options'),
             $properties->getOptionsText()
         );
-
     }
 
     /**
@@ -160,6 +159,5 @@ class ImportMediawikiTest extends PmaTestCase
             true,
             $GLOBALS['finished']
         );
-
     }
 }

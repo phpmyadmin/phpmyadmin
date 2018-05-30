@@ -177,11 +177,19 @@ class GisLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPng
      * @return void
      */
-    public function testPrepareRowAsPng($spatial, $label, $line_color,
-        $scale_data, $image
+    public function testPrepareRowAsPng(
+        $spatial,
+        $label,
+        $line_color,
+        $scale_data,
+        $image
     ) {
         $this->object->prepareRowAsPng(
-            $spatial, $label, $line_color, $scale_data, $image
+            $spatial,
+            $label,
+            $line_color,
+            $scale_data,
+            $image
         );
         /* TODO: this never fails */
         $this->assertTrue(true);
@@ -225,11 +233,19 @@ class GisLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPdf
      * @return void
      */
-    public function testPrepareRowAsPdf($spatial, $label, $line_color,
-        $scale_data, $pdf
+    public function testPrepareRowAsPdf(
+        $spatial,
+        $label,
+        $line_color,
+        $scale_data,
+        $pdf
     ) {
         $return = $this->object->prepareRowAsPdf(
-            $spatial, $label, $line_color, $scale_data, $pdf
+            $spatial,
+            $label,
+            $line_color,
+            $scale_data,
+            $pdf
         );
         $this->assertInstanceOf('TCPDF', $return);
     }
@@ -269,11 +285,18 @@ class GisLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsSvg
      * @return void
      */
-    public function testPrepareRowAsSvg($spatial, $label, $line_color,
-        $scale_data, $output
+    public function testPrepareRowAsSvg(
+        $spatial,
+        $label,
+        $line_color,
+        $scale_data,
+        $output
     ) {
         $string = $this->object->prepareRowAsSvg(
-            $spatial, $label, $line_color, $scale_data
+            $spatial,
+            $label,
+            $line_color,
+            $scale_data
         );
         $this->assertEquals(1, preg_match($output, $string));
     }
@@ -316,12 +339,21 @@ class GisLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsOl
      * @return void
      */
-    public function testPrepareRowAsOl($spatial, $srid, $label,
-        $line_color, $scale_data, $output
+    public function testPrepareRowAsOl(
+        $spatial,
+        $srid,
+        $label,
+        $line_color,
+        $scale_data,
+        $output
     ) {
         $this->assertEquals(
             $this->object->prepareRowAsOl(
-                $spatial, $srid, $label, $line_color, $scale_data
+                $spatial,
+                $srid,
+                $label,
+                $line_color,
+                $scale_data
             ),
             $output
         );

@@ -192,7 +192,9 @@ class Import
         if (!isset($import_run_buffer)) {
             // Do we have something to push into buffer?
             $import_run_buffer = $this->runQueryPost(
-                $import_run_buffer, $sql, $full
+                $import_run_buffer,
+                $sql,
+                $full
             );
             return;
         }
@@ -202,7 +204,9 @@ class Import
             $skip_queries--;
             // Do we have something to push into buffer?
             $import_run_buffer = $this->runQueryPost(
-                $import_run_buffer, $sql, $full
+                $import_run_buffer,
+                $sql,
+                $full
             );
             return;
         }
@@ -238,7 +242,6 @@ class Import
                 }
                 $sql_data['valid_queries']++;
             } elseif ($run_query) {
-
                 /* Handle rollback from go_sql */
                 if ($go_sql && isset($sql_data['valid_full'])) {
                     $queries = $sql_data['valid_sql'];
@@ -1480,7 +1483,7 @@ class Import
         foreach ($analyzed_sql_results['statement']->set as $set) {
             $columns[] = $set->column;
             $not_equal_operator = ' <> ';
-            if(strtoupper($set->value) == 'NULL'){
+            if (strtoupper($set->value) == 'NULL') {
                 $not_equal_operator = ' IS NOT ';
             }
             $diff[] = $set->column . $not_equal_operator . $set->value;
@@ -1507,7 +1510,7 @@ class Import
             );
         }
 
-        return 'SELECT '  . implode(', ', $columns) .
+        return 'SELECT ' . implode(', ', $columns) .
             ' FROM ' . implode(', ', $table_references) .
             ' WHERE ' . $where . $order_and_limit;
     }

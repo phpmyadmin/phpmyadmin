@@ -61,7 +61,8 @@ if ($action == 'tbl_create.php') {
 } else {
     if ($action == 'tbl_addfield.php') {
         $form_params = array_merge(
-            $form_params, [
+            $form_params,
+            [
             'field_where' => Util::getValueByKey($_REQUEST, 'field_where')]
         );
         if (isset($_REQUEST['field_where'])) {
@@ -113,7 +114,8 @@ $mime_type= 'input_transformation';
 if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
     foreach ($available_mime[$mime_type] as $mimekey => $transform) {
         $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
-            $available_mime[$mime_type . '_file'][$mimekey], '@'
+            $available_mime[$mime_type . '_file'][$mimekey],
+            '@'
         );
     }
 }
@@ -142,7 +144,6 @@ if ($GLOBALS['dbi']->getVersion() < 50606) {
 }
 
 for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
-
     $type = '';
     $length = '';
     $columnMeta = [];
@@ -150,43 +151,62 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     $extracted_columnspec = [];
 
     if (!empty($regenerate)) {
-
         $columnMeta = array_merge(
             $columnMeta,
             [
                 'Field'        => Util::getValueByKey(
-                    $_REQUEST, "field_name.${columnNumber}", false
+                    $_REQUEST,
+                    "field_name.${columnNumber}",
+                    false
                 ),
                 'Type'         => Util::getValueByKey(
-                    $_REQUEST, "field_type.${columnNumber}", false
+                    $_REQUEST,
+                    "field_type.${columnNumber}",
+                    false
                 ),
                 'Collation'    => Util::getValueByKey(
-                    $_REQUEST, "field_collation.${columnNumber}", ''
+                    $_REQUEST,
+                    "field_collation.${columnNumber}",
+                    ''
                 ),
                 'Null'         => Util::getValueByKey(
-                    $_REQUEST, "field_null.${columnNumber}", ''
+                    $_REQUEST,
+                    "field_null.${columnNumber}",
+                    ''
                 ),
                 'DefaultType'  => Util::getValueByKey(
-                    $_REQUEST, "field_default_type.${columnNumber}", 'NONE'
+                    $_REQUEST,
+                    "field_default_type.${columnNumber}",
+                    'NONE'
                 ),
                 'DefaultValue' => Util::getValueByKey(
-                    $_REQUEST, "field_default_value.${columnNumber}", ''
+                    $_REQUEST,
+                    "field_default_value.${columnNumber}",
+                    ''
                 ),
                 'Extra'        => Util::getValueByKey(
-                    $_REQUEST, "field_extra.${columnNumber}", false
+                    $_REQUEST,
+                    "field_extra.${columnNumber}",
+                    false
                 ),
                 'Virtuality'   => Util::getValueByKey(
-                    $_REQUEST, "field_virtuality.${columnNumber}", ''
+                    $_REQUEST,
+                    "field_virtuality.${columnNumber}",
+                    ''
                 ),
                 'Expression'   => Util::getValueByKey(
-                    $_REQUEST, "field_expression.${columnNumber}", ''
+                    $_REQUEST,
+                    "field_expression.${columnNumber}",
+                    ''
                 ),
             ]
         );
 
         $columnMeta['Key'] = '';
         $parts = explode(
-            '_', Util::getValueByKey($_REQUEST, "field_key.${columnNumber}", ''), 2
+            '_',
+            Util::getValueByKey($_REQUEST, "field_key.${columnNumber}", ''),
+            2
         );
         if (count($parts) == 2 && $parts[1] == $columnNumber) {
             $columnMeta['Key'] = Util::getValueByKey(
@@ -197,7 +217,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                     'fulltext' => 'FULLTEXT',
                     'spatial' => 'SPATIAL'
                 ],
-                $parts[0], ''
+                $parts[0],
+                ''
             );
         }
 
@@ -207,25 +228,28 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 ? 'FULLTEXT' : false;
 
         switch ($columnMeta['DefaultType']) {
-        case 'NONE':
-            $columnMeta['Default'] = null;
-            break;
-        case 'USER_DEFINED':
-            $columnMeta['Default'] = $columnMeta['DefaultValue'];
-            break;
-        case 'NULL':
-        case 'CURRENT_TIMESTAMP':
-        case 'current_timestamp()':
-            $columnMeta['Default'] = $columnMeta['DefaultType'];
-            break;
+            case 'NONE':
+                $columnMeta['Default'] = null;
+                break;
+            case 'USER_DEFINED':
+                $columnMeta['Default'] = $columnMeta['DefaultValue'];
+                break;
+            case 'NULL':
+            case 'CURRENT_TIMESTAMP':
+            case 'current_timestamp()':
+                $columnMeta['Default'] = $columnMeta['DefaultType'];
+                break;
         }
 
         $length = Util::getValueByKey($_REQUEST, "field_length.${columnNumber}", $length);
         $submit_attribute = Util::getValueByKey(
-            $_REQUEST, "field_attribute.${columnNumber}", false
+            $_REQUEST,
+            "field_attribute.${columnNumber}",
+            false
         );
         $comments_map[$columnMeta['Field']] = Util::getValueByKey(
-            $_REQUEST, "field_comments.${columnNumber}"
+            $_REQUEST,
+            "field_comments.${columnNumber}"
         );
 
         $mime_map[$columnMeta['Field']] = array_merge(
@@ -233,14 +257,15 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             [
                 'mimetype' => Util::getValueByKey($_REQUEST, "field_mimetype.${$columnNumber}"),
                 'transformation' => Util::getValueByKey(
-                    $_REQUEST, "field_transformation.${$columnNumber}"
+                    $_REQUEST,
+                    "field_transformation.${$columnNumber}"
                 ),
                 'transformation_options' => Util::getValueByKey(
-                    $_REQUEST, "field_transformation_options.${$columnNumber}"
+                    $_REQUEST,
+                    "field_transformation_options.${$columnNumber}"
                 ),
             ]
         );
-
     } elseif (isset($fields_meta[$columnNumber])) {
         $columnMeta = $fields_meta[$columnNumber];
         $virtual = [
@@ -254,29 +279,29 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             $columnMeta['Expression'] = $expressions[$columnMeta['Field']];
         }
         switch ($columnMeta['Default']) {
-        case null:
-            if (is_null($columnMeta['Default'])) { // null
-                if ($columnMeta['Null'] == 'YES') {
-                    $columnMeta['DefaultType'] = 'NULL';
-                    $columnMeta['DefaultValue'] = '';
-                } else {
-                    $columnMeta['DefaultType'] = 'NONE';
-                    $columnMeta['DefaultValue'] = '';
+            case null:
+                if (is_null($columnMeta['Default'])) { // null
+                    if ($columnMeta['Null'] == 'YES') {
+                        $columnMeta['DefaultType'] = 'NULL';
+                        $columnMeta['DefaultValue'] = '';
+                    } else {
+                        $columnMeta['DefaultType'] = 'NONE';
+                        $columnMeta['DefaultValue'] = '';
+                    }
+                } else { // empty
+                    $columnMeta['DefaultType'] = 'USER_DEFINED';
+                    $columnMeta['DefaultValue'] = $columnMeta['Default'];
                 }
-            } else { // empty
+                break;
+            case 'CURRENT_TIMESTAMP':
+            case 'current_timestamp()':
+                $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
+                $columnMeta['DefaultValue'] = '';
+                break;
+            default:
                 $columnMeta['DefaultType'] = 'USER_DEFINED';
                 $columnMeta['DefaultValue'] = $columnMeta['Default'];
-            }
-            break;
-        case 'CURRENT_TIMESTAMP':
-        case 'current_timestamp()':
-            $columnMeta['DefaultType'] = 'CURRENT_TIMESTAMP';
-            $columnMeta['DefaultValue'] = '';
-            break;
-        default:
-            $columnMeta['DefaultType'] = 'USER_DEFINED';
-            $columnMeta['DefaultValue'] = $columnMeta['Default'];
-            break;
+                break;
         }
     }
 
@@ -324,7 +349,6 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
      * old column attributes
      */
     if ($is_backup) {
-
         // old column name
         if (isset($columnMeta['Field'])) {
             $form_params['field_orig[' . $columnNumber . ']']
@@ -360,31 +384,47 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             $form_params,
             [
                 "field_default_value_orig[${columnNumber}]" => Util::getValueByKey(
-                    $columnMeta, 'Default', ''
+                    $columnMeta,
+                    'Default',
+                    ''
                 ),
                 "field_default_type_orig[${columnNumber}]"  => Util::getValueByKey(
-                    $columnMeta, 'DefaultType', ''
+                    $columnMeta,
+                    'DefaultType',
+                    ''
                 ),
                 "field_collation_orig[${columnNumber}]"     => Util::getValueByKey(
-                    $columnMeta, 'Collation', ''
+                    $columnMeta,
+                    'Collation',
+                    ''
                 ),
                 "field_attribute_orig[${columnNumber}]"     => trim(
                     Util::getValueByKey($extracted_columnspec, 'attribute', '')
                 ),
                 "field_null_orig[${columnNumber}]"          => Util::getValueByKey(
-                    $columnMeta, 'Null', ''
+                    $columnMeta,
+                    'Null',
+                    ''
                 ),
                 "field_extra_orig[${columnNumber}]"         => Util::getValueByKey(
-                    $columnMeta, 'Extra', ''
+                    $columnMeta,
+                    'Extra',
+                    ''
                 ),
                 "field_comments_orig[${columnNumber}]"      => Util::getValueByKey(
-                    $columnMeta, 'Comment', ''
+                    $columnMeta,
+                    'Comment',
+                    ''
                 ),
                 "field_virtuality_orig[${columnNumber}]"    => Util::getValueByKey(
-                    $columnMeta, 'Virtuality', ''
+                    $columnMeta,
+                    'Virtuality',
+                    ''
                 ),
                 "field_expression_orig[${columnNumber}]"    => Util::getValueByKey(
-                    $columnMeta, 'Expression', ''
+                    $columnMeta,
+                    'Expression',
+                    ''
                 ),
             ]
         );

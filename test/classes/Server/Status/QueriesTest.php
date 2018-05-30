@@ -221,6 +221,5 @@ class QueriesTest extends TestCase
             '<div id="serverstatusquerieschart" class="width100" data-chart="',
             $html
         );
-
     }
 }

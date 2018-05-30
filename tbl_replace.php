@@ -233,7 +233,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
                     $mime_map[$column_name]['input_transformation_options']
                 );
                 $current_value = $transformation_plugin->applyTransformation(
-                    $current_value, $transformation_options
+                    $current_value,
+                    $transformation_options
                 );
                 // check if transformation was successful or not
                 // and accordingly set error messages & insert_fail
@@ -244,7 +245,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
                     $row_skipped = true;
                     $insert_errors[] = sprintf(
                         __('Row: %1$s, Column: %2$s, Error: %3$s'),
-                        $rownumber, $column_name,
+                        $rownumber,
+                        $column_name,
                         $transformation_plugin->getError()
                     );
                 }
@@ -258,26 +260,47 @@ foreach ($loop_array as $rownumber => $where_clause) {
         $file_to_insert->cleanUp();
 
         $current_value = $insertEdit->getCurrentValueForDifferentTypes(
-            $possibly_uploaded_val, $key, $multi_edit_columns_type,
-            $current_value, $multi_edit_auto_increment,
-            $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
-            $multi_edit_columns_null_prev, $is_insert,
-            $using_key, $where_clause, $table, $multi_edit_funcs
+            $possibly_uploaded_val,
+            $key,
+            $multi_edit_columns_type,
+            $current_value,
+            $multi_edit_auto_increment,
+            $rownumber,
+            $multi_edit_columns_name,
+            $multi_edit_columns_null,
+            $multi_edit_columns_null_prev,
+            $is_insert,
+            $using_key,
+            $where_clause,
+            $table,
+            $multi_edit_funcs
         );
 
         $current_value_as_an_array = $insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_funcs,
-            $multi_edit_salt, $gis_from_text_functions, $current_value,
-            $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
+            $multi_edit_salt,
+            $gis_from_text_functions,
+            $current_value,
+            $gis_from_wkb_functions,
+            $func_optional_param,
+            $func_no_param,
+            $key
         );
 
         if (! isset($multi_edit_virtual) || ! isset($multi_edit_virtual[$key])) {
             list($query_values, $query_fields)
                 = $insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-                    $multi_edit_columns_name, $multi_edit_columns_null,
-                    $current_value, $multi_edit_columns_prev, $multi_edit_funcs,
-                    $is_insert, $query_values, $query_fields,
-                    $current_value_as_an_array, $value_sets, $key,
+                    $multi_edit_columns_name,
+                    $multi_edit_columns_null,
+                    $current_value,
+                    $multi_edit_columns_prev,
+                    $multi_edit_funcs,
+                    $is_insert,
+                    $query_values,
+                    $query_fields,
+                    $current_value_as_an_array,
+                    $value_sets,
+                    $key,
                     $multi_edit_columns_null_prev
                 );
         }
@@ -304,10 +327,20 @@ foreach ($loop_array as $rownumber => $where_clause) {
     }
 } // end foreach ($loop_array as $where_clause)
 unset(
-    $multi_edit_columns_name, $multi_edit_columns_prev, $multi_edit_funcs,
-    $multi_edit_columns_type, $multi_edit_columns_null, $func_no_param,
-    $multi_edit_auto_increment, $current_value_as_an_array, $key, $current_value,
-    $loop_array, $where_clause, $using_key,  $multi_edit_columns_null_prev,
+    $multi_edit_columns_name,
+    $multi_edit_columns_prev,
+    $multi_edit_funcs,
+    $multi_edit_columns_type,
+    $multi_edit_columns_null,
+    $func_no_param,
+    $multi_edit_auto_increment,
+    $current_value_as_an_array,
+    $key,
+    $current_value,
+    $loop_array,
+    $where_clause,
+    $using_key,
+    $multi_edit_columns_null_prev,
     $insert_fail
 );
 
@@ -369,8 +402,13 @@ if (! empty($error_messages)) {
     $message->isError(true);
 }
 unset(
-    $error_messages, $warning_messages, $total_affected_rows,
-    $last_messages, $last_message, $row_skipped, $insert_errors
+    $error_messages,
+    $warning_messages,
+    $total_affected_rows,
+    $last_messages,
+    $last_message,
+    $row_skipped,
+    $insert_errors
 );
 
 /**
@@ -386,7 +424,6 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
      * link/transformed value and exit
      */
     if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
-
         $map = $relation->getForeigners($db, $table, '', 'both');
 
         $relation_fields = [];
@@ -398,13 +435,18 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
             foreach ($curr_rel_field as $relation_field => $relation_field_value) {
                 $where_comparison = "='" . $relation_field_value . "'";
                 $dispval = $insertEdit->getDisplayValueForForeignTableColumn(
-                    $where_comparison, $map, $relation_field
+                    $where_comparison,
+                    $map,
+                    $relation_field
                 );
 
                 $extra_data['relations'][$cell_index]
                     = $insertEdit->getLinkForRelationalDisplayField(
-                        $map, $relation_field, $where_comparison,
-                        $dispval, $relation_field_value
+                        $map,
+                        $relation_field,
+                        $where_comparison,
+                        $dispval,
+                        $relation_field_value
                     );
             }
         }   // end of loop for each relation cell
@@ -427,8 +469,14 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
             foreach ($transformation_types as $type) {
                 $file = Core::securePath($transformation[$type]);
                 $extra_data = $insertEdit->transformEditedValues(
-                    $db, $table, $transformation, $edited_values, $file,
-                    $column_name, $extra_data, $type
+                    $db,
+                    $table,
+                    $transformation,
+                    $edited_values,
+                    $file,
+                    $column_name,
+                    $extra_data,
+                    $type
                 );
             }
         }   // end of loop for each $mime_map
@@ -439,7 +487,10 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     $column_name = $_REQUEST['fields_name']['multi_edit'][0][0];
 
     $insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
-        $db, $table, $column_name, $extra_data
+        $db,
+        $table,
+        $column_name,
+        $extra_data
     );
 
     /**Get the total row count of the table*/

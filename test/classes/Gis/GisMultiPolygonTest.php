@@ -283,10 +283,18 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $fill_color, $scale_data, $image
+        $spatial,
+        $label,
+        $fill_color,
+        $scale_data,
+        $image
     ) {
         $return = $this->object->prepareRowAsPng(
-            $spatial, $label, $fill_color, $scale_data, $image
+            $spatial,
+            $label,
+            $fill_color,
+            $scale_data,
+            $image
         );
         $this->assertImage($return);
     }
@@ -332,10 +340,18 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial, $label, $fill_color, $scale_data, $pdf
+        $spatial,
+        $label,
+        $fill_color,
+        $scale_data,
+        $pdf
     ) {
         $return = $this->object->prepareRowAsPdf(
-            $spatial, $label, $fill_color, $scale_data, $pdf
+            $spatial,
+            $label,
+            $fill_color,
+            $scale_data,
+            $pdf
         );
         $this->assertInstanceOf('TCPDF', $return);
     }
@@ -377,10 +393,17 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial, $label, $fill_color, $scale_data, $output
+        $spatial,
+        $label,
+        $fill_color,
+        $scale_data,
+        $output
     ) {
         $string = $this->object->prepareRowAsSvg(
-            $spatial, $label, $fill_color, $scale_data
+            $spatial,
+            $label,
+            $fill_color,
+            $scale_data
         );
         $this->assertEquals(1, preg_match($output, $string));
     }
@@ -429,12 +452,21 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial, $srid, $label, $fill_color, $scale_data, $output
+        $spatial,
+        $srid,
+        $label,
+        $fill_color,
+        $scale_data,
+        $output
     ) {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
-                $spatial, $srid, $label, $fill_color, $scale_data
+                $spatial,
+                $srid,
+                $label,
+                $fill_color,
+                $scale_data
             )
         );
     }

@@ -341,7 +341,14 @@ class TriggersTest extends TestCase
      * @dataProvider providerGetQueryFromRequest
      */
     public function testGetQueryFromRequest(
-        $definer, $name, $timing, $event, $table, $definition, $query, $num_err
+        $definer,
+        $name,
+        $timing,
+        $event,
+        $table,
+        $definition,
+        $query,
+        $num_err
     ) {
         global $_REQUEST, $errors;
 

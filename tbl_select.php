@@ -23,7 +23,8 @@ require_once 'libraries/tbl_common.inc.php';
 $container = Container::getDefaultContainer();
 $container->factory('PhpMyAdmin\Controllers\Table\TableSearchController');
 $container->alias(
-    'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
+    'TableSearchController',
+    'PhpMyAdmin\Controllers\Table\TableSearchController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

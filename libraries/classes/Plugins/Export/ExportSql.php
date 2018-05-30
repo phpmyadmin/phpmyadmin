@@ -207,7 +207,8 @@ class ExportSql extends ExportPlugin
 
             // what to dump (structure/data/both)
             $subgroup = new OptionsPropertySubgroup(
-                "dump_table", __("Dump table")
+                "dump_table",
+                __("Dump table")
             );
             $leaf = new RadioPropertyItem('structure_or_data');
             $leaf->setValues(
@@ -226,7 +227,8 @@ class ExportSql extends ExportPlugin
             // structure options main group
             if (!$hide_structure) {
                 $structureOptions = new OptionsPropertyMainGroup(
-                    "structure", __('Object creation options')
+                    "structure",
+                    __('Object creation options')
                 );
                 $structureOptions->setForce('data');
 
@@ -344,7 +346,8 @@ class ExportSql extends ExportPlugin
 
             // begin Data options
             $dataOptions = new OptionsPropertyMainGroup(
-                "data", __('Data creation options')
+                "data",
+                __('Data creation options')
             );
             $dataOptions->setForce('structure');
             $leaf = new BoolPropertyItem(
@@ -486,7 +489,12 @@ class ExportSql extends ExportPlugin
      * @return string SQL query
      */
     protected function _exportRoutineSQL(
-        $db, array $aliases, $type, $name, array $routines, $delimiter
+        $db,
+        array $aliases,
+        $type,
+        $name,
+        array $routines,
+        $delimiter
     ) {
         global $crlf;
 
@@ -1099,10 +1107,8 @@ class ExportSql extends ExportPlugin
 
         foreach ($types as $type => $dbNameColumn) {
             if (in_array($type, $metadataTypes) && isset($cfgRelation[$type])) {
-
                 // special case, designer pages and their coordinates
                 if ($type == 'pdf_pages') {
-
                     $sql_query = "SELECT `page_nr`, `page_descr` FROM "
                         . Util::backquote($cfgRelation['db'])
                         . "." . Util::backquote($cfgRelation[$type])
@@ -1571,7 +1577,6 @@ class ExportSql extends ExportPlugin
             // Views have no constraints, indexes, etc. They do not require any
             // analysis.
             if (!$view) {
-
                 if (empty($sql_backquotes)) {
                     // Option "Enclose table and column names with backquotes"
                     // was checked.
@@ -1650,7 +1655,6 @@ class ExportSql extends ExportPlugin
                 // Also, AUTO_INCREMENT attribute is removed.
                 /** @var CreateDefinition $field */
                 foreach ($statement->fields as $key => $field) {
-
                     if ($field->isConstraint) {
                         // Creating the parts that add constraints.
                         $constraints[] = $field::build($field);
@@ -1664,7 +1668,9 @@ class ExportSql extends ExportPlugin
                         } else {
                             if (empty($GLOBALS['sql_if_not_exists'])) {
                                 $indexes[] = str_replace(
-                                    'COMMENT=\'', 'COMMENT \'', $field::build($field)
+                                    'COMMENT=\'',
+                                    'COMMENT \'',
+                                    $field::build($field)
                                 );
                                 unset($statement->fields[$key]);
                             }
@@ -1686,7 +1692,6 @@ class ExportSql extends ExportPlugin
                         if ($field->options->has('AUTO_INCREMENT')
                             && empty($GLOBALS['sql_if_not_exists'])
                         ) {
-
                             $auto_increment[] = $field::build($field);
                             $field->options->remove('AUTO_INCREMENT');
                         }
@@ -2007,88 +2012,11 @@ class ExportSql extends ExportPlugin
             . $this->_exportComment();
 
         switch ($export_mode) {
-        case 'create_table':
-            $dump .= $this->_exportComment(
-                __('Table structure for table') . ' ' . $formatted_table_name
-            );
-            $dump .= $this->_exportComment();
-            $dump .= $this->getTableDef(
-                $db,
-                $table,
-                $crlf,
-                $error_url,
-                $dates,
-                true,
-                false,
-                true,
-                $aliases
-            );
-            $dump .= $this->_getTableComments(
-                $db,
-                $table,
-                $crlf,
-                $relation,
-                $mime,
-                $aliases
-            );
-            break;
-        case 'triggers':
-            $dump = '';
-            $delimiter = '$$';
-            $triggers = $GLOBALS['dbi']->getTriggers($db, $table, $delimiter);
-            if ($triggers) {
-                $dump .= $this->_possibleCRLF()
-                    . $this->_exportComment()
-                    . $this->_exportComment(
-                        __('Triggers') . ' ' . $formatted_table_name
-                    )
-                    . $this->_exportComment();
-                $used_alias = false;
-                $trigger_query = '';
-                foreach ($triggers as $trigger) {
-                    if (!empty($GLOBALS['sql_drop_table'])) {
-                        $trigger_query .= $trigger['drop'] . ';' . $crlf;
-                    }
-
-                    $trigger_query .= 'DELIMITER ' . $delimiter . $crlf;
-                    $trigger_query .= $this->replaceWithAliases(
-                        $trigger['create'],
-                        $aliases,
-                        $db,
-                        $table,
-                        $flag
-                    );
-                    if ($flag) {
-                        $used_alias = true;
-                    }
-                    $trigger_query .= 'DELIMITER ;' . $crlf;
-                }
-                // One warning per table.
-                if ($used_alias) {
-                    $dump .= $this->_exportComment(
-                        __('It appears your table uses triggers;')
-                    )
-                    . $this->_exportComment(
-                        __('alias export may not work reliably in all cases.')
-                    )
-                    . $this->_exportComment();
-                }
-                $dump .= $trigger_query;
-            }
-            break;
-        case 'create_view':
-            if (empty($GLOBALS['sql_views_as_tables'])) {
+            case 'create_table':
                 $dump .= $this->_exportComment(
-                    __('Structure for view')
-                    . ' '
-                    . $formatted_table_name
-                )
-                . $this->_exportComment();
-                // delete the stand-in table previously created (if any)
-                if ($export_type != 'table') {
-                    $dump .= 'DROP TABLE IF EXISTS '
-                        . Util::backquote($table_alias) . ';' . $crlf;
-                }
+                    __('Table structure for table') . ' ' . $formatted_table_name
+                );
+                $dump .= $this->_exportComment();
                 $dump .= $this->getTableDef(
                     $db,
                     $table,
@@ -2096,42 +2024,119 @@ class ExportSql extends ExportPlugin
                     $error_url,
                     $dates,
                     true,
-                    true,
+                    false,
                     true,
                     $aliases
                 );
-            } else {
-                $dump .= $this->_exportComment(
-                    sprintf(
-                        __('Structure for view %s exported as a table'),
-                        $formatted_table_name
-                    )
-                )
-                . $this->_exportComment();
-                // delete the stand-in table previously created (if any)
-                if ($export_type != 'table') {
-                    $dump .= 'DROP TABLE IF EXISTS '
-                        . Util::backquote($table_alias) . ';' . $crlf;
-                }
-                $dump .= $this->_getTableDefForView(
+                $dump .= $this->_getTableComments(
                     $db,
                     $table,
                     $crlf,
-                    true,
+                    $relation,
+                    $mime,
                     $aliases
                 );
-            }
-            break;
-        case 'stand_in':
-            $dump .= $this->_exportComment(
-                __('Stand-in structure for view') . ' ' . $formatted_table_name
-            )
-                . $this->_exportComment(
-                __('(See below for the actual view)')
-            )
-                . $this->_exportComment();
-            // export a stand-in definition to resolve view dependencies
-            $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
+                break;
+            case 'triggers':
+                $dump = '';
+                $delimiter = '$$';
+                $triggers = $GLOBALS['dbi']->getTriggers($db, $table, $delimiter);
+                if ($triggers) {
+                    $dump .= $this->_possibleCRLF()
+                    . $this->_exportComment()
+                    . $this->_exportComment(
+                        __('Triggers') . ' ' . $formatted_table_name
+                    )
+                        . $this->_exportComment();
+                    $used_alias = false;
+                    $trigger_query = '';
+                    foreach ($triggers as $trigger) {
+                        if (!empty($GLOBALS['sql_drop_table'])) {
+                            $trigger_query .= $trigger['drop'] . ';' . $crlf;
+                        }
+
+                        $trigger_query .= 'DELIMITER ' . $delimiter . $crlf;
+                        $trigger_query .= $this->replaceWithAliases(
+                            $trigger['create'],
+                            $aliases,
+                            $db,
+                            $table,
+                            $flag
+                        );
+                        if ($flag) {
+                            $used_alias = true;
+                        }
+                        $trigger_query .= 'DELIMITER ;' . $crlf;
+                    }
+                    // One warning per table.
+                    if ($used_alias) {
+                        $dump .= $this->_exportComment(
+                            __('It appears your table uses triggers;')
+                        )
+                        . $this->_exportComment(
+                            __('alias export may not work reliably in all cases.')
+                        )
+                        . $this->_exportComment();
+                    }
+                    $dump .= $trigger_query;
+                }
+                break;
+            case 'create_view':
+                if (empty($GLOBALS['sql_views_as_tables'])) {
+                    $dump .= $this->_exportComment(
+                        __('Structure for view')
+                        . ' '
+                        . $formatted_table_name
+                    )
+                    . $this->_exportComment();
+                    // delete the stand-in table previously created (if any)
+                    if ($export_type != 'table') {
+                        $dump .= 'DROP TABLE IF EXISTS '
+                            . Util::backquote($table_alias) . ';' . $crlf;
+                    }
+                    $dump .= $this->getTableDef(
+                        $db,
+                        $table,
+                        $crlf,
+                        $error_url,
+                        $dates,
+                        true,
+                        true,
+                        true,
+                        $aliases
+                    );
+                } else {
+                    $dump .= $this->_exportComment(
+                        sprintf(
+                            __('Structure for view %s exported as a table'),
+                            $formatted_table_name
+                        )
+                    )
+                    . $this->_exportComment();
+                    // delete the stand-in table previously created (if any)
+                    if ($export_type != 'table') {
+                        $dump .= 'DROP TABLE IF EXISTS '
+                        . Util::backquote($table_alias) . ';' . $crlf;
+                    }
+                    $dump .= $this->_getTableDefForView(
+                        $db,
+                        $table,
+                        $crlf,
+                        true,
+                        $aliases
+                    );
+                }
+                break;
+            case 'stand_in':
+                $dump .= $this->_exportComment(
+                    __('Stand-in structure for view') . ' ' . $formatted_table_name
+                )
+                    . $this->_exportComment(
+                        __('(See below for the actual view)')
+                    )
+                    . $this->_exportComment();
+                // export a stand-in definition to resolve view dependencies
+                $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
         } // end switch
 
         // this one is built by getTableDef() to use in table copy/move
@@ -2432,7 +2437,6 @@ class ExportSql extends ExportPlugin
             if (isset($GLOBALS['sql_type'])
                 && $GLOBALS['sql_type'] == 'UPDATE'
             ) {
-
                 $insert_line = $schema_insert;
                 for ($i = 0; $i < $fields_cnt; $i++) {
                     if (0 == $i) {
@@ -2458,7 +2462,6 @@ class ExportSql extends ExportPlugin
                 $insert_line .= ' WHERE ' . $tmp_unique_condition;
                 unset($tmp_unique_condition, $tmp_clause_is_unique);
             } else {
-
                 // Extended inserts case
                 if ($GLOBALS['sql_insert_syntax'] == 'extended'
                     || $GLOBALS['sql_insert_syntax'] == 'both'
@@ -2683,7 +2686,6 @@ class ExportSql extends ExportPlugin
 
         // Replacing aliases in `CREATE TABLE` statement.
         if ($statement->options->has('TABLE')) {
-
             // Extracting the name of the old database and table from the
             // statement to make sure the parameters are corect.
             if (!empty($statement->name->database)) {
@@ -2724,7 +2726,6 @@ class ExportSql extends ExportPlugin
             }
 
             foreach ($statement->fields as $field) {
-
                 // Column name.
                 if (!empty($field->type)) {
                     if (!empty($aliases[$old_database]['tables'][$old_table]['columns'][$field->name])) {
@@ -2766,7 +2767,6 @@ class ExportSql extends ExportPlugin
                 }
             }
         } elseif ($statement->options->has('TRIGGER')) {
-
             // Extracting the name of the old database and table from the
             // statement to make sure the parameters are corect.
             if (!empty($statement->table->database)) {
@@ -2793,7 +2793,6 @@ class ExportSql extends ExportPlugin
             || ($statement->options->has('FUNCTION'))
             || ($statement->options->has('VIEW'))
         ) {
-
             // Repalcing the body.
             for ($i = 0, $count = count($statement->body); $i < $count; ++$i) {
 

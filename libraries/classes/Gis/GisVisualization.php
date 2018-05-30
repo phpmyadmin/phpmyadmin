@@ -475,7 +475,12 @@ class GisVisualization
 
         // create pdf
         $pdf = new TCPDF(
-            '', 'pt', $GLOBALS['cfg']['PDFDefaultPageSize'], true, 'UTF-8', false
+            '',
+            'pt',
+            $GLOBALS['cfg']['PDFDefaultPageSize'],
+            true,
+            'UTF-8',
+            false
         );
 
         // disable header and footer
@@ -550,7 +555,6 @@ class GisVisualization
         $plot_height = $this->_settings['height'] - 2 * $border;
 
         foreach ($data as $row) {
-
             // Figure out the data type
             $ref_data = $row[$this->_settings['spatialColumn']];
             $type_pos = mb_strpos($ref_data, '(');

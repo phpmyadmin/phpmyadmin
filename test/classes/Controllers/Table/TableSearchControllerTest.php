@@ -109,7 +109,6 @@ class TableSearchControllerTest extends PmaTestCase
      */
     protected function tearDown()
     {
-
     }
 
     /**
@@ -135,7 +134,11 @@ class TableSearchControllerTest extends PmaTestCase
         $useRegex = false;
         $charSet = "UTF-8";
         $tableSearch->replace(
-            $columnIndex, $find, $replaceWith, $useRegex, $charSet
+            $columnIndex,
+            $find,
+            $replaceWith,
+            $useRegex,
+            $charSet
         );
 
         $sql_query = $GLOBALS['sql_query'];
@@ -265,7 +268,8 @@ class TableSearchControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PhpMyAdmin\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
+            'TableSearchController',
+            'PhpMyAdmin\Controllers\Table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
@@ -300,7 +304,8 @@ class TableSearchControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->factory('\PhpMyAdmin\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
+            'TableSearchController',
+            'PhpMyAdmin\Controllers\Table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
@@ -379,7 +384,8 @@ class TableSearchControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('\PhpMyAdmin\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
+            'TableSearchController',
+            'PhpMyAdmin\Controllers\Table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 

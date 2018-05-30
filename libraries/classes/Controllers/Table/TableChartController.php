@@ -122,20 +122,23 @@ class TableChartController extends TableController
          */
         if (strlen($this->table) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
-                $this->cfg['DefaultTabTable'], 'table'
+                $this->cfg['DefaultTabTable'],
+                'table'
             );
             $url_params['back'] = 'tbl_sql.php';
             include 'libraries/tbl_common.inc.php';
             $this->dbi->selectDb($GLOBALS['db']);
         } elseif (strlen($this->db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
-                $this->cfg['DefaultTabDatabase'], 'database'
+                $this->cfg['DefaultTabDatabase'],
+                'database'
             );
             $url_params['back'] = 'sql.php';
             include 'libraries/db_common.inc.php';
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
-                $this->cfg['DefaultTabServer'], 'server'
+                $this->cfg['DefaultTabServer'],
+                'server'
             );
             $url_params['back'] = 'sql.php';
             include 'libraries/server_common.inc.php';
@@ -211,7 +214,8 @@ class TableChartController extends TableController
         $statement = $parser->statements[0];
         if (empty($statement->limit)) {
             $statement->limit = new Limit(
-                $_REQUEST['session_max_rows'], $_REQUEST['pos']
+                $_REQUEST['session_max_rows'],
+                $_REQUEST['pos']
             );
         } else {
             $start = $statement->limit->offset + $_REQUEST['pos'];

@@ -95,8 +95,13 @@ class ServerDatabasesController extends Controller
          */
         if ($GLOBALS['server'] > 0) {
             $this->_databases = $this->dbi->getDatabasesFull(
-                null, $this->_dbstats, DatabaseInterface::CONNECT_USER, $this->_sort_by,
-                $this->_sort_order, $this->_pos, true
+                null,
+                $this->_dbstats,
+                DatabaseInterface::CONNECT_USER,
+                $this->_sort_by,
+                $this->_sort_order,
+                $this->_pos,
+                true
             );
             $this->_database_count = count($GLOBALS['dblist']->databases);
         } else {
@@ -165,13 +170,15 @@ class ServerDatabasesController extends Controller
             $message->addParam($_POST['new_db']);
             $this->response->addJSON('message', $message);
             $this->response->addJSON(
-                'sql_query', Util::getMessage(null, $sql_query, 'success')
+                'sql_query',
+                Util::getMessage(null, $sql_query, 'success')
             );
 
             $this->response->addJSON(
                 'url_query',
                 Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                    $GLOBALS['cfg']['DefaultTabDatabase'],
+                    'database'
                 )
                 . Url::getCommon(['db' => $_POST['new_db']])
             );
@@ -278,14 +285,14 @@ class ServerDatabasesController extends Controller
         $values = [];
         $units = [];
         foreach ($column_order as $stat_name => $stat) {
-            if (array_key_exists($stat_name,$first_database)) {
+            if (array_key_exists($stat_name, $first_database)) {
                 if ($stat['format'] == 'byte') {
                     $byte_format = Util_formatByteDown($stat['footer'], 3, 1);
                     $values[$stat_name] = $byte_format[0];
                     $units[$stat_name] = $byte_format[1];
                 } elseif ($stat['format'] == 'number') {
                     $values[$stat_name] = Util::formatNumber($stat['footer'], 0);
-                } else{
+                } else {
                     $values[$stat_name] = htmlentities($stat['footer'], 0);
                 }
             }
@@ -426,8 +433,11 @@ class ServerDatabasesController extends Controller
      * @return string $column_order, $out
      */
     function _buildHtmlForDb(
-        array $current, array $column_order,
-        array $replication_types, array $replication_info, $tr_class = ''
+        array $current,
+        array $column_order,
+        array $replication_types,
+        array $replication_info,
+        $tr_class = ''
     ) {
         $master_replication = $slave_replication = '';
         foreach ($replication_types as $type) {
@@ -444,7 +454,8 @@ class ServerDatabasesController extends Controller
                     );
                 } else {
                     $key = array_search(
-                        $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
+                        $current["SCHEMA_NAME"],
+                        $replication_info[$type]['Do_DB']
                     );
 
                     if (strlen((string) $key) > 0
@@ -469,14 +480,14 @@ class ServerDatabasesController extends Controller
         $values = [];
         $units = [];
         foreach ($column_order as $stat_name => $stat) {
-            if (array_key_exists($stat_name,$current)) {
+            if (array_key_exists($stat_name, $current)) {
                 if ($stat['format'] == 'byte') {
                     $byte_format = Util::formatByteDown($stat['footer'], 3, 1);
                     $values[$stat_name] = $byte_format[0];
                     $units[$stat_name] = $byte_format[1];
                 } elseif ($stat['format'] == 'number') {
                     $values[$stat_name] = Util_formatNumber($stat['footer'], 0);
-                } else{
+                } else {
                     $values[$stat_name] = htmlentities($stat['footer'], 0);
                 }
             }

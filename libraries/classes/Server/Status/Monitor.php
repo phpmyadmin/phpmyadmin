@@ -50,7 +50,7 @@ class Monitor
         $retval .= '<script type="text/javascript">';
         $retval .= 'variableNames = [ ';
         $i = 0;
-        foreach ($serverStatusData->status as $name=>$value) {
+        foreach ($serverStatusData->status as $name => $value) {
             if (is_numeric($value)) {
                 if ($i++ > 0) {
                     $retval .= ", ";
@@ -263,7 +263,7 @@ class Monitor
         $retval .= Util::getImage('play') . __('Start Monitor');
         $retval .= '</a>';
         $retval .= '<a href="#settingsPopup" class="popupLink">';
-        $retval .= Util::getImage('s_cog') .  __('Settings');
+        $retval .= Util::getImage('s_cog') . __('Settings');
         $retval .= '</a>';
         $retval .= '<a href="#monitorInstructionsDialog">';
         $retval .= Util::getImage('b_help') . __('Instructions/Setup');
@@ -388,7 +388,12 @@ class Monitor
 
         /* Accumulate all required variables and data */
         list($serverVars, $statusVars, $ret) = $this->getJsonForChartingDataGet(
-            $ret, $serverVars, $statusVars, $sysinfo, $cpuload, $memory
+            $ret,
+            $serverVars,
+            $statusVars,
+            $sysinfo,
+            $cpuload,
+            $memory
         );
 
         // Retrieve all required status variables
@@ -437,14 +442,14 @@ class Monitor
             foreach ($chartNodes as $node_id => $nodeDataPoints) {
                 foreach ($nodeDataPoints as $point_id => $dataPoint) {
                     switch ($dataPoint['type']) {
-                    case 'statusvar':
-                        $ret[$chart_id][$node_id][$point_id]['value']
+                        case 'statusvar':
+                            $ret[$chart_id][$node_id][$point_id]['value']
                             = $statusVarValues[$dataPoint['name']];
-                        break;
-                    case 'servervar':
-                        $ret[$chart_id][$node_id][$point_id]['value']
+                            break;
+                        case 'servervar':
+                            $ret[$chart_id][$node_id][$point_id]['value']
                             = $serverVarValues[$dataPoint['name']];
-                        break;
+                            break;
                     }
                 }
             }
@@ -465,7 +470,12 @@ class Monitor
      * @return array
      */
     public function getJsonForChartingDataGet(
-        array $ret, array $serverVars, array $statusVars, $sysinfo, $cpuload, $memory
+        array $ret,
+        array $serverVars,
+        array $statusVars,
+        $sysinfo,
+        $cpuload,
+        $memory
     ) {
         // For each chart
         foreach ($ret as $chart_id => $chartNodes) {
@@ -475,9 +485,14 @@ class Monitor
                 foreach ($nodeDataPoints as $point_id => $dataPoint) {
                     list($serverVars, $statusVars, $ret[$chart_id][$node_id][$point_id])
                         = $this->getJsonForChartingDataSwitch(
-                            $dataPoint['type'], $dataPoint['name'], $serverVars,
-                            $statusVars, $ret[$chart_id][$node_id][$point_id],
-                            $sysinfo, $cpuload, $memory
+                            $dataPoint['type'],
+                            $dataPoint['name'],
+                            $serverVars,
+                            $statusVars,
+                            $ret[$chart_id][$node_id][$point_id],
+                            $sysinfo,
+                            $cpuload,
+                            $memory
                         );
                 } /* foreach */
             } /* foreach */
@@ -500,8 +515,14 @@ class Monitor
      * @return array
      */
     public function getJsonForChartingDataSwitch(
-        $type, $pName, array $serverVars, array $statusVars, array $ret,
-        $sysinfo, $cpuload, $memory
+        $type,
+        $pName,
+        array $serverVars,
+        array $statusVars,
+        array $ret,
+        $sysinfo,
+        $cpuload,
+        $memory
     ) {
         switch ($type) {
         /* We only collect the status and server variables here to
@@ -509,50 +530,50 @@ class Monitor
          * and only afterwards assign them.
          * Also do some white list filtering on the names
         */
-        case 'servervar':
-            if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
-                $serverVars[] = $pName;
-            }
-            break;
+            case 'servervar':
+                if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+                    $serverVars[] = $pName;
+                }
+                break;
 
-        case 'statusvar':
-            if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
-                $statusVars[] = $pName;
-            }
-            break;
+            case 'statusvar':
+                if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+                    $statusVars[] = $pName;
+                }
+                break;
 
-        case 'proc':
-            $result = $GLOBALS['dbi']->query('SHOW PROCESSLIST');
-            $ret['value'] = $GLOBALS['dbi']->numRows($result);
-            break;
+            case 'proc':
+                $result = $GLOBALS['dbi']->query('SHOW PROCESSLIST');
+                $ret['value'] = $GLOBALS['dbi']->numRows($result);
+                break;
 
-        case 'cpu':
-            if (!$sysinfo) {
-                $sysinfo = SysInfo::get();
-            }
-            if (!$cpuload) {
-                $cpuload = $sysinfo->loadavg();
-            }
+            case 'cpu':
+                if (!$sysinfo) {
+                    $sysinfo = SysInfo::get();
+                }
+                if (!$cpuload) {
+                    $cpuload = $sysinfo->loadavg();
+                }
 
-            if (SysInfo::getOs() == 'Linux') {
-                $ret['idle'] = $cpuload['idle'];
-                $ret['busy'] = $cpuload['busy'];
-            } else {
-                $ret['value'] = $cpuload['loadavg'];
-            }
+                if (SysInfo::getOs() == 'Linux') {
+                    $ret['idle'] = $cpuload['idle'];
+                    $ret['busy'] = $cpuload['busy'];
+                } else {
+                    $ret['value'] = $cpuload['loadavg'];
+                }
 
-            break;
+                break;
 
-        case 'memory':
-            if (!$sysinfo) {
-                $sysinfo = SysInfo::get();
-            }
-            if (!$memory) {
-                $memory = $sysinfo->memory();
-            }
+            case 'memory':
+                if (!$sysinfo) {
+                    $sysinfo = SysInfo::get();
+                }
+                if (!$memory) {
+                    $memory = $sysinfo->memory();
+                }
 
-            $ret['value'] = isset($memory[$pName]) ? $memory[$pName] : 0;
-            break;
+                $ret['value'] = isset($memory[$pName]) ? $memory[$pName] : 0;
+                break;
         }
 
         return [$serverVars, $statusVars, $ret];
@@ -591,23 +612,25 @@ class Monitor
                 )
             );
 
-            switch($type) {
-            case 'insert':
-            case 'update':
-                //Cut off big inserts and updates, but append byte count instead
-                if (mb_strlen($row['sql_text']) > 220) {
-                    $implode_sql_text = implode(
-                        ' ',
-                        Util::formatByteDown(
-                            mb_strlen($row['sql_text']), 2, 2
-                        )
-                    );
-                    $row['sql_text'] = mb_substr($row['sql_text'], 0, 200)
-                        . '... [' . $implode_sql_text . ']';
-                }
-                break;
-            default:
-                break;
+            switch ($type) {
+                case 'insert':
+                case 'update':
+                    //Cut off big inserts and updates, but append byte count instead
+                    if (mb_strlen($row['sql_text']) > 220) {
+                        $implode_sql_text = implode(
+                            ' ',
+                            Util::formatByteDown(
+                                mb_strlen($row['sql_text']),
+                                2,
+                                2
+                            )
+                        );
+                        $row['sql_text'] = mb_substr($row['sql_text'], 0, 200)
+                            . '... [' . $implode_sql_text . ']';
+                    }
+                    break;
+                default:
+                    break;
             }
 
             if (! isset($return['sum'][$type])) {
@@ -666,45 +689,46 @@ class Monitor
             }
             $return['sum'][$type] += $row['#'];
 
-            switch($type) {
+            switch ($type) {
             /** @noinspection PhpMissingBreakStatementInspection */
-            case 'insert':
-                // Group inserts if selected
-                if ($removeVars
+                case 'insert':
+                    // Group inserts if selected
+                    if ($removeVars
                     && preg_match(
                         '/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',
-                        $row['argument'], $matches
+                        $row['argument'],
+                        $matches
                     )
-                ) {
-                    $insertTables[$matches[2]]++;
-                    if ($insertTables[$matches[2]] > 1) {
-                        $return['rows'][$insertTablesFirst]['#']
-                            = $insertTables[$matches[2]];
+                    ) {
+                        $insertTables[$matches[2]]++;
+                        if ($insertTables[$matches[2]] > 1) {
+                            $return['rows'][$insertTablesFirst]['#']
+                                = $insertTables[$matches[2]];
 
-                        // Add a ... to the end of this query to indicate that
-                        // there's been other queries
-                        $temp = $return['rows'][$insertTablesFirst]['argument'];
-                        $return['rows'][$insertTablesFirst]['argument']
-                            .= $this->getSuspensionPoints(
-                                $temp[strlen($temp) - 1]
-                            );
+                            // Add a ... to the end of this query to indicate that
+                            // there's been other queries
+                            $temp = $return['rows'][$insertTablesFirst]['argument'];
+                            $return['rows'][$insertTablesFirst]['argument']
+                                .= $this->getSuspensionPoints(
+                                    $temp[strlen($temp) - 1]
+                                );
 
-                        // Group this value, thus do not add to the result list
-                        continue 2;
-                    } else {
-                        $insertTablesFirst = $i;
-                        $insertTables[$matches[2]] += $row['#'] - 1;
+                            // Group this value, thus do not add to the result list
+                            continue 2;
+                        } else {
+                            $insertTablesFirst = $i;
+                            $insertTables[$matches[2]] += $row['#'] - 1;
+                        }
                     }
-                }
-                // No break here
+                    // No break here
 
-            case 'update':
-                // Cut off big inserts and updates,
-                // but append byte count therefor
-                if (mb_strlen($row['argument']) > 220) {
-                    $row['argument'] = mb_substr($row['argument'], 0, 200)
+                case 'update':
+                    // Cut off big inserts and updates,
+                    // but append byte count therefor
+                    if (mb_strlen($row['argument']) > 220) {
+                        $row['argument'] = mb_substr($row['argument'], 0, 200)
                         . '... ['
-                        .  implode(
+                        . implode(
                             ' ',
                             Util::formatByteDown(
                                 mb_strlen($row['argument']),
@@ -712,12 +736,12 @@ class Monitor
                                 2
                             )
                         )
-                        . ']';
-                }
-                break;
+                            . ']';
+                    }
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
             }
 
             $return['rows'][] = $row;
@@ -766,7 +790,6 @@ class Monitor
                     'SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value
                 );
             }
-
         }
 
         $loggingVars = $GLOBALS['dbi']->fetchResult(

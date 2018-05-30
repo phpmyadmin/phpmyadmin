@@ -135,7 +135,8 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     $column_map = $GLOBALS['dbi']->getColumnMapFromSql(
-        $_REQUEST['view']['as'], $view_columns
+        $_REQUEST['view']['as'],
+        $view_columns
     );
 
     $systemDb = $GLOBALS['dbi']->getSystemDatabase();
@@ -144,18 +145,18 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     );
 
     if ($pma_transformation_data !== false) {
-
         // SQL for store new transformation details of VIEW
         $new_transformations_sql = $systemDb->getNewTransformationDataSql(
-            $pma_transformation_data, $column_map,
-            $_REQUEST['view']['name'], $GLOBALS['db']
+            $pma_transformation_data,
+            $column_map,
+            $_REQUEST['view']['name'],
+            $GLOBALS['db']
         );
 
         // Store new transformations
         if ($new_transformations_sql != '') {
             $GLOBALS['dbi']->tryQuery($new_transformations_sql);
         }
-
     }
     unset($pma_transformation_data);
 

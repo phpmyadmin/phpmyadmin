@@ -59,6 +59,5 @@ class MrgMyisamTest extends PmaTestCase
             $this->object->getMysqlHelpPage(),
             'merge-storage-engine'
         );
-
     }
 }

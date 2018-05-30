@@ -165,7 +165,8 @@ class Key extends TwoFactorPlugin
                 return false;
             }
             $registration = U2FServer::register(
-                $_SESSION['registrationRequest'], $response
+                $_SESSION['registrationRequest'],
+                $response
             );
             $this->_twofactor->config['settings']['registrations'][] = [
                 'keyHandle' => $registration->getKeyHandle(),

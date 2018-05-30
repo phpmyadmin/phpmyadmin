@@ -285,13 +285,19 @@ class UserGroups
         }
 
         $html_output .= self::getTabList(
-            __('Server-level tabs'), 'server', $allowedTabs['server']
+            __('Server-level tabs'),
+            'server',
+            $allowedTabs['server']
         );
         $html_output .= self::getTabList(
-            __('Database-level tabs'), 'db', $allowedTabs['db']
+            __('Database-level tabs'),
+            'db',
+            $allowedTabs['db']
         );
         $html_output .= self::getTabList(
-            __('Table-level tabs'), 'table', $allowedTabs['table']
+            __('Table-level tabs'),
+            'table',
+            $allowedTabs['table']
         );
 
         $html_output .= '</fieldset>';
@@ -323,8 +329,8 @@ class UserGroups
             $html_output .= '<div class="item">';
             $html_output .= '<input type="checkbox" class="checkall"'
                 . (in_array($tab, $selected) ? ' checked="checked"' : '')
-                . ' name="' . $level . '_' . $tab .  '" value="Y" />';
-            $html_output .= '<label for="' . $level . '_' . $tab .  '">'
+                . ' name="' . $level . '_' . $tab . '" value="Y" />';
+            $html_output .= '<label for="' . $level . '_' . $tab . '">'
                 . '<code>' . $tabName . '</code>'
                 . '</label>';
             $html_output .= '</div>';

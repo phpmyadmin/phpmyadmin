@@ -154,7 +154,6 @@ class RelationCleanupTest extends TestCase
             null,
             $is_defined_relation
         );
-
     }
 
     /**

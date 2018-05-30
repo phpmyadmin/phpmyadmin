@@ -43,7 +43,12 @@ if (! isset($unlim_num_rows)) {
 $response = Response::getInstance();
 $response->addHTML(
     $displayExport->getDisplay(
-        'server', $db, $table, $sql_query, $num_tables,
-        $unlim_num_rows, $multi_values
+        'server',
+        $db,
+        $table,
+        $sql_query,
+        $num_tables,
+        $unlim_num_rows,
+        $multi_values
     )
 );

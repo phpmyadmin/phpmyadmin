@@ -95,7 +95,6 @@ class IndexTest extends PmaTestCase
             'PMA_Index_choice',
             $index->getChoice()
         );
-
     }
 
     /**

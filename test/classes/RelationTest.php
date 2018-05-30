@@ -200,7 +200,6 @@ class RelationTest extends TestCase
             false,
             $this->relation->getDisplayField($db, $table)
         );
-
     }
 
     /**

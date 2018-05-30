@@ -64,7 +64,13 @@ abstract class TableStats
      *                                from the browser
      */
     public function __construct(
-        $diagram, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline
+        $diagram,
+        $db,
+        $pageNumber,
+        $tableName,
+        $showKeys,
+        $tableDimension,
+        $offline
     ) {
         $this->diagram    = $diagram;
         $this->db         = $db;
@@ -130,7 +136,7 @@ abstract class TableStats
      * @return void
      * @abstract
      */
-    protected abstract function showMissingTableError();
+    abstract protected function showMissingTableError();
 
     /**
      * Loads coordinates of a table

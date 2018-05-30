@@ -114,6 +114,5 @@ class DbStructureTest extends TestBase
 
         $result = $this->dbQuery("SHOW TABLES;");
         $this->assertEquals(0, $result->num_rows);
-
     }
 }

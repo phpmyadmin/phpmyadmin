@@ -101,7 +101,9 @@ class NodeTest extends PmaTestCase
     {
         $parent = NodeFactory::getInstance();
         $empty_container = NodeFactory::getInstance(
-            'Node', 'empty', Node::CONTAINER
+            'Node',
+            'empty',
+            Node::CONTAINER
         );
         $child = NodeFactory::getInstance();
         // test with no children
@@ -155,7 +157,9 @@ class NodeTest extends PmaTestCase
         $this->assertEquals($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
         $container = NodeFactory::getInstance(
-            'Node', 'default', Node::CONTAINER
+            'Node',
+            'default',
+            Node::CONTAINER
         );
         $parent->addChild($container);
         $this->assertEquals($parent->numChildren(), 1);
@@ -239,7 +243,9 @@ class NodeTest extends PmaTestCase
         $firstChild = NodeFactory::getInstance();
         $parent->addChild($firstChild);
         $secondChild = NodeFactory::getInstance(
-            'Node', 'default', Node::CONTAINER
+            'Node',
+            'default',
+            Node::CONTAINER
         );
         $parent->addChild($secondChild);
         // Empty Node::CONTAINER type node should not be considered in hasSiblings()
@@ -283,14 +289,16 @@ class NodeTest extends PmaTestCase
     public function testGetWhereClause()
     {
         $method = new ReflectionMethod(
-            'PhpMyAdmin\Navigation\Nodes\Node', '_getWhereClause'
+            'PhpMyAdmin\Navigation\Nodes\Node',
+            '_getWhereClause'
         );
         $method->setAccessible(true);
 
         // Vanilla case
         $node = NodeFactory::getInstance();
         $this->assertEquals(
-            "WHERE TRUE ", $method->invoke($node, 'SCHEMA_NAME')
+            "WHERE TRUE ",
+            $method->invoke($node, 'SCHEMA_NAME')
         );
 
         // When a schema names is passed as search clause

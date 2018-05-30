@@ -101,7 +101,10 @@ class TrackingTest extends TestCase
         $filter_users = ["username1"];
 
         $ret = $this->tracking->filter(
-            $data, $filter_ts_from, $filter_ts_to, $filter_users
+            $data,
+            $filter_ts_from,
+            $filter_ts_to,
+            $filter_users
         );
 
         $this->assertEquals(
@@ -165,7 +168,10 @@ class TrackingTest extends TestCase
         $url_query = "url_query";
         $last_version = 10;
         $html = $this->tracking->getHtmlForDataDefinitionAndManipulationStatements(
-            $url_query, $last_version, $GLOBALS['db'], [$GLOBALS['table']]
+            $url_query,
+            $last_version,
+            $GLOBALS['db'],
+            [$GLOBALS['table']]
         );
 
         $this->assertContains(
@@ -217,7 +223,9 @@ class TrackingTest extends TestCase
         $url_query = "url_query";
         $last_version = "10";
         $html = $this->tracking->getHtmlForActivateDeactivateTracking(
-            'activate', $url_query, $last_version
+            'activate',
+            $url_query,
+            $last_version
         );
 
         $this->assertContains(
@@ -245,7 +253,9 @@ class TrackingTest extends TestCase
         );
 
         $html = $this->tracking->getHtmlForActivateDeactivateTracking(
-            'deactivate', $url_query, $last_version
+            'deactivate',
+            $url_query,
+            $last_version
         );
 
         $this->assertContains(
@@ -462,8 +472,12 @@ class TrackingTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $ret = $this->tracking->getHtmlForTableVersionDetails(
-            $sql_result, $last_version, $url_params, $url_query,
-            $pmaThemeImage, $text_dir
+            $sql_result,
+            $last_version,
+            $url_params,
+            $url_query,
+            $pmaThemeImage,
+            $text_dir
         );
 
         $this->assertContains(
@@ -560,7 +574,8 @@ class TrackingTest extends TestCase
         $GLOBALS['dbi'] = $dbi;
 
         $ret = $this->tracking->getHtmlForSelectableTables(
-            $selectable_tables_sql_result, $url_query
+            $selectable_tables_sql_result,
+            $url_query
         );
 
         $this->assertContains(
@@ -604,10 +619,15 @@ class TrackingTest extends TestCase
         $filter_users = [];
 
         $html = $this->tracking->getHtmlForTrackingReport(
-            $url_query, $data, $url_params,
-            $selection_schema, $selection_data,
-            $selection_both, $filter_ts_to,
-            $filter_ts_from, $filter_users
+            $url_query,
+            $data,
+            $url_params,
+            $selection_schema,
+            $selection_data,
+            $selection_both,
+            $filter_ts_to,
+            $filter_ts_from,
+            $filter_users
         );
 
         $this->assertContains(
@@ -706,9 +726,13 @@ class TrackingTest extends TestCase
         $filter_users = ["*"];
 
         $html = $this->tracking->getHtmlForDataManipulationStatements(
-            $data, $filter_users,
-            $filter_ts_from, $filter_ts_to, $url_params,
-            $ddlog_count, $drop_image_or_text
+            $data,
+            $filter_users,
+            $filter_ts_from,
+            $filter_ts_to,
+            $url_params,
+            $ddlog_count,
+            $drop_image_or_text
         );
 
         $this->assertContains(
@@ -765,8 +789,12 @@ class TrackingTest extends TestCase
         $drop_image_or_text = "text";
 
         list($html, $count) = $this->tracking->getHtmlForDataDefinitionStatements(
-            $data, $filter_users,
-            $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
+            $data,
+            $filter_users,
+            $filter_ts_from,
+            $filter_ts_to,
+            $url_params,
+            $drop_image_or_text
         );
 
         $this->assertContains(
@@ -799,7 +827,6 @@ class TrackingTest extends TestCase
             2,
             $count
         );
-
     }
 
     /**
@@ -953,7 +980,10 @@ class TrackingTest extends TestCase
         $filter_ts_from = 0;
 
         $entries = $this->tracking->getEntries(
-            $data, $filter_ts_from, $filter_ts_to, $filter_users
+            $data,
+            $filter_ts_from,
+            $filter_ts_to,
+            $filter_users
         );
         $this->assertEquals(
             'username3',

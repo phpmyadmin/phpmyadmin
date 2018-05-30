@@ -46,7 +46,7 @@ class FormProcessingTest extends PmaTestCase
                 ['Location: index.php?lang=en'],
                 303
                 ]
-            );
+        );
 
         // case 1
         $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')

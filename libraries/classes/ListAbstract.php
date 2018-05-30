@@ -38,7 +38,9 @@ abstract class ListAbstract extends ArrayObject
      *                               ArrayIterator is the default class used.
      */
     public function __construct(
-        array $array = [], $flags = 0, $iterator_class = "ArrayIterator"
+        array $array = [],
+        $flags = 0,
+        $iterator_class = "ArrayIterator"
     ) {
         parent::__construct($array, $flags, $iterator_class);
     }
@@ -81,7 +83,8 @@ abstract class ListAbstract extends ArrayObject
      * @return string  HTML option tags
      */
     public function getHtmlOptions(
-        $selected = '', $include_information_schema = true
+        $selected = '',
+        $include_information_schema = true
     ) {
         if (true === $selected) {
             $selected = $this->getDefault();

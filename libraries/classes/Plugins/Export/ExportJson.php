@@ -255,7 +255,6 @@ class ExportJson extends ExportPlugin
 
         $record_cnt = 0;
         while ($record = $GLOBALS['dbi']->fetchRow($result)) {
-
             $record_cnt++;
 
             // Output table name as comment if this is the first record of the table

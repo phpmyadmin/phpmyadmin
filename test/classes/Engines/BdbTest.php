@@ -120,6 +120,5 @@ class BdbTest extends PmaTestCase
             $this->object->getMysqlHelpPage(),
             'bdb'
         );
-
     }
 }

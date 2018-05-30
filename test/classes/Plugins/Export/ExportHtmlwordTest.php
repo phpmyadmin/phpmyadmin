@@ -376,7 +376,11 @@ class ExportHtmlwordTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = htmlspecialchars_decode(ob_get_clean());
@@ -810,7 +814,12 @@ class ExportHtmlwordTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db', 'tbl', "\n", "example.com", "create_table", "test"
+                'db',
+                'tbl',
+                "\n",
+                "example.com",
+                "create_table",
+                "test"
             )
         );
         $result = ob_get_clean();
@@ -823,7 +832,12 @@ class ExportHtmlwordTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db', 'tbl', "\n", "example.com", "triggers", "test"
+                'db',
+                'tbl',
+                "\n",
+                "example.com",
+                "triggers",
+                "test"
             )
         );
         $result = ob_get_clean();
@@ -836,7 +850,12 @@ class ExportHtmlwordTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db', 'tbl', "\n", "example.com", "create_view", "test"
+                'db',
+                'tbl',
+                "\n",
+                "example.com",
+                "create_view",
+                "test"
             )
         );
         $result = ob_get_clean();
@@ -849,7 +868,12 @@ class ExportHtmlwordTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db', 'tbl', "\n", "example.com", "stand_in", "test"
+                'db',
+                'tbl',
+                "\n",
+                "example.com",
+                "stand_in",
+                "test"
             )
         );
         $result = ob_get_clean();
@@ -868,7 +892,8 @@ class ExportHtmlwordTest extends PmaTestCase
     public function testFormatOneColumnDefinition()
     {
         $method = new ReflectionMethod(
-            'PhpMyAdmin\Plugins\Export\ExportHtmlword', 'formatOneColumnDefinition'
+            'PhpMyAdmin\Plugins\Export\ExportHtmlword',
+            'formatOneColumnDefinition'
         );
         $method->setAccessible(true);
 

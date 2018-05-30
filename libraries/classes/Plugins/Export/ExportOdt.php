@@ -74,7 +74,8 @@ class ExportOdt extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            "general_opts", __('Dump table')
+            "general_opts",
+            __('Dump table')
         );
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem("structure_or_data");
@@ -92,7 +93,8 @@ class ExportOdt extends ExportPlugin
         // structure options main group
         if (!$hide_structure) {
             $structureOptions = new OptionsPropertyMainGroup(
-                "structure", __('Object creation options')
+                "structure",
+                __('Object creation options')
             );
             $structureOptions->setForce('data');
             // create primary items and add them to the group
@@ -121,7 +123,8 @@ class ExportOdt extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            "data", __('Data dump options')
+            "data",
+            __('Data dump options')
         );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
@@ -687,69 +690,69 @@ class ExportOdt extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         switch ($export_mode) {
-        case 'create_table':
-            $GLOBALS['odt_buffer']
+            case 'create_table':
+                $GLOBALS['odt_buffer']
                 .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
                 . ' text:is-list-header="true">'
                 . __('Table structure for table') . ' ' .
                 htmlspecialchars($table_alias)
                 . '</text:h>';
-            $this->getTableDef(
-                $db,
-                $table,
-                $crlf,
-                $error_url,
-                $do_relation,
-                $do_comments,
-                $do_mime,
-                $dates,
-                true,
-                false,
-                $aliases
-            );
-            break;
-        case 'triggers':
-            $triggers = $GLOBALS['dbi']->getTriggers($db, $table, $aliases);
-            if ($triggers) {
-                $GLOBALS['odt_buffer']
+                $this->getTableDef(
+                    $db,
+                    $table,
+                    $crlf,
+                    $error_url,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    $dates,
+                    true,
+                    false,
+                    $aliases
+                );
+                break;
+            case 'triggers':
+                $triggers = $GLOBALS['dbi']->getTriggers($db, $table, $aliases);
+                if ($triggers) {
+                    $GLOBALS['odt_buffer']
                     .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
                     . ' text:is-list-header="true">'
                     . __('Triggers') . ' '
                     . htmlspecialchars($table_alias)
                     . '</text:h>';
-                $this->getTriggers($db, $table);
-            }
-            break;
-        case 'create_view':
-            $GLOBALS['odt_buffer']
+                    $this->getTriggers($db, $table);
+                }
+                break;
+            case 'create_view':
+                $GLOBALS['odt_buffer']
                 .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
                 . ' text:is-list-header="true">'
                 . __('Structure for view') . ' '
                 . htmlspecialchars($table_alias)
                 . '</text:h>';
-            $this->getTableDef(
-                $db,
-                $table,
-                $crlf,
-                $error_url,
-                $do_relation,
-                $do_comments,
-                $do_mime,
-                $dates,
-                true,
-                true,
-                $aliases
-            );
-            break;
-        case 'stand_in':
-            $GLOBALS['odt_buffer']
+                $this->getTableDef(
+                    $db,
+                    $table,
+                    $crlf,
+                    $error_url,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    $dates,
+                    true,
+                    true,
+                    $aliases
+                );
+                break;
+            case 'stand_in':
+                $GLOBALS['odt_buffer']
                 .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
                 . ' text:is-list-header="true">'
                 . __('Stand-in structure for view') . ' '
                 . htmlspecialchars($table_alias)
                 . '</text:h>';
-            // export a stand-in definition to resolve view dependencies
-            $this->getTableDefStandIn($db, $table, $crlf, $aliases);
+                // export a stand-in definition to resolve view dependencies
+                $this->getTableDefStandIn($db, $table, $crlf, $aliases);
         } // end switch
 
         return true;

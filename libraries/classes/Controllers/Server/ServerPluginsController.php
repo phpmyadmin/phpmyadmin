@@ -100,7 +100,9 @@ class ServerPluginsController extends Controller
         $keys = array_keys($this->plugins);
         foreach ($keys as $plugin_type) {
             $plugins_type_clean[$plugin_type] = preg_replace(
-                '/[^a-z]/', '', mb_strtolower($plugin_type)
+                '/[^a-z]/',
+                '',
+                mb_strtolower($plugin_type)
             );
         }
         $html  = '<div id="plugins_plugins">';

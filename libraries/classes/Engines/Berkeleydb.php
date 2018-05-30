@@ -17,4 +17,3 @@ namespace PhpMyAdmin\Engines;
 class Berkeleydb extends Bdb
 {
 }
-

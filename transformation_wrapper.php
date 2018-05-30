@@ -155,8 +155,16 @@ if (! isset($_REQUEST['resize'])) {
     // $destWidth, $destHeight, $srcWidth, $srcHeight);
     // better quality but slower:
     ImageCopyResampled(
-        $destImage, $srcImage, 0, 0, 0, 0, $destWidth,
-        $destHeight, $srcWidth, $srcHeight
+        $destImage,
+        $srcImage,
+        0,
+        0,
+        0,
+        0,
+        $destWidth,
+        $destHeight,
+        $srcWidth,
+        $srcHeight
     );
 
     if ($_REQUEST['resize'] == 'jpeg') {

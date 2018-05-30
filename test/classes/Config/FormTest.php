@@ -39,7 +39,10 @@ class FormTest extends PmaTestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 0;
         $this->object = new Form(
-            'pma_form_name', ['pma_form1','pma_form2'], new ConfigFile(), 1
+            'pma_form_name',
+            ['pma_form1','pma_form2'],
+            new ConfigFile(),
+            1
         );
     }
 

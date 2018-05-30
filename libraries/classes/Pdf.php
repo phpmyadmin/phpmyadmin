@@ -45,12 +45,23 @@ class Pdf extends TCPDF
      *
      * @access public
      */
-    public function __construct($orientation = 'P', $unit = 'mm', $format = 'A4',
-        $unicode = true, $encoding = 'UTF-8', $diskcache = false, $pdfa=false
+    public function __construct(
+        $orientation = 'P',
+        $unit = 'mm',
+        $format = 'A4',
+        $unicode = true,
+        $encoding = 'UTF-8',
+        $diskcache = false,
+        $pdfa = false
     ) {
         parent::__construct(
-            $orientation, $unit, $format, $unicode,
-            $encoding, $diskcache, $pdfa
+            $orientation,
+            $unit,
+            $format,
+            $unicode,
+            $encoding,
+            $diskcache,
+            $pdfa
         );
         $this->SetAuthor('phpMyAdmin ' . PMA_VERSION);
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
@@ -72,10 +83,13 @@ class Pdf extends TCPDF
             $this->SetY(-15);
             $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
             $this->Cell(
-                0, 6,
+                0,
+                6,
                 __('Page number:') . ' '
-                . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(),
-                'T', 0, 'C'
+                . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(),
+                'T',
+                0,
+                'C'
             );
             $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
             $this->SetY(20);
@@ -96,10 +110,16 @@ class Pdf extends TCPDF
     public function setAlias($name, $value)
     {
         $name = TCPDF_FONTS::UTF8ToUTF16BE(
-            $name, false, true, $this->CurrentFont
+            $name,
+            false,
+            true,
+            $this->CurrentFont
         );
         $this->Alias[$name] = TCPDF_FONTS::UTF8ToUTF16BE(
-            $value, false, true, $this->CurrentFont
+            $value,
+            false,
+            true,
+            $this->CurrentFont
         );
     }
 

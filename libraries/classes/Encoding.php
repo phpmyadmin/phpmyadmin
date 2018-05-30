@@ -174,7 +174,7 @@ class Encoding
         switch (self::$_engine) {
             case self::ENGINE_RECODE:
                 return recode_string(
-                    $src_charset . '..'  . $dest_charset,
+                    $src_charset . '..' . $dest_charset,
                     $what
                 );
             case self::ENGINE_ICONV:

@@ -253,7 +253,8 @@ class Config
             && preg_match('@Version/(.*) Safari@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
-                'PMA_USR_BROWSER_VER', $log_version[1]
+                'PMA_USR_BROWSER_VER',
+                $log_version[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // older Safari
@@ -261,7 +262,8 @@ class Config
             && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
-                'PMA_USR_BROWSER_VER', $mozilla_version[1] . '.' . $log_version[1]
+                'PMA_USR_BROWSER_VER',
+                $mozilla_version[1] . '.' . $log_version[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
@@ -269,7 +271,8 @@ class Config
             && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
-                'PMA_USR_BROWSER_VER', $log_version[1]
+                'PMA_USR_BROWSER_VER',
+                $log_version[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
         } elseif (preg_match('@rv:1\.9(.*)Gecko@', $HTTP_USER_AGENT)) {
@@ -363,7 +366,7 @@ class Config
      * @param string &$git_location (optional) verified git directory
      * @return boolean
      */
-    public function isGitRevision(&$git_location = NULL): bool
+    public function isGitRevision(&$git_location = null): bool
     {
         if (! $this->get('ShowGitRevision')) {
             return false;
@@ -391,8 +394,11 @@ class Config
             $contents = file_get_contents($git);
             $gitmatch = [];
             // Matches expected format
-            if (! preg_match('/^gitdir: (.*)$/',
-                $contents, $gitmatch)) {
+            if (! preg_match(
+                '/^gitdir: (.*)$/',
+                $contents,
+                $gitmatch
+            )) {
                 $_SESSION['is_git_revision'] = false;
                 return false;
             } else {
@@ -490,7 +496,7 @@ class Config
         } elseif (function_exists('gzuncompress')) {
             $git_file_name = $git_folder . '/objects/'
                 . substr($hash, 0, 2) . '/' . substr($hash, 2);
-            if (@file_exists($git_file_name) ) {
+            if (@file_exists($git_file_name)) {
                 if (! $commit = @file_get_contents($git_file_name)) {
                     return;
                 }
@@ -600,7 +606,8 @@ class Config
 
                     // open pack file
                     $pack_file = fopen(
-                        $git_folder . '/objects/pack/' . $pack_name, 'rb'
+                        $git_folder . '/objects/pack/' . $pack_name,
+                        'rb'
                     );
                     if ($pack_file === false) {
                         continue;
@@ -647,23 +654,23 @@ class Config
         } else {
             $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
             $is_found = $httpRequest->create($link, 'GET');
-            switch($is_found) {
-            case false:
-                $is_remote_commit = false;
-                $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
-                break;
-            case null:
-                // no remote link for now, but don't cache this as Github is down
-                $is_remote_commit = false;
-                break;
-            default:
-                $is_remote_commit = true;
-                $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
-                if ($commit === false) {
-                    // if no local commit data, try loading from Github
-                    $commit_json = json_decode($is_found);
-                }
-                break;
+            switch ($is_found) {
+                case false:
+                    $is_remote_commit = false;
+                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
+                    break;
+                case null:
+                    // no remote link for now, but don't cache this as Github is down
+                    $is_remote_commit = false;
+                    break;
+                default:
+                    $is_remote_commit = true;
+                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
+                    if ($commit === false) {
+                        // if no local commit data, try loading from Github
+                        $commit_json = json_decode($is_found);
+                    }
+                    break;
             }
         }
 
@@ -675,19 +682,19 @@ class Config
             } else {
                 $link = 'https://www.phpmyadmin.net/api/tree/' . $branch . '/';
                 $is_found = $httpRequest->create($link, 'GET', true);
-                switch($is_found) {
-                case true:
-                    $is_remote_branch = true;
-                    $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = true;
-                    break;
-                case false:
-                    $is_remote_branch = false;
-                    $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = false;
-                    break;
-                case null:
-                    // no remote link for now, but don't cache this as Github is down
-                    $is_remote_branch = false;
-                    break;
+                switch ($is_found) {
+                    case true:
+                        $is_remote_branch = true;
+                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = true;
+                        break;
+                    case false:
+                        $is_remote_branch = false;
+                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = false;
+                        break;
+                    case null:
+                        // no remote link for now, but don't cache this as Github is down
+                        $is_remote_branch = false;
+                        break;
                 }
             }
         }
@@ -714,7 +721,6 @@ class Config
                 }
             } while ($dataline != '');
             $message = trim(implode(' ', $commit));
-
         } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer)) {
             $author = [
                 'name' => $commit_json->author->name,
@@ -834,7 +840,9 @@ class Config
          */
         $matched_keys = array_filter(
             array_keys($cfg),
-            function ($key) {return strpos($key, '/') === false;}
+            function ($key) {
+                return strpos($key, '/') === false;
+            }
         );
 
         $cfg = array_intersect_key($cfg, array_flip($matched_keys));
@@ -1689,7 +1697,6 @@ class Config
             $new_servers = [];
 
             foreach ($this->settings['Servers'] as $server_index => $each_server) {
-
                 // Detect wrong configuration
                 if (!is_int($server_index) || $server_index < 1) {
                     trigger_error(

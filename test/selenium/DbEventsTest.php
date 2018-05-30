@@ -220,7 +220,8 @@ class DbEventsTest extends TestBase
 
         $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byClassName", "submitOK"
+            "byClassName",
+            "submitOK"
         )->click();
 
         $this->waitAjaxMessage();

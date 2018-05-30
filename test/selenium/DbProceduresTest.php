@@ -35,7 +35,6 @@ class DbProceduresTest extends TestBase
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-
     }
 
     /**
@@ -176,7 +175,8 @@ class DbProceduresTest extends TestBase
 
         $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byCssSelector", "button.submitOK"
+            "byCssSelector",
+            "button.submitOK"
         )->click();
 
         $this->waitAjaxMessage();

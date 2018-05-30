@@ -125,7 +125,8 @@ class DatabaseInterfaceTest extends PmaTestCase
         ];
 
         $column_map = $dbi->getColumnMapFromSql(
-            $sql_query, $view_columns
+            $sql_query,
+            $view_columns
         );
 
         $this->assertEquals(

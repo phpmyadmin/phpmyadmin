@@ -29,16 +29,15 @@ if ($response->isAjax()) {
 
     // real-time charting data
     if (isset($_REQUEST['chart_data'])) {
-        switch($_REQUEST['type']) {
-        case 'chartgrid': // Data for the monitor
-            $ret = $statusMonitor->getJsonForChartingData();
-            $response->addJSON('message', $ret);
-            exit;
+        switch ($_REQUEST['type']) {
+            case 'chartgrid': // Data for the monitor
+                $ret = $statusMonitor->getJsonForChartingData();
+                $response->addJSON('message', $ret);
+                exit;
         }
     }
 
     if (isset($_REQUEST['log_data'])) {
-
         $start = intval($_REQUEST['time_start']);
         $end = intval($_REQUEST['time_end']);
 

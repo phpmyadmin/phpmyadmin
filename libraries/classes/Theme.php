@@ -146,7 +146,7 @@ class Theme
      * @static
      * @access public
      */
-    static public function load($folder)
+    public static function load($folder)
     {
         $theme = new Theme();
 
@@ -378,7 +378,7 @@ class Theme
         foreach ($this->_cssFiles as $file) {
             $path = $this->getPath() . "/css/$file.css.php";
             $fallback = "./themes/"
-                . ThemeManager::FALLBACK_THEME .  "/css/$file.css.php";
+                . ThemeManager::FALLBACK_THEME . "/css/$file.css.php";
 
             if (is_readable($path)) {
                 echo "\n/* FILE: " , $file , ".css.php */\n";

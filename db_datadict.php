@@ -101,7 +101,9 @@ foreach ($tables as $table) {
 
     // Check if we can use Relations
     list($res_rel, $have_rel) = $relation->getRelationsAndStatus(
-        ! empty($cfgRelation['relation']), $db, $table
+        ! empty($cfgRelation['relation']),
+        $db,
+        $table
     );
 
     /**
@@ -130,7 +132,6 @@ foreach ($tables as $table) {
     }
     echo '</tr>';
     foreach ($columns as $row) {
-
         if ($row['Null'] == '') {
             $row['Null'] = 'NO';
         }

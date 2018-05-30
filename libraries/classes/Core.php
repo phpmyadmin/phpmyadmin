@@ -180,24 +180,24 @@ class Core
         // allow some aliases of var types
         $type = strtolower($type);
         switch ($type) {
-        case 'identic' :
-            $type = 'identical';
-            break;
-        case 'len' :
-            $type = 'length';
-            break;
-        case 'bool' :
-            $type = 'boolean';
-            break;
-        case 'float' :
-            $type = 'double';
-            break;
-        case 'int' :
-            $type = 'integer';
-            break;
-        case 'null' :
-            $type = 'NULL';
-            break;
+            case 'identic':
+                $type = 'identical';
+                break;
+            case 'len':
+                $type = 'length';
+                break;
+            case 'bool':
+                $type = 'boolean';
+                break;
+            case 'float':
+                $type = 'double';
+                break;
+            case 'int':
+                $type = 'integer';
+                break;
+            case 'null':
+                $type = 'NULL';
+                break;
         }
 
         if ($type === 'identical') {
@@ -207,16 +207,16 @@ class Core
         // whether we should check against given $compare
         if ($type === 'similar') {
             switch (gettype($compare)) {
-            case 'string':
-            case 'boolean':
-                $type = 'scalar';
-                break;
-            case 'integer':
-            case 'double':
-                $type = 'numeric';
-                break;
-            default:
-                $type = gettype($compare);
+                case 'string':
+                case 'boolean':
+                    $type = 'scalar';
+                    break;
+                case 'integer':
+                case 'double':
+                    $type = 'numeric';
+                    break;
+                default:
+                    $type = gettype($compare);
             }
         } elseif ($type === 'equal') {
             $type = gettype($compare);
@@ -947,9 +947,11 @@ class Core
         }
 
         $path = [];
-        foreach(explode('/', $PMA_PHP_SELF) as $part) {
+        foreach (explode('/', $PMA_PHP_SELF) as $part) {
             // ignore parts that have no value
-            if (empty($part) || $part === '.') continue;
+            if (empty($part) || $part === '.') {
+                continue;
+            }
 
             if ($part !== '..') {
                 // cool, we found a new part
@@ -1107,8 +1109,7 @@ class Core
         for ($i = 0; $i < $length; $i++) {
             $value = $data[$i];
 
-            switch ($value)
-            {
+            switch ($value) {
                 case '}':
                     /* end of array */
                     if ($depth <= 0) {

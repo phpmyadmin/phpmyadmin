@@ -94,7 +94,7 @@ class Tracker
      *
      * @return string the name of table
      */
-    static protected function getTableName($string)
+    protected static function getTableName($string)
     {
         if (mb_strstr($string, '.')) {
             $temp = explode('.', $string);
@@ -184,8 +184,12 @@ class Tracker
      *
      * @return int result of version insertion
      */
-    public static function createVersion($dbname, $tablename, $version,
-        $tracking_set = '', $is_view = false
+    public static function createVersion(
+        $dbname,
+        $tablename,
+        $version,
+        $tracking_set = '',
+        $is_view = false
     ) {
         global $sql_backquotes, $export_type;
 
@@ -237,7 +241,6 @@ class Tracker
         ) {
             $create_sql .= self::getLogComment()
                 . 'DROP TABLE IF EXISTS ' . Util::backquote($tablename) . ";\n";
-
         }
 
         if ($GLOBALS['cfg']['Server']['tracking_add_drop_view'] == true
@@ -330,7 +333,10 @@ class Tracker
      *
      * @return int result of version insertion
      */
-    public static function createDatabaseVersion($dbname, $version, $query,
+    public static function createDatabaseVersion(
+        $dbname,
+        $version,
+        $query,
         $tracking_set = 'CREATE DATABASE,ALTER DATABASE,DROP DATABASE'
     ) {
         $relation = new Relation();
@@ -395,8 +401,11 @@ class Tracker
      *
      * @return int result of SQL query
      */
-    static private function _changeTracking($dbname, $tablename,
-        $version, $new_state
+    private static function _changeTracking(
+        $dbname,
+        $tablename,
+        $version,
+        $new_state
     ) {
         $relation = new Relation();
 
@@ -424,8 +433,12 @@ class Tracker
      *
      * @return bool result of change
      */
-    public static function changeTrackingData($dbname, $tablename,
-        $version, $type, $new_data
+    public static function changeTrackingData(
+        $dbname,
+        $tablename,
+        $version,
+        $type,
+        $new_data
     ) {
         $relation = new Relation();
 
@@ -552,8 +565,8 @@ class Tracker
         $mixed = $GLOBALS['dbi']->fetchAssoc($relation->queryAsControlUser($sql_query));
 
         // Parse log
-        $log_schema_entries = explode('# log ',  (string) $mixed['schema_sql']);
-        $log_data_entries   = explode('# log ',  (string) $mixed['data_sql']);
+        $log_schema_entries = explode('# log ', (string) $mixed['schema_sql']);
+        $log_data_entries   = explode('# log ', (string) $mixed['data_sql']);
 
         $ddl_date_from = $date = Util::date('Y-m-d H:i:s');
 
@@ -566,7 +579,9 @@ class Tracker
             if (trim($log_entry) != '') {
                 $date      = mb_substr($log_entry, 0, 19);
                 $username  = mb_substr(
-                    $log_entry, 20, mb_strpos($log_entry, "\n") - 20
+                    $log_entry,
+                    20,
+                    mb_strpos($log_entry, "\n") - 20
                 );
                 if ($first_iteration) {
                     $ddl_date_from = $date;
@@ -594,7 +609,9 @@ class Tracker
             if (trim($log_entry) != '') {
                 $date      = mb_substr($log_entry, 0, 19);
                 $username  = mb_substr(
-                    $log_entry, 20, mb_strpos($log_entry, "\n") - 20
+                    $log_entry,
+                    20,
+                    mb_strpos($log_entry, "\n") - 20
                 );
                 if ($first_iteration) {
                     $dml_date_from = $date;
@@ -693,16 +710,14 @@ class Tracker
                           || $options[6] == 'UNIQUE INDEX'
                           || $options[6] == 'FULLTEXT INDEX'
                           || $options[6] == 'SPATIAL INDEX'
-                ){
+                ) {
                     $result['identifier'] = 'CREATE INDEX';
 
                     // In case of CREATE INDEX, we have to get the table name from body of the statement
                     $result['tablename']  = $statement->body[3]->value == '.' ? $statement->body[4]->value
                                                                               : $statement->body[2]->value ;
                 }
-            }
-
-            // Parse ALTER statement
+            } // Parse ALTER statement
             elseif ($statement instanceof AlterStatement) {
                 if (empty($options) || !isset($options[3])) {
                     return $result;
@@ -717,9 +732,7 @@ class Tracker
 
                     $GLOBALS['db']          = $statement->table->table ;
                 }
-            }
-
-            // Parse DROP statement
+            } // Parse DROP statement
             elseif ($statement instanceof DropStatement) {
                 if (empty($options) || !isset($options[1])) {
                     return $result;
@@ -737,9 +750,7 @@ class Tracker
                     $result['identifier']   = 'DROP INDEX' ;
                     $result['tablename']    = $statement->table->table;
                 }
-            }
-
-            // Prase RENAME statement
+            } // Prase RENAME statement
             elseif ($statement instanceof RenameStatement) {
                 $result['identifier']               = 'RENAME TABLE';
                 $result['tablename']                = $statement->renames[0]->old->table;
@@ -823,7 +834,9 @@ class Tracker
             }
 
             $version = self::getVersion(
-                $dbname, $result['tablename'], $result['identifier']
+                $dbname,
+                $result['tablename'],
+                $result['identifier']
             );
 
             // If version not exists and auto-creation is enabled
@@ -833,17 +846,21 @@ class Tracker
                 // Create the version
 
                 switch ($result['identifier']) {
-                case 'CREATE TABLE':
-                    self::createVersion($dbname, $result['tablename'], '1');
-                    break;
-                case 'CREATE VIEW':
-                    self::createVersion(
-                        $dbname, $result['tablename'], '1', '', true
-                    );
-                    break;
-                case 'CREATE DATABASE':
-                    self::createDatabaseVersion($dbname, '1', $query);
-                    break;
+                    case 'CREATE TABLE':
+                        self::createVersion($dbname, $result['tablename'], '1');
+                        break;
+                    case 'CREATE VIEW':
+                        self::createVersion(
+                            $dbname,
+                            $result['tablename'],
+                            '1',
+                            '',
+                            true
+                        );
+                        break;
+                    case 'CREATE DATABASE':
+                        self::createDatabaseVersion($dbname, '1', $query);
+                        break;
                 } // end switch
             }
 

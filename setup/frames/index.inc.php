@@ -79,35 +79,39 @@ echo '</form>';
 
 // Check for done action info and set notice message if present
 switch ($action_done) {
-case 'config_saved':
-    /* Use uniqid to display this message every time configuration is saved */
-    SetupIndex::messagesSet(
-        'notice', uniqid('config_saved'), __('Configuration saved.'),
-        Sanitize::sanitize(
-            __(
-                'Configuration saved to file config/config.inc.php in phpMyAdmin '
-                . 'top level directory, copy it to top level one and delete '
-                . 'directory config to use it.'
+    case 'config_saved':
+        /* Use uniqid to display this message every time configuration is saved */
+        SetupIndex::messagesSet(
+            'notice',
+            uniqid('config_saved'),
+            __('Configuration saved.'),
+            Sanitize::sanitize(
+                __(
+                    'Configuration saved to file config/config.inc.php in phpMyAdmin '
+                    . 'top level directory, copy it to top level one and delete '
+                    . 'directory config to use it.'
+                )
             )
-        )
-    );
-    break;
-case 'config_not_saved':
-    /* Use uniqid to display this message every time configuration is saved */
-    SetupIndex::messagesSet(
-        'notice', uniqid('config_not_saved'), __('Configuration not saved!'),
-        Sanitize::sanitize(
-            __(
-                'Please create web server writable folder [em]config[/em] in '
-                . 'phpMyAdmin top level directory as described in '
-                . '[doc@setup_script]documentation[/doc]. Otherwise you will be '
-                . 'only able to download or display it.'
+        );
+        break;
+    case 'config_not_saved':
+        /* Use uniqid to display this message every time configuration is saved */
+        SetupIndex::messagesSet(
+            'notice',
+            uniqid('config_not_saved'),
+            __('Configuration not saved!'),
+            Sanitize::sanitize(
+                __(
+                    'Please create web server writable folder [em]config[/em] in '
+                    . 'phpMyAdmin top level directory as described in '
+                    . '[doc@setup_script]documentation[/doc]. Otherwise you will be '
+                    . 'only able to download or display it.'
+                )
             )
-        )
-    );
-    break;
-default:
-    break;
+        );
+        break;
+    default:
+        break;
 }
 
 echo '<h2>' , __('Overview') , '</h2>';
@@ -128,7 +132,8 @@ echo '</legend>';
 // Display server list
 //
 echo FormDisplayTemplate::displayFormTop(
-    'index.php', 'get',
+    'index.php',
+    'get',
     [
         'page' => 'servers',
         'mode' => 'add'
@@ -206,8 +211,13 @@ foreach ($all_languages as $each_lang) {
     $opts['values'][$each_lang->getCode()] = $each_lang->getName();
 }
 echo FormDisplayTemplate::displayInput(
-    'DefaultLang', __('Default language'), 'select',
-    $cf->getValue('DefaultLang'), '', true, $opts
+    'DefaultLang',
+    __('Default language'),
+    'select',
+    $cf->getValue('DefaultLang'),
+    '',
+    true,
+    $opts
 );
 
 // Display server list
@@ -231,8 +241,13 @@ if ($cf->getServerCount() > 0) {
     $opts['values_escaped'] = true;
 }
 echo FormDisplayTemplate::displayInput(
-    'ServerDefault', __('Default server'), 'select',
-    $cf->getValue('ServerDefault'), '', true, $opts
+    'ServerDefault',
+    __('Default server'),
+    'select',
+    $cf->getValue('ServerDefault'),
+    '',
+    true,
+    $opts
 );
 
 // Display EOL list
@@ -243,8 +258,13 @@ $opts = [
     'values_escaped' => true];
 $eol = Core::ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
 echo FormDisplayTemplate::displayInput(
-    'eol', __('End of line'), 'select',
-    $eol, '', true, $opts
+    'eol',
+    __('End of line'),
+    'select',
+    $eol,
+    '',
+    true,
+    $opts
 );
 
 echo '<tr>';

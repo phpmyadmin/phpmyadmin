@@ -224,7 +224,10 @@ class Operations
             . '<input type="text" maxlength="64" name="newname" '
             . 'class="textfield" required="required" /><br />'
             . Util::getRadioFields(
-                'what', $choices, 'data', true
+                'what',
+                $choices,
+                'data',
+                true
             );
         $html_output .= '<br />';
         $html_output .= '<input type="checkbox" name="create_database_before_copying" '
@@ -353,7 +356,9 @@ class Operations
             foreach ($procedure_names as $procedure_name) {
                 $GLOBALS['dbi']->selectDb($db);
                 $tmp_query = $GLOBALS['dbi']->getDefinition(
-                    $db, 'PROCEDURE', $procedure_name
+                    $db,
+                    'PROCEDURE',
+                    $procedure_name
                 );
                 // collect for later display
                 $GLOBALS['sql_query'] .= "\n" . $tmp_query;
@@ -367,7 +372,9 @@ class Operations
             foreach ($function_names as $function_name) {
                 $GLOBALS['dbi']->selectDb($db);
                 $tmp_query = $GLOBALS['dbi']->getDefinition(
-                    $db, 'FUNCTION', $function_name
+                    $db,
+                    'FUNCTION',
+                    $function_name
                 );
                 // collect for later display
                 $GLOBALS['sql_query'] .= "\n" . $tmp_query;
@@ -420,7 +427,9 @@ class Operations
      * @return array $views
      */
     public function getViewsAndCreateSqlViewStandIn(
-        array $tables_full, $export_sql_plugin, $db
+        array $tables_full,
+        $export_sql_plugin,
+        $db
     ) {
         $views = [];
         foreach ($tables_full as $each_table => $tmp) {
@@ -428,7 +437,6 @@ class Operations
             // first all the views are collected and a stand-in is created
             // the real views are created after the tables
             if ($GLOBALS['dbi']->getTable($db, $each_table)->isView()) {
-
                 // If view exists, and 'add drop view' is selected: Drop it!
                 if ($_REQUEST['what'] != 'nocopy'
                     && isset($_REQUEST['drop_if_exists'])
@@ -445,7 +453,9 @@ class Operations
                 $views[] = $each_table;
                 // Create stand-in definition to resolve view dependencies
                 $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
-                    $db, $each_table, "\n"
+                    $db,
+                    $each_table,
+                    "\n"
                 );
                 $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
                 $GLOBALS['dbi']->query($sql_view_standin);
@@ -494,9 +504,13 @@ class Operations
                 $triggers = $GLOBALS['dbi']->getTriggers($db, $each_table, '');
 
                 if (! Table::moveCopy(
-                    $db, $each_table, $_REQUEST['newname'], $each_table,
+                    $db,
+                    $each_table,
+                    $_REQUEST['newname'],
+                    $each_table,
                     (isset($this_what) ? $this_what : 'data'),
-                    $move, 'db_copy'
+                    $move,
+                    'db_copy'
                 )) {
                     $GLOBALS['_error'] = true;
                     break;
@@ -572,7 +586,13 @@ class Operations
         $_REQUEST['drop_if_exists'] = 'true';
         foreach ($views as $view) {
             $copying_succeeded = Table::moveCopy(
-                $db, $view, $_REQUEST['newname'], $view, 'structure', $move, 'db_copy'
+                $db,
+                $view,
+                $_REQUEST['newname'],
+                $view,
+                'structure',
+                $move,
+                'db_copy'
             );
             if (! $copying_succeeded) {
                 $GLOBALS['_error'] = true;
@@ -774,8 +794,11 @@ class Operations
             $where_fields = ['dbase' => $db];
             $new_fields = ['dbase' => $_REQUEST['newname']];
             Table::duplicateInfo(
-                'bookmarkwork', 'bookmark', $get_fields,
-                $where_fields, $new_fields
+                'bookmarkwork',
+                'bookmark',
+                $get_fields,
+                $where_fields,
+                $new_fields
             );
         }
     }
@@ -793,7 +816,8 @@ class Operations
         $html_output .= '<form method="post" id="alterTableOrderby" '
             . 'action="tbl_operations.php">';
         $html_output .= Url::getHiddenInputs(
-            $GLOBALS['db'], $GLOBALS['table']
+            $GLOBALS['db'],
+            $GLOBALS['table']
         );
         $html_output .= '<fieldset id="fieldset_table_order">'
             . '<legend>' . __('Alter table order by') . '</legend>'
@@ -909,22 +933,37 @@ class Operations
      *
      * @return string $html_output
      */
-    public function getTableOptionDiv($pma_table, $comment, $tbl_collation, $tbl_storage_engine,
-        $pack_keys, $auto_increment, $delay_key_write,
-        $transactional, $page_checksum, $checksum
+    public function getTableOptionDiv(
+        $pma_table,
+        $comment,
+        $tbl_collation,
+        $tbl_storage_engine,
+        $pack_keys,
+        $auto_increment,
+        $delay_key_write,
+        $transactional,
+        $page_checksum,
+        $checksum
     ) {
         $html_output = '<div>';
         $html_output .= '<form method="post" action="tbl_operations.php"';
         $html_output .= ' id="tableOptionsForm" class="ajax">';
         $html_output .= Url::getHiddenInputs(
-            $GLOBALS['db'], $GLOBALS['table']
+            $GLOBALS['db'],
+            $GLOBALS['table']
         );
         $html_output .= '<input type="hidden" name="reload" value="1" />';
 
         $html_output .= $this->getTableOptionFieldset(
-            $pma_table, $comment, $tbl_collation,
-            $tbl_storage_engine, $pack_keys,
-            $delay_key_write, $auto_increment, $transactional, $page_checksum,
+            $pma_table,
+            $comment,
+            $tbl_collation,
+            $tbl_storage_engine,
+            $pack_keys,
+            $delay_key_write,
+            $auto_increment,
+            $transactional,
+            $page_checksum,
             $checksum
         );
 
@@ -1048,10 +1087,17 @@ class Operations
      *
      * @return string $html_output
      */
-    private function getTableOptionFieldset($pma_table, $comment, $tbl_collation,
-        $tbl_storage_engine, $pack_keys,
-        $delay_key_write, $auto_increment, $transactional,
-        $page_checksum, $checksum
+    private function getTableOptionFieldset(
+        $pma_table,
+        $comment,
+        $tbl_collation,
+        $tbl_storage_engine,
+        $pack_keys,
+        $delay_key_write,
+        $auto_increment,
+        $transactional,
+        $page_checksum,
+        $checksum
     ) {
         $html_output = '<fieldset>'
             . '<legend>' . __('Table options') . '</legend>';
@@ -1066,7 +1112,9 @@ class Operations
             . '</td>'
             . '<td>'
             . StorageEngine::getHtmlSelect(
-                'new_tbl_storage_engine', null, $tbl_storage_engine
+                'new_tbl_storage_engine',
+                null,
+                $tbl_storage_engine
             )
             . '</td>'
             . '</tr>';
@@ -1152,8 +1200,10 @@ class Operations
                 . '<label for="new_row_format">ROW_FORMAT</label></td>'
                 . '<td>';
             $html_output .= Util::getDropdown(
-                'new_row_format', $possible_row_formats[$tbl_storage_engine],
-                $current_row_format, 'new_row_format'
+                'new_row_format',
+                $possible_row_formats[$tbl_storage_engine],
+                $current_row_format,
+                'new_row_format'
             );
             $html_output .= '</td></tr>';
         }
@@ -1284,7 +1334,10 @@ class Operations
         ];
 
         $html_output .= Util::getRadioFields(
-            'what', $choices, 'data', true
+            'what',
+            $choices,
+            'data',
+            true
         );
         $html_output .= '<br />';
 
@@ -1562,10 +1615,10 @@ class Operations
     public function getDeleteDataOrTablelink(array $url_params, $syntax, $link, $htmlId)
     {
         return '<li>' . Util::linkOrButton(
-                'sql.php' . Url::getCommon($url_params),
-                $link,
-                ['id' => $htmlId, 'class' => 'ajax']
-            )
+            'sql.php' . Url::getCommon($url_params),
+            $link,
+            ['id' => $htmlId, 'class' => 'ajax']
+        )
             . Util::showMySQLDocu($syntax)
             . '</li>';
     }
@@ -1590,7 +1643,8 @@ class Operations
         ];
 
         $partition_method = Partition::getPartitionMethod(
-            $GLOBALS['db'], $GLOBALS['table']
+            $GLOBALS['db'],
+            $GLOBALS['table']
         );
         // add COALESCE or DROP option to choices array depeding on Partition method
         if ($partition_method == 'RANGE'
@@ -1630,7 +1684,12 @@ class Operations
 
         $html_output .= '<div class="clearfloat" />';
         $html_output .= Util::getRadioFields(
-            'partition_operation', $choices, 'ANALYZE', false, true, 'floatleft'
+            'partition_operation',
+            $choices,
+            'ANALYZE',
+            false,
+            true,
+            'floatleft'
         );
         $this_url_params = array_merge(
             $url_params,
@@ -1762,9 +1821,16 @@ class Operations
      *
      * @return array  $table_alters
      */
-    public function getTableAltersArray($pma_table, $pack_keys,
-        $checksum, $page_checksum, $delay_key_write,
-        $row_format, $newTblStorageEngine, $transactional, $tbl_collation
+    public function getTableAltersArray(
+        $pma_table,
+        $pack_keys,
+        $checksum,
+        $page_checksum,
+        $delay_key_write,
+        $row_format,
+        $newTblStorageEngine,
+        $transactional,
+        $tbl_collation
     ) {
         global $auto_increment;
 
@@ -2062,8 +2128,13 @@ class Operations
                 }
             } else {
                 Table::moveCopy(
-                    $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
-                    $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table'
+                    $db,
+                    $table,
+                    $_REQUEST['target_db'],
+                    $_REQUEST['new_name'],
+                    $_REQUEST['what'],
+                    isset($_REQUEST['submit_move']),
+                    'one_table'
                 );
 
                 if (isset($_REQUEST['adjust_privileges'])
@@ -2071,11 +2142,17 @@ class Operations
                 ) {
                     if (isset($_REQUEST['submit_move'])) {
                         $this->adjustPrivilegesRenameOrMoveTable(
-                            $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name']
+                            $db,
+                            $table,
+                            $_REQUEST['target_db'],
+                            $_REQUEST['new_name']
                         );
                     } else {
                         $this->adjustPrivilegesCopyTable(
-                            $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name']
+                            $db,
+                            $table,
+                            $_REQUEST['target_db'],
+                            $_REQUEST['new_name']
                         );
                     }
 
@@ -2094,7 +2171,6 @@ class Operations
                             )
                         );
                     }
-
                 } else {
                     if (isset($_REQUEST['submit_move'])) {
                         $message = Message::success(

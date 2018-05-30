@@ -49,11 +49,13 @@ $is_gotofile  = true;
 if (empty($goto)) {
     if (empty($table)) {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            $GLOBALS['cfg']['DefaultTabDatabase'],
+            'database'
         );
     } else {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+            $GLOBALS['cfg']['DefaultTabTable'],
+            'table'
         );
     }
 } // end if
@@ -106,7 +108,8 @@ if (isset($_REQUEST['get_default_fk_check_value'])
 ) {
     $response = Response::getInstance();
     $response->addJSON(
-        'default_fk_check_value', Util::isForeignKeyCheck()
+        'default_fk_check_value',
+        Util::isForeignKeyCheck()
     );
     exit;
 }
@@ -155,7 +158,9 @@ if ($table != $table_from_sql && !empty($table_from_sql)) {
  * into account this case.
  */
 if ($sql->hasNoRightsToDropDatabase(
-    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['dbi']->isSuperuser()
+    $analyzed_sql_results,
+    $cfg['AllowUserDropDatabase'],
+    $GLOBALS['dbi']->isSuperuser()
 )) {
     Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),

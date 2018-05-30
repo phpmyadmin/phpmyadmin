@@ -53,5 +53,4 @@ class OptionsPropertyMainGroupTest extends TestCase
             $this->object->getItemType()
         );
     }
-
 }

@@ -60,12 +60,14 @@ class ExportMediawiki extends ExportPlugin
 
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup(
-            "general_opts", __('Dump table')
+            "general_opts",
+            __('Dump table')
         );
 
         // what to dump (structure/data/both)
         $subgroup = new OptionsPropertySubgroup(
-            "dump_table", __("Dump table")
+            "dump_table",
+            __("Dump table")
         );
         $leaf = new RadioPropertyItem('structure_or_data');
         $leaf->setValues(
@@ -200,69 +202,69 @@ class ExportMediawiki extends ExportPlugin
 
         $output = '';
         switch ($export_mode) {
-        case 'create_table':
-            $columns = $GLOBALS['dbi']->getColumns($db, $table);
-            $columns = array_values($columns);
-            $row_cnt = count($columns);
+            case 'create_table':
+                $columns = $GLOBALS['dbi']->getColumns($db, $table);
+                $columns = array_values($columns);
+                $row_cnt = count($columns);
 
-            // Print structure comment
-            $output = $this->_exportComment(
-                "Table structure for "
-                . Util::backquote($table_alias)
-            );
+                // Print structure comment
+                $output = $this->_exportComment(
+                    "Table structure for "
+                    . Util::backquote($table_alias)
+                );
 
-            // Begin the table construction
-            $output .= "{| class=\"wikitable\" style=\"text-align:center;\""
-                . $this->_exportCRLF();
-
-            // Add the table name
-            if (isset($GLOBALS['mediawiki_caption'])) {
-                $output .= "|+'''" . $table_alias . "'''" . $this->_exportCRLF();
-            }
-
-            // Add the table headers
-            if (isset($GLOBALS['mediawiki_headers'])) {
-                $output .= "|- style=\"background:#ffdead;\"" . $this->_exportCRLF();
-                $output .= "! style=\"background:#ffffff\" | "
+                // Begin the table construction
+                $output .= "{| class=\"wikitable\" style=\"text-align:center;\""
                     . $this->_exportCRLF();
-                for ($i = 0; $i < $row_cnt; ++$i) {
-                    $col_as = $columns[$i]['Field'];
-                    if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])
-                    ) {
-                        $col_as
-                            = $aliases[$db]['tables'][$table]['columns'][$col_as];
-                    }
-                    $output .= " | " . $col_as . $this->_exportCRLF();
+
+                // Add the table name
+                if (isset($GLOBALS['mediawiki_caption'])) {
+                    $output .= "|+'''" . $table_alias . "'''" . $this->_exportCRLF();
                 }
-            }
 
-            // Add the table structure
-            $output .= "|-" . $this->_exportCRLF();
-            $output .= "! Type" . $this->_exportCRLF();
-            for ($i = 0; $i < $row_cnt; ++$i) {
-                $output .= " | " . $columns[$i]['Type'] . $this->_exportCRLF();
-            }
+                // Add the table headers
+                if (isset($GLOBALS['mediawiki_headers'])) {
+                    $output .= "|- style=\"background:#ffdead;\"" . $this->_exportCRLF();
+                    $output .= "! style=\"background:#ffffff\" | "
+                    . $this->_exportCRLF();
+                    for ($i = 0; $i < $row_cnt; ++$i) {
+                        $col_as = $columns[$i]['Field'];
+                        if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])
+                        ) {
+                            $col_as
+                                = $aliases[$db]['tables'][$table]['columns'][$col_as];
+                        }
+                        $output .= " | " . $col_as . $this->_exportCRLF();
+                    }
+                }
 
-            $output .= "|-" . $this->_exportCRLF();
-            $output .= "! Null" . $this->_exportCRLF();
-            for ($i = 0; $i < $row_cnt; ++$i) {
-                $output .= " | " . $columns[$i]['Null'] . $this->_exportCRLF();
-            }
+                // Add the table structure
+                $output .= "|-" . $this->_exportCRLF();
+                $output .= "! Type" . $this->_exportCRLF();
+                for ($i = 0; $i < $row_cnt; ++$i) {
+                    $output .= " | " . $columns[$i]['Type'] . $this->_exportCRLF();
+                }
 
-            $output .= "|-" . $this->_exportCRLF();
-            $output .= "! Default" . $this->_exportCRLF();
-            for ($i = 0; $i < $row_cnt; ++$i) {
-                $output .= " | " . $columns[$i]['Default'] . $this->_exportCRLF();
-            }
+                $output .= "|-" . $this->_exportCRLF();
+                $output .= "! Null" . $this->_exportCRLF();
+                for ($i = 0; $i < $row_cnt; ++$i) {
+                    $output .= " | " . $columns[$i]['Null'] . $this->_exportCRLF();
+                }
 
-            $output .= "|-" . $this->_exportCRLF();
-            $output .= "! Extra" . $this->_exportCRLF();
-            for ($i = 0; $i < $row_cnt; ++$i) {
-                $output .= " | " . $columns[$i]['Extra'] . $this->_exportCRLF();
-            }
+                $output .= "|-" . $this->_exportCRLF();
+                $output .= "! Default" . $this->_exportCRLF();
+                for ($i = 0; $i < $row_cnt; ++$i) {
+                    $output .= " | " . $columns[$i]['Default'] . $this->_exportCRLF();
+                }
 
-            $output .= "|}" . str_repeat($this->_exportCRLF(), 2);
-            break;
+                $output .= "|-" . $this->_exportCRLF();
+                $output .= "! Extra" . $this->_exportCRLF();
+                for ($i = 0; $i < $row_cnt; ++$i) {
+                    $output .= " | " . $columns[$i]['Extra'] . $this->_exportCRLF();
+                }
+
+                $output .= "|}" . str_repeat($this->_exportCRLF(), 2);
+                break;
         } // end switch
 
         return $this->export->outputHandler($output);

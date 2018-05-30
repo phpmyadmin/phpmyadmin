@@ -243,7 +243,6 @@ class ImportMediawiki extends ImportPlugin
                         $cur_table_name = "";
                     }
                     // What's after the row tag is now only attributes
-
                 } elseif (($first_character === '|') || ($first_character === '!')) {
                     // Check cell elements
 

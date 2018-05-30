@@ -219,7 +219,7 @@ class Error extends Message
     {
         try {
             $backtrace = serialize($this->getBacktrace());
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $backtrace = '';
         }
         if ($this->hash === null) {

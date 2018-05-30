@@ -28,7 +28,7 @@ class Sanitize
      *
      * @return boolean True if string can be used as link
      */
-    public static function checkLink($url, $http=false, $other=false)
+    public static function checkLink($url, $http = false, $other = false)
     {
         $url = strtolower($url);
         $valid_starts = [
@@ -199,18 +199,18 @@ class Sanitize
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
         /* Find and replace all links */
-        $message = preg_replace_callback($pattern, function($match){
+        $message = preg_replace_callback($pattern, function ($match) {
             return self::replaceBBLink($match);
         }, $message);
 
         /* Replace documentation links */
         $message = preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
-            function($match){
+            function ($match) {
                 return self::replaceDocLink($match);
             },
-                $message
-            );
+            $message
+        );
 
         /* Possibly escape result */
         if ($escape) {
@@ -290,7 +290,8 @@ class Sanitize
     public static function escapeJsString($string)
     {
         return preg_replace(
-            '@</script@i', '</\' + \'script',
+            '@</script@i',
+            '</\' + \'script',
             strtr(
                 (string) $string,
                 [
@@ -409,7 +410,7 @@ class Sanitize
      *
      * @return void
      */
-    public static function printJsValueForFormValidation($key, $value, $addOn=false, $comma=true)
+    public static function printJsValueForFormValidation($key, $value, $addOn = false, $comma = true)
     {
         echo self::getJsValueForFormValidation($key, $value, $addOn, $comma);
     }

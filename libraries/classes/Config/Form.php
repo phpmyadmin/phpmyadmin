@@ -64,7 +64,10 @@ class Form
      * @param int        $index     arbitrary index, stored in Form::$index
      */
     public function __construct(
-        $form_name, array $form, ConfigFile $cf, $index = null
+        $form_name,
+        array $form,
+        ConfigFile $cf,
+        $index = null
     ) {
         $this->index = $index;
         $this->_configFile = $cf;

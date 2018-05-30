@@ -52,4 +52,3 @@ class Ndbcluster extends StorageEngine
         return 'ndbcluster';
     }
 }
-

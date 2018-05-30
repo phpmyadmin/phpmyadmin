@@ -265,7 +265,6 @@ class Data
             && isset($server_status['Connections'])
             && $server_status['Connections'] > 0
         ) {
-
             $server_status['Threads_cache_hitrate_%']
                 = 100 - $server_status['Threads_created']
                 / $server_status['Connections'] * 100;
@@ -285,7 +284,10 @@ class Data
      * @return array ($allocationMap, $sectionUsed, $used_queries)
      */
     private function _sortVariables(
-        array $server_status, array $allocations, array $allocationMap, array $sectionUsed,
+        array $server_status,
+        array $allocations,
+        array $allocationMap,
+        array $sectionUsed,
         array $used_queries
     ) {
         foreach ($server_status as $name => $value) {
@@ -331,7 +333,9 @@ class Data
 
         // for some calculations we require also some server settings
         $server_variables = $GLOBALS['dbi']->fetchResult(
-            'SHOW GLOBAL VARIABLES', 0, 1
+            'SHOW GLOBAL VARIABLES',
+            0,
+            1
         );
 
         // cleanup of some deprecated values
@@ -339,7 +343,8 @@ class Data
 
         // calculate some values
         $server_status = $this->_calculateValues(
-            $server_status, $server_variables
+            $server_status,
+            $server_variables
         );
 
         // split variables in sections
@@ -364,7 +369,10 @@ class Data
         list(
             $allocationMap, $sectionUsed, $used_queries
         ) = $this->_sortVariables(
-            $server_status, $allocations, $allocationMap, $sectionUsed,
+            $server_status,
+            $allocations,
+            $allocationMap,
+            $sectionUsed,
             $used_queries
         );
 
@@ -477,7 +485,8 @@ class Data
      *
      * @return string
      */
-    public static function getHtmlForRefreshList($name,
+    public static function getHtmlForRefreshList(
+        $name,
         $defaultRate = 5,
         array $refreshRates = [1, 2, 5, 10, 20, 40, 60, 120, 300, 600]
     ) {
@@ -488,12 +497,14 @@ class Data
             $return .= '<option value="' . $rate . '"' . $selected . '>';
             if ($rate < 60) {
                 $return .= sprintf(
-                    _ngettext('%d second', '%d seconds', $rate), $rate
+                    _ngettext('%d second', '%d seconds', $rate),
+                    $rate
                 );
             } else {
                 $rate = $rate / 60;
                 $return .= sprintf(
-                    _ngettext('%d minute', '%d minutes', $rate), $rate
+                    _ngettext('%d minute', '%d minutes', $rate),
+                    $rate
                 );
             }
             $return .=  '</option>';

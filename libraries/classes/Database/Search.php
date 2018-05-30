@@ -150,7 +150,8 @@ class Search
             unset($_REQUEST['submit_search']);
         } else {
             $this->criteriaTables = array_intersect(
-                $_REQUEST['criteriaTables'], $this->tablesNamesOnly
+                $_REQUEST['criteriaTables'],
+                $this->tablesNamesOnly
             );
         }
 

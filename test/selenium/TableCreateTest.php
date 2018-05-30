@@ -27,7 +27,7 @@ class TableCreateTest extends TestBase
         parent::setUpPage();
 
         $this->login();
-        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElement('byPartialLinkText', 'Databases')->click();
         $this->waitAjax();
 
         // go to specific database page

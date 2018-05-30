@@ -280,5 +280,4 @@ class SanitizeTest extends TestCase
         $this->assertArrayNotHasKey('second', $_REQUEST);
         $this->assertArrayHasKey('allow', $_REQUEST);
     }
-
 }

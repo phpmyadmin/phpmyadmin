@@ -174,7 +174,6 @@ class ExportPdfTest extends PmaTestCase
             ],
             $property->getValues()
         );
-
     }
 
     /**
@@ -296,7 +295,11 @@ class ExportPdfTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "phpmyadmin.net/err", 'SELECT'
+                'db',
+                'table',
+                "\n",
+                "phpmyadmin.net/err",
+                'SELECT'
             )
         );
     }

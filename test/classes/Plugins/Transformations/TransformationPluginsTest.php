@@ -991,7 +991,11 @@ class TransformationPluginsTest extends PmaTestCase
      * @group medium
      */
     public function testTransformation(
-        $object, $applyArgs, $transformed, $success = true, $error = ''
+        $object,
+        $applyArgs,
+        $transformed,
+        $success = true,
+        $error = ''
     ) {
         $reflectionMethod = new ReflectionMethod($object, 'applyTransformation');
         $this->assertEquals(

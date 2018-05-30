@@ -294,7 +294,6 @@ class Response
                 $this->_JSON[$json] = $value;
             }
         }
-
     }
 
     /**
@@ -426,33 +425,33 @@ class Response
             switch (json_last_error()) {
                 case JSON_ERROR_NONE:
                     $error = 'No errors';
-                break;
+                    break;
                 case JSON_ERROR_DEPTH:
                     $error = 'Maximum stack depth exceeded';
-                break;
+                    break;
                 case JSON_ERROR_STATE_MISMATCH:
                     $error = 'Underflow or the modes mismatch';
-                break;
+                    break;
                 case JSON_ERROR_CTRL_CHAR:
                     $error = 'Unexpected control character found';
-                break;
+                    break;
                 case JSON_ERROR_SYNTAX:
                     $error = 'Syntax error, malformed JSON';
-                break;
+                    break;
                 case JSON_ERROR_UTF8:
                     $error = 'Malformed UTF-8 characters, possibly incorrectly encoded';
-                break;
+                    break;
                 case JSON_ERROR_RECURSION:
                     $error = 'One or more recursive references in the value to be encoded';
-                break;
+                    break;
                 case JSON_ERROR_INF_OR_NAN:
                     $error = 'One or more NAN or INF values in the value to be encoded';
-                break;
+                    break;
                 case JSON_ERROR_UNSUPPORTED_TYPE:
                     $error = 'A value of a type that cannot be encoded was given';
                 default:
                     $error = 'Unknown error';
-                break;
+                    break;
             }
             echo json_encode(
                 [
@@ -551,7 +550,7 @@ class Response
     public function generateHeader303($location)
     {
         $this->setHttpResponseCode(303);
-        $this->header('Location: '.$location);
+        $this->header('Location: ' . $location);
         if (!defined('TESTSUITE')) {
             exit;
         }

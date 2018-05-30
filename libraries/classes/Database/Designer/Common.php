@@ -65,7 +65,8 @@ class Common
                 = $GLOBALS['db'] . "." . $one_table['TABLE_NAME'];
             $GLOBALS['designer']['OWNER'][$i] = $GLOBALS['db'];
             $GLOBALS['designer']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
-                $one_table['TABLE_NAME'], ENT_QUOTES
+                $one_table['TABLE_NAME'],
+                ENT_QUOTES
             );
 
             $GLOBALS['designer_url']['TABLE_NAME'][$i]
@@ -75,13 +76,16 @@ class Common
                 = $one_table['TABLE_NAME'];
 
             $GLOBALS['designer_out']['TABLE_NAME'][$i] = htmlspecialchars(
-                $GLOBALS['db'] . "." . $one_table['TABLE_NAME'], ENT_QUOTES
+                $GLOBALS['db'] . "." . $one_table['TABLE_NAME'],
+                ENT_QUOTES
             );
             $GLOBALS['designer_out']['OWNER'][$i] = htmlspecialchars(
-                $GLOBALS['db'], ENT_QUOTES
+                $GLOBALS['db'],
+                ENT_QUOTES
             );
             $GLOBALS['designer_out']['TABLE_NAME_SMALL'][$i] = htmlspecialchars(
-                $one_table['TABLE_NAME'], ENT_QUOTES
+                $one_table['TABLE_NAME'],
+                ENT_QUOTES
             );
 
             $GLOBALS['designer']['TABLE_TYPE'][$i] = mb_strtoupper(
@@ -344,7 +348,9 @@ class Common
             . "." . Util::backquote($cfgRelation['table_coords'])
             . " WHERE " . Util::backquote('pdf_page_number') . " = " . intval($pg);
         $success = $this->relation->queryAsControlUser(
-            $query, true, DatabaseInterface::QUERY_STORE
+            $query,
+            true,
+            DatabaseInterface::QUERY_STORE
         );
 
         if ($success) {
@@ -352,7 +358,9 @@ class Common
                 . "." . Util::backquote($cfgRelation['pdf_pages'])
                 . " WHERE " . Util::backquote('page_nr') . " = " . intval($pg);
             $success = $this->relation->queryAsControlUser(
-                $query, true, DatabaseInterface::QUERY_STORE
+                $query,
+                true,
+                DatabaseInterface::QUERY_STORE
             );
         }
 
@@ -378,7 +386,7 @@ class Common
             . " FROM " . Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['pdf_pages'])
             . " WHERE `db_name` = '" . $this->dbi->escapeString($db) . "'"
-            . " AND `page_descr` = '" .  $this->dbi->escapeString($db) . "'";
+            . " AND `page_descr` = '" . $this->dbi->escapeString($db) . "'";
 
         $default_page_no = $this->dbi->fetchResult(
             $query,
@@ -508,7 +516,9 @@ class Common
                 . "'" . $this->dbi->escapeString($_REQUEST['t_y'][$key]) . "')";
 
             $res = $this->relation->queryAsControlUser(
-                $query,  true, DatabaseInterface::QUERY_STORE
+                $query,
+                true,
+                DatabaseInterface::QUERY_STORE
             );
         }
 
@@ -757,7 +767,6 @@ class Common
 
         $success = true;
         if ($GLOBALS['cfgRelation']['designersettingswork']) {
-
             $orig_data_query = "SELECT settings_data"
                 . " FROM " . Util::backquote($cfgDesigner['db'])
                 . "." . Util::backquote($cfgDesigner['table'])
@@ -765,7 +774,9 @@ class Common
                 . $this->dbi->escapeString($cfgDesigner['user']) . "';";
 
             $orig_data = $this->dbi->fetchSingleRow(
-                $orig_data_query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL
+                $orig_data_query,
+                'ASSOC',
+                DatabaseInterface::CONNECT_CONTROL
             );
 
             if (! empty($orig_data)) {

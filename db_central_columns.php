@@ -38,14 +38,30 @@ if (isset($_POST['edit_save']) || isset($_POST['add_new_column'])) {
     $collation = $_POST['collation'];
     if (isset($orig_col_name) && $orig_col_name) {
         echo $centralColumns->updateOneColumn(
-            $db, $orig_col_name, $col_name, $col_type, $col_attribute,
-            $col_length, $col_isNull, $collation, $col_extra, $col_default
+            $db,
+            $orig_col_name,
+            $col_name,
+            $col_type,
+            $col_attribute,
+            $col_length,
+            $col_isNull,
+            $collation,
+            $col_extra,
+            $col_default
         );
         exit;
     } else {
         $tmp_msg = $centralColumns->updateOneColumn(
-            $db, "", $col_name, $col_type, $col_attribute,
-            $col_length, $col_isNull, $collation, $col_extra, $col_default
+            $db,
+            "",
+            $col_name,
+            $col_type,
+            $col_attribute,
+            $col_length,
+            $col_isNull,
+            $collation,
+            $col_extra,
+            $col_default
         );
     }
 }
@@ -156,7 +172,9 @@ $table_struct = '<div id="tableslistcontainer">'
         . 'class="data">';
 $response->addHTML($table_struct);
 $tableheader = $centralColumns->getTableHeader(
-    'column_heading', __('Click to sort.'), 2
+    'column_heading',
+    __('Click to sort.'),
+    2
 );
 $response->addHTML($tableheader);
 $result = $centralColumns->getColumnsList($db, $pos, $max_rows);

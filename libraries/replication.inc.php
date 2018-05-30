@@ -133,42 +133,58 @@ foreach ($replication_types as $type) {
     if ($GLOBALS['replication_info'][$type]['status']) {
         if ($type == "master") {
             $replication->fillInfo(
-                $type, 'Do_DB', $server_master_replication[0],
+                $type,
+                'Do_DB',
+                $server_master_replication[0],
                 'Binlog_Do_DB'
             );
 
             $replication->fillInfo(
-                $type, 'Ignore_DB', $server_master_replication[0],
+                $type,
+                'Ignore_DB',
+                $server_master_replication[0],
                 'Binlog_Ignore_DB'
             );
         } elseif ($type == "slave") {
             $replication->fillInfo(
-                $type, 'Do_DB', $server_slave_replication[0],
+                $type,
+                'Do_DB',
+                $server_slave_replication[0],
                 'Replicate_Do_DB'
             );
 
             $replication->fillInfo(
-                $type, 'Ignore_DB', $server_slave_replication[0],
+                $type,
+                'Ignore_DB',
+                $server_slave_replication[0],
                 'Replicate_Ignore_DB'
             );
 
             $replication->fillInfo(
-                $type, 'Do_Table', $server_slave_replication[0],
+                $type,
+                'Do_Table',
+                $server_slave_replication[0],
                 'Replicate_Do_Table'
             );
 
             $replication->fillInfo(
-                $type, 'Ignore_Table', $server_slave_replication[0],
+                $type,
+                'Ignore_Table',
+                $server_slave_replication[0],
                 'Replicate_Ignore_Table'
             );
 
             $replication->fillInfo(
-                $type, 'Wild_Do_Table', $server_slave_replication[0],
+                $type,
+                'Wild_Do_Table',
+                $server_slave_replication[0],
                 'Replicate_Wild_Do_Table'
             );
 
             $replication->fillInfo(
-                $type, 'Wild_Ignore_Table', $server_slave_replication[0],
+                $type,
+                'Wild_Ignore_Table',
+                $server_slave_replication[0],
                 'Replicate_Wild_Ignore_Table'
             );
         }

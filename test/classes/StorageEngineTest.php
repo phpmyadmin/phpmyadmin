@@ -34,7 +34,8 @@ class StorageEngineTest extends PmaTestCase
     {
         $GLOBALS['server'] = 1;
         $this->object = $this->getMockForAbstractClass(
-            'PhpMyAdmin\StorageEngine', ['dummy']
+            'PhpMyAdmin\StorageEngine',
+            ['dummy']
         );
     }
 
@@ -110,7 +111,8 @@ class StorageEngineTest extends PmaTestCase
     public function testGetEngine($expectedClass, $engineName)
     {
         $this->assertInstanceOf(
-            $expectedClass, StorageEngine::getEngine($engineName)
+            $expectedClass,
+            StorageEngine::getEngine($engineName)
         );
     }
 

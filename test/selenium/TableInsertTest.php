@@ -36,7 +36,6 @@ class TableInsertTest extends TestBase
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-
     }
 
     /**

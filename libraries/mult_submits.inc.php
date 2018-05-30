@@ -73,73 +73,82 @@ if (! empty($submit_mult)
         $selected = $_POST['selected_tbl'];
         $centralColumns = new CentralColumns($GLOBALS['dbi']);
         switch ($submit_mult) {
-        case 'add_prefix_tbl':
-        case 'replace_prefix_tbl':
-        case 'copy_tbl_change_prefix':
-        case 'drop_db':
-        case 'drop_tbl':
-        case 'empty_tbl':
-            $what = $submit_mult;
-            break;
-        case 'check_tbl':
-        case 'optimize_tbl':
-        case 'repair_tbl':
-        case 'analyze_tbl':
-        case 'checksum_tbl':
-            $query_type = $submit_mult;
-            unset($submit_mult);
-            $mult_btn   = __('Yes');
-            break;
-        case 'export':
-            unset($submit_mult);
-            include 'db_export.php';
-            exit;
-        case 'copy_tbl':
-            $views = $GLOBALS['dbi']->getVirtualTables($db);
-            list($full_query, $reload, $full_query_views)
+            case 'add_prefix_tbl':
+            case 'replace_prefix_tbl':
+            case 'copy_tbl_change_prefix':
+            case 'drop_db':
+            case 'drop_tbl':
+            case 'empty_tbl':
+                $what = $submit_mult;
+                break;
+            case 'check_tbl':
+            case 'optimize_tbl':
+            case 'repair_tbl':
+            case 'analyze_tbl':
+            case 'checksum_tbl':
+                $query_type = $submit_mult;
+                unset($submit_mult);
+                $mult_btn   = __('Yes');
+                break;
+            case 'export':
+                unset($submit_mult);
+                include 'db_export.php';
+                exit;
+            case 'copy_tbl':
+                $views = $GLOBALS['dbi']->getVirtualTables($db);
+                list($full_query, $reload, $full_query_views)
                 = $multSubmits->getQueryFromSelected(
-                    $submit_mult, $table, $selected, $views
+                    $submit_mult,
+                    $table,
+                    $selected,
+                    $views
                 );
-            $_url_params = $multSubmits->getUrlParams(
-                $submit_mult, $reload, $action, $db, $table, $selected, $views,
-                isset($original_sql_query)? $original_sql_query : null,
-                isset($original_url_query)? $original_url_query : null
-            );
-            $response->disable();
-            $response->addHTML(
-                $multSubmits->getHtmlForCopyMultipleTables($action, $_url_params)
-            );
-            exit;
-        case 'show_create':
-            $show_create = Template::get(
-                'database/structure/show_create'
-            )
-                ->render(
-                    [
+                $_url_params = $multSubmits->getUrlParams(
+                    $submit_mult,
+                    $reload,
+                    $action,
+                    $db,
+                    $table,
+                    $selected,
+                    $views,
+                    isset($original_sql_query)? $original_sql_query : null,
+                    isset($original_url_query)? $original_url_query : null
+                );
+                $response->disable();
+                $response->addHTML(
+                    $multSubmits->getHtmlForCopyMultipleTables($action, $_url_params)
+                );
+                exit;
+            case 'show_create':
+                $show_create = Template::get(
+                    'database/structure/show_create'
+                )
+                    ->render(
+                        [
                         'db'         => $GLOBALS['db'],
                         'db_objects' => $selected,
                         'dbi'        => $GLOBALS['dbi'],
-                    ]
+                        ]
+                    );
+                // Send response to client.
+                $response->addJSON('message', $show_create);
+                exit;
+            case 'sync_unique_columns_central_list':
+                $centralColsError = $centralColumns->syncUniqueColumns(
+                    $selected
                 );
-            // Send response to client.
-            $response->addJSON('message', $show_create);
-            exit;
-        case 'sync_unique_columns_central_list':
-            $centralColsError = $centralColumns->syncUniqueColumns(
-                $selected
-            );
-            break;
-        case 'delete_unique_columns_central_list':
-            $centralColsError = $centralColumns->deleteColumnsFromList(
-                $selected
-            );
-            break;
-        case 'make_consistent_with_central_list':
-            $centralColsError = $centralColumns->makeConsistentWithList(
-                $GLOBALS['db'],
-                $selected
-            );
-            break;
+                break;
+            case 'delete_unique_columns_central_list':
+                $centralColsError = $centralColumns->deleteColumnsFromList(
+                    $selected
+                );
+                break;
+            case 'make_consistent_with_central_list':
+                $centralColsError = $centralColumns->makeConsistentWithList(
+                    $GLOBALS['db'],
+                    $selected
+                );
+                break;
         } // end switch
     } elseif (isset($selected_fld) && !empty($selected_fld)) {
         // coming from table structure view - do something with
@@ -183,7 +192,6 @@ if (!empty($submit_mult) && !empty($what)) {
             $tooltip_aliasname,
             $pos
         ) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
-
     } else {
         include_once './libraries/server_common.inc.php';
     }
@@ -191,12 +199,21 @@ if (!empty($submit_mult) && !empty($what)) {
     // Builds the query
     list($full_query, $reload, $full_query_views)
         = $multSubmits->getQueryFromSelected(
-            $what, $table, $selected, $views
+            $what,
+            $table,
+            $selected,
+            $views
         );
 
     // Displays the confirmation form
     $_url_params = $multSubmits->getUrlParams(
-        $what, $reload, $action, $db, $table, $selected, $views,
+        $what,
+        $reload,
+        $action,
+        $db,
+        $table,
+        $selected,
+        $views,
         isset($original_sql_query)? $original_sql_query : null,
         isset($original_url_query)? $original_url_query : null
     );
@@ -216,7 +233,6 @@ if (!empty($submit_mult) && !empty($what)) {
         );
     }
     exit;
-
 } elseif (! empty($mult_btn) && $mult_btn == __('Yes')) {
     /**
      * Executes the query - dropping rows, columns/fields, tables or dbs
@@ -248,7 +264,11 @@ if (!empty($submit_mult) && !empty($what)) {
         $result, $rebuild_database_list, $reload_ret,
         $run_parts, $execute_query_later, $sql_query, $sql_query_views
     ) = $multSubmits->buildOrExecuteQuery(
-        $query_type, $selected, $db, $table, $views,
+        $query_type,
+        $selected,
+        $db,
+        $table,
+        $views,
         isset($primary) ? $primary : null,
         isset($from_prefix) ? $from_prefix : null,
         isset($to_prefix) ? $to_prefix : null

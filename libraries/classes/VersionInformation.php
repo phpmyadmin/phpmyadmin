@@ -108,21 +108,21 @@ class VersionInformation
                 $result += intval($matches[2]);
             }
             switch ($suffix) {
-            case 'pl':
-                $result += 60;
-                break;
-            case 'rc':
-                $result += 30;
-                break;
-            case 'beta':
-                $result += 20;
-                break;
-            case 'alpha':
-                $result += 10;
-                break;
-            case 'dev':
-                $result += 0;
-                break;
+                case 'pl':
+                    $result += 60;
+                    break;
+                case 'rc':
+                    $result += 30;
+                    break;
+                case 'beta':
+                    $result += 20;
+                    break;
+                case 'alpha':
+                    $result += 10;
+                    break;
+                case 'dev':
+                    $result += 0;
+                    break;
             }
         } else {
             $result += 50; // for final

@@ -88,7 +88,8 @@ class UrlTest extends TestCase
         $this->assertEquals(
             $expected,
             Url::getCommonRaw(
-                ['db' => 'db', 'table' => 'table'], '#ABC#'
+                ['db' => 'db', 'table' => 'table'],
+                '#ABC#'
             )
         );
     }

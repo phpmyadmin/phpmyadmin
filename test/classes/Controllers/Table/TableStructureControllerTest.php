@@ -92,7 +92,8 @@ class TableStructureControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
+            'TableStructureController',
+            'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
         // No primary key in db.table2
@@ -140,7 +141,8 @@ class TableStructureControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
+            'TableStructureController',
+            'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
         // With db.table, it has a primary key `column`
@@ -166,7 +168,8 @@ class TableStructureControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
+            'TableStructureController',
+            'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 
@@ -192,7 +195,8 @@ class TableStructureControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
+            'TableStructureController',
+            'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 
@@ -252,7 +256,8 @@ class TableStructureControllerTest extends PmaTestCase
         $container->set('dbi', $dbi);
         $container->factory('PhpMyAdmin\Controllers\Table\TableStructureController');
         $container->alias(
-            'TableStructureController', 'PhpMyAdmin\Controllers\Table\TableStructureController'
+            'TableStructureController',
+            'PhpMyAdmin\Controllers\Table\TableStructureController'
         );
         $ctrl = $container->get('TableStructureController');
 

@@ -100,7 +100,8 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Coun
      *
      * @return int
      */
-    public function count() {
+    public function count()
+    {
         return $this->getNrOfProperties();
     }
 }

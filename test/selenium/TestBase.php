@@ -364,7 +364,8 @@ abstract class TestBase extends Selenium2TestCase
     public function isLoggedIn()
     {
         return $this->isElementPresent(
-            'byXPath', '//*[@id="serverinfo"]/a[1]'
+            'byXPath',
+            '//*[@id="serverinfo"]/a[1]'
         );
     }
 
@@ -392,14 +393,16 @@ abstract class TestBase extends Selenium2TestCase
     {
         try {
             return call_user_func_array(
-                [$this, $func], [$arg]
+                [$this, $func],
+                [$arg]
             );
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             // Element not present, fall back to waiting
         }
         $this->timeouts()->implicitWait(10000);
         $element = call_user_func_array(
-            [$this, $func], [$arg]
+            [$this, $func],
+            [$arg]
         );
         $this->timeouts()->implicitWait(0);
         return $element;
@@ -435,7 +438,8 @@ abstract class TestBase extends Selenium2TestCase
     {
         try {
             $element = call_user_func_array(
-                [$this, $func], [$arg]
+                [$this, $func],
+                [$arg]
             );
         } catch (WebDriverException $e) {
             // Element not present
@@ -556,7 +560,7 @@ abstract class TestBase extends Selenium2TestCase
      *
      * @return void
      */
-    public function typeInTextArea($text, $index=0)
+    public function typeInTextArea($text, $index = 0)
     {
         $this->waitForElement('byCssSelector', 'div.cm-s-default');
         $this->execute(
@@ -632,7 +636,7 @@ abstract class TestBase extends Selenium2TestCase
         }
 
         // Go to server databases
-        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElement('byPartialLinkText', 'Databases')->click();
         $this->waitAjax();
 
         // go to specific database page
@@ -768,7 +772,7 @@ abstract class TestBase extends Selenium2TestCase
             if (curl_errno($ch)) {
                 echo 'Error: ' . curl_error($ch);
             }
-            curl_close ($ch);
+            curl_close($ch);
         }
 
         // Call parent's onNotSuccessful to handle everything else

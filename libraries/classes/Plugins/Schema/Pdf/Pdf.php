@@ -74,7 +74,12 @@ class Pdf extends PdfLib
      * @access public
      */
     public function __construct(
-        $orientation, $unit, $paper, $pageNumber, $withDoc, $db
+        $orientation,
+        $unit,
+        $paper,
+        $pageNumber,
+        $withDoc,
+        $db
     ) {
         parent::__construct($orientation, $unit, $paper);
         $this->_pageNumber = $pageNumber;
@@ -106,8 +111,12 @@ class Pdf extends PdfLib
      *
      * @return void
      */
-    public function setScale($scale = 1, $xMin = 0, $yMin = 0,
-        $leftMargin = -1, $topMargin = -1
+    public function setScale(
+        $scale = 1,
+        $xMin = 0,
+        $yMin = 0,
+        $leftMargin = -1,
+        $topMargin = -1
     ) {
         $this->scale = $scale;
         $this->_xMin = $xMin;
@@ -136,8 +145,15 @@ class Pdf extends PdfLib
      *
      * @see TCPDF::Cell()
      */
-    public function cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0,
-        $align = '', $fill = 0, $link = ''
+    public function cellScale(
+        $w,
+        $h = 0,
+        $txt = '',
+        $border = 0,
+        $ln = 0,
+        $align = '',
+        $fill = 0,
+        $link = ''
     ) {
         $h = $h / $this->scale;
         $w = $w / $this->scale;
@@ -303,7 +319,7 @@ class Pdf extends PdfLib
         // line height
         $nb = 0;
         $data_cnt = count($data);
-        for ($i = 0;$i < $data_cnt;$i++) {
+        for ($i = 0; $i < $data_cnt; $i++) {
             $nb = max($nb, $this->numLines($this->widths[$i], $data[$i]));
         }
         $il = $this->FontSize;
@@ -312,7 +328,7 @@ class Pdf extends PdfLib
         $this->CheckPageBreak($h);
         // draw the cells
         $data_cnt = count($data);
-        for ($i = 0;$i < $data_cnt;$i++) {
+        for ($i = 0; $i < $data_cnt; $i++) {
             $w = $this->widths[$i];
             // save current position
             $x = $this->GetX();

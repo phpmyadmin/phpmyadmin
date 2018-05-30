@@ -243,7 +243,6 @@ class ExportCsvTest extends PmaTestCase
             'structure_or_data',
             $property->getName()
         );
-
     }
 
     /**
@@ -497,7 +496,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertFalse(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -544,7 +547,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -591,7 +598,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -641,7 +652,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -690,7 +705,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();
@@ -738,7 +757,11 @@ class ExportCsvTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'testDB', 'testTable', "\n", 'example.com', 'test'
+                'testDB',
+                'testTable',
+                "\n",
+                'example.com',
+                'test'
             )
         );
         $result = ob_get_clean();

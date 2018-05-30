@@ -34,7 +34,8 @@ class SettingsTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath", "//a[@class='tabactive' and contains(., 'Settings')]"
+            "byXPath",
+            "//a[@class='tabactive' and contains(., 'Settings')]"
         );
     }
 
@@ -54,12 +55,11 @@ class SettingsTest extends TestBase
         $this->moveto($ele);
         $ele->click();
 
-        $this->waitUntil(function() {
-            if (
-                $this->isElementPresent(
-                    "byXPath",
-                    "//div[@class='success' and contains(., 'Configuration has been saved')]"
-                )
+        $this->waitUntil(function () {
+            if ($this->isElementPresent(
+                "byXPath",
+                "//div[@class='success' and contains(., 'Configuration has been saved')]"
+            )
             ) {
                 return true;
             }
@@ -154,5 +154,4 @@ class SettingsTest extends TestBase
             $this->isElementPresent("byId", "imgpmalogo")
         );
     }
-
 }

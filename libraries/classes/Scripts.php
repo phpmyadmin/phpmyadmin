@@ -55,7 +55,7 @@ class Scripts
                     . "'></script>\n";
             } else {
                 $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
-                    .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
+                    . $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
             }
         }
         return $result;
@@ -69,7 +69,6 @@ class Scripts
     {
         $this->_files  = [];
         $this->_code   = '';
-
     }
 
     /**
@@ -163,7 +162,6 @@ class Scripts
                 'name' => $file['filename'],
                 'fire' => $file['has_onload']
             ];
-
         }
         return $retval;
     }

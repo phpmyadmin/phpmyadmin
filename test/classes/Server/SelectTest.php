@@ -111,7 +111,8 @@ class SelectTest extends TestCase
         //$GLOBALS['cfg']['DefaultTabServer']
         $this->assertContains(
             Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabServer'], 'server'
+                $GLOBALS['cfg']['DefaultTabServer'],
+                'server'
             ),
             $html
         );

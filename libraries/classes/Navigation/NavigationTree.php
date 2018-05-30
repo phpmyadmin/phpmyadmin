@@ -380,38 +380,38 @@ class NavigationTree
             );
             foreach ($dbData as $item) {
                 switch ($container->real_name) {
-                case 'events':
-                    $node = NodeFactory::getInstance(
-                        'NodeEvent',
-                        $item
-                    );
-                    break;
-                case 'functions':
-                    $node = NodeFactory::getInstance(
-                        'NodeFunction',
-                        $item
-                    );
-                    break;
-                case 'procedures':
-                    $node = NodeFactory::getInstance(
-                        'NodeProcedure',
-                        $item
-                    );
-                    break;
-                case 'tables':
-                    $node = NodeFactory::getInstance(
-                        'NodeTable',
-                        $item
-                    );
-                    break;
-                case 'views':
-                    $node = NodeFactory::getInstance(
-                        'NodeView',
-                        $item
-                    );
-                    break;
-                default:
-                    break;
+                    case 'events':
+                        $node = NodeFactory::getInstance(
+                            'NodeEvent',
+                            $item
+                        );
+                        break;
+                    case 'functions':
+                        $node = NodeFactory::getInstance(
+                            'NodeFunction',
+                            $item
+                        );
+                        break;
+                    case 'procedures':
+                        $node = NodeFactory::getInstance(
+                            'NodeProcedure',
+                            $item
+                        );
+                        break;
+                    case 'tables':
+                        $node = NodeFactory::getInstance(
+                            'NodeTable',
+                            $item
+                        );
+                        break;
+                    case 'views':
+                        $node = NodeFactory::getInstance(
+                            'NodeView',
+                            $item
+                        );
+                        break;
+                    default:
+                        break;
                 }
                 if (isset($node)) {
                     if ($type2 == $container->real_name) {
@@ -471,26 +471,26 @@ class NavigationTree
         );
         foreach ($tableData as $item) {
             switch ($container->real_name) {
-            case 'indexes':
-                $node = NodeFactory::getInstance(
-                    'NodeIndex',
-                    $item
-                );
-                break;
-            case 'columns':
-                $node = NodeFactory::getInstance(
-                    'NodeColumn',
-                    $item
-                );
-                break;
-            case 'triggers':
-                $node = NodeFactory::getInstance(
-                    'NodeTrigger',
-                    $item
-                );
-                break;
-            default:
-                break;
+                case 'indexes':
+                    $node = NodeFactory::getInstance(
+                        'NodeIndex',
+                        $item
+                    );
+                    break;
+                case 'columns':
+                    $node = NodeFactory::getInstance(
+                        'NodeColumn',
+                        $item
+                    );
+                    break;
+                case 'triggers':
+                    $node = NodeFactory::getInstance(
+                        'NodeTrigger',
+                        $item
+                    );
+                    break;
+                default:
+                    break;
             }
             if (isset($node)) {
                 $node->pos2 = $container->parent->pos2;
@@ -749,7 +749,6 @@ class NavigationTree
             /** @var Node[] $groups */
             $groups = [];
             foreach ($prefixes as $key => $value) {
-
                 // warn about large groups
                 if ($value > 500 && !$this->_largeGroupWarning) {
                     trigger_error(
@@ -1171,7 +1170,7 @@ class NavigationTree
 
             if (isset($node->links['text'])) {
                 $args = [];
-                foreach ($node->parents(true) as $parent) {;
+                foreach ($node->parents(true) as $parent) {
                     $args[] = urlencode($parent->real_name);
                 }
                 $link = vsprintf($node->links['text'], $args);
@@ -1519,7 +1518,7 @@ class NavigationTree
      *
      * @return int See strnatcmp() and strcmp()
      */
-    static public function sortNode($a, $b)
+    public static function sortNode($a, $b)
     {
         if ($a->isNew) {
             return -1;

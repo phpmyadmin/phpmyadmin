@@ -134,13 +134,15 @@ class ZipExtensionTest extends PmaTestCase
         $this->assertEquals(
             false,
             $this->zipExtension->extract(
-                './test/test_data/test.zip', 'wrongName'
+                './test/test_data/test.zip',
+                'wrongName'
             )
         );
         $this->assertEquals(
             "TEST FILE\n",
             $this->zipExtension->extract(
-                './test/test_data/test.zip', 'test.file'
+                './test/test_data/test.zip',
+                'test.file'
             )
         );
     }

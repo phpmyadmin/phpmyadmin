@@ -158,7 +158,9 @@ class IpAllowDeny
             // what range do we operate on?
             $range_match = [];
             $match = preg_match(
-                '/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $test_range, $range_match
+                '/\[([0-9a-f]+)\-([0-9a-f]+)\]/',
+                $test_range,
+                $range_match
             );
             if ($match) {
                 $range_start = $range_match[1];

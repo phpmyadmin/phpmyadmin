@@ -125,7 +125,9 @@ class ImportShp extends ImportPlugin
                             // Replace the .dbf with .*, as required
                             // by the bsShapeFiles library.
                             $file_name = substr(
-                                $dbf_file_path, 0, strlen($dbf_file_path) - 4
+                                $dbf_file_path,
+                                0,
+                                strlen($dbf_file_path) - 4
                             ) . '.*';
                             $shp->FileName = $file_name;
                         }
@@ -170,31 +172,31 @@ class ImportShp extends ImportPlugin
 
         switch ($shp->shapeType) {
             // ESRI Null Shape
-        case 0:
-            break;
+            case 0:
+                break;
             // ESRI Point
-        case 1:
-            $gis_type = 'point';
-            break;
+            case 1:
+                $gis_type = 'point';
+                break;
             // ESRI PolyLine
-        case 3:
-            $gis_type = 'multilinestring';
-            break;
+            case 3:
+                $gis_type = 'multilinestring';
+                break;
             // ESRI Polygon
-        case 5:
-            $gis_type = 'multipolygon';
-            break;
+            case 5:
+                $gis_type = 'multipolygon';
+                break;
             // ESRI MultiPoint
-        case 8:
-            $gis_type = 'multipoint';
-            break;
-        default:
-            $error = true;
-            $message = Message::error(
-                __('MySQL Spatial Extension does not support ESRI type "%s".')
-            );
-            $message->addParam($shp->getShapeName());
-            return;
+            case 8:
+                $gis_type = 'multipoint';
+                break;
+            default:
+                $error = true;
+                $message = Message::error(
+                    __('MySQL Spatial Extension does not support ESRI type "%s".')
+                );
+                $message->addParam($shp->getShapeName());
+                return;
         }
 
         if (isset($gis_type)) {

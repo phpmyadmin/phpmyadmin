@@ -16,7 +16,8 @@ require_once 'libraries/common.inc.php';
 $container = Container::getDefaultContainer();
 $container->factory('PhpMyAdmin\Controllers\Table\TableChartController');
 $container->alias(
-    'TableChartController', 'PhpMyAdmin\Controllers\Table\TableChartController'
+    'TableChartController',
+    'PhpMyAdmin\Controllers\Table\TableChartController'
 );
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');

@@ -127,14 +127,12 @@ class ImportSql extends ImportPlugin
         $GLOBALS['finished'] = false;
 
         while ((!$error) && (!$timeout_passed)) {
-
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();
 
             // If there is no full statement, we are looking for more data.
             if (empty($statement)) {
-
                 // Importing new data.
                 $newData = $this->import->getNextChunk();
 

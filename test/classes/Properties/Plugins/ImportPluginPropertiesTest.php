@@ -87,5 +87,4 @@ class ImportPluginPropertiesTest extends TestCase
             $this->object->getMimeType()
         );
     }
-
 }

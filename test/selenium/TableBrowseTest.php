@@ -238,7 +238,8 @@ class TableBrowseTest extends TestBase
 
         $this->waitAjax();
         $success = $this->waitForElement(
-            "byCssSelector", "span.ajax_notification div.success"
+            "byCssSelector",
+            "span.ajax_notification div.success"
         );
         $this->assertContains("1 row affected", $success->text());
 
@@ -360,9 +361,9 @@ class TableBrowseTest extends TestBase
 
         $this->assertFalse(
             $this->isElementPresent(
-                "byCssSelector", "table.table_results tbody tr:nth-child(2)"
+                "byCssSelector",
+                "table.table_results tbody tr:nth-child(2)"
             )
         );
-
     }
 }

@@ -42,7 +42,8 @@ class Select
         if ($not_only_options) {
             $retval .= '<form method="post" action="'
                 . Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabServer'], 'server'
+                    $GLOBALS['cfg']['DefaultTabServer'],
+                    'server'
                 )
                 . '" class="disableAjax">';
 
@@ -96,10 +97,10 @@ class Select
                 if ($selected) {
                     $retval .= '<strong>' . htmlspecialchars($label) . '</strong>';
                 } else {
-
                     $retval .= '<a class="disableAjax item" href="'
                         . Util::getScriptNameForOption(
-                            $GLOBALS['cfg']['DefaultTabServer'], 'server'
+                            $GLOBALS['cfg']['DefaultTabServer'],
+                            'server'
                         )
                         . Url::getCommon(['server' => $key])
                         . '" >' . htmlspecialchars($label) . '</a>';

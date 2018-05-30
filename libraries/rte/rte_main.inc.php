@@ -79,17 +79,17 @@ $errors = [];
  * Call the appropriate main function
  */
 switch ($_PMA_RTE) {
-case 'RTN':
-    $type = null;
-    if (isset($_REQUEST['type'])) {
-        $type = $_REQUEST['type'];
-    }
-    $routines->main($type);
-    break;
-case 'TRI':
-    $triggers->main();
-    break;
-case 'EVN':
-    $events->main();
-    break;
+    case 'RTN':
+        $type = null;
+        if (isset($_REQUEST['type'])) {
+            $type = $_REQUEST['type'];
+        }
+        $routines->main($type);
+        break;
+    case 'TRI':
+        $triggers->main();
+        break;
+    case 'EVN':
+        $events->main();
+        break;
 }

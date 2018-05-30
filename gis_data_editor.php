@@ -74,7 +74,8 @@ $geom_type = htmlspecialchars($gis_data['gis_type']);
 $gis_obj = GisFactory::factory($geom_type);
 if (isset($_REQUEST['value'])) {
     $gis_data = array_merge(
-        $gis_data, $gis_obj->generateParams($_REQUEST['value'])
+        $gis_data,
+        $gis_obj->generateParams($_REQUEST['value'])
     );
 }
 
@@ -224,7 +225,6 @@ for ($a = 0; $a < $geom_count; $a++) {
         echo '<label for="y">' , __("Y") , '</label>';
         echo '<input name="gis_data[' , $a , '][POINT][y]" type="text"'
             , ' value="' , escape($gis_data[$a]['POINT']['y']) , '" />';
-
     } elseif ($type == 'MULTIPOINT' || $type == 'LINESTRING') {
         $no_of_points = isset($gis_data[$a][$type]['no_of_points'])
             ? intval($gis_data[$a][$type]['no_of_points']) : 1;
@@ -257,7 +257,6 @@ for ($a = 0; $a < $geom_count; $a++) {
         echo '<input type="submit"'
             , ' name="gis_data[' , $a , '][' , $type , '][add_point]"'
             , ' class="add addPoint" value="' , __("Add a point") , '" />';
-
     } elseif ($type == 'MULTILINESTRING' || $type == 'POLYGON') {
         $no_of_lines = isset($gis_data[$a][$type]['no_of_lines'])
             ? intval($gis_data[$a][$type]['no_of_lines']) : 1;
@@ -321,7 +320,6 @@ for ($a = 0; $a < $geom_count; $a++) {
         echo '<input type="submit"'
             , ' name="gis_data[' , $a , '][' , $type , '][add_line]"'
             , ' class="add addLine" value="' , $caption , '" />';
-
     } elseif ($type == 'MULTIPOLYGON') {
         $no_of_polygons = isset($gis_data[$a][$type]['no_of_polygons'])
             ? intval($gis_data[$a][$type]['no_of_polygons']) : 1;

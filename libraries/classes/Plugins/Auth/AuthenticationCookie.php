@@ -208,13 +208,12 @@ class AuthenticationCookie extends AuthenticationPlugin
             && empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
             echo '<input value="' , __('Go') , '" type="submit" id="input_go" />';
-        }
-        else {
+        } else {
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
             , $GLOBALS['lang'] , '" async defer></script>';
             echo '<input class="g-recaptcha" data-sitekey="'
             , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
-                .' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
+                . ' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
         }
         $_form_params = [];
         if (! empty($GLOBALS['target'])) {
@@ -277,7 +276,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['from_cookie'] = false;
 
         if (isset($_REQUEST['pma_username']) && strlen($_REQUEST['pma_username']) > 0) {
-
             // Verify Captcha if it is required.
             if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
@@ -338,7 +336,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                     }
 
                     $match = preg_match(
-                        $GLOBALS['cfg']['ArbitraryServerRegexp'], $tmp_host
+                        $GLOBALS['cfg']['ArbitraryServerRegexp'],
+                        $tmp_host
                     );
                     if (! $match) {
                         $conn_error = __(

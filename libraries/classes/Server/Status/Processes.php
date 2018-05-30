@@ -64,7 +64,8 @@ class Processes
         if ($show_full_sql) {
             $url_params['full'] = 1;
             $full_text_link = 'server_status_processes.php' . Url::getCommon(
-                [], '?'
+                [],
+                '?'
             );
         } else {
             $full_text_link = 'server_status_processes.php' . Url::getCommon(
@@ -141,7 +142,6 @@ class Processes
         $retval .= '<tr>';
         $retval .= '<th>' . __('Processes') . '</th>';
         foreach ($sortable_columns as $column) {
-
             $is_sorted = ! empty($_REQUEST['order_by_field'])
                 && ! empty($_REQUEST['sort_order'])
                 && ($_REQUEST['order_by_field'] == $column['order_by_field']);

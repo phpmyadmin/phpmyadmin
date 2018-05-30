@@ -30,7 +30,10 @@ class Replication
      * @return array
      */
     public function fillInfo(
-        $type, $replicationInfoKey, array $mysqlInfo, $mysqlKey
+        $type,
+        $replicationInfoKey,
+        array $mysqlInfo,
+        $mysqlKey
     ) {
         $GLOBALS['replication_info'][$type][$replicationInfoKey]
             = empty($mysqlInfo[$mysqlKey])
@@ -103,8 +106,15 @@ class Replication
      *
      * @return string output of CHANGE MASTER mysql command
      */
-    public function slaveChangeMaster($user, $password, $host, $port,
-        array $pos, $stop = true, $start = true, $link = null
+    public function slaveChangeMaster(
+        $user,
+        $password,
+        $host,
+        $port,
+        array $pos,
+        $stop = true,
+        $start = true,
+        $link = null
     ) {
         if ($stop) {
             $this->slaveControl("STOP", null, $link);
@@ -117,7 +127,8 @@ class Replication
             'MASTER_USER=\'' . $user . '\',' .
             'MASTER_PASSWORD=\'' . $password . '\',' .
             'MASTER_LOG_FILE=\'' . $pos["File"] . '\',' .
-            'MASTER_LOG_POS=' . $pos["Position"] . ';', $link
+            'MASTER_LOG_POS=' . $pos["Position"] . ';',
+            $link
         );
 
         if ($start) {
@@ -139,7 +150,11 @@ class Replication
      * @return mixed $link mysql link on success
      */
     public function connectToMaster(
-        $user, $password, $host = null, $port = null, $socket = null
+        $user,
+        $password,
+        $host = null,
+        $port = null,
+        $socket = null
     ) {
         $server = [];
         $server['user'] = $user;

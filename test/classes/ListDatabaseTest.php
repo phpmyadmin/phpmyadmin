@@ -122,5 +122,4 @@ class ListDatabaseTest extends PmaTestCase
             'mysql'
         );
     }
-
 }

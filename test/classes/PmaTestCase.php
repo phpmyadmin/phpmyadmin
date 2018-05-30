@@ -69,7 +69,7 @@ class PmaTestCase extends TestCase
             if (is_array($param[0])) {
                 if (is_array($param[0][0]) && count($param) == 1) {
                     $param = $param[0];
-                    if(is_int(end($param))){
+                    if (is_int(end($param))) {
                         $http_response_code_param = end($param);
                         $param = array_slice($param, 0, -1);
 
@@ -82,7 +82,6 @@ class PmaTestCase extends TestCase
                     ->method('header');
 
                 call_user_func_array([$header_method, 'withConsecutive'], $param);
-
             } else {
                 $mockResponse->expects($this->once())
                     ->method('header')

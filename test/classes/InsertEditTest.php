@@ -103,7 +103,11 @@ class InsertEditTest extends TestCase
         $GLOBALS['goto'] = 'index.php';
 
         $result = $this->insertEdit->getFormParametersForInsertForm(
-            'dbname', 'tablename', [], $where_clause, 'localhost'
+            'dbname',
+            'tablename',
+            [],
+            $where_clause,
+            'localhost'
         );
 
         $this->assertEquals(
@@ -1546,7 +1550,10 @@ class InsertEditTest extends TestCase
         $_POST['sql_query'] = "SELECT 1";
 
         $result = $this->insertEdit->getContinueInsertionForm(
-            "tbl", "db", $where_clause_array, "localhost"
+            "tbl",
+            "db",
+            $where_clause_array,
+            "localhost"
         );
 
         $this->assertContains(
@@ -2429,8 +2436,13 @@ class InsertEditTest extends TestCase
             'transformation_options' => "'','option ,, quoted',abd"
         ];
         $result = $this->insertEdit->transformEditedValues(
-            'db', 'table', $transformation, $edited_values,
-            'Text_Plain_PreApPend.php', 'c', ['a' => 'b'],
+            'db',
+            'table',
+            $transformation,
+            $edited_values,
+            'Text_Plain_PreApPend.php',
+            'c',
+            ['a' => 'b'],
             'transformation'
         );
 
@@ -2450,8 +2462,18 @@ class InsertEditTest extends TestCase
         $multi_edit_columns_name = ['0' => 'fld'];
 
         $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name, [], '', [], [], true, [1],
-            [2], 'foo', [], '0', []
+            $multi_edit_columns_name,
+            [],
+            '',
+            [],
+            [],
+            true,
+            [1],
+            [2],
+            'foo',
+            [],
+            '0',
+            []
         );
 
         $this->assertEquals(
@@ -2463,8 +2485,18 @@ class InsertEditTest extends TestCase
         );
 
         $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name, [], '', [], [], false, [1],
-            [2], 'foo', [], '0', ['a']
+            $multi_edit_columns_name,
+            [],
+            '',
+            [],
+            [],
+            false,
+            [1],
+            [2],
+            'foo',
+            [],
+            '0',
+            ['a']
         );
 
         $this->assertEquals(
@@ -2476,8 +2508,18 @@ class InsertEditTest extends TestCase
         );
 
         $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name, ['b'], "'`c`'", ['c'], [],
-            false, [1], [2], 'foo', [], '0', ['a']
+            $multi_edit_columns_name,
+            ['b'],
+            "'`c`'",
+            ['c'],
+            [],
+            false,
+            [1],
+            [2],
+            'foo',
+            [],
+            '0',
+            ['a']
         );
 
         $this->assertEquals(
@@ -2489,8 +2531,18 @@ class InsertEditTest extends TestCase
         );
 
         $result = $this->insertEdit->getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name, ['b'], "'`c`'", ['c'], [3],
-            false, [1], [2], 'foo', [], 0, []
+            $multi_edit_columns_name,
+            ['b'],
+            "'`c`'",
+            ['c'],
+            [3],
+            false,
+            [1],
+            [2],
+            'foo',
+            [],
+            0,
+            []
         );
 
         $this->assertEquals(
@@ -2510,8 +2562,14 @@ class InsertEditTest extends TestCase
     public function testGetCurrentValueAsAnArrayForMultipleEdit()
     {
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            [], [], [], 'currVal', [],
-            [], [], '0'
+            [],
+            [],
+            [],
+            'currVal',
+            [],
+            [],
+            [],
+            '0'
         );
 
         $this->assertEquals('currVal', $result);
@@ -2532,8 +2590,14 @@ class InsertEditTest extends TestCase
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_funcs, [], [], 'currVal', [],
-            [], [], '0'
+            $multi_edit_funcs,
+            [],
+            [],
+            'currVal',
+            [],
+            [],
+            [],
+            '0'
         );
 
         $this->assertEquals("'uuid1234'", $result);
@@ -2542,8 +2606,14 @@ class InsertEditTest extends TestCase
         $multi_edit_funcs = ['AES_ENCRYPT'];
         $multi_edit_salt = [""];
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_funcs, $multi_edit_salt, [], "'''", [],
-            ['func'], ['func'], '0'
+            $multi_edit_funcs,
+            $multi_edit_salt,
+            [],
+            "'''",
+            [],
+            ['func'],
+            ['func'],
+            '0'
         );
         $this->assertEquals("AES_ENCRYPT(''','')", $result);
 
@@ -2551,15 +2621,27 @@ class InsertEditTest extends TestCase
         $multi_edit_funcs = ['func'];
         $multi_edit_salt = [];
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_funcs, $multi_edit_salt, [], "'''", [],
-            ['func'], ['func'], '0'
+            $multi_edit_funcs,
+            $multi_edit_salt,
+            [],
+            "'''",
+            [],
+            ['func'],
+            ['func'],
+            '0'
         );
         $this->assertEquals("func(''')", $result);
 
         // case 5
         $result = $this->insertEdit->getCurrentValueAsAnArrayForMultipleEdit(
-            $multi_edit_funcs, $multi_edit_salt, [], "''", [],
-            ['func'], ['func'], '0'
+            $multi_edit_funcs,
+            $multi_edit_salt,
+            [],
+            "''",
+            [],
+            ['func'],
+            ['func'],
+            '0'
         );
         $this->assertEquals("func()", $result);
     }
@@ -2593,8 +2675,20 @@ class InsertEditTest extends TestCase
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            '123', '0', [], '', [], 0, [], [],
-            [], true, true, '1', 'table', []
+            '123',
+            '0',
+            [],
+            '',
+            [],
+            0,
+            [],
+            [],
+            [],
+            true,
+            true,
+            '1',
+            'table',
+            []
         );
 
         $this->assertEquals(
@@ -2604,8 +2698,20 @@ class InsertEditTest extends TestCase
 
         // case 2
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false, '0', ['test'], '', [1], 0, [], [],
-            [], true, true, '1', 'table', []
+            false,
+            '0',
+            ['test'],
+            '',
+            [1],
+            0,
+            [],
+            [],
+            [],
+            true,
+            true,
+            '1',
+            'table',
+            []
         );
 
         $this->assertEquals(
@@ -2615,8 +2721,20 @@ class InsertEditTest extends TestCase
 
         // case 3
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false, '0', ['test'], '', [], 0, [], [],
-            [], true, true, '1', 'table', []
+            false,
+            '0',
+            ['test'],
+            '',
+            [],
+            0,
+            [],
+            [],
+            [],
+            true,
+            true,
+            '1',
+            'table',
+            []
         );
 
         $this->assertEquals(
@@ -2627,8 +2745,20 @@ class InsertEditTest extends TestCase
         // case 4
         $_REQUEST['fields']['multi_edit'][0][0] = [];
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false, '0', ['set'], '', [], 0, [], [],
-            [], true, true, '1', 'table', []
+            false,
+            '0',
+            ['set'],
+            '',
+            [],
+            0,
+            [],
+            [],
+            [],
+            true,
+            true,
+            '1',
+            'table',
+            []
         );
 
         $this->assertEquals(
@@ -2638,8 +2768,20 @@ class InsertEditTest extends TestCase
 
         // case 5
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false, '0', ['protected'], '', [], 0, ['a'], [],
-            [], true, true, '1', 'table', []
+            false,
+            '0',
+            ['protected'],
+            '',
+            [],
+            0,
+            ['a'],
+            [],
+            [],
+            true,
+            true,
+            '1',
+            'table',
+            []
         );
 
         $this->assertEquals(
@@ -2649,8 +2791,20 @@ class InsertEditTest extends TestCase
 
         // case 6
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false, '0', ['protected'], '', [], 0, ['a'], [],
-            [], true, true, '1', 'table', []
+            false,
+            '0',
+            ['protected'],
+            '',
+            [],
+            0,
+            ['a'],
+            [],
+            [],
+            true,
+            true,
+            '1',
+            'table',
+            []
         );
 
         $this->assertEquals(
@@ -2660,8 +2814,20 @@ class InsertEditTest extends TestCase
 
         // case 7
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false, '0', ['bit'], '20\'12', [], 0, ['a'], [],
-            [], true, true, '1', 'table', []
+            false,
+            '0',
+            ['bit'],
+            '20\'12',
+            [],
+            0,
+            ['a'],
+            [],
+            [],
+            true,
+            true,
+            '1',
+            'table',
+            []
         );
 
         $this->assertEquals(
@@ -2671,8 +2837,20 @@ class InsertEditTest extends TestCase
 
         // case 7
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false, '0', ['date'], '20\'12', [], 0, ['a'], [],
-            [], true, true, '1', 'table', []
+            false,
+            '0',
+            ['date'],
+            '20\'12',
+            [],
+            0,
+            ['a'],
+            [],
+            [],
+            true,
+            true,
+            '1',
+            'table',
+            []
         );
 
         $this->assertEquals(
@@ -2683,8 +2861,20 @@ class InsertEditTest extends TestCase
         // case 8
         $_REQUEST['fields']['multi_edit'][0][0] = [];
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false, '0', ['set'], '', [], 0, [], [1],
-            [], true, true, '1', 'table', []
+            false,
+            '0',
+            ['set'],
+            '',
+            [],
+            0,
+            [],
+            [1],
+            [],
+            true,
+            true,
+            '1',
+            'table',
+            []
         );
 
         $this->assertEquals(
@@ -2694,8 +2884,20 @@ class InsertEditTest extends TestCase
 
         // case 9
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
-            false, '0', ['protected'], '', [], 0, ['a'], [],
-            [1], true, true, '1', 'table', []
+            false,
+            '0',
+            ['protected'],
+            '',
+            [],
+            0,
+            ['a'],
+            [],
+            [1],
+            true,
+            true,
+            '1',
+            'table',
+            []
         );
 
         $this->assertEquals(
@@ -2771,24 +2973,34 @@ class InsertEditTest extends TestCase
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
-            'db', 'table', 'a', $extra_data
+            'db',
+            'table',
+            'a',
+            $extra_data
         );
 
         $this->assertFalse($extra_data['isNeedToRecheck']);
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
-            'db', 'table', 'a', $extra_data
+            'db',
+            'table',
+            'a',
+            $extra_data
         );
 
         $this->assertEquals('123', $extra_data['truncatableFieldValue']);
         $this->assertTrue($extra_data['isNeedToRecheck']);
 
         $this->insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
-            'db', 'table', 'a', $extra_data
+            'db',
+            'table',
+            'a',
+            $extra_data
         );
 
         $this->assertEquals(
-            '2013-08-28 06:34:14.000000', $extra_data['truncatableFieldValue']
+            '2013-08-28 06:34:14.000000',
+            $extra_data['truncatableFieldValue']
         );
         $this->assertTrue($extra_data['isNeedToRecheck']);
     }
@@ -3117,10 +3329,32 @@ class InsertEditTest extends TestCase
             ]
         ];
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
-            [], $table_columns, [], false, [], '', '',
-            '', false, [], $o_rows, $tabindex, 1, false, 0,
-            [], 0, 0, 'table', 'db', 0, [], 0, '',
-            [], ['wc']
+            [],
+            $table_columns,
+            [],
+            false,
+            [],
+            '',
+            '',
+            '',
+            false,
+            [],
+            $o_rows,
+            $tabindex,
+            1,
+            false,
+            0,
+            [],
+            0,
+            0,
+            'table',
+            'db',
+            0,
+            [],
+            0,
+            '',
+            [],
+            ['wc']
         );
         $this->assertContains(
             'test',
@@ -3181,10 +3415,32 @@ class InsertEditTest extends TestCase
             ]
         ];
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
-            [], $table_columns, [], false, [], '', '',
-            '', false, [], $o_rows, $tabindex, 1, false, 0,
-            [], 0, 0, 'table', 'db', 0, [], 0, '',
-            [], ['wc']
+            [],
+            $table_columns,
+            [],
+            false,
+            [],
+            '',
+            '',
+            '',
+            false,
+            [],
+            $o_rows,
+            $tabindex,
+            1,
+            false,
+            0,
+            [],
+            0,
+            0,
+            'table',
+            'db',
+            0,
+            [],
+            0,
+            '',
+            [],
+            ['wc']
         );
         $this->assertContains(
             'foo',
@@ -3217,10 +3473,32 @@ class InsertEditTest extends TestCase
             ]
         ];
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
-            [], $table_columns, [], false, [], '', '',
-            '', true, [], $o_rows, $tabindex, 2, false, 0,
-            [], 0, 0, 'table', 'db', 0, [], 0, '',
-            [], ['wc']
+            [],
+            $table_columns,
+            [],
+            false,
+            [],
+            '',
+            '',
+            '',
+            true,
+            [],
+            $o_rows,
+            $tabindex,
+            2,
+            false,
+            0,
+            [],
+            0,
+            0,
+            'table',
+            'db',
+            0,
+            [],
+            0,
+            '',
+            [],
+            ['wc']
         );
         $this->assertContains(
             'foo',
@@ -3228,7 +3506,7 @@ class InsertEditTest extends TestCase
         );
         $this->assertContains(
             '<textarea name="fields[37b51d194a7513e45b56f6524f2d51f2]" '
-            .'class="" readonly="readonly"',
+            . 'class="" readonly="readonly"',
             $actual
         );
     }

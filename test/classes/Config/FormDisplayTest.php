@@ -539,6 +539,5 @@ class FormDisplayTest extends PmaTestCase
             "maximum 10",
             $opts['comment']
         );
-
     }
 }

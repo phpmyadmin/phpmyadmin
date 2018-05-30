@@ -170,7 +170,9 @@ class Status
         $retval .= implode(
             ' ',
             Util::formatByteDown(
-                $serverStatusData->status['Bytes_received'], 3, 1
+                $serverStatusData->status['Bytes_received'],
+                3,
+                1
             )
         );
         $retval .= '</td>';
@@ -178,7 +180,9 @@ class Status
         $retval .= implode(
             ' ',
             Util::formatByteDown(
-                $serverStatusData->status['Bytes_received'] * $hour_factor, 3, 1
+                $serverStatusData->status['Bytes_received'] * $hour_factor,
+                3,
+                1
             )
         );
         $retval .= '</td>';
@@ -189,7 +193,9 @@ class Status
         $retval .= implode(
             ' ',
             Util::formatByteDown(
-                $serverStatusData->status['Bytes_sent'], 3, 1
+                $serverStatusData->status['Bytes_sent'],
+                3,
+                1
             )
         );
         $retval .= '</td>';
@@ -197,7 +203,9 @@ class Status
         $retval .= implode(
             ' ',
             Util::formatByteDown(
-                $serverStatusData->status['Bytes_sent'] * $hour_factor, 3, 1
+                $serverStatusData->status['Bytes_sent'] * $hour_factor,
+                3,
+                1
             )
         );
         $retval .= '</td>';
@@ -210,7 +218,9 @@ class Status
         $retval .= implode(
             ' ',
             Util::formatByteDown(
-                $bytes_received + $bytes_sent, 3, 1
+                $bytes_received + $bytes_sent,
+                3,
+                1
             )
         );
         $retval .= '</td>';
@@ -220,7 +230,9 @@ class Status
         $retval .= implode(
             ' ',
             Util::formatByteDown(
-                ($bytes_received + $bytes_sent) * $hour_factor, 3, 1
+                ($bytes_received + $bytes_sent) * $hour_factor,
+                3,
+                1
             )
         );
         $retval .= '</td>';
@@ -254,7 +266,8 @@ class Status
         $retval .= '<th class="name">' . __('Max. concurrent connections') . '</th>';
         $retval .= '<td class="value">';
         $retval .= Util::formatNumber(
-            $serverStatusData->status['Max_used_connections'], 0
+            $serverStatusData->status['Max_used_connections'],
+            0
         );
         $retval .= '</td>';
         $retval .= '<td class="value">--- </td>';
@@ -264,12 +277,18 @@ class Status
         $retval .= '<th class="name">' . __('Failed attempts') . '</th>';
         $retval .= '<td class="value">';
         $retval .= Util::formatNumber(
-            $serverStatusData->status['Aborted_connects'], 4, 1, true
+            $serverStatusData->status['Aborted_connects'],
+            4,
+            1,
+            true
         );
         $retval .= '</td>';
         $retval .= '<td class="value">';
         $retval .= Util::formatNumber(
-            $serverStatusData->status['Aborted_connects'] * $hour_factor, 4, 2, true
+            $serverStatusData->status['Aborted_connects'] * $hour_factor,
+            4,
+            2,
+            true
         );
         $retval .= '</td>';
         $retval .= '<td class="value">';
@@ -279,7 +298,9 @@ class Status
 
             $retval .= Util::formatNumber(
                 $abortNum * 100 / $connectNum,
-                0, 2, true
+                0,
+                2,
+                true
             );
             $retval .= '%';
         } else {
@@ -291,12 +312,18 @@ class Status
         $retval .= '<th class="name">' . __('Aborted') . '</th>';
         $retval .= '<td class="value">';
         $retval .= Util::formatNumber(
-            $serverStatusData->status['Aborted_clients'], 4, 1, true
+            $serverStatusData->status['Aborted_clients'],
+            4,
+            1,
+            true
         );
         $retval .= '</td>';
         $retval .= '<td class="value">';
         $retval .= Util::formatNumber(
-            $serverStatusData->status['Aborted_clients'] * $hour_factor, 4, 2, true
+            $serverStatusData->status['Aborted_clients'] * $hour_factor,
+            4,
+            2,
+            true
         );
         $retval .= '</td>';
         $retval .= '<td class="value">';
@@ -306,7 +333,9 @@ class Status
 
             $retval .= Util::formatNumber(
                 $abortNum * 100 / $connectNum,
-                0, 2, true
+                0,
+                2,
+                true
             );
             $retval .= '%';
         } else {
@@ -318,12 +347,16 @@ class Status
         $retval .= '<th class="name">' . __('Total') . '</th>';
         $retval .= '<td class="value">';
         $retval .= Util::formatNumber(
-            $serverStatusData->status['Connections'], 4, 0
+            $serverStatusData->status['Connections'],
+            4,
+            0
         );
         $retval .= '</td>';
         $retval .= '<td class="value">';
         $retval .= Util::formatNumber(
-            $serverStatusData->status['Connections'] * $hour_factor, 4, 2
+            $serverStatusData->status['Connections'] * $hour_factor,
+            4,
+            2
         );
         $retval .= '</td>';
         $retval .= '<td class="value">';

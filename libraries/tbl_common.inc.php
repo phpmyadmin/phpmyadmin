@@ -35,12 +35,14 @@ $url_params['table'] = $table;
  * Defines the urls to return to in case of error in a sql statement
  */
 $err_url_0 = PhpMyAdmin\Util::getScriptNameForOption(
-    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+    $GLOBALS['cfg']['DefaultTabDatabase'],
+    'database'
 )
     . Url::getCommon(['db' => $db]);
 
 $err_url = PhpMyAdmin\Util::getScriptNameForOption(
-    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+    $GLOBALS['cfg']['DefaultTabTable'],
+    'table'
 )
     . Url::getCommon($url_params);
 

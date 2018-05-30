@@ -157,7 +157,6 @@ class VersionInformationTest extends PmaTestCase
         $compatible = $mockVersionInfo
             ->getLatestCompatibleVersion($this->_releases);
         $this->assertEquals('4.4.14.1', $compatible['version']);
-
     }
 
     /**

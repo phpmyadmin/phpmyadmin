@@ -201,5 +201,4 @@ class ExportExcelTest extends PmaTestCase
             $property->getName()
         );
     }
-
 }

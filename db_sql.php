@@ -42,7 +42,8 @@ $back = 'db_sql.php';
  */
 $response->addHTML(
     $sqlQueryForm->getHtml(
-        true, false,
+        true,
+        false,
         isset($_REQUEST['delimiter'])
         ? htmlspecialchars($_REQUEST['delimiter'])
         : ';'

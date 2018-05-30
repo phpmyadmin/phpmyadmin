@@ -36,12 +36,19 @@ class RelationStatsPdf extends RelationStats
      * @param string $foreign_field The relation field in the foreign table
      */
     public function __construct(
-        $diagram, $master_table, $master_field, $foreign_table,
+        $diagram,
+        $master_table,
+        $master_field,
+        $foreign_table,
         $foreign_field
     ) {
         $this->wTick = 5;
         parent::__construct(
-            $diagram, $master_table, $master_field, $foreign_table, $foreign_field
+            $diagram,
+            $master_table,
+            $master_field,
+            $foreign_table,
+            $foreign_field
         );
     }
 

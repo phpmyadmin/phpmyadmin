@@ -255,7 +255,11 @@ class ExportCodegenTest extends PmaTestCase
 
         ob_start();
         $this->object->exportData(
-            'testDB', 'testTable', "\n", 'example.com', 'test'
+            'testDB',
+            'testTable',
+            "\n",
+            'example.com',
+            'test'
         );
         $result = ob_get_clean();
 
@@ -282,7 +286,11 @@ class ExportCodegenTest extends PmaTestCase
         $GLOBALS['codegen_format'] = 4;
 
         $this->object->exportData(
-            'testDB', 'testTable', "\n", 'example.com', 'test'
+            'testDB',
+            'testTable',
+            "\n",
+            'example.com',
+            'test'
         );
 
         $this->expectOutputString(

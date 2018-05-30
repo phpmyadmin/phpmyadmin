@@ -72,7 +72,8 @@ class ServerDatabasesControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $container->alias(
-            'ServerDatabasesController', 'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
+            'ServerDatabasesController',
+            'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
         );
         $ctrl = $container->get('ServerDatabasesController');
 
@@ -198,7 +199,8 @@ class ServerDatabasesControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $container->alias(
-            'ServerDatabasesController', 'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
+            'ServerDatabasesController',
+            'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
         );
         $ctrl = $container->get('ServerDatabasesController');
 
@@ -216,7 +218,8 @@ class ServerDatabasesControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $container->alias(
-            'ServerDatabasesController', 'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
+            'ServerDatabasesController',
+            'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
         );
         $ctrl = $container->get('ServerDatabasesController');
 
@@ -237,7 +240,8 @@ class ServerDatabasesControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $container->alias(
-            'ServerDatabasesController', 'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
+            'ServerDatabasesController',
+            'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
         );
         $ctrl = $container->get('ServerDatabasesController');
 
@@ -270,7 +274,8 @@ class ServerDatabasesControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->factory('PhpMyAdmin\Controllers\Server\ServerDatabasesController');
         $container->alias(
-            'ServerDatabasesController', 'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
+            'ServerDatabasesController',
+            'PhpMyAdmin\Controllers\Server\ServerDatabasesController'
         );
         $ctrl = $container->get('ServerDatabasesController');
 

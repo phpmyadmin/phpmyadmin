@@ -413,8 +413,12 @@ class TrackerTest extends PmaTestCase
      * @test
      *
      */
-    public function testChangeTracking($dbname = 'pma_db', $tablename = 'pma_tbl',
-        $version = '0.1', $new_state = '1', $type = null
+    public function testChangeTracking(
+        $dbname = 'pma_db',
+        $tablename = 'pma_tbl',
+        $version = '0.1',
+        $new_state = '1',
+        $type = null
     ) {
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -705,8 +709,13 @@ class TrackerTest extends PmaTestCase
      * @test
      * @dataProvider parseQueryData
      */
-    public function testParseQuery($query, $type, $identifier, $tablename,
-        $db = null, $tablename_after_rename = null
+    public function testParseQuery(
+        $query,
+        $type,
+        $identifier,
+        $tablename,
+        $db = null,
+        $tablename_after_rename = null
     ) {
         $result = Tracker::parseQuery($query);
 

@@ -253,7 +253,11 @@ class ExportYamlTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'ta<ble', "\n", "example.com", "SELECT"
+                'db',
+                'ta<ble',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
         $result = ob_get_clean();

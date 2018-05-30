@@ -239,10 +239,18 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPng
      */
     public function testPrepareRowAsPng(
-        $spatial, $label, $line_color, $scale_data, $image
+        $spatial,
+        $label,
+        $line_color,
+        $scale_data,
+        $image
     ) {
         $this->object->prepareRowAsPng(
-            $spatial, $label, $line_color, $scale_data, $image
+            $spatial,
+            $label,
+            $line_color,
+            $scale_data,
+            $image
         );
         /* TODO: this never fails */
         $this->assertTrue(true);
@@ -287,10 +295,18 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsPdf
      */
     public function testPrepareRowAsPdf(
-        $spatial, $label, $line_color, $scale_data, $pdf
+        $spatial,
+        $label,
+        $line_color,
+        $scale_data,
+        $pdf
     ) {
         $return = $this->object->prepareRowAsPdf(
-            $spatial, $label, $line_color, $scale_data, $pdf
+            $spatial,
+            $label,
+            $line_color,
+            $scale_data,
+            $pdf
         );
         $this->assertInstanceOf('TCPDF', $return);
     }
@@ -331,10 +347,17 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsSvg
      */
     public function testPrepareRowAsSvg(
-        $spatial, $label, $line_color, $scale_data, $output
+        $spatial,
+        $label,
+        $line_color,
+        $scale_data,
+        $output
     ) {
         $string = $this->object->prepareRowAsSvg(
-            $spatial, $label, $line_color, $scale_data
+            $spatial,
+            $label,
+            $line_color,
+            $scale_data
         );
         $this->assertEquals(1, preg_match($output, $string));
     }
@@ -380,12 +403,21 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @dataProvider providerForPrepareRowAsOl
      */
     public function testPrepareRowAsOl(
-        $spatial, $srid, $label, $line_color, $scale_data, $output
+        $spatial,
+        $srid,
+        $label,
+        $line_color,
+        $scale_data,
+        $output
     ) {
         $this->assertEquals(
             $output,
             $this->object->prepareRowAsOl(
-                $spatial, $srid, $label, $line_color, $scale_data
+                $spatial,
+                $srid,
+                $label,
+                $line_color,
+                $scale_data
             )
         );
     }

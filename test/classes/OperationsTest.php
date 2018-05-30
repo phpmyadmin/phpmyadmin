@@ -125,10 +125,12 @@ class OperationsTest extends TestCase
         $_REQUEST['db_collation'] = 'db1';
         $result = $this->operations->getHtmlForChangeDatabaseCharset("pma", "bookmark");
         $this->assertRegExp(
-            '/.*select_db_collation.*Collation.*/m', $result
+            '/.*select_db_collation.*Collation.*/m',
+            $result
         );
         $this->assertRegExp(
-            '/.*db_operations.php.*/', $result
+            '/.*db_operations.php.*/',
+            $result
         );
     }
 
@@ -198,7 +200,8 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*Delete data or table.*Empty the table.*Delete the table.*/m',
             $this->operations->getHtmlForDeleteDataOrTable(
-                ["truncate" => 'foo'], ["drop" => 'bar']
+                ["truncate" => 'foo'],
+                ["drop" => 'bar']
             )
         );
     }
@@ -260,6 +263,4 @@ class OperationsTest extends TestCase
             )
         );
     }
-
-
 }

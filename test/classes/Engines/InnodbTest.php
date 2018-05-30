@@ -179,10 +179,10 @@ class InnodbTest extends PmaTestCase
         );
         $this->object->support = 2;
         $this->assertEquals(
-             [
+            [
                 'Bufferpool' => 'Buffer Pool',
                 'Status' => 'InnoDB Status'
-            ],
+             ],
             $this->object->getInfoPages()
         );
     }
@@ -286,7 +286,6 @@ class InnodbTest extends PmaTestCase
             '<pre id="pre_innodb_status">' . "\n" . "\n" . '</pre>' . "\n",
             $this->object->getPageStatus()
         );
-
     }
 
     /**
@@ -318,7 +317,6 @@ class InnodbTest extends PmaTestCase
             'innodb-storage-engine',
             $this->object->getMysqlHelpPage()
         );
-
     }
 
     /**
@@ -332,7 +330,6 @@ class InnodbTest extends PmaTestCase
             '1.1.8',
             $this->object->getInnodbPluginVersion()
         );
-
     }
 
     /**
@@ -345,7 +342,6 @@ class InnodbTest extends PmaTestCase
         $this->assertFalse(
             $this->object->supportsFilePerTable()
         );
-
     }
 
     /**
@@ -359,6 +355,5 @@ class InnodbTest extends PmaTestCase
             'Antelope',
             $this->object->getInnodbFileFormat()
         );
-
     }
 }

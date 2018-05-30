@@ -101,7 +101,8 @@ class ExportXml extends ExportPlugin
 
         // export structure main group
         $structure = new OptionsPropertyMainGroup(
-            "structure", __('Object creation options (all are recommended)')
+            "structure",
+            __('Object creation options (all are recommended)')
         );
 
         // create primary items and add them to the group
@@ -139,7 +140,8 @@ class ExportXml extends ExportPlugin
 
         // data main group
         $data = new OptionsPropertyMainGroup(
-            "data", __('Data dump options')
+            "data",
+            __('Data dump options')
         );
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
@@ -360,7 +362,10 @@ class ExportXml extends ExportPlugin
                     . "'"
                 );
                 $head .= $this->_exportDefinitions(
-                    $db, 'event', 'EVENT', $events
+                    $db,
+                    'event',
+                    'EVENT',
+                    $events
                 );
             }
 

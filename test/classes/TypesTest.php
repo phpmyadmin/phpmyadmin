@@ -231,7 +231,10 @@ class TypesTest extends PmaTestCase
      * @dataProvider providerForTestGetTypeOperatorsHtml
      */
     public function testGetTypeOperatorsHtml(
-        $type, $null, $selectedOperator, $output
+        $type,
+        $null,
+        $selectedOperator,
+        $output
     ) {
         $this->assertEquals(
             $output,

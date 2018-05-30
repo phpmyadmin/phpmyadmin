@@ -115,7 +115,6 @@ class ScriptsTest extends PmaTestCase
             . '// ]]></script>@',
             $this->object->getDisplay()
         );
-
     }
 
     /**
@@ -189,7 +188,6 @@ $(function() {});
             '_files',
             $this->object
         );
-
     }
 
     /**

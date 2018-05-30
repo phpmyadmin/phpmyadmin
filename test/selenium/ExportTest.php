@@ -68,7 +68,6 @@ class ExportTest extends TestBase
         foreach ($expected as $str) {
             $this->assertContains($str, $text);
         }
-
     }
 
     /**

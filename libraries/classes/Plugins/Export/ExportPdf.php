@@ -109,7 +109,8 @@ class ExportPdf extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            "dump_what", __('Dump table')
+            "dump_what",
+            __('Dump table')
         );
         $leaf = new RadioPropertyItem("structure_or_data");
         $leaf->setValues(
@@ -278,17 +279,17 @@ class ExportPdf extends ExportPlugin
         $pdf = $this->_getPdf();
         // getting purpose to show at top
         switch ($export_mode) {
-        case 'create_table':
-            $purpose = __('Table structure');
-            break;
-        case 'triggers':
-            $purpose = __('Triggers');
-            break;
-        case 'create_view':
-            $purpose = __('View structure');
-            break;
-        case 'stand_in':
-            $purpose = __('Stand in');
+            case 'create_table':
+                $purpose = __('Table structure');
+                break;
+            case 'triggers':
+                $purpose = __('Triggers');
+                break;
+            case 'create_view':
+                $purpose = __('View structure');
+                break;
+            case 'stand_in':
+                $purpose = __('Stand in');
         } // end switch
 
         $attr = [
@@ -306,36 +307,36 @@ class ExportPdf extends ExportPlugin
          */
         $do_comments = true;
         switch ($export_mode) {
-        case 'create_table':
-            $pdf->getTableDef(
-                $db,
-                $table,
-                $do_relation,
-                $do_comments,
-                $do_mime,
-                false,
-                $aliases
-            );
-            break;
-        case 'triggers':
-            $pdf->getTriggers($db, $table);
-            break;
-        case 'create_view':
-            $pdf->getTableDef(
-                $db,
-                $table,
-                $do_relation,
-                $do_comments,
-                $do_mime,
-                false,
-                $aliases
-            );
-            break;
-        case 'stand_in':
-            /* export a stand-in definition to resolve view dependencies
-             * Yet to develop this function
-             * $pdf->getTableDefStandIn($db, $table, $crlf);
-             */
+            case 'create_table':
+                $pdf->getTableDef(
+                    $db,
+                    $table,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    false,
+                    $aliases
+                );
+                break;
+            case 'triggers':
+                $pdf->getTriggers($db, $table);
+                break;
+            case 'create_view':
+                $pdf->getTableDef(
+                    $db,
+                    $table,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    false,
+                    $aliases
+                );
+                break;
+            case 'stand_in':
+                /* export a stand-in definition to resolve view dependencies
+                 * Yet to develop this function
+                 * $pdf->getTableDefStandIn($db, $table, $crlf);
+                 */
         } // end switch
 
         return true;

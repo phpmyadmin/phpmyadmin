@@ -453,7 +453,6 @@ class MessageTest extends PmaTestCase
             'test string',
             Message::format('%s string', ['test'])
         );
-
     }
 
     /**

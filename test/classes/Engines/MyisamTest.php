@@ -99,6 +99,4 @@ class MyisamTest extends PmaTestCase
             ]
         );
     }
-
-
 }

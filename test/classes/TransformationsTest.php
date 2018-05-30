@@ -95,7 +95,7 @@ class TransformationsTest extends TestCase
     public function testGetTypes()
     {
         $this->assertEquals(
-             [
+            [
                 'mimetype' =>  [
                     'Application/Octetstream' => 'Application/Octetstream',
                     'Image/JPEG' => 'Image/JPEG',
@@ -171,7 +171,7 @@ class TransformationsTest extends TestCase
                     'Text_Plain_PreApPend.php',
                     'Text_Plain_Substring.php',
                 ],
-            ],
+             ],
             $this->transformations->getAvailableMimeTypes()
         );
     }

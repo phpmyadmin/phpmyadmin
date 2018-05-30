@@ -82,7 +82,6 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             // for example TIMESTAMP(8) means YYYYMMDD)
         } else {
             if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
-
                 if (mb_strlen($buffer) == 14 || mb_strlen($buffer) == 8) {
                     $offset = 4;
                 } else {

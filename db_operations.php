@@ -103,12 +103,16 @@ if (strlen($GLOBALS['db']) > 0
 
             // create stand-in tables for views
             $views = $operations->getViewsAndCreateSqlViewStandIn(
-                $tables_full, $export_sql_plugin, $GLOBALS['db']
+                $tables_full,
+                $export_sql_plugin,
+                $GLOBALS['db']
             );
 
             // copy tables
             $sqlConstratints = $operations->copyTables(
-                $tables_full, $move, $GLOBALS['db']
+                $tables_full,
+                $move,
+                $GLOBALS['db']
             );
 
             // handle the views

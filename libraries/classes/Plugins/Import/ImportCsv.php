@@ -526,7 +526,6 @@ class ImportCsv extends AbstractImportCsv
                     } else {
                         // Do we have correct count of values?
                         if (count($values) != $required_fields) {
-
                             // Hack for excel
                             if ($values[count($values) - 1] == ';') {
                                 unset($values[count($values) - 1]);

@@ -466,11 +466,9 @@ class Qbe
         $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Column:') . '</th>';
         $new_column_count = 0;
-        for (
-            $column_index = 0;
+        for ($column_index = 0;
             $column_index < $this->_criteria_column_count;
-            $column_index++
-        ) {
+            $column_index++) {
             if (isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
@@ -513,11 +511,9 @@ class Qbe
         $html_output .= '<th>' . __('Alias:') . '</th>';
         $new_column_count = 0;
 
-        for (
-        $colInd = 0;
+        for ($colInd = 0;
         $colInd < $this->_criteria_column_count;
-        $colInd++
-        ) {
+        $colInd++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$colInd])
                 && $this->_criteriaColumnInsert[$colInd] == 'on'
@@ -565,11 +561,9 @@ class Qbe
         $html_output .= '<th>' . __('Sort:') . '</th>';
         $new_column_count = 0;
 
-        for (
-            $colInd = 0;
+        for ($colInd = 0;
             $colInd < $this->_criteria_column_count;
-            $colInd++
-        ) {
+            $colInd++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$colInd])
                 && $this->_criteriaColumnInsert[$colInd] == 'on'
@@ -608,7 +602,8 @@ class Qbe
             }
 
             $html_output .= $this->_getSortSelectCell(
-                $new_column_count, $selected
+                $new_column_count,
+                $selected
             );
             $new_column_count++;
         } // end for
@@ -627,17 +622,16 @@ class Qbe
         $html_output .= '<th>' . __('Sort order:') . '</th>';
         $new_column_count = 0;
 
-        for (
-        $colInd = 0;
+        for ($colInd = 0;
         $colInd < $this->_criteria_column_count;
-        $colInd++
-        ) {
+        $colInd++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$colInd])
                 && $this->_criteriaColumnInsert[$colInd] == 'on'
             ) {
                 $html_output .= $this->_getSortOrderSelectCell(
-                    $new_column_count, null
+                    $new_column_count,
+                    null
                 );
                 $new_column_count++;
             } // end if
@@ -657,7 +651,8 @@ class Qbe
             }
 
             $html_output .= $this->_getSortOrderSelectCell(
-                $new_column_count, $sortOrder
+                $new_column_count,
+                $sortOrder
             );
             $new_column_count++;
         } // end for
@@ -675,11 +670,9 @@ class Qbe
         $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Show:') . '</th>';
         $new_column_count = 0;
-        for (
-            $column_index = 0;
+        for ($column_index = 0;
             $column_index < $this->_criteria_column_count;
-            $column_index++
-        ) {
+            $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -724,11 +717,9 @@ class Qbe
         $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Criteria:') . '</th>';
         $new_column_count = 0;
-        for (
-            $column_index = 0;
+        for ($column_index = 0;
             $column_index < $this->_criteria_column_count;
-            $column_index++
-        ) {
+            $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -854,7 +845,9 @@ class Qbe
      * @return string HTML for modification cell
      */
     private function _getAndOrColCell(
-        $column_number, $selected = null, $last_column = false
+        $column_number,
+        $selected = null,
+        $last_column = false
     ) {
         $html_output = '<td class="center">';
         if (! $last_column) {
@@ -888,11 +881,9 @@ class Qbe
         $html_output = '<tr class="noclick">';
         $html_output .= '<th>' . __('Modify:') . '</th>';
         $new_column_count = 0;
-        for (
-        $column_index = 0;
+        for ($column_index = 0;
         $column_index < $this->_criteria_column_count;
-        $column_index++
-        ) {
+        $column_index++) {
             if (! empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -994,11 +985,9 @@ class Qbe
     {
         $html_output = '';
         $new_column_count = 0;
-        for (
-            $column_index = 0;
+        for ($column_index = 0;
             $column_index < $this->_criteria_column_count;
-            $column_index++
-        ) {
+            $column_index++) {
             if (!empty($this->_criteriaColumnInsert)
                 && isset($this->_criteriaColumnInsert[$column_index])
                 && $this->_criteriaColumnInsert[$column_index] == 'on'
@@ -1049,11 +1038,9 @@ class Qbe
         $html_output = '';
         $new_row_count = 0;
         $checked_options = [];
-        for (
-        $row_index = 0;
+        for ($row_index = 0;
         $row_index <= $this->_criteria_row_count;
-        $row_index++
-        ) {
+        $row_index++) {
             if (isset($this->_criteriaRowInsert[$row_index])
                 && $this->_criteriaRowInsert[$row_index] == 'on'
             ) {
@@ -1061,7 +1048,8 @@ class Qbe
                 $checked_options['and'] = '';
                 $html_output .= '<tr class="noclick">';
                 $html_output .= $this->_getInsDelAndOrCell(
-                    $new_row_count, $checked_options
+                    $new_row_count,
+                    $checked_options
                 );
                 $html_output .= $this->_getInputboxRow(
                     $new_row_count
@@ -1089,7 +1077,8 @@ class Qbe
             }
             $html_output .= '<tr class="noclick">';
             $html_output .= $this->_getInsDelAndOrCell(
-                $new_row_count, $checked_options
+                $new_row_count,
+                $checked_options
             );
             $html_output .= $this->_getInputboxRow(
                 $new_row_count
@@ -1110,11 +1099,9 @@ class Qbe
     {
         $select_clause = '';
         $select_clauses = [];
-        for (
-            $column_index = 0;
+        for ($column_index = 0;
             $column_index < $this->_criteria_column_count;
-            $column_index++
-        ) {
+            $column_index++) {
             if (! empty($this->_formColumns[$column_index])
                 && isset($this->_formShows[$column_index])
                 && $this->_formShows[$column_index] == 'on'
@@ -1143,11 +1130,9 @@ class Qbe
     {
         $where_clause = '';
         $criteria_cnt = 0;
-        for (
-        $column_index = 0;
+        for ($column_index = 0;
         $column_index < $this->_criteria_column_count;
-        $column_index++
-        ) {
+        $column_index++) {
             if (! empty($this->_formColumns[$column_index])
                 && ! empty($this->_formCriterions[$column_index])
                 && $column_index
@@ -1174,19 +1159,15 @@ class Qbe
         if (! isset($this->_formAndOrRows)) {
             $this->_formAndOrRows = [];
         }
-        for (
-        $row_index = 0;
+        for ($row_index = 0;
         $row_index <= $this->_criteria_row_count;
-        $row_index++
-        ) {
+        $row_index++) {
             $criteria_cnt = 0;
             $qry_orwhere = '';
             $last_orwhere = '';
-            for (
-            $column_index = 0;
+            for ($column_index = 0;
             $column_index < $this->_criteria_column_count;
-            $column_index++
-            ) {
+            $column_index++) {
                 if (! empty($this->_formColumns[$column_index])
                     && ! empty($_REQUEST['Or' . $row_index][$column_index])
                     && $column_index
@@ -1201,9 +1182,9 @@ class Qbe
                     && ! empty($_REQUEST['Or' . $row_index][$column_index])
                 ) {
                     $qry_orwhere .= '(' . $this->_formColumns[$column_index]
-                        .  ' '
-                        .  $_REQUEST['Or' . $row_index][$column_index]
-                        .  ')';
+                        . ' '
+                        . $_REQUEST['Or' . $row_index][$column_index]
+                        . ')';
                     $last_orwhere = $column_index;
                     $criteria_cnt++;
                 }
@@ -1213,12 +1194,12 @@ class Qbe
             }
             if (! empty($qry_orwhere)) {
                 $where_clause .= "\n"
-                    .  mb_strtoupper(
+                    . mb_strtoupper(
                         isset($this->_formAndOrRows[$row_index])
                         ? $this->_formAndOrRows[$row_index] . ' '
                         : ''
                     )
-                    .  $qry_orwhere;
+                    . $qry_orwhere;
             } // end if
         } // end for
 
@@ -1250,11 +1231,9 @@ class Qbe
             array_multisort($sortOrder, $sort, $columns);
         }
 
-        for (
-            $column_index = 0;
+        for ($column_index = 0;
             $column_index < $this->_criteria_column_count;
-            $column_index++
-        ) {
+            $column_index++) {
             // if all columns are chosen with * selector,
             // then sorting isn't available
             // Fix for Bug #570698
@@ -1289,7 +1268,9 @@ class Qbe
      *
      * @return array having UNIQUE and INDEX columns
      */
-    private function _getIndexes(array $search_tables, array $search_columns,
+    private function _getIndexes(
+        array $search_tables,
+        array $search_columns,
         array $where_clause_columns
     ) {
         $unique_columns = [];
@@ -1332,14 +1313,18 @@ class Qbe
      *
      * @return array having UNIQUE and INDEX columns
      */
-    private function _getLeftJoinColumnCandidates(array $search_tables, array $search_columns,
+    private function _getLeftJoinColumnCandidates(
+        array $search_tables,
+        array $search_columns,
         array $where_clause_columns
     ) {
         $this->dbi->selectDb($this->_db);
 
         // Get unique columns and index columns
         $indexes = $this->_getIndexes(
-            $search_tables, $search_columns, $where_clause_columns
+            $search_tables,
+            $search_columns,
+            $where_clause_columns
         );
         $unique_columns = $indexes['unique'];
         $index_columns = $indexes['index'];
@@ -1392,8 +1377,11 @@ class Qbe
      *
      * @return string table name
      */
-    private function _getMasterTable(array $search_tables, array $search_columns,
-        array $where_clause_columns, array $where_clause_tables
+    private function _getMasterTable(
+        array $search_tables,
+        array $search_columns,
+        array $where_clause_columns,
+        array $where_clause_tables
     ) {
         if (count($where_clause_tables) == 1) {
             // If there is exactly one column that has a decent where-clause
@@ -1407,7 +1395,9 @@ class Qbe
         // because he is using one of his databases as pmadb,
         // the last db selected is not always the one where we need to work)
         $candidate_columns = $this->_getLeftJoinColumnCandidates(
-            $search_tables, $search_columns, $where_clause_columns
+            $search_tables,
+            $search_columns,
+            $where_clause_columns
         );
 
         // Generally, we need to display all the rows of foreign (referenced)
@@ -1477,11 +1467,9 @@ class Qbe
         $where_clause_tables = [];
 
         // Now we need all tables that we have in the where clause
-        for (
-            $column_index = 0, $nb = count($this->_criteria);
+        for ($column_index = 0, $nb = count($this->_criteria);
             $column_index < $nb;
-            $column_index++
-        ) {
+            $column_index++) {
             $current_table = explode('.', $_POST['criteriaColumn'][$column_index]);
             if (empty($current_table[0]) || empty($current_table[1])) {
                 continue;
@@ -1530,14 +1518,17 @@ class Qbe
                 $table = str_replace('`', '', $parts[0]);
                 $search_tables[$table] = $table;
                 $search_columns[] = $table . '.' . str_replace(
-                    '`', '', $parts[1]
+                    '`',
+                    '',
+                    $parts[1]
                 );
             }
         } // end while
 
         // Create LEFT JOINS out of Relations
         $from_clause = $this->_getJoinForFromClause(
-            $search_tables, $search_columns
+            $search_tables,
+            $search_columns
         );
 
         // In case relations are not defined, just generate the FROM clause
@@ -1545,7 +1536,8 @@ class Qbe
         if (empty($from_clause)) {
             // Create cartesian product
             $from_clause = implode(
-                ", ", array_map(['PhpMyAdmin\Util', 'backquote'], $search_tables)
+                ", ",
+                array_map(['PhpMyAdmin\Util', 'backquote'], $search_tables)
             );
         }
 
@@ -1577,8 +1569,10 @@ class Qbe
 
         // Get master table
         $master = $this->_getMasterTable(
-            $searchTables, $searchColumns,
-            $whereClauseColumns, $whereClauseTables
+            $searchTables,
+            $searchColumns,
+            $whereClauseColumns,
+            $whereClauseTables
         );
 
         // Will include master tables and all tables that can be combined into
@@ -1598,16 +1592,13 @@ class Qbe
         // which includes master table
         $unfinalized = array_diff($searchTables, array_keys($finalized));
         if (count($unfinalized) > 0) {
-
             // We need to look for intermediary tables to JOIN unfinalized tables
             // Heuristic to chose intermediary tables is to look for tables
             // having relationships with unfinalized tables
             foreach ($unfinalized as $oneTable) {
-
                 $references = $this->relation->getChildReferences($this->_db, $oneTable);
                 foreach ($references as $column => $columnReferences) {
                     foreach ($columnReferences as $reference) {
-
                         // Only from this schema
                         if ($reference['table_schema'] != $this->_db) {
                             continue;
@@ -1624,11 +1615,14 @@ class Qbe
 
                         // Try joining with the added table
                         $this->_fillJoinClauses(
-                            $tempFinalized, $relations, $tempSearchTables
+                            $tempFinalized,
+                            $relations,
+                            $tempSearchTables
                         );
 
                         $tempUnfinalized = array_diff(
-                            $tempSearchTables, array_keys($tempFinalized)
+                            $tempSearchTables,
+                            array_keys($tempFinalized)
                         );
                         // Take greedy approach.
                         // If the unfinalized count drops we keep the new table
@@ -1651,7 +1645,8 @@ class Qbe
             if (count($unfinalized) > 0) {
                 // Add these tables as cartesian product before joined tables
                 $join .= implode(
-                    ', ', array_map(['PhpMyAdmin\Util', 'backquote'], $unfinalized)
+                    ', ',
+                    array_map(['PhpMyAdmin\Util', 'backquote'], $unfinalized)
                 );
             }
         }
@@ -1948,7 +1943,10 @@ class Qbe
      * @return array
      */
     private function _getLeftJoinColumnCandidatesBest(
-        array $search_tables, array $where_clause_columns, array $unique_columns, array $index_columns
+        array $search_tables,
+        array $where_clause_columns,
+        array $unique_columns,
+        array $index_columns
     ) {
         // now we want to find the best.
         if (isset($unique_columns) && count($unique_columns) > 0) {

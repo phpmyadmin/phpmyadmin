@@ -154,7 +154,8 @@ class TableStructureTest extends TestBase
         )->click();
 
         $this->waitForElement(
-            "byCssSelector", "input[id='buttonYes']"
+            "byCssSelector",
+            "input[id='buttonYes']"
         )->click();
 
         $this->waitForElement(
@@ -166,7 +167,8 @@ class TableStructureTest extends TestBase
 
         $this->assertFalse(
             $this->isElementPresent(
-                'byCssSelector', 'label[for=checkbox_row_2]'
+                'byCssSelector',
+                'label[for=checkbox_row_2]'
             )
         );
     }

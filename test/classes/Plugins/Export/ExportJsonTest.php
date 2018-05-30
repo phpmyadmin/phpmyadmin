@@ -128,7 +128,6 @@ class ExportJsonTest extends PmaTestCase
             'structure_or_data',
             $property->getName()
         );
-
     }
 
     /**

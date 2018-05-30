@@ -298,7 +298,12 @@ class ExportMediawikiTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportStructure(
-                'db', 'table', "\n", "example.com", "create_table", "test"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "create_table",
+                "test"
             )
         );
         $result = ob_get_clean();
@@ -382,7 +387,11 @@ class ExportMediawikiTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "example.com", "SELECT"
+                'db',
+                'table',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
         $result = ob_get_clean();

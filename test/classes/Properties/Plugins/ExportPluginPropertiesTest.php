@@ -70,5 +70,4 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
             $this->object->getForceFile()
         );
     }
-
 }

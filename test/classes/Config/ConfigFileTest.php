@@ -103,7 +103,8 @@ class ConfigFileTest extends PmaTestCase
          * Case 1: set default value, key should not be persisted
          */
         $this->object->set(
-            self::SIMPLE_KEY_WITH_DEFAULT_VALUE, $default_simple_value
+            self::SIMPLE_KEY_WITH_DEFAULT_VALUE,
+            $default_simple_value
         );
         $this->object->set('Servers/1/host', $default_host);
         $this->object->set('Servers/2/host', $default_host);
@@ -340,12 +341,14 @@ class ConfigFileTest extends PmaTestCase
             self::SIMPLE_KEY_WITH_DEFAULT_VALUE
         );
         $this->assertEquals(
-            $default_value, $flat_default_config[self::SIMPLE_KEY_WITH_DEFAULT_VALUE]
+            $default_value,
+            $flat_default_config[self::SIMPLE_KEY_WITH_DEFAULT_VALUE]
         );
 
         $localhost_value = $this->object->getDefault('Servers/1/host');
         $this->assertEquals(
-            $localhost_value, $flat_default_config['Servers/1/host']
+            $localhost_value,
+            $flat_default_config['Servers/1/host']
         );
 
         $cfg = [];

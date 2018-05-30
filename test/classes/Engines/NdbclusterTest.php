@@ -88,6 +88,5 @@ class NdbclusterTest extends PmaTestCase
             $this->object->getMysqlHelpPage(),
             'ndbcluster'
         );
-
     }
 }

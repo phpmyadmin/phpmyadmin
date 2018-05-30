@@ -282,7 +282,9 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
                     __(
                         'You can set more settings by modifying config.inc.php, eg. '
                         . 'by using %sSetup script%s.'
-                    ), '<a href="setup/index.php" target="_blank">', '</a>'
+                    ),
+                    '<a href="setup/index.php" target="_blank">',
+                    '</a>'
                 ) , PhpMyAdmin\Util::showDocu('setup', 'setup-script');
                 ?>
             </div>

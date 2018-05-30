@@ -53,9 +53,9 @@ class Logging
     public static function getLogMessage($user, $status)
     {
         if ($status == 'ok') {
-            return 'user authenticated: ' . $user . ' from ' .  Core::getIp();
+            return 'user authenticated: ' . $user . ' from ' . Core::getIp();
         }
-        return 'user denied: ' . $user . ' (' . $status . ') from ' .  Core::getIp();
+        return 'user denied: ' . $user . ' (' . $status . ') from ' . Core::getIp();
     }
 
     /**
@@ -94,7 +94,8 @@ class Logging
         } else {
             @error_log(
                 date('M d H:i:s') . ' phpmyadmin: ' . $message . "\n",
-                3, $log_file
+                3,
+                $log_file
             );
         }
     }

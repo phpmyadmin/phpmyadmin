@@ -68,7 +68,8 @@ $GLOBALS['special_schema_links'] = [
                     ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
             'column_name' => [
@@ -121,7 +122,8 @@ $GLOBALS['special_schema_links'] = [
                     ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
             'index_name' => [
@@ -149,7 +151,8 @@ $GLOBALS['special_schema_links'] = [
                     ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
         ],
@@ -241,7 +244,8 @@ $GLOBALS['special_schema_links'] = [
                     ],
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
         ],
@@ -269,7 +273,8 @@ $GLOBALS['special_schema_links'] = [
                     ]
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
             'column_name' => [
@@ -297,7 +302,8 @@ $GLOBALS['special_schema_links'] = [
                     ]
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
             'column_name' => [
@@ -323,7 +329,8 @@ $GLOBALS['special_schema_links'] = [
                     ]
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
             'referenced_column_name' => [
@@ -351,7 +358,8 @@ $GLOBALS['special_schema_links'] = [
                     ]
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ]
         ],
@@ -377,7 +385,8 @@ $GLOBALS['special_schema_links'] = [
                     ]
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
             'referenced_table_name' => [
@@ -389,7 +398,8 @@ $GLOBALS['special_schema_links'] = [
                     ]
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ]
         ],
@@ -413,7 +423,8 @@ $GLOBALS['special_schema_links'] = [
             'schema_name' => [
                 'link_param' => 'db',
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ]
         ],
@@ -427,7 +438,8 @@ $GLOBALS['special_schema_links'] = [
                     ]
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
             'column_name' => [
@@ -455,7 +467,8 @@ $GLOBALS['special_schema_links'] = [
                     ]
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
         ],
@@ -469,7 +482,8 @@ $GLOBALS['special_schema_links'] = [
                     ]
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
         ],
@@ -483,10 +497,10 @@ $GLOBALS['special_schema_links'] = [
                     ]
                 ],
                 'default_page' => './' . PhpMyAdmin\Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+                    $GLOBALS['cfg']['DefaultTabTable'],
+                    'table'
                 )
             ],
         ],
     ]
 ];
-

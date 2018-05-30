@@ -49,7 +49,11 @@ class RelationStatsDia
      * @see Relation_Stats_Dia::_getXy
      */
     public function __construct(
-        $diagram, $master_table, $master_field, $foreign_table, $foreign_field
+        $diagram,
+        $master_table,
+        $master_field,
+        $foreign_table,
+        $foreign_field
     ) {
         $this->diagram = $diagram;
         $src_pos  = $this->_getXy($master_table, $master_field);

@@ -26,6 +26,7 @@ $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var ServerDatabasesController $controller */
 $controller = $container->get(
-    'ServerDatabasesController', []
+    'ServerDatabasesController',
+    []
 );
 $controller->indexAction();

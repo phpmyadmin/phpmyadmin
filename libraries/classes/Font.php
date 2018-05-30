@@ -123,24 +123,24 @@ class Font
         /*
          * no modifier for arial and sans-serif
          */
-        case 'arial':
-        case 'sans-serif':
-            break;
+            case 'arial':
+            case 'sans-serif':
+                break;
         /*
          * .92 modifier for time, serif, brushscriptstd, and californian fb
          */
-        case 'times':
-        case 'serif':
-        case 'brushscriptstd':
-        case 'californian fb':
-            $modifier = .92;
-            break;
+            case 'times':
+            case 'serif':
+            case 'brushscriptstd':
+            case 'californian fb':
+                $modifier = .92;
+                break;
         /*
          * 1.23 modifier for broadway
          */
-        case 'broadway':
-            $modifier = 1.23;
-            break;
+            case 'broadway':
+                $modifier = 1.23;
+                break;
         }
         $textWidth = $count * $fontSize;
         return (int) ceil($textWidth * $modifier);

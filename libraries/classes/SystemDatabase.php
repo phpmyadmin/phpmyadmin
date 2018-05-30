@@ -77,7 +77,10 @@ class SystemDatabase
      * @return string $new_transformations_sql SQL query for new transformations
      */
     function getNewTransformationDataSql(
-        $pma_transformation_data, array $column_map, $view_name, $db
+        $pma_transformation_data,
+        array $column_map,
+        $view_name,
+        $db
     ) {
         $cfgRelation = $this->relation->getRelationsParam();
 
@@ -95,9 +98,7 @@ class SystemDatabase
         $add_comma = false;
 
         while ($data_row = $this->dbi->fetchAssoc($pma_transformation_data)) {
-
             foreach ($column_map as $column) {
-
                 if ($data_row['table_name'] != $column['table_name']
                     || $data_row['column_name'] != $column['refering_column']
                 ) {

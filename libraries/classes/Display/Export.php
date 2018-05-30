@@ -602,7 +602,7 @@ class Export
                     foreach ($tableData['columns'] as $column => $columnName) {
                         $result .= $template->render([
                             'type' => _pgettext('Alias', 'Column'),
-                            'name' => $db . '.' . $table . '.'. $column,
+                            'name' => $db . '.' . $table . '.' . $column,
                             'field' => 'aliases[' . $db . '][tables][' . $table . '][colums][' . $column . ']',
                             'value' => $columnName,
                         ]);
@@ -744,8 +744,8 @@ class Export
         $user = $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']);
 
         switch ($_REQUEST['templateAction']) {
-        case 'create':
-            $query = "INSERT INTO " . $templateTable . "("
+            case 'create':
+                $query = "INSERT INTO " . $templateTable . "("
                 . " `username`, `export_type`,"
                 . " `template_name`, `template_data`"
                 . ") VALUES ("
@@ -754,23 +754,23 @@ class Export
                 . "', '" . $GLOBALS['dbi']->escapeString($_REQUEST['templateName'])
                 . "', '" . $GLOBALS['dbi']->escapeString($_REQUEST['templateData'])
                 . "');";
-            break;
-        case 'load':
-            $query = "SELECT `template_data` FROM " . $templateTable
-                 . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
-            break;
-        case 'update':
-            $query = "UPDATE " . $templateTable . " SET `template_data` = "
-              . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['templateData']) . "'"
-              . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
-            break;
-        case 'delete':
-            $query = "DELETE FROM " . $templateTable
-               . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
-            break;
-        default:
-            $query = '';
-            break;
+                break;
+            case 'load':
+                $query = "SELECT `template_data` FROM " . $templateTable
+                 . " WHERE `id` = " . $id . " AND `username` = '" . $user . "'";
+                break;
+            case 'update':
+                $query = "UPDATE " . $templateTable . " SET `template_data` = "
+                  . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['templateData']) . "'"
+                  . " WHERE `id` = " . $id . " AND `username` = '" . $user . "'";
+                break;
+            case 'delete':
+                $query = "DELETE FROM " . $templateTable
+                   . " WHERE `id` = " . $id . " AND `username` = '" . $user . "'";
+                break;
+            default:
+                $query = '';
+                break;
         }
 
         $result = $this->relation->queryAsControlUser($query, false);
@@ -792,7 +792,8 @@ class Export
         } elseif ('load' == $_REQUEST['templateAction']) {
             $data = null;
             while ($row = $GLOBALS['dbi']->fetchAssoc(
-                $result, DatabaseInterface::CONNECT_CONTROL
+                $result,
+                DatabaseInterface::CONNECT_CONTROL
             )) {
                 $data = $row['template_data'];
             }

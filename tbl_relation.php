@@ -58,12 +58,18 @@ $dependency_definitions = [
 ];
 if ($cfgRelation['relwork']) {
     $dependency_definitions['existrel'] = $relation->getForeigners(
-        $db, $table, '', 'internal'
+        $db,
+        $table,
+        '',
+        'internal'
     );
 }
 if (Util::isForeignKeySupported($tbl_storage_engine)) {
     $dependency_definitions['existrel_foreign'] = $relation->getForeigners(
-        $db, $table, '', 'foreign'
+        $db,
+        $table,
+        '',
+        'foreign'
     );
 }
 

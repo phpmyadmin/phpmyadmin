@@ -101,7 +101,7 @@ class LanguageTest extends PmaTestCase
         $this->assertGreaterThan(1, count($langs));
 
         /* Ensure we have name for every language */
-        foreach($langs as $lang) {
+        foreach ($langs as $lang) {
             $this->assertNotEquals($lang->getCode(), strtolower($lang->getEnglishName()));
         }
     }

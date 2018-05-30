@@ -198,7 +198,7 @@ class BrowseForeigners
             . 'value="' . $filter_value . '" data-old="' . $filter_value . '" '
             . '/>'
             . '<input type="submit" name="submit_foreign_filter" value="'
-            .  __('Go') . '" />'
+            . __('Go') . '" />'
             . '</span>'
             . '<span class="formelement">' . $gotopage . '</span>'
             . '<span class="formelement">' . $foreignShowAll . '</span>'
@@ -286,7 +286,9 @@ class BrowseForeigners
             );
             $description = htmlspecialchars(
                 mb_substr(
-                    $description, 0, $this->limitChars
+                    $description,
+                    0,
+                    $this->limitChars
                 )
                 . '...'
             );

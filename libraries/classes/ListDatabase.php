@@ -80,7 +80,8 @@ class ListDatabase extends ListAbstract
             } else {
                 foreach ($GLOBALS['dbs_to_test'] as $db) {
                     $database_list = array_merge(
-                        $database_list, $this->retrieve($db)
+                        $database_list,
+                        $this->retrieve($db)
                     );
                 }
             }
@@ -88,7 +89,9 @@ class ListDatabase extends ListAbstract
 
         if ($command) {
             $database_list = $GLOBALS['dbi']->fetchResult(
-                $command, null, null
+                $command,
+                null,
+                null
             );
         }
 
@@ -140,7 +143,6 @@ class ListDatabase extends ListAbstract
         $items = [];
 
         foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
-
             // check if the db name contains wildcard,
             // thus containing not escaped _ or %
             if (! preg_match('/(^|[^\\\\])(_|%)/', $each_only_db)) {

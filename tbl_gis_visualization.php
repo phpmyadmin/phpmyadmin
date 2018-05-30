@@ -30,7 +30,8 @@ $dependency_definitions = [
     "sql_query" => &$GLOBALS['sql_query'],
     "url_params" => &$GLOBALS['url_params'],
     "goto" => Util::getScriptNameForOption(
-        $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        $GLOBALS['cfg']['DefaultTabDatabase'],
+        'database'
     ),
     "back" => 'sql.php',
     "visualizationSettings" => []
@@ -38,6 +39,7 @@ $dependency_definitions = [
 
 /** @var TableGisVisualizationController $controller */
 $controller = $container->get(
-    'TableGisVisualizationController', $dependency_definitions
+    'TableGisVisualizationController',
+    $dependency_definitions
 );
 $controller->indexAction();

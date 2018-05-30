@@ -82,10 +82,15 @@ class SvgRelationSchema extends ExportRelationSchema
         foreach ($alltables as $table) {
             if (!isset($this->_tables[$table])) {
                 $this->_tables[$table] = new TableStatsSvg(
-                    $this->diagram, $this->db,
-                    $table, $this->diagram->getFont(),
-                    $this->diagram->getFontSize(), $this->pageNumber,
-                    $this->_tablewidth, $this->showKeys, $this->tableDimension,
+                    $this->diagram,
+                    $this->db,
+                    $table,
+                    $this->diagram->getFont(),
+                    $this->diagram->getFontSize(),
+                    $this->pageNumber,
+                    $this->_tablewidth,
+                    $this->showKeys,
+                    $this->tableDimension,
                     $this->offline
                 );
             }
@@ -138,10 +143,7 @@ class SvgRelationSchema extends ExportRelationSchema
                         continue;
                     }
 
-                    foreach (
-                        $one_key['index_list']
-                        as $index => $one_field
-                    ) {
+                    foreach ($one_key['index_list'] as $index => $one_field) {
                         $this->_addRelation(
                             $one_table,
                             $this->diagram->getFont(),
@@ -215,17 +217,29 @@ class SvgRelationSchema extends ExportRelationSchema
     ) {
         if (!isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new TableStatsSvg(
-                $this->diagram, $this->db,
-                $masterTable, $font, $fontSize, $this->pageNumber,
-                $this->_tablewidth, false, $tableDimension
+                $this->diagram,
+                $this->db,
+                $masterTable,
+                $font,
+                $fontSize,
+                $this->pageNumber,
+                $this->_tablewidth,
+                false,
+                $tableDimension
             );
             $this->_setMinMax($this->_tables[$masterTable]);
         }
         if (!isset($this->_tables[$foreignTable])) {
             $this->_tables[$foreignTable] = new TableStatsSvg(
-                $this->diagram, $this->db,
-                $foreignTable, $font, $fontSize, $this->pageNumber,
-                $this->_tablewidth, false, $tableDimension
+                $this->diagram,
+                $this->db,
+                $foreignTable,
+                $font,
+                $fontSize,
+                $this->pageNumber,
+                $this->_tablewidth,
+                false,
+                $tableDimension
             );
             $this->_setMinMax($this->_tables[$foreignTable]);
         }
