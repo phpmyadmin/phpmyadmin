@@ -90,6 +90,49 @@ class Response
     private $_CWD;
 
     /**
+     * @var array<int, string>
+     */
+    protected static $httpStatusMessages = [
+        100 => 'Continue',
+        101 => 'Switching Protocols',
+        200 => 'OK',
+        201 => 'Created',
+        202 => 'Accepted',
+        203 => 'Non-Authoritative Information',
+        204 => 'No Content',
+        205 => 'Reset Content',
+        206 => 'Partial Content',
+        300 => 'Multiple Choices',
+        301 => 'Moved Permanently',
+        302 => 'Moved Temporarily',
+        303 => 'See Other',
+        304 => 'Not Modified',
+        305 => 'Use Proxy',
+        400 => 'Bad Request',
+        401 => 'Unauthorized',
+        402 => 'Payment Required',
+        403 => 'Forbidden',
+        404 => 'Not Found',
+        405 => 'Method Not Allowed',
+        406 => 'Not Acceptable',
+        407 => 'Proxy Authentication Required',
+        408 => 'Request Time-out',
+        409 => 'Conflict',
+        410 => 'Gone',
+        411 => 'Length Required',
+        412 => 'Precondition Failed',
+        413 => 'Request Entity Too Large',
+        414 => 'Request-URI Too Large',
+        415 => 'Unsupported Media Type',
+        500 => 'Internal Server Error',
+        501 => 'Not Implemented',
+        502 => 'Bad Gateway',
+        503 => 'Service Unavailable',
+        504 => 'Gateway Time-out',
+        505 => 'HTTP Version not supported',
+    ];
+
+    /**
      * Creates a new class instance
      */
     private function __construct()
@@ -480,55 +523,21 @@ class Response
     /**
      * Sets http response code.
      *
-     * @param int $response_code will set the response code.
+     * @param int $responseCode will set the response code.
      *
      * @return void
      */
-    public function setHttpResponseCode($response_code)
+    public function setHttpResponseCode(int $responseCode): void
     {
-        $this->httpResponseCode($response_code);
-        switch ($response_code) {
-            case 100: $httpStatusMsg = ' Continue'; break;
-            case 101: $httpStatusMsg = ' Switching Protocols'; break;
-            case 200: $httpStatusMsg = ' OK'; break;
-            case 201: $httpStatusMsg = ' Created'; break;
-            case 202: $httpStatusMsg = ' Accepted'; break;
-            case 203: $httpStatusMsg = ' Non-Authoritative Information'; break;
-            case 204: $httpStatusMsg = ' No Content'; break;
-            case 205: $httpStatusMsg = ' Reset Content'; break;
-            case 206: $httpStatusMsg = ' Partial Content'; break;
-            case 300: $httpStatusMsg = ' Multiple Choices'; break;
-            case 301: $httpStatusMsg = ' Moved Permanently'; break;
-            case 302: $httpStatusMsg = ' Moved Temporarily'; break;
-            case 303: $httpStatusMsg = ' See Other'; break;
-            case 304: $httpStatusMsg = ' Not Modified'; break;
-            case 305: $httpStatusMsg = ' Use Proxy'; break;
-            case 400: $httpStatusMsg = ' Bad Request'; break;
-            case 401: $httpStatusMsg = ' Unauthorized'; break;
-            case 402: $httpStatusMsg = ' Payment Required'; break;
-            case 403: $httpStatusMsg = ' Forbidden'; break;
-            case 404: $httpStatusMsg = ' Not Found'; break;
-            case 405: $httpStatusMsg = ' Method Not Allowed'; break;
-            case 406: $httpStatusMsg = ' Not Acceptable'; break;
-            case 407: $httpStatusMsg = ' Proxy Authentication Required'; break;
-            case 408: $httpStatusMsg = ' Request Time-out'; break;
-            case 409: $httpStatusMsg = ' Conflict'; break;
-            case 410: $httpStatusMsg = ' Gone'; break;
-            case 411: $httpStatusMsg = ' Length Required'; break;
-            case 412: $httpStatusMsg = ' Precondition Failed'; break;
-            case 413: $httpStatusMsg = ' Request Entity Too Large'; break;
-            case 414: $httpStatusMsg = ' Request-URI Too Large'; break;
-            case 415: $httpStatusMsg = ' Unsupported Media Type'; break;
-            case 500: $httpStatusMsg = ' Internal Server Error'; break;
-            case 501: $httpStatusMsg = ' Not Implemented'; break;
-            case 502: $httpStatusMsg = ' Bad Gateway'; break;
-            case 503: $httpStatusMsg = ' Service Unavailable'; break;
-            case 504: $httpStatusMsg = ' Gateway Time-out'; break;
-            case 505: $httpStatusMsg = ' HTTP Version not supported'; break;
-            default: $httpStatusMsg  = ' Web server is down'; break;
+        $this->httpResponseCode($responseCode);
+        $header = 'status: ' . $responseCode . ' ';
+        if (isset(static::$httpStatusMessages[$responseCode])) {
+            $header .= static::$httpStatusMessages[$responseCode];
+        } else {
+            $header .= 'Web server is down';
         }
         if (php_sapi_name() !== 'cgi-fcgi') {
-            $this->header('status: ' . $response_code . $httpStatusMsg);
+            $this->header($header);
         }
     }
 
