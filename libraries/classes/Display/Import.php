@@ -74,7 +74,7 @@ class Import
         }
 
         // zip, gzip and bzip2 encode features
-        $compressions = array();
+        $compressions = [];
         if ($cfg['GZipDump'] && function_exists('gzopen')) {
             $compressions[] = 'gzip';
         }

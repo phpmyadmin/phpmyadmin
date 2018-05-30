@@ -39,7 +39,7 @@ class SelectTest extends TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
+        $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
@@ -62,22 +62,22 @@ class SelectTest extends TestCase
 
         $GLOBALS['cfg']['DefaultTabServer'] = "welcome";
 
-        $GLOBALS['cfg']['Servers'] = array(
-            '0' => array(
+        $GLOBALS['cfg']['Servers'] = [
+            '0' => [
                 'host'=>'host0',
                 'port'=>'port0',
                 'only_db'=>'only_db0',
                 'user'=>'user0',
                 'auth_type'=>'config',
-            ),
-            '1' => array(
+            ],
+            '1' => [
                 'host'=>'host1',
                 'port'=>'port1',
                 'only_db'=>'only_db1',
                 'user'=>'user1',
                 'auth_type'=>'config',
-            ),
-        );
+            ],
+        ];
 
         //$not_only_options=false & $omit_fieldset=false
         $html = Select::render($not_only_options, $omit_fieldset);

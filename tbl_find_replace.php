@@ -26,10 +26,10 @@ $container->alias(
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
-$dependency_definitions = array(
+$dependency_definitions = [
     'searchType' => 'replace',
     'url_query' => &$url_query
-);
+];
 
 /** @var PhpMyAdmin\Controllers\Table\TableSearchController $controller */
 $controller = $container->get('TableSearchController', $dependency_definitions);

@@ -71,7 +71,7 @@ class Plugins
     {
         $GLOBALS['plugin_param'] = $plugin_param;
         /* Scan for plugins */
-        $plugin_list = array();
+        $plugin_list = [];
         if (!($handle = @opendir($plugins_dir))) {
             return $plugin_list;
         }
@@ -177,7 +177,7 @@ class Plugins
             return '';
         }
 
-        $matches = array();
+        $matches = [];
         /* Possibly replace localised texts */
         if (!preg_match_all(
             '/(str[A-Z][A-Za-z0-9]*)/',
@@ -286,7 +286,7 @@ class Plugins
         if (! $is_subgroup) {
             // for subgroup headers
             if (mb_strpos(get_class($propertyGroup), "PropertyItem")) {
-                $properties = array($propertyGroup);
+                $properties = [$propertyGroup];
             } else {
                 // for main groups
                 $ret .= '<div class="export_sub_options" id="' . $plugin_name . '_'

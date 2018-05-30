@@ -52,10 +52,10 @@ if ((isset($_REQUEST['viewing_mode'])
  * Sets globals from $_POST patterns, for privileges and max_* vars
  */
 
-$post_patterns = array(
+$post_patterns = [
     '/_priv$/i',
     '/^max_/i'
-);
+];
 
 Core::setPostAsGlobal($post_patterns);
 
@@ -429,8 +429,8 @@ if (isset($_REQUEST['adduser'])) {
     if (isset($dbname) && ! is_array($dbname)) {
         $url_dbname = urlencode(
             str_replace(
-                array('\_', '\%'),
-                array('_', '%'),
+                ['\_', '\%'],
+                ['_', '%'],
                 $dbname
             )
         );

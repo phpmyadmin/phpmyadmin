@@ -110,8 +110,8 @@ class BrowseForeignersTest extends TestCase
         );
 
         $_REQUEST['pos'] = 15;
-        $foreignData = array();
-        $foreignData['disp_row'] = array();
+        $foreignData = [];
+        $foreignData['disp_row'] = [];
         $foreignData['the_total'] = 5;
 
         $this->assertEquals(
@@ -165,7 +165,7 @@ class BrowseForeignersTest extends TestCase
         $desc = 'foobar<baz';
 
         $this->assertEquals(
-            array('foobar&lt;baz', ''),
+            ['foobar&lt;baz', ''],
             $this->callProtectedMethod(
                 'getDescriptionAndTitle',
                 [$desc]
@@ -175,7 +175,7 @@ class BrowseForeignersTest extends TestCase
         $browseForeigners = new BrowseForeigners(5, 25, 100, false, '');
 
         $this->assertEquals(
-            array('fooba...', 'foobar&lt;baz'),
+            ['fooba...', 'foobar&lt;baz'],
             $this->callProtectedMethod(
                 'getDescriptionAndTitle',
                 [$desc],
@@ -194,7 +194,7 @@ class BrowseForeignersTest extends TestCase
         $db = '';
         $table = '';
         $field = 'foo';
-        $foreignData = array();
+        $foreignData = [];
         $foreignData['disp_row'] = '';
         $fieldkey = 'bar';
         $current_value = '';
@@ -269,7 +269,7 @@ class BrowseForeignersTest extends TestCase
             $result
         );
 
-        $foreignData['disp_row'] = array();
+        $foreignData['disp_row'] = [];
         $foreignData['the_total'] = 5;
         $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
             $db,

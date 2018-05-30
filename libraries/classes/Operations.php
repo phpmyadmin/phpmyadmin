@@ -149,7 +149,7 @@ class Operations
     public function getHtmlForDropDatabaseLink($db)
     {
         $this_sql_query = 'DROP DATABASE ' . Util::backquote($db);
-        $this_url_params = array(
+        $this_url_params = [
             'sql_query' => $this_sql_query,
             'back' => 'db_operations.php',
             'goto' => 'index.php',
@@ -160,7 +160,7 @@ class Operations
                 htmlspecialchars(Util::backquote($db))
             ),
             'db' => null,
-        );
+        ];
 
         $html_output = '<div>'
             . '<fieldset class="caution">';
@@ -193,11 +193,11 @@ class Operations
     public function getHtmlForCopyDatabase($db)
     {
         $drop_clause = 'DROP TABLE / DROP VIEW';
-        $choices = array(
+        $choices = [
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
             'dataonly'  => __('Data only')
-        );
+        ];
 
         $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
@@ -422,7 +422,7 @@ class Operations
     public function getViewsAndCreateSqlViewStandIn(
         array $tables_full, $export_sql_plugin, $db
     ) {
-        $views = array();
+        $views = [];
         foreach ($tables_full as $each_table => $tmp) {
             // to be able to rename a db containing views,
             // first all the views are collected and a stand-in is created
@@ -466,7 +466,7 @@ class Operations
      */
     public function copyTables(array $tables_full, $move, $db)
     {
-        $sqlContraints = array();
+        $sqlContraints = [];
         foreach ($tables_full as $each_table => $tmp) {
             // skip the views; we have created stand-in definitions
             if ($GLOBALS['dbi']->getTable($db, $each_table)->isView()) {
@@ -770,9 +770,9 @@ class Operations
     public function duplicateBookmarks($_error, $db)
     {
         if (! $_error && $db != $_REQUEST['newname']) {
-            $get_fields = array('user', 'label', 'query');
-            $where_fields = array('dbase' => $db);
-            $new_fields = array('dbase' => $_REQUEST['newname']);
+            $get_fields = ['user', 'label', 'query'];
+            $where_fields = ['dbase' => $db];
+            $new_fields = ['dbase' => $_REQUEST['newname']];
             Table::duplicateInfo(
                 'bookmarkwork', 'bookmark', $get_fields,
                 $where_fields, $new_fields
@@ -1094,11 +1094,11 @@ class Operations
             . '</label>'
             . '</td></tr>';
 
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'ISAM'))) {
+        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'ISAM'])) {
             $html_output .= $this->getHtmlForPackKeys($pack_keys);
         } // end if (MYISAM|ISAM)
 
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA'))) {
+        if ($pma_table->isEngine(['MYISAM', 'ARIA'])) {
             $html_output .= $this->getHtmlForTableRow(
                 'new_checksum',
                 'CHECKSUM',
@@ -1127,7 +1127,7 @@ class Operations
         } // end if (ARIA)
 
         if (strlen($auto_increment) > 0
-            && $pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
+            && $pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
         ) {
             $html_output .= '<tr><td class="vmiddle">'
                 . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
@@ -1197,33 +1197,33 @@ class Operations
         // the outer array is for engines, the inner array contains the dropdown
         // option values as keys then the dropdown option labels
 
-        $possible_row_formats = array(
-            'ARCHIVE' => array(
+        $possible_row_formats = [
+            'ARCHIVE' => [
                 'COMPRESSED' => 'COMPRESSED',
-            ),
-            'ARIA'  => array(
+            ],
+            'ARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
                 'PAGE'      => 'PAGE'
-            ),
-            'MARIA'  => array(
+            ],
+            'MARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
                 'PAGE'      => 'PAGE'
-            ),
-            'MYISAM' => array(
+            ],
+            'MYISAM' => [
                  'FIXED'    => 'FIXED',
                  'DYNAMIC'  => 'DYNAMIC'
-            ),
-            'PBXT'   => array(
+            ],
+            'PBXT'   => [
                  'FIXED'    => 'FIXED',
                  'DYNAMIC'  => 'DYNAMIC'
-            ),
-            'INNODB' => array(
+            ],
+            'INNODB' => [
                  'COMPACT'  => 'COMPACT',
                  'REDUNDANT' => 'REDUNDANT'
-            )
-        );
+            ]
+        ];
 
         /** @var Innodb $innodbEnginePlugin */
         $innodbEnginePlugin = StorageEngine::getEngine('Innodb');
@@ -1277,11 +1277,11 @@ class Operations
             . 'name="new_name" maxlength="64" '
             . 'value="' . htmlspecialchars($GLOBALS['table']) . '"/><br />';
 
-        $choices = array(
+        $choices = [
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
             'dataonly'  => __('Data only')
-        );
+        ];
 
         $html_output .= Util::getRadioFields(
             'what', $choices, 'data', true
@@ -1381,12 +1381,12 @@ class Operations
         $html_output = '';
 
         // analyze table
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'))) {
-            $params = array(
+        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'])) {
+            $params = [
                 'sql_query' => 'ANALYZE TABLE '
                     . Util::backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
-            );
+            ];
             $html_output .= $this->getMaintainActionlink(
                 __('Analyze table'),
                 $params,
@@ -1396,12 +1396,12 @@ class Operations
         }
 
         // check table
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'TOKUDB'))) {
-            $params = array(
+        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'TOKUDB'])) {
+            $params = [
                 'sql_query' => 'CHECK TABLE '
                     . Util::backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
-            );
+            ];
             $html_output .= $this->getMaintainActionlink(
                 __('Check table'),
                 $params,
@@ -1411,11 +1411,11 @@ class Operations
         }
 
         // checksum table
-        $params = array(
+        $params = [
             'sql_query' => 'CHECKSUM TABLE '
                 . Util::backquote($GLOBALS['table']),
             'table_maintenance' => 'Go',
-        );
+        ];
         $html_output .= $this->getMaintainActionlink(
             __('Checksum table'),
             $params,
@@ -1424,12 +1424,12 @@ class Operations
         );
 
         // defragment table
-        if ($pma_table->isEngine(array('INNODB'))) {
-            $params = array(
+        if ($pma_table->isEngine(['INNODB'])) {
+            $params = [
                 'sql_query' => 'ALTER TABLE '
                 . Util::backquote($GLOBALS['table'])
                 . ' ENGINE = InnoDB;'
-            );
+            ];
             $html_output .= $this->getMaintainActionlink(
                 __('Defragment table'),
                 $params,
@@ -1439,7 +1439,7 @@ class Operations
         }
 
         // flush table
-        $params = array(
+        $params = [
             'sql_query' => 'FLUSH TABLE '
                 . Util::backquote($GLOBALS['table']),
             'message_to_show' => sprintf(
@@ -1447,7 +1447,7 @@ class Operations
                 htmlspecialchars($GLOBALS['table'])
             ),
             'reload' => 1,
-        );
+        ];
         $html_output .= $this->getMaintainActionlink(
             __('Flush the table (FLUSH)'),
             $params,
@@ -1456,12 +1456,12 @@ class Operations
         );
 
         // optimize table
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'))) {
-            $params = array(
+        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'BERKELEYDB', 'TOKUDB'])) {
+            $params = [
                 'sql_query' => 'OPTIMIZE TABLE '
                     . Util::backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
-            );
+            ];
             $html_output .= $this->getMaintainActionlink(
                 __('Optimize table'),
                 $params,
@@ -1471,12 +1471,12 @@ class Operations
         }
 
         // repair table
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA'))) {
-            $params = array(
+        if ($pma_table->isEngine(['MYISAM', 'ARIA'])) {
+            $params = [
                 'sql_query' => 'REPAIR TABLE '
                     . Util::backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
-            );
+            ];
             $html_output .= $this->getMaintainActionlink(
                 __('Repair table'),
                 $params,
@@ -1564,7 +1564,7 @@ class Operations
         return '<li>' . Util::linkOrButton(
                 'sql.php' . Url::getCommon($url_params),
                 $link,
-                array('id' => $htmlId, 'class' => 'ajax')
+                ['id' => $htmlId, 'class' => 'ajax']
             )
             . Util::showMySQLDocu($syntax)
             . '</li>';
@@ -1580,14 +1580,14 @@ class Operations
      */
     public function getHtmlForPartitionMaintenance(array $partition_names, array $url_params)
     {
-        $choices = array(
+        $choices = [
             'ANALYZE' => __('Analyze'),
             'CHECK' => __('Check'),
             'OPTIMIZE' => __('Optimize'),
             'REBUILD' => __('Rebuild'),
             'REPAIR' => __('Repair'),
             'TRUNCATE' => __('Truncate')
-        );
+        ];
 
         $partition_method = Partition::getPartitionMethod(
             $GLOBALS['db'], $GLOBALS['table']
@@ -1634,11 +1634,11 @@ class Operations
         );
         $this_url_params = array_merge(
             $url_params,
-            array(
+            [
                 'sql_query' => 'ALTER TABLE '
                 . Util::backquote($GLOBALS['table'])
                 . ' REMOVE PARTITIONING;'
-            )
+            ]
         );
         $html_output .= '<div class="clearfloat" /><br />';
 
@@ -1707,7 +1707,7 @@ class Operations
                 . ' IS NOT NULL';
             $this_url_params = array_merge(
                 $url_params,
-                array('sql_query' => $join_query)
+                ['sql_query' => $join_query]
             );
 
             $html_output .= '<li>'
@@ -1744,7 +1744,7 @@ class Operations
         $sql_query .= ';';
         $result = $GLOBALS['dbi']->query($sql_query);
 
-        return array($sql_query, $result);
+        return [$sql_query, $result];
     }
 
     /**
@@ -1768,7 +1768,7 @@ class Operations
     ) {
         global $auto_increment;
 
-        $table_alters = array();
+        $table_alters = [];
 
         if (isset($_REQUEST['comment'])
             && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']
@@ -1789,7 +1789,7 @@ class Operations
                 . Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
         }
 
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'ISAM'))
+        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'ISAM'])
             && isset($_REQUEST['new_pack_keys'])
             && $_REQUEST['new_pack_keys'] != (string)$pack_keys
         ) {
@@ -1797,7 +1797,7 @@ class Operations
         }
 
         $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA'))
+        if ($pma_table->isEngine(['MYISAM', 'ARIA'])
             && $_REQUEST['new_checksum'] !== $checksum
         ) {
             $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
@@ -1821,13 +1821,13 @@ class Operations
 
         $_REQUEST['new_delay_key_write']
             = empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA'))
+        if ($pma_table->isEngine(['MYISAM', 'ARIA'])
             && $_REQUEST['new_delay_key_write'] !== $delay_key_write
         ) {
             $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
         }
 
-        if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
+        if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
             && ! empty($_REQUEST['new_auto_increment'])
             && (! isset($auto_increment)
             || $_REQUEST['new_auto_increment'] !== $auto_increment)
@@ -1839,7 +1839,7 @@ class Operations
         if (! empty($_REQUEST['new_row_format'])) {
             $newRowFormat = $_REQUEST['new_row_format'];
             $newRowFormatLower = mb_strtolower($newRowFormat);
-            if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
+            if ($pma_table->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT'])
                 && (strlen($row_format) === 0
                 || $newRowFormatLower !== mb_strtolower($row_format))
             ) {
@@ -1858,7 +1858,7 @@ class Operations
      */
     public function getWarningMessagesArray()
     {
-        $warning_messages = array();
+        $warning_messages = [];
         foreach ($GLOBALS['dbi']->getWarnings() as $warning) {
             // In MariaDB 5.1.44, when altering a table from Maria to MyISAM
             // and if TRANSACTIONAL was set, the system reports an error;
@@ -1899,7 +1899,7 @@ class Operations
 
         $result = $GLOBALS['dbi']->query($sql_query);
 
-        return array($sql_query, $result);
+        return [$sql_query, $result];
     }
 
     /**

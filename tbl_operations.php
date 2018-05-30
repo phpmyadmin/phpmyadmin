@@ -95,7 +95,7 @@ $pma_table = $GLOBALS['dbi']->getTable(
     $GLOBALS['table']
 );
 $reread_info = false;
-$table_alters = array();
+$table_alters = [];
 
 $operations = new Operations();
 
@@ -120,7 +120,7 @@ if (isset($_REQUEST['table_maintenance'])) {
  */
 if (isset($_REQUEST['submitoptions'])) {
     $_message = '';
-    $warning_messages = array();
+    $warning_messages = [];
 
     if (isset($_REQUEST['new_name'])) {
         // Get original names before rename operation
@@ -392,8 +392,8 @@ $response->addHTML(
 );
 
 if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
-    $truncate_table_url_params = array();
-    $drop_table_url_params = array();
+    $truncate_table_url_params = [];
+    $drop_table_url_params = [];
 
     if (! $tbl_is_view
         && ! (isset($db_is_system_schema) && $db_is_system_schema)
@@ -402,7 +402,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
             . Util::backquote($GLOBALS['table']);
         $truncate_table_url_params = array_merge(
             $url_params,
-            array(
+            [
                 'sql_query' => $this_sql_query,
                 'goto' => 'tbl_structure.php',
                 'reload' => '1',
@@ -410,7 +410,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                     __('Table %s has been emptied.'),
                     htmlspecialchars($table)
                 ),
-            )
+            ]
         );
     }
     if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
@@ -418,7 +418,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
             . Util::backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
             $url_params,
-            array(
+            [
                 'sql_query' => $this_sql_query,
                 'goto' => 'db_operations.php',
                 'reload' => '1',
@@ -433,7 +433,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                 // table name is needed to avoid running
                 // PhpMyAdmin\RelationCleanup::database() on the whole db later
                 'table' => $GLOBALS['table'],
-            )
+            ]
         );
     }
     $response->addHTML(

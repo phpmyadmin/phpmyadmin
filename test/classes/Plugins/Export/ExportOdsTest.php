@@ -272,7 +272,7 @@ class ExportOdsTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = array();
+        $flags = [];
         $a = new stdClass;
         $flags[] = $a;
 
@@ -346,10 +346,10 @@ class ExportOdsTest extends PmaTestCase
             ->with(true)
             ->will(
                 $this->returnValue(
-                    array(
+                    [
                         null, '01-01-2000', '01-01-2000', '01-01-2000 10:00:00',
                         "01-01-2014 10:02:00", "t>s", "a&b", "<"
-                    )
+                    ]
                 )
             );
 
@@ -397,7 +397,7 @@ class ExportOdsTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = array();
+        $flags = [];
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')
@@ -462,7 +462,7 @@ class ExportOdsTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $flags = array();
+        $flags = [];
 
         $dbi->expects($this->once())
             ->method('getFieldsMeta')

@@ -153,11 +153,11 @@ class ExportMediawikiTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            array(
+            [
                 'structure' => __('structure'),
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data')
-            ),
+            ],
             $sgHeader->getValues()
         );
 
@@ -267,24 +267,24 @@ class ExportMediawikiTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $columns = array(
-            array(
+        $columns = [
+            [
                 'Null' => 'Yes',
                 'Field' => 'name1',
                 'Key' => 'PRI',
                 'Type' => 'set(abc)enum123',
                 'Default' => '',
                 'Extra' => ''
-            ),
-            array(
+            ],
+            [
                 'Null' => 'NO',
                 'Field' => 'fields',
                 'Key' => 'COMP',
                 'Type' => '',
                 'Default' => 'def',
                 'Extra' => 'ext'
-            )
-        );
+            ]
+        ];
 
         $dbi->expects($this->at(0))
             ->method('getColumns')
@@ -348,7 +348,7 @@ class ExportMediawikiTest extends PmaTestCase
         $dbi->expects($this->once())
             ->method('getColumnNames')
             ->with('db', 'table')
-            ->will($this->returnValue(array('name1', 'fields')));
+            ->will($this->returnValue(['name1', 'fields']));
 
         $dbi->expects($this->once())
             ->method('query')
@@ -363,12 +363,12 @@ class ExportMediawikiTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array('r1', 'r2')));
+            ->will($this->returnValue(['r1', 'r2']));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array('r3', '')));
+            ->will($this->returnValue(['r3', '']));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')

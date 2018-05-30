@@ -194,7 +194,7 @@ class Header
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
 
-        $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
+        $this->_scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.
@@ -229,7 +229,7 @@ class Header
         $pftext = isset($_SESSION['tmpval']['pftext'])
             ? $_SESSION['tmpval']['pftext'] : '';
 
-        $params = array(
+        $params = [
             'common_query' => Url::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
@@ -260,7 +260,7 @@ class Header
             'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
             'arg_separator' => URL::getArgSeparator(),
             'PMA_VERSION' => PMA_VERSION
-        );
+        ];
         if (isset($GLOBALS['cfg']['Server'])
             && isset($GLOBALS['cfg']['Server']['auth_type'])
         ) {

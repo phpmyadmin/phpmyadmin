@@ -17,10 +17,10 @@ require_once 'libraries/common.inc.php';
 /**
  * Sets globals from $_REQUEST
  */
-$request_params = array(
+$request_params = [
     'data',
     'field'
-);
+];
 
 foreach ($request_params as $one_request_param) {
     if (isset($_REQUEST[$one_request_param])) {
@@ -28,7 +28,7 @@ foreach ($request_params as $one_request_param) {
     }
 }
 
-Util::checkParameters(array('db', 'table', 'field'));
+Util::checkParameters(['db', 'table', 'field']);
 
 $response = Response::getInstance();
 $response->getFooter()->setMinimal();

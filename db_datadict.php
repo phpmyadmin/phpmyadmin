@@ -47,12 +47,12 @@ $cfgRelation  = $relation->getRelationsParam();
 /**
  * Check parameters
  */
-PhpMyAdmin\Util::checkParameters(array('db'));
+PhpMyAdmin\Util::checkParameters(['db']);
 
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'db_sql.php' . Url::getCommon(array('db' => $db));
+$err_url = 'db_sql.php' . Url::getCommon(['db' => $db]);
 
 if ($cfgRelation['commwork']) {
     $comment = $relation->getDbComment($db);

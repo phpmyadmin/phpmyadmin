@@ -60,7 +60,7 @@ if (empty($goto)) {
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . Url::getCommon(array('db' => $GLOBALS['db']))
+        . '?' . Url::getCommon(['db' => $GLOBALS['db']])
         . ((mb_strpos(' ' . $goto, 'db_') != 1
             && strlen($table) > 0)
             ? '&amp;table=' . urlencode($table)
@@ -128,7 +128,7 @@ if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
     $goto = '';
 } else {
     // Now we can check the parameters
-    Util::checkParameters(array('sql_query'));
+    Util::checkParameters(['sql_query']);
 }
 
 /**
@@ -188,11 +188,11 @@ if (isset($_POST['store_bkm'])) {
 if ($goto == 'sql.php') {
     $is_gotofile = false;
     $goto = 'sql.php' . Url::getCommon(
-        array(
+        [
             'db' => $db,
             'table' => $table,
             'sql_query' => $sql_query
-        )
+        ]
     );
 } // end if
 

@@ -51,7 +51,7 @@ class ServerPluginsControllerTest extends PmaTestCase
         /**
          * Prepare plugin list
          */
-        $row = array();
+        $row = [];
         $row["plugin_name"] = "plugin_name1";
         $row["plugin_type"] = "plugin_type1";
         $row["plugin_type_version"] = "plugin_version1";

@@ -26,6 +26,6 @@ $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var ServerBinlogController $controller */
 $controller = $container->get(
-    'ServerBinlogController', array()
+    'ServerBinlogController', []
 );
 $controller->indexAction();

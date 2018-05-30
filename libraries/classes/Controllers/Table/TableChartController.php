@@ -93,7 +93,7 @@ class TableChartController extends TableController
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
-            array(
+            [
                 'chart.js',
                 'tbl_chart.js',
                 'vendor/jqplot/jquery.jqplot.js',
@@ -106,7 +106,7 @@ class TableChartController extends TableController
                 'vendor/jqplot/plugins/jqplot.pieRenderer.js',
                 'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
                 'vendor/jqplot/plugins/jqplot.highlighter.js'
-            )
+            ]
         );
 
         /**
@@ -115,7 +115,7 @@ class TableChartController extends TableController
          */
         $db = &$this->db;
         $table = &$this->table;
-        $url_params = array();
+        $url_params = [];
 
         /**
          * Runs common work
@@ -141,7 +141,7 @@ class TableChartController extends TableController
             include 'libraries/server_common.inc.php';
         }
 
-        $data = array();
+        $data = [];
 
         $result = $this->dbi->tryQuery($this->sql_query);
         $fields_meta = $this->dbi->getFieldsMeta($result);
@@ -151,7 +151,7 @@ class TableChartController extends TableController
 
         $keys = array_keys($data[0]);
 
-        $numeric_types = array('int', 'real');
+        $numeric_types = ['int', 'real'];
         $numeric_column_count = 0;
         foreach ($keys as $idx => $key) {
             if (in_array($fields_meta[$idx]->type, $numeric_types)) {
@@ -176,7 +176,7 @@ class TableChartController extends TableController
          */
         $this->response->addHTML(
             Template::get('table/chart/tbl_chart')->render(
-                array(
+                [
                     'url_query' => $this->url_query,
                     'url_params' => $url_params,
                     'keys' => $keys,
@@ -184,7 +184,7 @@ class TableChartController extends TableController
                     'numeric_types' => $numeric_types,
                     'numeric_column_count' => $numeric_column_count,
                     'sql_query' => $this->sql_query
-                )
+                ]
             )
         );
     }
@@ -223,7 +223,7 @@ class TableChartController extends TableController
         }
         $sql_with_limit = $statement->build();
 
-        $data = array();
+        $data = [];
         $result = $this->dbi->tryQuery($sql_with_limit);
         while ($row = $this->dbi->fetchAssoc($result)) {
             $data[] = $row;
@@ -234,10 +234,10 @@ class TableChartController extends TableController
             $this->response->addJSON('message', __('No data to display'));
             return;
         }
-        $sanitized_data = array();
+        $sanitized_data = [];
 
         foreach ($data as $data_row_number => $data_row) {
-            $tmp_row = array();
+            $tmp_row = [];
             foreach ($data_row as $data_column => $data_value) {
                 $tmp_row[htmlspecialchars($data_column)] = htmlspecialchars(
                     $data_value

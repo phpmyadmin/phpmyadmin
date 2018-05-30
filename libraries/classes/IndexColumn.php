@@ -64,7 +64,7 @@ class IndexColumn
      *
      * @param array $params an array containing the parameters of the index column
      */
-    public function __construct(array $params = array())
+    public function __construct(array $params = [])
     {
         $this->set($params);
     }
@@ -177,12 +177,12 @@ class IndexColumn
      */
     public function getCompareData()
     {
-        return array(
+        return [
             'Column_name'   => $this->_name,
             'Seq_in_index'  => $this->_seq_in_index,
             'Collation'     => $this->_collation,
             'Sub_part'      => $this->_sub_part,
             'Null'          => $this->_null,
-        );
+        ];
     }
 }

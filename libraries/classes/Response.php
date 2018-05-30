@@ -97,11 +97,11 @@ class Response
         if (! defined('TESTSUITE')) {
             $buffer = OutputBuffering::getInstance();
             $buffer->start();
-            register_shutdown_function(array($this, 'response'));
+            register_shutdown_function([$this, 'response']);
         }
         $this->_header = new Header();
         $this->_HTML   = '';
-        $this->_JSON   = array();
+        $this->_JSON   = [];
         $this->_footer = new Footer();
 
         $this->_isSuccess  = true;
@@ -314,7 +314,7 @@ class Response
             if (isset($GLOBALS['dbi'])) {
                 $menuHash = $this->getHeader()->getMenu()->getHash();
                 $this->addJSON('_menuHash', $menuHash);
-                $hashes = array();
+                $hashes = [];
                 if (isset($_REQUEST['menuHashes'])) {
                     $hashes = explode('-', $_REQUEST['menuHashes']);
                 }
@@ -358,11 +358,11 @@ class Response
                 }
                 $this->addJSON(
                     '_reloadQuerywindow',
-                    array(
+                    [
                         'db' => Core::ifSetOr($GLOBALS['db'], ''),
                         'table' => Core::ifSetOr($GLOBALS['table'], ''),
                         'sql_query' => $query
-                    )
+                    ]
                 );
                 if (! empty($GLOBALS['focus_querywindow'])) {
                     $this->addJSON('_focusQuerywindow', $query);
@@ -412,10 +412,10 @@ class Response
                 break;
             }
             echo json_encode(
-                array(
+                [
                     'success' => false,
                     'error' => 'JSON encoding failed: ' . $error,
-                )
+                ]
             );
         } else {
             echo $result;

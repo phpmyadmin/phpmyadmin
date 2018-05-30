@@ -31,8 +31,8 @@ class Descriptions
     public static function get($path, $type = 'name')
     {
         $key = str_replace(
-            array('Servers/1/', '/'),
-            array('Servers/', '_'),
+            ['Servers/1/', '/'],
+            ['Servers/', '_'],
             $path
         );
         $value = self::getString($key, $type);

@@ -121,10 +121,10 @@ class TableStructureControllerTest extends PmaTestCase
                         if ($callCount == 0) {
                             $callCount++;
 
-                            return array(
+                            return [
                                 'Key_name'    => 'PRIMARY',
                                 'Column_name' => 'column',
-                            );
+                            ];
                         } else {
                             return null;
                         }
@@ -221,7 +221,7 @@ class TableStructureControllerTest extends PmaTestCase
             $method->invoke($ctrl)
         );
 
-        $_REQUEST['selected'] = array('a', 'b');
+        $_REQUEST['selected'] = ['a', 'b'];
         $method->invoke($ctrl);
         $this->assertEquals(
             $_REQUEST['selected'],
@@ -259,15 +259,15 @@ class TableStructureControllerTest extends PmaTestCase
         $submit_mult = "index";
         $db = "PMA_db";
         $table = "PMA_table";
-        $selected = array(
+        $selected = [
             "table1", "table2"
-        );
+        ];
         $action = 'db_delete_row';
 
         list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
             = $method->invokeArgs(
                 $ctrl,
-                array($submit_mult, $db, $table, $selected, $action)
+                [$submit_mult, $db, $table, $selected, $action]
             );
 
         //validate 1: $what
@@ -305,7 +305,7 @@ class TableStructureControllerTest extends PmaTestCase
         list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
             = $method->invokeArgs(
                 $ctrl,
-                array($submit_mult, $db, $table, $selected, $action)
+                [$submit_mult, $db, $table, $selected, $action]
             );
 
         //validate 1: $what

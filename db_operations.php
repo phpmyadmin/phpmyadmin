@@ -95,10 +95,10 @@ if (strlen($GLOBALS['db']) > 0
                 "export",
                 "sql",
                 'libraries/classes/Plugins/Export/',
-                array(
+                [
                     'single_table' => isset($single_table),
                     'export_type'  => 'database'
-                )
+                ]
             );
 
             // create stand-in tables for views

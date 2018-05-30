@@ -172,11 +172,11 @@ class RteList
             $retval .= '<div class="withSelected">';
             $retval .= Template::get('select_all')
                 ->render(
-                    array(
+                    [
                         'pma_theme_image' => $GLOBALS['pmaThemeImage'],
                         'text_dir'        => $GLOBALS['text_dir'],
                         'form_name'       => 'rteListForm',
-                    )
+                    ]
                 );
             $retval .= Util::getButtonOrImage(
                 'submit_mult', 'mult_submit',

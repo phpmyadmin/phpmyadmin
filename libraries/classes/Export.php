@@ -332,7 +332,7 @@ class Export
             $filename  .= '.zip';
             $mime_type = 'application/zip';
         }
-        return array($filename, $mime_type);
+        return [$filename, $mime_type];
     }
 
     /**
@@ -380,7 +380,7 @@ class Export
             );
             $message->addParam($save_filename);
         }
-        return array($save_filename, $message, $file_handle);
+        return [$save_filename, $message, $file_handle];
     }
 
     /**
@@ -407,13 +407,13 @@ class Export
             $message = new Message(
                 __('Insufficient space to save the file %s.'),
                 Message::ERROR,
-                array($save_filename)
+                [$save_filename]
             );
         } else {
             $message = new Message(
                 __('Dump has been saved to file %s.'),
                 Message::SUCCESS,
-                array($save_filename)
+                [$save_filename]
             );
         }
         return $message;
@@ -491,12 +491,12 @@ class Export
         if ($export_type == 'server') {
             $back_button .= 'server_export.php' . Url::getCommon();
         } elseif ($export_type == 'database') {
-            $back_button .= 'db_export.php' . Url::getCommon(array('db' => $db));
+            $back_button .= 'db_export.php' . Url::getCommon(['db' => $db]);
         } else {
             $back_button .= 'tbl_export.php' . Url::getCommon(
-                array(
+                [
                     'db' => $db, 'table' => $table
-                )
+                ]
             );
         }
 
@@ -549,7 +549,7 @@ class Export
             . '<textarea name="sqldump" cols="50" rows="30" '
             . 'id="textSQLDUMP" wrap="OFF">';
 
-        return array($html, $back_button, $refreshButton);
+        return [$html, $back_button, $refreshButton];
     }
 
     /**
@@ -669,7 +669,7 @@ class Export
             }
         }
 
-        $views = array();
+        $views = [];
 
         foreach ($tables as $table) {
             $_table = new Table($table, $db);
@@ -1059,7 +1059,7 @@ class Export
      */
     public function lockTables(string $db, array $tables, string $lockType = "WRITE")
     {
-        $locks = array();
+        $locks = [];
         foreach ($tables as $table) {
             $locks[] = Util::backquote($db) . "."
                 . Util::backquote($table) . " " . $lockType;
@@ -1086,7 +1086,7 @@ class Export
      */
     public function getMetadataTypes(): array
     {
-        return array(
+        return [
             'column_info',
             'table_uiprefs',
             'tracking',
@@ -1097,7 +1097,7 @@ class Export
             'savedsearches',
             'central_columns',
             'export_templates',
-        );
+        ];
     }
 
     /**

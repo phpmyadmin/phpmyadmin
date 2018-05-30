@@ -26,11 +26,11 @@ class TableExtension extends AbstractExtension
      */
     public function getFunctions()
     {
-        return array(
+        return [
             new TwigFunction(
                 'Table_get',
                 'PhpMyAdmin\Table::get'
             ),
-        );
+        ];
     }
 }

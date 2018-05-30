@@ -34,9 +34,9 @@ class NavigationHeader
             $GLOBALS['url_query'] = Url::getCommon();
         }
         $link_url = Url::getCommon(
-            array(
+            [
                 'ajax_request' => true,
-            )
+            ]
         );
         $class = ' class="list_container';
         if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
@@ -61,10 +61,10 @@ class NavigationHeader
         $buffer .= Util::getImage(
             'ajax_clock_small',
             __('Loading…'),
-            array(
+            [
                 'style' => 'visibility: hidden; display:none',
                 'class' => 'throbber',
-            )
+            ]
         );
         $buffer .= '</div>'; // pma_navigation_header
         $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
@@ -186,7 +186,7 @@ class NavigationHeader
                 '',
                 true,
                 '',
-                array('logout')
+                ['logout']
             );
         }
         $retval .= Util::getNavigationLink(
@@ -218,7 +218,7 @@ class NavigationHeader
             'pma_navigation_settings_icon',
             false,
             '',
-            defined('PMA_DISABLE_NAVI_SETTINGS') ? array('hide') : array()
+            defined('PMA_DISABLE_NAVI_SETTINGS') ? ['hide'] : []
         );
         $retval .= Util::getNavigationLink(
             '#',

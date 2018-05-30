@@ -297,7 +297,7 @@ class Monitor
         $retval .= Data::getHtmlForRefreshList(
             'gridChartRefresh',
             5,
-            Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
+            [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200]
         );
         $retval .= '<br />';
         $retval .= '</div>';
@@ -382,8 +382,8 @@ class Monitor
     public function getJsonForChartingData()
     {
         $ret = json_decode($_REQUEST['requiredData'], true);
-        $statusVars = array();
-        $serverVars = array();
+        $statusVars = [];
+        $serverVars = [];
         $sysinfo = $cpuload = $memory = 0;
 
         /* Accumulate all required variables and data */
@@ -400,7 +400,7 @@ class Monitor
                 1
             );
         } else {
-            $statusVarValues = array();
+            $statusVarValues = [];
         }
 
         // Retrieve all required server variables
@@ -412,7 +412,7 @@ class Monitor
                 1
             );
         } else {
-            $serverVarValues = array();
+            $serverVarValues = [];
         }
 
         // ...and now assign them
@@ -482,7 +482,7 @@ class Monitor
                 } /* foreach */
             } /* foreach */
         }
-        return array($serverVars, $statusVars, $ret);
+        return [$serverVars, $statusVars, $ret];
     }
 
     /**
@@ -555,7 +555,7 @@ class Monitor
             break;
         }
 
-        return array($serverVars, $statusVars, $ret);
+        return [$serverVars, $statusVars, $ret];
     }
 
     /**
@@ -580,7 +580,7 @@ class Monitor
 
         $result = $GLOBALS['dbi']->tryQuery($query);
 
-        $return = array('rows' => array(), 'sum' => array());
+        $return = ['rows' => [], 'sum' => []];
 
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             $type = mb_strtolower(
@@ -650,8 +650,8 @@ class Monitor
 
         $result = $GLOBALS['dbi']->tryQuery($query);
 
-        $return = array('rows' => array(), 'sum' => array());
-        $insertTables = array();
+        $return = ['rows' => [], 'sum' => []];
+        $insertTables = [];
         $insertTablesFirst = -1;
         $i = 0;
         $removeVars = isset($_REQUEST['removeVariables'])
@@ -785,7 +785,7 @@ class Monitor
      */
     public function getJsonForQueryAnalyzer()
     {
-        $return = array();
+        $return = [];
 
         if (strlen($_REQUEST['database']) > 0) {
             $GLOBALS['dbi']->selectDb($_REQUEST['database']);
@@ -816,7 +816,7 @@ class Monitor
         $GLOBALS['dbi']->freeResult($result);
 
         if ($profiling) {
-            $return['profiling'] = array();
+            $return['profiling'] = [];
             $result = $GLOBALS['dbi']->tryQuery(
                 'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING'
                 . ' WHERE QUERY_ID=1 ORDER BY seq'

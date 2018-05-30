@@ -102,7 +102,7 @@ class Relation
     {
         $retval = '<br>';
 
-        $messages = array();
+        $messages = [];
         $messages['error'] = '<span class="caution"><strong>'
             . __('not OK')
             . '</strong></span>';
@@ -372,7 +372,7 @@ class Relation
                 $retval .= '<p>' . __('Quick steps to set up advanced features:')
                     . '</p>';
 
-                $items = array();
+                $items = [];
                 $items[] = sprintf(
                     __(
                         'Create the needed tables with the '
@@ -392,7 +392,7 @@ class Relation
                 );
 
                 $retval .= Template::get('list/unordered')->render(
-                    array('items' => $items,)
+                    ['items' => $items,]
                 );
             }
         }
@@ -466,14 +466,14 @@ class Relation
      */
     public function checkRelationsParam()
     {
-        $cfgRelation                   = array();
+        $cfgRelation                   = [];
         $cfgRelation['PMA_VERSION']    = PMA_VERSION;
 
-        $workToTable = array(
+        $workToTable = [
             'relwork' => 'relation',
-            'displaywork' => array('relation', 'table_info'),
+            'displaywork' => ['relation', 'table_info'],
             'bookmarkwork' => 'bookmarktable',
-            'pdfwork' => array('table_coords', 'pdf_pages'),
+            'pdfwork' => ['table_coords', 'pdf_pages'],
             'commwork' => 'column_info',
             'mimework' => 'column_info',
             'historywork' => 'history',
@@ -482,13 +482,13 @@ class Relation
             'uiprefswork' => 'table_uiprefs',
             'trackingwork' => 'tracking',
             'userconfigwork' => 'userconfig',
-            'menuswork' => array('users', 'usergroups'),
+            'menuswork' => ['users', 'usergroups'],
             'navwork' => 'navigationhiding',
             'savedsearcheswork' => 'savedsearches',
             'centralcolumnswork' => 'central_columns',
             'designersettingswork' => 'designer_settings',
             'exporttemplateswork' => 'export_templates',
-        );
+        ];
 
         foreach ($workToTable as $work => $table) {
             $cfgRelation[$work] = false;
@@ -690,10 +690,10 @@ class Relation
     {
         // From 4.3, new input oriented transformation feature was introduced.
         // Check whether column_info table has input transformation columns
-        $new_cols = array(
+        $new_cols = [
             "input_transformation",
             "input_transformation_options"
-        );
+        ];
         $query = 'SHOW COLUMNS FROM '
             . Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
             . '.' . Util::backquote(
@@ -761,7 +761,7 @@ class Relation
     public function getForeigners($db, $table, $column = '', $source = 'both')
     {
         $cfgRelation = $this->getRelationsParam();
-        $foreign = array();
+        $foreign = [];
 
         if ($cfgRelation['relwork'] && ($source == 'both' || $source == 'internal')) {
             $rel_query = '
@@ -900,7 +900,7 @@ class Relation
      */
     public function getComments($db, $table = '')
     {
-        $comments = array();
+        $comments = [];
 
         if ($table != '') {
             // MySQL native column comments
@@ -967,7 +967,7 @@ class Relation
     public function getDbComments()
     {
         $cfgRelation = $this->getRelationsParam();
-        $comments = array();
+        $comments = [];
 
         if ($cfgRelation['commwork']) {
             // pmadb internal db comment
@@ -1064,14 +1064,14 @@ class Relation
         $cfgRelation = $this->getRelationsParam();
 
         if (! isset($_SESSION['sql_history'])) {
-            $_SESSION['sql_history'] = array();
+            $_SESSION['sql_history'] = [];
         }
 
-        $_SESSION['sql_history'][] = array(
+        $_SESSION['sql_history'][] = [
             'db' => $db,
             'table' => $table,
             'sqlquery' => $sqlquery,
-        );
+        ];
 
         if (count($_SESSION['sql_history']) > $GLOBALS['cfg']['QueryHistoryMax']) {
             // history should not exceed a maximum count
@@ -1203,7 +1203,7 @@ class Relation
      */
     public function buildForeignDropdown(array $foreign, $data, $mode)
     {
-        $reloptions = array();
+        $reloptions = [];
 
         // id-only is a special mode used when no foreign display column
         // is available
@@ -1305,7 +1305,7 @@ class Relation
             $max = $GLOBALS['cfg']['ForeignKeyMaxLimit'];
         }
 
-        $foreign = array();
+        $foreign = [];
 
         // collect the data
         foreach ($disp_row as $relrow) {
@@ -1322,8 +1322,8 @@ class Relation
         } // end foreach
 
         // put the dropdown sections in correct order
-        $top = array();
-        $bottom = array();
+        $top = [];
+        $bottom = [];
         if ($foreign_display) {
             if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'], 'array')) {
                 if (Core::isValid($GLOBALS['cfg']['ForeignKeyDropdownOrder'][0])) {
@@ -1463,7 +1463,7 @@ class Relation
                     // array. This helps us from not needing to use mysql_data_seek by
                     // accessing a pre-cached PHP array. Usually those resultsets are
                     // not that big, so a performance hit should not be expected.
-                    $disp_row = array();
+                    $disp_row = [];
                     while ($single_disp_row = @$GLOBALS['dbi']->fetchAssoc($disp)) {
                         $disp_row[] = $single_disp_row;
                     }
@@ -1486,7 +1486,7 @@ class Relation
                 ->countRecords(true);
         }
 
-        $foreignData = array();
+        $foreignData = [];
         $foreignData['foreign_link'] = $foreign_link;
         $foreignData['the_total'] = isset($the_total) ? $the_total : null;
         $foreignData['foreign_display'] = (
@@ -1746,7 +1746,7 @@ class Relation
      */
     public function getChildReferences($db, $table, $column = '')
     {
-        $child_references = array();
+        $child_references = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $rel_query = "SELECT `column_name`, `table_name`,"
                 . " `table_schema`, `referenced_column_name`"
@@ -1761,7 +1761,7 @@ class Relation
             }
 
             $child_references = $GLOBALS['dbi']->fetchResult(
-                $rel_query, array('referenced_column_name', null)
+                $rel_query, ['referenced_column_name', null]
             );
         }
         return $child_references;
@@ -1781,13 +1781,13 @@ class Relation
     public function checkChildForeignReferences(
         $db, $table, $column, $foreigners_full = null, $child_references_full = null
     ) {
-        $column_status = array();
+        $column_status = [];
         $column_status['isEditable'] = false;
         $column_status['isReferenced'] = false;
         $column_status['isForeignKey'] = false;
-        $column_status['references'] = array();
+        $column_status['references'] = [];
 
-        $foreigners = array();
+        $foreigners = [];
         if ($foreigners_full !== null) {
             if (isset($foreigners_full[$column])) {
                 $foreigners[$column] = $foreigners_full[$column];
@@ -1800,7 +1800,7 @@ class Relation
         }
         $foreigner = $this->searchColumnInForeigners($foreigners, $column);
 
-        $child_references = array();
+        $child_references = [];
         if ($child_references_full !== null) {
             if (isset($child_references_full[$column])) {
                 $child_references = $child_references_full[$column];
@@ -1847,7 +1847,7 @@ class Relation
             return $foreigners[$column];
         }
 
-        $foreigner = array();
+        $foreigner = [];
         foreach ($foreigners['foreign_keys_data'] as $one_key) {
             $column_index = array_search($column, $one_key['index_list']);
             if ($column_index !== false) {
@@ -1879,7 +1879,7 @@ class Relation
      */
     public function getDefaultPmaTableNames()
     {
-        $pma_tables = array();
+        $pma_tables = [];
         $create_tables_file = file_get_contents(
             SQL_DIR . 'create_tables.sql'
         );
@@ -1933,7 +1933,7 @@ class Relation
      */
     public function fixPmaTables($db, $create = true)
     {
-        $tablesToFeatures = array(
+        $tablesToFeatures = [
             'pma__bookmark' => 'bookmarktable',
             'pma__relation' => 'relation',
             'pma__table_info' => 'table_info',
@@ -1953,7 +1953,7 @@ class Relation
             'pma__central_columns' => 'central_columns',
             'pma__designer_settings' => 'designer_settings',
             'pma__export_templates' => 'export_templates',
-        );
+        ];
 
         $existingTables = $GLOBALS['dbi']->getTables($db, DatabaseInterface::CONNECT_CONTROL);
 
@@ -2020,7 +2020,7 @@ class Relation
     {
         $retval = '';
 
-        $url_query = Url::getCommon(array('db' => $GLOBALS['db']));
+        $url_query = Url::getCommon(['db' => $GLOBALS['db']]);
         if ($allTables) {
             if ($createDb) {
                 $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';
@@ -2076,9 +2076,9 @@ class Relation
             }
         } else {
             $have_rel = false;
-            $res_rel = array();
+            $res_rel = [];
         } // end if
-        return(array($res_rel, $have_rel));
+        return([$res_rel, $have_rel]);
     }
 
     /**
@@ -2124,7 +2124,7 @@ class Relation
      */
     public function getTables($foreignDb, $tblStorageEngine)
     {
-        $tables = array();
+        $tables = [];
         $tablesRows = $GLOBALS['dbi']->query(
             'SHOW TABLE STATUS FROM ' . Util::backquote($foreignDb),
             DatabaseInterface::CONNECT_USER,

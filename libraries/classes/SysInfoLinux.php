@@ -38,10 +38,10 @@ class SysInfoLinux extends SysInfoBase
             )
         );
 
-        return Array(
+        return [
             'busy' => $nums[1] + $nums[2] + $nums[3],
             'idle' => intval($nums[4]),
-        );
+        ];
     }
 
     /**
@@ -69,7 +69,7 @@ class SysInfoLinux extends SysInfoBase
 
         $mem = array_combine($matches[1], $matches[2]);
 
-        $defaults = array(
+        $defaults = [
             'MemTotal'   => 0,
             'MemFree'    => 0,
             'Cached'     => 0,
@@ -77,7 +77,7 @@ class SysInfoLinux extends SysInfoBase
             'SwapTotal'  => 0,
             'SwapFree'   => 0,
             'SwapCached' => 0,
-        );
+        ];
 
         $mem = array_merge($defaults, $mem);
 

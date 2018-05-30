@@ -55,9 +55,9 @@ if (! $response->isAjax()) {
         $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
             $url_query = Url::getCommon(
-                array(
+                [
                     'db' => $db, 'table' => $table
-                )
+                ]
             );
         }
     }
@@ -72,7 +72,7 @@ $titles = PhpMyAdmin\Util::buildActionTitles();
  * Keep a list of errors that occurred while
  * processing an 'Add' or 'Edit' operation.
  */
-$errors = array();
+$errors = [];
 
 
 /**

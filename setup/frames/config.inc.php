@@ -20,7 +20,7 @@ echo '<h2>' , __('Configuration file') , '</h2>';
 echo FormDisplayTemplate::displayFormTop('config.php');
 echo '<input type="hidden" name="eol" value="'
     , htmlspecialchars(Core::ifSetOr($_GET['eol'], 'unix')) , '" />';
-echo FormDisplayTemplate::displayFieldsetTop('config.inc.php', '', null, array('class' => 'simple'));
+echo FormDisplayTemplate::displayFieldsetTop('config.inc.php', '', null, ['class' => 'simple']);
 echo '<tr>';
 echo '<td>';
 echo '<textarea cols="50" rows="20" name="textconfig" '

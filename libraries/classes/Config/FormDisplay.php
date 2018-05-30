@@ -42,7 +42,7 @@ class FormDisplay
      * Form list
      * @var Form[]
      */
-    private $_forms = array();
+    private $_forms = [];
 
     /**
      * Stores validation errors, indexed by paths
@@ -50,27 +50,27 @@ class FormDisplay
      * [path] is a string storing error associated with single field
      * @var array
      */
-    private $_errors = array();
+    private $_errors = [];
 
     /**
      * Paths changed so that they can be used as HTML ids, indexed by paths
      * @var array
      */
-    private $_translatedPaths = array();
+    private $_translatedPaths = [];
 
     /**
      * Server paths change indexes so we define maps from current server
      * path to the first one, indexed by work path
      * @var array
      */
-    private $_systemPaths = array();
+    private $_systemPaths = [];
 
     /**
      * Language strings which will be sent to PMA_messages JS variable
      * Will be looked up in $GLOBALS: str{value} or strSetup{value}
      * @var array
      */
-    private $_jsLangStrings = array();
+    private $_jsLangStrings = [];
 
     /**
      * Tells whether forms have been validated
@@ -97,12 +97,12 @@ class FormDisplay
      */
     public function __construct(ConfigFile $cf)
     {
-        $this->_jsLangStrings = array(
+        $this->_jsLangStrings = [
             'error_nan_p' => __('Not a positive number!'),
             'error_nan_nneg' => __('Not a non-negative number!'),
             'error_incorrect_port' => __('Not a valid port number!'),
             'error_invalid_value' => __('Incorrect value!'),
-            'error_value_lte' => __('Value must be equal or lower than %s!'));
+            'error_value_lte' => __('Value must be equal or lower than %s!')];
         $this->_configFile = $cf;
         // initialize validators
         Validator::getValidators($this->_configFile);
@@ -175,8 +175,8 @@ class FormDisplay
             return;
         }
 
-        $paths = array();
-        $values = array();
+        $paths = [];
+        $values = [];
         foreach ($this->_forms as $form) {
             /* @var $form Form */
             $paths[] = $form->name;
@@ -195,7 +195,7 @@ class FormDisplay
 
         // change error keys from canonical paths to work paths
         if (is_array($errors) && count($errors) > 0) {
-            $this->_errors = array();
+            $this->_errors = [];
             foreach ($errors as $path => $error_list) {
                 $work_path = array_search($path, $this->_systemPaths);
                 // field error
@@ -235,7 +235,7 @@ class FormDisplay
                 Descriptions::get("Form_{$form->name}"),
                 Descriptions::get("Form_{$form->name}", 'desc'),
                 $form_errors,
-                array('id' => $form->name)
+                ['id' => $form->name]
             );
 
             foreach ($form->fields as $field => $path) {
@@ -291,13 +291,13 @@ class FormDisplay
 
         $htmlOutput = '';
 
-        $js = array();
-        $js_default = array();
+        $js = [];
+        $js_default = [];
 
         $htmlOutput .= FormDisplayTemplate::displayFormTop($form_action, 'post', $hidden_fields);
 
         if ($tabbed_form) {
-            $tabs = array();
+            $tabs = [];
             foreach ($this->_forms as $form) {
                 $tabs[$form->name] = Descriptions::get("Form_$form->name");
             }
@@ -333,7 +333,7 @@ class FormDisplay
         // if not already done, send strings used for validation to JavaScript
         if (! $js_lang_sent) {
             $js_lang_sent = true;
-            $js_lang = array();
+            $js_lang = [];
             foreach ($this->_jsLangStrings as $strName => $strValue) {
                 $js_lang[] = "'$strName': '" . Sanitize::jsFormat($strValue, false) . '\'';
             }
@@ -382,12 +382,12 @@ class FormDisplay
             $value_is_default = true;
         }
 
-        $opts = array(
+        $opts = [
             'doc' => $this->getDocLink($system_path),
             'show_restore_default' => $show_restore_default,
             'userprefs_allow' => $userprefs_allow,
             'userprefs_comment' => Descriptions::get($system_path, 'cmt')
-        );
+        ];
         if (isset($form->default[$system_path])) {
             $opts['setvalue'] = $form->default[$system_path];
         }
@@ -578,14 +578,14 @@ class FormDisplay
         $result = true;
         $forms = (array) $forms;
 
-        $values = array();
-        $to_save = array();
+        $values = [];
+        $to_save = [];
         $is_setup_script = $GLOBALS['PMA_Config']->get('is_setup');
         if ($is_setup_script) {
             $this->_loadUserprefsInfo();
         }
 
-        $this->_errors = array();
+        $this->_errors = [];
         foreach ($forms as $form_name) {
             /* @var $form Form */
             if (isset($this->_forms[$form_name])) {
@@ -669,7 +669,7 @@ class FormDisplay
                     $post_values = is_array($_POST[$key])
                         ? $_POST[$key]
                         : explode("\n", $_POST[$key]);
-                    $_POST[$key] = array();
+                    $_POST[$key] = [];
                     $this->_fillPostArrayParameters($post_values, $key);
                     break;
                 }
@@ -696,10 +696,10 @@ class FormDisplay
         foreach ($to_save as $work_path => $path) {
             // TrustedProxies requires changes before saving
             if ($path == 'TrustedProxies') {
-                $proxies = array();
+                $proxies = [];
                 $i = 0;
                 foreach ($values[$path] as $value) {
-                    $matches = array();
+                    $matches = [];
                     $match = preg_match(
                         "/^(.+):(?:[ ]?)(\\w+)$/", $value, $matches
                     );
@@ -769,7 +769,7 @@ class FormDisplay
      */
     private function _getOptName($path)
     {
-        return str_replace(array('Servers/1/', '/'), array('Servers/', '_'), $path);
+        return str_replace(['Servers/1/', '/'], ['Servers/', '_'], $path);
     }
 
     /**
@@ -786,7 +786,7 @@ class FormDisplay
         $this->_userprefsKeys = array_flip(UserFormList::getFields());
         // read real config for user preferences display
         $userprefs_disallow = $GLOBALS['PMA_Config']->get('is_setup')
-            ? $this->_configFile->get('UserprefsDisallow', array())
+            ? $this->_configFile->get('UserprefsDisallow', [])
             : $GLOBALS['cfg']['UserprefsDisallow'];
         $this->_userprefsDisallow = array_flip($userprefs_disallow);
     }
@@ -827,10 +827,10 @@ class FormDisplay
             || $system_path == 'BZipDump'
         ) {
             $comment = '';
-            $funcs = array(
-                'ZipDump'  => array('zip_open', 'gzcompress'),
-                'GZipDump' => array('gzopen', 'gzencode'),
-                'BZipDump' => array('bzopen', 'bzcompress'));
+            $funcs = [
+                'ZipDump'  => ['zip_open', 'gzcompress'],
+                'GZipDump' => ['gzopen', 'gzencode'],
+                'BZipDump' => ['bzopen', 'bzcompress']];
             if (!function_exists($funcs[$system_path][0])) {
                 $comment = sprintf(
                     __(

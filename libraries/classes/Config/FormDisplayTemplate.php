@@ -65,21 +65,21 @@ class FormDisplayTemplate
      */
     public static function displayTabsTop(array $tabs)
     {
-        $items = array();
+        $items = [];
         foreach ($tabs as $tab_id => $tab_name) {
-            $items[] = array(
+            $items[] = [
                 'content' => htmlspecialchars($tab_name),
-                'url' => array(
+                'url' => [
                     'href' => '#' . $tab_id,
-                ),
-            );
+                ],
+            ];
         }
 
         $htmlOutput = Template::get('list/unordered')->render(
-            array(
+            [
                 'class' => 'tabs responsivetable',
                 'items' => $items,
-            )
+            ]
         );
         $htmlOutput .= '<br />';
         $htmlOutput .= '<div class="tabs_contents">';
@@ -100,13 +100,13 @@ class FormDisplayTemplate
         $title = '',
         $description = '',
         $errors = null,
-        array $attributes = array()
+        array $attributes = []
     ) {
         global $_FormDisplayGroup;
 
         $_FormDisplayGroup = 0;
 
-        $attributes = array_merge(array('class' => 'optbox'), $attributes);
+        $attributes = array_merge(['class' => 'optbox'], $attributes);
 
         return Template::get('config/form_display/fieldset_top')->render([
             'attributes' => $attributes,
@@ -156,17 +156,17 @@ class FormDisplayTemplate
 
         $is_setup_script = $GLOBALS['PMA_Config']->get('is_setup');
         if ($icons === null) { // if the static variables have not been initialised
-            $icons = array();
+            $icons = [];
             // Icon definitions:
             // The same indexes will be used in the $icons array.
             // The first element contains the filename and the second
             // element is used for the "alt" and "title" attributes.
-            $icon_init = array(
-                'edit'   => array('b_edit', ''),
-                'help'   => array('b_help', __('Documentation')),
-                'reload' => array('s_reload', ''),
-                'tblops' => array('b_tblops', '')
-            );
+            $icon_init = [
+                'edit'   => ['b_edit', ''],
+                'help'   => ['b_help', __('Documentation')],
+                'reload' => ['s_reload', ''],
+                'tblops' => ['b_tblops', '']
+            ];
             if ($is_setup_script) {
                 // When called from the setup script, we don't have access to the
                 // sprite-aware getImage() function because the PMA_theme class
@@ -275,7 +275,7 @@ class FormDisplayTemplate
             $htmlOutput .= '<select class="all85" ' . $name_id . $field_class . '>';
             $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
             $values_disabled = isset($opts['values_disabled'])
-                ? array_flip($opts['values_disabled']) : array();
+                ? array_flip($opts['values_disabled']) : [];
             foreach ($opts['values'] as $opt_value_key => $opt_value) {
                 // set names for boolean values
                 if (is_bool($opt_value)) {
@@ -450,7 +450,7 @@ class FormDisplayTemplate
             $validator = (array)$validator;
             $v_name = array_shift($validator);
             $v_name = "PMA_" . $v_name;
-            $v_args = array();
+            $v_args = [];
             foreach ($validator as $arg) {
                 $v_args[] = Sanitize::escapeJsString($arg);
             }
@@ -473,7 +473,7 @@ class FormDisplayTemplate
         }
 
         return Template::get('javascript/display')->render(
-            array('js_array' => $js_array,)
+            ['js_array' => $js_array,]
         );
     }
 

@@ -57,39 +57,39 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function providerForTestGenerateWkt()
     {
-        $gis_data1 = array(
-            0 => array(
-                'MULTIPOINT' => array(
+        $gis_data1 = [
+            0 => [
+                'MULTIPOINT' => [
                     'no_of_points' => 2,
-                    0 => array(
+                    0 => [
                         'x' => 5.02,
                         'y' => 8.45
-                    ),
-                    1 => array(
+                    ],
+                    1 => [
                         'x' => 1.56,
                         'y' => 4.36
-                    )
-                )
-            )
-        );
+                    ]
+                ]
+            ]
+        ];
 
         $gis_data2 = $gis_data1;
         $gis_data2[0]['MULTIPOINT']['no_of_points'] = -1;
 
-        return array(
-            array(
+        return [
+            [
                 $gis_data1,
                 0,
                 null,
                 'MULTIPOINT(5.02 8.45,1.56 4.36)'
-            ),
-            array(
+            ],
+            [
                 $gis_data2,
                 0,
                 null,
                 'MULTIPOINT(5.02 8.45)'
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -99,13 +99,13 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function testGetShape()
     {
-        $gis_data = array(
+        $gis_data = [
             'numpoints' => 2,
-            'points' => array(
-                0 => array('x' => 5.02, 'y' => 8.45),
-                1 => array('x' => 6.14, 'y' => 0.15)
-            )
-        );
+            'points' => [
+                0 => ['x' => 5.02, 'y' => 8.45],
+                1 => ['x' => 6.14, 'y' => 0.15]
+            ]
+        ];
 
         $this->assertEquals(
             $this->object->getShape($gis_data),
@@ -120,33 +120,33 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function providerForTestGenerateParams()
     {
-        $temp1 = array(
-            'MULTIPOINT' => array(
+        $temp1 = [
+            'MULTIPOINT' => [
                 'no_of_points' => 2,
-                0 => array('x' => '5.02', 'y' => '8.45'),
-                1 => array('x' => '6.14', 'y' => '0.15')
-            )
-        );
+                0 => ['x' => '5.02', 'y' => '8.45'],
+                1 => ['x' => '6.14', 'y' => '0.15']
+            ]
+        ];
         $temp2 = $temp1;
         $temp2['gis_type'] = 'MULTIPOINT';
 
-        return array(
-            array(
+        return [
+            [
                 "'MULTIPOINT(5.02 8.45,6.14 0.15)',124",
                 null,
-                array(
+                [
                     'srid' => '124',
                     0 => $temp1
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'MULTIPOINT(5.02 8.45,6.14 0.15)',
                 2,
-                array(
+                [
                     2 => $temp2
-                )
-            )
-        );
+                ]
+            ]
+        ];
     }
 
     /**
@@ -156,17 +156,17 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function providerForTestScaleRow()
     {
-        return array(
-            array(
+        return [
+            [
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
-                array(
+                [
                     'minX' => 12,
                     'maxX' => 69,
                     'minY' => 23,
                     'maxY' => 78
-                )
-            )
-        );
+                ]
+            ]
+        ];
     }
 
 
@@ -201,20 +201,20 @@ class GisMultiPointTest extends GisGeomTestCase
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
-        return array(
-            array(
+        return [
+            [
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'image',
                 '#B02EE0',
-                array(
+                [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
                     'height' => 150
-                ),
+                ],
                 imagecreatetruecolor(120, 150),
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -245,20 +245,20 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function providerForPrepareRowAsPdf()
     {
-        return array(
-            array(
+        return [
+            [
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'pdf',
                 '#B02EE0',
-                array(
+                [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
                     'height' => 150
-                ),
+                ],
                 new TCPDF(),
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -289,17 +289,17 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function providerForPrepareRowAsSvg()
     {
-        return array(
-            array(
+        return [
+            [
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 'svg',
                 '#B02EE0',
-                array(
+                [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
                     'height' => 150
-                ),
+                ],
                 '/^(<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
                 . 'vector" fill="white" stroke="#B02EE0" stroke-width="2" id="svg)'
                 . '(\d+)("\/><circle cx="114" cy="242" r="3" name="svg" class="mult'
@@ -311,8 +311,8 @@ class GisMultiPointTest extends GisGeomTestCase
                 . 'width="2" id="svg)(\d+)("\/><circle cx="46" cy="132" r="3" name='
                 . '"svg" class="multipoint vector" fill="white" stroke="#B02EE0" '
                 . 'stroke-width="2" id="svg)(\d+)("\/>)$/'
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -346,18 +346,18 @@ class GisMultiPointTest extends GisGeomTestCase
      */
     public function providerForPrepareRowAsOl()
     {
-        return array(
-            array(
+        return [
+            [
                 'MULTIPOINT(12 35,48 75,69 23,25 45,14 53,35 78)',
                 4326,
                 'Ol',
                 '#B02EE0',
-                array(
+                [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
-                ),
+                ],
                 'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.Lon'
                 . 'Lat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
                 . 'map.getProjectionObject())); bound.extend(new OpenLayers.LonLat'
@@ -378,7 +378,7 @@ class GisMultiPointTest extends GisGeomTestCase
                 . ')))), null, {"pointRadius":3,"fillColor":"#ffffff","strokeColor"'
                 . ':"#B02EE0","strokeWidth":2,"label":"Ol","labelYOffset":-8,'
                 . '"fontSize":10}));'
-            )
-        );
+            ]
+        ];
     }
 }

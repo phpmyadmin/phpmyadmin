@@ -49,23 +49,23 @@ $server_slave_replication = $GLOBALS['dbi']->fetchResult('SHOW SLAVE STATUS');
 /**
  * replication types
  */
-$replication_types = array('master', 'slave');
+$replication_types = ['master', 'slave'];
 
 
 /**
  * define variables for master status
  */
-$master_variables = array(
+$master_variables = [
     'File',
     'Position',
     'Binlog_Do_DB',
     'Binlog_Ignore_DB',
-);
+];
 
 /**
  * Define variables for slave status
  */
-$slave_variables  = array(
+$slave_variables  = [
     'Slave_IO_State',
     'Master_Host',
     'Master_User',
@@ -99,7 +99,7 @@ $slave_variables  = array(
     'Master_SSL_Cipher',
     'Master_SSL_Key',
     'Seconds_Behind_Master',
-);
+];
 /**
  * define important variables, which need to be watched for
  * correct running of replication in slave mode
@@ -109,20 +109,20 @@ $slave_variables  = array(
 // TODO change to regexp or something, to allow for negative match.
 // To e.g. highlight 'Last_Error'
 //
-$slave_variables_alerts = array(
+$slave_variables_alerts = [
     'Slave_IO_Running' => 'No',
     'Slave_SQL_Running' => 'No',
-);
-$slave_variables_oks = array(
+];
+$slave_variables_oks = [
     'Slave_IO_Running' => 'Yes',
     'Slave_SQL_Running' => 'Yes',
-);
+];
 
 // check which replication is available and
 // set $server_{master/slave}_status and assign values
 
 // replication info is more easily passed to functions
-$GLOBALS['replication_info'] = array();
+$GLOBALS['replication_info'] = [];
 
 foreach ($replication_types as $type) {
     if (count(${"server_{$type}_replication"}) > 0) {

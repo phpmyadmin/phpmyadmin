@@ -20,7 +20,7 @@ use PhpMyAdmin\Util;
 require_once 'libraries/common.inc.php';
 
 // Check parameters
-Util::checkParameters(array('db'));
+Util::checkParameters(['db']);
 
 $transformations = new Transformations();
 
@@ -49,7 +49,7 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
-        'db_structure.php' . Url::getCommon(array('db' => $db))
+        'db_structure.php' . Url::getCommon(['db' => $db])
     );
 }
 

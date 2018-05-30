@@ -50,7 +50,7 @@ class Transformations
      */
     public function getOptions($option_string)
     {
-        $result = array();
+        $result = [];
 
         if (strlen($option_string) === 0
             || ! $transform_options = preg_split('/,/', $option_string)
@@ -101,23 +101,23 @@ class Transformations
             return $stack;
         }
 
-        $stack = array();
-        $sub_dirs = array(
+        $stack = [];
+        $sub_dirs = [
             'Input/' => 'input_',
             'Output/' => '',
             '' => ''
-        );
+        ];
 
         foreach ($sub_dirs as $sd => $prefix) {
             $handle = opendir('libraries/classes/Plugins/Transformations/' . $sd);
 
             if (! $handle) {
-                $stack[$prefix . 'transformation'] = array();
-                $stack[$prefix . 'transformation_file'] = array();
+                $stack[$prefix . 'transformation'] = [];
+                $stack[$prefix . 'transformation_file'] = [];
                 continue;
             }
 
-            $filestack = array();
+            $filestack = [];
             while ($file = readdir($handle)) {
                 // Ignore hidden files
                 if ($file[0] == '.') {
@@ -227,7 +227,7 @@ class Transformations
     public function fixUpMime($value)
     {
         $value = str_replace(
-            array("jpeg", "png"), array("JPEG", "PNG"), $value
+            ["jpeg", "png"], ["JPEG", "PNG"], $value
         );
         return str_replace(
             ' ',

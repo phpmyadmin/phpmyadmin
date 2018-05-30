@@ -49,23 +49,23 @@ class DescriptionTest extends PmaTestCase
      */
     public function getValues()
     {
-        return array(
-            array(
+        return [
+            [
                 'AllowArbitraryServer',
                 'name',
                 'Allow login to any MySQL server',
-            ),
-            array(
+            ],
+            [
                 'UnknownSetting',
                 'name',
                 'UnknownSetting',
-            ),
-            array(
+            ],
+            [
                 'UnknownSetting',
                 'desc',
                 '',
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -89,16 +89,16 @@ class DescriptionTest extends PmaTestCase
      */
     public function testAll()
     {
-        $nested = array(
+        $nested = [
             'Export',
             'Import',
             'Schema',
             'DBG',
             'DefaultTransformations',
             'SQLQuery',
-        );
+        ];
 
-        $cfg = array();
+        $cfg = [];
         include './libraries/config.default.php';
         foreach ($cfg as $key => $value) {
             $this->assertGet($key);

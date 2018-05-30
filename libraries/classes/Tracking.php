@@ -53,7 +53,7 @@ class Tracking
     public function filter(
         array $data, $filter_ts_from, $filter_ts_to, array $filter_users
     ) {
-        $tmp_entries = array();
+        $tmp_entries = [];
         $id = 0;
         foreach ($data as $entry) {
             $timestamp = strtotime($entry['date']);
@@ -62,12 +62,12 @@ class Tracking
                 && $timestamp <= $filter_ts_to
                 && (in_array('*', $filter_users) || $filtered_user)
             ) {
-                $tmp_entries[] = array(
+                $tmp_entries[] = [
                     'id'        => $id,
                     'timestamp' => $timestamp,
                     'username'  => $entry['username'],
                     'statement' => $entry['statement']
-                );
+                ];
             }
             $id++;
         }
@@ -216,17 +216,17 @@ class Tracking
                 . ' href="' . $delete_link . '" >' . $delete . '</a></td>';
             $html .= '<td><a href="tbl_tracking.php';
             $html .= Url::getCommon(
-                $url_params + array(
+                $url_params + [
                     'report' => 'true', 'version' => $version['version']
-                )
+                ]
             );
             $html .= '">' . $report . '</a>';
             $html .= '&nbsp;&nbsp;';
             $html .= '<a href="tbl_tracking.php';
             $html .= Url::getCommon(
-                $url_params + array(
+                $url_params + [
                     'snapshot' => 'true', 'version' => $version['version']
-                )
+                ]
             );
             $html .= '">' . $structure . '</a>';
             $html .= '</td>';
@@ -238,11 +238,11 @@ class Tracking
 
         $html .= Template::get('select_all')
             ->render(
-                array(
+                [
                     'pma_theme_image' => $pmaThemeImage,
                     'text_dir'        => $text_dir,
                     'form_name'       => 'versionsForm',
-                )
+                ]
             );
         $html .= Util::getButtonOrImage(
             'submit_mult', 'mult_submit',
@@ -423,7 +423,7 @@ class Tracking
             . htmlspecialchars($_REQUEST['users']) . '" />';
         $str5 = '<input type="hidden" name="list_report" value="1" />'
             . '<input type="submit" value="' . __('Go') . '" />';
-        return array($str1, $str2, $str3, $str4, $str5);
+        return [$str1, $str2, $str3, $str4, $str5];
     }
 
     /**
@@ -455,9 +455,9 @@ class Tracking
 
         $html = '<form method="post" action="tbl_tracking.php'
             . Url::getCommon(
-                $url_params + array(
+                $url_params + [
                     'report' => 'true', 'version' => $_REQUEST['version']
-                )
+                ]
             )
             . '">';
         $html .= Url::getHiddenInputs();
@@ -506,9 +506,9 @@ class Tracking
     ) {
         $html = '<form method="post" action="tbl_tracking.php'
             . Url::getCommon(
-                $url_params + array(
+                $url_params + [
                     'report' => 'true', 'version' => $_REQUEST['version']
-                )
+                ]
             )
             . '">';
         $html .= Url::getHiddenInputs();
@@ -521,7 +521,7 @@ class Tracking
         $html .= '<form class="disableAjax" method="post" action="tbl_tracking.php'
             . Url::getCommon(
                 $url_params
-                + array('report' => 'true', 'version' => $_REQUEST['version'])
+                + ['report' => 'true', 'version' => $_REQUEST['version']]
             )
             . '">';
         $html .= Url::getHiddenInputs();
@@ -601,7 +601,7 @@ class Tracking
             1, 'ddl_versions'
         );
 
-        return array($html, $line_number);
+        return [$html, $line_number];
     }
 
     /**
@@ -700,7 +700,7 @@ class Tracking
         // Unserialize snapshot
         $temp = Core::safeUnserialize($data['schema_snapshot']);
         if ($temp === null) {
-            $temp = array('COLUMNS' => array(), 'INDEXES' => array());
+            $temp = ['COLUMNS' => [], 'INDEXES' => []];
         }
         $columns = $temp['COLUMNS'];
         $indexes = $temp['INDEXES'];
@@ -862,7 +862,7 @@ class Tracking
      */
     public function exportAsSqlExecution(array $entries)
     {
-        $sql_result = array();
+        $sql_result = [];
         foreach ($entries as $entry) {
             $sql_result = $GLOBALS['dbi']->query("/*NOTRACK*/\n" . $entry['statement']);
         }
@@ -1085,7 +1085,7 @@ class Tracking
      */
     public function getEntries(array $data, $filter_ts_from, $filter_ts_to, array $filter_users)
     {
-        $entries = array();
+        $entries = [];
         // Filtering data definition statements
         if ($_REQUEST['logtype'] == 'schema'
             || $_REQUEST['logtype'] == 'schema_and_data'
@@ -1111,7 +1111,7 @@ class Tracking
         }
 
         // Sort it
-        $ids = $timestamps = $usernames = $statements = array();
+        $ids = $timestamps = $usernames = $statements = [];
         foreach ($entries as $key => $row) {
             $ids[$key]        = $row['id'];
             $timestamps[$key] = $row['timestamp'];
@@ -1181,7 +1181,7 @@ class Tracking
      */
     public function extractTableNames(array $table_list, $db, $testing = false)
     {
-        $untracked_tables = array();
+        $untracked_tables = [];
         $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
         foreach ($table_list as $key => $value) {
@@ -1275,18 +1275,18 @@ class Tracking
     private function getStatusButton(array $versionData, $urlQuery)
     {
         $state = $this->getVersionStatus($versionData);
-        $options = array(
-            0 => array(
+        $options = [
+            0 => [
                 'label' => __('not active'),
                 'value' => 'deactivate_now',
                 'selected' => ($state != 'active')
-            ),
-            1 => array(
+            ],
+            1 => [
                 'label' => __('active'),
                 'value' => 'activate_now',
                 'selected' => ($state == 'active')
-            )
-        );
+            ]
+        ];
         $link = 'tbl_tracking.php' . $urlQuery . '&amp;table='
             . htmlspecialchars($versionData['table_name'])
             . '&amp;version=' . $versionData['version'];

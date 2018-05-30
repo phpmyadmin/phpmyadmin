@@ -40,7 +40,7 @@ class FormDisplayTemplateTest extends TestCase
     {
         $_SERVER['REQUEST_URI'] = 'https://www.phpmyadmin.net';
         $GLOBALS['cfg']['ServerDefault'] = '';
-        $result = FormDisplayTemplate::displayFormTop(null, 'posted', array(1));
+        $result = FormDisplayTemplate::displayFormTop(null, 'posted', [1]);
 
         $this->assertContains(
             '<form method="get" action="https://www.phpmyadmin.net" ' .
@@ -76,7 +76,7 @@ class FormDisplayTemplateTest extends TestCase
      */
     public function testDisplayTabsTop()
     {
-        $result = FormDisplayTemplate::displayTabsTop(array('one', 'two'));
+        $result = FormDisplayTemplate::displayTabsTop(['one', 'two']);
 
         $this->assertContains(
             '<ul class="tabs responsivetable"',
@@ -106,8 +106,8 @@ class FormDisplayTemplateTest extends TestCase
      */
     public function testDisplayFieldsetTop()
     {
-        $attributes = array('name' => 'attrname');
-        $errors = array('e1', 'e2');
+        $attributes = ['name' => 'attrname'];
+        $errors = ['e1', 'e2'];
 
         $result = FormDisplayTemplate::displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
 
@@ -150,8 +150,8 @@ class FormDisplayTemplateTest extends TestCase
     public function testDisplayInput()
     {
         $GLOBALS['_FormDislayGroup'] = 1;
-        $opts = array();
-        $opts['errors'] = array('e1');
+        $opts = [];
+        $opts['errors'] = ['e1'];
         $opts['userprefs_allow'] = false;
         $opts['setvalue'] = ':group';
         $opts['doc'] = "https://example.com/";
@@ -220,8 +220,8 @@ class FormDisplayTemplateTest extends TestCase
 
         $GLOBALS['PMA_Config']->set('is_setup', true);
         $GLOBALS['_FormDislayGroup'] = 0;
-        $opts = array();
-        $opts['errors'] = array();
+        $opts = [];
+        $opts['errors'] = [];
         $opts['setvalue'] = 'setVal';
         $opts['comment'] = "testComment";
         $opts['show_restore_default'] = true;
@@ -263,8 +263,8 @@ class FormDisplayTemplateTest extends TestCase
 
         // short_text
         $GLOBALS['_FormDislayGroup'] = 0;
-        $opts = array();
-        $opts['errors'] = array();
+        $opts = [];
+        $opts['errors'] = [];
 
         $result = FormDisplayTemplate::displayInput(
             'test/path', 'testName', 'short_text', 'val',
@@ -291,12 +291,12 @@ class FormDisplayTemplateTest extends TestCase
 
         // select case 1
         $opts['values_escaped'] = true;
-        $opts['values_disabled'] = array(1, 2);
-        $opts['values'] = array(
+        $opts['values_disabled'] = [1, 2];
+        $opts['values'] = [
             1 => 'test',
             'key1' => true,
             'key2' => false,
-        );
+        ];
         $result = FormDisplayTemplate::displayInput(
             'test/path', 'testName', 'select', true,
             '', true, $opts
@@ -323,12 +323,12 @@ class FormDisplayTemplateTest extends TestCase
 
         // select case 2
         $opts['values_escaped'] = false;
-        $opts['values_disabled'] = array(1, 2);
-        $opts['values'] = array(
+        $opts['values_disabled'] = [1, 2];
+        $opts['values'] = [
             'a<b' => 'c&d',
             'key1' => true,
             'key2' => false,
-        );
+        ];
         $result = FormDisplayTemplate::displayInput(
             'test/path', 'testName', 'select', false,
             '', true, $opts
@@ -347,7 +347,7 @@ class FormDisplayTemplateTest extends TestCase
 
         // list
         $result = FormDisplayTemplate::displayInput(
-            'test/path', 'testName', 'list', array('foo', 'bar'),
+            'test/path', 'testName', 'list', ['foo', 'bar'],
             '', true, $opts
         );
 
@@ -486,22 +486,22 @@ class FormDisplayTemplateTest extends TestCase
      */
     public function testAddJsValidate()
     {
-        $validators = array(
-            'one' => array('\\\';', '\r\n\\\'<scrIpt></\' + \'script>'),
-            'two' => array()
-        );
+        $validators = [
+            'one' => ['\\\';', '\r\n\\\'<scrIpt></\' + \'script>'],
+            'two' => []
+        ];
 
-        $js = array();
+        $js = [];
 
         FormDisplayTemplate::addJsValidate('testID', $validators, $js);
 
         $this->assertEquals(
-            array(
+            [
                 'validateField(\'testID\', \'PMA_\\\';\', true, '
                     . '[\'\\\\r\\\\n\\\\\\\''
                     . '<scrIpt></\\\' + \\\'script>\'])',
                 'validateField(\'testID\', \'PMA_\', true)'
-            ),
+            ],
             $js
         );
     }
@@ -514,10 +514,10 @@ class FormDisplayTemplateTest extends TestCase
     public function testDisplayJavascript()
     {
         $this->assertNull(
-            FormDisplayTemplate::displayJavascript(array())
+            FormDisplayTemplate::displayJavascript([])
         );
 
-        $result = FormDisplayTemplate::displayJavascript(array('var i = 1', 'i++'));
+        $result = FormDisplayTemplate::displayJavascript(['var i = 1', 'i++']);
 
         $this->assertEquals(
             '<script type="text/javascript">' . "\n"
@@ -542,7 +542,7 @@ class FormDisplayTemplateTest extends TestCase
      */
     public function testDisplayErrors()
     {
-        $errors = array('<err1>', '&err2');
+        $errors = ['<err1>', '&err2'];
 
         $result = FormDisplayTemplate::displayErrors('err"Name1"', $errors);
 

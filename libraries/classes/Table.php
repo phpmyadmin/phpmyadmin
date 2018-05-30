@@ -56,12 +56,12 @@ class Table
     /**
      * @var array errors occurred
      */
-    var $errors = array();
+    var $errors = [];
 
     /**
      * @var array messages
      */
-    var $messages = array();
+    var $messages = [];
 
     /**
      * @var string  table name
@@ -229,7 +229,7 @@ class Table
         }
 
         // use cached data or load information with SHOW command
-        if ($this->_dbi->getCachedTableContent(array($db, $table)) != null
+        if ($this->_dbi->getCachedTableContent([$db, $table]) != null
             || $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $type = $this->getStatusInfo('TABLE_TYPE');
@@ -282,7 +282,7 @@ class Table
      */
     public function isMerge()
     {
-        return $this->isEngine(array('MERGE', 'MRG_MYISAM'));
+        return $this->isEngine(['MERGE', 'MRG_MYISAM']);
     }
 
     /**
@@ -312,14 +312,14 @@ class Table
 
         // sometimes there is only one entry (ExactRows) so
         // we have to get the table's details
-        if ($this->_dbi->getCachedTableContent(array($db, $table)) == null
+        if ($this->_dbi->getCachedTableContent([$db, $table]) == null
             || $force_read
-            || count($this->_dbi->getCachedTableContent(array($db, $table))) == 1
+            || count($this->_dbi->getCachedTableContent([$db, $table])) == 1
         ) {
             $this->_dbi->getTablesFull($db, $table);
         }
 
-        if ($this->_dbi->getCachedTableContent(array($db, $table)) == null) {
+        if ($this->_dbi->getCachedTableContent([$db, $table]) == null) {
             // happens when we enter the table creation dialog
             // or when we really did not get any status info, for example
             // when $table == 'TABLE_NAMES' after the user tried SHOW TABLES
@@ -327,12 +327,12 @@ class Table
         }
 
         if (null === $info) {
-            return $this->_dbi->getCachedTableContent(array($db, $table));
+            return $this->_dbi->getCachedTableContent([$db, $table]);
         }
 
         // array_key_exists allows for null values
         if (!array_key_exists(
-            $info, $this->_dbi->getCachedTableContent(array($db, $table))
+            $info, $this->_dbi->getCachedTableContent([$db, $table])
         )
         ) {
             if (! $disable_error) {
@@ -344,7 +344,7 @@ class Table
             return false;
         }
 
-        return $this->_dbi->getCachedTableContent(array($db, $table, $info));
+        return $this->_dbi->getCachedTableContent([$db, $table, $info]);
     }
 
     /**
@@ -430,8 +430,8 @@ class Table
      */
     public function getCreateOptions() {
         $table_options = $this->getStatusInfo('CREATE_OPTIONS', false, true);
-        $create_options_tmp = empty($table_options) ? array() : explode(' ', $table_options);
-        $create_options = array();
+        $create_options_tmp = empty($table_options) ? [] : explode(' ', $table_options);
+        $create_options = [];
         // export create options by its name as variables into global namespace
         // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
         // unset($pack_keys);
@@ -658,29 +658,29 @@ class Table
         $db = $this->_db_name;
         $table = $this->_name;
 
-        if ($this->_dbi->getCachedTableContent(array($db, $table, 'ExactRows')) != null) {
+        if ($this->_dbi->getCachedTableContent([$db, $table, 'ExactRows']) != null) {
             $row_count = $this->_dbi->getCachedTableContent(
-                array($db, $table, 'ExactRows')
+                [$db, $table, 'ExactRows']
             );
             return $row_count;
         }
         $row_count = false;
 
         if (! $force_exact) {
-            if (($this->_dbi->getCachedTableContent(array($db, $table, 'Rows')) == null)
+            if (($this->_dbi->getCachedTableContent([$db, $table, 'Rows']) == null)
                 && !$is_view
             ) {
                 $tmp_tables = $this->_dbi->getTablesFull($db, $table);
                 if (isset($tmp_tables[$table])) {
                     $this->_dbi->cacheTableContent(
-                        array($db, $table),
+                        [$db, $table],
                         $tmp_tables[$table]
                     );
                 }
             }
-            if ($this->_dbi->getCachedTableContent(array($db, $table, 'Rows')) != null) {
+            if ($this->_dbi->getCachedTableContent([$db, $table, 'Rows']) != null) {
                 $row_count = $this->_dbi->getCachedTableContent(
-                    array($db, $table, 'Rows')
+                    [$db, $table, 'Rows']
                 );
             } else {
                 $row_count = false;
@@ -725,7 +725,7 @@ class Table
             }
         }
         if ($row_count) {
-            $this->_dbi->cacheTableContent(array($db, $table, 'ExactRows'), $row_count);
+            $this->_dbi->cacheTableContent([$db, $table, 'ExactRows'], $row_count);
         }
 
         return $row_count;
@@ -797,21 +797,21 @@ class Table
             return true;
         }
 
-        $select_parts = array();
-        $row_fields = array();
+        $select_parts = [];
+        $row_fields = [];
         foreach ($get_fields as $get_field) {
             $select_parts[] = Util::backquote($get_field);
             $row_fields[$get_field] = 'cc';
         }
 
-        $where_parts = array();
+        $where_parts = [];
         foreach ($where_fields as $_where => $_value) {
             $where_parts[] = Util::backquote($_where) . ' = \''
                 . $GLOBALS['dbi']->escapeString($_value) . '\'';
         }
 
-        $new_parts = array();
-        $new_value_parts = array();
+        $new_parts = [];
+        $new_value_parts = [];
         foreach ($new_fields as $_where => $_value) {
             $new_parts[] = Util::backquote($_where);
             $new_value_parts[] = $GLOBALS['dbi']->escapeString($_value);
@@ -830,7 +830,7 @@ class Table
         );
 
         while ($table_copy_row = @$GLOBALS['dbi']->fetchAssoc($table_copy_rs)) {
-            $value_parts = array();
+            $value_parts = [];
             foreach ($table_copy_row as $_key => $_val) {
                 if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
                     $value_parts[] = $GLOBALS['dbi']->escapeString($_val);
@@ -943,10 +943,10 @@ class Table
                 "export",
                 "sql",
                 'libraries/classes/Plugins/Export/',
-                array(
+                [
                     'export_type' => 'table',
                     'single_table' => false,
-                )
+                ]
             );
 
             $no_constraints_comments = true;
@@ -1001,13 +1001,13 @@ class Table
                 $tbl = new Table($target_db, $target_table);
 
                 $statement->options = new OptionsArray(
-                    array(
+                    [
                         $tbl->isView() ? 'VIEW' : 'TABLE',
                         'IF EXISTS',
-                    )
+                    ]
                 );
 
-                $statement->fields = array($destination);
+                $statement->fields = [$destination];
 
                 // Building the query.
                 $drop_query = $statement->build() . ';';
@@ -1278,15 +1278,15 @@ class Table
         // duplicating the bookmarks must not be done here, but
         // just once per db
 
-        $get_fields = array('display_field');
-        $where_fields = array(
+        $get_fields = ['display_field'];
+        $where_fields = [
             'db_name' => $source_db,
             'table_name' => $source_table
-        );
-        $new_fields = array(
+        ];
+        $new_fields = [
             'db_name' => $target_db,
             'table_name' => $target_table
-        );
+        ];
         self::duplicateInfo(
             'displaywork',
             'table_info',
@@ -1298,20 +1298,20 @@ class Table
         /**
          * @todo revise this code when we support cross-db relations
          */
-        $get_fields = array(
+        $get_fields = [
             'master_field',
             'foreign_table',
             'foreign_field'
-        );
-        $where_fields = array(
+        ];
+        $where_fields = [
             'master_db' => $source_db,
             'master_table' => $source_table
-        );
-        $new_fields = array(
+        ];
+        $new_fields = [
             'master_db' => $target_db,
             'foreign_db' => $target_db,
             'master_table' => $target_table
-        );
+        ];
         self::duplicateInfo(
             'relwork',
             'relation',
@@ -1320,20 +1320,20 @@ class Table
             $new_fields
         );
 
-        $get_fields = array(
+        $get_fields = [
             'foreign_field',
             'master_table',
             'master_field'
-        );
-        $where_fields = array(
+        ];
+        $where_fields = [
             'foreign_db' => $source_db,
             'foreign_table' => $source_table
-        );
-        $new_fields = array(
+        ];
+        $new_fields = [
             'master_db' => $target_db,
             'foreign_db' => $target_db,
             'foreign_table' => $target_table
-        );
+        ];
         self::duplicateInfo(
             'relwork',
             'relation',
@@ -1547,11 +1547,11 @@ class Table
         );
         $uniques = $this->_dbi->fetchResult(
             $sql,
-            array('Key_name', null),
+            ['Key_name', null],
             'Column_name'
         );
 
-        $return = array();
+        $return = [];
         foreach ($uniques as $index) {
             if (count($index) > 1) {
                 continue;
@@ -1590,7 +1590,7 @@ class Table
      */
     private function _formatColumns(array $indexed, $backquoted, $fullName)
     {
-        $return = array();
+        $return = [];
         foreach ($indexed as $column) {
             $return[] = ($fullName ? $this->getFullName($backquoted) . '.' : '')
                 . ($backquoted ? Util::backquote($column) : $column);
@@ -1658,7 +1658,7 @@ class Table
             return $this->_dbi->getFieldsMeta($move_columns_sql_result);
         } else {
             // unsure how to reproduce but it was seen on the reporting server
-            return array();
+            return [];
         }
     }
 
@@ -1672,7 +1672,7 @@ class Table
     public function getNonGeneratedColumns($backquoted = true)
     {
         $columns_meta_query = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
-        $ret = array();
+        $ret = [];
 
         $columns_meta_query_result = $this->_dbi->fetchResult(
             $columns_meta_query
@@ -1718,7 +1718,7 @@ class Table
             return json_decode($row[0], true);
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -1812,7 +1812,7 @@ class Table
             $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name]
             [$this->_name] = $cfgRelation['uiprefswork']
                 ?  $this->getUiPrefsFromDb()
-                : array();
+                : [];
         }
         $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$server_id]
         [$this->_db_name][$this->_name];
@@ -1981,7 +1981,7 @@ class Table
     public function getReservedColumnNames()
     {
         $columns = $this->getColumns(false);
-        $return = array();
+        $return = [];
         foreach ($columns as $column) {
             $temp = explode('.', $column);
             $column_name = $temp[2];
@@ -1999,7 +1999,7 @@ class Table
      */
     public function getNameAndTypeOfTheColumns()
     {
-        $columns = array();
+        $columns = [];
         foreach ($this->_dbi->getColumnsFull(
             $this->_db_name, $this->_name
         ) as $row) {
@@ -2088,7 +2088,7 @@ class Table
             break;
         } // end switch
 
-        $index_fields = array();
+        $index_fields = [];
         foreach ($index->getColumns() as $key => $column) {
             $index_fields[$key] = Util::backquote($column->getName());
             if ($column->getSubPart()) {
@@ -2117,7 +2117,7 @@ class Table
         if ($index->getChoice() != 'SPATIAL'
             && $index->getChoice() != 'FULLTEXT'
             && in_array($type, Index::getIndexTypes())
-            && ! $this->isEngine(array('TOKUDB'))
+            && ! $this->isEngine(['TOKUDB'])
         ) {
             $sql_query .= ' USING ' . $type;
         }
@@ -2450,12 +2450,12 @@ class Table
             }
         } // end foreach
 
-        return array(
+        return [
             $html_output,
             $preview_sql_data,
             $display_query,
             $seen_error
-        );
+        ];
     }
 
     /**
@@ -2557,10 +2557,10 @@ class Table
         if ($column != null) {
             $expression = isset($fields[$column]['expr']) ?
                 substr($fields[$column]['expr'], 1, -1) : '';
-            return array($column => $expression);
+            return [$column => $expression];
         }
 
-        $ret = array();
+        $ret = [];
         foreach ($fields as $field => $options) {
             if (isset($options['expr'])) {
                 $ret[$field] = substr($options['expr'], 1, -1);
@@ -2611,7 +2611,7 @@ class Table
      */
     public function getColumnsWithIndex($types)
     {
-        $columns_with_index = array();
+        $columns_with_index = [];
         foreach (
             Index::getFromTableByChoice(
                 $this->_name,

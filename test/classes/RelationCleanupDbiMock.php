@@ -23,8 +23,8 @@ class RelationCleanupDbiMock extends DatabaseInterface
     var $index;
     var $assocIndex;
     var $totalNum;
-    var $values = array();
-    var $indexs = array();
+    var $values = [];
+    var $indexs = [];
 
     /**
      * Constructor
@@ -35,7 +35,7 @@ class RelationCleanupDbiMock extends DatabaseInterface
          $this->index = 0;
          $this->assocIndex = 0;
          $this->totalNum = 2;
-         $this->values = array(
+         $this->values = [
              'bookmark',
              'relation',
              'table_info',
@@ -50,8 +50,8 @@ class RelationCleanupDbiMock extends DatabaseInterface
              'users',
              'usergroups',
              'navigationhiding',
-         );
-         $this->indexs = array(
+         ];
+         $this->indexs = [
              'bookmark' => 0,
              'relation' => 1,
              'table_info' => 2,
@@ -66,7 +66,7 @@ class RelationCleanupDbiMock extends DatabaseInterface
              'users' => 11,
              'usergroups' => 12,
              'navigationhiding' => 13,
-         );
+         ];
     }
 
     /**
@@ -78,7 +78,7 @@ class RelationCleanupDbiMock extends DatabaseInterface
      */
     public function fetchRow($result)
     {
-        $curr_table = array();
+        $curr_table = [];
         if ($this->index < count($this->values)) {
             $curr_table[0] = $this->values[$this->index];
             $this->index++;
@@ -200,9 +200,9 @@ class RelationCleanupDbiMock extends DatabaseInterface
         string $type = 'ASSOC',
         $link = null
     ) {
-        return array(
+        return [
             'display_field' => "PMA_display_field"
-        );
+        ];
     }
 
     /**
@@ -214,7 +214,7 @@ class RelationCleanupDbiMock extends DatabaseInterface
      */
     public function fetchAssoc($result)
     {
-        $assocResult = array();
+        $assocResult = [];
         if ($this->assocIndex < $this->totalNum) {
             $assocResult['db_name'] = "db_name" . $this->assocIndex;
             $assocResult['comment'] = "comment" . $this->assocIndex;

@@ -89,10 +89,10 @@ class TableIndexesController extends TableController
         // Get fields and stores their name/type
         if (isset($_REQUEST['create_edit_table'])) {
             $fields = json_decode($_REQUEST['columns'], true);
-            $index_params = array(
+            $index_params = [
                 'Non_unique' => ($_REQUEST['index']['Index_choice'] == 'UNIQUE')
                     ? '0' : '1',
-            );
+            ];
             $this->index->set($index_params);
             $add_fields = count($fields);
         } else {
@@ -100,10 +100,10 @@ class TableIndexesController extends TableController
                 ->getNameAndTypeOfTheColumns();
         }
 
-        $form_params = array(
+        $form_params = [
             'db' => $this->db,
             'table' => $this->table,
-        );
+        ];
 
         if (isset($_REQUEST['create_index'])) {
             $form_params['create_index'] = 1;
@@ -117,13 +117,13 @@ class TableIndexesController extends TableController
 
         $this->response->addHTML(
             Template::get('table/index_form')->render(
-                array(
+                [
                     'fields' => $fields,
                     'index' => $this->index,
                     'form_params' => $form_params,
                     'add_fields' => $add_fields,
                     'create_edit_table' => isset($_REQUEST['create_edit_table'])
-                )
+                ]
             )
         );
     }
@@ -149,9 +149,9 @@ class TableIndexesController extends TableController
                 'sql_data',
                 Template::get('preview_sql')
                     ->render(
-                        array(
+                        [
                             'query_data' => $sql_query
-                        )
+                        ]
                     )
             );
         } elseif (!$error) {

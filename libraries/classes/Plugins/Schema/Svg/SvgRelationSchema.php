@@ -38,9 +38,9 @@ class SvgRelationSchema extends ExportRelationSchema
     /**
      * @var PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
      */
-    private $_tables = array();
+    private $_tables = [];
     /** @var RelationStatsDia[] Relations */
-    private $_relations = array();
+    private $_relations = [];
     private $_xMax = 0;
     private $_yMax = 0;
     private $_xMin = 100000;

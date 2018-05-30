@@ -29,9 +29,9 @@ class GisVisualization
     /**
      * @var array   Set of default settings values are here.
      */
-    private $_settings = array(
+    private $_settings = [
         // Array of colors to be used for GIS visualizations.
-        'colors' => array(
+        'colors' => [
             '#B02EE0',
             '#E0642E',
             '#E0D62E',
@@ -49,12 +49,12 @@ class GisVisualization
             '#238C74',
             '#4C489B',
             '#87C9BF',
-        ),
+        ],
         // The width of the GIS visualization.
         'width'  => 600,
         // The height of the GIS visualization.
         'height' => 450,
-    );
+    ];
     /**
      * @var array   Options that the user has specified.
      */
@@ -211,10 +211,10 @@ class GisVisualization
         $modified_result = $GLOBALS['dbi']->tryQuery($this->_modified_sql);
 
         if ($modified_result === false) {
-            return array();
+            return [];
         }
 
-        $data = array();
+        $data = [];
         while ($row = $GLOBALS['dbi']->fetchAssoc($modified_result)) {
             $data[] = $row;
         }
@@ -543,7 +543,7 @@ class GisVisualization
      */
     private function _scaleDataSet(array $data)
     {
-        $min_max = array();
+        $min_max = [];
         $border = 15;
         // effective width and height of the plot
         $plot_width = $this->_settings['width'] - 2 * $border;
@@ -608,7 +608,7 @@ class GisVisualization
             $y = ($min_max['maxY'] + $min_max['minY'] - $plot_height / $scale) / 2;
         }
 
-        return array(
+        return [
             'scale'  => $scale,
             'x'      => $x,
             'y'      => $y,
@@ -617,7 +617,7 @@ class GisVisualization
             'minY'   => $min_max['minY'],
             'maxY'   => $min_max['maxY'],
             'height' => $this->_settings['height'],
-        );
+        ];
     }
 
     /**

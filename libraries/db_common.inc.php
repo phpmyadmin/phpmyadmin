@@ -18,7 +18,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-PhpMyAdmin\Util::checkParameters(array('db'));
+PhpMyAdmin\Util::checkParameters(['db']);
 
 global $cfg;
 global $db;
@@ -39,7 +39,7 @@ $err_url_0 = 'index.php' . Url::getCommon();
 $err_url = PhpMyAdmin\Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
 )
-    . Url::getCommon(array('db' => $db));
+    . Url::getCommon(['db' => $db]);
 
 /**
  * Ensures the database exists (else move to the "parent" script) and displays
@@ -59,7 +59,7 @@ if (! isset($is_db) || ! $is_db) {
         $is_db = false;
     }
     // Not a valid db name -> back to the welcome page
-    $params = array('reload' => '1');
+    $params = ['reload' => '1'];
     if (isset($message)) {
         $params['message'] = $message;
     }
@@ -140,4 +140,4 @@ if (isset($_REQUEST['submitcollation'])
 /**
  * Set parameters for links
  */
-$url_query = Url::getCommon(array('db' => $db));
+$url_query = Url::getCommon(['db' => $db]);

@@ -69,11 +69,11 @@ class ExportExcel extends ExportCsv
             __('Excel edition:')
         );
         $leaf->setValues(
-            array(
+            [
                 'win'           => 'Windows',
                 'mac_excel2003' => 'Excel 2003 / Macintosh',
                 'mac_excel2008' => 'Excel 2008 / Macintosh',
-            )
+            ]
         );
         $generalOptions->addProperty($leaf);
         $leaf = new HiddenPropertyItem(

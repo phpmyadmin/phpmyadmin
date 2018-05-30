@@ -119,10 +119,10 @@ class TableRelationController extends TableController
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
-            array(
+            [
                 'tbl_relation.js',
                 'indexes.js'
-            )
+            ]
         );
 
         // Set the database
@@ -162,14 +162,14 @@ class TableRelationController extends TableController
 
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
-                array(
-                    'url_params' => array(
+                [
+                    'url_params' => [
                         'db' => $GLOBALS['db'],
                         'table' => $GLOBALS['table']
-                    ),
+                    ],
                     'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
                     'cfg_relation' => $this->relation->getRelationsParam(),
-                )
+                ]
             )
         );
         $this->response->addHTML('<div id="structure_content">');
@@ -182,8 +182,8 @@ class TableRelationController extends TableController
         // in mysqli
         $columns = $this->dbi->getColumns($this->db, $this->table);
 
-        $column_array = array();
-        $column_hash_array = array();
+        $column_array = [];
+        $column_hash_array = [];
         $column_array[''] = '';
         foreach ($columns as $column) {
             if (strtoupper($this->tbl_storage_engine) == 'INNODB'
@@ -204,9 +204,9 @@ class TableRelationController extends TableController
                 'table' => $this->table,
                 'cfg_relation' => $this->cfgRelation,
                 'tbl_storage_engine' => $this->tbl_storage_engine,
-                'existrel' => isset($this->existrel) ? $this->existrel : array(),
+                'existrel' => isset($this->existrel) ? $this->existrel : [],
                 'existrel_foreign' => isset($this->existrel_foreign)
-                    ? $this->existrel_foreign['foreign_keys_data'] : array(),
+                    ? $this->existrel_foreign['foreign_keys_data'] : [],
                 'options_array' => $this->options_array,
                 'column_array' => $column_array,
                 'column_hash_array' => $column_hash_array,
@@ -330,7 +330,7 @@ class TableRelationController extends TableController
         } else {
             $columnList = $table_obj->getIndexedColumns(false, false);
         }
-        $columns = array();
+        $columns = [];
         foreach ($columnList as $column) {
             $columns[] = htmlspecialchars($column);
         }
@@ -356,7 +356,7 @@ class TableRelationController extends TableController
      */
     public function getDropdownValueForDbAction()
     {
-        $tables = array();
+        $tables = [];
         $foreign = isset($_REQUEST['foreign']) && $_REQUEST['foreign'] === 'true';
 
         if ($foreign) {

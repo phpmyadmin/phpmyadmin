@@ -37,7 +37,7 @@ if (isset($_REQUEST['splitColumn'])) {
 }
 if (isset($_REQUEST['addNewPrimary'])) {
     $num_fields = 1;
-    $columnMeta = array('Field'=>$table . "_id", 'Extra'=>'auto_increment');
+    $columnMeta = ['Field'=>$table . "_id", 'Extra'=>'auto_increment'];
     $html = $normalization->getHtmlForCreateNewColumn(
         $num_fields, $db, $table, $columnMeta
     );
@@ -75,7 +75,7 @@ $scripts = $header->getScripts();
 $scripts->addFile('normalization.js');
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $normalForm = '1nf';
-if (Core::isValid($_REQUEST['normalizeTo'], array('1nf', '2nf', '3nf'))) {
+if (Core::isValid($_REQUEST['normalizeTo'], ['1nf', '2nf', '3nf'])) {
     $normalForm = $_REQUEST['normalizeTo'];
 }
 if (isset($_REQUEST['createNewTables2NF'])) {

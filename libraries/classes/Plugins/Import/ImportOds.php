@@ -103,7 +103,7 @@ class ImportOds extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = array())
+    public function doImport(array &$sql_data = [])
     {
         global $db, $error, $timeout_passed, $finished;
 
@@ -149,7 +149,7 @@ class ImportOds extends ImportPlugin
         unset($buffer);
 
         if ($xml === false) {
-            $sheets = array();
+            $sheets = [];
             $GLOBALS['message'] = Message::error(
                 __(
                     'The XML file specified was either malformed or incomplete.'
@@ -161,7 +161,7 @@ class ImportOds extends ImportPlugin
             /** @var SimpleXMLElement $root */
             $root = $xml->children('office', true)->{'body'}->{'spreadsheet'};
             if (empty($root)) {
-                $sheets = array();
+                $sheets = [];
                 $GLOBALS['message'] = Message::error(
                     __('Could not parse OpenDocument Spreadsheet!')
                 );
@@ -171,16 +171,16 @@ class ImportOds extends ImportPlugin
             }
         }
 
-        $tables = array();
+        $tables = [];
 
         $max_cols = 0;
 
         $col_count = 0;
-        $col_names = array();
+        $col_names = [];
 
-        $tempRow = array();
-        $tempRows = array();
-        $rows = array();
+        $tempRow = [];
+        $tempRows = [];
+        $rows = [];
 
         /* Iterate over tables */
         /** @var SimpleXMLElement $sheet */
@@ -279,14 +279,14 @@ class ImportOds extends ImportPlugin
 
                 $col_count = 0;
                 $col_names_in_first_row = false;
-                $tempRow = array();
+                $tempRow = [];
             }
 
             /* Skip over empty sheets */
             if (count($tempRows) == 0 || count($tempRows[0]) == 0) {
-                $col_names = array();
-                $tempRow = array();
-                $tempRows = array();
+                $col_names = [];
+                $tempRow = [];
+                $tempRows = [];
                 continue;
             }
 
@@ -311,12 +311,12 @@ class ImportOds extends ImportPlugin
 
             /* Store the table name so we know where to place the row set */
             $tbl_attr = $sheet->attributes('table', true);
-            $tables[] = array((string)$tbl_attr['name']);
+            $tables[] = [(string)$tbl_attr['name']];
 
             /* Store the current sheet in the accumulator */
-            $rows[] = array((string)$tbl_attr['name'], $col_names, $tempRows);
-            $tempRows = array();
-            $col_names = array();
+            $rows[] = [(string)$tbl_attr['name'], $col_names, $tempRows];
+            $tempRows = [];
+            $col_names = [];
             $max_cols = 0;
         }
 
@@ -349,7 +349,7 @@ class ImportOds extends ImportPlugin
         unset($rows);
 
         /* Obtain the best-fit MySQL types for each column */
-        $analyses = array();
+        $analyses = [];
 
         $len = count($tables);
         for ($i = 0; $i < $len; ++$i) {
@@ -414,7 +414,7 @@ class ImportOds extends ImportPlugin
         }
 
         /* We need to concatenate all paragraphs */
-        $values = array();
+        $values = [];
         foreach ($text as $paragraph) {
             $values[] = (string) $paragraph;
         }

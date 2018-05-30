@@ -120,7 +120,7 @@ class ImportLdiTest extends PmaTestCase
         $this->dbi->expects($this->any())->method('numRows')
             ->will($this->returnValue(10));
 
-        $fetchRowResult = array("ON");
+        $fetchRowResult = ["ON"];
         $this->dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue($fetchRowResult));
 

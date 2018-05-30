@@ -47,7 +47,7 @@ class UrlTest extends TestCase
         $expected = '?db=db'
             . htmlentities($separator) . $expected;
 
-        $this->assertEquals($expected, Url::getCommon(array('db' => 'db')));
+        $this->assertEquals($expected, Url::getCommon(['db' => 'db']));
     }
 
     /**
@@ -66,7 +66,7 @@ class UrlTest extends TestCase
         $expected = '?db=db'
             . htmlentities($separator) . 'table=table'
             . htmlentities($separator) . $expected;
-        $params = array('db' => 'db', 'table' => 'table');
+        $params = ['db' => 'db', 'table' => 'table'];
         $this->assertEquals($expected, Url::getCommon($params));
     }
 
@@ -88,7 +88,7 @@ class UrlTest extends TestCase
         $this->assertEquals(
             $expected,
             Url::getCommonRaw(
-                array('db' => 'db', 'table' => 'table'), '#ABC#'
+                ['db' => 'db', 'table' => 'table'], '#ABC#'
             )
         );
     }

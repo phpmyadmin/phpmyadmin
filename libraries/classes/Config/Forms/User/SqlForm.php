@@ -22,8 +22,8 @@ class SqlForm extends BaseForm
      */
     public static function getForms()
     {
-        return array(
-            'Sql_queries' => array(
+        return [
+            'Sql_queries' => [
                 'ShowSQL',
                 'Confirm',
                 'QueryHistoryMax',
@@ -34,14 +34,14 @@ class SqlForm extends BaseForm
                 'LintEnable',
                 'EnableAutocompleteForTablesAndColumns',
                 'DefaultForeignKeyChecks',
-            ),
-            'Sql_box' => array(
+            ],
+            'Sql_box' => [
                 'SQLQuery/Edit',
                 'SQLQuery/Explain',
                 'SQLQuery/ShowAsPHP',
                 'SQLQuery/Refresh',
-            ),
-        );
+            ],
+        ];
     }
 
     /**

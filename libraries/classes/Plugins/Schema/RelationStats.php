@@ -107,10 +107,10 @@ abstract class RelationStats
         $pos = array_search($column, $table->fields);
 
         // x_left, x_right, y
-        return array(
+        return [
             $table->x,
             $table->x + $table->width,
             $table->y + ($pos + 1.5) * $table->heightCell,
-        );
+        ];
     }
 }

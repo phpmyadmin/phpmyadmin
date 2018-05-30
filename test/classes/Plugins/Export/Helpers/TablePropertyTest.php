@@ -29,7 +29,7 @@ class TablePropertyTest extends PmaTestCase
     function setup()
     {
         $GLOBALS['server'] = 0;
-        $row = array(' name ', 'int ', true, ' PRI', '0', 'mysql');
+        $row = [' name ', 'int ', true, ' PRI', '0', 'mysql'];
         $this->object = new TableProperty($row);
     }
 
@@ -129,11 +129,11 @@ class TablePropertyTest extends PmaTestCase
      */
     public function isNotNullProvider()
     {
-        return array(
-            array("NO", "true"),
-            array("", "false"),
-            array("no", "false")
-        );
+        return [
+            ["NO", "true"],
+            ["", "false"],
+            ["no", "false"]
+        ];
     }
 
     /**
@@ -162,13 +162,13 @@ class TablePropertyTest extends PmaTestCase
      */
     public function isUniqueProvider()
     {
-        return array(
-            array("PRI", "true"),
-            array("UNI", "true"),
-            array("", "false"),
-            array("pri", "false"),
-            array("uni", "false"),
-        );
+        return [
+            ["PRI", "true"],
+            ["UNI", "true"],
+            ["", "false"],
+            ["pri", "false"],
+            ["uni", "false"],
+        ];
     }
 
     /**
@@ -197,19 +197,19 @@ class TablePropertyTest extends PmaTestCase
      */
     public function getDotNetPrimitiveTypeProvider()
     {
-        return array(
-            array("int", "int"),
-            array("long", "long"),
-            array("char", "string"),
-            array("varchar", "string"),
-            array("text", "string"),
-            array("longtext", "string"),
-            array("tinyint", "bool"),
-            array("datetime", "DateTime"),
-            array("", "unknown"),
-            array("dummy", "unknown"),
-            array("INT", "unknown")
-        );
+        return [
+            ["int", "int"],
+            ["long", "long"],
+            ["char", "string"],
+            ["varchar", "string"],
+            ["text", "string"],
+            ["longtext", "string"],
+            ["tinyint", "bool"],
+            ["datetime", "DateTime"],
+            ["", "unknown"],
+            ["dummy", "unknown"],
+            ["INT", "unknown"]
+        ];
     }
 
     /**
@@ -238,19 +238,19 @@ class TablePropertyTest extends PmaTestCase
      */
     public function getDotNetObjectTypeProvider()
     {
-        return array(
-            array("int", "Int32"),
-            array("long", "Long"),
-            array("char", "String"),
-            array("varchar", "String"),
-            array("text", "String"),
-            array("longtext", "String"),
-            array("tinyint", "Boolean"),
-            array("datetime", "DateTime"),
-            array("", "Unknown"),
-            array("dummy", "Unknown"),
-            array("INT", "Unknown")
-        );
+        return [
+            ["int", "Int32"],
+            ["long", "Long"],
+            ["char", "String"],
+            ["varchar", "String"],
+            ["text", "String"],
+            ["longtext", "String"],
+            ["tinyint", "Boolean"],
+            ["datetime", "DateTime"],
+            ["", "Unknown"],
+            ["dummy", "Unknown"],
+            ["INT", "Unknown"]
+        ];
     }
 
     /**

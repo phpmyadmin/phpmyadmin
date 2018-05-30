@@ -47,7 +47,7 @@ class Pdf extends PdfLib
     var $topMargin = 10;
     var $scale;
     var $PMA_links;
-    var $Outlines = array();
+    var $Outlines = [];
     var $def_outlines;
     var $widths;
     private $_ff = PdfLib::PMA_PDF_FONT;

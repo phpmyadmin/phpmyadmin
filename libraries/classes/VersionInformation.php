@@ -58,10 +58,10 @@ class VersionInformation
         }
 
         if ($save) {
-            $_SESSION['cache']['version_check'] = array(
+            $_SESSION['cache']['version_check'] = [
                 'response' => $response,
                 'timestamp' => time()
-            );
+            ];
         }
         return $data;
     }
@@ -102,7 +102,7 @@ class VersionInformation
         }
 
         if (!empty($suffix)) {
-            $matches = array();
+            $matches = [];
             if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches)) {
                 $suffix = $matches[1];
                 $result += intval($matches[2]);
@@ -162,10 +162,10 @@ class VersionInformation
                 }
             }
 
-            return array(
+            return [
                 'version' => $release->version,
                 'date' => $release->date,
-            );
+            ];
         }
 
         // no compatible version
@@ -183,7 +183,7 @@ class VersionInformation
     public function evaluateVersionCondition($type, $condition)
     {
         $operator = null;
-        $operators = array("<=", ">=", "!=", "<>", "<", ">", "="); // preserve order
+        $operators = ["<=", ">=", "!=", "<>", "<", ">", "="]; // preserve order
         foreach ($operators as $oneOperator) {
             if (strpos($condition, $oneOperator) === 0) {
                 $operator = $oneOperator;

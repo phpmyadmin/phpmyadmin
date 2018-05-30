@@ -96,11 +96,11 @@ class UserGroups
             $html_output .= '</tr></thead>';
             $html_output .= '<tbody>';
 
-            $userGroups = array();
+            $userGroups = [];
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
                 $groupName = $row['usergroup'];
                 if (! isset($userGroups[$groupName])) {
-                    $userGroups[$groupName] = array();
+                    $userGroups[$groupName] = [];
                 }
                 $userGroups[$groupName][$row['tab']] = $row['allowed'];
             }
@@ -114,9 +114,9 @@ class UserGroups
                 $html_output .= '<td>';
                 $html_output .= '<a class="" href="server_user_groups.php'
                     . Url::getCommon(
-                        array(
+                        [
                             'viewUsers' => 1, 'userGroup' => $groupName
-                        )
+                        ]
                     )
                     . '">'
                     . Util::getIcon('b_usrlist', __('View users'))
@@ -124,9 +124,9 @@ class UserGroups
                 $html_output .= '&nbsp;&nbsp;';
                 $html_output .= '<a class="" href="server_user_groups.php'
                     . Url::getCommon(
-                        array(
+                        [
                             'editUserGroup' => 1, 'userGroup' => $groupName
-                        )
+                        ]
                     )
                     . '">'
                     . Util::getIcon('b_edit', __('Edit')) . '</a>';
@@ -134,9 +134,9 @@ class UserGroups
                 $html_output .= '<a class="deleteUserGroup ajax"'
                     . ' href="server_user_groups.php'
                     . Url::getCommon(
-                        array(
+                        [
                             'deleteUserGroup' => 1, 'userGroup' => $groupName
-                        )
+                        ]
                     )
                     . '">'
                     . Util::getIcon('b_drop', __('Delete')) . '</a>';
@@ -153,7 +153,7 @@ class UserGroups
 
         $html_output .= '<fieldset id="fieldset_add_user_group">';
         $html_output .= '<a href="server_user_groups.php'
-            . Url::getCommon(array('addUserGroup' => 1)) . '">'
+            . Url::getCommon(['addUserGroup' => 1]) . '">'
             . Util::getIcon('b_usradd')
             . __('Add user group') . '</a>';
         $html_output .= '</fieldset>';
@@ -172,7 +172,7 @@ class UserGroups
      */
     public static function getAllowedTabNames(array $row, $level)
     {
-        $tabNames = array();
+        $tabNames = [];
         $tabs = Util::getMenuTabList($level);
         foreach ($tabs as $tab => $tabName) {
             if (! isset($row[$level . '_' . $tab])
@@ -230,7 +230,7 @@ class UserGroups
 
         $html_output .= '<form name="userGroupForm" id="userGroupForm"'
             . ' action="server_user_groups.php" method="post">';
-        $urlParams = array();
+        $urlParams = [];
         if ($userGroup != null) {
             $urlParams['userGroup'] = $userGroup;
             $urlParams['editUserGroupSubmit'] = '1';
@@ -253,11 +253,11 @@ class UserGroups
             $html_output .= '<div class="clearfloat"></div>';
         }
 
-        $allowedTabs = array(
-            'server' => array(),
-            'db'     => array(),
-            'table'  => array()
-        );
+        $allowedTabs = [
+            'server' => [],
+            'db'     => [],
+            'table'  => []
+        ];
         if ($userGroup != null) {
             $cfgRelation = $relation->getRelationsParam();
             $groupTable = Util::backquote($cfgRelation['db'])

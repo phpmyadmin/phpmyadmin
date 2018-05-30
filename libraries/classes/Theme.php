@@ -72,7 +72,7 @@ class Theme
      * @var array List of css files to load
      * @access private
      */
-    private $_cssFiles = array(
+    private $_cssFiles = [
         'common',
         'enum_editor',
         'gis',
@@ -83,7 +83,7 @@ class Theme
         'jqplot',
         'resizable-menu',
         'icons',
-    );
+    ];
 
     /**
      * Loads theme information
@@ -112,7 +112,7 @@ class Theme
             return false;
         }
         // Check that all required data are there
-        $members = array('name', 'version', 'supports');
+        $members = ['name', 'version', 'supports'];
         foreach ($members as $member) {
             if (! isset($data[$member])) {
                 return false;
@@ -427,7 +427,7 @@ class Theme
      */
     function getCssGradient($start_color, $end_color)
     {
-        $result = array();
+        $result = [];
         // Opera 9.5+, IE 9
         $result[] = 'background-image: url(./themes/svg_gradient.php?from='
             . $start_color . '&to=' . $end_color . ');';

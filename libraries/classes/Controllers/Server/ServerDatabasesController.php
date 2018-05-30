@@ -173,7 +173,7 @@ class ServerDatabasesController extends Controller
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
                 )
-                . Url::getCommon(array('db' => $_POST['new_db']))
+                . Url::getCommon(['db' => $_POST['new_db']])
             );
         }
     }
@@ -225,7 +225,7 @@ class ServerDatabasesController extends Controller
         if (empty($_REQUEST['sort_by'])) {
             $this->_sort_by = 'SCHEMA_NAME';
         } else {
-            $sort_by_whitelist = array(
+            $sort_by_whitelist = [
                 'SCHEMA_NAME',
                 'DEFAULT_COLLATION_NAME',
                 'SCHEMA_TABLES',
@@ -234,7 +234,7 @@ class ServerDatabasesController extends Controller
                 'SCHEMA_INDEX_LENGTH',
                 'SCHEMA_LENGTH',
                 'SCHEMA_DATA_FREE'
-            );
+            ];
             if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
                 $this->_sort_by = $_REQUEST['sort_by'];
             } else {
@@ -275,8 +275,8 @@ class ServerDatabasesController extends Controller
             }
         }
 
-        $values = array();
-        $units = array();
+        $values = [];
+        $units = [];
         foreach ($column_order as $stat_name => $stat) {
             if (array_key_exists($stat_name,$first_database)) {
                 if ($stat['format'] == 'byte') {
@@ -291,12 +291,12 @@ class ServerDatabasesController extends Controller
             }
         }
 
-        $_url_params = array(
+        $_url_params = [
             'pos' => $this->_pos,
             'dbstats' => $this->_dbstats,
             'sort_by' => $this->_sort_by,
             'sort_order' => $this->_sort_order,
-        );
+        ];
 
         $html = Template::get('server/databases/databases_header')->render([
             'database_count' => $this->_database_count,
@@ -340,43 +340,43 @@ class ServerDatabasesController extends Controller
      */
     private function _getColumnOrder()
     {
-        $column_order = array();
-        $column_order['DEFAULT_COLLATION_NAME'] = array(
+        $column_order = [];
+        $column_order['DEFAULT_COLLATION_NAME'] = [
             'disp_name' => __('Collation'),
-            'description_function' => array(Charsets::class, 'getCollationDescr'),
+            'description_function' => [Charsets::class, 'getCollationDescr'],
             'format'    => 'string',
             'footer'    => $this->dbi->getServerCollation(),
-        );
-        $column_order['SCHEMA_TABLES'] = array(
+        ];
+        $column_order['SCHEMA_TABLES'] = [
             'disp_name' => __('Tables'),
             'format'    => 'number',
             'footer'    => 0,
-        );
-        $column_order['SCHEMA_TABLE_ROWS'] = array(
+        ];
+        $column_order['SCHEMA_TABLE_ROWS'] = [
             'disp_name' => __('Rows'),
             'format'    => 'number',
             'footer'    => 0,
-        );
-        $column_order['SCHEMA_DATA_LENGTH'] = array(
+        ];
+        $column_order['SCHEMA_DATA_LENGTH'] = [
             'disp_name' => __('Data'),
             'format'    => 'byte',
             'footer'    => 0,
-        );
-        $column_order['SCHEMA_INDEX_LENGTH'] = array(
+        ];
+        $column_order['SCHEMA_INDEX_LENGTH'] = [
             'disp_name' => __('Indexes'),
             'format'    => 'byte',
             'footer'    => 0,
-        );
-        $column_order['SCHEMA_LENGTH'] = array(
+        ];
+        $column_order['SCHEMA_LENGTH'] = [
             'disp_name' => __('Total'),
             'format'    => 'byte',
             'footer'    => 0,
-        );
-        $column_order['SCHEMA_DATA_FREE'] = array(
+        ];
+        $column_order['SCHEMA_DATA_FREE'] = [
             'disp_name' => __('Overhead'),
             'format'    => 'byte',
             'footer'    => 0,
-        );
+        ];
 
         return $column_order;
     }
@@ -466,8 +466,8 @@ class ServerDatabasesController extends Controller
             }
         }
 
-        $values = array();
-        $units = array();
+        $values = [];
+        $units = [];
         foreach ($column_order as $stat_name => $stat) {
             if (array_key_exists($stat_name,$current)) {
                 if ($stat['format'] == 'byte') {

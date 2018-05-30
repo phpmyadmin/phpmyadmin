@@ -109,12 +109,12 @@ class TableSearchController extends TableController
 
         $this->url_query = $url_query;
         $this->_searchType = $searchType;
-        $this->_columnNames = array();
-        $this->_columnNullFlags = array();
-        $this->_columnTypes = array();
-        $this->_columnCollations = array();
+        $this->_columnNames = [];
+        $this->_columnNullFlags = [];
+        $this->_columnTypes = [];
+        $this->_columnCollations = [];
         $this->_geomColumnFlag = false;
-        $this->_foreigners = array();
+        $this->_foreigners = [];
         $this->relation = new Relation();
         // Loads table's information
         $this->_loadTableInfo();
@@ -208,14 +208,14 @@ class TableSearchController extends TableController
             $this->response->getHeader()
                 ->getScripts()
                 ->addFiles(
-                    array(
+                    [
                         'makegrid.js',
                         'sql.js',
                         'tbl_select.js',
                         'tbl_change.js',
                         'vendor/jquery/jquery.uitablefilter.js',
                         'gis_data_editor.js',
-                    )
+                    ]
                 );
 
             if (isset($_REQUEST['range_search'])) {
@@ -240,7 +240,7 @@ class TableSearchController extends TableController
             $this->response->getHeader()
                 ->getScripts()
                 ->addFiles(
-                    array(
+                    [
                         'makegrid.js',
                         'sql.js',
                         'vendor/jqplot/jquery.jqplot.js',
@@ -251,7 +251,7 @@ class TableSearchController extends TableController
                         'vendor/jqplot/plugins/jqplot.cursor.js',
                         'tbl_zoom_plot_jqplot.js',
                         'tbl_change.js',
-                    )
+                    ]
                 );
 
             /**
@@ -331,11 +331,11 @@ class TableSearchController extends TableController
             DatabaseInterface::QUERY_STORE
         );
         $fields_meta = $this->dbi->getFieldsMeta($result);
-        $data = array();
+        $data = [];
         while ($row = $this->dbi->fetchAssoc($result)) {
             //Need a row with indexes as 0,1,2 for the getUniqueCondition
             // hence using a temporary array
-            $tmpRow = array();
+            $tmpRow = [];
             foreach ($row as $val) {
                 $tmpRow[] = $val;
             }
@@ -352,25 +352,25 @@ class TableSearchController extends TableController
             //Append it to row array as where_clause
             $row['where_clause'] = $uniqueCondition[0];
 
-            $tmpData = array(
+            $tmpData = [
                 $_POST['criteriaColumnNames'][0] =>
                     $row[$_POST['criteriaColumnNames'][0]],
                 $_POST['criteriaColumnNames'][1] =>
                     $row[$_POST['criteriaColumnNames'][1]],
                 'where_clause' => $uniqueCondition[0]
-            );
+            ];
             $tmpData[$dataLabel] = ($dataLabel) ? $row[$dataLabel] : '';
             $data[] = $tmpData;
         }
         unset($tmpData);
 
         //Displays form for point data and scatter plot
-        $titles = array(
+        $titles = [
             'Browse' => Util::getIcon(
                 'b_browse',
                 __('Browse foreign values')
             )
-        );
+        ];
         $column_names_hashes = [];
 
         foreach ($this->_columnNames as $columnName) {
@@ -432,7 +432,7 @@ class TableSearchController extends TableController
      */
     public function getDataRowAction()
     {
-        $extra_data = array();
+        $extra_data = [];
         $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`'
             . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];
         $result = $this->dbi->query(
@@ -516,19 +516,19 @@ class TableSearchController extends TableController
         $this->response->addHTML(
             Template::get('secondary_tabs')
                 ->render(
-                    array(
-                        'url_params' => array(
+                    [
+                        'url_params' => [
                             'db'    => $this->db,
                             'table' => $this->table,
-                        ),
+                        ],
                         'sub_tabs'   => $this->_getSubTabs(),
-                    )
+                    ]
                 )
         );
 
         $column_names = $this->_columnNames;
         $column_types = $this->_columnTypes;
-        $types = array();
+        $types = [];
         if ($this->_searchType == 'replace') {
             $num_cols = count($column_names);
             for ($i= 0; $i < $num_cols; $i++) {
@@ -537,7 +537,7 @@ class TableSearchController extends TableController
         }
 
         $criteria_column_names = isset($_POST['criteriaColumnNames']) ? $_POST['criteriaColumnNames'] : null;
-        $keys = array();
+        $keys = [];
         for ($i= 0; $i < 4; $i++) {
             if (isset($criteria_column_names[$i])) {
                 if ($criteria_column_names[$i] != 'pma_null') {
@@ -547,7 +547,7 @@ class TableSearchController extends TableController
         }
 
         $this->response->addHTML(
-            Template::get('table/search/selection_form')->render(array(
+            Template::get('table/search/selection_form')->render([
                 'search_type' => $this->_searchType,
                 'db' => $this->db,
                 'table' => $this->table,
@@ -567,7 +567,7 @@ class TableSearchController extends TableController
                 'max_plot_limit' => ((! empty($_POST['maxPlotLimit']))
                     ? intval($_POST['maxPlotLimit'])
                     : intval($GLOBALS['cfg']['maxRowPlotLimit'])),
-            ))
+            ])
         );
     }
 
@@ -665,7 +665,7 @@ class TableSearchController extends TableController
         }
 
         return Template::get('table/search/replace_preview')->render(
-            array(
+            [
                 'db' => $this->db,
                 'table' => $this->table,
                 'column_index' => $columnIndex,
@@ -673,7 +673,7 @@ class TableSearchController extends TableController
                 'replace_with' => $replaceWith,
                 'use_regex' => $useRegex,
                 'result' => $result
-            )
+            ]
         );
     }
 
@@ -709,7 +709,7 @@ class TableSearchController extends TableController
 
         if (is_array($result)) {
             /* Iterate over possible delimiters to get one */
-            $delimiters = array('/', '@', '#', '~', '!', '$', '%', '^', '&', '_');
+            $delimiters = ['/', '@', '#', '~', '!', '$', '%', '^', '&', '_'];
             $found = false;
             for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
                 if (strpos($find, $delimiters[$i]) === false) {
@@ -816,7 +816,7 @@ class TableSearchController extends TableController
      */
     private function _getSubTabs()
     {
-        $subtabs = array();
+        $subtabs = [];
         $subtabs['search']['icon'] = 'b_search';
         $subtabs['search']['text'] = __('Table search');
         $subtabs['search']['link'] = 'tbl_select.php';
@@ -892,11 +892,11 @@ class TableSearchController extends TableController
             ? $_POST['criteriaColumnOperators'][$search_index] : '');
         $entered_value = (isset($_POST['criteriaValues'])
             ? $_POST['criteriaValues'] : '');
-        $titles = array(
+        $titles = [
             'Browse' => Util::getIcon(
                 'b_browse', __('Browse foreign values')
             )
-        );
+        ];
         //Gets column's type and collation
         $type = $this->_columnTypes[$column_index];
         $collation = $this->_columnCollations[$column_index];
@@ -906,17 +906,17 @@ class TableSearchController extends TableController
             $this->_columnNullFlags[$column_index], $selected_operator
         );
         $func = Template::get('table/search/column_comparison_operators')->render(
-            array(
+            [
                 'search_index' => $search_index,
                 'type_operators' => $typeOperators
-            )
+            ]
         );
         //Gets link to browse foreign data(if any) and criteria inputbox
         $foreignData = $this->relation->getForeignData(
             $this->_foreigners, $this->_columnNames[$column_index], false, '', ''
         );
         $value = Template::get('table/search/input_box')->render(
-            array(
+            [
                 'str' => '',
                 'column_type' => (string) $type,
                 'column_id' => 'fieldID_',
@@ -932,14 +932,14 @@ class TableSearchController extends TableController
                 'db' => $this->db,
                 'titles' => $titles,
                 'in_fbs' => true
-            )
+            ]
         );
-        return array(
+        return [
             'type' => $type,
             'collation' => $collation,
             'func' => $func,
             'value' => $value
-        );
+        ];
     }
 
     /**
@@ -965,7 +965,7 @@ class TableSearchController extends TableController
         }
 
         // else continue to form the where clause from column criteria values
-        $fullWhereClause = array();
+        $fullWhereClause = [];
         foreach ($_POST['criteriaColumnOperators'] as $column_index => $operator) {
             $unaryFlag =  $this->dbi->types->isUnaryOperator($operator);
             $tmp_geom_func = isset($_POST['geom_func'][$column_index])
@@ -1044,12 +1044,12 @@ class TableSearchController extends TableController
     private function _getGeomWhereClause($criteriaValues, $names,
         $func_type, $types, $geom_func = null
     ) {
-        $geom_unary_functions = array(
+        $geom_unary_functions = [
             'IsEmpty' => 1,
             'IsSimple' => 1,
             'IsRing' => 1,
             'IsClosed' => 1,
-        );
+        ];
         $where = '';
 
         // Get details about the geometry functions
@@ -1183,7 +1183,7 @@ class TableSearchController extends TableController
                 if (false !== $emptyKey) {
                     unset($values[$emptyKey]);
                 }
-                $wheres = array();
+                $wheres = [];
                 if (!empty($values)) {
                     $wheres[] = $backquoted_name . ' ' . $func_type
                         . ' (' . implode(',', $values) . ')';

@@ -61,7 +61,7 @@ class Node
      * @var Node[] An array of Node objects that are
      *             direct children of this node
      */
-    public $children = array();
+    public $children = [];
     /**
      * @var Mixed A string used to group nodes, or an array of strings
      *            Only relevant if the node is of type CONTAINER
@@ -200,7 +200,7 @@ class Node
      */
     public function parents($self = false, $containers = false, $groups = false)
     {
-        $parents = array();
+        $parents = [];
         if ($self
             && ($this->type != Node::CONTAINER || $containers)
             && (!$this->is_group || $groups)
@@ -323,8 +323,8 @@ class Node
      */
     public function getPaths()
     {
-        $aPath = array();
-        $aPath_clean = array();
+        $aPath = [];
+        $aPath_clean = [];
         foreach ($this->parents(true, true, false) as $parent) {
             $aPath[] = base64_encode($parent->real_name);
             $aPath_clean[] = $parent->real_name;
@@ -332,8 +332,8 @@ class Node
         $aPath = implode('.', array_reverse($aPath));
         $aPath_clean = array_reverse($aPath_clean);
 
-        $vPath = array();
-        $vPath_clean = array();
+        $vPath = [];
+        $vPath_clean = [];
         foreach ($this->parents(true, true, true) as $parent) {
             $vPath[] = base64_encode($parent->name);
             $vPath_clean[] = $parent->name;
@@ -341,12 +341,12 @@ class Node
         $vPath = implode('.', array_reverse($vPath));
         $vPath_clean = array_reverse($vPath_clean);
 
-        return array(
+        return [
             'aPath'       => $aPath,
             'aPath_clean' => $aPath_clean,
             'vPath'       => $vPath,
             'vPath_clean' => $vPath_clean,
-        );
+        ];
     }
 
     /**
@@ -380,7 +380,7 @@ class Node
             }
 
             if ($GLOBALS['dbs_to_test'] === false) {
-                $retval = array();
+                $retval = [];
                 $query = "SHOW DATABASES ";
                 $query .= $this->_getWhereClause('Database', $searchClause);
                 $handle = $GLOBALS['dbi']->tryQuery($query);
@@ -405,7 +405,7 @@ class Node
                 return $retval;
             }
 
-            $retval = array();
+            $retval = [];
             $count = 0;
             foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
@@ -467,9 +467,9 @@ class Node
             $query = "SHOW DATABASES ";
             $query .= $this->_getWhereClause('Database', $searchClause);
             $handle = $GLOBALS['dbi']->tryQuery($query);
-            $prefixes = array();
+            $prefixes = [];
             if ($handle !== false) {
-                $prefixMap = array();
+                $prefixMap = [];
                 $total = $pos + $maxItems;
                 while ($arr = $GLOBALS['dbi']->fetchArray($handle)) {
                     $prefix = strstr($arr[0], $dbSeparator, true);
@@ -487,7 +487,7 @@ class Node
             $query = "SHOW DATABASES ";
             $query .= $this->_getWhereClause('Database', $searchClause);
             $query .= "AND (";
-            $subClauses = array();
+            $subClauses = [];
             foreach ($prefixes as $prefix) {
                 $subClauses[] = " LOCATE('"
                     . $GLOBALS['dbi']->escapeString($prefix) . $dbSeparator
@@ -500,8 +500,8 @@ class Node
             return $retval;
         }
 
-        $retval = array();
-        $prefixMap = array();
+        $retval = [];
+        $prefixMap = [];
         $total = $pos + $maxItems;
         foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
             $query = "SHOW DATABASES LIKE '" . $db . "'";
@@ -621,7 +621,7 @@ class Node
         }
 
         if ($GLOBALS['dbs_to_test'] !== false) {
-            $prefixMap = array();
+            $prefixMap = [];
             foreach ($this->_getDatabasesToSearch($searchClause) as $db) {
                 $query = "SHOW DATABASES LIKE '" . $db . "'";
                 $handle = $GLOBALS['dbi']->tryQuery($query);
@@ -645,7 +645,7 @@ class Node
             return $retval;
         }
 
-        $prefixMap = array();
+        $prefixMap = [];
         $query = "SHOW DATABASES ";
         $query .= $this->_getWhereClause('Database', $searchClause);
         $handle = $GLOBALS['dbi']->tryQuery($query);
@@ -689,9 +689,9 @@ class Node
     private function _getDatabasesToSearch($searchClause)
     {
         if (!empty($searchClause)) {
-            $databases = array(
+            $databases = [
                 "%" . $GLOBALS['dbi']->escapeString($searchClause) . "%",
-            );
+            ];
         } elseif (!empty($GLOBALS['cfg']['Server']['only_db'])) {
             $databases = $GLOBALS['cfg']['Server']['only_db'];
         } elseif (!empty($GLOBALS['dbs_to_test'])) {
@@ -730,12 +730,12 @@ class Node
 
         if (!empty($GLOBALS['cfg']['Server']['only_db'])) {
             if (is_string($GLOBALS['cfg']['Server']['only_db'])) {
-                $GLOBALS['cfg']['Server']['only_db'] = array(
+                $GLOBALS['cfg']['Server']['only_db'] = [
                     $GLOBALS['cfg']['Server']['only_db'],
-                );
+                ];
             }
             $whereClause .= "AND (";
-            $subClauses = array();
+            $subClauses = [];
             foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
                 $subClauses[] = " " . Util::backquote($columnName)
                     . " LIKE '"
@@ -771,7 +771,7 @@ class Node
             return '';
         }
 
-        $result = array('expander');
+        $result = ['expander'];
 
         if ($this->is_group || $match) {
             $result[] = 'loaded';

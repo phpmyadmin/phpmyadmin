@@ -53,11 +53,11 @@ class PmaTestCase extends TestCase
 
         $mockResponse = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array(
+            ->setMethods([
                 'header', 'headersSent', 'disable', 'isAjax',
                 'setRequestStatus', 'addJSON', 'addHTML',
                 'getFooter', 'getHeader','httpResponseCode',
-            ))
+            ])
             ->getMock();
 
         $mockResponse->expects($this->any())
@@ -81,7 +81,7 @@ class PmaTestCase extends TestCase
                 $header_method = $mockResponse->expects($this->exactly(count($param)))
                     ->method('header');
 
-                call_user_func_array(array($header_method, 'withConsecutive'), $param);
+                call_user_func_array([$header_method, 'withConsecutive'], $param);
 
             } else {
                 $mockResponse->expects($this->once())

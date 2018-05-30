@@ -38,12 +38,12 @@ class Types
      */
     public function getUnaryOperators()
     {
-        return array(
+        return [
             'IS NULL',
             'IS NOT NULL',
             "= ''",
             "!= ''",
-        );
+        ];
     }
 
     /**
@@ -65,10 +65,10 @@ class Types
      */
     public function getNullOperators()
     {
-        return array(
+        return [
             'IS NULL',
             'IS NOT NULL',
-        );
+        ];
     }
 
     /**
@@ -78,10 +78,10 @@ class Types
      */
     public function getEnumOperators()
     {
-        return array(
+        return [
             '=',
             '!=',
-        );
+        ];
     }
 
     /**
@@ -91,7 +91,7 @@ class Types
      */
     public function getTextOperators()
     {
-        return array(
+        return [
             'LIKE',
             'LIKE %...%',
             'NOT LIKE',
@@ -106,7 +106,7 @@ class Types
             'NOT IN (...)',
             'BETWEEN',
             'NOT BETWEEN',
-        );
+        ];
     }
 
     /**
@@ -116,7 +116,7 @@ class Types
      */
     public function getNumberOperators()
     {
-        return array(
+        return [
             '=',
             '>',
             '>=',
@@ -130,7 +130,7 @@ class Types
             'NOT IN (...)',
             'BETWEEN',
             'NOT BETWEEN',
-        );
+        ];
     }
 
     /**
@@ -143,7 +143,7 @@ class Types
      */
     public function getTypeOperators($type, $null)
     {
-        $ret = array();
+        $ret = [];
         $class = $this->getTypeClass($type);
 
         if (strncasecmp($type, 'enum', 4) == 0) {
@@ -472,7 +472,7 @@ class Types
 
         switch ($class) {
         case 'CHAR':
-            $ret = array(
+            $ret = [
                 'AES_DECRYPT',
                 'AES_ENCRYPT',
                 'BIN',
@@ -507,17 +507,17 @@ class Types
                 'USER',
                 'UUID',
                 'VERSION',
-            );
+            ];
 
             if (($isMariaDB && $serverVersion < 100012)
                 || $serverVersion < 50603
             ) {
-                $ret = array_diff($ret, array('INET6_NTOA'));
+                $ret = array_diff($ret, ['INET6_NTOA']);
             }
             return $ret;
 
         case 'DATE':
-            return array(
+            return [
                 'CURRENT_DATE',
                 'CURRENT_TIME',
                 'DATE',
@@ -533,10 +533,10 @@ class Types
                 'UTC_TIME',
                 'UTC_TIMESTAMP',
                 'YEAR',
-            );
+            ];
 
         case 'NUMBER':
-            $ret = array(
+            $ret = [
                 'ABS',
                 'ACOS',
                 'ASCII',
@@ -589,16 +589,16 @@ class Types
                 'WEEKDAY',
                 'WEEKOFYEAR',
                 'YEARWEEK',
-            );
+            ];
             if (($isMariaDB && $serverVersion < 100012)
                 || $serverVersion < 50603
             ) {
-                $ret = array_diff($ret, array('INET6_ATON'));
+                $ret = array_diff($ret, ['INET6_ATON']);
             }
             return $ret;
 
         case 'SPATIAL':
-            return array(
+            return [
                 'GeomFromText',
                 'GeomFromWKB',
 
@@ -617,10 +617,10 @@ class Types
                 'MPointFromWKB',
                 'PolyFromWKB',
                 'MPolyFromWKB',
-            );
+            ];
 
         }
-        return array();
+        return [];
     }
 
     /**
@@ -663,13 +663,13 @@ class Types
      */
     public function getAttributes()
     {
-        return array(
+        return [
             '',
             'BINARY',
             'UNSIGNED',
             'UNSIGNED ZEROFILL',
             'on update CURRENT_TIMESTAMP',
-        );
+        ];
     }
 
     /**
@@ -687,14 +687,14 @@ class Types
         $serverVersion = $this->_dbi->getVersion();
 
         // most used types
-        $ret = array(
+        $ret = [
             'INT',
             'VARCHAR',
             'TEXT',
             'DATE',
-        );
+        ];
         // numeric
-        $ret[_pgettext('numeric types', 'Numeric')] = array(
+        $ret[_pgettext('numeric types', 'Numeric')] = [
             'TINYINT',
             'SMALLINT',
             'MEDIUMINT',
@@ -709,19 +709,19 @@ class Types
             'BIT',
             'BOOLEAN',
             'SERIAL',
-        );
+        ];
 
         // Date/Time
-        $ret[_pgettext('date and time types', 'Date and time')] = array(
+        $ret[_pgettext('date and time types', 'Date and time')] = [
             'DATE',
             'DATETIME',
             'TIMESTAMP',
             'TIME',
             'YEAR',
-        );
+        ];
 
         // Text
-        $ret[_pgettext('string types', 'String')] = array(
+        $ret[_pgettext('string types', 'String')] = [
             'CHAR',
             'VARCHAR',
             '-',
@@ -740,9 +740,9 @@ class Types
             '-',
             'ENUM',
             'SET',
-        );
+        ];
 
-        $ret[_pgettext('spatial types', 'Spatial')] = array(
+        $ret[_pgettext('spatial types', 'Spatial')] = [
             'GEOMETRY',
             'POINT',
             'LINESTRING',
@@ -751,13 +751,13 @@ class Types
             'MULTILINESTRING',
             'MULTIPOLYGON',
             'GEOMETRYCOLLECTION',
-        );
+        ];
 
         if (($isMariaDB && $serverVersion > 100207)
             || (!$isMariaDB && $serverVersion >= 50708)) {
-          $ret['JSON'] = array(
+          $ret['JSON'] = [
               'JSON',
-          );
+          ];
         }
 
         return $ret;
@@ -770,7 +770,7 @@ class Types
      */
     public function getIntegerTypes()
     {
-        return array('tinyint', 'smallint', 'mediumint', 'int', 'bigint');
+        return ['tinyint', 'smallint', 'mediumint', 'int', 'bigint'];
     }
 
     /**
@@ -783,25 +783,25 @@ class Types
      */
     public function getIntegerRange($type, $signed = true)
     {
-        static $min_max_data = array(
-            'unsigned' => array(
-                'tinyint'   => array('0', '255'),
-                'smallint'  => array('0', '65535'),
-                'mediumint' => array('0', '16777215'),
-                'int'       => array('0', '4294967295'),
-                'bigint'    => array('0', '18446744073709551615')
-            ),
-            'signed' => array(
-                'tinyint'   => array('-128', '127'),
-                'smallint'  => array('-32768', '32767'),
-                'mediumint' => array('-8388608', '8388607'),
-                'int'       => array('-2147483648', '2147483647'),
-                'bigint'    => array('-9223372036854775808', '9223372036854775807')
-            )
-        );
+        static $min_max_data = [
+            'unsigned' => [
+                'tinyint'   => ['0', '255'],
+                'smallint'  => ['0', '65535'],
+                'mediumint' => ['0', '16777215'],
+                'int'       => ['0', '4294967295'],
+                'bigint'    => ['0', '18446744073709551615']
+            ],
+            'signed' => [
+                'tinyint'   => ['-128', '127'],
+                'smallint'  => ['-32768', '32767'],
+                'mediumint' => ['-8388608', '8388607'],
+                'int'       => ['-2147483648', '2147483647'],
+                'bigint'    => ['-9223372036854775808', '9223372036854775807']
+            ]
+        ];
         $relevantArray = $signed
             ? $min_max_data['signed']
             : $min_max_data['unsigned'];
-        return isset($relevantArray[$type]) ? $relevantArray[$type] : array('', '');
+        return isset($relevantArray[$type]) ? $relevantArray[$type] : ['', ''];
     }
 }

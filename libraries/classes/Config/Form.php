@@ -104,11 +104,11 @@ class Form
         $value = $this->_configFile->getDbEntry($option_path);
         if ($value === null) {
             trigger_error("$option_path - select options not defined", E_USER_ERROR);
-            return array();
+            return [];
         }
         if (!is_array($value)) {
             trigger_error("$option_path - not a static value list", E_USER_ERROR);
-            return array();
+            return [];
         }
         // convert array('#', 'a', 'b') to array('a', 'b')
         if (isset($value[0]) && $value[0] === '#') {
@@ -120,7 +120,7 @@ class Form
 
         // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
         $has_string_keys = false;
-        $keys = array();
+        $keys = [];
         for ($i = 0, $nb = count($value); $i < $nb; $i++) {
             if (!isset($value[$i])) {
                 $has_string_keys = true;
@@ -152,7 +152,7 @@ class Form
 
         if (is_array($value)) {
             $prefix .= $key . '/';
-            array_walk($value, array($this, '_readFormPathsCallback'), $prefix);
+            array_walk($value, [$this, '_readFormPathsCallback'], $prefix);
             return;
         }
 
@@ -177,13 +177,13 @@ class Form
     protected function readFormPaths(array $form)
     {
         // flatten form fields' paths and save them to $fields
-        $this->fields = array();
-        array_walk($form, array($this, '_readFormPathsCallback'), '');
+        $this->fields = [];
+        array_walk($form, [$this, '_readFormPathsCallback'], '');
 
         // $this->fields is an array of the form: [0..n] => 'field path'
         // change numeric indexes to contain field names (last part of the path)
         $paths = $this->fields;
-        $this->fields = array();
+        $this->fields = [];
         foreach ($paths as $path) {
             $key = ltrim(
                 mb_substr($path, (int) mb_strrpos($path, '/')),

@@ -24,7 +24,7 @@ use TCPDF_FONTS;
 class Pdf extends TCPDF
 {
     var $footerset;
-    var $Alias = array();
+    var $Alias = [];
 
     /**
      * PDF font to use.
@@ -56,7 +56,7 @@ class Pdf extends TCPDF
         $this->AddFont('DejaVuSans', '', 'dejavusans.php');
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
         $this->SetFont(Pdf::PMA_PDF_FONT, '', 14);
-        $this->setFooterFont(array(Pdf::PMA_PDF_FONT, '', 14));
+        $this->setFooterFont([Pdf::PMA_PDF_FONT, '', 14]);
     }
 
     /**

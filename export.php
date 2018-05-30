@@ -58,7 +58,7 @@ if (isset($_GET['check_time_out'])) {
  * TODO: this should be removed to avoid passing user input to GLOBALS
  * without checking
  */
-$post_params = array(
+$post_params = [
         'db',
         'table',
         'what',
@@ -174,7 +174,7 @@ $post_params = array(
         'latex_data_label',
         'latex_null',
         'aliases'
-);
+];
 
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
@@ -184,7 +184,7 @@ foreach ($post_params as $one_post_param) {
 
 $table = $GLOBALS['table'];
 
-PhpMyAdmin\Util::checkParameters(array('what', 'export_type'));
+PhpMyAdmin\Util::checkParameters(['what', 'export_type']);
 
 // sanitize this parameter which will be used below in a file inclusion
 $what = Core::securePath($_POST['what']);
@@ -195,10 +195,10 @@ $export_plugin = Plugins::getPlugin(
     "export",
     $what,
     'libraries/classes/Plugins/Export/',
-    array(
+    [
         'export_type' => $export_type,
         'single_table' => isset($single_table)
-    )
+    ]
 );
 
 // Check export type
@@ -209,10 +209,10 @@ if (empty($export_plugin)) {
 /**
  * valid compression methods
  */
-$compression_methods = array(
+$compression_methods = [
     'zip',
     'gzip'
-);
+];
 
 /**
  * init and variable checking
@@ -273,18 +273,18 @@ if ($_REQUEST['output_format'] == 'astext') {
 if ($export_type == 'server') {
     $err_url = 'server_export.php' . Url::getCommon();
 } elseif ($export_type == 'database' && strlen($db) > 0) {
-    $err_url = 'db_export.php' . Url::getCommon(array('db' => $db));
+    $err_url = 'db_export.php' . Url::getCommon(['db' => $db]);
     // Check if we have something to export
     if (isset($table_select)) {
         $tables = $table_select;
     } else {
-        $tables = array();
+        $tables = [];
     }
 } elseif ($export_type == 'table' && strlen($db) > 0 && strlen($table) > 0) {
     $err_url = 'tbl_export.php' . Url::getCommon(
-        array(
+        [
             'db' => $db, 'table' => $table
-        )
+        ]
     );
 } else {
     Core::fatalError(__('Bad parameters!'));
@@ -294,7 +294,7 @@ if ($export_type == 'server') {
 // export page, Export page aliases are given more
 // preference over SQL Query aliases.
 $parser = new \PhpMyAdmin\SqlParser\Parser($sql_query);
-$aliases = array();
+$aliases = [];
 if ((!empty($parser->statements[0]))
     && ($parser->statements[0] instanceof \PhpMyAdmin\SqlParser\Statements\SelectStatement)
 ) {
@@ -318,7 +318,7 @@ $dump_buffer = '';
 $dump_buffer_len = 0;
 
 // Array of dump_buffers - used in separate file exports
-$dump_buffer_objects = array();
+$dump_buffer_objects = [];
 
 // We send fake headers to avoid browser timeout when buffering
 $time_start = time();
@@ -444,10 +444,10 @@ do {
         );
     } elseif ($export_type == 'database') {
         if (!isset($table_structure) || !is_array($table_structure)) {
-            $table_structure = array();
+            $table_structure = [];
         }
         if (!isset($table_data) || !is_array($table_data)) {
-            $table_data = array();
+            $table_data = [];
         }
         if (!empty($_REQUEST['structure_or_data_forced'])) {
             $table_structure = $tables;
@@ -486,7 +486,7 @@ do {
         }
         if (isset($lock_tables)) {
             try {
-                $export->lockTables($db, array($table), "READ");
+                $export->lockTables($db, [$table], "READ");
                 $export->exportTable(
                     $db, $table, $whatStrucOrData, $export_plugin, $crlf,
                     $err_url, $export_type, $do_relation, $do_comments,

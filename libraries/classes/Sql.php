@@ -178,7 +178,7 @@ class Sql
      */
     private function resultSetContainsUniqueKey($db, $table, array $fields_meta)
     {
-        $resultSetColumnNames = array();
+        $resultSetColumnNames = [];
         foreach ($fields_meta as $oneMeta) {
             $resultSetColumnNames[] = $oneMeta->name;
         }
@@ -220,11 +220,11 @@ class Sql
         if ($foreignData['disp_row'] == null) {
             //Handle the case when number of values
             //is more than $cfg['ForeignKeyMaxLimit']
-            $_url_params = array(
+            $_url_params = [
                     'db' => $db,
                     'table' => $table,
                     'field' => $column
-            );
+            ];
 
             $dropdown = '<span class="curr_value">'
                 . htmlspecialchars($_REQUEST['curr_value'])
@@ -263,7 +263,7 @@ class Sql
         if (! empty($profiling_results)) {
             $url_query = isset($url_query)
                 ? $url_query
-                : Url::getCommon(array('db' => $db));
+                : Url::getCommon(['db' => $db]);
 
             $profiling_table = '';
             $profiling_table .= '<fieldset><legend>' . __('Profiling')
@@ -345,11 +345,11 @@ EOT;
     private function analyzeAndGetTableHtmlForProfilingResults(
         $profiling_results
     ) {
-        $profiling_stats = array(
+        $profiling_stats = [
             'total_time' => 0,
-            'states' => array(),
-        );
-        $chart_json = Array();
+            'states' => [],
+        ];
+        $chart_json = [];
         $i = 1;
         $table = '';
         foreach ($profiling_results as $one_result) {
@@ -359,10 +359,10 @@ EOT;
                     += $one_result['Duration'];
                 $states[ucwords($one_result['Status'])]['calls']++;
             } else {
-                $profiling_stats['states'][ucwords($one_result['Status'])] = array(
+                $profiling_stats['states'][ucwords($one_result['Status'])] = [
                     'total_time' => $one_result['Duration'],
                     'calls' => 1,
-                );
+                ];
             }
             $profiling_stats['total_time'] += $one_result['Duration'];
 
@@ -382,7 +382,7 @@ EOT;
                     = $one_result['Duration'];
             }
         }
-        return array($table, $chart_json, $profiling_stats);
+        return [$table, $chart_json, $profiling_stats];
     }
 
     /**
@@ -438,7 +438,7 @@ EOT;
     {
         $values = $this->getValuesForColumn($db, $table, $column);
         $dropdown = '<option value="">&nbsp;</option>';
-        $dropdown .= $this->getHtmlForOptionsList($values, array($curr_value));
+        $dropdown .= $this->getHtmlForOptionsList($values, [$curr_value]);
         $dropdown = '<select>' . $dropdown . '</select>';
         return $dropdown;
     }
@@ -577,12 +577,12 @@ EOT;
         ) {
             $goto = 'sql.php'
                 . Url::getCommon(
-                    array(
+                    [
                         'db' => $db,
                         'table' => $table,
                         'sql_query' => $sql_query,
                         'id_bookmark'=> 1,
-                    )
+                    ]
                 );
             $bkm_sql_query = isset($complete_query) ? $complete_query : $sql_query;
             $html = '<form action="sql.php" method="post"'
@@ -1023,12 +1023,12 @@ EOT;
     public function storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
         $bkm_label, $bkm_replace
     ) {
-        $bfields = array(
+        $bfields = [
             'bkm_database' => $db,
             'bkm_user'  => $bkm_user,
             'bkm_sql_query' => $sql_query_for_bookmark,
             'bkm_label' => $bkm_label,
-        );
+        ];
 
         // Should we replace bookmark?
         if (isset($bkm_replace)) {
@@ -1076,7 +1076,7 @@ EOT;
         // reopen session
         session_start();
 
-        return array($result, $querytime_after - $querytime_before);
+        return [$result, $querytime_after - $querytime_before];
     }
 
     /**
@@ -1333,9 +1333,9 @@ EOT;
             }
         }
 
-        return array($result, $num_rows, $unlim_num_rows,
+        return [$result, $num_rows, $unlim_num_rows,
             isset($profiling_results) ? $profiling_results : null, $extra_data
-        );
+        ];
     }
     /**
      * Delete related transformation information
@@ -1507,13 +1507,13 @@ EOT;
             }
 
             $response = Response::getInstance();
-            $response->addJSON(isset($extra_data) ? $extra_data : array());
+            $response->addJSON(isset($extra_data) ? $extra_data : []);
 
             if (!empty($analyzed_sql_results['is_select']) &&
                     !isset($extra_data['error'])) {
                 $url_query = isset($url_query) ? $url_query : null;
 
-                $displayParts = array(
+                $displayParts = [
                     'edit_lnk' => null,
                     'del_lnk' => null,
                     'sort_lnk' => '1',
@@ -1521,7 +1521,7 @@ EOT;
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
-                );
+                ];
 
                 $html_output .= $this->getHtmlForSqlQueryResultsTable(
                     $displayResultsObject,
@@ -1690,7 +1690,7 @@ EOT;
                         $browse_dist
                     );
 
-                    $displayParts = array(
+                    $displayParts = [
                         'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                         'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                         'sort_lnk' => '1',
@@ -1698,7 +1698,7 @@ EOT;
                         'bkm_form' => '1',
                         'text_btn' => '1',
                         'pview_lnk' => '1'
-                    );
+                    ];
 
                     $table_html .= $displayResultsObject->getTable(
                         $result,
@@ -1951,7 +1951,7 @@ EOT;
 
         $_SESSION['tmpval']['possible_as_geometry'] = $editable;
 
-        $displayParts = array(
+        $displayParts = [
             'edit_lnk' => $displayResultsObject::UPDATE_ROW,
             'del_lnk' => $displayResultsObject::DELETE_ROW,
             'sort_lnk' => '1',
@@ -1959,10 +1959,10 @@ EOT;
             'bkm_form' => '1',
             'text_btn' => '0',
             'pview_lnk' => '1'
-        );
+        ];
 
         if ($GLOBALS['dbi']->isSystemSchema($db) || !$editable) {
-            $displayParts = array(
+            $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'sort_lnk' => '1',
@@ -1970,11 +1970,11 @@ EOT;
                 'bkm_form' => '1',
                 'text_btn' => '1',
                 'pview_lnk' => '1'
-            );
+            ];
 
         }
         if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-            $displayParts = array(
+            $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'sort_lnk' => '0',
@@ -1982,7 +1982,7 @@ EOT;
                 'bkm_form' => '0',
                 'text_btn' => '0',
                 'pview_lnk' => '0'
-            );
+            ];
         }
 
         if (isset($_REQUEST['table_maintenance'])) {
@@ -2023,7 +2023,7 @@ EOT;
         );
 
         $profiling_chart_html = $this->getHtmlForProfilingChart(
-            $url_query, $db, isset($profiling_results) ? $profiling_results :array()
+            $url_query, $db, isset($profiling_results) ? $profiling_results :[]
         );
 
         $missing_unique_column_msg = $this->getMessageIfMissingColumnIndex(

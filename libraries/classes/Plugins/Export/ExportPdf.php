@@ -113,11 +113,11 @@ class ExportPdf extends ExportPlugin
         );
         $leaf = new RadioPropertyItem("structure_or_data");
         $leaf->setValues(
-            array(
+            [
                 'structure'          => __('structure'),
                 'data'               => __('data'),
                 'structure_and_data' => __('structure and data'),
-            )
+            ]
         );
         $dumpWhat->addProperty($leaf);
         // add the group to the root group
@@ -139,7 +139,7 @@ class ExportPdf extends ExportPlugin
         $pdf = $this->_getPdf();
         $pdf->Open();
 
-        $attr = array('titleFontSize' => 18, 'titleText' => $pdf_report_title);
+        $attr = ['titleFontSize' => 18, 'titleText' => $pdf_report_title];
         $pdf->setAttributes($attr);
         $pdf->setTopMargin(30);
 
@@ -216,19 +216,19 @@ class ExportPdf extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $pdf = $this->_getPdf();
-        $attr = array(
+        $attr = [
             'currentDb'    => $db,
             'currentTable' => $table,
             'dbAlias'      => $db_alias,
             'tableAlias'   => $table_alias,
             'aliases'      => $aliases,
-        );
+        ];
         $pdf->setAttributes($attr);
         $pdf->purpose = __('Dumping data');
         $pdf->mysqlReport($sql_query);
@@ -270,7 +270,7 @@ class ExportPdf extends ExportPlugin
         $do_comments = false,
         $do_mime = false,
         $dates = false,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -291,14 +291,14 @@ class ExportPdf extends ExportPlugin
             $purpose = __('Stand in');
         } // end switch
 
-        $attr = array(
+        $attr = [
             'currentDb'    => $db,
             'currentTable' => $table,
             'dbAlias'      => $db_alias,
             'tableAlias'   => $table_alias,
             'aliases'      => $aliases,
             'purpose'      => $purpose,
-        );
+        ];
         $pdf->setAttributes($attr);
         /**
          * comment display set true as presently in pdf

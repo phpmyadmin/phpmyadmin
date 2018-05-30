@@ -64,7 +64,7 @@ class ListDatabase extends ListAbstract
      */
     protected function retrieve($like_db_name = null)
     {
-        $database_list = array();
+        $database_list = [];
         $command = "";
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $command .= "SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`";
@@ -128,16 +128,16 @@ class ListDatabase extends ListAbstract
         if (is_string($GLOBALS['cfg']['Server']['only_db'])
             && strlen($GLOBALS['cfg']['Server']['only_db']) > 0
         ) {
-            $GLOBALS['cfg']['Server']['only_db'] = array(
+            $GLOBALS['cfg']['Server']['only_db'] = [
                 $GLOBALS['cfg']['Server']['only_db']
-            );
+            ];
         }
 
         if (! is_array($GLOBALS['cfg']['Server']['only_db'])) {
             return false;
         }
 
-        $items = array();
+        $items = [];
 
         foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
 

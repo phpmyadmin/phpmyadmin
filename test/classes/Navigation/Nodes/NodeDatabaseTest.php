@@ -30,7 +30,7 @@ class NodeDatabaseTest extends PmaTestCase
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['DefaultTabDatabase'] = 'structure';
         $GLOBALS['cfg']['MaxNavigationItems'] = 250;
-        $GLOBALS['cfg']['Server'] = array();
+        $GLOBALS['cfg']['Server'] = [];
         $GLOBALS['cfg']['Server']['DisableIS'] = true;
     }
 

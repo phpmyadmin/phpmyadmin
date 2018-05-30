@@ -68,7 +68,7 @@ class IpAllowDenyTest extends TestCase
     {
         unset($_SERVER['REMOTE_ADDR']);
         unset($_SERVER['TEST_FORWARDED_HEADER']);
-        $GLOBALS['cfg']['TrustedProxies'] = array();
+        $GLOBALS['cfg']['TrustedProxies'] = [];
 
         if (!is_null($remote)) {
             $_SERVER['REMOTE_ADDR'] = $remote;
@@ -89,7 +89,7 @@ class IpAllowDenyTest extends TestCase
 
         unset($_SERVER['REMOTE_ADDR']);
         unset($_SERVER['TEST_FORWARDED_HEADER']);
-        $GLOBALS['cfg']['TrustedProxies'] = array();
+        $GLOBALS['cfg']['TrustedProxies'] = [];
     }
 
     /**
@@ -99,20 +99,20 @@ class IpAllowDenyTest extends TestCase
      */
     public function proxyIPs()
     {
-        return array(
+        return [
             // Nothing set
-            array(null, null, false),
+            [null, null, false],
             // Remote IP set
-            array('101.0.0.25', null, '101.0.0.25'),
+            ['101.0.0.25', null, '101.0.0.25'],
             // Proxy
-            array('101.0.0.25', '192.168.10.10', '192.168.10.10'),
+            ['101.0.0.25', '192.168.10.10', '192.168.10.10'],
             // Several proxies
-            array('101.0.0.25', '192.168.10.1, 192.168.100.100', '192.168.10.1'),
+            ['101.0.0.25', '192.168.10.1, 192.168.100.100', '192.168.10.1'],
             // Invalid proxy
-            array('101.0.0.25', 'invalid', false),
+            ['101.0.0.25', 'invalid', false],
             // Direct IP with proxy enabled
-            array('101.0.0.25', '192.168.10.10', '101.0.0.25', '10.10.10.10'),
-        );
+            ['101.0.0.25', '192.168.10.10', '101.0.0.25', '10.10.10.10'],
+        ];
     }
 
     /**

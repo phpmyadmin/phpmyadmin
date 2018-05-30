@@ -107,7 +107,7 @@ class Menu
      */
     private function _getMenu()
     {
-        $url_params = array();
+        $url_params = [];
 
         if (strlen($this->_table) > 0) {
             $tabs = $this->_getTableTabs();
@@ -209,7 +209,7 @@ class Menu
             $retval .= Util::getImage(
                 's_host',
                 '',
-                array('class' => 'item')
+                ['class' => 'item']
             );
         }
         $retval .= sprintf(
@@ -228,7 +228,7 @@ class Menu
                 $retval .= Util::getImage(
                     's_db',
                     '',
-                    array('class' => 'item')
+                    ['class' => 'item']
                 );
             }
             $retval .= sprintf(
@@ -236,7 +236,7 @@ class Menu
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
                 ),
-                Url::getCommon(array('db' => $this->_db)),
+                Url::getCommon(['db' => $this->_db]),
                 htmlspecialchars($this->_db),
                 __('Database')
             );
@@ -262,7 +262,7 @@ class Menu
                     $retval .= Util::getImage(
                         $icon,
                         '',
-                        array('class' => 'item')
+                        ['class' => 'item']
                     );
                 }
                 $retval .= sprintf(
@@ -271,9 +271,9 @@ class Menu
                         $GLOBALS['cfg']['DefaultTabTable'], 'table'
                     ),
                     Url::getCommon(
-                        array(
+                        [
                             'db' => $this->_db, 'table' => $this->_table
-                        )
+                        ]
                     ),
                     str_replace(' ', '&nbsp;', htmlspecialchars($this->_table)),
                     $tbl_is_view ? __('View') : __('Table')
@@ -346,7 +346,7 @@ class Menu
         $isCreateOrGrantUser = $GLOBALS['dbi']->isUserType('grant')
             || $GLOBALS['dbi']->isUserType('create');
 
-        $tabs = array();
+        $tabs = [];
 
         $tabs['browse']['icon'] = 'b_browse';
         $tabs['browse']['text'] = __('Browse');
@@ -358,7 +358,7 @@ class Menu
         $tabs['structure']['text'] = __('Structure');
         $tabs['structure']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
-            array('tbl_structure.php', 'tbl_relation.php')
+            ['tbl_structure.php', 'tbl_relation.php']
         );
 
         $tabs['sql']['icon'] = 'b_sql';
@@ -370,7 +370,7 @@ class Menu
         $tabs['search']['link'] = 'tbl_select.php';
         $tabs['search']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
-            array('tbl_select.php', 'tbl_zoom_select.php', 'tbl_find_replace.php')
+            ['tbl_select.php', 'tbl_zoom_select.php', 'tbl_find_replace.php']
         );
 
         if (! $db_is_system_schema && (! $tbl_is_view || $updatable_view)) {
@@ -459,7 +459,7 @@ class Menu
          */
         $cfgRelation = $this->relation->getRelationsParam();
 
-        $tabs = array();
+        $tabs = [];
 
         $tabs['structure']['link'] = 'db_structure.php';
         $tabs['structure']['text'] = __('Structure');
@@ -571,7 +571,7 @@ class Menu
             Util::cacheSet('binary_logs', $binary_logs);
         }
 
-        $tabs = array();
+        $tabs = [];
 
         $tabs['databases']['icon'] = 's_db';
         $tabs['databases']['link'] = 'server_databases.php';
@@ -586,14 +586,14 @@ class Menu
         $tabs['status']['text'] = __('Status');
         $tabs['status']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
-            array(
+            [
                 'server_status.php',
                 'server_status_advisor.php',
                 'server_status_monitor.php',
                 'server_status_queries.php',
                 'server_status_variables.php',
                 'server_status_processes.php'
-            )
+            ]
         );
 
         if ($is_superuser || $isCreateOrGrantUser) {
@@ -602,7 +602,7 @@ class Menu
             $tabs['rights']['text'] = __('User accounts');
             $tabs['rights']['active'] = in_array(
                 basename($GLOBALS['PMA_PHP_SELF']),
-                array('server_privileges.php', 'server_user_groups.php')
+                ['server_privileges.php', 'server_user_groups.php']
             );
             $tabs['rights']['args']['viewing_mode'] = 'server';
         }
@@ -620,7 +620,7 @@ class Menu
         $tabs['settings']['text']   = __('Settings');
         $tabs['settings']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
-            array('prefs_forms.php', 'prefs_manage.php')
+            ['prefs_forms.php', 'prefs_manage.php']
         );
 
         if (! empty($binary_logs)) {

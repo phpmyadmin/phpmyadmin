@@ -36,7 +36,7 @@ class RelationCleanupTest extends TestCase
      */
     public function setUp()
     {
-        $_SESSION['relation'] = array();
+        $_SESSION['relation'] = [];
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['user'] = "user";
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
@@ -98,7 +98,7 @@ class RelationCleanupTest extends TestCase
         //validate Relation::getDbComments when commwork = true
         $db_comments = $this->relation->getDbComments();
         $this->assertEquals(
-            array('db_name0' => 'comment0','db_name1' => 'comment1'),
+            ['db_name0' => 'comment0','db_name1' => 'comment1'],
             $db_comments
         );
 

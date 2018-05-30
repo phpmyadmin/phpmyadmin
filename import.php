@@ -59,12 +59,12 @@ if (isset($_REQUEST['console_bookmark_add'])) {
         && isset($_REQUEST['bookmark_query']) && isset($_REQUEST['shared'])
     ) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
-        $bookmarkFields = array(
+        $bookmarkFields = [
             'bkm_database' => $_REQUEST['db'],
             'bkm_user'  => $cfgBookmark['user'],
             'bkm_sql_query' => $_REQUEST['bookmark_query'],
             'bkm_label' => $_REQUEST['label']
-        );
+        ];
         $isShared = ($_REQUEST['shared'] == 'true' ? true : false);
         $bookmark = Bookmark::createBookmark(
             $GLOBALS['dbi'],
@@ -91,7 +91,7 @@ $format = '';
 /**
  * Sets globals from $_POST
  */
-$post_params = array(
+$post_params = [
     'charset_of_file',
     'format',
     'import_type',
@@ -101,7 +101,7 @@ $post_params = array(
     'noplugin',
     'skip_queries',
     'local_import_file'
-);
+];
 
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
@@ -121,7 +121,7 @@ if (!isset($_SESSION['is_multi_query'])) {
     $_SESSION['is_multi_query'] = false;
 }
 
-$ajax_reload = array();
+$ajax_reload = [];
 // Are we just executing plain query or sql file?
 // (eg. non import, but query box/window run)
 if (! empty($sql_query)) {
@@ -202,7 +202,7 @@ if (! empty($sql_query)) {
 
 // If we didn't get any parameters, either user called this directly, or
 // upload limit has been reached, let's assume the second possibility.
-if ($_POST == array() && $_GET == array()) {
+if ($_POST == [] && $_GET == []) {
     $message = PhpMyAdmin\Message::error(
         __(
             'You probably tried to upload a file that is too large. Please refer ' .
@@ -234,7 +234,7 @@ if (isset($_POST['console_message_id'])) {
 
 if (! in_array(
     $format,
-    array(
+    [
         'csv',
         'ldi',
         'mediawiki',
@@ -242,7 +242,7 @@ if (! in_array(
         'shp',
         'sql',
         'xml'
-    )
+    ]
 )
 ) {
     // this should not happen for a normal user
@@ -250,25 +250,25 @@ if (! in_array(
     Core::fatalError('Incorrect format parameter');
 }
 
-$post_patterns = array(
+$post_patterns = [
     '/^force_file_/',
     '/^' . $format . '_/'
-);
+];
 
 Core::setPostAsGlobal($post_patterns);
 
 // Check needed parameters
-PhpMyAdmin\Util::checkParameters(array('import_type', 'format'));
+PhpMyAdmin\Util::checkParameters(['import_type', 'format']);
 
 // We don't want anything special in format
 $format = Core::securePath($format);
 
 if (strlen($table) > 0 && strlen($db) > 0) {
-    $urlparams = array('db' => $db, 'table' => $table);
+    $urlparams = ['db' => $db, 'table' => $table];
 } elseif (strlen($db) > 0) {
-    $urlparams = array('db' => $db);
+    $urlparams = ['db' => $db];
 } else {
-    $urlparams = array();
+    $urlparams = [];
 }
 
 // Create error and goto url
@@ -535,7 +535,7 @@ if (! $error && isset($_POST['skip'])) {
 
 // This array contain the data like numberof valid sql queries in the statement
 // and complete valid sql statement (which affected for rows)
-$sql_data = array('valid_sql' => array(), 'valid_queries' => 0);
+$sql_data = ['valid_sql' => [], 'valid_queries' => 0];
 
 if (! $error) {
     /* @var $import_plugin ImportPlugin */
@@ -685,7 +685,7 @@ if ($go_sql) {
         $_SESSION['is_multi_query'] = true;
         $sql_queries = $sql_data['valid_sql'];
     } else {
-        $sql_queries = array($sql_query);
+        $sql_queries = [$sql_query];
     }
 
     $html_output = '';

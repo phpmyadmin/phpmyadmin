@@ -84,7 +84,7 @@ if (!empty($submit_mult)) {
         // 'rows_to_delete' checkbox, we use the index of it as the
         // indicating WHERE clause. Then we build the array which is used
         // for the tbl_change.php script.
-        $where_clause = array();
+        $where_clause = [];
         if (isset($_REQUEST['rows_to_delete'])
             && is_array($_REQUEST['rows_to_delete'])
         ) {
@@ -104,7 +104,7 @@ if (!empty($submit_mult)) {
         // 'rows_to_delete' checkbox, we use the index of it as the
         // indicating WHERE clause. Then we build the array which is used
         // for the tbl_change.php script.
-        $where_clause = array();
+        $where_clause = [];
         if (isset($_REQUEST['rows_to_delete'])
             && is_array($_REQUEST['rows_to_delete'])
         ) {

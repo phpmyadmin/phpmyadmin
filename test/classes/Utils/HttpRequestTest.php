@@ -241,12 +241,12 @@ class HttpRequestTest extends PmaTestCase
      */
     public function httpRequests()
     {
-        return array(
-            array("https://www.phpmyadmin.net/test/data", "GET", true, true),
-            array("https://www.phpmyadmin.net/test/data", "POST", true, null),
-            array("https://nonexisting.phpmyadmin.net/test/data", "GET", true, null),
-            array("https://www.phpmyadmin.net/test/data","GET", false, "TEST DATA"),
-            array("https://www.phpmyadmin.net/test/nothing","GET", true, false),
-        );
+        return [
+            ["https://www.phpmyadmin.net/test/data", "GET", true, true],
+            ["https://www.phpmyadmin.net/test/data", "POST", true, null],
+            ["https://nonexisting.phpmyadmin.net/test/data", "GET", true, null],
+            ["https://www.phpmyadmin.net/test/data","GET", false, "TEST DATA"],
+            ["https://www.phpmyadmin.net/test/nothing","GET", true, false],
+        ];
     }
 }

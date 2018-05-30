@@ -30,7 +30,7 @@ use PhpMyAdmin\Util;
 require_once 'libraries/common.inc.php';
 
 // Check parameters
-Util::checkParameters(array('db', 'table', 'goto'));
+Util::checkParameters(['db', 'table', 'goto']);
 
 $GLOBALS['dbi']->selectDb($GLOBALS['db']);
 
@@ -55,7 +55,7 @@ $insertEdit = new InsertEdit($GLOBALS['dbi']);
 // check whether insert row mode, if so include tbl_change.php
 $insertEdit->isInsertRow();
 
-$after_insert_actions = array('new_insert', 'same_insert', 'edit_next');
+$after_insert_actions = ['new_insert', 'same_insert', 'edit_next'];
 if (isset($_REQUEST['after_insert'])
     && in_array($_REQUEST['after_insert'], $after_insert_actions)
 ) {
@@ -82,9 +82,9 @@ $err_url = $insertEdit->getErrorUrl($url_params);
 list($loop_array, $using_key, $is_insert, $is_insertignore)
     = $insertEdit->getParamsForUpdateOrInsert();
 
-$query = array();
-$value_sets = array();
-$func_no_param = array(
+$query = [];
+$value_sets = [];
+$func_no_param = [
     'CONNECTION_ID',
     'CURRENT_USER',
     'CURDATE',
@@ -105,13 +105,13 @@ $func_no_param = array(
     'UUID',
     'UUID_SHORT',
     'VERSION',
-);
-$func_optional_param = array(
+];
+$func_optional_param = [
     'RAND',
     'UNIX_TIMESTAMP',
-);
+];
 
-$gis_from_text_functions = array(
+$gis_from_text_functions = [
     'GeomFromText',
     'GeomCollFromText',
     'LineFromText',
@@ -120,9 +120,9 @@ $gis_from_text_functions = array(
     'MPointFromText',
     'PolyFromText',
     'MPolyFromText',
-);
+];
 
-$gis_from_wkb_functions = array(
+$gis_from_wkb_functions = [
     'GeomFromWKB',
     'GeomCollFromWKB',
     'LineFromWKB',
@@ -131,18 +131,18 @@ $gis_from_wkb_functions = array(
     'MPointFromWKB',
     'PolyFromWKB',
     'MPolyFromWKB',
-);
+];
 
 //if some posted fields need to be transformed.
 $mime_map = $transformations->getMime($GLOBALS['db'], $GLOBALS['table']);
 if ($mime_map === false) {
-    $mime_map = array();
+    $mime_map = [];
 }
 
-$query_fields = array();
-$insert_errors = array();
+$query_fields = [];
+$insert_errors = [];
 $row_skipped = false;
-$unsaved_values = array();
+$unsaved_values = [];
 foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
     if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
@@ -150,17 +150,17 @@ foreach ($loop_array as $rownumber => $where_clause) {
     }
 
     // Defines the SET part of the sql query
-    $query_values = array();
+    $query_values = [];
 
     // Map multi-edit keys to single-level arrays, dependent on how we got the fields
     $multi_edit_columns
         = isset($_REQUEST['fields']['multi_edit'][$rownumber])
         ? $_REQUEST['fields']['multi_edit'][$rownumber]
-        : array();
+        : [];
     $multi_edit_columns_name
         = isset($_REQUEST['fields_name']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_name']['multi_edit'][$rownumber]
-        : array();
+        : [];
     $multi_edit_columns_prev
         = isset($_REQUEST['fields_prev']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_prev']['multi_edit'][$rownumber]
@@ -389,7 +389,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
 
         $map = $relation->getForeigners($db, $table, '', 'both');
 
-        $relation_fields = array();
+        $relation_fields = [];
         parse_str($_REQUEST['rel_fields_list'], $relation_fields);
 
         // loop for each relation cell
@@ -412,16 +412,16 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
     if (isset($_REQUEST['do_transformations'])
         && $_REQUEST['do_transformations'] == true
     ) {
-        $edited_values = array();
+        $edited_values = [];
         parse_str($_REQUEST['transform_fields_list'], $edited_values);
 
         if (! isset($extra_data)) {
-            $extra_data = array();
+            $extra_data = [];
         }
-        $transformation_types = array(
+        $transformation_types = [
             "input_transformation",
             "transformation"
-        );
+        ];
         foreach ($mime_map as $transformation) {
             $column_name = $transformation['column_name'];
             foreach ($transformation_types as $type) {

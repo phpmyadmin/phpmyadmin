@@ -194,21 +194,21 @@ class LanguageTest extends PmaTestCase
      */
     public function selectDataProvider()
     {
-        return array(
-            array('cs', 'en', '', '' ,'' ,'', '', 'Czech'),
-            array('', 'cs', '', '' ,'' ,'', '', 'Czech'),
-            array('', 'cs', 'en', '' ,'' ,'', '', 'Czech'),
-            array('', '', 'cs', '' ,'' ,'', '', 'Czech'),
-            array('', '', '', 'cs' ,'' ,'', '', 'Czech'),
-            array('', '', '', '' ,'cs,en-US;q=0.7,en;q=0.3' ,'', '', 'Czech'),
-            array(
+        return [
+            ['cs', 'en', '', '' ,'' ,'', '', 'Czech'],
+            ['', 'cs', '', '' ,'' ,'', '', 'Czech'],
+            ['', 'cs', 'en', '' ,'' ,'', '', 'Czech'],
+            ['', '', 'cs', '' ,'' ,'', '', 'Czech'],
+            ['', '', '', 'cs' ,'' ,'', '', 'Czech'],
+            ['', '', '', '' ,'cs,en-US;q=0.7,en;q=0.3' ,'', '', 'Czech'],
+            [
                 '', '', '', '', '',
                 'Mozilla/5.0 (Linux; U; Android 2.2.2; tr-tr; GM FOX)',
                 '', 'Turkish'
-            ),
-            array('', '', '', '' ,'' ,'', 'cs', 'Czech'),
-            array('', '', '', '' ,'' ,'', '', 'English'),
-        );
+            ],
+            ['', '', '', '' ,'' ,'', 'cs', 'Czech'],
+            ['', '', '', '' ,'' ,'', '', 'English'],
+        ];
     }
 
     /**
@@ -243,9 +243,9 @@ class LanguageTest extends PmaTestCase
      */
     public function listLocales()
     {
-        $ret = array();
+        $ret = [];
         foreach (LanguageManager::getInstance()->availableLanguages() as $language) {
-            $ret[] = array($language->getCode());
+            $ret[] = [$language->getCode()];
         }
         return $ret;
     }

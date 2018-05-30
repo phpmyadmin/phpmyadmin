@@ -70,10 +70,10 @@ class SchemaPdf extends SchemaPlugin
             __('Orientation')
         );
         $leaf->setValues(
-            array(
+            [
                 'L' => __('Landscape'),
                 'P' => __('Portrait'),
-            )
+            ]
         );
         $specificOptions->addProperty($leaf);
 
@@ -101,11 +101,11 @@ class SchemaPdf extends SchemaPlugin
             __('Order of the tables')
         );
         $leaf->setValues(
-            array(
+            [
                 ''          => __('None'),
                 'name_asc'  => __('Name (Ascending)'),
                 'name_desc' => __('Name (Descending)'),
-            )
+            ]
         );
         $specificOptions->addProperty($leaf);
 

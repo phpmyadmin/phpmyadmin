@@ -30,7 +30,7 @@ class Words
 
         switch ($_PMA_RTE) {
         case 'RTN':
-            $words = array(
+            $words = [
                 'add'       => __('Add routine'),
                 'docu'      => 'STORED_ROUTINES',
                 'export'    => __('Export of routine %s'),
@@ -49,10 +49,10 @@ class Words
                 'not_found' => __('No routine with name %1$s found in database %2$s.'),
                 'nothing'   => __('There are no routines to display.'),
                 'title'     => __('Routines'),
-            );
+            ];
             break;
         case 'TRI':
-            $words = array(
+            $words = [
                 'add'       => __('Add trigger'),
                 'docu'      => 'TRIGGERS',
                 'export'    => __('Export of trigger %s'),
@@ -63,10 +63,10 @@ class Words
                 'not_found' => __('No trigger with name %1$s found in database %2$s.'),
                 'nothing'   => __('There are no triggers to display.'),
                 'title'     => __('Triggers'),
-            );
+            ];
             break;
         case 'EVN':
-            $words = array(
+            $words = [
                 'add'       => __('Add event'),
                 'docu'      => 'EVENTS',
                 'export'    => __('Export of event %s'),
@@ -77,10 +77,10 @@ class Words
                 'not_found' => __('No event with name %1$s found in database %2$s.'),
                 'nothing'   => __('There are no events to display.'),
                 'title'     => __('Events'),
-            );
+            ];
             break;
         default:
-            $words = array();
+            $words = [];
             break;
         }
 

@@ -25,7 +25,7 @@ $scripts  = $header->getScripts();
 $scripts->addFile('tbl_structure.js');
 
 // Check parameters
-Util::checkParameters(array('db', 'table'));
+Util::checkParameters(['db', 'table']);
 
 $transformations = new Transformations();
 
@@ -33,9 +33,9 @@ $transformations = new Transformations();
  * Defines the url to return to in case of error in a sql statement
  */
 $err_url = 'tbl_sql.php' . Url::getCommon(
-    array(
+    [
         'db' => $db, 'table' => $table
-    )
+    ]
 );
 
 /**

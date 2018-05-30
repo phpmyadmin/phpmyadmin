@@ -50,7 +50,7 @@ class Select
                 $retval .= '<fieldset>';
             }
 
-            $retval .= Url::getHiddenFields(array());
+            $retval .= Url::getHiddenFields([]);
             $retval .= '<label for="select_server">'
                 . __('Current server:') . '</label> ';
 
@@ -101,7 +101,7 @@ class Select
                         . Util::getScriptNameForOption(
                             $GLOBALS['cfg']['DefaultTabServer'], 'server'
                         )
-                        . Url::getCommon(array('server' => $key))
+                        . Url::getCommon(['server' => $key])
                         . '" >' . htmlspecialchars($label) . '</a>';
                 }
                 $retval .= '</li>';

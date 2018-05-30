@@ -25,7 +25,7 @@ class SysInfoBase
      */
     public function loadavg()
     {
-        return array('loadavg' => 0);
+        return ['loadavg' => 0];
     }
 
     /**
@@ -35,7 +35,7 @@ class SysInfoBase
      */
     public function memory()
     {
-        return array();
+        return [];
     }
 
     /**

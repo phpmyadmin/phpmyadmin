@@ -84,7 +84,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         $single_signon_port = $GLOBALS['cfg']['Server']['port'];
 
         /* No configuration updates */
-        $single_signon_cfgupdate = array();
+        $single_signon_cfgupdate = [];
 
         /* Handle script based auth */
         if (!empty($script_name)) {
@@ -118,7 +118,7 @@ class AuthenticationSignon extends AuthenticationPlugin
                 }
                 return null;
             };
-            foreach (array('lifetime', 'path', 'domain', 'secure', 'httponly') as $key) {
+            foreach (['lifetime', 'path', 'domain', 'secure', 'httponly'] as $key) {
                 if (!isset($session_cookie_params[$key]))
                     $session_cookie_params[$key] = $defaultCookieParams($key);
             }

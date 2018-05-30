@@ -40,7 +40,7 @@ EOT;
      */
     public static function create($mime, $data)
     {
-        $data = array(
+        $data = [
             $mime,
             $data,
             '<?xml version="1.0" encoding="UTF-8"?' . '>'
@@ -163,15 +163,15 @@ EOT;
             . '<manifest:file-entry manifest:media-type="text/xml"'
             . ' manifest:full-path="styles.xml"/>'
             . '</manifest:manifest>'
-        );
+        ];
 
-        $name = array(
+        $name = [
             'mimetype',
             'content.xml',
             'meta.xml',
             'styles.xml',
             'META-INF/manifest.xml'
-        );
+        ];
 
         $zipExtension = new ZipExtension();
         return $zipExtension->createFile($data, $name);

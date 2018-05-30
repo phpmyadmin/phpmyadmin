@@ -27,7 +27,7 @@ $response = Response::getInstance();
 $relation = new Relation();
 $cfgRelation = $relation->getRelationsParam();
 
-$savedSearchList = array();
+$savedSearchList = [];
 $savedSearch = null;
 $currentSearchId = null;
 if ($cfgRelation['savedsearcheswork']) {
@@ -60,14 +60,14 @@ if ($cfgRelation['savedsearcheswork']) {
             $savedSearch = new SavedSearches($GLOBALS);
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($_REQUEST['db']);
-            $_REQUEST = array();
+            $_REQUEST = [];
         } elseif ('load' === $_REQUEST['action']) {
             if (empty($_REQUEST['searchId'])) {
                 //when not loading a search, reset the object.
                 $savedSearch = new SavedSearches($GLOBALS);
                 $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                     ->setDbname($_REQUEST['db']);
-                $_REQUEST = array();
+                $_REQUEST = [];
             } else {
                 $loadResult = $savedSearch->load();
             }
@@ -143,7 +143,7 @@ $db_qbe = new Qbe($GLOBALS['dbi'], $GLOBALS['db'], $savedSearchList, $savedSearc
 $url = 'db_designer.php' . Url::getCommon(
     array_merge(
         $url_params,
-        array('query' => 1)
+        ['query' => 1]
     )
 );
 $response->addHTML(

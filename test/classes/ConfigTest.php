@@ -143,104 +143,104 @@ class ConfigTest extends PmaTestCase
      */
     public function userAgentProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'Opera/9.80 (X11; Linux x86_64; U; pl) Presto/2.7.62 Version/11.00',
                 'Linux',
                 'OPERA',
                 '9.80',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/'
                 . '528.16 OmniWeb/622.8.0.112941',
                 'Mac',
                 'OMNIWEB',
                 '622',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1)',
                 'Win',
                 'IE',
                 '8.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)',
                 'Win',
                 'IE',
                 '9.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; '
                 . 'Trident/6.0)',
                 'Win',
                 'IE',
                 '10.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; '
                 . '.NET4.0C; rv:11.0) like Gecko',
                 'Win',
                 'IE',
                 '11.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; '
                 . '.NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; '
                 . '.NET CLR 3.0.30729; InfoPath.3; rv:11.0) like Gecko',
                 'Win',
                 'IE',
                 '11.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, '
                 . 'like Gecko) Chrome/25.0.1364.172 Safari/537.22',
                 'Win',
                 'CHROME',
                 '25.0.1364.172',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Unknown; U; Unix BSD/SYSV system; C -) '
                 . 'AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.10.2',
                 'Unix',
                 'SAFARI',
                 '5.0.419',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (Windows; U; Win95; en-US; rv:1.9b) Gecko/20031208',
                 'Win',
                 'GECKO',
                 '1.9',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; '
                 . 'amd64; en_US) KHTML/4.5.4 (like Gecko)',
                 'Other',
                 'KONQUEROR',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0',
                 'Linux',
                 'FIREFOX',
                 '5.0',
-            ),
-            array(
+            ],
+            [
                 'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 '
                 . 'Firefox/12.0',
                 'Linux',
                 'FIREFOX',
                 '12.0',
-            ),
+            ],
             /**
              * @todo Is this version really expected?
              */
-            array(
+            [
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like G'
                 . 'ecko) Version/5.0 Safari/535.4+ SUSE/12.1 (3.2.1) Epiphany/3.2.1',
                 'Linux',
                 'SAFARI',
                 '5.0',
-            ),
-        );
+            ],
+        ];
 
     }
 
@@ -340,16 +340,16 @@ class ConfigTest extends PmaTestCase
      */
     public function serverNames()
     {
-        return array(
-            array(
+        return [
+            [
                 "Microsoft-IIS 7.0",
                 1,
-            ),
-            array(
+            ],
+            [
                 "Apache/2.2.17",
                 0,
-            ),
-        );
+            ],
+        ];
     }
 
 
@@ -520,17 +520,17 @@ class ConfigTest extends PmaTestCase
      */
     public function httpsParams()
     {
-        return array(
-            array('http', '', '', '', '', 'http', 80, false),
-            array('http', '', 'http://', '', '', 'http', 80, false),
-            array('http', '', '', '', '', 'http', 443, true),
-            array('http', '', '', '', '', 'https', 80, true),
-            array('http', '', '', '', 'on', 'http', 80, true),
-            array('http', '', '', 'on', '', 'http', 80, true),
-            array('http', '', 'https://', '', '', 'http', 80, true),
-            array('http', 'on', '', '', '', 'http', 80, true),
-            array('https', '', '', '', '', 'http', 80, true),
-        );
+        return [
+            ['http', '', '', '', '', 'http', 80, false],
+            ['http', '', 'http://', '', '', 'http', 80, false],
+            ['http', '', '', '', '', 'http', 443, true],
+            ['http', '', '', '', '', 'https', 80, true],
+            ['http', '', '', '', 'on', 'http', 80, true],
+            ['http', '', '', 'on', '', 'http', 80, true],
+            ['http', '', 'https://', '', '', 'http', 80, true],
+            ['http', 'on', '', '', '', 'http', 80, true],
+            ['https', '', '', '', '', 'http', 80, true],
+        ];
     }
 
     /**
@@ -548,7 +548,7 @@ class ConfigTest extends PmaTestCase
     {
         $this->object->enableBc();
 
-        $defines = array(
+        $defines = [
             'PMA_VERSION',
             'PMA_MAJOR_VERSION',
             'PMA_IS_WINDOWS',
@@ -556,7 +556,7 @@ class ConfigTest extends PmaTestCase
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
             'PMA_USR_BROWSER_AGENT'
-            );
+            ];
 
         foreach ($defines as $define) {
             $this->assertTrue(defined($define));
@@ -589,88 +589,88 @@ class ConfigTest extends PmaTestCase
      */
     public function rootUris()
     {
-        return array(
-            array(
+        return [
+            [
                 '',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 '/',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 '/index.php',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 '\\index.php',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 '\\',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 '\\path\\to\\index.php',
                 '',
                 '/path/to/',
-            ),
-            array(
+            ],
+            [
                 '/foo/bar/phpmyadmin/index.php',
                 '',
                 '/foo/bar/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 '/foo/bar/phpmyadmin/',
                 '',
                 '/foo/bar/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'https://example.net/baz/phpmyadmin/',
                 '',
                 '/baz/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/baz/phpmyadmin/',
                 '',
                 '/baz/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/phpmyadmin/',
                 '',
                 '/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/',
                 '',
                 '/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/',
                 'http://example.net/phpmyadmin/',
                 '/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/',
                 'http://example.net/phpmyadmin',
                 '/phpmyadmin/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/',
                 '/phpmyadmin2',
                 '/phpmyadmin2/',
-            ),
-            array(
+            ],
+            [
                 'http://example.net/',
                 '/phpmyadmin3/',
                 '/phpmyadmin3/',
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -699,20 +699,20 @@ class ConfigTest extends PmaTestCase
      */
     public function configPaths()
     {
-        return array(
-            array(
+        return [
+            [
                 './test/test_data/config.inc.php',
                 true,
-            ),
-            array(
+            ],
+            [
                 './test/test_data/config-nonexisting.inc.php',
                 false,
-            ),
-            array(
+            ],
+            [
                 './libraries/config.default.php',
                 true,
-            ),
-        );
+            ],
+        ];
     }
 
     /**

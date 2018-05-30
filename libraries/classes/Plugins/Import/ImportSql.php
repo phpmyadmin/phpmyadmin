@@ -51,7 +51,7 @@ class ImportSql extends ImportPlugin
 
         $compats = $GLOBALS['dbi']->getCompatibilities();
         if (count($compats) > 0) {
-            $values = array();
+            $values = [];
             foreach ($compats as $val) {
                 $values[$val] = $val;
             }
@@ -72,10 +72,10 @@ class ImportSql extends ImportPlugin
             );
             $leaf->setValues($values);
             $leaf->setDoc(
-                array(
+                [
                     'manual_MySQL_Database_Administration',
                     'Server_SQL_mode',
-                )
+                ]
             );
             $generalOptions->addProperty($leaf);
             $leaf = new BoolPropertyItem(
@@ -83,11 +83,11 @@ class ImportSql extends ImportPlugin
                 __('Do not use <code>AUTO_INCREMENT</code> for zero values')
             );
             $leaf->setDoc(
-                array(
+                [
                     'manual_MySQL_Database_Administration',
                     'Server_SQL_mode',
                     'sqlmode_no_auto_value_on_zero',
-                )
+                ]
             );
             $generalOptions->addProperty($leaf);
 
@@ -107,7 +107,7 @@ class ImportSql extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = array())
+    public function doImport(array &$sql_data = [])
     {
         global $error, $timeout_passed;
 
@@ -183,7 +183,7 @@ class ImportSql extends ImportPlugin
      */
     private function _setSQLMode($dbi, array $request)
     {
-        $sql_modes = array();
+        $sql_modes = [];
         if (isset($request['sql_compatibility'])
             && 'NONE' != $request['sql_compatibility']
         ) {

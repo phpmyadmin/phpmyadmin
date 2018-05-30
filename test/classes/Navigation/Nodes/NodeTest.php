@@ -175,16 +175,16 @@ class NodeTest extends PmaTestCase
     public function testParents()
     {
         $parent = NodeFactory::getInstance();
-        $this->assertEquals($parent->parents(), array()); // exclude self
-        $this->assertEquals($parent->parents(true), array($parent)); // include self
+        $this->assertEquals($parent->parents(), []); // exclude self
+        $this->assertEquals($parent->parents(true), [$parent]); // include self
 
         $child = NodeFactory::getInstance();
         $parent->addChild($child);
 
-        $this->assertEquals($child->parents(), array($parent)); // exclude self
+        $this->assertEquals($child->parents(), [$parent]); // exclude self
         $this->assertEquals(
             $child->parents(true),
-            array($child, $parent)
+            [$child, $parent]
         ); // include self
     }
 
@@ -300,7 +300,7 @@ class NodeTest extends PmaTestCase
         );
 
         if (! isset($GLOBALS['cfg']['Server'])) {
-            $GLOBALS['cfg']['Server'] = array();
+            $GLOBALS['cfg']['Server'] = [];
         }
 
         // When hide_db regular expression is present
@@ -320,7 +320,7 @@ class NodeTest extends PmaTestCase
         unset($GLOBALS['cfg']['Server']['only_db']);
 
         // When only_db directive is present and it's an array of dbs
-        $GLOBALS['cfg']['Server']['only_db'] = array('onlyDbOne', 'onlyDbTwo');
+        $GLOBALS['cfg']['Server']['only_db'] = ['onlyDbOne', 'onlyDbTwo'];
         $this->assertEquals(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'onlyDbOne' "
             . "OR `SCHEMA_NAME` LIKE 'onlyDbTwo' ) ",
@@ -446,12 +446,12 @@ class NodeTest extends PmaTestCase
         $dbi->expects($this->exactly(3))
             ->method('fetchArray')
             ->willReturnOnConsecutiveCalls(
-                array(
+                [
                     '0' => 'db'
-                ),
-                array(
+                ],
+                [
                     '0' => 'aa_db'
-                ),
+                ],
                 false
             );
 

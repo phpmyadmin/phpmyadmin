@@ -83,10 +83,10 @@ class FileTest extends PmaTestCase
      */
     public function compressedFiles()
     {
-        return array(
-            array('./test/test_data/test.gz', 'application/gzip'),
-            array('./test/test_data/test.bz2', 'application/bzip2'),
-            array('./test/test_data/test.zip', 'application/zip'),
-        );
+        return [
+            ['./test/test_data/test.gz', 'application/gzip'],
+            ['./test/test_data/test.bz2', 'application/bzip2'],
+            ['./test/test_data/test.zip', 'application/zip'],
+        ];
     }
 }

@@ -20,7 +20,7 @@ class BaseFormList
     /**
      * List of all forms
      */
-    protected static $all = array();
+    protected static $all = [];
 
     /**
      * @var string
@@ -68,7 +68,7 @@ class BaseFormList
      */
     public function __construct(ConfigFile $cf)
     {
-        $this->_forms = array();
+        $this->_forms = [];
         foreach (static::$all as $form) {
             $class = static::get($form);
             $this->_forms[] = new $class($cf);

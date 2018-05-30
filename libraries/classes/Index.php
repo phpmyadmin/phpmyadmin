@@ -34,7 +34,7 @@ class Index
      *
      * @var array
      */
-    private static $_registry = array();
+    private static $_registry = [];
 
     /**
      * @var string The name of the schema
@@ -56,7 +56,7 @@ class Index
      *
      * @var array
      */
-    private $_columns = array();
+    private $_columns = [];
 
     /**
      * The index method used (BTREE, HASH, RTREE).
@@ -118,7 +118,7 @@ class Index
      *
      * @param array $params parameters
      */
-    public function __construct(array $params = array())
+    public function __construct(array $params = [])
     {
         $this->set($params);
     }
@@ -163,7 +163,7 @@ class Index
             return Index::$_registry[$schema][$table];
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -177,7 +177,7 @@ class Index
      */
     static public function getFromTableByChoice($table, $schema, $choices = 31)
     {
-        $indexes = array();
+        $indexes = [];
         foreach (self::getFromTable($table, $schema) as $index) {
             if (($choices & Index::PRIMARY)
                 && $index->getChoice() == 'PRIMARY'
@@ -283,7 +283,7 @@ class Index
      */
     public function addColumns(array $columns)
     {
-        $_columns = array();
+        $_columns = [];
 
         if (isset($columns['names'])) {
             // coming from form
@@ -292,10 +292,10 @@ class Index
             foreach ($columns['names'] as $key => $name) {
                 $sub_part = isset($columns['sub_parts'][$key])
                     ? $columns['sub_parts'][$key] : '';
-                $_columns[] = array(
+                $_columns[] = [
                     'Column_name'   => $name,
                     'Sub_part'      => $sub_part,
-                );
+                ];
             }
         } else {
             // coming from SHOW INDEXES
@@ -476,13 +476,13 @@ class Index
      */
     static public function getIndexChoices()
     {
-        return array(
+        return [
             'PRIMARY',
             'INDEX',
             'UNIQUE',
             'SPATIAL',
             'FULLTEXT',
-        );
+        ];
     }
 
     /**
@@ -492,10 +492,10 @@ class Index
      */
     static public function getIndexTypes()
     {
-        return array(
+        return [
             'BTREE',
             'HASH'
-        );
+        ];
     }
 
     /**
@@ -537,7 +537,7 @@ class Index
      */
     public function generateIndexTypeSelector()
     {
-        $types = array("" => "--");
+        $types = ["" => "--"];
         foreach (Index::getIndexTypes() as $type) {
             $types[$type] = $type;
         }
@@ -593,15 +593,15 @@ class Index
     public function isUnique($as_text = false)
     {
         if ($as_text) {
-            $r = array(
+            $r = [
                 '0' => __('Yes'),
                 '1' => __('No'),
-            );
+            ];
         } else {
-            $r = array(
+            $r = [
                 '0' => true,
                 '1' => false,
-            );
+            ];
         }
 
         return $r[$this->_non_unique];
@@ -770,7 +770,7 @@ class Index
                 $r .= Util::linkOrButton(
                     'sql.php' . Url::getCommon($this_params),
                     Util::getIcon('b_drop', __('Drop')),
-                    array('class' => 'drop_primary_key_index_anchor ajax')
+                    ['class' => 'drop_primary_key_index_anchor ajax']
                 );
                 $r .= '</td>' . "\n";
             }
@@ -841,11 +841,11 @@ class Index
      */
     public function getCompareData()
     {
-        $data = array(
+        $data = [
             // 'Non_unique'    => $this->_non_unique,
             'Packed'        => $this->_packed,
             'Index_choice'    => $this->_choice,
-        );
+        ];
 
         foreach ($this->_columns as $column) {
             $data['columns'][] = $column->getCompareData();

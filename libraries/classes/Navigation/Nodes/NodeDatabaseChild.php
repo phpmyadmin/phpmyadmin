@@ -42,12 +42,12 @@ abstract class NodeDatabaseChild extends Node
             $db = $this->realParent()->real_name;
             $item = $this->real_name;
 
-            $params = array(
+            $params = [
                 'hideNavItem' => true,
                 'itemType' => $this->getItemType(),
                 'itemName' => $item,
                 'dbName' => $db
-            );
+            ];
 
             $ret = '<span class="navItemControls">'
                 . '<a href="navigation.php'

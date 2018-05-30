@@ -66,7 +66,7 @@ echo '</label></bdo><br />';
 echo '<select id="lang" name="lang" class="autosubmit" lang="en" dir="ltr">';
 
 // create language list
-$lang_list = array();
+$lang_list = [];
 foreach ($all_languages as $each_lang) {
     //Is current one active?
     $selected = $each_lang->isActive() ? ' selected="selected"' : '';
@@ -129,10 +129,10 @@ echo '</legend>';
 //
 echo FormDisplayTemplate::displayFormTop(
     'index.php', 'get',
-    array(
+    [
         'page' => 'servers',
         'mode' => 'add'
-    )
+    ]
 );
 echo '<div class="form">';
 if ($cf->getServerCount() > 0) {
@@ -154,10 +154,10 @@ if ($cf->getServerCount() > 0) {
         echo '<td>' , htmlspecialchars($cf->getServerDSN($id)) , '</td>';
         echo '<td class="nowrap">';
         echo '<small>';
-        echo '<a href="' , Url::getCommon(array('page' => 'servers', 'mode' => 'edit', 'id' => $id)), '">'
+        echo '<a href="' , Url::getCommon(['page' => 'servers', 'mode' => 'edit', 'id' => $id]), '">'
             , __('Edit') , '</a>';
         echo ' | ';
-        echo '<a href="' , Url::getCommon(array('page' => 'servers', 'mode' => 'remove', 'id' => $id)), '">'
+        echo '<a href="' , Url::getCommon(['page' => 'servers', 'mode' => 'remove', 'id' => $id]), '">'
             , __('Delete') , '</a>';
         echo '</small>';
         echo '</td>';
@@ -198,10 +198,10 @@ echo FormDisplayTemplate::displayFormTop('config.php');
 echo '<table width="100%" cellspacing="0">';
 
 // Display language list
-$opts = array(
+$opts = [
     'doc' => $form_display->getDocLink('DefaultLang'),
-    'values' => array(),
-    'values_escaped' => true);
+    'values' => [],
+    'values_escaped' => true];
 foreach ($all_languages as $each_lang) {
     $opts['values'][$each_lang->getCode()] = $each_lang->getName();
 }
@@ -211,10 +211,10 @@ echo FormDisplayTemplate::displayInput(
 );
 
 // Display server list
-$opts = array(
+$opts = [
     'doc' => $form_display->getDocLink('ServerDefault'),
-    'values' => array(),
-    'values_disabled' => array());
+    'values' => [],
+    'values_disabled' => []];
 if ($cf->getServerCount() > 0) {
     $opts['values']['0'] = __('let the user choose');
     $opts['values']['-'] = '------------------------------';
@@ -236,11 +236,11 @@ echo FormDisplayTemplate::displayInput(
 );
 
 // Display EOL list
-$opts = array(
-    'values' => array(
+$opts = [
+    'values' => [
         'unix' => 'UNIX / Linux (\n)',
-        'win' => 'Windows (\r\n)'),
-    'values_escaped' => true);
+        'win' => 'Windows (\r\n)'],
+    'values_escaped' => true];
 $eol = Core::ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
 echo FormDisplayTemplate::displayInput(
     'eol', __('End of line'), 'select',
@@ -265,6 +265,6 @@ echo '<div id="footer">';
 echo '<a href="../url.php?url=https://www.phpmyadmin.net/">' , __('phpMyAdmin homepage') , '</a>';
 echo '<a href="../url.php?url=https://www.phpmyadmin.net/donate/">'
     ,  __('Donate') , '</a>';
-echo '<a href="' ,  Url::getCommon(array('version_check' => '1')), '">'
+echo '<a href="' ,  Url::getCommon(['version_check' => '1']), '">'
     , __('Check for latest version') , '</a>';
 echo '</div>';

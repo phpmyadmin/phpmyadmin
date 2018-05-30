@@ -29,7 +29,7 @@ class NodeTable extends NodeDatabaseChild
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon = array();
+        $this->icon = [];
         $this->_addIcon(
             Util::getScriptNameForOption(
                 $GLOBALS['cfg']['NavigationTreeDefaultTabTable'],
@@ -51,12 +51,12 @@ class NodeTable extends NodeDatabaseChild
             $GLOBALS['cfg']['DefaultTabTable'],
             'table'
         );
-        $this->links = array(
+        $this->links = [
             'text'  => $script_name
                 . '?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s'
                 . '&amp;pos=0',
-            'icon'  => array(
+            'icon'  => [
                 Util::getScriptNameForOption(
                     $GLOBALS['cfg']['NavigationTreeDefaultTabTable'],
                     'table'
@@ -69,9 +69,9 @@ class NodeTable extends NodeDatabaseChild
                 )
                 . '?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
-            ),
+            ],
             'title' => $this->title,
-        );
+        ];
         $this->classes = 'table';
     }
 
@@ -160,7 +160,7 @@ class NodeTable extends NodeDatabaseChild
     public function getData($type, $pos, $searchClause = '')
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
-        $retval = array();
+        $retval = [];
         $db = $this->realParent()->real_name;
         $table = $this->real_name;
         switch ($type) {

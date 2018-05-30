@@ -29,16 +29,16 @@ function escape($variable)
 require_once 'libraries/common.inc.php';
 
 if (! isset($_REQUEST['field'])) {
-    PhpMyAdmin\Util::checkParameters(array('field'));
+    PhpMyAdmin\Util::checkParameters(['field']);
 }
 
 // Get data if any posted
-$gis_data = array();
+$gis_data = [];
 if (Core::isValid($_REQUEST['gis_data'], 'array')) {
     $gis_data = $_REQUEST['gis_data'];
 }
 
-$gis_types = array(
+$gis_types = [
     'POINT',
     'MULTIPOINT',
     'LINESTRING',
@@ -46,7 +46,7 @@ $gis_types = array(
     'POLYGON',
     'MULTIPOLYGON',
     'GEOMETRYCOLLECTION'
-);
+];
 
 // Extract type from the initial call and make sure that it's a valid one.
 // Extract from field's values if available, if not use the column type passed.
@@ -86,12 +86,12 @@ $wkt_with_zero = $gis_obj->generateWkt($gis_data, 0, '0');
 $result = "'" . $wkt . "'," . $srid;
 
 // Generate SVG based visualization
-$visualizationSettings = array(
+$visualizationSettings = [
     'width' => 450,
     'height' => 300,
     'spatialColumn' => 'wkt'
-);
-$data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
+];
+$data = [['wkt' => $wkt_with_zero, 'srid' => $srid]];
 $visualization = GisVisualization::getByData($data, $visualizationSettings)
     ->toImage('svg');
 
@@ -100,11 +100,11 @@ $open_layers = GisVisualization::getByData($data, $visualizationSettings)
 
 // If the call is to update the WKT and visualization make an AJAX response
 if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
-    $extra_data = array(
+    $extra_data = [
         'result'        => $result,
         'visualization' => $visualization,
         'openLayers'    => $open_layers,
-    );
+    ];
     $response = Response::getInstance();
     $response->addJSON($extra_data);
     exit;

@@ -22,11 +22,11 @@ class ConfigForm extends BaseForm
      */
     public static function getForms()
     {
-        return array(
-            'Config' => array(
+        return [
+            'Config' => [
                 'DefaultLang',
                 'ServerDefault'
-            ),
-        );
+            ],
+        ];
     }
 }

@@ -324,7 +324,7 @@ class StorageEngine
             $like = '';
         }
 
-        $mysql_vars = array();
+        $mysql_vars = [];
 
         $sql_query = 'SHOW GLOBAL VARIABLES ' . $like . ';';
         $res = $GLOBALS['dbi']->query($sql_query);
@@ -408,7 +408,7 @@ class StorageEngine
      */
     public function getVariables()
     {
-        return array();
+        return [];
     }
 
     /**
@@ -440,7 +440,7 @@ class StorageEngine
      */
     public function getInfoPages()
     {
-        return array();
+        return [];
     }
 
     /**

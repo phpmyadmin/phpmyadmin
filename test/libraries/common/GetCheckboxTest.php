@@ -36,13 +36,13 @@ class GetCheckboxTest extends TestCase
         $this->assertXmlStringEqualsXmlString(
             '<root> ' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => false,
                     'onclick'           => false,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . ' </root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" /><label for="' . $name . '">' . $label
@@ -63,13 +63,13 @@ class GetCheckboxTest extends TestCase
         $this->assertXmlStringEqualsXmlString(
             '<root>' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => true,
                     'onclick'           => false,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . '</root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" checked="checked" /><label for="' . $name . '">' . $label
@@ -90,13 +90,13 @@ class GetCheckboxTest extends TestCase
         $this->assertXmlStringEqualsXmlString(
             '<root>' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => false,
                     'onclick'           => true,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . '</root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" class="autosubmit" /><label for="' . $name . '">' . $label
@@ -117,13 +117,13 @@ class GetCheckboxTest extends TestCase
         $this->assertXmlStringEqualsXmlString(
             '<root>' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => true,
                     'onclick'           => true,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . '</root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" checked="checked" class="autosubmit" /><label for="' . $name

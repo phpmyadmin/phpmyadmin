@@ -26,6 +26,6 @@ $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var ServerPluginsController $controller */
 $controller = $container->get(
-    'ServerPluginsController', array()
+    'ServerPluginsController', []
 );
 $controller->indexAction();

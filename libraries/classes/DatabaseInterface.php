@@ -131,13 +131,13 @@ class DatabaseInterface
     public function __construct(DbiExtension $ext)
     {
         $this->_extension = $ext;
-        $this->_links = array();
+        $this->_links = [];
         if (defined('TESTSUITE')) {
             $this->_links[DatabaseInterface::CONNECT_USER] = 1;
             $this->_links[DatabaseInterface::CONNECT_CONTROL] = 2;
         }
-        $this->_table_cache = array();
-        $this->_current_user = array();
+        $this->_table_cache = [];
+        $this->_current_user = [];
         $this->types = new Types($this);
         $this->relation = new Relation();
     }
@@ -213,7 +213,7 @@ class DatabaseInterface
             // final values at the correct depth. Then we'll keep digging into the
             // array.
             if (!isset($loc[$key]) || !is_array($loc[$key])) {
-                $loc[$key] = array();
+                $loc[$key] = [];
             }
             $loc = &$loc[$key];
         }
@@ -228,7 +228,7 @@ class DatabaseInterface
      */
     public function clearTableCache(): void
     {
-        $this->_table_cache = array();
+        $this->_table_cache = [];
     }
 
     /**
@@ -278,7 +278,7 @@ class DatabaseInterface
      */
     private function _dbgQuery(string $query, $link, $result, $time): void
     {
-        $dbgInfo = array();
+        $dbgInfo = [];
         $error_message = $this->getError($link);
         if ($result == false && is_string($error_message)) {
             $dbgInfo['error']
@@ -423,7 +423,7 @@ class DatabaseInterface
                     . implode(
                         '\', \'',
                         array_map(
-                            array($this, 'escapeString'),
+                            [$this, 'escapeString'],
                             $table
                         )
                     )
@@ -538,12 +538,12 @@ class DatabaseInterface
         }
         // prepare and check parameters
         if (! is_array($database)) {
-            $databases = array($database);
+            $databases = [$database];
         } else {
             $databases = $database;
         }
 
-        $tables = array();
+        $tables = [];
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $sql_where_table = $this->_getTableCondition(
@@ -558,7 +558,7 @@ class DatabaseInterface
             // comparison (if we are looking for the db Aa we don't want
             // to find the db aa)
             $this_databases = array_map(
-                array($this, 'escapeString'),
+                [$this, 'escapeString'],
                 $databases
             );
 
@@ -572,7 +572,7 @@ class DatabaseInterface
             }
 
             $tables = $this->fetchResult(
-                $sql, array('TABLE_SCHEMA', 'TABLE_NAME'), null, $link
+                $sql, ['TABLE_SCHEMA', 'TABLE_NAME'], null, $link
             );
 
             if ($sort_by == 'Name' && $GLOBALS['cfg']['NaturalOrder']) {
@@ -623,7 +623,7 @@ class DatabaseInterface
                                 . implode(
                                     '\', \'',
                                     array_map(
-                                        array($this, 'escapeString'),
+                                        [$this, 'escapeString'],
                                         $table,
                                         $link
                                     )
@@ -807,7 +807,7 @@ class DatabaseInterface
     public function getVirtualTables(string $db): array
     {
         $tables_full = $this->getTablesFull($db);
-        $views = array();
+        $views = [];
 
         foreach ($tables_full as $table=>$tmp) {
 
@@ -932,7 +932,7 @@ class DatabaseInterface
                 unset($databases[$drop]);
             }
         } else {
-            $databases = array();
+            $databases = [];
             foreach ($GLOBALS['dblist']->databases as $database_name) {
                 // Compatibility with INFORMATION_SCHEMA output
                 $databases[$database_name]['SCHEMA_NAME']      = $database_name;
@@ -997,7 +997,7 @@ class DatabaseInterface
             $GLOBALS['callback_sort_by'] = $sort_by;
             usort(
                 $databases,
-                array(self::class, '_usortComparisonCallback')
+                [self::class, '_usortComparisonCallback']
             );
             unset($GLOBALS['callback_sort_order'], $GLOBALS['callback_sort_by']);
 
@@ -1051,12 +1051,12 @@ class DatabaseInterface
      *
      * @return array
      */
-    public function getColumnMapFromSql(string $sql_query, array $view_columns = array()): array
+    public function getColumnMapFromSql(string $sql_query, array $view_columns = []): array
     {
         $result = $this->tryQuery($sql_query);
 
         if ($result === false) {
-            return array();
+            return [];
         }
 
         $meta = $this->getFieldsMeta(
@@ -1065,15 +1065,15 @@ class DatabaseInterface
 
         $nbFields = count($meta);
         if ($nbFields <= 0) {
-            return array();
+            return [];
         }
 
-        $column_map = array();
+        $column_map = [];
         $nbColumns = count($view_columns);
 
         for ($i=0; $i < $nbFields; $i++) {
 
-            $map = array();
+            $map = [];
             $map['table_name'] = $meta[$i]->table;
             $map['refering_column'] = $meta[$i]->name;
 
@@ -1105,8 +1105,8 @@ class DatabaseInterface
         $link = DatabaseInterface::CONNECT_USER
     ): array {
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
-            $sql_wheres = array();
-            $array_keys = array();
+            $sql_wheres = [];
+            $array_keys = [];
 
             // get columns information from information_schema
             if (null !== $database) {
@@ -1149,7 +1149,7 @@ class DatabaseInterface
             return $this->fetchResult($sql, $array_keys, null, $link);
         }
 
-        $columns = array();
+        $columns = [];
         if (null === $database) {
             foreach ($GLOBALS['dblist']->databases as $database) {
                 $columns[$database] = $this->getColumnsFull(
@@ -1284,7 +1284,7 @@ class DatabaseInterface
         $sql = $this->getColumnsSql($database, $table, $column, $full);
         $fields = $this->fetchResult($sql, 'Field', null, $link);
         if (! is_array($fields) || count($fields) == 0) {
-            return array();
+            return [];
         }
         // Check if column is a part of multiple-column index and set its 'Key'.
         $indexes = Index::getFromTable($table, $database);
@@ -1377,7 +1377,7 @@ class DatabaseInterface
         $indexes = $this->fetchResult($sql, null, null, $link);
 
         if (! is_array($indexes) || count($indexes) < 1) {
-            return array();
+            return [];
         }
         return $indexes;
     }
@@ -1799,7 +1799,7 @@ class DatabaseInterface
         $link = DatabaseInterface::CONNECT_USER,
         int $options = 0
     ) {
-        $resultrows = array();
+        $resultrows = [];
 
         $result = $this->tryQuery($query, $link, $options, false);
 
@@ -1836,7 +1836,7 @@ class DatabaseInterface
                         }
 
                         if (! isset($result_target[$row[$key_index]])) {
-                            $result_target[$row[$key_index]] = array();
+                            $result_target[$row[$key_index]] = [];
                         }
                         $result_target =& $result_target[$row[$key_index]];
                     }
@@ -1860,7 +1860,7 @@ class DatabaseInterface
      */
     public function getCompatibilities(): array
     {
-        $compats = array('NONE');
+        $compats = ['NONE'];
         $compats[] = 'ANSI';
         $compats[] = 'DB2';
         $compats[] = 'MAXDB';
@@ -1905,7 +1905,7 @@ class DatabaseInterface
         $shows = $this->fetchResult(
             'SHOW ' . $which . ' STATUS;', null, null, $link
         );
-        $result = array();
+        $result = [];
         foreach ($shows as $one_show) {
             if ($one_show['Db'] == $db && $one_show['Type'] == $which) {
                 $result[] = $one_show['Name'];
@@ -1930,12 +1930,12 @@ class DatabaseInterface
         string $name,
         $link = DatabaseInterface::CONNECT_USER
     ): string {
-        $returned_field = array(
+        $returned_field = [
             'PROCEDURE' => 'Create Procedure',
             'FUNCTION'  => 'Create Function',
             'EVENT'     => 'Create Event',
             'VIEW'      => 'Create View'
-        );
+        ];
         $query = 'SHOW CREATE ' . $which . ' '
             . Util::backquote($db) . '.'
             . Util::backquote($name);
@@ -1957,7 +1957,7 @@ class DatabaseInterface
         ?string $which = null,
         string $name = ''
     ): array {
-        $routines = array();
+        $routines = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = "SELECT"
                 . " `ROUTINE_SCHEMA` AS `Db`,"
@@ -1975,7 +1975,7 @@ class DatabaseInterface
                 . " FROM `information_schema`.`ROUTINES`"
                 . " WHERE `ROUTINE_SCHEMA` " . Util::getCollateForIS()
                 . " = '" . $GLOBALS['dbi']->escapeString($db) . "'";
-            if (Core::isValid($which, array('FUNCTION','PROCEDURE'))) {
+            if (Core::isValid($which, ['FUNCTION','PROCEDURE'])) {
                 $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
             }
             if (! empty($name)) {
@@ -2013,9 +2013,9 @@ class DatabaseInterface
             }
         }
 
-        $ret = array();
+        $ret = [];
         foreach ($routines as $routine) {
-            $one_result = array();
+            $one_result = [];
             $one_result['db'] = $routine['Db'];
             $one_result['name'] = $routine['Name'];
             $one_result['type'] = $routine['Type'];
@@ -2026,7 +2026,7 @@ class DatabaseInterface
         }
 
         // Sort results by name
-        $name = array();
+        $name = [];
         foreach ($ret as $value) {
             $name[] = $value['name'];
         }
@@ -2077,10 +2077,10 @@ class DatabaseInterface
             }
         }
 
-        $result = array();
+        $result = [];
         if ($events = $this->fetchResult($query)) {
             foreach ($events as $event) {
-                $one_result = array();
+                $one_result = [];
                 $one_result['name'] = $event['Name'];
                 $one_result['type'] = $event['Type'];
                 $one_result['status'] = $event['Status'];
@@ -2089,7 +2089,7 @@ class DatabaseInterface
         }
 
         // Sort results by name
-        $name = array();
+        $name = [];
         foreach ($result as $value) {
             $name[] = $value['name'];
         }
@@ -2109,7 +2109,7 @@ class DatabaseInterface
      */
     public function getTriggers(string $db, string $table = '', $delimiter = '//')
     {
-        $result = array();
+        $result = [];
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $query = 'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION'
                 . ', EVENT_OBJECT_TABLE, ACTION_TIMING, ACTION_STATEMENT'
@@ -2139,7 +2139,7 @@ class DatabaseInterface
                     $trigger['ACTION_STATEMENT'] = $trigger['Statement'];
                     $trigger['DEFINER'] = $trigger['Definer'];
                 }
-                $one_result = array();
+                $one_result = [];
                 $one_result['name'] = $trigger['TRIGGER_NAME'];
                 $one_result['table'] = $trigger['EVENT_OBJECT_TABLE'];
                 $one_result['action_timing'] = $trigger['ACTION_TIMING'];
@@ -2167,7 +2167,7 @@ class DatabaseInterface
         }
 
         // Sort results by name
-        $name = array();
+        $name = [];
         foreach ($result as $value) {
             $name[] = $value['name'];
         }
@@ -2222,7 +2222,7 @@ class DatabaseInterface
                 $error .= ' - ' . $error_message .
                     ' (<a href="server_engines.php' .
                     Url::getCommon(
-                        array('engine' => 'InnoDB', 'page' => 'Status')
+                        ['engine' => 'InnoDB', 'page' => 'Status']
                     ) . '">' . __('Details…') . '</a>)';
             }
         } else {
@@ -2389,10 +2389,10 @@ class DatabaseInterface
      */
     public function getSystemSchemas(): array
     {
-        $schemas = array(
+        $schemas = [
             'information_schema', 'performance_schema', 'mysql', 'sys'
-        );
-        $systemSchemas = array();
+        ];
+        $systemSchemas = [];
         foreach ($schemas as $schema) {
             if ($this->isSystemSchema($schema, true)) {
                 $systemSchemas[] = $schema;
@@ -2445,7 +2445,7 @@ class DatabaseInterface
             $user = $cfg['Server']['controluser'];
             $password = $cfg['Server']['controlpass'];
 
-            $server = array();
+            $server = [];
 
             if (! empty($cfg['Server']['controlhost'])) {
                 $server['host'] = $cfg['Server']['controlhost'];
@@ -2454,11 +2454,11 @@ class DatabaseInterface
             }
             // Share the settings if the host is same
             if ($server['host'] == $cfg['Server']['host']) {
-                $shared = array(
+                $shared = [
                     'port', 'socket', 'compress',
                     'ssl', 'ssl_key', 'ssl_cert', 'ssl_ca',
                     'ssl_ca_path',  'ssl_ciphers', 'ssl_verify',
-                );
+                ];
                 foreach ($shared as $item) {
                     if (isset($cfg['Server'][$item])) {
                         $server[$item] = $cfg['Server'][$item];
@@ -2477,7 +2477,7 @@ class DatabaseInterface
             }
         } else {
             if (is_null($server)) {
-                return array(null, null, null);
+                return [null, null, null];
             }
             if (isset($server['user'])) {
                 $user = $server['user'];
@@ -2506,7 +2506,7 @@ class DatabaseInterface
             $server['compress'] = false;
         }
 
-        return array($user, $password, $server);
+        return [$user, $password, $server];
     }
 
     /**

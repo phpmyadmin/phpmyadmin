@@ -133,7 +133,7 @@ class SqlQueryForm
      */
     public function init($query)
     {
-        $columns_list    = array();
+        $columns_list    = [];
         if (strlen($GLOBALS['db']) === 0) {
             // prepare for server related
             $legend = sprintf(
@@ -151,7 +151,7 @@ class SqlQueryForm
             $tmp_db_link = '<a href="' . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
             )
-                . Url::getCommon(array('db' => $db)) . '"';
+                . Url::getCommon(['db' => $db]) . '"';
             $tmp_db_link .= '>'
                 . htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
@@ -172,7 +172,7 @@ class SqlQueryForm
 
             $tmp_tbl_link = '<a href="' . Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabTable'], 'table'
-            ) . Url::getCommon(array('db' => $db, 'table' => $table)) . '" >';
+            ) . Url::getCommon(['db' => $db, 'table' => $table]) . '" >';
             $tmp_tbl_link .= htmlspecialchars($db)
                 . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
@@ -184,7 +184,7 @@ class SqlQueryForm
         }
         $legend .= ': ' . Util::showMySQLDocu('SELECT');
 
-        return array($legend, $query, $columns_list);
+        return [$legend, $query, $columns_list];
     }
 
     /**

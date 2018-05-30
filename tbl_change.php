@@ -128,7 +128,7 @@ $has_blob_field = false;
 foreach ($table_columns as $column) {
     if ($insertEdit->isColumn(
         $column,
-        array('blob', 'tinyblob', 'mediumblob', 'longblob')
+        ['blob', 'tinyblob', 'mediumblob', 'longblob']
     )) {
         $has_blob_field = true;
         break;
@@ -157,10 +157,10 @@ if (! $cfg['ShowFieldTypesInDataEditView']) {
     $html_output .= $insertEdit->showTypeOrFunction('type', $url_params, false);
 }
 
-$GLOBALS['plugin_scripts'] = array();
+$GLOBALS['plugin_scripts'] = [];
 foreach ($rows as $row_id => $current_row) {
     if (empty($current_row)) {
-        $current_row = array();
+        $current_row = [];
     }
 
     $jsvkey = $row_id;
@@ -169,7 +169,7 @@ foreach ($rows as $row_id => $current_row) {
     $current_result = (isset($result) && is_array($result) && isset($result[$row_id])
         ? $result[$row_id]
         : $result);
-    $repopulate = array();
+    $repopulate = [];
     $checked = true;
     if (isset($unsaved_values[$row_id])) {
         $repopulate = $unsaved_values[$row_id];

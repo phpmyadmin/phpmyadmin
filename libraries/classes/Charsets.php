@@ -24,7 +24,7 @@ class Charsets
      *
      * @var array
      */
-    public static $mysql_charset_map = array(
+    public static $mysql_charset_map = [
         'big5'         => 'big5',
         'cp-866'       => 'cp866',
         'euc-jp'       => 'ujis',
@@ -48,12 +48,12 @@ class Charsets
         'windows-1252' => 'latin1',
         'windows-1256' => 'cp1256',
         'windows-1257' => 'cp1257',
-    );
+    ];
 
-    private static $_charsets = array();
-    private static $_charsets_descriptions = array();
-    private static $_collations = array();
-    private static $_default_collations = array();
+    private static $_charsets = [];
+    private static $_charsets_descriptions = [];
+    private static $_collations = [];
+    private static $_default_collations = [];
 
     /**
      * Loads charset data from the MySQL server.
@@ -79,7 +79,7 @@ class Charsets
         }
         $res = $dbi->query($sql);
 
-        self::$_charsets = array();
+        self::$_charsets = [];
         while ($row = $dbi->fetchAssoc($res)) {
             $name = $row['Charset'];
             self::$_charsets[] = $name;
@@ -311,7 +311,7 @@ class Charsets
 
         $name = __('Unknown');
         $variant = null;
-        $suffixes = array();
+        $suffixes = [];
         $unicode = false;
         $unknown = false;
 

@@ -142,11 +142,11 @@ class ExportSql extends ExportPlugin
                 __('Enclose export in a transaction')
             );
             $leaf->setDoc(
-                array(
+                [
                     'programs',
                     'mysqldump',
                     'option_mysqldump_single-transaction',
-                )
+                ]
             );
             $generalOptions->addProperty($leaf);
 
@@ -156,11 +156,11 @@ class ExportSql extends ExportPlugin
                 __('Disable foreign key checks')
             );
             $leaf->setDoc(
-                array(
+                [
                     'manual_MySQL_Database_Administration',
                     'server-system-variables',
                     'sysvar_foreign_key_checks',
-                )
+                ]
             );
             $generalOptions->addProperty($leaf);
 
@@ -181,7 +181,7 @@ class ExportSql extends ExportPlugin
             // compatibility maximization
             $compats = $GLOBALS['dbi']->getCompatibilities();
             if (count($compats) > 0) {
-                $values = array();
+                $values = [];
                 foreach ($compats as $val) {
                     $values[$val] = $val;
                 }
@@ -195,10 +195,10 @@ class ExportSql extends ExportPlugin
                 );
                 $leaf->setValues($values);
                 $leaf->setDoc(
-                    array(
+                    [
                         'manual_MySQL_Database_Administration',
                         'Server_SQL_mode',
-                    )
+                    ]
                 );
                 $generalOptions->addProperty($leaf);
 
@@ -211,11 +211,11 @@ class ExportSql extends ExportPlugin
             );
             $leaf = new RadioPropertyItem('structure_or_data');
             $leaf->setValues(
-                array(
+                [
                     'structure'          => __('structure'),
                     'data'               => __('data'),
                     'structure_and_data' => __('structure and data'),
-                )
+                ]
             );
             $subgroup->setSubgroupHeader($leaf);
             $generalOptions->addProperty($subgroup);
@@ -365,10 +365,10 @@ class ExportSql extends ExportPlugin
                 __('<code>INSERT DELAYED</code> statements')
             );
             $leaf->setDoc(
-                array(
+                [
                     'manual_MySQL_Database_Administration',
                     'insert_delayed'
-                )
+                ]
             );
             $subgroup->addProperty($leaf);
 
@@ -377,10 +377,10 @@ class ExportSql extends ExportPlugin
                 __('<code>INSERT IGNORE</code> statements')
             );
             $leaf->setDoc(
-                array(
+                [
                     'manual_MySQL_Database_Administration',
                     'insert',
-                )
+                ]
             );
             $subgroup->addProperty($leaf);
             $dataOptions->addProperty($subgroup);
@@ -391,11 +391,11 @@ class ExportSql extends ExportPlugin
                 __('Function to use when dumping data:')
             );
             $leaf->setValues(
-                array(
+                [
                     'INSERT'  => 'INSERT',
                     'UPDATE'  => 'UPDATE',
                     'REPLACE' => 'REPLACE',
-                )
+                ]
             );
             $dataOptions->addProperty($leaf);
 
@@ -411,7 +411,7 @@ class ExportSql extends ExportPlugin
                 __('<code>INSERT IGNORE</code> statements')
             );
             $leaf->setValues(
-                array(
+                [
                     'complete' => __(
                         'include column names in every <code>INSERT</code> statement'
                         . ' <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
@@ -431,7 +431,7 @@ class ExportSql extends ExportPlugin
                         'neither of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
                         . ' <code>INSERT INTO tbl_name VALUES (1,2,3)</code>'
                     ),
-                )
+                ]
             );
             $subgroup->addProperty($leaf);
             $dataOptions->addProperty($subgroup);
@@ -538,7 +538,7 @@ class ExportSql extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportRoutines($db, array $aliases = array())
+    public function exportRoutines($db, array $aliases = [])
     {
         global $crlf;
 
@@ -606,7 +606,7 @@ class ExportSql extends ExportPlugin
             }
 
             $lines = preg_split("/\\r\\n|\\r|\\n/", $text);
-            $result = array();
+            $result = [];
             foreach ($lines as $line) {
                 $result[] = '-- ' . $line . $GLOBALS['crlf'];
             }
@@ -1055,22 +1055,22 @@ class ExportSql extends ExportPlugin
         $cfgRelation = $this->relation->getRelationsParam();
 
         if (isset($table)) {
-            $types = array(
+            $types = [
                 'column_info'   => 'db_name',
                 'table_uiprefs' => 'db_name',
                 'tracking'      => 'db_name',
-            );
+            ];
         } else {
-            $types = array(
+            $types = [
                 'bookmark'        => 'dbase',
                 'relation'        => 'master_db',
                 'pdf_pages'       => 'db_name',
                 'savedsearches'   => 'db_name',
                 'central_columns' => 'db_name',
-            );
+            ];
         }
 
-        $aliases = array();
+        $aliases = [];
 
         $comment = $this->_possibleCRLF()
             . $this->_exportComment();
@@ -1224,7 +1224,7 @@ class ExportSql extends ExportPlugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $crlf, $aliases = array())
+    public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
     {
         $db_alias = $db;
         $view_alias = $view;
@@ -1244,7 +1244,7 @@ class ExportSql extends ExportPlugin
             $create_query .= 'IF NOT EXISTS ';
         }
         $create_query .= Util::backquote($view_alias) . ' (' . $crlf;
-        $tmp = array();
+        $tmp = [];
         $columns = $GLOBALS['dbi']->getColumnsFull($db, $view);
         foreach ($columns as $column_name => $definition) {
             $col_alias = $column_name;
@@ -1276,7 +1276,7 @@ class ExportSql extends ExportPlugin
         $view,
         $crlf,
         $add_semicolon = true,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $view_alias = $view;
@@ -1370,7 +1370,7 @@ class ExportSql extends ExportPlugin
         $add_semicolon = true,
         $view = false,
         $update_indexes_increments = true,
-        array $aliases = array()
+        array $aliases = []
     ) {
         global $sql_drop_table, $sql_backquotes, $sql_constraints,
                $sql_constraints_query, $sql_indexes, $sql_indexes_query,
@@ -1612,21 +1612,21 @@ class ExportSql extends ExportPlugin
                  *
                  * @var array
                  */
-                $constraints = array();
+                $constraints = [];
 
                 /**
                  * Fragments containining definition of each index.
                  *
                  * @var array
                  */
-                $indexes = array();
+                $indexes = [];
 
                 /**
                  * Fragments containining definition of each FULLTEXT index.
                  *
                  * @var array
                  */
-                $indexes_fulltext = array();
+                $indexes_fulltext = [];
 
                 /**
                  * Fragments containining definition of each foreign key that will
@@ -1634,14 +1634,14 @@ class ExportSql extends ExportPlugin
                  *
                  * @var array
                  */
-                $dropped = array();
+                $dropped = [];
 
                 /**
                  * Fragment containining definition of the `AUTO_INCREMENT`.
                  *
                  * @var array
                  */
-                $auto_increment = array();
+                $auto_increment = [];
 
                 // Scanning each field of the `CREATE` statement to fill the arrays
                 // above.
@@ -1835,7 +1835,7 @@ class ExportSql extends ExportPlugin
         $crlf,
         $do_relation = false,
         $do_mime = false,
-        array $aliases = array()
+        array $aliases = []
     ) {
         global $cfgRelation, $sql_backquotes;
 
@@ -1985,7 +1985,7 @@ class ExportSql extends ExportPlugin
         $comments = false,
         $mime = false,
         $dates = false,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -2159,7 +2159,7 @@ class ExportSql extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         global $current_row, $sql_backquotes;
 
@@ -2227,12 +2227,12 @@ class ExportSql extends ExportPlugin
 
         // Get field information
         $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-        $field_flags = array();
+        $field_flags = [];
         for ($j = 0; $j < $fields_cnt; $j++) {
             $field_flags[$j] = $GLOBALS['dbi']->fieldFlags($result, $j);
         }
 
-        $field_set = array();
+        $field_set = [];
         for ($j = 0; $j < $fields_cnt; $j++) {
             $col_as = $fields_meta[$j]->name;
             if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
@@ -2377,7 +2377,7 @@ class ExportSql extends ExportPlugin
                 }
             }
             $current_row++;
-            $values = array();
+            $values = [];
             for ($j = 0; $j < $fields_cnt; $j++) {
                 // NULL
                 if (!isset($row[$j]) || is_null($row[$j])) {

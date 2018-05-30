@@ -199,7 +199,7 @@ abstract class GisGeometry
             $wkt = $value;
         }
 
-        return array('srid' => $srid, 'wkt' => $wkt);
+        return ['srid' => $srid, 'wkt' => $wkt];
     }
 
     /**
@@ -214,7 +214,7 @@ abstract class GisGeometry
      */
     protected function extractPoints($point_set, $scale_data, $linear = false)
     {
-        $points_arr = array();
+        $points_arr = [];
 
         // Separate each point
         $points = explode(",", $point_set);
@@ -241,7 +241,7 @@ abstract class GisGeometry
             }
 
             if (!$linear) {
-                $points_arr[] = array($x, $y);
+                $points_arr[] = [$x, $y];
             } else {
                 $points_arr[] = $x;
                 $points_arr[] = $y;

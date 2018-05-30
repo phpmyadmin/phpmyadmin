@@ -121,7 +121,7 @@ $url_params['back'] = 'view_operations.php';
 <?php
 $drop_view_url_params = array_merge(
     $url_params,
-    array(
+    [
         'sql_query' => 'DROP VIEW ' . Util::backquote(
             $GLOBALS['table']
         ),
@@ -133,7 +133,7 @@ $drop_view_url_params = array_merge(
             htmlspecialchars($GLOBALS['table'])
         ),
         'table' => $GLOBALS['table']
-    )
+    ]
 );
 echo '<div>';
 echo '<fieldset class="caution">';

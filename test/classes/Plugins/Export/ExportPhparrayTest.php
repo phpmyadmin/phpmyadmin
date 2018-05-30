@@ -238,7 +238,7 @@ class ExportPhparrayTest extends PmaTestCase
         $dbi->expects($this->at(4))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array(1, 'a')));
+            ->will($this->returnValue([1, 'a']));
 
         $dbi->expects($this->at(5))
             ->method('fetchRow')

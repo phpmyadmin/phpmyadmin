@@ -26,6 +26,6 @@ $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var ServerCollationsController $controller */
 $controller = $container->get(
-    'ServerCollationsController', array()
+    'ServerCollationsController', []
 );
 $controller->indexAction();

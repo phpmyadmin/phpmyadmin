@@ -39,17 +39,17 @@ class Config
     /**
      * @var array   default configuration settings
      */
-    public $default = array();
+    public $default = [];
 
     /**
      * @var array   configuration settings, without user preferences applied
      */
-    public $base_settings = array();
+    public $base_settings = [];
 
     /**
      * @var array   configuration settings
      */
-    public $settings = array();
+    public $settings = [];
 
     /**
      * @var string  config source
@@ -76,7 +76,7 @@ class Config
     /**
      * @var array
      */
-    public $default_server = array();
+    public $default_server = [];
 
     /**
      * @var boolean whether init is done or not
@@ -97,7 +97,7 @@ class Config
      */
     public function __construct(?string $source = null)
     {
-        $this->settings = array('is_setup' => false);
+        $this->settings = ['is_setup' => false];
 
         // functions need to refresh in case of config file changed goes in
         // PhpMyAdmin\Config::load()
@@ -389,7 +389,7 @@ class Config
             }
         } elseif (is_file($git)) {
             $contents = file_get_contents($git);
-            $gitmatch = array();
+            $gitmatch = [];
             // Matches expected format
             if (! preg_match('/^gitdir: (.*)$/',
                 $contents, $gitmatch)) {
@@ -498,7 +498,7 @@ class Config
                 $commit = explode("\n", $commit[1]);
                 $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
             } else {
-                $pack_names = array();
+                $pack_names = [];
                 // work with packed data
                 $packs_file = $git_folder . '/objects/info/packs';
                 if (@file_exists($packs_file)
@@ -693,20 +693,20 @@ class Config
         }
 
         if ($commit !== false) {
-            $author = array('name' => '', 'email' => '', 'date' => '');
-            $committer = array('name' => '', 'email' => '', 'date' => '');
+            $author = ['name' => '', 'email' => '', 'date' => ''];
+            $committer = ['name' => '', 'email' => '', 'date' => ''];
 
             do {
                 $dataline = array_shift($commit);
                 $datalinearr = explode(' ', $dataline, 2);
                 $linetype = $datalinearr[0];
-                if (in_array($linetype, array('author', 'committer'))) {
+                if (in_array($linetype, ['author', 'committer'])) {
                     $user = $datalinearr[1];
                     preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
-                    $user2 = array(
+                    $user2 = [
                         'name' => trim($user[1]),
                         'email' => trim($user[2]),
-                        'date' => date('Y-m-d H:i:s', (int) $user[3]));
+                        'date' => date('Y-m-d H:i:s', (int) $user[3])];
                     if (isset($user[4])) {
                         $user2['date'] .= $user[4];
                     }
@@ -716,14 +716,14 @@ class Config
             $message = trim(implode(' ', $commit));
 
         } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer)) {
-            $author = array(
+            $author = [
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
-                'date' => $commit_json->author->date);
-            $committer = array(
+                'date' => $commit_json->author->date];
+            $committer = [
                 'name' => $commit_json->committer->name,
                 'email' => $commit_json->committer->email,
-                'date' => $commit_json->committer->date);
+                'date' => $commit_json->committer->date];
             $message = trim($commit_json->message);
         } else {
             return;
@@ -746,7 +746,7 @@ class Config
      */
     public function loadDefaults(): bool
     {
-        $cfg = array();
+        $cfg = [];
         if (! @file_exists($this->default_source)) {
             $this->error_config_default_file = true;
             return false;
@@ -797,7 +797,7 @@ class Config
             return false;
         }
 
-        $cfg = array();
+        $cfg = [];
 
         /**
          * Parses the configuration file, we throw away any errors or
@@ -1380,7 +1380,7 @@ class Config
         $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
         $GLOBALS['is_https']        = $this->get('is_https');
 
-        $defines = array(
+        $defines = [
             'PMA_VERSION',
             'PMA_MAJOR_VERSION',
             'PMA_THEME_VERSION',
@@ -1390,7 +1390,7 @@ class Config
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
             'PMA_USR_BROWSER_AGENT'
-            );
+            ];
 
         foreach ($defines as $define) {
             if (! defined($define)) {
@@ -1570,7 +1570,7 @@ class Config
      */
     public function getTempDir(string $name): ?string
     {
-        static $temp_dir = array();
+        static $temp_dir = [];
 
         if (isset($temp_dir[$name]) && !defined('TESTSUITE')) {
             return $temp_dir[$name];
@@ -1602,11 +1602,11 @@ class Config
     {
         // First try configured temp dir
         // Fallback to PHP upload_tmp_dir
-        $dirs = array(
+        $dirs = [
             $this->getTempDir('upload'),
             ini_get('upload_tmp_dir'),
             sys_get_temp_dir(),
-        );
+        ];
 
         foreach ($dirs as $dir) {
             if (! empty($dir) && @is_writable($dir)) {
@@ -1666,7 +1666,7 @@ class Config
                 $this->settings['Server'] = $this->settings['Servers'][$server];
             } else {
                 $server = 0;
-                $this->settings['Server'] = array();
+                $this->settings['Server'] = [];
             }
         }
 
@@ -1683,10 +1683,10 @@ class Config
         // Do we have some server?
         if (! isset($this->settings['Servers']) || count($this->settings['Servers']) == 0) {
             // No server => create one with defaults
-            $this->settings['Servers'] = array(1 => $this->default_server);
+            $this->settings['Servers'] = [1 => $this->default_server];
         } else {
             // We have server(s) => apply default configuration
-            $new_servers = array();
+            $new_servers = [];
 
             foreach ($this->settings['Servers'] as $server_index => $each_server) {
 
@@ -1717,5 +1717,5 @@ class Config
 }
 
 if (!defined('TESTSUITE')) {
-    register_shutdown_function(array('PhpMyAdmin\Config', 'fatalErrorHandler'));
+    register_shutdown_function(['PhpMyAdmin\Config', 'fatalErrorHandler']);
 }

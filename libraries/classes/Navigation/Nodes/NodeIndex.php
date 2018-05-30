@@ -30,12 +30,12 @@ class NodeIndex extends Node
     {
         parent::__construct($name, $type, $is_group);
         $this->icon = Util::getImage('b_index', __('Index'));
-        $this->links = array(
+        $this->links = [
             'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
             'icon' => 'tbl_indexes.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s',
-        );
+        ];
         $this->classes = 'index';
     }
 }

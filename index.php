@@ -30,13 +30,13 @@ require_once 'libraries/common.inc.php';
 /**
  * pass variables to child pages
  */
-$drops = array(
+$drops = [
     'lang',
     'server',
     'collation_connection',
     'db',
     'table'
-);
+];
 foreach ($drops as $each_drop) {
     if (array_key_exists($each_drop, $_GET)) {
         unset($_GET[$each_drop]);
@@ -49,9 +49,9 @@ unset($drops, $each_drop);
  * Such scripts must not be loaded on home page.
  *
  */
-$target_blacklist = array (
+$target_blacklist =  [
     'import.php', 'export.php'
-);
+];
 
 // If we have a valid target, let's load that script instead
 if (! empty($_REQUEST['target'])

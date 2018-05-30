@@ -41,35 +41,35 @@ class GisFactoryTest extends TestCase
      */
     public function providerForTestFactory()
     {
-        return array(
-            array(
+        return [
+            [
                 'MULTIPOLYGON',
                 'PhpMyAdmin\Gis\GisMultiPolygon'
-            ),
-            array(
+            ],
+            [
                 'POLYGON',
                 'PhpMyAdmin\Gis\GisPolygon'
-            ),
-            array(
+            ],
+            [
                 'MULTILINESTRING',
                 'PhpMyAdmin\Gis\GisMultiLineString'
-            ),
-            array(
+            ],
+            [
                 'LINESTRING',
                 'PhpMyAdmin\Gis\GisLineString'
-            ),
-            array(
+            ],
+            [
                 'MULTIPOINT',
                 'PhpMyAdmin\Gis\GisMultiPoint'
-            ),
-            array(
+            ],
+            [
                 'POINT',
                 'PhpMyAdmin\Gis\GisPoint'
-            ),
-            array(
+            ],
+            [
                 'GEOMETRYCOLLECTION',
                 'PhpMyAdmin\Gis\GisGeometryCollection'
-            ),
-        );
+            ],
+        ];
     }
 }

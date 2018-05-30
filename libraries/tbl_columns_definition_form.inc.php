@@ -25,7 +25,7 @@ if (!defined('PHPMYADMIN')) {
  * Check parameters
  */
 Util::checkParameters(
-    array('server', 'db', 'table', 'action', 'num_fields')
+    ['server', 'db', 'table', 'action', 'num_fields']
 );
 
 global $db, $table;
@@ -44,25 +44,25 @@ if (!isset($mime_map)) {
     $mime_map = null;
 }
 if (!isset($columnMeta)) {
-    $columnMeta = array();
+    $columnMeta = [];
 }
 
 $length_values_input_size = 8;
 
-$content_cells = array();
+$content_cells = [];
 
 /** @var string $db */
-$form_params = array(
+$form_params = [
     'db' => $db
-);
+];
 
 if ($action == 'tbl_create.php') {
     $form_params['reload'] = 1;
 } else {
     if ($action == 'tbl_addfield.php') {
         $form_params = array_merge(
-            $form_params, array(
-            'field_where' => Util::getValueByKey($_REQUEST, 'field_where'))
+            $form_params, [
+            'field_where' => Util::getValueByKey($_REQUEST, 'field_where')]
         );
         if (isset($_REQUEST['field_where'])) {
             $form_params['after_field'] = $_REQUEST['after_field'];
@@ -77,10 +77,10 @@ if (isset($num_fields)) {
 
 $form_params = array_merge(
     $form_params,
-    array(
+    [
         'orig_field_where' => Util::getValueByKey($_REQUEST, 'field_where'),
         'orig_after_field' => Util::getValueByKey($_REQUEST, 'after_field'),
-    )
+    ]
 );
 
 if (isset($selected) && is_array($selected)) {
@@ -95,14 +95,14 @@ $cfgRelation = $relation->getRelationsParam();
 
 $comments_map = $relation->getComments($db, $table);
 
-$move_columns = array();
+$move_columns = [];
 if (isset($fields_meta)) {
     /** @var PhpMyAdmin\DatabaseInterface $dbi */
     $dbi = Container::getDefaultContainer()->get('dbi');
     $move_columns = $dbi->getTable($db, $table)->getColumnsMeta();
 }
 
-$available_mime = array();
+$available_mime = [];
 if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
     $mime_map = $transformations->getMime($db, $table);
     $available_mime = $transformations->getAvailableMimeTypes();
@@ -145,15 +145,15 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
     $type = '';
     $length = '';
-    $columnMeta = array();
+    $columnMeta = [];
     $submit_attribute = null;
-    $extracted_columnspec = array();
+    $extracted_columnspec = [];
 
     if (!empty($regenerate)) {
 
         $columnMeta = array_merge(
             $columnMeta,
-            array(
+            [
                 'Field'        => Util::getValueByKey(
                     $_REQUEST, "field_name.${columnNumber}", false
                 ),
@@ -181,7 +181,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 'Expression'   => Util::getValueByKey(
                     $_REQUEST, "field_expression.${columnNumber}", ''
                 ),
-            )
+            ]
         );
 
         $columnMeta['Key'] = '';
@@ -190,13 +190,13 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         );
         if (count($parts) == 2 && $parts[1] == $columnNumber) {
             $columnMeta['Key'] = Util::getValueByKey(
-                array(
+                [
                     'primary' => 'PRI',
                     'index' => 'MUL',
                     'unique' => 'UNI',
                     'fulltext' => 'FULLTEXT',
                     'spatial' => 'SPATIAL'
-                ),
+                ],
                 $parts[0], ''
             );
         }
@@ -230,7 +230,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 
         $mime_map[$columnMeta['Field']] = array_merge(
             $mime_map[$columnMeta['Field']],
-            array(
+            [
                 'mimetype' => Util::getValueByKey($_REQUEST, "field_mimetype.${$columnNumber}"),
                 'transformation' => Util::getValueByKey(
                     $_REQUEST, "field_transformation.${$columnNumber}"
@@ -238,14 +238,14 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 'transformation_options' => Util::getValueByKey(
                     $_REQUEST, "field_transformation_options.${$columnNumber}"
                 ),
-            )
+            ]
         );
 
     } elseif (isset($fields_meta[$columnNumber])) {
         $columnMeta = $fields_meta[$columnNumber];
-        $virtual = array(
+        $virtual = [
             'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
-        );
+        ];
         if (in_array($columnMeta['Extra'], $virtual)) {
             $tableObj = new Table($GLOBALS['table'], $GLOBALS['db']);
             $expressions = $tableObj->getColumnGenerationExpression(
@@ -358,7 +358,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         // old column default
         $form_params = array_merge(
             $form_params,
-            array(
+            [
                 "field_default_value_orig[${columnNumber}]" => Util::getValueByKey(
                     $columnMeta, 'Default', ''
                 ),
@@ -386,7 +386,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 "field_expression_orig[${columnNumber}]"    => Util::getValueByKey(
                     $columnMeta, 'Expression', ''
                 ),
-            )
+            ]
         );
     }
 
@@ -403,7 +403,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         $default_value = bin2hex($columnMeta['DefaultValue']);
     }
 
-    $content_cells[$columnNumber] = array(
+    $content_cells[$columnNumber] = [
         'column_number' => $columnNumber,
         'column_meta' => $columnMeta,
         'type_upper' => $type_upper,
@@ -418,8 +418,8 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         'move_columns' => $move_columns,
         'cfg_relation' => $cfgRelation,
         'available_mime' => $available_mime,
-        'mime_map' => isset($mime_map) ? $mime_map : array()
-    );
+        'mime_map' => isset($mime_map) ? $mime_map : []
+    ];
 } // end for
 
 include 'libraries/tbl_partition_definition.inc.php';
@@ -461,9 +461,9 @@ unset($form_params);
 
 $response = Response::getInstance();
 $response->getHeader()->getScripts()->addFiles(
-    array(
+    [
         'vendor/jquery/jquery.uitablefilter.js',
         'indexes.js'
-    )
+    ]
 );
 $response->addHTML($html);

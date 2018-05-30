@@ -133,16 +133,16 @@ class ExportTest extends TestCase
         $num_tables_str = "10";
         $unlim_num_rows_str = "unlim_num_rows_str";
         $single_table = "single_table";
-        $GLOBALS['dbi']->cacheTableContent(array($db, $table, 'ENGINE'), 'MERGE');
+        $GLOBALS['dbi']->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
 
-        $columns_info = array(
-            'test_column1' => array(
+        $columns_info = [
+            'test_column1' => [
                 'COLUMN_NAME' => 'test_column1'
-            ),
-            'test_column2' => array(
+            ],
+            'test_column2' => [
                 'COLUMN_NAME' => 'test_column2'
-            )
-        );
+            ]
+        ];
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -150,7 +150,7 @@ class ExportTest extends TestCase
         $dbi->expects($this->any())->method('getColumnsFull')
             ->will($this->returnValue($columns_info));
         $dbi->expects($this->any())->method('getCompatibilities')
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
 
@@ -158,10 +158,10 @@ class ExportTest extends TestCase
         $export_list = Plugins::getPlugins(
             "export",
             'libraries/classes/Plugins/Export/',
-            array(
+            [
                 'export_type' => $export_type,
                 'single_table' => isset($single_table)
-            )
+            ]
         );
 
         //Call the test function
@@ -269,18 +269,18 @@ class ExportTest extends TestCase
      */
     public function testGetHtmlForAliasModalDialog()
     {
-        $columns_info = array(
-            'test\'_db' => array(
-                'test_<b>table' => array(
-                    'co"l1' => array(
+        $columns_info = [
+            'test\'_db' => [
+                'test_<b>table' => [
+                    'co"l1' => [
                         'COLUMN_NAME' => 'co"l1'
-                    ),
-                    'col<2' => array(
+                    ],
+                    'col<2' => [
                         'COLUMN_NAME' => 'col<2'
-                    )
-                )
-            )
-        );
+                    ]
+                ]
+            ]
+        ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()

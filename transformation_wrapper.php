@@ -35,17 +35,17 @@ require_once './libraries/db_table_exists.inc.php';
 /**
  * Sets globals from $_REQUEST
  */
-$request_params = array(
+$request_params = [
     'cn',
     'ct',
     'sql_query',
     'transform_key',
     'where_clause'
-);
-$size_params = array(
+];
+$size_params = [
     'newHeight',
     'newWidth',
-);
+];
 foreach ($request_params as $one_request_param) {
     if (isset($_REQUEST[$one_request_param])) {
         if (in_array($one_request_param, $size_params)) {

@@ -80,7 +80,7 @@ abstract class SchemaPlugin
      */
     protected function getPaperSizeArray()
     {
-        $ret = array();
+        $ret = [];
         foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
             $ret[$val] = $val;
         }

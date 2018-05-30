@@ -14,315 +14,315 @@ if (! defined('PHPMYADMIN')) {
 /**
  *
  */
-$GLOBALS['information_schema_relations'] = array(
-    'CHARACTER_SETS' => array(
-        'DEFAULT_COLLATE_NAME' => array(
+$GLOBALS['information_schema_relations'] = [
+    'CHARACTER_SETS' => [
+        'DEFAULT_COLLATE_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        )
-    ),
-    'COLLATIONS' => array(
-        'CHARACTER_SET_NAME' => array(
+        ]
+    ],
+    'COLLATIONS' => [
+        'CHARACTER_SET_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        )
-    ),
-    'COLLATION_CHARACTER_SET_APPLICABILITY' => array(
-        'CHARACTER_SET_NAME' => array(
+        ]
+    ],
+    'COLLATION_CHARACTER_SET_APPLICABILITY' => [
+        'CHARACTER_SET_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'COLLATION_NAME' => array(
+        ],
+        'COLLATION_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        )
-    ),
-    'COLUMNS' => array(
-        'TABLE_SCHEMA' => array(
+        ]
+    ],
+    'COLUMNS' => [
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'CHARACTER_SET_NAME' => array(
+        ],
+        'CHARACTER_SET_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'COLLATION_NAME' => array(
+        ],
+        'COLLATION_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        )
-    ),
-    'COLUMN_PRIVILEGES' => array(
-        'TABLE_SCHEMA' => array(
+        ]
+    ],
+    'COLUMN_PRIVILEGES' => [
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        )
-    ),
-    'EVENTS' => array(
-        'EVENT_SCHEMA' => array(
+        ]
+    ],
+    'EVENTS' => [
+        'EVENT_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'CHARACTER_SET_CLIENT' => array(
+        ],
+        'CHARACTER_SET_CLIENT' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'COLLATION_CONNECTION' => array(
+        ],
+        'COLLATION_CONNECTION' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-        'DATABASE_COLLATION' => array(
+        ],
+        'DATABASE_COLLATION' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        )
-    ),
-    'FILES' => array(
-        'TABLESPACE_NAME' => array(
+        ]
+    ],
+    'FILES' => [
+        'TABLESPACE_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'TABLESPACES',
             'foreign_field' => 'TABLESPACE_NAME'
-        ),
-        'TABLE_SCHEMA' => array(
+        ],
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'COLLATION_CONNECTION' => array(
+        ],
+        'COLLATION_CONNECTION' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-        'ENGINE' => array(
+        ],
+        'ENGINE' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'ENGINES',
             'foreign_field' => 'ENGINE'
-        )
-    ),
-    'KEY_COLUMN_USAGE' => array(
-        'CONSTRAINT_SCHEMA' => array(
+        ]
+    ],
+    'KEY_COLUMN_USAGE' => [
+        'CONSTRAINT_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'TABLE_SCHEMA' => array(
+        ],
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'REFERENCED_TABLE_SCHEMA' => array(
+        ],
+        'REFERENCED_TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        )
-    ),
-    'PARAMETERS' => array(
-        'SPECIFIC_SCHEMA' => array(
+        ]
+    ],
+    'PARAMETERS' => [
+        'SPECIFIC_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'CHARACTER_SET_NAME' => array(
+        ],
+        'CHARACTER_SET_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'COLLATION_NAME' => array(
+        ],
+        'COLLATION_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        )
-    ),
-    'PARTITIONS' => array(
-        'TABLE_SCHEMA' => array(
+        ]
+    ],
+    'PARTITIONS' => [
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'TABLESPACE_NAME' => array(
+        ],
+        'TABLESPACE_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'TABLESPACES',
             'foreign_field' => 'TABLESPACE_NAME'
-        )
-    ),
-    'PROCESSLIST' => array(
-        'DB' => array(
+        ]
+    ],
+    'PROCESSLIST' => [
+        'DB' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        )
-    ),
-    'REFERENTIAL_CONSTRAINTS' => array(
-        'CONSTRAINT_SCHEMA' => array(
+        ]
+    ],
+    'REFERENTIAL_CONSTRAINTS' => [
+        'CONSTRAINT_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'UNIQUE_CONSTRAINT_SCHEMA' => array(
+        ],
+        'UNIQUE_CONSTRAINT_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        )
-    ),
-    'ROUTINES' => array(
-        'ROUTINE_SCHEMA' => array(
+        ]
+    ],
+    'ROUTINES' => [
+        'ROUTINE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'CHARACTER_SET_NAME' => array(
+        ],
+        'CHARACTER_SET_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'COLLATION_NAME' => array(
+        ],
+        'COLLATION_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-        'CHARACTER_SET_CLIENT' => array(
+        ],
+        'CHARACTER_SET_CLIENT' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'COLLATION_CONNECTION' => array(
+        ],
+        'COLLATION_CONNECTION' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-        'DATABASE_COLLATION' => array(
+        ],
+        'DATABASE_COLLATION' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        )
-    ),
-    'SCHEMATA' => array(
-        'DEFAULT_CHARACTER_SET_NAME' => array(
+        ]
+    ],
+    'SCHEMATA' => [
+        'DEFAULT_CHARACTER_SET_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'DEFAULT_COLLATION_NAME' => array(
+        ],
+        'DEFAULT_COLLATION_NAME' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        )
-    ),
-    'SCHEMA_PRIVILEGES' => array(
-        'TABLE_SCHEMA' => array(
+        ]
+    ],
+    'SCHEMA_PRIVILEGES' => [
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        )
-    ),
-    'STATISTICS' => array(
-        'TABLE_SCHEMA' => array(
+        ]
+    ],
+    'STATISTICS' => [
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'INDEX_SCHEMA' => array(
+        ],
+        'INDEX_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        )
-    ),
-    'TABLES' => array(
-        'TABLE_SCHEMA' => array(
+        ]
+    ],
+    'TABLES' => [
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'TABLE_COLLATION' => array(
+        ],
+        'TABLE_COLLATION' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-        'ENGINE' => array(
+        ],
+        'ENGINE' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'ENGINES',
             'foreign_field' => 'ENGINE'
-        ),
-    ),
-    'TABLESAPCES' => array(
-        'ENGINE' => array(
+        ],
+    ],
+    'TABLESAPCES' => [
+        'ENGINE' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'ENGINES',
             'foreign_field' => 'ENGINE'
-        )
-    ),
-    'TABLE_CONSTRAINTS' => array(
-        'CONSTRAINT_SCHEMA' => array(
+        ]
+    ],
+    'TABLE_CONSTRAINTS' => [
+        'CONSTRAINT_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'TABLE_SCHEMA' => array(
+        ],
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        )
-    ),
-    'TABLE_PRIVILEGES' => array(
-        'TABLE_SCHEMA' => array(
+        ]
+    ],
+    'TABLE_PRIVILEGES' => [
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        )
-    ),
-    'TRIGGERS' => array(
-        'TRIGGER_SCHEMA' => array(
+        ]
+    ],
+    'TRIGGERS' => [
+        'TRIGGER_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'EVENT_OBJECT_SCHEMA' => array(
+        ],
+        'EVENT_OBJECT_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'CHARACTER_SET_CLIENT' => array(
+        ],
+        'CHARACTER_SET_CLIENT' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'COLLATION_CONNECTION' => array(
+        ],
+        'COLLATION_CONNECTION' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-        'DATABASE_COLLATION' => array(
+        ],
+        'DATABASE_COLLATION' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        )
-    ),
-    'VIEWS' => array(
-        'TABLE_SCHEMA' => array(
+        ]
+    ],
+    'VIEWS' => [
+        'TABLE_SCHEMA' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'CHARACTER_SET_CLIENT' => array(
+        ],
+        'CHARACTER_SET_CLIENT' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'COLLATION_CONNECTION' => array(
+        ],
+        'COLLATION_CONNECTION' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        )
-    )
-);
+        ]
+    ]
+];
 

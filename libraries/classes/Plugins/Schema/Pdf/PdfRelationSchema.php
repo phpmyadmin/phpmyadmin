@@ -54,7 +54,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /**
      * @var TableStatsPdf[]
      */
-    private $_tables = array();
+    private $_tables = [];
     private $_ff = PdfLib::PMA_PDF_FONT;
     private $_xMax = 0;
     private $_yMax = 0;
@@ -70,7 +70,7 @@ class PdfRelationSchema extends ExportRelationSchema
     /**
      * @var RelationStatsPdf[]
      */
-    protected $relations = array();
+    protected $relations = [];
 
     /**
      * @var Transformations
@@ -655,7 +655,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->Cell($comments_width, 8, __('Comments'), 1, 0, 'C');
                 $this->diagram->Cell(45, 8, 'MIME', 1, 1, 'C');
                 $this->diagram->setWidths(
-                    array(25, 20, 20, 10, 20, 25, 45, $comments_width, 45)
+                    [25, 20, 20, 10, 20, 25, 45, $comments_width, 45]
                 );
             } else {
                 $this->diagram->Cell(20, 8, __('Column'), 1, 0, 'C');
@@ -667,7 +667,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 $this->diagram->Cell(30, 8, __('Links to'), 1, 0, 'C');
                 $this->diagram->Cell(30, 8, __('Comments'), 1, 0, 'C');
                 $this->diagram->Cell(30, 8, 'MIME', 1, 1, 'C');
-                $this->diagram->setWidths(array(20, 20, 20, 10, 15, 15, 30, 30, 30));
+                $this->diagram->setWidths([20, 20, 20, 10, 15, 15, 30, 30, 30]);
             }
             $this->diagram->SetFont($this->_ff, '');
 
@@ -706,7 +706,7 @@ class PdfRelationSchema extends ExportRelationSchema
                     }
                 }
 
-                $this->diagram_row = array(
+                $this->diagram_row = [
                     $field_name,
                     $type,
                     $attribute,
@@ -722,8 +722,8 @@ class PdfRelationSchema extends ExportRelationSchema
                     (isset($mime_map) && isset($mime_map[$field_name])
                         ? str_replace('_', '/', $mime_map[$field_name]['mimetype'])
                         : '')
-                );
-                $links = array();
+                ];
+                $links = [];
                 $links[0] = $this->diagram->PMA_links['RT'][$table][$field_name];
                 if ($foreigner
                     && isset($this->diagram->PMA_links['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']])

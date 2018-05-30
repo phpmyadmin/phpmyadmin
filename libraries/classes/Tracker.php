@@ -41,7 +41,7 @@ class Tracker
     /**
      * Cache to avoid quering tracking status multiple times.
      */
-    static protected $_tracking_cache = array();
+    static protected $_tracking_cache = [];
 
     /**
      * Actually enables tracking. This needs to be done after all
@@ -202,10 +202,10 @@ class Tracker
             "export",
             "sql",
             'libraries/classes/Plugins/Export/',
-            array(
+            [
                 'export_type' => $export_type,
                 'single_table' => false,
-            )
+            ]
         );
 
         $sql_backquotes = true;
@@ -224,7 +224,7 @@ class Tracker
 
         $indexes = $GLOBALS['dbi']->getTableIndexes($dbname, $tablename);
 
-        $snapshot = array('COLUMNS' => $columns, 'INDEXES' => $indexes);
+        $snapshot = ['COLUMNS' => $columns, 'INDEXES' => $indexes];
         $snapshot = serialize($snapshot);
 
         // Get DROP TABLE / DROP VIEW and CREATE TABLE SQL statements
@@ -557,7 +557,7 @@ class Tracker
 
         $ddl_date_from = $date = Util::date('Y-m-d H:i:s');
 
-        $ddlog = array();
+        $ddlog = [];
         $first_iteration = true;
 
         // Iterate tracked data definition statements
@@ -574,9 +574,9 @@ class Tracker
                 }
                 $statement = rtrim(mb_strstr($log_entry, "\n"));
 
-                $ddlog[] = array( 'date' => $date,
+                $ddlog[] = [ 'date' => $date,
                                   'username'=> $username,
-                                  'statement' => $statement );
+                                  'statement' => $statement ];
             }
         }
 
@@ -585,7 +585,7 @@ class Tracker
 
         $dml_date_from = $date_from;
 
-        $dmlog = array();
+        $dmlog = [];
         $first_iteration = true;
 
         // Iterate tracked data manipulation statements
@@ -602,16 +602,16 @@ class Tracker
                 }
                 $statement = rtrim(mb_strstr($log_entry, "\n"));
 
-                $dmlog[] = array( 'date' => $date,
+                $dmlog[] = [ 'date' => $date,
                                   'username' => $username,
-                                  'statement' => $statement );
+                                  'statement' => $statement ];
             }
         }
 
         $dml_date_to = $date;
 
         // Define begin and end of date range for both logs
-        $data = array();
+        $data = [];
         if (strtotime($ddl_date_from) <= strtotime($dml_date_from)) {
             $data['date_from'] = $ddl_date_from;
         } else {
@@ -663,7 +663,7 @@ class Tracker
             $GLOBALS['db'] = $tokens[2]->value;
         }
 
-        $result = array();
+        $result = [];
 
         if (!empty($parser->statements)) {
             $statement = $parser->statements[0];

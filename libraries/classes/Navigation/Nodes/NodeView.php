@@ -30,12 +30,12 @@ class NodeView extends NodeDatabaseChild
     {
         parent::__construct($name, $type, $is_group);
         $this->icon = Util::getImage('b_props', __('View'));
-        $this->links = array(
+        $this->links = [
             'text' => 'sql.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s&amp;pos=0',
             'icon' => 'tbl_structure.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&amp;table=%1$s',
-        );
+        ];
         $this->classes = 'view';
     }
 

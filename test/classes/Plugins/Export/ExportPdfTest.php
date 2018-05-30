@@ -167,11 +167,11 @@ class ExportPdfTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            array(
+            [
                 'structure' => __('structure'),
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data')
-            ),
+            ],
             $property->getValues()
         );
 
@@ -279,11 +279,11 @@ class ExportPdfTest extends PmaTestCase
         $pdf->expects($this->once())
             ->method('setAttributes')
             ->with(
-                array(
+                [
                     'currentDb' => 'db', 'currentTable' => 'table',
                     'dbAlias' => 'db', 'tableAlias' => 'table',
-                    'aliases' => array()
-                )
+                    'aliases' => []
+                ]
             );
 
         $pdf->expects($this->once())

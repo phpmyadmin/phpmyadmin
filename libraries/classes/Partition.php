@@ -25,7 +25,7 @@ class Partition extends SubPartition
     /**
      * @var SubPartition[] sub partitions
      */
-    protected $subPartitions = array();
+    protected $subPartitions = [];
 
     /**
      * Loads data from the fetched row from information_schema.PARTITIONS
@@ -161,7 +161,7 @@ class Partition extends SubPartition
                 . "' AND `TABLE_NAME` = '" . $GLOBALS['dbi']->escapeString($table) . "'"
             );
             if ($result) {
-                $partitionMap = array();
+                $partitionMap = [];
                 foreach ($result as $row) {
                     if (isset($partitionMap[$row['PARTITION_NAME']])) {
                         $partition = $partitionMap[$row['PARTITION_NAME']];
@@ -178,10 +178,10 @@ class Partition extends SubPartition
                 }
                 return array_values($partitionMap);
             }
-            return array();
+            return [];
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -203,7 +203,7 @@ class Partition extends SubPartition
             );
         }
 
-        return array();
+        return [];
     }
 
     /**

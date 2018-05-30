@@ -42,32 +42,32 @@ class TableIndexesControllerTest extends PmaTestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['cfg']['Server']['pmadb'] = '';
-        $GLOBALS['url_params'] = array(
+        $GLOBALS['url_params'] = [
             'db' => 'db',
             'server' => 1
-        );
+        ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $indexs = array(
-            array(
+        $indexs = [
+            [
                 "Schema" => "Schema1",
                 "Key_name"=>"Key_name1",
                 "Column_name"=>"Column_name1"
-            ),
-            array(
+            ],
+            [
                 "Schema" => "Schema2",
                 "Key_name"=>"Key_name2",
                 "Column_name"=>"Column_name2"
-            ),
-            array(
+            ],
+            [
                 "Schema" => "Schema3",
                 "Key_name"=>"Key_name3",
                 "Column_name"=>"Column_name3"
-            ),
-        );
+            ],
+        ];
 
         $dbi->expects($this->any())->method('getTableIndexes')
             ->will($this->returnValue($indexs));
@@ -149,7 +149,7 @@ class TableIndexesControllerTest extends PmaTestCase
         $table->expects($this->any())->method('isView')
             ->will($this->returnValue(false));
         $table->expects($this->any())->method('getNameAndTypeOfTheColumns')
-            ->will($this->returnValue(array("field_name" => "field_type")));
+            ->will($this->returnValue(["field_name" => "field_type"]));
 
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue($table));
@@ -179,11 +179,11 @@ class TableIndexesControllerTest extends PmaTestCase
         //Url::getHiddenInputs
         $this->assertContains(
             Url::getHiddenInputs(
-                array(
+                [
                     'db' => 'db',
                     'table' => 'table',
                     'create_index' => 1,
-                )
+                ]
             ),
             $html
         );

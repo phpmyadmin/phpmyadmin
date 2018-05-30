@@ -33,8 +33,8 @@ abstract class TableStats
     protected $showKeys;
     protected $tableDimension;
     public $displayfield;
-    public $fields = array();
-    public $primary = array();
+    public $fields = [];
+    public $primary = [];
     public $x, $y;
     public $width = 0;
     public $heightCell = 0;
@@ -109,7 +109,7 @@ abstract class TableStats
 
         if ($this->showKeys) {
             $indexes = Index::getFromTable($this->tableName, $this->db);
-            $all_columns = array();
+            $all_columns = [];
             foreach ($indexes as $index) {
                 $all_columns = array_merge(
                     $all_columns,

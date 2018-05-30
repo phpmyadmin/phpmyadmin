@@ -471,7 +471,7 @@ class ExportXml extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         // Do not export data for merge tables
         if ($GLOBALS['dbi']->getTable($db, $table)->isMerge()) {
@@ -491,7 +491,7 @@ class ExportXml extends ExportPlugin
             );
 
             $columns_cnt = $GLOBALS['dbi']->numFields($result);
-            $columns = array();
+            $columns = [];
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $columns[$i] = stripslashes($GLOBALS['dbi']->fieldName($result, $i));
             }

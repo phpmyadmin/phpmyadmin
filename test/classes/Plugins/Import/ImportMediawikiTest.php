@@ -91,7 +91,7 @@ class ImportMediawikiTest extends PmaTestCase
             $properties->getMimeType()
         );
         $this->assertEquals(
-            array(),
+            [],
             $properties->getOptions()
         );
         $this->assertEquals(

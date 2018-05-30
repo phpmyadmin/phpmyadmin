@@ -20,7 +20,7 @@ class PageFormList extends BaseFormList
     /**
      * @var array
      */
-    protected static $all = array(
+    protected static $all = [
         'Browse',
         'DbStructure',
         'Edit',
@@ -29,7 +29,7 @@ class PageFormList extends BaseFormList
         'Navi',
         'Sql',
         'TableStructure',
-    );
+    ];
     /**
      * @var string
      */

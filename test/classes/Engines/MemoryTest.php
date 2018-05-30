@@ -57,11 +57,11 @@ class MemoryTest extends PmaTestCase
     {
         $this->assertEquals(
             $this->object->getVariables(),
-            array(
-                'max_heap_table_size' => array(
+            [
+                'max_heap_table_size' => [
                                             'type'  => 1,
-                                         )
-                )
+                                         ]
+                ]
         );
     }
 }

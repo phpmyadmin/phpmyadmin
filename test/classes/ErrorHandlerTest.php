@@ -71,24 +71,24 @@ class ErrorHandlerTest extends PmaTestCase
      */
     public function providerForTestHandleError()
     {
-        return array(
-            array(
+        return [
+            [
                 E_RECOVERABLE_ERROR,
                 'Compile Error',
                 'error.txt',
                 12,
                 'Compile Error',
                 '',
-            ),
-            array(
+            ],
+            [
                 E_USER_NOTICE,
                 'User notice',
                 'error.txt',
                 12,
                 'User notice',
                 'User notice',
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -160,11 +160,11 @@ class ErrorHandlerTest extends PmaTestCase
     public function testCheckSavedErrors()
     {
 
-        $_SESSION['errors'] = array();
+        $_SESSION['errors'] = [];
 
         $this->_callProtectedFunction(
             'checkSavedErrors',
-            array()
+            []
         );
         $this->assertArrayNotHasKey('errors', $_SESSION);
     }
@@ -204,7 +204,7 @@ class ErrorHandlerTest extends PmaTestCase
             $this->object->countErrors()
         );
         $this->assertEquals(
-            array(),
+            [],
             $this->object->sliceErrors(1)
         );
         $this->assertEquals(

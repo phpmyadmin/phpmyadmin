@@ -42,7 +42,7 @@ class SystemDatabaseTest extends PmaTestCase
             ->will($this->returnValue('executeResult2'));
 
         //_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = array(
+        $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
             'table_coords' => "table_name",
             'displaywork' => 'displaywork',
@@ -53,20 +53,20 @@ class SystemDatabaseTest extends PmaTestCase
             'pdfwork' => 'pdfwork',
             'column_info' => 'column_info',
             'relation' => 'relation',
-        );
+        ];
 
         $dbi->expects($this->any())
             ->method('fetchAssoc')
             ->will(
                 $this->returnValue(
-                    array(
+                    [
                         'table_name' => "table_name",
                         'column_name' => "column_name",
                         'comment' => "comment",
                         'mimetype' => "mimetype",
                         'transformation' => "transformation",
                         'transformation_options' => "transformation_options",
-                    )
+                    ]
                 )
             );
 
@@ -100,13 +100,13 @@ class SystemDatabaseTest extends PmaTestCase
     public function testPMAGetNewTransformationDataSql()
     {
         $db = "PMA_db";
-        $pma_transformation_data = array();
-        $column_map = array(
-            array(
+        $pma_transformation_data = [];
+        $column_map = [
+            [
                 "table_name" => "table_name",
                 "refering_column" => "column_name"
-            )
-        );
+            ]
+        ];
         $view_name = "view_name";
 
         $ret = $this->sysDb->getNewTransformationDataSql(

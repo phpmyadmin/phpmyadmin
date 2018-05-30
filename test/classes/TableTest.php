@@ -93,125 +93,125 @@ class TableTest extends PmaTestCase
 
         $getUniqueColumns_sql = "select unique column";
 
-        $fetchResult = array(
-            array(
+        $fetchResult = [
+            [
                 $sql_isView_true,
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 true
-            ),
-            array(
+            ],
+            [
                 $sql_copy_data,
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 false
-            ),
-            array(
+            ],
+            [
                 $sql_isView_false,
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 false
-            ),
-            array(
+            ],
+            [
                 $sql_isUpdatableView_true,
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 true
-            ),
-            array(
+            ],
+            [
                 $sql_isUpdatableView_false,
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 false
-            ),
-            array(
+            ],
+            [
                 $sql_analyzeStructure_true,
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                array(
-                    array('COLUMN_NAME'=>'COLUMN_NAME', 'DATA_TYPE'=>'DATA_TYPE')
-                )
-            ),
-            array(
+                [
+                    ['COLUMN_NAME'=>'COLUMN_NAME', 'DATA_TYPE'=>'DATA_TYPE']
+                ]
+            ],
+            [
                 $getUniqueColumns_sql,
-                array('Key_name', null),
+                ['Key_name', null],
                 'Column_name',
                 DatabaseInterface::CONNECT_USER,
                 0,
-                array(
-                    array('index1'),
-                    array('index3'),
-                    array('index5'),
-                )
-            ),
-            array(
+                [
+                    ['index1'],
+                    ['index3'],
+                    ['index5'],
+                ]
+            ],
+            [
                 $getUniqueColumns_sql,
                 'Column_name',
                 'Column_name',
                 DatabaseInterface::CONNECT_USER,
                 0,
-                array(
+                [
                     'column1',
                     'column3',
                     'column5',
                     'ACCESSIBLE',
                     'ADD',
                     'ALL'
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
                 'Field',
                 'Field',
                 DatabaseInterface::CONNECT_USER,
                 0,
-                array(
+                [
                     'column1',
                     'column3',
                     'column5',
                     'ACCESSIBLE',
                     'ADD',
                     'ALL'
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                array(
-                    array(
+                [
+                    [
                         'Field'=>'COLUMN_NAME1',
                         'Type'=> 'INT(10)',
                         'Null'=> 'NO',
                         'Key'=> '',
                         'Default'=> NULL,
                         'Extra'=>''
-                    ),
-                    array(
+                    ],
+                    [
                         'Field'=>'COLUMN_NAME2',
                         'Type'=> 'INT(10)',
                         'Null'=> 'YES',
                         'Key'=> '',
                         'Default'=> NULL,
                         'Extra'=>'STORED GENERATED'
-                    )
-                )
-            ),
-        );
+                    ]
+                ]
+            ],
+        ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -230,14 +230,14 @@ class TableTest extends PmaTestCase
                 )
             );
 
-        $dbi->_table_cache["PMA"]["PMA_BookMark"] = array(
+        $dbi->_table_cache["PMA"]["PMA_BookMark"] = [
             'ENGINE' => true,
             'Create_time' => true,
             'TABLE_TYPE' => true,
             'Comment' => true,
-        );
+        ];
 
-        $databases = array();
+        $databases = [];
         $database_name = 'PMA';
         $databases[$database_name]['SCHEMA_TABLES'] = 1;
         $databases[$database_name]['SCHEMA_TABLE_ROWS'] = 3;
@@ -258,11 +258,11 @@ class TableTest extends PmaTestCase
         $dbi->expects($this->any())->method('tryQuery')
             ->will($this->returnValue(10));
 
-        $triggers = array(
-            array("name" => "name1", "create"=>"crate1"),
-            array("name" => "name2", "create"=>"crate2"),
-            array("name" => "name3", "create"=>"crate3"),
-        );
+        $triggers = [
+            ["name" => "name1", "create"=>"crate1"],
+            ["name" => "name2", "create"=>"crate2"],
+            ["name" => "name3", "create"=>"crate3"],
+        ];
 
         $dbi->expects($this->any())->method('getTriggers')
             ->will($this->returnValue($triggers));
@@ -282,7 +282,7 @@ class TableTest extends PmaTestCase
         $dbi->expects($this->any())->method('fetchAssoc')
             ->will($this->returnValue(false));
 
-        $value = array("Auto_increment" => "Auto_increment");
+        $value = ["Auto_increment" => "Auto_increment"];
         $dbi->expects($this->any())->method('fetchSingleRow')
             ->will($this->returnValue($value));
 
@@ -410,18 +410,18 @@ class TableTest extends PmaTestCase
      */
     public function dataValidateName()
     {
-        return array(
-            array('test', true),
-            array('te/st', false),
-            array('te.st', false),
-            array('te\\st', false),
-            array('te st', false),
-            array('  te st', true, true),
-            array('test ', false),
-            array('te.st', false),
-            array('test ', false, true),
-            array('te.st ', false, true),
-        );
+        return [
+            ['test', true],
+            ['te/st', false],
+            ['te.st', false],
+            ['te\\st', false],
+            ['te st', false],
+            ['  te st', true, true],
+            ['test ', false],
+            ['te.st', false],
+            ['test ', false, true],
+            ['te.st ', false, true],
+        ];
     }
 
     /**
@@ -592,9 +592,9 @@ class TableTest extends PmaTestCase
     {
         $work = "PMA_work";
         $pma_table = "pma_table";
-        $get_fields =  array("filed0", "field6");
-        $where_fields = array("field2", "filed5");
-        $new_fields = array("field3", "filed4");
+        $get_fields =  ["filed0", "field6"];
+        $where_fields = ["field2", "filed5"];
+        $new_fields = ["field3", "filed4"];
         $GLOBALS['cfgRelation'][$work] = true;
         $GLOBALS['cfgRelation']['db'] = "PMA_db";
         $GLOBALS['cfgRelation'][$pma_table] = "pma_table";
@@ -649,7 +649,7 @@ class TableTest extends PmaTestCase
 
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
-            ->will($this->returnValue(array('table_name' => "PMA_BookMark")));
+            ->will($this->returnValue(['table_name' => "PMA_BookMark"]));
         $tableObj = new Table('PMA_BookMark', 'PMA');
         $this->assertEquals(
             false,
@@ -664,10 +664,10 @@ class TableTest extends PmaTestCase
      */
     public function testIsMergeCase2()
     {
-        $map = array(
-            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "MERGE")),
-            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "MERGE")
-        );
+        $map = [
+            [['PMA', 'PMA_BookMark'], null, ['ENGINE' => "MERGE"]],
+            [['PMA', 'PMA_BookMark', 'ENGINE'], null, "MERGE"]
+        ];
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
             ->will($this->returnValueMap($map));
@@ -686,10 +686,10 @@ class TableTest extends PmaTestCase
      */
     public function testIsMergeCase3()
     {
-        $map = array(
-            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "MRG_MYISAM")),
-            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "MRG_MYISAM")
-        );
+        $map = [
+            [['PMA', 'PMA_BookMark'], null, ['ENGINE' => "MRG_MYISAM"]],
+            [['PMA', 'PMA_BookMark', 'ENGINE'], null, "MRG_MYISAM"]
+        ];
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
             ->will($this->returnValueMap($map));
@@ -708,10 +708,10 @@ class TableTest extends PmaTestCase
      */
     public function testIsMergeCase4()
     {
-        $map = array(
-            array(array('PMA', 'PMA_BookMark'), null, array('ENGINE' => "ISDB")),
-            array(array('PMA', 'PMA_BookMark', 'ENGINE'), null, "ISDB")
-        );
+        $map = [
+            [['PMA', 'PMA_BookMark'], null, ['ENGINE' => "ISDB"]],
+            [['PMA', 'PMA_BookMark', 'ENGINE'], null, "ISDB"]
+        ];
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
             ->will($this->returnValueMap($map));
@@ -838,11 +838,11 @@ class TableTest extends PmaTestCase
 
         $table = new Table($table, $db);
         $return = $table->getUniqueColumns();
-        $expect = array(
+        $expect = [
             '`PMA`.`PMA_BookMark`.`index1`',
             '`PMA`.`PMA_BookMark`.`index3`',
             '`PMA`.`PMA_BookMark`.`index5`'
-        );
+        ];
         $this->assertEquals(
             $expect,
             $return
@@ -861,14 +861,14 @@ class TableTest extends PmaTestCase
 
         $table = new Table($table, $db);
         $return = $table->getIndexedColumns();
-        $expect = array(
+        $expect = [
             '`PMA`.`PMA_BookMark`.`column1`',
             '`PMA`.`PMA_BookMark`.`column3`',
             '`PMA`.`PMA_BookMark`.`column5`',
             '`PMA`.`PMA_BookMark`.`ACCESSIBLE`',
             '`PMA`.`PMA_BookMark`.`ADD`',
             '`PMA`.`PMA_BookMark`.`ALL`',
-        );
+        ];
         $this->assertEquals(
             $expect,
             $return
@@ -915,10 +915,10 @@ class TableTest extends PmaTestCase
     public function testGetSQLToCreateForeignKey()
     {
         $table = "PMA_table";
-        $field = array("PMA_field1", "PMA_field2");
+        $field = ["PMA_field1", "PMA_field2"];
         $foreignDb = "foreignDb";
         $foreignTable = "foreignTable";
-        $foreignField = array("foreignField1", "foreignField2");
+        $foreignField = ["foreignField1", "foreignField2"];
 
         $class = new ReflectionClass(Table::class);
         $method = $class->getMethod('_getSQLToCreateForeignKey');
@@ -926,13 +926,13 @@ class TableTest extends PmaTestCase
         $tableObj = new Table('PMA_table', 'db');
 
         $sql = $method->invokeArgs(
-            $tableObj, array(
+            $tableObj, [
                 $table,
                 $field,
                 $foreignDb,
                 $foreignTable,
                 $foreignField
-            )
+            ]
         );
         $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
             . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
@@ -944,13 +944,13 @@ class TableTest extends PmaTestCase
 
         // Exclude db name when relations are made between table in the same db
         $sql = $method->invokeArgs(
-            $tableObj, array(
+            $tableObj, [
                 $table,
                 $field,
                 'db',
                 $foreignTable,
                 $foreignField
-            )
+            ]
         );
         $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
             . 'FOREIGN KEY (`PMA_field1`, `PMA_field2`) REFERENCES '
@@ -997,25 +997,25 @@ class TableTest extends PmaTestCase
 
         $table = new Table($table, $db);
         $return = $table->getColumns();
-        $expect = array(
+        $expect = [
             '`PMA`.`PMA_BookMark`.`column1`',
             '`PMA`.`PMA_BookMark`.`column3`',
             '`PMA`.`PMA_BookMark`.`column5`',
             '`PMA`.`PMA_BookMark`.`ACCESSIBLE`',
             '`PMA`.`PMA_BookMark`.`ADD`',
             '`PMA`.`PMA_BookMark`.`ALL`',
-        );
+        ];
         $this->assertEquals(
             $expect,
             $return
         );
 
         $return = $table->getReservedColumnNames();
-        $expect = array(
+        $expect = [
             'ACCESSIBLE',
             'ADD',
             'ALL',
-        );
+        ];
         $this->assertEquals(
             $expect,
             $return
@@ -1046,13 +1046,13 @@ class TableTest extends PmaTestCase
         $dbi->expects($this->any())
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                array(array('`one_pk`')),
+                [['`one_pk`']],
 
-                array(), // No Uniques found
-                array('`one_ind`', '`sec_ind`'),
+                [], // No Uniques found
+                ['`one_ind`', '`sec_ind`'],
 
-                array(), // No Uniques found
-                array()  // No Indexed found
+                [], // No Uniques found
+                []  // No Indexed found
             );
 
         $GLOBALS['dbi'] = $dbi;
@@ -1095,14 +1095,14 @@ class TableTest extends PmaTestCase
      */
     public function testCountRecords()
     {
-        $map = array(
-            array(
-                array('PMA', 'PMA_BookMark'),
+        $map = [
+            [
+                ['PMA', 'PMA_BookMark'],
                 null,
-                array('Comment' => "Comment222", 'TABLE_TYPE' => "VIEW"),
-            ),
-            array(array('PMA', 'PMA_BookMark', 'TABLE_TYPE'), null, 'VIEW'),
-        );
+                ['Comment' => "Comment222", 'TABLE_TYPE' => "VIEW"],
+            ],
+            [['PMA', 'PMA_BookMark', 'TABLE_TYPE'], null, 'VIEW'],
+        ];
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
             ->will($this->returnValueMap($map));
@@ -1354,7 +1354,7 @@ class TableTest extends PmaTestCase
         $tbl_object->getStatusInfo(null, true);
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $expect = array('pack_keys' => 'DEFAULT');
+        $expect = ['pack_keys' => 'DEFAULT'];
         $create_options = $dbi->getTable(
             $target_db,
             $target_table

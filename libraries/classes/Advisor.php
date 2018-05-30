@@ -107,9 +107,9 @@ class Advisor
             }
         );
         /* Some global variables for advisor */
-        $this->globals = array(
+        $this->globals = [
             'PMA_MYSQL_INT_VERSION' => $this->dbi->getVersion(),
-        );
+        ];
 
     }
 
@@ -229,10 +229,10 @@ class Advisor
         // $runResult
         $this->runRules();
 
-        return array(
-            'parse' => array('errors' => $this->parseResult['errors']),
+        return [
+            'parse' => ['errors' => $this->parseResult['errors']],
             'run'   => $this->runResult
-        );
+        ];
     }
 
     /**
@@ -261,12 +261,12 @@ class Advisor
     public function runRules(): bool
     {
         $this->setRunResult(
-            array(
-                'fired'     => array(),
-                'notfired'  => array(),
-                'unchecked' => array(),
-                'errors'    => array(),
-            )
+            [
+                'fired'     => [],
+                'notfired'  => [],
+                'unchecked' => [],
+                'errors'    => [],
+            ]
         );
 
         foreach ($this->parseResult['rules'] as $rule) {
@@ -353,7 +353,7 @@ class Advisor
         if (! is_null($param)) {
             $params = $this->ruleExprEvaluate('[' . $param . ']');
         } else {
-            $params = array();
+            $params = [];
         }
         return vsprintf($string, $params);
     }
@@ -369,9 +369,9 @@ class Advisor
     {
         $jst = preg_split('/\s*\|\s*/', $rule['justification'], 2);
         if (count($jst) > 1) {
-            return array($jst[0], $jst[1]);
+            return [$jst[0], $jst[1]];
         }
-        return array($rule['justification']);
+        return [$rule['justification']];
     }
 
     /**
@@ -415,14 +415,14 @@ class Advisor
             // linking to server_variables.php
             $rule['recommendation'] = preg_replace_callback(
                 '/\{([a-z_0-9]+)\}/Ui',
-                array($this, 'replaceVariable'),
+                [$this, 'replaceVariable'],
                 $this->translate($rule['recommendation'])
             );
 
             // Replaces external Links with Core::linkURL() generated links
             $rule['recommendation'] = preg_replace_callback(
                 '#href=("|\')(https?://[^\1]+)\1#i',
-                array($this, 'replaceLinkURL'),
+                [$this, 'replaceLinkURL'],
                 $rule['recommendation']
             );
             break;
@@ -452,7 +452,7 @@ class Advisor
      */
     private function replaceVariable(array $matches): string
     {
-        return '<a href="server_variables.php' . Url::getCommon(array('filter' => $matches[1]))
+        return '<a href="server_variables.php' . Url::getCommon(['filter' => $matches[1]])
                 . '">' . htmlspecialchars($matches[1]) . '</a>';
     }
 
@@ -489,21 +489,21 @@ class Advisor
         $filename = 'libraries/advisory_rules.txt';
         $file = file($filename, FILE_IGNORE_NEW_LINES);
 
-        $errors = array();
-        $rules = array();
-        $lines = array();
+        $errors = [];
+        $rules = [];
+        $lines = [];
 
         if ($file === false) {
             $errors[] = sprintf(
                 __('Error in reading file: The file \'%s\' does not exist or is not readable!'),
                 $filename
             );
-            return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
+            return ['rules' => $rules, 'lines' => $lines, 'errors' => $errors];
         }
 
-        $ruleSyntax = array(
+        $ruleSyntax = [
             'name', 'formula', 'test', 'issue', 'recommendation', 'justification'
-        );
+        ];
         $numRules = count($ruleSyntax);
         $numLines = count($file);
         $ruleNo = -1;
@@ -531,8 +531,8 @@ class Advisor
                 if (preg_match("/rule\s'(.*)'( \[(.*)\])?$/", $line, $match)) {
                     $ruleLine = 1;
                     $ruleNo++;
-                    $rules[$ruleNo] = array('name' => $match[1]);
-                    $lines[$ruleNo] = array('name' => $i + 1);
+                    $rules[$ruleNo] = ['name' => $match[1]];
+                    $lines[$ruleNo] = ['name' => $i + 1];
                     if (isset($match[3])) {
                         $rules[$ruleNo]['precondition'] = $match[3];
                         $lines[$ruleNo]['precondition'] = $i + 1;
@@ -583,7 +583,7 @@ class Advisor
             }
         }
 
-        return array('rules' => $rules, 'lines' => $lines, 'errors' => $errors);
+        return ['rules' => $rules, 'lines' => $lines, 'errors' => $errors];
     }
 
     /**

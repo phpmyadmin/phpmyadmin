@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$request_params = array(
+$request_params = [
     'clause_is_unique',
     'from_prefix',
     'goto',
@@ -35,7 +35,7 @@ $request_params = array(
     'table_type',
     'to_prefix',
     'url_query'
-);
+];
 
 foreach ($request_params as $one_request_param) {
     if (isset($_REQUEST[$one_request_param])) {
@@ -115,11 +115,11 @@ if (! empty($submit_mult)
                 'database/structure/show_create'
             )
                 ->render(
-                    array(
+                    [
                         'db'         => $GLOBALS['db'],
                         'db_objects' => $selected,
                         'dbi'        => $GLOBALS['dbi'],
-                    )
+                    ]
                 );
             // Send response to client.
             $response->addJSON('message', $show_create);

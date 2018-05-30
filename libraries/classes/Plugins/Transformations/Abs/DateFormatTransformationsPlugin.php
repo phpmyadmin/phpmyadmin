@@ -50,7 +50,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         $buffer = (string) $buffer;
         // possibly use a global transform and feed it with special options
@@ -89,7 +89,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
                     $offset = 2;
                 }
 
-                $aDate = array();
+                $aDate = [];
                 $aDate['year'] = (int)
                 mb_substr($buffer, 0, $offset);
                 $aDate['month'] = (int)

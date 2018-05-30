@@ -75,6 +75,6 @@ class ParseAnalyze
             $analyzed_sql_results['reload'] = $reload;
         }
 
-        return array($analyzed_sql_results, $db, $table);
+        return [$analyzed_sql_results, $db, $table];
     }
 }

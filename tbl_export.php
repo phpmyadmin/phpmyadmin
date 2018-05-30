@@ -58,7 +58,7 @@ if (! empty($sql_query)) {
 
         // Finding aliases and removing them, but we keep track of them to be
         // able to replace them in select expression too.
-        $aliases = array();
+        $aliases = [];
         foreach ($parser->statements[0]->from as $from) {
             if ((!empty($from->table)) && (!empty($from->alias))) {
                 $aliases[$from->alias] = $from->table;
@@ -73,24 +73,24 @@ if (! empty($sql_query)) {
         if (count($parser->statements[0]->from) > 0
             && count($parser->statements[0]->union) === 0
         ) {
-            $replaces = array(
-                array(
+            $replaces = [
+                [
                     'FROM', 'FROM ' . PhpMyAdmin\SqlParser\Components\ExpressionArray::build(
                         $parser->statements[0]->from
                     ),
-                ),
-            );
+                ],
+            ];
         }
 
         // Checking if the WHERE clause has to be replaced.
         if ((!empty($where_clause)) && (is_array($where_clause))) {
-            $replaces[] = array(
+            $replaces[] = [
                 'WHERE', 'WHERE (' . implode(') OR (', $where_clause) . ')'
-            );
+            ];
         }
 
         // Preparing to remove the LIMIT clause.
-        $replaces[] = array('LIMIT', '');
+        $replaces[] = ['LIMIT', ''];
 
         // Replacing the clauses.
         $sql_query = PhpMyAdmin\SqlParser\Utils\Query::replaceClauses(
@@ -104,19 +104,19 @@ if (! empty($sql_query)) {
         foreach ($aliases as $alias => $table) {
             $tokens = PhpMyAdmin\SqlParser\Utils\Tokens::replaceTokens(
                 $tokens,
-                array(
-                    array(
+                [
+                    [
                         'value_str' => $alias,
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR,
                         'value_str' => '.',
-                    )
-                ),
-                array(
+                    ]
+                ],
+                [
                     new PhpMyAdmin\SqlParser\Token($table),
                     new PhpMyAdmin\SqlParser\Token('.',PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR)
-                )
+                ]
             );
         }
         $sql_query = PhpMyAdmin\SqlParser\TokensList::build($tokens);

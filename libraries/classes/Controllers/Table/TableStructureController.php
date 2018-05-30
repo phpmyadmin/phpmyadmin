@@ -126,7 +126,7 @@ class TableStructureController extends TableController
         parent::__construct($response, $dbi, $db, $table);
 
         $this->_db_is_system_schema = $db_is_system_schema;
-        $this->_url_query = Url::getCommonRaw(array('db' => $db, 'table' => $table));
+        $this->_url_query = Url::getCommonRaw(['db' => $db, 'table' => $table]);
         $this->_tbl_is_view = $tbl_is_view;
         $this->_tbl_storage_engine = $tbl_storage_engine;
         $this->_table_info_num_rows = $table_info_num_rows;
@@ -154,10 +154,10 @@ class TableStructureController extends TableController
         include_once 'libraries/check_user_privileges.inc.php';
 
         $this->response->getHeader()->getScripts()->addFiles(
-            array(
+            [
                 'tbl_structure.js',
                 'indexes.js'
-            )
+            ]
         );
 
         /**
@@ -177,7 +177,7 @@ class TableStructureController extends TableController
         if (isset($_REQUEST['reserved_word_check'])) {
             if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
                 $columns_names = $_REQUEST['field_name'];
-                $reserved_keywords_names = array();
+                $reserved_keywords_names = [];
                 foreach ($columns_names as $column) {
                     if (Context::isKeyword(trim($column), true)) {
                         $reserved_keywords_names[] = trim($column);
@@ -288,14 +288,14 @@ class TableStructureController extends TableController
         $engine = $this->table_obj->getStorageEngine();
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
-                array(
-                    'url_params' => array(
+                [
+                    'url_params' => [
                         'db' => $this->db,
                         'table' => $this->table
-                    ),
+                    ],
                     'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
                     'cfg_relation' => $this->relation->getRelationsParam(),
-                )
+                ]
             )
         );
         $this->response->addHTML('<div id="structure_content">');
@@ -350,15 +350,15 @@ class TableStructureController extends TableController
         // got to be eliminated in long run
         $db = &$this->db;
         $table = &$this->table;
-        $url_params = array();
+        $url_params = [];
         include_once 'libraries/tbl_common.inc.php';
         $this->_db_is_system_schema = $db_is_system_schema;
-        $this->_url_query = Url::getCommonRaw(array(
+        $this->_url_query = Url::getCommonRaw([
             'db' => $db,
             'table' => $table,
             'goto' => 'tbl_structure.php',
             'back' => 'tbl_structure.php',
-        ));
+        ]);
         /* The url_params array is initialized in above include */
         $url_params['goto'] = 'tbl_structure.php';
         $url_params['back'] = 'tbl_structure.php';
@@ -406,7 +406,7 @@ class TableStructureController extends TableController
          */
         $columns = $this->dbi->getColumnsFull($this->db, $this->table);
         $column_names = array_keys($columns);
-        $changes = array();
+        $changes = [];
 
         // move columns from first to last
         for ($i = 0, $l = count($_REQUEST['move_columns']); $i < $l; $i++) {
@@ -440,9 +440,9 @@ class TableStructureController extends TableController
                 $default_type = 'USER_DEFINED';
             }
 
-            $virtual = array(
+            $virtual = [
                 'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
-            );
+            ];
             $data['Virtuality'] = '';
             $data['Expression'] = '';
             if (isset($data['Extra']) && in_array($data['Extra'], $virtual)) {
@@ -494,9 +494,9 @@ class TableStructureController extends TableController
                 'sql_data',
                 Template::get('preview_sql')
                     ->render(
-                        array(
+                        [
                             'query_data' => $sql_query
-                        )
+                        ]
                     )
             );
         } else { // move column
@@ -537,7 +537,7 @@ class TableStructureController extends TableController
         /**
          * @todo optimize in case of multiple fields to modify
          */
-        $fields_meta = array();
+        $fields_meta = [];
         for ($i = 0; $i < $selected_cnt; $i++) {
             $value = $this->dbi->getColumns(
                 $this->db, $this->table, $selected[$i], true
@@ -584,11 +584,11 @@ class TableStructureController extends TableController
         $this->response->addHTML(
             Template::get('table/structure/partition_definition_form')
                 ->render(
-                    array(
+                    [
                         'db' => $this->db,
                         'table' => $this->table,
                         'partition_details' => $partitionDetails,
-                    )
+                    ]
                 )
         );
     }
@@ -611,7 +611,7 @@ class TableStructureController extends TableController
          */
         $stmt = $parser->statements[0];
 
-        $partitionDetails = array();
+        $partitionDetails = [];
 
         $partitionDetails['partition_by'] = '';
         $partitionDetails['partition_expr'] = '';
@@ -668,12 +668,12 @@ class TableStructureController extends TableController
             || $partitionDetails['partition_by'] == 'LIST'
             || $partitionDetails['partition_by'] == 'LIST COLUMNS');
 
-        $partitionDetails['partitions'] = array();
+        $partitionDetails['partitions'] = [];
 
         for ($i = 0; $i < intval($partitionDetails['partition_count']); $i++) {
 
             if (! isset($stmt->partitions[$i])) {
-                $partitionDetails['partitions'][$i] = array(
+                $partitionDetails['partitions'][$i] = [
                     'name' => 'p' . $i,
                     'value_type' => '',
                     'value' => '',
@@ -685,7 +685,7 @@ class TableStructureController extends TableController
                     'min_rows' => '',
                     'tablespace' => '',
                     'node_group' => '',
-                );
+                ];
             } else {
                 $p = $stmt->partitions[$i];
                 $type = $p->type;
@@ -694,7 +694,7 @@ class TableStructureController extends TableController
                     $type .= ' MAXVALUE';
                     $expr = '';
                 }
-                $partitionDetails['partitions'][$i] = array(
+                $partitionDetails['partitions'][$i] = [
                     'name' => $p->name,
                     'value_type' => $type,
                     'value' => $expr,
@@ -706,7 +706,7 @@ class TableStructureController extends TableController
                     'min_rows' => $p->options->has('MIN_ROWS', true),
                     'tablespace' => $p->options->has('TABLESPACE', true),
                     'node_group' => $p->options->has('NODEGROUP', true),
-                );
+                ];
             }
 
             $partition =& $partitionDetails['partitions'][$i];
@@ -714,11 +714,11 @@ class TableStructureController extends TableController
 
             if ($partitionDetails['subpartition_count'] > 1) {
                 $partition['subpartition_count'] = $partitionDetails['subpartition_count'];
-                $partition['subpartitions'] = array();
+                $partition['subpartitions'] = [];
 
                 for ($j = 0; $j < intval($partitionDetails['subpartition_count']); $j++) {
                     if (! isset($stmt->partitions[$i]->subpartitions[$j])) {
-                        $partition['subpartitions'][$j] = array(
+                        $partition['subpartitions'][$j] = [
                             'name' => $partition['name'] . '_s' . $j,
                             'engine' => '',
                             'comment' => '',
@@ -728,10 +728,10 @@ class TableStructureController extends TableController
                             'min_rows' => '',
                             'tablespace' => '',
                             'node_group' => '',
-                        );
+                        ];
                     } else {
                         $sp = $stmt->partitions[$i]->subpartitions[$j];
-                        $partition['subpartitions'][$j] = array(
+                        $partition['subpartitions'][$j] = [
                             'name' => $sp->name,
                             'engine' => $sp->options->has('ENGINE', true),
                             'comment' => trim($sp->options->has('COMMENT', true), "'"),
@@ -741,7 +741,7 @@ class TableStructureController extends TableController
                             'min_rows' => $sp->options->has('MIN_ROWS', true),
                             'tablespace' => $sp->options->has('TABLESPACE', true),
                             'node_group' => $sp->options->has('NODEGROUP', true),
-                        );
+                        ];
                     }
 
                     $subpartition =& $partition['subpartitions'][$j];
@@ -793,11 +793,11 @@ class TableStructureController extends TableController
      */
     protected function getMultipleFieldCommandType()
     {
-        $types = array(
+        $types = [
             'change', 'drop', 'primary',
             'index', 'unique', 'spatial',
             'fulltext', 'browse'
-        );
+        ];
 
         foreach ($types as $type) {
             if (isset($_REQUEST['submit_mult_' . $type . '_x'])) {
@@ -830,7 +830,7 @@ class TableStructureController extends TableController
     protected function displayTableBrowseForSelectedColumns($goto, $pmaThemeImage)
     {
         $GLOBALS['active_page'] = 'sql.php';
-        $fields = array();
+        $fields = [];
         foreach ($_REQUEST['selected_fld'] as $sval) {
             $fields[] = Util::backquote($sval);
         }
@@ -884,14 +884,14 @@ class TableStructureController extends TableController
     protected function updateColumns()
     {
         $err_url = 'tbl_structure.php' . Url::getCommon(
-            array(
+            [
                 'db' => $this->db, 'table' => $this->table
-            )
+            ]
         );
         $regenerate = false;
         $field_cnt = count($_REQUEST['field_name']);
-        $changes = array();
-        $adjust_privileges = array();
+        $changes = [];
+        $adjust_privileges = [];
 
         for ($i = 0; $i < $field_cnt; $i++) {
             if (!$this->columnNeedsAlterTable($i)) {
@@ -975,7 +975,7 @@ class TableStructureController extends TableController
                     | Index::SPATIAL | Index::FULLTEXT
                 );
 
-            $changedToBlob = array();
+            $changedToBlob = [];
             // While changing the Column Collation
             // First change to BLOB
             for ($i = 0; $i < $field_cnt; $i++ ) {
@@ -1029,7 +1029,7 @@ class TableStructureController extends TableController
 
                 // Save the Original Error
                 $orig_error = $this->dbi->getError();
-                $changes_revert = array();
+                $changes_revert = [];
 
                 // Change back to Original Collation and data type
                 for ($i = 0; $i < $field_cnt; $i++) {
@@ -1177,11 +1177,11 @@ class TableStructureController extends TableController
             return true;
         }
 
-        $fields = array(
+        $fields = [
             'field_attribute', 'field_collation', 'field_comments',
             'field_default_value', 'field_default_type', 'field_extra',
             'field_length', 'field_null', 'field_type'
-        );
+        ];
         foreach ($fields as $field) {
             if ($_REQUEST[$field][$i] != $_REQUEST[$field . '_orig'][$i]) {
                 return true;
@@ -1209,8 +1209,8 @@ class TableStructureController extends TableController
         $primary_index, array $fields, array $columns_with_index
     ) {
         // prepare comments
-        $comments_map = array();
-        $mime_map = array();
+        $comments_map = [];
+        $mime_map = [];
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
             $comments_map = $this->relation->getComments($this->db, $this->table);
@@ -1223,9 +1223,9 @@ class TableStructureController extends TableController
             $this->db,
             $this->table
         );
-        $columns_list = array();
+        $columns_list = [];
 
-        $titles = array(
+        $titles = [
             'Change' => Util::getIcon('b_edit', __('Change')),
             'Drop' => Util::getIcon('b_drop', __('Drop')),
             'NoDrop' => Util::getIcon('b_drop', __('Drop')),
@@ -1240,7 +1240,7 @@ class TableStructureController extends TableController
             'NoSpatial' => Util::getIcon('bd_spatial', __('Spatial')),
             'NoIdxFulltext' => Util::getIcon('bd_ftext', __('Fulltext')),
             'DistinctValues' => Util::getIcon('b_browse', __('Distinct values')),
-        );
+        ];
 
         /**
          * Work on the table
@@ -1265,7 +1265,7 @@ class TableStructureController extends TableController
             $parts = explode(" ", substr($createView, 17));
             $item['ALGORITHM'] = $parts[0];
 
-            $view = array(
+            $view = [
                 'operation' => 'alter',
                 'definer' => $item['DEFINER'],
                 'sql_security' => $item['SECURITY_TYPE'],
@@ -1273,7 +1273,7 @@ class TableStructureController extends TableController
                 'as' => $item['VIEW_DEFINITION'],
                 'with' => $item['CHECK_OPTION'],
                 'algorithm' => $item['ALGORITHM'],
-            );
+            ];
 
             $edit_view_url = 'view_create.php'
                 . Url::getCommon($url_params) . '&amp;'
@@ -1310,12 +1310,12 @@ class TableStructureController extends TableController
 
         // logic removed from Template
         $rownum = 0;
-        $columns_list = array();
-        $attributes = array();
-        $displayed_field_names = array();
-        $displayed_field_names_replaced = array();
-        $row_comments = array();
-        $extracted_columnspecs = array();
+        $columns_list = [];
+        $attributes = [];
+        $displayed_field_names = [];
+        $displayed_field_names_replaced = [];
+        $row_comments = [];
+        $extracted_columnspecs = [];
         foreach ($fields as $field) {
             $rownum += 1;
             $columns_list[] = $field['Field'];
@@ -1328,10 +1328,10 @@ class TableStructureController extends TableController
 
             if (isset($field['Default'])) {
                 if ($field['Null'] == 'Yes') {
-                    $field = array_merge($field, array('Default' => '<em>NULL</em>'));
+                    $field = array_merge($field, ['Default' => '<em>NULL</em>']);
                 }
             } else {
-                $field = array_merge($field, array('Default' => $field['Default']));
+                $field = array_merge($field, ['Default' => $field['Default']]);
             }
 
             $displayed_field_names[$rownum] = $field['Field'];
@@ -1361,7 +1361,7 @@ class TableStructureController extends TableController
         }
 
         return Template::get('table/structure/display_structure')->render(
-            array(
+            [
                 'hide_structure_actions' => $hideStructureActions,
                 'db' => $this->db,
                 'table' => $this->table,
@@ -1398,7 +1398,7 @@ class TableStructureController extends TableController
                 'displayed_field_names' => $displayed_field_names,
                 'displayed_field_names_replaced' => $displayed_field_names_replaced,
                 'row_comments' => $row_comments,
-            )
+            ]
         );
     }
 
@@ -1475,7 +1475,7 @@ class TableStructureController extends TableController
         }
 
         return Template::get('table/structure/display_table_stats')->render(
-            array(
+            [
                 'showtable' => $this->_showtable,
                 'table_info_num_rows' => $this->_table_info_num_rows,
                 'tbl_is_view' => $this->_tbl_is_view,
@@ -1498,7 +1498,7 @@ class TableStructureController extends TableController
                 'tot_size' => $tot_size,
                 'tot_unit' => $tot_unit,
                 'table' => $GLOBALS['table']
-            )
+            ]
         );
     }
 
@@ -1600,9 +1600,9 @@ class TableStructureController extends TableController
             // this should already be handled by tbl_structure.php
         }
 
-        return array(
+        return [
             $what, $query_type, $is_unset_submit_mult, $mult_btn,
             $centralColsError
-        );
+        ];
     }
 }

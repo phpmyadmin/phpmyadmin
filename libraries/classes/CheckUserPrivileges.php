@@ -67,11 +67,11 @@ class CheckUserPrivileges
         );
         $show_grants_tblname = Util::unQuote($show_grants_tblname, '`');
 
-        return array(
+        return [
             $show_grants_str,
             $show_grants_dbname,
             $show_grants_tblname
-        );
+        ];
     }
 
     /**
@@ -198,7 +198,7 @@ class CheckUserPrivileges
         $GLOBALS['is_create_db_priv']  = false;
         $GLOBALS['is_reload_priv'] = false;
         $GLOBALS['db_to_create'] = '';
-        $GLOBALS['dbs_where_create_table_allowed'] = array();
+        $GLOBALS['dbs_where_create_table_allowed'] = [];
         $GLOBALS['dbs_to_test'] = $this->dbi->getSystemSchemas();
         $GLOBALS['proc_priv'] = false;
         $GLOBALS['db_priv'] = false;

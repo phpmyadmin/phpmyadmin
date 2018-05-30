@@ -128,7 +128,7 @@ class ConfigGenerator
      */
     private static function _exportZeroBasedArray(array $array, $crlf)
     {
-        $retv = array();
+        $retv = [];
         foreach ($array as $v) {
             $retv[] = var_export($v, true);
         }

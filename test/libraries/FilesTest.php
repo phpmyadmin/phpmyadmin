@@ -31,14 +31,14 @@ class FilesTest extends TestCase
     public function testDynamicJs($name, $expected)
     {
         $GLOBALS['pmaThemeImage'] = '';
-        $GLOBALS['goto_whitelist'] = array('x');
+        $GLOBALS['goto_whitelist'] = ['x'];
         $_GET['scripts'] = '["ajax.js"]';
-        $cfg = array(
+        $cfg = [
             'AllowUserDropDatabase' => true,
             'GridEditing' => 'click',
             'OBGzip' => false,
             'ServerDefault' => 1,
-        );
+        ];
         $GLOBALS['cfg'] = $cfg;
         require $name;
         $buffer->stop();
@@ -53,9 +53,9 @@ class FilesTest extends TestCase
      */
     public function listScripts()
     {
-        return array(
-            array('js/whitelist.php', 'var PMA_gotoWhitelist'),
-            array('js/messages.php', 'var PMA_messages = new Array();'),
-        );
+        return [
+            ['js/whitelist.php', 'var PMA_gotoWhitelist'],
+            ['js/messages.php', 'var PMA_messages = new Array();'],
+        ];
     }
 }

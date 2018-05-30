@@ -64,14 +64,14 @@ class RelationStatsPdf extends RelationStats
             $j = ($i - $d) / 6;
             $j = $j % 4;
             $j++;
-            $case = array(
-                array(1, 0, 0),
-                array(0, 1, 0),
-                array(0, 0, 1),
-                array(1, 1, 0),
-                array(1, 0, 1),
-                array(0, 1, 1)
-            );
+            $case = [
+                [1, 0, 0],
+                [0, 1, 0],
+                [0, 0, 1],
+                [1, 1, 0],
+                [1, 0, 1],
+                [0, 1, 1]
+            ];
             list ($a, $b, $c) = $case[$d];
             $e = (1 - ($j - 1) / 6);
             $this->diagram->SetDrawColor($a * 255 * $e, $b * 255 * $e, $c * 255 * $e);

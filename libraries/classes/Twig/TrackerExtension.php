@@ -26,11 +26,11 @@ class TrackerExtension extends AbstractExtension
      */
     public function getFunctions()
     {
-        return array(
+        return [
             new TwigFunction(
                 'Tracker_getVersion',
                 'PhpMyAdmin\Tracker::getVersion'
             ),
-        );
+        ];
     }
 }

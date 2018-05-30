@@ -44,7 +44,7 @@ abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlu
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         // reset properties of object
         $this->reset();

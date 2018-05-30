@@ -234,12 +234,12 @@ class ExportJsonTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(null)
-            ->will($this->returnValue(array('foo')));
+            ->will($this->returnValue(['foo']));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
             ->with(null)
-            ->will($this->returnValue(array('bar')));
+            ->will($this->returnValue(['bar']));
 
         $dbi->expects($this->at(5))
             ->method('fetchRow')

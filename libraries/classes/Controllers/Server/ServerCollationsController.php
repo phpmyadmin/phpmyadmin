@@ -68,12 +68,12 @@ class ServerCollationsController extends Controller
         array $mysqlDftCollations
     ): string {
         return Template::get('server/collations/charsets')->render(
-            array(
+            [
                 'mysql_charsets' => $mysqlCharsets,
                 'mysql_collations' => $mysqlCollations,
                 'mysql_charsets_desc' => $mysqlCharsetsDesc,
                 'mysql_dft_collations' => $mysqlDftCollations,
-            )
+            ]
         );
     }
 }

@@ -525,7 +525,7 @@ class ExportCsvTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array(null, 'b', 'c', false, 'e', 'f')));
+            ->will($this->returnValue([null, 'b', 'c', false, 'e', 'f']));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
@@ -578,7 +578,7 @@ class ExportCsvTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array(1 => 'a')));
+            ->will($this->returnValue([1 => 'a']));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
@@ -625,7 +625,7 @@ class ExportCsvTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array("test\015\012\n")));
+            ->will($this->returnValue(["test\015\012\n"]));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
@@ -675,7 +675,7 @@ class ExportCsvTest extends PmaTestCase
         $dbi->expects($this->at(3))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array("test\015\n")));
+            ->will($this->returnValue(["test\015\n"]));
 
         $dbi->expects($this->at(4))
             ->method('fetchRow')
@@ -723,7 +723,7 @@ class ExportCsvTest extends PmaTestCase
         $dbi->expects($this->at(4))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array("test\015\n", "test\n")));
+            ->will($this->returnValue(["test\015\n", "test\n"]));
 
         $dbi->expects($this->at(5))
             ->method('fetchRow')

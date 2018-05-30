@@ -133,7 +133,7 @@ Session::setUp($GLOBALS['PMA_Config'], $GLOBALS['error_handler']);
  * holds parameters to be passed to next page
  * @global array $GLOBALS['url_params']
  */
-$GLOBALS['url_params'] = array();
+$GLOBALS['url_params'] = [];
 
 /**
  * holds page that should be displayed
@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          * We don't allow any POST operation parameters if the token is mismatched
          * or is not provided
          */
-        $whitelist = array('ajax_request');
+        $whitelist = ['ajax_request'];
         PhpMyAdmin\Sanitize::removeRequestVars($whitelist);
     }
 }
@@ -386,7 +386,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if ($GLOBALS['dbi']->getVersion() < $cfg['MysqlMinVersion']['internal']) {
             Core::fatalError(
                 __('You should upgrade to %s %s or later.'),
-                array('MySQL', $cfg['MysqlMinVersion']['human'])
+                ['MySQL', $cfg['MysqlMinVersion']['human']]
             );
         }
 

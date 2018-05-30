@@ -65,7 +65,7 @@ class ServerEnginesController extends Controller
     private function _getHtmlForAllServerEngines()
     {
         return Template::get('server/engines/engines')->render(
-            array('engines' => StorageEngine::getStorageEngines())
+            ['engines' => StorageEngine::getStorageEngines()]
         );
     }
 
@@ -85,7 +85,7 @@ class ServerEnginesController extends Controller
          * Displays details about a given Storage Engine
          */
         return Template::get('server/engines/engine')->render(
-            array(
+            [
                 'title' => $engine->getTitle(),
                 'help_page' => $engine->getMysqlHelpPage(),
                 'comment' => $engine->getComment(),
@@ -95,7 +95,7 @@ class ServerEnginesController extends Controller
                 'page_output' => $pageOutput,
                 'page' => $page,
                 'engine' => $_REQUEST['engine'],
-            )
+            ]
         );
     }
 }

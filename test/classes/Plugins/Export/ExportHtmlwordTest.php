@@ -140,11 +140,11 @@ class ExportHtmlwordTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            array(
+            [
                 'structure' => __('structure'),
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data')
-            ),
+            ],
             $property->getValues()
         );
 
@@ -356,7 +356,7 @@ class ExportHtmlwordTest extends PmaTestCase
         $dbi->expects($this->at(7))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array(null, '0', 'test', false)));
+            ->will($this->returnValue([null, '0', 'test', false]));
 
         $dbi->expects($this->at(8))
             ->method('fetchRow')
@@ -404,21 +404,21 @@ class ExportHtmlwordTest extends PmaTestCase
     public function testGetTableDefStandIn()
     {
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportHtmlword')
-            ->setMethods(array('formatOneColumnDefinition'))
+            ->setMethods(['formatOneColumnDefinition'])
             ->getMock();
 
         // case 1
 
-        $keys = array(
-            array(
+        $keys = [
+            [
                 'Non_unique' => 0,
                 'Column_name' => 'name1'
-            ),
-            array(
+            ],
+            [
                 'Non_unique' => 1,
                 'Column_name' => 'name2'
-            )
-        );
+            ]
+        ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -432,13 +432,13 @@ class ExportHtmlwordTest extends PmaTestCase
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', 'view')
-            ->will($this->returnValue(array(array('Field' => 'column'))));
+            ->will($this->returnValue([['Field' => 'column']]));
 
         $GLOBALS['dbi'] = $dbi;
 
         $this->object->expects($this->once())
             ->method('formatOneColumnDefinition')
-            ->with(array('Field' => 'column'), array('name1'), 'column')
+            ->with(['Field' => 'column'], ['name1'], 'column')
             ->will($this->returnValue(1));
 
         $this->assertEquals(
@@ -460,19 +460,19 @@ class ExportHtmlwordTest extends PmaTestCase
     public function testGetTableDef()
     {
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportHtmlword')
-            ->setMethods(array('formatOneColumnDefinition'))
+            ->setMethods(['formatOneColumnDefinition'])
             ->getMock();
 
-        $keys = array(
-            array(
+        $keys = [
+            [
                 'Non_unique' => 0,
                 'Column_name' => 'name1'
-            ),
-            array(
+            ],
+            [
                 'Non_unique' => 1,
                 'Column_name' => 'name2'
-            )
-        );
+            ]
+        ];
 
         // case 1
 
@@ -483,14 +483,14 @@ class ExportHtmlwordTest extends PmaTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                array(),
-                array(
-                    'fieldname' => array(
+                [],
+                [
+                    'fieldname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    )
-                )
+                    ]
+                ]
             );
 
         $dbi->expects($this->once())
@@ -498,13 +498,13 @@ class ExportHtmlwordTest extends PmaTestCase
             ->with('database', '')
             ->will($this->returnValue($keys));
 
-        $columns = array(
+        $columns = [
             'Field' => 'fieldname'
-        );
+        ];
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue(array($columns)));
+            ->will($this->returnValue([$columns]));
 
         $dbi->expects($this->any())
             ->method('query')
@@ -518,9 +518,9 @@ class ExportHtmlwordTest extends PmaTestCase
             ->method('fetchAssoc')
             ->will(
                 $this->returnValue(
-                    array(
-                        'comment' => array('fieldname' => 'testComment')
-                    )
+                    [
+                        'comment' => ['fieldname' => 'testComment']
+                    ]
                 )
             );
         $dbi->expects($this->any())->method('escapeString')
@@ -530,11 +530,11 @@ class ExportHtmlwordTest extends PmaTestCase
 
         $this->object->expects($this->exactly(3))
             ->method('formatOneColumnDefinition')
-            ->with($columns, array('name1'))
+            ->with($columns, ['name1'])
             ->will($this->returnValue(1));
 
         $GLOBALS['cfgRelation']['relation'] = true;
-        $_SESSION['relation'][0] = array(
+        $_SESSION['relation'][0] = [
             'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
@@ -542,7 +542,7 @@ class ExportHtmlwordTest extends PmaTestCase
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col'
-        );
+        ];
 
         $result = $this->object->getTableDef(
             'database',
@@ -573,19 +573,19 @@ class ExportHtmlwordTest extends PmaTestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchResult')
             ->willReturnOnConsecutiveCalls(
-                array(
-                    'fieldname' => array(
+                [
+                    'fieldname' => [
                         'foreign_table' => 'ftable',
                         'foreign_field' => 'ffield'
-                    )
-                ),
-                array(
-                    'field' => array(
+                    ]
+                ],
+                [
+                    'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    )
-                )
+                    ]
+                ]
             );
 
         $dbi->expects($this->once())
@@ -593,14 +593,14 @@ class ExportHtmlwordTest extends PmaTestCase
             ->with('database', '')
             ->will($this->returnValue($keys));
 
-        $columns = array(
+        $columns = [
             'Field' => 'fieldname'
-        );
+        ];
 
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue(array($columns)));
+            ->will($this->returnValue([$columns]));
 
         $dbi->expects($this->any())
             ->method('query')
@@ -614,9 +614,9 @@ class ExportHtmlwordTest extends PmaTestCase
             ->method('fetchAssoc')
             ->will(
                 $this->returnValue(
-                    array(
-                        'comment' => array('field' => 'testComment')
-                    )
+                    [
+                        'comment' => ['field' => 'testComment']
+                    ]
                 )
             );
         $dbi->expects($this->any())->method('escapeString')
@@ -625,7 +625,7 @@ class ExportHtmlwordTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['cfgRelation']['relation'] = true;
-        $_SESSION['relation'][0] = array(
+        $_SESSION['relation'][0] = [
             'PMA_VERSION' => PMA_VERSION,
             'relwork' => true,
             'commwork' => true,
@@ -633,7 +633,7 @@ class ExportHtmlwordTest extends PmaTestCase
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col'
-        );
+        ];
 
         $result = $this->object->getTableDef(
             'database',
@@ -664,14 +664,14 @@ class ExportHtmlwordTest extends PmaTestCase
             ->with('database', '')
             ->will($this->returnValue($keys));
 
-        $columns = array(
+        $columns = [
             'Field' => 'fieldname'
-        );
+        ];
 
         $dbi->expects($this->once())
             ->method('getColumns')
             ->with('database', '')
-            ->will($this->returnValue(array($columns)));
+            ->will($this->returnValue([$columns]));
 
         $dbi->expects($this->any())
             ->method('query')
@@ -685,9 +685,9 @@ class ExportHtmlwordTest extends PmaTestCase
             ->method('fetchAssoc')
             ->will(
                 $this->returnValue(
-                    array(
-                        'comment' => array('field' => 'testComment')
-                    )
+                    [
+                        'comment' => ['field' => 'testComment']
+                    ]
                 )
             );
         $dbi->expects($this->any())->method('escapeString')
@@ -696,7 +696,7 @@ class ExportHtmlwordTest extends PmaTestCase
         $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['cfgRelation']['relation'] = true;
-        $_SESSION['relation'][0] = array(
+        $_SESSION['relation'][0] = [
             'PMA_VERSION' => PMA_VERSION,
             'relwork' => false,
             'commwork' => false,
@@ -704,7 +704,7 @@ class ExportHtmlwordTest extends PmaTestCase
             'db' => 'database',
             'relation' => 'rel',
             'column_info' => 'col'
-        );
+        ];
 
         $result = $this->object->getTableDef(
             'database',
@@ -735,14 +735,14 @@ class ExportHtmlwordTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $triggers = array(
-            array(
+        $triggers = [
+            [
                 'name' => 'tna"me',
                 'action_timing' => 'ac>t',
                 'event_manipulation' => 'manip&',
                 'definition' => 'def'
-            )
-        );
+            ]
+        ];
 
         $dbi->expects($this->once())
             ->method('getTriggers')
@@ -782,7 +782,7 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will($this->returnValue(1));
 
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Export\ExportHtmlword')
-            ->setMethods(array('getTableDef', 'getTriggers', 'getTableDefStandIn'))
+            ->setMethods(['getTableDef', 'getTriggers', 'getTableDefStandIn'])
             ->getMock();
 
         $this->object->expects($this->at(0))
@@ -797,7 +797,7 @@ class ExportHtmlwordTest extends PmaTestCase
 
         $this->object->expects($this->at(2))
             ->method('getTableDef')
-            ->with('db', 'tbl', false, false, false, true, array())
+            ->with('db', 'tbl', false, false, false, true, [])
             ->will($this->returnValue('dumpText3'));
 
         $this->object->expects($this->once())
@@ -872,16 +872,16 @@ class ExportHtmlwordTest extends PmaTestCase
         );
         $method->setAccessible(true);
 
-        $cols = array(
+        $cols = [
             'Null' => 'Yes',
             'Field' => 'field',
             'Key' => 'PRI',
             'Type' => 'set(abc)enum123'
-        );
+        ];
 
-        $unique_keys = array(
+        $unique_keys = [
             'field'
-        );
+        ];
 
         $this->assertEquals(
             '<tr class="print-category"><td class="print"><em>' .
@@ -890,17 +890,17 @@ class ExportHtmlwordTest extends PmaTestCase
             $method->invoke($this->object, $cols, $unique_keys)
         );
 
-        $cols = array(
+        $cols = [
             'Null' => 'NO',
             'Field' => 'fields',
             'Key' => 'COMP',
             'Type' => '',
             'Default' => 'def'
-        );
+        ];
 
-        $unique_keys = array(
+        $unique_keys = [
             'field'
-        );
+        ];
 
         $this->assertEquals(
             '<tr class="print-category"><td class="print">fields</td>' .

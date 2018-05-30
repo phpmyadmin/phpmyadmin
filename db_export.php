@@ -90,7 +90,7 @@ if (!empty($_POST['selected_tbl']) && empty($table_select)) {
 
 // Check if the selected tables are defined in $_GET
 // (from clicking Back button on export.php)
-foreach (array('table_select', 'table_structure', 'table_data') as $one_key) {
+foreach (['table_select', 'table_structure', 'table_data'] as $one_key) {
     if (isset($_GET[$one_key])) {
         $_GET[$one_key] = urldecode($_GET[$one_key]);
         $_GET[$one_key] = explode(",", $_GET[$one_key]);

@@ -57,26 +57,26 @@ class GisPolygonTest extends GisGeomTestCase
      */
     private function _getData()
     {
-        return array(
-            'POLYGON' => array(
+        return [
+            'POLYGON' => [
                 'no_of_lines' => 2,
-                0 => array(
+                0 => [
                     'no_of_points' => 5,
-                    0 => array('x' => 35, 'y' => 10),
-                    1 => array('x' => 10, 'y' => 20),
-                    2 => array('x' => 15, 'y' => 40),
-                    3 => array('x' => 45, 'y' => 45),
-                    4 => array('x' => 35, 'y' => 10),
-                ),
-                1 => array(
+                    0 => ['x' => 35, 'y' => 10],
+                    1 => ['x' => 10, 'y' => 20],
+                    2 => ['x' => 15, 'y' => 40],
+                    3 => ['x' => 45, 'y' => 45],
+                    4 => ['x' => 35, 'y' => 10],
+                ],
+                1 => [
                     'no_of_points' => 4,
-                    0 => array('x' => 20, 'y' => 30),
-                    1 => array('x' => 35, 'y' => 32),
-                    2 => array('x' => 30, 'y' => 20),
-                    3 => array('x' => 20, 'y' => 30),
-                )
-            )
-        );
+                    0 => ['x' => 20, 'y' => 30],
+                    1 => ['x' => 35, 'y' => 32],
+                    2 => ['x' => 30, 'y' => 20],
+                    3 => ['x' => 20, 'y' => 30],
+                ]
+            ]
+        ];
     }
 
     /**
@@ -86,9 +86,9 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function providerForTestGenerateWkt()
     {
-        $temp = array(
+        $temp = [
             0 => $this->_getData()
-        );
+        ];
 
         $temp1 = $temp;
         unset($temp1[0]['POLYGON'][1][3]['y']);
@@ -99,49 +99,49 @@ class GisPolygonTest extends GisGeomTestCase
         $temp3 = $temp;
         $temp3[0]['POLYGON'][1]['no_of_points'] = 3;
 
-        return array(
-            array(
+        return [
+            [
                 $temp,
                 0,
                 null,
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))'
-            ),
+            ],
             // values at undefined index
-            array(
+            [
                 $temp,
                 1,
                 null,
                 'POLYGON(( , , , ))'
-            ),
+            ],
             // if a coordinate is missing, default is empty string
-            array(
+            [
                 $temp1,
                 0,
                 null,
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 ))'
-            ),
+            ],
             // missing coordinates are replaced with provided values (3rd parameter)
-            array(
+            [
                 $temp1,
                 0,
                 '0',
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 0))'
-            ),
+            ],
             // should have at least one ring
-            array(
+            [
                 $temp2,
                 0,
                 '0',
                 'POLYGON((35 10,10 20,15 40,45 45,35 10))'
-            ),
+            ],
             // a ring should have at least four points
-            array(
+            [
                 $temp3,
                 0,
                 '0',
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))'
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -156,24 +156,24 @@ class GisPolygonTest extends GisGeomTestCase
         $temp1 = $temp;
         $temp1['gis_type'] = 'POLYGON';
 
-        return array(
-            array(
+        return [
+            [
                 "'POLYGON((35 10,10 20,15 40,45 45,35 10),"
                     . "(20 30,35 32,30 20,20 30))',124",
                 null,
-                array(
+                [
                     'srid' => '124',
                     0 => $temp
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30))',
                 2,
-                array(
+                [
                     2 => $temp1
-                )
-            )
-        );
+                ]
+            ]
+        ];
     }
 
     /**
@@ -197,35 +197,35 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function providerForTestArea()
     {
-        return array(
-            array(
-                array(
-                    0 => array('x' => 35, 'y' => 10),
-                    1 => array('x' => 10, 'y' => 10),
-                    2 => array('x' => 15, 'y' => 40)
-                ),
+        return [
+            [
+                [
+                    0 => ['x' => 35, 'y' => 10],
+                    1 => ['x' => 10, 'y' => 10],
+                    2 => ['x' => 15, 'y' => 40]
+                ],
                 -375.00
-            ),
+            ],
             // first point of the ring repeated as the last point
-            array(
-                array(
-                    0 => array('x' => 35, 'y' => 10),
-                    1 => array('x' => 10, 'y' => 10),
-                    2 => array('x' => 15, 'y' => 40),
-                    3 => array('x' => 35, 'y' => 10)
-                ),
+            [
+                [
+                    0 => ['x' => 35, 'y' => 10],
+                    1 => ['x' => 10, 'y' => 10],
+                    2 => ['x' => 15, 'y' => 40],
+                    3 => ['x' => 35, 'y' => 10]
+                ],
                 -375.00
-            ),
+            ],
             // anticlockwise gives positive area
-            array(
-                array(
-                    0 => array('x' => 15, 'y' => 40),
-                    1 => array('x' => 10, 'y' => 10),
-                    2 => array('x' => 35, 'y' => 10)
-                ),
+            [
+                [
+                    0 => ['x' => 15, 'y' => 40],
+                    1 => ['x' => 10, 'y' => 10],
+                    2 => ['x' => 35, 'y' => 10]
+                ],
                 375.00
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -253,39 +253,39 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function providerForTestIsPointInsidePolygon()
     {
-        $ring = array(
-            0 => array('x' => 35, 'y' => 10),
-            1 => array('x' => 10, 'y' => 10),
-            2 => array('x' => 15, 'y' => 40),
-            3 => array('x' => 35, 'y' => 10)
-        );
+        $ring = [
+            0 => ['x' => 35, 'y' => 10],
+            1 => ['x' => 10, 'y' => 10],
+            2 => ['x' => 15, 'y' => 40],
+            3 => ['x' => 35, 'y' => 10]
+        ];
 
-        return array(
+        return [
             // point inside the ring
-            array(
-                array('x' => 20, 'y' => 15),
+            [
+                ['x' => 20, 'y' => 15],
                 $ring,
                 true
-            ),
+            ],
             // point on an edge of the ring
-            array(
-                array('x' => 20, 'y' => 10),
+            [
+                ['x' => 20, 'y' => 10],
                 $ring,
                 false
-            ),
+            ],
             // point on a vertex of the ring
-            array(
-                array('x' => 10, 'y' => 10),
+            [
+                ['x' => 10, 'y' => 10],
                 $ring,
                 false
-            ),
+            ],
             // point outside the ring
-            array(
-                array('x' => 5, 'y' => 10),
+            [
+                ['x' => 5, 'y' => 10],
                 $ring,
                 false
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -318,14 +318,14 @@ class GisPolygonTest extends GisGeomTestCase
         unset($temp['POLYGON'][0]['no_of_points']);
         unset($temp['POLYGON'][1]['no_of_points']);
 
-        return array(
-            array(
+        return [
+            [
                 $temp['POLYGON'][0]
-            ),
-            array(
+            ],
+            [
                 $temp['POLYGON'][1]
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -335,27 +335,27 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function providerForTestScaleRow()
     {
-        return array(
-            array(
+        return [
+            [
                 'POLYGON((123 0,23 30,17 63,123 0))',
-                array(
+                [
                     'minX' => 17,
                     'maxX' => 123,
                     'minY' => 0,
                     'maxY' => 63,
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'POLYGON((35 10,10 20,15 40,45 45,35 10),'
                     . '(20 30,35 32,30 20,20 30)))',
-                array(
+                [
                     'minX' => 10,
                     'maxX' => 45,
                     'minY' => 10,
                     'maxY' => 45
-                )
-            ),
-        );
+                ]
+            ],
+        ];
     }
 
     /**
@@ -389,20 +389,20 @@ class GisPolygonTest extends GisGeomTestCase
         if (! function_exists('imagecreatetruecolor')) {
             $this->markTestSkipped('GD extension missing!');
         }
-        return array(
-            array(
+        return [
+            [
                 'POLYGON((123 0,23 30,17 63,123 0))',
                 'image',
                 '#B02EE0',
-                array(
+                [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
                     'height' => 150
-                ),
+                ],
                 imagecreatetruecolor(120, 150)
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -433,20 +433,20 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function providerForPrepareRowAsPdf()
     {
-        return array(
-            array(
+        return [
+            [
                 'POLYGON((123 0,23 30,17 63,123 0))',
                 'pdf',
                 '#B02EE0',
-                array(
+                [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
                     'height' => 150
-                ),
+                ],
                 new TCPDF(),
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -477,23 +477,23 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function providerForPrepareRowAsSvg()
     {
-        return array(
-            array(
+        return [
+            [
                 'POLYGON((123 0,23 30,17 63,123 0))',
                 'svg',
                 '#B02EE0',
-                array(
+                [
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
                     'height' => 150
-                ),
+                ],
                 '/^(<path d=" M 222, 288 L 22, 228 L 10, 162 Z " name="svg" '
                 . 'id="svg)(\d+)(" class="polygon vector" stroke="black" '
                 . 'stroke-width="0.5" fill="#B02EE0" fill-rule="evenodd" '
                 . 'fill-opacity="0.8"\/>)$/'
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -527,18 +527,18 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function providerForPrepareRowAsOl()
     {
-        return array(
-            array(
+        return [
+            [
                 'POLYGON((123 0,23 30,17 63,123 0))',
                 4326,
                 'Ol',
                 '#B02EE0',
-                array(
+                [
                     'minX' => '0',
                     'minY' => '0',
                     'maxX' => '1',
                     'maxY' => '1',
-                ),
+                ],
                 'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.Lon'
                 . 'Lat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), '
                 . 'map.getProjectionObject())); bound.extend(new OpenLayers.'
@@ -556,8 +556,8 @@ class GisPolygonTest extends GisGeomTestCase
                 . '("EPSG:4326"), map.getProjectionObject()))))), null, {"stroke'
                 . 'Color":"#000000","strokeWidth":0.5,"fillColor":"#B02EE0",'
                 . '"fillOpacity":0.8,"label":"Ol","fontSize":10}));'
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -580,15 +580,15 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function providerForIsOuterRing()
     {
-        return array(
-            array(
-                array(
-                    array('x' => 0, 'y' => 0),
-                    array('x' => 0, 'y' => 1),
-                    array('x' => 1, 'y' => 1),
-                    array('x' => 1, 'y' => 0)
-                ),
-            )
-        );
+        return [
+            [
+                [
+                    ['x' => 0, 'y' => 0],
+                    ['x' => 0, 'y' => 1],
+                    ['x' => 1, 'y' => 1],
+                    ['x' => 1, 'y' => 0]
+                ],
+            ]
+        ];
     }
 }

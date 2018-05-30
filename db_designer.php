@@ -39,15 +39,15 @@ if (isset($_REQUEST['dialog'])) {
 
         $req_key = array_search($required, $GLOBALS['designer']['TABLE_NAME']);
 
-        $GLOBALS['designer']['TABLE_NAME'] = array($GLOBALS['designer']['TABLE_NAME'][$req_key]);
-        $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = array($GLOBALS['designer_url']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['designer']['TABLE_NAME_SMALL'] = array($GLOBALS['designer']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = array($GLOBALS['designer_out']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['designer']['TABLE_TYPE'] = array($GLOBALS['designer_url']['TABLE_TYPE'][$req_key]);
-        $GLOBALS['designer_out']['OWNER'] = array($GLOBALS['designer_out']['OWNER'][$req_key]);
+        $GLOBALS['designer']['TABLE_NAME'] = [$GLOBALS['designer']['TABLE_NAME'][$req_key]];
+        $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = [$GLOBALS['designer_url']['TABLE_NAME_SMALL'][$req_key]];
+        $GLOBALS['designer']['TABLE_NAME_SMALL'] = [$GLOBALS['designer']['TABLE_NAME_SMALL'][$req_key]];
+        $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = [$GLOBALS['designer_out']['TABLE_NAME_SMALL'][$req_key]];
+        $GLOBALS['designer']['TABLE_TYPE'] = [$GLOBALS['designer_url']['TABLE_TYPE'][$req_key]];
+        $GLOBALS['designer_out']['OWNER'] = [$GLOBALS['designer_out']['OWNER'][$req_key]];
 
         $html = $databaseDesigner->getDatabaseTables(
-            array(), -1, $tab_column,
+            [], -1, $tab_column,
             $tables_all_keys, $tables_pk_or_unique_keys
         );
     }
@@ -135,7 +135,7 @@ if ($display_page != -1) {
 $tab_pos = $designerCommon->getTablePositions($display_page);
 $script_contr = $designerCommon->getScriptContr();
 
-$params = array('lang' => $GLOBALS['lang']);
+$params = ['lang' => $GLOBALS['lang']];
 if (isset($_GET['db'])) {
     $params['db'] = $_GET['db'];
 }

@@ -65,7 +65,7 @@ if (isset($_POST['getColumnList'])) {
     exit;
 }
 if (isset($_POST['add_column'])) {
-    $selected_col = array();
+    $selected_col = [];
     $selected_tbl = $_POST['table-select'];
     $selected_col[] = $_POST['column-select'];
     $tmp_msg = $centralColumns->syncUniqueColumns(
@@ -103,7 +103,7 @@ if (isset($_POST['multi_edit_central_column_save'])) {
     }
 }
 if (isset($_POST['delete_save'])) {
-    $col_name = array();
+    $col_name = [];
     parse_str($_POST['col_name'], $col_name);
     $tmp_msg = $centralColumns->deleteColumnsFromList(
         $col_name['selected_fld'],

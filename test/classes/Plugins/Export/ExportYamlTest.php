@@ -235,7 +235,7 @@ class ExportYamlTest extends PmaTestCase
             ->with(true)
             ->will(
                 $this->returnValue(
-                    array(null, '123', "\"c\\a\nb\r")
+                    [null, '123', "\"c\\a\nb\r"]
                 )
             );
 
@@ -244,7 +244,7 @@ class ExportYamlTest extends PmaTestCase
             ->with(true)
             ->will(
                 $this->returnValue(
-                    array(null)
+                    [null]
                 )
             );
 

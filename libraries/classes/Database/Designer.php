@@ -329,7 +329,7 @@ class Designer
         array $tables_pk_or_unique_keys
     ) {
         $table_names = $GLOBALS['designer']['TABLE_NAME'];
-        $columns_type = array();
+        $columns_type = [];
         foreach ($table_names as $table_name) {
             $limit = count($tab_column[$table_name]['COLUMN_ID']);
             for ($j = 0; $j < $limit; $j++) {

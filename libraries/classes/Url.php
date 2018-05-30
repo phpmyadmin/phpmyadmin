@@ -33,7 +33,7 @@ class Url
      * @access  public
      */
     public static function getHiddenInputs($db = '', $table = '',
-        $indent = 0, $skip = array()
+        $indent = 0, $skip = []
     ) {
         if (is_array($db)) {
             $params  =& $db;
@@ -42,7 +42,7 @@ class Url
             $indent  =& $_indent;
             $skip    =& $_skip;
         } else {
-            $params = array();
+            $params = [];
             if (strlen((string) $db) > 0) {
                 $params['db'] = $db;
             }
@@ -163,7 +163,7 @@ class Url
      * @return string   string with URL parameters
      * @access  public
      */
-    public static function getCommon($params = array(), $divider = '?')
+    public static function getCommon($params = [], $divider = '?')
     {
         return htmlspecialchars(
             Url::getCommonRaw($params, $divider)
@@ -199,7 +199,7 @@ class Url
      * @return string   string with URL parameters
      * @access  public
      */
-    public static function getCommonRaw($params = array(), $divider = '?')
+    public static function getCommonRaw($params = [], $divider = '?')
     {
         $separator = Url::getArgSeparator();
 

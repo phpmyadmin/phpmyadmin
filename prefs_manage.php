@@ -150,7 +150,7 @@ if (isset($_POST['submit_export'])
         }
 
         // check for ThemeDefault
-        $params = array();
+        $params = [];
         $tmanager = ThemeManager::getInstance();
         if (isset($config['ThemeDefault'])
             && $tmanager->theme->getId() != $config['ThemeDefault']
@@ -192,9 +192,9 @@ if (isset($_POST['submit_export'])
         }
     }
 } elseif (isset($_POST['submit_clear'])) {
-    $result = $userPreferences->save(array());
+    $result = $userPreferences->save([]);
     if ($result === true) {
-        $params = array();
+        $params = [];
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
         $userPreferences->redirect('prefs_manage.php', $params);

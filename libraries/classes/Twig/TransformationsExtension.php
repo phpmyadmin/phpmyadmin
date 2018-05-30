@@ -28,7 +28,7 @@ class TransformationsExtension extends AbstractExtension
     public function getFunctions()
     {
         $transformations = new Transformations();
-        return array(
+        return [
             new TwigFunction(
                 'Transformations_getDescription',
                 [$transformations, 'getDescription']
@@ -37,6 +37,6 @@ class TransformationsExtension extends AbstractExtension
                 'Transformations_getName',
                 [$transformations, 'getName']
             ),
-        );
+        ];
     }
 }

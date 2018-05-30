@@ -35,7 +35,7 @@ if (empty($is_db)) {
                     Message::error(__('No databases selected.'))
                 );
             } else {
-                $url_params = array('reload' => 1);
+                $url_params = ['reload' => 1];
                 if (isset($message)) {
                     $url_params['message'] = $message;
                 }
@@ -62,7 +62,7 @@ if (empty($is_table)
     // Not a valid table name -> back to the db_sql.php
 
     if (strlen($table) > 0) {
-        $is_table = $GLOBALS['dbi']->getCachedTableContent(array($db, $table), false);
+        $is_table = $GLOBALS['dbi']->getCachedTableContent([$db, $table], false);
 
         if (! $is_table) {
             $_result = $GLOBALS['dbi']->tryQuery(

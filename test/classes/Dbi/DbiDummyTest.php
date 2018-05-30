@@ -52,7 +52,7 @@ class DbiDummyTest extends TestCase
     public function testFetch()
     {
         $result = $GLOBALS['dbi']->tryQuery('SELECT 1');
-        $this->assertEquals(array('1'), $GLOBALS['dbi']->fetchArray($result));
+        $this->assertEquals(['1'], $GLOBALS['dbi']->fetchArray($result));
     }
 
     /**
@@ -77,10 +77,10 @@ class DbiDummyTest extends TestCase
      */
     public function schemaData()
     {
-        return array(
-            array('information_schema', true),
-            array('pma_test', false),
-        );
+        return [
+            ['information_schema', true],
+            ['pma_test', false],
+        ];
     }
 
     /**
@@ -110,14 +110,14 @@ class DbiDummyTest extends TestCase
      */
     public function errorData()
     {
-        return array(
-            array(1234, '', '#1234 - '),
-            array(1234, 'foobar', '#1234 - foobar'),
-            array(
+        return [
+            [1234, '', '#1234 - '],
+            [1234, 'foobar', '#1234 - foobar'],
+            [
                 2002, 'foobar',
                 '#2002 - foobar &mdash; The server is not responding (or the local '
                 . 'server\'s socket is not correctly configured).'
-            ),
-        );
+            ],
+        ];
     }
 }

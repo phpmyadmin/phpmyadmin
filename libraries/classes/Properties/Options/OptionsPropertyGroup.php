@@ -55,7 +55,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Coun
     {
         $this->_properties = array_diff(
             $this->getProperties(),
-            array($property)
+            [$property]
         );
     }
 

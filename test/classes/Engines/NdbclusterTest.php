@@ -57,10 +57,10 @@ class NdbclusterTest extends PmaTestCase
     {
         $this->assertEquals(
             $this->object->getVariables(),
-            array(
-                'ndb_connectstring' => array(
-                ),
-            )
+            [
+                'ndb_connectstring' => [
+                ],
+            ]
         );
     }
 

@@ -30,7 +30,7 @@ class ListDatabaseTest extends PmaTestCase
      */
     public function setup()
     {
-        $GLOBALS['cfg']['Server']['only_db'] = array('single\\_db');
+        $GLOBALS['cfg']['Server']['only_db'] = ['single\\_db'];
         $this->object = new ListDatabase();
     }
 
@@ -97,7 +97,7 @@ class ListDatabaseTest extends PmaTestCase
         $this->assertEquals(
             $this->_callProtectedFunction(
                 'checkHideDatabase',
-                array()
+                []
             ),
             ''
         );

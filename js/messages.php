@@ -789,7 +789,7 @@ Sanitize::printJsValue(
 Sanitize::printJsValue("$.datepicker.regional['']['currentText']", __('Today'));
 Sanitize::printJsValue(
     "$.datepicker.regional['']['monthNames']",
-    array(
+    [
         __('January'),
         __('February'),
         __('March'),
@@ -802,11 +802,11 @@ Sanitize::printJsValue(
         __('October'),
         __('November'),
         __('December')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['monthNamesShort']",
-    array(
+    [
         /* l10n: Short month name */
         __('Jan'),
         /* l10n: Short month name */
@@ -831,11 +831,11 @@ Sanitize::printJsValue(
         __('Nov'),
         /* l10n: Short month name */
         __('Dec')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNames']",
-    array(
+    [
         __('Sunday'),
         __('Monday'),
         __('Tuesday'),
@@ -843,11 +843,11 @@ Sanitize::printJsValue(
         __('Thursday'),
         __('Friday'),
         __('Saturday')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNamesShort']",
-    array(
+    [
         /* l10n: Short week day name */
         __('Sun'),
         /* l10n: Short week day name */
@@ -862,11 +862,11 @@ Sanitize::printJsValue(
         __('Fri'),
         /* l10n: Short week day name */
         __('Sat')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNamesMin']",
-    array(
+    [
         /* l10n: Minimal week day name */
         __('Su'),
         /* l10n: Minimal week day name */
@@ -881,7 +881,7 @@ Sanitize::printJsValue(
         __('Fr'),
         /* l10n: Minimal week day name */
         __('Sa')
-    )
+    ]
 );
 /* l10n: Column header for week of the year in calendar */
 Sanitize::printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));

@@ -30,7 +30,7 @@ class Core
      * the whitelist for goto parameter
      * @static array $goto_whitelist
      */
-    public static $goto_whitelist = array(
+    public static $goto_whitelist = [
         'db_datadict.php',
         'db_sql.php',
         'db_events.php',
@@ -79,7 +79,7 @@ class Core
         'transformation_overview.php',
         'transformation_wrapper.php',
         'user_password.php',
-    );
+    ];
 
     /**
      * checks given $var and returns it if valid, or $default of not valid
@@ -291,13 +291,13 @@ class Core
             // Generate JSON manually
             self::headerJSON();
             echo json_encode(
-                array(
+                [
                     'success' => false,
                     'message' => Message::error($error_message)->getDisplay(),
-                )
+                ]
             );
         } else {
-            $error_message = strtr($error_message, array('<br />' => '[br]'));
+            $error_message = strtr($error_message, ['<br />' => '[br]']);
             $error_header = __('Error');
             $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
             $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
@@ -322,9 +322,9 @@ class Core
     public static function getPHPDocLink(string $target): string
     {
         /* List of PHP documentation translations */
-        $php_doc_languages = array(
+        $php_doc_languages = [
             'pt_BR', 'zh', 'fr', 'de', 'it', 'ja', 'pl', 'ro', 'ru', 'fa', 'es', 'tr'
-        );
+        ];
 
         $lang = 'en';
         if (in_array($GLOBALS['lang'], $php_doc_languages)) {
@@ -419,7 +419,7 @@ class Core
             return 0;
         }
 
-        $binaryprefixes = array(
+        $binaryprefixes = [
             'T' => 1099511627776,
             't' => 1099511627776,
             'G' =>    1073741824,
@@ -428,7 +428,7 @@ class Core
             'm' =>       1048576,
             'K' =>          1024,
             'k' =>          1024,
-        );
+        ];
 
         if (preg_match('/^([0-9]+)([KMGT])/i', $size, $matches)) {
             return $matches[1] * $binaryprefixes[$matches[2]];
@@ -528,7 +528,7 @@ class Core
             Response::getInstance()->disable();
 
             echo Template::get('header_location')
-                ->render(array('uri' => $uri));
+                ->render(['uri' => $uri]);
 
             return;
         }
@@ -686,7 +686,7 @@ class Core
         $a =& $array;
         foreach ($keys as $key) {
             if (! isset($a[$key])) {
-                $a[$key] = array();
+                $a[$key] = [];
             }
             $a =& $a[$key];
         }
@@ -705,7 +705,7 @@ class Core
     {
         $keys = explode('/', $path);
         $keys_last = array_pop($keys);
-        $path = array();
+        $path = [];
         $depth = 0;
 
         $path[0] =& $array;
@@ -748,14 +748,14 @@ class Core
             return $url;
         }
 
-        $params = array();
+        $params = [];
         $params['url'] = $url;
 
         $url = Url::getCommon($params);
         //strip off token and such sensitive information. Just keep url.
         $arr = parse_url($url);
         parse_str($arr["query"], $vars);
-        $query = http_build_query(array("url" => $vars["url"]));
+        $query = http_build_query(["url" => $vars["url"]]);
 
         if (!is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup')) {
             $url = '../url.php?' . $query;
@@ -783,14 +783,14 @@ class Core
             return false;
         }
         // We do not want these to be present
-        $blocked = array('user', 'pass', 'port');
+        $blocked = ['user', 'pass', 'port'];
         foreach ($blocked as $part) {
             if (isset($arr[$part]) && strlen((string) $arr[$part]) != 0) {
                 return false;
             }
         }
         $domain = $arr["host"];
-        $domainWhiteList = array(
+        $domainWhiteList = [
             /* Include current domain */
             $_SERVER['SERVER_NAME'],
             /* phpMyAdmin domains */
@@ -812,7 +812,7 @@ class Core
             'www.percona.com',
             /* Following are doubtful ones. */
             'mysqldatabaseadministration.blogspot.com',
-        );
+        ];
 
         return in_array($domain, $domainWhiteList);
     }
@@ -1267,18 +1267,18 @@ class Core
     ): void {
         echo Template::get('list/item')
             ->render(
-                array(
+                [
                     'content' => $name,
                     'id' => $listId,
                     'class' => $class,
-                    'url' => array(
+                    'url' => [
                         'href' => $url,
                         'target' => $target,
                         'id' => $a_id,
                         'class' => $a_class,
-                    ),
+                    ],
                     'mysql_help_page' => $mysql_help_page,
-                )
+                ]
             );
     }
 

@@ -34,7 +34,7 @@ class Replication
     ) {
         $GLOBALS['replication_info'][$type][$replicationInfoKey]
             = empty($mysqlInfo[$mysqlKey])
-                ? array()
+                ? []
                 : explode(
                     ",",
                     $mysqlInfo[$mysqlKey]
@@ -141,7 +141,7 @@ class Replication
     public function connectToMaster(
         $user, $password, $host = null, $port = null, $socket = null
     ) {
-        $server = array();
+        $server = [];
         $server['user'] = $user;
         $server['password'] = $password;
         $server["host"] = Core::sanitizeMySQLHost($host);
@@ -164,7 +164,7 @@ class Replication
     public function slaveBinLogMaster($link = null)
     {
         $data = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS', null, null, $link);
-        $output = array();
+        $output = [];
 
         if (! empty($data)) {
             $output["File"] = $data[0]["File"];

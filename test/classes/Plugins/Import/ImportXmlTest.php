@@ -92,7 +92,7 @@ class ImportXmlTest extends PmaTestCase
             $properties->getMimeType()
         );
         $this->assertEquals(
-            array(),
+            [],
             $properties->getOptions()
         );
         $this->assertEquals(

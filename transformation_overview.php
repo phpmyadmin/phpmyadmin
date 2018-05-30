@@ -35,17 +35,17 @@ foreach ($types['mimetype'] as $key => $mimetype) {
     }
 
 }
-$transformation_types = array(
+$transformation_types = [
     'transformation', 'input_transformation'
-);
-$label = array(
+];
+$label = [
     'transformation' => __('Available browser display transformations'),
     'input_transformation' => __('Available input transformations')
-);
-$th = array(
+];
+$th = [
     'transformation' => __('Browser display transformation'),
     'input_transformation' => __('Input transformation')
-);
+];
 ?>
 <br />
 <?php foreach ($transformation_types as $ttype) { ?>

@@ -37,7 +37,7 @@ class DataTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['host'] = "::1";
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = true;
-        $GLOBALS['replication_types'] = array();
+        $GLOBALS['replication_types'] = [];
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -45,7 +45,7 @@ class DataTest extends PmaTestCase
             ->getMock();
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
-        $server_status = array(
+        $server_status = [
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
             "Com_delete_multi" => "0",
@@ -58,35 +58,35 @@ class DataTest extends PmaTestCase
             "Key_read_requests" => 1,
             "Threads_created" => true,
             "Connections" => 2,
-        );
+        ];
 
-        $server_variables= array(
+        $server_variables= [
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "1",
             "automatic_sp_privileges" => "ON",
             "back_log" => "50",
             "big_tables" => "OFF",
             "key_buffer_size" => 10,
-        );
+        ];
 
-        $fetchResult = array(
-            array(
+        $fetchResult = [
+            [
                 "SHOW GLOBAL STATUS",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 $server_status
-            ),
-            array(
+            ],
+            [
                 "SHOW GLOBAL VARIABLES",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 $server_variables
-            ),
-            array(
+            ],
+            [
                 "SELECT concat('Com_', variable_name), variable_value "
                     . "FROM data_dictionary.GLOBAL_STATEMENTS",
                 0,
@@ -94,8 +94,8 @@ class DataTest extends PmaTestCase
                 DatabaseInterface::CONNECT_USER,
                 0,
                 $server_status
-            ),
-        );
+            ],
+        ];
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));

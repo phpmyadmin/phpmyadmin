@@ -144,7 +144,7 @@ class BrowseForeigners
 
         $output .= '</tr>';
 
-        return array($output, $horizontal_count, $indexByDescription);
+        return [$output, $horizontal_count, $indexByDescription];
     }
 
     /**
@@ -226,8 +226,8 @@ class BrowseForeigners
             . '<tfoot>' . $header . '</tfoot>' . "\n"
             . '<tbody>' . "\n";
 
-        $descriptions = array();
-        $keys   = array();
+        $descriptions = [];
+        $keys   = [];
         foreach ($foreignData['disp_row'] as $relrow) {
             if ($foreignData['foreign_display'] != false) {
                 $descriptions[] = $relrow[$foreignData['foreign_display']];
@@ -291,7 +291,7 @@ class BrowseForeigners
                 . '...'
             );
         }
-        return array($description, $descriptionTitle);
+        return [$description, $descriptionTitle];
     }
 
     /**

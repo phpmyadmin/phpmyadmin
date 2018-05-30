@@ -70,7 +70,7 @@ class Session
      */
     private static function sessionFailed(array $errors)
     {
-        $messages = array();
+        $messages = [];
         foreach ($errors as $error) {
             /*
              * Remove path from open() in error message to avoid path disclossure

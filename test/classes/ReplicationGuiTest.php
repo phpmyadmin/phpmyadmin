@@ -44,7 +44,7 @@ class ReplicationGuiTest extends TestCase
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
+        $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['TableNavigationLinksMode'] = 'icons';
@@ -53,7 +53,7 @@ class ReplicationGuiTest extends TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
 
         $GLOBALS['table'] = "table";
-        $GLOBALS['url_params'] = array();
+        $GLOBALS['url_params'] = [];
 
         $this->replicationGui = new ReplicationGui();
 
@@ -61,21 +61,21 @@ class ReplicationGuiTest extends TestCase
 
         //Mock DBI
 
-        $slave_host = array(
-            array('Server_id'=>'Server_id1', 'Host'=>'Host1'),
-            array('Server_id'=>'Server_id2', 'Host'=>'Host2'),
-        );
+        $slave_host = [
+            ['Server_id'=>'Server_id1', 'Host'=>'Host1'],
+            ['Server_id'=>'Server_id2', 'Host'=>'Host2'],
+        ];
 
-        $fetchResult = array(
-            array(
+        $fetchResult = [
+            [
                 "SHOW SLAVE HOSTS",
                 null,
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 $slave_host
-            ),
-        );
+            ],
+        ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -84,13 +84,13 @@ class ReplicationGuiTest extends TestCase
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));
 
-        $fields_info = array(
-            "Host" => array(
+        $fields_info = [
+            "Host" => [
                 "Field" => "host",
                 "Type" => "char(60)",
                 "Null" => "NO",
-            )
-        );
+            ]
+        ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($fields_info));
 

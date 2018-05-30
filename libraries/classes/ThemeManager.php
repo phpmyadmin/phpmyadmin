@@ -37,7 +37,7 @@ class ThemeManager
     /**
      * @var array available themes
      */
-    var $themes = array();
+    var $themes = [];
 
     /**
      * @var string  cookie name
@@ -76,7 +76,7 @@ class ThemeManager
      */
     public function __construct()
     {
-        $this->themes = array();
+        $this->themes = [];
         $this->theme_default = self::FALLBACK_THEME;
         $this->active_theme = '';
 
@@ -273,7 +273,7 @@ class ThemeManager
      */
     public function loadThemes()
     {
-        $this->themes = array();
+        $this->themes = [];
 
         if (false === ($handleThemes = opendir($this->_themes_path))) {
             trigger_error(

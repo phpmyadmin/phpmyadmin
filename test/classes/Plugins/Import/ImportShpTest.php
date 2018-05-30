@@ -113,7 +113,7 @@ class ImportShpTest extends PmaTestCase
             $properties->getExtension()
         );
         $this->assertEquals(
-            array(),
+            [],
             $properties->getOptions()
         );
         $this->assertEquals(

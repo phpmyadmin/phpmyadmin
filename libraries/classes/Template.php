@@ -65,11 +65,11 @@ class Template
             if (is_null($cache_dir)) {
                 $cache_dir = false;
             }
-            $twig = new Environment($loader, array(
+            $twig = new Environment($loader, [
                 'auto_reload' => true,
                 'cache' => $cache_dir,
                 'debug' => false,
-            ));
+            ]);
             $twig->addExtension(new CharsetsExtension());
             $twig->addExtension(new CoreExtension());
             $twig->addExtension(new I18nExtension());
@@ -109,7 +109,7 @@ class Template
      *
      * @return string
      */
-    public function render(array $data = array())
+    public function render(array $data = [])
     {
         try {
             $template = $this::$twig->load($this->name . '.twig');

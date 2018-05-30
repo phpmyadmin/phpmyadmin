@@ -203,7 +203,7 @@ $html .= $tracking->getHtmlForDataDefinitionAndManipulationStatements(
     'tbl_tracking.php' . $url_query,
     $last_version,
     $GLOBALS['db'],
-    array($GLOBALS['table']),
+    [$GLOBALS['table']],
     $type
 );
 

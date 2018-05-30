@@ -50,11 +50,11 @@ class Common
      */
     public function getTablesInfo()
     {
-        $retval = array();
+        $retval = [];
 
-        $GLOBALS['designer']['TABLE_NAME'] = array();// that foreach no error
-        $GLOBALS['designer']['OWNER'] = array();
-        $GLOBALS['designer']['TABLE_NAME_SMALL'] = array();
+        $GLOBALS['designer']['TABLE_NAME'] = [];// that foreach no error
+        $GLOBALS['designer']['OWNER'] = [];
+        $GLOBALS['designer']['TABLE_NAME_SMALL'] = [];
 
         $tables = $this->dbi->getTablesFull($GLOBALS['db']);
         // seems to be needed later
@@ -107,7 +107,7 @@ class Common
     public function getColumnsInfo()
     {
         $this->dbi->selectDb($GLOBALS['db']);
-        $tab_column = array();
+        $tab_column = [];
         for ($i = 0, $cnt = count($GLOBALS['designer']["TABLE_NAME"]); $i < $cnt; $i++) {
             $fields_rs = $this->dbi->query(
                 $this->dbi->getColumnsSql(
@@ -140,8 +140,8 @@ class Common
     public function getScriptContr()
     {
         $this->dbi->selectDb($GLOBALS['db']);
-        $con = array();
-        $con["C_NAME"] = array();
+        $con = [];
+        $con["C_NAME"] = [];
         $i = 0;
         $alltab_rs = $this->dbi->query(
             'SHOW TABLES FROM ' . Util::backquote($GLOBALS['db']),
@@ -184,20 +184,20 @@ class Common
         }
 
         $ti = 0;
-        $retval = array();
+        $retval = [];
         for ($i = 0, $cnt = count($con["C_NAME"]); $i < $cnt; $i++) {
             $c_name_i = $con['C_NAME'][$i];
             $dtn_i = $con['DTN'][$i];
-            $retval[$ti] = array();
-            $retval[$ti][$c_name_i] = array();
+            $retval[$ti] = [];
+            $retval[$ti][$c_name_i] = [];
             if (in_array($dtn_i, $GLOBALS['designer_url']["TABLE_NAME"])
                 && in_array($con['STN'][$i], $GLOBALS['designer_url']["TABLE_NAME"])
             ) {
-                $retval[$ti][$c_name_i][$dtn_i] = array();
-                $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = array(
+                $retval[$ti][$c_name_i][$dtn_i] = [];
+                $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = [
                     0 => $con['STN'][$i],
                     1 => $con['SCN'][$i]
-                );
+                ];
             }
             $ti++;
         }
@@ -223,7 +223,7 @@ class Common
      */
     public function getAllKeys($unique_only = false)
     {
-        $keys = array();
+        $keys = [];
 
         foreach ($GLOBALS['designer']['TABLE_NAME_SMALL'] as $I => $table) {
             $schema = $GLOBALS['designer']['OWNER'][$I];
@@ -248,10 +248,10 @@ class Common
      */
     public function getScriptTabs()
     {
-        $retval = array(
-            'j_tabs' => array(),
-            'h_tabs' => array()
-        );
+        $retval = [
+            'j_tabs' => [],
+            'h_tabs' => []
+        ];
 
         for ($i = 0, $cnt = count($GLOBALS['designer']['TABLE_NAME']); $i < $cnt; $i++) {
             $j = 0;
@@ -570,7 +570,7 @@ class Common
             if ($foreigner
                 && isset($foreigner['constraint'])
             ) {
-                return array(false, __('Error: relationship already exists.'));
+                return [false, __('Error: relationship already exists.')];
             }
             // note: in InnoDB, the index does not requires to be on a PRIMARY
             // or UNIQUE key
@@ -581,7 +581,7 @@ class Common
             );
 
             // will be use to emphasis prim. keys in the table view
-            $index_array1 = array();
+            $index_array1 = [];
             while ($row = $this->dbi->fetchAssoc($result)) {
                 $index_array1[$row['Column_name']] = 1;
             }
@@ -592,7 +592,7 @@ class Common
                 . '.' . Util::backquote($T2) . ';'
             );
             // will be used to emphasis prim. keys in the table view
-            $index_array2 = array();
+            $index_array2 = [];
             while ($row = $this->dbi->fetchAssoc($result)) {
                 $index_array2[$row['Column_name']] = 1;
             }
@@ -616,23 +616,23 @@ class Common
                 }
                 $upd_query .= ';';
                 if ($this->dbi->tryQuery($upd_query)) {
-                    return array(true, __('FOREIGN KEY relationship has been added.'));
+                    return [true, __('FOREIGN KEY relationship has been added.')];
                 }
 
                 $error = $this->dbi->getError();
-                return array(
+                return [
                     false,
                     __('Error: FOREIGN KEY relationship could not be added!')
                     . "<br/>" . $error
-                );
+                ];
             }
 
-            return array(false, __('Error: Missing index on column(s).'));
+            return [false, __('Error: Missing index on column(s).')];
         }
 
         // internal (pmadb) relation
         if ($GLOBALS['cfgRelation']['relwork'] == false) {
-            return array(false, __('Error: Relational features are disabled!'));
+            return [false, __('Error: Relational features are disabled!')];
         }
 
         // no need to recheck if the keys are primary or unique at this point,
@@ -654,15 +654,15 @@ class Common
 
         if ($this->relation->queryAsControlUser($q, false, DatabaseInterface::QUERY_STORE)
         ) {
-            return array(true, __('Internal relationship has been added.'));
+            return [true, __('Internal relationship has been added.')];
         }
 
         $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
-        return array(
+        return [
             false,
             __('Error: Internal relationship could not be added!')
             . "<br/>" . $error
-        );
+        ];
     }
 
     /**
@@ -698,15 +698,15 @@ class Common
                     . '.' . Util::backquote($T2) . ' DROP FOREIGN KEY '
                     . Util::backquote($foreigner['constraint']) . ';';
                 if ($this->dbi->query($upd_query)) {
-                    return array(true, __('FOREIGN KEY relationship has been removed.'));
+                    return [true, __('FOREIGN KEY relationship has been removed.')];
                 }
 
                 $error = $this->dbi->getError();
-                return array(
+                return [
                     false,
                     __('Error: FOREIGN KEY relationship could not be removed!')
                     . "<br/>" . $error
-                );
+                ];
             }
         }
 
@@ -729,13 +729,13 @@ class Common
 
         if (!$result) {
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
-            return array(
+            return [
                 false,
                 __('Error: Internal relationship could not be removed!') . "<br/>" . $error
-            );
+            ];
         }
 
-        return array(true, __('Internal relationship has been removed.'));
+        return [true, __('Internal relationship has been removed.')];
     }
 
     /**
@@ -749,11 +749,11 @@ class Common
     public function saveSetting($index, $value)
     {
         $cfgRelation = $this->relation->getRelationsParam();
-        $cfgDesigner = array(
+        $cfgDesigner = [
             'user'  => $GLOBALS['cfg']['Server']['user'],
             'db'    => $cfgRelation['db'],
             'table' => $cfgRelation['designer_settings']
-        );
+        ];
 
         $success = true;
         if ($GLOBALS['cfgRelation']['designersettingswork']) {
@@ -782,7 +782,7 @@ class Common
 
                 $success = $this->relation->queryAsControlUser($save_query);
             } else {
-                $save_data = array($index => $value);
+                $save_data = [$index => $value];
 
                 $query = "INSERT INTO "
                     . Util::backquote($cfgDesigner['db'])

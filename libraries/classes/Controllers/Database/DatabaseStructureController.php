@@ -143,10 +143,10 @@ class DatabaseStructureController extends DatabaseController
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
-            array(
+            [
                 'db_structure.js',
                 'tbl_change.js',
-            )
+            ]
         );
 
         // Gets the database structure
@@ -156,11 +156,11 @@ class DatabaseStructureController extends DatabaseController
         // If there are no tables, the user is redirected to the last page
         // having any.
         if ($this->_total_num_tables > 0 && $this->_pos > $this->_total_num_tables) {
-            $uri = './db_structure.php' . Url::getCommonRaw(array(
+            $uri = './db_structure.php' . Url::getCommonRaw([
                 'db' => $this->db,
                 'pos' => max(0, $this->_total_num_tables - $GLOBALS['cfg']['MaxTableList']),
                 'reload' => 1
-            ));
+            ]);
             Core::sendHeaderLocation($uri);
         }
 
@@ -185,9 +185,9 @@ class DatabaseStructureController extends DatabaseController
          * Displays the tables list
          */
         $this->response->addHTML('<div id="tableslistcontainer">');
-        $_url_params = array(
+        $_url_params = [
             'pos' => $this->_pos,
-            'db'  => $this->db);
+            'db'  => $this->db];
 
         // Add the sort options if they exists
         if (isset($_REQUEST['sort'])) {
@@ -225,12 +225,12 @@ class DatabaseStructureController extends DatabaseController
         /* Printable view of a table */
         $this->response->addHTML(
             Template::get('database/structure/print_view_data_dictionary_link')
-                ->render(array('url_query' => Url::getCommon(
-                    array(
+                ->render(['url_query' => Url::getCommon(
+                    [
                         'db' => $this->db,
                         'goto' => 'db_structure.php',
-                    )
-                )))
+                    ]
+                )])
         );
 
         if (empty($this->_db_is_system_schema)) {
@@ -249,7 +249,7 @@ class DatabaseStructureController extends DatabaseController
         if (isset($_REQUEST['favorite_tables'])) {
             $favorite_tables = json_decode($_REQUEST['favorite_tables'], true);
         } else {
-            $favorite_tables = array();
+            $favorite_tables = [];
         }
         // Required to keep each user's preferences separate.
         $user = sha1($GLOBALS['cfg']['Server']['user']);
@@ -293,35 +293,35 @@ class DatabaseStructureController extends DatabaseController
                 'message',
                 Template::get('components/error_message')
                     ->render(
-                        array(
+                        [
                             'msg' => __("Favorite List is full!")
-                        )
+                        ]
                     )
             );
             return;
         }
         // Check if current table is already in favorite list.
-        $favParams = array('db' => $this->db,
+        $favParams = ['db' => $this->db,
             'ajax_request' => true,
             'favorite_table' => $favorite_table,
             (($already_favorite ? 'remove' : 'add') . '_favorite') => true
-        );
+        ];
         $this->response->addJSON(
-            array(
+            [
                 'user' => $user,
                 'favorite_tables' => json_encode($favorite_tables),
                 'list' => $fav_instance->getHtmlList(),
                 'anchor' => Template::get('database/structure/favorite_anchor')
                     ->render(
-                        array(
+                        [
                             'table_name_hash' => md5($favorite_table),
                             'db_table_name_hash' => md5($this->db . "." . $favorite_table),
                             'fav_params' => $favParams,
                             'already_favorite' => $already_favorite,
                             'titles' => $titles,
-                        )
+                        ]
                     )
-            )
+            ]
         );
     }
 
@@ -346,16 +346,16 @@ class DatabaseStructureController extends DatabaseController
         }
 
         // Array to store the results.
-        $real_row_count_all = array();
+        $real_row_count_all = [];
         // Iterate over each table and fetch real row count.
         foreach ($this->_tables as $table) {
             $row_count = $this->dbi
                 ->getTable($this->db, $table['TABLE_NAME'])
                 ->getRealRowCountTable();
-            $real_row_count_all[] = array(
+            $real_row_count_all[] = [
                 'table' => $table['TABLE_NAME'],
                 'row_count' => $row_count
-            );
+            ];
         }
 
         $ajax_response->addJSON(
@@ -373,7 +373,7 @@ class DatabaseStructureController extends DatabaseController
     {
         $action = 'db_structure.php';
         $err_url = 'db_structure.php' . Url::getCommon(
-            array('db' => $this->db)
+            ['db' => $this->db]
         );
 
         // see bug #2794840; in this case, code path is:
@@ -397,7 +397,7 @@ class DatabaseStructureController extends DatabaseController
     {
         // filtering
         $this->response->addHTML(
-            Template::get('filter')->render(array('filter_value' => ''))
+            Template::get('filter')->render(['filter_value' => ''])
         );
         // table form
         $this->response->addHTML(
@@ -428,7 +428,7 @@ class DatabaseStructureController extends DatabaseController
         $sum_size       = 0;
         $overhead_size  = 0;
 
-        $hidden_fields = array();
+        $hidden_fields = [];
         $overall_approx_rows = false;
         foreach ($this->_tables as $keyname => $current_table) {
             // Get valid statistics whatever is the table type
@@ -441,7 +441,7 @@ class DatabaseStructureController extends DatabaseController
             $table_is_view = false;
             // Sets parameters for links
             $tbl_url_query = Url::getCommon(
-                array('db' => $this->db, 'table' => $current_table['TABLE_NAME'])
+                ['db' => $this->db, 'table' => $current_table['TABLE_NAME']]
             );
             // do not list the previous table's size info for a view
 
@@ -548,33 +548,33 @@ class DatabaseStructureController extends DatabaseController
 
             $browse_table = Template::get('database/structure/browse_table')
                 ->render(
-                    array(
+                    [
                         'tbl_url_query' => $tbl_url_query,
                         'title'         => $may_have_rows ? $titles['Browse']
                             : $titles['NoBrowse'],
-                    )
+                    ]
                 );
 
             $search_table = Template::get('database/structure/search_table')
                 ->render(
-                    array(
+                    [
                         'tbl_url_query' => $tbl_url_query,
                         'title'         => $may_have_rows ? $titles['Search']
                             : $titles['NoSearch'],
-                    )
+                    ]
                 );
 
             $browse_table_label = Template::get(
                 'database/structure/browse_table_label'
             )
                 ->render(
-                    array(
+                    [
                         'tbl_url_query' => $tbl_url_query,
                         'title'         => htmlspecialchars(
                             $current_table['TABLE_COMMENT']
                         ),
                         'truename'      => $truename,
-                    )
+                    ]
                 );
 
             $empty_table = '';
@@ -583,7 +583,7 @@ class DatabaseStructureController extends DatabaseController
                 if (!$table_is_view) {
                     $empty_table = Template::get('database/structure/empty_table')
                         ->render(
-                            array(
+                            [
                                 'tbl_url_query' => $tbl_url_query,
                                 'sql_query' => urlencode(
                                     'TRUNCATE ' . Util::backquote(
@@ -600,7 +600,7 @@ class DatabaseStructureController extends DatabaseController
                                 ),
                                 'title' => $may_have_rows ? $titles['Empty']
                                     : $titles['NoEmpty'],
-                            )
+                            ]
                         );
                 }
                 $drop_query = sprintf(
@@ -658,7 +658,7 @@ class DatabaseStructureController extends DatabaseController
             $this->response->addHTML(
                 Template::get('database/structure/structure_table_row')
                     ->render(
-                        array(
+                        [
                             'table_name_hash'       => md5($current_table['TABLE_NAME']),
                             'db_table_name_hash'    => md5($this->db . '.' . $current_table['TABLE_NAME']),
                             'db'                    => $this->db,
@@ -705,7 +705,7 @@ class DatabaseStructureController extends DatabaseController
                             'show_creation'          => $GLOBALS['cfg']['ShowDbStructureCreation'],
                             'show_last_update'       => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
                             'show_last_check'        => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-                        )
+                        ]
                     )
             );
 
@@ -720,7 +720,7 @@ class DatabaseStructureController extends DatabaseController
         // Show Summary
         $this->response->addHTML(
             Template::get('database/structure/body_for_table_summary')->render(
-                array(
+                [
                     'num_tables' => $this->_num_tables,
                     'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
                     'db_is_system_schema' => $this->_db_is_system_schema,
@@ -743,7 +743,7 @@ class DatabaseStructureController extends DatabaseController
                     'show_creation' => $GLOBALS['cfg']['ShowDbStructureCreation'],
                     'show_last_update' => $GLOBALS['cfg']['ShowDbStructureLastUpdate'],
                     'show_last_check' => $GLOBALS['cfg']['ShowDbStructureLastCheck'],
-                )
+                ]
             )
         );
         $this->response->addHTML('</table>');
@@ -782,11 +782,11 @@ class DatabaseStructureController extends DatabaseController
                     'database/structure/tracking_icon'
                 )
                 ->render(
-                    array(
+                    [
                         'db' => $this->db,
                         'table' => $table,
                         'is_tracked' => $is_tracked,
-                    )
+                    ]
                 );
             }
         }
@@ -816,7 +816,7 @@ class DatabaseStructureController extends DatabaseController
         ) {
             // InnoDB/TokuDB table: we did not get an accurate row count
             $approx_rows = !$table_is_view
-                && in_array($current_table['ENGINE'], array('InnoDB', 'TokuDB'))
+                && in_array($current_table['ENGINE'], ['InnoDB', 'TokuDB'])
                 && !$current_table['COUNTED'];
 
             if ($table_is_view
@@ -837,7 +837,7 @@ class DatabaseStructureController extends DatabaseController
             }
         }
 
-        return array($approx_rows, $show_superscript);
+        return [$approx_rows, $show_superscript];
     }
 
     /**
@@ -889,7 +889,7 @@ class DatabaseStructureController extends DatabaseController
                 );
         }
 
-        return array($do, $ignored);
+        return [$do, $ignored];
     }
 
     /**
@@ -919,10 +919,10 @@ class DatabaseStructureController extends DatabaseController
         $favorite_tables[$user] = $fav_instance->getTables();
 
         $this->response->addJSON(
-            array(
+            [
                 'favorite_tables' => json_encode($favorite_tables),
                 'list' => $fav_instance->getHtmlList()
-            )
+            ]
         );
         $server_id = $GLOBALS['server'];
         // Set flag when localStorage and pmadb(if present) are in sync.
@@ -1058,9 +1058,9 @@ class DatabaseStructureController extends DatabaseController
             $table_is_view = true;
         }
 
-        return array($current_table, $formatted_size, $unit, $formatted_overhead,
+        return [$current_table, $formatted_size, $unit, $formatted_overhead,
             $overhead_unit, $overhead_size, $table_is_view, $sum_size
-        );
+        ];
     }
 
     /**
@@ -1104,9 +1104,9 @@ class DatabaseStructureController extends DatabaseController
                 $overhead_size += $current_table['Data_free'];
             }
         }
-        return array($current_table, $formatted_size, $unit, $formatted_overhead,
+        return [$current_table, $formatted_size, $unit, $formatted_overhead,
             $overhead_unit, $overhead_size, $sum_size
-        );
+        ];
     }
 
     /**
@@ -1122,7 +1122,7 @@ class DatabaseStructureController extends DatabaseController
     ) {
         $formatted_size = $unit = '';
 
-        if ((in_array($current_table['ENGINE'], array('InnoDB', 'TokuDB'))
+        if ((in_array($current_table['ENGINE'], ['InnoDB', 'TokuDB'])
             && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
             || !isset($current_table['TABLE_ROWS'])
         ) {
@@ -1143,6 +1143,6 @@ class DatabaseStructureController extends DatabaseController
             );
         }
 
-        return array($current_table, $formatted_size, $unit, $sum_size);
+        return [$current_table, $formatted_size, $unit, $sum_size];
     }
 }

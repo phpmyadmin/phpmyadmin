@@ -49,7 +49,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      *
      * @return bool
      */
-    public function applyTransformationNoWrap(array $options = array())
+    public function applyTransformationNoWrap(array $options = [])
     {
         if (!isset($options[3]) || $options[3] == '') {
             $nowrap = true;
@@ -71,13 +71,13 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         // possibly use a global transform and feed it with special options
 
         // further operations on $buffer using the $options[] array.
 
-        $allowed_programs = array();
+        $allowed_programs = [];
 
         //
         // WARNING:
@@ -112,10 +112,10 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
 
         // needs PHP >= 4.3.0
         $newstring = '';
-        $descriptorspec = array(
-            0 => array("pipe", "r"),
-            1 => array("pipe", "w"),
-        );
+        $descriptorspec = [
+            0 => ["pipe", "r"],
+            1 => ["pipe", "w"],
+        ];
         $process = proc_open($program . ' ' . $options[1], $descriptorspec, $pipes);
         if (is_resource($process)) {
             fwrite($pipes[0], $buffer);

@@ -56,7 +56,7 @@ abstract class BaseForm extends FormDisplay
      */
     public static function getForms()
     {
-        return array();
+        return [];
     }
 
     /**
