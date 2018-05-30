@@ -15,7 +15,6 @@ use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\IndexExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PartitionExtension;
-use PhpMyAdmin\Twig\PhpFunctionsExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
 use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
@@ -77,7 +76,6 @@ class Template
             $twig->addExtension(new IndexExtension());
             $twig->addExtension(new MessageExtension());
             $twig->addExtension(new PartitionExtension());
-            $twig->addExtension(new PhpFunctionsExtension());
             $twig->addExtension(new PluginsExtension());
             $twig->addExtension(new RelationExtension());
             $twig->addExtension(new SanitizeExtension());

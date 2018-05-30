@@ -6,11 +6,11 @@
 {% trans 'Column:' %}
 <select name="columnIndex">
     {% for i in 0..column_names|length - 1 %}
-        {% set type = preg_replace('@\\(.*@s', '', column_types[i]) %}
+        {% set type = types[column_names[i]] %}
+
         {% if sql_types.getTypeClass(type) == 'CHAR' %}
-            {% set column = column_names[i] %}
             <option value="{{ i }}">
-                {{ column }}
+                {{- column_names[i] -}}
             </option>
         {% endif %}
     {% endfor %}

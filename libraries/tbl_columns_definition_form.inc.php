@@ -108,6 +108,16 @@ if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
     $available_mime = $transformations->getAvailableMimeTypes();
 }
 
+// this will be used on templates/columns_definitions/transformation.twig
+$mime_type= 'input_transformation';
+if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
+    foreach ($available_mime[$mime_type] as $mimekey => $transform) {
+        $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
+            $available_mime[$mime_type . '_file'][$mimekey], '@'
+        );
+    }
+}
+
 //  workaround for field_fulltext, because its submitted indices contain
 //  the index as a value, not a key. Inserted here for easier maintenance
 //  and less code to change in existing files.
@@ -380,10 +390,24 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         );
     }
 
+    $default_value = '';
+    $type_upper = mb_strtoupper($type);
+
+    // For a TIMESTAMP, do not show the string "CURRENT_TIMESTAMP" as a default value
+    if (isset($columnMeta['DefaultValue'])) {
+        $default_value = $columnMeta['DefaultValue'];
+    }
+    if ($type_upper == 'BIN)') {
+        $default_value = Util::convertBitDefaultValue($columnMeta['DefaultValue']);
+    } elseif ($type_upper == 'BINARY' || $type_upper == 'VARBINARY') {
+        $default_value = bin2hex($columnMeta['DefaultValue']);
+    }
+
     $content_cells[$columnNumber] = array(
         'column_number' => $columnNumber,
         'column_meta' => $columnMeta,
-        'type_upper' => mb_strtoupper($type),
+        'type_upper' => $type_upper,
+        'default_value' => $default_value,
         'length_values_input_size' => $length_values_input_size,
         'length' => $length,
         'extracted_columnspec' => $extracted_columnspec,

@@ -1,5 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
  * Holds the PhpMyAdmin\Controllers\Server\ServerDatabasesController
  *
@@ -14,6 +15,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -273,6 +275,22 @@ class ServerDatabasesController extends Controller
             }
         }
 
+        $values = array();
+        $units = array();
+        foreach ($column_order as $stat_name => $stat) {
+            if (array_key_exists($stat_name,$first_database)) {
+                if ($stat['format'] == 'byte') {
+                    $byte_format = Util_formatByteDown($stat['footer'], 3, 1);
+                    $values[$stat_name] = $byte_format[0];
+                    $units[$stat_name] = $byte_format[1];
+                } elseif ($stat['format'] == 'number') {
+                    $values[$stat_name] = Util::formatNumber($stat['footer'], 0);
+                } else{
+                    $values[$stat_name] = htmlentities($stat['footer'], 0);
+                }
+            }
+        }
+
         $_url_params = array(
             'pos' => $this->_pos,
             'dbstats' => $this->_dbstats,
@@ -308,6 +326,8 @@ class ServerDatabasesController extends Controller
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],
             'dbstats' => $this->_dbstats,
+            'values' => $values,
+            'units' => $units,
         ]);
 
         return $html;
@@ -446,6 +466,22 @@ class ServerDatabasesController extends Controller
             }
         }
 
+        $values = array();
+        $units = array();
+        foreach ($column_order as $stat_name => $stat) {
+            if (array_key_exists($stat_name,$current)) {
+                if ($stat['format'] == 'byte') {
+                    $byte_format = Util::formatByteDown($stat['footer'], 3, 1);
+                    $values[$stat_name] = $byte_format[0];
+                    $units[$stat_name] = $byte_format[1];
+                } elseif ($stat['format'] == 'number') {
+                    $values[$stat_name] = Util_formatNumber($stat['footer'], 0);
+                } else{
+                    $values[$stat_name] = htmlentities($stat['footer'], 0);
+                }
+            }
+        }
+
         return Template::get('server/databases/table_row')->render([
             'current' => $current,
             'tr_class' => $tr_class,
@@ -458,6 +494,8 @@ class ServerDatabasesController extends Controller
             'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
             'is_system_schema' => $this->dbi->isSystemSchema($current['SCHEMA_NAME'], true),
             'default_tab_database' => $GLOBALS['cfg']['DefaultTabDatabase'],
+            'values' => $values,
+            'units' => $units,
         ]);
     }
 }

@@ -96,15 +96,26 @@ class ServerPluginsController extends Controller
      */
     private function _getPluginsHtml()
     {
+        $plugins_type_clean = array();
+        $keys = array_keys($this->plugins);
+        foreach ($keys as $plugin_type) {
+            $plugins_type_clean[$plugin_type] = preg_replace(
+                '/[^a-z]/', '', mb_strtolower($plugin_type)
+            );
+        }
         $html  = '<div id="plugins_plugins">';
         $html .= Template::get('server/plugins/section_links')
-            ->render(array('plugins' => $this->plugins));
+            ->render(array(
+                'plugins' => $this->plugins,
+                'plugins_type_clean' => $plugins_type_clean,
+            ));
 
         foreach ($this->plugins as $plugin_type => $plugin_list) {
             $html .= Template::get('server/plugins/section')
                 ->render(
                     array(
                         'plugin_type' => $plugin_type,
+                        'plugin_type_clean' => $plugins_type_clean[$plugin_type],
                         'plugin_list' => $plugin_list,
                     )
                 );
