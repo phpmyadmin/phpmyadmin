@@ -183,13 +183,14 @@ class TableRelationController extends TableController
         $columns = $this->dbi->getColumns($this->db, $this->table);
 
         $column_array = array();
+        $column_hash_array = array();
         $column_array[''] = '';
         foreach ($columns as $column) {
             if (strtoupper($this->tbl_storage_engine) == 'INNODB'
                 || ! empty($column['Key'])
             ) {
                 $column_array[$column['Field']] = $column['Field'];
-                $column_array[$column['Field'] . '_hash'] = md5($column['Field']);
+                $column_hash_array[$column['Field']] = md5($column['Field']);
             }
         }
         if ($GLOBALS['cfg']['NaturalOrder']) {
@@ -208,6 +209,7 @@ class TableRelationController extends TableController
                     ? $this->existrel_foreign['foreign_keys_data'] : array(),
                 'options_array' => $this->options_array,
                 'column_array' => $column_array,
+                'column_hash_array' => $column_hash_array,
                 'save_row' => array_values($columns),
                 'url_params' => $GLOBALS['url_params'],
                 'databases' => $GLOBALS['dblist']->databases,
