@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-23 15:09+0000\n"
+"PO-Revision-Date: 2018-05-31 08:35+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
-"Language-Team: Catalan "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/ca/>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -1973,7 +1973,7 @@ msgstr "Navega pels valors forans"
 
 #: js/messages.php:422
 msgid "No auto-saved query"
-msgstr "No hi ha cap consulta desada automàticament"
+msgstr "No hi ha cap consulta auto-desada"
 
 #: js/messages.php:423
 #, php-format
@@ -13197,7 +13197,7 @@ msgstr "Neteja"
 
 #: libraries/classes/SqlQueryForm.php:254
 msgid "Get auto-saved query"
-msgstr "Obtén una consulta desada automàticament"
+msgstr "Obtén la consulta auto-desada"
 
 #: libraries/classes/SqlQueryForm.php:260
 msgid "Bind parameters"
