@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-05-29 00:08+0000\n"
+"PO-Revision-Date: 2018-06-01 05:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -8137,10 +8137,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Normalization.php:308
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "הסרת משתמשים שנבחרו"
+msgstr "הסרת נבחרים"
 
 #: libraries/classes/Normalization.php:309
 #, fuzzy
