@@ -25,7 +25,7 @@ class PageSettingsTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
@@ -85,7 +85,7 @@ class PageSettingsTest extends PmaTestCase
      *
      * @return void
      */
-    function testGetNaviSettings()
+    public function testGetNaviSettings()
     {
         $html = PageSettings::getNaviSettings();
 

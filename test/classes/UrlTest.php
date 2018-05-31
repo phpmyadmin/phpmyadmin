@@ -26,7 +26,7 @@ class UrlTest extends TestCase
      * @access protected
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         unset($_COOKIE['pma_lang']);
     }

@@ -26,7 +26,7 @@ class GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckbox()
+    public function testGetCheckbox()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
@@ -55,7 +55,7 @@ class GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckboxChecked()
+    public function testGetCheckboxChecked()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
@@ -82,7 +82,7 @@ class GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckboxOnclick()
+    public function testGetCheckboxOnclick()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
@@ -109,7 +109,7 @@ class GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckboxCheckedOnclick()
+    public function testGetCheckboxCheckedOnclick()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";

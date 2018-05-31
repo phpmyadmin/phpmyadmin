@@ -23,11 +23,11 @@ class Node
     /**
      * @var int Defines a possible node type
      */
-    const CONTAINER = 0;
+    public const CONTAINER = 0;
     /**
      * @var int Defines a possible node type
      */
-    const OBJECT = 1;
+    public const OBJECT = 1;
     /**
      * @var string A non-unique identifier for the node
      *             This may be trimmed when grouping nodes

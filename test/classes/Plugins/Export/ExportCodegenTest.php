@@ -23,6 +23,9 @@ use ReflectionProperty;
  */
 class ExportCodegenTest extends PmaTestCase
 {
+    /**
+     * @var ExportCodegen
+     */
     protected $object;
 
     /**
@@ -30,10 +33,10 @@ class ExportCodegenTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         $GLOBALS['server'] = 0;
-        $this->object = new ExportCodegen(null);
+        $this->object = new ExportCodegen();
     }
 
     /**

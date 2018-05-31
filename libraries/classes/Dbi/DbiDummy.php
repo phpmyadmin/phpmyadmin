@@ -34,7 +34,7 @@ class DbiDummy implements DbiExtension
     /**
      * @var int
      */
-    const OFFSET_GLOBAL = 1000;
+    public const OFFSET_GLOBAL = 1000;
 
     /**
      * DbiDummy constructor.

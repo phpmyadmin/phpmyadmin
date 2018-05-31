@@ -23,11 +23,11 @@ use PhpMyAdmin\Util;
  */
 class Index
 {
-    const PRIMARY  = 1;
-    const UNIQUE   = 2;
-    const INDEX    = 4;
-    const SPATIAL  = 8;
-    const FULLTEXT = 16;
+    public const PRIMARY  = 1;
+    public const UNIQUE   = 2;
+    public const INDEX    = 4;
+    public const SPATIAL  = 8;
+    public const FULLTEXT = 16;
 
     /**
      * Class-wide storage container for indexes (caching, singleton)

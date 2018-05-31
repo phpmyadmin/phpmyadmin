@@ -27,7 +27,7 @@ class ExportPluginPropertiesTest extends ImportPluginPropertiesTest
      *
      * @return void
      */
-    protected function setup()
+    protected function setUp()
     {
         $this->object = new ExportPluginProperties();
     }

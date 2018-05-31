@@ -38,7 +38,7 @@ class QueriesTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;

@@ -28,37 +28,37 @@ class Theme
      * @var string theme version
      * @access  protected
      */
-    var $version = '0.0.0.0';
+    public $version = '0.0.0.0';
 
     /**
      * @var string theme name
      * @access  protected
      */
-    var $name = '';
+    public $name = '';
 
     /**
      * @var string theme id
      * @access  protected
      */
-    var $id = '';
+    public $id = '';
 
     /**
      * @var string theme path
      * @access  protected
      */
-    var $path = '';
+    public $path = '';
 
     /**
      * @var string image path
      * @access  protected
      */
-    var $img_path = '';
+    public $img_path = '';
 
     /**
      * @var integer last modification time for info file
      * @access  protected
      */
-    var $mtime_info = 0;
+    public $mtime_info = 0;
 
     /**
      * needed because sometimes, the mtime for different themes
@@ -66,13 +66,13 @@ class Theme
      * @var integer filesize for info file
      * @access  protected
      */
-    var $filesize_info = 0;
+    public $filesize_info = 0;
 
     /**
      * @var array List of css files to load
      * @access private
      */
-    private $_cssFiles = [
+    public $_cssFiles = [
         'common',
         'enum_editor',
         'gis',
@@ -91,7 +91,7 @@ class Theme
      * @return boolean whether loading them info was successful or not
      * @access  public
      */
-    function loadInfo()
+    public function loadInfo()
     {
         $infofile = $this->getPath() . '/theme.json';
         if (! @file_exists($infofile)) {
@@ -425,7 +425,7 @@ class Theme
      *
      * @return string CSS code.
      */
-    function getCssGradient($start_color, $end_color)
+    public function getCssGradient($start_color, $end_color)
     {
         $result = [];
         // Opera 9.5+, IE 9

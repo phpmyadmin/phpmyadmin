@@ -24,7 +24,7 @@ class FileTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $GLOBALS['charset_conversion'] = false;
     }

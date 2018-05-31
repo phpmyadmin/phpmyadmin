@@ -29,7 +29,7 @@ class ExportExcelTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         $GLOBALS['server'] = 0;
         $this->object = new ExportExcel();

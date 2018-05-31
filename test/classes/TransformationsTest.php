@@ -30,7 +30,7 @@ class TransformationsTest extends TestCase
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';

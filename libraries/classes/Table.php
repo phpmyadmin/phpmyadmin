@@ -34,34 +34,34 @@ class Table
     /**
      * UI preferences properties
      */
-    const PROP_SORTED_COLUMN = 'sorted_col';
-    const PROP_COLUMN_ORDER = 'col_order';
-    const PROP_COLUMN_VISIB = 'col_visib';
+    public const PROP_SORTED_COLUMN = 'sorted_col';
+    public const PROP_COLUMN_ORDER = 'col_order';
+    public const PROP_COLUMN_VISIB = 'col_visib';
 
     /**
      * @var string  engine (innodb, myisam, bdb, ...)
      */
-    var $engine = '';
+    public $engine = '';
 
     /**
      * @var string  type (view, base table, system view)
      */
-    var $type = '';
+    public $type = '';
 
     /**
      * @var array UI preferences
      */
-    var $uiprefs;
+    public $uiprefs;
 
     /**
      * @var array errors occurred
      */
-    var $errors = [];
+    public $errors = [];
 
     /**
      * @var array messages
      */
-    var $messages = [];
+    public $messages = [];
 
     /**
      * @var string  table name
@@ -482,7 +482,7 @@ class Table
      *
      * @return string  field specification
      */
-    static function generateFieldSpec(
+    public static function generateFieldSpec(
         $name,
         $type,
         $length = '',
@@ -1451,7 +1451,7 @@ class Table
      *
      * @return boolean whether the string is valid or not
      */
-    static function isValidName($table_name, $is_backquoted = false)
+    public static function isValidName($table_name, $is_backquoted = false)
     {
         if ($table_name !== rtrim($table_name)) {
             // trailing spaces not allowed even in backquotes

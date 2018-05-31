@@ -25,8 +25,8 @@ use TCPDF_STATIC;
  */
 class Pdf extends PdfLib
 {
-    var $tablewidths;
-    var $headerset;
+    public $tablewidths;
+    public $headerset;
 
     /**
      * @var Relation $relation

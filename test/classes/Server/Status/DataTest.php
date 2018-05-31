@@ -22,6 +22,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class DataTest extends PmaTestCase
 {
     /**
+     * @var Data
      * @access protected
      */
     protected $object;
@@ -31,7 +32,7 @@ class DataTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['cfg']['Server']['host'] = "::1";
@@ -110,7 +111,7 @@ class DataTest extends PmaTestCase
      *
      * @return void
      */
-    function testGetMenuHtml()
+    public function testGetMenuHtml()
     {
         $html = $this->object->getMenuHtml();
 

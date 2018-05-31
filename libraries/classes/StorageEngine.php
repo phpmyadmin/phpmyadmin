@@ -46,23 +46,23 @@ class StorageEngine
     /**
      * @var string engine name
      */
-    var $engine  = 'dummy';
+    public $engine  = 'dummy';
 
     /**
      * @var string engine title/description
      */
-    var $title   = 'PMA Dummy Engine Class';
+    public $title   = 'PMA Dummy Engine Class';
 
     /**
      * @var string engine lang description
      */
-    var $comment
+    public $comment
         = 'If you read this text inside phpMyAdmin, something went wrong...';
 
     /**
      * @var integer engine supported by current server
      */
-    var $support = PMA_ENGINE_SUPPORT_NO;
+    public $support = PMA_ENGINE_SUPPORT_NO;
 
     /**
      * Constructor

@@ -35,55 +35,55 @@ use PhpMyAdmin\Util;
 class Results
 {
     // Define constants
-    const NO_EDIT_OR_DELETE = 'nn';
-    const UPDATE_ROW = 'ur';
-    const DELETE_ROW = 'dr';
-    const KILL_PROCESS = 'kp';
+    public const NO_EDIT_OR_DELETE = 'nn';
+    public const UPDATE_ROW = 'ur';
+    public const DELETE_ROW = 'dr';
+    public const KILL_PROCESS = 'kp';
 
-    const POSITION_LEFT = 'left';
-    const POSITION_RIGHT = 'right';
-    const POSITION_BOTH = 'both';
-    const POSITION_NONE = 'none';
+    public const POSITION_LEFT = 'left';
+    public const POSITION_RIGHT = 'right';
+    public const POSITION_BOTH = 'both';
+    public const POSITION_NONE = 'none';
 
-    const PLACE_TOP_DIRECTION_DROPDOWN = 'top_direction_dropdown';
-    const PLACE_BOTTOM_DIRECTION_DROPDOWN = 'bottom_direction_dropdown';
+    public const PLACE_TOP_DIRECTION_DROPDOWN = 'top_direction_dropdown';
+    public const PLACE_BOTTOM_DIRECTION_DROPDOWN = 'bottom_direction_dropdown';
 
-    const DISPLAY_FULL_TEXT = 'F';
-    const DISPLAY_PARTIAL_TEXT = 'P';
+    public const DISPLAY_FULL_TEXT = 'F';
+    public const DISPLAY_PARTIAL_TEXT = 'P';
 
-    const HEADER_FLIP_TYPE_AUTO = 'auto';
-    const HEADER_FLIP_TYPE_CSS = 'css';
-    const HEADER_FLIP_TYPE_FAKE = 'fake';
+    public const HEADER_FLIP_TYPE_AUTO = 'auto';
+    public const HEADER_FLIP_TYPE_CSS = 'css';
+    public const HEADER_FLIP_TYPE_FAKE = 'fake';
 
-    const DATE_FIELD = 'date';
-    const DATETIME_FIELD = 'datetime';
-    const TIMESTAMP_FIELD = 'timestamp';
-    const TIME_FIELD = 'time';
-    const STRING_FIELD = 'string';
-    const GEOMETRY_FIELD = 'geometry';
-    const BLOB_FIELD = 'BLOB';
-    const BINARY_FIELD = 'BINARY';
+    public const DATE_FIELD = 'date';
+    public const DATETIME_FIELD = 'datetime';
+    public const TIMESTAMP_FIELD = 'timestamp';
+    public const TIME_FIELD = 'time';
+    public const STRING_FIELD = 'string';
+    public const GEOMETRY_FIELD = 'geometry';
+    public const BLOB_FIELD = 'BLOB';
+    public const BINARY_FIELD = 'BINARY';
 
-    const RELATIONAL_KEY = 'K';
-    const RELATIONAL_DISPLAY_COLUMN = 'D';
+    public const RELATIONAL_KEY = 'K';
+    public const RELATIONAL_DISPLAY_COLUMN = 'D';
 
-    const GEOMETRY_DISP_GEOM = 'GEOM';
-    const GEOMETRY_DISP_WKT = 'WKT';
-    const GEOMETRY_DISP_WKB = 'WKB';
+    public const GEOMETRY_DISP_GEOM = 'GEOM';
+    public const GEOMETRY_DISP_WKT = 'WKT';
+    public const GEOMETRY_DISP_WKB = 'WKB';
 
-    const SMART_SORT_ORDER = 'SMART';
-    const ASCENDING_SORT_DIR = 'ASC';
-    const DESCENDING_SORT_DIR = 'DESC';
+    public const SMART_SORT_ORDER = 'SMART';
+    public const ASCENDING_SORT_DIR = 'ASC';
+    public const DESCENDING_SORT_DIR = 'DESC';
 
-    const TABLE_TYPE_INNO_DB = 'InnoDB';
-    const ALL_ROWS = 'all';
-    const QUERY_TYPE_SELECT = 'SELECT';
+    public const TABLE_TYPE_INNO_DB = 'InnoDB';
+    public const ALL_ROWS = 'all';
+    public const QUERY_TYPE_SELECT = 'SELECT';
 
-    const ROUTINE_PROCEDURE = 'procedure';
-    const ROUTINE_FUNCTION = 'function';
+    public const ROUTINE_PROCEDURE = 'procedure';
+    public const ROUTINE_FUNCTION = 'function';
 
-    const ACTION_LINK_CONTENT_ICONS = 'icons';
-    const ACTION_LINK_CONTENT_TEXT = 'text';
+    public const ACTION_LINK_CONTENT_ICONS = 'icons';
+    public const ACTION_LINK_CONTENT_TEXT = 'text';
 
 
     // Declare global fields

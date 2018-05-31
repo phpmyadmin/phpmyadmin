@@ -61,7 +61,7 @@ class ServerCollationsController extends Controller
      *
      * @return string
      */
-    function _getHtmlForCharsets(
+    public function _getHtmlForCharsets(
         array $mysqlCharsets,
         array $mysqlCollations,
         array $mysqlCharsetsDesc,

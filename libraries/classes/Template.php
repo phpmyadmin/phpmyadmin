@@ -47,7 +47,7 @@ class Template
      */
     static protected $twig;
 
-    const BASE_PATH = 'templates/';
+    public const BASE_PATH = 'templates/';
 
     /**
      * Template constructor

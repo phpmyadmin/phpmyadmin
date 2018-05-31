@@ -71,7 +71,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['cfg']['Server']['user'] = 'pma_user';
@@ -203,7 +203,7 @@ class CentralColumnsTest extends TestCase
      *
      * @return void
      */
-    function testGetCount()
+    public function testGetCount()
     {
         $GLOBALS['dbi']->expects($this->once())
             ->method('fetchResult')

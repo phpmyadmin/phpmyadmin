@@ -26,7 +26,7 @@ class FormDisplayTemplateTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
     }

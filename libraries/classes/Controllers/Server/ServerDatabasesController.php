@@ -432,7 +432,7 @@ class ServerDatabasesController extends Controller
      *
      * @return string $column_order, $out
      */
-    function _buildHtmlForDb(
+    public function _buildHtmlForDb(
         array $current,
         array $column_order,
         array $replication_types,

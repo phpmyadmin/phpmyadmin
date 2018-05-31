@@ -26,7 +26,7 @@ class FormListTest extends PmaTestCase
     /**
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;

@@ -20,11 +20,11 @@ use PhpMyAdmin\DatabaseInterface;
  */
 class RelationCleanupDbiMock extends DatabaseInterface
 {
-    var $index;
-    var $assocIndex;
-    var $totalNum;
-    var $values = [];
-    var $indexs = [];
+    public $index;
+    public $assocIndex;
+    public $totalNum;
+    public $values = [];
+    public $indexs = [];
 
     /**
      * Constructor

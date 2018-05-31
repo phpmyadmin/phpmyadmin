@@ -26,7 +26,7 @@ class OptionsPropertyRootGroupTest extends TestCase
      *
      * @return void
      */
-    protected function setup()
+    protected function setUp()
     {
         $this->object = new OptionsPropertyRootGroup();
     }

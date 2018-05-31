@@ -46,7 +46,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = '';
@@ -59,7 +59,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testArrayRead()
+    public function testArrayRead()
     {
         $arr = [
             "int" => 1,
@@ -147,7 +147,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testArrayWrite()
+    public function testArrayWrite()
     {
         $arr = [
             "int" => 1,
@@ -201,7 +201,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testArrayRemove()
+    public function testArrayRemove()
     {
         $arr = [
             "int" => 1,
@@ -269,7 +269,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestGotoNowhere
      */
-    function testGotoNowhere($page, $whiteList, $expected)
+    public function testGotoNowhere($page, $whiteList, $expected)
     {
         $this->assertSame($expected, Core::checkPageValidity($page, $whiteList));
     }
@@ -634,7 +634,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestIsAllowedDomain
      */
-    function testIsAllowedDomain($url, $expected)
+    public function testIsAllowedDomain($url, $expected)
     {
         $_SERVER['SERVER_NAME'] = 'server.local';
         $this->assertEquals(
@@ -648,7 +648,7 @@ class CoreTest extends PmaTestCase
      *
      * @return array
      */
-    function provideTestIsAllowedDomain()
+    public function provideTestIsAllowedDomain()
     {
         return [
             ['https://www.phpmyadmin.net/', true],
@@ -996,7 +996,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestSafeUnserialize
      */
-    function testSafeUnserialize($data, $expected)
+    public function testSafeUnserialize($data, $expected)
     {
         $this->assertEquals(
             $expected,
@@ -1009,7 +1009,7 @@ class CoreTest extends PmaTestCase
      *
      * @return array
      */
-    function provideTestSafeUnserialize()
+    public function provideTestSafeUnserialize()
     {
         return [
             ['s:6:"foobar";', 'foobar'],
@@ -1035,7 +1035,7 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider provideTestSanitizeMySQLHost
      */
-    function testSanitizeMySQLHost($host, $expected)
+    public function testSanitizeMySQLHost($host, $expected)
     {
         $this->assertEquals(
             $expected,
@@ -1048,7 +1048,7 @@ class CoreTest extends PmaTestCase
      *
      * @return array
      */
-    function provideTestSanitizeMySQLHost()
+    public function provideTestSanitizeMySQLHost()
     {
         return [
             ['p:foo.bar', 'foo.bar'],
@@ -1084,7 +1084,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testMissingExtensionFatal()
+    public function testMissingExtensionFatal()
     {
         $ext = 'php_ext';
         $warn = 'The <a href="' . Core::getPHPDocLink('book.' . $ext . '.php')
@@ -1101,7 +1101,7 @@ class CoreTest extends PmaTestCase
      *
      * @return void
      */
-    function testMissingExtensionFatalWithExtra()
+    public function testMissingExtensionFatalWithExtra()
     {
         $ext = 'php_ext';
         $extra = 'Appended Extra String';

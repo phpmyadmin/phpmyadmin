@@ -25,10 +25,12 @@ abstract class RelationStats
     /**
      * Defines properties
      */
-    public $xSrc, $ySrc;
+    public $xSrc;
+    public $ySrc;
     public $srcDir;
     public $destDir;
-    public $xDest, $yDest;
+    public $xDest;
+    public $yDest;
     public $wTick;
 
     /**

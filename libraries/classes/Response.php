@@ -449,16 +449,15 @@ class Response
                     break;
                 case JSON_ERROR_UNSUPPORTED_TYPE:
                     $error = 'A value of a type that cannot be encoded was given';
+                    break;
                 default:
                     $error = 'Unknown error';
                     break;
             }
-            echo json_encode(
-                [
-                    'success' => false,
-                    'error' => 'JSON encoding failed: ' . $error,
-                ]
-            );
+            echo json_encode([
+                'success' => false,
+                'error' => 'JSON encoding failed: ' . $error,
+            ]);
         } else {
             echo $result;
         }

@@ -29,7 +29,7 @@ class ProcessesTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');

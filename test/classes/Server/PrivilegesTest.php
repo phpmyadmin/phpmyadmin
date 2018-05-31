@@ -35,7 +35,7 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //Constants
         if (!defined("PMA_USR_BROWSER_AGENT")) {
@@ -2366,7 +2366,7 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    function testGetHtmlForViewUsersError()
+    public function testGetHtmlForViewUsersError()
     {
         $this->assertContains(
             'Not enough privilege to view users.',
@@ -2379,7 +2379,7 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    function testGetHtmlForUserProperties()
+    public function testGetHtmlForUserProperties()
     {
         $actual = $this->serverPrivileges->getHtmlForUserProperties(
             false,
@@ -2407,7 +2407,7 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    function testGetHtmlForUserOverview()
+    public function testGetHtmlForUserOverview()
     {
         $actual = $this->serverPrivileges->getHtmlForUserOverview('theme', '');
         $this->assertContains(
@@ -2426,7 +2426,7 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    function testGetHtmlForAllTableSpecificRights()
+    public function testGetHtmlForAllTableSpecificRights()
     {
         // Test case 1
         $actual = $this->serverPrivileges->getHtmlForAllTableSpecificRights('pma', 'host', 'table', 'pmadb');
@@ -2466,7 +2466,7 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    function testGetHtmlForInitials()
+    public function testGetHtmlForInitials()
     {
         // Setup for the test
         $GLOBALS['dbi']->expects($this->any())->method('fetchRow')
@@ -2492,7 +2492,7 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    function testGetDbRightsForUserOverview()
+    public function testGetDbRightsForUserOverview()
     {
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -2538,7 +2538,7 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    function testGetHtmlForAuthPluginsDropdown()
+    public function testGetHtmlForAuthPluginsDropdown()
     {
         $oldDbi = $GLOBALS['dbi'];
 
@@ -2652,7 +2652,7 @@ class PrivilegesTest extends TestCase
      *
      * @return void
      */
-    function testDeleteUser()
+    public function testDeleteUser()
     {
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')

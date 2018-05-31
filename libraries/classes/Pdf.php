@@ -23,13 +23,13 @@ use TCPDF_FONTS;
  */
 class Pdf extends TCPDF
 {
-    var $footerset;
-    var $Alias = [];
+    public $footerset;
+    public $Alias = [];
 
     /**
      * PDF font to use.
      */
-    const PMA_PDF_FONT = 'DejaVuSans';
+    public const PMA_PDF_FONT = 'DejaVuSans';
 
     /**
      * Constructs PDF and configures standard parameters.

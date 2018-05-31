@@ -643,7 +643,7 @@ class TableSearchController extends TableController
      *
      * @return string HTML for previewing strings found and their replacements
      */
-    function getReplacePreview(
+    public function getReplacePreview(
         $columnIndex,
         $find,
         $replaceWith,

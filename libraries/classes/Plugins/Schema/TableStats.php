@@ -35,7 +35,8 @@ abstract class TableStats
     public $displayfield;
     public $fields = [];
     public $primary = [];
-    public $x, $y;
+    public $x;
+    public $y;
     public $width = 0;
     public $heightCell = 0;
     protected $offline;

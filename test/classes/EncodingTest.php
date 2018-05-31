@@ -22,7 +22,7 @@ class EncodingTest extends TestCase
     /**
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         Encoding::initEngine();
     }

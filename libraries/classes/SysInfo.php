@@ -22,7 +22,7 @@ use PhpMyAdmin\SysInfoBase;
  */
 class SysInfo
 {
-    const MEMORY_REGEXP = '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im';
+    public const MEMORY_REGEXP = '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im';
 
     /**
      * Returns OS type used for sysinfo class

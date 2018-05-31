@@ -24,7 +24,7 @@ class ConfigFileTest extends PmaTestCase
      * Any valid key that exists in config.default.php and isn't empty
      * @var string
      */
-    const SIMPLE_KEY_WITH_DEFAULT_VALUE = 'DefaultQueryTable';
+    public const SIMPLE_KEY_WITH_DEFAULT_VALUE = 'DefaultQueryTable';
 
     /**
      * Object under test

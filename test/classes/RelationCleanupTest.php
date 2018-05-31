@@ -34,7 +34,7 @@ class RelationCleanupTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $_SESSION['relation'] = [];
         $GLOBALS['server'] = 1;

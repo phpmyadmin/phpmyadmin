@@ -3015,7 +3015,7 @@ class DatabaseInterface
      *
      * @return string  $server_collation
      */
-    function getServerCollation(): string
+    public function getServerCollation(): string
     {
         return $this->fetchValue('SELECT @@collation_server');
     }

@@ -2077,7 +2077,7 @@ class Util
      *
      * @return string
      */
-    static function getCharsetQueryPart($collation, $override = false)
+    public static function getCharsetQueryPart($collation, $override = false)
     {
         list($charset) = explode('_', $collation);
         $keyword = ' CHARSET=';
