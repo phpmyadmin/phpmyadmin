@@ -24,7 +24,7 @@ class NormalizationTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->dbQuery(
@@ -78,7 +78,8 @@ class NormalizationTest extends TestBase
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', 'input[id=normalizeTo_1nf][type=radio]:checked'
+                'byCssSelector',
+                'input[id=normalizeTo_1nf][type=radio]:checked'
             )
         );
         $this->byCssSelector('input[name=submit_normalize]')->click();
@@ -99,32 +100,38 @@ class NormalizationTest extends TestBase
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#mainContent h4'
+                'byCssSelector',
+                '#mainContent h4'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#mainContent #newCols'
+                'byCssSelector',
+                '#mainContent #newCols'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '.tblFooters'
+                'byCssSelector',
+                '.tblFooters'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#selectNonAtomicCol option[value=val2]'
+                'byCssSelector',
+                '#selectNonAtomicCol option[value=val2]'
             )
         );
         $this->assertFalse(
             $this->isElementPresent(
-                'byCssSelector', '#selectNonAtomicCol option[value=val]'
+                'byCssSelector',
+                '#selectNonAtomicCol option[value=val]'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#selectNonAtomicCol option[value=no_such_col]'
+                'byCssSelector',
+                '#selectNonAtomicCol option[value=no_such_col]'
             )
         );
         $this->select(
@@ -147,17 +154,20 @@ class NormalizationTest extends TestBase
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#mainContent #extra'
+                'byCssSelector',
+                '#mainContent #extra'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#extra input[value=val2][type=checkbox]'
+                'byCssSelector',
+                '#extra input[value=val2][type=checkbox]'
             )
         );
         $this->assertTrue(
             $this->isElementPresent(
-                'byCssSelector', '#extra input[value=id][type=checkbox]'
+                'byCssSelector',
+                '#extra input[value=id][type=checkbox]'
             )
         );
         $this->byCssSelector('#extra input[value=val][type=checkbox]')->click();

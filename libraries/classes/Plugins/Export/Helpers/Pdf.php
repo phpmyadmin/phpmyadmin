@@ -25,8 +25,8 @@ use TCPDF_STATIC;
  */
 class Pdf extends PdfLib
 {
-    var $tablewidths;
-    var $headerset;
+    public $tablewidths;
+    public $headerset;
 
     /**
      * @var Relation $relation
@@ -236,7 +236,7 @@ class Pdf extends PdfLib
 
         // Now let's start to write the table
         $row = 0;
-        $tmpheight = array();
+        $tmpheight = [];
         $maxpage = $this->page;
 
         while ($data = $GLOBALS['dbi']->fetchRow($this->results)) {
@@ -306,7 +306,7 @@ class Pdf extends PdfLib
      *
      * @return void
      */
-    public function setAttributes(array $attr = array())
+    public function setAttributes(array $attr = [])
     {
         foreach ($attr as $key => $val) {
             $this->$key = $val;
@@ -388,9 +388,9 @@ class Pdf extends PdfLib
         }
 
         $row = 0;
-        $tmpheight = array();
+        $tmpheight = [];
         $maxpage = $this->page;
-        $data = array();
+        $data = [];
 
         $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
 
@@ -481,7 +481,7 @@ class Pdf extends PdfLib
         $do_comments,
         $do_mime,
         $view = false,
-        array $aliases = array()
+        array $aliases = []
     ) {
         // set $cfgRelation here, because there is a chance that it's modified
         // since the class initialization
@@ -574,7 +574,7 @@ class Pdf extends PdfLib
          * Presently, this information is not used. We will have to find out
          * way of displaying it.
          */
-        $unique_keys = array();
+        $unique_keys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
@@ -593,9 +593,9 @@ class Pdf extends PdfLib
         }
 
         $row = 0;
-        $tmpheight = array();
+        $tmpheight = [];
         $maxpage = $this->page;
-        $data = array();
+        $data = [];
 
         // fun begin
         foreach ($columns as $column) {
@@ -733,8 +733,8 @@ class Pdf extends PdfLib
         // col widths/ titles/ alignment
         // if a col title is less than the starting col width,
         // reduce that column size
-        $colFits = array();
-        $titleWidth = array();
+        $colFits = [];
+        $titleWidth = [];
         for ($i = 0; $i < $this->numFields; $i++) {
             $col_as = $this->fields[$i]->name;
             $db = $this->currentDb;
@@ -756,25 +756,25 @@ class Pdf extends PdfLib
             $this->display_column[$i] = true;
 
             switch ($this->fields[$i]->type) {
-            case 'int':
-                $this->colAlign[$i] = 'R';
-                break;
-            case 'blob':
-            case 'tinyblob':
-            case 'mediumblob':
-            case 'longblob':
-                /**
+                case 'int':
+                    $this->colAlign[$i] = 'R';
+                    break;
+                case 'blob':
+                case 'tinyblob':
+                case 'mediumblob':
+                case 'longblob':
+                    /**
                  * @todo do not deactivate completely the display
                  * but show the field's name and [BLOB]
                  */
-                if (stristr($this->fields[$i]->flags, 'BINARY')) {
-                    $this->display_column[$i] = false;
-                    unset($this->colTitles[$i]);
-                }
-                $this->colAlign[$i] = 'L';
-                break;
-            default:
-                $this->colAlign[$i] = 'L';
+                    if (stristr($this->fields[$i]->flags, 'BINARY')) {
+                        $this->display_column[$i] = false;
+                        unset($this->colTitles[$i]);
+                    }
+                    $this->colAlign[$i] = 'L';
+                    break;
+                default:
+                    $this->colAlign[$i] = 'L';
             }
         }
 

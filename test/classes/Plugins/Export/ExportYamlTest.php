@@ -30,7 +30,7 @@ class ExportYamlTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -235,7 +235,7 @@ class ExportYamlTest extends PmaTestCase
             ->with(true)
             ->will(
                 $this->returnValue(
-                    array(null, '123', "\"c\\a\nb\r")
+                    [null, '123', "\"c\\a\nb\r"]
                 )
             );
 
@@ -244,7 +244,7 @@ class ExportYamlTest extends PmaTestCase
             ->with(true)
             ->will(
                 $this->returnValue(
-                    array(null)
+                    [null]
                 )
             );
 
@@ -253,7 +253,11 @@ class ExportYamlTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'ta<ble', "\n", "example.com", "SELECT"
+                'db',
+                'ta<ble',
+                "\n",
+                "example.com",
+                "SELECT"
             )
         );
         $result = ob_get_clean();

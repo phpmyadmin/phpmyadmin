@@ -34,7 +34,7 @@ class AuthenticationHttpTest extends PmaTestCase
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
-        $GLOBALS['cfg']['Servers'] = array();
+        $GLOBALS['cfg']['Servers'] = [];
         $GLOBALS['server'] = 0;
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
@@ -57,12 +57,20 @@ class AuthenticationHttpTest extends PmaTestCase
         unset($this->object);
     }
 
+    /**
+     * @param mixed     $set_minimal set minimal
+     * @param mixed     $body_id     body id
+     * @param mixed     $set_title   set title
+     * @param mixed ... $headers     headers
+     *
+     * @return void
+     */
     public function doMockResponse($set_minimal, $body_id, $set_title, ...$headers)
     {
         // mock footer
         $mockFooter = $this->getMockBuilder('PhpMyAdmin\Footer')
             ->disableOriginalConstructor()
-            ->setMethods(array('setMinimal'))
+            ->setMethods(['setMinimal'])
             ->getMock();
 
         $mockFooter->expects($this->exactly($set_minimal))
@@ -74,7 +82,7 @@ class AuthenticationHttpTest extends PmaTestCase
         $mockHeader = $this->getMockBuilder('PhpMyAdmin\Header')
             ->disableOriginalConstructor()
             ->setMethods(
-                array('setBodyId', 'setTitle', 'disableMenuAndConsole', 'addHTML')
+                ['setBodyId', 'setTitle', 'disableMenuAndConsole', 'addHTML']
             )
             ->getMock();
 
@@ -128,46 +136,63 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
 
         $this->doMockResponse(
-            0, 0, 0,
-            array('Location: https://example.com/logout')
+            0,
+            0,
+            0,
+            ['Location: https://example.com/logout']
         );
     }
 
+    /**
+     * @return void
+     */
     public function testAuthVerbose()
     {
         $_REQUEST['old_usr'] = '';
         $GLOBALS['cfg']['Server']['verbose'] = 'verboseMessagê';
 
         $this->doMockResponse(
-            1, 1, 1,
-            array('WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"'),
-            array('status: 401 Unauthorized'),
+            1,
+            1,
+            1,
+            ['WWW-Authenticate: Basic realm="phpMyAdmin verboseMessag"'],
+            ['status: 401 Unauthorized'],
             401
         );
     }
 
+    /**
+     * @return void
+     */
     public function testAuthHost()
     {
         $GLOBALS['cfg']['Server']['verbose'] = '';
         $GLOBALS['cfg']['Server']['host'] = 'hòst';
 
         $this->doMockResponse(
-            1, 1, 1,
-            array('WWW-Authenticate: Basic realm="phpMyAdmin hst"'),
-            array('status: 401 Unauthorized'),
+            1,
+            1,
+            1,
+            ['WWW-Authenticate: Basic realm="phpMyAdmin hst"'],
+            ['status: 401 Unauthorized'],
             401
         );
     }
 
+    /**
+     * @return void
+     */
     public function testAuthRealm()
     {
         $GLOBALS['cfg']['Server']['host'] = '';
         $GLOBALS['cfg']['Server']['auth_http_realm'] = 'rêäealmmessage';
 
         $this->doMockResponse(
-            1, 1, 1,
-            array('WWW-Authenticate: Basic realm="realmmessage"'),
-            array('status: 401 Unauthorized'),
+            1,
+            1,
+            1,
+            ['WWW-Authenticate: Basic realm="realmmessage"'],
+            ['status: 401 Unauthorized'],
             401
         );
     }
@@ -187,8 +212,15 @@ class AuthenticationHttpTest extends PmaTestCase
      * @return void
      * @dataProvider readCredentialsProvider
      */
-    public function testAuthCheck($user, $pass, $userIndex, $passIndex,
-        $expectedReturn, $expectedUser, $expectedPass, $old_usr = ''
+    public function testAuthCheck(
+        $user,
+        $pass,
+        $userIndex,
+        $passIndex,
+        $expectedReturn,
+        $expectedUser,
+        $expectedPass,
+        $old_usr = ''
     ) {
         $_SERVER[$userIndex] = $user;
         $_SERVER[$passIndex] = $pass;
@@ -221,8 +253,8 @@ class AuthenticationHttpTest extends PmaTestCase
      */
     public function readCredentialsProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'Basic ' . base64_encode('foo:bar'),
                 'pswd',
                 'PHP_AUTH_USER',
@@ -231,8 +263,8 @@ class AuthenticationHttpTest extends PmaTestCase
                 '',
                 'bar',
                 'foo'
-            ),
-            array(
+            ],
+            [
                 'Basic ' . base64_encode('foobar'),
                 'pswd',
                 'REMOTE_USER',
@@ -240,8 +272,8 @@ class AuthenticationHttpTest extends PmaTestCase
                 true,
                 'Basic Zm9vYmFy',
                 'pswd'
-            ),
-            array(
+            ],
+            [
                 'Basic ' . base64_encode('foobar:'),
                 'pswd',
                 'AUTH_USER',
@@ -249,8 +281,8 @@ class AuthenticationHttpTest extends PmaTestCase
                 true,
                 'foobar',
                 false
-            ),
-            array(
+            ],
+            [
                 'Basic ' . base64_encode(':foobar'),
                 'pswd',
                 'HTTP_AUTHORIZATION',
@@ -258,8 +290,8 @@ class AuthenticationHttpTest extends PmaTestCase
                 true,
                 'Basic OmZvb2Jhcg==',
                 'pswd'
-            ),
-            array(
+            ],
+            [
                 'BasicTest',
                 'pswd',
                 'Authorization',
@@ -267,8 +299,8 @@ class AuthenticationHttpTest extends PmaTestCase
                 true,
                 'BasicTest',
                 'pswd'
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -312,27 +344,27 @@ class AuthenticationHttpTest extends PmaTestCase
         // case 2
         $this->object->user = 'testUser';
         $this->object->password = 'testPass';
-        $GLOBALS['cfg']['Servers'][1] = array(
+        $GLOBALS['cfg']['Servers'][1] = [
             'host' => 'a',
             'user' => 'testUser',
             'foo' => 'bar'
-        );
+        ];
 
-        $GLOBALS['cfg']['Server']= array(
+        $GLOBALS['cfg']['Server']= [
             'host' => 'a',
             'user' => 'user2'
-        );
+        ];
 
         $this->assertTrue(
             $this->object->storeCredentials()
         );
 
         $this->assertEquals(
-            array(
+            [
                 'user' => 'testUser',
                 'password' => 'testPass',
                 'host' => 'a',
-            ),
+            ],
             $GLOBALS['cfg']['Server']
         );
 
@@ -345,27 +377,27 @@ class AuthenticationHttpTest extends PmaTestCase
         $GLOBALS['server'] = 3;
         $this->object->user = 'testUser';
         $this->object->password = 'testPass';
-        $GLOBALS['cfg']['Servers'][1] = array(
+        $GLOBALS['cfg']['Servers'][1] = [
             'host' => 'a',
             'user' => 'testUsers',
             'foo' => 'bar'
-        );
+        ];
 
-        $GLOBALS['cfg']['Server']= array(
+        $GLOBALS['cfg']['Server']= [
             'host' => 'a',
             'user' => 'user2'
-        );
+        ];
 
         $this->assertTrue(
             $this->object->storeCredentials()
         );
 
         $this->assertEquals(
-            array(
+            [
                 'user' => 'testUser',
                 'password' => 'testPass',
                 'host' => 'a'
-            ),
+            ],
             $GLOBALS['cfg']['Server']
         );
 
@@ -415,7 +447,7 @@ class AuthenticationHttpTest extends PmaTestCase
 
         $this->object = $this->getMockBuilder('PhpMyAdmin\Plugins\Auth\AuthenticationHttp')
             ->disableOriginalConstructor()
-            ->setMethods(array('authForm'))
+            ->setMethods(['authForm'])
             ->getMock();
 
         $this->object->expects($this->exactly(2))

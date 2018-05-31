@@ -7,6 +7,7 @@
         {% include 'table/search/rows_zoom.twig' with {
             'self': self,
             'column_names': column_names,
+            'keys': keys,
             'criteria_column_names': criteria_column_names,
             'criteria_column_types': criteria_column_types
         } only %}

@@ -26,7 +26,7 @@ class BookmarkTest extends TestCase
      * @access protected
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['cfg']['Server']['user'] = 'root';
         $GLOBALS['cfg']['Server']['pmadb'] = 'phpmyadmin';
@@ -55,7 +55,7 @@ class BookmarkTest extends TestCase
     public function testGetList()
     {
         $this->assertEquals(
-            array(),
+            [],
             Bookmark::getList(
                 $GLOBALS['dbi'],
                 $GLOBALS['cfg']['Server']['user'],
@@ -88,12 +88,12 @@ class BookmarkTest extends TestCase
      */
     public function testSave()
     {
-        $bookmarkData = array(
+        $bookmarkData = [
             'bkm_database' => 'phpmyadmin',
             'bkm_user' => 'root',
             'bkm_sql_query' => 'SELECT "phpmyadmin"',
             'bkm_label' => 'bookmark1',
-        );
+        ];
 
         $bookmark = Bookmark::createBookmark(
             $GLOBALS['dbi'],

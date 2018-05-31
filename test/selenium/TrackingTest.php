@@ -24,7 +24,7 @@ class TrackingTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->dbQuery(
@@ -164,7 +164,8 @@ class TrackingTest extends TestBase
     {
         $this->byCssSelector("input[value='Deactivate now']")->click();
         $this->waitForElement(
-            "byCssSelector", "input[value='Activate now']"
+            "byCssSelector",
+            "input[value='Activate now']"
         );
         $this->_executeSqlAndReturnToTableTracking();
         $this->assertFalse(

@@ -65,7 +65,7 @@ class SqlQueryFormTest extends TestCase
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
 
         //_SESSION
-        $_SESSION['relation'][0] = array(
+        $_SESSION['relation'][0] = [
             'PMA_VERSION' => PMA_VERSION,
             'table_coords' => "table_name",
             'displaywork' => 'displaywork',
@@ -74,7 +74,7 @@ class SqlQueryFormTest extends TestCase
             'relwork' => 'relwork',
             'relation' => 'relation',
             'bookmarkwork' => false,
-        );
+        ];
         //$GLOBALS
         $GLOBALS['cfg']['Server']['user'] = "user";
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
@@ -87,17 +87,17 @@ class SqlQueryFormTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $fetchResult = array("index1"=>"table1", "index2"=>"table2");
+        $fetchResult = ["index1"=>"table1", "index2"=>"table2"];
         $dbi->expects($this->any())
             ->method('fetchResult')
             ->will($this->returnValue($fetchResult));
 
-        $getColumns = array(
-            array(
+        $getColumns = [
+            [
                 "Field" => "field1",
                 "Comment" => "Comment1"
-            )
-        );
+            ]
+        ];
         $dbi->expects($this->any())
             ->method('getColumns')
             ->will($this->returnValue($getColumns));

@@ -26,12 +26,12 @@ class NodeEventContainer extends NodeDatabaseChildContainer
     {
         parent::__construct(__('Events'), Node::CONTAINER);
         $this->icon = Util::getImage('b_events', '');
-        $this->links = array(
+        $this->links = [
             'text' => 'db_events.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s',
             'icon' => 'db_events.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s',
-        );
+        ];
         $this->real_name = 'events';
 
         $new = NodeFactory::getInstance(
@@ -40,12 +40,12 @@ class NodeEventContainer extends NodeDatabaseChildContainer
         );
         $new->isNew = true;
         $new->icon = Util::getImage('b_event_add', '');
-        $new->links = array(
+        $new->links = [
             'text' => 'db_events.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&add_item=1',
             'icon' => 'db_events.php?server=' . $GLOBALS['server']
                 . '&amp;db=%2$s&add_item=1',
-        );
+        ];
         $new->classes = 'new_event italics';
         $this->addChild($new);
     }

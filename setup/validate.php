@@ -15,7 +15,7 @@ use PhpMyAdmin\Core;
  */
 require './lib/common.inc.php';
 
-$validators = array();
+$validators = [];
 
 Core::headerJSON();
 

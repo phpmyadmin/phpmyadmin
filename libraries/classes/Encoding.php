@@ -66,21 +66,21 @@ class Encoding
      *
      * @var array
      */
-    private static $_enginemap = array(
-        'iconv' => array('iconv', self::ENGINE_ICONV, 'iconv'),
-        'recode' => array('recode_string', self::ENGINE_RECODE, 'recode'),
-        'mb' => array('mb_convert_encoding', self::ENGINE_MB, 'mbstring'),
-        'none' => array('isset', self::ENGINE_NONE, ''),
-    );
+    private static $_enginemap = [
+        'iconv' => ['iconv', self::ENGINE_ICONV, 'iconv'],
+        'recode' => ['recode_string', self::ENGINE_RECODE, 'recode'],
+        'mb' => ['mb_convert_encoding', self::ENGINE_MB, 'mbstring'],
+        'none' => ['isset', self::ENGINE_NONE, ''],
+    ];
 
     /**
      * Order of automatic detection of engines
      *
      * @var array
      */
-    private static $_engineorder = array(
+    private static $_engineorder = [
         'iconv', 'mb', 'recode',
-    );
+    ];
 
     /**
      * Kanji encodings list
@@ -174,7 +174,7 @@ class Encoding
         switch (self::$_engine) {
             case self::ENGINE_RECODE:
                 return recode_string(
-                    $src_charset . '..'  . $dest_charset,
+                    $src_charset . '..' . $dest_charset,
                     $what
                 );
             case self::ENGINE_ICONV:

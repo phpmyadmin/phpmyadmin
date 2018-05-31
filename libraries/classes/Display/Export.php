@@ -577,44 +577,44 @@ class Export
         if (isset($_SESSION['tmpval']['aliases'])) {
             foreach ($_SESSION['tmpval']['aliases'] as $db => $dbData) {
                 if (isset($dbData['alias'])) {
-                    $result .= $template->render(array(
+                    $result .= $template->render([
                         'type' => _pgettext('Alias', 'Database'),
                         'name' => $db,
                         'field' => 'aliases[' . $db . '][alias]',
                         'value' => $dbData['alias'],
-                    ));
+                    ]);
                 }
                 if (! isset($dbData['tables'])) {
                     continue;
                 }
                 foreach ($dbData['tables'] as $table => $tableData) {
                     if (isset($tableData['alias'])) {
-                        $result .= $template->render(array(
+                        $result .= $template->render([
                             'type' => _pgettext('Alias', 'Table'),
                             'name' => $db . '.' . $table,
                             'field' => 'aliases[' . $db . '][tables][' . $table . '][alias]',
                             'value' => $tableData['alias'],
-                        ));
+                        ]);
                     }
                     if (! isset($tableData['columns'])) {
                         continue;
                     }
                     foreach ($tableData['columns'] as $column => $columnName) {
-                        $result .= $template->render(array(
+                        $result .= $template->render([
                             'type' => _pgettext('Alias', 'Column'),
-                            'name' => $db . '.' . $table . '.'. $column,
+                            'name' => $db . '.' . $table . '.' . $column,
                             'field' => 'aliases[' . $db . '][tables][' . $table . '][colums][' . $column . ']',
                             'value' => $columnName,
-                        ));
+                        ]);
                     }
                 }
             }
         }
 
         // Empty row for javascript manipulations
-        $result .= '</tbody><tfoot class="hide">' . $template->render(array(
+        $result .= '</tbody><tfoot class="hide">' . $template->render([
             'type' => '', 'name' => '', 'field' => 'aliases_new', 'value' => ''
-        )) . '</tfoot>';
+        ]) . '</tfoot>';
 
         return $result . '</table>';
     }
@@ -669,10 +669,10 @@ class Export
         $exportList = Plugins::getPlugins(
             "export",
             'libraries/classes/Plugins/Export/',
-            array(
+            [
                 'export_type' => $exportType,
                 'single_table' => isset($GLOBALS['single_table'])
-            )
+            ]
         );
 
         /* Fail if we didn't find any plugin */
@@ -744,8 +744,8 @@ class Export
         $user = $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']);
 
         switch ($_REQUEST['templateAction']) {
-        case 'create':
-            $query = "INSERT INTO " . $templateTable . "("
+            case 'create':
+                $query = "INSERT INTO " . $templateTable . "("
                 . " `username`, `export_type`,"
                 . " `template_name`, `template_data`"
                 . ") VALUES ("
@@ -754,23 +754,23 @@ class Export
                 . "', '" . $GLOBALS['dbi']->escapeString($_REQUEST['templateName'])
                 . "', '" . $GLOBALS['dbi']->escapeString($_REQUEST['templateData'])
                 . "');";
-            break;
-        case 'load':
-            $query = "SELECT `template_data` FROM " . $templateTable
-                 . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
-            break;
-        case 'update':
-            $query = "UPDATE " . $templateTable . " SET `template_data` = "
-              . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['templateData']) . "'"
-              . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
-            break;
-        case 'delete':
-            $query = "DELETE FROM " . $templateTable
-               . " WHERE `id` = " . $id  . " AND `username` = '" . $user . "'";
-            break;
-        default:
-            $query = '';
-            break;
+                break;
+            case 'load':
+                $query = "SELECT `template_data` FROM " . $templateTable
+                 . " WHERE `id` = " . $id . " AND `username` = '" . $user . "'";
+                break;
+            case 'update':
+                $query = "UPDATE " . $templateTable . " SET `template_data` = "
+                  . "'" . $GLOBALS['dbi']->escapeString($_REQUEST['templateData']) . "'"
+                  . " WHERE `id` = " . $id . " AND `username` = '" . $user . "'";
+                break;
+            case 'delete':
+                $query = "DELETE FROM " . $templateTable
+                   . " WHERE `id` = " . $id . " AND `username` = '" . $user . "'";
+                break;
+            default:
+                $query = '';
+                break;
         }
 
         $result = $this->relation->queryAsControlUser($query, false);
@@ -792,7 +792,8 @@ class Export
         } elseif ('load' == $_REQUEST['templateAction']) {
             $data = null;
             while ($row = $GLOBALS['dbi']->fetchAssoc(
-                $result, DatabaseInterface::CONNECT_CONTROL
+                $result,
+                DatabaseInterface::CONNECT_CONTROL
             )) {
                 $data = $row['template_data'];
             }

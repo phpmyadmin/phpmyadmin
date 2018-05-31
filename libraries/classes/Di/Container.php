@@ -21,7 +21,7 @@ class Container implements ContainerInterface
     /**
      * @var Item[] $content
      */
-    protected $content = array();
+    protected $content = [];
 
     /**
      * @var Container
@@ -54,7 +54,7 @@ class Container implements ContainerInterface
      *
      * @return mixed
      */
-    public function get($name, array $params = array())
+    public function get($name, array $params = [])
     {
         if (!$this->has($name)) {
             throw new NotFoundException("No entry was found for $name identifier.");

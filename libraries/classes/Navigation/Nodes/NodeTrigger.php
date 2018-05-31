@@ -30,12 +30,12 @@ class NodeTrigger extends Node
     {
         parent::__construct($name, $type, $is_group);
         $this->icon = Util::getImage('b_triggers');
-        $this->links = array(
+        $this->links = [
             'text' => 'db_triggers.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;item_name=%1$s&amp;edit_item=1',
             'icon' => 'db_triggers.php?server=' . $GLOBALS['server']
                 . '&amp;db=%3$s&amp;item_name=%1$s&amp;export_item=1',
-        );
+        ];
         $this->classes = 'trigger';
     }
 }

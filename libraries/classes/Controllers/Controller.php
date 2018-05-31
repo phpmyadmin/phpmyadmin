@@ -32,6 +32,9 @@ abstract class Controller
 
     /**
      * Constructor
+     *
+     * @param Response          $response Response object
+     * @param DatabaseInterface $dbi      DatabaseInterface object
      */
     public function __construct($response, $dbi)
     {

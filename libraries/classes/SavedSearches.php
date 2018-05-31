@@ -162,7 +162,7 @@ class SavedSearches
             return $this;
         }
 
-        $aListFieldsToGet = array(
+        $aListFieldsToGet = [
             'criteriaColumn',
             'criteriaSort',
             'criteriaShow',
@@ -171,9 +171,9 @@ class SavedSearches
             'criteriaAndOrColumn',
             'rows',
             'TableList'
-        );
+        ];
 
-        $data = array();
+        $data = [];
 
         $data['criteriaColumnCount'] = count($criterias['criteriaColumn']);
 
@@ -295,10 +295,10 @@ class SavedSearches
 
         //If it's an insert.
         if (null === $this->getId()) {
-            $wheres = array(
+            $wheres = [
                 "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName())
                 . "'"
-            );
+            ];
             $existingSearches = $this->getList($wheres);
 
             if (!empty($existingSearches)) {
@@ -332,10 +332,10 @@ class SavedSearches
         }
 
         //Else, it's an update.
-        $wheres = array(
+        $wheres = [
             "id != " . $this->getId(),
             "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "'"
-        );
+        ];
         $existingSearches = $this->getList($wheres);
 
         if (!empty($existingSearches)) {
@@ -435,12 +435,12 @@ class SavedSearches
      *
      * @return array List of saved searches or empty array on failure
      */
-    public function getList(array $wheres = array())
+    public function getList(array $wheres = [])
     {
         if (null == $this->getUsername()
             || null == $this->getDbname()
         ) {
-            return array();
+            return [];
         }
 
         $savedSearchesTbl = Util::backquote($this->_config['cfgRelation']['db'])
@@ -460,7 +460,7 @@ class SavedSearches
 
         $resList = $this->relation->queryAsControlUser($sqlQuery);
 
-        $list = array();
+        $list = [];
         while ($oneResult = $GLOBALS['dbi']->fetchArray($resList)) {
             $list[$oneResult['id']] = $oneResult['search_name'];
         }

@@ -20,6 +20,8 @@ use Samyoul\U2F\U2FServer\U2FException;
  * Hardware key based two-factor authentication
  *
  * Supports FIDO U2F tokens
+ *
+ * @package PhpMyAdmin
  */
 class Key extends TwoFactorPlugin
 {
@@ -163,7 +165,8 @@ class Key extends TwoFactorPlugin
                 return false;
             }
             $registration = U2FServer::register(
-                $_SESSION['registrationRequest'], $response
+                $_SESSION['registrationRequest'],
+                $response
             );
             $this->_twofactor->config['settings']['registrations'][] = [
                 'keyHandle' => $registration->getKeyHandle(),

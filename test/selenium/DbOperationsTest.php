@@ -30,6 +30,9 @@ class DbOperationsTest extends TestBase
         $this->login();
     }
 
+    /**
+     * @return void
+     */
     private function _getToDBOperations()
     {
         $this->gotoHomepage();
@@ -39,7 +42,8 @@ class DbOperationsTest extends TestBase
 
         $this->waitForElement('byPartialLinkText', 'Operations')->click();
         $this->waitForElement(
-            'byXPath', '//legend[contains(., \'Rename database to\')]'
+            'byXPath',
+            '//legend[contains(., \'Rename database to\')]'
         );
     }
 
@@ -88,7 +92,8 @@ class DbOperationsTest extends TestBase
         $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
         $this->waitForElement(
-            "byCssSelector", "button.submitOK"
+            "byCssSelector",
+            "button.submitOK"
         )->click();
 
         $this->waitForElement(

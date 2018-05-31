@@ -53,12 +53,12 @@ class TypesTest extends PmaTestCase
     public function testGetUnaryOperators()
     {
         $this->assertEquals(
-            array(
+            [
                 'IS NULL',
                 'IS NOT NULL',
                 "= ''",
                 "!= ''",
-            ),
+            ],
             $this->object->getUnaryOperators()
         );
     }
@@ -71,10 +71,10 @@ class TypesTest extends PmaTestCase
     public function testGetNullOperators()
     {
         $this->assertEquals(
-            array(
+            [
                 'IS NULL',
                 'IS NOT NULL',
-            ),
+            ],
             $this->object->getNullOperators()
         );
     }
@@ -87,10 +87,10 @@ class TypesTest extends PmaTestCase
     public function testGetEnumOperators()
     {
         $this->assertEquals(
-            array(
+            [
                 '=',
                 '!=',
-            ),
+            ],
             $this->object->getEnumOperators()
         );
     }
@@ -103,7 +103,7 @@ class TypesTest extends PmaTestCase
     public function testgetTextOperators()
     {
         $this->assertEquals(
-            array(
+            [
                 'LIKE',
                 'LIKE %...%',
                 'NOT LIKE',
@@ -118,7 +118,7 @@ class TypesTest extends PmaTestCase
                 'NOT IN (...)',
                 'BETWEEN',
                 'NOT BETWEEN',
-            ),
+            ],
             $this->object->getTextOperators()
         );
     }
@@ -131,7 +131,7 @@ class TypesTest extends PmaTestCase
     public function testGetNumberOperators()
     {
         $this->assertEquals(
-            array(
+            [
                 '=',
                 '>',
                 '>=',
@@ -145,7 +145,7 @@ class TypesTest extends PmaTestCase
                 'NOT IN (...)',
                 'BETWEEN',
                 'NOT BETWEEN',
-            ),
+            ],
             $this->object->getNumberOperators()
         );
     }
@@ -176,19 +176,19 @@ class TypesTest extends PmaTestCase
      */
     public function providerForGetTypeOperators()
     {
-        return array(
-            array(
+        return [
+            [
                 'enum',
                 false,
-                array(
+                [
                     '=',
                     '!=',
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'CHAR',
                 true,
-                array(
+                [
                     'LIKE',
                     'LIKE %...%',
                     'NOT LIKE',
@@ -205,17 +205,17 @@ class TypesTest extends PmaTestCase
                     'NOT BETWEEN',
                     'IS NULL',
                     'IS NOT NULL',
-                ),
-                array(
+                ],
+                [
                     'int',
                     false,
-                    array(
+                    [
                         '=',
                         '!=',
-                    )
-                ),
-            )
-        );
+                    ]
+                ],
+            ]
+        ];
     }
 
     /**
@@ -231,7 +231,10 @@ class TypesTest extends PmaTestCase
      * @dataProvider providerForTestGetTypeOperatorsHtml
      */
     public function testGetTypeOperatorsHtml(
-        $type, $null, $selectedOperator, $output
+        $type,
+        $null,
+        $selectedOperator,
+        $output
     ) {
         $this->assertEquals(
             $output,
@@ -246,15 +249,15 @@ class TypesTest extends PmaTestCase
      */
     public function providerForTestGetTypeOperatorsHtml()
     {
-        return array(
-            array(
+        return [
+            [
                 'enum',
                 false,
                 '=',
                 '<option value="=" selected="selected">=</option>'
                 . '<option value="!=">!=</option>'
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -294,47 +297,47 @@ class TypesTest extends PmaTestCase
      */
     public function providerForTestGetTypeDescription()
     {
-        return array(
-            array('TINYINT'),
-            array('SMALLINT'),
-            array('MEDIUMINT'),
-            array('INT'),
-            array('BIGINT'),
-            array('DECIMAL'),
-            array('FLOAT'),
-            array('DOUBLE'),
-            array('REAL'),
-            array('BIT'),
-            array('BOOLEAN'),
-            array('SERIAL'),
-            array('DATE'),
-            array('DATETIME'),
-            array('TIMESTAMP'),
-            array('TIME'),
-            array('YEAR'),
-            array('CHAR'),
-            array('VARCHAR'),
-            array('TINYTEXT'),
-            array('TEXT'),
-            array('MEDIUMTEXT'),
-            array('LONGTEXT'),
-            array('BINARY'),
-            array('VARBINARY'),
-            array('TINYBLOB'),
-            array('MEDIUMBLOB'),
-            array('BLOB'),
-            array('LONGBLOB'),
-            array('ENUM'),
-            array('SET'),
-            array('GEOMETRY'),
-            array('POINT'),
-            array('LINESTRING'),
-            array('POLYGON'),
-            array('MULTIPOINT'),
-            array('MULTILINESTRING'),
-            array('MULTIPOLYGON'),
-            array('GEOMETRYCOLLECTION'),
-        );
+        return [
+            ['TINYINT'],
+            ['SMALLINT'],
+            ['MEDIUMINT'],
+            ['INT'],
+            ['BIGINT'],
+            ['DECIMAL'],
+            ['FLOAT'],
+            ['DOUBLE'],
+            ['REAL'],
+            ['BIT'],
+            ['BOOLEAN'],
+            ['SERIAL'],
+            ['DATE'],
+            ['DATETIME'],
+            ['TIMESTAMP'],
+            ['TIME'],
+            ['YEAR'],
+            ['CHAR'],
+            ['VARCHAR'],
+            ['TINYTEXT'],
+            ['TEXT'],
+            ['MEDIUMTEXT'],
+            ['LONGTEXT'],
+            ['BINARY'],
+            ['VARBINARY'],
+            ['TINYBLOB'],
+            ['MEDIUMBLOB'],
+            ['BLOB'],
+            ['LONGBLOB'],
+            ['ENUM'],
+            ['SET'],
+            ['GEOMETRY'],
+            ['POINT'],
+            ['LINESTRING'],
+            ['POLYGON'],
+            ['MULTIPOINT'],
+            ['MULTILINESTRING'],
+            ['MULTIPOLYGON'],
+            ['GEOMETRYCOLLECTION'],
+        ];
     }
 
     /**
@@ -362,10 +365,10 @@ class TypesTest extends PmaTestCase
      */
     public function providerFortTestGetFunctionsClass()
     {
-        return array(
-            array(
+        return [
+            [
                 'CHAR',
-                array(
+                [
                     'AES_DECRYPT',
                     'AES_ENCRYPT',
                     'BIN',
@@ -400,11 +403,11 @@ class TypesTest extends PmaTestCase
                     'USER',
                     'UUID',
                     'VERSION',
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'DATE',
-                array(
+                [
                     'CURRENT_DATE',
                     'CURRENT_TIME',
                     'DATE',
@@ -420,11 +423,11 @@ class TypesTest extends PmaTestCase
                     'UTC_TIME',
                     'UTC_TIMESTAMP',
                     'YEAR',
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'SPATIAL',
-                array(
+                [
                     'GeomFromText',
                     'GeomFromWKB',
 
@@ -443,11 +446,11 @@ class TypesTest extends PmaTestCase
                     'MPointFromWKB',
                     'PolyFromWKB',
                     'MPolyFromWKB',
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'NUMBER',
-                array(
+                [
                     '0' => 'ABS',
                     '1' => 'ACOS',
                     '2' => 'ASCII',
@@ -500,13 +503,13 @@ class TypesTest extends PmaTestCase
                     '49' => 'WEEKDAY',
                     '50' => 'WEEKOFYEAR',
                     '51' => 'YEARWEEK'
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'UNKNOWN',
-                array()
-            )
-        );
+                []
+            ]
+        ];
     }
 
     /**
@@ -517,7 +520,7 @@ class TypesTest extends PmaTestCase
     public function testGetFunctions()
     {
         $this->assertEquals(
-            array(
+            [
                 'AES_DECRYPT',
                 'AES_ENCRYPT',
                 'BIN',
@@ -552,7 +555,7 @@ class TypesTest extends PmaTestCase
                 'USER',
                 'UUID',
                 'VERSION',
-            ),
+            ],
             $this->object->getFunctions('enum')
         );
     }
@@ -565,7 +568,7 @@ class TypesTest extends PmaTestCase
     public function testGetAllFunctions()
     {
         $this->assertEquals(
-            array(
+            [
                 'ABS',
                 'ACOS',
                 'AES_DECRYPT',
@@ -667,7 +670,7 @@ class TypesTest extends PmaTestCase
                 'WEEKOFYEAR',
                 'YEAR',
                 'YEARWEEK',
-            ),
+            ],
             $this->object->getAllFunctions()
         );
     }
@@ -680,13 +683,13 @@ class TypesTest extends PmaTestCase
     public function testGetAttributes()
     {
         $this->assertEquals(
-            array(
+            [
                 '',
                 'BINARY',
                 'UNSIGNED',
                 'UNSIGNED ZEROFILL',
                 'on update CURRENT_TIMESTAMP',
-            ),
+            ],
             $this->object->getAttributes()
         );
     }
@@ -699,12 +702,12 @@ class TypesTest extends PmaTestCase
     public function testGetColumns()
     {
         $this->assertEquals(
-            array(
+            [
                 0 => 'INT',
                 1 => 'VARCHAR',
                 2 => 'TEXT',
                 3 => 'DATE',
-                'Numeric' => array (
+                'Numeric' =>  [
                     'TINYINT',
                     'SMALLINT',
                     'MEDIUMINT',
@@ -719,15 +722,15 @@ class TypesTest extends PmaTestCase
                     'BIT',
                     'BOOLEAN',
                     'SERIAL',
-                ),
-                'Date and time' => array (
+                ],
+                'Date and time' =>  [
                     'DATE',
                     'DATETIME',
                     'TIMESTAMP',
                     'TIME',
                     'YEAR',
-                ),
-                'String' => array (
+                ],
+                'String' =>  [
                     'CHAR',
                 'VARCHAR',
                     '-',
@@ -746,8 +749,8 @@ class TypesTest extends PmaTestCase
                     '-',
                     'ENUM',
                     'SET',
-                ),
-                'Spatial' => array (
+                ],
+                'Spatial' =>  [
                     'GEOMETRY',
                     'POINT',
                     'LINESTRING',
@@ -756,11 +759,11 @@ class TypesTest extends PmaTestCase
                     'MULTILINESTRING',
                     'MULTIPOLYGON',
                     'GEOMETRYCOLLECTION',
-                ),
-                'JSON' => array(
+                ],
+                'JSON' => [
                     'JSON'
-                )
-            ),
+                ]
+            ],
             $this->object->getColumns()
         );
     }
@@ -790,27 +793,27 @@ class TypesTest extends PmaTestCase
      */
     public function providerFortTestGetTypeClass()
     {
-        return array(
-            array(
+        return [
+            [
                 'SERIAL',
                 'NUMBER'
-            ),
-            array(
+            ],
+            [
                 'YEAR',
                 'DATE'
-            ),
-            array(
+            ],
+            [
                 'GEOMETRYCOLLECTION',
                 'SPATIAL'
-            ),
-            array(
+            ],
+            [
                 'SET',
                 'CHAR'
-            ),
-            array(
+            ],
+            [
                 'UNKNOWN',
                 ''
-            )
-        );
+            ]
+        ];
     }
 }

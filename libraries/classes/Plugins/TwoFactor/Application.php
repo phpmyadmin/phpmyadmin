@@ -18,6 +18,8 @@ use PragmaRX\Google2FA\Google2FA;
  * HOTP and TOTP based two-factor authentication
  *
  * Also known as Google, Authy, or OTP
+ *
+ * @package PhpMyAdmin
  */
 class Application extends TwoFactorPlugin
 {
@@ -71,7 +73,8 @@ class Application extends TwoFactorPlugin
         }
         $this->_provided = true;
         return $this->_google2fa->verifyKey(
-            $this->_twofactor->config['settings']['secret'], $_POST['2fa_code']
+            $this->_twofactor->config['settings']['secret'],
+            $_POST['2fa_code']
         );
     }
 

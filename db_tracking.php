@@ -53,14 +53,11 @@ list(
 // Work to do?
 //  (here, do not use $_REQUEST['db] as it can be crafted)
 if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
-
     Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
     Message::success(
         __('Tracking data deleted successfully.')
     )->display();
-
 } elseif (isset($_REQUEST['submit_create_version'])) {
-
     $tracking->createTrackingForMultipleTables($_REQUEST['selected']);
     Message::success(
         sprintf(
@@ -71,21 +68,16 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
             htmlspecialchars($_REQUEST['version'])
         )
     )->display();
-
 } elseif (isset($_REQUEST['submit_mult'])) {
-
     if (! empty($_REQUEST['selected_tbl'])) {
         if ($_REQUEST['submit_mult'] == 'delete_tracking') {
-
             foreach ($_REQUEST['selected_tbl'] as $table) {
                 Tracker::deleteTracking($GLOBALS['db'], $table);
             }
             Message::success(
                 __('Tracking data deleted successfully.')
             )->display();
-
         } elseif ($_REQUEST['submit_mult'] == 'track') {
-
             echo $tracking->getHtmlForDataDefinitionAndManipulationStatements(
                 'db_tracking.php' . $url_query,
                 0,
@@ -134,8 +126,12 @@ if (is_object($all_tables_result)
     && $GLOBALS['dbi']->numRows($all_tables_result) > 0
 ) {
     echo $tracking->getHtmlForTrackedTables(
-        $GLOBALS['db'], $all_tables_result, $url_query, $pmaThemeImage,
-        $text_dir, $cfgRelation
+        $GLOBALS['db'],
+        $all_tables_result,
+        $url_query,
+        $pmaThemeImage,
+        $text_dir,
+        $cfgRelation
     );
 }
 
@@ -144,7 +140,11 @@ $untracked_tables = $tracking->getUntrackedTables($GLOBALS['db']);
 // If untracked tables exist
 if (count($untracked_tables) > 0) {
     echo $tracking->getHtmlForUntrackedTables(
-        $GLOBALS['db'], $untracked_tables, $url_query, $pmaThemeImage, $text_dir
+        $GLOBALS['db'],
+        $untracked_tables,
+        $url_query,
+        $pmaThemeImage,
+        $text_dir
     );
 }
 // If available print out database log

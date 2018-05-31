@@ -43,10 +43,10 @@ class HttpRequest
     private function handleContext(array $context)
     {
         if (strlen($this->proxyUrl) > 0) {
-            $context['http'] = array(
+            $context['http'] = [
                 'proxy' => $this->proxyUrl,
                 'request_fulluri' => true
-            );
+            ];
             if (strlen($this->proxyUser) > 0) {
                 $auth = base64_encode(
                     $this->proxyUser . ':' . $this->proxyPass
@@ -125,7 +125,7 @@ class HttpRequest
             $curlStatus &= curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $method);
         }
         if ($header) {
-            $curlStatus &= curl_setopt($curlHandle, CURLOPT_HTTPHEADER, array($header));
+            $curlStatus &= curl_setopt($curlHandle, CURLOPT_HTTPHEADER, [$header]);
         }
 
         if ($method == "POST") {
@@ -203,15 +203,15 @@ class HttpRequest
         $content = null,
         $header = ''
     ) {
-        $context = array(
-            'http' => array(
+        $context = [
+            'http' => [
                 'method'  => $method,
                 'request_fulluri' => true,
                 'timeout' => 10,
                 'user_agent' => 'phpMyAdmin',
                 'header' => "Accept: */*",
-            )
-        );
+            ]
+        ];
         if ($header) {
             $context['http']['header'] .= "\n" . $header;
         }

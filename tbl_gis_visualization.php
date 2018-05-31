@@ -26,18 +26,20 @@ $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
-$dependency_definitions = array(
+$dependency_definitions = [
     "sql_query" => &$GLOBALS['sql_query'],
     "url_params" => &$GLOBALS['url_params'],
     "goto" => Util::getScriptNameForOption(
-        $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        $GLOBALS['cfg']['DefaultTabDatabase'],
+        'database'
     ),
     "back" => 'sql.php',
-    "visualizationSettings" => array()
-);
+    "visualizationSettings" => []
+];
 
 /** @var TableGisVisualizationController $controller */
 $controller = $container->get(
-    'TableGisVisualizationController', $dependency_definitions
+    'TableGisVisualizationController',
+    $dependency_definitions
 );
 $controller->indexAction();

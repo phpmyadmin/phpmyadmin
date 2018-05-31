@@ -27,21 +27,21 @@ class MessageExtension extends AbstractExtension
      */
     public function getFunctions()
     {
-        return array(
+        return [
             new TwigFunction(
                 'Message_notice',
                 function ($string) {
                     return Message::notice($string)->getDisplay();
                 },
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Message_error',
                 function ($string) {
                     return Message::error($string)->getDisplay();
                 },
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
-        );
+        ];
     }
 }

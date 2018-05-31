@@ -30,14 +30,14 @@ class TransformationsTest extends TestCase
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $GLOBALS['cfg'] = array(
+        $GLOBALS['cfg'] = [
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',
-        );
+        ];
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['user'] = 'user';
@@ -78,13 +78,13 @@ class TransformationsTest extends TestCase
      */
     public function getOptionsData()
     {
-        return array(
-            array("option1 , option2 ", array('option1 ', ' option2 ')),
-            array("'option1' ,' option2' ", array('option1', ' option2')),
-            array("'2,3' ,' ,, option ,,' ", array('2,3', ' ,, option ,,')),
-            array("'',,", array('', '', '')),
-            array('', array()),
-        );
+        return [
+            ["option1 , option2 ", ['option1 ', ' option2 ']],
+            ["'option1' ,' option2' ", ['option1', ' option2']],
+            ["'2,3' ,' ,, option ,,' ", ['2,3', ' ,, option ,,']],
+            ["'',,", ['', '', '']],
+            ['', []],
+        ];
     }
 
     /**
@@ -95,15 +95,15 @@ class TransformationsTest extends TestCase
     public function testGetTypes()
     {
         $this->assertEquals(
-            array (
-                'mimetype' => array (
+            [
+                'mimetype' =>  [
                     'Application/Octetstream' => 'Application/Octetstream',
                     'Image/JPEG' => 'Image/JPEG',
                     'Image/PNG' => 'Image/PNG',
                     'Text/Plain' => 'Text/Plain',
                     'Text/Octetstream' => 'Text/Octetstream'
-                ),
-                'transformation' => array (
+                ],
+                'transformation' =>  [
                     0 => 'Application/Octetstream: Download',
                     1 => 'Application/Octetstream: Hex',
                     2 => 'Image/JPEG: Inline',
@@ -123,8 +123,8 @@ class TransformationsTest extends TestCase
                     16 => 'Text/Plain: Longtoipv4',
                     17 => 'Text/Plain: PreApPend',
                     18 => 'Text/Plain: Substring',
-                    ),
-                'transformation_file' => array (
+                    ],
+                'transformation_file' =>  [
                     0 => 'Output/Application_Octetstream_Download.php',
                     1 => 'Output/Application_Octetstream_Hex.php',
                     2 => 'Output/Image_JPEG_Inline.php',
@@ -144,8 +144,8 @@ class TransformationsTest extends TestCase
                     16 => 'Text_Plain_Longtoipv4.php',
                     17 => 'Text_Plain_PreApPend.php',
                     18 => 'Text_Plain_Substring.php',
-                ),
-                'input_transformation' => array(
+                ],
+                'input_transformation' => [
                     'Image/JPEG: Upload',
                     'Text/Plain: FileUpload',
                     'Text/Plain: Iptobinary',
@@ -157,8 +157,8 @@ class TransformationsTest extends TestCase
                     'Text/Plain: Longtoipv4',
                     'Text/Plain: PreApPend',
                     'Text/Plain: Substring',
-                ),
-                'input_transformation_file' => array(
+                ],
+                'input_transformation_file' => [
                     'Input/Image_JPEG_Upload.php',
                     'Input/Text_Plain_FileUpload.php',
                     'Input/Text_Plain_Iptobinary.php',
@@ -170,8 +170,8 @@ class TransformationsTest extends TestCase
                     'Text_Plain_Longtoipv4.php',
                     'Text_Plain_PreApPend.php',
                     'Text_Plain_Substring.php',
-                ),
-            ),
+                ],
+             ],
             $this->transformations->getAvailableMimeTypes()
         );
     }
@@ -189,24 +189,24 @@ class TransformationsTest extends TestCase
         $_SESSION['relation'][$GLOBALS['server']]['column_info'] = "column_info";
         $_SESSION['relation'][$GLOBALS['server']]['trackingwork'] = false;
         $this->assertEquals(
-            array(
-                'o' => array(
+            [
+                'o' => [
                     'column_name' => 'o',
                     'mimetype' => 'Text/plain',
                     'transformation' => 'Sql',
                     'transformation_options' => '',
                     'input_transformation' => 'regex',
                     'input_transformation_options' => '/pma/i',
-                ),
-                'col' => array(
+                ],
+                'col' => [
                     'column_name' => 'col',
                     'mimetype' => 'T',
                     'transformation' => 'O/P',
                     'transformation_options' => '',
                     'input_transformation' => 'i/p',
                     'input_transformation_options' => '',
-                ),
-            ),
+                ],
+            ],
             $this->transformations->getMime('pma_test', 'table1')
         );
     }
@@ -261,6 +261,11 @@ class TransformationsTest extends TestCase
     }
 
     /**
+     * @param string $value    value
+     * @param string $expected expected result
+     *
+     * @return void
+     *
      * @dataProvider fixupData
      */
     public function testFixup($value, $expected)
@@ -271,29 +276,32 @@ class TransformationsTest extends TestCase
         );
     }
 
+    /**
+     * @return array
+     */
     public function fixupData()
     {
-        return array(
-            array(
+        return [
+            [
                 'text_plain_bool2text.php',
                 'Text_Plain_Bool2Text.php'
-            ),
-            array(
+            ],
+            [
                 'application_octetstream_download.php',
                 'Application_Octetstream_Download.php'
-            ),
-            array(
+            ],
+            [
                 'text_plain_json.php',
                 'Text_Plain_Json.php'
-            ),
-            array(
+            ],
+            [
                 'image_jpeg_link.php',
                 'Image_JPEG_Link.php'
-            ),
-            array(
+            ],
+            [
                 'text_plain_dateformat.php',
                 'Text_Plain_Dateformat.php'
-            ),
-        );
+            ],
+        ];
     }
 }

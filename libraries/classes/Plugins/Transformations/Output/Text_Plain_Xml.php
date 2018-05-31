@@ -59,7 +59,7 @@ class Text_Plain_Xml extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         return '<code class="xml"><pre>' . "\n"
         . htmlspecialchars($buffer) . "\n"

@@ -39,17 +39,17 @@ class Config
     /**
      * @var array   default configuration settings
      */
-    public $default = array();
+    public $default = [];
 
     /**
      * @var array   configuration settings, without user preferences applied
      */
-    public $base_settings = array();
+    public $base_settings = [];
 
     /**
      * @var array   configuration settings
      */
-    public $settings = array();
+    public $settings = [];
 
     /**
      * @var string  config source
@@ -76,7 +76,7 @@ class Config
     /**
      * @var array
      */
-    public $default_server = array();
+    public $default_server = [];
 
     /**
      * @var boolean whether init is done or not
@@ -97,7 +97,7 @@ class Config
      */
     public function __construct(?string $source = null)
     {
-        $this->settings = array('is_setup' => false);
+        $this->settings = ['is_setup' => false];
 
         // functions need to refresh in case of config file changed goes in
         // PhpMyAdmin\Config::load()
@@ -253,7 +253,8 @@ class Config
             && preg_match('@Version/(.*) Safari@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
-                'PMA_USR_BROWSER_VER', $log_version[1]
+                'PMA_USR_BROWSER_VER',
+                $log_version[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // older Safari
@@ -261,7 +262,8 @@ class Config
             && preg_match('@Safari/([0-9]*)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
-                'PMA_USR_BROWSER_VER', $mozilla_version[1] . '.' . $log_version[1]
+                'PMA_USR_BROWSER_VER',
+                $mozilla_version[1] . '.' . $log_version[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
@@ -269,7 +271,8 @@ class Config
             && preg_match('@Firefox/([\w.]+)@', $HTTP_USER_AGENT, $log_version)
         ) {
             $this->set(
-                'PMA_USR_BROWSER_VER', $log_version[1]
+                'PMA_USR_BROWSER_VER',
+                $log_version[1]
             );
             $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
         } elseif (preg_match('@rv:1\.9(.*)Gecko@', $HTTP_USER_AGENT)) {
@@ -363,7 +366,7 @@ class Config
      * @param string &$git_location (optional) verified git directory
      * @return boolean
      */
-    public function isGitRevision(&$git_location = NULL): bool
+    public function isGitRevision(&$git_location = null): bool
     {
         if (! $this->get('ShowGitRevision')) {
             return false;
@@ -389,10 +392,13 @@ class Config
             }
         } elseif (is_file($git)) {
             $contents = file_get_contents($git);
-            $gitmatch = array();
+            $gitmatch = [];
             // Matches expected format
-            if (! preg_match('/^gitdir: (.*)$/',
-                $contents, $gitmatch)) {
+            if (! preg_match(
+                '/^gitdir: (.*)$/',
+                $contents,
+                $gitmatch
+            )) {
                 $_SESSION['is_git_revision'] = false;
                 return false;
             } else {
@@ -490,7 +496,7 @@ class Config
         } elseif (function_exists('gzuncompress')) {
             $git_file_name = $git_folder . '/objects/'
                 . substr($hash, 0, 2) . '/' . substr($hash, 2);
-            if (@file_exists($git_file_name) ) {
+            if (@file_exists($git_file_name)) {
                 if (! $commit = @file_get_contents($git_file_name)) {
                     return;
                 }
@@ -498,7 +504,7 @@ class Config
                 $commit = explode("\n", $commit[1]);
                 $_SESSION['PMA_VERSION_COMMITDATA_' . $hash] = $commit;
             } else {
-                $pack_names = array();
+                $pack_names = [];
                 // work with packed data
                 $packs_file = $git_folder . '/objects/info/packs';
                 if (@file_exists($packs_file)
@@ -600,7 +606,8 @@ class Config
 
                     // open pack file
                     $pack_file = fopen(
-                        $git_folder . '/objects/pack/' . $pack_name, 'rb'
+                        $git_folder . '/objects/pack/' . $pack_name,
+                        'rb'
                     );
                     if ($pack_file === false) {
                         continue;
@@ -647,23 +654,23 @@ class Config
         } else {
             $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
             $is_found = $httpRequest->create($link, 'GET');
-            switch($is_found) {
-            case false:
-                $is_remote_commit = false;
-                $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
-                break;
-            case null:
-                // no remote link for now, but don't cache this as Github is down
-                $is_remote_commit = false;
-                break;
-            default:
-                $is_remote_commit = true;
-                $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
-                if ($commit === false) {
-                    // if no local commit data, try loading from Github
-                    $commit_json = json_decode($is_found);
-                }
-                break;
+            switch ($is_found) {
+                case false:
+                    $is_remote_commit = false;
+                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
+                    break;
+                case null:
+                    // no remote link for now, but don't cache this as Github is down
+                    $is_remote_commit = false;
+                    break;
+                default:
+                    $is_remote_commit = true;
+                    $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = true;
+                    if ($commit === false) {
+                        // if no local commit data, try loading from Github
+                        $commit_json = json_decode($is_found);
+                    }
+                    break;
             }
         }
 
@@ -675,38 +682,38 @@ class Config
             } else {
                 $link = 'https://www.phpmyadmin.net/api/tree/' . $branch . '/';
                 $is_found = $httpRequest->create($link, 'GET', true);
-                switch($is_found) {
-                case true:
-                    $is_remote_branch = true;
-                    $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = true;
-                    break;
-                case false:
-                    $is_remote_branch = false;
-                    $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = false;
-                    break;
-                case null:
-                    // no remote link for now, but don't cache this as Github is down
-                    $is_remote_branch = false;
-                    break;
+                switch ($is_found) {
+                    case true:
+                        $is_remote_branch = true;
+                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = true;
+                        break;
+                    case false:
+                        $is_remote_branch = false;
+                        $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = false;
+                        break;
+                    case null:
+                        // no remote link for now, but don't cache this as Github is down
+                        $is_remote_branch = false;
+                        break;
                 }
             }
         }
 
         if ($commit !== false) {
-            $author = array('name' => '', 'email' => '', 'date' => '');
-            $committer = array('name' => '', 'email' => '', 'date' => '');
+            $author = ['name' => '', 'email' => '', 'date' => ''];
+            $committer = ['name' => '', 'email' => '', 'date' => ''];
 
             do {
                 $dataline = array_shift($commit);
                 $datalinearr = explode(' ', $dataline, 2);
                 $linetype = $datalinearr[0];
-                if (in_array($linetype, array('author', 'committer'))) {
+                if (in_array($linetype, ['author', 'committer'])) {
                     $user = $datalinearr[1];
                     preg_match('/([^<]+)<([^>]+)> ([0-9]+)( [^ ]+)?/', $user, $user);
-                    $user2 = array(
+                    $user2 = [
                         'name' => trim($user[1]),
                         'email' => trim($user[2]),
-                        'date' => date('Y-m-d H:i:s', (int) $user[3]));
+                        'date' => date('Y-m-d H:i:s', (int) $user[3])];
                     if (isset($user[4])) {
                         $user2['date'] .= $user[4];
                     }
@@ -714,16 +721,15 @@ class Config
                 }
             } while ($dataline != '');
             $message = trim(implode(' ', $commit));
-
         } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer)) {
-            $author = array(
+            $author = [
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
-                'date' => $commit_json->author->date);
-            $committer = array(
+                'date' => $commit_json->author->date];
+            $committer = [
                 'name' => $commit_json->committer->name,
                 'email' => $commit_json->committer->email,
-                'date' => $commit_json->committer->date);
+                'date' => $commit_json->committer->date];
             $message = trim($commit_json->message);
         } else {
             return;
@@ -746,7 +752,7 @@ class Config
      */
     public function loadDefaults(): bool
     {
-        $cfg = array();
+        $cfg = [];
         if (! @file_exists($this->default_source)) {
             $this->error_config_default_file = true;
             return false;
@@ -797,7 +803,7 @@ class Config
             return false;
         }
 
-        $cfg = array();
+        $cfg = [];
 
         /**
          * Parses the configuration file, we throw away any errors or
@@ -834,7 +840,9 @@ class Config
          */
         $matched_keys = array_filter(
             array_keys($cfg),
-            function ($key) {return strpos($key, '/') === false;}
+            function ($key) {
+                return strpos($key, '/') === false;
+            }
         );
 
         $cfg = array_intersect_key($cfg, array_flip($matched_keys));
@@ -1380,7 +1388,7 @@ class Config
         $GLOBALS['max_upload_size'] = $this->get('max_upload_size');
         $GLOBALS['is_https']        = $this->get('is_https');
 
-        $defines = array(
+        $defines = [
             'PMA_VERSION',
             'PMA_MAJOR_VERSION',
             'PMA_THEME_VERSION',
@@ -1390,7 +1398,7 @@ class Config
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
             'PMA_USR_BROWSER_AGENT'
-            );
+            ];
 
         foreach ($defines as $define) {
             if (! defined($define)) {
@@ -1570,7 +1578,7 @@ class Config
      */
     public function getTempDir(string $name): ?string
     {
-        static $temp_dir = array();
+        static $temp_dir = [];
 
         if (isset($temp_dir[$name]) && !defined('TESTSUITE')) {
             return $temp_dir[$name];
@@ -1602,11 +1610,11 @@ class Config
     {
         // First try configured temp dir
         // Fallback to PHP upload_tmp_dir
-        $dirs = array(
+        $dirs = [
             $this->getTempDir('upload'),
             ini_get('upload_tmp_dir'),
             sys_get_temp_dir(),
-        );
+        ];
 
         foreach ($dirs as $dir) {
             if (! empty($dir) && @is_writable($dir)) {
@@ -1666,7 +1674,7 @@ class Config
                 $this->settings['Server'] = $this->settings['Servers'][$server];
             } else {
                 $server = 0;
-                $this->settings['Server'] = array();
+                $this->settings['Server'] = [];
             }
         }
 
@@ -1683,13 +1691,12 @@ class Config
         // Do we have some server?
         if (! isset($this->settings['Servers']) || count($this->settings['Servers']) == 0) {
             // No server => create one with defaults
-            $this->settings['Servers'] = array(1 => $this->default_server);
+            $this->settings['Servers'] = [1 => $this->default_server];
         } else {
             // We have server(s) => apply default configuration
-            $new_servers = array();
+            $new_servers = [];
 
             foreach ($this->settings['Servers'] as $server_index => $each_server) {
-
                 // Detect wrong configuration
                 if (!is_int($server_index) || $server_index < 1) {
                     trigger_error(
@@ -1717,5 +1724,5 @@ class Config
 }
 
 if (!defined('TESTSUITE')) {
-    register_shutdown_function(array('PhpMyAdmin\Config', 'fatalErrorHandler'));
+    register_shutdown_function(['PhpMyAdmin\Config', 'fatalErrorHandler']);
 }

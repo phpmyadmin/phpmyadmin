@@ -11,27 +11,48 @@ namespace PhpMyAdmin\Config\Forms;
 
 use PhpMyAdmin\Config\ConfigFile;
 
+/**
+ * Class BaseFormList
+ * @package PhpMyAdmin\Config\Forms
+ */
 class BaseFormList
 {
     /**
      * List of all forms
      */
-    protected static $all = array();
+    protected static $all = [];
 
+    /**
+     * @var string
+     */
     protected static $ns = 'PhpMyAdmin\\Config\\Forms\\';
 
+    /**
+     * @var array
+     */
     private $_forms;
 
+    /**
+     * @return array
+     */
     public static function getAll()
     {
         return static::$all;
     }
 
+    /**
+     * @param string $name Name
+     * @return bool
+     */
     public static function isValid($name)
     {
         return in_array($name, static::$all);
     }
 
+    /**
+     * @param string $name Name
+     * @return null|string
+     */
     public static function get($name)
     {
         if (static::isValid($name)) {
@@ -47,7 +68,7 @@ class BaseFormList
      */
     public function __construct(ConfigFile $cf)
     {
-        $this->_forms = array();
+        $this->_forms = [];
         foreach (static::$all as $form) {
             $class = static::get($form);
             $this->_forms[] = new $class($cf);

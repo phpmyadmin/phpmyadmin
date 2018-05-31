@@ -11,19 +11,26 @@ namespace PhpMyAdmin\Config\Forms\Setup;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+/**
+ * Class ServersForm
+ * @package PhpMyAdmin\Config\Forms\Setup
+ */
 class ServersForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
-        return array(
-            'Server' => array('Servers' => array(1 => array(
+        return [
+            'Server' => ['Servers' => [1 => [
                 'verbose',
                 'host',
                 'port',
                 'socket',
                 'ssl',
-                'compress'))),
-            'Server_auth' => array('Servers' => array(1 => array(
+                'compress']]],
+            'Server_auth' => ['Servers' => [1 => [
                 'auth_type',
                 ':group:' . __('Config authentication'),
                     'user',
@@ -35,8 +42,8 @@ class ServersForm extends BaseForm
                 ':group:' . __('Signon authentication'),
                     'SignonSession',
                     'SignonURL',
-                    'LogoutURL'))),
-            'Server_config' => array('Servers' => array(1 => array(
+                    'LogoutURL']]],
+            'Server_config' => ['Servers' => [1 => [
                 'only_db',
                 'hide_db',
                 'AllowRoot',
@@ -44,8 +51,8 @@ class ServersForm extends BaseForm
                 'DisableIS',
                 'AllowDeny/order',
                 'AllowDeny/rules',
-                'SessionTimeZone'))),
-            'Server_pmadb' => array('Servers' => array(1 => array(
+                'SessionTimeZone']]],
+            'Server_pmadb' => ['Servers' => [1 => [
                 'pmadb' => 'phpmyadmin',
                 'controlhost',
                 'controlport',
@@ -70,14 +77,14 @@ class ServersForm extends BaseForm
                 'central_columns' => 'pma__central_columns',
                 'designer_settings' => 'pma__designer_settings',
                 'export_templates' => 'pma__export_templates',
-                'MaxTableUiprefs' => 100))),
-            'Server_tracking' => array('Servers' => array(1 => array(
+                'MaxTableUiprefs' => 100]]],
+            'Server_tracking' => ['Servers' => [1 => [
                 'tracking_version_auto_create',
                 'tracking_default_statements',
                 'tracking_add_drop_view',
                 'tracking_add_drop_table',
                 'tracking_add_drop_database',
-            ))),
-        );
+            ]]],
+        ];
     }
 }

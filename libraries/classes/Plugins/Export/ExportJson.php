@@ -116,11 +116,11 @@ class ExportJson extends ExportPlugin
     {
         global $crlf;
 
-        $meta = array(
+        $meta = [
             'type' => 'header',
             'version' => PMA_VERSION,
             'comment' => 'Export to JSON plugin for PHPMyAdmin',
-        );
+        ];
 
         return $this->export->outputHandler(
             '[' . $crlf . $this->encode($meta) . ',' . $crlf
@@ -155,10 +155,10 @@ class ExportJson extends ExportPlugin
             $db_alias = $db;
         }
 
-        $meta = array(
+        $meta = [
             'type' => 'database',
             'name' => $db_alias
-        );
+        ];
 
         return $this->export->outputHandler(
             $this->encode($meta) . ',' . $crlf
@@ -209,7 +209,7 @@ class ExportJson extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -224,12 +224,12 @@ class ExportJson extends ExportPlugin
         }
 
         $buffer = $this->encode(
-            array(
+            [
                 'type' => 'table',
                 'name' => $table_alias,
                 'database' => $db_alias,
                 'data' => "@@DATA@@"
-            )
+            ]
         );
         list($header, $footer) = explode('"@@DATA@@"', $buffer);
 
@@ -244,7 +244,7 @@ class ExportJson extends ExportPlugin
         );
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
 
-        $columns = array();
+        $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $GLOBALS['dbi']->fieldName($result, $i);
             if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
@@ -255,7 +255,6 @@ class ExportJson extends ExportPlugin
 
         $record_cnt = 0;
         while ($record = $GLOBALS['dbi']->fetchRow($result)) {
-
             $record_cnt++;
 
             // Output table name as comment if this is the first record of the table
@@ -265,7 +264,7 @@ class ExportJson extends ExportPlugin
                 }
             }
 
-            $data = array();
+            $data = [];
 
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $data[$columns[$i]] = $record[$i];

@@ -56,20 +56,20 @@ class TableSearchControllerTest extends PmaTestCase
             ->getMock();
         $dbi->types = new Types($dbi);
 
-        $columns =array(
-            array(
+        $columns =[
+            [
                 'Field' => 'Field1',
                 'Type' => 'Type1',
                 'Null' => 'Null1',
                 'Collation' => 'Collation1',
-            ),
-            array(
+            ],
+            [
                 'Field' => 'Field2',
                 'Type' => 'Type2',
                 'Null' => 'Null2',
                 'Collation' => 'Collation2',
-            )
-        );
+            ]
+        ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($columns));
 
@@ -109,7 +109,6 @@ class TableSearchControllerTest extends PmaTestCase
      */
     protected function tearDown()
     {
-
     }
 
     /**
@@ -135,7 +134,11 @@ class TableSearchControllerTest extends PmaTestCase
         $useRegex = false;
         $charSet = "UTF-8";
         $tableSearch->replace(
-            $columnIndex, $find, $replaceWith, $useRegex, $charSet
+            $columnIndex,
+            $find,
+            $replaceWith,
+            $useRegex,
+            $charSet
         );
 
         $sql_query = $GLOBALS['sql_query'];
@@ -193,7 +196,7 @@ class TableSearchControllerTest extends PmaTestCase
             $sql
         );
 
-        $_POST['criteriaValues'] = array(
+        $_POST['criteriaValues'] = [
             'value1',
             'value2',
             'value3',
@@ -201,8 +204,8 @@ class TableSearchControllerTest extends PmaTestCase
             'value5',
             'value6',
             'value7,value8'
-        );
-        $_POST['criteriaColumnNames'] = array(
+        ];
+        $_POST['criteriaColumnNames'] = [
             'name',
             'id',
             'index',
@@ -210,8 +213,8 @@ class TableSearchControllerTest extends PmaTestCase
             'index3',
             'index4',
             'index5',
-        );
-        $_POST['criteriaColumnTypes'] = array(
+        ];
+        $_POST['criteriaColumnTypes'] = [
             'varchar',
             'int',
             'enum',
@@ -219,8 +222,8 @@ class TableSearchControllerTest extends PmaTestCase
             'type2',
             'type3',
             'type4'
-        );
-        $_POST['criteriaColumnCollations'] = array(
+        ];
+        $_POST['criteriaColumnCollations'] = [
             "char1",
             "char2",
             "char3",
@@ -228,8 +231,8 @@ class TableSearchControllerTest extends PmaTestCase
             "char5",
             "char6",
             "char7",
-        );
-        $_POST['criteriaColumnOperators'] = array(
+        ];
+        $_POST['criteriaColumnOperators'] = [
             "!=",
             ">",
             "IS NULL",
@@ -237,7 +240,7 @@ class TableSearchControllerTest extends PmaTestCase
             "REGEXP ^...$",
             "IN (...)",
             "BETWEEN"
-        );
+        ];
 
         $sql = $method->invoke($tableSearch);
         $result = "SELECT DISTINCT *  FROM `PMA` WHERE `name` != 'value1'"
@@ -265,7 +268,8 @@ class TableSearchControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('PhpMyAdmin\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
+            'TableSearchController',
+            'PhpMyAdmin\Controllers\Table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
@@ -300,7 +304,8 @@ class TableSearchControllerTest extends PmaTestCase
         $container = Container::getDefaultContainer();
         $container->factory('\PhpMyAdmin\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
+            'TableSearchController',
+            'PhpMyAdmin\Controllers\Table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
@@ -317,18 +322,18 @@ class TableSearchControllerTest extends PmaTestCase
             $method->invoke($ctrl)
         );
 
-        $_POST['criteriaColumnNames'] = array(
+        $_POST['criteriaColumnNames'] = [
             'b', 'a', 'c', 'd'
-        );
-        $_POST['criteriaColumnOperators'] = array(
+        ];
+        $_POST['criteriaColumnOperators'] = [
             '<=', '=', 'IS NULL', 'IS NOT NULL'
-        );
-        $_POST['criteriaValues'] = array(
+        ];
+        $_POST['criteriaValues'] = [
             '10', '2', '', ''
-        );
-        $_POST['criteriaColumnTypes'] = array(
+        ];
+        $_POST['criteriaColumnTypes'] = [
             'int(11)', 'int(11)', 'int(11)', 'int(11)'
-        );
+        ];
         $result = $method->invoke($ctrl);
         $this->assertEquals(
             ' WHERE `b` <= 10 AND `a` = 2 AND `c` IS NULL AND `d` IS NOT NULL',
@@ -350,9 +355,9 @@ class TableSearchControllerTest extends PmaTestCase
         $meta_two = new stdClass();
         $meta_two->length = 11;
         $meta_two->type = 'int';
-        $fields_meta = array(
+        $fields_meta = [
             $meta_one, $meta_two
-        );
+        ];
         $GLOBALS['dbi']->expects($this->any())->method('getFieldsMeta')
             ->will($this->returnValue($fields_meta));
 
@@ -364,10 +369,10 @@ class TableSearchControllerTest extends PmaTestCase
                         if ($count == 0) {
                             $count++;
 
-                            return array(
+                            return [
                                 'col1' => 1,
                                 'col2' => 2,
-                            );
+                            ];
                         } else {
                             return null;
                         }
@@ -379,17 +384,18 @@ class TableSearchControllerTest extends PmaTestCase
         $container->set('dbi', $GLOBALS['dbi']);
         $container->factory('\PhpMyAdmin\Controllers\Table\TableSearchController');
         $container->alias(
-            'TableSearchController', 'PhpMyAdmin\Controllers\Table\TableSearchController'
+            'TableSearchController',
+            'PhpMyAdmin\Controllers\Table\TableSearchController'
         );
         $ctrl = $container->get('TableSearchController');
 
         $_REQUEST['db'] = 'PMA';
         $_REQUEST['table'] = 'PMA_BookMark';
         $_REQUEST['where_clause'] = '`col1` = 1';
-        $expected = array(
+        $expected = [
             'col1' => 1,
             'col2' => 2
-        );
+        ];
         $ctrl->getDataRowAction();
 
         $json = $this->_response->getJSONResult();

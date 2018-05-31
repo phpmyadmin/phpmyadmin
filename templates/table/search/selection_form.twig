@@ -18,6 +18,7 @@
                 'column_names': column_names,
                 'column_types': column_types,
                 'column_collations': column_collations,
+                'keys' : keys,
                 'criteria_column_names': criteria_column_names,
                 'criteria_column_types': criteria_column_types
             } only %}
@@ -77,7 +78,8 @@
             {% include 'table/search/search_and_replace.twig' with {
                 'column_names': column_names,
                 'column_types': column_types,
-                'sql_types': sql_types
+                'sql_types': sql_types,
+                'types': types
             } only %}
         </fieldset>
     </fieldset>

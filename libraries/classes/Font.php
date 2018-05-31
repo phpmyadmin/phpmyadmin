@@ -25,51 +25,51 @@ class Font
     public function getCharLists(): array
     {
         // list of characters and their width modifiers
-        $charLists = array();
+        $charLists = [];
 
         //ijl
-        $charLists[] = array("chars" => array("i", "j", "l"), "modifier" => 0.23);
+        $charLists[] = ["chars" => ["i", "j", "l"], "modifier" => 0.23];
         //f
-        $charLists[] = array("chars" => array("f"), "modifier" => 0.27);
+        $charLists[] = ["chars" => ["f"], "modifier" => 0.27];
         //tI
-        $charLists[] = array("chars" => array("t", "I"), "modifier" => 0.28);
+        $charLists[] = ["chars" => ["t", "I"], "modifier" => 0.28];
         //r
-        $charLists[] = array("chars" => array("r"), "modifier" => 0.34);
+        $charLists[] = ["chars" => ["r"], "modifier" => 0.34];
         //1
-        $charLists[] = array("chars" => array("1"), "modifier" => 0.49);
+        $charLists[] = ["chars" => ["1"], "modifier" => 0.49];
         //cksvxyzJ
-        $charLists[] = array(
-            "chars" => array("c", "k", "s", "v", "x", "y", "z", "J"),
+        $charLists[] = [
+            "chars" => ["c", "k", "s", "v", "x", "y", "z", "J"],
             "modifier" => 0.5
-        );
+        ];
         //abdeghnopquL023456789
-        $charLists[] = array(
-            "chars" => array(
+        $charLists[] = [
+            "chars" => [
                 "a", "b", "d", "e", "g", "h", "n", "o", "p", "q", "u", "L",
                 "0", "2", "3", "4", "5", "6", "7", "8", "9"
-            ),
+            ],
             "modifier" => 0.56
-        );
+        ];
         //FTZ
-        $charLists[] = array("chars" => array("F", "T", "Z"), "modifier" => 0.61);
+        $charLists[] = ["chars" => ["F", "T", "Z"], "modifier" => 0.61];
         //ABEKPSVXY
-        $charLists[] = array(
-            "chars" => array("A", "B", "E", "K", "P", "S", "V", "X", "Y"),
+        $charLists[] = [
+            "chars" => ["A", "B", "E", "K", "P", "S", "V", "X", "Y"],
             "modifier" => 0.67
-        );
+        ];
         //wCDHNRU
-        $charLists[] = array(
-            "chars" => array("w", "C", "D", "H", "N", "R", "U"),
+        $charLists[] = [
+            "chars" => ["w", "C", "D", "H", "N", "R", "U"],
             "modifier" => 0.73
-        );
+        ];
         //GOQ
-        $charLists[] = array("chars" => array("G", "O", "Q"), "modifier" => 0.78);
+        $charLists[] = ["chars" => ["G", "O", "Q"], "modifier" => 0.78];
         //mM
-        $charLists[] = array("chars" => array("m", "M"), "modifier" => 0.84);
+        $charLists[] = ["chars" => ["m", "M"], "modifier" => 0.84];
         //W
-        $charLists[] = array("chars" => array("W"), "modifier" => 0.95);
+        $charLists[] = ["chars" => ["W"], "modifier" => 0.95];
         //" "
-        $charLists[] = array("chars" => array(" "), "modifier" => 0.28);
+        $charLists[] = ["chars" => [" "], "modifier" => 0.28];
 
         return $charLists;
     }
@@ -123,24 +123,24 @@ class Font
         /*
          * no modifier for arial and sans-serif
          */
-        case 'arial':
-        case 'sans-serif':
-            break;
+            case 'arial':
+            case 'sans-serif':
+                break;
         /*
          * .92 modifier for time, serif, brushscriptstd, and californian fb
          */
-        case 'times':
-        case 'serif':
-        case 'brushscriptstd':
-        case 'californian fb':
-            $modifier = .92;
-            break;
+            case 'times':
+            case 'serif':
+            case 'brushscriptstd':
+            case 'californian fb':
+                $modifier = .92;
+                break;
         /*
          * 1.23 modifier for broadway
          */
-        case 'broadway':
-            $modifier = 1.23;
-            break;
+            case 'broadway':
+                $modifier = 1.23;
+                break;
         }
         $textWidth = $count * $fontSize;
         return (int) ceil($textWidth * $modifier);

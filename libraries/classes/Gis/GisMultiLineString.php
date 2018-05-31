@@ -56,7 +56,7 @@ class GisMultiLineString extends GisGeometry
      */
     public function scaleRow($spatial)
     {
-        $min_max = array();
+        $min_max = [];
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng
@@ -166,7 +166,7 @@ class GisMultiLineString extends GisGeometry
         $red = hexdec(mb_substr($line_color, 1, 2));
         $green = hexdec(mb_substr($line_color, 3, 2));
         $blue = hexdec(mb_substr($line_color, 4, 2));
-        $line = array('width' => 1.5, 'color' => array($red, $green, $blue));
+        $line = ['width' => 1.5, 'color' => [$red, $green, $blue]];
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng
@@ -222,13 +222,13 @@ class GisMultiLineString extends GisGeometry
      */
     public function prepareRowAsSvg($spatial, $label, $line_color, array $scale_data)
     {
-        $line_options = array(
+        $line_options = [
             'name'         => $label,
             'class'        => 'linestring vector',
             'fill'         => 'none',
             'stroke'       => $line_color,
             'stroke-width' => 2,
-        );
+        ];
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $multilinestirng
@@ -274,12 +274,12 @@ class GisMultiLineString extends GisGeometry
      */
     public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
     {
-        $style_options = array(
+        $style_options = [
             'strokeColor' => $line_color,
             'strokeWidth' => 2,
             'label'       => $label,
             'fontSize'    => 10,
-        );
+        ];
         if ($srid == 0) {
             $srid = 4326;
         }
@@ -342,7 +342,8 @@ class GisMultiLineString extends GisGeometry
             $wkt
                 = mb_substr(
                     $wkt,
-                    0, mb_strlen($wkt) - 1
+                    0,
+                    mb_strlen($wkt) - 1
                 );
             $wkt .= '),';
         }
@@ -403,7 +404,7 @@ class GisMultiLineString extends GisGeometry
      */
     public function generateParams($value, $index = -1)
     {
-        $params = array();
+        $params = [];
         if ($index == -1) {
             $index = 0;
             $data = GisGeometry::generateParams($value);

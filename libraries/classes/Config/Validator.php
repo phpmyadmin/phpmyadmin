@@ -45,7 +45,7 @@ class Validator
             return $validators;
         }
 
-        $validators = $cf->getDbEntry('_validators', array());
+        $validators = $cf->getDbEntry('_validators', []);
         if ($GLOBALS['PMA_Config']->get('is_setup')) {
             return $validators;
         }
@@ -54,7 +54,7 @@ class Validator
         // preferences we need original config values not overwritten
         // by user preferences, creating a new PhpMyAdmin\Config instance is a
         // better idea than hacking into its code
-        $uvs = $cf->getDbEntry('_userValidators', array());
+        $uvs = $cf->getDbEntry('_userValidators', []);
         foreach ($uvs as $field => $uv_list) {
             $uv_list = (array)$uv_list;
             foreach ($uv_list as &$uv) {
@@ -95,12 +95,15 @@ class Validator
      * @return bool|array
      */
     public static function validate(
-        ConfigFile $cf, $validator_id, array &$values, $isPostSource
+        ConfigFile $cf,
+        $validator_id,
+        array &$values,
+        $isPostSource
     ) {
         // find validators
         $validator_id = (array) $validator_id;
         $validators = static::getValidators($cf);
-        $vids = array();
+        $vids = [];
         foreach ($validator_id as &$vid) {
             $vid = $cf->getCanonicalPath($vid);
             if (isset($validators[$vid])) {
@@ -112,8 +115,8 @@ class Validator
         }
 
         // create argument list with canonical paths and remember path mapping
-        $arguments = array();
-        $key_map = array();
+        $arguments = [];
+        $key_map = [];
         foreach ($values as $k => $v) {
             $k2 = $isPostSource ? str_replace('-', '/', $k) : $k;
             $k2 = mb_strpos($k2, '/')
@@ -124,14 +127,14 @@ class Validator
         }
 
         // validate
-        $result = array();
+        $result = [];
         foreach ($vids as $vid) {
             // call appropriate validation functions
             foreach ((array)$validators[$vid] as $validator) {
                 $vdef = (array) $validator;
                 $vname = array_shift($vdef);
                 $vname = 'PhpMyAdmin\Config\Validator::' . $vname;
-                $args = array_merge(array($vid, &$arguments), $vdef);
+                $args = array_merge([$vid, &$arguments], $vdef);
                 $r = call_user_func_array($vname, $args);
 
                 // merge results
@@ -145,17 +148,18 @@ class Validator
                         continue;
                     }
                     if (! isset($result[$key])) {
-                        $result[$key] = array();
+                        $result[$key] = [];
                     }
                     $result[$key] = array_merge(
-                        $result[$key], (array)$error_list
+                        $result[$key],
+                        (array)$error_list
                     );
                 }
             }
         }
 
         // restore original paths
-        $new_result = array();
+        $new_result = [];
         foreach ($result as $k => $v) {
             $k2 = isset($key_map[$k]) ? $key_map[$k] : $k;
             $new_result[$k2] = $v;
@@ -224,7 +228,7 @@ class Validator
         if (! is_null($error)) {
             $error .= ' - ' . error_get_last();
         }
-        return is_null($error) ? true : array($error_key => $error);
+        return is_null($error) ? true : [$error_key => $error];
     }
 
     /**
@@ -239,12 +243,12 @@ class Validator
      */
     public static function validateServer($path, array $values)
     {
-        $result = array(
+        $result = [
             'Server' => '',
             'Servers/1/user' => '',
             'Servers/1/SignonSession' => '',
             'Servers/1/SignonURL' => ''
-        );
+        ];
         $error = false;
         if (empty($values['Servers/1/auth_type'])) {
             $values['Servers/1/auth_type'] = '';
@@ -311,18 +315,18 @@ class Validator
      */
     public static function validatePMAStorage($path, array $values)
     {
-        $result = array(
+        $result = [
             'Server_pmadb' => '',
             'Servers/1/controluser' => '',
             'Servers/1/controlpass' => ''
-        );
+        ];
         $error = false;
 
         if (empty($values['Servers/1/pmadb'])) {
             return $result;
         }
 
-        $result = array();
+        $result = [];
         if (empty($values['Servers/1/controluser'])) {
             $result['Servers/1/controluser'] = __(
                 'Empty phpMyAdmin control user while using phpMyAdmin configuration '
@@ -364,7 +368,7 @@ class Validator
      */
     public static function validateRegex($path, array $values)
     {
-        $result = array($path => '');
+        $result = [$path => ''];
 
         if (empty($values[$path])) {
             return $result;
@@ -381,7 +385,7 @@ class Validator
             $last_error = error_get_last();
         }
 
-        $matches = array();
+        $matches = [];
         // in libraries/ListDatabase.php _checkHideDatabase(),
         // a '/' is used as the delimiter for hide_db
         @preg_match('/' . Util::requestString($values[$path]) . '/', '', $matches);
@@ -390,7 +394,7 @@ class Validator
 
         if ($current_error !== $last_error) {
             $error = preg_replace('/^preg_match\(\): /', '', $current_error['message']);
-            return array($path => $error);
+            return [$path => $error];
         }
 
         return $result;
@@ -406,7 +410,7 @@ class Validator
      */
     public static function validateTrustedProxies($path, array $values)
     {
-        $result = array($path => array());
+        $result = [$path => []];
 
         if (empty($values[$path])) {
             return $result;
@@ -414,7 +418,7 @@ class Validator
 
         if (is_array($values[$path]) || is_object($values[$path])) {
             // value already processed by FormDisplay::save
-            $lines = array();
+            $lines = [];
             foreach ($values[$path] as $ip => $v) {
                 $v = Util::requestString($v);
                 $lines[] = preg_match('/^-\d+$/', $ip)
@@ -427,7 +431,7 @@ class Validator
         }
         foreach ($lines as $line) {
             $line = trim($line);
-            $matches = array();
+            $matches = [];
             // we catch anything that may (or may not) be an IP
             if (!preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
                 $result[$path][] = __('Incorrect value:') . ' '
@@ -494,7 +498,7 @@ class Validator
      */
     public static function validatePortNumber($path, array $values)
     {
-        return array(
+        return [
             $path => static::validateNumber(
                 $path,
                 $values,
@@ -503,7 +507,7 @@ class Validator
                 65535,
                 __('Not a valid port number!')
             )
-        );
+        ];
     }
 
     /**
@@ -516,7 +520,7 @@ class Validator
      */
     public static function validatePositiveNumber($path, array $values)
     {
-        return array(
+        return [
             $path => static::validateNumber(
                 $path,
                 $values,
@@ -525,7 +529,7 @@ class Validator
                 PHP_INT_MAX,
                 __('Not a positive number!')
             )
-        );
+        ];
     }
 
     /**
@@ -538,7 +542,7 @@ class Validator
      */
     public static function validateNonNegativeNumber($path, array $values)
     {
-        return array(
+        return [
             $path => static::validateNumber(
                 $path,
                 $values,
@@ -547,7 +551,7 @@ class Validator
                 PHP_INT_MAX,
                 __('Not a non-negative number!')
             )
-        );
+        ];
     }
 
     /**
@@ -566,7 +570,7 @@ class Validator
             return '';
         }
         $result = preg_match($regex, Util::requestString($values[$path]));
-        return array($path => ($result ? '' : __('Incorrect value!')));
+        return [$path => ($result ? '' : __('Incorrect value!'))];
     }
 
     /**
@@ -581,7 +585,7 @@ class Validator
     public static function validateUpperBound($path, array $values, $max_value)
     {
         $result = $values[$path] <= $max_value;
-        return array($path => ($result ? ''
-            : sprintf(__('Value must be equal or lower than %s!'), $max_value)));
+        return [$path => ($result ? ''
+            : sprintf(__('Value must be equal or lower than %s!'), $max_value))];
     }
 }

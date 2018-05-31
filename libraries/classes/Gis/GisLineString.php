@@ -64,7 +64,7 @@ class GisLineString extends GisGeometry
                 mb_strlen($spatial) - 12
             );
 
-        return $this->setMinMax($linestring, array());
+        return $this->setMinMax($linestring, []);
     }
 
     /**
@@ -151,7 +151,7 @@ class GisLineString extends GisGeometry
         $red = hexdec(mb_substr($line_color, 1, 2));
         $green = hexdec(mb_substr($line_color, 3, 2));
         $blue = hexdec(mb_substr($line_color, 4, 2));
-        $line = array('width' => 1.5, 'color' => array($red, $green, $blue));
+        $line = ['width' => 1.5, 'color' => [$red, $green, $blue]];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting
@@ -200,14 +200,14 @@ class GisLineString extends GisGeometry
      */
     public function prepareRowAsSvg($spatial, $label, $line_color, array $scale_data)
     {
-        $line_options = array(
+        $line_options = [
             'name'         => $label,
             'id'           => $label . rand(),
             'class'        => 'linestring vector',
             'fill'         => 'none',
             'stroke'       => $line_color,
             'stroke-width' => 2,
-        );
+        ];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting
@@ -246,12 +246,12 @@ class GisLineString extends GisGeometry
      */
     public function prepareRowAsOl($spatial, $srid, $label, $line_color, array $scale_data)
     {
-        $style_options = array(
+        $style_options = [
             'strokeColor' => $line_color,
             'strokeWidth' => 2,
             'label'       => $label,
             'fontSize'    => 10,
-        );
+        ];
         if ($srid == 0) {
             $srid = 4326;
         }
@@ -322,7 +322,7 @@ class GisLineString extends GisGeometry
      */
     public function generateParams($value, $index = -1)
     {
-        $params = array();
+        $params = [];
         if ($index == -1) {
             $index = 0;
             $data = GisGeometry::generateParams($value);

@@ -21,6 +21,9 @@ use PhpMyAdmin\Util;
  */
 class DatabaseInterfaceTest extends PmaTestCase
 {
+    /**
+     * @var DatabaseInterface
+     */
     private $_dbi;
 
     /**
@@ -37,6 +40,10 @@ class DatabaseInterfaceTest extends PmaTestCase
 
     /**
      * Tests for DBI::getCurrentUser() method.
+     *
+     * @param array  $value    value
+     * @param string $string   string
+     * @param array  $expected expected result
      *
      * @return void
      * @test
@@ -69,11 +76,11 @@ class DatabaseInterfaceTest extends PmaTestCase
      */
     public function currentUserData()
     {
-        return array(
-            array(array(array('pma@localhost')), 'pma@localhost', array('pma', 'localhost')),
-            array(array(array('@localhost')), '@localhost', array('', 'localhost')),
-            array(false, '@', array('', '')),
-        );
+        return [
+            [[['pma@localhost']], 'pma@localhost', ['pma', 'localhost']],
+            [[['@localhost']], '@localhost', ['', 'localhost']],
+            [false, '@', ['', '']],
+        ];
     }
 
     /**
@@ -92,11 +99,11 @@ class DatabaseInterfaceTest extends PmaTestCase
             ->method('realQuery')
             ->will($this->returnValue(true));
 
-        $meta1 = new FieldMeta();
+        $meta1 = new \stdClass();
         $meta1->table = "meta1_table";
         $meta1->name = "meta1_name";
 
-        $meta2 = new FieldMeta();
+        $meta2 = new \stdClass();
         $meta2->table = "meta2_table";
         $meta2->name = "meta2_name";
 
@@ -104,37 +111,38 @@ class DatabaseInterfaceTest extends PmaTestCase
             ->method('getFieldsMeta')
             ->will(
                 $this->returnValue(
-                    array(
+                    [
                         $meta1, $meta2
-                    )
+                    ]
                 )
             );
 
         $dbi = new DatabaseInterface($extension);
 
         $sql_query = "PMA_sql_query";
-        $view_columns = array(
+        $view_columns = [
             "view_columns1", "view_columns2"
-        );
+        ];
 
         $column_map = $dbi->getColumnMapFromSql(
-            $sql_query, $view_columns
+            $sql_query,
+            $view_columns
         );
 
         $this->assertEquals(
-            array(
+            [
                 'table_name' => 'meta1_table',
                 'refering_column' => 'meta1_name',
                 'real_column' => 'view_columns1'
-            ),
+            ],
             $column_map[0]
         );
         $this->assertEquals(
-            array(
+            [
                 'table_name' => 'meta2_table',
                 'refering_column' => 'meta2_name',
                 'real_column' => 'view_columns2'
-            ),
+            ],
             $column_map[1]
         );
     }
@@ -160,7 +168,7 @@ class DatabaseInterfaceTest extends PmaTestCase
     public function testPostConnectControl()
     {
         $GLOBALS['db'] = '';
-        $GLOBALS['cfg']['Server']['only_db'] = array();
+        $GLOBALS['cfg']['Server']['only_db'] = [];
         $this->_dbi->postConnectControl();
         $this->assertInstanceOf('PhpMyAdmin\Database\DatabaseList', $GLOBALS['dblist']);
     }
@@ -228,38 +236,38 @@ class DatabaseInterfaceTest extends PmaTestCase
      */
     public function connectionParams()
     {
-        $cfg_basic = array(
+        $cfg_basic = [
             'user' => 'u',
             'password' => 'pass',
             'host' => '',
             'controluser' => 'u2',
             'controlpass' => 'p2',
-        );
-        $cfg_ssl = array(
+        ];
+        $cfg_ssl = [
             'user' => 'u',
             'password' => 'pass',
             'host' => '',
             'ssl' => true,
             'controluser' => 'u2',
             'controlpass' => 'p2',
-        );
-        $cfg_control_ssl = array(
+        ];
+        $cfg_control_ssl = [
             'user' => 'u',
             'password' => 'pass',
             'host' => '',
             'control_ssl' => true,
             'controluser' => 'u2',
             'controlpass' => 'p2',
-        );
-        return array(
-            array(
+        ];
+        return [
+            [
                 $cfg_basic,
                 DatabaseInterface::CONNECT_USER,
                 null,
-                array(
+                [
                     'u',
                     'pass',
-                    array(
+                    [
                         'user' => 'u',
                         'password' => 'pass',
                         'host' => 'localhost',
@@ -269,33 +277,33 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'compress' => false,
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
-                    )
-                ),
-            ),
-            array(
+                    ]
+                ],
+            ],
+            [
                 $cfg_basic,
                 DatabaseInterface::CONNECT_CONTROL,
                 null,
-                array(
+                [
                     'u2',
                     'p2',
-                    array(
+                    [
                         'host' => 'localhost',
                         'socket' => null,
                         'port' => 0,
                         'ssl' => false,
                         'compress' => false,
-                    )
-                ),
-            ),
-            array(
+                    ]
+                ],
+            ],
+            [
                 $cfg_ssl,
                 DatabaseInterface::CONNECT_USER,
                 null,
-                array(
+                [
                     'u',
                     'pass',
-                    array(
+                    [
                         'user' => 'u',
                         'password' => 'pass',
                         'host' => 'localhost',
@@ -305,33 +313,33 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'compress' => false,
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
-                    )
-                ),
-            ),
-            array(
+                    ]
+                ],
+            ],
+            [
                 $cfg_ssl,
                 DatabaseInterface::CONNECT_CONTROL,
                 null,
-                array(
+                [
                     'u2',
                     'p2',
-                    array(
+                    [
                         'host' => 'localhost',
                         'socket' => null,
                         'port' => 0,
                         'ssl' => true,
                         'compress' => false,
-                    )
-                ),
-            ),
-            array(
+                    ]
+                ],
+            ],
+            [
                 $cfg_control_ssl,
                 DatabaseInterface::CONNECT_USER,
                 null,
-                array(
+                [
                     'u',
                     'pass',
-                    array(
+                    [
                         'user' => 'u',
                         'password' => 'pass',
                         'host' => 'localhost',
@@ -342,26 +350,26 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
                         'control_ssl' => true,
-                    )
-                ),
-            ),
-            array(
+                    ]
+                ],
+            ],
+            [
                 $cfg_control_ssl,
                 DatabaseInterface::CONNECT_CONTROL,
                 null,
-                array(
+                [
                     'u2',
                     'p2',
-                    array(
+                    [
                         'host' => 'localhost',
                         'socket' => null,
                         'port' => 0,
                         'ssl' => true,
                         'compress' => false,
-                    )
-                ),
-            ),
-        );
+                    ]
+                ],
+            ],
+        ];
     }
 
     /**
@@ -370,6 +378,8 @@ class DatabaseInterfaceTest extends PmaTestCase
      * @param int    $error_number  Error code
      * @param string $error_message Error message as returned by server
      * @param string $match         Expected text
+     *
+     * @return void
      *
      * @dataProvider errorData
      */
@@ -381,20 +391,26 @@ class DatabaseInterfaceTest extends PmaTestCase
         );
     }
 
+    /**
+     * @return array
+     */
     public function errorData()
     {
-        return array(
-            array(2002, 'msg', 'The server is not responding'),
-            array(2003, 'msg', 'The server is not responding'),
-            array(1698, 'msg', 'logout.php'),
-            array(1005, 'msg', 'server_engines.php'),
-            array(1005, 'errno: 13', 'Please check privileges'),
-            array(-1, 'error message', 'error message'),
-        );
+        return [
+            [2002, 'msg', 'The server is not responding'],
+            [2003, 'msg', 'The server is not responding'],
+            [1698, 'msg', 'logout.php'],
+            [1005, 'msg', 'server_engines.php'],
+            [1005, 'errno: 13', 'Please check privileges'],
+            [-1, 'error message', 'error message'],
+        ];
     }
 
     /**
      * Tests for DBI::isAmazonRds() method.
+     *
+     * @param mixed $value    value
+     * @param mixed $expected expected result
      *
      * @return void
      * @test
@@ -422,12 +438,12 @@ class DatabaseInterfaceTest extends PmaTestCase
      */
     public function isAmazonRdsData()
     {
-        return array(
-            array(array(array('/usr')), false),
-            array(array(array('E:/mysql')), false),
-            array(array(array('/rdsdbbin/mysql/')), true),
-            array(array(array('/rdsdbbin/mysql-5.7.18/')), true),
-        );
+        return [
+            [[['/usr']], false],
+            [[['E:/mysql']], false],
+            [[['/rdsdbbin/mysql/']], true],
+            [[['/rdsdbbin/mysql-5.7.18/']], true],
+        ];
     }
 
     /**
@@ -450,14 +466,17 @@ class DatabaseInterfaceTest extends PmaTestCase
         $this->assertEquals($upgrade, $ver_int < $GLOBALS['cfg']['MysqlMinVersion']['internal']);
     }
 
+    /**
+     * @return array
+     */
     public function versionData()
     {
-        return array(
-            array('5.0.5', 50005, 5, true),
-            array('5.05.01', 50501, 5, false),
-            array('5.6.35', 50635, 5, false),
-            array('10.1.22-MariaDB-', 100122, 10, false),
-        );
+        return [
+            ['5.0.5', 50005, 5, true],
+            ['5.05.01', 50501, 5, false],
+            ['5.6.35', 50635, 5, false],
+            ['10.1.22-MariaDB-', 100122, 10, false],
+        ];
     }
 
     /**
@@ -477,10 +496,10 @@ class DatabaseInterfaceTest extends PmaTestCase
         $extension->expects($this->exactly(4))
             ->method('realQuery')
             ->withConsecutive(
-                array("SET collation_connection = 'utf8_czech_ci';"),
-                array("SET collation_connection = 'utf8mb4_bin_ci';"),
-                array("SET collation_connection = 'utf8_czech_ci';"),
-                array("SET collation_connection = 'utf8_bin_ci';")
+                ["SET collation_connection = 'utf8_czech_ci';"],
+                ["SET collation_connection = 'utf8mb4_bin_ci';"],
+                ["SET collation_connection = 'utf8_czech_ci';"],
+                ["SET collation_connection = 'utf8_bin_ci';"]
             )
             ->willReturnOnConsecutiveCalls(
                 true,
@@ -498,15 +517,4 @@ class DatabaseInterfaceTest extends PmaTestCase
         $dbi->setCollation('utf8_czech_ci');
         $dbi->setCollation('utf8mb4_bin_ci');
     }
-}
-
-/**
- * class for Table Field Meta
- *
- * @package PhpMyAdmin-test
- */
-class FieldMeta
-{
-    public $table;
-    public $name;
 }

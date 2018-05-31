@@ -30,7 +30,7 @@ class ExportPdfTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -167,14 +167,13 @@ class ExportPdfTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            array(
+            [
                 'structure' => __('structure'),
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data')
-            ),
+            ],
             $property->getValues()
         );
-
     }
 
     /**
@@ -279,11 +278,11 @@ class ExportPdfTest extends PmaTestCase
         $pdf->expects($this->once())
             ->method('setAttributes')
             ->with(
-                array(
+                [
                     'currentDb' => 'db', 'currentTable' => 'table',
                     'dbAlias' => 'db', 'tableAlias' => 'table',
-                    'aliases' => array()
-                )
+                    'aliases' => []
+                ]
             );
 
         $pdf->expects($this->once())
@@ -296,7 +295,11 @@ class ExportPdfTest extends PmaTestCase
 
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", "phpmyadmin.net/err", 'SELECT'
+                'db',
+                'table',
+                "\n",
+                "phpmyadmin.net/err",
+                'SELECT'
             )
         );
     }

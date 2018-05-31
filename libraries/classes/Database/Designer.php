@@ -25,15 +25,23 @@ use PhpMyAdmin\Util;
 class Designer
 {
     /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
      * @var Relation $relation
      */
     private $relation;
 
     /**
-     * Constructor
+     * Designer constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
      */
-    public function __construct()
+    public function __construct(DatabaseInterface $dbi)
     {
+        $this->dbi = $dbi;
         $this->relation = new Relation();
     }
 
@@ -86,7 +94,7 @@ class Designer
         $page_query = "SELECT `page_nr`, `page_descr` FROM "
             . Util::backquote($cfgRelation['db']) . "."
             . Util::backquote($cfgRelation['pdf_pages'])
-            . " WHERE db_name = '" . $GLOBALS['dbi']->escapeString($db) . "'"
+            . " WHERE db_name = '" . $this->dbi->escapeString($db) . "'"
             . " ORDER BY `page_descr`";
         $page_rs = $this->relation->queryAsControlUser(
             $page_query,
@@ -95,7 +103,7 @@ class Designer
         );
 
         $result = [];
-        while ($curr_page = $GLOBALS['dbi']->fetchAssoc($page_rs)) {
+        while ($curr_page = $this->dbi->fetchAssoc($page_rs)) {
             $result[intval($curr_page['page_nr'])] = $curr_page['page_descr'];
         }
         return $result;
@@ -202,9 +210,9 @@ class Designer
                 . ' WHERE ' . Util::backquote('username') . ' = "'
                 . $GLOBALS['cfg']['Server']['user'] . '";';
 
-            $result = $GLOBALS['dbi']->fetchSingleRow($query);
+            $result = $this->dbi->fetchSingleRow($query);
 
-            $params = json_decode($result['settings_data'], true);
+            $params = json_decode((string)$result['settings_data'], true);
         }
 
         return $params;
@@ -320,6 +328,32 @@ class Designer
         array $tables_all_keys,
         array $tables_pk_or_unique_keys
     ) {
+        $table_names = $GLOBALS['designer']['TABLE_NAME'];
+        $columns_type = [];
+        foreach ($table_names as $table_name) {
+            $limit = count($tab_column[$table_name]['COLUMN_ID']);
+            for ($j = 0; $j < $limit; $j++) {
+                $table_column_name = $table_name . '.' . $tab_column[$table_name]['COLUMN_NAME'][$j];
+                if (isset($tables_pk_or_unique_keys[$table_column_name])) {
+                    $columns_type[$table_column_name] = 'designer/FieldKey_small';
+                } else {
+                    $columns_type[$table_column_name] = 'designer/Field_small';
+                    if (strstr($tab_column[$table_name]['TYPE'][$j], 'char')
+                        || strstr($tab_column[$table_name]['TYPE'][$j], 'text')) {
+                        $columns_type[$table_column_name] .= '_char';
+                    } elseif (strstr($tab_column[$table_name]['TYPE'][$j], 'int')
+                        || strstr($tab_column[$table_name]['TYPE'][$j], 'float')
+                        || strstr($tab_column[$table_name]['TYPE'][$j], 'double')
+                        || strstr($tab_column[$table_name]['TYPE'][$j], 'decimal')) {
+                        $columns_type[$table_column_name] .= '_int';
+                    } elseif (strstr($tab_column[$table_name]['TYPE'][$j], 'date')
+                        || strstr($tab_column[$table_name]['TYPE'][$j], 'time')
+                        || strstr($tab_column[$table_name]['TYPE'][$j], 'year')) {
+                        $columns_type[$table_column_name] .= '_date';
+                    }
+                }
+            }
+        }
         return Template::get('database/designer/database_tables')->render([
             'db' => $GLOBALS['db'],
             'get_db' => $_GET['db'],
@@ -329,13 +363,14 @@ class Designer
             'tab_column' => $tab_column,
             'tables_all_keys' => $tables_all_keys,
             'tables_pk_or_unique_keys' => $tables_pk_or_unique_keys,
-            'table_names' => $GLOBALS['designer']['TABLE_NAME'],
+            'table_names' => $table_names,
             'table_names_url' => $GLOBALS['designer_url']['TABLE_NAME'],
             'table_names_small' => $GLOBALS['designer']['TABLE_NAME_SMALL'],
             'table_names_small_url' => $GLOBALS['designer_url']['TABLE_NAME_SMALL'],
             'table_names_small_out' => $GLOBALS['designer_out']['TABLE_NAME_SMALL'],
             'table_types' => $GLOBALS['designer']['TABLE_TYPE'],
             'owner_out' => $GLOBALS['designer_out']['OWNER'],
+            'columns_type' => $columns_type,
             'theme' => $GLOBALS['PMA_Theme'],
         ]);
     }

@@ -19,6 +19,9 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class XSSTest extends TestBase
 {
+    /**
+     * @return void
+     */
     public function setUpPage()
     {
         parent::setUpPage();

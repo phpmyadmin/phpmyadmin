@@ -15,7 +15,6 @@ use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\IndexExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PartitionExtension;
-use PhpMyAdmin\Twig\PhpFunctionsExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
 use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
@@ -48,7 +47,7 @@ class Template
      */
     static protected $twig;
 
-    const BASE_PATH = 'templates/';
+    public const BASE_PATH = 'templates/';
 
     /**
      * Template constructor
@@ -66,18 +65,17 @@ class Template
             if (is_null($cache_dir)) {
                 $cache_dir = false;
             }
-            $twig = new Environment($loader, array(
+            $twig = new Environment($loader, [
                 'auto_reload' => true,
                 'cache' => $cache_dir,
                 'debug' => false,
-            ));
+            ]);
             $twig->addExtension(new CharsetsExtension());
             $twig->addExtension(new CoreExtension());
             $twig->addExtension(new I18nExtension());
             $twig->addExtension(new IndexExtension());
             $twig->addExtension(new MessageExtension());
             $twig->addExtension(new PartitionExtension());
-            $twig->addExtension(new PhpFunctionsExtension());
             $twig->addExtension(new PluginsExtension());
             $twig->addExtension(new RelationExtension());
             $twig->addExtension(new SanitizeExtension());
@@ -111,7 +109,7 @@ class Template
      *
      * @return string
      */
-    public function render(array $data = array())
+    public function render(array $data = [])
     {
         try {
             $template = $this::$twig->load($this->name . '.twig');

@@ -63,6 +63,12 @@ class Bookmark
      */
     private $user;
 
+    /**
+     * Bookmark constructor.
+     *
+     * @param DatabaseInterface $dbi  DatabaseInterface object
+     * @param string            $user Current user
+     */
     public function __construct(DatabaseInterface $dbi, string $user)
     {
         $this->dbi = $dbi;
@@ -76,7 +82,7 @@ class Bookmark
      */
     public function getId(): int
     {
-        return $this->_id;
+        return (int)$this->_id;
     }
 
     /**
@@ -170,7 +176,7 @@ class Bookmark
      */
     public function getVariableCount(): int
     {
-        $matches = array();
+        $matches = [];
         preg_match_all("/\[VARIABLE[0-9]*\]/", $this->_query, $matches, PREG_SET_ORDER);
         return count($matches);
     }
@@ -209,6 +215,8 @@ class Bookmark
     /**
      * Defines the bookmark parameters for the current user
      *
+     * @param string $user Current user
+     *
      * @return array|bool the bookmark parameters for the current user
      * @access  public
      */
@@ -223,11 +231,11 @@ class Bookmark
         $relation = new Relation();
         $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
-            $cfgBookmark = array(
+            $cfgBookmark = [
                 'user'  => $user,
                 'db'    => $cfgRelation['db'],
                 'table' => $cfgRelation['bookmark'],
-            );
+            ];
         } else {
             $cfgBookmark = false;
         }
@@ -238,10 +246,12 @@ class Bookmark
     /**
      * Creates a Bookmark object from the parameters
      *
-     * @param array   $bkm_fields the properties of the bookmark to add; here,
-     *                            $bkm_fields['bkm_sql_query'] is urlencoded
-     * @param boolean $all_users  whether to make the bookmark available
-     *                            for all users
+     * @param DatabaseInterface $dbi        DatabaseInterface object
+     * @param string            $user       Current user
+     * @param array             $bkm_fields the properties of the bookmark to add; here,
+     *                                      $bkm_fields['bkm_sql_query'] is urlencoded
+     * @param boolean           $all_users  whether to make the bookmark
+     *                                      available for all users
      *
      * @return Bookmark|false
      */
@@ -271,7 +281,9 @@ class Bookmark
     /**
      * Gets the list of bookmarks defined for the current database
      *
-     * @param string|bool $db the current database name or false
+     * @param DatabaseInterface $dbi  DatabaseInterface object
+     * @param string            $user Current user
+     * @param string|bool       $db   the current database name or false
      *
      * @return Bookmark[] the bookmarks list
      *
@@ -284,7 +296,7 @@ class Bookmark
     ): array {
         $cfgBookmark = self::getParams($user);
         if (empty($cfgBookmark)) {
-            return array();
+            return [];
         }
 
         $query = "SELECT * FROM " . Util::backquote($cfgBookmark['db'])
@@ -305,7 +317,7 @@ class Bookmark
         );
 
         if (! empty($result)) {
-            $bookmarks = array();
+            $bookmarks = [];
             foreach ($result as $row) {
                 $bookmark = new Bookmark($dbi, $user);
                 $bookmark->_id = $row['id'];
@@ -319,18 +331,20 @@ class Bookmark
             return $bookmarks;
         }
 
-        return array();
+        return [];
     }
 
     /**
      * Retrieve a specific bookmark
      *
-     * @param string  $db                  the current database name
-     * @param mixed   $id                  an identifier of the bookmark to get
-     * @param string  $id_field            which field to look up the identifier
-     * @param boolean $action_bookmark_all true: get all bookmarks regardless
-     *                                     of the owning user
-     * @param boolean $exact_user_match    whether to ignore bookmarks with no user
+     * @param DatabaseInterface $dbi                 DatabaseInterface object
+     * @param string            $user                Current user
+     * @param string            $db                  the current database name
+     * @param mixed             $id                  an identifier of the bookmark to get
+     * @param string            $id_field            which field to look up the identifier
+     * @param boolean           $action_bookmark_all true: get all bookmarks regardless
+     *                                               of the owning user
+     * @param boolean           $exact_user_match    whether to ignore bookmarks with no user
      *
      * @return Bookmark the bookmark
      *

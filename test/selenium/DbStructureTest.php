@@ -24,7 +24,7 @@ class DbStructureTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->dbQuery(
@@ -114,6 +114,5 @@ class DbStructureTest extends TestBase
 
         $result = $this->dbQuery("SHOW TABLES;");
         $this->assertEquals(0, $result->num_rows);
-
     }
 }

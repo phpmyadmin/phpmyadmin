@@ -47,7 +47,7 @@ abstract class SchemaPlugin
      *
      * @return void
      */
-    protected abstract function setProperties();
+    abstract protected function setProperties();
 
     /**
      * Exports the schema into the specified format.
@@ -56,7 +56,7 @@ abstract class SchemaPlugin
      *
      * @return bool Whether it succeeded
      */
-    public abstract function exportSchema($db);
+    abstract public function exportSchema($db);
 
     /**
      * Adds export options common to all plugins.
@@ -80,7 +80,7 @@ abstract class SchemaPlugin
      */
     protected function getPaperSizeArray()
     {
-        $ret = array();
+        $ret = [];
         foreach ($GLOBALS['cfg']['PDFPageSizes'] as $val) {
             $ret[$val] = $val;
         }

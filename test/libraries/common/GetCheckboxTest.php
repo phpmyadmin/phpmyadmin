@@ -8,6 +8,9 @@
  */
 declare(strict_types=1);
 
+namespace PhpMyAdmin\Tests;
+
+use PhpMyAdmin\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,14 +19,14 @@ use PHPUnit\Framework\TestCase;
  * @package PhpMyAdmin-test
  * @group common.lib-tests
  */
-class PMA_GetCheckboxTest extends TestCase
+class GetCheckboxTest extends TestCase
 {
     /**
      * Test for checkbox.phtml
      *
      * @return void
      */
-    function testGetCheckbox()
+    public function testGetCheckbox()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
@@ -31,15 +34,15 @@ class PMA_GetCheckboxTest extends TestCase
         // assertXmlStringEqualsXmlString require both inputs to be a valid xml string
         // dummy <root> tag will make input a valid xml string
         $this->assertXmlStringEqualsXmlString(
-            '<root> ' . PhpMyAdmin\Template::get('checkbox')
+            '<root> ' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => false,
                     'onclick'           => false,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . ' </root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" /><label for="' . $name . '">' . $label
@@ -52,21 +55,21 @@ class PMA_GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckboxChecked()
+    public function testGetCheckboxChecked()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
 
         $this->assertXmlStringEqualsXmlString(
-            '<root>' . PhpMyAdmin\Template::get('checkbox')
+            '<root>' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => true,
                     'onclick'           => false,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . '</root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" checked="checked" /><label for="' . $name . '">' . $label
@@ -79,21 +82,21 @@ class PMA_GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckboxOnclick()
+    public function testGetCheckboxOnclick()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
 
         $this->assertXmlStringEqualsXmlString(
-            '<root>' . PhpMyAdmin\Template::get('checkbox')
+            '<root>' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => false,
                     'onclick'           => true,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . '</root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" class="autosubmit" /><label for="' . $name . '">' . $label
@@ -106,21 +109,21 @@ class PMA_GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckboxCheckedOnclick()
+    public function testGetCheckboxCheckedOnclick()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
 
         $this->assertXmlStringEqualsXmlString(
-            '<root>' . PhpMyAdmin\Template::get('checkbox')
+            '<root>' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => true,
                     'onclick'           => true,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . '</root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" checked="checked" class="autosubmit" /><label for="' . $name

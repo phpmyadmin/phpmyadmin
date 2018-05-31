@@ -42,9 +42,9 @@ if (isset($_REQUEST['index'])) {
     $index = new Index;
 }
 
-$dependency_definitions = array(
+$dependency_definitions = [
     "index" => $index
-);
+];
 
 /** @var TableIndexesController $controller */
 $controller = $container->get('TableIndexesController', $dependency_definitions);

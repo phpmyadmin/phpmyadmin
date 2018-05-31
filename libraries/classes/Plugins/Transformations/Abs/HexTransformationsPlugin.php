@@ -42,7 +42,7 @@ abstract class HexTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         // possibly use a global transform and feed it with special options
         $cfg = $GLOBALS['cfg'];

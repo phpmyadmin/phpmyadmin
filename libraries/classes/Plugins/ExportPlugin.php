@@ -119,7 +119,7 @@ abstract class ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     );
 
     /**
@@ -135,7 +135,7 @@ abstract class ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportRoutines($db, array $aliases = array())
+    public function exportRoutines($db, array $aliases = [])
     {
         ;
     }
@@ -185,7 +185,7 @@ abstract class ExportPlugin
         $comments = false,
         $mime = false,
         $dates = false,
-        array $aliases = array()
+        array $aliases = []
     ) {
         ;
     }
@@ -217,7 +217,7 @@ abstract class ExportPlugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $crlf, $aliases = array())
+    public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
     {
         ;
     }
@@ -306,9 +306,9 @@ abstract class ExportPlugin
     public function getAlias(array $aliases, $id, $type = 'dbtblcol', $db = '', $tbl = '')
     {
         if (!empty($db) && isset($aliases[$db])) {
-            $aliases = array(
+            $aliases = [
                 $db => $aliases[$db],
-            );
+            ];
         }
         // search each database
         foreach ($aliases as $db_key => $db) {
@@ -323,9 +323,9 @@ abstract class ExportPlugin
                 continue;
             }
             if (!empty($tbl) && isset($db['tables'][$tbl])) {
-                $db['tables'] = array(
+                $db['tables'] = [
                     $tbl => $db['tables'][$tbl],
-                );
+                ];
             }
             // search each of its tables
             foreach ($db['tables'] as $table_key => $table) {
@@ -372,7 +372,7 @@ abstract class ExportPlugin
         array $res_rel,
         $field_name,
         $db,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $relation = '';
         $foreigner = $this->relation->searchColumnInForeigners($res_rel, $field_name);

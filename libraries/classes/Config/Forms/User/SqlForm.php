@@ -11,12 +11,19 @@ namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+/**
+ * Class SqlForm
+ * @package PhpMyAdmin\Config\Forms\User
+ */
 class SqlForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
-        return array(
-            'Sql_queries' => array(
+        return [
+            'Sql_queries' => [
                 'ShowSQL',
                 'Confirm',
                 'QueryHistoryMax',
@@ -27,16 +34,19 @@ class SqlForm extends BaseForm
                 'LintEnable',
                 'EnableAutocompleteForTablesAndColumns',
                 'DefaultForeignKeyChecks',
-            ),
-            'Sql_box' => array(
+            ],
+            'Sql_box' => [
                 'SQLQuery/Edit',
                 'SQLQuery/Explain',
                 'SQLQuery/ShowAsPHP',
                 'SQLQuery/Refresh',
-            ),
-        );
+            ],
+        ];
     }
 
+    /**
+     * @return string
+     */
     public static function getName()
     {
         return __('SQL queries');

@@ -19,11 +19,17 @@ use PHPUnit\Framework\TestCase;
  */
 class EncodingTest extends TestCase
 {
-    public function setUp()
+    /**
+     * @return void
+     */
+    protected function setUp()
     {
         Encoding::initEngine();
     }
 
+    /**
+     * @return void
+     */
     public function tearDown()
     {
         Encoding::initEngine();
@@ -45,6 +51,9 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testInvalidConversion()
     {
         // Invalid value to use default case
@@ -55,6 +64,9 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testRecode()
     {
         if (! function_exists('recode_string')) {
@@ -65,11 +77,16 @@ class EncodingTest extends TestCase
         $this->assertEquals(
             'Only That ecole & Can Be My Blame',
             Encoding::convertString(
-                'UTF-8', 'flat', 'Only That école & Can Be My Blame'
+                'UTF-8',
+                'flat',
+                'Only That école & Can Be My Blame'
             )
         );
     }
 
+    /**
+     * @return void
+     */
     public function testIconv()
     {
         if (! function_exists('iconv')) {
@@ -81,27 +98,31 @@ class EncodingTest extends TestCase
         $this->assertEquals(
             "This is the Euro symbol 'EUR'.",
             Encoding::convertString(
-                'UTF-8', 'ISO-8859-1', "This is the Euro symbol '€'."
+                'UTF-8',
+                'ISO-8859-1',
+                "This is the Euro symbol '€'."
             )
         );
     }
 
+    /**
+     * @return void
+     */
     public function testMbstring()
     {
         Encoding::setEngine(Encoding::ENGINE_MB);
         $this->assertEquals(
             "This is the Euro symbol '?'.",
             Encoding::convertString(
-                'UTF-8', 'ISO-8859-1', "This is the Euro symbol '€'."
+                'UTF-8',
+                'ISO-8859-1',
+                "This is the Euro symbol '€'."
             )
         );
     }
 
     /**
      * Test for kanjiChangeOrder
-     *
-     * @param string $kanji_test_list current list
-     * @param string $expected        expected list
      *
      * @return void
      * @test
@@ -204,6 +225,9 @@ class EncodingTest extends TestCase
         );
     }
 
+    /**
+     * @return void
+     */
     public function testListEncodings()
     {
         $GLOBALS['cfg']['AvailableCharsets'] = ['utf-8'];

@@ -11,24 +11,31 @@ namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+/**
+ * Class MainForm
+ * @package PhpMyAdmin\Config\Forms\User
+ */
 class MainForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
-        return array(
-            'Startup' => array(
+        return [
+            'Startup' => [
                 'ShowCreateDb',
                 'ShowStats',
                 'ShowServerInfo'
-            ),
-            'DbStructure' => array(
+            ],
+            'DbStructure' => [
                 'ShowDbStructureCharset',
                 'ShowDbStructureComment',
                 'ShowDbStructureCreation',
                 'ShowDbStructureLastUpdate',
                 'ShowDbStructureLastCheck'
-            ),
-            'TableStructure' => array(
+            ],
+            'TableStructure' => [
                 'HideStructureActions',
                 'ShowColumnComments',
                 ':group:' . __('Default transformations'),
@@ -42,8 +49,8 @@ class MainForm extends BaseForm
                 'DefaultTransformations/TextImageLink',
                 'DefaultTransformations/TextLink',
                 ':group:end'
-            ),
-            'Browse' => array(
+            ],
+            'Browse' => [
                 'TableNavigationLinksMode',
                 'ActionLinksMode',
                 'ShowAll',
@@ -60,27 +67,30 @@ class MainForm extends BaseForm
                 'TablePrimaryKeyOrder',
                 'RememberSorting',
                 'RelationalDisplay'
-            ),
-            'Edit' => array(
+            ],
+            'Edit' => [
                 'ProtectBinary',
                 'ShowFunctionFields',
                 'ShowFieldTypesInDataEditView',
                 'InsertRows',
                 'ForeignKeyDropdownOrder',
                 'ForeignKeyMaxLimit'
-            ),
-            'Tabs' => array(
+            ],
+            'Tabs' => [
                 'TabsMode',
                 'DefaultTabServer',
                 'DefaultTabDatabase',
                 'DefaultTabTable'
-            ),
-            'DisplayRelationalSchema' => array(
+            ],
+            'DisplayRelationalSchema' => [
                 'PDFDefaultPageSize'
-            ),
-        );
+            ],
+        ];
     }
 
+    /**
+     * @return string
+     */
     public static function getName()
     {
         return __('Main panel');

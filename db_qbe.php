@@ -27,7 +27,7 @@ $response = Response::getInstance();
 $relation = new Relation();
 $cfgRelation = $relation->getRelationsParam();
 
-$savedSearchList = array();
+$savedSearchList = [];
 $savedSearch = null;
 $currentSearchId = null;
 if ($cfgRelation['savedsearcheswork']) {
@@ -60,14 +60,14 @@ if ($cfgRelation['savedsearcheswork']) {
             $savedSearch = new SavedSearches($GLOBALS);
             $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                 ->setDbname($_REQUEST['db']);
-            $_REQUEST = array();
+            $_REQUEST = [];
         } elseif ('load' === $_REQUEST['action']) {
             if (empty($_REQUEST['searchId'])) {
                 //when not loading a search, reset the object.
                 $savedSearch = new SavedSearches($GLOBALS);
                 $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
                     ->setDbname($_REQUEST['db']);
-                $_REQUEST = array();
+                $_REQUEST = [];
             } else {
                 $loadResult = $savedSearch->load();
             }
@@ -138,12 +138,12 @@ if ($message_to_display) {
 unset($message_to_display);
 
 // create new qbe search instance
-$db_qbe = new Qbe($GLOBALS['db'], $savedSearchList, $savedSearch);
+$db_qbe = new Qbe($GLOBALS['dbi'], $GLOBALS['db'], $savedSearchList, $savedSearch);
 
 $url = 'db_designer.php' . Url::getCommon(
     array_merge(
         $url_params,
-        array('query' => 1)
+        ['query' => 1]
     )
 );
 $response->addHTML(

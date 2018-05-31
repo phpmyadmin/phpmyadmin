@@ -112,18 +112,18 @@ class Footer
             1
         );
         $es_state = mb_strtolower($es_state);
-        $options = array(
-                        0 => array(
+        $options = [
+                        0 => [
                             'label' => __('OFF'),
                             'value' => "SET GLOBAL event_scheduler=\"OFF\"",
                             'selected' => ($es_state != 'on')
-                        ),
-                        1 => array(
+                        ],
+                        1 => [
                             'label' => __('ON'),
                             'value' => "SET GLOBAL event_scheduler=\"ON\"",
                             'selected' => ($es_state == 'on')
-                        )
-                   );
+                        ]
+                   ];
         // Generate output
         $retval  = "<!-- FOOTER LINKS START -->\n";
         $retval .= "<div class='doubleFieldset'>\n";

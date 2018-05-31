@@ -25,7 +25,6 @@ $filename = CHANGELOG_FILE;
  */
 // Check if the file is available, some distributions remove these.
 if (@is_readable($filename)) {
-
     // Test if the if is in a compressed format
     if (substr($filename, -3) == '.gz') {
         ob_start();
@@ -55,7 +54,7 @@ $changelog = htmlspecialchars($changelog);
 $github_url = 'https://github.com/phpmyadmin/phpmyadmin/';
 $faq_url = 'https://docs.phpmyadmin.net/en/latest/faq.html';
 
-$replaces = array(
+$replaces = [
     '@(https?://[./a-zA-Z0-9.-_-]*[/a-zA-Z0-9_])@'
     => '<a href="url.php?url=\\1">\\1</a>',
 
@@ -96,7 +95,7 @@ $replaces = array(
     // Links target and rel
     '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="'
 
-);
+];
 
 header('Content-type: text/html; charset=utf-8');
 ?>

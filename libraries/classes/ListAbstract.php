@@ -38,7 +38,9 @@ abstract class ListAbstract extends ArrayObject
      *                               ArrayIterator is the default class used.
      */
     public function __construct(
-        array $array = array(), $flags = 0, $iterator_class = "ArrayIterator"
+        array $array = [],
+        $flags = 0,
+        $iterator_class = "ArrayIterator"
     ) {
         parent::__construct($array, $flags, $iterator_class);
     }
@@ -57,7 +59,7 @@ abstract class ListAbstract extends ArrayObject
      * checks if the given db names exists in the current list, if there is
      * missing at least one item it returns false otherwise true
      *
-     * @param mixed ... $params
+     * @param mixed ... $params params
      * @return bool true if all items exists, otherwise false
      */
     public function exists(...$params)
@@ -81,7 +83,8 @@ abstract class ListAbstract extends ArrayObject
      * @return string  HTML option tags
      */
     public function getHtmlOptions(
-        $selected = '', $include_information_schema = true
+        $selected = '',
+        $include_information_schema = true
     ) {
         if (true === $selected) {
             $selected = $this->getDefault();

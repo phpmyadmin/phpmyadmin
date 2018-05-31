@@ -95,9 +95,9 @@ class EventsTest extends TestCase
      */
     public function providerGetDataFromRequest()
     {
-        return array(
-            array(
-                array(
+        return [
+            [
+                [
                     'item_name'           => '',
                     'item_type'           => '',
                     'item_original_name'  => '',
@@ -111,8 +111,8 @@ class EventsTest extends TestCase
                     'item_preserve'       => '',
                     'item_comment'        => '',
                     'item_definer'        => ''
-                ),
-                array(
+                ],
+                [
                     'item_name'           => '',
                     'item_type'           => 'ONE TIME',
                     'item_type_toggle'    => 'RECURRING',
@@ -127,10 +127,10 @@ class EventsTest extends TestCase
                     'item_preserve'       => '',
                     'item_comment'        => '',
                     'item_definer'        => ''
-                )
-            ),
-            array(
-                array(
+                ]
+            ],
+            [
+                [
                     'item_name'           => 'foo',
                     'item_type'           => 'RECURRING',
                     'item_original_name'  => 'foo',
@@ -144,8 +144,8 @@ class EventsTest extends TestCase
                     'item_preserve'       => 'foo',
                     'item_comment'        => 'foo',
                     'item_definer'        => 'foo'
-                ),
-                array(
+                ],
+                [
                     'item_name'           => 'foo',
                     'item_type'           => 'RECURRING',
                     'item_type_toggle'    => 'ONE TIME',
@@ -160,9 +160,9 @@ class EventsTest extends TestCase
                     'item_preserve'       => 'foo',
                     'item_comment'        => 'foo',
                     'item_definer'        => 'foo'
-                )
-            ),
-        );
+                ]
+            ],
+        ];
     }
 
     /**
@@ -191,7 +191,7 @@ class EventsTest extends TestCase
      */
     public function providerGetEditorFormAdd()
     {
-        $data = array(
+        $data = [
             'item_name'           => '',
             'item_type'           => 'ONE TIME',
             'item_type_toggle'    => 'RECURRING',
@@ -206,50 +206,50 @@ class EventsTest extends TestCase
             'item_preserve'       => '',
             'item_comment'        => '',
             'item_definer'        => ''
-        );
+        ];
 
-        return array(
-            array(
+        return [
+            [
                 $data,
                 "<input name='add_item'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='text' name='item_name'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<select name='item_status'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input name='item_type'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='text' name='item_execute_at'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='text' name='item_ends'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<textarea name='item_definition'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='text' name='item_definer'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='text' name='item_comment'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='submit' name='editor_process_add'"
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -278,7 +278,7 @@ class EventsTest extends TestCase
      */
     public function providerGetEditorFormEdit()
     {
-        $data = array(
+        $data = [
             'item_name'           => 'foo',
             'item_type'           => 'RECURRING',
             'item_type_toggle'    => 'ONE TIME',
@@ -293,50 +293,50 @@ class EventsTest extends TestCase
             'item_preserve'       => '',
             'item_comment'        => '',
             'item_definer'        => ''
-        );
+        ];
 
-        return array(
-            array(
+        return [
+            [
                 $data,
                 "<input name='edit_item'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='text' name='item_name'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<select name='item_status'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input name='item_type'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='text' name='item_execute_at'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='text' name='item_ends'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<textarea name='item_definition'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='text' name='item_definer'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='text' name='item_comment'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='submit' name='editor_process_edit'"
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -367,7 +367,7 @@ class EventsTest extends TestCase
      */
     public function providerGetEditorFormAjax()
     {
-        $data = array(
+        $data = [
             'item_name'           => '',
             'item_type'           => 'RECURRING',
             'item_type_toggle'    => 'ONE TIME',
@@ -382,22 +382,22 @@ class EventsTest extends TestCase
             'item_preserve'       => '',
             'item_comment'        => '',
             'item_definer'        => ''
-        );
+        ];
 
-        return array(
-            array(
+        return [
+            [
                 $data,
                 "<select name='item_type'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='hidden' name='editor_process_edit'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "<input type='hidden' name='ajax_request'"
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -415,7 +415,7 @@ class EventsTest extends TestCase
     {
         global $_REQUEST, $errors;
 
-        $errors = array();
+        $errors = [];
         $this->events->setGlobals();
 
         unset($_REQUEST);
@@ -440,21 +440,21 @@ class EventsTest extends TestCase
      */
     public function providerGetQueryFromRequest()
     {
-        return array(
+        return [
             // Testing success
-            array(
-                array( // simple once-off event
+            [
+                [ // simple once-off event
                     'item_name'       => 's o m e e v e n t\\',
                     'item_type'       => 'ONE TIME',
                     'item_execute_at' => '2050-01-01 00:00:00',
                     'item_definition' => 'SET @A=0;'
-                ),
+                ],
                 'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE AT \'2050-01-01 ' .
                 '00:00:00\' ON COMPLETION NOT PRESERVE DO SET @A=0;',
                 0
-            ),
-            array(
-                array( // full once-off event
+            ],
+            [
+                [ // full once-off event
                     'item_name'       => 'evn',
                     'item_definer'    => 'me@home',
                     'item_type'       => 'ONE TIME',
@@ -462,26 +462,26 @@ class EventsTest extends TestCase
                     'item_preserve'   => 'ON',
                     'item_status'     => 'ENABLED',
                     'item_definition' => 'SET @A=0;'
-                ),
+                ],
                 'CREATE DEFINER=`me`@`home` EVENT `evn` ON SCHEDULE AT ' .
                 '\'2050-01-01 00:00:00\' ON COMPLETION PRESERVE ENABLE DO SET @A=0;',
                 0
-            ),
-            array(
-                array( // simple recurring event
+            ],
+            [
+                [ // simple recurring event
                     'item_name'           => 'rec_``evn',
                     'item_type'           => 'RECURRING',
                     'item_interval_value' => '365',
                     'item_interval_field' => 'DAY',
                     'item_status'         => 'DISABLED',
                     'item_definition'     => 'SET @A=0;'
-                ),
+                ],
                 'CREATE EVENT `rec_````evn` ON SCHEDULE EVERY 365 DAY ON ' .
                 'COMPLETION NOT PRESERVE DISABLE DO SET @A=0;',
                 0
-            ),
-            array(
-                array( // full recurring event
+            ],
+            [
+                [ // full recurring event
                     'item_name'           => 'rec_evn2',
                     'item_definer'        => 'evil``user><\\@work\\',
                     'item_type'           => 'RECURRING',
@@ -492,57 +492,57 @@ class EventsTest extends TestCase
                     'item_preserve'       => 'ON',
                     'item_status'         => 'SLAVESIDE_DISABLED',
                     'item_definition'     => 'SET @A=0;'
-                ),
+                ],
                 'CREATE DEFINER=`evil````user><\`@`work\` EVENT `rec_evn2` ON ' .
                 'SCHEDULE EVERY 365 DAY STARTS \'1900-01-01\' ENDS \'2050-01-01\' ' .
                 'ON COMPLETION PRESERVE DISABLE ON SLAVE DO SET @A=0;',
                 0
-            ),
+            ],
             // Testing failures
-            array(
-                array( // empty request
-                ),
+            [
+                [ // empty request
+                ],
                 'CREATE EVENT ON SCHEDULE ON COMPLETION NOT PRESERVE DO ',
                 3
-            ),
-            array(
-                array(
+            ],
+            [
+                [
                     'item_name'       => 's o m e e v e n t\\',
                     'item_definer'    => 'someuser', // invalid definer format
                     'item_type'       => 'ONE TIME',
                     'item_execute_at' => '', // no execution time
                     'item_definition' => 'SET @A=0;'
-                ),
+                ],
                 'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE ON COMPLETION NOT ' .
                 'PRESERVE DO SET @A=0;',
                 2
-            ),
-            array(
-                array(
+            ],
+            [
+                [
                     'item_name'           => 'rec_``evn',
                     'item_type'           => 'RECURRING',
                     'item_interval_value' => '', // no interval value
                     'item_interval_field' => 'DAY',
                     'item_status'         => 'DISABLED',
                     'item_definition'     => 'SET @A=0;'
-                ),
+                ],
                 'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT ' .
                 'PRESERVE DISABLE DO SET @A=0;',
                 1
-            ),
-            array(
-                array( // simple recurring event
+            ],
+            [
+                [ // simple recurring event
                     'item_name'           => 'rec_``evn',
                     'item_type'           => 'RECURRING',
                     'item_interval_value' => '365',
                     'item_interval_field' => 'CENTURIES', // invalid interval field
                     'item_status'         => 'DISABLED',
                     'item_definition'     => 'SET @A=0;'
-                ),
+                ],
                 'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT ' .
                 'PRESERVE DISABLE DO SET @A=0;',
                 1
-            ),
-        );
+            ],
+        ];
     }
 }

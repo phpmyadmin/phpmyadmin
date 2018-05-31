@@ -32,6 +32,9 @@ $import = new Import();
 $response = Response::getInstance();
 $response->addHTML(
     $import->get(
-        'server', $db, $table, $max_upload_size
+        'server',
+        $db,
+        $table,
+        $max_upload_size
     )
 );

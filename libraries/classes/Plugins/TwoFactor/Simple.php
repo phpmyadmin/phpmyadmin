@@ -16,6 +16,8 @@ use PhpMyAdmin\Template;
  * Simple two-factor authentication auth asking just for confirmation.
  *
  * This has no practical use, but can be used for testing.
+ *
+ * @package PhpMyAdmin
  */
 class Simple extends TwoFactorPlugin
 {

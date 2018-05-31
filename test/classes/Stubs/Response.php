@@ -73,7 +73,7 @@ class Response
     {
         $this->_isSuccess = true;
         $this->htmlString = '';
-        $this->json = array();
+        $this->json = [];
         $this->_isAjax = false;
 
         $GLOBALS['lang'] = 'en';
@@ -189,7 +189,7 @@ class Response
     public function clear()
     {
         $this->_isSuccess = true;
-        $this->json = array();
+        $this->json = [];
         $this->htmlString = '';
     }
 

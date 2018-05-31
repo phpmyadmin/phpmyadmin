@@ -15,11 +15,10 @@ require_once 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 
-$databaseDesigner = new Designer();
-$designerCommon = new Common();
+$databaseDesigner = new Designer($GLOBALS['dbi']);
+$designerCommon = new Common($GLOBALS['dbi']);
 
 if (isset($_REQUEST['dialog'])) {
-
     if ($_REQUEST['dialog'] == 'edit') {
         $html = $databaseDesigner->getHtmlForEditOrDeletePages($GLOBALS['db'], 'editPage');
     } elseif ($_REQUEST['dialog'] == 'delete') {
@@ -28,7 +27,8 @@ if (isset($_REQUEST['dialog'])) {
         $html = $databaseDesigner->getHtmlForPageSaveAs($GLOBALS['db']);
     } elseif ($_REQUEST['dialog'] == 'export') {
         $html = $databaseDesigner->getHtmlForSchemaExport(
-            $GLOBALS['db'], $_REQUEST['selected_page']
+            $GLOBALS['db'],
+            $_REQUEST['selected_page']
         );
     } elseif ($_REQUEST['dialog'] == 'add_table') {
         $script_display_field = $designerCommon->getTablesInfo();
@@ -39,16 +39,19 @@ if (isset($_REQUEST['dialog'])) {
 
         $req_key = array_search($required, $GLOBALS['designer']['TABLE_NAME']);
 
-        $GLOBALS['designer']['TABLE_NAME'] = array($GLOBALS['designer']['TABLE_NAME'][$req_key]);
-        $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = array($GLOBALS['designer_url']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['designer']['TABLE_NAME_SMALL'] = array($GLOBALS['designer']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = array($GLOBALS['designer_out']['TABLE_NAME_SMALL'][$req_key]);
-        $GLOBALS['designer']['TABLE_TYPE'] = array($GLOBALS['designer_url']['TABLE_TYPE'][$req_key]);
-        $GLOBALS['designer_out']['OWNER'] = array($GLOBALS['designer_out']['OWNER'][$req_key]);
+        $GLOBALS['designer']['TABLE_NAME'] = [$GLOBALS['designer']['TABLE_NAME'][$req_key]];
+        $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = [$GLOBALS['designer_url']['TABLE_NAME_SMALL'][$req_key]];
+        $GLOBALS['designer']['TABLE_NAME_SMALL'] = [$GLOBALS['designer']['TABLE_NAME_SMALL'][$req_key]];
+        $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = [$GLOBALS['designer_out']['TABLE_NAME_SMALL'][$req_key]];
+        $GLOBALS['designer']['TABLE_TYPE'] = [$GLOBALS['designer_url']['TABLE_TYPE'][$req_key]];
+        $GLOBALS['designer_out']['OWNER'] = [$GLOBALS['designer_out']['OWNER'][$req_key]];
 
         $html = $databaseDesigner->getDatabaseTables(
-            array(), -1, $tab_column,
-            $tables_all_keys, $tables_pk_or_unique_keys
+            [],
+            -1,
+            $tab_column,
+            $tables_all_keys,
+            $tables_pk_or_unique_keys
         );
     }
 
@@ -59,7 +62,6 @@ if (isset($_REQUEST['dialog'])) {
 }
 
 if (isset($_REQUEST['operation'])) {
-
     if ($_REQUEST['operation'] == 'deletePage') {
         $success = $designerCommon->deletePage($_REQUEST['selected_page']);
         $response->setRequestStatus($success);
@@ -74,7 +76,9 @@ if (isset($_REQUEST['operation'])) {
         $response->setRequestStatus($success);
     } elseif ($_REQUEST['operation'] == 'setDisplayField') {
         $designerCommon->saveDisplayField(
-            $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['field']
+            $_REQUEST['db'],
+            $_REQUEST['table'],
+            $_REQUEST['field']
         );
         $response->setRequestStatus(true);
     } elseif ($_REQUEST['operation'] == 'addNewRelation') {
@@ -135,7 +139,7 @@ if ($display_page != -1) {
 $tab_pos = $designerCommon->getTablePositions($display_page);
 $script_contr = $designerCommon->getScriptContr();
 
-$params = array('lang' => $GLOBALS['lang']);
+$params = ['lang' => $GLOBALS['lang']];
 if (isset($_GET['db'])) {
     $params['db'] = $_GET['db'];
 }
@@ -170,7 +174,10 @@ list(
 // by designer/init.js and converted to JS variables.
 $response->addHTML(
     $databaseDesigner->getHtmlForJsFields(
-        $script_tables, $script_contr, $script_display_field, $display_page
+        $script_tables,
+        $script_contr,
+        $script_display_field,
+        $display_page
     )
 );
 $response->addHTML(
@@ -193,8 +200,11 @@ $response->addHTML($databaseDesigner->getHtmlTableList($tab_pos, $display_page))
 
 $response->addHTML(
     $databaseDesigner->getDatabaseTables(
-        $tab_pos, $display_page, $tab_column,
-        $tables_all_keys, $tables_pk_or_unique_keys
+        $tab_pos,
+        $display_page,
+        $tab_column,
+        $tables_all_keys,
+        $tables_pk_or_unique_keys
     )
 );
 $response->addHTML('</form>');

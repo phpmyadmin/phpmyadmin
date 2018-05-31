@@ -49,18 +49,20 @@ $is_gotofile  = true;
 if (empty($goto)) {
     if (empty($table)) {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            $GLOBALS['cfg']['DefaultTabDatabase'],
+            'database'
         );
     } else {
         $goto = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+            $GLOBALS['cfg']['DefaultTabTable'],
+            'table'
         );
     }
 } // end if
 
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
-        . '?' . Url::getCommon(array('db' => $GLOBALS['db']))
+        . '?' . Url::getCommon(['db' => $GLOBALS['db']])
         . ((mb_strpos(' ' . $goto, 'db_') != 1
             && strlen($table) > 0)
             ? '&amp;table=' . urlencode($table)
@@ -106,7 +108,8 @@ if (isset($_REQUEST['get_default_fk_check_value'])
 ) {
     $response = Response::getInstance();
     $response->addJSON(
-        'default_fk_check_value', Util::isForeignKeyCheck()
+        'default_fk_check_value',
+        Util::isForeignKeyCheck()
     );
     exit;
 }
@@ -128,7 +131,7 @@ if (empty($sql_query) && strlen($table) > 0 && strlen($db) > 0) {
     $goto = '';
 } else {
     // Now we can check the parameters
-    Util::checkParameters(array('sql_query'));
+    Util::checkParameters(['sql_query']);
 }
 
 /**
@@ -155,7 +158,9 @@ if ($table != $table_from_sql && !empty($table_from_sql)) {
  * into account this case.
  */
 if ($sql->hasNoRightsToDropDatabase(
-    $analyzed_sql_results, $cfg['AllowUserDropDatabase'], $GLOBALS['dbi']->isSuperuser()
+    $analyzed_sql_results,
+    $cfg['AllowUserDropDatabase'],
+    $GLOBALS['dbi']->isSuperuser()
 )) {
     Util::mysqlDie(
         __('"DROP DATABASE" statements are disabled.'),
@@ -188,11 +193,11 @@ if (isset($_POST['store_bkm'])) {
 if ($goto == 'sql.php') {
     $is_gotofile = false;
     $goto = 'sql.php' . Url::getCommon(
-        array(
+        [
             'db' => $db,
             'table' => $table,
             'sql_query' => $sql_query
-        )
+        ]
     );
 } // end if
 

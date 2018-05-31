@@ -9,7 +9,9 @@ phpMyAdmin - ChangeLog
 - issue #14155 Add move columns preview SQL button
 - issue #14296 Enable strict mode in PHP files
 
-4.8.1 (not yet released)
+4.8.2 (not yet released)
+
+4.8.1 (2018-05-24)
 - issue #12772 Fix case where the central columns attributes don't get filled in
 - issue #14049 Fix case where the query builder doesn't work when selected column is *
 - issue #14029 Revert "Browse" table CSS overflow
@@ -27,6 +29,9 @@ phpMyAdmin - ChangeLog
 - issue #14189 Remember table's sorting broken
 - issue #14289 Fix multi-column sorting
 - issue #14278 Fix central columns in-line edit bug
+- issue #14066 Fix AUTO_INCREMENT error when only exporting table structure in database-level exports
+- issue #13893 Simulating queries produces unexpected results
+- issue #14309 Setup script icons missing
 
 4.8.0.1 (2018-04-19)
 - issue        [security] Multiple CSRF vulnerabilities, See PMASA-2018-02

@@ -47,7 +47,7 @@ class ImportXml extends ImportPlugin
         $importPluginProperties->setText(__('XML'));
         $importPluginProperties->setExtension('xml');
         $importPluginProperties->setMimeType('text/xml');
-        $importPluginProperties->setOptions(array());
+        $importPluginProperties->setOptions([]);
         $importPluginProperties->setOptionsText(__('Options'));
 
         $this->properties = $importPluginProperties;
@@ -60,7 +60,7 @@ class ImportXml extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = array())
+    public function doImport(array &$sql_data = [])
     {
         global $error, $timeout_passed, $finished, $db;
 
@@ -125,17 +125,17 @@ class ImportXml extends ImportPlugin
         /**
          * Table accumulator
          */
-        $tables = array();
+        $tables = [];
         /**
          * Row accumulator
          */
-        $rows = array();
+        $rows = [];
 
         /**
          * Temp arrays
          */
-        $tempRow = array();
-        $tempCells = array();
+        $tempRow = [];
+        $tempCells = [];
 
         /**
          * CREATE code included (by default: no)
@@ -198,7 +198,7 @@ class ImportXml extends ImportPlugin
              */
             $struct = $xml->children($namespaces['pma']);
 
-            $create = array();
+            $create = [];
 
             /** @var SimpleXMLElement $val1 */
             foreach ($struct as $val1) {
@@ -259,7 +259,7 @@ class ImportXml extends ImportPlugin
                 }
 
                 if (!$isInTables) {
-                    $tables[] = array((string)$tbl_attr['name']);
+                    $tables[] = [(string)$tbl_attr['name']];
                 }
 
                 foreach ($v1 as $v2) {
@@ -270,10 +270,10 @@ class ImportXml extends ImportPlugin
                     $tempCells[] = (string)$v2;
                 }
 
-                $rows[] = array((string)$tbl_attr['name'], $tempRow, $tempCells);
+                $rows[] = [(string)$tbl_attr['name'], $tempRow, $tempCells];
 
-                $tempRow = array();
-                $tempCells = array();
+                $tempRow = [];
+                $tempCells = [];
             }
 
             unset($tempRow);
@@ -300,7 +300,7 @@ class ImportXml extends ImportPlugin
             unset($rows);
 
             if (!$struct_present) {
-                $analyses = array();
+                $analyses = [];
 
                 $len = count($tables);
                 for ($i = 0; $i < $len; ++$i) {
@@ -347,17 +347,17 @@ class ImportXml extends ImportPlugin
         if (strlen((string) $db)) {
             /* Override the database name in the XML file, if one is selected */
             $db_name = $db;
-            $options = array('create_db' => false);
+            $options = ['create_db' => false];
         } else {
             if ($db_name === null) {
                 $db_name = 'XML_DB';
             }
 
             /* Set database collation/charset */
-            $options = array(
+            $options = [
                 'db_collation' => $collation,
                 'db_charset'   => $charset,
-            );
+            ];
         }
 
         /* Created and execute necessary SQL statements from data */

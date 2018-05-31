@@ -159,7 +159,7 @@ class Language
      */
     public function isRTL()
     {
-        return in_array($this->code, array('ar', 'fa', 'he', 'ur'));
+        return in_array($this->code, ['ar', 'fa', 'he', 'ur']);
     }
 
     /**
@@ -188,7 +188,7 @@ class Language
         }
 
         /* TCPDF */
-        $GLOBALS['l'] = array();
+        $GLOBALS['l'] = [];
 
         /* TCPDF settings */
         $GLOBALS['l']['a_meta_charset'] = 'UTF-8';

@@ -28,6 +28,9 @@ class ServerPluginsController extends Controller
 
     /**
      * Constructs ServerPluginsController
+     *
+     * @param \PhpMyAdmin\Response          $response Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
      */
     public function __construct($response, $dbi)
     {
@@ -78,7 +81,7 @@ class ServerPluginsController extends Controller
                 ORDER BY plugin_type, plugin_name";
 
         $res = $this->dbi->query($sql);
-        $this->plugins = array();
+        $this->plugins = [];
         while ($row = $this->dbi->fetchAssoc($res)) {
             $this->plugins[$row['plugin_type']][] = $row;
         }
@@ -93,17 +96,30 @@ class ServerPluginsController extends Controller
      */
     private function _getPluginsHtml()
     {
+        $plugins_type_clean = [];
+        $keys = array_keys($this->plugins);
+        foreach ($keys as $plugin_type) {
+            $plugins_type_clean[$plugin_type] = preg_replace(
+                '/[^a-z]/',
+                '',
+                mb_strtolower($plugin_type)
+            );
+        }
         $html  = '<div id="plugins_plugins">';
         $html .= Template::get('server/plugins/section_links')
-            ->render(array('plugins' => $this->plugins));
+            ->render([
+                'plugins' => $this->plugins,
+                'plugins_type_clean' => $plugins_type_clean,
+            ]);
 
         foreach ($this->plugins as $plugin_type => $plugin_list) {
             $html .= Template::get('server/plugins/section')
                 ->render(
-                    array(
+                    [
                         'plugin_type' => $plugin_type,
+                        'plugin_type_clean' => $plugins_type_clean[$plugin_type],
                         'plugin_list' => $plugin_list,
-                    )
+                    ]
                 );
         }
         $html .= '</div>';

@@ -109,6 +109,5 @@ class ImportSqlTest extends PmaTestCase
             true,
             $GLOBALS['finished']
         );
-
     }
 }

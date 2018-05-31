@@ -37,37 +37,37 @@ class ThemeManager
     /**
      * @var array available themes
      */
-    var $themes = array();
+    public $themes = [];
 
     /**
      * @var string  cookie name
      */
-    var $cookie_name = 'pma_theme';
+    public $cookie_name = 'pma_theme';
 
     /**
      * @var boolean
      */
-    var $per_server = false;
+    public $per_server = false;
 
     /**
      * @var string name of active theme
      */
-    var $active_theme = '';
+    public $active_theme = '';
 
     /**
      * @var Theme Theme active theme
      */
-    var $theme = null;
+    public $theme = null;
 
     /**
      * @var string
      */
-    var $theme_default;
+    public $theme_default;
 
     /**
      * @const string The name of the fallback theme
      */
-    const FALLBACK_THEME = 'pmahomme';
+    public const FALLBACK_THEME = 'pmahomme';
 
     /**
      * Constructor for Theme Manager class
@@ -76,7 +76,7 @@ class ThemeManager
      */
     public function __construct()
     {
-        $this->themes = array();
+        $this->themes = [];
         $this->theme_default = self::FALLBACK_THEME;
         $this->active_theme = '';
 
@@ -273,7 +273,7 @@ class ThemeManager
      */
     public function loadThemes()
     {
-        $this->themes = array();
+        $this->themes = [];
 
         if (false === ($handleThemes = opendir($this->_themes_path))) {
             trigger_error(

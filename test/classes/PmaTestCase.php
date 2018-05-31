@@ -20,11 +20,19 @@ use ReflectionProperty;
  */
 class PmaTestCase extends TestCase
 {
+    /**
+     * @var Response
+     */
     protected $restoreInstance = null;
+    /**
+     * @var Response
+     */
     protected $attrInstance = null;
 
     /**
      * This method is called before the first test of this test class is run.
+     *
+     * @return void
      */
     public static function setUpBeforeClass()
     {
@@ -45,11 +53,11 @@ class PmaTestCase extends TestCase
 
         $mockResponse = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()
-            ->setMethods(array(
+            ->setMethods([
                 'header', 'headersSent', 'disable', 'isAjax',
                 'setRequestStatus', 'addJSON', 'addHTML',
                 'getFooter', 'getHeader','httpResponseCode',
-            ))
+            ])
             ->getMock();
 
         $mockResponse->expects($this->any())
@@ -61,7 +69,7 @@ class PmaTestCase extends TestCase
             if (is_array($param[0])) {
                 if (is_array($param[0][0]) && count($param) == 1) {
                     $param = $param[0];
-                    if(is_int(end($param))){
+                    if (is_int(end($param))) {
                         $http_response_code_param = end($param);
                         $param = array_slice($param, 0, -1);
 
@@ -73,8 +81,7 @@ class PmaTestCase extends TestCase
                 $header_method = $mockResponse->expects($this->exactly(count($param)))
                     ->method('header');
 
-                call_user_func_array(array($header_method, 'withConsecutive'), $param);
-
+                call_user_func_array([$header_method, 'withConsecutive'], $param);
             } else {
                 $mockResponse->expects($this->once())
                     ->method('header')

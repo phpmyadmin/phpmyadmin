@@ -101,7 +101,10 @@ class Navigation
      * @return void
      */
     public function hideNavigationItem(
-        $itemName, $itemType, $dbName, $tableName = null
+        $itemName,
+        $itemType,
+        $dbName,
+        $tableName = null
     ) {
         $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
@@ -150,7 +153,10 @@ class Navigation
      * @return void
      */
     public function unhideNavigationItem(
-        $itemName, $itemType, $dbName, $tableName = null
+        $itemName,
+        $itemType,
+        $dbName,
+        $tableName = null
     ) {
         $navTable = Util::backquote($GLOBALS['cfgRelation']['db'])
             . "." . Util::backquote($GLOBALS['cfgRelation']['navigationhiding']);
@@ -193,26 +199,26 @@ class Navigation
             . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : '') . "'";
         $result = $this->relation->queryAsControlUser($sqlQuery, false);
 
-        $hidden = array();
+        $hidden = [];
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchArray($result)) {
                 $type = $row['item_type'];
                 if (! isset($hidden[$type])) {
-                    $hidden[$type] = array();
+                    $hidden[$type] = [];
                 }
                 $hidden[$type][] = $row['item_name'];
             }
         }
         $GLOBALS['dbi']->freeResult($result);
 
-        $typeMap = array(
+        $typeMap = [
             'group' => __('Groups:'),
             'event' => __('Events:'),
             'function' => __('Functions:'),
             'procedure' => __('Procedures:'),
             'table' => __('Tables:'),
             'view' => __('Views:'),
-        );
+        ];
         if (empty($tableName)) {
             $first = true;
             foreach ($typeMap as $t => $lable) {
@@ -223,12 +229,12 @@ class Navigation
                         . '<strong>' . $lable . '</strong>';
                     $html .= '<table width="100%"><tbody>';
                     foreach ($hidden[$t] as $hiddenItem) {
-                        $params = array(
+                        $params = [
                             'unhideNavItem' => true,
                             'itemType' => $t,
                             'itemName' => $hiddenItem,
                             'dbName' => $dbName
-                        );
+                        ];
 
                         $html .= '<tr>';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
@@ -236,7 +242,7 @@ class Navigation
                             . Url::getCommon($params) . '"'
                             . ' class="unhideNavItem ajax">'
                             . Util::getIcon('show.png', __('Show'))
-                            .  '</a></td>';
+                            . '</a></td>';
                     }
                     $html .= '</tbody></table>';
                     $first = false;

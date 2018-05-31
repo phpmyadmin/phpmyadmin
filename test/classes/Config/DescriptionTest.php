@@ -25,12 +25,18 @@ class DescriptionTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
     }
 
     /**
+     * @param string $item     item
+     * @param string $type     type
+     * @param string $expected expected result
+     *
+     * @return void
+     *
      * @dataProvider getValues
      */
     public function testGet($item, $type, $expected)
@@ -38,29 +44,34 @@ class DescriptionTest extends PmaTestCase
         $this->assertEquals($expected, Descriptions::get($item, $type));
     }
 
+    /**
+     * @return array
+     */
     public function getValues()
     {
-        return array(
-            array(
+        return [
+            [
                 'AllowArbitraryServer',
                 'name',
                 'Allow login to any MySQL server',
-            ),
-            array(
+            ],
+            [
                 'UnknownSetting',
                 'name',
                 'UnknownSetting',
-            ),
-            array(
+            ],
+            [
                 'UnknownSetting',
                 'desc',
                 '',
-            ),
-        );
+            ],
+        ];
     }
 
     /**
      * Assertion for getting description key
+     *
+     * @param string $key key
      *
      * @return void
      */
@@ -72,20 +83,22 @@ class DescriptionTest extends PmaTestCase
     }
 
     /**
-     * Test getting all names for configuratons
+     * Test getting all names for configurations
+     *
+     * @return void
      */
     public function testAll()
     {
-        $nested = array(
+        $nested = [
             'Export',
             'Import',
             'Schema',
             'DBG',
             'DefaultTransformations',
             'SQLQuery',
-        );
+        ];
 
-        $cfg = array();
+        $cfg = [];
         include './libraries/config.default.php';
         foreach ($cfg as $key => $value) {
             $this->assertGet($key);

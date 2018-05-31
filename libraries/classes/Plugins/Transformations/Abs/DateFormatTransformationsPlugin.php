@@ -50,7 +50,7 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         $buffer = (string) $buffer;
         // possibly use a global transform and feed it with special options
@@ -82,14 +82,13 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
             // for example TIMESTAMP(8) means YYYYMMDD)
         } else {
             if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
-
                 if (mb_strlen($buffer) == 14 || mb_strlen($buffer) == 8) {
                     $offset = 4;
                 } else {
                     $offset = 2;
                 }
 
-                $aDate = array();
+                $aDate = [];
                 $aDate['year'] = (int)
                 mb_substr($buffer, 0, $offset);
                 $aDate['month'] = (int)

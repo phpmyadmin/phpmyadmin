@@ -43,7 +43,7 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         return $buffer;
     }

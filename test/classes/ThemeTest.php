@@ -159,10 +159,10 @@ class ThemeTest extends PmaTestCase
      */
     public function listThemes()
     {
-        return array(
-            array('./themes/original'),
-            array('./themes/pmahomme/'),
-        );
+        return [
+            ['./themes/original'],
+            ['./themes/pmahomme/'],
+        ];
     }
 
     /**
@@ -351,27 +351,27 @@ class ThemeTest extends PmaTestCase
      */
     public function providerForGetImgPath()
     {
-        return array(
-            array(
+        return [
+            [
                 null,
                 null,
                 ''
-            ),
-            array(
+            ],
+            [
                 'screen.png',
                 null,
                 './themes/pmahomme/img/screen.png'
-            ),
-            array(
+            ],
+            [
                 'arrow_ltr.png',
                 null,
                 './themes/pmahomme/img/arrow_ltr.png'
-            ),
-            array(
+            ],
+            [
                 'logo_right.png',
                 'pma_logo.png',
                 './themes/pmahomme/img/pma_logo.png'
-            ),
-        );
+            ],
+        ];
     }
 }

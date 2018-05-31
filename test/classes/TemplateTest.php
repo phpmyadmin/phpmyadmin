@@ -33,10 +33,10 @@ class TemplateTest extends PmaTestCase
     {
         $template = Template::get($data);
         $result = $template->render(
-            array(
+            [
                 'variable1' => 'value1',
                 'variable2' => 'value2',
-            )
+            ]
         );
         $this->assertContains('value1', $result);
         $this->assertContains('value2', $result);

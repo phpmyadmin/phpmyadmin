@@ -14,6 +14,8 @@ use PhpMyAdmin\Config\FormDisplay;
 
 /**
  * Base form for user preferences
+ *
+ * @package PhpMyAdmin
  */
 abstract class BaseForm extends FormDisplay
 {
@@ -54,7 +56,7 @@ abstract class BaseForm extends FormDisplay
      */
     public static function getForms()
     {
-        return array();
+        return [];
     }
 
     /**

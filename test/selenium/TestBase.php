@@ -28,7 +28,7 @@ abstract class TestBase extends Selenium2TestCase
      * mysqli object
      *
      * @access private
-     * @var mysqli
+     * @var \mysqli
      */
     protected $_mysqli;
 
@@ -80,13 +80,13 @@ abstract class TestBase extends Selenium2TestCase
                 $project_name = 'phpMyAdmin (Travis)';
             }
 
-            $capabilities = array(
+            $capabilities = [
                 'browserstack.user' => $GLOBALS['TESTSUITE_BROWSERSTACK_USER'],
                 'browserstack.key' => $GLOBALS['TESTSUITE_BROWSERSTACK_KEY'],
                 'browserstack.debug' => false,
                 'project' => $project_name,
                 'build' => $build_id,
-            );
+            ];
 
             if ($build_local) {
                 $capabilities['browserstack.local'] = $build_local;
@@ -94,8 +94,8 @@ abstract class TestBase extends Selenium2TestCase
                 $capabilities['browserstack.debug'] = true;
             }
 
-            $result = array();
-            $result[] = array(
+            $result = [];
+            $result[] = [
                 'browserName' => 'chrome',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
@@ -103,11 +103,11 @@ abstract class TestBase extends Selenium2TestCase
                 'sessionStrategy' => $strategy,
                 'desiredCapabilities' => array_merge(
                     $capabilities,
-                    array(
+                    [
                         'os' => 'Windows',
-                    )
+                    ]
                 )
-            );
+            ];
 
             /* Only one browser for continuous integration for speed */
             if (empty($GLOBALS['TESTSUITE_FULL'])) {
@@ -130,14 +130,14 @@ abstract class TestBase extends Selenium2TestCase
                 )
             );
             */
-            $result[] = array(
+            $result[] = [
                 'browserName' => 'firefox',
                 'host' => 'hub.browserstack.com',
                 'port' => 80,
                 'timeout' => 30000,
                 'sessionStrategy' => $strategy,
                 'desiredCapabilities' => $capabilities,
-            );
+            ];
             /* TODO: testing is MSIE is currently broken, so disabled
             $result[] = array(
                 'browserName' => 'internet explorer',
@@ -157,15 +157,15 @@ abstract class TestBase extends Selenium2TestCase
             return $result;
         } elseif (! empty($GLOBALS['TESTSUITE_SELENIUM_HOST'])) {
             self::$_selenium_enabled = true;
-            return array(
-                array(
+            return [
+                [
                     'browserName' => $GLOBALS['TESTSUITE_SELENIUM_BROWSER'],
                     'host' => $GLOBALS['TESTSUITE_SELENIUM_HOST'],
                     'port' => intval($GLOBALS['TESTSUITE_SELENIUM_PORT']),
-                )
-            );
+                ]
+            ];
         } else {
-            return array();
+            return [];
         }
     }
 
@@ -186,7 +186,7 @@ abstract class TestBase extends Selenium2TestCase
         $this->setDesiredCapabilities(
             array_merge(
                 $caps,
-                array('name' => get_class($this) . '__' . $this->getName())
+                ['name' => get_class($this) . '__' . $this->getName()]
             )
         );
 
@@ -364,7 +364,8 @@ abstract class TestBase extends Selenium2TestCase
     public function isLoggedIn()
     {
         return $this->isElementPresent(
-            'byXPath', '//*[@id="serverinfo"]/a[1]'
+            'byXPath',
+            '//*[@id="serverinfo"]/a[1]'
         );
     }
 
@@ -392,14 +393,16 @@ abstract class TestBase extends Selenium2TestCase
     {
         try {
             return call_user_func_array(
-                array($this, $func), array($arg)
+                [$this, $func],
+                [$arg]
             );
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             // Element not present, fall back to waiting
         }
         $this->timeouts()->implicitWait(10000);
         $element = call_user_func_array(
-            array($this, $func), array($arg)
+            [$this, $func],
+            [$arg]
         );
         $this->timeouts()->implicitWait(0);
         return $element;
@@ -435,7 +438,8 @@ abstract class TestBase extends Selenium2TestCase
     {
         try {
             $element = call_user_func_array(
-                array($this, $func), array($arg)
+                [$this, $func],
+                [$arg]
             );
         } catch (WebDriverException $e) {
             // Element not present
@@ -556,14 +560,14 @@ abstract class TestBase extends Selenium2TestCase
      *
      * @return void
      */
-    public function typeInTextArea($text, $index=0)
+    public function typeInTextArea($text, $index = 0)
     {
         $this->waitForElement('byCssSelector', 'div.cm-s-default');
         $this->execute(
-            array(
+            [
                 'script' => "$('.cm-s-default')[$index].CodeMirror.setValue('" . $text . "');",
-                'args' => array()
-            )
+                'args' => []
+            ]
         );
     }
 
@@ -620,7 +624,8 @@ abstract class TestBase extends Selenium2TestCase
     /**
      * Navigates browser to a database page.
      *
-     * @param string $database Name of database
+     * @param string $database             Name of database
+     * @param bool   $gotoHomepageRequired Go to homepage required
      *
      * @return void
      */
@@ -631,7 +636,7 @@ abstract class TestBase extends Selenium2TestCase
         }
 
         // Go to server databases
-        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElement('byPartialLinkText', 'Databases')->click();
         $this->waitAjax();
 
         // go to specific database page
@@ -660,12 +665,12 @@ abstract class TestBase extends Selenium2TestCase
     {
         // 70pt offset by-default so that the topmenu does not cover the element
         $this->execute(
-            array(
+            [
                 'script' => 'var position = document.getElementById("'
                             . $element_id . '").getBoundingClientRect();'
                             . 'window.scrollBy(0, position.top-(' . $offset . '));',
-                'args'   => array()
-            )
+                'args'   => []
+            ]
         );
     }
 
@@ -677,10 +682,10 @@ abstract class TestBase extends Selenium2TestCase
     public function scrollToBottom()
     {
         $this->execute(
-            array(
+            [
                 'script' => 'window.scrollTo(0,document.body.scrollHeight);',
-                'args' => array()
-            )
+                'args' => []
+            ]
         );
     }
 
@@ -692,7 +697,7 @@ abstract class TestBase extends Selenium2TestCase
     public function waitAjax()
     {
         /* Wait while code is loading */
-        while ($this->execute(array('script' => 'return AJAX.active;', 'args' => array()))) {
+        while ($this->execute(['script' => 'return AJAX.active;', 'args' => []])) {
             usleep(5000);
         }
     }
@@ -706,10 +711,10 @@ abstract class TestBase extends Selenium2TestCase
     {
         /* Get current message count */
         $ajax_message_count = $this->execute(
-            array(
+            [
                 'script' => 'return ajax_message_count;',
-                'args' => array()
-            )
+                'args' => []
+            ]
         );
         /* Ensure the popup is gone */
         $this->waitForElementNotPresent(
@@ -721,7 +726,7 @@ abstract class TestBase extends Selenium2TestCase
     /**
      * Mark unsuccessful tests as 'Failures' on Browerstack
      *
-     * @param \Throwable $e
+     * @param \Throwable $e Throwable
      *
      * @return void
      */
@@ -737,10 +742,10 @@ abstract class TestBase extends Selenium2TestCase
             $SESSION_REST_URL = 'https://www.browserstack.com/automate/sessions/';
             $sessionId = $this->getSessionId();
             $payload = json_encode(
-                array(
+                [
                     'status' => 'failed',
                     'reason' => $e->getMessage()
-                )
+                ]
             );
 
             $ch = curl_init();
@@ -759,7 +764,7 @@ abstract class TestBase extends Selenium2TestCase
                     . ":" . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
             );
 
-            $headers = array();
+            $headers = [];
             $headers[] = "Content-Type: application/json";
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
@@ -767,7 +772,7 @@ abstract class TestBase extends Selenium2TestCase
             if (curl_errno($ch)) {
                 echo 'Error: ' . curl_error($ch);
             }
-            curl_close ($ch);
+            curl_close($ch);
         }
 
         // Call parent's onNotSuccessful to handle everything else

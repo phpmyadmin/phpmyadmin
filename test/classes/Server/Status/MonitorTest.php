@@ -48,7 +48,7 @@ class MonitorTest extends TestCase
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
         $GLOBALS['cfg']['RememberSorting'] = true;
-        $GLOBALS['cfg']['SQP'] = array();
+        $GLOBALS['cfg']['SQP'] = [];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['ShowSQL'] = true;
         $GLOBALS['cfg']['Server']['host'] = "localhost";
@@ -68,40 +68,40 @@ class MonitorTest extends TestCase
             ->getMock();
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
-        $server_status = array(
+        $server_status = [
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
             "Com_delete_multi" => "0",
             "Com_create_function" => "0",
             "Com_empty_query" => "0",
-        );
+        ];
 
-        $server_variables = array(
+        $server_variables = [
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "1",
             "automatic_sp_privileges" => "ON",
             "back_log" => "50",
             "big_tables" => "OFF",
-        );
+        ];
 
-        $fetchResult = array(
-            array(
+        $fetchResult = [
+            [
                 "SHOW GLOBAL STATUS",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 $server_status
-            ),
-            array(
+            ],
+            [
                 "SHOW GLOBAL VARIABLES",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 $server_variables
-            ),
-            array(
+            ],
+            [
                 "SELECT concat('Com_', variable_name), variable_value "
                     . "FROM data_dictionary.GLOBAL_STATEMENTS",
                 0,
@@ -109,8 +109,8 @@ class MonitorTest extends TestCase
                 DatabaseInterface::CONNECT_USER,
                 0,
                 $server_status
-            ),
-        );
+            ],
+        ];
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValueMap($fetchResult));
@@ -238,15 +238,15 @@ class MonitorTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $value = array(
+        $value = [
             'sql_text' => 'insert sql_text',
             '#' => 11,
-        );
+        ];
 
-        $value2 = array(
+        $value2 = [
             'sql_text' => 'update sql_text',
             '#' => 10,
-        );
+        ];
 
         $dbi->expects($this->at(1))->method('fetchAssoc')
             ->will($this->returnValue($value));
@@ -262,11 +262,11 @@ class MonitorTest extends TestCase
         $end = 10;
         $ret = $this->statusMonitor->getJsonForLogDataTypeSlow($start, $end);
 
-        $result_rows = array(
-            array('sql_text' => 'insert sql_text', '#' => 11),
-            array('sql_text' => 'update sql_text', '#' => 10)
-        );
-        $result_sum = array('insert' =>11, 'TOTAL' =>21, 'update' => 10);
+        $result_rows = [
+            ['sql_text' => 'insert sql_text', '#' => 11],
+            ['sql_text' => 'update sql_text', '#' => 10]
+        ];
+        $result_sum = ['insert' =>11, 'TOTAL' =>21, 'update' => 10];
         $this->assertEquals(
             2,
             $ret['numRows']
@@ -295,17 +295,17 @@ class MonitorTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $value = array(
+        $value = [
             'sql_text' => 'insert sql_text',
             '#' => 10,
             'argument' => 'argument argument2',
-        );
+        ];
 
-        $value2 = array(
+        $value2 = [
             'sql_text' => 'update sql_text',
             '#' => 11,
             'argument' => 'argument3 argument4',
-        );
+        ];
 
         $dbi->expects($this->at(1))->method('fetchAssoc')
             ->will($this->returnValue($value));
@@ -321,11 +321,11 @@ class MonitorTest extends TestCase
         $end = 10;
         $ret = $this->statusMonitor->getJsonForLogDataTypeGeneral($start, $end);
 
-        $result_rows = array(
+        $result_rows = [
             $value,
             $value2,
-        );
-        $result_sum = array('argument' =>10, 'TOTAL' =>21, 'argument3' => 11);
+        ];
+        $result_sum = ['argument' =>10, 'TOTAL' =>21, 'argument3' => 11];
 
         $this->assertEquals(
             2,
@@ -355,11 +355,11 @@ class MonitorTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $value = array(
+        $value = [
             'sql_text' => 'insert sql_text',
             '#' => 22,
             'argument' => 'argument argument2',
-        );
+        ];
 
         $dbi->expects($this->any())->method('fetchResult')
             ->will($this->returnValue($value));
@@ -394,11 +394,11 @@ class MonitorTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $value = array(
+        $value = [
             'sql_text' => 'insert sql_text',
             '#' => 33,
             'argument' => 'argument argument2',
-        );
+        ];
 
         $dbi->expects($this->at(4))->method('fetchAssoc')
             ->will($this->returnValue($value));
@@ -415,11 +415,11 @@ class MonitorTest extends TestCase
             $ret['affectedRows']
         );
         $this->assertEquals(
-            array(),
+            [],
             $ret['profiling']
         );
         $this->assertEquals(
-            array($value),
+            [$value],
             $ret['explain']
         );
     }

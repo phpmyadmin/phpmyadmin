@@ -40,7 +40,7 @@ class CreateRemoveUserTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->skipIfNotSuperUser();
@@ -48,6 +48,9 @@ class CreateRemoveUserTest extends TestBase
         $this->_txtPassword = 'abc_123';
     }
 
+    /**
+     * @return void
+     */
     public function setUpPage()
     {
         parent::setUpPage();

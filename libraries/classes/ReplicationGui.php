@@ -162,7 +162,8 @@ class ReplicationGui
      * @return string HTML code
      */
     public function getHtmlForSlaveConfiguration(
-        $server_slave_status, array $server_slave_replication
+        $server_slave_status,
+        array $server_slave_replication
     ) {
         $html  = '<fieldset>';
         $html .= '<legend>' . __('Slave replication') . '</legend>';
@@ -303,7 +304,6 @@ class ReplicationGui
             $html .=  __('Change or reconfigure master server') . '</a></li>';
             $html .= '</ul>';
             $html .= '</div>';
-
         } elseif (! isset($_REQUEST['sl_configure'])) {
             $_url_params = $GLOBALS['url_params'];
             $_url_params['sl_configure'] = true;
@@ -436,50 +436,50 @@ class ReplicationGui
         $html .= '<pre>server-id=' . time() . '</pre>';
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            array('text'=>__('User name:'), 'for'=>"text_username"),
-            array(
+            ['text'=>__('User name:'), 'for'=>"text_username"],
+            [
                 'type'=>'text',
                 'name'=>'username',
                 'id'=>'text_username',
                 'maxlength'=>$username_length,
                 'title'=>__('User name'),
                 'required'=>'required'
-            )
+            ]
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            array('text'=>__('Password:'), 'for'=>"text_pma_pw"),
-            array(
+            ['text'=>__('Password:'), 'for'=>"text_pma_pw"],
+            [
                 'type'=>'password',
                 'name'=>'pma_pw',
                 'id'=>'text_pma_pw',
                 'title'=>__('Password'),
                 'required'=>'required'
-            )
+            ]
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            array('text'=>__('Host:'), 'for'=>"text_hostname"),
-            array(
+            ['text'=>__('Host:'), 'for'=>"text_hostname"],
+            [
                 'type'=>'text',
                 'name'=>'hostname',
                 'id'=>'text_hostname',
                 'maxlength'=>$hostname_length,
                 'value'=>'',
                 'required'=>'required'
-            )
+            ]
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            array('text'=>__('Port:'), 'for'=>"text_port"),
-            array(
+            ['text'=>__('Port:'), 'for'=>"text_port"],
+            [
                 'type'=>'number',
                 'name'=>'text_port',
                 'id'=>'text_port',
                 'maxlength'=>6,
                 'value'=>'3306',
                 'required'=>'required'
-             )
+             ]
         );
 
         $html .= ' </fieldset>';
@@ -509,7 +509,7 @@ class ReplicationGui
         $html .=  $label_array['text'] . '</label>';
 
         $html .= '    <input ';
-        foreach ($input_array as $key=>$value) {
+        foreach ($input_array as $key => $value) {
             $html .= ' ' . $key . '="' . $value . '" ';
         }
         $html .= ' />';
@@ -585,7 +585,6 @@ class ReplicationGui
                 && ${"{$type}_variables_alerts"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
             ) {
                 $html .= '<span class="attention">';
-
             } elseif (isset(${"{$type}_variables_oks"}[$variable])
                 && ${"{$type}_variables_oks"}[$variable] == ${"server_{$type}_replication"}[0][$variable]
             ) {
@@ -594,10 +593,10 @@ class ReplicationGui
                 $html .= '<span>';
             }
             // allow wrapping long table lists into multiple lines
-            $variables_wrap = array(
+            $variables_wrap = [
                 'Replicate_Do_DB', 'Replicate_Ignore_DB',
                 'Replicate_Do_Table', 'Replicate_Ignore_Table',
-                'Replicate_Wild_Do_Table', 'Replicate_Wild_Ignore_Table');
+                'Replicate_Wild_Do_Table', 'Replicate_Wild_Ignore_Table'];
             if (in_array($variable, $variables_wrap)) {
                 $html .= htmlspecialchars(str_replace(
                     ',',
@@ -694,7 +693,7 @@ class ReplicationGui
                 }
             }
         }
-        return array($username_length, $hostname_length);
+        return [$username_length, $hostname_length];
     }
 
     /**
@@ -749,16 +748,16 @@ class ReplicationGui
         // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
         if (! isset($GLOBALS['pred_hostname']) && isset($_REQUEST['hostname'])) {
             switch (mb_strtolower($_REQUEST['hostname'])) {
-            case 'localhost':
-            case '127.0.0.1':
-                $GLOBALS['pred_hostname'] = 'localhost';
-                break;
-            case '%':
-                $GLOBALS['pred_hostname'] = 'any';
-                break;
-            default:
-                $GLOBALS['pred_hostname'] = 'userdefined';
-                break;
+                case 'localhost':
+                case '127.0.0.1':
+                    $GLOBALS['pred_hostname'] = 'localhost';
+                    break;
+                case '%':
+                    $GLOBALS['pred_hostname'] = 'any';
+                    break;
+                default:
+                    $GLOBALS['pred_hostname'] = 'userdefined';
+                    break;
             }
         }
         $html .= '        <option value="any"'
@@ -811,7 +810,7 @@ class ReplicationGui
             . '</label>'
             . '<span class="options">'
             . '    <select name="pred_username" id="select_pred_username" '
-            .         'title="' . __('User name') . '">'
+            . 'title="' . __('User name') . '">'
             . '        <option value="any"'
             . ((isset($GLOBALS['pred_username'])
                 && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '')
@@ -938,22 +937,22 @@ class ReplicationGui
                 $refresh = true;
 
                 switch ($_REQUEST['sr_slave_action']) {
-                case 'start':
-                    $messageSuccess = __('Replication started successfully.');
-                    $messageError = __('Error starting replication.');
-                    break;
-                case 'stop':
-                    $messageSuccess = __('Replication stopped successfully.');
-                    $messageError = __('Error stopping replication.');
-                    break;
-                case 'reset':
-                    $messageSuccess = __('Replication resetting successfully.');
-                    $messageError = __('Error resetting replication.');
-                    break;
-                default:
-                    $messageSuccess = __('Success.');
-                    $messageError = __('Error.');
-                    break;
+                    case 'start':
+                        $messageSuccess = __('Replication started successfully.');
+                        $messageError = __('Error starting replication.');
+                        break;
+                    case 'stop':
+                        $messageSuccess = __('Replication stopped successfully.');
+                        $messageError = __('Error stopping replication.');
+                        break;
+                    case 'reset':
+                        $messageSuccess = __('Replication resetting successfully.');
+                        $messageError = __('Error resetting replication.');
+                        break;
+                    default:
+                        $messageSuccess = __('Success.');
+                        $messageError = __('Error.');
+                        break;
                 }
             } elseif (isset($_REQUEST['sr_slave_skip_error'])) {
                 $result = $this->handleRequestForSlaveSkipError();
@@ -987,7 +986,7 @@ class ReplicationGui
      */
     public function handleRequestForSlaveChangeMaster()
     {
-        $sr = array();
+        $sr = [];
         $_SESSION['replication']['m_username'] = $sr['username']
             = $GLOBALS['dbi']->escapeString($_REQUEST['username']);
         $_SESSION['replication']['m_password'] = $sr['pma_pw']
@@ -1002,7 +1001,10 @@ class ReplicationGui
 
         // Attempt to connect to the new master server
         $link_to_master = $this->replication->connectToMaster(
-            $sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']
+            $sr['username'],
+            $sr['pma_pw'],
+            $sr['hostname'],
+            $sr['port']
         );
 
         if (! $link_to_master) {

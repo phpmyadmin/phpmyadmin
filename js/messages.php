@@ -29,7 +29,6 @@ if (!defined('TESTSUITE')) {
 // But this one is needed for Sanitize::escapeJsString()
 use PhpMyAdmin\Sanitize;
 
-
 $buffer = PhpMyAdmin\OutputBuffering::getInstance();
 $buffer->start();
 if (!defined('TESTSUITE')) {
@@ -628,18 +627,18 @@ $js_messages['back'] = __('Back');
 
 // this approach does not work when the parameter is changed via user prefs
 switch ($GLOBALS['cfg']['GridEditing']) {
-case 'double-click':
-    $js_messages['strGridEditFeatureHint'] = __(
-        'You can also edit most values<br />by double-clicking directly on them.'
-    );
-    break;
-case 'click':
-    $js_messages['strGridEditFeatureHint'] = __(
-        'You can also edit most values<br />by clicking directly on them.'
-    );
-    break;
-default:
-    break;
+    case 'double-click':
+        $js_messages['strGridEditFeatureHint'] = __(
+            'You can also edit most values<br />by double-clicking directly on them.'
+        );
+        break;
+    case 'click':
+        $js_messages['strGridEditFeatureHint'] = __(
+            'You can also edit most values<br />by clicking directly on them.'
+        );
+        break;
+    default:
+        break;
 }
 $js_messages['strGoToLink'] = __('Go to link:');
 $js_messages['strColNameCopyTitle'] = __('Copy column name.');
@@ -789,7 +788,7 @@ Sanitize::printJsValue(
 Sanitize::printJsValue("$.datepicker.regional['']['currentText']", __('Today'));
 Sanitize::printJsValue(
     "$.datepicker.regional['']['monthNames']",
-    array(
+    [
         __('January'),
         __('February'),
         __('March'),
@@ -802,11 +801,11 @@ Sanitize::printJsValue(
         __('October'),
         __('November'),
         __('December')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['monthNamesShort']",
-    array(
+    [
         /* l10n: Short month name */
         __('Jan'),
         /* l10n: Short month name */
@@ -831,11 +830,11 @@ Sanitize::printJsValue(
         __('Nov'),
         /* l10n: Short month name */
         __('Dec')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNames']",
-    array(
+    [
         __('Sunday'),
         __('Monday'),
         __('Tuesday'),
@@ -843,11 +842,11 @@ Sanitize::printJsValue(
         __('Thursday'),
         __('Friday'),
         __('Saturday')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNamesShort']",
-    array(
+    [
         /* l10n: Short week day name */
         __('Sun'),
         /* l10n: Short week day name */
@@ -862,11 +861,11 @@ Sanitize::printJsValue(
         __('Fri'),
         /* l10n: Short week day name */
         __('Sat')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNamesMin']",
-    array(
+    [
         /* l10n: Minimal week day name */
         __('Su'),
         /* l10n: Minimal week day name */
@@ -881,7 +880,7 @@ Sanitize::printJsValue(
         __('Fr'),
         /* l10n: Minimal week day name */
         __('Sa')
-    )
+    ]
 );
 /* l10n: Column header for week of the year in calendar */
 Sanitize::printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));

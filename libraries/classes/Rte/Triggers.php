@@ -73,15 +73,15 @@ class Triggers
         global $action_timings, $event_manipulations;
 
         // Some definitions for triggers
-        $action_timings = array(
+        $action_timings = [
             'BEFORE',
             'AFTER',
-        );
-        $event_manipulations = array(
+        ];
+        $event_manipulations = [
             'INSERT',
             'UPDATE',
             'DELETE',
-        );
+        ];
     }
 
     /**
@@ -285,14 +285,14 @@ class Triggers
      */
     public function getDataFromRequest()
     {
-        $retval = array();
-        $indices = array('item_name',
+        $retval = [];
+        $indices = ['item_name',
                          'item_table',
                          'item_original_name',
                          'item_action_timing',
                          'item_event_manipulation',
                          'item_definition',
-                         'item_definer');
+                         'item_definer'];
         foreach ($indices as $index) {
             $retval[$index] = isset($_REQUEST[$index]) ? $_REQUEST[$index] : '';
         }
@@ -311,7 +311,7 @@ class Triggers
     {
         global $db, $table, $_REQUEST;
 
-        $temp = array();
+        $temp = [];
         $items = $GLOBALS['dbi']->getTriggers($db, $table, '');
         foreach ($items as $value) {
             if ($value['name'] == $name) {
@@ -321,7 +321,7 @@ class Triggers
         if (empty($temp)) {
             return false;
         } else {
-            $retval = array();
+            $retval = [];
             $retval['create']                  = $temp['create'];
             $retval['drop']                    = $temp['drop'];
             $retval['item_name']               = $temp['name'];
@@ -352,12 +352,12 @@ class Triggers
         $response = Response::getInstance();
 
         // Escape special characters
-        $need_escape = array(
+        $need_escape = [
                            'item_original_name',
                            'item_name',
                            'item_definition',
                            'item_definer'
-                       );
+                       ];
         foreach ($need_escape as $key => $index) {
             $item[$index] = htmlentities($item[$index], ENT_QUOTES, 'UTF-8');
         }

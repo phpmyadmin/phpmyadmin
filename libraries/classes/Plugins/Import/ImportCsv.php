@@ -99,7 +99,7 @@ class ImportCsv extends AbstractImportCsv
      *
      * @return void
      */
-    public function doImport(array &$sql_data = array())
+    public function doImport(array &$sql_data = [])
     {
         global $db, $table, $csv_terminated, $csv_enclosed, $csv_escaped,
                $csv_new_line, $csv_columns, $err_url;
@@ -107,11 +107,11 @@ class ImportCsv extends AbstractImportCsv
         // but we use directly from $_POST
         global $error, $timeout_passed, $finished, $message;
 
-        $replacements = array(
+        $replacements = [
             '\\n' => "\n",
             '\\t' => "\t",
             '\\r' => "\r",
-        );
+        ];
         $csv_terminated = strtr($csv_terminated, $replacements);
         $csv_enclosed = strtr($csv_enclosed, $replacements);
         $csv_escaped = strtr($csv_escaped, $replacements);
@@ -189,7 +189,7 @@ class ImportCsv extends AbstractImportCsv
                 $fields = $tmp_fields;
             } else {
                 $sql_template .= ' (';
-                $fields = array();
+                $fields = [];
                 $tmp = preg_split('/,( ?)/', $csv_columns);
                 foreach ($tmp as $key => $val) {
                     if (count($fields) > 0) {
@@ -233,13 +233,13 @@ class ImportCsv extends AbstractImportCsv
         $lastlen = null;
         $line = 1;
         $lasti = -1;
-        $values = array();
+        $values = [];
         $csv_finish = false;
 
-        $tempRow = array();
-        $rows = array();
-        $col_names = array();
-        $tables = array();
+        $tempRow = [];
+        $rows = [];
+        $col_names = [];
+        $tables = [];
 
         $col_count = 0;
         $max_cols = 0;
@@ -522,11 +522,10 @@ class ImportCsv extends AbstractImportCsv
                         $col_count = 0;
 
                         $rows[] = $tempRow;
-                        $tempRow = array();
+                        $tempRow = [];
                     } else {
                         // Do we have correct count of values?
                         if (count($values) != $required_fields) {
-
                             // Hack for excel
                             if ($values[count($values) - 1] == ';') {
                                 unset($values[count($values) - 1]);
@@ -581,7 +580,7 @@ class ImportCsv extends AbstractImportCsv
 
                     $line++;
                     $csv_finish = false;
-                    $values = array();
+                    $values = [];
                     $buffer = mb_substr($buffer, $i + 1);
                     $len = mb_strlen($buffer);
                     $i = 0;
@@ -625,10 +624,10 @@ class ImportCsv extends AbstractImportCsv
                 $tbl_name = 'TBL_NAME';
             }
 
-            $tables[] = array($tbl_name, $col_names, $rows);
+            $tables[] = [$tbl_name, $col_names, $rows];
 
             /* Obtain the best-fit MySQL types for each column */
-            $analyses = array();
+            $analyses = [];
             $analyses[] = $this->import->analyzeTable($tables[0]);
 
             /**

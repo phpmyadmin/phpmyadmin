@@ -28,10 +28,10 @@ class Sanitize
      *
      * @return boolean True if string can be used as link
      */
-    public static function checkLink($url, $http=false, $other=false)
+    public static function checkLink($url, $http = false, $other = false)
     {
         $url = strtolower($url);
-        $valid_starts = array(
+        $valid_starts = [
             'https://',
             './url.php?url=https%3a%2f%2f',
             './doc/html/',
@@ -55,7 +55,7 @@ class Sanitize
             './db_routines.php?',
             './server_privileges.php?',
             './tbl_structure.php?',
-        );
+        ];
         $is_setup = !is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup');
         // Adjust path to setup script location
         if ($is_setup) {
@@ -169,11 +169,11 @@ class Sanitize
     public static function sanitize($message, $escape = false, $safe = false)
     {
         if (!$safe) {
-            $message = strtr((string) $message, array('<' => '&lt;', '>' => '&gt;'));
+            $message = strtr((string) $message, ['<' => '&lt;', '>' => '&gt;']);
         }
 
         /* Interpret bb code */
-        $replace_pairs = array(
+        $replace_pairs = [
             '[em]'      => '<em>',
             '[/em]'     => '</em>',
             '[strong]'  => '<strong>',
@@ -191,7 +191,7 @@ class Sanitize
             '[conferr]' => '<iframe src="show_config_errors.php"><a href="show_config_errors.php">show_config_errors.php</a></iframe>',
             // used in libraries/Util.php
             '[dochelpicon]' => Util::getImage('b_help', __('Documentation')),
-        );
+        ];
 
         $message = strtr($message, $replace_pairs);
 
@@ -199,18 +199,18 @@ class Sanitize
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
         /* Find and replace all links */
-        $message = preg_replace_callback($pattern, function($match){
+        $message = preg_replace_callback($pattern, function ($match) {
             return self::replaceBBLink($match);
         }, $message);
 
         /* Replace documentation links */
         $message = preg_replace_callback(
             '/\[doc@([a-zA-Z0-9_-]+)(@([a-zA-Z0-9_-]*))?\]/',
-            function($match){
+            function ($match) {
                 return self::replaceDocLink($match);
             },
-                $message
-            );
+            $message
+        );
 
         /* Possibly escape result */
         if ($escape) {
@@ -290,17 +290,18 @@ class Sanitize
     public static function escapeJsString($string)
     {
         return preg_replace(
-            '@</script@i', '</\' + \'script',
+            '@</script@i',
+            '</\' + \'script',
             strtr(
                 (string) $string,
-                array(
+                [
                     "\000" => '',
                     '\\' => '\\\\',
                     '\'' => '\\\'',
                     '"' => '\"',
                     "\n" => '\n',
                     "\r" => '\r'
-                )
+                ]
             )
         );
     }
@@ -409,7 +410,7 @@ class Sanitize
      *
      * @return void
      */
-    public static function printJsValueForFormValidation($key, $value, $addOn=false, $comma=true)
+    public static function printJsValueForFormValidation($key, $value, $addOn = false, $comma = true)
     {
         echo self::getJsValueForFormValidation($key, $value, $addOn, $comma);
     }
@@ -428,16 +429,16 @@ class Sanitize
         // and use type casting because the variables could have become
         // strings
         if (! isset($_REQUEST)) {
-            $_REQUEST = array();
+            $_REQUEST = [];
         }
         if (! isset($_GET)) {
-            $_GET = array();
+            $_GET = [];
         }
         if (! isset($_POST)) {
-            $_POST = array();
+            $_POST = [];
         }
         if (! isset($_COOKIE)) {
-            $_COOKIE = array();
+            $_COOKIE = [];
         }
         $keys = array_keys(
             array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE)

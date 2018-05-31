@@ -23,6 +23,10 @@ abstract class DatabaseController extends Controller
 
     /**
      * Constructor
+     *
+     * @param \PhpMyAdmin\Response          $response Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
+     * @param string                        $db       Database name
      */
     public function __construct($response, $dbi, $db)
     {

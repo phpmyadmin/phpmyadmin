@@ -7,19 +7,21 @@
  */
 declare(strict_types=1);
 
+namespace PhpMyAdmin\Tests;
+
+use PHPUnit\Framework\TestCase;
+
 /**
  *
  */
 require_once 'config.sample.inc.php';
-
-use PHPUnit\Framework\TestCase;
 
 /**
  * Environment tests
  *
  * @package PhpMyAdmin-test
  */
-class Environment_Test extends TestCase
+class EnvironmentTest extends TestCase
 {
     /**
      * Tests PHP version
@@ -42,7 +44,7 @@ class Environment_Test extends TestCase
     public function testMySQL()
     {
         try {
-            $pdo = new PDO(
+            $pdo = new \PDO(
                 "mysql:host=" . $GLOBALS['TESTSUITE_SERVER'],
                 $GLOBALS['TESTSUITE_USER'],
                 $GLOBALS['TESTSUITE_PASSWORD']

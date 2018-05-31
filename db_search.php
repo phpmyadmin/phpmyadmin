@@ -30,14 +30,17 @@ require 'libraries/db_common.inc.php';
 // If config variable $GLOBALS['cfg']['UseDbSearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
     Util::mysqlDie(
-        __('Access denied!'), '', false, $err_url
+        __('Access denied!'),
+        '',
+        false,
+        $err_url
     );
 } // end if
 $url_query .= '&amp;goto=db_search.php';
 $url_params['goto'] = 'db_search.php';
 
 // Create a database search instance
-$db_search = new Search($GLOBALS['db']);
+$db_search = new Search($GLOBALS['dbi'], $GLOBALS['db']);
 
 // Display top links if we are not in an Ajax request
 if (! $response->isAjax()) {

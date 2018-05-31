@@ -49,7 +49,7 @@ class CreateTable
     public static function getHtml($db)
     {
         return Template::get('database/create_table')->render(
-            array('db' => $db)
+            ['db' => $db]
         );
     }
 }

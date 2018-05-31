@@ -122,9 +122,8 @@ function setFieldValue (field, field_type, value) {
         var options = $field.prop('options');
         var i;
         var imax = options.length;
-        var i, imax = options.length;
         for (i = 0; i < imax; i++) {
-            options[i].selected = (value.indexOf(options[i].value) != -1);
+            options[i].selected = (value.indexOf(options[i].value) !== -1);
         }
         break;
     }

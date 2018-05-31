@@ -14,6 +14,8 @@ use PhpMyAdmin\Template;
 
 /**
  * Invalid two-factor authentication showing that configured choice is not available.
+ *
+ * @package PhpMyAdmin
  */
 class Invalid extends TwoFactorPlugin
 {
@@ -64,4 +66,3 @@ class Invalid extends TwoFactorPlugin
         return 'Error fallback only!';
     }
 }
-
