@@ -90,12 +90,11 @@ class ConfigFile
         include './libraries/config.default.php';
 
         // load additional config information
-        $cfg_db = &$this->_cfgDb;
-        include './libraries/config.values.php';
+        $this->_cfgDb = include './libraries/config.values.php';
 
         // apply default values overrides
-        if (count($cfg_db['_overrides'])) {
-            foreach ($cfg_db['_overrides'] as $path => $value) {
+        if (count($this->_cfgDb['_overrides'])) {
+            foreach ($this->_cfgDb['_overrides'] as $path => $value) {
                 Core::arrayWrite($path, $cfg, $value);
             }
         }
@@ -365,7 +364,7 @@ class ConfigFile
     }
 
     /**
-     * Returns config database entry for $path ($cfg_db in config_info.php)
+     * Returns config database entry for $path
      *
      * @param string $path    path of the variable in config db
      * @param mixed  $default default value
