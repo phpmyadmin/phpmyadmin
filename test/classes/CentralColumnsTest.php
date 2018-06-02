@@ -509,81 +509,6 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for getHtmlForTableNavigation
-     *
-     * @return void
-     */
-    public function testGetHtmlForTableNavigation()
-    {
-        $result = $this->centralColumns->getHtmlForTableNavigation(
-            0,
-            0,
-            'phpmyadmin'
-        );
-        $this->assertContains(
-            '<table',
-            $result
-        );
-        $this->assertContains(
-            __('Search this table'),
-            $result
-        );
-        $result_1 = $this->centralColumns->getHtmlForTableNavigation(
-            25,
-            10,
-            'phpmyadmin'
-        );
-        $this->assertContains(
-            '<form action="db_central_columns.php" method="post">',
-            $result_1
-        );
-        $this->assertContains(
-            Url::getHiddenInputs(
-                'phpmyadmin'
-            ),
-            $result_1
-        );
-        $this->assertContains(
-            '<input type="submit" name="navig"'
-            . ' class="ajax" '
-            . 'value="&lt" />',
-            $result_1
-        );
-        $this->assertContains(
-            Util::pageselector(
-                'pos',
-                10,
-                2,
-                3
-            ),
-            $result_1
-        );
-        $this->assertContains(
-            '<input type="submit" name="navig"'
-            . ' class="ajax" '
-            . 'value="&gt" />',
-            $result_1
-        );
-    }
-
-    /**
-     * Test for getTableHeader
-     *
-     * @return void
-     */
-    public function testGetTableHeader()
-    {
-        $this->assertContains(
-            '<thead',
-            $this->centralColumns->getTableHeader(
-                'column_heading',
-                __('Click to sort'),
-                2
-            )
-        );
-    }
-
-    /**
      * Test for getListRaw
      *
      * @return void
@@ -641,32 +566,88 @@ class CentralColumnsTest extends TestCase
     }
 
     /**
-     * Test for getHtmlForAddNewColumn
+     * Test for getHtmlForMain
      *
      * @return void
      */
-    public function testGetHtmlForAddNewColumn()
+    public function testGetHtmlForMain()
     {
-        $result = $this->centralColumns->getHtmlForAddNewColumn(
-            'phpmyadmin',
-            0
+        $db = 'phpmyadmin';
+        $total_rows = 50;
+        $pos = 26;
+        $pmaThemeImage = "pmaThemeImage";
+        $text_dir = "text_dir";
+        $max_rows = (int) $GLOBALS['cfg']['MaxRows'];
+        // test for not empty table
+        $result = $this->centralColumns->getHtmlForMain(
+            $db,
+            $total_rows,
+            $pos,
+            $pmaThemeImage,
+            $text_dir
         );
         $this->assertContains(
-            '<form',
+            '<form action="db_central_columns.php" method="post">',
             $result
         );
         $this->assertContains(
-            '<table',
+            Url::getHiddenInputs(
+                'phpmyadmin'
+            ),
             $result
         );
         $this->assertContains(
-            __('Add new column'),
+            '<input type="submit" name="navig"'
+            . ' class="ajax" '
+            . 'value="&lt" />',
             $result
         );
         $this->assertContains(
-            Url::getHiddenInputs('phpmyadmin'),
+            Util::pageselector(
+                'pos',
+                $max_rows,
+                ($pos / $max_rows) + 1,
+                ceil($total_rows / $max_rows)
+            ),
             $result
         );
+        $this->assertContains('<span>+', $result);
+        $this->assertContains('class="new_central_col hide"', $result);
+        $this->assertContains(__('Filter rows') . ':', $result);
+        $this->assertContains(__('Add column'), $result);
+        $this->assertContains(__('Click to sort.'), $result);
+        $this->assertContains(Url::getHiddenInputs($db), $result);
+        $this->assertContains(Url::getHiddenInputs($db), $result);
+        $editSelectedButton = Util::getButtonOrImage(
+            'edit_central_columns',
+            'mult_submit change_central_columns',
+            __('Edit'),
+            'b_edit',
+            'edit central columns'
+        );
+        $deleteSelectedButton = Util::getButtonOrImage(
+            'delete_central_columns',
+            'mult_submit',
+            __('Delete'),
+            'b_drop',
+            'remove_from_central_columns'
+        );
+        $this->assertContains($editSelectedButton, $result);
+        $this->assertContains($deleteSelectedButton, $result);
+        // test for empty table
+        $total_rows = 0;
+        $result = $this->centralColumns->getHtmlForMain(
+            $db,
+            $total_rows,
+            $pos,
+            $pmaThemeImage,
+            $text_dir
+        );
+        $this->assertContains('<span>-', $result);
+        $this->assertContains('class="new_central_col"', $result);
+        $this->assertContains(__('Add column'), $result);
+        $this->assertContains(Url::getHiddenInputs($db), $result);
+        $this->assertContains(__('The central list of columns for the current database is empty'), $result);
     }
 
     /**
@@ -711,82 +692,6 @@ class CentralColumnsTest extends TestCase
                     true,
                 ]
             )
-        );
-    }
-
-    /**
-     * Test for getHtmlForTableDropdown
-     *
-     * @return void
-     */
-    public function testGetHtmlForTableDropdown()
-    {
-        $db = 'PMA_db';
-        $result = $this->callProtectedMethod(
-            'getHtmlForTableDropdown',
-            [$db]
-        );
-        $this->assertContains(
-            '<select name="table-select" id="table-select"',
-            $result
-        );
-        $this->assertContains(
-            '<option value="PMA_table"',
-            $result
-        );
-    }
-
-    /**
-     * Test for getHtmlForColumnDropdown
-     *
-     * @return void
-     */
-    public function testGetHtmlForColumnDropdown()
-    {
-        $db = 'PMA_db';
-        $selected_tbl = 'PMA_table';
-        $result = $this->centralColumns->getHtmlForColumnDropdown(
-            $db,
-            $selected_tbl
-        );
-        $this->assertEquals(
-            '<option value="id">id</option><option value="col1">col1</option>'
-            . '<option value="col2">col2</option>',
-            $result
-        );
-    }
-
-    /**
-     * Test for getHtmlForAddColumn
-     *
-     * @return void
-     */
-    public function testGetHtmlForAddColumn()
-    {
-        $result = $this->centralColumns->getHtmlForAddColumn(20, 0, 'phpmyadmin');
-        $this->assertContains(
-            '<table',
-            $result
-        );
-        $this->assertContains(
-            '<form',
-            $result
-        );
-        $this->assertContains(
-            Url::getHiddenInputs('phpmyadmin'),
-            $result
-        );
-        $this->assertContains(
-            '<input type="hidden" name="add_column" value="add">',
-            $result
-        );
-        $this->assertContains(
-            '<input type="hidden" name="pos" value="0" />',
-            $result
-        );
-        $this->assertContains(
-            '<input type="hidden" name="total_rows" value="20"/>',
-            $result
         );
     }
 
