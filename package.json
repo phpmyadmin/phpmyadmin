@@ -14,13 +14,15 @@
   "dependencies": {
     "codemirror": "5.37.0",
     "jquery": "3.3.1",
-    "jquery-migrate": "3.0.1",
+    "jquery-migrate": "3.0.0",
     "jquery-mousewheel": "3.1.13",
-    "jquery-ui": "1.12.1",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-bundle": "^1.12.1-migrate",
     "jquery-ui-timepicker-addon": "1.6.3",
     "jquery-validation": "1.17.0",
     "jquery.event.drag": "2.2.2",
     "js-cookie": "2.2.0",
+    "sprintf-js": "^1.1.1",
     "tracekit": "0.4.5",
     "updated-jqplot": "1.0.9",
     "zxcvbn": "4.4.2"
@@ -28,6 +30,7 @@
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.1.5",
     "del-cli": "^1.1.0",

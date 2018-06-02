@@ -2,7 +2,7 @@
 
 /**
  * Takes parameters defined in messages.php file like messages, validations,
- * jquery-ui-timepicker edits using global functions
+ * jquery-ui-timepicker edits
  */
 
 export const Variables =  (function () {
