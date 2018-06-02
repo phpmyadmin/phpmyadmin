@@ -7,8 +7,8 @@
 /**
  * Module imports
  */
-import sprintf from 'sprintf-js';
 import { PMA_Messages as PMA_messages } from '../variables/export_variables';
+import { PMA_highlightSQL } from './sql';
 
 /**
  * @var   int   ajax_message_count   Number of AJAX messages shown since page load
@@ -40,23 +40,6 @@ export function PMA_tooltip ($elements, item, myContent, additionalOptions) {
     };
 
     $elements.tooltip($.extend(true, defaultOptions, additionalOptions));
-}
-
-/**
- * @param string string message to display
- *
- * @return string      A concated string of aguments passed
- */
-
-export function PMA_sprintf () {
-    /**
-     * This package can be implemented in two ways
-     *
-     * 1) sprintf.sprintf("A %s is %s", "string", "string");
-     *
-     * 2) sprintf.vsprintf("A %s is %s", ["string", "string"]);
-     */
-    return sprintf.sprintf(...arguments);
 }
 
 /**

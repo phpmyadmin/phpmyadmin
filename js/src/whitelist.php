@@ -1,9 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Exporting the common parameters to be used within the javascript
- * code like serrver information, database name, table name, dev server port,
- * working environment etc.
+ * Exporting of $goto_whitelist from PHP to Javascript
  *
  * @package PhpMyAdmin
  */
@@ -21,25 +19,25 @@ if (!defined('TESTSUITE')) {
     // Avoid loading the full common.inc.php because this would add many
     // non-js-compatible stuff like DOCTYPE
     define('PMA_MINIMUM_COMMON', true);
-    define('PMA_PATH_TO_BASEDIR', '../../');
+    define('PMA_PATH_TO_BASEDIR', '../');
     require_once './libraries/common.inc.php';
     // Close session early as we won't write anything there
     session_write_close();
 }
 
-// This one is needed for loading parameters data from php Header class
-use PhpMyAdmin\Header;
-use PhpMyAdmin\Sanitize;
-
-$header = new Header();
-
-/**
- * @param Array javascript array containig the common parameters to be 
- * imported in javascript code.
- */
-echo "var common_params = new Array();\n";
-foreach ($header->getJsParams() as $name => $value) {
-    Sanitize::printJsValue("common_params['" . $name . "']", $value);
+$buffer = PhpMyAdmin\OutputBuffering::getInstance();
+$buffer->start();
+if (!defined('TESTSUITE')) {
+    register_shutdown_function(
+        function () {
+            echo PhpMyAdmin\OutputBuffering::getInstance()->getContents();
+        }
+    );
 }
 
-?>
+echo "var PMA_gotoWhitelist = new Array();\n";
+$i = -1;
+foreach ($GLOBALS['goto_whitelist'] as $one_whitelist) {
+    $i++;
+    echo 'PMA_gotoWhitelist[' , $i , ']="' , $one_whitelist , '";' , "\n";
+}

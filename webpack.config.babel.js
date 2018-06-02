@@ -42,6 +42,7 @@ export default [{
         // db_structure_new: './js/src/db_structure.js',
         // db_tracking_new: './js/src/db_tracking.js',
         // doclinks_new: './js/src/doclinks.js',
+        index_new: './js/src/index.js',
         // error_report_new: './js/src/error_report.js',
         // export_new: './js/src/export.js',
         // export_output_new: './js/src/export_output.js',
@@ -60,9 +61,9 @@ export default [{
         // replication_new: './js/src/replication.js',
         // rte_new: './js/src/rte.js',
         // server_databases_new: './js/src/server_databases.js',
-        // server_plugins_new: './js/src/server_plugins.js',
-        // server_privileges_new: './js/src/server_privileges.js',
-        // server_status_advisor_new: './js/src/server_status_advisor.js',
+        server_plugins_new: './js/src/server_plugins.js',
+        server_privileges_new: './js/src/server_privileges.js',
+        server_status_advisor_new: './js/src/server_status_advisor.js',
         // server_status_monitor_new: './js/src/server_status_monitor.js',
         // server_status_processes_new: './js/src/server_status_processes.js',
         // server_status_queries_new: './js/src/server_status_queries.js',
@@ -79,15 +80,16 @@ export default [{
         // tbl_operations_new: './js/src/tbl_operations.js',
         // tbl_relation_new: './js/src/tbl_relation.js',
         // tbl_select_new: './js/src/tbl_select.js',
-        // tbl_structure_new: './js/src/tbl_structure.js',
+        tbl_structure_new: './js/src/tbl_structure.js',
         // tbl_tracking_new: './js/src/tbl_tracking.js',
         // tbl_zoom_plot_jqplot_new: './js/src/tbl_zoom_plot_jqplot.js',
         // u2f_new: './js/src/u2f.js'
     },
     output: {
-        filename: 'js/sql.js',
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: 'http://localhost:3007/dist'
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'js/dist'),
+        // url on which dev server will run
+        publicPath: 'http://localhost:3307/js/dist/'
     },
     module: module,
     // devtool: 'source-map',
