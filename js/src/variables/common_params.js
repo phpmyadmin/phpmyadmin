@@ -1,4 +1,4 @@
-import { PMA_sprintf } from '../utils/show_ajax_messages';
+import { PMA_sprintf } from '../utils/sprintf';
 import { PMA_showCurrentNavigation } from '../functions/navigation';
 /**
  * Holds common parameters such as server, db, table, etc
@@ -23,20 +23,23 @@ export const PMA_commonParams = (function () {
          * @return void
          */
         setAll: function (obj) {
-            var reload = false;
+            // var reload = false;
             var updateNavigation = false;
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
+                    console.log('randoma5sd');
+
                     if (i === 'db' || i === 'table') {
                         updateNavigation = true;
                     }
-                    reload = true;
+                    // reload = true;
                 }
                 params[i] = obj[i];
             }
             if (updateNavigation &&
                     $('#pma_navigation_tree').hasClass('synced')
             ) {
+                console.log('random');
                 PMA_showCurrentNavigation();
             }
         },

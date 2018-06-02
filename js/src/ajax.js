@@ -1,8 +1,18 @@
+import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
+import { PMA_Messages as PMA_messages } from './variables/export_variables';
+import { PMA_commonParams } from './variables/common_params';
+import { jQuery as $ } from './utils/extend_jquery';
+import { PMA_getImage } from './functions/get_image';
+
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
  */
-export var AJAX = {
+export let AJAX = {
+    /**
+     * @var bool test variable for checking this object
+     */
+    test: false,
     /**
      * @var bool active Whether we are busy
      */
@@ -41,6 +51,7 @@ export var AJAX = {
      *
      * @return int
      */
+
     hash: function (key) {
         /* http://burtleburtle.net/bob/hash/doobs.html#one */
         key += '';
@@ -66,7 +77,7 @@ export var AJAX = {
      * @return self For chaining
      */
     registerOnload: function (file, func) {
-        var eventName = 'onload_' + AJAX.hash(file);
+        var eventName = 'onload_' + this.hash(file);
         $(document).on(eventName, func);
         if (this._debug) {
             console.log(
@@ -87,7 +98,7 @@ export var AJAX = {
      * @return self For chaining
      */
     registerTeardown: function (file, func) {
-        var eventName = 'teardown_' + AJAX.hash(file);
+        var eventName = 'teardown_' + this.hash(file);
         $(document).on(eventName, func);
         if (this._debug) {
             console.log(
@@ -106,7 +117,7 @@ export var AJAX = {
      * @return void
      */
     fireOnload: function (file) {
-        var eventName = 'onload_' + AJAX.hash(file);
+        var eventName = 'onload_' + this.hash(file);
         $(document).trigger(eventName);
         if (this._debug) {
             console.log(
@@ -124,7 +135,7 @@ export var AJAX = {
      * @return void
      */
     fireTeardown: function (file) {
-        var eventName = 'teardown_' + AJAX.hash(file);
+        var eventName = 'teardown_' + this.hash(file);
         $(document).triggerHandler(eventName);
         if (this._debug) {
             console.log(
@@ -179,7 +190,7 @@ export var AJAX = {
         }
         // Show lock icon if locked targets is not empty.
         // otherwise remove lock icon
-        if (!jQuery.isEmptyObject(AJAX.lockedTargets)) {
+        if (!$.isEmptyObject(AJAX.lockedTargets)) {
             $('#lock_page_icon').html(PMA_getImage('s_lock', PMA_messages.strLockToolTip).toString());
         } else {
             $('#lock_page_icon').html('');
@@ -211,6 +222,7 @@ export var AJAX = {
      * @return void
      */
     requestHandler: function (event) {
+        console.log('i am called');
         // In some cases we don't want to handle the request here and either
         // leave the browser deal with it natively (e.g: file download)
         // or leave an existing ajax event handler present elsewhere deal with it
@@ -232,7 +244,6 @@ export var AJAX = {
         ) {
             return true;
         }
-
         if (typeof event !== 'undefined') {
             event.preventDefault();
             event.stopImmediatePropagation();
@@ -242,9 +253,10 @@ export var AJAX = {
         // the user has performed some operations on loaded page
         // the user clicks on some link, (won't trigger for buttons)
         // the click event is not triggered by script
+
         if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
-            !jQuery.isEmptyObject(AJAX.lockedTargets)
+            !$.isEmptyObject(AJAX.lockedTargets)
         ) {
             if (confirm(PMA_messages.strConfirmNavigation) === false) {
                 return false;
@@ -259,7 +271,6 @@ export var AJAX = {
         AJAX.resetLock();
         var isLink = !! href || false;
         var previousLinkAborted = false;
-
         if (AJAX.active === true) {
             // Cancel the old request if abortable, when the user requests
             // something else. Otherwise silently bail out, as there is already
@@ -282,7 +293,6 @@ export var AJAX = {
                 return false;
             }
         }
-
         AJAX.source = $(this);
 
         $('html, body').animate({ scrollTop: 0 }, 'fast');
@@ -371,6 +381,7 @@ export var AJAX = {
                 if (data._reloadNavigation) {
                     PMA_reloadNavigation();
                 }
+
                 if (data._title) {
                     $('title').replaceWith(data._title);
                 }
@@ -423,7 +434,7 @@ export var AJAX = {
                 if (data._selflink) {
                     var source = data._selflink.split('?')[0];
                     // Check for faulty links
-                    $selflink_replace = {
+                    var $selflink_replace = {
                         'import.php': 'tbl_sql.php',
                         'tbl_chart.php': 'sql.php',
                         'tbl_gis_visualization.php': 'sql.php'
@@ -594,10 +605,8 @@ export var AJAX = {
                 // Only for scripts that we don't already have
                 if ($.inArray(script, self._scripts) === -1) {
                     this.add(script);
-                    this.appendScript(script, callback);
-                } else {
-                    self.done(script, callback);
                 }
+                self.done(script, callback);
             }
             // Trigger callback if there is nothing else to load
             self.done(null, callback);
@@ -631,36 +640,38 @@ export var AJAX = {
          * Appends a script element to the head to load the scripts
          *
          * @return void
+         * this is to be removed in modularised code
+         * no appending of scripts is needed
          */
-        appendScript: function (name, callback) {
-            var head = document.head || document.getElementsByTagName('head')[0];
-            var script = document.createElement('script');
-            var self = this;
+        // appendScript: function (name, callback) {
+        //     var head = document.head || document.getElementsByTagName('head')[0];
+        //     var script = document.createElement('script');
+        //     var self = this;
 
-            script.type = 'text/javascript';
-            /**
-             * This piece of code is for appending the new revamped files into the
-             * DOM so that both new and old files can be used simultaneously
-             * It checks whether the file contains new in its name or not
-             */
-            var check = name.split('_');
-            if (check[check.length - 1] === 'new.js') {
-                var script_src = '';
-                if (PMA_commonParams.get('environment') === 'development') {
-                    script_src += 'http://localhost:' + PMA_commonParams.get('webpack_port') + '/js/dist/';
-                } else if (PMA_commonParams.get('environment') === 'production') {
-                    script_src = 'js/dist/';
-                }
-                script.src = script_src + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
-            } else {
-                script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
-            }
-            script.async = false;
-            script.onload = function () {
-                self.done(name, callback);
-            };
-            head.appendChild(script);
-        },
+        //     script.type = 'text/javascript';
+        //     /**
+        //      * This piece of code is for appending the new revamped files into the
+        //      * DOM so that both new and old files can be used simultaneously
+        //      * It checks whether the file contains new in its name or not
+        //      */
+        //     var check = name.split('_');
+        //     if (check[check.length - 1] === 'new.js') {
+        //         var script_src = '';
+        //         if (PMA_commonParams.get('environment') === 'development') {
+        //             script_src += 'http://localhost:' + PMA_commonParams.get('webpack_port') + '/js/dist/';
+        //         } else if (PMA_commonParams.get('environment') === 'production') {
+        //             script_src = 'js/dist/';
+        //         }
+        //         script.src = script_src + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+        //     } else {
+        //         script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+        //     }
+        //     script.async = false;
+        //     script.onload = function () {
+        //         self.done(name, callback);
+        //     };
+        //     head.appendChild(script);
+        // },
         /**
          * Fires all the teardown event handlers for the current page
          * and rebinds all forms and links to the request handler
