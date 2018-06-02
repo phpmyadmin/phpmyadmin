@@ -66,6 +66,8 @@ matrix:
       env: CI_MODE=docs
     - php: "7.1"
       env: CI_MODE=apidocs
+    - php: "7.2"
+      env: CI_MODE=phpstan
     - os: osx
       language: generic
       env: CI_MODE=test
@@ -80,6 +82,8 @@ matrix:
   allow_failures:
     - php: "nightly"
       env: CI_MODE=test
+    - php: "7.2"
+      env: CI_MODE=phpstan
 
 cache:
   pip: true
