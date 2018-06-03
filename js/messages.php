@@ -755,6 +755,26 @@ foreach ($js_messages as $name => $js_message) {
     Sanitize::printJsValue("PMA_messages['" . $name . "']", $js_message);
 }
 
+/* for new js code */
+/* Calendar */
+echo "var globalVars = new Array();\n";
+echo "globalVars['themeCalendarImage'] = '" , $GLOBALS['pmaThemeImage']
+    , 'b_calendar.png' , "';\n";
+
+/* Image path */
+echo "globalVars['pmaThemeImage'] = '" , $GLOBALS['pmaThemeImage'] , "';\n";
+
+echo "globalVars['mysql_doc_template'] = '" , PhpMyAdmin\Util::getMySQLDocuURL('%s')
+    , "';\n";
+
+//Max input vars allowed by PHP.
+$maxInputVars = ini_get('max_input_vars');
+echo "globalVars['maxInputVars'] = '"
+    , (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int)$maxInputVars)
+    , ';' . "'\n";
+/* for new js code */
+
+/* for old js code */
 /* Calendar */
 echo "var themeCalendarImage = '" , $GLOBALS['pmaThemeImage']
     , 'b_calendar.png' , "';\n";
@@ -770,7 +790,146 @@ $maxInputVars = ini_get('max_input_vars');
 echo 'var maxInputVars = '
     , (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int)$maxInputVars)
     , ';' . "\n";
+/* for old js code */
 
+/* for new js code */
+/* extending jquery-ui-timepicker-addon if ($.datepicker)
+$.extend($.datepicker._defaults, $.datepicker.regional['']); */
+
+echo "var timePicker = new Array();\n";
+/* l10n: Display text for calendar close link */
+Sanitize::printJsValue("timePicker['closeText']", __('Done'));
+/* l10n: Display text for previous month link in calendar */
+Sanitize::printJsValue(
+    "timePicker['prevText']",
+    _pgettext('Previous month', 'Prev')
+);
+/* l10n: Display text for next month link in calendar */
+Sanitize::printJsValue(
+    "timePicker['nextText']",
+    _pgettext('Next month', 'Next')
+);
+/* l10n: Display text for current month link in calendar */
+Sanitize::printJsValue("timePicker['currentText']", __('Today'));
+Sanitize::printJsValue(
+    "timePicker['monthNames']",
+    array(
+        __('January'),
+        __('February'),
+        __('March'),
+        __('April'),
+        __('May'),
+        __('June'),
+        __('July'),
+        __('August'),
+        __('September'),
+        __('October'),
+        __('November'),
+        __('December')
+    )
+);
+Sanitize::printJsValue(
+    "timePicker['monthNamesShort']",
+    array(
+        /* l10n: Short month name */
+        __('Jan'),
+        /* l10n: Short month name */
+        __('Feb'),
+        /* l10n: Short month name */
+        __('Mar'),
+        /* l10n: Short month name */
+        __('Apr'),
+        /* l10n: Short month name */
+        _pgettext('Short month name', 'May'),
+        /* l10n: Short month name */
+        __('Jun'),
+        /* l10n: Short month name */
+        __('Jul'),
+        /* l10n: Short month name */
+        __('Aug'),
+        /* l10n: Short month name */
+        __('Sep'),
+        /* l10n: Short month name */
+        __('Oct'),
+        /* l10n: Short month name */
+        __('Nov'),
+        /* l10n: Short month name */
+        __('Dec')
+    )
+);
+Sanitize::printJsValue(
+    "timePicker['dayNames']",
+    array(
+        __('Sundayada'),
+        __('Monday'),
+        __('Tuesday'),
+        __('Wednesday'),
+        __('Thursday'),
+        __('Friday'),
+        __('Saturday')
+    )
+);
+Sanitize::printJsValue(
+    "timePicker['dayNamesShort']",
+    array(
+        /* l10n: Short week day name */
+        __('Sun'),
+        /* l10n: Short week day name */
+        __('Mon'),
+        /* l10n: Short week day name */
+        __('Tue'),
+        /* l10n: Short week day name */
+        __('Wed'),
+        /* l10n: Short week day name */
+        __('Thu'),
+        /* l10n: Short week day name */
+        __('Fri'),
+        /* l10n: Short week day name */
+        __('Sat')
+    )
+);
+Sanitize::printJsValue(
+    "timePicker['dayNamesMin']",
+    array(
+        /* l10n: Minimal week day name */
+        __('Su'),
+        /* l10n: Minimal week day name */
+        __('Mo'),
+        /* l10n: Minimal week day name */
+        __('Tu'),
+        /* l10n: Minimal week day name */
+        __('We'),
+        /* l10n: Minimal week day name */
+        __('Th'),
+        /* l10n: Minimal week day name */
+        __('Fr'),
+        /* l10n: Minimal week day name */
+        __('Sa')
+    )
+);
+/* l10n: Column header for week of the year in calendar */
+Sanitize::printJsValue("timePicker['weekHeader']", __('Wk'));
+
+Sanitize::printJsValue(
+    "timePicker['showMonthAfterYear']",
+    /* l10n: Month-year order for calendar, use either "calendar-month-year"
+    * or "calendar-year-month".
+    */
+    (__('calendar-month-year') == 'calendar-year-month')
+);
+/* l10n: Year suffix for calendar, "none" is empty. */
+$year_suffix = _pgettext('Year suffix', 'none');
+Sanitize::printJsValue(
+    "timePicker['yearSuffix']",
+    ($year_suffix == 'none' ? '' : $year_suffix)
+);
+Sanitize::printJsValue("timePicker['timeText']", __('Time'));
+Sanitize::printJsValue("timePicker['hourText']", __('Hour'));
+Sanitize::printJsValue("timePicker['minuteText']", __('Minute'));
+Sanitize::printJsValue("timePicker['secondText']", __('Second'));
+/* for new js code */
+
+/* for old js code */
 echo "if ($.datepicker) {\n";
 /* l10n: Display text for calendar close link */
 Sanitize::printJsValue("$.datepicker.regional['']['closeText']", __('Done'));
@@ -908,11 +1067,80 @@ Sanitize::printJsValue("$.timepicker.regional['']['timeText']", __('Time'));
 Sanitize::printJsValue("$.timepicker.regional['']['hourText']", __('Hour'));
 Sanitize::printJsValue("$.timepicker.regional['']['minuteText']", __('Minute'));
 Sanitize::printJsValue("$.timepicker.regional['']['secondText']", __('Second'));
+/* for old js code */
 ?>
 $.extend($.timepicker._defaults, $.timepicker.regional['']);
 } /* if ($.timepicker) */
 
 <?php
+/* for new js code */
+/* Form validation */
+/* extending jquery form validation $.extend($.validator.messages, obj) */
+
+/* Default validation functions */
+echo "var validationMessage = {\n";
+    Sanitize::printJsValueForFormValidation('required', __('This field is required'));
+    Sanitize::printJsValueForFormValidation('remote', __('Please fix this field'));
+    Sanitize::printJsValueForFormValidation('email', __('Please enter a valid email address'));
+    Sanitize::printJsValueForFormValidation('url', __('Please enter a valid URL'));
+    Sanitize::printJsValueForFormValidation('date', __('Please enter a valid date'));
+    Sanitize::printJsValueForFormValidation(
+        'dateISO',
+        __('Please enter a valid date ( ISO )')
+    );
+    Sanitize::printJsValueForFormValidation('number', __('Please enter a valid number'));
+    Sanitize::printJsValueForFormValidation(
+        'creditcard',
+        __('Please enter a valid credit card number')
+    );
+    Sanitize::printJsValueForFormValidation('digits', __('Please enter only digits'));
+    Sanitize::printJsValueForFormValidation(
+        'equalTo',
+        __('Please enter the same value again')
+    );
+echo "\n};\n";
+echo "var validateFormat = {\n";
+    Sanitize::printJsValueForFormValidation(
+        'maxlength',
+        __('Please enter no more than {0} characters')
+    );
+    Sanitize::printJsValueForFormValidation(
+        'minlength',
+        __('Please enter at least {0} characters')
+    );
+    Sanitize::printJsValueForFormValidation(
+        'rangelength',
+        __('Please enter a value between {0} and {1} characters long')
+    );
+    Sanitize::printJsValueForFormValidation(
+        'range',
+        __('Please enter a value between {0} and {1}')
+    );
+    Sanitize::printJsValueForFormValidation(
+        'max',
+        __('Please enter a value less than or equal to {0}')
+    );
+    Sanitize::printJsValueForFormValidation(
+        'min',
+        __('Please enter a value greater than or equal to {0}')
+    );
+    /* customed functions */
+    Sanitize::printJsValueForFormValidation(
+        'validationFunctionForDateTime',
+        __('Please enter a valid date or time')
+    );
+    Sanitize::printJsValueForFormValidation(
+        'validationFunctionForHex',
+        __('Please enter a valid HEX input')
+    );
+    Sanitize::printJsValueForFormValidation(
+        'validationFunctionForFuns',
+        __('Error')
+    );
+echo "\n};\n";
+/* for new js code */
+
+/* for old js code */
 /* Form validation */
 
 echo "function extendingValidatorMessages() {\n";
@@ -986,4 +1214,5 @@ Sanitize::printJsValueForFormValidation(
 );
 echo "\n});";
 echo "\n} /* if ($.validator) */";
+/* for old js code */
 ?>

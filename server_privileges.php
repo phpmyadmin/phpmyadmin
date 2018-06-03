@@ -35,8 +35,7 @@ $cfgRelation = $relation->getRelationsParam();
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('server_privileges.js');
-$scripts->addFile('vendor/zxcvbn.js');
+$scripts->addFile('server_privileges');
 
 $template = new Template();
 $serverPrivileges = new Privileges($template);
