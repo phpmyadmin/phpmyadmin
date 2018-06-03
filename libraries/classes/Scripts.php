@@ -37,6 +37,8 @@ class Scripts
      */
     private $_code;
 
+    private $_fileName;
+
     /**
      * Returns HTML code to include javascript file.
      *
@@ -66,7 +68,7 @@ class Scripts
                 }
                 $result .= '<script data-cfasync="false" type="text/javascript" src="' . $src . 'js/dist/'
                     .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
-            } else {
+            } else if (strpos($value['filename'], ".js") !== false) {
                 $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
                     . $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
             }
@@ -138,6 +140,7 @@ class Scripts
             || strpos($filename, 'messages.php') !== false
             || strpos($filename, 'ajax.js') !== false
             || strpos($filename, 'cross_framing_protection.js') !== false
+            || strpos($filename, 'index_new.js') !== false
         ) {
             return 0;
         }
@@ -187,7 +190,6 @@ class Scripts
     public function getDisplay()
     {
         $retval = '';
-
         if (count($this->_files) > 0) {
             $retval .= $this->_includeFiles(
                 $this->_files

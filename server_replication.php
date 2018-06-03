@@ -25,9 +25,8 @@ require_once 'libraries/replication.inc.php';
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('server_privileges.js');
+$scripts->addFile('server_privileges');
 $scripts->addFile('replication.js');
-$scripts->addFile('vendor/zxcvbn.js');
 
 /**
  * Checks if the user is allowed to do what he tries to...

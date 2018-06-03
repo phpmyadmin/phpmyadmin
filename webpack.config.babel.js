@@ -98,29 +98,4 @@ export default [{
     },
     devServer: devServer,
     plugins: plugins
-}/*,
-{
-    // envionment either development or production
-    mode: 'development',
-    entry: {
-        pma_messages: './js/src/global/pma_messages.js',
-        ajax_global: './js/src/global/ajax_global.js',
-        jQuery: './js/src/global/jquery.js'
-    },
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'js/dist/global'),
-        // url on which dev server will run
-        publicPath: 'http://localhost:3007/js/dist/global/',
-        library: '[name]',
-        libraryTarget: 'var',
-        umdNamedDefine: true
-    },
-    module: module,
-    // devtool: 'source-map',
-    resolve: {
-        extensions: ['.js']
-    },
-    devServer: devServer,
-    plugins: plugins
-}*/];
+}];

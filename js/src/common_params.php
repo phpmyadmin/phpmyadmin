@@ -34,7 +34,7 @@ use PhpMyAdmin\Sanitize;
 $header = new Header();
 
 /**
- * @param Array javascript array containig the common parameters to be 
+ * @param Array javascript array containig the common parameters to be
  * imported in javascript code.
  */
 echo "var common_params = new Array();\n";

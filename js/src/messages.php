@@ -793,7 +793,7 @@ echo 'var maxInputVars = '
 /* for old js code */
 
 /* for new js code */
-/* extending jquery-ui-timepicker-addon if ($.datepicker) 
+/* extending jquery-ui-timepicker-addon if ($.datepicker)
 $.extend($.datepicker._defaults, $.datepicker.regional['']); */
 
 echo "var timePicker = new Array();\n";
@@ -1137,7 +1137,7 @@ echo "var validateFormat = {\n";
         'validationFunctionForFuns',
         __('Error')
     );
-echo "\n};\n";    
+echo "\n};\n";
 /* for new js code */
 
 /* for old js code */
