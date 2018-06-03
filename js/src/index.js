@@ -1,5 +1,18 @@
 import { AJAX } from './ajax';
 import './variables/import_variables';
+import { jQuery as $ } from './utils/extend_jquery';
+import files from './consts/files';
+
+/**
+ * This block of code is for importing javascript files needed
+ * for the first time loading of the page.
+ */
+let firstPage = window.location.pathname.replace('/', '').replace('.php', '');
+if (typeof files[firstPage] !== 'undefined') {
+    for (let i in files[firstPage]) {
+        AJAX.scriptHandler.add(files[firstPage][i]);
+    }
+}
 
 /**
  * Page load event handler
@@ -73,28 +86,27 @@ $(function () {
 $(document).on('click', 'a', AJAX.requestHandler);
 $(document).on('submit', 'form', AJAX.requestHandler);
 
-import('./server_databases')
-.then((module) => {
+// import('./server_databases')
+// .then((module) => {
+//         console.log('serverr_databases');
+//         AJAX.registerOnload('server_databases_new.js', module.onload1);
+//         AJAX.registerTeardown('server_databases_new.js', module.teardown1);
+//         AJAX.fireOnload('server_databases_new.js');
+//         // AJAX.fireTeardown('server_databases_new.js');
 
-        console.log('adasdsadassadasdsasad');
-        AJAX.registerOnload('server_databases_new.js', module.onload1);
-        AJAX.registerTeardown('server_databases_new.js', module.teardown1);
-        AJAX.fireOnload('server_databases_new.js');
-        // AJAX.fireTeardown('server_databases_new.js');
 
+// })
+// .catch(e => console.log(e));
 
-})
-.catch(e => console.log(e));
-
-if( 1 === 1 ) {
-    import('./server_privileges')
-    .then((module) => {
-        AJAX.registerOnload('server_privileges_new.js', module.onload1);
-        AJAX.registerTeardown('server_privileges_new.js', module.teardown1);
-        AJAX.fireOnload('server_privileges_new.js');
-        // AJAX.fireTeardown('server_databases_new.js');
-    })
-    .catch(e => console.log(e));
-}
+// if( 1 === 1 ) {
+//     import('./server_privileges')
+//     .then((module) => {
+//         AJAX.registerOnload('server_privileges_new.js', module.onload1);
+//         AJAX.registerTeardown('server_privileges_new.js', module.teardown1);
+//         AJAX.fireOnload('server_privileges_new.js');
+//         // AJAX.fireTeardown('server_databases_new.js');
+//     })
+//     .catch(e => console.log(e));
+// }
 
 // server_databases();

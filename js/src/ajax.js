@@ -363,6 +363,7 @@ export let AJAX = {
      * @return void
      */
     responseHandler: function (data) {
+        // console.log(data);
         if (typeof data === 'undefined' || data === null) {
             return;
         }
@@ -561,14 +562,33 @@ export let AJAX = {
          *
          * @return self For chaining
          */
-        add: function (file, fire) {
+        add: function (file, fire, callback) {
+            var self = this;
             this._scripts.push(file);
             if (fire) {
                 // Record whether to fire any events for the file
                 // This is necessary to correctly tear down the initial page
                 this._scriptsToBeFired.push(file);
             }
+            var fileImports = ['server_privileges', 'server_databases'];
+            if ($.inArray(file, fileImports) !== -1) {
+                console.log('import_check');
+                import(`./${file}`)
+                .then((module) => {
+                    for (var i in module) {
+                        if (i.indexOf('onload') !== -1) {
+                            AJAX.registerOnload(`${file}`, module[i]);
+                        } else if (i.indexOf('teardown') !== -1) {
+                            AJAX.registerTeardown(file, module[i]);
+                        }
+                    }
+                    AJAX.fireOnload(file);
+                    // AJAX.fireTeardown('server_databases_new.js');
+                })
+                .catch(e => console.log(e));
+            }
             return this;
+
         },
         /**
          * Download a list of js files in one request
@@ -604,7 +624,7 @@ export let AJAX = {
                 var script = files[i].name;
                 // Only for scripts that we don't already have
                 if ($.inArray(script, self._scripts) === -1) {
-                    this.add(script);
+                    this.add(script, 0, callback);
                 }
                 self.done(script, callback);
             }
