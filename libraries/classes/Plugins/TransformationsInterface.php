@@ -45,4 +45,3 @@ interface TransformationsInterface
      */
     public static function getName();
 }
-

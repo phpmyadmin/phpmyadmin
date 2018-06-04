@@ -81,13 +81,13 @@ class InsertEdit
         array $where_clause_array,
         $err_url
     ) {
-        $_form_params = array(
+        $_form_params = [
             'db'        => $db,
             'table'     => $table,
             'goto'      => $GLOBALS['goto'],
             'err_url'   => $err_url,
             'sql_query' => $_POST['sql_query'],
-        );
+        ];
         if (isset($where_clauses)) {
             foreach ($where_clause_array as $key_id => $where_clause) {
                 $_form_params['where_clause[' . $key_id . ']'] = trim($where_clause);
@@ -109,14 +109,14 @@ class InsertEdit
     private function getWhereClauseArray($where_clause)
     {
         if (!isset($where_clause)) {
-            return array();
+            return [];
         }
 
         if (is_array($where_clause)) {
             return $where_clause;
         }
 
-        return array(0 => $where_clause);
+        return [0 => $where_clause];
     }
 
     /**
@@ -133,9 +133,9 @@ class InsertEdit
         $table,
         $db
     ) {
-        $rows               = array();
-        $result             = array();
-        $where_clauses      = array();
+        $rows               = [];
+        $result             = [];
+        $where_clauses      = [];
         $found_unique_key   = false;
         foreach ($where_clause_array as $key_id => $where_clause) {
             $local_query     = 'SELECT * FROM '
@@ -161,7 +161,7 @@ class InsertEdit
                 $found_unique_key = true;
             }
         }
-        return array($where_clauses, $result, $rows, $found_unique_key);
+        return [$where_clauses, $result, $rows, $found_unique_key];
     }
 
     /**
@@ -236,7 +236,7 @@ class InsertEdit
             DatabaseInterface::QUERY_STORE
         );
         $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
-        return array($result, $rows);
+        return [$result, $rows];
     }
 
     /**
@@ -275,7 +275,7 @@ class InsertEdit
      */
     public function showTypeOrFunction($which, array $url_params, $is_show)
     {
-        $params = array();
+        $params = [];
 
         switch ($which) {
             case 'function':
@@ -347,15 +347,15 @@ class InsertEdit
         $column['Field_title']   = $this->getColumnTitle($column, $comments_map);
         $column['is_binary']     = $this->isColumn(
             $column,
-            array('binary', 'varbinary')
+            ['binary', 'varbinary']
         );
         $column['is_blob']       = $this->isColumn(
             $column,
-            array('blob', 'tinyblob', 'mediumblob', 'longblob')
+            ['blob', 'tinyblob', 'mediumblob', 'longblob']
         );
         $column['is_char']       = $this->isColumn(
             $column,
-            array('char', 'varchar')
+            ['char', 'varchar']
         );
 
         list($column['pma_type'], $column['wrap'], $column['first_timestamp'])
@@ -436,7 +436,7 @@ class InsertEdit
                 $column['wrap']  = ' nowrap';
                 break;
         }
-        return array($column['pma_type'], $column['wrap'], $column['first_timestamp']);
+        return [$column['pma_type'], $column['wrap'], $column['first_timestamp']];
     }
 
     /**
@@ -501,8 +501,8 @@ class InsertEdit
                 $foreignData
             ) . "\n";
 
-            $html_output .= '</select>' .  "\n";
-            $html_output .= '</td>' .  "\n";
+            $html_output .= '</select>' . "\n";
+            $html_output .= '</td>' . "\n";
         }
         return $html_output;
     }
@@ -565,7 +565,7 @@ class InsertEdit
         $html_output .= '<input type="hidden" class="nullify_code" name="nullify_code'
             . $column_name_appendix . '" value="' . $nullify_code . '" />';
         $html_output .= '<input type="hidden" class="hashed_field" name="hashed_field'
-            . $column_name_appendix . '" value="' .  $column['Field_md5'] . '" />';
+            . $column_name_appendix . '" value="' . $column['Field_md5'] . '" />';
         $html_output .= '<input type="hidden" class="multi_edit" name="multi_edit'
             . $column_name_appendix . '" value="' . Sanitize::escapeJsString($vkey) . '" />';
         $html_output .= '</td>' . "\n";
@@ -866,13 +866,13 @@ class InsertEdit
 
         $html_output .= '<a class="ajax browse_foreign" href="browse_foreigners.php'
             . Url::getCommon(
-                array(
+                [
                     'db' => $db,
                     'table' => $table,
                     'field' => $column['Field'],
                     'rownumber' => $rownumber,
                     'data'      => $data
-                )
+                ]
             ) . '">'
             . str_replace("'", "\'", $titles['Browse']) . '</a>';
         return $html_output;
@@ -911,9 +911,9 @@ class InsertEdit
         $html_output .= '<input type="hidden"'
             . ' name="fields_type' . $column_name_appendix . '"';
         if ($column['is_binary']) {
-          $html_output .= ' value="hex" />';
+            $html_output .= ' value="hex" />';
         } else {
-          $html_output .= ' value="foreign" />';
+            $html_output .= ' value="foreign" />';
         }
 
         $html_output .= '<select name="fields' . $column_name_appendix . '"'
@@ -1092,12 +1092,12 @@ class InsertEdit
      */
     private function getColumnEnumValues(array $column, array $extracted_columnspec)
     {
-        $column['values'] = array();
+        $column['values'] = [];
         foreach ($extracted_columnspec['enum_set_values'] as $val) {
-            $column['values'][] = array(
+            $column['values'][] = [
                 'plain' => $val,
                 'html'  => htmlspecialchars($val),
-            );
+            ];
         }
         return $column['values'];
     }
@@ -1193,7 +1193,7 @@ class InsertEdit
                 . '<input type="radio" name="fields' . $column_name_appendix . '"'
                 . ' class="textfield"'
                 . ' value="' . $enum_value['html'] . '"'
-                . ' id="field_' . ($idindex) . '_3_'  . $j . '"'
+                . ' id="field_' . ($idindex) . '_3_' . $j . '"'
                 . ' ' . $onChangeClause;
             if ($data == $enum_value['plain']
                 || ($data == ''
@@ -1294,16 +1294,16 @@ class InsertEdit
         array $extracted_columnspec
     ) {
         if (! isset($column['values'])) {
-            $column['values'] = array();
+            $column['values'] = [];
             foreach ($extracted_columnspec['enum_set_values'] as $val) {
-                $column['values'][] = array(
+                $column['values'][] = [
                     'plain' => $val,
                     'html'  => htmlspecialchars($val),
-                );
+                ];
             }
             $column['select_size'] = min(4, count($column['values']));
         }
-        return array($column['values'], $column['select_size']);
+        return [$column['values'], $column['select_size']];
     }
 
     /**
@@ -1515,7 +1515,7 @@ class InsertEdit
 
         if ($files === false) {
             return '<span style="color:red">' . __('Error') . '</span><br />' . "\n"
-                .  __('The directory you set for upload work cannot be reached.') . "\n";
+                . __('The directory you set for upload work cannot be reached.') . "\n";
         } elseif (!empty($files)) {
             return "<br />\n"
                 . '<i>' . __('Or') . '</i>' . ' '
@@ -1546,12 +1546,12 @@ class InsertEdit
          * process any data with function like MD5
          */
         global $max_upload_size;
-        $max_field_sizes = array(
+        $max_field_sizes = [
             'tinyblob'   =>        '256',
             'blob'       =>      '65536',
             'mediumblob' =>   '16777216',
             'longblob'   => '4294967296' // yeah, really
-        );
+        ];
 
         $this_field_max_size = $max_upload_size; // from PHP max
         if ($this_field_max_size > $max_field_sizes[$column['pma_type']]) {
@@ -1566,7 +1566,7 @@ class InsertEdit
         if ($this_field_max_size > $biggest_max_file_size) {
             $biggest_max_file_size = $this_field_max_size;
         }
-        return array($html_output, $biggest_max_file_size);
+        return [$html_output, $biggest_max_file_size];
     }
 
     /**
@@ -1647,9 +1647,9 @@ class InsertEdit
                 $readOnly
             );
 
-            $virtual = array(
+            $virtual = [
                 'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
-            );
+            ];
             if (in_array($column['Extra'], $virtual)) {
                 $html_output .= '<input type="hidden" name="virtual'
                     . $column_name_appendix . '" value="1" />';
@@ -1729,7 +1729,7 @@ class InsertEdit
             . Util::linkOrButton(
                 '#',
                 $edit_str,
-                array(),
+                [],
                 '_blank'
             )
             . '</span>';
@@ -1871,7 +1871,7 @@ class InsertEdit
             // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
             $is_numeric = false;
             if (! is_array($where_clause)) {
-                $where_clause = array($where_clause);
+                $where_clause = [$where_clause];
             }
             for ($i = 0, $nb = count($where_clause); $i < $nb; $i++) {
                 // preg_match() returns 1 if there is a match
@@ -2057,13 +2057,13 @@ class InsertEdit
             . $column_name_appendix . '" value="'
             . htmlspecialchars($current_row[$column['Field']]) . '" />';
 
-        return array(
+        return [
             $real_null_value,
             $special_chars_encoded,
             $special_chars,
             $data,
             $backup_field
-        );
+        ];
     }
 
     /**
@@ -2107,10 +2107,10 @@ class InsertEdit
         $special_chars_encoded = Util::duplicateFirstNewline(
             $special_chars
         );
-        return array(
+        return [
             $real_null_value, $data, $special_chars,
             $backup_field, $special_chars_encoded
-        );
+        ];
     }
 
     /**
@@ -2124,7 +2124,7 @@ class InsertEdit
             // we were editing something => use the WHERE clause
             $loop_array = is_array($_REQUEST['where_clause'])
                 ? $_REQUEST['where_clause']
-                : array($_REQUEST['where_clause']);
+                : [$_REQUEST['where_clause']];
             $using_key  = true;
             $is_insert  = isset($_REQUEST['submit_type'])
                           && ($_REQUEST['submit_type'] == 'insert'
@@ -2132,7 +2132,7 @@ class InsertEdit
                           || $_REQUEST['submit_type'] == 'insertignore');
         } else {
             // new row => use indexes
-            $loop_array = array();
+            $loop_array = [];
             if (! empty($_REQUEST['fields'])) {
                 foreach ($_REQUEST['fields']['multi_edit'] as $key => $dummy) {
                     $loop_array[] = $key;
@@ -2143,7 +2143,7 @@ class InsertEdit
         }
         $is_insertignore  = isset($_REQUEST['submit_type'])
             && $_REQUEST['submit_type'] == 'insertignore';
-        return array($loop_array, $using_key, $is_insert, $is_insertignore);
+        return [$loop_array, $using_key, $is_insert, $is_insertignore];
     }
 
     /**
@@ -2217,7 +2217,7 @@ class InsertEdit
      */
     public function getGotoInclude($goto_include)
     {
-        $valid_options = array('new_insert', 'same_insert', 'edit_next');
+        $valid_options = ['new_insert', 'same_insert', 'edit_next'];
         if (isset($_REQUEST['after_insert'])
             && in_array($_REQUEST['after_insert'], $valid_options)
         ) {
@@ -2276,12 +2276,12 @@ class InsertEdit
         } else {
             $insert_command = 'INSERT ';
         }
-        $query = array(
+        $query = [
             $insert_command . 'INTO '
             . Util::backquote($GLOBALS['table'])
             . ' (' . implode(', ', $query_fields) . ') VALUES ('
             . implode('), (', $value_sets) . ')'
-        );
+        ];
         unset($insert_command, $query_fields);
         return $query;
     }
@@ -2308,9 +2308,9 @@ class InsertEdit
         $GLOBALS['display_query'] = $GLOBALS['sql_query'];
 
         $total_affected_rows = 0;
-        $last_messages = array();
-        $warning_messages = array();
-        $error_messages = array();
+        $last_messages = [];
+        $warning_messages = [];
+        $error_messages = [];
 
         foreach ($query as $single_query) {
             if ($_REQUEST['submit_type'] == 'showinsert') {
@@ -2347,14 +2347,14 @@ class InsertEdit
             }
             $warning_messages = $this->getWarningMessages();
         }
-        return array(
+        return [
             $url_params,
             $total_affected_rows,
             $last_messages,
             $warning_messages,
             $error_messages,
             $return_to_sql_query
-        );
+        ];
     }
 
     /**
@@ -2364,7 +2364,7 @@ class InsertEdit
      */
     private function getWarningMessages()
     {
-        $warning_essages = array();
+        $warning_essages = [];
         foreach ($this->dbi->getWarnings() as $warning) {
             $warning_essages[] = Message::sanitize(
                 $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
@@ -2447,7 +2447,7 @@ class InsertEdit
         } else {
             $title = ' title="' . htmlspecialchars($relation_field_value) . '"';
         }
-        $_url_params = array(
+        $_url_params = [
             'db'    => $foreigner['foreign_db'],
             'table' => $foreigner['foreign_table'],
             'pos'   => '0',
@@ -2456,7 +2456,7 @@ class InsertEdit
                 . '.' . Util::backquote($foreigner['foreign_table'])
                 . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
                 . $where_comparison
-        );
+        ];
         $output = '<a href="sql.php'
             . Url::getCommon($_url_params) . '"' . $title . '>';
 
@@ -2500,12 +2500,12 @@ class InsertEdit
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         if (is_file($include_file)) {
             include_once $include_file;
-            $_url_params = array(
+            $_url_params = [
                 'db'            => $db,
                 'table'         => $table,
                 'where_clause'  => $_REQUEST['where_clause'],
                 'transform_key' => $column_name
-            );
+            ];
             $transform_options = $this->transformations->getOptions(
                 isset($transformation[$type . '_options'])
                 ? $transformation[$type . '_options']
@@ -2666,7 +2666,7 @@ class InsertEdit
                     . ' = ' . $current_value_as_an_array;
             }
         }
-        return array($query_values, $query_fields);
+        return [$query_values, $query_fields];
     }
 
     /**
@@ -2905,7 +2905,7 @@ class InsertEdit
             $where_clause = null;
             list($result, $rows) = $this->loadFirstRow($table, $db);
             $where_clauses = null;
-            $where_clause_array = array();
+            $where_clause_array = [];
             $found_unique_key = false;
         }
 
@@ -2917,11 +2917,11 @@ class InsertEdit
             $where_clause = $where_clauses = null;
         }
 
-        return array(
+        return [
             $insert_mode, $where_clause, $where_clause_array, $where_clauses,
             $result, $rows, $found_unique_key,
             isset($after_insert) ? $after_insert : null
-        );
+        ];
     }
 
     /**
@@ -2934,7 +2934,7 @@ class InsertEdit
      */
     public function getCommentsMap($db, $table)
     {
-        $comments_map = array();
+        $comments_map = [];
 
         if ($GLOBALS['cfg']['ShowPropertyComments']) {
             $comments_map = $this->relation->getComments($db, $table);
@@ -2956,10 +2956,10 @@ class InsertEdit
         /**
          * @todo check if we could replace by "db_|tbl_" - please clarify!?
          */
-        $url_params = array(
+        $url_params = [
             'db' => $db,
             'sql_query' => $_POST['sql_query']
-        );
+        ];
 
         if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
             $url_params['table'] = $table;
@@ -3295,12 +3295,12 @@ class InsertEdit
                 $transformation_options = $this->transformations->getOptions(
                     $column_mime['input_transformation_options']
                 );
-                $_url_params = array(
+                $_url_params = [
                     'db'            => $db,
                     'table'         => $table,
                     'transform_key' => $column['Field'],
                     'where_clause'  => $where_clause
-                );
+                ];
                 $transformation_options['wrapper_link']
                     = Url::getCommon($_url_params);
                 $current_value = '';
@@ -3342,7 +3342,7 @@ class InsertEdit
                 $data,
                 $special_chars,
                 $foreignData,
-                array($table, $db),
+                [$table, $db],
                 $row_id,
                 $titles,
                 $text_dir,
@@ -3432,7 +3432,7 @@ class InsertEdit
         }
         for ($column_number = 0; $column_number < $columns_cnt; $column_number++) {
             $table_column = $table_columns[$column_number];
-            $column_mime = array();
+            $column_mime = [];
             if (isset($mime_map[$table_column['Field']])) {
                 $column_mime = $mime_map[$table_column['Field']];
             }

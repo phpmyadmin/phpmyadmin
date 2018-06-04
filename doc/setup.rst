@@ -38,7 +38,7 @@ some ways from the official phpMyAdmin documentation. Specifically it does:
 
 .. seealso::
 
-    More information can be found in `README.Debian <https://anonscm.debian.org/cgit/collab-maint/phpmyadmin.git/tree/debian/README.Debian>`_
+    More information can be found in `README.Debian <https://salsa.debian.org/phpmyadmin-team/phpmyadmin/raw/master/debian/README.Debian>`_
     (it is installed as :file:`/usr/share/doc/phmyadmin/README.Debian` with the package).
 
 OpenSUSE

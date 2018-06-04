@@ -24,7 +24,7 @@ class FormProcessingTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -41,17 +41,17 @@ class FormProcessingTest extends PmaTestCase
     public function testProcessFormSet()
     {
         $this->mockResponse(
-            array(
-                array('status: 303 See Other'),
-                array('Location: index.php?lang=en'),
+            [
+                ['status: 303 See Other'],
+                ['Location: index.php?lang=en'],
                 303
-                )
-            );
+                ]
+        );
 
         // case 1
         $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
             ->disableOriginalConstructor()
-            ->setMethods(array('process', 'getDisplay'))
+            ->setMethods(['process', 'getDisplay'])
             ->getMock();
 
         $formDisplay->expects($this->once())
@@ -68,7 +68,7 @@ class FormProcessingTest extends PmaTestCase
         // case 2
         $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
             ->disableOriginalConstructor()
-            ->setMethods(array('process', 'hasErrors', 'displayErrors'))
+            ->setMethods(['process', 'hasErrors', 'displayErrors'])
             ->getMock();
 
         $formDisplay->expects($this->once())
@@ -108,7 +108,7 @@ class FormProcessingTest extends PmaTestCase
         // case 3
         $formDisplay = $this->getMockBuilder('PhpMyAdmin\Config\FormDisplay')
             ->disableOriginalConstructor()
-            ->setMethods(array('process', 'hasErrors'))
+            ->setMethods(['process', 'hasErrors'])
             ->getMock();
 
         $formDisplay->expects($this->once())

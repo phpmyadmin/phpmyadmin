@@ -28,37 +28,37 @@ class Theme
      * @var string theme version
      * @access  protected
      */
-    var $version = '0.0.0.0';
+    public $version = '0.0.0.0';
 
     /**
      * @var string theme name
      * @access  protected
      */
-    var $name = '';
+    public $name = '';
 
     /**
      * @var string theme id
      * @access  protected
      */
-    var $id = '';
+    public $id = '';
 
     /**
      * @var string theme path
      * @access  protected
      */
-    var $path = '';
+    public $path = '';
 
     /**
      * @var string image path
      * @access  protected
      */
-    var $img_path = '';
+    public $img_path = '';
 
     /**
      * @var integer last modification time for info file
      * @access  protected
      */
-    var $mtime_info = 0;
+    public $mtime_info = 0;
 
     /**
      * needed because sometimes, the mtime for different themes
@@ -66,13 +66,13 @@ class Theme
      * @var integer filesize for info file
      * @access  protected
      */
-    var $filesize_info = 0;
+    public $filesize_info = 0;
 
     /**
      * @var array List of css files to load
      * @access private
      */
-    private $_cssFiles = array(
+    public $_cssFiles = [
         'common',
         'enum_editor',
         'gis',
@@ -83,7 +83,7 @@ class Theme
         'jqplot',
         'resizable-menu',
         'icons',
-    );
+    ];
 
     /**
      * Loads theme information
@@ -91,7 +91,7 @@ class Theme
      * @return boolean whether loading them info was successful or not
      * @access  public
      */
-    function loadInfo()
+    public function loadInfo()
     {
         $infofile = $this->getPath() . '/theme.json';
         if (! @file_exists($infofile)) {
@@ -112,7 +112,7 @@ class Theme
             return false;
         }
         // Check that all required data are there
-        $members = array('name', 'version', 'supports');
+        $members = ['name', 'version', 'supports'];
         foreach ($members as $member) {
             if (! isset($data[$member])) {
                 return false;
@@ -146,7 +146,7 @@ class Theme
      * @static
      * @access public
      */
-    static public function load($folder)
+    public static function load($folder)
     {
         $theme = new Theme();
 
@@ -378,7 +378,7 @@ class Theme
         foreach ($this->_cssFiles as $file) {
             $path = $this->getPath() . "/css/$file.css.php";
             $fallback = "./themes/"
-                . ThemeManager::FALLBACK_THEME .  "/css/$file.css.php";
+                . ThemeManager::FALLBACK_THEME . "/css/$file.css.php";
 
             if (is_readable($path)) {
                 echo "\n/* FILE: " , $file , ".css.php */\n";
@@ -425,9 +425,9 @@ class Theme
      *
      * @return string CSS code.
      */
-    function getCssGradient($start_color, $end_color)
+    public function getCssGradient($start_color, $end_color)
     {
-        $result = array();
+        $result = [];
         // Opera 9.5+, IE 9
         $result[] = 'background-image: url(./themes/svg_gradient.php?from='
             . $start_color . '&to=' . $end_color . ');';

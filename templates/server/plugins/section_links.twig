@@ -1,6 +1,6 @@
 <div id="sectionlinks">
 {% for plugin_type in plugins|keys %}
-    <a href="#plugins-{{ preg_replace('/[^a-z]/', '', plugin_type|lower) }}">
+    <a href="#plugins-{{- plugins_type_clean[plugin_type] }}">
         {{ plugin_type }}
     </a>
 {% endfor %}

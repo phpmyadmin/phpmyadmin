@@ -104,10 +104,10 @@ class Console
             unset($count_bookmarks, $private_message, $shared_message);
             return Template::get('console/bookmark_content')
                 ->render(
-                    array(
+                    [
                         'welcome_message'    => $welcomeMessage,
                         'bookmarks'         => $bookmarks,
-                    )
+                    ]
                 );
         }
         return '';
@@ -120,7 +120,7 @@ class Console
      */
     public function getScripts(): array
     {
-        return array('console.js');
+        return ['console.js'];
     }
 
     /**

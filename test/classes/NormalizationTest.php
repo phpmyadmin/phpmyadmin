@@ -32,7 +32,7 @@ class NormalizationTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ServerDefault'] = "PMA_server";

@@ -23,5 +23,5 @@ interface Item
      * @param array $params Parameters
      * @return mixed
      */
-    public function get(array $params = array());
+    public function get(array $params = []);
 }

@@ -172,9 +172,9 @@ class PageSettings
             true,
             false,
             $response->getFooter()->getSelfUrl(),
-            array(
+            [
                 'submit_save' => $this->_groupName
-            )
+            ]
         );
         $retval .= '</div>';
         $retval .= '</div>';

@@ -72,23 +72,23 @@ class Events
     {
         global $event_status, $event_type, $event_interval;
 
-        $event_status = array(
-            'query' => array(
+        $event_status = [
+            'query' => [
                 'ENABLE',
                 'DISABLE',
                 'DISABLE ON SLAVE',
-            ),
-            'display' => array(
+            ],
+            'display' => [
                 'ENABLED',
                 'DISABLED',
                 'SLAVESIDE_DISABLED',
-            ),
-        );
-        $event_type = array(
+            ],
+        ];
+        $event_type = [
             'RECURRING',
             'ONE TIME',
-        );
-        $event_interval = array(
+        ];
+        $event_interval = [
             'YEAR',
             'QUARTER',
             'MONTH',
@@ -104,7 +104,7 @@ class Events
             'HOUR_MINUTE',
             'HOUR_SECOND',
             'MINUTE_SECOND',
-        );
+        ];
     }
 
     /**
@@ -307,8 +307,8 @@ class Events
      */
     public function getDataFromRequest()
     {
-        $retval = array();
-        $indices = array('item_name',
+        $retval = [];
+        $indices = ['item_name',
                          'item_original_name',
                          'item_status',
                          'item_execute_at',
@@ -319,7 +319,7 @@ class Events
                          'item_definition',
                          'item_preserve',
                          'item_comment',
-                         'item_definer');
+                         'item_definer'];
         foreach ($indices as $index) {
             $retval[$index] = isset($_REQUEST[$index]) ? $_REQUEST[$index] : '';
         }
@@ -344,7 +344,7 @@ class Events
     {
         global $db;
 
-        $retval = array();
+        $retval = [];
         $columns = "`EVENT_NAME`, `STATUS`, `EVENT_TYPE`, `EXECUTE_AT`, "
                  . "`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, "
                  . "`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`";
@@ -402,7 +402,7 @@ class Events
         $response = Response::getInstance();
 
         // Escape special characters
-        $need_escape = array(
+        $need_escape = [
                            'item_original_name',
                            'item_name',
                            'item_type',
@@ -413,7 +413,7 @@ class Events
                            'item_definition',
                            'item_definer',
                            'item_comment'
-                       );
+                       ];
         foreach ($need_escape as $index) {
             $item[$index] = htmlentities((string) $item[$index], ENT_QUOTES);
         }

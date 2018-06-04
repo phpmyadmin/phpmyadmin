@@ -81,9 +81,9 @@ class TriggersTest extends TestCase
      */
     public function providerGetDataFromRequestEmpty()
     {
-        return array(
-            array(
-                array(
+        return [
+            [
+                [
                     'item_name'               => '',
                     'item_table'              => '',
                     'item_original_name'      => '',
@@ -91,8 +91,8 @@ class TriggersTest extends TestCase
                     'item_event_manipulation' => '',
                     'item_definition'         => '',
                     'item_definer'            => ''
-                ),
-                array(
+                ],
+                [
                     'item_name'               => '',
                     'item_table'              => '',
                     'item_original_name'      => '',
@@ -100,10 +100,10 @@ class TriggersTest extends TestCase
                     'item_event_manipulation' => '',
                     'item_definition'         => '',
                     'item_definer'            => ''
-                )
-            ),
-            array(
-                array(
+                ]
+            ],
+            [
+                [
                     'item_name'               => 'foo',
                     'item_table'              => 'foo',
                     'item_original_name'      => 'foo',
@@ -111,8 +111,8 @@ class TriggersTest extends TestCase
                     'item_event_manipulation' => 'foo',
                     'item_definition'         => 'foo',
                     'item_definer'            => 'foo'
-                ),
-                array(
+                ],
+                [
                     'item_name'               => 'foo',
                     'item_table'              => 'foo',
                     'item_original_name'      => 'foo',
@@ -120,9 +120,9 @@ class TriggersTest extends TestCase
                     'item_event_manipulation' => 'foo',
                     'item_definition'         => 'foo',
                     'item_definer'            => 'foo'
-                )
-            )
-        );
+                ]
+            ]
+        ];
     }
 
     /**
@@ -153,7 +153,7 @@ class TriggersTest extends TestCase
      */
     public function providerGetEditorFormAdd()
     {
-        $data = array(
+        $data = [
             'item_name'               => '',
             'item_table'              => 'table1',
             'item_original_name'      => '',
@@ -161,42 +161,42 @@ class TriggersTest extends TestCase
             'item_event_manipulation' => '',
             'item_definition'         => '',
             'item_definer'            => ''
-        );
+        ];
 
-        return array(
-            array(
+        return [
+            [
                 $data,
                 "name='add_item'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_name'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_table'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_timing'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_event'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_definition'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_definer'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='editor_process_add'"
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -227,7 +227,7 @@ class TriggersTest extends TestCase
      */
     public function providerGetEditorFormEdit()
     {
-        $data = array(
+        $data = [
             'item_name'               => 'foo',
             'item_table'              => 'table1',
             'item_original_name'      => 'bar',
@@ -235,42 +235,42 @@ class TriggersTest extends TestCase
             'item_event_manipulation' => 'INSERT',
             'item_definition'         => 'SET @A=1;',
             'item_definer'            => ''
-        );
+        ];
 
-        return array(
-            array(
+        return [
+            [
                 $data,
                 "name='edit_item'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_name'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_table'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_timing'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_event'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_definition'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='item_definer'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='editor_process_edit'"
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -302,7 +302,7 @@ class TriggersTest extends TestCase
      */
     public function providerGetEditorFormAjax()
     {
-        $data = array(
+        $data = [
             'item_name'               => 'foo',
             'item_table'              => 'table1',
             'item_original_name'      => 'bar',
@@ -310,18 +310,18 @@ class TriggersTest extends TestCase
             'item_event_manipulation' => 'INSERT',
             'item_definition'         => 'SET @A=1;',
             'item_definer'            => ''
-        );
+        ];
 
-        return array(
-            array(
+        return [
+            [
                 $data,
                 "name='editor_process_edit'"
-            ),
-            array(
+            ],
+            [
                 $data,
                 "name='ajax_request'"
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -341,11 +341,18 @@ class TriggersTest extends TestCase
      * @dataProvider providerGetQueryFromRequest
      */
     public function testGetQueryFromRequest(
-        $definer, $name, $timing, $event, $table, $definition, $query, $num_err
+        $definer,
+        $name,
+        $timing,
+        $event,
+        $table,
+        $definition,
+        $query,
+        $num_err
     ) {
         global $_REQUEST, $errors;
 
-        $errors = array();
+        $errors = [];
         $this->triggers->setGlobals();
 
         $_REQUEST['item_definer']    = $definer;
@@ -367,8 +374,8 @@ class TriggersTest extends TestCase
      */
     public function providerGetQueryFromRequest()
     {
-        return array(
-            array('',
+        return [
+            ['',
                 '',
                 '',
                 '',
@@ -376,8 +383,8 @@ class TriggersTest extends TestCase
                 '',
                 'CREATE TRIGGER ON  FOR EACH ROW ',
                 5
-            ),
-            array(
+            ],
+            [
                 'root',
                 'trigger',
                 'BEFORE',
@@ -386,8 +393,8 @@ class TriggersTest extends TestCase
                 'SET @A=NULL',
                 'CREATE TRIGGER `trigger` BEFORE INSERT ON  FOR EACH ROW SET @A=NULL',
                 2
-            ),
-            array(
+            ],
+            [
                 'foo`s@host',
                 'trigger`s test',
                 'AFTER',
@@ -396,8 +403,8 @@ class TriggersTest extends TestCase
                 'BEGIN SET @A=1; SET @B=2; END',
                 'CREATE DEFINER=`foo``s`@`host` TRIGGER `trigger``s test` AFTER ON  FOR EACH ROW BEGIN SET @A=1; SET @B=2; END',
                 2
-            ),
-            array(
+            ],
+            [
                 'root@localhost',
                 'trigger',
                 'BEFORE',
@@ -406,7 +413,7 @@ class TriggersTest extends TestCase
                 'SET @A=NULL',
                 'CREATE DEFINER=`root`@`localhost` TRIGGER `trigger` BEFORE INSERT ON `table1` FOR EACH ROW SET @A=NULL',
                 0
-            ),
-        );
+            ],
+        ];
     }
 }

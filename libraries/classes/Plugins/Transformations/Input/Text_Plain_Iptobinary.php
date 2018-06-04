@@ -44,7 +44,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         $val = @inet_pton($buffer);
         if ($val !== false) {

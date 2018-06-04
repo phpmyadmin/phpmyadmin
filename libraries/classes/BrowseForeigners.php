@@ -144,7 +144,7 @@ class BrowseForeigners
 
         $output .= '</tr>';
 
-        return array($output, $horizontal_count, $indexByDescription);
+        return [$output, $horizontal_count, $indexByDescription];
     }
 
     /**
@@ -198,7 +198,7 @@ class BrowseForeigners
             . 'value="' . $filter_value . '" data-old="' . $filter_value . '" '
             . '/>'
             . '<input type="submit" name="submit_foreign_filter" value="'
-            .  __('Go') . '" />'
+            . __('Go') . '" />'
             . '</span>'
             . '<span class="formelement">' . $gotopage . '</span>'
             . '<span class="formelement">' . $foreignShowAll . '</span>'
@@ -226,8 +226,8 @@ class BrowseForeigners
             . '<tfoot>' . $header . '</tfoot>' . "\n"
             . '<tbody>' . "\n";
 
-        $descriptions = array();
-        $keys   = array();
+        $descriptions = [];
+        $keys   = [];
         foreach ($foreignData['disp_row'] as $relrow) {
             if ($foreignData['foreign_display'] != false) {
                 $descriptions[] = $relrow[$foreignData['foreign_display']];
@@ -286,12 +286,14 @@ class BrowseForeigners
             );
             $description = htmlspecialchars(
                 mb_substr(
-                    $description, 0, $this->limitChars
+                    $description,
+                    0,
+                    $this->limitChars
                 )
                 . '...'
             );
         }
-        return array($description, $descriptionTitle);
+        return [$description, $descriptionTitle];
     }
 
     /**

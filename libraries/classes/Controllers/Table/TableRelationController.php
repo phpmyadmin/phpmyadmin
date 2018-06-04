@@ -119,10 +119,10 @@ class TableRelationController extends TableController
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
-            array(
+            [
                 'tbl_relation.js',
                 'indexes.js'
-            )
+            ]
         );
 
         // Set the database
@@ -146,14 +146,20 @@ class TableRelationController extends TableController
         // If we did an update, refresh our data
         if (isset($_POST['destination_db']) && $this->cfgRelation['relwork']) {
             $this->existrel = $this->relation->getForeigners(
-                $this->db, $this->table, '', 'internal'
+                $this->db,
+                $this->table,
+                '',
+                'internal'
             );
         }
         if (isset($_POST['destination_foreign_db'])
             && Util::isForeignKeySupported($this->tbl_storage_engine)
         ) {
             $this->existrel_foreign = $this->relation->getForeigners(
-                $this->db, $this->table, '', 'foreign'
+                $this->db,
+                $this->table,
+                '',
+                'foreign'
             );
         }
 
@@ -162,14 +168,14 @@ class TableRelationController extends TableController
 
         $this->response->addHTML(
             Template::get('table/secondary_tabs')->render(
-                array(
-                    'url_params' => array(
+                [
+                    'url_params' => [
                         'db' => $GLOBALS['db'],
                         'table' => $GLOBALS['table']
-                    ),
+                    ],
                     'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
                     'cfg_relation' => $this->relation->getRelationsParam(),
-                )
+                ]
             )
         );
         $this->response->addHTML('<div id="structure_content">');
@@ -182,14 +188,15 @@ class TableRelationController extends TableController
         // in mysqli
         $columns = $this->dbi->getColumns($this->db, $this->table);
 
-        $column_array = array();
+        $column_array = [];
+        $column_hash_array = [];
         $column_array[''] = '';
         foreach ($columns as $column) {
             if (strtoupper($this->tbl_storage_engine) == 'INNODB'
                 || ! empty($column['Key'])
             ) {
                 $column_array[$column['Field']] = $column['Field'];
-                $column_array[$column['Field'] . '_hash'] = md5($column['Field']);
+                $column_hash_array[$column['Field']] = md5($column['Field']);
             }
         }
         if ($GLOBALS['cfg']['NaturalOrder']) {
@@ -203,11 +210,12 @@ class TableRelationController extends TableController
                 'table' => $this->table,
                 'cfg_relation' => $this->cfgRelation,
                 'tbl_storage_engine' => $this->tbl_storage_engine,
-                'existrel' => isset($this->existrel) ? $this->existrel : array(),
+                'existrel' => isset($this->existrel) ? $this->existrel : [],
                 'existrel_foreign' => isset($this->existrel_foreign)
-                    ? $this->existrel_foreign['foreign_keys_data'] : array(),
+                    ? $this->existrel_foreign['foreign_keys_data'] : [],
                 'options_array' => $this->options_array,
                 'column_array' => $column_array,
+                'column_hash_array' => $column_hash_array,
                 'save_row' => array_values($columns),
                 'url_params' => $GLOBALS['url_params'],
                 'databases' => $GLOBALS['dblist']->databases,
@@ -229,13 +237,15 @@ class TableRelationController extends TableController
     public function updateForDisplayField()
     {
         if ($this->upd_query->updateDisplayField(
-            $_POST['display_field'], $this->cfgRelation
+            $_POST['display_field'],
+            $this->cfgRelation
         )
         ) {
             $this->response->addHTML(
                 Util::getMessage(
                     __('Display column was successfully updated.'),
-                    '', 'success'
+                    '',
+                    'success'
                 )
             );
         }
@@ -257,8 +267,10 @@ class TableRelationController extends TableController
         list($html, $preview_sql_data, $display_query, $seen_error)
             = $this->upd_query->updateForeignKeys(
                 $_POST['destination_foreign_db'],
-                $multi_edit_columns_name, $_POST['destination_foreign_table'],
-                $_POST['destination_foreign_column'], $this->options_array,
+                $multi_edit_columns_name,
+                $_POST['destination_foreign_table'],
+                $_POST['destination_foreign_column'],
+                $this->options_array,
                 $this->table,
                 isset($this->existrel_foreign)
                 ? $this->existrel_foreign['foreign_keys_data']
@@ -276,7 +288,8 @@ class TableRelationController extends TableController
             $this->response->addHTML(
                 Util::getMessage(
                     __('Your SQL query has been executed successfully.'),
-                    null, 'success'
+                    null,
+                    'success'
                 )
             );
         }
@@ -305,7 +318,8 @@ class TableRelationController extends TableController
             $this->response->addHTML(
                 Util::getMessage(
                     __('Internal relationships were successfully updated.'),
-                    '', 'success'
+                    '',
+                    'success'
                 )
             );
         }
@@ -328,7 +342,7 @@ class TableRelationController extends TableController
         } else {
             $columnList = $table_obj->getIndexedColumns(false, false);
         }
-        $columns = array();
+        $columns = [];
         foreach ($columnList as $column) {
             $columns[] = htmlspecialchars($column);
         }
@@ -354,7 +368,7 @@ class TableRelationController extends TableController
      */
     public function getDropdownValueForDbAction()
     {
-        $tables = array();
+        $tables = [];
         $foreign = isset($_REQUEST['foreign']) && $_REQUEST['foreign'] === 'true';
 
         if ($foreign) {

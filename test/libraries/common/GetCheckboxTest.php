@@ -26,7 +26,7 @@ class GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckbox()
+    public function testGetCheckbox()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
@@ -36,13 +36,13 @@ class GetCheckboxTest extends TestCase
         $this->assertXmlStringEqualsXmlString(
             '<root> ' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => false,
                     'onclick'           => false,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . ' </root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" /><label for="' . $name . '">' . $label
@@ -55,7 +55,7 @@ class GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckboxChecked()
+    public function testGetCheckboxChecked()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
@@ -63,13 +63,13 @@ class GetCheckboxTest extends TestCase
         $this->assertXmlStringEqualsXmlString(
             '<root>' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => true,
                     'onclick'           => false,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . '</root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" checked="checked" /><label for="' . $name . '">' . $label
@@ -82,7 +82,7 @@ class GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckboxOnclick()
+    public function testGetCheckboxOnclick()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
@@ -90,13 +90,13 @@ class GetCheckboxTest extends TestCase
         $this->assertXmlStringEqualsXmlString(
             '<root>' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => false,
                     'onclick'           => true,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . '</root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" class="autosubmit" /><label for="' . $name . '">' . $label
@@ -109,7 +109,7 @@ class GetCheckboxTest extends TestCase
      *
      * @return void
      */
-    function testGetCheckboxCheckedOnclick()
+    public function testGetCheckboxCheckedOnclick()
     {
         $name = "test_display_html_checkbox";
         $label = "text_label_for_checkbox";
@@ -117,13 +117,13 @@ class GetCheckboxTest extends TestCase
         $this->assertXmlStringEqualsXmlString(
             '<root>' . Template::get('checkbox')
             ->render(
-                array(
+                [
                     'html_field_name'   => $name,
                     'label'             => $label,
                     'checked'           => true,
                     'onclick'           => true,
                     'html_field_id'     => $name,
-                )
+                ]
             ) . '</root>',
             '<root> <input type="checkbox" name="' . $name . '" id="' . $name
             . '" checked="checked" class="autosubmit" /><label for="' . $name

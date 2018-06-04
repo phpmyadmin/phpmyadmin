@@ -17,7 +17,6 @@ header(
 if (isset($_SERVER['HTTP_USER_AGENT'])
     && stristr($_SERVER['HTTP_USER_AGENT'], 'MSIE')
 ) {
-
     /* FIXME: Why is this special case for IE needed? */
     header('Pragma: public');
 } else {

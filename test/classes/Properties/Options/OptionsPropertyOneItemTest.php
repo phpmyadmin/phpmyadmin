@@ -25,7 +25,7 @@ class OptionsPropertyOneItemTest extends TestCase
      *
      * @return void
      */
-    protected function setup()
+    protected function setUp()
     {
         $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyOneItem');
     }
@@ -49,10 +49,10 @@ class OptionsPropertyOneItemTest extends TestCase
      */
     public function testGetSetValues()
     {
-        $this->stub->setValues(array(1, 2));
+        $this->stub->setValues([1, 2]);
 
         $this->assertEquals(
-            array(1, 2),
+            [1, 2],
             $this->stub->getValues()
         );
     }

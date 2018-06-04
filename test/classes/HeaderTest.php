@@ -28,7 +28,7 @@ class HeaderTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         if (!defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);

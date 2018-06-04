@@ -96,16 +96,17 @@ class ExportLatex extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            "dump_what", __('Dump table')
+            "dump_what",
+            __('Dump table')
         );
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem("structure_or_data");
         $leaf->setValues(
-            array(
+            [
                 'structure'          => __('structure'),
                 'data'               => __('data'),
                 'structure_and_data' => __('structure and data'),
-            )
+            ]
         );
         $dumpWhat->addProperty($leaf);
         // add the main group to the root group
@@ -114,7 +115,8 @@ class ExportLatex extends ExportPlugin
         // structure options main group
         if (!$hide_structure) {
             $structureOptions = new OptionsPropertyMainGroup(
-                "structure", __('Object creation options')
+                "structure",
+                __('Object creation options')
             );
             $structureOptions->setForce('data');
             // create primary items and add them to the group
@@ -161,7 +163,8 @@ class ExportLatex extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            "data", __('Data dump options')
+            "data",
+            __('Data dump options')
         );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
@@ -303,7 +306,7 @@ class ExportLatex extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -316,8 +319,8 @@ class ExportLatex extends ExportPlugin
         );
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
-        $columns = array();
-        $columns_alias = array();
+        $columns = [];
+        $columns_alias = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $columns[$i] = $col_as = $GLOBALS['dbi']->fieldName($result, $i);
             if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
@@ -339,17 +342,17 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . Util::expandUserString(
                     $GLOBALS['latex_data_caption'],
-                    array(
+                    [
                         'texEscape',
                         get_class($this),
-                    ),
-                    array('table' => $table_alias, 'database' => $db_alias)
+                    ],
+                    ['table' => $table_alias, 'database' => $db_alias]
                 )
                 . '} \\label{'
                 . Util::expandUserString(
                     $GLOBALS['latex_data_label'],
                     null,
-                    array('table' => $table_alias, 'database' => $db_alias)
+                    ['table' => $table_alias, 'database' => $db_alias]
                 )
                 . '} \\\\';
         }
@@ -374,11 +377,11 @@ class ExportLatex extends ExportPlugin
                     '\\caption{'
                     . Util::expandUserString(
                         $GLOBALS['latex_data_continued_caption'],
-                        array(
+                        [
                             'texEscape',
                             get_class($this),
-                        ),
-                        array('table' => $table_alias, 'database' => $db_alias)
+                        ],
+                        ['table' => $table_alias, 'database' => $db_alias]
                     )
                     . '} \\\\ '
                 )
@@ -468,7 +471,7 @@ class ExportLatex extends ExportPlugin
         $do_comments = false,
         $do_mime = false,
         $dates = false,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -484,7 +487,7 @@ class ExportLatex extends ExportPlugin
         /**
          * Get the unique keys in the table
          */
-        $unique_keys = array();
+        $unique_keys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
@@ -546,17 +549,17 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_caption'],
-                    array(
+                    [
                         'texEscape',
                         get_class($this),
-                    ),
-                    array('table' => $table_alias, 'database' => $db_alias)
+                    ],
+                    ['table' => $table_alias, 'database' => $db_alias]
                 )
                 . '} \\label{'
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_label'],
                     null,
-                    array('table' => $table_alias, 'database' => $db_alias)
+                    ['table' => $table_alias, 'database' => $db_alias]
                 )
                 . '} \\\\' . $crlf;
         }
@@ -567,11 +570,11 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_continued_caption'],
-                    array(
+                    [
                         'texEscape',
                         get_class($this),
-                    ),
-                    array('table' => $table_alias, 'database' => $db_alias)
+                    ],
+                    ['table' => $table_alias, 'database' => $db_alias]
                 )
                 . '} \\\\ ' . $crlf;
         }
@@ -669,7 +672,7 @@ class ExportLatex extends ExportPlugin
      */
     public static function texEscape($string)
     {
-        $escape = array('$', '%', '{', '}', '&', '#', '_', '^');
+        $escape = ['$', '%', '{', '}', '&', '#', '_', '^'];
         $cnt_escape = count($escape);
         for ($k = 0; $k < $cnt_escape; $k++) {
             $string = str_replace($escape[$k], '\\' . $escape[$k], $string);

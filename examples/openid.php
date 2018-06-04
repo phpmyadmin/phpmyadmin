@@ -27,12 +27,12 @@ $secure_cookie = false;
 /**
  * Map of authenticated users to MySQL user/password pairs.
  */
-$AUTH_MAP = array(
-    'https://launchpad.net/~username' => array(
+$AUTH_MAP = [
+    'https://launchpad.net/~username' => [
         'user' => 'root',
         'password' => '',
-        ),
-    );
+        ],
+    ];
 
 /**
  * Simple function to show HTML page with given content.

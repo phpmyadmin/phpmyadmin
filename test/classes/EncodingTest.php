@@ -22,7 +22,7 @@ class EncodingTest extends TestCase
     /**
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         Encoding::initEngine();
     }
@@ -77,7 +77,9 @@ class EncodingTest extends TestCase
         $this->assertEquals(
             'Only That ecole & Can Be My Blame',
             Encoding::convertString(
-                'UTF-8', 'flat', 'Only That école & Can Be My Blame'
+                'UTF-8',
+                'flat',
+                'Only That école & Can Be My Blame'
             )
         );
     }
@@ -96,7 +98,9 @@ class EncodingTest extends TestCase
         $this->assertEquals(
             "This is the Euro symbol 'EUR'.",
             Encoding::convertString(
-                'UTF-8', 'ISO-8859-1', "This is the Euro symbol '€'."
+                'UTF-8',
+                'ISO-8859-1',
+                "This is the Euro symbol '€'."
             )
         );
     }
@@ -110,7 +114,9 @@ class EncodingTest extends TestCase
         $this->assertEquals(
             "This is the Euro symbol '?'.",
             Encoding::convertString(
-                'UTF-8', 'ISO-8859-1', "This is the Euro symbol '€'."
+                'UTF-8',
+                'ISO-8859-1',
+                "This is the Euro symbol '€'."
             )
         );
     }

@@ -59,7 +59,7 @@ class ServerBinlogController extends Controller
          */
         include_once 'libraries/server_common.inc.php';
 
-        $url_params = array();
+        $url_params = [];
         if (! isset($_REQUEST['log'])
             || ! array_key_exists($_REQUEST['log'], $this->binary_logs)
         ) {
@@ -91,11 +91,11 @@ class ServerBinlogController extends Controller
     private function _getLogSelector(array $url_params)
     {
         return Template::get('server/binlog/log_selector')->render(
-            array(
+            [
                 'url_params' => $url_params,
                 'binary_logs' => $this->binary_logs,
                 'log' => $_REQUEST['log'],
-            )
+            ]
         );
     }
 
@@ -257,10 +257,10 @@ class ServerBinlogController extends Controller
         $html = "";
         while ($value = $this->dbi->fetchAssoc($result)) {
             $html .= Template::get('server/binlog/log_row')->render(
-                array(
+                [
                     'value' => $value,
                     'dontlimitchars' => $dontlimitchars,
-                )
+                ]
             );
         }
         return $html;

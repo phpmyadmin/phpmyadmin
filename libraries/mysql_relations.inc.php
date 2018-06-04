@@ -14,157 +14,157 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Internal relations for mysql database.
  */
-$GLOBALS['mysql_relations'] = array(
-    'columns_priv' => array(
-        'Db' => array(
+$GLOBALS['mysql_relations'] = [
+    'columns_priv' => [
+        'Db' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-    ),
-    'db' => array(
-        'Db' => array(
+        ],
+    ],
+    'db' => [
+        'Db' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-    ),
-    'event' => array(
-        'db' => array(
+        ],
+    ],
+    'event' => [
+        'db' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'character_set_client' => array(
+        ],
+        'character_set_client' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'collation_connection' => array(
+        ],
+        'collation_connection' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-        'db_collation' => array(
+        ],
+        'db_collation' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-    ),
-    'help_category' => array(
-        'parent_category_id' => array(
+        ],
+    ],
+    'help_category' => [
+        'parent_category_id' => [
             'foreign_db'    => 'mysql',
             'foreign_table' => 'help_category',
             'foreign_field' => 'help_category_id'
-        ),
-    ),
-    'help_relation' => array(
-        'help_topic_id' => array(
+        ],
+    ],
+    'help_relation' => [
+        'help_topic_id' => [
             'foreign_db'    => 'mysql',
             'foreign_table' => 'help_topic',
             'foreign_field' => 'help_topic_id'
-        ),
-        'help_keyword_id' => array(
+        ],
+        'help_keyword_id' => [
             'foreign_db'    => 'mysql',
             'foreign_table' => 'help_keyword',
             'foreign_field' => 'help_keyword_id'
-        ),
-    ),
-    'help_topic' => array(
-        'help_category_id' => array(
+        ],
+    ],
+    'help_topic' => [
+        'help_category_id' => [
             'foreign_db'    => 'mysql',
             'foreign_table' => 'help_category',
             'foreign_field' => 'help_category_id'
-        ),
-    ),
-    'innodb_index_stats' => array(
-        'database_name' => array(
+        ],
+    ],
+    'innodb_index_stats' => [
+        'database_name' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-    ),
-    'innodb_table_stats' => array(
-        'database_name' => array(
+        ],
+    ],
+    'innodb_table_stats' => [
+        'database_name' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-    ),
-    'proc' => array(
-        'db' => array(
+        ],
+    ],
+    'proc' => [
+        'db' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-        'character_set_client' => array(
+        ],
+        'character_set_client' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'CHARACTER_SETS',
             'foreign_field' => 'CHARACTER_SET_NAME'
-        ),
-        'collation_connection' => array(
+        ],
+        'collation_connection' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-        'db_collation' => array(
+        ],
+        'db_collation' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'COLLATIONS',
             'foreign_field' => 'COLLATION_NAME'
-        ),
-    ),
-    'proc_priv' => array(
-        'Db' => array(
+        ],
+    ],
+    'proc_priv' => [
+        'Db' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-    ),
-    'servers' => array(
-        'Db' => array(
+        ],
+    ],
+    'servers' => [
+        'Db' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-    ),
-    'slow_log' => array(
-        'db' => array(
+        ],
+    ],
+    'slow_log' => [
+        'db' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-    ),
-    'tables_priv' => array(
-        'Db' => array(
+        ],
+    ],
+    'tables_priv' => [
+        'Db' => [
             'foreign_db'    => 'information_schema',
             'foreign_table' => 'SCHEMATA',
             'foreign_field' => 'SCHEMA_NAME'
-        ),
-    ),
-    'time_zone_name' => array(
-        'Time_zone_id' => array(
+        ],
+    ],
+    'time_zone_name' => [
+        'Time_zone_id' => [
             'foreign_db'    => 'mysql',
             'foreign_table' => 'time_zone',
             'foreign_field' => 'Time_zone_id'
-        ),
-    ),
-    'time_zone_transition' => array(
-        'Time_zone_id' => array(
+        ],
+    ],
+    'time_zone_transition' => [
+        'Time_zone_id' => [
             'foreign_db'    => 'mysql',
             'foreign_table' => 'time_zone',
             'foreign_field' => 'Time_zone_id'
-        ),
-        'Transition_time' => array(
+        ],
+        'Transition_time' => [
             'foreign_db'    => 'mysql',
             'foreign_table' => 'time_zone_leap_second',
             'foreign_field' => 'Transition_time'
-        )
-    ),
-    'time_zone_transition_type' => array(
-        'Time_zone_id' => array(
+        ]
+    ],
+    'time_zone_transition_type' => [
+        'Time_zone_id' => [
             'foreign_db'    => 'mysql',
             'foreign_table' => 'time_zone',
             'foreign_field' => 'Time_zone_id'
-        ),
-    ),
-);
+        ],
+    ],
+];

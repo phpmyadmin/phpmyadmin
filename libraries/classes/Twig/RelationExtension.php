@@ -28,16 +28,16 @@ class RelationExtension extends AbstractExtension
     public function getFunctions()
     {
         $relation = new Relation();
-        return array(
+        return [
             new TwigFunction(
                 'Relation_foreignDropdown',
                 [$relation, 'foreignDropdown'],
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Relation_getDisplayField',
                 [$relation, 'getDisplayField'],
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Relation_getForeignData',
@@ -51,6 +51,6 @@ class RelationExtension extends AbstractExtension
                 'Relation_searchColumnInForeigners',
                 [$relation, 'searchColumnInForeigners']
             ),
-        );
+        ];
     }
 }

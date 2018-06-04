@@ -143,7 +143,7 @@ class Variables
          * define some alerts
          */
         // name => max value before alert
-        $alerts = array(
+        $alerts = [
             // lower is better
             // variable => max value
             'Aborted_clients' => 0,
@@ -197,7 +197,7 @@ class Variables
             // higher is better
             // variable => min value
             //'Handler read key' => '> ',
-        );
+        ];
 
         $retval .= self::getHtmlForRenderVariables(
             $serverStatusData,
@@ -336,7 +336,7 @@ class Variables
         /**
          * Messages are built using the message name
          */
-        return array(
+        return [
             'Aborted_clients' => __(
                 'The number of connections that were aborted because the client died'
                 . ' without closing the connection properly.'
@@ -771,6 +771,6 @@ class Variables
             'Threads_running' => __(
                 'The number of threads that are not sleeping.'
             )
-        );
+        ];
     }
 }

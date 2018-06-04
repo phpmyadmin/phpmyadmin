@@ -99,13 +99,13 @@ class Search
     {
         $this->db = $db;
         $this->dbi = $dbi;
-        $this->searchTypes = array(
+        $this->searchTypes = [
             '1' => __('at least one of the words'),
             '2' => __('all of the words'),
             '3' => __('the exact phrase as substring'),
             '4' => __('the exact phrase as whole field'),
             '5' => __('as regular expression'),
-        );
+        ];
         // Sets criteria parameters
         $this->setSearchParams();
     }
@@ -143,14 +143,15 @@ class Search
             $this->criteriaSearchString = $_REQUEST['criteriaSearchString'];
         }
 
-        $this->criteriaTables = array();
+        $this->criteriaTables = [];
         if (empty($_REQUEST['criteriaTables'])
             || ! is_array($_REQUEST['criteriaTables'])
         ) {
             unset($_REQUEST['submit_search']);
         } else {
             $this->criteriaTables = array_intersect(
-                $_REQUEST['criteriaTables'], $this->tablesNamesOnly
+                $_REQUEST['criteriaTables'],
+                $this->tablesNamesOnly
             );
         }
 
@@ -193,7 +194,7 @@ class Search
         // Gets where clause for the query
         $where_clause = $this->getWhereClause($table);
         // Builds complete queries
-        $sql = array();
+        $sql = [];
         $sql['select_columns'] = $sqlstr_select . ' * ' . $sqlstr_from
             . $where_clause;
         // here, I think we need to still use the COUNT clause, even for
@@ -216,7 +217,7 @@ class Search
     {
         // Columns to select
         $allColumns = $this->dbi->getColumns($GLOBALS['db'], $table);
-        $likeClauses = array();
+        $likeClauses = [];
         // Based on search type, decide like/regex & '%'/''
         $like_or_regex   = (($this->criteriaSearchType == 5) ? 'REGEXP' : 'LIKE');
         $automatic_wildcard   = (($this->criteriaSearchType < 4) ? '%' : '');
@@ -228,7 +229,7 @@ class Search
         );
         // Extract search words or pattern
         $search_words = (($this->criteriaSearchType > 2)
-            ? array($criteriaSearchStringEscaped)
+            ? [$criteriaSearchStringEscaped]
             : explode(' ', $criteriaSearchStringEscaped));
 
         foreach ($search_words as $search_word) {
@@ -236,7 +237,7 @@ class Search
             if (strlen($search_word) === 0) {
                 continue;
             }
-            $likeClausesPerColumn = array();
+            $likeClausesPerColumn = [];
             // for each column in the table
             foreach ($allColumns as $column) {
                 if (! isset($this->criteriaColumnName)
@@ -312,7 +313,7 @@ class Search
      */
     public function getSelectionForm()
     {
-        $choices = array(
+        $choices = [
             '1' => $this->searchTypes[1] . ' '
                 . Util::showHint(
                     __('Words are separated by a space character (" ").')
@@ -324,7 +325,7 @@ class Search
             '3' => $this->searchTypes[3],
             '4' => $this->searchTypes[4],
             '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp')
-        );
+        ];
         return Template::get('database/search/selection_form')->render([
             'db' => $this->db,
             'choices' => $choices,

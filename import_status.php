@@ -82,7 +82,6 @@ if (defined('SESSIONUPLOAD')) {
 
 // $_GET["message"] is used for asking for an import message
 if (isset($_GET["message"]) && $_GET["message"]) {
-
     // AJAX requests can't be cached!
     Core::noCacheHeader();
 
@@ -116,7 +115,6 @@ if (isset($_GET["message"]) && $_GET["message"]) {
     echo '    [ <a href="' , $_SESSION['Import_message']['go_back_url']
         . '">' , __('Back') , '</a> ]' , "\n";
     echo '</fieldset>' , "\n";
-
 } else {
     ImportAjax::status($_GET["id"]);
 }

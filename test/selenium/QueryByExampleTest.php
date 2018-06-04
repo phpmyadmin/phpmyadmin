@@ -25,7 +25,7 @@ class QueryByExampleTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $this->markTestSkipped('Broken, see https://github.com/phpmyadmin/phpmyadmin/issues/13621');
         parent::setUp();

@@ -26,12 +26,12 @@ class PartitionExtension extends AbstractExtension
      */
     public function getFunctions()
     {
-        return array(
+        return [
             new TwigFunction(
                 'Partition_getPartitions',
                 'PhpMyAdmin\Partition::getPartitions',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
-        );
+        ];
     }
 }

@@ -121,20 +121,20 @@ class NavigationTest extends PmaTestCase
             ->method('fetchArray')
             ->will(
                 $this->returnValue(
-                    array(
+                    [
                         'item_name' => 'tableName',
                         'item_type' => 'table'
-                    )
+                    ]
                 )
             );
         $dbi->expects($this->at(4))
             ->method('fetchArray')
             ->will(
                 $this->returnValue(
-                    array(
+                    [
                         'item_name' => 'viewName',
                         'item_type' => 'view'
-                    )
+                    ]
                 )
             );
         $dbi->expects($this->at(5))

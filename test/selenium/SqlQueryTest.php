@@ -24,7 +24,7 @@ class SqlQueryTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
@@ -174,7 +174,7 @@ class SqlQueryTest extends TestBase
     {
         $this->waitForElement('byCssSelector', 'a.inline_edit_sql')->click();
         // empty current query
-        $this->typeInTextArea('',  1);
+        $this->typeInTextArea('', 1);
 
         // type in next sql query
         $this->typeInTextArea('SELECT 1', 1);

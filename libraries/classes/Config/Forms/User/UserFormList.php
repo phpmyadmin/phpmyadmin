@@ -20,14 +20,14 @@ class UserFormList extends BaseFormList
     /**
      * @var array
      */
-    protected static $all = array(
+    protected static $all = [
         'Features',
         'Sql',
         'Navi',
         'Main',
         'Import',
         'Export',
-    );
+    ];
     /**
      * @var string
      */

@@ -62,16 +62,17 @@ class ExportTexytext extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            "general_opts", __('Dump table')
+            "general_opts",
+            __('Dump table')
         );
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem("structure_or_data");
         $leaf->setValues(
-            array(
+            [
                 'structure'          => __('structure'),
                 'data'               => __('data'),
                 'structure_and_data' => __('structure and data'),
-            )
+            ]
         );
         $dumpWhat->addProperty($leaf);
         // add the main group to the root group
@@ -79,7 +80,8 @@ class ExportTexytext extends ExportPlugin
 
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup(
-            "data", __('Data dump options')
+            "data",
+            __('Data dump options')
         );
         $dataOptions->setForce('structure');
         // create primary items and add them to the group
@@ -184,7 +186,7 @@ class ExportTexytext extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         global $what;
 
@@ -262,14 +264,14 @@ class ExportTexytext extends ExportPlugin
      *
      * @return string resulting definition
      */
-    public function getTableDefStandIn($db, $view, $crlf, $aliases = array())
+    public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
     {
         $text_output = '';
 
         /**
          * Get the unique keys in the table
          */
-        $unique_keys = array();
+        $unique_keys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $view);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
@@ -344,7 +346,7 @@ class ExportTexytext extends ExportPlugin
         $show_dates = false,
         $add_semicolon = true,
         $view = false,
-        array $aliases = array()
+        array $aliases = []
     ) {
         global $cfgRelation;
 
@@ -353,7 +355,7 @@ class ExportTexytext extends ExportPlugin
         /**
          * Get the unique keys in the table
          */
-        $unique_keys = array();
+        $unique_keys = [];
         $keys = $GLOBALS['dbi']->getTableIndexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
@@ -507,7 +509,7 @@ class ExportTexytext extends ExportPlugin
         $do_comments = false,
         $do_mime = false,
         $dates = false,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -515,52 +517,52 @@ class ExportTexytext extends ExportPlugin
         $dump = '';
 
         switch ($export_mode) {
-        case 'create_table':
-            $dump .= '== ' . __('Table structure for table') . ' '
+            case 'create_table':
+                $dump .= '== ' . __('Table structure for table') . ' '
                 . $table_alias . "\n\n";
-            $dump .= $this->getTableDef(
-                $db,
-                $table,
-                $crlf,
-                $error_url,
-                $do_relation,
-                $do_comments,
-                $do_mime,
-                $dates,
-                true,
-                false,
-                $aliases
-            );
-            break;
-        case 'triggers':
-            $dump = '';
-            $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
-            if ($triggers) {
-                $dump .= '== ' . __('Triggers') . ' ' . $table_alias . "\n\n";
-                $dump .= $this->getTriggers($db, $table);
-            }
-            break;
-        case 'create_view':
-            $dump .= '== ' . __('Structure for view') . ' ' . $table_alias . "\n\n";
-            $dump .= $this->getTableDef(
-                $db,
-                $table,
-                $crlf,
-                $error_url,
-                $do_relation,
-                $do_comments,
-                $do_mime,
-                $dates,
-                true,
-                true,
-                $aliases
-            );
-            break;
-        case 'stand_in':
-            $dump .= '== ' . __('Stand-in structure for view')
+                $dump .= $this->getTableDef(
+                    $db,
+                    $table,
+                    $crlf,
+                    $error_url,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    $dates,
+                    true,
+                    false,
+                    $aliases
+                );
+                break;
+            case 'triggers':
+                $dump = '';
+                $triggers = $GLOBALS['dbi']->getTriggers($db, $table);
+                if ($triggers) {
+                    $dump .= '== ' . __('Triggers') . ' ' . $table_alias . "\n\n";
+                    $dump .= $this->getTriggers($db, $table);
+                }
+                break;
+            case 'create_view':
+                $dump .= '== ' . __('Structure for view') . ' ' . $table_alias . "\n\n";
+                $dump .= $this->getTableDef(
+                    $db,
+                    $table,
+                    $crlf,
+                    $error_url,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    $dates,
+                    true,
+                    true,
+                    $aliases
+                );
+                break;
+            case 'stand_in':
+                $dump .= '== ' . __('Stand-in structure for view')
                 . ' ' . $table . "\n\n";
-            // export a stand-in definition to resolve view dependencies
-            $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
+                // export a stand-in definition to resolve view dependencies
+                $dump .= $this->getTableDefStandIn($db, $table, $crlf, $aliases);
         } // end switch
 
         return $this->export->outputHandler($dump);

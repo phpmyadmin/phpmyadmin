@@ -27,20 +27,20 @@ class Users
      */
     public static function getHtmlForSubMenusOnUsersPage($selfUrl)
     {
-        $items = array(
-            array(
+        $items = [
+            [
                 'name' => __('User accounts overview'),
                 'url' => 'server_privileges.php',
-                'params' => Url::getCommon(array('viewing_mode' => 'server')),
-            )
-        );
+                'params' => Url::getCommon(['viewing_mode' => 'server']),
+            ]
+        ];
 
         if ($GLOBALS['dbi']->isSuperuser()) {
-            $items[] = array(
+            $items[] = [
                 'name' => __('User groups'),
                 'url' => 'server_user_groups.php',
                 'params' => Url::getCommon(),
-            );
+            ];
         }
 
         $retval  = '<ul id="topmenu2">';

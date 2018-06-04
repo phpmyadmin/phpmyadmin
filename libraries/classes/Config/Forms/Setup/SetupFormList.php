@@ -20,7 +20,7 @@ class SetupFormList extends BaseFormList
     /**
      * @var array
      */
-    protected static $all = array(
+    protected static $all = [
         'Config',
         'Export',
         'Features',
@@ -29,7 +29,7 @@ class SetupFormList extends BaseFormList
         'Navi',
         'Servers',
         'Sql',
-    );
+    ];
     /**
      * @var string
      */

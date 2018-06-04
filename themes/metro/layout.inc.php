@@ -21,10 +21,8 @@ $GLOBALS['cfg']['FontFamilyFixed']          = 'Consolas, Monospace, "Lucida Gran
 $scheme                                     = "win";
 $GLOBALS['cfg']['Scheme']                   = $scheme;
 
-switch ($scheme)
-{
+switch ($scheme) {
     case "win":
-
         $GLOBALS['cfg']['NaviColor']                = '#EEEEEE';
         $GLOBALS['cfg']['NaviBackground']           = '#377796';
         $GLOBALS['cfg']['NaviBackgroundLight']      = '#428EB4';
@@ -54,7 +52,6 @@ switch ($scheme)
         break;
 
     case "teal":
-
         $GLOBALS['cfg']['NaviColor']                = '#FFFFFF';
         $GLOBALS['cfg']['NaviBackground']           = '#004D60';
         $GLOBALS['cfg']['NaviBackgroundLight']      = '#04627C';
@@ -84,7 +81,6 @@ switch ($scheme)
         break;
 
     case "redmond":
-
         $GLOBALS['cfg']['NaviColor']                = '#FFFFFF';
         $GLOBALS['cfg']['NaviBackground']           = '#780505';
         $GLOBALS['cfg']['NaviBackgroundLight']      = '#A10707';
@@ -114,7 +110,6 @@ switch ($scheme)
         break;
 
     case "blueeyes":
-
         $GLOBALS['cfg']['NaviColor']                = '#FFFFFF';
         $GLOBALS['cfg']['NaviBackground']           = '#377796';
         $GLOBALS['cfg']['NaviBackgroundLight']      = '#428EB4';
@@ -144,7 +139,6 @@ switch ($scheme)
         break;
 
     case "mono":
-
         $GLOBALS['cfg']['NaviColor']                = '#FFFFFF';
         $GLOBALS['cfg']['NaviBackground']           = '#666666';
         $GLOBALS['cfg']['NaviBackgroundLight']      = '#999999';

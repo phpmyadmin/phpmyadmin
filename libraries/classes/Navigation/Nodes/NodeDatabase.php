@@ -47,14 +47,14 @@ class NodeDatabase extends Node
             $GLOBALS['cfg']['DefaultTabDatabase'],
             'database'
         );
-        $this->links = array(
+        $this->links = [
             'text'  => $script_name
                 . '?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s',
             'icon'  => 'db_operations.php?server=' . $GLOBALS['server']
                 . '&amp;db=%1$s&amp;',
             'title' => __('Structure'),
-        );
+        ];
         $this->classes = 'database';
     }
 
@@ -76,23 +76,23 @@ class NodeDatabase extends Node
     {
         $retval = 0;
         switch ($type) {
-        case 'tables':
-            $retval = $this->_getTableCount($searchClause, $singleItem);
-            break;
-        case 'views':
-            $retval = $this->_getViewCount($searchClause, $singleItem);
-            break;
-        case 'procedures':
-            $retval = $this->_getProcedureCount($searchClause, $singleItem);
-            break;
-        case 'functions':
-            $retval = $this->_getFunctionCount($searchClause, $singleItem);
-            break;
-        case 'events':
-            $retval = $this->_getEventCount($searchClause, $singleItem);
-            break;
-        default:
-            break;
+            case 'tables':
+                $retval = $this->_getTableCount($searchClause, $singleItem);
+                break;
+            case 'views':
+                $retval = $this->_getViewCount($searchClause, $singleItem);
+                break;
+            case 'procedures':
+                $retval = $this->_getProcedureCount($searchClause, $singleItem);
+                break;
+            case 'functions':
+                $retval = $this->_getFunctionCount($searchClause, $singleItem);
+                break;
+            case 'events':
+                $retval = $this->_getEventCount($searchClause, $singleItem);
+                break;
+            default:
+                break;
         }
 
         return $retval;
@@ -367,25 +367,25 @@ class NodeDatabase extends Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
-        $retval = array();
+        $retval = [];
         switch ($type) {
-        case 'tables':
-            $retval = $this->_getTables($pos, $searchClause);
-            break;
-        case 'views':
-            $retval = $this->_getViews($pos, $searchClause);
-            break;
-        case 'procedures':
-            $retval = $this->_getProcedures($pos, $searchClause);
-            break;
-        case 'functions':
-            $retval = $this->_getFunctions($pos, $searchClause);
-            break;
-        case 'events':
-            $retval = $this->_getEvents($pos, $searchClause);
-            break;
-        default:
-            break;
+            case 'tables':
+                $retval = $this->_getTables($pos, $searchClause);
+                break;
+            case 'views':
+                $retval = $this->_getViews($pos, $searchClause);
+                break;
+            case 'procedures':
+                $retval = $this->_getProcedures($pos, $searchClause);
+                break;
+            case 'functions':
+                $retval = $this->_getFunctions($pos, $searchClause);
+                break;
+            case 'events':
+                $retval = $this->_getEvents($pos, $searchClause);
+                break;
+            default:
+                break;
         }
 
         // Remove hidden items so that they are not displayed in navigation tree
@@ -415,7 +415,7 @@ class NodeDatabase extends Node
         $db = $this->real_name;
         $cfgRelation = $this->relation->getRelationsParam();
         if (empty($cfgRelation['navigationhiding'])) {
-            return array();
+            return [];
         }
         $navTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['navigationhiding']);
@@ -425,7 +425,7 @@ class NodeDatabase extends Node
             . "'" . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($db)
             . "'";
         $result = $this->relation->queryAsControlUser($sqlQuery, false);
-        $hiddenItems = array();
+        $hiddenItems = [];
         if ($result) {
             while ($row = $GLOBALS['dbi']->fetchArray($result)) {
                 $hiddenItems[] = $row[0];
@@ -453,7 +453,7 @@ class NodeDatabase extends Node
             $condition = '!=';
         }
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
-        $retval   = array();
+        $retval   = [];
         $db       = $this->real_name;
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
             $escdDb = $GLOBALS['dbi']->escapeString($db);
@@ -539,7 +539,7 @@ class NodeDatabase extends Node
     private function _getRoutines($routineType, $pos, $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
-        $retval = array();
+        $retval = [];
         $db = $this->real_name;
         if (!$GLOBALS['cfg']['Server']['DisableIS']) {
             $escdDb = $GLOBALS['dbi']->escapeString($db);
@@ -620,7 +620,7 @@ class NodeDatabase extends Node
     private function _getEvents($pos, $searchClause)
     {
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
-        $retval = array();
+        $retval = [];
         $db = $this->real_name;
         if (!$GLOBALS['cfg']['Server']['DisableIS']) {
             $escdDb = $GLOBALS['dbi']->escapeString($db);
@@ -674,10 +674,10 @@ class NodeDatabase extends Node
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['navwork']) {
             if ($this->hiddenCount > 0) {
-                $params = array(
+                $params = [
                     'showUnhideDialog' => true,
                     'dbName' => $this->real_name,
-                );
+                ];
                 $ret = '<span class="dbItemControls">'
                     . '<a href="navigation.php'
                     . Url::getCommon($params) . '"'

@@ -16,7 +16,7 @@ use PhpMyAdmin\Utils\HttpRequest;
 require_once 'libraries/common.inc.php';
 
 if (!isset($_REQUEST['exception_type'])
-    ||!in_array($_REQUEST['exception_type'], array('js', 'php'))
+    ||!in_array($_REQUEST['exception_type'], ['js', 'php'])
 ) {
     die('Oops, something went wrong!!');
 }

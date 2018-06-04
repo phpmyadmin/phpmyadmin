@@ -3,9 +3,10 @@
     class="virtuality">
     {% for key, value in options %}
         <option value="{{ key }}"
+            {% set key_length = key|length %}
             {%- if column_meta['Extra'] is defined
                 and key != ''
-                and strpos(column_meta['Extra'], key) is same as(0) %}
+                and column_meta['Extra']|slice(0,key_length) is same as (key) %}
                 selected="selected"
             {%- endif %}>
             {{ value }}

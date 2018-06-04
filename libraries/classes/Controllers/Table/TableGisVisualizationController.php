@@ -114,8 +114,8 @@ class TableGisVisualizationController extends TableController
         $meta = $this->dbi->getFieldsMeta($result);
 
         // Find the candidate fields for label column and spatial column
-        $labelCandidates = array();
-        $spatialCandidates = array();
+        $labelCandidates = [];
+        $spatialCandidates = [];
         foreach ($meta as $column_meta) {
             if ($column_meta->type == 'geometry') {
                 $spatialCandidates[] = $column_meta->name;
@@ -165,11 +165,11 @@ class TableGisVisualizationController extends TableController
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
-            array(
+            [
                 'vendor/openlayers/OpenLayers.js',
                 'vendor/jquery/jquery.svg.js',
                 'tbl_gis_visualization.js',
-            )
+            ]
         );
 
         // If all the rows contain SRID, use OpenStreetMaps on the initial loading.
@@ -197,15 +197,15 @@ class TableGisVisualizationController extends TableController
         $downloadUrl = 'tbl_gis_visualization.php' . Url::getCommon(
             array_merge(
                 $this->url_params,
-                array(
+                [
                     'saveToFile' => true,
                     'session_max_rows' => $rows,
                     'pos' => $pos
-                )
+                ]
             )
         );
         $html = Template::get('table/gis_visualization/gis_visualization')->render(
-            array(
+            [
                 'url_params' => $this->url_params,
                 'download_url' => $downloadUrl,
                 'label_candidates' => $labelCandidates,
@@ -215,7 +215,7 @@ class TableGisVisualizationController extends TableController
                 'visualization' => $this->visualization->toImage('svg'),
                 'draw_ol' => $this->visualization->asOl(),
                 'pma_theme_image' => $GLOBALS['pmaThemeImage']
-            )
+            ]
         );
 
         $this->response->addHTML($html);

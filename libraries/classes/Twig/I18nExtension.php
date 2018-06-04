@@ -27,7 +27,7 @@ class I18nExtension extends TwigI18nExtension
      */
     public function getTokenParsers()
     {
-        return array(new TokenParserTrans());
+        return [new TokenParserTrans()];
     }
 
     /**
@@ -37,8 +37,8 @@ class I18nExtension extends TwigI18nExtension
      */
     public function getFilters()
     {
-        return array(
+        return [
              new TwigFilter('trans', '_gettext'),
-        );
+        ];
     }
 }

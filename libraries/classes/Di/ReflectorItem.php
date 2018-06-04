@@ -41,9 +41,9 @@ abstract class ReflectorItem implements Item
      * @param array $params Parameters
      * @return mixed
      */
-    protected function invoke(array $params = array())
+    protected function invoke(array $params = [])
     {
-        $args = array();
+        $args = [];
         $reflector = $this->_reflector;
         if ($reflector instanceof \ReflectionClass) {
             $constructor = $reflector->getConstructor();
@@ -76,9 +76,9 @@ abstract class ReflectorItem implements Item
      *
 *@return array
      */
-    private function _resolveArgs($required, array $params = array())
+    private function _resolveArgs($required, array $params = [])
     {
-        $args = array();
+        $args = [];
         foreach ($required as $param) {
             $name = $param->getName();
             $type = $param->getClass();

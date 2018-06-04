@@ -64,7 +64,7 @@ class GisMultiPoint extends GisGeometry
                 mb_strlen($spatial) - 12
             );
 
-        return $this->setMinMax($multipoint, array());
+        return $this->setMinMax($multipoint, []);
     }
 
     /**
@@ -148,7 +148,7 @@ class GisMultiPoint extends GisGeometry
         $red = hexdec(mb_substr($point_color, 1, 2));
         $green = hexdec(mb_substr($point_color, 3, 2));
         $blue = hexdec(mb_substr($point_color, 4, 2));
-        $line = array('width' => 1.25, 'color' => array($red, $green, $blue));
+        $line = ['width' => 1.25, 'color' => [$red, $green, $blue]];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint
@@ -190,13 +190,13 @@ class GisMultiPoint extends GisGeometry
      */
     public function prepareRowAsSvg($spatial, $label, $point_color, array $scale_data)
     {
-        $point_options = array(
+        $point_options = [
             'name'         => $label,
             'class'        => 'multipoint vector',
             'fill'         => 'white',
             'stroke'       => $point_color,
             'stroke-width' => 2,
-        );
+        ];
 
         // Trim to remove leading 'MULTIPOINT(' and trailing ')'
         $multipoint
@@ -243,7 +243,7 @@ class GisMultiPoint extends GisGeometry
         $point_color,
         array $scale_data
     ) {
-        $style_options = array(
+        $style_options = [
             'pointRadius'  => 3,
             'fillColor'    => '#ffffff',
             'strokeColor'  => $point_color,
@@ -251,7 +251,7 @@ class GisMultiPoint extends GisGeometry
             'label'        => $label,
             'labelYOffset' => -8,
             'fontSize'     => 10,
-        );
+        ];
         if ($srid == 0) {
             $srid = 4326;
         }
@@ -350,7 +350,7 @@ class GisMultiPoint extends GisGeometry
      */
     public function generateParams($value, $index = -1)
     {
-        $params = array();
+        $params = [];
         if ($index == -1) {
             $index = 0;
             $data = GisGeometry::generateParams($value);

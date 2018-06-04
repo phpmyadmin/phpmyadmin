@@ -26,12 +26,12 @@ class CoreExtension extends AbstractExtension
      */
     public function getFunctions()
     {
-        return array(
+        return [
             new TwigFunction(
                 'Core_mimeDefaultFunction',
                 'PhpMyAdmin\Core::mimeDefaultFunction',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
-        );
+        ];
     }
 }

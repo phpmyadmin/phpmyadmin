@@ -24,7 +24,7 @@ class DbTriggersTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->dbQuery(
@@ -199,7 +199,8 @@ class DbTriggersTest extends TestBase
 
         $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byCssSelector", "button.submitOK"
+            "byCssSelector",
+            "button.submitOK"
         )->click();
 
         $this->waitAjaxMessage();

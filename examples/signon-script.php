@@ -25,11 +25,11 @@ function get_login_credentials($user)
 {
     /* Optionally we can use passed username */
     if (!empty($user)) {
-        return array($user, 'password');
+        return [$user, 'password'];
     }
 
     /* Here we would retrieve the credentials */
-    $credentials = array('root', '');
+    $credentials = ['root', ''];
 
     return $credentials;
 }

@@ -24,7 +24,7 @@ class DbEventsTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->dbQuery(
@@ -220,7 +220,8 @@ class DbEventsTest extends TestBase
 
         $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byClassName", "submitOK"
+            "byClassName",
+            "submitOK"
         )->click();
 
         $this->waitAjaxMessage();

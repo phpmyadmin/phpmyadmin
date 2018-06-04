@@ -59,11 +59,11 @@ class Message
      *
      * @var array
      */
-    public static $level = array (
+    public static $level =  [
         Message::SUCCESS => 'success',
         Message::NOTICE  => 'notice',
         Message::ERROR   => 'error',
-    );
+    ];
 
     /**
      * The message number
@@ -119,7 +119,7 @@ class Message
      * @access  protected
      * @var     array
      */
-    protected $params = array();
+    protected $params = [];
 
     /**
      * holds additional messages
@@ -127,7 +127,7 @@ class Message
      * @access  protected
      * @var     array
      */
-    protected $addedMessages = array();
+    protected $addedMessages = [];
 
     /**
      * Constructor
@@ -141,7 +141,7 @@ class Message
     public function __construct(
         string $string = '',
         int $number = Message::NOTICE,
-        array $params = array(),
+        array $params = [],
         int $sanitize = Message::SANITIZE_NONE
     ) {
         $this->setString($string, $sanitize & Message::SANITIZE_STRING);

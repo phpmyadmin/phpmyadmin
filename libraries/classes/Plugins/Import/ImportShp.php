@@ -58,7 +58,7 @@ class ImportShp extends ImportPlugin
         $importPluginProperties = new ImportPluginProperties();
         $importPluginProperties->setText(__('ESRI Shape File'));
         $importPluginProperties->setExtension('shp');
-        $importPluginProperties->setOptions(array());
+        $importPluginProperties->setOptions([]);
         $importPluginProperties->setOptionsText(__('Options'));
 
         $this->properties = $importPluginProperties;
@@ -71,7 +71,7 @@ class ImportShp extends ImportPlugin
      *
      * @return void
      */
-    public function doImport(array &$sql_data = array())
+    public function doImport(array &$sql_data = [])
     {
         global $db, $error, $finished,
                $import_file, $local_import_file, $message;
@@ -125,7 +125,9 @@ class ImportShp extends ImportPlugin
                             // Replace the .dbf with .*, as required
                             // by the bsShapeFiles library.
                             $file_name = substr(
-                                $dbf_file_path, 0, strlen($dbf_file_path) - 4
+                                $dbf_file_path,
+                                0,
+                                strlen($dbf_file_path) - 4
                             ) . '.*';
                             $shp->FileName = $file_name;
                         }
@@ -170,31 +172,31 @@ class ImportShp extends ImportPlugin
 
         switch ($shp->shapeType) {
             // ESRI Null Shape
-        case 0:
-            break;
+            case 0:
+                break;
             // ESRI Point
-        case 1:
-            $gis_type = 'point';
-            break;
+            case 1:
+                $gis_type = 'point';
+                break;
             // ESRI PolyLine
-        case 3:
-            $gis_type = 'multilinestring';
-            break;
+            case 3:
+                $gis_type = 'multilinestring';
+                break;
             // ESRI Polygon
-        case 5:
-            $gis_type = 'multipolygon';
-            break;
+            case 5:
+                $gis_type = 'multipolygon';
+                break;
             // ESRI MultiPoint
-        case 8:
-            $gis_type = 'multipoint';
-            break;
-        default:
-            $error = true;
-            $message = Message::error(
-                __('MySQL Spatial Extension does not support ESRI type "%s".')
-            );
-            $message->addParam($shp->getShapeName());
-            return;
+            case 8:
+                $gis_type = 'multipoint';
+                break;
+            default:
+                $error = true;
+                $message = Message::error(
+                    __('MySQL Spatial Extension does not support ESRI type "%s".')
+                );
+                $message->addParam($shp->getShapeName());
+                return;
         }
 
         if (isset($gis_type)) {
@@ -208,11 +210,11 @@ class ImportShp extends ImportPlugin
         // If .dbf file is loaded, the number of extra data columns
         $num_data_cols = isset($shp->DBFHeader) ? count($shp->DBFHeader) : 0;
 
-        $rows = array();
-        $col_names = array();
+        $rows = [];
+        $col_names = [];
         if ($num_rows != 0) {
             foreach ($shp->records as $record) {
-                $tempRow = array();
+                $tempRow = [];
                 if ($gis_obj == null) {
                     $tempRow[] = null;
                 } else {
@@ -258,10 +260,10 @@ class ImportShp extends ImportPlugin
         } else {
             $table_name = 'TBL_NAME';
         }
-        $tables = array(array($table_name, $col_names, $rows));
+        $tables = [[$table_name, $col_names, $rows]];
 
         // Use data from shape file to chose best-fit MySQL types for each column
-        $analyses = array();
+        $analyses = [];
         $analyses[] = $this->import->analyzeTable($tables[0]);
 
         $table_no = 0;
@@ -272,7 +274,7 @@ class ImportShp extends ImportPlugin
         // Set database name to the currently selected one, if applicable
         if (strlen((string) $db) > 0) {
             $db_name = $db;
-            $options = array('create_db' => false);
+            $options = ['create_db' => false];
         } else {
             $db_name = 'SHP_DB';
             $options = null;

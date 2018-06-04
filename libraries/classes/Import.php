@@ -107,12 +107,12 @@ class Import
         $msg = '# ';
         if ($result === false) { // execution failed
             if (! isset($my_die)) {
-                $my_die = array();
+                $my_die = [];
             }
-            $my_die[] = array(
+            $my_die[] = [
                 'sql' => $full,
                 'error' => $GLOBALS['dbi']->getError()
-            );
+            ];
 
             $msg .= __('Error');
 
@@ -182,7 +182,7 @@ class Import
     public function runQuery(
         string $sql = '',
         string $full = '',
-        array &$sql_data = array()
+        array &$sql_data = []
     ): void {
         global $import_run_buffer, $go_sql, $complete_query, $display_query,
             $sql_query, $error, $reload, $result, $msg,
@@ -192,7 +192,9 @@ class Import
         if (!isset($import_run_buffer)) {
             // Do we have something to push into buffer?
             $import_run_buffer = $this->runQueryPost(
-                $import_run_buffer, $sql, $full
+                $import_run_buffer,
+                $sql,
+                $full
             );
             return;
         }
@@ -202,7 +204,9 @@ class Import
             $skip_queries--;
             // Do we have something to push into buffer?
             $import_run_buffer = $this->runQueryPost(
-                $import_run_buffer, $sql, $full
+                $import_run_buffer,
+                $sql,
+                $full
             );
             return;
         }
@@ -238,7 +242,6 @@ class Import
                 }
                 $sql_data['valid_queries']++;
             } elseif ($run_query) {
-
                 /* Handle rollback from go_sql */
                 if ($go_sql && isset($sql_data['valid_full'])) {
                     $queries = $sql_data['valid_sql'];
@@ -246,7 +249,7 @@ class Import
                     $count = $sql_data['valid_queries'];
                     $go_sql = false;
 
-                    $sql_data['valid_sql'] = array();
+                    $sql_data['valid_sql'] = [];
                     $sql_data['valid_queries'] = 0;
                     unset($sql_data['valid_full']);
                     for ($i = 0; $i < $count; $i++) {
@@ -314,7 +317,7 @@ class Import
         string $full
     ): array {
         if (!empty($sql) || !empty($full)) {
-            $import_run_buffer = array('sql' => $sql, 'full' => $full);
+            $import_run_buffer = ['sql' => $sql, 'full' => $full];
             return $import_run_buffer;
         }
 
@@ -345,7 +348,7 @@ class Import
 
             $reload = true;
         }
-        return array($db, $reload);
+        return [$db, $reload];
     }
 
 
@@ -578,7 +581,7 @@ class Import
         $m = $curr_size - 1;
         $d = $decPrecision;
 
-        return array($m, $d, ($m . "," . $d));
+        return [$m, $d, ($m . "," . $d)];
     }
 
     /**
@@ -850,8 +853,8 @@ class Import
         /* Get number of columns */
         $numCols = count($table[self::COL_NAMES]);
         /* Current type for each column */
-        $types = array();
-        $sizes = array();
+        $types = [];
+        $sizes = [];
 
         /* Initialize $sizes to all 0's */
         for ($i = 0; $i < $numCols; ++$i) {
@@ -926,7 +929,7 @@ class Import
             }
         }
 
-        return array($types, $sizes);
+        return [$types, $sizes];
     }
 
     /**
@@ -976,7 +979,7 @@ class Import
         }
 
         /* Create SQL code to handle the database */
-        $sql = array();
+        $sql = [];
 
         if ($create_db) {
             $sql[] = "CREATE DATABASE IF NOT EXISTS " . Util::backquote($db_name)
@@ -1034,14 +1037,14 @@ class Import
         }
 
         if ($analyses != null) {
-            $type_array = array(
+            $type_array = [
                 self::NONE => "NULL",
                 self::VARCHAR => "varchar",
                 self::INT => "int",
                 self::DECIMAL => "decimal",
                 self::BIGINT => "bigint",
                 self::GEOMETRY => 'geometry'
-            );
+            ];
 
             /* TODO: Do more checking here to make sure they really are matched */
             if (count($tables) != count($analyses)) {
@@ -1189,7 +1192,7 @@ class Import
         $table_pattern = '@CREATE TABLE IF NOT EXISTS `([^`]+)`@';
         /* Check a third pattern to make sure its not a "USE `db_name`;" statement */
 
-        $regs = array();
+        $regs = [];
 
         $inTables = false;
 
@@ -1210,16 +1213,16 @@ class Import
                 }
 
                 if (! $inTables) {
-                    $tables[] = array(self::TBL_NAME => $regs[1]);
+                    $tables[] = [self::TBL_NAME => $regs[1]];
                 }
             }
 
             /* Reset the array */
-            $regs = array();
+            $regs = [];
             $inTables = false;
         }
 
-        $params = array('db' => (string)$db_name);
+        $params = ['db' => (string)$db_name];
         $db_url = 'db_structure.php' . Url::getCommon($params);
         $db_ops_url = 'db_operations.php' . Url::getCommon($params);
 
@@ -1257,10 +1260,10 @@ class Import
 
         $num_tables = count($tables);
         for ($i = 0; $i < $num_tables; ++$i) {
-            $params = array(
+            $params = [
                  'db' => (string) $db_name,
                  'table' => (string) $tables[$i][self::TBL_NAME]
-            );
+            ];
             $tbl_url = 'sql.php' . Url::getCommon($params);
             $tbl_struct_url = 'tbl_structure.php' . Url::getCommon($params);
             $tbl_ops_url = 'tbl_operations.php' . Url::getCommon($params);
@@ -1363,7 +1366,7 @@ class Import
         $error = false;
         $error_msg = __('Only single-table UPDATE and DELETE queries can be simulated.');
         $sql_delimiter = $_REQUEST['sql_delimiter'];
-        $sql_data = array();
+        $sql_data = [];
         $queries = explode($sql_delimiter, $GLOBALS['sql_query']);
         foreach ($queries as $sql_query) {
             if (empty($sql_query)) {
@@ -1379,11 +1382,11 @@ class Import
 
             $statement = $parser->statements[0];
 
-            $analyzed_sql_results = array(
+            $analyzed_sql_results = [
                 'query' => $sql_query,
                 'parser' => $parser,
                 'statement' => $statement,
-            );
+            ];
 
             if ((!(($statement instanceof UpdateStatement)
                 || ($statement instanceof DeleteStatement)))
@@ -1424,7 +1427,7 @@ class Import
      *
      * @return array
      */
-    public function getMatchedRows(array $analyzed_sql_results = array()): array
+    public function getMatchedRows(array $analyzed_sql_results = []): array
     {
         $statement = $analyzed_sql_results['statement'];
 
@@ -1439,17 +1442,17 @@ class Import
         $matched_rows = $this->executeMatchedRowQuery($matched_row_query);
 
         // URL to matched rows.
-        $_url_params = array(
+        $_url_params = [
             'db'        => $GLOBALS['db'],
             'sql_query' => $matched_row_query
-        );
+        ];
         $matched_rows_url  = 'sql.php' . Url::getCommon($_url_params);
 
-        return array(
+        return [
             'sql_query' => Util::formatSql($analyzed_sql_results['query']),
             'matched_rows' => $matched_rows,
             'matched_rows_url' => $matched_rows_url
-        );
+        ];
     }
 
     /**
@@ -1475,12 +1478,12 @@ class Import
             $where = '1';
         }
 
-        $columns = array();
-        $diff = array();
+        $columns = [];
+        $diff = [];
         foreach ($analyzed_sql_results['statement']->set as $set) {
             $columns[] = $set->column;
             $not_equal_operator = ' <> ';
-            if(strtoupper($set->value) == 'NULL'){
+            if (strtoupper($set->value) == 'NULL') {
                 $not_equal_operator = ' IS NOT ';
             }
             $diff[] = $set->column . $not_equal_operator . $set->value;
@@ -1507,7 +1510,7 @@ class Import
             );
         }
 
-        return 'SELECT '  . implode(', ', $columns) .
+        return 'SELECT ' . implode(', ', $columns) .
             ' FROM ' . implode(', ', $table_references) .
             ' WHERE ' . $where . $order_and_limit;
     }
@@ -1689,7 +1692,7 @@ class Import
         }
 
         // List of Transactional Engines.
-        $transactional_engines = array(
+        $transactional_engines = [
             'INNODB',
             'FALCON',
             'NDB',
@@ -1698,7 +1701,7 @@ class Import
             'XTRADB',
             'SEQUENCE',
             'BDB'
-        );
+        ];
 
         // Query to check if table is 'Transactional'.
         $check_query = 'SELECT `ENGINE` FROM `information_schema`.`tables` '

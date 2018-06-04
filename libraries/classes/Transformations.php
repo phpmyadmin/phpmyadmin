@@ -50,7 +50,7 @@ class Transformations
      */
     public function getOptions($option_string)
     {
-        $result = array();
+        $result = [];
 
         if (strlen($option_string) === 0
             || ! $transform_options = preg_split('/,/', $option_string)
@@ -101,23 +101,23 @@ class Transformations
             return $stack;
         }
 
-        $stack = array();
-        $sub_dirs = array(
+        $stack = [];
+        $sub_dirs = [
             'Input/' => 'input_',
             'Output/' => '',
             '' => ''
-        );
+        ];
 
         foreach ($sub_dirs as $sd => $prefix) {
             $handle = opendir('libraries/classes/Plugins/Transformations/' . $sd);
 
             if (! $handle) {
-                $stack[$prefix . 'transformation'] = array();
-                $stack[$prefix . 'transformation_file'] = array();
+                $stack[$prefix . 'transformation'] = [];
+                $stack[$prefix . 'transformation_file'] = [];
                 continue;
             }
 
-            $filestack = array();
+            $filestack = [];
             while ($file = readdir($handle)) {
                 // Ignore hidden files
                 if ($file[0] == '.') {
@@ -146,7 +146,6 @@ class Transformations
                         $stack['input_transformation'][] = $mimetype . ': ' . $parts[2];
                         $stack['input_transformation_file'][] = $sd . $file;
                     }
-
                 } elseif (preg_match('|^[^.].*\.php$|', $file)) {
                     // File is a plain mimetype, no functions.
                     $base = str_replace('.php', '', $file);
@@ -227,7 +226,9 @@ class Transformations
     public function fixUpMime($value)
     {
         $value = str_replace(
-            array("jpeg", "png"), array("JPEG", "PNG"), $value
+            ["jpeg", "png"],
+            ["JPEG", "PNG"],
+            $value
         );
         return str_replace(
             ' ',
@@ -282,7 +283,10 @@ class Transformations
                   OR `input_transformation` != \'\'
                   OR `input_transformation_options` != \'\'' : '') . ')';
         $result = $GLOBALS['dbi']->fetchResult(
-            $com_qry, 'column_name', null, DatabaseInterface::CONNECT_CONTROL
+            $com_qry,
+            'column_name',
+            null,
+            DatabaseInterface::CONNECT_CONTROL
         );
 
         foreach ($result as $column => $values) {
@@ -368,7 +372,9 @@ class Transformations
                 AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key) . '\'';
 
         $test_rs = $relation->queryAsControlUser(
-            $test_qry, true, DatabaseInterface::QUERY_STORE
+            $test_qry,
+            true,
+            DatabaseInterface::QUERY_STORE
         );
 
         if ($test_rs && $GLOBALS['dbi']->numRows($test_rs) > 0) {
@@ -402,7 +408,6 @@ class Transformations
                   AND `column_name` = \'' . $GLOBALS['dbi']->escapeString($key)
                     . '\'';
         } elseif ($has_value) {
-
             $upd_query = 'INSERT INTO '
                 . Util::backquote($cfgRelation['db'])
                 . '.' . Util::backquote($cfgRelation['column_info'])
@@ -457,21 +462,16 @@ class Transformations
             . ' WHERE ';
 
         if (($column != '') && ($table != '')) {
-
             $delete_sql .= '`db_name` = \'' . $db . '\' AND '
                 . '`table_name` = \'' . $table . '\' AND '
                 . '`column_name` = \'' . $column . '\' ';
-
         } elseif ($table != '') {
-
             $delete_sql .= '`db_name` = \'' . $db . '\' AND '
                 . '`table_name` = \'' . $table . '\' ';
-
         } else {
             $delete_sql .= '`db_name` = \'' . $db . '\' ';
         }
 
         return $GLOBALS['dbi']->tryQuery($delete_sql);
-
     }
 }

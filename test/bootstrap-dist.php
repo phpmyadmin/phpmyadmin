@@ -30,7 +30,7 @@ define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 
 // Selenium tests setup
-$test_defaults = array(
+$test_defaults = [
     'TESTSUITE_SERVER' => 'localhost',
     'TESTSUITE_USER' => 'root',
     'TESTSUITE_PASSWORD' => '',
@@ -44,7 +44,7 @@ $test_defaults = array(
     'TESTSUITE_BROWSERSTACK_KEY' => '',
     'TESTSUITE_FULL' => '',
     'CI_MODE' => ''
-);
+];
 if (PHP_SAPI == 'cli') {
     foreach ($test_defaults as $varname => $defvalue) {
         $envvar = getenv($varname);

@@ -65,21 +65,21 @@ class FormDisplayTemplate
      */
     public static function displayTabsTop(array $tabs)
     {
-        $items = array();
+        $items = [];
         foreach ($tabs as $tab_id => $tab_name) {
-            $items[] = array(
+            $items[] = [
                 'content' => htmlspecialchars($tab_name),
-                'url' => array(
+                'url' => [
                     'href' => '#' . $tab_id,
-                ),
-            );
+                ],
+            ];
         }
 
         $htmlOutput = Template::get('list/unordered')->render(
-            array(
+            [
                 'class' => 'tabs responsivetable',
                 'items' => $items,
-            )
+            ]
         );
         $htmlOutput .= '<br />';
         $htmlOutput .= '<div class="tabs_contents">';
@@ -100,13 +100,13 @@ class FormDisplayTemplate
         $title = '',
         $description = '',
         $errors = null,
-        array $attributes = array()
+        array $attributes = []
     ) {
         global $_FormDisplayGroup;
 
         $_FormDisplayGroup = 0;
 
-        $attributes = array_merge(array('class' => 'optbox'), $attributes);
+        $attributes = array_merge(['class' => 'optbox'], $attributes);
 
         return Template::get('config/form_display/fieldset_top')->render([
             'attributes' => $attributes,
@@ -144,8 +144,14 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayInput($path, $name, $type, $value, $description = '',
-        $value_is_default = true, $opts = null
+    public static function displayInput(
+        $path,
+        $name,
+        $type,
+        $value,
+        $description = '',
+        $value_is_default = true,
+        $opts = null
     ) {
         global $_FormDisplayGroup;
         static $icons;    // An array of IMG tags used further below in the function
@@ -156,17 +162,17 @@ class FormDisplayTemplate
 
         $is_setup_script = $GLOBALS['PMA_Config']->get('is_setup');
         if ($icons === null) { // if the static variables have not been initialised
-            $icons = array();
+            $icons = [];
             // Icon definitions:
             // The same indexes will be used in the $icons array.
             // The first element contains the filename and the second
             // element is used for the "alt" and "title" attributes.
-            $icon_init = array(
-                'edit'   => array('b_edit', ''),
-                'help'   => array('b_help', __('Documentation')),
-                'reload' => array('s_reload', ''),
-                'tblops' => array('b_tblops', '')
-            );
+            $icon_init = [
+                'edit'   => ['b_edit', ''],
+                'help'   => ['b_help', __('Documentation')],
+                'reload' => ['s_reload', ''],
+                'tblops' => ['b_tblops', '']
+            ];
             if ($is_setup_script) {
                 // When called from the setup script, we don't have access to the
                 // sprite-aware getImage() function because the PMA_theme class
@@ -187,7 +193,8 @@ class FormDisplayTemplate
                 // In this case we just use getImage() because it's available
                 foreach ($icon_init as $k => $v) {
                     $icons[$k] = Util::getImage(
-                        $v[0], $v[1]
+                        $v[0],
+                        $v[1]
                     );
                 }
             }
@@ -245,72 +252,72 @@ class FormDisplayTemplate
         $htmlOutput .= '<td>';
 
         switch ($type) {
-        case 'text':
-            $htmlOutput .= '<input type="text" class="all85" ' . $name_id . $field_class
+            case 'text':
+                $htmlOutput .= '<input type="text" class="all85" ' . $name_id . $field_class
                 . ' value="' . htmlspecialchars($value) . '" />';
-            break;
-        case 'password':
-            $htmlOutput .= '<input type="password" class="all85" ' . $name_id . $field_class
+                break;
+            case 'password':
+                $htmlOutput .= '<input type="password" class="all85" ' . $name_id . $field_class
                 . ' value="' . htmlspecialchars($value) . '" />';
-            break;
-        case 'short_text':
-            // As seen in the reporting server (#15042) we sometimes receive
-            // an array here. No clue about its origin nor content, so let's avoid
-            // a notice on htmlspecialchars().
-            if (! is_array($value)) {
-                $htmlOutput .= '<input type="text" size="25" ' . $name_id
+                break;
+            case 'short_text':
+                // As seen in the reporting server (#15042) we sometimes receive
+                // an array here. No clue about its origin nor content, so let's avoid
+                // a notice on htmlspecialchars().
+                if (! is_array($value)) {
+                    $htmlOutput .= '<input type="text" size="25" ' . $name_id
                     . $field_class . ' value="' . htmlspecialchars($value)
                     . '" />';
-            }
-            break;
-        case 'number_text':
-            $htmlOutput .= '<input type="number" ' . $name_id . $field_class
+                }
+                break;
+            case 'number_text':
+                $htmlOutput .= '<input type="number" ' . $name_id . $field_class
                 . ' value="' . htmlspecialchars((string) $value) . '" />';
-            break;
-        case 'checkbox':
-            $htmlOutput .= '<span' . $field_class . '><input type="checkbox" ' . $name_id
-              . ($value ? ' checked="checked"' : '') . ' /></span>';
-            break;
-        case 'select':
-            $htmlOutput .= '<select class="all85" ' . $name_id . $field_class . '>';
-            $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
-            $values_disabled = isset($opts['values_disabled'])
-                ? array_flip($opts['values_disabled']) : array();
-            foreach ($opts['values'] as $opt_value_key => $opt_value) {
-                // set names for boolean values
-                if (is_bool($opt_value)) {
-                    $opt_value = mb_strtolower(
-                        $opt_value ? __('Yes') : __('No')
-                    );
-                }
-                // escape if necessary
-                if ($escape) {
-                    $display = htmlspecialchars((string) $opt_value);
-                    $display_value = htmlspecialchars((string) $opt_value_key);
-                } else {
-                    $display = $opt_value;
-                    $display_value = $opt_value_key;
-                }
-                // compare with selected value
-                // boolean values are cast to integers when used as array keys
-                $selected = is_bool($value)
+                break;
+            case 'checkbox':
+                $htmlOutput .= '<span' . $field_class . '><input type="checkbox" ' . $name_id
+                  . ($value ? ' checked="checked"' : '') . ' /></span>';
+                break;
+            case 'select':
+                $htmlOutput .= '<select class="all85" ' . $name_id . $field_class . '>';
+                $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
+                $values_disabled = isset($opts['values_disabled'])
+                ? array_flip($opts['values_disabled']) : [];
+                foreach ($opts['values'] as $opt_value_key => $opt_value) {
+                    // set names for boolean values
+                    if (is_bool($opt_value)) {
+                        $opt_value = mb_strtolower(
+                            $opt_value ? __('Yes') : __('No')
+                        );
+                    }
+                    // escape if necessary
+                    if ($escape) {
+                        $display = htmlspecialchars((string) $opt_value);
+                        $display_value = htmlspecialchars((string) $opt_value_key);
+                    } else {
+                        $display = $opt_value;
+                        $display_value = $opt_value_key;
+                    }
+                    // compare with selected value
+                    // boolean values are cast to integers when used as array keys
+                    $selected = is_bool($value)
                     ? (int) $value === $opt_value_key
                     : $opt_value_key === $value;
-                $htmlOutput .= '<option value="' . $display_value . '"';
-                if ($selected) {
-                    $htmlOutput .= ' selected="selected"';
+                    $htmlOutput .= '<option value="' . $display_value . '"';
+                    if ($selected) {
+                        $htmlOutput .= ' selected="selected"';
+                    }
+                    if (isset($values_disabled[$opt_value_key])) {
+                        $htmlOutput .= ' disabled="disabled"';
+                    }
+                    $htmlOutput .= '>' . $display . '</option>';
                 }
-                if (isset($values_disabled[$opt_value_key])) {
-                    $htmlOutput .= ' disabled="disabled"';
-                }
-                $htmlOutput .= '>' . $display . '</option>';
-            }
-            $htmlOutput .= '</select>';
-            break;
-        case 'list':
-            $htmlOutput .= '<textarea cols="35" rows="5" ' . $name_id . $field_class
+                $htmlOutput .= '</select>';
+                break;
+            case 'list':
+                $htmlOutput .= '<textarea cols="35" rows="5" ' . $name_id . $field_class
                 . '>' . htmlspecialchars(implode("\n", $value)) . '</textarea>';
-            break;
+                break;
         }
         if (isset($opts['comment']) && $opts['comment']) {
             $class = 'field-comment-mark';
@@ -336,7 +343,7 @@ class FormDisplayTemplate
         }
         if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
             $htmlOutput .= '<a class="restore-default hide" href="#' . $path . '" title="'
-                .  __('Restore default value') . '">' . $icons['reload'] . '</a>';
+                . __('Restore default value') . '">' . $icons['reload'] . '</a>';
         }
         // this must match with displayErrors() in scripts/config.js
         if ($has_errors) {
@@ -450,7 +457,7 @@ class FormDisplayTemplate
             $validator = (array)$validator;
             $v_name = array_shift($validator);
             $v_name = "PMA_" . $v_name;
-            $v_args = array();
+            $v_args = [];
             foreach ($validator as $arg) {
                 $v_args[] = Sanitize::escapeJsString($arg);
             }
@@ -473,7 +480,7 @@ class FormDisplayTemplate
         }
 
         return Template::get('javascript/display')->render(
-            array('js_array' => $js_array,)
+            ['js_array' => $js_array,]
         );
     }
 

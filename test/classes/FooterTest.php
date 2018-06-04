@@ -26,7 +26,7 @@ class FooterTest extends PmaTestCase
     /**
      * @var array store private attributes of PhpMyAdmin\Footer
      */
-    public $privates = array();
+    public $privates = [];
 
     /**
      * @access protected
@@ -99,18 +99,18 @@ class FooterTest extends PmaTestCase
     public function testGetDebugMessage()
     {
         $GLOBALS['cfg']['DBG']['sql'] = true;
-        $_SESSION['debug']['queries'] = array(
-            array(
+        $_SESSION['debug']['queries'] = [
+            [
                 'count' => 1,
                 'time' => 0.2,
                 'query' => 'SELECT * FROM `pma_bookmark` WHERE 1',
-            ),
-            array(
+            ],
+            [
                 'count' => 1,
                 'time' => 2.5,
                 'query' => 'SELECT * FROM `db` WHERE 1',
-            ),
-        );
+            ],
+        ];
 
         $this->assertEquals(
             '{"queries":[{"count":1,"time":0.2,"query":"SELECT * FROM `pma_bookmark` WHERE 1"},'
@@ -126,15 +126,15 @@ class FooterTest extends PmaTestCase
      */
     public function testRemoveRecursion()
     {
-        $object = (object) array();
-        $object->child = (object) array();
+        $object = (object) [];
+        $object->child = (object) [];
         $object->child->parent = $object;
 
         $this->_callPrivateFunction(
             '_removeRecursion',
-            array(
+            [
                 &$object
-            )
+            ]
         );
 
         $this->assertEquals(
@@ -161,9 +161,9 @@ class FooterTest extends PmaTestCase
             . 'target="_blank" rel="noopener noreferrer">Open new phpMyAdmin window</a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
-                array(
+                [
                     $this->object->getSelfUrl()
-                )
+                ]
             )
         );
     }
@@ -188,9 +188,9 @@ class FooterTest extends PmaTestCase
             . 'class="icon ic_window-new" /></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
-                array(
+                [
                     $this->object->getSelfUrl()
-                )
+                ]
             )
         );
     }

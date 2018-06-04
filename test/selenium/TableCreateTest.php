@@ -27,7 +27,7 @@ class TableCreateTest extends TestBase
         parent::setUpPage();
 
         $this->login();
-        $this->waitForElement('byPartialLinkText','Databases')->click();
+        $this->waitForElement('byPartialLinkText', 'Databases')->click();
         $this->waitAjax();
 
         // go to specific database page
@@ -66,25 +66,25 @@ class TableCreateTest extends TestBase
         $this->waitForElement('byXPath', '//button[contains(text(), \'Go\')]')->click();
 
         // column details
-        $column_text_details = array(
+        $column_text_details = [
             "field_0_1" => "test_id",
             "field_0_3" => "14",
             "field_0_10" => "comm1",
             "field_1_1" => "test_column",
             "field_1_3" => "10",
             "field_1_10" => "comm2",
-        );
+        ];
 
         foreach ($column_text_details as $field => $val) {
             $this->byId($field)->value($val);
         }
 
-        $column_dropdown_details = array(
+        $column_dropdown_details = [
             "field_0_6" => "UNSIGNED",
             "field_1_2" => "VARCHAR",
             "field_1_5" => "utf8_general_ci",
             "field_1_4" => "As defined:"
-        );
+        ];
 
         foreach ($column_dropdown_details as $selector => $value) {
             $this->waitForElement(

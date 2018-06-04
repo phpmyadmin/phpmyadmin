@@ -57,7 +57,7 @@ class ErrorTest extends PmaTestCase
      */
     public function testSetBacktrace()
     {
-        $bt = array(array('file'=>'bt1','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>$this)));
+        $bt = [['file'=>'bt1','line'=>2, 'function'=>'bar', 'args'=>['foo'=>$this]]];
         $this->object->setBacktrace($bt);
         $bt[0]['args']['foo'] = '<Class:PhpMyAdmin\Tests\ErrorTest>';
         $this->assertEquals($bt, $this->object->getBacktrace());
@@ -97,11 +97,11 @@ class ErrorTest extends PmaTestCase
      */
     public function filePathProvider()
     {
-        return array(
-            array('./ChangeLog', './ChangeLog'),
-            array(__FILE__, './test/classes/ErrorTest.php'),
-            array('./NONEXISTING', 'NONEXISTING'),
-        );
+        return [
+            ['./ChangeLog', './ChangeLog'],
+            [__FILE__, './test/classes/ErrorTest.php'],
+            ['./NONEXISTING', 'NONEXISTING'],
+        ];
     }
 
     /**
@@ -170,12 +170,12 @@ class ErrorTest extends PmaTestCase
      */
     public function testGetBacktrace()
     {
-        $bt = array(
-            array('file'=>'bt1','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>1)),
-            array('file'=>'bt2','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>2)),
-            array('file'=>'bt3','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>3)),
-            array('file'=>'bt4','line'=>2, 'function'=>'bar', 'args'=>array('foo'=>4)),
-        );
+        $bt = [
+            ['file'=>'bt1','line'=>2, 'function'=>'bar', 'args'=>['foo'=>1]],
+            ['file'=>'bt2','line'=>2, 'function'=>'bar', 'args'=>['foo'=>2]],
+            ['file'=>'bt3','line'=>2, 'function'=>'bar', 'args'=>['foo'=>3]],
+            ['file'=>'bt4','line'=>2, 'function'=>'bar', 'args'=>['foo'=>4]],
+        ];
 
         $this->object->setBacktrace($bt);
 

@@ -20,7 +20,7 @@ if ($username === '') { // MySQL is started with --skip-grant-tables
     $GLOBALS['is_create_db_priv'] = true;
     $GLOBALS['is_reload_priv'] = true;
     $GLOBALS['db_to_create'] = '';
-    $GLOBALS['dbs_where_create_table_allowed'] = array('*');
+    $GLOBALS['dbs_where_create_table_allowed'] = ['*'];
     $GLOBALS['dbs_to_test'] = false;
     $GLOBALS['db_priv'] = true;
     $GLOBALS['col_priv'] = true;

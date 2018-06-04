@@ -9,7 +9,9 @@ phpMyAdmin - ChangeLog
 - issue #14155 Add move columns preview SQL button
 - issue #14296 Enable strict mode in PHP files
 
-4.8.1 (not yet released)
+4.8.2 (not yet released)
+
+4.8.1 (2018-05-24)
 - issue #12772 Fix case where the central columns attributes don't get filled in
 - issue #14049 Fix case where the query builder doesn't work when selected column is *
 - issue #14029 Revert "Browse" table CSS overflow

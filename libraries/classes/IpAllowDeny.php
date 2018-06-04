@@ -156,9 +156,11 @@ class IpAllowDeny
 
         if ($is_range) {
             // what range do we operate on?
-            $range_match = array();
+            $range_match = [];
             $match = preg_match(
-                '/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $test_range, $range_match
+                '/\[([0-9a-f]+)\-([0-9a-f]+)\]/',
+                $test_range,
+                $range_match
             );
             if ($match) {
                 $range_start = $range_match[1];
@@ -274,17 +276,17 @@ class IpAllowDeny
         if (isset($cfg['Server']['AllowDeny']['rules'])) {
             $rules     = $cfg['Server']['AllowDeny']['rules'];
             if (! is_array($rules)) {
-                $rules = array();
+                $rules = [];
             }
         } else {
-            $rules = array();
+            $rules = [];
         }
 
         // lookup table for some name shortcuts
-        $shortcuts = array(
+        $shortcuts = [
             'all'       => '0.0.0.0/0',
             'localhost' => '127.0.0.1/8'
-        );
+        ];
 
         // Provide some useful shortcuts if server gives us address:
         if (Core::getenv('SERVER_ADDR')) {

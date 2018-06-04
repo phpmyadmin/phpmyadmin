@@ -58,7 +58,7 @@ if (isset($_GET['check_time_out'])) {
  * TODO: this should be removed to avoid passing user input to GLOBALS
  * without checking
  */
-$post_params = array(
+$post_params = [
         'db',
         'table',
         'what',
@@ -174,7 +174,7 @@ $post_params = array(
         'latex_data_label',
         'latex_null',
         'aliases'
-);
+];
 
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
@@ -184,7 +184,7 @@ foreach ($post_params as $one_post_param) {
 
 $table = $GLOBALS['table'];
 
-PhpMyAdmin\Util::checkParameters(array('what', 'export_type'));
+PhpMyAdmin\Util::checkParameters(['what', 'export_type']);
 
 // sanitize this parameter which will be used below in a file inclusion
 $what = Core::securePath($_POST['what']);
@@ -195,10 +195,10 @@ $export_plugin = Plugins::getPlugin(
     "export",
     $what,
     'libraries/classes/Plugins/Export/',
-    array(
+    [
         'export_type' => $export_type,
         'single_table' => isset($single_table)
-    )
+    ]
 );
 
 // Check export type
@@ -209,15 +209,15 @@ if (empty($export_plugin)) {
 /**
  * valid compression methods
  */
-$compression_methods = array(
+$compression_methods = [
     'zip',
     'gzip'
-);
+];
 
 /**
  * init and variable checking
  */
-$compression = false;
+$compression = '';
 $onserver = false;
 $save_on_server = false;
 $buffer_needed = false;
@@ -273,18 +273,18 @@ if ($_REQUEST['output_format'] == 'astext') {
 if ($export_type == 'server') {
     $err_url = 'server_export.php' . Url::getCommon();
 } elseif ($export_type == 'database' && strlen($db) > 0) {
-    $err_url = 'db_export.php' . Url::getCommon(array('db' => $db));
+    $err_url = 'db_export.php' . Url::getCommon(['db' => $db]);
     // Check if we have something to export
     if (isset($table_select)) {
         $tables = $table_select;
     } else {
-        $tables = array();
+        $tables = [];
     }
 } elseif ($export_type == 'table' && strlen($db) > 0 && strlen($table) > 0) {
     $err_url = 'tbl_export.php' . Url::getCommon(
-        array(
+        [
             'db' => $db, 'table' => $table
-        )
+        ]
     );
 } else {
     Core::fatalError(__('Bad parameters!'));
@@ -294,7 +294,7 @@ if ($export_type == 'server') {
 // export page, Export page aliases are given more
 // preference over SQL Query aliases.
 $parser = new \PhpMyAdmin\SqlParser\Parser($sql_query);
-$aliases = array();
+$aliases = [];
 if ((!empty($parser->statements[0]))
     && ($parser->statements[0] instanceof \PhpMyAdmin\SqlParser\Statements\SelectStatement)
 ) {
@@ -318,7 +318,7 @@ $dump_buffer = '';
 $dump_buffer_len = 0;
 
 // Array of dump_buffers - used in separate file exports
-$dump_buffer_objects = array();
+$dump_buffer_objects = [];
 
 // We send fake headers to avoid browser timeout when buffering
 $time_start = time();
@@ -351,7 +351,10 @@ if ($asfile) {
         $remember_template = '';
     }
     list($filename, $mime_type) = $export->getFilenameAndMimetype(
-        $export_type, $remember_template, $export_plugin, $compression,
+        $export_type,
+        $remember_template,
+        $export_plugin,
+        $compression,
         $filename_template
     );
 } else {
@@ -361,7 +364,8 @@ if ($asfile) {
 // Open file on server if needed
 if ($save_on_server) {
     list($save_filename, $message, $file_handle) = $export->openFile(
-        $filename, $quick_export
+        $filename,
+        $quick_export
     );
 
     // problem opening export file on server?
@@ -395,7 +399,9 @@ if ($save_on_server) {
             }
         }
         list($html, $back_button, $refreshButton) = $export->getHtmlForDisplayedExportHeader(
-            $export_type, $db, $table
+            $export_type,
+            $db,
+            $table
         );
         echo $html;
         unset($html);
@@ -438,16 +444,25 @@ do {
             $db_select = '';
         }
         $export->exportServer(
-            $db_select, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-            $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-            $aliases, $separate_files
+            $db_select,
+            $whatStrucOrData,
+            $export_plugin,
+            $crlf,
+            $err_url,
+            $export_type,
+            $do_relation,
+            $do_comments,
+            $do_mime,
+            $do_dates,
+            $aliases,
+            $separate_files
         );
     } elseif ($export_type == 'database') {
         if (!isset($table_structure) || !is_array($table_structure)) {
-            $table_structure = array();
+            $table_structure = [];
         }
         if (!isset($table_data) || !is_array($table_data)) {
-            $table_data = array();
+            $table_data = [];
         }
         if (!empty($_REQUEST['structure_or_data_forced'])) {
             $table_structure = $tables;
@@ -457,9 +472,20 @@ do {
             $export->lockTables($db, $tables, "READ");
             try {
                 $export->exportDatabase(
-                    $db, $tables, $whatStrucOrData, $table_structure,
-                    $table_data, $export_plugin, $crlf, $err_url, $export_type,
-                    $do_relation, $do_comments, $do_mime, $do_dates, $aliases,
+                    $db,
+                    $tables,
+                    $whatStrucOrData,
+                    $table_structure,
+                    $table_data,
+                    $export_plugin,
+                    $crlf,
+                    $err_url,
+                    $export_type,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    $do_dates,
+                    $aliases,
                     $separate_files
                 );
             } finally {
@@ -467,9 +493,21 @@ do {
             }
         } else {
             $export->exportDatabase(
-                $db, $tables, $whatStrucOrData, $table_structure, $table_data,
-                $export_plugin, $crlf, $err_url, $export_type, $do_relation,
-                $do_comments, $do_mime, $do_dates, $aliases, $separate_files
+                $db,
+                $tables,
+                $whatStrucOrData,
+                $table_structure,
+                $table_data,
+                $export_plugin,
+                $crlf,
+                $err_url,
+                $export_type,
+                $do_relation,
+                $do_comments,
+                $do_mime,
+                $do_dates,
+                $aliases,
+                $separate_files
             );
         }
     } else {
@@ -486,28 +524,52 @@ do {
         }
         if (isset($lock_tables)) {
             try {
-                $export->lockTables($db, array($table), "READ");
+                $export->lockTables($db, [$table], "READ");
                 $export->exportTable(
-                    $db, $table, $whatStrucOrData, $export_plugin, $crlf,
-                    $err_url, $export_type, $do_relation, $do_comments,
-                    $do_mime, $do_dates, $allrows, $limit_to, $limit_from,
-                    $sql_query, $aliases
+                    $db,
+                    $table,
+                    $whatStrucOrData,
+                    $export_plugin,
+                    $crlf,
+                    $err_url,
+                    $export_type,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    $do_dates,
+                    $allrows,
+                    $limit_to,
+                    $limit_from,
+                    $sql_query,
+                    $aliases
                 );
             } finally {
                 $export->unlockTables();
             }
         } else {
             $export->exportTable(
-                $db, $table, $whatStrucOrData, $export_plugin, $crlf, $err_url,
-                $export_type, $do_relation, $do_comments, $do_mime, $do_dates,
-                $allrows, $limit_to, $limit_from, $sql_query, $aliases
+                $db,
+                $table,
+                $whatStrucOrData,
+                $export_plugin,
+                $crlf,
+                $err_url,
+                $export_type,
+                $do_relation,
+                $do_comments,
+                $do_mime,
+                $do_dates,
+                $allrows,
+                $limit_to,
+                $limit_from,
+                $sql_query,
+                $aliases
             );
         }
     }
     if (! $export_plugin->exportFooter()) {
         break;
     }
-
 } while (false);
 // End of fake loop
 
@@ -536,18 +598,21 @@ if ($output_charset_conversion) {
 if ($compression) {
     if (! empty($separate_files)) {
         $dump_buffer = $export->compress(
-            $dump_buffer_objects, $compression, $filename
+            $dump_buffer_objects,
+            $compression,
+            $filename
         );
     } else {
         $dump_buffer = $export->compress($dump_buffer, $compression, $filename);
     }
-
 }
 
 /* If we saved on server, we have to close file now */
 if ($save_on_server) {
     $message = $export->closeFile(
-        $file_handle, $dump_buffer, $save_filename
+        $file_handle,
+        $dump_buffer,
+        $save_filename
     );
     $export->showPage($db, $table, $export_type);
 } else {

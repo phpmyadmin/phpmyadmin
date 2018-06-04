@@ -208,15 +208,14 @@ class AuthenticationCookie extends AuthenticationPlugin
             && empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
             echo '<input value="' , __('Go') , '" type="submit" id="input_go" />';
-        }
-        else {
+        } else {
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
             , $GLOBALS['lang'] , '" async defer></script>';
             echo '<input class="g-recaptcha" data-sitekey="'
             , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
-                .' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
+                . ' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
         }
-        $_form_params = array();
+        $_form_params = [];
         if (! empty($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];
         }
@@ -277,7 +276,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['from_cookie'] = false;
 
         if (isset($_REQUEST['pma_username']) && strlen($_REQUEST['pma_username']) > 0) {
-
             // Verify Captcha if it is required.
             if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
@@ -338,7 +336,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                     }
 
                     $match = preg_match(
-                        $GLOBALS['cfg']['ArbitraryServerRegexp'], $tmp_host
+                        $GLOBALS['cfg']['ArbitraryServerRegexp'],
+                        $tmp_host
                     );
                     if (! $match) {
                         $conn_error = __(
@@ -489,7 +488,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $redirect_url = './index.php';
 
             // any parameters to pass?
-            $url_params = array();
+            $url_params = [];
             if (strlen($GLOBALS['db']) > 0) {
                 $url_params['db'] = $GLOBALS['db'];
             }
@@ -554,7 +553,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function storePasswordCookie($password)
     {
-        $payload = array('password' => $password);
+        $payload = ['password' => $password];
         if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
             $payload['server'] = $GLOBALS['pma_auth_server'];
         }
@@ -744,11 +743,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $this->cleanSSLErrors();
         $iv = base64_encode($iv);
         return json_encode(
-            array(
+            [
                 'iv' => $iv,
                 'mac' => hash_hmac('sha1', $iv . $result, $mac_secret),
                 'payload' => $result,
-            )
+            ]
         );
     }
 

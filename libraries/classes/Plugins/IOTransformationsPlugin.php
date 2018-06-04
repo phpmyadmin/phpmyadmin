@@ -62,7 +62,7 @@ abstract class IOTransformationsPlugin extends TransformationsPlugin
      */
     public function getScripts()
     {
-        return array();
+        return [];
     }
 
     /**

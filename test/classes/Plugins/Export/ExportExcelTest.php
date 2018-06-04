@@ -29,7 +29,7 @@ class ExportExcelTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         $GLOBALS['server'] = 0;
         $this->object = new ExportExcel();
@@ -176,11 +176,11 @@ class ExportExcelTest extends PmaTestCase
         );
 
         $this->assertEquals(
-            array(
+            [
                 'win' => 'Windows',
                 'mac_excel2003' => 'Excel 2003 / Macintosh',
                 'mac_excel2008' => 'Excel 2008 / Macintosh'
-            ),
+            ],
             $property->getValues()
         );
 
@@ -201,5 +201,4 @@ class ExportExcelTest extends PmaTestCase
             $property->getName()
         );
     }
-
 }

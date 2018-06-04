@@ -26,12 +26,12 @@ class StorageEngineExtension extends AbstractExtension
      */
     public function getFunctions()
     {
-        return array(
+        return [
             new TwigFunction(
                 'StorageEngine_getHtmlSelect',
                 'PhpMyAdmin\StorageEngine::getHtmlSelect',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
-        );
+        ];
     }
 }

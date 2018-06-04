@@ -27,19 +27,19 @@ switch ($_POST['type']) {
         $response->addJSON('databases', $GLOBALS['dblist']->databases);
         break;
     case 'list-tables':
-        Util::checkParameters(array('db'), true);
+        Util::checkParameters(['db'], true);
         $response->addJSON('tables', $GLOBALS['dbi']->getTables($_REQUEST['db']));
         break;
     case 'list-columns':
-        Util::checkParameters(array('db', 'table'), true);
+        Util::checkParameters(['db', 'table'], true);
         $response->addJSON('columns', $GLOBALS['dbi']->getColumnNames($_REQUEST['db'], $_REQUEST['table']));
         break;
     case 'config-get':
-        Util::checkParameters(array('key'), true);
+        Util::checkParameters(['key'], true);
         $response->addJSON('value', $GLOBALS['PMA_Config']->get($_REQUEST['key']));
         break;
     case 'config-set':
-        Util::checkParameters(array('key', 'value'), true);
+        Util::checkParameters(['key', 'value'], true);
         $result = $GLOBALS['PMA_Config']->setUserValue(null, $_REQUEST['key'], json_decode($_REQUEST['value']));
         if ($result !== true) {
             $response = Response::getInstance();

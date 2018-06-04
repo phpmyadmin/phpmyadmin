@@ -26,7 +26,7 @@ class FormListTest extends PmaTestCase
     /**
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
@@ -75,19 +75,19 @@ class FormListTest extends PmaTestCase
      */
     public function formObjects()
     {
-        return array(
-            array(
+        return [
+            [
                 '\\PhpMyAdmin\\Config\\Forms\\User\\UserFormList',
                 '\\PhpMyAdmin\\Config\\Forms\\User\\',
-            ),
-            array(
+            ],
+            [
                 '\\PhpMyAdmin\\Config\\Forms\\Page\\PageFormList',
                 '\\PhpMyAdmin\\Config\\Forms\\Page\\',
-            ),
-            array(
+            ],
+            [
                 '\\PhpMyAdmin\\Config\\Forms\\Setup\\SetupFormList',
                 '\\PhpMyAdmin\\Config\\Forms\\Setup\\',
-            ),
-        );
+            ],
+        ];
     }
 }

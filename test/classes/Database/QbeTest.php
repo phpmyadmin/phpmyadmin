@@ -56,7 +56,7 @@ class QbeTest extends PmaTestCase
 
         $dbi->expects($this->any())
             ->method('getTableIndexes')
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
         $this->object->dbi = $dbi;
@@ -102,21 +102,21 @@ class QbeTest extends PmaTestCase
             'style="width:12ex" name="criteriaSort[1]"',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
-                array(1)
+                [1]
             )
         );
         $this->assertNotContains(
             'selected="selected"',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
-                array(1)
+                [1]
             )
         );
         $this->assertContains(
             'value="ASC" selected="selected">',
             $this->_callProtectedFunction(
                 '_getSortSelectCell',
-                array(1, 'ASC')
+                [1, 'ASC']
             )
         );
     }
@@ -132,28 +132,28 @@ class QbeTest extends PmaTestCase
             '<th>Sort:</th>',
             $this->_callProtectedFunction(
                 '_getSortRow',
-                array()
+                []
             )
         );
         $this->assertContains(
             'name="criteriaSort[0]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
-                array()
+                []
             )
         );
         $this->assertContains(
             'name="criteriaSort[1]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
-                array()
+                []
             )
         );
         $this->assertContains(
             'name="criteriaSort[2]"',
             $this->_callProtectedFunction(
                 '_getSortRow',
-                array()
+                []
             )
         );
     }
@@ -173,7 +173,7 @@ class QbeTest extends PmaTestCase
             . '</td></tr>',
             $this->_callProtectedFunction(
                 '_getShowRow',
-                array()
+                []
             )
         );
     }
@@ -198,7 +198,7 @@ class QbeTest extends PmaTestCase
             . 'style="width: 12ex" size="20" /></td></tr>',
             $this->_callProtectedFunction(
                 '_getCriteriaInputboxRow',
-                array()
+                []
             )
         );
     }
@@ -214,21 +214,21 @@ class QbeTest extends PmaTestCase
             'Add/Delete criteria rows',
             $this->_callProtectedFunction(
                 '_getFootersOptions',
-                array('row')
+                ['row']
             )
         );
         $this->assertContains(
             'name="criteriaRowAdd"',
             $this->_callProtectedFunction(
                 '_getFootersOptions',
-                array('row')
+                ['row']
             )
         );
         $this->assertContains(
             '<option value="0" selected="selected">0</option>',
             $this->_callProtectedFunction(
                 '_getFootersOptions',
-                array('row')
+                ['row']
             )
         );
     }
@@ -244,21 +244,21 @@ class QbeTest extends PmaTestCase
             'name="criteriaRowAdd"',
             $this->_callProtectedFunction(
                 '_getTableFooters',
-                array()
+                []
             )
         );
         $this->assertContains(
             'name="criteriaColumnAdd"',
             $this->_callProtectedFunction(
                 '_getTableFooters',
-                array()
+                []
             )
         );
         $this->assertContains(
             '<input type="submit" name="modify" value="Update Query" />',
             $this->_callProtectedFunction(
                 '_getTableFooters',
-                array()
+                []
             )
         );
     }
@@ -279,7 +279,7 @@ class QbeTest extends PmaTestCase
             . 'name="criteriaColumnDelete[1]" /></td>',
             $this->_callProtectedFunction(
                 '_getAndOrColCell',
-                array(1)
+                [1]
             )
         );
     }
@@ -309,7 +309,7 @@ class QbeTest extends PmaTestCase
             . '</tr>',
             $this->_callProtectedFunction(
                 '_getModifyColumnsRow',
-                array()
+                []
             )
         );
     }
@@ -333,7 +333,7 @@ class QbeTest extends PmaTestCase
             . 'value="or" checked="checked" /></td></tr></table></td>',
             $this->_callProtectedFunction(
                 '_getInsDelAndOrCell',
-                array(3, array('and' => '', 'or' => ' checked="checked"'))
+                [3, ['and' => '', 'or' => ' checked="checked"']]
             )
         );
     }
@@ -354,7 +354,7 @@ class QbeTest extends PmaTestCase
             . '12ex" size="20" /></td>',
             $this->_callProtectedFunction(
                 '_getInputboxRow',
-                array(2)
+                [2]
             )
         );
     }
@@ -384,7 +384,7 @@ class QbeTest extends PmaTestCase
             . '"textfield" style="width: 12ex" size="20" /></td></tr>',
             $this->_callProtectedFunction(
                 '_getInsDelAndOrCriteriaRows',
-                array(2,3)
+                [2,3]
             )
         );
     }
@@ -400,7 +400,7 @@ class QbeTest extends PmaTestCase
             '',
             $this->_callProtectedFunction(
                 '_getSelectClause',
-                array()
+                []
             )
         );
     }
@@ -416,7 +416,7 @@ class QbeTest extends PmaTestCase
             '',
             $this->_callProtectedFunction(
                 '_getWhereClause',
-                array()
+                []
             )
         );
     }
@@ -432,7 +432,7 @@ class QbeTest extends PmaTestCase
             '',
             $this->_callProtectedFunction(
                 '_getOrderByClause',
-                array()
+                []
             )
         );
     }
@@ -445,17 +445,17 @@ class QbeTest extends PmaTestCase
     public function testGetIndexes()
     {
         $this->assertEquals(
-            array(
-                'unique' => array(),
-                'index' => array()
-            ),
+            [
+                'unique' => [],
+                'index' => []
+            ],
             $this->_callProtectedFunction(
                 '_getIndexes',
-                array(
-                    array('`table1`','table2'),
-                    array('column1', 'column2', 'column3'),
-                    array('column2')
-                )
+                [
+                    ['`table1`','table2'],
+                    ['column1', 'column2', 'column3'],
+                    ['column2']
+                ]
             )
         );
     }
@@ -468,16 +468,16 @@ class QbeTest extends PmaTestCase
     public function testGetLeftJoinColumnCandidates()
     {
         $this->assertEquals(
-            array(
+            [
                 0 => 'column2'
-            ),
+            ],
             $this->_callProtectedFunction(
                 '_getLeftJoinColumnCandidates',
-                array(
-                    array('`table1`','table2'),
-                    array('column1', 'column2', 'column3'),
-                    array('column2')
-                )
+                [
+                    ['`table1`','table2'],
+                    ['column1', 'column2', 'column3'],
+                    ['column2']
+                ]
             )
         );
     }
@@ -493,12 +493,12 @@ class QbeTest extends PmaTestCase
             0,
             $this->_callProtectedFunction(
                 '_getMasterTable',
-                array(
-                    array('table1','table2'),
-                    array('column1', 'column2', 'column3'),
-                    array('column2'),
-                    array('qbe_test')
-                )
+                [
+                    ['table1','table2'],
+                    ['column1', 'column2', 'column3'],
+                    ['column2'],
+                    ['qbe_test']
+                ]
             )
         );
     }
@@ -510,20 +510,20 @@ class QbeTest extends PmaTestCase
      */
     public function testGetWhereClauseTablesAndColumns()
     {
-        $_POST['criteriaColumn'] = array(
+        $_POST['criteriaColumn'] = [
             'table1.id',
             'table1.value',
             'table1.name',
             'table1.deleted'
-        );
+        ];
         $this->assertEquals(
-            array(
-                'where_clause_tables' => array(),
-                'where_clause_columns' => array()
-            ),
+            [
+                'where_clause_tables' => [],
+                'where_clause_columns' => []
+            ],
             $this->_callProtectedFunction(
                 '_getWhereClauseTablesAndColumns',
-                array()
+                []
             )
         );
     }
@@ -535,17 +535,17 @@ class QbeTest extends PmaTestCase
      */
     public function testGetFromClause()
     {
-        $_POST['criteriaColumn'] = array(
+        $_POST['criteriaColumn'] = [
             'table1.id',
             'table1.value',
             'table1.name',
             'table1.deleted'
-        );
+        ];
         $this->assertEquals(
             '`table1`',
             $this->_callProtectedFunction(
                 '_getFromClause',
-                array(array('`table1`.`id`'))
+                [['`table1`.`id`']]
             )
         );
     }
@@ -557,18 +557,18 @@ class QbeTest extends PmaTestCase
      */
     public function testGetSQLQuery()
     {
-        $_POST['criteriaColumn'] = array(
+        $_POST['criteriaColumn'] = [
             'table1.id',
             'table1.value',
             'table1.name',
             'table1.deleted'
-        );
+        ];
         $this->assertEquals(
             'FROM `table1`
 ',
             $this->_callProtectedFunction(
                 '_getSQLQuery',
-                array(array('`table1`.`id`'))
+                [['`table1`.`id`']]
             )
         );
     }

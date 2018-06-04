@@ -106,7 +106,7 @@ class Footer
      *
      * @return object Reference passed object
      */
-    private static function _removeRecursion(&$object, array $stack = array())
+    private static function _removeRecursion(&$object, array $stack = [])
     {
         if ((is_object($object) || is_array($object)) && $object) {
             if ($object instanceof Traversable) {
@@ -139,10 +139,10 @@ class Footer
             self::_removeRecursion($_SESSION['debug']);
 
             $retval = JSON_encode($_SESSION['debug']);
-            $_SESSION['debug'] = array();
+            $_SESSION['debug'] = [];
             return json_last_error() ? '\'false\'' : $retval;
         }
-        $_SESSION['debug'] = array();
+        $_SESSION['debug'] = [];
         return $retval;
     }
 
@@ -156,15 +156,15 @@ class Footer
         $db = isset($GLOBALS['db']) && strlen($GLOBALS['db']) ? $GLOBALS['db'] : '';
         $table = isset($GLOBALS['table']) && strlen($GLOBALS['table']) ? $GLOBALS['table'] : '';
         $target = isset($_REQUEST['target']) && strlen($_REQUEST['target']) ? $_REQUEST['target'] : '';
-        $params = array(
+        $params = [
             'db' => $db,
             'table' => $table,
             'server' => $GLOBALS['server'],
             'target' => $target
-        );
+        ];
         // needed for server privileges tabs
         if (isset($_REQUEST['viewing_mode'])
-            && in_array($_REQUEST['viewing_mode'], array('server', 'db', 'table'))
+            && in_array($_REQUEST['viewing_mode'], ['server', 'db', 'table'])
         ) {
             $params['viewing_mode'] = $_REQUEST['viewing_mode'];
         }
@@ -187,7 +187,7 @@ class Footer
             $params['checkprivstable'] = $_REQUEST['checkprivstable'];
         }
         if (isset($_REQUEST['single_table'])
-            && in_array($_REQUEST['single_table'], array(true, false))
+            && in_array($_REQUEST['single_table'], [true, false])
         ) {
             $params['single_table'] = $_REQUEST['single_table'];
         }

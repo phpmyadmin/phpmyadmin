@@ -80,12 +80,12 @@ abstract class ImportPlugin
     {
         if (strlen((string) $currentDb) > 0) {
             $db_name = $currentDb;
-            $options = array('create_db' => false);
+            $options = ['create_db' => false];
         } else {
             $db_name = $defaultDb;
             $options = null;
         }
 
-        return array($db_name, $options);
+        return [$db_name, $options];
     }
 }

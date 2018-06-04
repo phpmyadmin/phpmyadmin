@@ -176,7 +176,7 @@ class Bookmark
      */
     public function getVariableCount(): int
     {
-        $matches = array();
+        $matches = [];
         preg_match_all("/\[VARIABLE[0-9]*\]/", $this->_query, $matches, PREG_SET_ORDER);
         return count($matches);
     }
@@ -231,11 +231,11 @@ class Bookmark
         $relation = new Relation();
         $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
-            $cfgBookmark = array(
+            $cfgBookmark = [
                 'user'  => $user,
                 'db'    => $cfgRelation['db'],
                 'table' => $cfgRelation['bookmark'],
-            );
+            ];
         } else {
             $cfgBookmark = false;
         }
@@ -296,7 +296,7 @@ class Bookmark
     ): array {
         $cfgBookmark = self::getParams($user);
         if (empty($cfgBookmark)) {
-            return array();
+            return [];
         }
 
         $query = "SELECT * FROM " . Util::backquote($cfgBookmark['db'])
@@ -317,7 +317,7 @@ class Bookmark
         );
 
         if (! empty($result)) {
-            $bookmarks = array();
+            $bookmarks = [];
             foreach ($result as $row) {
                 $bookmark = new Bookmark($dbi, $user);
                 $bookmark->_id = $row['id'];
@@ -331,7 +331,7 @@ class Bookmark
             return $bookmarks;
         }
 
-        return array();
+        return [];
     }
 
     /**

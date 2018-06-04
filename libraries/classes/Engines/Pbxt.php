@@ -27,8 +27,8 @@ class Pbxt extends StorageEngine
      */
     public function getVariables()
     {
-        return array(
-            'pbxt_index_cache_size'        => array(
+        return [
+            'pbxt_index_cache_size'        => [
                 'title' => __('Index cache size'),
                 'desc'  => __(
                     'This is the amount of memory allocated to the'
@@ -36,8 +36,8 @@ class Pbxt extends StorageEngine
                     . ' allocated here is used only for caching index pages.'
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'pbxt_record_cache_size'       => array(
+            ],
+            'pbxt_record_cache_size'       => [
                 'title' => __('Record cache size'),
                 'desc'  => __(
                     'This is the amount of memory allocated to the'
@@ -46,8 +46,8 @@ class Pbxt extends StorageEngine
                     . ' the handle data (.xtd) and row pointer (.xtr) files.'
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'pbxt_log_cache_size'          => array(
+            ],
+            'pbxt_log_cache_size'          => [
                 'title' => __('Log cache size'),
                 'desc'  => __(
                     'The amount of memory allocated to the'
@@ -55,16 +55,16 @@ class Pbxt extends StorageEngine
                     . ' data. The default is 16MB.'
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'pbxt_log_file_threshold'      => array(
+            ],
+            'pbxt_log_file_threshold'      => [
                 'title' => __('Log file threshold'),
                 'desc'  => __(
                     'The size of a transaction log before rollover,'
                     . ' and a new log is created. The default value is 16MB.'
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'pbxt_transaction_buffer_size' => array(
+            ],
+            'pbxt_transaction_buffer_size' => [
                 'title' => __('Transaction buffer size'),
                 'desc'  => __(
                     'The size of the global transaction log buffer'
@@ -72,8 +72,8 @@ class Pbxt extends StorageEngine
                     . ' The default is 1MB.'
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'pbxt_checkpoint_frequency'    => array(
+            ],
+            'pbxt_checkpoint_frequency'    => [
                 'title' => __('Checkpoint frequency'),
                 'desc'  => __(
                     'The amount of data written to the transaction'
@@ -81,8 +81,8 @@ class Pbxt extends StorageEngine
                     . ' The default value is 24MB.'
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'pbxt_data_log_threshold'      => array(
+            ],
+            'pbxt_data_log_threshold'      => [
                 'title' => __('Data log threshold'),
                 'desc'  => __(
                     'The maximum size of a data log file. The default'
@@ -92,8 +92,8 @@ class Pbxt extends StorageEngine
                     . ' amount of data that can be stored in the database.'
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'pbxt_garbage_threshold'       => array(
+            ],
+            'pbxt_garbage_threshold'       => [
                 'title' => __('Garbage threshold'),
                 'desc'  => __(
                     'The percentage of garbage in a data log file'
@@ -101,8 +101,8 @@ class Pbxt extends StorageEngine
                     . ' 99. The default is 50.'
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ),
-            'pbxt_log_buffer_size'         => array(
+            ],
+            'pbxt_log_buffer_size'         => [
                 'title' => __('Log buffer size'),
                 'desc'  => __(
                     'The size of the buffer used when writing a data'
@@ -111,18 +111,18 @@ class Pbxt extends StorageEngine
                     . ' to write a data log.'
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'pbxt_data_file_grow_size'     => array(
+            ],
+            'pbxt_data_file_grow_size'     => [
                 'title' => __('Data file grow size'),
                 'desc'  => __('The grow size of the handle data (.xtd) files.'),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'pbxt_row_file_grow_size'      => array(
+            ],
+            'pbxt_row_file_grow_size'      => [
                 'title' => __('Row file grow size'),
                 'desc'  => __('The grow size of the row pointer (.xtr) files.'),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_SIZE,
-            ),
-            'pbxt_log_file_count'          => array(
+            ],
+            'pbxt_log_file_count'          => [
                 'title' => __('Log file count'),
                 'desc'  => __(
                     'This is the number of transaction log files'
@@ -132,8 +132,8 @@ class Pbxt extends StorageEngine
                     . ' highest number.'
                 ),
                 'type'  => PMA_ENGINE_DETAILS_TYPE_NUMERIC,
-            ),
-        );
+            ],
+        ];
     }
 
     /**
@@ -165,7 +165,7 @@ class Pbxt extends StorageEngine
      */
     public function getInfoPages()
     {
-        $pages = array();
+        $pages = [];
         $pages['Documentation'] = __('Documentation');
 
         return $pages;

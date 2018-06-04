@@ -55,9 +55,9 @@ if (! $response->isAjax()) {
         $GLOBALS['dbi']->selectDb($db);
         if (! isset($url_query)) {
             $url_query = Url::getCommon(
-                array(
+                [
                     'db' => $db, 'table' => $table
-                )
+                ]
             );
         }
     }
@@ -72,24 +72,24 @@ $titles = PhpMyAdmin\Util::buildActionTitles();
  * Keep a list of errors that occurred while
  * processing an 'Add' or 'Edit' operation.
  */
-$errors = array();
+$errors = [];
 
 
 /**
  * Call the appropriate main function
  */
 switch ($_PMA_RTE) {
-case 'RTN':
-    $type = null;
-    if (isset($_REQUEST['type'])) {
-        $type = $_REQUEST['type'];
-    }
-    $routines->main($type);
-    break;
-case 'TRI':
-    $triggers->main();
-    break;
-case 'EVN':
-    $events->main();
-    break;
+    case 'RTN':
+        $type = null;
+        if (isset($_REQUEST['type'])) {
+            $type = $_REQUEST['type'];
+        }
+        $routines->main($type);
+        break;
+    case 'TRI':
+        $triggers->main();
+        break;
+    case 'EVN':
+        $events->main();
+        break;
 }

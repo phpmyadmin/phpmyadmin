@@ -23,7 +23,7 @@ class TwoFactorTest extends PmaTestCase
     /**
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';

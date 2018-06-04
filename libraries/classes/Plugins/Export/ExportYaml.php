@@ -152,7 +152,7 @@ class ExportYaml extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -164,7 +164,7 @@ class ExportYaml extends ExportPlugin
         );
 
         $columns_cnt = $GLOBALS['dbi']->numFields($result);
-        $columns = array();
+        $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $GLOBALS['dbi']->fieldName($result, $i);
             if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
@@ -202,8 +202,8 @@ class ExportYaml extends ExportPlugin
                 }
 
                 $record[$i] = str_replace(
-                    array('\\', '"', "\n", "\r"),
-                    array('\\\\', '\"', '\n', '\r'),
+                    ['\\', '"', "\n", "\r"],
+                    ['\\\\', '\"', '\n', '\r'],
                     $record[$i]
                 );
                 $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . $crlf;

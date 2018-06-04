@@ -24,7 +24,7 @@ $relation = new Relation();
 $cfgRelation = $relation->getRelationsParam();
 
 if (! isset($_REQUEST['export_type'])) {
-    Util::checkParameters(array('export_type'));
+    Util::checkParameters(['export_type']);
 }
 
 /**

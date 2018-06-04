@@ -20,7 +20,8 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Util;
 
-if (strlen($GLOBALS['db']) === 0) { /* Can't do server export */
+/* Can't do server export */
+if (!isset($GLOBALS['db']) || strlen($GLOBALS['db']) === 0) {
     $GLOBALS['skip_import'] = true;
     return;
 }
@@ -100,7 +101,8 @@ class ExportXml extends ExportPlugin
 
         // export structure main group
         $structure = new OptionsPropertyMainGroup(
-            "structure", __('Object creation options (all are recommended)')
+            "structure",
+            __('Object creation options (all are recommended)')
         );
 
         // create primary items and add them to the group
@@ -138,7 +140,8 @@ class ExportXml extends ExportPlugin
 
         // data main group
         $data = new OptionsPropertyMainGroup(
-            "data", __('Data dump options')
+            "data",
+            __('Data dump options')
         );
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
@@ -359,7 +362,10 @@ class ExportXml extends ExportPlugin
                     . "'"
                 );
                 $head .= $this->_exportDefinitions(
-                    $db, 'event', 'EVENT', $events
+                    $db,
+                    'event',
+                    'EVENT',
+                    $events
                 );
             }
 
@@ -470,7 +476,7 @@ class ExportXml extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         // Do not export data for merge tables
         if ($GLOBALS['dbi']->getTable($db, $table)->isMerge()) {
@@ -490,7 +496,7 @@ class ExportXml extends ExportPlugin
             );
 
             $columns_cnt = $GLOBALS['dbi']->numFields($result);
-            $columns = array();
+            $columns = [];
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $columns[$i] = stripslashes($GLOBALS['dbi']->fieldName($result, $i));
             }

@@ -23,7 +23,7 @@ class DbiMysqli implements DbiExtension
     /**
      * @var array
      */
-    private static $pma_mysqli_flag_names = array(
+    private static $pma_mysqli_flag_names = [
         MYSQLI_NUM_FLAG => 'num',
         MYSQLI_PART_KEY_FLAG => 'part_key',
         MYSQLI_SET_FLAG => 'set',
@@ -37,7 +37,7 @@ class DbiMysqli implements DbiExtension
         MYSQLI_UNIQUE_KEY_FLAG => 'unique_key',
         MYSQLI_PRI_KEY_FLAG => 'primary_key',
         MYSQLI_NOT_NULL_FLAG => 'not_null',
-    );
+    ];
 
     /**
      * connects to the database server
@@ -394,7 +394,7 @@ class DbiMysqli implements DbiExtension
     public function getFieldsMeta($result)
     {
         // Build an associative array for a type look up
-        $typeAr = array();
+        $typeAr = [];
         $typeAr[MYSQLI_TYPE_DECIMAL]     = 'real';
         $typeAr[MYSQLI_TYPE_NEWDECIMAL]  = 'real';
         $typeAr[MYSQLI_TYPE_BIT]         = 'int';
@@ -524,7 +524,7 @@ class DbiMysqli implements DbiExtension
         $type = $fieldDefinition->type;
         $charsetNumber = $fieldDefinition->charsetnr;
         $fieldDefinitionFlags = $fieldDefinition->flags;
-        $flags = array();
+        $flags = [];
         foreach (self::$pma_mysqli_flag_names as $flag => $name) {
             if ($fieldDefinitionFlags & $flag) {
                 $flags[] = $name;

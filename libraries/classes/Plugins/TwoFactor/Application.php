@@ -73,7 +73,8 @@ class Application extends TwoFactorPlugin
         }
         $this->_provided = true;
         return $this->_google2fa->verifyKey(
-            $this->_twofactor->config['settings']['secret'], $_POST['2fa_code']
+            $this->_twofactor->config['settings']['secret'],
+            $_POST['2fa_code']
         );
     }
 

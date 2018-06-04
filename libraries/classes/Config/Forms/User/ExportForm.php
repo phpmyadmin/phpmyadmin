@@ -22,8 +22,8 @@ class ExportForm extends BaseForm
      */
     public static function getForms()
     {
-        return array(
-            'Export_defaults' => array(
+        return [
+            'Export_defaults' => [
                 'Export/method',
                 ':group:' . __('Quick'),
                     'Export/quick_export_onserver',
@@ -42,8 +42,8 @@ class ExportForm extends BaseForm
                     'Export/file_template_table',
                     'Export/file_template_database',
                     'Export/file_template_server'
-            ),
-            'Sql' => array(
+            ],
+            'Sql' => [
                 'Export/sql_include_comments' => ':group',
                     'Export/sql_dates',
                     'Export/sql_relation',
@@ -76,11 +76,11 @@ class ExportForm extends BaseForm
                     'Export/sql_max_query_size',
                     'Export/sql_hex_for_binary',
                     'Export/sql_utc_time'
-            ),
-            'CodeGen' => array(
+            ],
+            'CodeGen' => [
                 'Export/codegen_format'
-            ),
-            'Csv' => array(
+            ],
+            'Csv' => [
                 ':group:' . __('CSV'),
                     'Export/csv_separator',
                     'Export/csv_enclosed',
@@ -95,8 +95,8 @@ class ExportForm extends BaseForm
                     'Export/excel_removeCRLF',
                     'Export/excel_columns',
                     'Export/excel_edition'
-                ),
-            'Latex' => array(
+                ],
+            'Latex' => [
                 'Export/latex_caption',
                 'Export/latex_structure_or_data',
                 ':group:' . __('Structure'),
@@ -113,13 +113,13 @@ class ExportForm extends BaseForm
                     'Export/latex_data_continued_caption',
                     'Export/latex_data_label',
                     'Export/latex_null'
-            ),
-            'Microsoft_Office' => array(
+            ],
+            'Microsoft_Office' => [
                 ':group:' . __('Microsoft Word 2000'),
                     'Export/htmlword_structure_or_data',
                     'Export/htmlword_null',
-                    'Export/htmlword_columns'),
-            'Open_Document' => array(
+                    'Export/htmlword_columns'],
+            'Open_Document' => [
                 ':group:' . __('OpenDocument Spreadsheet'),
                     'Export/ods_columns',
                     'Export/ods_null',
@@ -134,14 +134,14 @@ class ExportForm extends BaseForm
                     ':group:' . __('Data'),
                         'Export/odt_columns',
                         'Export/odt_null'
-            ),
-            'Texy' => array(
+            ],
+            'Texy' => [
                 'Export/texytext_structure_or_data',
                 ':group:' . __('Data'),
                     'Export/texytext_null',
                     'Export/texytext_columns'
-            ),
-        );
+            ],
+        ];
     }
 
     /**

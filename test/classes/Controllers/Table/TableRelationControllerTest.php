@@ -54,23 +54,23 @@ class TableRelationControllerTest extends PmaTestCase
             }
         };
 
-        $indexes = array(
-            array(
+        $indexes = [
+            [
                 'Schema' => 'Schema1',
                 'Key_name' => 'Key_name1',
                 'Column_name' => 'Column_name1',
-            ),
-            array(
+            ],
+            [
                 'Schema' => 'Schema2',
                 'Key_name' => 'Key_name2',
                 'Column_name' => 'Column_name2',
-            ),
-            array(
+            ],
+            [
                 'Schema' => 'Schema3',
                 'Key_name' => 'Key_name3',
                 'Column_name' => 'Column_name3',
-            ),
-        );
+            ],
+        ];
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
@@ -99,9 +99,9 @@ class TableRelationControllerTest extends PmaTestCase
      */
     public function testGetDropdownValueForTableActionIsView()
     {
-        $viewColumns = array(
+        $viewColumns = [
             'viewCol', 'viewCol2', 'viewCol3'
-        );
+        ];
         $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
@@ -145,9 +145,9 @@ class TableRelationControllerTest extends PmaTestCase
      */
     public function testGetDropdownValueForTableActionNotView()
     {
-        $indexedColumns = array(
+        $indexedColumns = [
             'primaryTableCol'
-        );
+        ];
         $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
             ->getMock();
@@ -195,7 +195,7 @@ class TableRelationControllerTest extends PmaTestCase
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
-                            return array('Engine' => 'InnoDB', 'Name'   => 'table',);
+                            return ['Engine' => 'InnoDB', 'Name'   => 'table',];
                         }
                         return null;
                     }
@@ -211,14 +211,14 @@ class TableRelationControllerTest extends PmaTestCase
         );
         $ctrl = $container->get(
             'TableRelationController',
-            array('tbl_storage_engine' => 'INNODB')
+            ['tbl_storage_engine' => 'INNODB']
         );
 
         $_REQUEST['foreign'] = 'true';
         $ctrl->getDropdownValueForDbAction();
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
-            array('table'),
+            ['table'],
             $json['tables']
         );
     }
@@ -241,7 +241,7 @@ class TableRelationControllerTest extends PmaTestCase
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
-                            return array('table');
+                            return ['table'];
                         }
                         return null;
                     }
@@ -257,14 +257,14 @@ class TableRelationControllerTest extends PmaTestCase
         );
         $ctrl = $container->get(
             'TableRelationController',
-            array('tbl_storage_engine' => 'INNODB',)
+            ['tbl_storage_engine' => 'INNODB',]
         );
 
         $_REQUEST['foreign'] = 'false';
         $ctrl->getDropdownValueForDbAction();
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
-            array('table'),
+            ['table'],
             $json['tables']
         );
     }

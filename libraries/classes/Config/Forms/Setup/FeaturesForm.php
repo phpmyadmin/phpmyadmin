@@ -27,7 +27,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             ['Servers/1/only_db', 'Servers/1/hide_db']
         );
         /* Following are not available to user */
-        $result['Import_export'] = array(
+        $result['Import_export'] = [
             'UploadDir',
             'SaveDir',
             'RecodingEngine' => ':group',
@@ -37,8 +37,8 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'GZipDump',
             'BZipDump',
             'CompressOnFly'
-        );
-        $result['Security'] = array(
+        ];
+        $result['Security'] = [
             'blowfish_secret',
             'CheckConfigurationPermissions',
             'TrustedProxies',
@@ -50,12 +50,12 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'LoginCookieDeleteAll',
             'CaptchaLoginPublicKey',
             'CaptchaLoginPrivateKey'
-        );
-        $result['Developer'] = array(
+        ];
+        $result['Developer'] = [
             'UserprefsDeveloperTab',
             'DBG/sql',
-        );
-        $result['Other_core_settings'] = array(
+        ];
+        $result['Other_core_settings'] = [
             'OBGzip',
             'PersistentConnections',
             'ExecTimeLimit',
@@ -66,7 +66,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'ProxyPass',
             'AllowThirdPartyFraming',
             'ZeroConf',
-        );
+        ];
         return $result;
     }
 }

@@ -30,7 +30,7 @@ class FileListing
             return false;
         }
 
-        $result = array();
+        $result = [];
         if (substr($dir, -1) != '/') {
             $dir .= '/';
         }

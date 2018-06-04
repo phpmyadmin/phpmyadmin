@@ -95,7 +95,7 @@ $pma_table = $GLOBALS['dbi']->getTable(
     $GLOBALS['table']
 );
 $reread_info = false;
-$table_alters = array();
+$table_alters = [];
 
 $operations = new Operations();
 
@@ -120,7 +120,7 @@ if (isset($_REQUEST['table_maintenance'])) {
  */
 if (isset($_REQUEST['submitoptions'])) {
     $_message = '';
-    $warning_messages = array();
+    $warning_messages = [];
 
     if (isset($_REQUEST['new_name'])) {
         // Get original names before rename operation
@@ -132,7 +132,10 @@ if (isset($_REQUEST['submitoptions'])) {
                 && ! empty($_REQUEST['adjust_privileges'])
             ) {
                 $operations->adjustPrivilegesRenameOrMoveTable(
-                    $oldDb, $oldTable, $_REQUEST['db'], $_REQUEST['new_name']
+                    $oldDb,
+                    $oldTable,
+                    $_REQUEST['db'],
+                    $_REQUEST['new_name']
                 );
             }
 
@@ -198,7 +201,9 @@ if (isset($_REQUEST['submitoptions'])) {
         && ! empty($_REQUEST['change_all_collations'])
     ) {
         $operations->changeAllColumnsCollation(
-            $GLOBALS['db'], $GLOBALS['table'], $_REQUEST['tbl_collation']
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            $_REQUEST['tbl_collation']
         );
     }
 }
@@ -256,7 +261,8 @@ if (isset($result) && empty($message_to_show)) {
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
                 $response->addJSON(
-                    'sql_query', Util::getMessage(null, $sql_query)
+                    'sql_query',
+                    Util::getMessage(null, $sql_query)
                 );
             }
             exit;
@@ -276,7 +282,8 @@ if (isset($result) && empty($message_to_show)) {
             $response->addJSON('message', $_message);
             if (!empty($sql_query)) {
                 $response->addJSON(
-                    'sql_query', Util::getMessage(null, $sql_query)
+                    'sql_query',
+                    Util::getMessage(null, $sql_query)
                 );
             }
             exit;
@@ -369,7 +376,10 @@ if (mb_strstr($show_comment, '; InnoDB free') === false) {
 
 $response->addHTML(
     $operations->getTableOptionDiv(
-        $pma_table, $comment, $tbl_collation, $tbl_storage_engine,
+        $pma_table,
+        $comment,
+        $tbl_collation,
+        $tbl_storage_engine,
         $create_options['pack_keys'],
         $auto_increment,
         (empty($create_options['delay_key_write']) ? '0' : '1'),
@@ -392,8 +402,8 @@ $response->addHTML(
 );
 
 if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
-    $truncate_table_url_params = array();
-    $drop_table_url_params = array();
+    $truncate_table_url_params = [];
+    $drop_table_url_params = [];
 
     if (! $tbl_is_view
         && ! (isset($db_is_system_schema) && $db_is_system_schema)
@@ -402,7 +412,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
             . Util::backquote($GLOBALS['table']);
         $truncate_table_url_params = array_merge(
             $url_params,
-            array(
+            [
                 'sql_query' => $this_sql_query,
                 'goto' => 'tbl_structure.php',
                 'reload' => '1',
@@ -410,7 +420,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                     __('Table %s has been emptied.'),
                     htmlspecialchars($table)
                 ),
-            )
+            ]
         );
     }
     if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
@@ -418,7 +428,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
             . Util::backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
             $url_params,
-            array(
+            [
                 'sql_query' => $this_sql_query,
                 'goto' => 'db_operations.php',
                 'reload' => '1',
@@ -433,7 +443,7 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                 // table name is needed to avoid running
                 // PhpMyAdmin\RelationCleanup::database() on the whole db later
                 'table' => $GLOBALS['table'],
-            )
+            ]
         );
     }
     $response->addHTML(
@@ -470,5 +480,4 @@ if ($cfgRelation['relwork'] && ! $pma_table->isEngine("INNODB")) {
             $operations->getHtmlForReferentialIntegrityCheck($foreign, $url_params)
         );
     } // end if ($foreign)
-
 } // end  if (!empty($cfg['Server']['relation']))

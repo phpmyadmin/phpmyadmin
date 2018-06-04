@@ -9,27 +9,17 @@
             </span>
         </th>
         {% for stat_name, stat in column_order if stat_name in first_database|keys %}
-            {% if stat['format'] is same as('byte') %}
-                {% set byte_format = Util_formatByteDown(stat['footer'], 3, 1) %}
-                {% set value = byte_format[0] %}
-                {% set unit = byte_format[1] %}
-            {% elseif stat['format'] is same as('number') %}
-                {% set value = Util_formatNumber(stat['footer'], 0) %}
-            {% else %}
-                {% set value = htmlentities(stat['footer'], 0) %}
-            {% endif %}
-
             <th class="value">
                 {% if stat['description_function'] is defined %}
                     <dfn title="{{ Charsets_getCollationDescr(stat['footer']) }}">
-                        {{ value }}
+                        {{ values[stat_name] }}
                     </dfn>
                 {% else %}
-                    {{ value }}
+                    {{ values[stat_name] }}
                 {% endif %}
             </th>
             {% if stat['format'] is same as('byte') %}
-                <th class="unit">{{ unit }}</th>
+                <th class="unit">{{ units[stat_name] }}</th>
             {% endif %}
         {% endfor %}
         {% if master_replication %}

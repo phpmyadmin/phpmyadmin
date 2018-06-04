@@ -24,7 +24,7 @@ class Error extends Message
      *
      * @var array
      */
-    public static $errortype = array (
+    public static $errortype =  [
         0                    => 'Internal error',
         E_ERROR              => 'Error',
         E_WARNING            => 'Warning',
@@ -40,14 +40,14 @@ class Error extends Message
         E_STRICT             => 'Runtime Notice',
         E_DEPRECATED         => 'Deprecation Notice',
         E_RECOVERABLE_ERROR  => 'Catchable Fatal Error',
-    );
+    ];
 
     /**
      * Error levels
      *
      * @var array
      */
-    public static $errorlevel = array (
+    public static $errorlevel =  [
         0                    => 'error',
         E_ERROR              => 'error',
         E_WARNING            => 'error',
@@ -63,7 +63,7 @@ class Error extends Message
         E_STRICT             => 'notice',
         E_DEPRECATED         => 'notice',
         E_RECOVERABLE_ERROR  => 'error',
-    );
+    ];
 
     /**
      * The file in which the error occurred
@@ -84,7 +84,7 @@ class Error extends Message
      *
      * @var array
      */
-    protected $backtrace = array();
+    protected $backtrace = [];
 
     /**
      * Hide location of errors
@@ -113,7 +113,7 @@ class Error extends Message
             // debug_backtrace(), handleError() and addError()
             $backtrace = array_slice($backtrace, 3);
         } else {
-            $backtrace = array();
+            $backtrace = [];
         }
 
         $this->setBacktrace($backtrace);
@@ -128,13 +128,13 @@ class Error extends Message
      */
     public static function processBacktrace(array $backtrace): array
     {
-        $result = array();
+        $result = [];
 
-        $members = array('line', 'function', 'class', 'type');
+        $members = ['line', 'function', 'class', 'type'];
 
         foreach ($backtrace as $idx => $step) {
             /* Create new backtrace entry */
-            $result[$idx] = array();
+            $result[$idx] = [];
 
             /* Make path relative */
             if (isset($step['file'])) {
@@ -219,7 +219,7 @@ class Error extends Message
     {
         try {
             $backtrace = serialize($this->getBacktrace());
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $backtrace = '';
         }
         if ($this->hash === null) {
@@ -402,20 +402,20 @@ class Error extends Message
     public static function getArg($arg, string $function): string
     {
         $retval = '';
-        $include_functions = array(
+        $include_functions = [
             'include',
             'include_once',
             'require',
             'require_once',
-        );
-        $connect_functions = array(
+        ];
+        $connect_functions = [
             'mysql_connect',
             'mysql_pconnect',
             'mysqli_connect',
             'mysqli_real_connect',
             'connect',
             '_realConnect'
-        );
+        ];
 
         if (in_array($function, $include_functions)) {
             $retval .= self::relPath($arg);

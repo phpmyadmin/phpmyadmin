@@ -55,11 +55,14 @@ class ServerConfigChecks
 
         list($cookieAuthUsed, $blowfishSecret, $blowfishSecretSet)
             = $this->performConfigChecksServers(
-                $cookieAuthUsed, $blowfishSecret, $blowfishSecretSet
+                $cookieAuthUsed,
+                $blowfishSecret,
+                $blowfishSecretSet
             );
 
         $this->performConfigChecksCookieAuthUsed(
-            $cookieAuthUsed, $blowfishSecretSet,
+            $cookieAuthUsed,
+            $blowfishSecretSet,
             $blowfishSecret
         );
 
@@ -77,11 +80,11 @@ class ServerConfigChecks
                     . 'reliable if your IP belongs to an ISP where thousands of users, '
                     . 'including you, are connected to.'
                 ),
-                '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
+                '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                 '[/a]',
-                '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
+                '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                 '[/a]',
-                '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
+                '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                 '[/a]'
             );
             SetupIndex::messagesSet(
@@ -139,7 +142,8 @@ class ServerConfigChecks
      * @return array
      */
     protected function performConfigChecksServers(
-        $cookieAuthUsed, $blowfishSecret,
+        $cookieAuthUsed,
+        $blowfishSecret,
         $blowfishSecretSet
     ) {
         $serverCnt = $this->cfg->getServerCount();
@@ -148,13 +152,16 @@ class ServerConfigChecks
                 = ($this->cfg->getValue("Servers/$i/auth_type") == 'cookie');
             $cookieAuthUsed |= $cookieAuthServer;
             $serverName = $this->performConfigChecksServersGetServerName(
-                $this->cfg->getServerName($i), $i
+                $this->cfg->getServerName($i),
+                $i
             );
             $serverName = htmlspecialchars($serverName);
 
             list($blowfishSecret, $blowfishSecretSet)
                 = $this->performConfigChecksServersSetBlowfishSecret(
-                    $blowfishSecret, $cookieAuthServer, $blowfishSecretSet
+                    $blowfishSecret,
+                    $cookieAuthServer,
+                    $blowfishSecretSet
                 );
 
             //
@@ -180,9 +187,9 @@ class ServerConfigChecks
                     . 'However, IP-based protection may not be reliable if your IP belongs '
                     . 'to an ISP where thousands of users, including you, are connected to.'
                 ),
-                '[a@' . Url::getCommon(array('page' => 'servers', 'mode' => 'edit', 'id' => $i)) . '#tab_Server_config]',
+                '[a@' . Url::getCommon(['page' => 'servers', 'mode' => 'edit', 'id' => $i]) . '#tab_Server_config]',
                 '[/a]',
-                '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
+                '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                 '[/a]'
             ));
 
@@ -208,7 +215,7 @@ class ServerConfigChecks
                             . 'URL can directly access your phpMyAdmin panel. Set %1$sauthentication '
                             . 'type%2$s to [kbd]cookie[/kbd] or [kbd]http[/kbd].'
                         ),
-                        '[a@' . Url::getCommon(array('page' => 'servers', 'mode' => 'edit', 'id' => $i)) . '#tab_Server]',
+                        '[a@' . Url::getCommon(['page' => 'servers', 'mode' => 'edit', 'id' => $i]) . '#tab_Server]',
                         '[/a]'
                     ))
                     . ' ' . $sSecurityInfoMsg
@@ -234,7 +241,7 @@ class ServerConfigChecks
                 );
             }
         }
-        return array($cookieAuthUsed, $blowfishSecret, $blowfishSecretSet);
+        return [$cookieAuthUsed, $blowfishSecret, $blowfishSecretSet];
     }
 
     /**
@@ -247,13 +254,15 @@ class ServerConfigChecks
      * @return array
      */
     protected function performConfigChecksServersSetBlowfishSecret(
-        $blowfishSecret, $cookieAuthServer, $blowfishSecretSet
+        $blowfishSecret,
+        $cookieAuthServer,
+        $blowfishSecretSet
     ) {
         if ($cookieAuthServer && $blowfishSecret === null) {
             $blowfishSecretSet = true;
             $this->cfg->set('blowfish_secret', Util::generateRandom(32));
         }
-        return array($blowfishSecret, $blowfishSecretSet);
+        return [$blowfishSecret, $blowfishSecretSet];
     }
 
     /**
@@ -265,7 +274,8 @@ class ServerConfigChecks
      * @return string Server name
      */
     protected function performConfigChecksServersGetServerName(
-        $serverName, $serverId
+        $serverName,
+        $serverId
     ) {
         if ($serverName == 'localhost') {
             $serverName .= " [$serverId]";
@@ -279,7 +289,8 @@ class ServerConfigChecks
      *
      * @return void
      */
-    protected function performConfigChecksZips() {
+    protected function performConfigChecksZips()
+    {
         $this->performConfigChecksServerGZipdump();
         $this->performConfigChecksServerBZipdump();
         $this->performConfigChecksServersZipdump();
@@ -290,7 +301,8 @@ class ServerConfigChecks
      *
      * @return void
      */
-    protected function performConfigChecksServersZipdump() {
+    protected function performConfigChecksServersZipdump()
+    {
         //
         // $cfg['ZipDump']
         // requires zip_open in import
@@ -305,7 +317,7 @@ class ServerConfigChecks
                         '%sZip decompression%s requires functions (%s) which are unavailable '
                         . 'on this system.'
                     ),
-                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Import_export]',
+                    '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Import_export]',
                     '[/a]',
                     'zip_open'
                 ))
@@ -326,7 +338,7 @@ class ServerConfigChecks
                         '%sZip compression%s requires functions (%s) which are unavailable on '
                         . 'this system.'
                     ),
-                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Import_export]',
+                    '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Import_export]',
                     '[/a]',
                     'gzcompress'
                 ))
@@ -344,7 +356,8 @@ class ServerConfigChecks
      * @return array
      */
     protected function performConfigChecksCookieAuthUsed(
-        $cookieAuthUsed, $blowfishSecretSet,
+        $cookieAuthUsed,
+        $blowfishSecretSet,
         $blowfishSecret
     ) {
         //
@@ -366,7 +379,7 @@ class ServerConfigChecks
                     ))
                 );
             } else {
-                $blowfishWarnings = array();
+                $blowfishWarnings = [];
                 // check length
                 if (strlen($blowfishSecret) < 32) {
                     // too short key
@@ -403,7 +416,8 @@ class ServerConfigChecks
      *
      * @return void
      */
-    protected function performConfigChecksLoginCookie() {
+    protected function performConfigChecksLoginCookie()
+    {
         //
         // $cfg['LoginCookieValidity']
         // value greater than session.gc_maxlifetime will cause
@@ -421,7 +435,7 @@ class ServerConfigChecks
                         . 'cause random session invalidation (currently session.gc_maxlifetime '
                         . 'is %5$d).'
                     ),
-                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
+                    '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                     '[/a]',
                     '[a@' . Core::getPHPDocLink('session.configuration.php#ini.session.gc-maxlifetime') . ']',
                     '[/a]',
@@ -445,7 +459,7 @@ class ServerConfigChecks
                         . 'at most. Values larger than 1800 may pose a security risk such as '
                         . 'impersonation.'
                     ),
-                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
+                    '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                     '[/a]'
                 ))
             );
@@ -469,9 +483,9 @@ class ServerConfigChecks
                         . 'is not 0, %sLogin cookie validity%s must be set to a value less or '
                         . 'equal to it.'
                     ),
-                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
+                    '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                     '[/a]',
-                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Security]',
+                    '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Security]',
                     '[/a]'
                 ))
             );
@@ -504,11 +518,11 @@ class ServerConfigChecks
                 Descriptions::get('BZipDump'),
                 Sanitize::sanitize(
                     sprintf(
-                         __(
+                        __(
                             '%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which '
-                            . 'are unavailable on this system.'
+                             . 'are unavailable on this system.'
                         ),
-                        '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Import_export]',
+                        '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Import_export]',
                         '[/a]',
                         $functions
                     )
@@ -540,7 +554,7 @@ class ServerConfigChecks
                         '%1$sGZip compression and decompression%2$s requires functions (%3$s) which '
                         . 'are unavailable on this system.'
                     ),
-                    '[a@' . Url::getCommon(array('page' => 'form', 'formset' => 'Features')) . '#tab_Import_export]',
+                    '[a@' . Url::getCommon(['page' => 'form', 'formset' => 'Features']) . '#tab_Import_export]',
                     '[/a]',
                     'gzencode'
                 ))
