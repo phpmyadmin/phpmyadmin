@@ -38,29 +38,26 @@ use Twig\Loader\FilesystemLoader;
 class Template
 {
     /**
-     * Name of the template
+     * Twig environment
+     * @var Environment
      */
-    protected $name = null;
+    protected static $twig;
 
     /**
-     * Twig environment
+     * @var string
      */
-    static protected $twig;
-
     public const BASE_PATH = 'templates/';
 
     /**
      * Template constructor
-     *
-     * @param string $name Template name
      */
-    protected function __construct($name)
+    public function __construct()
     {
-        $this->name = $name;
-
+        /* @var \PhpMyAdmin\Config $config */
+        $config = $GLOBALS['PMA_Config'];
         if (is_null($this::$twig)) {
             $loader = new FilesystemLoader(static::BASE_PATH);
-            $cache_dir = $GLOBALS['PMA_Config']->getTempDir('twig');
+            $cache_dir = $config->getTempDir('twig');
             /* Twig expects false when cache is not configured */
             if (is_null($cache_dir)) {
                 $cache_dir = false;
@@ -93,30 +90,31 @@ class Template
     /**
      * Template getter
      *
-     * @param string $name Template name
+     * @param string $templateName Template path name
      *
-     * @return Template
+     * @return \Twig_TemplateWrapper
      */
-    public static function get($name)
+    public static function get(string $templateName): \Twig_TemplateWrapper
     {
-        return new Template($name);
+        $template = new Template();
+        return $template->load($templateName);
     }
 
     /**
-     * Render template
+     * Loads a template.
      *
-     * @param array $data Variables to be provided to the template
+     * @param string $templateName Template path name
      *
-     * @return string
+     * @return \Twig_TemplateWrapper
      */
-    public function render(array $data = [])
+    public function load(string $templateName): \Twig_TemplateWrapper
     {
         try {
-            $template = $this::$twig->load($this->name . '.twig');
+            $template = $this::$twig->load($templateName . '.twig');
         } catch (\RuntimeException $e) {
             /* Retry with disabled cache */
             $this::$twig->setCache(false);
-            $template = $this::$twig->load($this->name . '.twig');
+            $template = $this::$twig->load($templateName . '.twig');
             /*
              * The trigger error is intentionally after second load
              * to avoid triggering error when disabling cache does not
@@ -130,6 +128,18 @@ class Template
                 E_USER_WARNING
             );
         }
-        return $template->render($data);
+
+        return $template;
+    }
+
+    /**
+     * @param string $template Template path name
+     * @param array  $data     Associative array of template variables
+     *
+     * @return string
+     */
+    public function render(string $template, array $data = []): string
+    {
+        return $this->load($template)->render($data);
     }
 }
