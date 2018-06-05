@@ -38,7 +38,8 @@ $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
-$serverPrivileges = new Privileges();
+$template = new Template();
+$serverPrivileges = new Privileges($template);
 
 if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')
@@ -138,7 +139,7 @@ if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
     && !$GLOBALS['is_createuser']
 ) {
     $response->addHTML(
-        Template::get('server/sub_page_header')->render([
+        $template->render('server/sub_page_header', [
             'type' => 'privileges',
             'is_image' => false,
         ])

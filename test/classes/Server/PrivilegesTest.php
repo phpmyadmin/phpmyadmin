@@ -81,7 +81,7 @@ class PrivilegesTest extends TestCase
         $GLOBALS['text_dir'] = "text_dir";
         $GLOBALS['is_reload_priv'] = true;
 
-        $this->serverPrivileges = new Privileges();
+        $this->serverPrivileges = new Privileges(new Template());
 
         //$_POST
         $_POST['pred_password'] = 'none';

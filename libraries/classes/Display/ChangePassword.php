@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -33,7 +34,7 @@ class ChangePassword
       */
     public static function getHtml($mode, $username, $hostname)
     {
-        $serverPrivileges = new Privileges();
+        $serverPrivileges = new Privileges(new Template());
         /**
          * autocomplete feature of IE kills the "onchange" event handler and it
          * must be replaced by the "onpropertychange" one in this case

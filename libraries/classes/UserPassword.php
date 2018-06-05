@@ -33,7 +33,7 @@ class UserPassword
      */
     public function __construct()
     {
-        $this->serverPrivileges = new Privileges();
+        $this->serverPrivileges = new Privileges(new Template());
     }
 
     /**
