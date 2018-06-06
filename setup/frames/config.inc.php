@@ -15,7 +15,7 @@ if (!defined('PHPMYADMIN')) {
     exit;
 }
 
-$formDisplayTemplate = new FormDisplayTemplate();
+$formDisplayTemplate = new FormDisplayTemplate($GLOBALS['PMA_Config']);
 
 echo '<h2>' , __('Configuration file') , '</h2>';
 

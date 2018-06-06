@@ -102,7 +102,7 @@ class FormDisplay
      */
     public function __construct(ConfigFile $cf)
     {
-        $this->formDisplayTemplate = new FormDisplayTemplate();
+        $this->formDisplayTemplate = new FormDisplayTemplate($GLOBALS['PMA_Config']);
         $this->_jsLangStrings = [
             'error_nan_p' => __('Not a positive number!'),
             'error_nan_nneg' => __('Not a non-negative number!'),

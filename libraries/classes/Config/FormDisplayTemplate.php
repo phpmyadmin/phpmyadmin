@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -25,6 +26,21 @@ class FormDisplayTemplate
      * @var int
      */
     public $group;
+
+    /**
+     * @var Config
+     */
+    protected $config;
+
+    /**
+     * FormDisplayTemplate constructor.
+     *
+     * @param Config $config
+     */
+    public function __construct(Config $config)
+    {
+        $this->config = $config;
+    }
 
     /**
      * Displays top part of the form
@@ -165,7 +181,7 @@ class FormDisplayTemplate
             $icons = null;
         }
 
-        $isSetupScript = $GLOBALS['PMA_Config']->get('is_setup');
+        $isSetupScript = $this->config->get('is_setup');
         if ($icons === null) { // if the static variables have not been initialised
             $icons = [];
             // Icon definitions:
@@ -389,7 +405,7 @@ class FormDisplayTemplate
         if ($headerText === '') {
             return '';
         }
-        $colspan = $GLOBALS['PMA_Config']->get('is_setup') ? 3 : 2;
+        $colspan = $this->config->get('is_setup') ? 3 : 2;
 
         return Template::get('config/form_display/group_header')->render([
             'group' => $this->group,
@@ -419,7 +435,7 @@ class FormDisplayTemplate
     {
         return Template::get('config/form_display/fieldset_bottom')->render([
             'show_buttons' => $showButtons,
-            'is_setup' => $GLOBALS['PMA_Config']->get('is_setup'),
+            'is_setup' => $this->config->get('is_setup'),
         ]);
     }
 

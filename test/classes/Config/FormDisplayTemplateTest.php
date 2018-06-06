@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for FromDisplay.tpl.php
+ * tests for FormDisplayTemplate
  *
  * @package PhpMyAdmin-test
  */
@@ -11,11 +11,10 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\FormDisplayTemplate;
-use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Tests for FromDisplay.tpl.php
+ * Tests for FormDisplayTemplate
  *
  * @package PhpMyAdmin-test
  */
@@ -27,14 +26,19 @@ class FormDisplayTemplateTest extends TestCase
     protected $formDisplayTemplate;
 
     /**
+     * @var Config
+     */
+    protected $config;
+
+    /**
      * Setup tests
      *
      * @return void
      */
     protected function setUp()
     {
-        $this->formDisplayTemplate = new FormDisplayTemplate();
-        $GLOBALS['PMA_Config'] = new Config();
+        $this->config = new Config();
+        $this->formDisplayTemplate = new FormDisplayTemplate($this->config);
     }
 
     /**
@@ -155,7 +159,6 @@ class FormDisplayTemplateTest extends TestCase
      */
     public function testDisplayInput()
     {
-        $GLOBALS['_FormDislayGroup'] = 1;
         $opts = [];
         $opts['errors'] = ['e1'];
         $opts['userprefs_allow'] = false;
@@ -229,8 +232,7 @@ class FormDisplayTemplateTest extends TestCase
 
         // second case
 
-        $GLOBALS['PMA_Config']->set('is_setup', true);
-        $GLOBALS['_FormDislayGroup'] = 0;
+        $this->config->set('is_setup', true);
         $opts = [];
         $opts['errors'] = [];
         $opts['setvalue'] = 'setVal';
@@ -278,7 +280,6 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         // short_text
-        $GLOBALS['_FormDislayGroup'] = 0;
         $opts = [];
         $opts['errors'] = [];
 
@@ -412,7 +413,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->formDisplayTemplate->group = 3;
 
-        $GLOBALS['PMA_Config']->set('is_setup', true);
+        $this->config->set('is_setup', true);
 
         $result = $this->formDisplayTemplate->displayGroupHeader('headerText');
 
@@ -422,7 +423,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         // without PMA_SETUP
-        $GLOBALS['PMA_Config']->set('is_setup', false);
+        $this->config->set('is_setup', false);
 
         $this->formDisplayTemplate->group = 3;
 
@@ -457,7 +458,7 @@ class FormDisplayTemplateTest extends TestCase
     public function testDisplayFieldsetBottom()
     {
         // with PMA_SETUP
-        $GLOBALS['PMA_Config']->set('is_setup', true);
+        $this->config->set('is_setup', true);
 
         $result = $this->formDisplayTemplate->displayFieldsetBottom();
 
@@ -482,7 +483,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         // without PMA_SETUP
-        $GLOBALS['PMA_Config']->set('is_setup', false);
+        $this->config->set('is_setup', false);
 
         $result = $this->formDisplayTemplate->displayFieldsetBottom();
 

@@ -43,7 +43,7 @@ if (isset($_GET['version_check'])) {
 $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
 $configChecker->performConfigChecks();
 
-$formDisplayTemplate = new FormDisplayTemplate();
+$formDisplayTemplate = new FormDisplayTemplate($GLOBALS['PMA_Config']);
 
 //
 // Https connection warning (check done on the client side)
