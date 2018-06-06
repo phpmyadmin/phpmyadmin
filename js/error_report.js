@@ -15,6 +15,10 @@ var ErrorReport = {
      * @return void
      */
     error_handler: function (exception) {
+        // issue: 14359
+        if (JSON.stringify(ErrorReport._last_exception) === JSON.stringify(exception)) {
+            return;
+        }
         if (exception.name === null || typeof(exception.name) === 'undefined') {
             exception.name = ErrorReport._extractExceptionName(exception);
         }
