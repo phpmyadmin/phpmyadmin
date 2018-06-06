@@ -22,6 +22,11 @@ use PhpMyAdmin\Util;
 class FormDisplayTemplate
 {
     /**
+     * @var int
+     */
+    public $group;
+
+    /**
      * Displays top part of the form
      *
      * @param string     $action       default: $_SERVER['REQUEST_URI']
@@ -105,9 +110,7 @@ class FormDisplayTemplate
         $errors = null,
         array $attributes = []
     ): string {
-        global $_FormDisplayGroup;
-
-        $_FormDisplayGroup = 0;
+        $this->group = 0;
 
         $attributes = array_merge(['class' => 'optbox'], $attributes);
 
@@ -156,7 +159,6 @@ class FormDisplayTemplate
         $valueIsDefault = true,
         $opts = null
     ): string {
-        global $_FormDisplayGroup;
         static $icons;    // An array of IMG tags used further below in the function
 
         if (defined('TESTSUITE')) {
@@ -213,13 +215,13 @@ class FormDisplayTemplate
                 . ($hasErrors ? 'custom field-error' : 'custom');
         }
         $fieldClass = $fieldClass ? ' class="' . $fieldClass . '"' : '';
-        $trClass = $_FormDisplayGroup > 0
-            ? 'group-field group-field-' . $_FormDisplayGroup
+        $trClass = $this->group > 0
+            ? 'group-field group-field-' . $this->group
             : '';
         if (isset($opts['setvalue']) && $opts['setvalue'] == ':group') {
             unset($opts['setvalue']);
-            $_FormDisplayGroup++;
-            $trClass = 'group-header-field group-header-' . $_FormDisplayGroup;
+            $this->group++;
+            $trClass = 'group-header-field group-header-' . $this->group;
         }
         if ($optionIsDisabled) {
             $trClass .= ($trClass ? ' ' : '') . 'disabled-field';
@@ -383,16 +385,14 @@ class FormDisplayTemplate
      */
     public function displayGroupHeader(string $headerText): string
     {
-        global $_FormDisplayGroup;
-
-        $_FormDisplayGroup++;
+        $this->group++;
         if ($headerText === '') {
             return '';
         }
         $colspan = $GLOBALS['PMA_Config']->get('is_setup') ? 3 : 2;
 
         return Template::get('config/form_display/group_header')->render([
-            'group' => $_FormDisplayGroup,
+            'group' => $this->group,
             'colspan' => $colspan,
             'header_text' => $headerText,
         ]);
@@ -405,9 +405,7 @@ class FormDisplayTemplate
      */
     public function displayGroupFooter(): void
     {
-        global $_FormDisplayGroup;
-
-        $_FormDisplayGroup--;
+        $this->group--;
     }
 
     /**

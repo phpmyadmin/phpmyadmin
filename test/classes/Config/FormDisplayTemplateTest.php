@@ -410,7 +410,7 @@ class FormDisplayTemplateTest extends TestCase
             $this->formDisplayTemplate->displayGroupHeader('')
         );
 
-        $GLOBALS['_FormDisplayGroup'] = 3;
+        $this->formDisplayTemplate->group = 3;
 
         $GLOBALS['PMA_Config']->set('is_setup', true);
 
@@ -424,7 +424,7 @@ class FormDisplayTemplateTest extends TestCase
         // without PMA_SETUP
         $GLOBALS['PMA_Config']->set('is_setup', false);
 
-        $GLOBALS['_FormDisplayGroup'] = 3;
+        $this->formDisplayTemplate->group = 3;
 
         $result = $this->formDisplayTemplate->displayGroupHeader('headerText');
 
@@ -441,11 +441,11 @@ class FormDisplayTemplateTest extends TestCase
      */
     public function testDisplayGroupFooter()
     {
-        $GLOBALS['_FormDisplayGroup'] = 3;
+        $this->formDisplayTemplate->group = 3;
         $this->formDisplayTemplate->displayGroupFooter();
         $this->assertEquals(
             2,
-            $GLOBALS['_FormDisplayGroup']
+            $this->formDisplayTemplate->group
         );
     }
 
