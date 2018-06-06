@@ -30,7 +30,7 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayFormTop(
+    public function displayFormTop(
         $action = null,
         $method = 'post',
         $hiddenFields = null
@@ -66,7 +66,7 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayTabsTop(array $tabs)
+    public function displayTabsTop(array $tabs): string
     {
         $items = [];
         foreach ($tabs as $tabId => $tabName) {
@@ -99,12 +99,12 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayFieldsetTop(
+    public function displayFieldsetTop(
         $title = '',
         $description = '',
         $errors = null,
         array $attributes = []
-    ) {
+    ): string {
         global $_FormDisplayGroup;
 
         $_FormDisplayGroup = 0;
@@ -147,7 +147,7 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayInput(
+    public function displayInput(
         $path,
         $name,
         $type,
@@ -155,7 +155,7 @@ class FormDisplayTemplate
         $description = '',
         $valueIsDefault = true,
         $opts = null
-    ) {
+    ): string {
         global $_FormDisplayGroup;
         static $icons;    // An array of IMG tags used further below in the function
 
@@ -379,15 +379,15 @@ class FormDisplayTemplate
      *
      * @param string $headerText Text of header
      *
-     * @return string|void
+     * @return string
      */
-    public static function displayGroupHeader($headerText)
+    public function displayGroupHeader(string $headerText): string
     {
         global $_FormDisplayGroup;
 
         $_FormDisplayGroup++;
-        if (! $headerText) {
-            return null;
+        if ($headerText === '') {
+            return '';
         }
         $colspan = $GLOBALS['PMA_Config']->get('is_setup') ? 3 : 2;
 
@@ -403,7 +403,7 @@ class FormDisplayTemplate
      *
      * @return void
      */
-    public static function displayGroupFooter()
+    public function displayGroupFooter(): void
     {
         global $_FormDisplayGroup;
 
@@ -417,7 +417,7 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayFieldsetBottom($showButtons = true)
+    public function displayFieldsetBottom(bool $showButtons = true): string
     {
         return Template::get('config/form_display/fieldset_bottom')->render([
             'show_buttons' => $showButtons,
@@ -430,7 +430,7 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayTabsBottom()
+    public function displayTabsBottom(): string
     {
         return Template::get('config/form_display/tabs_bottom')->render();
     }
@@ -440,7 +440,7 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayFormBottom()
+    public function displayFormBottom(): string
     {
         return Template::get('config/form_display/form_bottom')->render();
     }
@@ -454,7 +454,7 @@ class FormDisplayTemplate
      *
      * @return void
      */
-    public static function addJsValidate($fieldId, $validators, array &$jsArray)
+    public function addJsValidate($fieldId, $validators, array &$jsArray): void
     {
         foreach ((array)$validators as $validator) {
             $validator = (array)$validator;
@@ -476,10 +476,10 @@ class FormDisplayTemplate
      *
      * @return string
      */
-    public static function displayJavascript(array $jsArray)
+    public function displayJavascript(array $jsArray): string
     {
         if (empty($jsArray)) {
-            return null;
+            return '';
         }
 
         return Template::get('javascript/display')->render(
@@ -495,7 +495,7 @@ class FormDisplayTemplate
      *
      * @return string HTML for errors
      */
-    public static function displayErrors($name, array $errorList)
+    public function displayErrors($name, array $errorList): string
     {
         return Template::get('config/form_display/errors')->render([
             'name' => $name,

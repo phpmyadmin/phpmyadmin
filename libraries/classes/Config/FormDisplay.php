@@ -91,12 +91,18 @@ class FormDisplay
     private $_userprefsDisallow;
 
     /**
+     * @var FormDisplayTemplate
+     */
+    private $formDisplayTemplate;
+
+    /**
      * Constructor
      *
      * @param ConfigFile $cf Config file instance
      */
     public function __construct(ConfigFile $cf)
     {
+        $this->formDisplayTemplate = new FormDisplayTemplate();
         $this->_jsLangStrings = [
             'error_nan_p' => __('Not a positive number!'),
             'error_nan_nneg' => __('Not a non-negative number!'),
@@ -240,7 +246,7 @@ class FormDisplay
             /* @var $form Form */
             $formErrors = isset($this->_errors[$form->name])
                 ? $this->_errors[$form->name] : null;
-            $htmlOutput .= FormDisplayTemplate::displayFieldsetTop(
+            $htmlOutput .= $this->formDisplayTemplate->displayFieldsetTop(
                 Descriptions::get("Form_{$form->name}"),
                 Descriptions::get("Form_{$form->name}", 'desc'),
                 $formErrors,
@@ -268,10 +274,10 @@ class FormDisplay
                 );
                 // register JS validators for this field
                 if (isset($validators[$path])) {
-                    FormDisplayTemplate::addJsValidate($translatedPath, $validators[$path], $js);
+                    $this->formDisplayTemplate->addJsValidate($translatedPath, $validators[$path], $js);
                 }
             }
-            $htmlOutput .= FormDisplayTemplate::displayFieldsetBottom($showButtons);
+            $htmlOutput .= $this->formDisplayTemplate->displayFieldsetBottom($showButtons);
         }
         return $htmlOutput;
     }
@@ -303,14 +309,14 @@ class FormDisplay
         $js = [];
         $jsDefault = [];
 
-        $htmlOutput .= FormDisplayTemplate::displayFormTop($formAction, 'post', $hiddenFields);
+        $htmlOutput .= $this->formDisplayTemplate->displayFormTop($formAction, 'post', $hiddenFields);
 
         if ($tabbedForm) {
             $tabs = [];
             foreach ($this->_forms as $form) {
                 $tabs[$form->name] = Descriptions::get("Form_$form->name");
             }
-            $htmlOutput .= FormDisplayTemplate::displayTabsTop($tabs);
+            $htmlOutput .= $this->formDisplayTemplate->displayTabsTop($tabs);
         }
 
         // validate only when we aren't displaying a "new server" form
@@ -338,9 +344,9 @@ class FormDisplay
         );
 
         if ($tabbedForm) {
-            $htmlOutput .= FormDisplayTemplate::displayTabsBottom();
+            $htmlOutput .= $this->formDisplayTemplate->displayTabsBottom();
         }
-        $htmlOutput .= FormDisplayTemplate::displayFormBottom();
+        $htmlOutput .= $this->formDisplayTemplate->displayFormBottom();
 
         // if not already done, send strings used for validation to JavaScript
         if (! $jsLangSent) {
@@ -355,7 +361,7 @@ class FormDisplay
 
         $js[] = "$.extend(defaultValues, {\n\t"
             . implode(",\n\t", $jsDefault) . '})';
-        $htmlOutput .= FormDisplayTemplate::displayJavascript($js);
+        $htmlOutput .= $this->formDisplayTemplate->displayJavascript($js);
 
         return $htmlOutput;
     }
@@ -442,11 +448,11 @@ class FormDisplay
                 // :group:end is changed to :group:end:{unique id} in Form class
                 $htmlOutput = '';
                 if (mb_substr($field, 7, 4) != 'end:') {
-                    $htmlOutput .= FormDisplayTemplate::displayGroupHeader(
+                    $htmlOutput .= $this->formDisplayTemplate->displayGroupHeader(
                         mb_substr($field, 7)
                     );
                 } else {
-                    FormDisplayTemplate::displayGroupFooter();
+                    $this->formDisplayTemplate->displayGroupFooter();
                 }
                 return $htmlOutput;
             case 'NULL':
@@ -498,7 +504,7 @@ class FormDisplay
         }
         $jsDefault[] = $jsLine;
 
-        return FormDisplayTemplate::displayInput(
+        return $this->formDisplayTemplate->displayInput(
             $translatedPath,
             $name,
             $type,
@@ -529,7 +535,7 @@ class FormDisplay
             } else {
                 $name = Descriptions::get('Form_' . $systemPath);
             }
-            $htmlOutput .= FormDisplayTemplate::displayErrors($name, $errorList);
+            $htmlOutput .= $this->formDisplayTemplate->displayErrors($name, $errorList);
         }
 
         return $htmlOutput;

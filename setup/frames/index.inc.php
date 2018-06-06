@@ -43,6 +43,8 @@ if (isset($_GET['version_check'])) {
 $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
 $configChecker->performConfigChecks();
 
+$formDisplayTemplate = new FormDisplayTemplate();
+
 //
 // Https connection warning (check done on the client side)
 //
@@ -131,7 +133,7 @@ echo '</legend>';
 //
 // Display server list
 //
-echo FormDisplayTemplate::displayFormTop(
+echo $formDisplayTemplate->displayFormTop(
     'index.php',
     'get',
     [
@@ -188,7 +190,7 @@ echo '</tr>';
 echo '</table>';
 echo '</div>';
 
-echo FormDisplayTemplate::displayFormBottom();
+echo $formDisplayTemplate->displayFormBottom();
 
 echo '</fieldset>';
 
@@ -199,7 +201,7 @@ echo '<fieldset class="simple"><legend>' , __('Configuration file') , '</legend>
 //
 $form_display = new FormDisplay($cf);
 
-echo FormDisplayTemplate::displayFormTop('config.php');
+echo $formDisplayTemplate->displayFormTop('config.php');
 echo '<table width="100%" cellspacing="0">';
 
 // Display language list
@@ -210,7 +212,7 @@ $opts = [
 foreach ($all_languages as $each_lang) {
     $opts['values'][$each_lang->getCode()] = $each_lang->getName();
 }
-echo FormDisplayTemplate::displayInput(
+echo $formDisplayTemplate->displayInput(
     'DefaultLang',
     __('Default language'),
     'select',
@@ -240,7 +242,7 @@ if ($cf->getServerCount() > 0) {
     $opts['values']['1'] = __('- none -');
     $opts['values_escaped'] = true;
 }
-echo FormDisplayTemplate::displayInput(
+echo $formDisplayTemplate->displayInput(
     'ServerDefault',
     __('Default server'),
     'select',
@@ -257,7 +259,7 @@ $opts = [
         'win' => 'Windows (\r\n)'],
     'values_escaped' => true];
 $eol = Core::ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
-echo FormDisplayTemplate::displayInput(
+echo $formDisplayTemplate->displayInput(
     'eol',
     __('End of line'),
     'select',
@@ -278,7 +280,7 @@ echo '</td>';
 echo '</tr>';
 echo '</table>';
 
-echo FormDisplayTemplate::displayFormBottom();
+echo $formDisplayTemplate->displayFormBottom();
 
 echo '</fieldset>';
 echo '<div id="footer">';
