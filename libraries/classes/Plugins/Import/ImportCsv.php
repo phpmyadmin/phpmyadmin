@@ -97,6 +97,14 @@ class ImportCsv extends AbstractImportCsv
             );
             $generalOptions->addProperty($leaf);
         } else {
+            $leaf = new NumberPropertyItem(
+                "partial_import",
+                __(
+                    'Import these many number of rows(optional): '
+                )
+            );
+            $generalOptions->addProperty($leaf);
+
             $hint = new Message(
                 __(
                     'If the data in each row of the file is not'
@@ -625,11 +633,13 @@ class ImportCsv extends AbstractImportCsv
                     $lasti = -1;
                     $ch = mb_substr($buffer, 0, 1);
                     if($max_lines > 0 && $line == $max_lines_constraint) {
+                        $finished = 1;
                         break;
                     }
                 }
             } // End of parser loop
             if($max_lines > 0 && $line == $max_lines_constraint) {
+                $finished = 1;
                 break;
             }
         } // End of import loop
