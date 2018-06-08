@@ -863,8 +863,8 @@ class Relation
                 SELECT `display_field`
                 FROM ' . Util::backquote($cfgRelation['db'])
                     . '.' . Util::backquote($cfgRelation['table_info']) . '
-                WHERE `db_name`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
-                    AND `table_name` = \'' . $GLOBALS['dbi']->escapeString($table)
+                WHERE `db_name`    = \'' . $GLOBALS['dbi']->escapeString((string)$db) . '\'
+                    AND `table_name` = \'' . $GLOBALS['dbi']->escapeString((string)$table)
                 . '\'';
 
             $row = $GLOBALS['dbi']->fetchSingleRow(

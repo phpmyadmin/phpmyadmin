@@ -173,55 +173,21 @@ list(
 // Embed some data into HTML, later it will be read
 // by designer/init.js and converted to JS variables.
 $response->addHTML(
-    $databaseDesigner->getHtmlForJsFields(
+    $databaseDesigner->getHtmlForMain(
+        $db,
+        $_GET['db'],
         $script_tables,
         $script_contr,
         $script_display_field,
-        $display_page
-    )
-);
-$response->addHTML(
-    $databaseDesigner->getPageMenu(
+        $display_page,
         isset($_REQUEST['query']),
         $selected_page,
-        $classes_side_menu
-    )
-);
-
-
-
-$response->addHTML('<div id="canvas_outer">');
-$response->addHTML(
-    '<form action="" id="container-form" method="post" name="form1">'
-);
-
-$response->addHTML($databaseDesigner->getHtmlCanvas());
-$response->addHTML($databaseDesigner->getHtmlTableList($tab_pos, $display_page));
-
-$response->addHTML(
-    $databaseDesigner->getDatabaseTables(
+        $classes_side_menu,
         $tab_pos,
-        $display_page,
         $tab_column,
         $tables_all_keys,
         $tables_pk_or_unique_keys
     )
 );
-$response->addHTML('</form>');
-$response->addHTML('</div>'); // end canvas_outer
-
-$response->addHTML('<div id="designer_hint"></div>');
-
-$response->addHTML($databaseDesigner->getNewRelationPanel());
-$response->addHTML($databaseDesigner->getDeleteRelationPanel());
-
-if (isset($_REQUEST['query'])) {
-    $response->addHTML($databaseDesigner->getOptionsPanel());
-    $response->addHTML($databaseDesigner->getRenameToPanel());
-    $response->addHTML($databaseDesigner->getHavingQueryPanel());
-    $response->addHTML($databaseDesigner->getAggregateQueryPanel());
-    $response->addHTML($databaseDesigner->getWhereQueryPanel());
-    $response->addHTML($databaseDesigner->getQueryDetails($_GET['db']));
-}
 
 $response->addHTML('<div id="PMA_disable_floating_menubar"></div>');

@@ -12,7 +12,7 @@
         style="position:absolute; left:
             {{- tab_pos[t_n] is defined ? tab_pos[t_n]['X'] : random(range(20, 700)) }}px; top:
             {{- tab_pos[t_n] is defined ? tab_pos[t_n]['Y'] : random(range(20, 550)) }}px; display:
-            {{- tab_pos[t_n] is defined or display_page == -1 ? 'block' : 'none' }}; z-index: 1;">
+            {{- tab_pos[t_n] is defined or display_page == -1 ? 'block' : 'none' }}; z-index: 1;"> <!--"-->
         <thead>
             <tr class="header">
                 {% if has_query %}

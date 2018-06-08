@@ -2925,7 +2925,7 @@ class Util
      */
     public static function isForeignKeySupported($engine)
     {
-        $engine = strtoupper($engine);
+        $engine = strtoupper((string)$engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
