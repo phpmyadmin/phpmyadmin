@@ -34,7 +34,8 @@ class Privileges
 
     /**
      * Privileges constructor.
-     * @param Template $template
+     *
+     * @param Template $template Template instance
      */
     public function __construct(Template $template)
     {
