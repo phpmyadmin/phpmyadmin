@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-06-01 05:01+0000\n"
+"PO-Revision-Date: 2018-06-09 15:06+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.0\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -8264,10 +8264,8 @@ msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
 #: libraries/classes/Normalization.php:801
-#, fuzzy
-#| msgid "Sep"
 msgid "Step 3."
-msgstr "ספטמבר"
+msgstr "שלב 3."
 
 #: libraries/classes/Normalization.php:801
 msgid "Find transitive dependencies"
@@ -8326,8 +8324,6 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/classes/Operations.php:105
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename database to"
 msgstr "שינוי שם מסד הנתונים לשם"
 
@@ -8335,12 +8331,11 @@ msgstr "שינוי שם מסד הנתונים לשם"
 #: libraries/classes/Operations.php:878 libraries/classes/Operations.php:965
 #: libraries/classes/Operations.php:1319
 #: templates/columns_definitions/column_adjust_privileges.twig:15
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "אין לך הרשאות מספיקות להיות כאן כרגע!"
+msgstr ""
+"אין לך מספיק הרשאות כדי לבצע פעולה זו, נא לפנות לתיעוד לקבלת פרטים נוספים"
 
 #: libraries/classes/Operations.php:159
 #, php-format
