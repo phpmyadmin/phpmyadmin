@@ -50,7 +50,7 @@ class Layout
          * main frame
          */
         // foreground (text) color for the main frame
-        $txt .= '$GLOBALS[\'cfg\'][\'MainColor\']                = \'#444\';';
+        $txt .= '$GLOBALS[\'cfg\'][\'MainColor\']                = \'' . $post['Text_Color'] . '\';';
         // background for the main frame
         $txt .= '$GLOBALS[\'cfg\'][\'MainBackground\']           = \'' . $post['Background_Color'] . '\';';
         // foreground (text) color of the pointer in browse mode

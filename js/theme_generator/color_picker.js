@@ -1392,15 +1392,15 @@ var ColorPickerTool = (function ColorPickerTool () {
         var samples = [];
         var color_palette;
         var complementary;
-        var pallete_size = 12;
+        var pallete_size = 17;
 
         var hideNode = function (node) {
             node.setAttribute('data-hidden', 'true');
         };
 
         var ColorSample = function ColorSample (id) {
-            var title = ['Base Colour','Navigation Panel','Navigation Hover','Background Color','Table Header and Footer','Table Header and Footer Background',
-                            'Table Row Background','Table Row Alternate Background','Header','Hyperlink Text','Group Background'];
+            var title = ['Base Colour','Group Background','Background Color','Navigation Panel','Navigation Hover','Hyperlink Text','Table Header and Footer','Table Header and Footer Background',
+                'Table Row Background','Table Row Alternate Background','Header','Text Color'];
             var node = document.createElement('div');
             node.className = 'sample';
 

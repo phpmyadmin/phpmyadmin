@@ -607,7 +607,7 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
  */
 
 #palette {
-    width: 700px;
+    width: 820px;
     height: 220px;
     padding: 10px 0;
     background-image: url(<?php echo $grain; ?>);
@@ -621,7 +621,7 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
 }
 
 #color-palette {
-    width: 640px;
+    width: 1000px;
     font-family: Arial, Helvetica, sans-serif;
     color: #777;
     float: left;
@@ -648,7 +648,7 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
 }
 
 #color-palette .palette {
-    width: 456px;
+    width: 647px;
     height: 38px;
     margin: 3px;
     padding: 3px;

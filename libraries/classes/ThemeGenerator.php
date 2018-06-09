@@ -12,6 +12,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Theme\Navigation;
 use PhpMyAdmin\Theme\Layout;
 use PhpMyAdmin\Theme\Common;
+use PhpMyAdmin\Template;
 
 /**
  * Set of functions for Automated Theme Generator in phpMyAdmin
@@ -28,15 +29,7 @@ class ThemeGenerator
      */
     public function colorPicker()
     {
-        $output = '<div id="container">';
-        $output .= '<div id="palette" class="block">';
-        $output .= '<div id="color-palette"></div>';
-        $output .= '</div>';
-        $output .= '<div id="picker" class="block">';
-        $output .= '<div class="ui-color-picker" data-topic="picker" data-mode="HSB"></div>';
-        $output .= '<div id="picker-samples" sample-id="master"></div>';
-        $output .= '</div>';
-        $output .= '</div>';
+        $output = Template::get('theme_generator/color_picker')->render();
         return $output;
     }
 
@@ -47,18 +40,7 @@ class ThemeGenerator
      */
     public function form()
     {
-        $output = '<form action="index.php" method="post" id="save">';
-        $output .= '<select name="type" id="theme">';
-        $output .= '<option value="0">Triadic</option>';
-        $output .= '<option value="1">Complementary</option>';
-        $output .= '<option value="2">Adjacent</option>';
-        $output .= '<option value="3">Monochrome</option>';
-        $output .= '</select>';
-        $output .= '<br>';
-        $output .= '<input type="text" name="theme_name"></input>';
-        $output .= '<br><br>';
-        $output .= '<input type="submit">';
-        $output .= '</form>';
+        $output = Template::get('theme_generator/form')->render();
         return $output;
     }
 
@@ -91,7 +73,7 @@ class ThemeGenerator
      *
      * @param string $name name of new theme
      *
-     * @return null
+     * @return string JSON file data
      */
     public function createJsonFile($name)
     {
@@ -106,7 +88,7 @@ class ThemeGenerator
         $txt .= '}';
         fwrite($file, $txt);
         fclose($file);
-        return null;
+        return $txt;
     }
 }
 
