@@ -367,7 +367,7 @@ class Designer
         $designerConfig->scriptContr = $scriptContr;
         $designerConfig->server = $GLOBALS['server'];
         $designerConfig->scriptDisplayField = $scriptDisplayField;
-        $designerConfig->displayPage = ($displayPage === '' ? '-1' : $displayPage);
+        $designerConfig->displayPage = $displayPage;
         $designerConfig->tablesEnabled = $cfgRelation['pdfwork'];
 
         return Template::get('database/designer/main')->render([
