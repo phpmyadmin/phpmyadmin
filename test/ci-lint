@@ -1,7 +1,7 @@
 #!/bin/sh
 
-./vendor/bin/phpcs --version
-./vendor/bin/phpcs -n --report=summary
+./vendor/bin/phpcs --version &&
+./vendor/bin/phpcs -n --report=summary &&
 
-echo "ESLint `./node_modules/.bin/eslint --version`"
+echo "ESLint `./node_modules/.bin/eslint --version`" &&
 ./node_modules/.bin/eslint --quiet ./js
