@@ -55,7 +55,15 @@ class Common
         $GLOBALS['designer']['TABLE_NAME'] = [];// that foreach no error
         $GLOBALS['designer']['OWNER'] = [];
         $GLOBALS['designer']['TABLE_NAME_SMALL'] = [];
+        $GLOBALS['designer']['TABLE_TYPE'] = [];
 
+        $GLOBALS['designer_url']['TABLE_NAME'] = [];
+        $GLOBALS['designer_url']['OWNER'] = [];
+        $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = [];
+
+        $GLOBALS['designer_out']['TABLE_NAME'] = [];
+        $GLOBALS['designer_out']['OWNER'] = [];
+        $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = [];
         $tables = $this->dbi->getTablesFull($GLOBALS['db']);
         // seems to be needed later
         $this->dbi->selectDb($GLOBALS['db']);
