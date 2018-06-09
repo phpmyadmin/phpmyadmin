@@ -360,15 +360,21 @@ class Designer
                 }
             }
         }
+
+        $designerConfig = new \stdClass();
+        $designerConfig->db = $db;
+        $designerConfig->scriptTables = $scriptTables;
+        $designerConfig->scriptContr = $scriptContr;
+        $designerConfig->server = $GLOBALS['server'];
+        $designerConfig->scriptDisplayField = $scriptDisplayField;
+        $designerConfig->displayPage = ($displayPage === '' ? '-1' : $displayPage);
+        $designerConfig->tablesEnabled = $cfgRelation['pdfwork'];
+
         return Template::get('database/designer/main')->render([
-            'server' => $GLOBALS['server'],
             'db' => $db,
             'get_db' => $getDb,
-            'script_tables' => json_encode($scriptTables),
-            'script_contr' => json_encode($scriptContr),
-            'script_display_field' => json_encode($scriptDisplayField),
+            'designer_config'=> json_encode($designerConfig),
             'display_page' => $displayPage,
-            'relation_pdfwork' => $cfgRelation['pdfwork'],
             'has_query' => $hasQuery,
             'selected_page' => $selectedPage,
             'params_array' => $paramsArray,
