@@ -1,5 +1,5 @@
-{% for i in 0..table_names|length - 1 %}
-    {% set t_n = table_names[i] %}
+{% for t_n in table_names %}
+    {% set i = loop.index0 %}
     {% set t_n_url = table_names_url[i] %}
     <input name="t_x[{{ t_n_url|url_encode }}]" type="hidden" id="t_x_{{ t_n_url|url_encode }}_" />
     <input name="t_y[{{ t_n_url|url_encode }}]" type="hidden" id="t_y_{{ t_n_url|url_encode }}_" />
