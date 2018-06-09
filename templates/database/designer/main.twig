@@ -227,17 +227,17 @@ var designer_config = {{ designer_config | raw }};
                                 width="1px"
                                 class="L_butt2_1">
                                 <img alt=""
-                                    table_name="{{ table_names_small_url[i] }}"
+                                    table_name="{{ table_names_small_url[i]|url_encode }}"
                                     class="scroll_tab_struct"
                                     src="{{ theme.getImgPath('designer/exec.png') }}"/>
                             </td>
                             <td width="1px">
                                 <input class="scroll_tab_checkbox"
                                     title="{% trans 'Hide' %}"
-                                    id="check_vis_{{ table_names_url[i] }}"
+                                    id="check_vis_{{ table_names_url[i]|url_encode }}"
                                     style="margin:0;"
                                     type="checkbox"
-                                    value="{{ table_names_url[i] }}"
+                                    value="{{ table_names_url[i]|url_encode }}"
                                     {% if (tab_pos[table_names[i]] is defined
                                         and tab_pos[table_names[i]]['H'])
                                         or display_page == -1 -%}
@@ -245,7 +245,7 @@ var designer_config = {{ designer_config | raw }};
                                     {%- endif %} />
                             </td>
                             <td class="designer_Tabs"
-                                designer_url_table_name="{{ table_names_url[i] }}">
+                                designer_url_table_name="{{ table_names_url[i]|url_encode }}">
                                 {{ table_names_out[i]|raw }}
                             </td>
                         </tr>
