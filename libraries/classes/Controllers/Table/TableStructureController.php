@@ -1372,7 +1372,7 @@ class TableStructureController extends TableController
 
             if (in_array($field['Field'], $columns_with_index)) {
                 $displayed_fields[$rownum]->icon .=
-                Util::getImage('b_key', __('Index'));
+                Util::getImage('bd_primary', __('Index'));
             }
         }
 
