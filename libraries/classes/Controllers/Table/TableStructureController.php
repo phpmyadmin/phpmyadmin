@@ -1334,8 +1334,7 @@ class TableStructureController extends TableController
         $rownum = 0;
         $columns_list = [];
         $attributes = [];
-        $displayed_field_names = [];
-        $displayed_field_names_replaced = [];
+        $displayed_fields = [];
         $row_comments = [];
         $extracted_columnspecs = [];
         foreach ($fields as $field) {
@@ -1356,30 +1355,25 @@ class TableStructureController extends TableController
                 $field = array_merge($field, ['Default' => $field['Default']]);
             }
 
-            $displayed_field_names[$rownum] = $field['Field'];
+            $displayed_fields[$rownum] = new \stdClass();
+            $displayed_fields[$rownum]->text = $field['Field'];
+            $displayed_fields[$rownum]->icon = "";
             $row_comments[$rownum] = '';
 
             if (isset($comments_map[$field['Field']])) {
-                $displayed_field_names[$rownum] = '<span ' .
-                'class="commented_column" title="' . $comments_map[$field['Field']] .
-                '">' . htmlspecialchars($field['Field']) . "</span>";
+                $displayed_fields[$rownum]->comment = $comments_map[$field['Field']];
                 $row_comments[$rownum] = $comments_map[$field['Field']];
             }
 
             if ($primary_index && $primary_index->hasColumn($field['Field'])) {
-                $displayed_field_names[$rownum] = $displayed_field_names[$rownum] .
+                $displayed_fields[$rownum]->icon .=
                 Util::getImage('b_primary', __('Primary'));
             }
 
             if (in_array($field['Field'], $columns_with_index)) {
-                $displayed_field_names[$rownum] = $displayed_field_names[$rownum] .
+                $displayed_fields[$rownum]->icon .=
                 Util::getImage('b_key', __('Index'));
             }
-            $displayed_field_names_replaced[$rownum] = preg_replace(
-                '/[\\x00-\\x1F]/',
-                '&#x2051;',
-                $displayed_field_names[$rownum]
-            );
         }
 
         return Template::get('table/structure/display_structure')->render(
@@ -1417,8 +1411,7 @@ class TableStructureController extends TableController
                 'partition_names' => Partition::getPartitionNames($this->db, $this->table),
                 'columns_list' => $columns_list,
                 'attributes' => $attributes,
-                'displayed_field_names' => $displayed_field_names,
-                'displayed_field_names_replaced' => $displayed_field_names_replaced,
+                'displayed_fields' => $displayed_fields,
                 'row_comments' => $row_comments,
             ]
         );
