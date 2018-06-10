@@ -601,7 +601,7 @@ class CentralColumns
         );
         $cols = '';
         foreach ($fields as $col_select) {
-            $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
+            $cols .= '\'' . $this->dbi->escapeString((string)$col_select) . '\',';
         }
         $cols = trim($cols, ',');
         $has_list = $this->findExistingColNames($db, $cols, $allFields);
