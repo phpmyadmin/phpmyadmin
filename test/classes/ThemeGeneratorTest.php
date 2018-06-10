@@ -103,7 +103,11 @@ class ThemeGeneratorTest extends PmaTestCase
      */
     public function deleteFiles($name)
     {
-        unlink('themes/' . $name  . '/theme.json');
+        unlink('themes/' . $name . '/theme.json');
         unlink('themes/' . $name . '/layout.inc.php');
+        unlink('themes/' . $name . '/css/common.css.php');
+        unlink('themes/' . $name . '/css/navigation.css.php');
+        rmdir('themes/' . $name . '/css');
+        rmdir('themes/' . $name);
     }
 }
