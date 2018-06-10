@@ -49,10 +49,11 @@ class ThemeGenerator
      *
      * @param array $post POST form data
      *
-     * @return null
+     * @return array $out generated file data
      */
     public function createFileStructure(array $post)
     {
+        $out = array();
         $nav = new Navigation();
         $layout = new Layout();
         $common = new Common();
@@ -60,12 +61,12 @@ class ThemeGenerator
         if (!is_dir("themes/" . $name)) {
             mkdir("themes/" . $name);
             mkdir("themes/" . $name . "/css");
-            $this->createJsonFile($name);
         }
+        $out['json'] = $this->createJsonFile($name);
         $common->createCommonFile($name);
-        $layout->createLayoutFile($post);
+        $out['layout'] = $layout->createLayoutFile($post);
         $nav->createNavigationFile($name);
-        return null;
+        return $out;
     }
 
     /**
@@ -73,7 +74,7 @@ class ThemeGenerator
      *
      * @param string $name name of new theme
      *
-     * @return string JSON file data
+     * @return string $txt JSON file data
      */
     public function createJsonFile($name)
     {

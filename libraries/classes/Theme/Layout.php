@@ -21,7 +21,7 @@ class Layout
      *
      * @param array $post POST form data
      *
-     * @return null
+     * @return string $txt layout.inc.php file data
      */
     public function createLayoutFile(array $post)
     {
@@ -100,6 +100,6 @@ class Layout
 
         fwrite($file, $txt);
         fclose($file);
-        return null;
+        return $txt;
     }
 }
