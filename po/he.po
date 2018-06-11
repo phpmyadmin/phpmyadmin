@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-06-09 15:06+0000\n"
+"PO-Revision-Date: 2018-06-12 17:34+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.0\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -3595,61 +3595,63 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:153
 msgid "Check config file permissions"
-msgstr ""
+msgstr "יש לבדוק את הרשאות קובץ ההגדרות"
 
 #: libraries/classes/Config/Descriptions.php:156
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
+"ניתן לדחוס נתונים מיוצאים עם gzip על הדרך מבלי לצרוך הרבה זיכרון, אם נתקלת "
+"בבעיות עם קובצי gzip שנוצרו דרך כאן יש להשבית את התכונה הזו."
 
 #: libraries/classes/Config/Descriptions.php:160
 msgid "Compress on the fly"
-msgstr ""
+msgstr "דחיסה על הדרך"
 
 #: libraries/classes/Config/Descriptions.php:163
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
-msgstr ""
+msgstr "האם יש להציג אזהרה כשעלול להתרחש אובדן נתונים."
 
 #: libraries/classes/Config/Descriptions.php:167
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "אישור שאילתות השמטה (DROP)"
 
 #: libraries/classes/Config/Descriptions.php:169
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "תיעוד שאילתות SQL ואת זמן ההפעלה שלהן, יוצג במסוף"
 
 #: libraries/classes/Config/Descriptions.php:171
 #: templates/console/display.twig:11 templates/console/display.twig:64
 msgid "Debug SQL"
-msgstr ""
+msgstr "ניפוי שגיאות SQL"
 
 #: libraries/classes/Config/Descriptions.php:173
 msgid "Tab that is displayed when entering a database."
-msgstr ""
+msgstr "לשונית שמופיעה בעת כניסה למסד הנתונים."
 
 #: libraries/classes/Config/Descriptions.php:175
 msgid "Default database tab"
-msgstr "לשונית מסד נתונים כבררת מחדל"
+msgstr "לשונית בררת מחדל למסדי נתונים"
 
 #: libraries/classes/Config/Descriptions.php:177
 msgid "Tab that is displayed when entering a server."
-msgstr ""
+msgstr "לשונית שמוצגת בעת כניסה לשרת."
 
 #: libraries/classes/Config/Descriptions.php:179
 msgid "Default server tab"
-msgstr ""
+msgstr "לשונית שרת כבררת מחדל"
 
 #: libraries/classes/Config/Descriptions.php:181
 msgid "Tab that is displayed when entering a table."
-msgstr ""
+msgstr "לשונית שמופיעה בעת כניסה לטבלה."
 
 #: libraries/classes/Config/Descriptions.php:183
 msgid "Default table tab"
-msgstr ""
+msgstr "לשונית טבלה כבררת מחדל"
 
 #: libraries/classes/Config/Descriptions.php:185
 msgid "Autocomplete of the table and column names in the SQL queries."
@@ -16408,15 +16410,15 @@ msgstr ""
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr ""
+msgstr "קצב קריאת השורה הבאה בטבלה: %s, ערך זה אמור להיות פחות מ־1 בשעה"
 
 #: libraries/advisory_rules.txt:255
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size ו־max_heap_table_size שונים"
 
 #: libraries/advisory_rules.txt:258
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
+msgstr "{tmp_table_size} ו־{max_heap_table_size} אינם זהים."
 
 #: libraries/advisory_rules.txt:259
 msgid ""
@@ -16429,7 +16431,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:260
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "הערכים הנוכחיים הם tmp_table_size: %s,‏ max_heap_table_size: %s"
 
 #: libraries/advisory_rules.txt:262
 msgid "Percentage of temp tables on disk"
@@ -16439,7 +16441,7 @@ msgstr "אחוז הטבלאות הזמניות בכונן"
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
-msgstr ""
+msgstr "טבלאות זמניות רבות נכתבות לכונן במקום שתישמרנה בזיכרון."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -16457,7 +16459,7 @@ msgstr ""
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
-msgstr ""
+msgstr "%s%% מכל הטבלאות הזמניות נכתבות לכונן, ערך זה אמור להיות מתחת ל־25%%"
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
@@ -16479,7 +16481,7 @@ msgstr ""
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
-msgstr ""
+msgstr "קצב הטבלאות הזמניות שנכתבות לכונן: %s, ערך זה אמור להיות פחות מ־1 בשעה"
 
 #: libraries/advisory_rules.txt:278
 #, fuzzy
@@ -16498,7 +16500,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:283
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size הוא 0"
 
 #: libraries/advisory_rules.txt:285
 #, fuzzy, php-format
@@ -16545,7 +16547,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:304
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "יתכן שיהיה עליך להגדיל את {key_buffer_size}."
 
 #: libraries/advisory_rules.txt:305
 #, php-format
@@ -16565,6 +16567,8 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"פתיחת טבלאות דורשת פעילות קלט/פלט בכונן שהיא פעולה בזבזנית. הגדלת "
+"{table_open_cache} עשויה למנוע זאת."
 
 #: libraries/advisory_rules.txt:314
 #, php-format
@@ -16580,12 +16584,16 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"מספר הקבצים הפתוחים מגיע לסף המרבי של קבצים פתוחים.  יתכן ותתקבל שגיאת „יותר "
+"מדי קבצים פתוחים”."
 
 #: libraries/advisory_rules.txt:320 libraries/advisory_rules.txt:327
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
+"כדאי לנסות להגדיל את {open_files_limit}, ולבדוק מה כתוב ברישום השגיאות בעת "
+"הפעלה מחדש לאחר השינוי של {open_files_limit}."
 
 #: libraries/advisory_rules.txt:321
 #, php-format
