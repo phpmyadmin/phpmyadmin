@@ -1250,11 +1250,14 @@ class Relation
 
         foreach ($foreign as $key => $value) {
             $vtitle = '';
+            $key = (string) $key;
+            $value = (string) $value;
+            $data = (string) $data;
 
             if (mb_check_encoding($key, 'utf-8')
                 && !preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $key)
             ) {
-                $selected = ((string) $key == (string) $data);
+                $selected = ($key == $data);
                 // show as text if it's valid utf-8
                 $key = htmlspecialchars($key);
             } else {
