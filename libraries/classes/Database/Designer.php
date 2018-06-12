@@ -145,54 +145,6 @@ class Designer
     }
 
     /**
-     * Returns HTML for including some variable to be accessed by JavaScript
-     *
-     * @param array $script_tables        array on foreign key support for each table
-     * @param array $script_contr         initialization data array
-     * @param array $script_display_field display fields of each table
-     * @param int   $display_page         page number of the selected page
-     *
-     * @return string html
-     */
-    public function getHtmlForJsFields(
-        array $script_tables,
-        array $script_contr,
-        array $script_display_field,
-        $display_page
-    ) {
-        $cfgRelation = $this->relation->getRelationsParam();
-        return Template::get('database/designer/js_fields')->render([
-            'server' => $GLOBALS['server'],
-            'db' => $_GET['db'],
-            'script_tables' => json_encode($script_tables),
-            'script_contr' => json_encode($script_contr),
-            'script_display_field' => json_encode($script_display_field),
-            'display_page' => $display_page,
-            'relation_pdfwork' => $cfgRelation['pdfwork'],
-        ]);
-    }
-
-    /**
-     * Returns HTML for the menu bar of the designer page
-     *
-     * @param boolean $visualBuilder whether this is visual query builder
-     * @param string  $selectedPage  name of the selected page
-     * @param array   $paramsArray   array with class name for various buttons
-     *                               on side menu
-     *
-     * @return string html
-     */
-    public function getPageMenu($visualBuilder, $selectedPage, array $paramsArray)
-    {
-        return Template::get('database/designer/side_menu')->render([
-            'visual_builder' => $visualBuilder,
-            'selected_page' => $selectedPage,
-            'params_array' => $paramsArray,
-            'theme' => $GLOBALS['PMA_Theme'],
-        ]);
-    }
-
-    /**
      * Returns array of stored values of Designer Settings
      *
      * @return array stored values
@@ -280,37 +232,6 @@ class Designer
     }
 
     /**
-     * Returns HTML for the canvas element
-     *
-     * @return string html
-     */
-    public function getHtmlCanvas()
-    {
-        return Template::get('database/designer/canvas')->render();
-    }
-
-    /**
-     * Return HTML for the table list
-     *
-     * @param array $tab_pos      table positions
-     * @param int   $display_page page number of the selected page
-     *
-     * @return string html
-     */
-    public function getHtmlTableList(array $tab_pos, $display_page)
-    {
-        return Template::get('database/designer/table_list')->render([
-            'tab_pos' => $tab_pos,
-            'display_page' => $display_page,
-            'theme' => $GLOBALS['PMA_Theme'],
-            'table_names' => $GLOBALS['designer']['TABLE_NAME'],
-            'table_names_url' => $GLOBALS['designer_url']['TABLE_NAME'],
-            'table_names_small_url' => $GLOBALS['designer_url']['TABLE_NAME_SMALL'],
-            'table_names_out' => $GLOBALS['designer_out']['TABLE_NAME'],
-        ]);
-    }
-
-    /**
      * Get HTML to display tables on designer page
      *
      * @param array $tab_pos                  tables positions
@@ -375,93 +296,97 @@ class Designer
         ]);
     }
 
-    /**
-     * Returns HTML for the new relations panel.
-     *
-     * @return string html
-     */
-    public function getNewRelationPanel()
-    {
-        return Template::get('database/designer/new_relation_panel')
-            ->render();
-    }
 
     /**
-     * Returns HTML for the relations delete panel
+     * Returns HTML for Designer page
+     *
+     * @param string  $db                   database in use
+     * @param string  $getDb                database in url
+     * @param array   $scriptTables         array on foreign key support for each table
+     * @param array   $scriptContr          initialization data array
+     * @param array   $scriptDisplayField   display fields of each table
+     * @param int     $displayPage          page number of the selected page
+     * @param boolean $hasQuery             whether this is visual query builder
+     * @param string  $selectedPage         name of the selected page
+     * @param array   $paramsArray          array with class name for various buttons on side menu
+     *                                          on side menu
+     * @param array   $tabPos               table positions
+     * @param array   $tabColumn            table column info
+     * @param array   $tablesAllKeys        all indices
+     * @param array   $tablesPkOrUniqueKeys unique or primary indices
      *
      * @return string html
      */
-    public function getDeleteRelationPanel()
+    public function getHtmlForMain(
+        string $db,
+        string $getDb,
+        array $scriptTables,
+        array $scriptContr,
+        array $scriptDisplayField,
+        $displayPage,
+        $hasQuery,
+        $selectedPage,
+        array $paramsArray,
+        array $tabPos,
+        array $tabColumn,
+        array $tablesAllKeys,
+        array $tablesPkOrUniqueKeys
+    ): string
     {
-        return Template::get('database/designer/delete_relation_panel')
-            ->render();
-    }
-
-    /**
-     * Returns HTML for the options panel
-     *
-     * @return string html
-     */
-    public function getOptionsPanel()
-    {
-        return Template::get('database/designer/options_panel')->render();
-    }
-
-    /**
-     * Get HTML for the 'rename to' panel
-     *
-     * @return string html
-     */
-    public function getRenameToPanel()
-    {
-        return Template::get('database/designer/rename_to_panel')
-            ->render();
-    }
-
-    /**
-     * Returns HTML for the 'having' panel
-     *
-     * @return string html
-     */
-    public function getHavingQueryPanel()
-    {
-        return Template::get('database/designer/having_query_panel')
-            ->render();
-    }
-
-    /**
-     * Returns HTML for the 'aggregate' panel
-     *
-     * @return string html
-     */
-    public function getAggregateQueryPanel()
-    {
-        return Template::get('database/designer/aggregate_query_panel')
-            ->render();
-    }
-
-    /**
-     * Returns HTML for the 'where' panel
-     *
-     * @return string html
-     */
-    public function getWhereQueryPanel()
-    {
-        return Template::get('database/designer/where_query_panel')
-            ->render();
-    }
-
-    /**
-     * Returns HTML for the query details panel
-     *
-     * @param string $db Database name
-     *
-     * @return string html
-     */
-    public function getQueryDetails($db)
-    {
-        return Template::get('database/designer/query_details')->render([
+        $cfgRelation = $this->relation->getRelationsParam();
+        $tableNames = $GLOBALS['designer']['TABLE_NAME'];
+        $columnsType = array();
+        foreach ($tableNames as $tableName) {
+            $limit = count($tabColumn[$tableName]['COLUMN_ID']);
+            for ($j = 0; $j < $limit; $j++) {
+                $tableColumnName = $tableName . '.' . $tabColumn[$tableName]['COLUMN_NAME'][$j];
+                if (isset($tablesPkOrUniqueKeys[$tableColumnName])) {
+                    $columnsType[$tableColumnName] = 'designer/FieldKey_small';
+                } else {
+                    $columnsType[$tableColumnName] = 'designer/Field_small';
+                    if (strstr($tabColumn[$tableName]['TYPE'][$j], 'char')
+                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'text')) {
+                        $columnsType[$tableColumnName] .= '_char';
+                    } elseif (strstr($tabColumn[$tableName]['TYPE'][$j], 'int')
+                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'float')
+                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'double')
+                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'decimal')) {
+                        $columnsType[$tableColumnName] .= '_int';
+                    } elseif (strstr($tabColumn[$tableName]['TYPE'][$j], 'date')
+                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'time')
+                        || strstr($tabColumn[$tableName]['TYPE'][$j], 'year')) {
+                        $columnsType[$tableColumnName] .= '_date';
+                    }
+                }
+            }
+        }
+        return Template::get('database/designer/main')->render([
+            'server' => $GLOBALS['server'],
             'db' => $db,
+            'get_db' => $getDb,
+            'script_tables' => json_encode($scriptTables),
+            'script_contr' => json_encode($scriptContr),
+            'script_display_field' => json_encode($scriptDisplayField),
+            'display_page' => $displayPage,
+            'relation_pdfwork' => $cfgRelation['pdfwork'],
+            'has_query' => $hasQuery,
+            'selected_page' => $selectedPage,
+            'params_array' => $paramsArray,
+            'theme' => $GLOBALS['PMA_Theme'],
+            'tab_pos' => $tabPos,
+            'tab_column' => $tabColumn,
+            'tables_all_keys' => $tablesAllKeys,
+            'tables_pk_or_unique_keys' => $tablesPkOrUniqueKeys,
+            'table_names' => $tableNames,
+            'table_names_url' => $GLOBALS['designer_url']['TABLE_NAME'],
+            'table_names_small' => $GLOBALS['designer']['TABLE_NAME_SMALL'],
+            'table_names_small_url' => $GLOBALS['designer_url']['TABLE_NAME_SMALL'],
+            'table_names_small_out' => $GLOBALS['designer_out']['TABLE_NAME_SMALL'],
+            'table_names_out' => $GLOBALS['designer_out']['TABLE_NAME'],
+            'table_types' => $GLOBALS['designer']['TABLE_TYPE'],
+            'owner_out' => $GLOBALS['designer_out']['OWNER'],
+            'columns_type' => $columnsType,
         ]);
     }
+
 }
