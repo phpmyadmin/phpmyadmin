@@ -297,7 +297,7 @@ class Designer
      *
      * @return string html
      */
-    public function getHtmlTableList(array $tab_pos, $display_page)
+    public function getHtmlTableList($tab_pos, $display_page)
     {
         return Template::get('database/designer/table_list')->render([
             'tab_pos' => $tab_pos,
@@ -322,7 +322,7 @@ class Designer
      * @return string html
      */
     public function getDatabaseTables(
-        array $tab_pos,
+        $tab_pos,
         $display_page,
         array $tab_column,
         array $tables_all_keys,
