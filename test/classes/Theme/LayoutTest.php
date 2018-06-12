@@ -21,7 +21,7 @@ class LayoutTest extends PmaTestCase
     /**
      * Test for Layout::createLayoutFile
      *
-     * @param string $name name of new theme
+     * @param string $name   name of new theme
      *
      * @param string $output layout file data
      *

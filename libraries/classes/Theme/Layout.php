@@ -93,6 +93,8 @@ class Layout
         $txt .= '$GLOBALS[\'cfg\'][\'BgOne\']                = \'' . $post['Table_Row_Background'] . '\';';
         // table data row background, alternate
         $txt .= '$GLOBALS[\'cfg\'][\'BgTwo\']                = \'' . $post['Table_Row_Alternate_Background'] . '\';';
+        //table hover and selected
+        $txt .= '$GLOBALS[\'cfg\'][\'BgThree\']                = \'' . $post['Table_Row_Hover_and_Selected'] . '\';';
         // Hyperlink Text
         $txt .= '$GLOBALS[\'cfg\'][\'Hyperlink\']            = \'' . $post['Hyperlink_Text'] . '\';';
         // Group Background

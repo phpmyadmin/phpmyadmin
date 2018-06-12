@@ -571,7 +571,7 @@ class Common
         $txt .= 'table tbody:first-of-type tr:nth-child(odd) th,';
         $txt .= '#table_index tbody:nth-of-type(odd) tr,';
         $txt .= '#table_index tbody:nth-of-type(odd) th {';
-        $txt .= '    background: #fff;';
+        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgOne\']; ?>;';
         $txt .= '}';
 
         /* even items 2,4,6,8,... */
@@ -579,7 +579,7 @@ class Common
         $txt .= 'table tbody:first-of-type tr:nth-child(even) th,';
         $txt .= '#table_index tbody:nth-of-type(even) tr,';
         $txt .= '#table_index tbody:nth-of-type(even) th {';
-        $txt .= '    background: #DFDFDF;';
+        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgTwo\']; ?>;';
         $txt .= '}';
 
         $txt .= 'table tr th,';
@@ -592,7 +592,7 @@ class Common
         $txt .= 'table tr.marked:not(.nomarker) td,';
         $txt .= 'table tbody:first-of-type tr.marked:not(.nomarker) th,';
         $txt .= 'table tr.marked:not(.nomarker) {';
-        $txt .= '    <?php echo $theme->getCssGradient(\'ced6df\', \'b6c6d7\'); ?>';
+        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgThree\']; ?>;';
         $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'BrowseMarkerColor\']; ?>;';
         $txt .= '}';
 
@@ -600,7 +600,7 @@ class Common
         $txt .= 'table tbody:first-of-type tr:not(.nopointer):hover,';
         $txt .= 'table tbody:first-of-type tr:not(.nopointer):hover th,';
         $txt .= '.hover:not(.nopointer) {';
-        $txt .= '    <?php echo $theme->getCssGradient(\'ced6df\', \'b6c6d7\'); ?>';
+        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgThree\']; ?>;';
         $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'BrowsePointerColor\']; ?>;';
         $txt .= '}';
 
@@ -608,7 +608,7 @@ class Common
         $txt .= '#table_index tbody:hover tr,';
         $txt .= '#table_index tbody:hover th,';
         $txt .= 'table tr.hover:not(.nopointer) th {';
-        $txt .= '    <?php echo $theme->getCssGradient(\'ced6df\', \'b6c6d7\'); ?>';
+        $txt .= '    background: <?php echo $GLOBALS[\'cfg\'][\'BgThree\']; ?>;';
         $txt .= '    color: <?php echo $GLOBALS[\'cfg\'][\'BrowsePointerColor\']; ?>;';
         $txt .= '}';
 

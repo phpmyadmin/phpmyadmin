@@ -1399,7 +1399,7 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         var ColorSample = function ColorSample (id) {
-            var title = ['Base Colour','Group Background','Background Color','Navigation Panel','Navigation Hover','Hyperlink Text','Table Header and Footer','Table Header and Footer Background',
+            var title = ['Base Colour','Group Background','Background Color','Navigation Panel','Navigation Hover','Hyperlink Text','Table Row Hover and Selected','Table Header and Footer','Table Header and Footer Background',
                 'Table Row Background','Table Row Alternate Background','Header','Text Color'];
             var node = document.createElement('div');
             node.className = 'sample';

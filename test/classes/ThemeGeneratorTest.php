@@ -82,7 +82,7 @@ class ThemeGeneratorTest extends PmaTestCase
     /**
      * Test for ThemeGenerator::createJsonFile
      *
-     * @param string $name name of new theme
+     * @param string $name   name of new theme
      *
      * @param string $output JSON file data
      *
