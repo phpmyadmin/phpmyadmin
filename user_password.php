@@ -21,7 +21,7 @@ require_once './libraries/common.inc.php';
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('server_privileges.js');
+$scripts->addFile('server_privileges');
 $scripts->addFile('vendor/zxcvbn.js');
 
 $userPassword = new UserPassword();

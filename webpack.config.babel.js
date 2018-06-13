@@ -1,7 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
-
+import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 // let dev server port be 3307
+let plugin = BundleAnalyzerPlugin.BundleAnalyzerPlugin;
 
 var mode = 'development';
 var module = {
@@ -15,13 +16,15 @@ var devServer = {
     hot: false,
     headers: {
         'Access-Control-Allow-Origin': '*'
-    }
+    },
+
 };
 var plugins = [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new plugin()
 ];
 
 export default [{
@@ -38,7 +41,7 @@ export default [{
         // db_multi_table_query_new: './js/src/db_multi_table_query.js',
         // db_operations_new: './js/src/db_operations.js',
         // db_qbe_new: './js/src/db_qbe.js',
-        db_search_new: './js/src/db_search.js',
+        // db_search_new: './js/src/db_search.js',
         // db_structure_new: './js/src/db_structure.js',
         // db_tracking_new: './js/src/db_tracking.js',
         // doclinks_new: './js/src/doclinks.js',
@@ -61,9 +64,9 @@ export default [{
         // replication_new: './js/src/replication.js',
         // rte_new: './js/src/rte.js',
         // server_databases_new: './js/src/server_databases.js',
-        server_plugins_new: './js/src/server_plugins.js',
-        server_privileges_new: './js/src/server_privileges.js',
-        server_status_advisor_new: './js/src/server_status_advisor.js',
+        // server_plugins_new: './js/src/server_plugins.js',
+        // server_privileges_new: './js/src/server_privileges.js',
+        // server_status_advisor_new: './js/src/server_status_advisor.js',
         // server_status_monitor_new: './js/src/server_status_monitor.js',
         // server_status_processes_new: './js/src/server_status_processes.js',
         // server_status_queries_new: './js/src/server_status_queries.js',
@@ -80,7 +83,7 @@ export default [{
         // tbl_operations_new: './js/src/tbl_operations.js',
         // tbl_relation_new: './js/src/tbl_relation.js',
         // tbl_select_new: './js/src/tbl_select.js',
-        tbl_structure_new: './js/src/tbl_structure.js',
+        // tbl_structure_new: './js/src/tbl_structure.js',
         // tbl_tracking_new: './js/src/tbl_tracking.js',
         // tbl_zoom_plot_jqplot_new: './js/src/tbl_zoom_plot_jqplot.js',
         // u2f_new: './js/src/u2f.js'
@@ -90,6 +93,28 @@ export default [{
         path: path.resolve(__dirname, 'js/dist'),
         // url on which dev server will run
         publicPath: 'http://localhost:3307/js/dist/'
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 30000,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '~',
+            name: true,
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10
+                },
+                default: {
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true
+                }
+            }
+        }
     },
     module: module,
     // devtool: 'source-map',

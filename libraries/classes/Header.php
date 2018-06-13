@@ -167,7 +167,7 @@ class Header
         $this->_scripts->addFile('vendor/jquery/jquery.min.js');/////////////////////
         $this->_scripts->addFile('vendor/jquery/jquery-migrate.js');/////////////////
         $this->_scripts->addFile('whitelist.php');
-        $this->_scripts->addFile('vendor/sprintf.js');
+        $this->_scripts->addFile('vendor/sprintf.js');///////////////////////////////
         $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('keyhandler.js');
         $this->_scripts->addFile('vendor/jquery/jquery-ui.min.js');/////////////////
@@ -182,20 +182,20 @@ class Header
 
         // Here would not be a good place to add CodeMirror because
         // the user preferences have not been merged at this point
-
+        $this->_scripts->addFile('rte.js');
+        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
+            $this->_scripts->addFile('vendor/tracekit.js');
+            $this->_scripts->addFile('error_report');///////////////////////////
+        }
+        
         $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
         $this->_scripts->addFile('common_params.php', array('l' => $GLOBALS['lang']));
+        $this->_scripts->addFile('vendors~index_new.js');
         $this->_scripts->addFile('index_new.js');
 
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
             $this->_scripts->addFile('cross_framing_protection.js');
-        }
-
-        $this->_scripts->addFile('rte.js');
-        if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
-            $this->_scripts->addFile('vendor/tracekit.js');
-            $this->_scripts->addFile('error_report.js');
         }
 
         // Append the theme id to this url to invalidate
@@ -209,7 +209,7 @@ class Header
         $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
-        $this->_scripts->addFile('navigation.js');
+        $this->_scripts->addFile('navigation');
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
         $this->_scripts->addFile('page_settings.js');
