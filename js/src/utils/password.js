@@ -52,7 +52,7 @@ export function suggestPassword (passwd_form) {
  *
  */
 export function displayPasswordGenerateButton () {
-    console.log('random');
+    // console.log('random');
     var generatePwdRow = $('<tr />').addClass('vmiddle');
     $('<td />').html(PMA_messages.strGeneratePassword).appendTo(generatePwdRow);
     var pwdCell = $('<td />').appendTo(generatePwdRow);
@@ -76,7 +76,7 @@ export function displayPasswordGenerateButton () {
         .appendTo(generatePwdDiv);
     pwdButton.clone(true).appendTo(optionsSpan);
     pwdTextbox.clone(true).appendTo(generatePwdDiv);
-    console.log($('#div_element_before_generate_password'));
+    // console.log($('#div_element_before_generate_password'));
     $('#div_element_before_generate_password').parent().append(generatePwdDiv);
 }
 

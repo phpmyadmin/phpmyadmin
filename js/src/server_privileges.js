@@ -15,7 +15,7 @@ import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import { PMA_commonParams } from './variables/common_params';
 import { jQuery as $ } from './utils/extend_jquery';
-
+import { PMA_getSQLEditor } from './utils/sql';
 
 // console.log(AJAX.test);
 // AJAX.test = true;
@@ -55,6 +55,7 @@ export function teardown1 () {
 }
 
 export function onload1 () {
+    d4ad4sa56d4;
     /**
      * Display a warning if there is already a user by the name entered as the username.
      */
@@ -88,7 +89,7 @@ export function onload1 () {
     var meter_obj_label;
     var username;
     $(document).on('keyup', '#text_pma_pw', function () {
-        console.log('random');
+        // console.log('random');
         meter_obj = $('#password_strength_meter');
         meter_obj_label = $('#password_strength');
         username = $('input[name="username"]');
@@ -433,9 +434,9 @@ export function onload1 () {
 
     $('input.autofocus').focus();
     $(checkboxes_sel).trigger('change');
-    console.log('randmo1');
+    // console.log('randmo1');
     displayPasswordGenerateButton();
-    console.log('randmo2');
+    // console.log('randmo2');
     if ($('#edit_user_dialog').length > 0) {
         addOrUpdateSubmenu();
     }
