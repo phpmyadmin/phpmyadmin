@@ -3,6 +3,7 @@ import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_commonParams } from './variables/common_params';
 import { jQuery as $ } from './utils/JqueryExtended';
 import { PMA_getImage } from './functions/get_image';
+import { PMA_ensureNaviSettings } from './functions/navigation';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -91,6 +92,7 @@ export let AJAX = {
      * @return self For chaining
      */
     registerOnload: function (file, func) {
+
         var eventName = 'onload_' + this.hash(file);
         $(document).on(eventName, func);
         if (this._debug) {
@@ -358,6 +360,7 @@ export let AJAX = {
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
                 AJAX.active = true;
                 AJAX.$msgbox = PMA_ajaxShowMessage();
+
                 $.post(url, params, AJAX.responseHandler);
             }
         }
@@ -586,8 +589,8 @@ export let AJAX = {
              * @todo This condition is to be removed once all the files are modularised
              */
             if (checkNewCode(file)) {
-                var fileImports = ['server_privileges', 'server_databases', 'server_status_advisor',
-                    'server_status_processes', 'server_status_variables',];
+                var fileImports = ['server_privileges', 'server_databases', 'error_report', 'navigation', 'server_status_advisor',
+                    'server_status_processes', 'server_status_variables'];
                 if ($.inArray(file, fileImports) !== -1) {
                     // Dynamic import to load the files dynamically
                     // This is used for the purpose of code splitting
