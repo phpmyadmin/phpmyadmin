@@ -15,7 +15,10 @@
  * Retrieve result of SQL query
  */
 
+import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_ajaxShowMessage, PMA_sprintf, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
+import { AJAX } from './ajax';
+import { PMA_commonParams } from './variables/common_params';
 
 /**
  * Unbind all event handlers before tearing down a page

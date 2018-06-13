@@ -9,6 +9,19 @@ import { methods } from './menu_resizer';
 import { GlobalVariables, timePicker, validations } from '../variables/export_variables';
 
 /**
+ * Make sure that ajax requests will not be cached
+ * by appending a random variable to their parameters
+ */
+$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+    var nocache = new Date().getTime() + '' + Math.floor(Math.random() * 1000000);
+    if (typeof options.data === 'string') {
+        options.data += '&_nocache=' + nocache + '&token=' + encodeURIComponent(PMA_commonParams.get('token'));
+    } else if (typeof options.data === 'object') {
+        options.data = $.extend(originalOptions.data, { '_nocache' : nocache, 'token': PMA_commonParams.get('token') });
+    }
+});
+
+/**
  * Comes from menu_resizer.js
  */
 $.fn.menuResizer = function (method) {

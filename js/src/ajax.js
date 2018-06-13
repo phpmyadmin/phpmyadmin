@@ -3,6 +3,7 @@ import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_commonParams } from './variables/common_params';
 import { jQuery as $ } from './utils/extend_jquery';
 import { PMA_getImage } from './functions/get_image';
+import { PMA_ensureNaviSettings } from './functions/navigation';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -53,6 +54,7 @@ export let AJAX = {
      */
 
     hash: function (key) {
+        console.log(this);
         /* http://burtleburtle.net/bob/hash/doobs.html#one */
         key += '';
         var len = key.length;
@@ -77,6 +79,7 @@ export let AJAX = {
      * @return self For chaining
      */
     registerOnload: function (file, func) {
+
         var eventName = 'onload_' + this.hash(file);
         $(document).on(eventName, func);
         if (this._debug) {
@@ -345,6 +348,8 @@ export let AJAX = {
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
                 AJAX.active = true;
                 AJAX.$msgbox = PMA_ajaxShowMessage();
+                console.log(params);
+                console.log(url);
                 $.post(url, params, AJAX.responseHandler);
             }
         }
@@ -570,9 +575,11 @@ export let AJAX = {
                 // This is necessary to correctly tear down the initial page
                 this._scriptsToBeFired.push(file);
             }
-            var fileImports = ['server_privileges', 'server_databases'];
+            var fileImports = ['server_privileges', 'server_databases', 'error_report', 'navigation', 'server_status_advisor',
+            'server_status_processes', 'server_status_variables'];
             if ($.inArray(file, fileImports) !== -1) {
                 console.log('import_check');
+                console.log(file);
                 import(`./${file}`)
                 .then((module) => {
                     for (var i in module) {

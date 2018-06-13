@@ -2,23 +2,13 @@ import { AJAX } from './ajax';
 import './variables/import_variables';
 import { jQuery as $ } from './utils/extend_jquery';
 import files from './consts/files';
-
-/**
- * This block of code is for importing javascript files needed
- * for the first time loading of the page.
- */
-let firstPage = window.location.pathname.replace('/', '').replace('.php', '');
-if (typeof files[firstPage] !== 'undefined') {
-    for (let i in files[firstPage]) {
-        AJAX.scriptHandler.add(files[firstPage][i]);
-    }
-}
+import { PMA_console } from './console';
 
 /**
  * Page load event handler
  */
 $(function () {
-    console.log('check1');
+    // console.log('check1');
     var menuContent = $('<div></div>')
         .append($('#serverinfo').clone())
         .append($('#topmenucontainer').clone())
@@ -85,6 +75,29 @@ $(function () {
  */
 $(document).on('click', 'a', AJAX.requestHandler);
 $(document).on('submit', 'form', AJAX.requestHandler);
+
+/**
+ * Adding common files for every page
+ */
+for (let i in files.global) {
+    AJAX.scriptHandler.add(files.global[i]);
+}
+/**
+ * This block of code is for importing javascript files needed
+ * for the first time loading of the page.
+ *
+ * TODO: To handle urls like index.php?target=server_privileges.php
+ */
+let firstPage = window.location.pathname.replace('/', '').replace('.php', '');
+if (typeof files[firstPage] !== 'undefined') {
+    for (let i in files[firstPage]) {
+        AJAX.scriptHandler.add(files[firstPage][i]);
+    }
+}
+
+$(function () {
+    PMA_console.initialize();
+});
 
 // import('./server_databases')
 // .then((module) => {
