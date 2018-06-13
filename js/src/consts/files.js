@@ -12,7 +12,8 @@ const files = {
     global: ['error_report', 'navigation'],
     server_status_advisor: ['server_status_advisor'],
     server_status_processes: ['server_status_processes'],
-    server_status_variables: ['server_status_variables']
+    server_status_variables: ['server_status_variables'],
+    user_password: ['server_privileges']
 };
 
 export default files;
