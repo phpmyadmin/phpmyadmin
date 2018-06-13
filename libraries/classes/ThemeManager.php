@@ -90,6 +90,8 @@ class ThemeManager
 
         $this->theme = new Theme;
 
+        $config_theme_exists = true;
+
         if (! $this->checkTheme($GLOBALS['cfg']['ThemeDefault'])) {
             trigger_error(
                 sprintf(
@@ -98,15 +100,16 @@ class ThemeManager
                 ),
                 E_USER_ERROR
             );
-            $GLOBALS['cfg']['ThemeDefault'] = false;
+            $config_theme_exists = false;
+        } else {
+            $this->theme_default = $GLOBALS['cfg']['ThemeDefault'];
         }
 
-        $this->theme_default = $GLOBALS['cfg']['ThemeDefault'];
 
         // check if user have a theme cookie
         $cookie_theme = $this->getThemeCookie();
         if (! $cookie_theme || ! $this->setActiveTheme($cookie_theme)) {
-            if ($GLOBALS['cfg']['ThemeDefault']) {
+            if ($config_theme_exists) {
                 // otherwise use default theme
                 $this->setActiveTheme($this->theme_default);
             } else {
