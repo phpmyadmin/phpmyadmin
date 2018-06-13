@@ -183,13 +183,13 @@ class Header
 
         $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
         $this->_scripts->addFile('common_params.php', array('l' => $GLOBALS['lang']));
+        $this->_scripts->addFile('vendors~index_new.js');
         $this->_scripts->addFile('index_new.js');
         $this->_scripts->addFile('keyhandler.js');
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
             $this->_scripts->addFile('cross_framing_protection.js');
         }
-
         $this->_scripts->addFile('rte.js');
         if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
             $this->_scripts->addFile('vendor/tracekit.js');
@@ -207,7 +207,7 @@ class Header
         $this->_scripts->addFile('config.js');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
-        $this->_scripts->addFile('navigation.js');
+        $this->_scripts->addFile('navigation');
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
         $this->_scripts->addFile('page_settings.js');

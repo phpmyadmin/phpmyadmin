@@ -18,7 +18,7 @@ export function onload1 () {
         processList.setRefreshLabel();
     });
     // Bind event handler for change in refresh rate
-    $('#id_refreshRate').on('change', function (event) {
+    $('#id_refreshRate').on('change', function () {
         processList.refreshInterval = $(this).val();
         processList.refresh();
     });

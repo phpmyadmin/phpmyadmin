@@ -1,5 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
+import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
+
+let BindleAnalyzer = BundleAnalyzerPlugin.BundleAnalyzerPlugin;
 
 // environment either development or production
 var MODE = 'development';
@@ -28,7 +31,8 @@ var devServer = {
     hot: false,
     headers: {
         'Access-Control-Allow-Origin': '*'
-    }
+    },
+
 };
 var plugins = [
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -36,6 +40,9 @@ var plugins = [
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
 ];
+if (MODE === 'development') {
+    plugins.push(new BindleAnalyzer());
+}
 
 export default [{
     mode: MODE,
@@ -46,6 +53,28 @@ export default [{
         filename: '[name].js',
         path: path.resolve(__dirname, 'js/dist'),
         publicPath: PUBLIC_PATH
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 30000,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '~',
+            name: true,
+            cacheGroups: {
+                vendors: {
+                    test: /[\\/]node_modules[\\/]/,
+                    priority: -10
+                },
+                default: {
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true
+                }
+            }
+        }
     },
     module: module,
     resolve: {
