@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-06-12 20:38+0000\n"
+"PO-Revision-Date: 2018-06-15 13:38+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -8414,10 +8414,8 @@ msgid "Table %s has been flushed."
 msgstr "הטבלה %s אופסה."
 
 #: libraries/classes/Operations.php:1437
-#, fuzzy
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "ריקון טבלה (\"FLUSH\")"
+msgstr "פינוי הטבלה (FLUSH)"
 
 #: libraries/classes/Operations.php:1451
 #: templates/database/structure/check_all_tables.twig:22
@@ -8433,10 +8431,8 @@ msgstr "תיקון טבלה"
 #: libraries/classes/Operations.php:1512
 #: templates/database/structure/check_all_tables.twig:14
 #: view_operations.php:136
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Delete data or table"
-msgstr "הוצאת מידע עבור טבלה"
+msgstr "מחיקת נתונים או טבלה"
 
 #: libraries/classes/Operations.php:1520
 msgid "Empty the table (TRUNCATE)"
@@ -8453,9 +8449,8 @@ msgstr ""
 
 #: libraries/classes/Operations.php:1569
 #: templates/table/structure/display_structure.twig:179
-#, fuzzy
 msgid "Check"
-msgstr "צ'יכית"
+msgstr "בדיקה"
 
 #: libraries/classes/Operations.php:1570
 #: templates/table/structure/display_structure.twig:179
@@ -8469,9 +8464,8 @@ msgstr ""
 
 #: libraries/classes/Operations.php:1572
 #: templates/table/structure/display_structure.twig:179
-#, fuzzy
 msgid "Repair"
-msgstr "תיקון טבלה"
+msgstr "תיקון"
 
 #: libraries/classes/Operations.php:1573
 #: templates/table/structure/display_structure.twig:179
@@ -8479,15 +8473,12 @@ msgid "Truncate"
 msgstr ""
 
 #: libraries/classes/Operations.php:1587
-#, fuzzy
-#| msgid "Close"
 msgid "Coalesce"
-msgstr "סגירה"
+msgstr "ליכוד"
 
 #: libraries/classes/Operations.php:1596
-#, fuzzy
 msgid "Partition maintenance"
-msgstr "אחזקת טבלה"
+msgstr "אחזקת מחיצות"
 
 #: libraries/classes/Operations.php:1613
 #, php-format
@@ -8504,35 +8495,32 @@ msgid "Check referential integrity:"
 msgstr ""
 
 #: libraries/classes/Operations.php:2043
-#, fuzzy
 msgid "Can't move table to same one!"
-msgstr "לא ניתן להעתיק טבלה אל אותה אחת!"
+msgstr "לא ניתן להעתיק טבלה לאותה אחת!"
 
 #: libraries/classes/Operations.php:2045
 msgid "Can't copy table to same one!"
 msgstr "לא ניתן להעתיק טבלה אל אותה אחת!"
 
 #: libraries/classes/Operations.php:2069
-#, fuzzy, php-format
-#| msgid "Table %s has been moved to %s."
+#, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "הטבלה %s הועברה ל- %s."
+msgstr "הטבלה %s הועברה ל־%s. ההרשאות עברו התאמה."
 
 #: libraries/classes/Operations.php:2076
-#, fuzzy, php-format
-#| msgid "Table %s has been copied to %s."
+#, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "טבלה %s הועתקה אל %s."
+msgstr "הטבלה %s הועתקה ל־%s. ההרשאות עברו התאמה."
 
 #: libraries/classes/Operations.php:2085
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr "הטבלה %s הועברה ל- %s."
+msgstr "הטבלה %s הועברה ל־%s."
 
 #: libraries/classes/Operations.php:2089
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr "טבלה %s הועתקה אל %s."
+msgstr "הטבלה %s הועתקה ל־%s."
 
 #: libraries/classes/Operations.php:2117
 msgid "The table name is empty!"
