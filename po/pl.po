@@ -3269,7 +3269,7 @@ msgstr "Unicode"
 #: libraries/classes/Charsets.php:348 libraries/classes/Charsets.php:519
 msgctxt "Collation"
 msgid "West European"
-msgstr "Zachodnioeuropejski"
+msgstr "Zachodnia Europa"
 
 #: libraries/classes/Charsets.php:355
 #, fuzzy
