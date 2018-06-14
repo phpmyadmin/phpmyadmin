@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-06-15 18:33+0000\n"
-"Last-Translator: Sebastian Weremczuk <weremczuksebastian@gmail.com>\n"
+"Last-Translator: Kuba Niewiarowski <jakub@niewiarowski.it>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-8/pl/"
 ">\n"
 "Language: pl\n"
@@ -2086,12 +2086,12 @@ msgstr "Krok"
 
 #: js/messages.php:467
 msgid "The following actions will be performed:"
-msgstr "Zostaną wykonane następujące działania:"
+msgstr "Zostaną wykonane następujące operacje:"
 
 #: js/messages.php:468
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "DROP kolumny %s z tabeli %s"
+msgstr "Usuń kolumny %s z tabeli %s (DROP)"
 
 #: js/messages.php:469
 msgid "Create the following table"
