@@ -4969,6 +4969,11 @@ class Results
         $GLOBALS['dbi']->dataSeek($dt_result, $this->__get('num_rows') - 1);
         $row = $GLOBALS['dbi']->fetchRow($dt_result);
 
+        // @see DbiMysqi::fetchRow & DatabaseInterface::fetchRow
+        if (! is_array($row)) {
+            $row = array();
+        }
+
         // $clause_is_unique is needed by getTable() to generate the proper param
         // in the multi-edit and multi-delete form
         list($where_clause, $clause_is_unique, $condition_array)
