@@ -72,7 +72,7 @@ class ServerDatabasesController extends Controller
 
         include_once 'libraries/replication.inc.php';
 
-        if (! empty($_POST['new_db'])
+        if (isset($_POST['new_db'])
             && $response->isAjax()
         ) {
             $this->createDatabaseAction();
