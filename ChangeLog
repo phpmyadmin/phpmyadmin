@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.8.2 (not yet released)
 - issue #14370 WHERE 0 causes Fatal error
+- issue #14225 Fix missing index icon
 
 4.8.1 (2018-05-24)
 - issue #12772 Fix case where the central columns attributes don't get filled in
