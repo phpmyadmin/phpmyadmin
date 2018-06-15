@@ -105,7 +105,6 @@ class ThemeManager
             $this->theme_default = $GLOBALS['cfg']['ThemeDefault'];
         }
 
-
         // check if user have a theme cookie
         $cookie_theme = $this->getThemeCookie();
         if (! $cookie_theme || ! $this->setActiveTheme($cookie_theme)) {
