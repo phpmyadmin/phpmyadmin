@@ -1,7 +1,7 @@
 .. _themes:
 
 Create Own Custom Themes
-=============
+========================
 
 You can now create your own themes using Theme Generator tool present on `index.php`.
 Choose a Base Colour using the colour picker tool.

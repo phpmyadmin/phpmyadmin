@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Theme;
 
+use PhpMyAdmin\Tests\ThemeGeneratorTest;
 use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
@@ -21,14 +22,13 @@ class LayoutTest extends PmaTestCase
     /**
      * Test for Layout::createLayoutFile
      *
-     * @param string $name   name of new theme
-     *
-     * @param string $output layout file data
-     *
      * @return void
      */
-    public function createLayoutFile($post , $output)
+    public function testCreateLayoutFile()
     {
+        $theme = new ThemeGeneratorTest();
+        $post = $theme->setUp();
+        $output = $theme->getLayoutData();
         $this->assertFileIsReadable('themes/' . $post['theme_name'] . '/layout.inc.php');
         $this->assertContains('$GLOBALS[\'cfg\'][\'NaviBackground\']           = \'' . $post['Navigation_Panel'] . '\';' , $output);
     }
