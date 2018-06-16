@@ -76,7 +76,7 @@ class ServeConfigChecksTest extends PmaTestCase
         $_SESSION[$this->sessionID]['BZipDump'] = true;
         $_SESSION[$this->sessionID]['ZipDump'] = true;
 
-        $configChecker = $this->getMockbuilder('PhpMyAdmin\Config\ServerConfigChecks')
+        $configChecker = $this->getMockBuilder('PhpMyAdmin\Config\ServerConfigChecks')
             ->setMethods(['functionExists'])
             ->setConstructorArgs([$GLOBALS['ConfigFile']])
             ->getMock();

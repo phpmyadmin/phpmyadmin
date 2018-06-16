@@ -2003,7 +2003,7 @@ class Table
         // check if pmadb is set
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['uiprefswork']) {
-            return $this->saveUiprefsToDb();
+            return $this->saveUiPrefsToDb();
         }
         return true;
     }
@@ -2026,7 +2026,7 @@ class Table
             // check if pmadb is set
             $cfgRelation = $this->relation->getRelationsParam();
             if ($cfgRelation['uiprefswork']) {
-                return $this->saveUiprefsToDb();
+                return $this->saveUiPrefsToDb();
             }
         }
         return true;

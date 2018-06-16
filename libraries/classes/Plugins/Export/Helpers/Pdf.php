@@ -179,14 +179,14 @@ class Pdf extends PdfLib
                     $txt
                 );
                 $l += $this->tablewidths[$col];
-                $maxY = ($maxY < $this->getY()) ? $this->getY() : $maxY;
+                $maxY = ($maxY < $this->GetY()) ? $this->GetY() : $maxY;
             }
             $this->SetXY($this->lMargin, $this->tMargin);
-            $this->setFillColor(200, 200, 200);
+            $this->SetFillColor(200, 200, 200);
             $l = ($this->lMargin);
             foreach ($this->colTitles as $col => $txt) {
                 $this->SetXY($l, $this->tMargin);
-                $this->cell(
+                $this->Cell(
                     $this->tablewidths[$col],
                     $maxY - ($this->tMargin),
                     '',
@@ -205,7 +205,7 @@ class Pdf extends PdfLib
                 );
                 $l += $this->tablewidths[$col];
             }
-            $this->setFillColor(255, 255, 255);
+            $this->SetFillColor(255, 255, 255);
             // set headerset
             $this->headerset[$this->page] = 1;
         }
@@ -373,7 +373,7 @@ class Pdf extends PdfLib
 
         // Starting to fill table with required info
 
-        $this->setY($this->tMargin);
+        $this->SetY($this->tMargin);
         $this->AddPage();
         $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
 
@@ -555,7 +555,7 @@ class Pdf extends PdfLib
 
         // Starting to fill table with required info
 
-        $this->setY($this->tMargin);
+        $this->SetY($this->tMargin);
         $this->AddPage();
         $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
 
@@ -742,7 +742,7 @@ class Pdf extends PdfLib
             if (!empty($this->aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $this->aliases[$db]['tables'][$table]['columns'][$col_as];
             }
-            $stringWidth = $this->getstringwidth($col_as) + 6;
+            $stringWidth = $this->GetStringWidth($col_as) + 6;
             // save the real title's width
             $titleWidth[$i] = $stringWidth;
             $totalTitleWidth += $stringWidth;
@@ -797,7 +797,7 @@ class Pdf extends PdfLib
          */
         while ($row = $GLOBALS['dbi']->fetchRow($this->results)) {
             foreach ($colFits as $key => $val) {
-                $stringWidth = $this->getstringwidth($row[$key]) + 6;
+                $stringWidth = $this->GetStringWidth($row[$key]) + 6;
                 if ($adjustingMode && ($stringWidth > $this->sColWidth)) {
                     // any column whose data's width is bigger than
                     // the start width is now discarded
@@ -850,7 +850,7 @@ class Pdf extends PdfLib
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_UNBUFFERED
         );
-        $this->setY($this->tMargin);
+        $this->SetY($this->tMargin);
         $this->AddPage();
         $this->SetFont(PdfLib::PMA_PDF_FONT, '', 9);
         $this->morepagestable($this->FontSizePt);
