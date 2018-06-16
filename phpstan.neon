@@ -1,0 +1,7 @@
+parameters:
+    bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
+    ignoreErrors:
+        - '#Unexpected token "&", expected TOKEN_VARIABLE at offset#'
+    excludes_analyse:
+        - %rootDir%/../../../tmp/*
+        - %rootDir%/../../../vendor/*
