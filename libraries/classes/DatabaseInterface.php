@@ -816,7 +816,7 @@ class DatabaseInterface
         $views = [];
 
         foreach ($tables_full as $table => $tmp) {
-            $_table = $this->getTable($db, $table);
+            $_table = $this->getTable($db, (string)$table);
             if ($_table->isView()) {
                 $views[] = $table;
             }
