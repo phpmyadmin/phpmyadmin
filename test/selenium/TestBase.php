@@ -174,7 +174,7 @@ abstract class TestBase extends Selenium2TestCase
      *
      * @return void
      *
-     * @throws Exception
+     * @throws \Exception
      */
     protected function setUp()
     {
@@ -198,7 +198,7 @@ abstract class TestBase extends Selenium2TestCase
             $GLOBALS['TESTSUITE_PASSWORD']
         );
         if ($this->_mysqli->connect_errno) {
-            throw new Exception(
+            throw new \Exception(
                 'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
             );
         }

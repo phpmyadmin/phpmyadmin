@@ -838,7 +838,7 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
-        $dbi->expects($this->any(0))
+        $dbi->expects($this->any())
             ->method('getColumns')
             ->with('db', 'view')
             ->will(

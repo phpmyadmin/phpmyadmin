@@ -101,6 +101,7 @@ class Error extends Message
      */
     public function __construct(int $errno, string $errstr, string $errfile, int $errline)
     {
+        parent::__construct();
         $this->setNumber($errno);
         $this->setMessage($errstr, false);
         $this->setFile($errfile);

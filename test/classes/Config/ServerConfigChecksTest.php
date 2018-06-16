@@ -20,7 +20,7 @@ use ReflectionProperty;
  *
  * @package PhpMyAdmin-test
  */
-class ServeConfigChecksTest extends PmaTestCase
+class ServerConfigChecksTest extends PmaTestCase
 {
     /**
      * @var string

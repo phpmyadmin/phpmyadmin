@@ -20,7 +20,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class NavigationTest extends PmaTestCase
 {
     /**
-     * @var PhpMyAdmin\Navigation\Navigation
+     * @var \PhpMyAdmin\Navigation\Navigation
      */
     protected $object;
 

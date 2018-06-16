@@ -287,7 +287,7 @@ class ServerDatabasesController extends Controller
         foreach ($column_order as $stat_name => $stat) {
             if (array_key_exists($stat_name, $first_database)) {
                 if ($stat['format'] == 'byte') {
-                    $byte_format = Util_formatByteDown($stat['footer'], 3, 1);
+                    $byte_format = Util::formatByteDown($stat['footer'], 3, 1);
                     $values[$stat_name] = $byte_format[0];
                     $units[$stat_name] = $byte_format[1];
                 } elseif ($stat['format'] == 'number') {
@@ -486,7 +486,7 @@ class ServerDatabasesController extends Controller
                     $values[$stat_name] = $byte_format[0];
                     $units[$stat_name] = $byte_format[1];
                 } elseif ($stat['format'] == 'number') {
-                    $values[$stat_name] = Util_formatNumber($stat['footer'], 0);
+                    $values[$stat_name] = Util::formatNumber($stat['footer'], 0);
                 } else {
                     $values[$stat_name] = htmlentities($stat['footer'], 0);
                 }

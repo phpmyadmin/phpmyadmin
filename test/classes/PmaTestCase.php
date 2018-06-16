@@ -45,7 +45,7 @@ class PmaTestCase extends TestCase
      *
      * @param mixed ... $param parameter for header method
      *
-     * @return void
+     * @return \PHPUnit\Framework\MockObject\MockBuilder
      */
     public function mockResponse(...$param)
     {
