@@ -50,6 +50,7 @@ class Pdf extends PdfLib
     public $Outlines = [];
     public $def_outlines;
     public $widths;
+    public $cMargin;
     private $_ff = PdfLib::PMA_PDF_FONT;
     private $_offline;
     private $_pageNumber;

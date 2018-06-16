@@ -24,6 +24,13 @@ $GLOBALS['cfg']['Server']['DisableIS'] = false;
 class ListDatabaseTest extends PmaTestCase
 {
     /**
+     * ListDatabase instance
+     *
+     * @var ListDatabase
+     */
+    private $object;
+
+    /**
      * SetUp for test cases
      *
      * @return void

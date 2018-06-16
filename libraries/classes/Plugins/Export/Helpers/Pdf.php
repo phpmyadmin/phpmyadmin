@@ -28,6 +28,26 @@ class Pdf extends PdfLib
     public $tablewidths;
     public $headerset;
 
+    private $dataY;
+    private $cellFontSize;
+    private $titleFontSize;
+    private $titleText;
+    private $dbAlias;
+    private $tableAlias;
+    private $purpose;
+    private $colTitles;
+    private $results;
+    private $colAlign;
+    private $titleWidth;
+    private $colFits;
+    private $display_column;
+    private $numFields;
+    private $fields;
+    private $sColWidth;
+    private $currentDb;
+    private $currentTable;
+    private $aliases;
+
     /**
      * @var Relation $relation
      */
