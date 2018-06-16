@@ -82,7 +82,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testGenerateWkt
      *
-     * @return data for testGenerateWkt
+     * @return array data for testGenerateWkt
      */
     public function providerForTestGenerateWkt()
     {
@@ -147,7 +147,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testGenerateParams
      *
-     * @return data for testGenerateParams
+     * @return array data for testGenerateParams
      */
     public function providerForTestGenerateParams()
     {
@@ -193,7 +193,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testArea
      *
-     * @return data for testArea
+     * @return array data for testArea
      */
     public function providerForTestArea()
     {
@@ -249,7 +249,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testIsPointInsidePolygon
      *
-     * @return data for testIsPointInsidePolygon
+     * @return array data for testIsPointInsidePolygon
      */
     public function providerForTestIsPointInsidePolygon()
     {
@@ -310,7 +310,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testGetPointOnSurface
      *
-     * @return data for testGetPointOnSurface
+     * @return array data for testGetPointOnSurface
      */
     public function providerForTestGetPointOnSurface()
     {
@@ -331,7 +331,7 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * data provider for testScaleRow
      *
-     * @return data for testScaleRow
+     * @return array data for testScaleRow
      */
     public function providerForTestScaleRow()
     {

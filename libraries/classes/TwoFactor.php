@@ -177,7 +177,7 @@ class TwoFactor
     /**
      * Returns backend for current user
      *
-     * @return PhpMyAdmin\Plugins\TwoFactorPlugin
+     * @return \PhpMyAdmin\Plugins\TwoFactorPlugin
      */
     public function getBackend()
     {
@@ -226,7 +226,7 @@ class TwoFactor
     /**
      * Saves current configuration.
      *
-     * @return true|PhpMyAdmin\Message
+     * @return true|\PhpMyAdmin\Message
      */
     public function save()
     {

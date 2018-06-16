@@ -77,7 +77,7 @@ class ResultsTest extends PmaTestCase
      * @param string $name   method name
      * @param array  $params parameters for the invocation
      *
-     * @return the output from the private method.
+     * @return mixed the output from the private method.
      */
     private function _callPrivateFunction($name, array $params)
     {

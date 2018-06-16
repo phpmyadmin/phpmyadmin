@@ -365,7 +365,7 @@ class DatabaseInterface
      * @param string $multi_query multi query statement to execute
      * @param mysqli $link        mysqli object
      *
-     * @return mysqli_result collection | boolean(false)
+     * @return \mysqli_result[] | boolean(false)
      */
     public function tryMultiQuery(
         string $multi_query = '',

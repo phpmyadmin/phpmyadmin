@@ -37,7 +37,7 @@ class GisFactoryTest extends TestCase
     /**
      * data provider for testFactory
      *
-     * @return data for testFactory
+     * @return array data for testFactory
      */
     public function providerForTestFactory()
     {
