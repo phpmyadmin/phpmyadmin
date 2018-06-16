@@ -1,24 +1,24 @@
 parameters:
     bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
+    reportUnmatchedIgnoredErrors: false
     ignoreErrors:
         - '#Unexpected token "&", expected TOKEN_VARIABLE at offset#'
         - '#Maximum function nesting level of#'
         - '#Method PHPUnit_Extensions_Selenium2TestCase::#'
-        - '#Undefined variable#'
         - '#::byPartialLinkText#'
-        - '#Access to an undefined property#'
         - '#Function strpos invoked with 0 parameters, 2-3 required#'
         - '#ChangePasswordTest::byXpath()#'
-        - '#Function get_login_credentials not found#'
-        - '#Function mysql_connect not found#'
-        - '#Function mysql_close not found#'
-        - '#Function uploadprogress_get_info not found#'
+        - '#Function (get_login_credentials|uploadprogress_get_info) not found#'
+        - '#Function mysql_(connect|close) not found#'
         - '#Instantiated class COM not found#'
         - '#Function escape not found#'
         - '#Function PMA_gradientGetColor not found#'
         - '#TableStructureController has an unused parameter#'
         - '#RelationCleanupDbiMock::__construct\(\) does not call parent constructor#'
         - '#NodeTrans::__construct\(\) does not call parent constructor#'
+        - '#GisGeomTestCase::\$object#'
+        - '#Undefined variable: \$array#'
+        - '#Undefined variable: \$(cfg|db|table|url_query|text_dir|server|pmaThemeImage|action|sql_query|lang|export_type|err_url)#'
 
     excludes_analyse:
         - %rootDir%/../../../test/EnvironmentTest.php
