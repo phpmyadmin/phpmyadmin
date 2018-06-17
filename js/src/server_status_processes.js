@@ -8,11 +8,9 @@ import processList from './classes/Server/ProcessList';
 export function onload1 () {
     processList.init();
     // Bind event handler for kill_process
-    $('#tableprocesslist').on(
-        'click',
-        'a.kill_process',
-        processList.killProcessHandler
-    );
+    $('#tableprocesslist').on('click', 'a.kill_process', function (event) {
+        processList.killProcessHandler(event, this);
+    });
     // Bind event handler for toggling refresh of process list
     $('a#toggleRefresh').on('click', function (event) {
         event.preventDefault();
@@ -20,13 +18,12 @@ export function onload1 () {
         processList.setRefreshLabel();
     });
     // Bind event handler for change in refresh rate
-    $('#id_refreshRate').on('change', function (event) {
+    $('#id_refreshRate').on('change', function () {
         processList.refreshInterval = $(this).val();
         processList.refresh();
     });
     // Bind event handler for table header links
     $('#tableprocesslist').on('click', 'thead a', function () {
-        console.log($(this).attr('href'));
         processList.refreshUrl = $(this).attr('href');
     });
 }
