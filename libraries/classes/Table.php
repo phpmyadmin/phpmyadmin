@@ -495,7 +495,8 @@ class Table
         $comment = '',
         $virtuality = '',
         $expression = '',
-        $move_to = ''
+        $move_to = '',
+        $columns_with_index = null
     ) {
         $is_timestamp = mb_strpos(
             mb_strtoupper($type),
@@ -615,6 +616,12 @@ class Table
         } elseif ($move_to != '') {
             $query .= ' AFTER ' . Util::backquote($move_to);
         }
+        if(!$virtuality && !empty($extra)) {
+            if($columns_with_index !== null && !in_array($name, $columns_with_index)) {
+                $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
+            }
+        }
+
         return $query;
     } // end function
 
@@ -786,7 +793,8 @@ class Table
         $comment,
         $virtuality,
         $expression,
-        $move_to
+        $move_to,
+        $columns_with_index = null
     ) {
         return Util::backquote($oldcol) . ' '
         . self::generateFieldSpec(
@@ -802,7 +810,8 @@ class Table
             $comment,
             $virtuality,
             $expression,
-            $move_to
+            $move_to,
+            $columns_with_index
         );
     } // end function
 

@@ -306,7 +306,7 @@ function PMA_getCompositeIndexList (source_array, col_index) {
  *
  * @return void
  */
-function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_index, index) {
+function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_index, index, showDialog = true) {
     // Prepare post-data.
     var $table = $('input[name="table"]');
     var table = $table.length > 0 ? $table.val() : '';
@@ -376,35 +376,66 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
             PMA_ajaxShowMessage(data.error, false);
         } else {
             PMA_ajaxRemoveMessage($msgbox);
-            // Show dialog if the request was successful
-            var $div = $('<div/>');
-            $div
-                .append(data.message)
-                .dialog({
-                    title: PMA_messages.strAddIndex,
-                    width: 450,
-                    minHeight: 250,
-                    open: function () {
-                        checkIndexName('index_frm');
-                        PMA_showHints($div);
-                        PMA_init_slider();
-                        $('#index_columns').find('td').each(function () {
-                            $(this).css('width', $(this).width() + 'px');
-                        });
-                        $('#index_columns').find('tbody').sortable({
-                            axis: 'y',
-                            containment: $('#index_columns').find('tbody'),
-                            tolerance: 'pointer'
-                        });
-                        // We dont need the slider at this moment.
-                        $(this).find('fieldset.tblFooters').remove();
-                    },
-                    modal: true,
-                    buttons: button_options,
-                    close: function () {
-                        $(this).remove();
+            if(showDialog) {
+                // Show dialog if the request was successful
+                var $div = $('<div/>');
+                $div
+                    .append(data.message)
+                    .dialog({
+                        title: PMA_messages.strAddIndex,
+                        width: 450,
+                        minHeight: 250,
+                        open: function () {
+                            checkIndexName('index_frm');
+                            PMA_showHints($div);
+                            PMA_init_slider();
+                            $('#index_columns').find('td').each(function () {
+                                $(this).css('width', $(this).width() + 'px');
+                            });
+                            $('#index_columns').find('tbody').sortable({
+                                axis: 'y',
+                                containment: $('#index_columns').find('tbody'),
+                                tolerance: 'pointer'
+                            });
+                            // We dont need the slider at this moment.
+                            $(this).find('fieldset.tblFooters').remove();
+                        },
+                        modal: true,
+                        buttons: button_options,
+                        close: function () {
+                            $(this).remove();
+                        }
+                    });
+            } else {
+                var $div = $('<div/>');
+                $div
+                    .append(data.message);
+                $div.css({"display" : "none"});
+                $div.appendTo($('body'));
+                var is_missing_value = false;
+                $('select[name="index[columns][names][]"]').each(function () {
+                    if ($(this).val() === '') {
+                        is_missing_value = true;
                     }
                 });
+
+                if (! is_missing_value) {
+                    PMA_addColumnToIndex(
+                        source_array,
+                        array_index,
+                        index.Index_choice,
+                        col_index
+                    );
+                } else {
+                    PMA_ajaxShowMessage(
+                        '<div class="error"><img src="themes/dot.gif" title="" alt=""' +
+                        ' class="icon ic_s_error" /> ' + PMA_messages.strMissingColumn +
+                        ' </div>', false
+                    );
+
+                    return false;
+                }
+            }
         }
     });
 }
@@ -679,7 +710,7 @@ AJAX.registerOnload('indexes.js', function () {
      * Ajax event handler for advanced index creation during table creation
      * and column addition.
      */
-    $('body').on('change', 'select[name*="field_key"]', function () {
+    $('body').on('change', 'select[name*="field_key"]', function (e, showDialog = true) {
         // Index of column on Table edit and create page.
         var col_index = /\d+/.exec($(this).attr('name'));
         col_index = col_index[0];
@@ -705,7 +736,7 @@ AJAX.registerOnload('indexes.js', function () {
                 'Key_name': (index_choice === 'primary' ? 'PRIMARY' : ''),
                 'Index_choice': index_choice.toUpperCase()
             };
-            PMA_showAddIndexDialog(source_array, 0, [col_index], col_index, index);
+            PMA_showAddIndexDialog(source_array, 0, [col_index], col_index, index, showDialog);
         } else {
             if (index_choice === 'primary') {
                 var array_index = 0;
@@ -715,9 +746,10 @@ AJAX.registerOnload('indexes.js', function () {
                     target_columns.push(source_array[array_index].columns[i].col_index);
                 }
                 target_columns.push(col_index);
-
-                PMA_showAddIndexDialog(source_array, array_index, target_columns, col_index,
-                    source_array[array_index]);
+                if(showDialog) {
+                    PMA_showAddIndexDialog(source_array, array_index, target_columns, col_index,
+                        source_array[array_index], showDialog);
+                }
             } else {
                 // If there are multiple columns selected for an index, show advanced dialog.
                 PMA_indexTypeSelectionDialog(source_array, index_choice, col_index);

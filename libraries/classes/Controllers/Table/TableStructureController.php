@@ -904,7 +904,11 @@ class TableStructureController extends TableController
         $field_cnt = count($_REQUEST['field_name']);
         $changes = [];
         $adjust_privileges = [];
-
+        $columns_with_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(
+                Index::PRIMARY | Index::UNIQUE
+            );
         for ($i = 0; $i < $field_cnt; $i++) {
             if (!$this->columnNeedsAlterTable($i)) {
                 continue;
@@ -924,7 +928,8 @@ class TableStructureController extends TableController
                 Util::getValueByKey($_REQUEST, "field_comments.${i}", ''),
                 Util::getValueByKey($_REQUEST, "field_virtuality.${i}", ''),
                 Util::getValueByKey($_REQUEST, "field_expression.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_move_to.${i}", '')
+                Util::getValueByKey($_REQUEST, "field_move_to.${i}", ''),
+                $columns_with_index
             );
 
             // find the remembered sort expression
