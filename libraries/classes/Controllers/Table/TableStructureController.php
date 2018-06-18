@@ -291,16 +291,14 @@ class TableStructureController extends TableController
         // display secondary level tabs if necessary
         $engine = $this->table_obj->getStorageEngine();
         $this->response->addHTML(
-            Template::get('table/secondary_tabs')->render(
-                [
-                    'url_params' => [
-                        'db' => $this->db,
-                        'table' => $this->table
-                    ],
-                    'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                    'cfg_relation' => $this->relation->getRelationsParam(),
-                ]
-            )
+            $this->template->render('table/secondary_tabs', [
+                'url_params' => [
+                    'db' => $this->db,
+                    'table' => $this->table,
+                ],
+                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+                'cfg_relation' => $this->relation->getRelationsParam(),
+            ])
         );
         $this->response->addHTML('<div id="structure_content">');
 
@@ -503,12 +501,9 @@ class TableStructureController extends TableController
         if (isset($_REQUEST['preview_sql'])) { // preview sql
             $this->response->addJSON(
                 'sql_data',
-                Template::get('preview_sql')
-                    ->render(
-                        [
-                            'query_data' => $sql_query
-                        ]
-                    )
+                $this->template->render('preview_sql', [
+                    'query_data' => $sql_query
+                ])
             );
         } else { // move column
             $this->dbi->tryQuery($sql_query);
@@ -595,14 +590,11 @@ class TableStructureController extends TableController
 
         include 'libraries/tbl_partition_definition.inc.php';
         $this->response->addHTML(
-            Template::get('table/structure/partition_definition_form')
-                ->render(
-                    [
-                        'db' => $this->db,
-                        'table' => $this->table,
-                        'partition_details' => $partitionDetails,
-                    ]
-                )
+            $this->template->render('table/structure/partition_definition_form', [
+                'db' => $this->db,
+                'table' => $this->table,
+                'partition_details' => $partitionDetails,
+            ])
         );
     }
 
@@ -1376,45 +1368,42 @@ class TableStructureController extends TableController
             }
         }
 
-        return Template::get('table/structure/display_structure')->render(
-            [
-                'hide_structure_actions' => $hideStructureActions,
-                'db' => $this->db,
-                'table' => $this->table,
-                'db_is_system_schema' => $this->_db_is_system_schema,
-                'tbl_is_view' => $this->_tbl_is_view,
-                'mime_map' => $mime_map,
-                'url_query' => $this->_url_query,
-                'titles' => $titles,
-                'tbl_storage_engine' => $this->_tbl_storage_engine,
-                'primary' => $primary_index,
-                'columns_with_unique_index' => $columns_with_unique_index,
-                'edit_view_url' => isset($edit_view_url) ? $edit_view_url : null,
-                'columns_list' => $columns_list,
-                'table_stats' => isset($tablestats) ? $tablestats : null,
-                'fields' => $fields,
-                'extracted_columnspecs' => $extracted_columnspecs,
-                'columns_with_index' => $columns_with_index,
-                'central_list' => $central_list,
-                'comments_map' => $comments_map,
-                'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
-                'show_column_comments' => $GLOBALS['cfg']['ShowColumnComments'],
-                'show_stats' => $GLOBALS['cfg']['ShowStats'],
-                'relation_commwork' => $GLOBALS['cfgRelation']['commwork'],
-                'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
-                'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
-                'mysql_int_version' => $this->dbi->getVersion(),
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                'text_dir' => $GLOBALS['text_dir'],
-                'is_active' => Tracker::isActive(),
-                'have_partitioning' => Partition::havePartitioning(),
-                'partition_names' => Partition::getPartitionNames($this->db, $this->table),
-                'columns_list' => $columns_list,
-                'attributes' => $attributes,
-                'displayed_fields' => $displayed_fields,
-                'row_comments' => $row_comments,
-            ]
-        );
+        return $this->template->render('table/structure/display_structure', [
+            'hide_structure_actions' => $hideStructureActions,
+            'db' => $this->db,
+            'table' => $this->table,
+            'db_is_system_schema' => $this->_db_is_system_schema,
+            'tbl_is_view' => $this->_tbl_is_view,
+            'mime_map' => $mime_map,
+            'url_query' => $this->_url_query,
+            'titles' => $titles,
+            'tbl_storage_engine' => $this->_tbl_storage_engine,
+            'primary' => $primary_index,
+            'columns_with_unique_index' => $columns_with_unique_index,
+            'edit_view_url' => isset($edit_view_url) ? $edit_view_url : null,
+            'columns_list' => $columns_list,
+            'table_stats' => isset($tablestats) ? $tablestats : null,
+            'fields' => $fields,
+            'extracted_columnspecs' => $extracted_columnspecs,
+            'columns_with_index' => $columns_with_index,
+            'central_list' => $central_list,
+            'comments_map' => $comments_map,
+            'browse_mime' => $GLOBALS['cfg']['BrowseMIME'],
+            'show_column_comments' => $GLOBALS['cfg']['ShowColumnComments'],
+            'show_stats' => $GLOBALS['cfg']['ShowStats'],
+            'relation_commwork' => $GLOBALS['cfgRelation']['commwork'],
+            'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
+            'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+            'mysql_int_version' => $this->dbi->getVersion(),
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+            'text_dir' => $GLOBALS['text_dir'],
+            'is_active' => Tracker::isActive(),
+            'have_partitioning' => Partition::havePartitioning(),
+            'partition_names' => Partition::getPartitionNames($this->db, $this->table),
+            'attributes' => $attributes,
+            'displayed_fields' => $displayed_fields,
+            'row_comments' => $row_comments,
+        ]);
     }
 
     /**
@@ -1499,32 +1488,30 @@ class TableStructureController extends TableController
             $avg_size = $avg_unit = '';
         }
 
-        return Template::get('table/structure/display_table_stats')->render(
-            [
-                'showtable' => $this->_showtable,
-                'table_info_num_rows' => $this->_table_info_num_rows,
-                'tbl_is_view' => $this->_tbl_is_view,
-                'db_is_system_schema' => $this->_db_is_system_schema,
-                'tbl_storage_engine' => $this->_tbl_storage_engine,
-                'url_query' => $this->_url_query,
-                'tbl_collation' => $this->_tbl_collation,
-                'is_innodb' => $is_innodb,
-                'mergetable' => $mergetable,
-                'avg_size' => isset($avg_size) ? $avg_size : null,
-                'avg_unit' => isset($avg_unit) ? $avg_unit : null,
-                'data_size' => $data_size,
-                'data_unit' => $data_unit,
-                'index_size' => isset($index_size) ? $index_size : null,
-                'index_unit' => isset($index_unit) ? $index_unit : null,
-                'free_size' => isset($free_size) ? $free_size : null,
-                'free_unit' => isset($free_unit) ? $free_unit : null,
-                'effect_size' => $effect_size,
-                'effect_unit' => $effect_unit,
-                'tot_size' => $tot_size,
-                'tot_unit' => $tot_unit,
-                'table' => $GLOBALS['table']
-            ]
-        );
+        return $this->template->render('table/structure/display_table_stats', [
+            'showtable' => $this->_showtable,
+            'table_info_num_rows' => $this->_table_info_num_rows,
+            'tbl_is_view' => $this->_tbl_is_view,
+            'db_is_system_schema' => $this->_db_is_system_schema,
+            'tbl_storage_engine' => $this->_tbl_storage_engine,
+            'url_query' => $this->_url_query,
+            'tbl_collation' => $this->_tbl_collation,
+            'is_innodb' => $is_innodb,
+            'mergetable' => $mergetable,
+            'avg_size' => isset($avg_size) ? $avg_size : null,
+            'avg_unit' => isset($avg_unit) ? $avg_unit : null,
+            'data_size' => $data_size,
+            'data_unit' => $data_unit,
+            'index_size' => isset($index_size) ? $index_size : null,
+            'index_unit' => isset($index_unit) ? $index_unit : null,
+            'free_size' => isset($free_size) ? $free_size : null,
+            'free_unit' => isset($free_unit) ? $free_unit : null,
+            'effect_size' => $effect_size,
+            'effect_unit' => $effect_unit,
+            'tot_size' => $tot_size,
+            'tot_unit' => $tot_unit,
+            'table' => $GLOBALS['table'],
+        ]);
     }
 
     /**

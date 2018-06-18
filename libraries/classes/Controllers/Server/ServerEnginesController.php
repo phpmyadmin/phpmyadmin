@@ -39,7 +39,7 @@ class ServerEnginesController extends Controller
          * Displays the sub-page heading
          */
         $this->response->addHTML(
-            Template::get('server/sub_page_header')->render([
+            $this->template->render('server/sub_page_header', [
                 'type' => 'engines',
             ])
         );
@@ -64,9 +64,9 @@ class ServerEnginesController extends Controller
      */
     private function _getHtmlForAllServerEngines()
     {
-        return Template::get('server/engines/engines')->render(
-            ['engines' => StorageEngine::getStorageEngines()]
-        );
+        return $this->template->render('server/engines/engines', [
+            'engines' => StorageEngine::getStorageEngines(),
+        ]);
     }
 
     /**
@@ -84,18 +84,16 @@ class ServerEnginesController extends Controller
         /**
          * Displays details about a given Storage Engine
          */
-        return Template::get('server/engines/engine')->render(
-            [
-                'title' => $engine->getTitle(),
-                'help_page' => $engine->getMysqlHelpPage(),
-                'comment' => $engine->getComment(),
-                'info_pages' => $engine->getInfoPages(),
-                'support' => $engine->getSupportInformationMessage(),
-                'variables' => $engine->getHtmlVariables(),
-                'page_output' => $pageOutput,
-                'page' => $page,
-                'engine' => $_REQUEST['engine'],
-            ]
-        );
+        return $this->template->render('server/engines/engine', [
+            'title' => $engine->getTitle(),
+            'help_page' => $engine->getMysqlHelpPage(),
+            'comment' => $engine->getComment(),
+            'info_pages' => $engine->getInfoPages(),
+            'support' => $engine->getSupportInformationMessage(),
+            'variables' => $engine->getHtmlVariables(),
+            'page_output' => $pageOutput,
+            'page' => $page,
+            'engine' => $_REQUEST['engine'],
+        ]);
     }
 }

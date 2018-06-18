@@ -27,6 +27,11 @@ class BrowseForeigners
     private $themeImage;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      *
      * @param int     $limitChars  Maximum number of characters to show
@@ -47,6 +52,7 @@ class BrowseForeigners
         $this->repeatCells = $repeatCells;
         $this->showAll = $showAll;
         $this->themeImage = $themeImage;
+        $this->template = new Template();
     }
 
     /**
@@ -108,14 +114,14 @@ class BrowseForeigners
 
         $output .= '<tr class="noclick">';
 
-        $output .= Template::get('table/browse_foreigners/column_element')->render([
+        $output .= $this->template->render('table/browse_foreigners/column_element', [
             'keyname' => $leftKeyname,
             'description' => $leftDescription,
             'title' => $leftDescriptionTitle,
             'is_selected' => $leftKeynameIsSelected,
             'nowrap' => true,
         ]);
-        $output .= Template::get('table/browse_foreigners/column_element')->render([
+        $output .= $this->template->render('table/browse_foreigners/column_element', [
             'keyname' => $leftKeyname,
             'description' => $leftDescription,
             'title' => $leftDescriptionTitle,
@@ -127,14 +133,14 @@ class BrowseForeigners
             . '<img src="' . $this->themeImage . 'spacer.png" alt=""'
             . ' width="1" height="1" /></td>';
 
-        $output .= Template::get('table/browse_foreigners/column_element')->render([
+        $output .= $this->template->render('table/browse_foreigners/column_element', [
             'keyname' => $rightKeyname,
             'description' => $rightDescription,
             'title' => $rightDescriptionTitle,
             'is_selected' => $rightKeynameIsSelected,
             'nowrap' => false,
         ]);
-        $output .= Template::get('table/browse_foreigners/column_element')->render([
+        $output .= $this->template->render('table/browse_foreigners/column_element', [
             'keyname' => $rightKeyname,
             'description' => $rightDescription,
             'title' => $rightDescriptionTitle,
@@ -168,7 +174,7 @@ class BrowseForeigners
         string $current_value
     ): string {
         $gotopage = $this->getHtmlForGotoPage($foreignData);
-        $foreignShowAll = Template::get('table/browse_foreigners/show_all')->render([
+        $foreignShowAll = $this->template->render('table/browse_foreigners/show_all', [
             'foreign_data' => $foreignData,
             'show_all' => $this->showAll,
             'max_rows' => $this->maxRows,

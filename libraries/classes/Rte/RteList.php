@@ -31,11 +31,17 @@ class RteList
     private $words;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * RteList constructor.
      */
     public function __construct()
     {
         $this->words = new Words();
+        $this->template = new Template();
     }
 
     /**
@@ -170,14 +176,11 @@ class RteList
 
         if (count($items)) {
             $retval .= '<div class="withSelected">';
-            $retval .= Template::get('select_all')
-                ->render(
-                    [
-                        'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                        'text_dir'        => $GLOBALS['text_dir'],
-                        'form_name'       => 'rteListForm',
-                    ]
-                );
+            $retval .= $this->template->render('select_all', [
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'form_name' => 'rteListForm',
+            ]);
             $retval .= Util::getButtonOrImage(
                 'submit_mult',
                 'mult_submit',

@@ -51,6 +51,11 @@ class InsertEdit
     private $fileListing;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -61,6 +66,7 @@ class InsertEdit
         $this->relation = new Relation();
         $this->transformations = new Transformations();
         $this->fileListing = new FileListing();
+        $this->template = new Template();
     }
 
     /**
@@ -1751,7 +1757,7 @@ class InsertEdit
         array $where_clause_array,
         $err_url
     ) {
-        return Template::get('table/insert/continue_insertion_form')->render([
+        return $this->template->render('table/insert/continue_insertion_form', [
             'db' => $db,
             'table' => $table,
             'where_clause_array' => $where_clause_array,

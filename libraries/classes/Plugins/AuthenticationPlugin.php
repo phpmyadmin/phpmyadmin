@@ -49,11 +49,17 @@ abstract class AuthenticationPlugin
     protected $ipAllowDeny;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * AuthenticationPlugin constructor.
      */
     public function __construct()
     {
         $this->ipAllowDeny = new IpAllowDeny();
+        $this->template = new Template();
     }
 
     /**
@@ -345,15 +351,15 @@ abstract class AuthenticationPlugin
                 exit;
             }
         }
-        echo Template::get('login/header')->render(['theme' => $GLOBALS['PMA_Theme']]);
+        echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
         Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.')
         )->display();
-        echo Template::get('login/twofactor')->render([
+        echo $this->template->render('login/twofactor', [
             'form' => $twofactor->render(),
             'show_submit' => $twofactor->showSubmit,
         ]);
-        echo Template::get('login/footer')->render();
+        echo $this->template->render('login/footer');
         echo Config::renderFooter();
         if (! defined('TESTSUITE')) {
             exit;

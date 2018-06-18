@@ -85,7 +85,7 @@ class Application extends TwoFactorPlugin
      */
     public function render()
     {
-        return Template::get('login/twofactor/application')->render();
+        return $this->template->render('login/twofactor/application');
     }
 
     /**
@@ -101,7 +101,7 @@ class Application extends TwoFactorPlugin
             $this->_twofactor->user,
             $secret
         );
-        return Template::get('login/twofactor/application_configure')->render([
+        return $this->template->render('login/twofactor/application_configure', [
             'image' => $inlineUrl,
             'secret' => $secret
         ]);

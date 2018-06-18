@@ -7,6 +7,12 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\MoTranslator\Loader;
+use PhpMyAdmin\Theme;
+
 /**
  * Set precision to sane value, with higher values
  * things behave slightly unexpectedly, for example
@@ -58,18 +64,17 @@ if (PHP_SAPI == 'cli') {
 
 require_once 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
-PhpMyAdmin\MoTranslator\Loader::loadFunctions();
-$CFG = new PhpMyAdmin\Config();
+Loader::loadFunctions();
+$GLOBALS['PMA_Config'] = new Config();
 // Initialize PMA_VERSION variable
-define('PMA_VERSION', $CFG->get('PMA_VERSION'));
-define('PMA_MAJOR_VERSION', $CFG->get('PMA_MAJOR_VERSION'));
-unset($CFG);
+define('PMA_VERSION', $GLOBALS['PMA_Config']->get('PMA_VERSION'));
+define('PMA_MAJOR_VERSION', $GLOBALS['PMA_Config']->get('PMA_MAJOR_VERSION'));
 
-/* Ensure default langauge is active */
-PhpMyAdmin\LanguageManager::getInstance()->getLanguage('en')->activate();
+/* Ensure default language is active */
+LanguageManager::getInstance()->getLanguage('en')->activate();
 
 /* Load Database interface */
-PhpMyAdmin\DatabaseInterface::load();
+DatabaseInterface::load();
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');
@@ -88,7 +93,6 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
-$GLOBALS['PMA_Theme'] = PhpMyAdmin\Theme::load('./themes/pmahomme');
+$GLOBALS['PMA_Theme'] = Theme::load('./themes/pmahomme');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
-$GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();

@@ -1136,16 +1136,13 @@ class Util
             // be checked, which would reexecute an INSERT, for example
             if (! empty($refresh_link) && self::profilingSupported()) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1" />';
-                $retval .= Template::get('checkbox')
-                    ->render(
-                        [
-                            'html_field_name'   => 'profiling',
-                            'label'             => __('Profiling'),
-                            'checked'           => isset($_SESSION['profiling']),
-                            'onclick'           => true,
-                            'html_field_id'     => '',
-                        ]
-                    );
+                $retval .= Template::get('checkbox')->render([
+                    'html_field_name' => 'profiling',
+                    'label' => __('Profiling'),
+                    'checked' => isset($_SESSION['profiling']),
+                    'onclick' => true,
+                    'html_field_id' => '',
+                ]);
             }
             $retval .= '</form>';
 
@@ -1651,9 +1648,8 @@ class Util
 
         $item['class'] = $tab['class'] == 'active' ? 'active' : '';
 
-        return Template::get('list/item')
-            ->render($item);
-    } // end of the 'getHtmlTab()' function
+        return Template::get('list/item')->render($item);
+    }
 
     /**
      * returns html-code for a tab navigation
@@ -2513,15 +2509,15 @@ class Util
                 $checked = 0;
             }
             $radio_html .= Template::get('radio_fields')->render([
-                            'class' =>  $class,
-                            'html_field_name'   =>  $html_field_name,
-                            'html_field_id' => $html_field_id,
-                            'choice_value' => $choice_value,
-                            'is_line_break' => $line_break,
-                            'choice_label'  => $choice_label,
-                            'escape_label'  => $escape_label,
-                            'checked' => $checked
-                        ]);
+                'class' => $class,
+                'html_field_name' => $html_field_name,
+                'html_field_id' => $html_field_id,
+                'choice_value' => $choice_value,
+                'is_line_break' => $line_break,
+                'choice_label' => $choice_label,
+                'escape_label' => $escape_label,
+                'checked' => $checked,
+            ]);
         }
 
         return $radio_html;
@@ -2566,13 +2562,13 @@ class Util
             $resultOptions[$one_choice_value]['label'] = $one_choice_label;
         }
         return Template::get('dropdown')->render([
-                'select_name' => $select_name,
-                'id'    => $id,
-                'class' => $class,
-                'placeholder' => $placeholder,
-                'selected'  => $selected,
-                'result_options' => $resultOptions,
-            ]);
+            'select_name' => $select_name,
+            'id' => $id,
+            'class' => $class,
+            'placeholder' => $placeholder,
+            'selected' => $selected,
+            'result_options' => $resultOptions,
+        ]);
     }
 
     /**
@@ -2591,9 +2587,9 @@ class Util
     public static function getDivForSliderEffect($id = '', $message = '', $overrideDefault = null)
     {
         return Template::get('div_for_slider_effect')->render([
-            'id'                    => $id,
+            'id' => $id,
             'initial_sliders_state' => ($overrideDefault != null) ? $overrideDefault : $GLOBALS['cfg']['InitialSlidersState'],
-            'message'               => $message,
+            'message' => $message,
         ]);
     }
 
@@ -2624,19 +2620,17 @@ class Util
             $state = 'on';
         }
 
-        return Template::get('toggle_button')->render(
-            [
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                'text_dir'        => $GLOBALS['text_dir'],
-                'link_on'         => $link_on,
-                'link_off'        => $link_off,
-                'toggle_on'       => $options[1]['label'],
-                'toggle_off'      => $options[0]['label'],
-                'callback'        => $callback,
-                'state'           => $state
-            ]
-        );
-    } // end toggleButton()
+        return Template::get('toggle_button')->render([
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+            'text_dir' => $GLOBALS['text_dir'],
+            'link_on' => $link_on,
+            'link_off' => $link_off,
+            'toggle_on' => $options[1]['label'],
+            'toggle_off' => $options[0]['label'],
+            'callback' => $callback,
+            'state' => $state
+        ]);
+    }
 
     /**
      * Clears cache content which needs to be refreshed on user change.
@@ -4252,15 +4246,12 @@ class Util
             }
         }
 
-        return Template::get('start_and_number_of_rows_panel')
-            ->render(
-                [
-                    'pos' => $pos,
-                    'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),
-                    'rows' => $rows,
-                    'sql_query' => $sql_query,
-                ]
-            );
+        return Template::get('start_and_number_of_rows_panel')->render([
+            'pos' => $pos,
+            'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),
+            'rows' => $rows,
+            'sql_query' => $sql_query,
+        ]);
     }
 
     /**

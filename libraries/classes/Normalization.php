@@ -42,6 +42,11 @@ class Normalization
     private $transformations;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -51,6 +56,7 @@ class Normalization
         $this->dbi = $dbi;
         $this->relation = new Relation();
         $this->transformations = new Transformations();
+        $this->template = new Template();
     }
 
     /**
@@ -153,9 +159,7 @@ class Normalization
             ];
         }
 
-        return Template::get(
-            'columns_definitions/table_fields_definitions'
-        )->render([
+        return $this->template->render('columns_definitions/table_fields_definitions', [
             'is_backup' => true,
             'fields_meta' => null,
             'mimework' => $cfgRelation['mimework'],

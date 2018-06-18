@@ -167,16 +167,14 @@ class TableRelationController extends TableController
         $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
 
         $this->response->addHTML(
-            Template::get('table/secondary_tabs')->render(
-                [
-                    'url_params' => [
-                        'db' => $GLOBALS['db'],
-                        'table' => $GLOBALS['table']
-                    ],
-                    'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                    'cfg_relation' => $this->relation->getRelationsParam(),
-                ]
-            )
+            $this->template->render('table/secondary_tabs', [
+                'url_params' => [
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
+                ],
+                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+                'cfg_relation' => $this->relation->getRelationsParam(),
+            ])
         );
         $this->response->addHTML('<div id="structure_content">');
 
@@ -205,7 +203,7 @@ class TableRelationController extends TableController
 
         // common form
         $this->response->addHTML(
-            Template::get('table/relation/common_form')->render([
+            $this->template->render('table/relation/common_form', [
                 'db' => $this->db,
                 'table' => $this->table,
                 'cfg_relation' => $this->cfgRelation,

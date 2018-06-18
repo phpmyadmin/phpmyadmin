@@ -73,7 +73,7 @@ class ServerBinlogController extends Controller
         }
 
         $this->response->addHTML(
-            Template::get('server/sub_page_header')->render([
+            $this->template->render('server/sub_page_header', [
                 'type' => 'binlog',
             ])
         );
@@ -90,13 +90,11 @@ class ServerBinlogController extends Controller
      */
     private function _getLogSelector(array $url_params)
     {
-        return Template::get('server/binlog/log_selector')->render(
-            [
-                'url_params' => $url_params,
-                'binary_logs' => $this->binary_logs,
-                'log' => $_REQUEST['log'],
-            ]
-        );
+        return $this->template->render('server/binlog/log_selector', [
+            'url_params' => $url_params,
+            'binary_logs' => $this->binary_logs,
+            'log' => $_REQUEST['log'],
+        ]);
     }
 
     /**
@@ -256,12 +254,10 @@ class ServerBinlogController extends Controller
     {
         $html = "";
         while ($value = $this->dbi->fetchAssoc($result)) {
-            $html .= Template::get('server/binlog/log_row')->render(
-                [
-                    'value' => $value,
-                    'dontlimitchars' => $dontlimitchars,
-                ]
-            );
+            $html .= $this->template->render('server/binlog/log_row', [
+                'value' => $value,
+                'dontlimitchars' => $dontlimitchars,
+            ]);
         }
         return $html;
     }

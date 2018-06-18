@@ -86,11 +86,6 @@ class Config
     public $done = false;
 
     /**
-     * @var UserPreferences
-     */
-    private $userPreferences;
-
-    /**
      * constructor
      *
      * @param string $source source to read config from
@@ -107,8 +102,6 @@ class Config
         $this->checkSystem();
 
         $this->base_settings = $this->settings;
-
-        $this->userPreferences = new UserPreferences();
     }
 
     /**
@@ -905,6 +898,7 @@ class Config
      */
     public function loadUserPreferences(): void
     {
+        $userPreferences = new UserPreferences();
         // index.php should load these settings, so that phpmyadmin.css.php
         // will have everything available in session cache
         $server = isset($GLOBALS['server'])
@@ -919,9 +913,9 @@ class Config
             if (! isset($_SESSION['cache'][$cache_key]['userprefs'])
                 || $_SESSION['cache'][$cache_key]['config_mtime'] < $config_mtime
             ) {
-                $prefs = $this->userPreferences->load();
+                $prefs = $userPreferences->load();
                 $_SESSION['cache'][$cache_key]['userprefs']
-                    = $this->userPreferences->apply($prefs['config_data']);
+                    = $userPreferences->apply($prefs['config_data']);
                 $_SESSION['cache'][$cache_key]['userprefs_mtime'] = $prefs['mtime'];
                 $_SESSION['cache'][$cache_key]['userprefs_type'] = $prefs['type'];
                 $_SESSION['cache'][$cache_key]['config_mtime'] = $config_mtime;
@@ -1028,6 +1022,7 @@ class Config
         $new_cfg_value,
         $default_value = null
     ) {
+        $userPreferences = new UserPreferences();
         $result = true;
         // use permanent user preferences if possible
         $prefs_type = $this->get('user_preferences');
@@ -1035,7 +1030,7 @@ class Config
             if ($default_value === null) {
                 $default_value = Core::arrayRead($cfg_path, $this->default);
             }
-            $result = $this->userPreferences->persistOption($cfg_path, $new_cfg_value, $default_value);
+            $result = $userPreferences->persistOption($cfg_path, $new_cfg_value, $default_value);
         }
         if ($prefs_type != 'db' && $cookie_name) {
             // fall back to cookies

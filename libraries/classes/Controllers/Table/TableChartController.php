@@ -178,17 +178,15 @@ class TableChartController extends TableController
          * Displays the page
          */
         $this->response->addHTML(
-            Template::get('table/chart/tbl_chart')->render(
-                [
-                    'url_query' => $this->url_query,
-                    'url_params' => $url_params,
-                    'keys' => $keys,
-                    'fields_meta' => $fields_meta,
-                    'numeric_types' => $numeric_types,
-                    'numeric_column_count' => $numeric_column_count,
-                    'sql_query' => $this->sql_query
-                ]
-            )
+            $this->template->render('table/chart/tbl_chart', [
+                'url_query' => $this->url_query,
+                'url_params' => $url_params,
+                'keys' => $keys,
+                'fields_meta' => $fields_meta,
+                'numeric_types' => $numeric_types,
+                'numeric_column_count' => $numeric_column_count,
+                'sql_query' => $this->sql_query,
+            ])
         );
     }
 

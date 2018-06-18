@@ -13,6 +13,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -226,6 +227,11 @@ class Qbe
     public $dbi;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Public Constructor
      *
      * @param DatabaseInterface $dbi             DatabaseInterface object
@@ -244,6 +250,7 @@ class Qbe
         $this->_currentSearch = $currentSearch;
         $this->relation = new Relation();
         $this->dbi = $dbi;
+        $this->template = new Template();
 
         $this->_loadCriterias();
         // Sets criteria parameters
@@ -395,7 +402,7 @@ class Qbe
      */
     private function _showColumnSelectCell($column_number, $selected = '')
     {
-        return Template::get('database/qbe/column_select_cell')->render([
+        return $this->template->render('database/qbe/column_select_cell', [
             'column_number' => $column_number,
             'column_names' => $this->_columnNames,
             'selected' => $selected,
@@ -414,7 +421,7 @@ class Qbe
         $columnNumber,
         $selected = ''
     ) {
-        return Template::get('database/qbe/sort_select_cell')->render([
+        return $this->template->render('database/qbe/sort_select_cell', [
             'real_width' => $this->_realwidth,
             'column_number' => $columnNumber,
             'selected' => $selected,
@@ -432,7 +439,7 @@ class Qbe
     private function _getSortOrderSelectCell($columnNumber, $sortOrder)
     {
         $totalColumnCount = $this->_getNewColumnCount();
-        return Template::get('database/qbe/sort_order_select_cell')->render([
+        return $this->template->render('database/qbe/sort_order_select_cell', [
             'total_column_count' => $totalColumnCount,
             'column_number' => $columnNumber,
             'sort_order' => $sortOrder,
@@ -779,7 +786,7 @@ class Qbe
      */
     private function _getFootersOptions($type)
     {
-        return Template::get('database/qbe/footer_options')->render([
+        return $this->template->render('database/qbe/footer_options', [
             'type' => $type,
         ]);
     }

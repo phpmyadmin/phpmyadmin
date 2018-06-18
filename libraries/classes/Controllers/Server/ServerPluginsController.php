@@ -56,7 +56,7 @@ class ServerPluginsController extends Controller
          * Displays the page
         */
         $this->response->addHTML(
-            Template::get('server/sub_page_header')->render([
+            $this->template->render('server/sub_page_header', [
                 'type' => 'plugins',
             ])
         );
@@ -106,21 +106,17 @@ class ServerPluginsController extends Controller
             );
         }
         $html  = '<div id="plugins_plugins">';
-        $html .= Template::get('server/plugins/section_links')
-            ->render([
-                'plugins' => $this->plugins,
-                'plugins_type_clean' => $plugins_type_clean,
-            ]);
+        $html .= $this->template->render('server/plugins/section_links', [
+            'plugins' => $this->plugins,
+            'plugins_type_clean' => $plugins_type_clean,
+        ]);
 
         foreach ($this->plugins as $plugin_type => $plugin_list) {
-            $html .= Template::get('server/plugins/section')
-                ->render(
-                    [
-                        'plugin_type' => $plugin_type,
-                        'plugin_type_clean' => $plugins_type_clean[$plugin_type],
-                        'plugin_list' => $plugin_list,
-                    ]
-                );
+            $html .= $this->template->render('server/plugins/section', [
+                'plugin_type' => $plugin_type,
+                'plugin_type_clean' => $plugins_type_clean[$plugin_type],
+                'plugin_list' => $plugin_list,
+            ]);
         }
         $html .= '</div>';
         return $html;

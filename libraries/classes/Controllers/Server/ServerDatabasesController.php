@@ -112,7 +112,7 @@ class ServerDatabasesController extends Controller
             $databases = $this->_getHtmlForDatabases($replication_types);
         }
 
-        $this->response->addHTML(Template::get('server/databases/index')->render([
+        $this->response->addHTML($this->template->render('server/databases/index', [
             'show_create_db' => $GLOBALS['cfg']['ShowCreateDb'],
             'is_create_db_priv' => $GLOBALS['is_create_db_priv'],
             'dbstats' => $this->_dbstats,
@@ -305,7 +305,7 @@ class ServerDatabasesController extends Controller
             'sort_order' => $this->_sort_order,
         ];
 
-        $html = Template::get('server/databases/databases_header')->render([
+        $html = $this->template->render('server/databases/databases_header', [
             'database_count' => $this->_database_count,
             'pos' => $this->_pos,
             'url_params' => $_url_params,
@@ -322,7 +322,7 @@ class ServerDatabasesController extends Controller
 
         $html .= $this->_getHtmlForTableBody($column_order, $replication_types);
 
-        $html .= Template::get('server/databases/databases_footer')->render([
+        $html .= $this->template->render('server/databases/databases_footer', [
             'column_order' => $column_order,
             'first_database' => $first_database,
             'master_replication' => $GLOBALS['replication_info']['master']['status'],
@@ -493,7 +493,7 @@ class ServerDatabasesController extends Controller
             }
         }
 
-        return Template::get('server/databases/table_row')->render([
+        return $this->template->render('server/databases/table_row', [
             'current' => $current,
             'tr_class' => $tr_class,
             'column_order' => $column_order,

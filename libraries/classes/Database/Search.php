@@ -90,6 +90,11 @@ class Search
     private $dbi;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Public Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface object
@@ -106,6 +111,7 @@ class Search
             '4' => __('the exact phrase as whole field'),
             '5' => __('as regular expression'),
         ];
+        $this->template = new Template();
         // Sets criteria parameters
         $this->setSearchParams();
     }
@@ -296,7 +302,7 @@ class Search
             ];
         }
 
-        return Template::get('database/search/results')->render([
+        return $this->template->render('database/search/results', [
             'db' => $this->db,
             'rows' => $rows,
             'result_total' => $resultTotal,
@@ -326,7 +332,7 @@ class Search
             '4' => $this->searchTypes[4],
             '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp')
         ];
-        return Template::get('database/search/selection_form')->render([
+        return $this->template->render('database/search/selection_form', [
             'db' => $this->db,
             'choices' => $choices,
             'criteria_search_string' => $this->criteriaSearchString,
@@ -345,6 +351,6 @@ class Search
      */
     public function getResultDivs()
     {
-        return Template::get('database/search/result_divs')->render();
+        return $this->template->render('database/search/result_divs');
     }
 }
