@@ -88,6 +88,7 @@ class Console
      */
     public static function getBookmarkContent(): string
     {
+        $template = new Template();
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         if ($cfgBookmark) {
             $bookmarks = Bookmark::getList(
@@ -108,7 +109,7 @@ class Console
                 $welcomeMessage = __('No bookmarks');
             }
             unset($count_bookmarks, $private_message, $shared_message);
-            return Template::get('console/bookmark_content')->render([
+            return $template->render('console/bookmark_content', [
                 'welcome_message' => $welcomeMessage,
                 'bookmarks' => $bookmarks,
             ]);

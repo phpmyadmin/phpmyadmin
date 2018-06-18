@@ -527,7 +527,8 @@ class Core
         if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
             Response::getInstance()->disable();
 
-            echo Template::get('header_location')->render(['uri' => $uri]);
+            $template = new Template();
+            echo $template->render('header_location', ['uri' => $uri]);
 
             return;
         }
@@ -1265,7 +1266,8 @@ class Core
         ?string $class = null,
         ?string $a_class = null
     ): void {
-        echo Template::get('list/item')->render([
+        $template = new Template();
+        echo $template->render('list/item', [
             'content' => $name,
             'id' => $listId,
             'class' => $class,

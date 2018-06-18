@@ -1471,16 +1471,14 @@ class PrivilegesTest extends TestCase
             $html
         );
 
-        $item = Template::get('checkbox')
-            ->render(
-                [
-                    'html_field_name'   => 'createdb-2',
-                    'label'             => __('Grant all privileges on wildcard name (username\\_%).'),
-                    'checked'           => false,
-                    'onclick'           => false,
-                    'html_field_id'     => 'createdb-2',
-                ]
-            );
+        $template = new Template();
+        $item = $template->render('checkbox', [
+            'html_field_name' => 'createdb-2',
+            'label' => __('Grant all privileges on wildcard name (username\\_%).'),
+            'checked' => false,
+            'onclick' => false,
+            'html_field_id' => 'createdb-2',
+        ]);
         $this->assertContains(
             $item,
             $html

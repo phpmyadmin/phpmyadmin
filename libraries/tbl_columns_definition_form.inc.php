@@ -32,6 +32,7 @@ global $db, $table;
 
 $relation = new Relation();
 $transformations = new Transformations();
+$template = new Template();
 
 /**
  * Initialize to avoid code execution path warnings
@@ -463,7 +464,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 } // end for
 
 include 'libraries/tbl_partition_definition.inc.php';
-$html = Template::get('columns_definitions/column_definitions_form')->render([
+$html = $template->render('columns_definitions/column_definitions_form', [
     'is_backup' => $is_backup,
     'fields_meta' => isset($fields_meta) ? $fields_meta : null,
     'mimework' => $cfgRelation['mimework'],
