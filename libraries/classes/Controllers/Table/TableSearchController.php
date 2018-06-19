@@ -535,14 +535,14 @@ class TableSearchController extends TableController
         $types = [];
         if ($this->_searchType == 'replace') {
             $num_cols = count($column_names);
-            for ($i= 0; $i < $num_cols; $i++) {
+            for ($i = 0; $i < $num_cols; $i++) {
                 $types[$column_names[$i]] = preg_replace('@\\(.*@s', '', $column_types[$i]);
             }
         }
 
         $criteria_column_names = isset($_POST['criteriaColumnNames']) ? $_POST['criteriaColumnNames'] : null;
         $keys = [];
-        for ($i= 0; $i < 4; $i++) {
+        for ($i = 0; $i < 4; $i++) {
             if (isset($criteria_column_names[$i])) {
                 if ($criteria_column_names[$i] != 'pma_null') {
                     $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $column_names);

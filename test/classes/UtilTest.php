@@ -1380,7 +1380,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFields()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_2'=>'choice_2'];
+        $choices = ['value_1' => 'choice_1', 'value_2' => 'choice_2'];
 
         $out = "";
         foreach ($choices as $choice_value => $choice_label) {
@@ -1411,7 +1411,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsWithChecked()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_2'=>'choice_2'];
+        $choices = ['value_1' => 'choice_1', 'value_2' => 'choice_2'];
         $checked_choice = "value_2";
 
         $out = "";
@@ -1450,7 +1450,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsWithCheckedWithClass()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_2'=>'choice_2'];
+        $choices = ['value_1' => 'choice_1', 'value_2' => 'choice_2'];
         $checked_choice = "value_2";
         $class = "test_class";
 
@@ -1497,7 +1497,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsWithoutBR()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value&_&lt;2&gt;'=>'choice_2'];
+        $choices = ['value_1' => 'choice_1', 'value&_&lt;2&gt;' => 'choice_2'];
         $checked_choice = "choice_2";
 
         $out = "";
@@ -1535,7 +1535,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsEscapeLabelEscapeLabel()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;'];
+        $choices = ['value_1' => 'choice_1', 'value_&2' => 'choice&_&lt;2&gt;'];
         $checked_choice = "value_2";
 
         $out = "";
@@ -1576,7 +1576,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsEscapeLabelNotEscapeLabel()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;'];
+        $choices = ['value_1' => 'choice_1', 'value_&2' => 'choice&_&lt;2&gt;'];
         $checked_choice = "value_2";
 
         $out = "";
@@ -1617,7 +1617,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsEscapeLabelEscapeLabelWithClass()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;'];
+        $choices = ['value_1' => 'choice_1', 'value_&2' => 'choice&_&lt;2&gt;'];
         $checked_choice = "value_2";
         $class = "test_class";
 

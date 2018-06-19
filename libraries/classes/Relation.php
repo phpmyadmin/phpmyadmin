@@ -1488,7 +1488,7 @@ class Relation
                         . ' LIKE "%' . $GLOBALS['dbi']->escapeString($foreign_filter)
                         . '%"'
                     );
-                $f_query_order = ($foreign_display == false) ? '' :' ORDER BY '
+                $f_query_order = ($foreign_display == false) ? '' : ' ORDER BY '
                     . Util::backquote($foreign_table) . '.'
                     . Util::backquote($foreign_display);
 

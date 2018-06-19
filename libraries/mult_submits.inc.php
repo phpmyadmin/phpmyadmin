@@ -112,8 +112,8 @@ if (! empty($submit_mult)
                     $table,
                     $selected,
                     $views,
-                    isset($original_sql_query)? $original_sql_query : null,
-                    isset($original_url_query)? $original_url_query : null
+                    isset($original_sql_query) ? $original_sql_query : null,
+                    isset($original_url_query) ? $original_url_query : null
                 );
                 $response->disable();
                 $response->addHTML(
@@ -210,8 +210,8 @@ if (!empty($submit_mult) && !empty($what)) {
         $table,
         $selected,
         $views,
-        isset($original_sql_query)? $original_sql_query : null,
-        isset($original_url_query)? $original_url_query : null
+        isset($original_sql_query) ? $original_sql_query : null,
+        isset($original_url_query) ? $original_url_query : null
     );
 
 

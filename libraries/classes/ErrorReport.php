@@ -140,7 +140,7 @@ class ErrorReport
             }
 
             // if there were no 'actual' errors to be submitted.
-            if ($i==0) {
+            if ($i == 0) {
                 return []; // then return empty array
             }
             $report["exception_type"] = 'php';

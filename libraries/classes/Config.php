@@ -430,7 +430,7 @@ class Config
         }
 
         if ($common_dir_contents = @file_get_contents($git_folder . '/commondir')) {
-            $git_folder = $git_folder.DIRECTORY_SEPARATOR.trim($common_dir_contents);
+            $git_folder = $git_folder . DIRECTORY_SEPARATOR . trim($common_dir_contents);
         }
 
         $branch = false;

@@ -16,7 +16,7 @@ use PhpMyAdmin\Utils\HttpRequest;
 require_once 'libraries/common.inc.php';
 
 if (!isset($_REQUEST['exception_type'])
-    ||!in_array($_REQUEST['exception_type'], ['js', 'php'])
+    || !in_array($_REQUEST['exception_type'], ['js', 'php'])
 ) {
     die('Oops, something went wrong!!');
 }
@@ -39,7 +39,7 @@ if (isset($_REQUEST['send_error_report'])
         if (isset($_SESSION['prev_error_subm_time'])
             && isset($_SESSION['error_subm_count'])
             && $_SESSION['error_subm_count'] >= 3
-            && ($_SESSION['prev_error_subm_time']-time()) <= 3000
+            && ($_SESSION['prev_error_subm_time'] - time()) <= 3000
         ) {
             $_SESSION['error_subm_count'] = 0;
             $_SESSION['prev_errors'] = '';
@@ -48,7 +48,7 @@ if (isset($_REQUEST['send_error_report'])
             $_SESSION['prev_error_subm_time'] = time();
             $_SESSION['error_subm_count'] = (
                 (isset($_SESSION['error_subm_count']))
-                    ? ($_SESSION['error_subm_count']+1)
+                    ? ($_SESSION['error_subm_count'] + 1)
                     : (0)
             );
         }

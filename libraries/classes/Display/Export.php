@@ -336,7 +336,7 @@ class Export
      */
     private function getHtmlForOptionsOutputFormat($exportType)
     {
-        $trans = new Message;
+        $trans = new Message();
         $trans->addText(__('@SERVER@ will become the server name'));
         if ($exportType == 'database' || $exportType == 'table') {
             $trans->addText(__(', @DATABASE@ will become the database name'));

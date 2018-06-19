@@ -115,7 +115,7 @@ class Navigation
             . "'" . $GLOBALS['dbi']->escapeString($itemName) . "',"
             . "'" . $GLOBALS['dbi']->escapeString($itemType) . "',"
             . "'" . $GLOBALS['dbi']->escapeString($dbName) . "',"
-            . "'" . (! empty($tableName)? $GLOBALS['dbi']->escapeString($tableName) : "" )
+            . "'" . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : "" )
             . "')";
         $this->relation->queryAsControlUser($sqlQuery, false);
     }

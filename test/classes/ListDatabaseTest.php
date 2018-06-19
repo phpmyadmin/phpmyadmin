@@ -57,7 +57,7 @@ class ListDatabaseTest extends PmaTestCase
      */
     public function testEmpty()
     {
-        $arr = new ListDatabase;
+        $arr = new ListDatabase();
         $this->assertEquals('', $arr->getEmpty());
     }
 
@@ -68,7 +68,7 @@ class ListDatabaseTest extends PmaTestCase
      */
     public function testExists()
     {
-        $arr = new ListDatabase;
+        $arr = new ListDatabase();
         $this->assertEquals(true, $arr->exists('single_db'));
     }
 
@@ -79,7 +79,7 @@ class ListDatabaseTest extends PmaTestCase
      */
     public function testHtmlOptions()
     {
-        $arr = new ListDatabase;
+        $arr = new ListDatabase();
         $this->assertEquals(
             '<option value="single_db">single_db</option>' . "\n",
             $arr->getHtmlOptions()

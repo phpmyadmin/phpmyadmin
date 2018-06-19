@@ -136,11 +136,11 @@ class RelationCleanupTest extends TestCase
         $cfgRelation = $this->relation->checkRelationsParam();
 
         $is_defined_column_info
-            = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
+            = isset($cfgRelation['column_info']) ? $cfgRelation['column_info'] : null;
         $is_defined_table_info
-            = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
+            = isset($cfgRelation['table_info']) ? $cfgRelation['table_info'] : null;
         $is_defined_relation
-            = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
+            = isset($cfgRelation['relation']) ? $cfgRelation['relation'] : null;
 
         $this->assertEquals(
             null,
@@ -193,11 +193,11 @@ class RelationCleanupTest extends TestCase
         $cfgRelation = $this->relation->checkRelationsParam();
 
         $is_defined_column_info
-            = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
+            = isset($cfgRelation['column_info']) ? $cfgRelation['column_info'] : null;
         $is_defined_table_info
-            = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
+            = isset($cfgRelation['table_info']) ? $cfgRelation['table_info'] : null;
         $is_defined_relation
-            = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
+            = isset($cfgRelation['relation']) ? $cfgRelation['relation'] : null;
         $is_defined_table_coords
             = isset($cfgRelation['table_coords'])
             ? $cfgRelation['table_coords']
@@ -265,11 +265,11 @@ class RelationCleanupTest extends TestCase
         $cfgRelation = $this->relation->checkRelationsParam();
 
         $is_defined_column_info
-            = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
+            = isset($cfgRelation['column_info']) ? $cfgRelation['column_info'] : null;
         $is_defined_table_info
-            = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
+            = isset($cfgRelation['table_info']) ? $cfgRelation['table_info'] : null;
         $is_defined_relation
-            = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
+            = isset($cfgRelation['relation']) ? $cfgRelation['relation'] : null;
         $is_defined_table_coords
             = isset($cfgRelation['table_coords'])
             ? $cfgRelation['table_coords']

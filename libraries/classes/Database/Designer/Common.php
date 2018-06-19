@@ -373,7 +373,7 @@ class Common
             );
         }
 
-        return (boolean) $success;
+        return (bool) $success;
     }
 
     /**
@@ -504,7 +504,7 @@ class Common
         );
 
         if (!$res) {
-            return (boolean)$res;
+            return (bool)$res;
         }
 
         foreach ($_REQUEST['t_h'] as $key => $value) {
@@ -531,7 +531,7 @@ class Common
             );
         }
 
-        return (boolean) $res;
+        return (bool) $res;
     }
 
     /**

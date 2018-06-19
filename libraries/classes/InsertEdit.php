@@ -1807,7 +1807,7 @@ class InsertEdit
             )
             . '</td>'
             . '</tr>';
-        $html_output .='<tr>'
+        $html_output .= '<tr>'
             . $this->getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
             . '</tr>'
             . '</table>'
@@ -3048,11 +3048,11 @@ class InsertEdit
      */
     public function getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
     {
-        $html_output ='<form id="insertForm" class="lock-page ';
+        $html_output = '<form id="insertForm" class="lock-page ';
         if ($has_blob_field && $is_upload) {
-            $html_output .='disableAjax';
+            $html_output .= 'disableAjax';
         }
-        $html_output .='" method="post" action="tbl_replace.php" name="insertForm" ';
+        $html_output .= '" method="post" action="tbl_replace.php" name="insertForm" ';
         if ($is_upload) {
             $html_output .= ' enctype="multipart/form-data"';
         }

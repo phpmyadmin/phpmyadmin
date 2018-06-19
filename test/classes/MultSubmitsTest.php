@@ -82,7 +82,7 @@ class MultSubmitsTest extends TestCase
     public function testGetHtmlForReplacePrefixTable()
     {
         $action = 'delete_row';
-        $urlParams = ['url_query'=>'PMA_original_url_query'];
+        $urlParams = ['url_query' => 'PMA_original_url_query'];
 
         //Call the test function
         $html = $this->multSubmits->getHtmlForReplacePrefixTable($action, $urlParams);
@@ -112,7 +112,7 @@ class MultSubmitsTest extends TestCase
     public function testGetHtmlForAddPrefixTable()
     {
         $action = 'delete_row';
-        $urlParams = ['url_query'=>'PMA_original_url_query'];
+        $urlParams = ['url_query' => 'PMA_original_url_query'];
 
         //Call the test function
         $html = $this->multSubmits->getHtmlForAddPrefixTable($action, $urlParams);
@@ -143,7 +143,7 @@ class MultSubmitsTest extends TestCase
     {
         $what = 'replace_prefix_tbl';
         $action = 'delete_row';
-        $urlParams = ['url_query'=>'PMA_original_url_query'];
+        $urlParams = ['url_query' => 'PMA_original_url_query'];
         $fullQuery = 'select column from PMA_table';
 
         //Call the test function

@@ -45,7 +45,7 @@ class ConfigTest extends PmaTestCase
      */
     protected function setUp()
     {
-        $this->object = new Config;
+        $this->object = new Config();
         $GLOBALS['server'] = 0;
         $_SESSION['git_location'] = '.git';
         $_SESSION['is_git_revision'] = true;

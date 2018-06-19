@@ -88,7 +88,7 @@ class ThemeManager
 
         $this->loadThemes();
 
-        $this->theme = new Theme;
+        $this->theme = new Theme();
 
         $config_theme_exists = true;
 
@@ -343,7 +343,7 @@ class ThemeManager
             $select_box .= Url::getHiddenInputs();
         }
 
-        $theme_preview_path= './themes.php';
+        $theme_preview_path = './themes.php';
         $theme_preview_href = '<a href="'
             . $theme_preview_path . '" target="themes" class="themeselect">';
         $select_box .=  $theme_preview_href . __('Theme:') . '</a>' . "\n";

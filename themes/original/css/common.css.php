@@ -441,13 +441,13 @@ div.error {
     if ($GLOBALS['text_dir'] === 'ltr') { ?>
         background-position: 10px 50%;
         padding:            0.1em 0.1em 0.1em 42px;
-    <?php
+        <?php
     } else { ?>
         background-position: 99% 50%;
         padding:            0.1em 40px 0.1em 0.1em;
         <?php
     }
-?>
+    ?>
 }
 div.success img.icon,
 div.notice img.icon,
@@ -516,7 +516,7 @@ fieldset.confirmation legend {
         padding:            0.2em 25px 0.2em 0.2em;
         <?php
     }
-?>
+    ?>
 }
 /* end messageboxes */
 

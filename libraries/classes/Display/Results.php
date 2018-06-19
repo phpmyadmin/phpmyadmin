@@ -1127,7 +1127,7 @@ class Results
             @((ceil(
                 $this->__get('unlim_num_rows')
                 / $_SESSION['tmpval']['max_rows']
-            )- 1) * $maxRows),
+            ) - 1) * $maxRows),
             $html_sql_query,
             false,
             $onsubmit,
@@ -4977,7 +4977,7 @@ class Results
 
         // @see DbiMysqi::fetchRow & DatabaseInterface::fetchRow
         if (! is_array($row)) {
-            $row = array();
+            $row = [];
         }
 
         // $clause_is_unique is needed by getTable() to generate the proper param

@@ -141,7 +141,7 @@ class TableTest extends PmaTestCase
                 DatabaseInterface::CONNECT_USER,
                 0,
                 [
-                    ['COLUMN_NAME'=>'COLUMN_NAME', 'DATA_TYPE'=>'DATA_TYPE']
+                    ['COLUMN_NAME' => 'COLUMN_NAME', 'DATA_TYPE' => 'DATA_TYPE']
                 ]
             ],
             [
@@ -194,20 +194,20 @@ class TableTest extends PmaTestCase
                 0,
                 [
                     [
-                        'Field'=>'COLUMN_NAME1',
-                        'Type'=> 'INT(10)',
-                        'Null'=> 'NO',
-                        'Key'=> '',
-                        'Default'=> null,
-                        'Extra'=>''
+                        'Field' => 'COLUMN_NAME1',
+                        'Type' => 'INT(10)',
+                        'Null' => 'NO',
+                        'Key' => '',
+                        'Default' => null,
+                        'Extra' => ''
                     ],
                     [
-                        'Field'=>'COLUMN_NAME2',
-                        'Type'=> 'INT(10)',
-                        'Null'=> 'YES',
-                        'Key'=> '',
-                        'Default'=> null,
-                        'Extra'=>'STORED GENERATED'
+                        'Field' => 'COLUMN_NAME2',
+                        'Type' => 'INT(10)',
+                        'Null' => 'YES',
+                        'Key' => '',
+                        'Default' => null,
+                        'Extra' => 'STORED GENERATED'
                     ]
                 ]
             ],
@@ -259,9 +259,9 @@ class TableTest extends PmaTestCase
             ->will($this->returnValue(10));
 
         $triggers = [
-            ["name" => "name1", "create"=>"crate1"],
-            ["name" => "name2", "create"=>"crate2"],
-            ["name" => "name3", "create"=>"crate3"],
+            ["name" => "name1", "create" => "crate1"],
+            ["name" => "name2", "create" => "crate2"],
+            ["name" => "name3", "create" => "crate3"],
         ];
 
         $dbi->expects($this->any())->method('getTriggers')

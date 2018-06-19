@@ -1689,9 +1689,9 @@ class PrivilegesTest extends TestCase
         $privMap = [
             "user1" => [
                 "hostname1" => [
-                    ['Type'=>'g', 'Grant_priv'=>'Y'],
-                    ['Type'=>'d', 'Db'=>"dbname", 'Grant_priv'=>'Y'],
-                    ['Type'=>'t', 'Grant_priv'=>'N'],
+                    ['Type' => 'g', 'Grant_priv' => 'Y'],
+                    ['Type' => 'd', 'Db' => "dbname", 'Grant_priv' => 'Y'],
+                    ['Type' => 't', 'Grant_priv' => 'N'],
                 ]
             ]
         ];
@@ -2550,7 +2550,7 @@ class PrivilegesTest extends TestCase
 
         $plugins = [
             [
-                'PLUGIN_NAME'=>'mysql_native_password',
+                'PLUGIN_NAME' => 'mysql_native_password',
                 'PLUGIN_DESCRIPTION' => 'Native MySQL authentication'
             ],
             [

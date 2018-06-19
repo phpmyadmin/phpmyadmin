@@ -52,7 +52,7 @@ class Key extends TwoFactorPlugin
     {
         $result = [];
         foreach ($this->_twofactor->config['settings']['registrations'] as $index => $data) {
-            $reg = new \StdClass;
+            $reg = new \stdClass();
             $reg->keyHandle = $data['keyHandle'];
             $reg->publicKey = $data['publicKey'];
             $reg->certificate = $data['certificate'];

@@ -56,7 +56,7 @@ class TableSearchControllerTest extends PmaTestCase
             ->getMock();
         $dbi->types = new Types($dbi);
 
-        $columns =[
+        $columns = [
             [
                 'Field' => 'Field1',
                 'Type' => 'Type1',

@@ -659,7 +659,7 @@ class CentralColumns
                 $def['Type'] .= '(' . $col_length . ')';
             }
             $def['Collation'] = $collation;
-            $def['Null'] = $col_isNull?__('YES'):__('NO');
+            $def['Null'] = $col_isNull ? __('YES') : __('NO');
             $def['Extra'] = $col_extra;
             $def['Attribute'] = $col_attribute;
             $def['Default'] = $col_default;
@@ -1096,28 +1096,27 @@ class CentralColumns
         int $pos,
         string $pmaThemeImage,
         string $text_dir
-    ): string
-    {
+    ): string {
         $max_rows = $this->maxRows;
         $attribute_types = $this->dbi->types->getAttributes();
 
         $tn_pageNow = ($pos / $this->maxRows) + 1;
         $tn_nbTotalPage = ceil($total_rows / $this->maxRows);
-        $tn_page_selector = ($tn_nbTotalPage > 1)?(Util::pageselector(
+        $tn_page_selector = ($tn_nbTotalPage > 1) ? (Util::pageselector(
             'pos',
             $this->maxRows,
             $tn_pageNow,
             $tn_nbTotalPage
-        )):'';
+        )) : '';
         $this->dbi->selectDb($db);
         $tables = $this->dbi->getTables($db);
         $rows_list = $this->getColumnsList($db, $pos, $max_rows);
 
-        $rows_meta = array();
-        $types_upper = array();
+        $rows_meta = [];
+        $types_upper = [];
         $row_num = 0;
         foreach ($rows_list as $row) {
-            $rows_meta[$row_num] = array();
+            $rows_meta[$row_num] = [];
             if (!isset($row['col_default']) || $row['col_default'] == '') {
                 $rows_meta[$row_num]['DefaultType'] = 'NONE';
             } else {

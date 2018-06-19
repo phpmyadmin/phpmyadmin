@@ -334,11 +334,10 @@ class Designer
         array $tabColumn,
         array $tablesAllKeys,
         array $tablesPkOrUniqueKeys
-    ): string
-    {
+    ): string {
         $cfgRelation = $this->relation->getRelationsParam();
         $tableNames = $GLOBALS['designer']['TABLE_NAME'];
-        $columnsType = array();
+        $columnsType = [];
         foreach ($tableNames as $tableName) {
             $limit = count($tabColumn[$tableName]['COLUMN_ID']);
             for ($j = 0; $j < $limit; $j++) {
@@ -376,7 +375,7 @@ class Designer
         return $this->template->render('database/designer/main', [
             'db' => $db,
             'get_db' => $getDb,
-            'designer_config'=> json_encode($designerConfig),
+            'designer_config' => json_encode($designerConfig),
             'display_page' => $displayPage,
             'has_query' => $hasQuery,
             'selected_page' => $selectedPage,
@@ -397,5 +396,4 @@ class Designer
             'columns_type' => $columnsType,
         ]);
     }
-
 }

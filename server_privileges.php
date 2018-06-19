@@ -187,10 +187,10 @@ list($queries, $password) = $serverPrivileges->getDataForChangeOrCopyUser();
  */
 list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error)
     = $serverPrivileges->addUser(
-        isset($dbname)? $dbname : null,
-        isset($username)? $username : null,
-        isset($hostname)? $hostname : null,
-        isset($password)? $password : null,
+        isset($dbname) ? $dbname : null,
+        isset($username) ? $username : null,
+        isset($hostname) ? $hostname : null,
+        isset($password) ? $password : null,
         $cfgRelation['menuswork']
     );
 //update the old variables
@@ -386,7 +386,7 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
  */
 $response->addHTML(
     $serverPrivileges->getHtmlForUserGroupDialog(
-        isset($username)? $username : null,
+        isset($username) ? $username : null,
         $cfgRelation['menuswork']
     )
 );

@@ -415,20 +415,20 @@ class ExportOdtTest extends PmaTestCase
             ->getMock();
 
         $flags = [];
-        $a = new stdClass;
+        $a = new stdClass();
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = true;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->numeric = true;
         $a->type = 'real';
         $a->blob = false;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->type = "timestamp";
         $a->blob = false;
         $a->numeric = false;

@@ -241,8 +241,8 @@ class RecentFavoriteTable
         } else {
             $html .= '<li class="warp_link">'
                   . ($this->_tableType == 'recent'
-                    ?__('There are no recent tables.')
-                    :__('There are no favorite tables.'))
+                    ? __('There are no recent tables.')
+                    : __('There are no favorite tables.'))
                   . '</li>';
         }
         return $html;

@@ -1274,11 +1274,11 @@ class Util
         $li   = pow(10, $limes);
         $unit = $byteUnits[0];
 
-        for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
+        for ($d = 6, $ex = 15; $d >= 1; $d--, $ex -= 3) {
             $unitSize = $li * pow(10, $ex);
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
-                $value = round($value / (pow(1024, $d) / $dh)) /$dh;
+                $value = round($value / (pow(1024, $d) / $dh)) / $dh;
                 $unit = $byteUnits[$d];
                 break 1;
             } // end if
@@ -1397,16 +1397,16 @@ class Util
          * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
          * to use, then lower the SI prefix
          */
-        $cur_digits = floor(log10($value / pow(1000, $d))+1);
+        $cur_digits = floor(log10($value / pow(1000, $d)) + 1);
         if ($digits_left > $cur_digits) {
-            $d -= floor(($digits_left - $cur_digits)/3);
+            $d -= floor(($digits_left - $cur_digits) / 3);
         }
 
         if ($d < 0 && $only_down) {
             $d = 0;
         }
 
-        $value = round($value / (pow(1000, $d) / $dh)) /$dh;
+        $value = round($value / (pow(1000, $d) / $dh)) / $dh;
         $unit = $units[$d];
 
         // number_format is not multibyte safe, str_replace is safe
@@ -1529,7 +1529,7 @@ class Util
         );
         $date = preg_replace(
             '@%[bB]@',
-            $month[(int) strftime('%m', (int) $timestamp)-1],
+            $month[(int) strftime('%m', (int) $timestamp) - 1],
             $date
         );
 
@@ -3068,8 +3068,8 @@ class Util
         $mapping = [
             'structure' =>  __('Structure'),
             'sql' => __('SQL'),
-            'search' =>__('Search'),
-            'insert' =>__('Insert'),
+            'search' => __('Search'),
+            'insert' => __('Insert'),
             'browse' => __('Browse'),
             'operations' => __('Operations'),
 
@@ -3078,8 +3078,8 @@ class Util
             // Values for $cfg['DefaultTabTable']
             'tbl_structure.php' =>  __('Structure'),
             'tbl_sql.php' => __('SQL'),
-            'tbl_select.php' =>__('Search'),
-            'tbl_change.php' =>__('Insert'),
+            'tbl_select.php' => __('Search'),
+            'tbl_change.php' => __('Insert'),
             'sql.php' => __('Browse'),
             // Values for $cfg['DefaultTabDatabase']
             'db_structure.php' => __('Structure'),
@@ -3379,7 +3379,7 @@ class Util
         $titles['NoExecute']  = self::getIcon('bd_nextpage', __('Execute'));
         // For Favorite/NoFavorite, we need icon only.
         $titles['Favorite']  = self::getIcon('b_favorite', '');
-        $titles['NoFavorite']= self::getIcon('b_no_favorite', '');
+        $titles['NoFavorite'] = self::getIcon('b_no_favorite', '');
 
         return $titles;
     }

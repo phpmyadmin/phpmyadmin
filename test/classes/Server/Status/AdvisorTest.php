@@ -78,7 +78,7 @@ class AdvisorTest extends TestCase
             "Com_empty_query" => "0",
         ];
 
-        $server_variables= [
+        $server_variables = [
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "1",
             "automatic_sp_privileges" => "ON",

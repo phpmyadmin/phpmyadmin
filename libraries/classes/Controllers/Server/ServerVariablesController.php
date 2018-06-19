@@ -200,7 +200,7 @@ class ServerVariablesController extends Controller
         }
 
         if (! is_numeric($value)) {
-            $value="'" . $value . "'";
+            $value = "'" . $value . "'";
         }
 
         if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])
@@ -359,7 +359,7 @@ class ServerVariablesController extends Controller
             ]);
 
             if ($has_session_value) {
-                list($formattedValue, $isHtmlFormatted)= $this->_formatVariable(
+                list($formattedValue, $isHtmlFormatted) = $this->_formatVariable(
                     $name,
                     $serverVarsSession[$name]
                 );
