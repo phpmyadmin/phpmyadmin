@@ -20,7 +20,7 @@ if (! defined('PHPMYADMIN')) {
 $response = Response::getInstance();
 
 $events = new Events($GLOBALS['dbi']);
-$routines = new Routines();
+$routines = new Routines($GLOBALS['dbi']);
 $triggers = new Triggers();
 
 if (! $response->isAjax()) {
