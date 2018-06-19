@@ -21,7 +21,7 @@ $response = Response::getInstance();
 
 $events = new Events($GLOBALS['dbi']);
 $routines = new Routines($GLOBALS['dbi']);
-$triggers = new Triggers();
+$triggers = new Triggers($GLOBALS['dbi']);
 
 if (! $response->isAjax()) {
     /**
