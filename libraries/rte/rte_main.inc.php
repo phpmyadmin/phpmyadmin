@@ -19,7 +19,7 @@ if (! defined('PHPMYADMIN')) {
 
 $response = Response::getInstance();
 
-$events = new Events();
+$events = new Events($GLOBALS['dbi']);
 $routines = new Routines();
 $triggers = new Triggers();
 

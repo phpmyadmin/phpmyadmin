@@ -66,7 +66,7 @@ class General
      */
     public function sendEditor($type, $mode, array $item, $title, $db, $operation = null)
     {
-        $events = new Events();
+        $events = new Events($GLOBALS['dbi']);
         $triggers = new Triggers();
         $words = new Words();
         $response = Response::getInstance();
