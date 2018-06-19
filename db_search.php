@@ -68,10 +68,4 @@ if ($response->isAjax() && empty($_REQUEST['ajax_page_request'])) {
 }
 
 // Display the search form
-$response->addHTML($db_search->getSelectionForm());
-$response->addHTML('<div id="searchresults"></div>');
-$response->addHTML(
-    '<div id="togglesearchresultsdiv"><a id="togglesearchresultlink"></a></div>'
-);
-$response->addHTML('<br class="clearfloat" />');
-$response->addHTML($db_search->getResultDivs());
+$response->addHTML($db_search->getMainHtml());

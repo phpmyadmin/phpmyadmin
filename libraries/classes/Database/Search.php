@@ -317,7 +317,7 @@ class Search
      *
      * @return string HTML for selection form
      */
-    public function getSelectionForm()
+    public function getMainHtml()
     {
         $choices = [
             '1' => $this->searchTypes[1] . ' '
@@ -332,7 +332,7 @@ class Search
             '4' => $this->searchTypes[4],
             '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp')
         ];
-        return $this->template->render('database/search/selection_form', [
+        return $this->template->render('database/search/main', [
             'db' => $this->db,
             'choices' => $choices,
             'criteria_search_string' => $this->criteriaSearchString,
@@ -342,15 +342,5 @@ class Search
             'criteria_column_name' => isset($this->criteriaColumnName)
                 ? $this->criteriaColumnName : null,
         ]);
-    }
-
-    /**
-     * Provides div tags for browsing search results and sql query form.
-     *
-     * @return string div tags
-     */
-    public function getResultDivs()
-    {
-        return $this->template->render('database/search/result_divs');
     }
 }
