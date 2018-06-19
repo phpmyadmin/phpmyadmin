@@ -400,7 +400,7 @@ class Table
     {
         $table_num_row_info = $this->getStatusInfo('TABLE_ROWS', false, true);
         if (false === $table_num_row_info) {
-            $table_num_row_info = $this->_dbi->getTable($this->_db_name, $showtable['Name'])
+            $table_num_row_info = $this->_dbi->getTable($this->_db_name, $GLOBALS['showtable']['Name'])
             ->countRecords(true);
         }
         return $table_num_row_info ? $table_num_row_info : 0 ;
@@ -2167,7 +2167,7 @@ class Table
         $keyBlockSizes = $index->getKeyBlockSize();
         if (! empty($keyBlockSizes)) {
             $sql_query .= sprintf(
-                ' KEY_BLOCK_SIZE = ',
+                ' KEY_BLOCK_SIZE = %s',
                 $GLOBALS['dbi']->escapeString($keyBlockSizes)
             );
         }
