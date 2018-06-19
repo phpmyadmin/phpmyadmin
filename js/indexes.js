@@ -378,6 +378,9 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
             PMA_ajaxRemoveMessage($msgbox);
             if(showDialog) {
                 // Show dialog if the request was successful
+                if($("#addIndex").length > 0) {
+                    $("#addIndex").remove();
+                }
                 var $div = $('<div/>');
                 $div
                     .append(data.message)
@@ -412,6 +415,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
                     .append(data.message);
                 $div.css({"display" : "none"});
                 $div.appendTo($('body'));
+                $div.attr({"id" : "addIndex"});
                 var is_missing_value = false;
                 $('select[name="index[columns][names][]"]').each(function () {
                     if ($(this).val() === '') {
@@ -746,10 +750,8 @@ AJAX.registerOnload('indexes.js', function () {
                     target_columns.push(source_array[array_index].columns[i].col_index);
                 }
                 target_columns.push(col_index);
-                if(showDialog) {
-                    PMA_showAddIndexDialog(source_array, array_index, target_columns, col_index,
-                        source_array[array_index], showDialog);
-                }
+                PMA_showAddIndexDialog(source_array, array_index, target_columns, col_index,
+                    source_array[array_index], showDialog);
             } else {
                 // If there are multiple columns selected for an index, show advanced dialog.
                 PMA_indexTypeSelectionDialog(source_array, index_choice, col_index);
