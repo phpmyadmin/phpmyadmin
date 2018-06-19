@@ -3112,6 +3112,7 @@ form.append_fields_form .tblFooters
     margin-<?php echo $left; ?>: -5px;  /* must be minus half of its width */
     margin-top: -10px;
     position: absolute;
+    top: 0;
     width: 10px;
 }
 
@@ -3962,4 +3963,8 @@ body .ui-dialog .ui-dialog-buttonpane button.ui-state-hover {
 body .ui-dialog .ui-dialog-buttonpane button.ui-state-active {
     background-color: #333;
     border: 1px solid #333;
+}
+
+.responsivetable, .responsivetable > .data {
+    overflow-x: auto;
 }

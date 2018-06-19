@@ -2764,6 +2764,7 @@ fieldset .disabled-field td {
     margin-<?php echo $left; ?>: -5px;  /* must be minus half of its width */
     margin-top: -10px;
     position: absolute;
+    top: 0;
     width: 10px;
 }
 
@@ -3591,6 +3592,10 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
     float: <?php echo $right; ?>;
 }
 /* end of styles for jQuery-ui to support rtl languages */
+
+.responsivetable, .responsivetable > .data {
+    overflow-x: auto;
+}
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
