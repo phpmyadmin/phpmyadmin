@@ -68,7 +68,7 @@ class Events
         $this->export = new Export();
         $this->footer = new Footer();
         $this->general = new General();
-        $this->rteList = new RteList();
+        $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
     }
 
