@@ -1,9 +1,9 @@
 <table class="data">
     <caption class="tblHeaders">
-        {{ 'Search results for "<em>%s</em>" %s:' | format(
+        {{ 'Search results for "<em>%s</em>" %s:'|format(
             criteria_search_string,
             search_type_description
-        ) | raw }}
+        )|raw }}
     </caption>
     {% for row in rows %}
         <tr class="noclick">
@@ -15,7 +15,7 @@
                         %1$s matches in <strong>%2$s</strong>
                     {% endtrans %}
                 {% endset %}
-                {{ result_message | format(row.result_count, row.table) | raw }}
+                {{ result_message|format(row.result_count, row.table)|raw }}
             </td>
             {% if row.result_count > 0 %}
                 {% set url_params = {
@@ -51,7 +51,7 @@
     {% endfor %}
 </table>
 
-{% if criteria_tables | length > 1 %}
+{% if criteria_tables|length > 1 %}
     <p>
         {% trans %}
             <strong>Total:</strong> <em>{{ count }}</em> match
