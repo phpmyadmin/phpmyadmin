@@ -65,7 +65,7 @@ class Events
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->export = new Export();
+        $this->export = new Export($this->dbi);
         $this->footer = new Footer();
         $this->general = new General();
         $this->rteList = new RteList($this->dbi);
