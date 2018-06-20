@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Rte;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\Util;
 
@@ -25,10 +26,18 @@ class Footer
     private $words;
 
     /**
-     * Footer constructor.
+     * @var DatabaseInterface
      */
-    public function __construct()
+    private $dbi;
+
+    /**
+     * Footer constructor.
+     *
+     * @param DatabaseInterface $dbi
+     */
+    public function __construct(DatabaseInterface $dbi)
     {
+        $this->dbi = $dbi;
         $this->words = new Words();
     }
 
@@ -106,7 +115,7 @@ class Footer
          * a form for toggling the state of the event scheduler
          */
         // Init options for the event scheduler toggle functionality
-        $es_state = $GLOBALS['dbi']->fetchValue(
+        $es_state = $this->dbi->fetchValue(
             "SHOW GLOBAL VARIABLES LIKE 'event_scheduler'",
             0,
             1

@@ -71,7 +71,7 @@ class Routines
     {
         $this->dbi = $dbi;
         $this->export = new Export($this->dbi);
-        $this->footer = new Footer();
+        $this->footer = new Footer($this->dbi);
         $this->general = new General();
         $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
