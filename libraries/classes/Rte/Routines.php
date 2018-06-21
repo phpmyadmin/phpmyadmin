@@ -65,7 +65,7 @@ class Routines
     /**
      * Routines constructor.
      *
-     * @param DatabaseInterface $dbi
+     * @param DatabaseInterface $dbi DatabaseInterface object
      */
     public function __construct(DatabaseInterface $dbi)
     {
