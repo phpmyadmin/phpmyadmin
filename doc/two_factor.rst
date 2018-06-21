@@ -50,9 +50,8 @@ tokens.
 
 There are several manufacturers of these tokens, for example:
 
-* `youbico FIDO U2F Security Key <https://www.yubico.com/products/yubikey-hardware/fido-u2f-security-key/>`_
+* `youbico FIDO U2F Security Key <https://www.yubico.com/solutions/fido-u2f/>`_
 * `HyperFIDO <https://www.hypersecu.com/products/hyperfido>`_
-* `ePass FIDO USB <https://www.ftsafe.com/onlinestore/product?id=21>`_
 * `TREZOR Bitcoin wallet <https://shop.trezor.io?a=572b241135e1>`_ can `act as an U2F token <http://doc.satoshilabs.com/trezor-user/u2f.html>`_
 
 .. _simple2fa:
