@@ -267,9 +267,9 @@ class CoreTest extends PmaTestCase
      *
      * @dataProvider providerTestGotoNowhere
      */
-    function testGotoNowhere($page, $whiteList, $expected)
+    function testGotoNowhere($page, $whiteList, $include, $expected)
     {
-        $this->assertSame($expected, Core::checkPageValidity($page, $whiteList));
+        $this->assertSame($expected, Core::checkPageValidity($page, $whiteList, $include));
     }
 
     /**
@@ -280,12 +280,18 @@ class CoreTest extends PmaTestCase
     public function providerTestGotoNowhere()
     {
         return array(
-            array(null, [], false),
-            array('export.php', [], true),
-            array('export.php', $this->goto_whitelist, true),
-            array('shell.php', $this->goto_whitelist, false),
-            array('index.php?sql.php&test=true', $this->goto_whitelist, true),
-            array('index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist, true),
+            array(null, [], false, false),
+            array(null, [], true, false),
+            array('export.php', [], false, true),
+            array('export.php', [], true, true),
+            array('export.php', $this->goto_whitelist, false, true),
+            array('export.php', $this->goto_whitelist, true, true),
+            array('shell.php', $this->goto_whitelist, false, false),
+            array('shell.php', $this->goto_whitelist, true, false),
+            array('index.php?sql.php&test=true', $this->goto_whitelist, false, true),
+            array('index.php?sql.php&test=true', $this->goto_whitelist, true, false),
+            array('index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist, false, true),
+            array('index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist, true, false),
         );
     }
 
