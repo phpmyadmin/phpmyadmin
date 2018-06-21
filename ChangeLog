@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.8.3 (not yet released)
+
 4.8.2 (2018-06-21)
 - issue #14370 WHERE 0 causes Fatal error
 - issue #14225 Fix missing index icon
