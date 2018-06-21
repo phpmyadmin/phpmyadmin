@@ -1891,7 +1891,7 @@ class Qbe
         }
         $html_output .= '</select>';
         $html_output .= '<input type="text" name="searchName" id="searchName" '
-            . 'value="' . htmlspecialchars($currentSearchName) . '" />';
+            . 'value="' . htmlspecialchars((string)$currentSearchName) . '" />';
         $html_output .= '<input type="hidden" name="action" id="action" value="" />';
         $html_output .= '<input type="submit" name="saveSearch" id="saveSearch" '
             . 'value="' . __('Create bookmark') . '" />';
