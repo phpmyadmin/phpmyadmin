@@ -435,12 +435,13 @@ class Core
      * checks given $page against given $whitelist and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
-     * @param string &$page     page to check
-     * @param array  $whitelist whitelist to check page against
+     * @param string  &$page     page to check
+     * @param array   $whitelist whitelist to check page against
+     * @param boolean $include   whether the page is going to be included
      *
      * @return boolean whether $page is valid or not (in $whitelist or not)
      */
-    public static function checkPageValidity(&$page, array $whitelist = [])
+    public static function checkPageValidity(&$page, array $whitelist = [], $include = false)
     {
         if (empty($whitelist)) {
             $whitelist = self::$goto_whitelist;
@@ -451,6 +452,9 @@ class Core
 
         if (in_array($page, $whitelist)) {
             return true;
+        }
+        if ($include) {
+            return false;
         }
 
         $_page = mb_substr(

@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-27 21:31+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Polish "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/pl/>\n"
+"PO-Revision-Date: 2018-06-15 18:33+0000\n"
+"Last-Translator: Kuba Niewiarowski <jakub@niewiarowski.it>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/4-8/pl/"
+">\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -1880,8 +1880,7 @@ msgstr "Eksport"
 #: js/messages.php:401
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
-"Nie można eksportować żadnej procedury. Wymagane uprawnienia mogą być "
-"niewystarczające."
+"Brak procedury eksportowania. Możliwe, że brakuje odpowiednich uprawnień."
 
 #: js/messages.php:404 libraries/classes/Rte/Routines.php:760
 msgid "ENUM/SET editor"
@@ -1997,7 +1996,7 @@ msgstr "Zobacz więcej"
 
 #: js/messages.php:434
 msgid "Are you sure?"
-msgstr "Jesteś pewny?"
+msgstr "Czy jesteś pewny?"
 
 #: js/messages.php:436
 msgid ""
@@ -2078,8 +2077,8 @@ msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
-"Nie ruszać się z miejsca! Może to potrwać kilka sekund w zależności od "
-"rozmiaru danych i liczby kolumn w tabeli."
+"Poczekaj chwilę! To może zająć chwilę w zależności od wielkości bazy i "
+"ilości tabel."
 
 #: js/messages.php:465
 msgid "Step"
@@ -2087,12 +2086,12 @@ msgstr "Krok"
 
 #: js/messages.php:467
 msgid "The following actions will be performed:"
-msgstr "Zostaną wykonane następujące działania:"
+msgstr "Zostaną wykonane następujące operacje:"
 
 #: js/messages.php:468
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "DROP kolumny %s z tabeli %s"
+msgstr "Usuń kolumny %s z tabeli %s (DROP)"
 
 #: js/messages.php:469
 msgid "Create the following table"
@@ -7223,7 +7222,7 @@ msgstr "Serwer nie odpowiada."
 
 #: libraries/classes/DatabaseInterface.php:2131
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Wyloguj się i spróbuj jako inny użytkownik."
 
 #: libraries/classes/DatabaseInterface.php:2137
 msgid "Please check privileges of directory containing database."
@@ -10351,7 +10350,7 @@ msgstr "Zarejestruj się na uwierzytelnianiu"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:62
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Tylko do celów testowych!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
 #, fuzzy, php-format
@@ -16017,7 +16016,7 @@ msgstr "Brakuje tabel przechowujących konfigurację phpMyAdmin"
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Aktywowałeś podwójną weryfikację."
 
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2

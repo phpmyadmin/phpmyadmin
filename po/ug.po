@@ -7,22 +7,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2015-10-15 11:03+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Uighur <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"ug/>\n"
+"PO-Revision-Date: 2018-06-08 04:43+0000\n"
+"Last-Translator: ۋولقان <nureliosman@gmail.com>\n"
+"Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/4-8/ug/"
+">\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 3.0\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
-#, fuzzy
-#| msgid "Bar type"
 msgid "Bad type!"
-msgstr "چىقىرىش"
+msgstr "بوزۇق تىپ!"
 
 #: changelog.php:39 license.php:34
 #, php-format
@@ -345,10 +343,8 @@ msgstr ""
 "%sبۇ يەرنى كۆرۈڭ%s."
 
 #: db_qbe.php:130
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "بۇنى بىجىرىش ئۈچۈن مەزمۇن تاللانغان بولۇشى كېرەك"
+msgstr "ئەڭ ئاز بىرقۇرنى كۆرسىتىشكە تاللىشىڭىز كېرەك!"
 
 #: db_qbe.php:148
 #, php-format
@@ -360,7 +356,7 @@ msgstr ""
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:78
 #: libraries/classes/Plugins/AuthenticationPlugin.php:171
 msgid "Access denied!"
-msgstr "رەت قىلىندى"
+msgstr "زىيارەت رەت قىلىندى!"
 
 #: db_tracking.php:55 db_tracking.php:80
 #, fuzzy
@@ -3845,7 +3841,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "ھەرقانداق MySQL مۇلازىمىتىرىگە كىرىشكە قوشۇل"
 
 #: libraries/classes/Config/Descriptions.php:67
 msgid ""
@@ -3855,10 +3851,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:72
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "MySQL مۇلازىمىتېرىغا ئۇلىنالمىدى."
+msgstr "MySQL مۇلازىمىتېرىغا كىرىشنى چەكلە."
 
 #: libraries/classes/Config/Descriptions.php:75
 msgid ""

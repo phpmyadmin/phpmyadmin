@@ -178,7 +178,7 @@ big or your hosting provider is unwilling to change the settings:
   then able to import the files from the temporary directory. More
   information is available in the :ref:`config`  of this document.
 * Using a utility (such as `BigDump
-  <http://www.ozerov.de/bigdump/>`_) to split the files before
+  <https://www.ozerov.de/bigdump/>`_) to split the files before
   uploading. We cannot support this or any third party applications, but
   are aware of users having success with it.
 * If you have shell (command line) access, use MySQL to import the files
