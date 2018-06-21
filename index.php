@@ -59,7 +59,7 @@ if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
     && ! preg_match('/^index/', $_REQUEST['target'])
     && ! in_array($_REQUEST['target'], $target_blacklist)
-    && Core::checkPageValidity($_REQUEST['target'])
+    && Core::checkPageValidity($_REQUEST['target'], [], true)
 ) {
     include $_REQUEST['target'];
     exit;

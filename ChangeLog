@@ -9,9 +9,13 @@ phpMyAdmin - ChangeLog
 - issue #14155 Add move columns preview SQL button
 - issue #14296 Enable strict mode in PHP files
 
-4.8.2 (not yet released)
+4.8.3 (not yet released)
+
+4.8.2 (2018-06-21)
 - issue #14370 WHERE 0 causes Fatal error
 - issue #14225 Fix missing index icon
+- issue        [security] XSS vulnerability in Designer, see PMASA-2018-3
+- issue        [security] File inclusion and remote code execution vulnerability, see PMASA-2018-4
 
 4.8.1 (2018-05-24)
 - issue #12772 Fix case where the central columns attributes don't get filled in
