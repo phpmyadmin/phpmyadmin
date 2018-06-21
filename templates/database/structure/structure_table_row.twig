@@ -7,7 +7,9 @@
             id="checkbox_tbl_{{ curr }}" />
     </td>
     <th>
-        {{ browse_table_label|raw }}
+        <a href="sql.php{{ tbl_url_query|raw }}&amp;pos=0" title="{{ browse_table_label_title }}">
+            {{ browse_table_label_truename }}
+        </a>
         {{ tracking_icon|raw }}
     </th>
     {% if server_slave_status %}
@@ -38,7 +40,10 @@
     {% endif %}
 
     <td class="center print_ignore">
-        {{ browse_table|raw }}
+        <a href="sql.php{{ tbl_url_query|raw }}&amp;pos=0">
+            {{ browse_table_title|raw }}
+        </a>
+
     </td>
     <td class="center print_ignore">
         <a href="tbl_structure.php{{ tbl_url_query|raw }}">
@@ -46,14 +51,23 @@
         </a>
     </td>
     <td class="center print_ignore">
-        {{ search_table|raw }}
+        <a href="tbl_select.php{{ tbl_url_query|raw }}">
+            {{ search_table_title|raw }}
+        </a>
     </td>
 
     {% if not db_is_system_schema %}
         <td class="insert_table center print_ignore">
             <a href="tbl_change.php{{ tbl_url_query|raw }}">{{ titles['Insert']|raw }}</a>
         </td>
-        <td class="center print_ignore">{{ empty_table|raw }}</td>
+        <td class="center print_ignore">
+            {% if not table_is_view %}
+                <a class="truncate_table_anchor ajax" href="sql.php" data-post="{{ tbl_url_query|raw }}&amp;sql_query=
+                {{- empty_table_sql_query }}&amp;message_to_show={{ empty_table_message_to_show }}">
+                    {{ empty_table_title|raw }}
+                </a>
+            {% endif %}
+        </td>
         <td class="center print_ignore">
             <a class="ajax drop_table_anchor
                 {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}"

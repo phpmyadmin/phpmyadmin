@@ -546,44 +546,7 @@ class DatabaseStructureController extends DatabaseController
             $may_have_rows = $current_table['TABLE_ROWS'] > 0 || $table_is_view;
             $titles = Util::buildActionTitles();
 
-            $browse_table = $this->template->render('database/structure/browse_table', [
-                'tbl_url_query' => $tbl_url_query,
-                'title' => $may_have_rows ? $titles['Browse'] : $titles['NoBrowse'],
-            ]);
-
-            $search_table = $this->template->render('database/structure/search_table', [
-                'tbl_url_query' => $tbl_url_query,
-                'title' => $may_have_rows ? $titles['Search'] : $titles['NoSearch'],
-            ]);
-
-            $browse_table_label = $this->template->render('database/structure/browse_table_label', [
-                'tbl_url_query' => $tbl_url_query,
-                'title' => htmlspecialchars($current_table['TABLE_COMMENT']),
-                'truename' => $truename,
-            ]);
-
-            $empty_table = '';
             if (!$this->_db_is_system_schema) {
-                $empty_table = '&nbsp;';
-                if (!$table_is_view) {
-                    $empty_table = $this->template->render('database/structure/empty_table', [
-                        'tbl_url_query' => $tbl_url_query,
-                        'sql_query' => urlencode(
-                            'TRUNCATE ' . Util::backquote(
-                                $current_table['TABLE_NAME']
-                            )
-                        ),
-                        'message_to_show' => urlencode(
-                            sprintf(
-                                __('Table %s has been emptied.'),
-                                htmlspecialchars(
-                                    $current_table['TABLE_NAME']
-                                )
-                            )
-                        ),
-                        'title' => $may_have_rows ? $titles['Empty'] : $titles['NoEmpty'],
-                    ]);
-                }
                 $drop_query = sprintf(
                     'DROP %s %s',
                     ($table_is_view || $current_table['ENGINE'] == null) ? 'VIEW'
@@ -647,15 +610,29 @@ class DatabaseStructureController extends DatabaseController
                     'input_class' => implode(' ', $input_class),
                     'table_is_view' => $table_is_view,
                     'current_table' => $current_table,
-                    'browse_table_label' => $browse_table_label,
+                    'browse_table_title' => $may_have_rows ? $titles['Browse'] : $titles['NoBrowse'],
+                    'search_table_title' => $may_have_rows ? $titles['Search'] : $titles['NoSearch'],
+                    'browse_table_label_title' => htmlspecialchars($current_table['TABLE_COMMENT']),
+                    'browse_table_label_truename' => $truename,
+                    'empty_table_sql_query' => urlencode(
+                        'TRUNCATE ' . Util::backquote(
+                            $current_table['TABLE_NAME']
+                        )
+                    ),
+                    'empty_table_message_to_show' => urlencode(
+                        sprintf(
+                            __('Table %s has been emptied.'),
+                            htmlspecialchars(
+                                $current_table['TABLE_NAME']
+                            )
+                        )
+                    ),
+                    'empty_table_title' => $may_have_rows ? $titles['Empty'] : $titles['NoEmpty'],
                     'tracking_icon' => $this->getTrackingIcon($truename),
                     'server_slave_status' => $GLOBALS['replication_info']['slave']['status'],
-                    'browse_table' => $browse_table,
                     'tbl_url_query' => $tbl_url_query,
-                    'search_table' => $search_table,
                     'db_is_system_schema' => $this->_db_is_system_schema,
                     'titles' => $titles,
-                    'empty_table' => $empty_table,
                     'drop_query' => $drop_query,
                     'drop_message' => $drop_message,
                     'collation' => $collation,
