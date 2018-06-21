@@ -25,7 +25,7 @@ class ThemeGeneratorTest extends PmaTestCase
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
-     * @return void
+     * @return array $_POST POST data for LayoutTest assertion
      */
     protected function setUp()
     {
@@ -89,17 +89,23 @@ class ThemeGeneratorTest extends PmaTestCase
         $this->assertContains('"name": "' . $name . '",' , $this->output['json']);
     }
 
+    /**
+     * Return Layout file data
+     *
+     * @return string $this->output['layout'] layout.inc.php data string
+     */
     public function getLayoutData()
     {
         return $this->output['layout'];
     }
 
     /**
-     * Deletes all the created files
+     * Tears down the fixture, for example, closes a network connection.
+     * This method is called after a test is executed.
      *
      * @return void
      */
-    public function tearDown()
+    protected function tearDown()
     {
         $name = $_POST['theme_name'];
         unlink('themes/' . $name . '/theme.json');

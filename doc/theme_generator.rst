@@ -1,5 +1,3 @@
-.. _themes:
-
 Create Own Custom Themes
 ========================
 

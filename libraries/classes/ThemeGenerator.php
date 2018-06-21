@@ -9,10 +9,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Theme\Navigation;
-use PhpMyAdmin\Theme\Layout;
-use PhpMyAdmin\Theme\Common;
+use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Theme\Common;
+use PhpMyAdmin\Theme\Layout;
+use PhpMyAdmin\Theme\Navigation;
 
 /**
  * Set of functions for Automated Theme Generator in phpMyAdmin
@@ -57,6 +58,7 @@ class ThemeGenerator
         $nav = new Navigation();
         $layout = new Layout();
         $common = new Common();
+        $post['theme_name'] = Sanitize::sanitizeFilename($post['theme_name'], true);
         $name = $post['theme_name'];
         if (!is_dir("themes/" . $name)) {
             mkdir("themes/" . $name);
