@@ -30,6 +30,10 @@ class ThemeGeneratorTest extends PmaTestCase
     protected function setUp()
     {
         $_POST['theme_name'] = 'phpunit';
+        $_POST['version'] = 'test1';
+        $_POST['description'] = 'Test theme';
+        $_POST['author'] = 'test';
+        $_POST['url'] = 'http://www.123test.com';
         $_POST['Navigation_Panel'] = '#ffffff';
         $_POST['Navigation_Hover'] = '#ffffff';
         $_POST['Text_Color'] = '#ffffff';
@@ -87,6 +91,10 @@ class ThemeGeneratorTest extends PmaTestCase
         $name = $_POST['theme_name'];
         $this->assertFileIsReadable('themes/' . $name . '/theme.json');
         $this->assertContains('"name": "' . $name . '",' , $this->output['json']);
+        $this->assertContains('"version": "' . $_POST['version'] . '",' , $this->output['json']);
+        $this->assertContains('"description": "' . $_POST['description'] . '",' , $this->output['json']);
+        $this->assertContains('"author": "' . $_POST['author'] . '",' , $this->output['json']);
+        $this->assertContains('"url": "' . $_POST['url'] . '",' , $this->output['json']);
     }
 
     /**
