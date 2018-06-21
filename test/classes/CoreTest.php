@@ -294,7 +294,7 @@ class CoreTest extends PmaTestCase
             ['index.php?sql.php&test=true', $this->goto_whitelist, true, false],
             ['index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist, false, true],
             ['index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist, true, false],
-          ];
+        ];
     }
 
     /**

@@ -438,8 +438,6 @@ class Core
     } // end getRealSize()
 
     /**
-     * boolean phpMyAdmin.Core::checkPageValidity(string &$page, array $whitelist, boolean $include)
-     *
      * Checks given $page against given $whitelist and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
