@@ -403,8 +403,7 @@ class ConfigFileTest extends PmaTestCase
      */
     public function testGetDbEntry()
     {
-        $cfg_db = [];
-        include './libraries/config.values.php';
+        $cfg_db = include './libraries/config.values.php';
         // verify that $cfg_db read from config.values.php is valid
         $this->assertGreaterThanOrEqual(20, count($cfg_db));
 

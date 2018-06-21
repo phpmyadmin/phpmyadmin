@@ -58,35 +58,35 @@ class Form
     /**
      * Constructor, reads default config values
      *
-     * @param string     $form_name Form name
-     * @param array      $form      Form data
-     * @param ConfigFile $cf        Config file instance
-     * @param int        $index     arbitrary index, stored in Form::$index
+     * @param string     $formName Form name
+     * @param array      $form     Form data
+     * @param ConfigFile $cf       Config file instance
+     * @param int        $index    arbitrary index, stored in Form::$index
      */
     public function __construct(
-        $form_name,
+        $formName,
         array $form,
         ConfigFile $cf,
         $index = null
     ) {
         $this->index = $index;
         $this->_configFile = $cf;
-        $this->loadForm($form_name, $form);
+        $this->loadForm($formName, $form);
     }
 
     /**
      * Returns type of given option
      *
-     * @param string $option_name path or field name
+     * @param string $optionName path or field name
      *
-     * @return string|null  one of: boolean, integer, double, string, select, array
+     * @return string|null one of: boolean, integer, double, string, select, array
      */
-    public function getOptionType($option_name)
+    public function getOptionType($optionName)
     {
         $key = ltrim(
             mb_substr(
-                $option_name,
-                (int) mb_strrpos($option_name, '/')
+                $optionName,
+                (int) mb_strrpos($optionName, '/')
             ),
             '/'
         );
@@ -98,19 +98,19 @@ class Form
     /**
      * Returns allowed values for select fields
      *
-     * @param string $option_path Option path
+     * @param string $optionPath Option path
      *
      * @return array
      */
-    public function getOptionValueList($option_path)
+    public function getOptionValueList($optionPath)
     {
-        $value = $this->_configFile->getDbEntry($option_path);
+        $value = $this->_configFile->getDbEntry($optionPath);
         if ($value === null) {
-            trigger_error("$option_path - select options not defined", E_USER_ERROR);
+            trigger_error("$optionPath - select options not defined", E_USER_ERROR);
             return [];
         }
         if (!is_array($value)) {
-            trigger_error("$option_path - not a static value list", E_USER_ERROR);
+            trigger_error("$optionPath - not a static value list", E_USER_ERROR);
             return [];
         }
         // convert array('#', 'a', 'b') to array('a', 'b')
@@ -122,16 +122,16 @@ class Form
         }
 
         // convert value list array('a', 'b') to array('a' => 'a', 'b' => 'b')
-        $has_string_keys = false;
+        $hasStringKeys = false;
         $keys = [];
         for ($i = 0, $nb = count($value); $i < $nb; $i++) {
             if (!isset($value[$i])) {
-                $has_string_keys = true;
+                $hasStringKeys = true;
                 break;
             }
             $keys[] = is_bool($value[$i]) ? (int)$value[$i] : $value[$i];
         }
-        if (! $has_string_keys) {
+        if (! $hasStringKeys) {
             $value = array_combine($keys, $value);
         }
 
@@ -151,7 +151,7 @@ class Form
      */
     private function _readFormPathsCallback($value, $key, $prefix)
     {
-        static $group_counter = 0;
+        static $groupCounter = 0;
 
         if (is_array($value)) {
             $prefix .= $key . '/';
@@ -165,7 +165,7 @@ class Form
         }
         // add unique id to group ends
         if ($value == ':group:end') {
-            $value .= ':' . $group_counter++;
+            $value .= ':' . $groupCounter++;
         }
         $this->fields[] = $prefix . $value;
     }
@@ -224,14 +224,14 @@ class Form
      * Reads form settings and prepares class to work with given subset of
      * config file
      *
-     * @param string $form_name Form name
-     * @param array  $form      Form
+     * @param string $formName Form name
+     * @param array  $form     Form
      *
      * @return void
      */
-    public function loadForm($form_name, array $form)
+    public function loadForm($formName, array $form)
     {
-        $this->name = $form_name;
+        $this->name = $formName;
         $this->readFormPaths($form);
         $this->readTypes();
     }

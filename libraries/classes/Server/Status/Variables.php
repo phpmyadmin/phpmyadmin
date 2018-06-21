@@ -235,7 +235,7 @@ class Variables
 
         foreach ($serverStatusData->status as $name => $value) {
             $retval .= '<tr class="' . (isset($serverStatusData->allocationMap[$name])
-                    ?' s_' . $serverStatusData->allocationMap[$name]
+                    ? ' s_' . $serverStatusData->allocationMap[$name]
                     : '')
                 . '">';
 

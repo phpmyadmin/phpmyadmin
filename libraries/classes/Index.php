@@ -136,7 +136,7 @@ class Index
     {
         Index::_loadIndexes($table, $schema);
         if (! isset(Index::$_registry[$schema][$table][$index_name])) {
-            $index = new Index;
+            $index = new Index();
             if (strlen($index_name) > 0) {
                 $index->setName($index_name);
                 Index::$_registry[$schema][$table][$index->getName()] = $index;

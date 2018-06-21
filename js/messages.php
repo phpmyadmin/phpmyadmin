@@ -404,10 +404,10 @@ $js_messages['NoExportable']
 
 /* For ENUM/SET editor*/
 $js_messages['enum_editor'] = __('ENUM/SET editor');
-$js_messages['enum_columnVals'] =__('Values for column %s');
+$js_messages['enum_columnVals'] = __('Values for column %s');
 $js_messages['enum_newColumnVals'] = __('Values for a new column');
-$js_messages['enum_hint'] =__('Enter each value in a separate field.');
-$js_messages['enum_addValue'] =__('Add %d value(s)');
+$js_messages['enum_hint'] = __('Enter each value in a separate field.');
+$js_messages['enum_addValue'] = __('Add %d value(s)');
 
 /* For import.js */
 $js_messages['strImportCSV'] = __(

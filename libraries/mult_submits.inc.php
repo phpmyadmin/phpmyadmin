@@ -50,6 +50,7 @@ global $db, $table,  $clause_is_unique, $from_prefix, $goto,
        $submit_mult, $table_type, $to_prefix, $url_query, $pmaThemeImage;
 
 $multSubmits = new MultSubmits();
+$template = new Template();
 
 /**
  * Prepares the work and runs some other scripts if required
@@ -111,8 +112,8 @@ if (! empty($submit_mult)
                     $table,
                     $selected,
                     $views,
-                    isset($original_sql_query)? $original_sql_query : null,
-                    isset($original_url_query)? $original_url_query : null
+                    isset($original_sql_query) ? $original_sql_query : null,
+                    isset($original_url_query) ? $original_url_query : null
                 );
                 $response->disable();
                 $response->addHTML(
@@ -120,16 +121,11 @@ if (! empty($submit_mult)
                 );
                 exit;
             case 'show_create':
-                $show_create = Template::get(
-                    'database/structure/show_create'
-                )
-                    ->render(
-                        [
-                        'db'         => $GLOBALS['db'],
-                        'db_objects' => $selected,
-                        'dbi'        => $GLOBALS['dbi'],
-                        ]
-                    );
+                $show_create = $template->render('database/structure/show_create', [
+                    'db' => $GLOBALS['db'],
+                    'db_objects' => $selected,
+                    'dbi' => $GLOBALS['dbi'],
+                ]);
                 // Send response to client.
                 $response->addJSON('message', $show_create);
                 exit;
@@ -214,8 +210,8 @@ if (!empty($submit_mult) && !empty($what)) {
         $table,
         $selected,
         $views,
-        isset($original_sql_query)? $original_sql_query : null,
-        isset($original_url_query)? $original_url_query : null
+        isset($original_sql_query) ? $original_sql_query : null,
+        isset($original_url_query) ? $original_url_query : null
     );
 
 

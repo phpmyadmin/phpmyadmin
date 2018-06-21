@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Rte;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
@@ -23,6 +24,21 @@ use PhpMyAdmin\Util;
  */
 class General
 {
+    /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * General constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     */
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+    }
+
     /**
      * Check result
      *
@@ -47,7 +63,7 @@ class General
         $errors[] = $error . '<br />'
             . __('The backed up query was:')
             . "\"" . htmlspecialchars($createStatement) . "\"" . '<br />'
-            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+            . __('MySQL said: ') . $this->dbi->getError(null);
 
         return $errors;
     }
@@ -66,8 +82,8 @@ class General
      */
     public function sendEditor($type, $mode, array $item, $title, $db, $operation = null)
     {
-        $events = new Events();
-        $triggers = new Triggers();
+        $events = new Events($this->dbi);
+        $triggers = new Triggers($this->dbi);
         $words = new Words();
         $response = Response::getInstance();
         if ($item !== false) {

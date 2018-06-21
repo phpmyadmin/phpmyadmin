@@ -116,15 +116,13 @@ class TableIndexesController extends TableController
         $this->response->getHeader()->getScripts()->addFile('indexes.js');
 
         $this->response->addHTML(
-            Template::get('table/index_form')->render(
-                [
-                    'fields' => $fields,
-                    'index' => $this->index,
-                    'form_params' => $form_params,
-                    'add_fields' => $add_fields,
-                    'create_edit_table' => isset($_REQUEST['create_edit_table'])
-                ]
-            )
+            $this->template->render('table/index_form', [
+                'fields' => $fields,
+                'index' => $this->index,
+                'form_params' => $form_params,
+                'add_fields' => $add_fields,
+                'create_edit_table' => isset($_REQUEST['create_edit_table']),
+            ])
         );
     }
 
@@ -146,12 +144,7 @@ class TableIndexesController extends TableController
         if (isset($_REQUEST['preview_sql'])) {
             $this->response->addJSON(
                 'sql_data',
-                Template::get('preview_sql')
-                    ->render(
-                        [
-                            'query_data' => $sql_query
-                        ]
-                    )
+                $this->template->render('preview_sql', ['query_data' => $sql_query])
             );
         } elseif (!$error) {
             $this->dbi->query($sql_query);

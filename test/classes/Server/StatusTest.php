@@ -67,7 +67,7 @@ class StatusTest extends TestCase
             "Com_stmt_execute" => 2,
         ];
 
-        $server_variables= [
+        $server_variables = [
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "1",
             "automatic_sp_privileges" => "ON",

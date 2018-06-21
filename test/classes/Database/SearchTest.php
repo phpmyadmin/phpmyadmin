@@ -181,44 +181,35 @@ class SearchTest extends PmaTestCase
      *
      * @return void
      */
-    public function testGetSelectionForm()
+    public function testGetMainHtml()
     {
-        $form = $this->object->getSelectionForm();
-        $this->assertContains('<form', $form);
-        $this->assertContains('<a id="togglesearchformlink">', $form);
-        $this->assertContains('criteriaSearchType', $form);
-    }
+        $main = $this->object->getMainHtml();
 
-    /**
-     * Test for getResultDivs
-     *
-     * @return void
-     */
-    public function testGetResultDivs()
-    {
-        $actual = $this->callProtectedFunction(
-            'getResultDivs',
-            []
-        );
+        // test selection form
+        $this->assertContains('<form', $main);
+        $this->assertContains('<a id="togglesearchformlink">', $main);
+        $this->assertContains('criteriaSearchType', $main);
+
+        // test result divs
         $this->assertContains(
             '<div id="table-info"',
-            $actual
+            $main
         );
         $this->assertContains(
             '<a id="table-link"',
-            $actual
+            $main
         );
         $this->assertContains(
             '<div id="browse-results"',
-            $actual
+            $main
         );
         $this->assertContains(
             '<div id="sqlqueryform"',
-            $actual
+            $main
         );
         $this->assertContains(
             '<a id="togglequerybox"',
-            $actual
+            $main
         );
     }
 }

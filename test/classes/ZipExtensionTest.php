@@ -161,7 +161,7 @@ class ZipExtensionTest extends PmaTestCase
         fwrite($handle, $file);
         fclose($handle);
 
-        $zip = new ZipArchive;
+        $zip = new ZipArchive();
         $this->assertTrue(
             $zip->open($tmp)
         );

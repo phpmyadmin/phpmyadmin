@@ -651,7 +651,24 @@ class LanguageManager
     private $_lang_failed_cfg;
     private $_lang_failed_cookie;
     private $_lang_failed_request;
+
+    /**
+     * @var LanguageManager
+     */
     private static $instance;
+
+    /**
+     * @var Template
+     */
+    public $template;
+
+    /**
+     * LanguageManager constructor.
+     */
+    public function __construct()
+    {
+        $this->template = new Template();
+    }
 
     /**
      * Returns LanguageManager singleton
@@ -661,7 +678,7 @@ class LanguageManager
     public static function getInstance()
     {
         if (self::$instance === null) {
-            self::$instance = new LanguageManager;
+            self::$instance = new LanguageManager();
         }
         return self::$instance;
     }
@@ -939,13 +956,11 @@ class LanguageManager
 
         $available_languages = $this->sortedLanguages();
 
-        return Template::get('select_lang')->render(
-            [
-                'language_title' => $language_title,
-                'use_fieldset' => $use_fieldset,
-                'available_languages' => $available_languages,
-                '_form_params' => $_form_params,
-            ]
-        );
+        return $this->template->render('select_lang', [
+            'language_title' => $language_title,
+            'use_fieldset' => $use_fieldset,
+            'available_languages' => $available_languages,
+            '_form_params' => $_form_params,
+        ]);
     }
 }

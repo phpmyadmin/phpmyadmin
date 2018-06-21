@@ -78,17 +78,17 @@ class BaseFormList
     /**
      * Processes forms, returns true on successful save
      *
-     * @param bool $allow_partial_save allows for partial form saving
-     *                                 on failed validation
-     * @param bool $check_form_submit  whether check for $_POST['submit_save']
+     * @param bool $allowPartialSave allows for partial form saving
+     *                               on failed validation
+     * @param bool $checkFormSubmit  whether check for $_POST['submit_save']
      *
      * @return boolean whether processing was successful
      */
-    public function process($allow_partial_save = true, $check_form_submit = true)
+    public function process($allowPartialSave = true, $checkFormSubmit = true)
     {
         $ret = true;
         foreach ($this->_forms as $form) {
-            $ret = $ret && $form->process($allow_partial_save, $check_form_submit);
+            $ret = $ret && $form->process($allowPartialSave, $checkFormSubmit);
         }
         return $ret;
     }

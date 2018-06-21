@@ -816,7 +816,7 @@ class DatabaseInterface
         $views = [];
 
         foreach ($tables_full as $table => $tmp) {
-            $_table = $this->getTable($db, $table);
+            $_table = $this->getTable($db, (string)$table);
             if ($_table->isView()) {
                 $views[] = $table;
             }
@@ -1077,7 +1077,7 @@ class DatabaseInterface
         $column_map = [];
         $nbColumns = count($view_columns);
 
-        for ($i=0; $i < $nbFields; $i++) {
+        for ($i = 0; $i < $nbFields; $i++) {
             $map = [];
             $map['table_name'] = $meta[$i]->table;
             $map['refering_column'] = $meta[$i]->name;

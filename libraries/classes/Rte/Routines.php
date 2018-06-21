@@ -58,14 +58,22 @@ class Routines
     private $words;
 
     /**
-     * Routines constructor.
+     * @var DatabaseInterface
      */
-    public function __construct()
+    private $dbi;
+
+    /**
+     * Routines constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     */
+    public function __construct(DatabaseInterface $dbi)
     {
-        $this->export = new Export();
-        $this->footer = new Footer();
-        $this->general = new General();
-        $this->rteList = new RteList();
+        $this->dbi = $dbi;
+        $this->export = new Export($this->dbi);
+        $this->footer = new Footer($this->dbi);
+        $this->general = new General($this->dbi);
+        $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
     }
 
@@ -122,7 +130,7 @@ class Routines
         if (! Core::isValid($type, ['FUNCTION','PROCEDURE'])) {
             $type = null;
         }
-        $items = $GLOBALS['dbi']->getRoutines($db, $type);
+        $items = $this->dbi->getRoutines($db, $type);
         echo $this->rteList->get('routine', $items);
         /**
          * Display the form for adding a new routine, if the user has the privileges.
@@ -269,7 +277,7 @@ class Routines
                     );
                 } else {
                     // Backup the old routine, in case something goes wrong
-                    $create_routine = $GLOBALS['dbi']->getDefinition(
+                    $create_routine = $this->dbi->getDefinition(
                         $db,
                         $_REQUEST['item_original_type'],
                         $_REQUEST['item_original_name']
@@ -280,14 +288,14 @@ class Routines
                     $drop_routine = "DROP {$_REQUEST['item_original_type']} "
                         . Util::backquote($_REQUEST['item_original_name'])
                         . ";\n";
-                    $result = $GLOBALS['dbi']->tryQuery($drop_routine);
+                    $result = $this->dbi->tryQuery($drop_routine);
                     if (!$result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($drop_routine)
                         )
                         . '<br />'
-                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError(null);
                     } else {
                         list($newErrors, $message) = $this->create(
                             $routine_query,
@@ -307,14 +315,14 @@ class Routines
                 }
             } else {
                 // 'Add a new routine' mode
-                $result = $GLOBALS['dbi']->tryQuery($routine_query);
+                $result = $this->dbi->tryQuery($routine_query);
                 if (!$result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($routine_query)
                     )
                     . '<br /><br />'
-                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                    . __('MySQL said: ') . $this->dbi->getError(null);
                 } else {
                     $message = Message::success(
                         __('Routine %1$s has been created.')
@@ -353,7 +361,7 @@ class Routines
             exit;
         }
 
-        $routines = $GLOBALS['dbi']->getRoutines(
+        $routines = $this->dbi->getRoutines(
             $db,
             $_REQUEST['item_type'],
             $_REQUEST['item_name']
@@ -398,7 +406,7 @@ class Routines
         . '" AND Routine_type = "' . $_REQUEST['item_original_type']
         . '";';
 
-        $privilegesBackup = $GLOBALS['dbi']->fetchResult(
+        $privilegesBackup = $this->dbi->fetchResult(
             $privilegesBackupQuery,
             0
         );
@@ -420,7 +428,7 @@ class Routines
         $create_routine,
         array $privilegesBackup
     ) {
-        $result = $GLOBALS['dbi']->tryQuery($routine_query);
+        $result = $this->dbi->tryQuery($routine_query);
         if (!$result) {
             $errors = [];
             $errors[] = sprintf(
@@ -428,11 +436,11 @@ class Routines
                 htmlspecialchars($routine_query)
             )
             . '<br />'
-            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+            . __('MySQL said: ') . $this->dbi->getError(null);
             // We dropped the old routine,
             // but were unable to create the new one
             // Try to restore the backup query
-            $result = $GLOBALS['dbi']->tryQuery($create_routine);
+            $result = $this->dbi->tryQuery($create_routine);
             $errors = $this->general->checkResult(
                 $result,
                 __(
@@ -465,7 +473,7 @@ class Routines
                     . $priv[5] . '", "'
                     . $priv[6] . '", "'
                     . $priv[7] . '");';
-                $resultAdjust = $GLOBALS['dbi']->query(
+                $resultAdjust = $this->dbi->query(
                     $adjustProcPrivilege
                 );
             }
@@ -488,7 +496,7 @@ class Routines
         if ($flushPrivileges) {
             // Flush the Privileges
             $flushPrivQuery = 'FLUSH PRIVILEGES;';
-            $GLOBALS['dbi']->query($flushPrivQuery);
+            $this->dbi->query($flushPrivQuery);
 
             $message = Message::success(
                 __(
@@ -641,12 +649,12 @@ class Routines
                  . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
                  . "ROUTINE_COMMENT, SECURITY_TYPE";
         $where   = "ROUTINE_SCHEMA " . Util::getCollateForIS() . "="
-                 . "'" . $GLOBALS['dbi']->escapeString($db) . "' "
-                 . "AND SPECIFIC_NAME='" . $GLOBALS['dbi']->escapeString($name) . "'"
-                 . "AND ROUTINE_TYPE='" . $GLOBALS['dbi']->escapeString($type) . "'";
+                 . "'" . $this->dbi->escapeString($db) . "' "
+                 . "AND SPECIFIC_NAME='" . $this->dbi->escapeString($name) . "'"
+                 . "AND ROUTINE_TYPE='" . $this->dbi->escapeString($type) . "'";
         $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
 
-        $routine = $GLOBALS['dbi']->fetchSingleRow($query, 'ASSOC');
+        $routine = $this->dbi->fetchSingleRow($query, 'ASSOC');
 
         if (! $routine) {
             return false;
@@ -657,7 +665,7 @@ class Routines
         $retval['item_type'] = $routine['ROUTINE_TYPE'];
 
         $definition
-            = $GLOBALS['dbi']->getDefinition(
+            = $this->dbi->getDefinition(
                 $db,
                 $routine['ROUTINE_TYPE'],
                 $routine['SPECIFIC_NAME']
@@ -803,7 +811,7 @@ class Routines
         $retval .= "                <div class='enum_hint'>\n";
         $retval .= "                    <a href='#' class='open_enum_editor'>\n";
         $retval .= "                        "
-            . Util::getImage('b_edit', '', ['title'=>__('ENUM/SET editor')])
+            . Util::getImage('b_edit', '', ['title' => __('ENUM/SET editor')])
             . "\n";
         $retval .= "                    </a>\n";
         $retval .= "                </div>\n";
@@ -811,7 +819,7 @@ class Routines
         $retval .= "            <td class='hide no_len'>---</td>\n";
         $retval .= "            <td class='routine_param_opts_text'>\n";
         $retval .= Charsets::getCharsetDropdownBox(
-            $GLOBALS['dbi'],
+            $this->dbi,
             $GLOBALS['cfg']['Server']['DisableIS'],
             "item_param_opts_text[$index]",
             null,
@@ -1028,7 +1036,7 @@ class Routines
         $retval .= "    <td>" . __('Return options') . "</td>";
         $retval .= "    <td><div>";
         $retval .= Charsets::getCharsetDropdownBox(
-            $GLOBALS['dbi'],
+            $this->dbi,
             $GLOBALS['cfg']['Server']['DisableIS'],
             "item_returnopts_text",
             null,
@@ -1200,7 +1208,7 @@ class Routines
             $item_param_type = $_REQUEST['item_param_type'];
             $item_param_length = $_REQUEST['item_param_length'];
 
-            for ($i=0, $nb = count($item_param_name); $i < $nb; $i++) {
+            for ($i = 0, $nb = count($item_param_name); $i < $nb; $i++) {
                 if (! empty($item_param_name[$i])
                     && ! empty($item_param_type[$i])
                 ) {
@@ -1325,7 +1333,7 @@ class Routines
             $query .= ' ';
         }
         if (! empty($_REQUEST['item_comment'])) {
-            $query .= "COMMENT '" . $GLOBALS['dbi']->escapeString($_REQUEST['item_comment'])
+            $query .= "COMMENT '" . $this->dbi->escapeString($_REQUEST['item_comment'])
                 . "' ";
         }
         if (isset($_REQUEST['item_isdeterministic'])) {
@@ -1396,14 +1404,14 @@ class Routines
             $queries   = [];
             $end_query = [];
             $args      = [];
-            $all_functions = $GLOBALS['dbi']->types->getAllFunctions();
+            $all_functions = $this->dbi->types->getAllFunctions();
             for ($i = 0; $i < $routine['item_num_params']; $i++) {
                 if (isset($_REQUEST['params'][$routine['item_param_name'][$i]])) {
                     $value = $_REQUEST['params'][$routine['item_param_name'][$i]];
                     if (is_array($value)) { // is SET type
                         $value = implode(',', $value);
                     }
-                    $value = $GLOBALS['dbi']->escapeString($value);
+                    $value = $this->dbi->escapeString($value);
                     if (! empty($_REQUEST['funcs'][$routine['item_param_name'][$i]])
                         && in_array(
                             $_REQUEST['funcs'][$routine['item_param_name'][$i]],
@@ -1449,7 +1457,7 @@ class Routines
             $affected = 0;
 
             // Execute query
-            if (! $GLOBALS['dbi']->tryMultiQuery($multiple_query)) {
+            if (! $this->dbi->tryMultiQuery($multiple_query)) {
                 $outcome = false;
             }
 
@@ -1469,19 +1477,19 @@ class Routines
                 $nbResultsetToDisplay = 0;
 
                 do {
-                    $result = $GLOBALS['dbi']->storeResult();
-                    $num_rows = $GLOBALS['dbi']->numRows($result);
+                    $result = $this->dbi->storeResult();
+                    $num_rows = $this->dbi->numRows($result);
 
                     if (($result !== false) && ($num_rows > 0)) {
                         $output .= "<table><tr>";
-                        foreach ($GLOBALS['dbi']->getFieldsMeta($result) as $field) {
+                        foreach ($this->dbi->getFieldsMeta($result) as $field) {
                             $output .= "<th>";
                             $output .= htmlspecialchars($field->name);
                             $output .= "</th>";
                         }
                         $output .= "</tr>";
 
-                        while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
+                        while ($row = $this->dbi->fetchAssoc($result)) {
                             $output .= "<tr>" . $this->browseRow($row) . "</tr>";
                         }
 
@@ -1490,14 +1498,14 @@ class Routines
                         $affected = $num_rows;
                     }
 
-                    if (! $GLOBALS['dbi']->moreResults()) {
+                    if (! $this->dbi->moreResults()) {
                         break;
                     }
 
                     $output .= "<br/>";
 
-                    $GLOBALS['dbi']->freeResult($result);
-                } while ($outcome = $GLOBALS['dbi']->nextResult());
+                    $this->dbi->freeResult($result);
+                } while ($outcome = $this->dbi->nextResult());
             }
 
             if ($outcome) {
@@ -1536,7 +1544,7 @@ class Routines
                         htmlspecialchars($multiple_query)
                     )
                     . '<br /><br />'
-                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null)
+                    . __('MySQL said: ') . $this->dbi->getError(null)
                 );
             }
 

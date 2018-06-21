@@ -37,7 +37,7 @@ if (isset($_REQUEST['splitColumn'])) {
 }
 if (isset($_REQUEST['addNewPrimary'])) {
     $num_fields = 1;
-    $columnMeta = ['Field'=>$table . "_id", 'Extra'=>'auto_increment'];
+    $columnMeta = ['Field' => $table . "_id", 'Extra' => 'auto_increment'];
     $html = $normalization->getHtmlForCreateNewColumn(
         $num_fields,
         $db,

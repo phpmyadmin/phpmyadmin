@@ -38,6 +38,8 @@ class Import
         global $cfg;
         global $SESSION_KEY;
 
+        $template = new Template();
+
         list(
             $SESSION_KEY,
             $uploadId,
@@ -85,7 +87,7 @@ class Import
             $compressions[] = 'zip';
         }
 
-        return Template::get('display/import/import')->render([
+        return $template->render('display/import/import', [
             'upload_id' => $uploadId,
             'handler' => $_SESSION[$SESSION_KEY]["handler"],
             'id_key' => $_SESSION[$SESSION_KEY]['handler']::getIdKey(),

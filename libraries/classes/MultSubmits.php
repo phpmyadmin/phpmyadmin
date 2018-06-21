@@ -70,7 +70,7 @@ class MultSubmits
             'reload' => (! empty($reload) ? 1 : 0),
         ];
         if (mb_strpos(' ' . $action, 'db_') == 1) {
-            $urlParams['db']= $db;
+            $urlParams['db'] = $db;
         } elseif (mb_strpos(' ' . $action, 'tbl_') == 1
             || $what == 'row_delete'
         ) {

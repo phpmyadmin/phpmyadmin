@@ -1204,7 +1204,7 @@ $cfg['SaveCellsAtOnce'] = false;
  *
  * @global string $cfg['GridEditing']
  */
-$cfg['GridEditing'] ='double-click';
+$cfg['GridEditing'] = 'double-click';
 
 /**
  * Options > Relational display
@@ -2737,7 +2737,7 @@ $cfg['ShowBrowseComments'] = true;
  *
  * @global boolean $cfg['ShowPropertyComments']
  */
-$cfg['ShowPropertyComments']= true;
+$cfg['ShowPropertyComments'] = true;
 
 /**
  * repeat header names every X cells? (0 = deactivate)

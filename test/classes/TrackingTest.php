@@ -87,13 +87,13 @@ class TrackingTest extends TestCase
         $data = [
             [
                 "date" => "20120102",
-                "username"=> "username1",
-                "statement"=>"statement1"
+                "username" => "username1",
+                "statement" => "statement1"
             ],
             [
                 "date" => "20130102",
-                "username"=> "username2",
-                "statement"=>"statement2"
+                "username" => "username2",
+                "statement" => "statement2"
             ],
         ];
         $filter_ts_from = 0;
@@ -126,19 +126,19 @@ class TrackingTest extends TestCase
     public function testExtractTableNames()
     {
         $table_list = [
-            "hello_"=>[
-                "is_group"=>1,
-                "lovely_"=>[
-                    "is_group"=>1,
-                    "hello_lovely_world"=>[
-                        "Name"=>"hello_lovely_world"
+            "hello_" => [
+                "is_group" => 1,
+                "lovely_" => [
+                    "is_group" => 1,
+                    "hello_lovely_world" => [
+                        "Name" => "hello_lovely_world"
                     ],
-                    "hello_lovely_world2"=>[
-                        "Name"=>"hello_lovely_world2"
+                    "hello_lovely_world2" => [
+                        "Name" => "hello_lovely_world2"
                     ]
                 ],
-                "hello_world"=>[
-                    "Name"=>"hello_world"
+                "hello_world" => [
+                    "Name" => "hello_world"
                 ]
             ]
         ];
@@ -326,22 +326,22 @@ class TrackingTest extends TestCase
     {
         $columns = [
             [
-                'Field'=>'Field1',
-                'Type'=>'Type1',
-                'Collation'=>'Collation1',
-                "Null"=>'YES',
-                'Extra'=>'Extra1',
-                'Key'=>'PRI',
-                'Comment'=>'Comment1'
+                'Field' => 'Field1',
+                'Type' => 'Type1',
+                'Collation' => 'Collation1',
+                "Null" => 'YES',
+                'Extra' => 'Extra1',
+                'Key' => 'PRI',
+                'Comment' => 'Comment1'
             ],
             [
-                'Field'=>'Field2',
-                'Type'=>'Type2',
-                'Collation'=>'Collation2',
-                "Null"=>'No',
-                'Extra'=>'Extra2',
-                'Key'=>'Key2',
-                'Comment'=>'Comment2'
+                'Field' => 'Field2',
+                'Type' => 'Type2',
+                'Collation' => 'Collation2',
+                "Null" => 'No',
+                'Extra' => 'Extra2',
+                'Key' => 'Key2',
+                'Comment' => 'Comment2'
             ],
         ];
 
@@ -369,7 +369,7 @@ class TrackingTest extends TestCase
         );
 
         //column1
-        $item1= $columns[0];
+        $item1 = $columns[0];
         $this->assertContains(
             htmlspecialchars($item1['Field']),
             $html
@@ -392,7 +392,7 @@ class TrackingTest extends TestCase
         );
 
         //column2
-        $item1= $columns[1];
+        $item1 = $columns[1];
         $this->assertContains(
             htmlspecialchars($item1['Field']),
             $html
@@ -606,7 +606,7 @@ class TrackingTest extends TestCase
         $_REQUEST['logtype'] = 'logtype';
         $url_query = "select * from PMA";
         $data = [
-            'tracking'=>'tracking',
+            'tracking' => 'tracking',
             'ddlog' => ['ddlog'],
             'dmlog' => ['dmlog']
         ];
@@ -708,7 +708,7 @@ class TrackingTest extends TestCase
     {
         $_REQUEST['version'] = "10";
         $data = [
-            'tracking'=>'tracking',
+            'tracking' => 'tracking',
             'dmlog' => [
                 [
                     'statement' => 'statement',
@@ -772,7 +772,7 @@ class TrackingTest extends TestCase
         $_REQUEST['version'] = "10";
 
         $data = [
-            'tracking'=>'tracking',
+            'tracking' => 'tracking',
             'ddlog' => [
                 [
                     'statement' => 'statement',
@@ -959,7 +959,7 @@ class TrackingTest extends TestCase
     {
         $_REQUEST['logtype'] = 'schema';
         $data = [
-            'tracking'=>'tracking',
+            'tracking' => 'tracking',
             'ddlog' => [
                 [
                     'statement' => 'statement1',

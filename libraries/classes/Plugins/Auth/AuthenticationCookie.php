@@ -109,7 +109,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $autocomplete   = ' autocomplete="off"';
         }
 
-        echo Template::get('login/header')->render(['theme' => $GLOBALS['PMA_Theme']]);
+        echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
 
         if ($GLOBALS['cfg']['DBG']['demo']) {
             echo '<fieldset>';
@@ -236,7 +236,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $GLOBALS['error_handler']->dispErrors();
             echo '</div>';
         }
-        echo Template::get('login/footer')->render();
+        echo $this->template->render('login/footer');
         echo Config::renderFooter();
         if (! defined('TESTSUITE')) {
             exit;

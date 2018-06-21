@@ -21,6 +21,21 @@ use Twig\Error\LoaderError;
 class TemplateTest extends PmaTestCase
 {
     /**
+     * @var Template
+     */
+    protected $template;
+
+    /**
+     * Sets up the fixture.
+     *
+     * @return void
+     */
+    protected function setUp()
+    {
+        $this->template = new Template();
+    }
+
+    /**
      * Test for set function
      *
      * @param string $data Template name
@@ -31,13 +46,10 @@ class TemplateTest extends PmaTestCase
      */
     public function testSet($data)
     {
-        $template = Template::get($data);
-        $result = $template->render(
-            [
-                'variable1' => 'value1',
-                'variable2' => 'value2',
-            ]
-        );
+        $result = $this->template->render($data, [
+            'variable1' => 'value1',
+            'variable2' => 'value2',
+        ]);
         $this->assertContains('value1', $result);
         $this->assertContains('value2', $result);
     }
@@ -69,7 +81,7 @@ class TemplateTest extends PmaTestCase
     {
         $this->assertEquals(
             $value,
-            Template::get($templateFile)->render([$key => $value])
+            $this->template->render($templateFile, [$key => $value])
         );
     }
 
@@ -93,7 +105,7 @@ class TemplateTest extends PmaTestCase
     public function testRenderTemplateNotFound()
     {
         $this->expectException(LoaderError::class);
-        Template::get('template not found')->render();
+        $this->template->render('template not found');
     }
 
     /**
@@ -110,7 +122,7 @@ class TemplateTest extends PmaTestCase
     {
         $this->assertEquals(
             $expectedResult,
-            Template::get($templateFile)->render()
+            $this->template->render($templateFile)
         );
     }
 
@@ -141,7 +153,7 @@ class TemplateTest extends PmaTestCase
     {
         $this->assertEquals(
             $expectedResult,
-            Template::get($templateFile)->render($renderParams)
+            $this->template->render($templateFile, $renderParams)
         );
     }
 

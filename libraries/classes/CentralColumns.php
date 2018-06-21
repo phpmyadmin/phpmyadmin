@@ -65,6 +65,11 @@ class CentralColumns
     private $relation;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -79,6 +84,7 @@ class CentralColumns
         $this->disableIs = (bool) $GLOBALS['cfg']['Server']['DisableIS'];
 
         $this->relation = new Relation();
+        $this->template = new Template();
     }
 
     /**
@@ -601,7 +607,7 @@ class CentralColumns
         );
         $cols = '';
         foreach ($fields as $col_select) {
-            $cols .= '\'' . $this->dbi->escapeString($col_select) . '\',';
+            $cols .= '\'' . $this->dbi->escapeString((string)$col_select) . '\',';
         }
         $cols = trim($cols, ',');
         $has_list = $this->findExistingColNames($db, $cols, $allFields);
@@ -653,7 +659,7 @@ class CentralColumns
                 $def['Type'] .= '(' . $col_length . ')';
             }
             $def['Collation'] = $collation;
-            $def['Null'] = $col_isNull?__('YES'):__('NO');
+            $def['Null'] = $col_isNull ? __('YES') : __('NO');
             $def['Extra'] = $col_extra;
             $def['Attribute'] = $col_attribute;
             $def['Default'] = $col_default;
@@ -729,59 +735,6 @@ class CentralColumns
     }
 
     /**
-     * get the html for table navigation in Central columns page
-     *
-     * @param int    $total_rows total number of rows in complete result set
-     * @param int    $pos        offset of first result with complete result set
-     * @param string $db         current database
-     *
-     * @return string html for table navigation in Central columns page
-     */
-    public function getHtmlForTableNavigation(
-        int $total_rows,
-        int $pos,
-        string $db
-    ): string {
-        $pageNow = ($pos / $this->maxRows) + 1;
-        $nbTotalPage = ceil($total_rows / $this->maxRows);
-        $page_selector = ($nbTotalPage > 1)?(Util::pageselector(
-            'pos',
-            $this->maxRows,
-            $pageNow,
-            $nbTotalPage
-        )):'';
-        return  Template::get('database/central_columns/table_navigation')->render([
-            "pos" => $pos,
-            "max_rows" => $this->maxRows,
-            "db" => $db,
-            "total_rows" => $total_rows,
-            "nb_total_page" => $nbTotalPage,
-            "page_selector" => $page_selector,
-        ]);
-    }
-
-    /**
-     * function generate and return the table header for central columns page
-     *
-     * @param string  $class       styling class of 'th' elements
-     * @param string  $title       title of the 'th' elements
-     * @param integer $actionCount number of actions
-     *
-     * @return string html for table header in central columns view/edit page
-     */
-    public function getTableHeader(
-        string $class = '',
-        string $title = '',
-        int $actionCount = 0
-    ): string {
-        return  Template::get('database/central_columns/table_header')->render([
-            "class" => $class,
-            "title" => $title,
-            "actionCount" => $actionCount,
-        ]);
-    }
-
-    /**
      * Function generate and return the table header for
      * multiple edit central columns page
      *
@@ -791,185 +744,8 @@ class CentralColumns
      */
     private function getEditTableHeader(array $headers): string
     {
-        return Template::get(
-            'database/central_columns/edit_table_header'
-        )->render([
+        return $this->template->render('database/central_columns/edit_table_header', [
             'headers' => $headers,
-        ]);
-    }
-
-    /**
-     * build the dropdown select html for tables of given database
-     *
-     * @param string $db current database
-     *
-     * @return string html dropdown for selecting table
-     */
-    private function getHtmlForTableDropdown(string $db): string
-    {
-        $this->dbi->selectDb($db);
-        $tables = $this->dbi->getTables($db);
-        $selectHtml = '<select name="table-select" id="table-select">'
-            . '<option value="" disabled="disabled" selected="selected">'
-            . __('Select a table') . '</option>';
-        foreach ($tables as $table) {
-            $selectHtml .= '<option value="' . htmlspecialchars($table) . '">'
-                . htmlspecialchars($table) . '</option>';
-        }
-        $selectHtml .= '</select>';
-        return $selectHtml;
-    }
-
-    /**
-     * build dropdown select html to select column in selected table,
-     * include only columns which are not already in central list
-     *
-     * @param string $db           current database to which selected table belongs
-     * @param string $selected_tbl selected table
-     *
-     * @return string html to select column
-     */
-    public function getHtmlForColumnDropdown(
-        string $db,
-        string $selected_tbl
-    ): string {
-        $existing_cols = $this->getFromTable($db, $selected_tbl);
-        $this->dbi->selectDb($db);
-        $columns = (array) $this->dbi->getColumnNames(
-            $db,
-            $selected_tbl
-        );
-        $selectColHtml = "";
-        foreach ($columns as $column) {
-            if (!in_array($column, $existing_cols)) {
-                $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
-                    . htmlspecialchars($column)
-                    . '</option>';
-            }
-        }
-        return $selectColHtml;
-    }
-
-    /**
-     * HTML to display the form that let user to add a column on Central columns page
-     *
-     * @param int    $total_rows total number of rows in complete result set
-     * @param int    $pos        offset of first result with complete result set
-     * @param string $db         current database
-     *
-     * @return string html to add a column in the central list
-     */
-    public function getHtmlForAddColumn(
-        int $total_rows,
-        int $pos,
-        string $db
-    ): string {
-        $table_drop_down = $this->getHtmlForTableDropdown($db);
-        return Template::get('database/central_columns/add_column')->render([
-            'pos' => $pos,
-            'db' => $db,
-            'total_rows' => $total_rows,
-            'table_drop_down' => $table_drop_down,
-        ]);
-    }
-
-    /**
-     * build html for a row in central columns table
-     *
-     * @param array  $row     array contains complete information of a particular row of central list table
-     * @param int    $row_num position the row in the table
-     * @param string $db      current database
-     *
-     * @return string html of a particular row in the central columns table.
-     */
-    public function getHtmlForTableRow(array $row, int $row_num, string $db): string
-    {
-        $meta = [];
-        if (!isset($row['col_default']) || $row['col_default'] == '') {
-            $meta['DefaultType'] = 'NONE';
-        } else {
-            if ($row['col_default'] == 'CURRENT_TIMESTAMP'
-                || $row['col_default'] == 'current_timestamp()'
-            ) {
-                $meta['DefaultType'] = 'CURRENT_TIMESTAMP';
-            } elseif ($row['col_default'] == 'NULL') {
-                $meta['DefaultType'] = $row['col_default'];
-            } else {
-                $meta['DefaultType'] = 'USER_DEFINED';
-                $meta['DefaultValue'] = $row['col_default'];
-            }
-        }
-        $column_name = Template::get('columns_definitions/column_name')->render([
-            'column_number' => $row_num,
-            'ci' => 0,
-            'ci_offset' => 0,
-            'column_meta' => [
-                'Field'=>$row['col_name']
-            ],
-            'cfg_relation' => [
-                'centralcolumnswork' => false
-            ],
-            'max_rows' => $this->maxRows,
-        ]);
-        $column_type = Template::get('columns_definitions/column_type')->render([
-            'column_number' => $row_num,
-            'ci' => 1,
-            'ci_offset' => 0,
-            'type_upper' => mb_strtoupper($row['col_type']),
-            'column_meta' => []
-        ]);
-        $column_length = Template::get('columns_definitions/column_length')->render([
-            'column_number' => $row_num,
-            'ci' => 2,
-            'ci_offset' => 0,
-            'length_values_input_size' => 8,
-            'length_to_display' => $row['col_length']
-        ]);
-        $column_default = Template::get('columns_definitions/column_default')->render([
-            'column_number' => $row_num,
-            'ci' => 3,
-            'ci_offset' => 0,
-            'type_upper' => mb_strtoupper($row['col_type']),
-            'column_meta' => $meta,
-            'char_editing' => $this->charEditing,
-        ]);
-        $column_attribute = Template::get('columns_definitions/column_attribute')->render([
-            'column_number' => $row_num,
-            'ci' => 5,
-            'ci_offset' => 0,
-            'extracted_columnspec' => [],
-            'column_meta' => $row['col_attribute'],
-            'submit_attribute' => false,
-            'attribute_types' => $this->dbi->types->getAttributes(),
-        ]);
-        $column_null = Template::get('columns_definitions/column_null')->render([
-            'column_number' => $row_num,
-            'ci' => 6,
-            'ci_offset' => 0,
-            'column_meta' => [
-                'Null' => $row['col_isNull']
-            ]
-        ]);
-        $column_extra = Template::get('columns_definitions/column_extra')->render([
-            'column_number' => $row_num,
-            'ci' => 7,
-            'ci_offset' => 0,
-            'column_meta' => ['Extra'=>$row['col_extra']]
-        ]);
-
-        return Template::get('database/central_columns/table_row')->render([
-            'column_name' => $column_name,
-            'column_type' => $column_type,
-            'column_length' => $column_length,
-            'column_default' => $column_default,
-            'column_attribute' => $column_attribute,
-            'column_null' => $column_null,
-            'column_extra' => $column_extra,
-            'row_num' => $row_num,
-            'row' => $row,
-            'db' => $db,
-            'dbi' => $this->dbi,
-            'disableIs' => $this->disableIs,
         ]);
     }
 
@@ -988,7 +764,7 @@ class CentralColumns
             . '<input name="orig_col_name[' . $row_num . ']" type="hidden" '
             . 'value="' . htmlspecialchars($row['col_name']) . '">'
             . '<td name="col_name" class="nowrap">'
-            . Template::get('columns_definitions/column_name')->render([
+            . $this->template->render('columns_definitions/column_name', [
                 'column_number' => $row_num,
                 'ci' => 0,
                 'ci_offset' => 0,
@@ -1003,28 +779,23 @@ class CentralColumns
             . '</td>';
         $tableHtml .=
             '<td name = "col_type" class="nowrap">'
-            . Template::get('columns_definitions/column_type')
-                ->render(
-                    [
-                    'column_number' => $row_num,
-                    'ci' => 1,
-                    'ci_offset' => 0,
-                    'type_upper' => mb_strtoupper($row['col_type']),
-                    'column_meta' => []
-                    ]
-                )
+            . $this->template->render('columns_definitions/column_type', [
+                'column_number' => $row_num,
+                'ci' => 1,
+                'ci_offset' => 0,
+                'type_upper' => mb_strtoupper($row['col_type']),
+                'column_meta' => [],
+            ])
             . '</td>';
         $tableHtml .=
             '<td class="nowrap" name="col_length">'
-            . Template::get('columns_definitions/column_length')->render(
-                [
-                    'column_number' => $row_num,
-                    'ci' => 2,
-                    'ci_offset' => 0,
-                    'length_values_input_size' => 8,
-                    'length_to_display' => $row['col_length']
-                ]
-            )
+            . $this->template->render('columns_definitions/column_length', [
+                'column_number' => $row_num,
+                'ci' => 2,
+                'ci_offset' => 0,
+                'length_values_input_size' => 8,
+                'length_to_display' => $row['col_length'],
+            ])
             . '</td>';
         $meta = [];
         if (!isset($row['col_default']) || $row['col_default'] == '') {
@@ -1043,17 +814,14 @@ class CentralColumns
         }
         $tableHtml .=
             '<td class="nowrap" name="col_default">'
-            . Template::get('columns_definitions/column_default')
-                ->render(
-                    [
-                    'column_number' => $row_num,
-                    'ci' => 3,
-                    'ci_offset' => 0,
-                    'type_upper' => mb_strtoupper((string) $row['col_default']),
-                    'column_meta' => $meta,
-                    'char_editing' => $this->charEditing,
-                    ]
-                )
+            . $this->template->render('columns_definitions/column_default', [
+                'column_number' => $row_num,
+                'ci' => 3,
+                'ci_offset' => 0,
+                'type_upper' => mb_strtoupper((string) $row['col_default']),
+                'column_meta' => $meta,
+                'char_editing' => $this->charEditing,
+            ])
             . '</td>';
         $tableHtml .=
             '<td name="collation" class="nowrap">'
@@ -1068,46 +836,38 @@ class CentralColumns
             . '</td>';
         $tableHtml .=
             '<td class="nowrap" name="col_attribute">'
-            . Template::get('columns_definitions/column_attribute')
-                ->render(
-                    [
-                    'column_number' => $row_num,
-                    'ci' => 5,
-                    'ci_offset' => 0,
-                    'extracted_columnspec' => [
-                        'attribute' => $row['col_attribute']
-                    ],
-                    'column_meta' => [],
-                    'submit_attribute' => false,
-                    'attribute_types' => $this->dbi->types->getAttributes(),
-                    ]
-                )
+            . $this->template->render('columns_definitions/column_attribute', [
+                'column_number' => $row_num,
+                'ci' => 5,
+                'ci_offset' => 0,
+                'extracted_columnspec' => [
+                    'attribute' => $row['col_attribute'],
+                ],
+                'column_meta' => [],
+                'submit_attribute' => false,
+                'attribute_types' => $this->dbi->types->getAttributes(),
+            ])
             . '</td>';
         $tableHtml .=
             '<td class="nowrap" name="col_isNull">'
-            . Template::get('columns_definitions/column_null')
-                ->render(
-                    [
-                    'column_number' => $row_num,
-                    'ci' => 6,
-                    'ci_offset' => 0,
-                    'column_meta' => [
-                        'Null' => $row['col_isNull']
-                    ]
-                    ]
-                )
+            . $this->template->render('columns_definitions/column_null', [
+                'column_number' => $row_num,
+                'ci' => 6,
+                'ci_offset' => 0,
+                'column_meta' => [
+                    'Null' => $row['col_isNull'],
+                ],
+            ])
             . '</td>';
 
         $tableHtml .=
             '<td class="nowrap" name="col_extra">'
-            . Template::get('columns_definitions/column_extra')->render(
-                [
-                    'column_number' => $row_num,
-                    'ci' => 7,
-                    'ci_offset' => 0,
-                    'column_meta' => ['Extra' => $row['col_extra']]
-                ]
-            )
+            . $this->template->render('columns_definitions/column_extra', [
+                'column_number' => $row_num,
+                'ci' => 7,
+                'ci_offset' => 0,
+                'column_meta' => ['Extra' => $row['col_extra']],
+            ])
             . '</td>';
         $tableHtml .= '</tr>';
         return $tableHtml;
@@ -1172,14 +932,11 @@ class CentralColumns
      */
     public function getTableFooter(string $pmaThemeImage, string $text_dir): string
     {
-        $html_output = Template::get('select_all')
-            ->render(
-                [
-                    'pma_theme_image' => $pmaThemeImage,
-                    'text_dir'        => $text_dir,
-                    'form_name'       => 'tableslistcontainer',
-                ]
-            );
+        $html_output = $this->template->render('select_all', [
+            'pma_theme_image' => $pmaThemeImage,
+            'text_dir' => $text_dir,
+            'form_name' => 'tableslistcontainer',
+        ]);
         $html_output .= Util::getButtonOrImage(
             'edit_central_columns',
             'mult_submit change_central_columns',
@@ -1246,132 +1003,6 @@ class CentralColumns
     }
 
     /**
-     * build html for adding a new user defined column to central list
-     *
-     * @param string  $db         current database
-     * @param integer $total_rows number of rows in central columns
-     *
-     * @return string html of the form to let user add a new user defined column to the
-     *                list
-     */
-    public function getHtmlForAddNewColumn(string $db, int $total_rows): string
-    {
-        $addNewColumn = '<div id="add_col_div" class="topmargin"><a href="#">'
-            . '<span>+</span> ' . __('Add new column') . '</a>'
-            . '<form id="add_new" class="new_central_col '
-            . ($total_rows != 0 ? 'hide"' : '"')
-            . 'method="post" action="db_central_columns.php">'
-            . Url::getHiddenInputs(
-                $db
-            )
-            . '<input type="hidden" name="add_new_column" value="add_new_column">'
-            . '<div class="responsivetable">'
-            . '<table>';
-        $addNewColumn .= $this->getTableHeader();
-        $addNewColumn .= '<tr>'
-            . '<td></td>'
-            . '<td name="col_name" class="nowrap">'
-            . Template::get('columns_definitions/column_name')->render([
-                'column_number' => 0,
-                'ci' => 0,
-                'ci_offset' => 0,
-                'column_meta' => [],
-                'cfg_relation' => [
-                    'centralcolumnswork' => false
-                ],
-                'max_rows' => $this->maxRows,
-            ])
-            . '</td>'
-            . '<td name = "col_type" class="nowrap">'
-            . Template::get('columns_definitions/column_type')
-                ->render(
-                    [
-                    'column_number' => 0,
-                    'ci' => 1,
-                    'ci_offset' => 0,
-                    'type_upper' => '',
-                    'column_meta' => []
-                    ]
-                )
-            . '</td>'
-            . '<td class="nowrap" name="col_length">'
-            . Template::get('columns_definitions/column_length')->render(
-                [
-                    'column_number' => 0,
-                    'ci' => 2,
-                    'ci_offset' => 0,
-                    'length_values_input_size' => 8,
-                    'length_to_display' => ''
-                ]
-            )
-            . '</td>'
-            . '<td class="nowrap" name="col_default">'
-            . Template::get('columns_definitions/column_default')
-                ->render(
-                    [
-                    'column_number' => 0,
-                    'ci' => 3,
-                    'ci_offset' => 0,
-                    'type_upper' => '',
-                    'column_meta' => [],
-                    'char_editing' => $this->charEditing,
-                    ]
-                )
-            . '</td>'
-            . '<td name="collation" class="nowrap">'
-            . Charsets::getCollationDropdownBox(
-                $this->dbi,
-                $this->disableIs,
-                'field_collation[0]',
-                'field_0_4',
-                null,
-                false
-            )
-            . '</td>'
-            . '<td class="nowrap" name="col_attribute">'
-            . Template::get('columns_definitions/column_attribute')
-                ->render(
-                    [
-                    'column_number' => 0,
-                    'ci' => 5,
-                    'ci_offset' => 0,
-                    'extracted_columnspec' => [],
-                    'column_meta' => [],
-                    'submit_attribute' => false,
-                    'attribute_types' => $this->dbi->types->getAttributes(),
-                    ]
-                )
-            . '</td>'
-            . '<td class="nowrap" name="col_isNull">'
-            . Template::get('columns_definitions/column_null')
-                ->render(
-                    [
-                    'column_number' => 0,
-                    'ci' => 6,
-                    'ci_offset' => 0,
-                    'column_meta' => []
-                    ]
-                )
-            . '</td>'
-            . '<td class="nowrap" name="col_extra">'
-            . Template::get('columns_definitions/column_extra')->render(
-                [
-                    'column_number' => 0,
-                    'ci' => 7,
-                    'ci_offset' => 0,
-                    'column_meta' => []
-                ]
-            )
-            . '</td>'
-            . ' <td>'
-            . '<input id="add_column_save" type="submit" '
-            . ' value="Save"/></td>'
-            . '</tr>';
-        $addNewColumn .= '</table></div></form></div>';
-        return $addNewColumn;
-    }
-
-    /**
      * Get HTML for editing page central columns
      *
      * @param array  $selected_fld Array containing the selected fields
@@ -1407,5 +1038,120 @@ class CentralColumns
         $html .= $this->getEditTableFooter();
         $html .= '</form>';
         return $html;
+    }
+
+    /**
+     * get number of columns of given database from central columns list
+     * starting at offset $from
+     *
+     * @param string $db   selected database
+     * @param int    $from starting offset of first result
+     * @param int    $num  maximum number of results to return
+     *
+     * @return array list of $num columns present in central columns list
+     * starting at offset $from for the given database
+     */
+    public function getColumnsCount(string $db, int $from = 0, int $num = 25): int
+    {
+        $cfgCentralColumns = $this->getParams();
+        if (empty($cfgCentralColumns)) {
+            return [];
+        }
+        $pmadb = $cfgCentralColumns['db'];
+        $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
+        $central_list_table = $cfgCentralColumns['table'];
+        //get current values of $db from central column list
+        $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($central_list_table) . ' '
+            . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\'' .
+            ($num == 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
+        $result = (array) $this->dbi->fetchResult(
+            $query,
+            null,
+            null,
+            DatabaseInterface::CONNECT_CONTROL
+        );
+
+        if (isset($result[0])) {
+            return (int) $result[0];
+        }
+
+        return -1;
+    }
+
+    /**
+     * build html for adding a new user defined column to central list
+     *
+     * @param string $db            current database
+     * @param int    $total_rows    number of rows in central columns
+     * @param int    $pos           offset of first result with complete result set
+     * @param string $pmaThemeImage table footer theme image directorie
+     * @param string $text_dir      table footer arrow direction
+     *
+     * @return string html of the form to let user add a new user defined column to the
+     *                list
+     */
+    public function getHtmlForMain(
+        string $db,
+        int $total_rows,
+        int $pos,
+        string $pmaThemeImage,
+        string $text_dir
+    ): string {
+        $max_rows = $this->maxRows;
+        $attribute_types = $this->dbi->types->getAttributes();
+
+        $tn_pageNow = ($pos / $this->maxRows) + 1;
+        $tn_nbTotalPage = ceil($total_rows / $this->maxRows);
+        $tn_page_selector = ($tn_nbTotalPage > 1) ? (Util::pageselector(
+            'pos',
+            $this->maxRows,
+            $tn_pageNow,
+            $tn_nbTotalPage
+        )) : '';
+        $this->dbi->selectDb($db);
+        $tables = $this->dbi->getTables($db);
+        $rows_list = $this->getColumnsList($db, $pos, $max_rows);
+
+        $rows_meta = [];
+        $types_upper = [];
+        $row_num = 0;
+        foreach ($rows_list as $row) {
+            $rows_meta[$row_num] = [];
+            if (!isset($row['col_default']) || $row['col_default'] == '') {
+                $rows_meta[$row_num]['DefaultType'] = 'NONE';
+            } else {
+                if ($row['col_default'] == 'CURRENT_TIMESTAMP'
+                    || $row['col_default'] == 'current_timestamp()'
+                ) {
+                    $rows_meta[$row_num]['DefaultType'] = 'CURRENT_TIMESTAMP';
+                } elseif ($row['col_default'] == 'NULL') {
+                    $rows_meta[$row_num]['DefaultType'] = $row['col_default'];
+                } else {
+                    $rows_meta[$row_num]['DefaultType'] = 'USER_DEFINED';
+                    $rows_meta[$row_num]['DefaultValue'] = $row['col_default'];
+                }
+            }
+            $types_upper[$row_num] = mb_strtoupper((string)$row['col_type']);
+            $row_num++;
+        }
+
+        return $this->template->render('database/central_columns/main', [
+            "db" => $db,
+            "dbi" => $this->dbi,
+            "total_rows" => $total_rows,
+            "max_rows" => $max_rows,
+            "pos" => $pos,
+            "char_editing" => $this->charEditing,
+            "attribute_types" => $attribute_types,
+            "tn_nbTotalPage" => $tn_nbTotalPage,
+            "tn_page_selector" => $tn_page_selector,
+            "tables" => $tables,
+            "rows_list" => $rows_list,
+            "rows_meta" => $rows_meta,
+            "types_upper" => $types_upper,
+            "disableIs" => $this->disableIs,
+            "pmaThemeImage" => $pmaThemeImage,
+            "text_dir" => $text_dir,
+        ]);
     }
 }

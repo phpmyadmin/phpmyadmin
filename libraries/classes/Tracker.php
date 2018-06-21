@@ -469,7 +469,7 @@ class Tracker
 
         $result = $relation->queryAsControlUser($sql_query);
 
-        return (boolean) $result;
+        return (bool) $result;
     }
 
     /**
@@ -590,7 +590,7 @@ class Tracker
                 $statement = rtrim(mb_strstr($log_entry, "\n"));
 
                 $ddlog[] = [ 'date' => $date,
-                                  'username'=> $username,
+                                  'username' => $username,
                                   'statement' => $statement ];
             }
         }

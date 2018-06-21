@@ -136,15 +136,15 @@ if (! isset($_REQUEST['resize'])) {
     // if so adjust accordingly to make sure the image
     // stays smaller than the new width and new height
 
-    $ratioWidth = $srcWidth/$_REQUEST['newWidth'];
-    $ratioHeight = $srcHeight/$_REQUEST['newHeight'];
+    $ratioWidth = $srcWidth / $_REQUEST['newWidth'];
+    $ratioHeight = $srcHeight / $_REQUEST['newHeight'];
 
     if ($ratioWidth < $ratioHeight) {
-        $destWidth = $srcWidth/$ratioHeight;
+        $destWidth = $srcWidth / $ratioHeight;
         $destHeight = $_REQUEST['newHeight'];
     } else {
         $destWidth = $_REQUEST['newWidth'];
-        $destHeight = $srcHeight/$ratioWidth;
+        $destHeight = $srcHeight / $ratioWidth;
     }
 
     if ($_REQUEST['resize']) {

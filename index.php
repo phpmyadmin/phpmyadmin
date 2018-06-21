@@ -21,6 +21,7 @@ use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\UserPreferences;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -58,7 +59,7 @@ if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
     && ! preg_match('/^index/', $_REQUEST['target'])
     && ! in_array($_REQUEST['target'], $target_blacklist)
-    && Core::checkPageValidity($_REQUEST['target'])
+    && Core::checkPageValidity($_REQUEST['target'], [], true)
 ) {
     include $_REQUEST['target'];
     exit;
@@ -73,6 +74,12 @@ if (isset($_POST['set_theme'])) {
     $tmanager = ThemeManager::getInstance();
     $tmanager->setActiveTheme($_POST['set_theme']);
     $tmanager->setThemeCookie();
+
+    $userPreferences = new UserPreferences();
+    $prefs = $userPreferences->load();
+    $prefs["config_data"]["ThemeDefault"] = $_POST['set_theme'];
+    $userPreferences->save($prefs["config_data"]);
+
     header('Location: index.php' . Url::getCommonRaw());
     exit();
 }

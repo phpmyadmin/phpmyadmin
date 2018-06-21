@@ -38,7 +38,8 @@ $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
-$serverPrivileges = new Privileges();
+$template = new Template();
+$serverPrivileges = new Privileges($template);
 
 if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')
@@ -138,7 +139,7 @@ if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
     && !$GLOBALS['is_createuser']
 ) {
     $response->addHTML(
-        Template::get('server/sub_page_header')->render([
+        $template->render('server/sub_page_header', [
             'type' => 'privileges',
             'is_image' => false,
         ])
@@ -186,10 +187,10 @@ list($queries, $password) = $serverPrivileges->getDataForChangeOrCopyUser();
  */
 list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error)
     = $serverPrivileges->addUser(
-        isset($dbname)? $dbname : null,
-        isset($username)? $username : null,
-        isset($hostname)? $hostname : null,
-        isset($password)? $password : null,
+        isset($dbname) ? $dbname : null,
+        isset($username) ? $username : null,
+        isset($hostname) ? $hostname : null,
+        isset($password) ? $password : null,
         $cfgRelation['menuswork']
     );
 //update the old variables
@@ -385,7 +386,7 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
  */
 $response->addHTML(
     $serverPrivileges->getHtmlForUserGroupDialog(
-        isset($username)? $username : null,
+        isset($username) ? $username : null,
         $cfgRelation['menuswork']
     )
 );

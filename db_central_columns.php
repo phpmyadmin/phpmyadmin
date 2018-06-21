@@ -138,62 +138,12 @@ if (Core::isValid($_REQUEST['pos'], 'integer')) {
 } else {
     $pos = 0;
 }
-$addNewColumn = $centralColumns->getHtmlForAddNewColumn($db, $total_rows);
-$response->addHTML($addNewColumn);
-if ($total_rows <= 0) {
-    $response->addHTML(
-        '<fieldset>' . __(
-            'The central list of columns for the current database is empty.'
-        ) . '</fieldset>'
-    );
-    $columnAdd = $centralColumns->getHtmlForAddColumn($total_rows, $pos, $db);
-    $response->addHTML($columnAdd);
-    exit;
-}
-$table_navigation_html = $centralColumns->getHtmlForTableNavigation(
-    $total_rows,
-    $pos,
-    $db
-);
-$response->addHTML($table_navigation_html);
-$columnAdd = $centralColumns->getHtmlForAddColumn($total_rows, $pos, $db);
-$response->addHTML($columnAdd);
-$deleteRowForm = '<form method="post" id="del_form" action="db_central_columns.php">'
-        . Url::getHiddenInputs(
-            $db
-        )
-        . '<input id="del_col_name" type="hidden" name="col_name" value="">'
-        . '<input type="hidden" name="pos" value="' . $pos . '">'
-        . '<input type="hidden" name="delete_save" value="delete"></form>';
-$response->addHTML($deleteRowForm);
-$table_struct = '<div id="tableslistcontainer">'
-        . '<form name="tableslistcontainer">'
-        . '<table id="table_columns" class="tablesorter" '
-        . 'class="data">';
-$response->addHTML($table_struct);
-$tableheader = $centralColumns->getTableHeader(
-    'column_heading',
-    __('Click to sort.'),
-    2
-);
-$response->addHTML($tableheader);
-$result = $centralColumns->getColumnsList($db, $pos, $max_rows);
-$row_num = 0;
-foreach ($result as $row) {
-    $tableHtmlRow = $centralColumns->getHtmlForTableRow(
-        $row,
-        $row_num,
-        $db
-    );
-    $response->addHTML($tableHtmlRow);
-    $row_num++;
-}
-$response->addHTML('</table>');
-$tablefooter = $centralColumns->getTableFooter($pmaThemeImage, $text_dir);
-$response->addHTML($tablefooter);
-$response->addHTML('</form></div>');
+$main = $centralColumns->getHtmlForMain($db, $total_rows, $pos, $pmaThemeImage, $text_dir);
+$response->addHTML($main);
+
+$num_cols = $centralColumns->getColumnsCount($db, $pos, $max_rows);
 $message = Message::success(
-    sprintf(__('Showing rows %1$s - %2$s.'), ($pos + 1), ($pos + count($result)))
+    sprintf(__('Showing rows %1$s - %2$s.'), ($pos + 1), ($pos + $num_cols))
 );
 if (isset($tmp_msg) && $tmp_msg !== true) {
     $message = $tmp_msg;

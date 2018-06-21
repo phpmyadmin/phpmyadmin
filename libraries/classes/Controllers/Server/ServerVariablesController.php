@@ -77,7 +77,7 @@ class ServerVariablesController extends Controller
          * Displays the sub-page heading
          */
         $this->response->addHTML(
-            Template::get('server/sub_page_header')->render([
+            $this->template->render('server/sub_page_header', [
                 'type' => 'variables',
                 'link' => 'server_system_variables',
             ])
@@ -200,7 +200,7 @@ class ServerVariablesController extends Controller
         }
 
         if (! is_numeric($value)) {
-            $value="'" . $value . "'";
+            $value = "'" . $value . "'";
         }
 
         if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])
@@ -285,8 +285,7 @@ class ServerVariablesController extends Controller
     private function _getHtmlForLinkTemplates()
     {
         $url = 'server_variables.php' . Url::getCommon();
-        return Template::get('server/variables/link_template')
-            ->render(['url' => $url]);
+        return $this->template->render('server/variables/link_template', ['url' => $url]);
     }
 
     /**
@@ -301,12 +300,11 @@ class ServerVariablesController extends Controller
     {
         // filter
         $filterValue = ! empty($_REQUEST['filter']) ? $_REQUEST['filter'] : '';
-        $output = Template::get('filter')
-            ->render(['filter_value' => $filterValue]);
+        $output = $this->template->render('filter', ['filter_value' => $filterValue]);
 
         $output .= '<div class="responsivetable">';
         $output .= '<table id="serverVariables" class="width100 data filteredData noclick">';
-        $output .= Template::get('server/variables/variable_table_head')->render();
+        $output .= $this->template->render('server/variables/variable_table_head');
         $output .= '<tbody>';
 
         $output .= $this->_getHtmlForServerVariablesItems(
@@ -347,7 +345,7 @@ class ServerVariablesController extends Controller
 
             list($formattedValue, $isHtmlFormatted) = $this->_formatVariable($name, $value);
 
-            $output .= Template::get('server/variables/variable_row')->render([
+            $output .= $this->template->render('server/variables/variable_row', [
                 'row_class' => $row_class,
                 'editable' => ! in_array(
                     strtolower($name),
@@ -361,18 +359,15 @@ class ServerVariablesController extends Controller
             ]);
 
             if ($has_session_value) {
-                list($formattedValue, $isHtmlFormatted)= $this->_formatVariable(
+                list($formattedValue, $isHtmlFormatted) = $this->_formatVariable(
                     $name,
                     $serverVarsSession[$name]
                 );
-                $output .= Template::get('server/variables/session_variable_row')
-                    ->render(
-                        [
-                            'row_class'         => $row_class,
-                            'value'             => $formattedValue,
-                            'is_html_formatted' => $isHtmlFormatted,
-                        ]
-                    );
+                $output .= $this->template->render('server/variables/session_variable_row', [
+                    'row_class' => $row_class,
+                    'value' => $formattedValue,
+                    'is_html_formatted' => $isHtmlFormatted,
+                ]);
             }
         }
 

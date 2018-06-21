@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for FromDisplay.tpl.php
+ * tests for FormDisplayTemplate
  *
  * @package PhpMyAdmin-test
  */
@@ -11,16 +11,25 @@ namespace PhpMyAdmin\Tests\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\FormDisplayTemplate;
-use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Tests for FromDisplay.tpl.php
+ * Tests for FormDisplayTemplate
  *
  * @package PhpMyAdmin-test
  */
 class FormDisplayTemplateTest extends TestCase
 {
+    /**
+     * @var FormDisplayTemplate
+     */
+    protected $formDisplayTemplate;
+
+    /**
+     * @var Config
+     */
+    protected $config;
+
     /**
      * Setup tests
      *
@@ -28,11 +37,12 @@ class FormDisplayTemplateTest extends TestCase
      */
     protected function setUp()
     {
-        $GLOBALS['PMA_Config'] = new Config();
+        $this->config = new Config();
+        $this->formDisplayTemplate = new FormDisplayTemplate($this->config);
     }
 
     /**
-     * Test for FormDisplayTemplate::displayFormTop()
+     * Test for displayFormTop()
      *
      * @return void
      */
@@ -40,7 +50,7 @@ class FormDisplayTemplateTest extends TestCase
     {
         $_SERVER['REQUEST_URI'] = 'https://www.phpmyadmin.net';
         $GLOBALS['cfg']['ServerDefault'] = '';
-        $result = FormDisplayTemplate::displayFormTop(null, 'posted', [1]);
+        $result = $this->formDisplayTemplate->displayFormTop(null, 'posted', [1]);
 
         $this->assertContains(
             '<form method="get" action="https://www.phpmyadmin.net" ' .
@@ -70,13 +80,13 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayTabsTop()
+     * Test for displayTabsTop()
      *
      * @return void
      */
     public function testDisplayTabsTop()
     {
-        $result = FormDisplayTemplate::displayTabsTop(['one', 'two']);
+        $result = $this->formDisplayTemplate->displayTabsTop(['one', 'two']);
 
         $this->assertContains(
             '<ul class="tabs responsivetable"',
@@ -100,7 +110,7 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayFieldsetTop()
+     * Test for displayFieldsetTop()
      *
      * @return void
      */
@@ -109,7 +119,7 @@ class FormDisplayTemplateTest extends TestCase
         $attributes = ['name' => 'attrname'];
         $errors = ['e1', 'e2'];
 
-        $result = FormDisplayTemplate::displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
+        $result = $this->formDisplayTemplate->displayFieldsetTop("TitleTest", "DescTest", $errors, $attributes);
 
         $this->assertContains(
             '<fieldset class="optbox" name="attrname">',
@@ -143,13 +153,12 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayInput()
+     * Test for displayInput()
      *
      * @return void
      */
     public function testDisplayInput()
     {
-        $GLOBALS['_FormDislayGroup'] = 1;
         $opts = [];
         $opts['errors'] = ['e1'];
         $opts['userprefs_allow'] = false;
@@ -158,7 +167,7 @@ class FormDisplayTemplateTest extends TestCase
         $opts['comment'] = "testComment";
         $opts['comment_warning'] = true;
         $opts['show_restore_default'] = true;
-        $result = FormDisplayTemplate::displayInput(
+        $result = $this->formDisplayTemplate->displayInput(
             'test/path',
             'testName',
             'text',
@@ -223,8 +232,7 @@ class FormDisplayTemplateTest extends TestCase
 
         // second case
 
-        $GLOBALS['PMA_Config']->set('is_setup', true);
-        $GLOBALS['_FormDislayGroup'] = 0;
+        $this->config->set('is_setup', true);
         $opts = [];
         $opts['errors'] = [];
         $opts['setvalue'] = 'setVal';
@@ -233,7 +241,7 @@ class FormDisplayTemplateTest extends TestCase
         $opts['userprefs_comment'] = 'userprefsComment';
         $opts['userprefs_allow'] = true;
 
-        $result = FormDisplayTemplate::displayInput(
+        $result = $this->formDisplayTemplate->displayInput(
             'test/path',
             'testName',
             'checkbox',
@@ -272,11 +280,10 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         // short_text
-        $GLOBALS['_FormDislayGroup'] = 0;
         $opts = [];
         $opts['errors'] = [];
 
-        $result = FormDisplayTemplate::displayInput(
+        $result = $this->formDisplayTemplate->displayInput(
             'test/path',
             'testName',
             'short_text',
@@ -293,7 +300,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         // number_text
-        $result = FormDisplayTemplate::displayInput(
+        $result = $this->formDisplayTemplate->displayInput(
             'test/path',
             'testName',
             'number_text',
@@ -317,7 +324,7 @@ class FormDisplayTemplateTest extends TestCase
             'key1' => true,
             'key2' => false,
         ];
-        $result = FormDisplayTemplate::displayInput(
+        $result = $this->formDisplayTemplate->displayInput(
             'test/path',
             'testName',
             'select',
@@ -354,7 +361,7 @@ class FormDisplayTemplateTest extends TestCase
             'key1' => true,
             'key2' => false,
         ];
-        $result = FormDisplayTemplate::displayInput(
+        $result = $this->formDisplayTemplate->displayInput(
             'test/path',
             'testName',
             'select',
@@ -376,7 +383,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         // list
-        $result = FormDisplayTemplate::displayInput(
+        $result = $this->formDisplayTemplate->displayInput(
             'test/path',
             'testName',
             'list',
@@ -393,21 +400,22 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayGroupHeader()
+     * Test for displayGroupHeader()
      *
      * @return void
      */
     public function testDisplayGroupHeader()
     {
-        $this->assertNull(
-            FormDisplayTemplate::displayGroupHeader('')
+        $this->assertEquals(
+            '',
+            $this->formDisplayTemplate->displayGroupHeader('')
         );
 
-        $GLOBALS['_FormDisplayGroup'] = 3;
+        $this->formDisplayTemplate->group = 3;
 
-        $GLOBALS['PMA_Config']->set('is_setup', true);
+        $this->config->set('is_setup', true);
 
-        $result = FormDisplayTemplate::displayGroupHeader('headerText');
+        $result = $this->formDisplayTemplate->displayGroupHeader('headerText');
 
         $this->assertContains(
             '<tr class="group-header group-header-4">',
@@ -415,11 +423,11 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         // without PMA_SETUP
-        $GLOBALS['PMA_Config']->set('is_setup', false);
+        $this->config->set('is_setup', false);
 
-        $GLOBALS['_FormDisplayGroup'] = 3;
+        $this->formDisplayTemplate->group = 3;
 
-        $result = FormDisplayTemplate::displayGroupHeader('headerText');
+        $result = $this->formDisplayTemplate->displayGroupHeader('headerText');
 
         $this->assertContains(
             '<tr class="group-header group-header-4">',
@@ -428,31 +436,31 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayGroupFooter()
+     * Test for displayGroupFooter()
      *
      * @return void
      */
     public function testDisplayGroupFooter()
     {
-        $GLOBALS['_FormDisplayGroup'] = 3;
-        FormDisplayTemplate::displayGroupFooter();
+        $this->formDisplayTemplate->group = 3;
+        $this->formDisplayTemplate->displayGroupFooter();
         $this->assertEquals(
             2,
-            $GLOBALS['_FormDisplayGroup']
+            $this->formDisplayTemplate->group
         );
     }
 
     /**
-     * Test for FormDisplayTemplate::displayFieldsetBottom()
+     * Test for displayFieldsetBottom()
      *
      * @return void
      */
     public function testDisplayFieldsetBottom()
     {
         // with PMA_SETUP
-        $GLOBALS['PMA_Config']->set('is_setup', true);
+        $this->config->set('is_setup', true);
 
-        $result = FormDisplayTemplate::displayFieldsetBottom();
+        $result = $this->formDisplayTemplate->displayFieldsetBottom();
 
         $this->assertContains(
             '<td colspan="3" class="lastrow">',
@@ -475,9 +483,9 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         // without PMA_SETUP
-        $GLOBALS['PMA_Config']->set('is_setup', false);
+        $this->config->set('is_setup', false);
 
-        $result = FormDisplayTemplate::displayFieldsetBottom();
+        $result = $this->formDisplayTemplate->displayFieldsetBottom();
 
         $this->assertContains(
             '<td colspan="2" class="lastrow">',
@@ -486,13 +494,13 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayTabsBottom()
+     * Test for displayTabsBottom()
      *
      * @return void
      */
     public function testDisplayTabsBottom()
     {
-        $result = FormDisplayTemplate::displayTabsBottom();
+        $result = $this->formDisplayTemplate->displayTabsBottom();
         $this->assertEquals(
             "</div>\n",
             $result
@@ -500,13 +508,13 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayFormBottom()
+     * Test for displayFormBottom()
      *
      * @return void
      */
     public function testDisplayFormBottom()
     {
-        $result = FormDisplayTemplate::displayFormBottom();
+        $result = $this->formDisplayTemplate->displayFormBottom();
         $this->assertEquals(
             "</form>\n",
             $result
@@ -514,7 +522,7 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::addJsValidate()
+     * Test for addJsValidate()
      *
      * @return void
      */
@@ -527,7 +535,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $js = [];
 
-        FormDisplayTemplate::addJsValidate('testID', $validators, $js);
+        $this->formDisplayTemplate->addJsValidate('testID', $validators, $js);
 
         $this->assertEquals(
             [
@@ -541,17 +549,18 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayJavascript()
+     * Test for displayJavascript()
      *
      * @return void
      */
     public function testDisplayJavascript()
     {
-        $this->assertNull(
-            FormDisplayTemplate::displayJavascript([])
+        $this->assertEquals(
+            '',
+            $this->formDisplayTemplate->displayJavascript([])
         );
 
-        $result = FormDisplayTemplate::displayJavascript(['var i = 1', 'i++']);
+        $result = $this->formDisplayTemplate->displayJavascript(['var i = 1', 'i++']);
 
         $this->assertEquals(
             '<script type="text/javascript">' . "\n"
@@ -570,7 +579,7 @@ class FormDisplayTemplateTest extends TestCase
     }
 
     /**
-     * Test for FormDisplayTemplate::displayErrors()
+     * Test for displayErrors()
      *
      * @return void
      */
@@ -578,7 +587,7 @@ class FormDisplayTemplateTest extends TestCase
     {
         $errors = ['<err1>', '&err2'];
 
-        $result = FormDisplayTemplate::displayErrors('err"Name1"', $errors);
+        $result = $this->formDisplayTemplate->displayErrors('err"Name1"', $errors);
 
         $this->assertContains('<dt>err&quot;Name1&quot;</dt>', $result);
         $this->assertContains('<dd>&lt;err1&gt;</dd>', $result);

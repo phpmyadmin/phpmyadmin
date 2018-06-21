@@ -64,18 +64,18 @@ class SelectTest extends TestCase
 
         $GLOBALS['cfg']['Servers'] = [
             '0' => [
-                'host'=>'host0',
-                'port'=>'port0',
-                'only_db'=>'only_db0',
-                'user'=>'user0',
-                'auth_type'=>'config',
+                'host' => 'host0',
+                'port' => 'port0',
+                'only_db' => 'only_db0',
+                'user' => 'user0',
+                'auth_type' => 'config',
             ],
             '1' => [
-                'host'=>'host1',
-                'port'=>'port1',
-                'only_db'=>'only_db1',
-                'user'=>'user1',
-                'auth_type'=>'config',
+                'host' => 'host1',
+                'port' => 'port1',
+                'only_db' => 'only_db1',
+                'user' => 'user1',
+                'auth_type' => 'config',
             ],
         ];
 

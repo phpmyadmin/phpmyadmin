@@ -37,7 +37,7 @@ class ServerCollationsController extends Controller
         include_once 'libraries/server_common.inc.php';
 
         $this->response->addHTML(
-            Template::get('server/sub_page_header')->render([
+            $this->template->render('server/sub_page_header', [
                 'type' => 'collations',
             ])
         );
@@ -67,13 +67,11 @@ class ServerCollationsController extends Controller
         array $mysqlCharsetsDesc,
         array $mysqlDftCollations
     ): string {
-        return Template::get('server/collations/charsets')->render(
-            [
-                'mysql_charsets' => $mysqlCharsets,
-                'mysql_collations' => $mysqlCollations,
-                'mysql_charsets_desc' => $mysqlCharsetsDesc,
-                'mysql_dft_collations' => $mysqlDftCollations,
-            ]
-        );
+        return $this->template->render('server/collations/charsets', [
+            'mysql_charsets' => $mysqlCharsets,
+            'mysql_collations' => $mysqlCollations,
+            'mysql_charsets_desc' => $mysqlCharsetsDesc,
+            'mysql_dft_collations' => $mysqlDftCollations,
+        ]);
     }
 }

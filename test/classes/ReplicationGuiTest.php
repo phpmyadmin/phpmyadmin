@@ -62,8 +62,8 @@ class ReplicationGuiTest extends TestCase
         //Mock DBI
 
         $slave_host = [
-            ['Server_id'=>'Server_id1', 'Host'=>'Host1'],
-            ['Server_id'=>'Server_id2', 'Host'=>'Host2'],
+            ['Server_id' => 'Server_id1', 'Host' => 'Host1'],
+            ['Server_id' => 'Server_id2', 'Host' => 'Host2'],
         ];
 
         $fetchResult = [

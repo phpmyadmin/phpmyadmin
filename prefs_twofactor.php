@@ -18,11 +18,12 @@ require_once 'libraries/common.inc.php';
 
 require 'libraries/user_preferences.inc.php';
 
+$template = new Template();
 $two_factor = new TwoFactor($GLOBALS['cfg']['Server']['user']);
 
 if (isset($_POST['2fa_remove'])) {
     if (! $two_factor->check(true)) {
-        echo Template::get('prefs_twofactor_confirm')->render([
+        echo $template->render('prefs_twofactor_confirm', [
             'form' => $two_factor->render(),
         ]);
         exit;
@@ -32,7 +33,7 @@ if (isset($_POST['2fa_remove'])) {
     }
 } elseif (isset($_POST['2fa_configure'])) {
     if (! $two_factor->configure($_POST['2fa_configure'])) {
-        echo Template::get('prefs_twofactor_configure')->render([
+        echo $template->render('prefs_twofactor_configure', [
             'form' => $two_factor->setup(),
             'configure' => $_POST['2fa_configure'],
         ]);
@@ -43,7 +44,7 @@ if (isset($_POST['2fa_remove'])) {
 }
 
 $backend = $two_factor->backend;
-echo Template::get('prefs_twofactor')->render([
+echo $template->render('prefs_twofactor', [
     'enabled' => $two_factor->writable,
     'num_backends' => count($two_factor->available),
     'backend_id' => $backend::$id,

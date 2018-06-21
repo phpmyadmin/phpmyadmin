@@ -211,7 +211,7 @@ class InsertEditTest extends TestCase
      */
     public function testShowEmptyResultMessageOrSetUniqueCondition()
     {
-        $temp = new stdClass;
+        $temp = new stdClass();
         $temp->orgname = 'orgname';
         $temp->table = 'table';
         $temp->type = 'real';
@@ -2009,7 +2009,7 @@ class InsertEditTest extends TestCase
      */
     public function testSetSessionForEditNext()
     {
-        $temp = new stdClass;
+        $temp = new stdClass();
         $temp->orgname = 'orgname';
         $temp->table = 'table';
         $temp->type = 'real';

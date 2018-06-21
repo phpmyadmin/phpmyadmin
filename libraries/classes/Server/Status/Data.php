@@ -493,7 +493,7 @@ class Data
         $return = '<select name="' . $name . '" id="id_' . $name
             . '" class="refreshRate">';
         foreach ($refreshRates as $rate) {
-            $selected = ($rate == $defaultRate)?' selected="selected"':'';
+            $selected = ($rate == $defaultRate) ? ' selected="selected"' : '';
             $return .= '<option value="' . $rate . '"' . $selected . '>';
             if ($rate < 60) {
                 $return .= sprintf(

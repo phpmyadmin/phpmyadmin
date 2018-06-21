@@ -25,7 +25,6 @@
 
             {% set extracted_columnspec = extracted_columnspecs[rownum] %}
             {% set field_name = row['Field']|e %}
-            {% set displayed_field_name = displayed_field_names[rownum] %}
             {# For column comments #}
             {% set comments = row_comments[rownum] %}
             {# Underline commented fields and display a hover-title (CSS only) #}
@@ -34,7 +33,7 @@
             {% include 'table/structure/table_structure_row.twig' with {
                 'row': row,
                 'rownum': rownum,
-                'displayed_field_name': displayed_field_names_replaced[rownum],
+                'displayed_field': displayed_fields[rownum],
                 'type_nowrap': Util_getClassForType(extracted_columnspec['type']),
                 'extracted_columnspec': extracted_columnspec,
                 'attribute': attributes[rownum],

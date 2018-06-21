@@ -55,7 +55,15 @@ class Common
         $GLOBALS['designer']['TABLE_NAME'] = [];// that foreach no error
         $GLOBALS['designer']['OWNER'] = [];
         $GLOBALS['designer']['TABLE_NAME_SMALL'] = [];
+        $GLOBALS['designer']['TABLE_TYPE'] = [];
 
+        $GLOBALS['designer_url']['TABLE_NAME'] = [];
+        $GLOBALS['designer_url']['OWNER'] = [];
+        $GLOBALS['designer_url']['TABLE_NAME_SMALL'] = [];
+
+        $GLOBALS['designer_out']['TABLE_NAME'] = [];
+        $GLOBALS['designer_out']['OWNER'] = [];
+        $GLOBALS['designer_out']['TABLE_NAME_SMALL'] = [];
         $tables = $this->dbi->getTablesFull($GLOBALS['db']);
         // seems to be needed later
         $this->dbi->selectDb($GLOBALS['db']);
@@ -94,7 +102,8 @@ class Common
 
             $DF = $this->relation->getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
             if ($DF != '') {
-                $retval[$GLOBALS['designer_url']["TABLE_NAME_SMALL"][$i]] = $DF;
+                $DF = rawurlencode((string)$DF);
+                $retval[rawurlencode($GLOBALS['designer_url']["TABLE_NAME_SMALL"][$i])] = $DF;
             }
 
             $i++;
@@ -158,12 +167,12 @@ class Common
             if ($row !== false) {
                 foreach ($row as $field => $value) {
                     $con['C_NAME'][$i] = '';
-                    $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
-                    $con['DCN'][$i]    = urlencode($field);
-                    $con['STN'][$i]    = urlencode(
+                    $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . "." . $val[0]);
+                    $con['DCN'][$i]    = rawurlencode($field);
+                    $con['STN'][$i]    = rawurlencode(
                         $value['foreign_db'] . "." . $value['foreign_table']
                     );
-                    $con['SCN'][$i]    = urlencode($value['foreign_field']);
+                    $con['SCN'][$i]    = rawurlencode($value['foreign_field']);
                     $i++;
                 }
             }
@@ -172,15 +181,15 @@ class Common
             if ($row !== false) {
                 foreach ($row['foreign_keys_data'] as $one_key) {
                     foreach ($one_key['index_list'] as $index => $one_field) {
-                        $con['C_NAME'][$i] = $one_key['constraint'];
-                        $con['DTN'][$i]    = urlencode($GLOBALS['db'] . "." . $val[0]);
-                        $con['DCN'][$i]    = urlencode($one_field);
-                        $con['STN'][$i]    = urlencode(
+                        $con['C_NAME'][$i] = rawurlencode($one_key['constraint']);
+                        $con['DTN'][$i]    = rawurlencode($GLOBALS['db'] . "." . $val[0]);
+                        $con['DCN'][$i]    = rawurlencode($one_field);
+                        $con['STN'][$i]    = rawurlencode(
                             (isset($one_key['ref_db_name']) ?
                                 $one_key['ref_db_name'] : $GLOBALS['db'])
                             . "." . $one_key['ref_table_name']
                         );
-                        $con['SCN'][$i] = urlencode($one_key['ref_index_list'][$index]);
+                        $con['SCN'][$i] = rawurlencode($one_key['ref_index_list'][$index]);
                         $i++;
                     }
                 }
@@ -194,8 +203,8 @@ class Common
             $dtn_i = $con['DTN'][$i];
             $retval[$ti] = [];
             $retval[$ti][$c_name_i] = [];
-            if (in_array($dtn_i, $GLOBALS['designer_url']["TABLE_NAME"])
-                && in_array($con['STN'][$i], $GLOBALS['designer_url']["TABLE_NAME"])
+            if (in_array(rawurldecode($dtn_i), $GLOBALS['designer_url']["TABLE_NAME"])
+                && in_array(rawurldecode($con['STN'][$i]), $GLOBALS['designer_url']["TABLE_NAME"])
             ) {
                 $retval[$ti][$c_name_i][$dtn_i] = [];
                 $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = [
@@ -262,8 +271,8 @@ class Common
             if (Util::isForeignKeySupported($GLOBALS['designer']['TABLE_TYPE'][$i])) {
                 $j = 1;
             }
-            $retval['j_tabs'][$GLOBALS['designer_url']['TABLE_NAME'][$i]] = $j;
-            $retval['h_tabs'][$GLOBALS['designer_url']['TABLE_NAME'][$i]] = 1;
+            $retval['j_tabs'][\rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = $j;
+            $retval['h_tabs'][\rawurlencode($GLOBALS['designer_url']['TABLE_NAME'][$i])] = 1;
         }
         return $retval;
     }
@@ -364,7 +373,7 @@ class Common
             );
         }
 
-        return (boolean) $success;
+        return (bool) $success;
     }
 
     /**
@@ -495,7 +504,7 @@ class Common
         );
 
         if (!$res) {
-            return (boolean)$res;
+            return (bool)$res;
         }
 
         foreach ($_REQUEST['t_h'] as $key => $value) {
@@ -522,7 +531,7 @@ class Common
             );
         }
 
-        return (boolean) $res;
+        return (bool) $res;
     }
 
     /**

@@ -217,7 +217,7 @@ $compression_methods = [
 /**
  * init and variable checking
  */
-$compression = false;
+$compression = '';
 $onserver = false;
 $save_on_server = false;
 $buffer_needed = false;
@@ -517,10 +517,10 @@ do {
             $allrows = '';
         }
         if (! isset($limit_to)) {
-            $limit_to = 0;
+            $limit_to = '0';
         }
         if (! isset($limit_from)) {
-            $limit_from = 0;
+            $limit_from = '0';
         }
         if (isset($lock_tables)) {
             try {

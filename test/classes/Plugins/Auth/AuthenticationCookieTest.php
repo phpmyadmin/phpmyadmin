@@ -302,7 +302,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['error_handler'] = new ErrorHandler;
+        $GLOBALS['error_handler'] = new ErrorHandler();
 
         ob_start();
         $this->object->showLoginForm();

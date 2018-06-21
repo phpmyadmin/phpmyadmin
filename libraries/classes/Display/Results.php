@@ -198,6 +198,11 @@ class Results
     private $transformations;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor for PhpMyAdmin\Display\Results class
      *
      * @param string $db        the database name
@@ -211,6 +216,7 @@ class Results
     {
         $this->relation = new Relation();
         $this->transformations = new Transformations();
+        $this->template = new Template();
 
         $this->_setDefaultTransformations();
 
@@ -770,7 +776,7 @@ class Results
             }
         }
 
-        return Template::get('display/results/table_navigation_button')->render([
+        return $this->template->render('display/results/table_navigation_button', [
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
             'sql_query' => $html_sql_query,
@@ -1052,7 +1058,7 @@ class Results
         $showing_all,
         $html_sql_query
     ) {
-        return Template::get('display/results/show_all_checkbox')->render([
+        return $this->template->render('display/results/show_all_checkbox', [
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
@@ -1121,7 +1127,7 @@ class Results
             @((ceil(
                 $this->__get('unlim_num_rows')
                 / $_SESSION['tmpval']['max_rows']
-            )- 1) * $maxRows),
+            ) - 1) * $maxRows),
             $html_sql_query,
             false,
             $onsubmit,
@@ -1160,7 +1166,7 @@ class Results
             '500' => 500
         ];
 
-        return Template::get('display/results/additional_fields')->render([
+        return $this->template->render('display/results/additional_fields', [
             'goto' => $this->__get('goto'),
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
             'sql_query' => $sqlQuery,
@@ -1737,7 +1743,7 @@ class Results
                 $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
             }
         }
-        return Template::get('display/results/options_block')->render([
+        return $this->template->render('display/results/options_block', [
             'unique_id' => $this->__get('unique_id'),
             'geo_option' => $_SESSION['tmpval']['geoOption'],
             'hide_transformation' => $_SESSION['tmpval']['hide_transformation'],
@@ -1807,7 +1813,7 @@ class Results
      */
     private function _getFormForMultiRowOperations($deleteLink)
     {
-        return Template::get('display/results/multi_row_operations_form')->render([
+        return $this->template->render('display/results/multi_row_operations_form', [
             'delete_link' => $deleteLink,
             'delete_row' => self::DELETE_ROW,
             'kill_process' => self::KILL_PROCESS,
@@ -1831,7 +1837,7 @@ class Results
      */
     private function _getCommentForRow(array $commentsMap, $fieldsMeta)
     {
-        return Template::get('display/results/comment_for_row')->render([
+        return $this->template->render('display/results/comment_for_row', [
             'comments_map' => $commentsMap,
             'fields_meta' => $fieldsMeta,
             'limit_chars' => $GLOBALS['cfg']['LimitChars'],
@@ -2456,7 +2462,7 @@ class Results
      */
     private function _buildValueDisplay($class, $conditionField, $value)
     {
-        return Template::get('display/results/value_display')->render([
+        return $this->template->render('display/results/value_display', [
             'class' => $class,
             'condition_field' => $conditionField,
             'value' => $value,
@@ -2483,7 +2489,7 @@ class Results
     {
         $classes = $this->_addClass($class, $conditionField, $meta, '');
 
-        return Template::get('display/results/null_display')->render([
+        return $this->template->render('display/results/null_display', [
             'align' => $align,
             'meta' => $meta,
             'classes' => $classes,
@@ -2510,7 +2516,7 @@ class Results
     {
         $classes = $this->_addClass($class, $conditionField, $meta, 'nowrap');
 
-        return Template::get('display/results/empty_display')->render([
+        return $this->template->render('display/results/empty_display', [
             'align' => $align,
             'classes' => $classes,
         ]);
@@ -4968,6 +4974,11 @@ class Results
         // fetch last row of the result set
         $GLOBALS['dbi']->dataSeek($dt_result, $this->__get('num_rows') - 1);
         $row = $GLOBALS['dbi']->fetchRow($dt_result);
+
+        // @see DbiMysqi::fetchRow & DatabaseInterface::fetchRow
+        if (! is_array($row)) {
+            $row = [];
+        }
 
         // $clause_is_unique is needed by getTable() to generate the proper param
         // in the multi-edit and multi-delete form

@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 
 /**
  * Base class for all of controller
@@ -31,6 +32,11 @@ abstract class Controller
     protected $dbi;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      *
      * @param Response          $response Response object
@@ -40,5 +46,6 @@ abstract class Controller
     {
         $this->response = $response;
         $this->dbi = $dbi;
+        $this->template = new Template();
     }
 }

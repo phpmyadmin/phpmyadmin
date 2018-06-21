@@ -38,7 +38,7 @@ some ways from the official phpMyAdmin documentation. Specifically it does:
 
 .. seealso::
 
-    More information can be found in `README.Debian <https://anonscm.debian.org/cgit/collab-maint/phpmyadmin.git/tree/debian/README.Debian>`_
+    More information can be found in `README.Debian <https://salsa.debian.org/phpmyadmin-team/phpmyadmin/blob/master/debian/README.Debian>`_
     (it is installed as :file:`/usr/share/doc/phmyadmin/README.Debian` with the package).
 
 OpenSUSE
@@ -596,7 +596,7 @@ Setup script on openSUSE
 Some openSUSE releases do not include setup script in the package. In case you
 want to generate configuration on these you can either download original
 package from <https://www.phpmyadmin.net/> or use setup script on our demo
-server: <https://demo.phpmyadmin.net/STABLE/setup/>.
+server: <https://demo.phpmyadmin.net/master/setup/>.
 
 .. _verify:
 

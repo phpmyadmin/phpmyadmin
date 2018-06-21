@@ -35,7 +35,7 @@ class MessageTest extends PmaTestCase
      */
     protected function setUp()
     {
-        $this->object = new Message;
+        $this->object = new Message();
     }
 
     /**

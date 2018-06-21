@@ -315,7 +315,7 @@ class ExportPdfTest extends PmaTestCase
     {
         $setter = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportPdf', '_setPdf');
         $setter->setAccessible(true);
-        $setter->invoke($this->object, new Pdf);
+        $setter->invoke($this->object, new Pdf());
 
         $getter = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportPdf', '_getPdf');
         $getter->setAccessible(true);

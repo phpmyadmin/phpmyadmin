@@ -28,6 +28,21 @@ use PhpMyAdmin\Util;
 class Privileges
 {
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
+     * Privileges constructor.
+     *
+     * @param Template $template Template instance
+     */
+    public function __construct(Template $template)
+    {
+        $this->template = $template;
+    }
+
+    /**
      * Get Html for User Group Dialog
      *
      * @param string $username     username
@@ -477,21 +492,16 @@ class Privileges
         $name_for_dfn,
         $name_for_current
     ) {
-        $data = [
-            'columns'          => $columns,
-            'row'              => $row,
-            'name_for_select'  => $name_for_select,
-            'priv_for_header'  => $priv_for_header,
-            'name'             => $name,
-            'name_for_dfn'     => $name_for_dfn,
+        return $this->template->render('privileges/column_privileges', [
+            'columns' => $columns,
+            'row' => $row,
+            'name_for_select' => $name_for_select,
+            'priv_for_header' => $priv_for_header,
+            'name' => $name,
+            'name_for_dfn' => $name_for_dfn,
             'name_for_current' => $name_for_current
-        ];
-
-        $html_output = Template::get('privileges/column_privileges')
-            ->render($data);
-
-        return $html_output;
-    } // end function
+        ]);
+    }
 
     /**
      * Get sql query for display privileges table
@@ -563,16 +573,11 @@ class Privileges
         }
         $GLOBALS['dbi']->freeResult($result);
 
-        // render the template
-        $data = [
+        return $this->template->render('privileges/choose_user_group', [
             'all_user_groups' => $allUserGroups,
-            'user_group'      => $userGroup,
-            'params'          => ['username' => $username]
-        ];
-        $html_output = Template::get('privileges/choose_user_group')
-            ->render($data);
-
-        return $html_output;
+            'user_group' => $userGroup,
+            'params' => ['username' => $username]
+        ]);
     }
 
     /**
@@ -839,10 +844,9 @@ class Privileges
             ],
         ];
 
-        $html_output = Template::get('privileges/require_options')
-            ->render(['require_options' => $require_options]);
-
-        return $html_output;
+        return $this->template->render('privileges/require_options', [
+            'require_options' => $require_options
+        ]);
     }
 
     /**
@@ -892,8 +896,9 @@ class Privileges
             ]
         ];
 
-        $html_output = Template::get('privileges/resource_limits')
-            ->render(['limits' => $limits]);
+        $html_output = $this->template->render('privileges/resource_limits', [
+            'limits' => $limits
+        ]);
 
         $html_output .= '</fieldset>' . "\n";
 
@@ -947,19 +952,15 @@ class Privileges
             $privs
         );
 
-        $data = [
-            'username'       => $username,
-            'hostname'       => $hostname,
-            'database'       => $db,
-            'routine'        => $routine,
-            'grant_count'     => count($privs),
+        return $this->template->render('privileges/edit_routine_privileges', [
+            'username' => $username,
+            'hostname' => $hostname,
+            'database' => $db,
+            'routine' => $routine,
+            'grant_count' => count($privs),
             'priv_checkboxes' => $privCheckboxes,
-            'header'         => $header,
-        ];
-        $html_output = Template::get('privileges/edit_routine_privileges')
-            ->render($data);
-
-        return $html_output;
+            'header' => $header,
+        ]);
     }
 
     /**
@@ -1453,7 +1454,7 @@ class Privileges
         array $privTableNames,
         array $row
     ) {
-        return Template::get('privileges/global_priv_table')->render([
+        return $this->template->render('privileges/global_priv_table', [
             'priv_table' => $privTable,
             'priv_table_names' => $privTableNames,
             'row' => $row,
@@ -1477,7 +1478,7 @@ class Privileges
         $versions = 'new'
     ) {
         $select_id = 'select_authentication_plugin'
-            . ($mode =='change_pw' ? '_cp' : '');
+            . ($mode == 'change_pw' ? '_cp' : '');
 
         if ($versions == 'new') {
             $active_auth_plugins = $this->getActiveAuthPlugins();
@@ -2236,40 +2237,31 @@ class Privileges
         $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
             . '<legend>' . __('Database for user account') . '</legend>' . "\n";
 
-        $html_output .= Template::get('checkbox')
-            ->render(
-                [
-                    'html_field_name'   => 'createdb-1',
-                    'label'             => __('Create database with same name and grant all privileges.'),
-                    'checked'           => false,
-                    'onclick'           => false,
-                    'html_field_id'     => 'createdb-1',
-                ]
-            );
+        $html_output .= $this->template->render('checkbox', [
+            'html_field_name' => 'createdb-1',
+            'label' => __('Create database with same name and grant all privileges.'),
+            'checked' => false,
+            'onclick' => false,
+            'html_field_id' => 'createdb-1',
+        ]);
         $html_output .= '<br />' . "\n";
-        $html_output .= Template::get('checkbox')
-            ->render(
-                [
-                    'html_field_name'   => 'createdb-2',
-                    'label'             => __('Grant all privileges on wildcard name (username\\_%).'),
-                    'checked'           => false,
-                    'onclick'           => false,
-                    'html_field_id'     => 'createdb-2',
-                ]
-            );
+        $html_output .= $this->template->render('checkbox', [
+            'html_field_name' => 'createdb-2',
+            'label' => __('Grant all privileges on wildcard name (username\\_%).'),
+            'checked' => false,
+            'onclick' => false,
+            'html_field_id' => 'createdb-2',
+        ]);
         $html_output .= '<br />' . "\n";
 
         if (! empty($dbname)) {
-            $html_output .= Template::get('checkbox')
-                ->render(
-                    [
-                        'html_field_name'   => 'createdb-3',
-                        'label'             => sprintf(__('Grant all privileges on database %s.'), htmlspecialchars($dbname)),
-                        'checked'           => true,
-                        'onclick'           => false,
-                        'html_field_id'     => 'createdb-3',
-                    ]
-                );
+            $html_output .= $this->template->render('checkbox', [
+                'html_field_name' => 'createdb-3',
+                'label' => sprintf(__('Grant all privileges on database %s.'), htmlspecialchars($dbname)),
+                'checked' => true,
+                'onclick' => false,
+                'html_field_id' => 'createdb-3',
+            ]);
             $html_output .= '<input type="hidden" name="dbname" value="'
                 . htmlspecialchars($dbname) . '" />' . "\n";
             $html_output .= '<br />' . "\n";
@@ -2457,14 +2449,11 @@ class Privileges
             $html_output .= '</div>';
 
             $html_output .= '<div class="floatleft">';
-            $html_output .= Template::get('select_all')
-                ->render(
-                    [
-                        'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                        'text_dir'        => $GLOBALS['text_dir'],
-                        'form_name'       => "usersForm",
-                    ]
-                );
+            $html_output .= $this->template->render('select_all', [
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'form_name' => "usersForm",
+            ]);
             $html_output .= Util::getButtonOrImage(
                 'submit_mult',
                 'mult_submit',
@@ -2547,14 +2536,11 @@ class Privileges
             $html_output .= '</table></div>';
 
             $html_output .= '<div class="floatleft">';
-            $html_output .= Template::get('select_all')
-                ->render(
-                    [
-                        'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                        'text_dir'        => $GLOBALS['text_dir'],
-                        'form_name'       => "usersForm",
-                    ]
-                );
+            $html_output .= $this->template->render('select_all', [
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'form_name' => "usersForm",
+            ]);
             $html_output .= Util::getButtonOrImage(
                 'submit_mult',
                 'mult_submit',
@@ -3088,7 +3074,7 @@ class Privileges
             } else {
                 $new_user_string .= __('No');
             }
-            $new_user_string .='</td>';
+            $new_user_string .= '</td>';
 
             if ($GLOBALS['is_grantuser']) {
                 $new_user_string .= '<td>'
@@ -3425,7 +3411,7 @@ class Privileges
      * @param string $type     database, table or routine
      * @param string $dbname   database name
      *
-     * @return array $html_output
+     * @return string $html_output
      */
     public function getHtmlForAllTableSpecificRights(
         $username,
@@ -3594,10 +3580,7 @@ class Privileges
             $data['routines'] = $routines;
         }
 
-        $html_output = Template::get('privileges/privileges_summary')
-            ->render($data);
-
-        return $html_output;
+        return $this->template->render('privileges/privileges_summary', $data);
     }
 
     /**
@@ -3654,14 +3637,11 @@ class Privileges
             . '</table></div>' . "\n";
 
         $html_output .= '<div class="floatleft">'
-            . Template::get('select_all')
-                ->render(
-                    [
-                        'pma_theme_image' => $pmaThemeImage,
-                        'text_dir'        => $text_dir,
-                        'form_name'       => 'usersForm',
-                    ]
-                ) . "\n";
+            . $this->template->render('select_all', [
+                'pma_theme_image' => $pmaThemeImage,
+                'text_dir' => $text_dir,
+                'form_name' => 'usersForm',
+            ]) . "\n";
         $html_output .= Util::getButtonOrImage(
             'submit_mult',
             'mult_submit',
@@ -3831,8 +3811,7 @@ class Privileges
     {
         $html_output = $this->getAddUserHtmlFieldset();
 
-        $html_output .= Template::get('privileges/delete_user_fieldset')
-            ->render([]);
+        $html_output .= $this->template->render('privileges/delete_user_fieldset');
 
         return $html_output;
     }
@@ -3871,15 +3850,10 @@ class Privileges
 
         uksort($array_initials, "strnatcasecmp");
 
-        $html_output = Template::get('privileges/initials_row')
-            ->render(
-                [
-                    'array_initials' => $array_initials,
-                    'initial' => isset($_REQUEST['initial']) ? $_REQUEST['initial'] : null,
-                ]
-            );
-
-        return $html_output;
+        return $this->template->render('privileges/initials_row', [
+            'array_initials' => $array_initials,
+            'initial' => isset($_REQUEST['initial']) ? $_REQUEST['initial'] : null,
+        ]);
     }
 
     /**
@@ -4509,8 +4483,8 @@ class Privileges
 
         return [
             $username, $hostname,
-            isset($dbname)? $dbname : null,
-            isset($tablename)? $tablename : null,
+            isset($dbname) ? $dbname : null,
+            isset($tablename) ? $tablename : null,
             isset($routinename) ? $routinename : null,
             $db_and_table,
             $dbname_is_wildcard,
@@ -4597,13 +4571,10 @@ class Privileges
                     = $table;
         }
 
-        return Template::get('privileges/add_user_fieldset')
-            ->render(
-                [
-                    'url_params' => $url_params,
-                    'rel_params' => $rel_params
-                ]
-            );
+        return $this->template->render('privileges/add_user_fieldset', [
+            'url_params' => $url_params,
+            'rel_params' => $rel_params
+        ]);
     }
 
     /**

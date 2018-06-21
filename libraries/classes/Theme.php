@@ -87,6 +87,19 @@ class Theme
     ];
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
+     * Theme constructor.
+     */
+    public function __construct()
+    {
+        $this->template = new Template();
+    }
+
+    /**
      * Loads theme information
      *
      * @return boolean whether loading them info was successful or not
@@ -409,7 +422,7 @@ class Theme
             $screen = $path;
         }
 
-        return Template::get('theme_preview')->render([
+        return $this->template->render('theme_preview', [
             'url_params' => $url_params,
             'name' => $this->getName(),
             'version' => $this->getVersion(),
