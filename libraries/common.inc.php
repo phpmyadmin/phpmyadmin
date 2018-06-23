@@ -145,7 +145,8 @@ if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
     $GLOBALS['goto'] = $_REQUEST['goto'];
     $GLOBALS['url_params']['goto'] = $_REQUEST['goto'];
 } else {
-    unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto'], $_COOKIE['goto']);
+    $GLOBALS['PMA_Config']->unsetCookie('goto');
+    unset($_REQUEST['goto'], $_GET['goto'], $_POST['goto']);
 }
 
 /**
@@ -155,7 +156,8 @@ if (isset($_REQUEST['goto']) && Core::checkPageValidity($_REQUEST['goto'])) {
 if (isset($_REQUEST['back']) && Core::checkPageValidity($_REQUEST['back'])) {
     $GLOBALS['back'] = $_REQUEST['back'];
 } else {
-    unset($_REQUEST['back'], $_GET['back'], $_POST['back'], $_COOKIE['back']);
+    $GLOBALS['PMA_Config']->unsetCookie('back');
+    unset($_REQUEST['back'], $_GET['back'], $_POST['back']);
 }
 
 /**

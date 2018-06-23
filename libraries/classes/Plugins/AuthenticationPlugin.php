@@ -140,7 +140,7 @@ abstract class AuthenticationPlugin
             && $GLOBALS['cfg']['Server']['auth_type'] == 'cookie'
         ) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
-                if (isset($_COOKIE['pmaAuth-' . $key])) {
+                if ($GLOBALS['PMA_Config']->issetCookie('pmaAuth-' . $key)) {
                     $server = $key;
                 }
             }
