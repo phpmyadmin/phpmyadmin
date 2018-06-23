@@ -1612,6 +1612,36 @@ var ColorPickerTool = (function ColorPickerTool () {
             e.dataTransfer.setData('location', 'palette-samples');
         };
 
+        ColorSample.prototype.improveContrastRatio = function improveContrastRatio (group , background) {
+            var brightness = 50;
+            var saturation = 50;
+            var max1 = 1;
+            var max2 = 1;
+            var maxBrightness = brightness;
+            for (var i = 0 ; i < 11 ; i ++) {
+                var contrast1 = getColorContrast(this.color,group);
+                var contrast2 = getColorContrast(this.color,background);
+                if (contrast1 > 4.5 && contrast2 > 4.5) {
+                    this.updateBgColor();
+                    return;
+                }
+                if (max1 < contrast1 && max2 < contrast2 && i > 0) {
+                   max1 = contrast1;
+                   max2 = contrast2;
+                   maxBrightness = this.color.value;
+                }
+                if (i % 2 == 1) {
+                    saturation += i * 10;
+                } else {
+                    saturation = brightness;
+                }
+                brightness = 100 - saturation;
+                this.color.setValue(brightness % 100);
+            }
+            this.color.setValue(maxBrightness % 100);
+            this.updateBgColor();
+        };
+
         var Palette = function Palette (text, size) {
             this.samples = [];
 
@@ -1649,8 +1679,23 @@ var ColorPickerTool = (function ColorPickerTool () {
                         palette.samples[i].updateTriadic(color, pallete_size, i);
                     }
                 }
+                if (document.getElementsByName("text_contrast")[0].checked) {
+                    for (var i = 0; i < pallete_size; i++) {
+                        var title = palette.samples[i].node.title;
+                        if (title == "Group Background") {
+                            var group = palette.samples[i].color;
+                        } if (title == "Background Color") {
+                            var background = palette.samples[i].color;
+                        }
+                    }
+                    for (var i = 0; i < pallete_size; i++) {
+                        var title = palette.samples[i].node.title;
+                        if (title == "Text Color" || title == "Hyperlink Text") {
+                            palette.samples[i].improveContrastRatio(group , background);
+                        }
+                    }
+                }
             });
-
             color_palette.appendChild(palette.container);
         };
 
@@ -1664,6 +1709,22 @@ var ColorPickerTool = (function ColorPickerTool () {
                 } else if (globalChange === 0) {
                     for (var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateComplementary(color, pallete_size, i);
+                    }
+                }
+                if (document.getElementsByName("text_contrast")[0].checked) {
+                    for (var i = 0; i < pallete_size; i++) {
+                        var title = palette.samples[i].node.title;
+                        if (title == "Group Background") {
+                            var group = palette.samples[i].color;
+                        } if (title == "Background Color") {
+                            var background = palette.samples[i].color;
+                        }
+                    }
+                    for (var i = 0; i < pallete_size; i++) {
+                        var title = palette.samples[i].node.title;
+                        if (title == "Text Color" || title == "Hyperlink Text") {
+                            palette.samples[i].improveContrastRatio(group , background);
+                        }
                     }
                 }
             });
@@ -1682,6 +1743,22 @@ var ColorPickerTool = (function ColorPickerTool () {
                 } else if (globalChange === 0) {
                     for (var i = 0; i < pallete_size; i++) {
                         palette.samples[i].updateAdjacent(color, pallete_size, i);
+                    }
+                }
+                if (document.getElementsByName("text_contrast")[0].checked) {
+                    for (var i = 0; i < pallete_size; i++) {
+                        var title = palette.samples[i].node.title;
+                        if (title == "Group Background") {
+                            var group = palette.samples[i].color;
+                        } if (title == "Background Color") {
+                            var background = palette.samples[i].color;
+                        }
+                    }
+                    for (var i = 0; i < pallete_size; i++) {
+                        var title = palette.samples[i].node.title;
+                        if (title == "Text Color" || title == "Hyperlink Text") {
+                            palette.samples[i].improveContrastRatio(group , background);
+                        }
                     }
                 }
             });
@@ -1711,6 +1788,22 @@ var ColorPickerTool = (function ColorPickerTool () {
                         palette.samples[i].updateMonochrome(color, pallete_size, i);
                     }
                 }
+                if (document.getElementsByName("text_contrast")[0].checked) {
+                    for (var i = 0; i < pallete_size; i++) {
+                        var title = palette.samples[i].node.title;
+                        if (title == "Group Background") {
+                            var group = palette.samples[i].color;
+                        } if (title == "Background Color") {
+                            var background = palette.samples[i].color;
+                        }
+                    }
+                    for (var i = 0; i < pallete_size; i++) {
+                        var title = palette.samples[i].node.title;
+                        if (title == "Text Color" || title == "Hyperlink Text") {
+                            palette.samples[i].improveContrastRatio(group , background);
+                        }
+                    }
+                }
             });
 
             color_palette.appendChild(palette.container);
@@ -1721,6 +1814,26 @@ var ColorPickerTool = (function ColorPickerTool () {
                 return new Color(samples[id].color);
             }
         };
+
+        var getColorContrast = function getColorContrast (c1 , c2) {
+            var lum1 = luminance(c1.r , c1.g , c1.b) + 0.05;
+            var lum2 = luminance(c2.r , c2.g , c2.b) + 0.05;
+            if (lum1 / lum2 > 1) {
+                return lum1 / lum2;
+            } else {
+                return lum2 / lum1;
+            }
+        };
+
+        var luminance = function luminanace(r, g, b) {
+            var a = [r, g, b].map(function (v) {
+                v /= 255;
+                return v <= 0.03928
+                    ? v / 12.92
+                    : Math.pow( (v + 0.055) / 1.055, 2.4 );
+            });
+            return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+        }
 
         var init = function init () {
             color_palette = getElemById('color-palette');
