@@ -2180,6 +2180,14 @@ $cfg['Import']['charset'] = '';
 $cfg['Import']['allow_interrupt'] = true;
 
 /**
+ * Enable drag and drop import
+ * @see feature request : https://github.com/phpmyadmin/phpmyadmin/issues/13155
+ *
+ * @global bool $cfg['Import']['enable_drag_drop_import']
+ */
+$cfg['Import']['enable_drag_drop_import'] = true;
+
+/**
  *
  *
  * @global integer $cfg['Import']['skip_queries']
