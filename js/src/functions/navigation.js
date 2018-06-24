@@ -4,6 +4,7 @@
  * @returns void
  */
 import { PMA_commonParams } from '../variables/common_params';
+import { setupRestoreField, setupConfigTabs, setupValidation } from './config';
 
 /**
  * Traverse the navigation tree backwards to generate all the actual
@@ -409,6 +410,7 @@ export function PMA_disableNaviSettings () {
  * @return void
  */
 export function PMA_ensureNaviSettings (selflink) {
+    // debugger;
     $('#pma_navigation_settings_icon').removeClass('hide');
 
     if (!$('#pma_navigation_settings').length) {
@@ -907,7 +909,7 @@ PMA_fastFilter.filter.prototype.restore = function (focus) {
     this.searchClause = '';
     this.$this.find('div.pageselector').show();
     this.$this.find('div.throbber').remove();
-}
+};
 
 /**
  * @var ResizeHandler Custom object that manages the resizing of the navigation
@@ -1122,3 +1124,120 @@ export var ResizeHandler = function () {
     setInterval(this.treeResize, 2000);
     this.treeResize();
 }; // End of ResizeHandler
+
+/**
+ * Reloads the whole navigation tree while preserving its state
+ *
+ * @param  function     the callback function
+ * @param  Object       stored navigation paths
+ *
+ * @return void
+ */
+export function PMA_reloadNavigation (callback, paths) {
+    // debugger;
+    var params = {
+        reload: true,
+        no_debug: true,
+        server: PMA_commonParams.get('server'),
+    };
+    paths = paths || traverseNavigationForPaths();
+    $.extend(params, paths);
+    if ($('#navi_db_select').length) {
+        params.db = PMA_commonParams.get('db');
+        requestNaviReload(params);
+        return;
+    }
+    requestNaviReload(params);
+
+    function requestNaviReload (params) {
+        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+        $.post(url, params, function (data) {
+            if (typeof data !== 'undefined' && data.success) {
+                $('#pma_navigation_tree').html(data.message).children('div').show();
+                if ($('#pma_navigation_tree').hasClass('synced')) {
+                    PMA_selectCurrentDb();
+                    PMA_showCurrentNavigation();
+                }
+                // Fire the callback, if any
+                if (typeof callback === 'function') {
+                    callback.call();
+                }
+                navTreeStateUpdate();
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
+    }
+}
+
+/**
+ * Handles any requests to change the page in a branch of a tree
+ *
+ * This can be called from link click or select change event handlers
+ *
+ * @param object $this A jQuery object that points to the element that
+ * initiated the action of changing the page
+ *
+ * @return void
+ */
+export function PMA_navigationTreePagination ($this) {
+    var $msgbox = PMA_ajaxShowMessage();
+    var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
+    var url;
+    var params;
+    if ($this[0].tagName === 'A') {
+        url = $this.attr('href');
+        params = 'ajax_request=true';
+    } else { // tagName === 'SELECT'
+        url = 'navigation.php';
+        params = $this.closest('form').serialize() + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+    }
+    var searchClause = PMA_fastFilter.getSearchClause();
+    if (searchClause) {
+        params += PMA_commonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
+    }
+    if (isDbSelector) {
+        params += PMA_commonParams.get('arg_separator') + 'full=true';
+    } else {
+        var searchClause2 = PMA_fastFilter.getSearchClause2($this);
+        if (searchClause2) {
+            params += PMA_commonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
+        }
+    }
+    $.post(url, params, function (data) {
+        if (typeof data !== 'undefined' && data.success) {
+            PMA_ajaxRemoveMessage($msgbox);
+            if (isDbSelector) {
+                var val = PMA_fastFilter.getSearchClause();
+                $('#pma_navigation_tree')
+                    .html(data.message)
+                    .children('div')
+                    .show();
+                if (val) {
+                    $('#pma_navigation_tree')
+                        .find('li.fast_filter input.searchClause')
+                        .val(val);
+                }
+            } else {
+                var $parent = $this.closest('div.list_container').parent();
+                var val = PMA_fastFilter.getSearchClause2($this);
+                $this.closest('div.list_container').html(
+                    $(data.message).children().show()
+                );
+                if (val) {
+                    $parent.find('li.fast_filter input.searchClause').val(val);
+                }
+                $parent.find('span.pos2_value:first').text(
+                    $parent.find('span.pos2_value:last').text()
+                );
+                $parent.find('span.pos3_value:first').text(
+                    $parent.find('span.pos3_value:last').text()
+                );
+            }
+        } else {
+            PMA_ajaxShowMessage(data.error);
+            PMA_handleRedirectAndReload(data);
+        }
+        navTreeStateUpdate();
+    });
+}
