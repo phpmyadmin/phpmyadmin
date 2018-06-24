@@ -70,7 +70,7 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('config.js');
+$scripts->addFile('config');
 
 require 'libraries/user_preferences.inc.php';
 if ($error) {
