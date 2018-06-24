@@ -1,5 +1,6 @@
 import { AJAX } from './ajax';
 import './variables/import_variables';
+import './variables/get_config';
 import { jQuery as $ } from './utils/extend_jquery';
 import files from './consts/files';
 import { PMA_console } from './console';

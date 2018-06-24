@@ -5,6 +5,7 @@ import 'jquery-ui-timepicker-addon';
 import 'jquery-mousewheel';
 import 'jquery.event.drag';
 import 'jquery-validation';
+import 'tablesorter';
 import { methods } from './menu_resizer';
 import { GlobalVariables, timePicker, validations } from '../variables/export_variables';
 
@@ -159,6 +160,7 @@ $.fn.getPostData = function () {
 for (var key in timePicker) {
     $.datepicker.regional[''][key] = timePicker[key];
 }
+
 
 window.jQ = $;
 

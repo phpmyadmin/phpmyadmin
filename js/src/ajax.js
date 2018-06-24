@@ -1,10 +1,11 @@
-import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
+import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_commonParams } from './variables/common_params';
 import { jQuery as $ } from './utils/extend_jquery';
 import { PMA_getImage } from './functions/get_image';
-import { PMA_ensureNaviSettings } from './functions/navigation';
-
+import { PMA_ensureNaviSettings, PMA_reloadNavigation,
+    PMA_disableNaviSettings } from './functions/navigation';
+import { isStorageSupported } from './functions/config';
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
@@ -54,7 +55,6 @@ export let AJAX = {
      */
 
     hash: function (key) {
-        console.log(this);
         /* http://burtleburtle.net/bob/hash/doobs.html#one */
         key += '';
         var len = key.length;
@@ -251,12 +251,10 @@ export let AJAX = {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
-
         // triggers a confirm dialog if:
         // the user has performed some operations on loaded page
         // the user clicks on some link, (won't trigger for buttons)
         // the click event is not triggered by script
-
         if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
             !$.isEmptyObject(AJAX.lockedTargets)
@@ -576,20 +574,35 @@ export let AJAX = {
                 this._scriptsToBeFired.push(file);
             }
             var fileImports = ['server_privileges', 'server_databases', 'error_report', 'navigation', 'server_status_advisor',
-            'server_status_processes', 'server_status_variables'];
+                'server_status_processes', 'server_status_variables', 'server_plugins', 'server_status_sorter', 'server_status_queries',
+                'server_status_monitor', 'server_variables', 'server_user_groups', 'replication', 'export', 'import', 'config'
+            ];
             if ($.inArray(file, fileImports) !== -1) {
                 console.log('import_check');
                 console.log(file);
                 import(`./${file}`)
                 .then((module) => {
-                    for (var i in module) {
-                        if (i.indexOf('onload') !== -1) {
-                            AJAX.registerOnload(`${file}`, module[i]);
-                        } else if (i.indexOf('teardown') !== -1) {
-                            AJAX.registerTeardown(file, module[i]);
+                    /**
+                     * setTimeout is used so that scripts run only when content is
+                     * available.
+                     *
+                     * TODO:// This is a temporary measure. Will have to look for
+                     * why the content is loading earlier in new moduarized code.
+                     *
+                     * Conflicting cases:
+                     * 1). server_exports.php
+                     * 2). server_import.php
+                     */
+                    setTimeout(function () {
+                        for (var i in module) {
+                            if (i.indexOf('onload') !== -1) {
+                                AJAX.registerOnload(`${file}`, module[i]);
+                            } else if (i.indexOf('teardown') !== -1) {
+                                AJAX.registerTeardown(file, module[i]);
+                            }
                         }
-                    }
-                    AJAX.fireOnload(file);
+                        AJAX.fireOnload(file);
+                    }, 250);
                     // AJAX.fireTeardown('server_databases_new.js');
                 })
                 .catch(e => console.log(e));

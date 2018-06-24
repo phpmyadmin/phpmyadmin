@@ -746,6 +746,9 @@ $js_messages['strWeak'] = __('Weak');
 $js_messages['strGood'] = __('Good');
 $js_messages['strStrong'] = __('Strong');
 
+/* for js/config.js */
+$js_messages['strSavedOn'] = __('Saved on: @DATE@');
+
 /* U2F errors */
 $js_messages['strU2FTimeout'] = __('Timed out waiting for security key activation.');
 $js_messages['strU2FError'] = __('Failed security key activation (%s).');
