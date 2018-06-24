@@ -479,7 +479,7 @@ class FormDisplayTemplate
                 $vArgs[] = Sanitize::escapeJsString($arg);
             }
             $vArgs = $vArgs ? ", ['" . implode("', '", $vArgs) . "']" : '';
-            $jsArray[] = "validateField('$fieldId', '$vName', true$vArgs)";
+            $jsArray[] = "['$fieldId', '$vName', true$vArgs]";
         }
     }
 
