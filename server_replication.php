@@ -26,7 +26,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges');
-$scripts->addFile('replication.js');
+$scripts->addFile('replication');
 
 $template = new Template();
 
