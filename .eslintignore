@@ -1,3 +1,5 @@
 js/vendor/
 tmp/
 vendor/
+js/dist/
+js/lib/

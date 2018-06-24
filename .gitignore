@@ -56,3 +56,6 @@ composer.lock
 # NPM
 /node_modules/
 yarn.lock
+# Javascript Bundle
+js/dist/
+js/lib/

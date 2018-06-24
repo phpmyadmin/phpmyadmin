@@ -2,12 +2,16 @@
 import { expandTreeNode,
     navTreeStateUpdate,
     PMA_showCurrentNavigation,
-    traverseNavigationForPaths,
-    PMA_selectCurrentDb,
     navFilterStateRestore,
     collapseTreeNode,
     PMA_fastFilter,
-    ResizeHandler } from './functions/navigation';
+    ResizeHandler,
+    PMA_reloadNavigation,
+    PMA_navigationTreePagination } from './functions/navigation';
+import { PMA_Messages as PMA_messages } from './variables/export_variables';
+import { PMA_commonParams } from './variables/common_params';
+import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage, PMA_tooltip } from './utils/show_ajax_messages';
+import { isStorageSupported } from './functions/config';
 /**
  * function used in or for navigation panel
  *
@@ -67,7 +71,7 @@ $(function () {
         }, 1000);
     });
 
-    $(document).on('change', '#navi_db_select',  function (event) {
+    $(document).on('change', '#navi_db_select',  function () {
         if (! $(this).val()) {
             PMA_commonParams.set('db', '');
             PMA_reloadNavigation();
@@ -334,7 +338,7 @@ $(function () {
     // Add/Remove favorite table using Ajax.
     $(document).on('click', '.favorite_table_anchor', function (event) {
         event.preventDefault();
-        $self = $(this);
+        var $self = $(this);
         var anchor_id = $self.attr('id');
         if ($self.data('favtargetn') !== null) {
             if ($('a[data-favtargets="' + $self.data('favtargetn') + '"]').length > 0) {
@@ -376,7 +380,7 @@ $(function () {
     if (isStorageSupported('sessionStorage')) {
         var storage = window.sessionStorage;
         // remove tree from storage if Navi_panel config form is submitted
-        $(document).on('submit', 'form.config-form', function (event) {
+        $(document).on('submit', 'form.config-form', function () {
             storage.removeItem('navTreePaths');
         });
         // Initialize if no previous state is defined
@@ -395,119 +399,3 @@ $(function () {
         }
     }
 });
-
-/**
- * Reloads the whole navigation tree while preserving its state
- *
- * @param  function     the callback function
- * @param  Object       stored navigation paths
- *
- * @return void
- */
-function PMA_reloadNavigation (callback, paths) {
-    var params = {
-        reload: true,
-        no_debug: true,
-        server: PMA_commonParams.get('server'),
-    };
-    paths = paths || traverseNavigationForPaths();
-    $.extend(params, paths);
-    if ($('#navi_db_select').length) {
-        params.db = PMA_commonParams.get('db');
-        requestNaviReload(params);
-        return;
-    }
-    requestNaviReload(params);
-
-    function requestNaviReload (params) {
-        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-        $.post(url, params, function (data) {
-            if (typeof data !== 'undefined' && data.success) {
-                $('#pma_navigation_tree').html(data.message).children('div').show();
-                if ($('#pma_navigation_tree').hasClass('synced')) {
-                    PMA_selectCurrentDb();
-                    PMA_showCurrentNavigation();
-                }
-                // Fire the callback, if any
-                if (typeof callback === 'function') {
-                    callback.call();
-                }
-                navTreeStateUpdate();
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        });
-    }
-}
-
-/**
- * Handles any requests to change the page in a branch of a tree
- *
- * This can be called from link click or select change event handlers
- *
- * @param object $this A jQuery object that points to the element that
- * initiated the action of changing the page
- *
- * @return void
- */
-function PMA_navigationTreePagination ($this) {
-    var $msgbox = PMA_ajaxShowMessage();
-    var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
-    var url;
-    var params;
-    if ($this[0].tagName === 'A') {
-        url = $this.attr('href');
-        params = 'ajax_request=true';
-    } else { // tagName === 'SELECT'
-        url = 'navigation.php';
-        params = $this.closest('form').serialize() + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
-    }
-    var searchClause = PMA_fastFilter.getSearchClause();
-    if (searchClause) {
-        params += PMA_commonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
-    }
-    if (isDbSelector) {
-        params += PMA_commonParams.get('arg_separator') + 'full=true';
-    } else {
-        var searchClause2 = PMA_fastFilter.getSearchClause2($this);
-        if (searchClause2) {
-            params += PMA_commonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
-        }
-    }
-    $.post(url, params, function (data) {
-        if (typeof data !== 'undefined' && data.success) {
-            PMA_ajaxRemoveMessage($msgbox);
-            if (isDbSelector) {
-                var val = PMA_fastFilter.getSearchClause();
-                $('#pma_navigation_tree')
-                    .html(data.message)
-                    .children('div')
-                    .show();
-                if (val) {
-                    $('#pma_navigation_tree')
-                        .find('li.fast_filter input.searchClause')
-                        .val(val);
-                }
-            } else {
-                var $parent = $this.closest('div.list_container').parent();
-                var val = PMA_fastFilter.getSearchClause2($this);
-                $this.closest('div.list_container').html(
-                    $(data.message).children().show()
-                );
-                if (val) {
-                    $parent.find('li.fast_filter input.searchClause').val(val);
-                }
-                $parent.find('span.pos2_value:first').text(
-                    $parent.find('span.pos2_value:last').text()
-                );
-                $parent.find('span.pos3_value:first').text(
-                    $parent.find('span.pos3_value:last').text()
-                );
-            }
-        } else {
-            PMA_ajaxShowMessage(data.error);
-            PMA_handleRedirectAndReload(data);
-        }
-        navTreeStateUpdate();
-    });
-}
