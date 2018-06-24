@@ -20,7 +20,7 @@ PageSettings::showGroup('Import');
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('import.js');
+$scripts->addFile('import');
 
 /**
  * Does the common work

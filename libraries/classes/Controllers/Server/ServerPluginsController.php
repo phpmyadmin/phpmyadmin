@@ -50,7 +50,7 @@ class ServerPluginsController extends Controller
         $header  = $this->response->getHeader();
         $scripts = $header->getScripts();
         $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-        $scripts->addFile('server_plugins.js');
+        $scripts->addFile('server_plugins');
 
         /**
          * Displays the page
