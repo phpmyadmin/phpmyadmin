@@ -204,7 +204,7 @@ class Header
         } else {
             $theme_id = 'default';
         }
-        $this->_scripts->addFile('config.js');
+        $this->_scripts->addFile('config');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addFile('navigation');
