@@ -2031,4 +2031,16 @@ AJAX.registerOnload('theme_generator/color_picker.js', function () {
         }
     }
     ColorPickerTool.init();
+    document.getElementsByClassName("title")[0].onclick = function() {
+        document.getElementById("theme").options.selectedIndex = 0;
+    };
+    document.getElementsByClassName("title")[1].onclick = function() {
+        document.getElementById("theme").options.selectedIndex = 1;
+    };
+    document.getElementsByClassName("title")[2].onclick = function() {
+        document.getElementById("theme").options.selectedIndex = 2;
+    };
+    document.getElementsByClassName("title")[3].onclick = function() {
+        document.getElementById("theme").options.selectedIndex = 3;
+    };
 });

@@ -700,3 +700,8 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
     top: 0;
     opacity: 1;
 }
+
+.title:hover {
+    text-decoration: underline;
+    color: #235a81;
+}

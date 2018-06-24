@@ -72,7 +72,7 @@ class Layout
          * if not set the browser default will be used
          * (depending on browser, DTD and system settings)
          */
-        $txt .= '$GLOBALS[\'cfg\'][\'FontFamily\']           = \'sans-serif\';';
+        $txt .= '$GLOBALS[\'cfg\'][\'FontFamily\']           = \'' . $post['font'] . '\';';
         /**
          * fixed width font family, used in textarea
          */

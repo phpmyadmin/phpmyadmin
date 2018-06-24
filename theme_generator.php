@@ -17,11 +17,9 @@ $scripts->addFile('theme_generator/color_picker.js');
 
 $theme = new ThemeGenerator();
 
-$GLOBALS['cfg']['PreviewNaviBackground'] = '#000000';
-$GLOBALS['cfg']['PreviewBackground'] = '#ffffff';
 $response->addHTML($theme->colorPicker());
 $response->addHTML($theme->form());
-$response->addHTML($theme->preview());
+$response->addHTML($theme->navigationPreview());
 if (isset($_POST['Base_Colour'])) {
     $theme->createFileStructure($_POST);
 }

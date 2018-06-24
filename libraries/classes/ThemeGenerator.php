@@ -53,13 +53,13 @@ class ThemeGenerator
     }
 
     /**
-     * Preview panel
+     * Preview panel for Navigation panel
      *
      * @return string HTML for the preview panels
      */
-    public function preview()
+    public function navigationPreview()
     {
-        $output = $this->template->render('theme_generator/preview');
+        $output = $this->template->render('theme_generator/navigation_preview');
         return $output;
     }
 
