@@ -53,6 +53,17 @@ class ThemeGenerator
     }
 
     /**
+     * Preview panel
+     *
+     * @return string HTML for the preview panels
+     */
+    public function preview()
+    {
+        $output = $this->template->render('theme_generator/preview');
+        return $output;
+    }
+
+    /**
      * Creates file structure
      *
      * @param array $post POST form data
@@ -81,7 +92,7 @@ class ThemeGenerator
     /**
      * Creates theme.json
      *
-     * @param string $name name of new theme
+     * @param array $post POST data
      *
      * @return string $txt JSON file data
      */
