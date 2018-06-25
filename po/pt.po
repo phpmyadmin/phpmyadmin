@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-03-18 15:40+0000\n"
-"Last-Translator: Nuno Marques <nunosil@gmail.com>\n"
+"PO-Revision-Date: 2018-06-26 21:41+0000\n"
+"Last-Translator: Pedro Silva <sparta14gaming@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/pt/>\n"
+"4-8/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -3713,10 +3713,8 @@ msgstr ""
 "CodeMirror seja ativado."
 
 #: libraries/classes/Config/Descriptions.php:127
-#, fuzzy
-#| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Activar SQL Validator"
+msgstr "Activar Validador de SQL"
 
 #: libraries/classes/Config/Descriptions.php:130
 msgid ""
@@ -3840,10 +3838,8 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Se as acções da estrutura da tabela devem ser escondidas."
 
 #: libraries/classes/Config/Descriptions.php:189
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "Comentários da tabela"
+msgstr "Mostrar comentários da coluna"
 
 #: libraries/classes/Config/Descriptions.php:191
 msgid "Whether column comments should be shown in table structure view"
@@ -3874,54 +3870,41 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"Valores para a lista de opções de transformações padrão. Estas serão "
+"substituídas se a transformação for preenchida na pagina da estrutura da "
+"tabela."
 
 #: libraries/classes/Config/Descriptions.php:199
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Substring"
-msgstr "Opções de tranformação"
+msgstr "Transformações para Substrings padrão"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Ordenação padrão"
+msgstr "Transformações para Bool2Text padrão"
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Ordenação padrão"
+msgstr "Transformações para External padrão"
 
 #: libraries/classes/Config/Descriptions.php:211
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Opções de tranformação"
+msgstr "Transformações para PreApPend padrão"
 
 #: libraries/classes/Config/Descriptions.php:215
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Ordenação padrão"
+msgstr "Transformações para DateFormat padrão"
 
 #: libraries/classes/Config/Descriptions.php:219
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Inline"
-msgstr "Opções de tranformação"
+msgstr "Transformações para Inline padrão"
 
 #: libraries/classes/Config/Descriptions.php:223
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Opções de tranformação"
+msgstr "Transformações para TextImageLink padrão"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Opções de tranformação"
+msgstr "Transformações para TextLink padrão"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Show server listing as a list instead of a drop down."
@@ -3958,10 +3941,9 @@ msgstr "Tempo máximo de execução"
 
 #: libraries/classes/Config/Descriptions.php:251
 #: templates/display/export/options_output.twig:17
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "Itens"
+msgstr "Use a instrução %s"
 
 #: libraries/classes/Config/Descriptions.php:254 prefs_manage.php:307
 msgid "Save as file"
@@ -4104,8 +4086,6 @@ msgstr "Tipo MIME"
 #: libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Config/Descriptions.php:338
 #: libraries/classes/Config/Descriptions.php:403
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Relações"
 
@@ -4126,10 +4106,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Substituir o(s) ficheiro(s) existente(s)"
 
 #: libraries/classes/Config/Descriptions.php:346
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export as separate files"
-msgstr "horizontal (cabeçalhos rodados)"
+msgstr "Exportar como ficheiros separados"
 
 #: libraries/classes/Config/Descriptions.php:352
 msgid "Remember file name template"
