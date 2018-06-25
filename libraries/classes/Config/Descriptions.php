@@ -627,9 +627,9 @@ class Descriptions
                     . 'This might be a good way to import large files, however it can break '
                     . 'transactions.'
                 );
-            case 'Import_enable_drag_drop_import_name':
+            case 'enable_drag_drop_import_name':
                 return __('Enable drag and drop import');
-            case 'Import_enable_drag_drop_import_desc':
+            case 'enable_drag_drop_import_desc':
                 return __('Uncheck the checkbox to disable drag and drop import');
             case 'Import_allow_interrupt_name':
                 return __('Partial import: allow interrupt');

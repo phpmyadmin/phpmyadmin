@@ -849,6 +849,14 @@ $cfg['CaptchaLoginPublicKey'] = '';
  */
 $cfg['CaptchaLoginPrivateKey'] = '';
 
+/**
+ * Enable drag and drop import
+ * @see feature request : https://github.com/phpmyadmin/phpmyadmin/issues/13155
+ *
+ * @global bool $cfg['enable_drag_drop_import']
+ */
+$cfg['enable_drag_drop_import'] = true;
+
 /*******************************************************************************
  * Navigation panel setup
  */
@@ -2178,14 +2186,6 @@ $cfg['Import']['charset'] = '';
  * @global boolean $cfg['Import']['allow_interrupt']
  */
 $cfg['Import']['allow_interrupt'] = true;
-
-/**
- * Enable drag and drop import
- * @see feature request : https://github.com/phpmyadmin/phpmyadmin/issues/13155
- *
- * @global bool $cfg['Import']['enable_drag_drop_import']
- */
-$cfg['Import']['enable_drag_drop_import'] = true;
 
 /**
  *

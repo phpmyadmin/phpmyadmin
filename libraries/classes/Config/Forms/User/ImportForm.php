@@ -28,7 +28,7 @@ class ImportForm extends BaseForm
                 'Import/charset',
                 'Import/allow_interrupt',
                 'Import/skip_queries',
-                'Import/enable_drag_drop_import'
+                'enable_drag_drop_import'
             ],
             'Sql' => [
                 'Import/sql_compatibility',
