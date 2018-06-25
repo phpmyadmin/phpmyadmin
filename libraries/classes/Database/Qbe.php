@@ -212,7 +212,7 @@ class Qbe
      * Current search
      *
      * @access private
-     * @var SavedSearches
+     * @var \PhpMyAdmin\SavedSearches
      */
     private $_currentSearch = null;
 
@@ -234,10 +234,10 @@ class Qbe
     /**
      * Public Constructor
      *
-     * @param DatabaseInterface $dbi             DatabaseInterface object
-     * @param string            $dbname          Database name
-     * @param array             $savedSearchList List of saved searches
-     * @param SavedSearches     $currentSearch   Current search id
+     * @param DatabaseInterface         $dbi             DatabaseInterface object
+     * @param string                    $dbname          Database name
+     * @param array                     $savedSearchList List of saved searches
+     * @param \PhpMyAdmin\SavedSearches $currentSearch   Current search id
      */
     public function __construct(
         $dbi,
@@ -280,7 +280,7 @@ class Qbe
     /**
      * Getter for current search
      *
-     * @return SavedSearches
+     * @return \PhpMyAdmin\SavedSearches
      */
     private function _getCurrentSearch()
     {

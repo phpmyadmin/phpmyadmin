@@ -1,7 +1,43 @@
 parameters:
     bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
+    reportUnmatchedIgnoredErrors: false
     ignoreErrors:
         - '#Unexpected token "&", expected TOKEN_VARIABLE at offset#'
+        - '#Maximum function nesting level of#'
+        - '#Method PHPUnit_Extensions_Selenium2TestCase::#'
+        - '#::byPartialLinkText#'
+        - '#Function strpos invoked with 0 parameters, 2-3 required#'
+        - '#ChangePasswordTest::byXpath()#'
+        - '#Function (get_login_credentials|uploadprogress_get_info) not found#'
+        - '#Function mysql_(connect|close) not found#'
+        - '#Instantiated class COM not found#'
+        - '#Function escape not found#'
+        - '#Function PMA_gradientGetColor not found#'
+        - '#TableStructureController has an unused parameter#'
+        - '#RelationCleanupDbiMock::__construct\(\) does not call parent constructor#'
+        - '#NodeTrans::__construct\(\) does not call parent constructor#'
+        - '#GisGeomTestCase::\$object#'
+        - '#Undefined variable: \$array#'
+        - '#Undefined variable: \$(cfg|db|table|url_query|text_dir|server|pmaThemeImage|action|sql_query|lang|export_type|err_url|collation_connection|filename_template|transform_key|cn|goto|partitionDetails|token_mismatch|auth_plugin|username|hostname|display_query|where_clause)#'# Others
+        - '#Access to an undefined property PhpMyAdmin\\TwoFactor\:\:\$available#'
+        - '#Undefined variable: \$(replication_types|selected)#'#Controllers/Server/ServerDatabasesController.php
+        - '#Undefined variable: \$authentication_string#'#Server/Privileges.php
+        - '#Undefined variable: \$(dir|error_header|error_message)#'#error.inc.php
+        - '#Undefined variable: \$_PMA_RTE#'#rte/rte_main.inc.php
+        - '#Undefined variable: \$(unsaved_values|is_upload)#'#tbl_change.php
+        - '#Undefined variable: \$max_upload_size#'#tbl_import.php
+        - '#Undefined variable: \$(repobase|fullrevision|revision|repobranchbase|branch)#'#Footer.php
+
+
     excludes_analyse:
+        - %rootDir%/../../../test/EnvironmentTest.php
+        - %rootDir%/../../../test/libraries/FilesTest.php
+        - %rootDir%/../../../test/libraries/common/GetCheckboxTest.php
         - %rootDir%/../../../tmp/*
         - %rootDir%/../../../vendor/*
+        - %rootDir%/../../../test/bootstrap-phpstan.php
+        - %rootDir%/../../../test/sami-config.php
+        - %rootDir%/../../../themes/*/css/*.css.php
+        - %rootDir%/../../../examples/signon-script.php
+        - %rootDir%/../../../examples/openid.php
+

@@ -52,8 +52,8 @@ class ServerDatabasesControllerTest extends PmaTestCase
 
         $container = Container::getDefaultContainer();
         $container->set('dbi', $GLOBALS['dbi']);
-        $this->response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $this->response);
+        $response = new ResponseStub();
+        $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
     }
 

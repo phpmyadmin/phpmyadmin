@@ -53,7 +53,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * data provider for testGenerateWkt
      *
-     * @return data for testGenerateWkt
+     * @return array data for testGenerateWkt
      */
     public function providerForTestGenerateWkt()
     {
@@ -163,7 +163,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * data provider for testGenerateParams
      *
-     * @return data for testGenerateParams
+     * @return array data for testGenerateParams
      */
     public function providerForTestGenerateParams()
     {
@@ -208,7 +208,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * data provider for testScaleRow
      *
-     * @return data for testScaleRow
+     * @return array data for testScaleRow
      */
     public function providerForTestScaleRow()
     {

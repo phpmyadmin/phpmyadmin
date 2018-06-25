@@ -54,7 +54,7 @@ class GisGeometryTest extends TestCase
      * @param string $name   method name
      * @param array  $params parameters for the invocation
      *
-     * @return the output from the protected method.
+     * @return mixed the output from the protected method.
      */
     private function _callProtectedFunction($name, $params)
     {
@@ -88,7 +88,7 @@ class GisGeometryTest extends TestCase
     /**
      * data provider for testSetMinMax
      *
-     * @return data for testSetMinMax
+     * @return array data for testSetMinMax
      */
     public function providerForTestSetMinMax()
     {
@@ -144,7 +144,7 @@ class GisGeometryTest extends TestCase
     /**
      * data provider for testGenerateParams
      *
-     * @return data for testGenerateParams
+     * @return array data for testGenerateParams
      */
     public function providerForTestGenerateParams()
     {
@@ -198,7 +198,7 @@ class GisGeometryTest extends TestCase
     /**
      * data provider for testExtractPoints
      *
-     * @return data for testExtractPoints
+     * @return array data for testExtractPoints
      */
     public function providerForTestExtractPoints()
     {

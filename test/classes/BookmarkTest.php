@@ -100,6 +100,6 @@ class BookmarkTest extends TestCase
             $GLOBALS['cfg']['Server']['user'],
             $bookmarkData
         );
-        $this->assertfalse($bookmark->save());
+        $this->assertFalse($bookmark->save());
     }
 }

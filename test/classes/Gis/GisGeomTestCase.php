@@ -18,6 +18,7 @@ use PHPUnit\Framework\TestCase;
  */
 abstract class GisGeomTestCase extends TestCase
 {
+
     /**
      * test generateParams method
      *

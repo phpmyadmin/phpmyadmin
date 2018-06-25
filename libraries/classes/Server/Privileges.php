@@ -966,7 +966,7 @@ class Privileges
     /**
      * Get routine privilege table as an array
      *
-     * @return privilege type array
+     * @return array privilege type array
      */
     public function getTriggerPrivilegeTable()
     {

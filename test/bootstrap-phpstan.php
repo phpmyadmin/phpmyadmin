@@ -7,13 +7,18 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\MoTranslator\Loader;
+
 define('PHPMYADMIN', true);
 define('TESTSUITE', true);
 
 require_once 'libraries/config.default.php';
 $GLOBALS['cfg'] = $cfg;
 $GLOBALS['server'] = 0;
+$GLOBALS['PMA_Config'] = new Config();
 
-\PhpMyAdmin\MoTranslator\Loader::loadFunctions();
+Loader::loadFunctions();
 
-\PhpMyAdmin\DatabaseInterface::load();
+DatabaseInterface::load();

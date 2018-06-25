@@ -22,6 +22,13 @@ use PHPUnit\Framework\AssertionFailedError;
 class ChangePasswordTest extends TestBase
 {
     /**
+     * Array of AssertionFailedError->toString
+     *
+     * @var string[]
+     */
+    private $verificationErrors;
+
+    /**
      * Tests the changing of the password
      *
      * @return void

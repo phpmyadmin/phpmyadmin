@@ -21,7 +21,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class MessageTest extends PmaTestCase
 {
     /**
-     * @var    PhpMyAdmin\Message
+     * @var    \PhpMyAdmin\Message
      * @access protected
      */
     protected $object;

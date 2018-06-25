@@ -17,14 +17,14 @@ namespace PhpMyAdmin;
 class Types
 {
     /**
-     * @var PhpMyAdmin\DatabaseInteface Database interface
+     * @var \PhpMyAdmin\DatabaseInterface Database interface
      */
     private $_dbi;
 
     /**
      * Constructor
      *
-     * @param PhpMyAdmin\DatabaseInteface $dbi Database interface instance
+     * @param \PhpMyAdmin\DatabaseInterface $dbi Database interface instance
      */
     public function __construct($dbi)
     {

@@ -511,7 +511,7 @@ class GisVisualization
     public function toImage($format)
     {
         if ($format == 'svg') {
-            return $this->asSvg();
+            return $this->asSVG();
         } elseif ($format == 'png') {
             return $this->asPng();
         } elseif ($format == 'ol') {

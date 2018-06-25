@@ -67,8 +67,8 @@ class ServerBinlogControllerTest extends PmaTestCase
             ->will($this->returnValue($binary_log_file_names));
         $container = Container::getDefaultContainer();
         $container->set('dbi', $dbi);
-        $this->_response = new ResponseStub();
-        $container->set('PhpMyAdmin\Response', $this->_response);
+        $response = new ResponseStub();
+        $container->set('PhpMyAdmin\Response', $response);
         $container->alias('response', 'PhpMyAdmin\Response');
     }
 

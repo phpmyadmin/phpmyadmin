@@ -1734,7 +1734,7 @@ class Routines
                     $input_type = 'checkbox';
                 }
                 foreach ($routine['item_param_length_arr'][$i] as $value) {
-                    $value = htmlentities(Util::unquote($value), ENT_QUOTES);
+                    $value = htmlentities(Util::unQuote($value), ENT_QUOTES);
                     $retval .= "<input name='params["
                         . $routine['item_param_name'][$i] . "][]' "
                         . "value='" . $value . "' type='"
