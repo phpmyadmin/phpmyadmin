@@ -270,14 +270,17 @@ class ServerDatabasesController extends Controller
         $first_database = reset($this->_databases);
         // table col order
         $column_order = $this->_getColumnOrder();
+        $dbColumnOrders = [];
 
         // calculate aggregate stats to display in footer
         foreach ($this->_databases as $current) {
+            $dbColumnOrders[$current['SCHEMA_NAME']] = $this->_getColumnOrder();
             foreach ($column_order as $stat_name => $stat) {
                 if (array_key_exists($stat_name, $current)
                     && is_numeric($stat['footer'])
                 ) {
                     $column_order[$stat_name]['footer'] += $current[$stat_name];
+                    $dbColumnOrders[$current['SCHEMA_NAME']][$stat_name]['footer'] = $current[$stat_name];
                 }
             }
         }
@@ -320,7 +323,7 @@ class ServerDatabasesController extends Controller
             'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
         ]);
 
-        $html .= $this->_getHtmlForTableBody($column_order, $replication_types);
+        $html .= $this->_getHtmlForTableBody($dbColumnOrders, $replication_types);
 
         $html .= $this->template->render('server/databases/databases_footer', [
             'column_order' => $column_order,
@@ -396,7 +399,7 @@ class ServerDatabasesController extends Controller
      *
      * @return string
      */
-    private function _getHtmlForTableBody(array $column_order, array $replication_types)
+    private function _getHtmlForTableBody(array $dbColumnOrders, array $replication_types)
     {
         $html = '<tbody>' . "\n";
 
@@ -408,7 +411,7 @@ class ServerDatabasesController extends Controller
 
             $generated_html = $this->_buildHtmlForDb(
                 $current,
-                $column_order,
+                $dbColumnOrders[$current['SCHEMA_NAME']],
                 $replication_types,
                 $GLOBALS['replication_info'],
                 $tr_class
