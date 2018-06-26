@@ -107,46 +107,14 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
 }
 
 // ---------------------------------------------------------------------------
-$relation = new Relation();
-$cfgRelation = $relation->getRelationsParam();
+echo $tracking->getHtmlForDbTrackingTables(
+    $GLOBALS['db'],
+    $_REQUEST['db'],
+    $url_query,
+    $pmaThemeImage,
+    $text_dir
+);
 
-// Prepare statement to get HEAD version
-$all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
-    Util::backquote($cfgRelation['db']) . '.' .
-    Util::backquote($cfgRelation['tracking']) .
-    ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($_REQUEST['db']) .
-    '\' ' .
-    ' GROUP BY table_name' .
-    ' ORDER BY table_name ASC';
-
-$all_tables_result = $relation->queryAsControlUser($all_tables_query);
-
-// If a HEAD version exists
-if (is_object($all_tables_result)
-    && $GLOBALS['dbi']->numRows($all_tables_result) > 0
-) {
-    echo $tracking->getHtmlForTrackedTables(
-        $GLOBALS['db'],
-        $all_tables_result,
-        $url_query,
-        $pmaThemeImage,
-        $text_dir,
-        $cfgRelation
-    );
-}
-
-$untracked_tables = $tracking->getUntrackedTables($GLOBALS['db']);
-
-// If untracked tables exist
-if (count($untracked_tables) > 0) {
-    echo $tracking->getHtmlForUntrackedTables(
-        $GLOBALS['db'],
-        $untracked_tables,
-        $url_query,
-        $pmaThemeImage,
-        $text_dir
-    );
-}
 // If available print out database log
 if (count($data['ddlog']) > 0) {
     $log = '';

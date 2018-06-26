@@ -1264,30 +1264,76 @@ class Tracking
     }
 
     /**
-     * Get HTML for untracked tables
+     * Get HTML for tracked and untracked tables
      *
-     * @param string $db              current database
-     * @param array  $untrackedTables untracked tables
-     * @param string $urlQuery        url query string
-     * @param string $pmaThemeImage   path to theme's image folder
-     * @param string $textDir         text direction
+     * @param string $db            current database
+     * @param array  $requestDb     $_REQUEST['db']
+     * @param string $urlQuery      url query string
+     * @param string $pmaThemeImage path to theme's image folder
+     * @param string $textDir       text direction
      *
      * @return string HTML
      */
-    public function getHtmlForUntrackedTables(
-        $db,
-        array $untrackedTables,
-        $urlQuery,
-        $pmaThemeImage,
-        $textDir
+    public function getHtmlForDbTrackingTables(
+        string $db,
+        string $requestDb,
+        string $urlQuery,
+        string $pmaThemeImage,
+        string $textDir
     ) {
-        return $this->template->render('database/tracking/untracked_tables', [
+        $relation = new Relation();
+        $cfgRelation = $relation->getRelationsParam();
+
+        // Prepare statement to get HEAD version
+        $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM ' .
+            Util::backquote($cfgRelation['db']) . '.' .
+            Util::backquote($cfgRelation['tracking']) .
+            ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($requestDb) .
+            '\' ' .
+            ' GROUP BY table_name' .
+            ' ORDER BY table_name ASC';
+
+        $allTablesResult = $relation->queryAsControlUser($allTablesQuery);
+        $untrackedTables = $this->getUntrackedTables($db);
+
+        // If a HEAD version exists
+        $versions = [];
+        $headVersionExists = is_object($allTablesResult)
+            && $GLOBALS['dbi']->numRows($allTablesResult) > 0;
+        if ($headVersionExists) {
+            while ($oneResult = $GLOBALS['dbi']->fetchArray($allTablesResult)) {
+                list($tableName, $versionNumber) = $oneResult;
+                $tableQuery = ' SELECT * FROM ' .
+                     Util::backquote($cfgRelation['db']) . '.' .
+                     Util::backquote($cfgRelation['tracking']) .
+                     ' WHERE `db_name` = \''
+                     . $GLOBALS['dbi']->escapeString($requestDb)
+                     . '\' AND `table_name`  = \''
+                     . $GLOBALS['dbi']->escapeString($tableName)
+                     . '\' AND `version` = \'' . $versionNumber . '\'';
+
+                $tableResult = $relation->queryAsControlUser($tableQuery);
+                $versionData = $GLOBALS['dbi']->fetchArray($tableResult);
+                $versionData['status_button'] = $this->getStatusButton(
+                    $versionData,
+                    $urlQuery
+                );
+                $versions[] = $versionData;
+            }
+        }
+
+        $html = $this->template->render('database/tracking/tables', [
             'db' => $db,
-            'untracked_tables' => $untrackedTables,
+            'head_version_exists' => $headVersionExists,
+            'untracked_tables_exists' => count($untrackedTables) > 0,
+            'versions' => $versions,
             'url_query' => $urlQuery,
-            'pma_theme_image' => $pmaThemeImage,
             'text_dir' => $textDir,
+            'untracked_tables' => $untrackedTables,
+            'pma_theme_image' => $pmaThemeImage,
         ]);
+
+        return $html;
     }
 
     /**
@@ -1331,56 +1377,6 @@ class Tracking
         $table_list = Util::getTableList($db);
         $untracked_tables = $this->extractTableNames($table_list, $db);  //Use helper function to get table list recursively.
         return $untracked_tables;
-    }
-
-    /**
-     * Get tracked tables
-     *
-     * @param string $db              current database
-     * @param object $allTablesResult result set of tracked tables
-     * @param string $urlQuery        url query string
-     * @param string $pmaThemeImage   path to theme's image folder
-     * @param string $textDir         text direction
-     * @param array  $cfgRelation     configuration storage info
-     *
-     * @return string HTML
-     */
-    public function getHtmlForTrackedTables(
-        $db,
-        $allTablesResult,
-        $urlQuery,
-        $pmaThemeImage,
-        $textDir,
-        array $cfgRelation
-    ) {
-        $relation = new Relation();
-        $versions = [];
-        while ($oneResult = $GLOBALS['dbi']->fetchArray($allTablesResult)) {
-            list($tableName, $versionNumber) = $oneResult;
-            $tableQuery = ' SELECT * FROM ' .
-                 Util::backquote($cfgRelation['db']) . '.' .
-                 Util::backquote($cfgRelation['tracking']) .
-                 ' WHERE `db_name` = \''
-                 . $GLOBALS['dbi']->escapeString($_REQUEST['db'])
-                 . '\' AND `table_name`  = \''
-                 . $GLOBALS['dbi']->escapeString($tableName)
-                 . '\' AND `version` = \'' . $versionNumber . '\'';
-
-            $tableResult = $relation->queryAsControlUser($tableQuery);
-            $versionData = $GLOBALS['dbi']->fetchArray($tableResult);
-            $versionData['status_button'] = $this->getStatusButton(
-                $versionData,
-                $urlQuery
-            );
-            $versions[] = $versionData;
-        }
-        return $this->template->render('database/tracking/tracked_tables', [
-            'db' => $db,
-            'versions' => $versions,
-            'url_query' => $urlQuery,
-            'text_dir' => $textDir,
-            'pma_theme_image' => $pmaThemeImage,
-        ]);
     }
 
     /**

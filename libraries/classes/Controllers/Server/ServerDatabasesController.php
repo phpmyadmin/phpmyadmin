@@ -394,12 +394,12 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Database List
      *
-     * @param array $column_order      column order
-     * @param array $replication_types replication types
+     * @param array $dbColumnOrders   databases column order
+     * @param array $replicationTypes replication types
      *
      * @return string
      */
-    private function _getHtmlForTableBody(array $dbColumnOrders, array $replication_types)
+    private function _getHtmlForTableBody(array $dbColumnOrders, array $replicationTypes)
     {
         $html = '<tbody>' . "\n";
 
@@ -412,7 +412,7 @@ class ServerDatabasesController extends Controller
             $generated_html = $this->_buildHtmlForDb(
                 $current,
                 $dbColumnOrders[$current['SCHEMA_NAME']],
-                $replication_types,
+                $replicationTypes,
                 $GLOBALS['replication_info'],
                 $tr_class
             );
