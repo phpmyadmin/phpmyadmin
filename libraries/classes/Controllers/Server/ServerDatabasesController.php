@@ -108,7 +108,17 @@ class ServerDatabasesController extends Controller
             $this->_database_count = 0;
         }
 
+        $_url_params = [
+            'pos' => $this->_pos,
+            'dbstats' => $this->_dbstats,
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
+        ];
+
         if ($this->_database_count > 0 && ! empty($this->_databases)) {
+            $first_database = reset($this->_databases);
+            // table col order
+            $column_order = $this->_getColumnOrder();
             $databases = $this->_getHtmlForDatabases($replication_types);
         }
 
@@ -121,6 +131,18 @@ class ServerDatabasesController extends Controller
             'databases' => isset($databases) ? $databases : null,
             'dbi' => $this->dbi,
             'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
+            'database_count' => $this->_database_count,
+            'pos' => $this->_pos,
+            'url_params' => $_url_params,
+            'max_db_list' => $GLOBALS['cfg']['MaxDbList'],
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
+            'column_order' => $column_order,
+            'first_database' => $first_database,
+            'master_replication' => $GLOBALS['replication_info']['master']['status'],
+            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+            'is_superuser' => $this->dbi->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
         ]));
     }
 
@@ -308,22 +330,7 @@ class ServerDatabasesController extends Controller
             'sort_order' => $this->_sort_order,
         ];
 
-        $html = $this->template->render('server/databases/databases_header', [
-            'database_count' => $this->_database_count,
-            'pos' => $this->_pos,
-            'url_params' => $_url_params,
-            'max_db_list' => $GLOBALS['cfg']['MaxDbList'],
-            'sort_by' => $this->_sort_by,
-            'sort_order' => $this->_sort_order,
-            'column_order' => $column_order,
-            'first_database' => $first_database,
-            'master_replication' => $GLOBALS['replication_info']['master']['status'],
-            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
-            'is_superuser' => $this->dbi->isSuperuser(),
-            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
-        ]);
-
-        $html .= $this->_getHtmlForTableBody($dbColumnOrders, $replication_types);
+        $html = $this->_getHtmlForTableBody($dbColumnOrders, $replication_types);
 
         $html .= $this->template->render('server/databases/databases_footer', [
             'column_order' => $column_order,
