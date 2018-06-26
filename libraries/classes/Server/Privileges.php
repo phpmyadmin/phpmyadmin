@@ -4842,6 +4842,8 @@ class Privileges
                         . Util::showMySQLDocu(
                             'privileges-provided',
                             false,
+                            null,
+                            null,
                             'priv_reload'
                         ),
                         Message::NOTICE

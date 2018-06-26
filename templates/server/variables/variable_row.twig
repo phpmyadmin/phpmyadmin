@@ -11,9 +11,7 @@
     <td class="var-name">
     {% if doc_link != null %}
         <span title="{{ name|replace({'_': ' '}) }}">
-            {{ Util_showMySQLDocu(doc_link[1], false, doc_link[2] ~ '_' ~ doc_link[0], true) }}
-            {{ name|e|replace({'_': '&nbsp;'})|raw }}
-            </a>
+            {{ doc_link|raw }}
         </span>
     {% else %}
         {{ name|replace({'_': ' '}) }}
