@@ -1,9 +1,15 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
- * Functions used in server plugins pages
+ * @package PhpMyAdmin
+ *
+ * Server Plugins
  */
-// import { jQuery as $ } from './utils/extend_jquery';
-export function onload1 () {
+
+/**
+ * Binding event handlers on page load.
+ */
+function onloadServerPlugins () {
     // Make columns sortable, but only for tables with more than 1 data row
     var $tables = $('#plugins_plugins table:has(tbody tr + tr)');
     $tables.tablesorter({
@@ -15,3 +21,10 @@ export function onload1 () {
     $tables.find('thead th')
         .append('<div class="sorticon"></div>');
 }
+
+/**
+ * Module export
+ */
+export {
+    onloadServerPlugins
+};

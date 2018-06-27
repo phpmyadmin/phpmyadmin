@@ -1,20 +1,51 @@
-import { Variables } from './global_variables';
-import { PMA_commonParams } from './common_params';
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 
-var jqueryValidations = {
-    validationFormat: window.validateFormat,
-    validationMessage: window.validationMessage
-};
+/**
+ * Module Imports
+ */
+import Variables from './global_variables';
+import CommonParams from './common_params';
+
+/**
+ * Importing message strings from window of document which need
+ * to be used in the files for messages.
+ *
+ * @argument {hash} window.PMA_messages
+ */
 Variables.setAllMessages(window.PMA_messages);
+
+/**
+ * Importing time and date rrelated strings like day, date, time
+ * etc for using with different languages.
+ *
+ * @argument {hash} window.timePicker
+ */
 Variables.setTimePickerVars({
     datePicker: window.datePicker,
     timePicker: window.timePicker
 });
-Variables.setValidatorMessages(jqueryValidations);
+
+/**
+ * Importing validation strings for jQuery validations for diifferent.
+ * language validations.
+ *
+ * @argument {hash} Object
+ */
+Variables.setValidatorMessages({
+    validateFormat: window.validateFormat,
+    validationMessage: window.validationMessage
+});
+
+/**
+ * Importing global variable from window for theme and doc template.
+ *
+ * @argument {hash} window.globalVars
+ */
 Variables.setGlobalVars(window.globalVars);
 
 /**
- * This statement to be placed in the file going to be
- * executed firstly like functions.js
+ * Importing common parameters like db, table, url etc
+ *
+ * @argument {hash} window.common_params
  */
-PMA_commonParams.setAll(window.common_params);
+CommonParams.setAll(window.common_params);

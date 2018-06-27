@@ -1,24 +1,40 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module imports
+ */
 import { PMA_sprintf } from '../utils/sprintf';
 import { PMA_showCurrentNavigation } from '../functions/navigation';
 /**
+ *
  * Holds common parameters such as server, db, table, etc
  *
  * The content for this is normally loaded from Header.php or
  * Response.php and executed by ajax.js
+ *
+ * @module CommonParams
+ *
  */
-export const PMA_commonParams = (function () {
+const CommonParams = (function () {
     /**
-     * @var hash params An associative array of key value pairs
+     * @type {hash} params An associative array of key value pairs
+     *
      * @access private
      */
     var params = {};
-    // The returned object is the public part of the module
+    /**
+     * The returned object is the public part of the module.
+     *
+     * @method
+     *
+     * @access public
+     */
     return {
         /**
          * Saves all the key value pair that
          * are provided in the input array
          *
-         * @param obj hash The input array
+         * @param {Hash} obj The input array
          *
          * @return void
          */
@@ -33,8 +49,8 @@ export const PMA_commonParams = (function () {
                 }
                 params[i] = obj[i];
             }
-            if (updateNavigation &&
-                    $('#pma_navigation_tree').hasClass('synced')
+            if (updateNavigation
+                && $('#pma_navigation_tree').hasClass('synced')
             ) {
                 PMA_showCurrentNavigation();
             }
@@ -43,9 +59,9 @@ export const PMA_commonParams = (function () {
          * Retrieves a value given its key
          * Returns empty string for undefined values
          *
-         * @param name string The key
+         * @param {string} name The key
          *
-         * @return string
+         * @return {string}
          */
         get: function (name) {
             return params[name];
@@ -53,10 +69,11 @@ export const PMA_commonParams = (function () {
         /**
          * Saves a single key value pair
          *
-         * @param name  string The key
-         * @param value string The value
+         * @param {string} name The key
          *
-         * @return self For chainability
+         * @param {string} value The value
+         *
+         * @return {self} For chainability
          */
         set: function (name, value) {
             var updateNavigation = false;
@@ -76,12 +93,12 @@ export const PMA_commonParams = (function () {
         /**
          * Returns the url query string using the saved parameters
          *
-         * @return string
+         * @return {string}
          */
         getUrlQuery: function () {
             var common = this.get('common_query');
             var separator = '?';
-            var argsep = PMA_commonParams.get('arg_separator');
+            var argsep = CommonParams.get('arg_separator');
             if (common.length > 0) {
                 separator = argsep;
             }
@@ -96,3 +113,8 @@ export const PMA_commonParams = (function () {
         }
     };
 }());
+
+/**
+ * Module Export
+ */
+export default CommonParams;
