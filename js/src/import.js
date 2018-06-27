@@ -1,11 +1,22 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import { changePluginOpts, matchFile } from './functions/import';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
+import { PMA_Messages as messages } from './variables/export_variables';
+
+/**
+ * @package PhpMyAdmin
+ *
+ * Import
+ */
+
 /**
  * Unbind all event handlers before tearing down a page
  */
-export function teardown1 () {
+function teardownImport () {
     $('#plugins').off('change');
     $('#input_import_file').off('change');
     $('#select_local_import_file').off('change');
@@ -14,12 +25,15 @@ export function teardown1 () {
     $('#text_csv_enclosed').add('#text_csv_escaped').off('keyup');
 }
 
-export function onload1 () {
+/**
+ * Binding event handlers on page load
+ */
+function onloadImport () {
     // import_file_form validation.
     $(document).on('submit', '#import_file_form', function () {
         var radioLocalImport = $('#radio_local_import_file');
         var radioImport = $('#radio_import_file');
-        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strImportDialogMessage + '</div>';
+        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + messages.strImportDialogMessage + '</div>';
 
         if (radioLocalImport.length !== 0) {
             // remote upload.
@@ -32,7 +46,7 @@ export function onload1 () {
 
             if (radioLocalImport.is(':checked')) {
                 if ($('#select_local_import_file').length === 0) {
-                    PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strNoImportFile + ' </div>', false);
+                    PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + messages.strNoImportFile + ' </div>', false);
                     return false;
                 }
 
@@ -113,3 +127,11 @@ export function onload1 () {
         return true;
     });
 }
+
+/**
+ * Module export
+ */
+export {
+    teardownImport,
+    onloadImport
+};

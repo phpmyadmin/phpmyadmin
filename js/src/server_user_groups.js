@@ -1,18 +1,29 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
- * Unbind all event handlers before tearing down a page
+ * Module import
  */
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_sprintf } from './utils/sprintf';
 import { escapeHtml } from './utils/Sanitise';
 
-export function teardown1 () {
+/**
+ * @package PhpMyAdmin
+ *
+ * Server User Groups
+ */
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+function teardownServerUserGroups () {
     $(document).off('click', 'a.deleteUserGroup.ajax');
 }
 
 /**
- * Bind event handlers
+ * Bind event handlers on page load.
  */
-export function onload1 () {
+function onloadServerUserGroups () {
     // update the checkall checkbox on Edit user group page
     $(checkboxes_sel).trigger('change');
 
@@ -43,3 +54,11 @@ export function onload1 () {
             });
     });
 }
+
+/**
+ * Module export
+ */
+export {
+    teardownServerUserGroups,
+    onloadServerUserGroups
+};

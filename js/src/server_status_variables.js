@@ -1,21 +1,30 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
- *
- *
+ * Module import
+ */
+import { filterVariables } from './functions/Server/ServerStatusVariables';
+
+/**
  * @package PhpMyAdmin
+ *
+ * Server Status Variables
  */
 
 /**
  * Unbind all event handlers before tearing down a page
  */
-export function teardown1 () {
+function teardownServerStatusVariables () {
     $('#filterAlert').off('change');
     $('#filterText').off('keyup');
     $('#filterCategory').off('change');
     $('#dontFormat').off('change');
 }
 
-export function onload1 () {
+/**
+ * Binding event handlers on page load
+ */
+function onloadServerStatusVariables () {
     // Filters for status variables
     var textFilter = null;
     var alertFilter = $('#filterAlert').prop('checked');
@@ -25,12 +34,12 @@ export function onload1 () {
     /* 3 Filtering functions */
     $('#filterAlert').change(function () {
         alertFilter = this.checked;
-        filterVariables();
+        filterVariables(textFilter, alertFilter, categoryFilter, text);
     });
 
     $('#filterCategory').change(function () {
         categoryFilter = $(this).val();
-        filterVariables();
+        filterVariables(textFilter, alertFilter, categoryFilter, text);
     });
 
     $('#dontFormat').change(function () {
@@ -41,7 +50,7 @@ export function onload1 () {
         $('#serverstatusvariables').show();
     }).trigger('change');
 
-    $('#filterText').keyup(function (e) {
+    $('#filterText').keyup(function () {
         var word = $(this).val().replace(/_/g, ' ');
         if (word.length === 0) {
             textFilter = null;
@@ -57,44 +66,14 @@ export function onload1 () {
             }
         }
         text = word;
-        filterVariables();
+        filterVariables(textFilter, alertFilter, categoryFilter, text);
     }).trigger('keyup');
-
-    /* Filters the status variables by name/category/alert in the variables tab */
-    function filterVariables () {
-        var useful_links = 0;
-        var section = text;
-
-        if (categoryFilter.length > 0) {
-            section = categoryFilter;
-        }
-
-        if (section.length > 1) {
-            $('#linkSuggestions').find('span').each(function () {
-                if ($(this).attr('class').indexOf('status_' + section) !== -1) {
-                    useful_links++;
-                    $(this).css('display', '');
-                } else {
-                    $(this).css('display', 'none');
-                }
-            });
-        }
-
-        if (useful_links > 0) {
-            $('#linkSuggestions').css('display', '');
-        } else {
-            $('#linkSuggestions').css('display', 'none');
-        }
-
-        $('#serverstatusvariables').find('th.name').each(function () {
-            if ((textFilter === null || textFilter.exec($(this).text())) &&
-                (! alertFilter || $(this).next().find('span.attention').length > 0) &&
-                (categoryFilter.length === 0 || $(this).parent().hasClass('s_' + categoryFilter))
-            ) {
-                $(this).parent().css('display', '');
-            } else {
-                $(this).parent().css('display', 'none');
-            }
-        });
-    }
 }
+
+/**
+ * Module export
+ */
+export {
+    teardownServerStatusVariables,
+    onloadServerStatusVariables
+};
