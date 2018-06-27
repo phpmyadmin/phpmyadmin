@@ -187,7 +187,7 @@ class Header
             $this->_scripts->addFile('vendor/tracekit.js');
             $this->_scripts->addFile('error_report');///////////////////////////
         }
-        
+
         $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
         $this->_scripts->addFile('common_params.php', array('l' => $GLOBALS['lang']));
         $this->_scripts->addFile('vendors~index_new.js');
