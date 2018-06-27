@@ -1,19 +1,45 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-import { createTemplate, loadTemplate, updateTemplate,
-    deleteTemplate, toggle_save_to_file, toggle_structure_data_opts,
-    check_table_select_all, handleAddProcCheckbox, check_table_select_struture_or_data,
-    check_table_selected, toggle_table_select, toggle_table_select_all_str,
-    check_selected_tables, toggle_table_select_all_data, setup_table_structure_or_data,
-    toggle_quick_or_custom, toggle_sql_include_comments, disable_dump_some_rows_sub_options,
-    enable_dump_some_rows_sub_options, aliasToggleRow, addAlias, createAliasModal
+/**
+ * Module import
+ */
+import {
+    createTemplate,
+    loadTemplate,
+    updateTemplate,
+    deleteTemplate,
+    toggle_save_to_file,
+    toggle_structure_data_opts,
+    check_table_select_all,
+    handleAddProcCheckbox,
+    check_table_select_struture_or_data,
+    check_table_selected,
+    toggle_table_select,
+    toggle_table_select_all_str,
+    check_selected_tables,
+    toggle_table_select_all_data,
+    setup_table_structure_or_data,
+    toggle_quick_or_custom,
+    toggle_sql_include_comments,
+    disable_dump_some_rows_sub_options,
+    enable_dump_some_rows_sub_options,
+    aliasToggleRow,
+    addAlias,
+    createAliasModal
 } from './functions/export';
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
-import { PMA_commonParams } from './variables/common_params';
+import { PMA_Messages as messages } from './variables/export_variables';
+import CommonParams from './variables/common_params';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
+
+/**
+ * @package PhpMyAdmin
+ *
+ * Export
+ */
+
 /**
  * Unbind all event handlers before tearing down a page
  */
-export function teardown1 () {
+function teardownExport () {
     $('#plugins').off('change');
     $('input[type=\'radio\'][name=\'sql_structure_or_data\']').off('change');
     $('input[type=\'radio\'][name$=\'_structure_or_data\']').off('change');
@@ -37,7 +63,7 @@ export function teardown1 () {
     $('input[name="deleteTemplate"]').off('click');
 }
 
-export function onload1 () {
+function onloadExportTemplate () {
     /**
      * Export template handling code
      */
@@ -83,26 +109,26 @@ export function onload1 () {
      */
     $('#plugins').on('change', function () {
         $('#format_specific_opts').find('div.format_specific_options').hide();
-        var selected_plugin_name = $('#plugins').find('option:selected').val();
-        $('#' + selected_plugin_name + '_options').show();
+        var selectedPluginName = $('#plugins').find('option:selected').val();
+        $('#' + selectedPluginName + '_options').show();
     });
 
     /**
      * Toggles the enabling and disabling of the SQL plugin's comment options that apply only when exporting structure
      */
     $('input[type=\'radio\'][name=\'sql_structure_or_data\']').on('change', function () {
-        var comments_are_present = $('#checkbox_sql_include_comments').prop('checked');
+        var commentsArePresent = $('#checkbox_sql_include_comments').prop('checked');
         var show = $('input[type=\'radio\'][name=\'sql_structure_or_data\']:checked').val();
         if (show === 'data') {
             // disable the SQL comment options
-            if (comments_are_present) {
+            if (commentsArePresent) {
                 $('#checkbox_sql_dates').prop('disabled', true).parent().fadeTo('fast', 0.4);
             }
             $('#checkbox_sql_relation').prop('disabled', true).parent().fadeTo('fast', 0.4);
             $('#checkbox_sql_mime').prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
             // enable the SQL comment options
-            if (comments_are_present) {
+            if (commentsArePresent) {
                 $('#checkbox_sql_dates').prop('disabled', false).parent().fadeTo('fast', 1);
             }
             $('#checkbox_sql_relation').prop('disabled', false).parent().fadeTo('fast', 1);
@@ -130,22 +156,22 @@ export function onload1 () {
     });
 }
 
-export function onload2 () {
+function onloadSaveToFile () {
     toggle_save_to_file();
     $('input[type=\'radio\'][name=\'output_format\']').on('change', toggle_save_to_file);
 }
 
-export function onload3 () {
+function onloadExportOptions () {
     /**
      * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
      */
     var $create = $('#checkbox_sql_create_table_statements');
-    var $create_options = $('#ul_create_table_statements').find('input');
+    var $createOptions = $('#ul_create_table_statements').find('input');
     $create.on('change', function () {
-        $create_options.prop('checked', $(this).prop('checked'));
+        $createOptions.prop('checked', $(this).prop('checked'));
     });
-    $create_options.on('change', function () {
-        if ($create_options.is(':checked')) {
+    $createOptions.on('change', function () {
+        if ($createOptions.is(':checked')) {
             $create.prop('checked', true);
         }
     });
@@ -154,9 +180,9 @@ export function onload3 () {
      * Disables the view output as text option if the output must be saved as a file
      */
     $('#plugins').on('change', function () {
-        var active_plugin = $('#plugins').find('option:selected').val();
-        var force_file = $('#force_file_' + active_plugin).val();
-        if (force_file === 'true') {
+        var activePlugin = $('#plugins').find('option:selected').val();
+        var forceFile = $('#force_file_' + activePlugin).val();
+        if (forceFile === 'true') {
             if ($('#radio_dump_asfile').prop('checked') !== true) {
                 $('#radio_dump_asfile').prop('checked', true);
                 toggle_save_to_file();
@@ -212,11 +238,11 @@ export function onload3 () {
             var $this = $(this);
             var name = $this.prop('name');
             var val = $('input[name="' + name + '"]:checked').val();
-            var name_default = name + '_default';
-            if (!$('input[name="' + name_default + '"]').length) {
+            var nameDefault = name + '_default';
+            if (!$('input[name="' + nameDefault + '"]').length) {
                 $this
                     .after(
-                        $('<input type="hidden" name="' + name_default + '" value="' + val + '" disabled>')
+                        $('<input type="hidden" name="' + nameDefault + '" value="' + val + '" disabled>')
                     )
                     .after(
                         $('<input type="hidden" name="' + name + '" value="structure_and_data">')
@@ -250,7 +276,7 @@ export function onload3 () {
     $('#plugins').on('change', setup_table_structure_or_data);
 }
 
-export function onload4 () {
+function onloadExportSubmit () {
     $('input[type=\'radio\'][name=\'quick_or_custom\']').on('change', toggle_quick_or_custom);
 
     $('#scroll_to_options_msg').hide();
@@ -293,7 +319,7 @@ export function onload4 () {
     $('#db_alias_select').on('change', function () {
         aliasToggleRow($(this));
         // var db = $(this).val();
-        var table = PMA_commonParams.get('table');
+        var table = CommonParams.get('table');
         if (table) {
             var option = $('<option></option>');
             option.text(table);
@@ -302,7 +328,7 @@ export function onload4 () {
         } else {
             var params = {
                 ajax_request : true,
-                server : PMA_commonParams.get('server'),
+                server : CommonParams.get('server'),
                 db : $(this).val(),
                 type: 'list-tables'
             };
@@ -324,7 +350,7 @@ export function onload4 () {
         aliasToggleRow($(this));
         var params = {
             ajax_request : true,
-            server : PMA_commonParams.get('server'),
+            server : CommonParams.get('server'),
             db : $('#db_alias_select').val(),
             table: $(this).val(),
             type: 'list-columns'
@@ -349,7 +375,7 @@ export function onload4 () {
         e.preventDefault();
         var db = $('#db_alias_select').val();
         addAlias(
-            PMA_messages.strAliasDatabase,
+            messages.strAliasDatabase,
             db,
             'aliases[' + db + '][alias]',
             $('#db_alias_name').val()
@@ -361,7 +387,7 @@ export function onload4 () {
         var db = $('#db_alias_select').val();
         var table = $('#table_alias_select').val();
         addAlias(
-            PMA_messages.strAliasTable,
+            messages.strAliasTable,
             db + '.' + table,
             'aliases[' + db + '][tables][' + table + '][alias]',
             $('#table_alias_name').val()
@@ -374,7 +400,7 @@ export function onload4 () {
         var table = $('#table_alias_select').val();
         var column = $('#column_alias_select').val();
         addAlias(
-            PMA_messages.strAliasColumn,
+            messages.strAliasColumn,
             db + '.' + table + '.' + column,
             'aliases[' + db + '][tables][' + table + '][colums][' + column + ']',
             $('#column_alias_name').val()
@@ -382,3 +408,14 @@ export function onload4 () {
         $('#column_alias_name').val('');
     });
 }
+
+/**
+ * Module export
+ */
+export {
+    teardownExport,
+    onloadExportOptions,
+    onloadExportSubmit,
+    onloadExportTemplate,
+    onloadSaveToFile
+};

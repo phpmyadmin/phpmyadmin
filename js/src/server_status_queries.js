@@ -1,21 +1,29 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
+ * Module import
  */
-import { PMA_createProfilingChart } from './functions/chart';
+import { createProfilingChart } from './functions/chart';
 import { jQuery as $ } from './utils/extend_jquery';
+import { initTableSorter } from './server_status_sorter';
+
+/**
+ * @package PhpMyAdmin
+ *
+ * Server Status Queries
+ */
+
 /**
  * Unbind all event handlers before tearing down a page
  */
-import { initTableSorter } from './server_status_sorter';
-
-export function teardown1 () {
+function teardownServerStatusQueries () {
     var queryPieChart = $('#serverstatusquerieschart').data('queryPieChart');
     if (queryPieChart) {
         queryPieChart.destroy();
     }
 }
 
-export function onload1 () {
+function onloadServerStatusQueries () {
     // Build query statistics chart
     var cdata = [];
     try {
@@ -24,7 +32,7 @@ export function onload1 () {
         });
         $('#serverstatusquerieschart').data(
             'queryPieChart',
-            PMA_createProfilingChart(
+            createProfilingChart(
                 'serverstatusquerieschart',
                 cdata
             )
@@ -35,3 +43,11 @@ export function onload1 () {
 
     initTableSorter('statustabs_queries');
 }
+
+/**
+ * Module export
+ */
+export {
+    teardownServerStatusQueries,
+    onloadServerStatusQueries
+};
