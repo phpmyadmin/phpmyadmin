@@ -10,57 +10,6 @@
  */
 
 /**
- * Validates the "add a user" form
- *
- * @return boolean  whether the form is validated or not
- */
-function checkAddUser (the_form) {
-    if (the_form.elements.pred_hostname.value === 'userdefined' && the_form.elements.hostname.value === '') {
-        alert(PMA_messages.strHostEmpty);
-        the_form.elements.hostname.focus();
-        return false;
-    }
-
-    if (the_form.elements.pred_username.value === 'userdefined' && the_form.elements.username.value === '') {
-        alert(PMA_messages.strUserEmpty);
-        the_form.elements.username.focus();
-        return false;
-    }
-
-    return PMA_checkPassword($(the_form));
-} // end of the 'checkAddUser()' function
-
-function checkPasswordStrength (value, meter_obj, meter_object_label, username) {
-    // List of words we don't want to appear in the password
-    customDict = [
-        'phpmyadmin',
-        'mariadb',
-        'mysql',
-        'php',
-        'my',
-        'admin',
-    ];
-    if (username !== null) {
-        customDict.push(username);
-    }
-    var zxcvbn_obj = zxcvbn(value, customDict);
-    var strength = zxcvbn_obj.score;
-    strength = parseInt(strength);
-    meter_obj.val(strength);
-    switch (strength) {
-    case 0: meter_obj_label.html(PMA_messages.strExtrWeak);
-        break;
-    case 1: meter_obj_label.html(PMA_messages.strVeryWeak);
-        break;
-    case 2: meter_obj_label.html(PMA_messages.strWeak);
-        break;
-    case 3: meter_obj_label.html(PMA_messages.strGood);
-        break;
-    case 4: meter_obj_label.html(PMA_messages.strStrong);
-    }
-}
-
-/**
  * AJAX scripts for server_privileges page.
  *
  * Actions ajaxified here:
@@ -74,7 +23,6 @@ function checkPasswordStrength (value, meter_obj, meter_object_label, username) 
  * @memberOf    jQuery
  * @name        document.ready
  */
-
 
 /**
  * Unbind all event handlers before tearing down a page

@@ -3393,6 +3393,21 @@ Developer
 
     These settings might have huge effect on performance or security.
 
+.. config:option:: $cfg['environment']
+
+    :type: string
+    :default: `'production'`
+
+    Enable you to set the working environment for loading js files
+
+.. config:option:: $cfg['webpack_port']
+
+    :type: integer
+    :default: 3307
+
+    Enable you to start webpack development server for serving js files
+    when working in the development environment
+
 .. config:option:: $cfg['DBG']
 
     :type: array
