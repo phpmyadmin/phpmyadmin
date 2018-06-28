@@ -506,7 +506,13 @@ var AJAX = {
                 AJAX._callback = function () {};
             });
         } else {
-            PMA_ajaxShowMessage(data.error, false);
+            PMA_ajaxRemoveMessage(AJAX.$msgbox);
+            $("div.error, div.success, div#ajaxError").remove();
+            $ajaxError = $("<div/>");
+            $ajaxError.attr({"id": "ajaxError"});
+            $("#page_content").append($ajaxError);
+            $ajaxError.html(data.error);
+            $("html, body").animate({ scrollTop: $(document).height() }, 200);
             AJAX.active = false;
             AJAX.xhr = null;
             PMA_handleRedirectAndReload(data);

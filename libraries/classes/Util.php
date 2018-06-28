@@ -296,6 +296,20 @@ class Util
     } // end of the "formatSql()" function
 
     /**
+     * Displays a button to copy content to clipboard
+     *
+     * @param string $text    Text to copy to clipboard
+     *
+     * @return string  the html link
+     *
+     * @access  public
+     */
+    public static function showCopyToClipboard($text) {
+        $open_link = '  <a href="#" class="copyQueryBtn" data-text="' . $text . '">' . __('Copy') . '</a>';
+        return $open_link;
+    } // end of the 'showCopyToClipboard()' function
+
+    /**
      * Displays a link to the documentation as an icon
      *
      * @param string  $link   documentation link
@@ -565,7 +579,7 @@ class Util
             }
 
             // Display the SQL query and link to MySQL documentation.
-            $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
+            $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . self::showCopyToClipboard($sql_query) . "\n";
             $formattedSqlToLower = mb_strtolower($formatted_sql);
 
             // TODO: Show documentation for all statement types.

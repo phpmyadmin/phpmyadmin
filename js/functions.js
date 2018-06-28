@@ -2440,6 +2440,31 @@ $(function () {
             $(this).parents('span.ajax_notification').tooltip('enable');
         }
     });
+
+    /**
+     * Copy text to clipboard
+     *
+     * @param text to copy to clipboard
+     *
+     * @returns void
+     */
+    function copyToClipboard (text) {
+        try {
+            var $temp = $("<input>");
+            $temp.css({"position": "fixed", "width": "2em", "top": 0, "left": 0, "padding": 0, "background": "transparent"});
+            $("body").append($temp);
+            $temp.val(text).select();
+            document.execCommand("copy");
+            $temp.remove();
+        } catch(e) {
+            console.log("Unable to copy " + text);
+        }
+    }
+
+    $(document).on("click", "a.copyQueryBtn", function(event){
+        event.preventDefault();
+        copyToClipboard($(this).attr('data-text'));
+    });
 });
 
 /**
