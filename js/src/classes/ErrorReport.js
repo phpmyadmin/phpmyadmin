@@ -4,7 +4,7 @@
  */
 import { AJAX } from '../ajax';
 import { PMA_Messages as PMA_messages } from '../variables/export_variables';
-import { PMA_commonParams } from '../variables/common_params';
+import CommonParams from '../variables/common_params';
 import { PMA_ajaxShowMessage } from '../utils/show_ajax_messages';
 import { PMA_getImage } from '../functions/get_image';
 import TraceKit from 'tracekit';
@@ -45,7 +45,7 @@ var ErrorReport = {
         ErrorReport._last_exception = exception;
         $.get('error_report.php', {
             ajax_request: true,
-            server: PMA_commonParams.get('server'),
+            server: CommonParams.get('server'),
             get_settings: true,
             exception_type: 'js'
         }, function (data) {

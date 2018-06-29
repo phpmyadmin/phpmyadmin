@@ -1,9 +1,22 @@
-import { AJAX } from './ajax';
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import './variables/import_variables';
-import './variables/get_config';
 import { jQuery as $ } from './utils/JqueryExtended';
+import { AJAX } from './ajax';
+import './variables/get_config';
 import files from './consts/files';
 import Console from './console';
+import { PMA_sprintf } from './utils/sprintf';
+import { PMA_Messages as PMA_messages } from './variables/export_variables';
+import { escapeHtml } from './utils/Sanitise';
+import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
+import PMA_commonParams from './variables/common_params';
+
+// console.log(PMA_messages);
+// console.log(PMA_ajaxShowMessage);
 
 /**
  * Page load event handler
@@ -69,6 +82,34 @@ $(function () {
     }
 });
 
+$(document).ajaxError(function (event, request, settings) {
+    if (AJAX._debug) {
+        console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
+    }
+    // Don't handle aborted requests
+    if (request.status !== 0 || request.statusText !== 'abort') {
+        var details = '';
+        var state = request.state();
+
+        if (request.status !== 0) {
+            details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorCode, request.status)) + '</div>';
+        }
+        details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
+        if (state === 'rejected' || state === 'timeout') {
+            details += '<div>' + escapeHtml(PMA_messages.strErrorConnection) + '</div>';
+        }
+        PMA_ajaxShowMessage(
+            '<div class="error">' +
+            PMA_messages.strErrorProcessingRequest +
+            details +
+            '</div>',
+            false
+        );
+        AJAX.active = false;
+        AJAX.xhr = null;
+    }
+});
+
 /**
  * Adding common files for every page
  */
@@ -91,6 +132,10 @@ if (typeof files[firstPage] !== 'undefined' && firstPage.toLocaleLowerCase() !==
 } else if (typeof files[indexPage] !== 'undefined' && firstPage.toLocaleLowerCase() === 'index') {
     for (let i in files[indexPage]) {
         AJAX.scriptHandler.add(files[indexPage][i], 1);
+    }
+} else if (typeof files[indexPage] !== 'undefined' && firstPage.toLocaleLowerCase() === 'index') {
+    for (let i in files[indexPage]) {
+        AJAX.scriptHandler.add(files[indexPage][i]);
     }
 }
 

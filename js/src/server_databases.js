@@ -7,6 +7,10 @@
  * @requires    jQueryUI
  * @required    js/functions.js
  */
+
+/**
+ * Moduele import
+ */
 import { PMA_sprintf } from './utils/sprintf';
 import './variables/import_variables';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
@@ -14,17 +18,26 @@ import { escapeHtml } from './utils/Sanitise';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { jQuery as $ } from './utils/JqueryExtended';
 import { AJAX } from './ajax';
-import { PMA_commonParams } from './variables/common_params';
+import CommonParams from './variables/common_params';
+
+/**
+ * @package PhpMyAdmin
+ *
+ * Server Databases
+ */
 
 /**
  * Unbind all event handlers before tearing down a page
  */
-export function teardown1 () {
+function teardownServerDatabases () {
     $(document).off('submit', '#dbStatsForm');
     $(document).off('submit', '#create_database_form.ajax');
 }
 
-export function onload1 () {
+/**
+ * Binding event handlers on page load
+ */
+function onloadServerDatabases () {
     /**
      * Attach Event Handler for 'Drop Databases'
      */
@@ -46,7 +59,7 @@ export function onload1 () {
         if (! selected_dbs.length) {
             PMA_ajaxShowMessage(
                 $('<div class="notice" />').text(
-                    PMA_messages.strNoDatabasesSelected
+                    messages.strNoDatabasesSelected
                 ),
                 2000
             );
@@ -55,16 +68,16 @@ export function onload1 () {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = PMA_messages.strDropDatabaseStrongWarning + ' ' +
-            PMA_sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
+        var question = messages.strDropDatabaseStrongWarning + ' ' +
+            PMA_sprintf(messages.strDoYouReally, selected_dbs.join('<br />'));
 
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $(this).PMA_confirm(
             question,
             $form.prop('action') + '?' + $(this).serialize() +
                 argsep + 'drop_selected_dbs=1' + argsep + 'is_js_confirmed=1' + argsep + 'ajax_request=true',
             function (url) {
-                PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
+                PMA_ajaxShowMessage(messages.strProcessingRequest, false);
 
                 var params = getJSConfirmCommonParam(this);
 
@@ -105,12 +118,12 @@ export function onload1 () {
         var newDbNameInput = $form.find('input[name=new_db]');
         if (newDbNameInput.val() === '') {
             newDbNameInput.focus();
-            alert(PMA_messages.strFormEmpty);
+            alert(messages.strFormEmpty);
             return;
         }
         // end remove
 
-        PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
+        PMA_ajaxShowMessage(messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {
@@ -125,7 +138,7 @@ export function onload1 () {
                 // make ajax request to load db structure page - taken from ajax.js
                 var dbStruct_url = data.url_query;
                 dbStruct_url = dbStruct_url.replace(/amp;/ig, '');
-                var params = 'ajax_request=true' + PMA_commonParams.get('arg_separator') + 'ajax_page_request=true';
+                var params = 'ajax_request=true' + CommonParams.get('arg_separator') + 'ajax_page_request=true';
                 if (! (history && history.pushState)) {
                     params += PMA_MicroHistory.menus.getRequestParam();
                 }
@@ -143,9 +156,14 @@ export function onload1 () {
     }
 
     var tableRows = $('.server_databases');
-    $.each(tableRows, function (index, item) {
+    $.each(tableRows, function (index) {
         $(this).click(function () {
             PMA_commonActions.setDb($(this).attr('data'));
         });
     });
 }
+
+export {
+    teardownServerDatabases,
+    onloadServerDatabases
+};

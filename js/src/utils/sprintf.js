@@ -1,3 +1,8 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import sprintf from 'sprintf-js';
 
 /**
@@ -6,7 +11,7 @@ import sprintf from 'sprintf-js';
  * @return string      A concated string of aguments passed
  */
 
-export function PMA_sprintf () {
+function PMA_sprintf () {
     /**
      * This package can be implemented in two ways
      *
@@ -16,3 +21,10 @@ export function PMA_sprintf () {
      */
     return sprintf.sprintf(...arguments);
 }
+
+/**
+ * Module export
+ */
+export {
+    PMA_sprintf
+};
