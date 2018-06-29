@@ -401,7 +401,7 @@ class MultSubmits
         $html .= '<label for="what_data">' . __('Structure and data') . '</label><br>';
         $html .= '<input type="radio" id ="what_dataonly" value="dataonly" name="what"/>';
         $html .= '<label for="what_dataonly">' . __('Data only') . '</label><br><br>';
-        $html .= '<input type="checkbox" id="checkbox_drop" value="1" name="drop_if_exists"/>';
+        $html .= '<input type="checkbox" id="checkbox_drop" value="true" name="drop_if_exists"/>';
         $html .= '<label for="checkbox_drop">' . __('Add DROP TABLE') . '</label><br>';
         $html .= '<input type="checkbox" id="checkbox_auto_increment_cp" value="1" name="sql_auto_increment"/>';
         $html .= '<label for="checkbox_auto_increment_cp">' . __('Add AUTO INCREMENT value') . '</label><br>';
