@@ -1,9 +1,22 @@
-import { AJAX } from './ajax';
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import './variables/import_variables';
-import './variables/get_config';
 import { jQuery as $ } from './utils/extend_jquery';
+import { AJAX } from './ajax';
+import './variables/get_config';
 import files from './consts/files';
-import { PMA_console } from './console';
+import Console from './console';
+import { PMA_sprintf } from './utils/sprintf';
+import { PMA_Messages as PMA_messages } from './variables/export_variables';
+import { escapeHtml } from './utils/Sanitise';
+import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
+import PMA_commonParams from './variables/common_params';
+
+// console.log(PMA_messages);
+// console.log(PMA_ajaxShowMessage);
 
 /**
  * Page load event handler
@@ -77,6 +90,34 @@ $(function () {
 $(document).on('click', 'a', AJAX.requestHandler);
 $(document).on('submit', 'form', AJAX.requestHandler);
 
+$(document).ajaxError(function (event, request, settings) {
+    if (AJAX._debug) {
+        console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
+    }
+    // Don't handle aborted requests
+    if (request.status !== 0 || request.statusText !== 'abort') {
+        var details = '';
+        var state = request.state();
+
+        if (request.status !== 0) {
+            details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorCode, request.status)) + '</div>';
+        }
+        details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
+        if (state === 'rejected' || state === 'timeout') {
+            details += '<div>' + escapeHtml(PMA_messages.strErrorConnection) + '</div>';
+        }
+        PMA_ajaxShowMessage(
+            '<div class="error">' +
+            PMA_messages.strErrorProcessingRequest +
+            details +
+            '</div>',
+            false
+        );
+        AJAX.active = false;
+        AJAX.xhr = null;
+    }
+});
+
 /**
  * Adding common files for every page
  */
@@ -86,41 +127,21 @@ for (let i in files.global) {
 /**
  * This block of code is for importing javascript files needed
  * for the first time loading of the page.
- *
- * TODO: To handle urls like index.php?target=server_privileges.php
  */
 let firstPage = window.location.pathname.replace('/', '').replace('.php', '');
-if (typeof files[firstPage] !== 'undefined') {
+let indexStart = window.location.search.indexOf('target') + 7;
+let indexEnd = window.location.search.indexOf('.php');
+let indexPage = window.location.search.slice(indexStart, indexEnd);
+if (typeof files[firstPage] !== 'undefined' && firstPage.toLocaleLowerCase() !== 'index') {
     for (let i in files[firstPage]) {
         AJAX.scriptHandler.add(files[firstPage][i]);
+    }
+} else if (typeof files[indexPage] !== 'undefined' && firstPage.toLocaleLowerCase() === 'index') {
+    for (let i in files[indexPage]) {
+        AJAX.scriptHandler.add(files[indexPage][i]);
     }
 }
 
 $(function () {
-    PMA_console.initialize();
+    Console.initialize();
 });
-
-// import('./server_databases')
-// .then((module) => {
-//         console.log('serverr_databases');
-//         AJAX.registerOnload('server_databases_new.js', module.onload1);
-//         AJAX.registerTeardown('server_databases_new.js', module.teardown1);
-//         AJAX.fireOnload('server_databases_new.js');
-//         // AJAX.fireTeardown('server_databases_new.js');
-
-
-// })
-// .catch(e => console.log(e));
-
-// if( 1 === 1 ) {
-//     import('./server_privileges')
-//     .then((module) => {
-//         AJAX.registerOnload('server_privileges_new.js', module.onload1);
-//         AJAX.registerTeardown('server_privileges_new.js', module.teardown1);
-//         AJAX.fireOnload('server_privileges_new.js');
-//         // AJAX.fireTeardown('server_databases_new.js');
-//     })
-//     .catch(e => console.log(e));
-// }
-
-// server_databases();

@@ -6,20 +6,25 @@
  * @requires    jQuery
  * @requires    jQueryUI
  * @requires    js/functions.js
- *
+ */
+
+/**
+ * Module import
  */
 import { PMA_sprintf } from './utils/sprintf';
 import { checkPasswordStrength, displayPasswordGenerateButton } from './utils/password';
 // import { AJAX } from './ajax';
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
+import { PMA_Messages as messages } from './variables/export_variables';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
-import { PMA_commonParams } from './variables/common_params';
+import CommonParams from './variables/common_params';
 import { jQuery as $ } from './utils/extend_jquery';
 import { PMA_getSQLEditor } from './utils/sql';
 
-// console.log(AJAX.test);
-// AJAX.test = true;
-// console.log(AJAX.test);
+/**
+ * @package PhpMyAdmin
+ *
+ * Server Privileges
+ */
 
 /**
  * AJAX scripts for server_privileges page.
@@ -36,11 +41,10 @@ import { PMA_getSQLEditor } from './utils/sql';
  * @name        document.ready
  */
 
-// console.log(AJAX.test);
 /**
- * Unbind all event handlers before tearing down a page
+ * Unbind all event handlers before tearing down a page.
  */
-export function teardown1 () {
+function teardownServerPrivileges () {
     $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
     $(document).off('click', '#fieldset_delete_user_footer #buttonGo.ajax');
     $(document).off('click', 'a.edit_user_group_anchor.ajax');
@@ -54,7 +58,10 @@ export function teardown1 () {
     $(document).off('change', '#select_authentication_plugin');
 }
 
-export function onload1 () {
+/**
+ * Binding event handlers on page load.
+ */
+function onloadServerPrivileges () {
     /**
      * Display a warning if there is already a user by the name entered as the username.
      */
@@ -65,7 +72,7 @@ export function onload1 () {
             var href = $('form[name=\'usersForm\']').attr('action');
             var params = {
                 'ajax_request' : true,
-                'server' : PMA_commonParams.get('server'),
+                'server' : CommonParams.get('server'),
                 'validate_username' : true,
                 'username' : username
             };
@@ -84,30 +91,30 @@ export function onload1 () {
     /**
      * Indicating password strength
      */
-    var meter_obj;
-    var meter_obj_label;
+    var meterObj;
+    var meterObjLabel;
     var username;
     $(document).on('keyup', '#text_pma_pw', function () {
         // console.log('random');
-        meter_obj = $('#password_strength_meter');
-        meter_obj_label = $('#password_strength');
+        meterObj = $('#password_strength_meter');
+        meterObjLabel = $('#password_strength');
         username = $('input[name="username"]');
         username = username.val();
-        checkPasswordStrength($(this).val(), meter_obj, meter_obj_label, username);
+        checkPasswordStrength($(this).val(), meterObj, meterObjLabel, username);
     });
 
     $(document).on('keyup', '#text_pma_change_pw', function () {
-        meter_obj = $('#change_password_strength_meter');
-        meter_obj_label = $('#change_password_strength');
-        checkPasswordStrength($(this).val(), meter_obj, meter_obj_label, PMA_commonParams.get('user'));
+        meterObj = $('#change_password_strength_meter');
+        meterObjLabel = $('#change_password_strength');
+        checkPasswordStrength($(this).val(), meterObj, meterObjLabel, CommonParams.get('user'));
     });
 
     /**
      * Display a notice if sha256_password is selected
      */
     $(document).on('change', '#select_authentication_plugin', function () {
-        var selected_plugin = $(this).val();
-        if (selected_plugin === 'sha256_password') {
+        var selectedPlugin = $(this).val();
+        if (selectedPlugin === 'sha256_password') {
             $('#ssl_reqd_warning').show();
         } else {
             $('#ssl_reqd_warning').hide();
@@ -127,19 +134,19 @@ export function onload1 () {
         var $thisButton = $(this);
         var $form = $('#usersForm');
 
-        $thisButton.PMA_confirm(PMA_messages.strDropUserWarning, $form.attr('action'), function (url) {
-            var $drop_users_db_checkbox = $('#checkbox_drop_users_db');
-            if ($drop_users_db_checkbox.is(':checked')) {
-                var is_confirmed = confirm(PMA_messages.strDropDatabaseStrongWarning + '\n' + PMA_sprintf(PMA_messages.strDoYouReally, 'DROP DATABASE'));
-                if (! is_confirmed) {
+        $thisButton.PMA_confirm(messages.strDropUserWarning, $form.attr('action'), function (url) {
+            var $dropUsersDbCheckbox = $('#checkbox_drop_users_db');
+            if ($dropUsersDbCheckbox.is(':checked')) {
+                var isConfirmed = confirm(messages.strDropDatabaseStrongWarning + '\n' + PMA_sprintf(messages.strDoYouReally, 'DROP DATABASE'));
+                if (! isConfirmed) {
                     // Uncheck the drop users database checkbox
-                    $drop_users_db_checkbox.prop('checked', false);
+                    $dropUsersDbCheckbox.prop('checked', false);
                 }
             }
 
-            PMA_ajaxShowMessage(PMA_messages.strRemovingSelectedUsers);
+            PMA_ajaxShowMessage(messages.strRemovingSelectedUsers);
 
-            var argsep = PMA_commonParams.get('arg_separator');
+            var argsep = CommonParams.get('arg_separator');
             $.post(url, $form.serialize() + argsep + 'delete=' + $thisButton.val() + argsep + 'ajax_request=true', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
@@ -150,12 +157,12 @@ export function onload1 () {
                     }
                     // Remove the revoked user from the users list
                     $form.find('input:checkbox:checked').parents('tr').slideUp('medium', function () {
-                        var this_user_initial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
+                        var thisUserInitial = $(this).find('input:checkbox').val().charAt(0).toUpperCase();
                         $(this).remove();
 
-                        // If this is the last user with this_user_initial, remove the link from #initials_table
-                        if ($('#tableuserrights').find('input:checkbox[value^="' + this_user_initial + '"], input:checkbox[value^="' + this_user_initial.toLowerCase() + '"]').length === 0) {
-                            $('#initials_table').find('td > a:contains(' + this_user_initial + ')').parent('td').html(this_user_initial);
+                        // If this is the last user with thisUserInitial, remove the link from #initials_table
+                        if ($('#tableuserrights').find('input:checkbox[value^="' + thisUserInitial + '"], input:checkbox[value^="' + thisUserInitial.toLowerCase() + '"]').length === 0) {
+                            $('#initials_table').find('td > a:contains(' + thisUserInitial + ')').parent('td').html(thisUserInitial);
                         }
 
                         // Re-check the classes of each row
@@ -190,12 +197,12 @@ export function onload1 () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
                     var buttonOptions = {};
-                    buttonOptions[PMA_messages.strGo] = function () {
+                    buttonOptions[messages.strGo] = function () {
                         var usrGroup = $('#changeUserGroupDialog')
                             .find('select[name="userGroup"]')
                             .val();
                         var $message = PMA_ajaxShowMessage();
-                        var argsep = PMA_commonParams.get('arg_separator');
+                        var argsep = CommonParams.get('arg_separator');
                         $.post(
                             'server_privileges.php',
                             $('#changeUserGroupDialog').find('form').serialize() + argsep + 'ajax_request=1',
@@ -217,7 +224,7 @@ export function onload1 () {
                         );
                         $(this).dialog('close');
                     };
-                    buttonOptions[PMA_messages.strClose] = function () {
+                    buttonOptions[messages.strClose] = function () {
                         $(this).dialog('close');
                     };
                     var $dialog = $('<div/>')
@@ -255,15 +262,15 @@ export function onload1 () {
         event.preventDefault();
         // can't export if no users checked
         if ($(this.form).find('input:checked').length === 0) {
-            PMA_ajaxShowMessage(PMA_messages.strNoAccountSelected, 2000, 'success');
+            PMA_ajaxShowMessage(messages.strNoAccountSelected, 2000, 'success');
             return;
         }
         var $msgbox = PMA_ajaxShowMessage();
-        var button_options = {};
-        button_options[PMA_messages.strClose] = function () {
+        var buttonOptions = {};
+        buttonOptions[messages.strClose] = function () {
             $(this).dialog('close');
         };
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         $.post(
             $(this.form).prop('action'),
             $(this.form).serialize() + argsep + 'submit_mult=export' + argsep + 'ajax_request=true',
@@ -274,7 +281,7 @@ export function onload1 () {
                         .dialog({
                             title: data.title,
                             width: 500,
-                            buttons: button_options,
+                            buttons: buttonOptions,
                             close: function () {
                                 $(this).remove();
                             }
@@ -295,10 +302,10 @@ export function onload1 () {
         event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
         /**
-         * @var button_options  Object containing options for jQueryUI dialog buttons
+         * @var buttonOptions  Object containing options for jQueryUI dialog buttons
          */
-        var button_options = {};
-        button_options[PMA_messages.strClose] = function () {
+        var buttonOptions = {};
+        buttonOptions[messages.strClose] = function () {
             $(this).dialog('close');
         };
         $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
@@ -308,7 +315,7 @@ export function onload1 () {
                     .dialog({
                         title: data.title,
                         width: 500,
-                        buttons: button_options,
+                        buttons: buttonOptions,
                         close: function () {
                             $(this).remove();
                         }
@@ -352,7 +359,7 @@ export function onload1 () {
         }); // end $.get
     }); // end of the paginate users table
 
-    $(document).on('change', 'input[name="ssl_type"]', function (e) {
+    $(document).on('change', 'input[name="ssl_type"]', function () {
         var $div = $('#specified_div');
         if ($('#ssl_type_SPECIFIED').is(':checked')) {
             $div.find('input').prop('disabled', false);
@@ -361,7 +368,7 @@ export function onload1 () {
         }
     });
 
-    $(document).on('change', '#checkbox_SSL_priv', function (e) {
+    $(document).on('change', '#checkbox_SSL_priv', function () {
         var $div = $('#require_ssl_div');
         if ($(this).is(':checked')) {
             $div.find('input').prop('disabled', false);
@@ -378,10 +385,10 @@ export function onload1 () {
      */
     var addOrUpdateSubmenu = function () {
         var $topmenu2 = $('#topmenu2');
-        var $edit_user_dialog = $('#edit_user_dialog');
-        var submenu_label;
-        var submenu_link;
-        var link_number;
+        var $editUserDialog = $('#edit_user_dialog');
+        var submenuLabel;
+        var submenuLink;
+        var linkNumber;
 
         // if submenu exists yet, remove it first
         if ($topmenu2.length > 0) {
@@ -392,14 +399,14 @@ export function onload1 () {
         $topmenu2 = $('<ul/>').prop('id', 'topmenu2');
 
         $('#edit_user_dialog .submenu-item').each(function () {
-            submenu_label = $(this).find('legend[data-submenu-label]').data('submenu-label');
+            submenuLabel = $(this).find('legend[data-submenu-label]').data('submenu-label');
 
-            submenu_link = $('<a/>')
+            submenuLink = $('<a/>')
                 .prop('href', '#')
-                .html(submenu_label);
+                .html(submenuLabel);
 
             $('<li/>')
-                .append(submenu_link)
+                .append(submenuLink)
                 .appendTo($topmenu2);
         });
 
@@ -414,15 +421,15 @@ export function onload1 () {
             $(this).addClass('tabactive');
 
             // which section to show now?
-            link_number = $topmenu2.find('a').index($(this));
+            linkNumber = $topmenu2.find('a').index($(this));
             // hide all sections but the one to show
-            $('#edit_user_dialog .submenu-item').hide().eq(link_number).show();
+            $('#edit_user_dialog .submenu-item').hide().eq(linkNumber).show();
         });
 
         // make first menu item active
         // TODO: support URL hash history
         $topmenu2.find('> :first-child a').addClass('tabactive');
-        $edit_user_dialog.prepend($topmenu2);
+        $editUserDialog.prepend($topmenu2);
 
         // hide all sections but the first
         $('#edit_user_dialog .submenu-item').hide().eq(0).show();
@@ -443,3 +450,11 @@ export function onload1 () {
     var windowwidth = $(window).width();
     $('.jsresponsive').css('max-width', (windowwidth - 35) + 'px');
 }
+
+/**
+ * Module export
+ */
+export {
+    onloadServerPrivileges,
+    teardownServerPrivileges
+};

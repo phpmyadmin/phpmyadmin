@@ -9,7 +9,7 @@ import { expandTreeNode,
     PMA_reloadNavigation,
     PMA_navigationTreePagination } from './functions/navigation';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
-import { PMA_commonParams } from './variables/common_params';
+import CommonParams from './variables/common_params';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage, PMA_tooltip } from './utils/show_ajax_messages';
 import { isStorageSupported } from './functions/config';
 /**
@@ -73,7 +73,7 @@ $(function () {
 
     $(document).on('change', '#navi_db_select',  function () {
         if (! $(this).val()) {
-            PMA_commonParams.set('db', '');
+            CommonParams.set('db', '');
             PMA_reloadNavigation();
         }
         $(this).closest('form').trigger('submit');
@@ -242,7 +242,7 @@ $(function () {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
-        ) + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+        ) + CommonParams.get('arg_separator') + 'ajax_request=true';
         var title = PMA_messages.strAddIndex;
         indexEditorDialog(url, title);
     });
@@ -252,7 +252,7 @@ $(function () {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
-        ) + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+        ) + CommonParams.get('arg_separator') + 'ajax_request=true';
         var title = PMA_messages.strEditIndex;
         indexEditorDialog(url, title);
     });
@@ -269,9 +269,9 @@ $(function () {
         $.ajax({
             type: 'POST',
             data: {
-                server: PMA_commonParams.get('server'),
+                server: CommonParams.get('server'),
             },
-            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
+            url: $(this).attr('href') + CommonParams.get('arg_separator') + 'ajax_request=true',
             success: function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_reloadNavigation();
@@ -286,7 +286,7 @@ $(function () {
     $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
-        $.get($(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=1', function (data) {
+        $.get($(this).attr('href') + CommonParams.get('arg_separator') + 'ajax_request=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 var buttonOptions = {};
@@ -320,9 +320,9 @@ $(function () {
         $.ajax({
             type: 'POST',
             data: {
-                server: PMA_commonParams.get('server'),
+                server: CommonParams.get('server'),
             },
-            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
+            url: $(this).attr('href') + CommonParams.get('arg_separator') + 'ajax_request=true',
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
                 if (typeof data !== 'undefined' && data.success === true) {
@@ -355,7 +355,7 @@ $(function () {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
                     : '',
-                server: PMA_commonParams.get('server'),
+                server: CommonParams.get('server'),
             },
             success: function (data) {
                 if (data.changes) {
@@ -388,8 +388,8 @@ $(function () {
             typeof storage.navTreePaths === 'undefined'
         ) {
             PMA_reloadNavigation();
-        } else if (PMA_commonParams.get('server') === storage.server &&
-            PMA_commonParams.get('token') === storage.token
+        } else if (CommonParams.get('server').toString() === storage.server.toString() &&
+            CommonParams.get('token').toString() === storage.token.toString()
         ) {
             // Reload the tree to the state before page refresh
             PMA_reloadNavigation(navFilterStateRestore, JSON.parse(storage.navTreePaths));

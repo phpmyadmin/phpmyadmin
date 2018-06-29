@@ -1,10 +1,19 @@
-import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
+import { PMA_ajaxShowMessage,
+    PMA_ajaxRemoveMessage
+} from './utils/show_ajax_messages';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
-import { PMA_commonParams } from './variables/common_params';
+import CommonParams from './variables/common_params';
 import { jQuery as $ } from './utils/extend_jquery';
 import { PMA_getImage } from './functions/get_image';
-import { PMA_ensureNaviSettings, PMA_reloadNavigation,
-    PMA_disableNaviSettings } from './functions/navigation';
+import { PMA_ensureNaviSettings,
+    PMA_reloadNavigation,
+    PMA_disableNaviSettings
+} from './functions/navigation';
 import { isStorageSupported } from './functions/config';
 /**
  * This object handles ajax requests for pages. It also
@@ -299,7 +308,7 @@ export let AJAX = {
         $('html, body').animate({ scrollTop: 0 }, 'fast');
 
         var url = isLink ? href : $(this).attr('action');
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var params = 'ajax_request=true' + argsep + 'ajax_page_request=true';
         var dataPost = AJAX.source.getPostData();
         if (! isLink) {
@@ -366,7 +375,7 @@ export let AJAX = {
      * @return void
      */
     responseHandler: function (data) {
-        // console.log(data);
+        console.log(data);
         if (typeof data === 'undefined' || data === null) {
             return;
         }
@@ -450,7 +459,7 @@ export let AJAX = {
                     $('#selflink').find('> a').attr('href', data._selflink);
                 }
                 if (data._params) {
-                    PMA_commonParams.setAll(data._params);
+                    CommonParams.setAll(data._params);
                 }
                 if (data._scripts) {
                     AJAX.scriptHandler.load(data._scripts);
@@ -575,7 +584,8 @@ export let AJAX = {
             }
             var fileImports = ['server_privileges', 'server_databases', 'error_report', 'navigation', 'server_status_advisor',
                 'server_status_processes', 'server_status_variables', 'server_plugins', 'server_status_sorter', 'server_status_queries',
-                'server_status_monitor', 'server_variables', 'server_user_groups', 'replication', 'export', 'import', 'config'
+                'server_status_monitor', 'server_variables', 'server_user_groups', 'replication', 'export', 'import', 'config',
+                'page_settings', 'shortcuts_handler'
             ];
             if ($.inArray(file, fileImports) !== -1) {
                 console.log('import_check');
@@ -623,10 +633,10 @@ export let AJAX = {
             // Clear loaded scripts if they are from another version of phpMyAdmin.
             // Depends on common params being set before loading scripts in responseHandler
             if (self._scriptsVersion === null) {
-                self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
-            } else if (self._scriptsVersion !== PMA_commonParams.get('PMA_VERSION')) {
+                self._scriptsVersion = CommonParams.get('PMA_VERSION');
+            } else if (self._scriptsVersion !== CommonParams.get('PMA_VERSION')) {
                 self._scripts = [];
-                self._scriptsVersion = PMA_commonParams.get('PMA_VERSION');
+                self._scriptsVersion = CommonParams.get('PMA_VERSION');
             }
             self._scriptsCompleted = false;
             self._scriptsToBeFired = [];
@@ -697,14 +707,14 @@ export let AJAX = {
         //     var check = name.split('_');
         //     if (check[check.length - 1] === 'new.js') {
         //         var script_src = '';
-        //         if (PMA_commonParams.get('environment') === 'development') {
-        //             script_src += 'http://localhost:' + PMA_commonParams.get('webpack_port') + '/js/dist/';
-        //         } else if (PMA_commonParams.get('environment') === 'production') {
+        //         if (CommonParams.get('environment') === 'development') {
+        //             script_src += 'http://localhost:' + CommonParams.get('webpack_port') + '/js/dist/';
+        //         } else if (CommonParams.get('environment') === 'production') {
         //             script_src = 'js/dist/';
         //         }
-        //         script.src = script_src + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+        //         script.src = script_src + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('PMA_VERSION'));
         //     } else {
-        //         script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+        //         script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('PMA_VERSION'));
         //     }
         //     script.async = false;
         //     script.onload = function () {

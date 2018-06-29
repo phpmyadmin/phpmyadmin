@@ -3,9 +3,12 @@
  *
  * @returns void
  */
-import { PMA_commonParams } from '../variables/common_params';
+import CommonParams from '../variables/common_params';
 import { setupRestoreField, setupConfigTabs, setupValidation } from './config';
-
+import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from '../utils/show_ajax_messages';
+import { PMA_Messages as PMA_messages } from '../variables/export_variables';
+import { isStorageSupported } from './config';
+import { configSet, configGet } from '../utils/config';
 /**
  * Traverse the navigation tree backwards to generate all the actual
  * and virtual paths, as well as the positions in the pagination at
@@ -69,8 +72,8 @@ export function navTreeStateUpdate () {
         // content to be stored exceeds storage capacity
         try {
             storage.setItem('navTreePaths', JSON.stringify(traverseNavigationForPaths()));
-            storage.setItem('server', PMA_commonParams.get('server'));
-            storage.setItem('token', PMA_commonParams.get('token'));
+            storage.setItem('server', CommonParams.get('server'));
+            storage.setItem('token', CommonParams.get('token'));
         } catch (error) {
             // storage capacity exceeded & old navigation tree
             // state is no more valid, so remove it
@@ -88,17 +91,17 @@ export function PMA_selectCurrentDb () {
         return false;
     }
 
-    if (PMA_commonParams.get('db')) { // db selected
+    if (CommonParams.get('db')) { // db selected
         $naviDbSelect.show();
     }
 
-    $naviDbSelect.val(PMA_commonParams.get('db'));
-    return $naviDbSelect.val() === PMA_commonParams.get('db');
+    $naviDbSelect.val(CommonParams.get('db'));
+    return $naviDbSelect.val() === CommonParams.get('db');
 }
 
 export function PMA_showCurrentNavigation () {
-    var db = PMA_commonParams.get('db');
-    var table = PMA_commonParams.get('table');
+    var db = CommonParams.get('db');
+    var table = CommonParams.get('table');
     $('#pma_navigation_tree').find('li.selected').removeClass('selected');
     if (db) {
         var $dbItem = findLoadedItem($('#pma_navigation_tree').find('> div'), db, 'database', !table);
@@ -108,7 +111,7 @@ export function PMA_showCurrentNavigation () {
             }
             // If loaded database in navigation is not same as current one
             if ($('#pma_navigation_tree_content').find('span.loaded_db:first').text() !== $('#navi_db_select').val()) {
-                loadChildNodes(false, $('option:selected', $('#navi_db_select')), function (data) {
+                loadChildNodes(false, $('option:selected', $('#navi_db_select')), function () {
                     handleTableOrDb(table, $('#pma_navigation_tree_content'));
                     var $children = $('#pma_navigation_tree_content').children('div.list_container');
                     $children.promise().done(navTreeStateUpdate);
@@ -324,7 +327,7 @@ export function loadChildNodes (isNode, $expandElem, callback) {
             if (window.location.href.indexOf('?') === -1) {
                 window.location.href += '?session_expired=1';
             } else {
-                window.location.href += PMA_commonParams.get('arg_separator') + 'session_expired=1';
+                window.location.href += CommonParams.get('arg_separator') + 'session_expired=1';
             }
             window.location.reload();
         } else {
@@ -415,7 +418,7 @@ export function PMA_ensureNaviSettings (selflink) {
     if (!$('#pma_navigation_settings').length) {
         var params = {
             getNaviSettings: true,
-            server: PMA_commonParams.get('server'),
+            server: CommonParams.get('server'),
         };
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
         $.post(url, params, function (data) {
@@ -496,7 +499,6 @@ export function navFilterStateRestore () {
         ) {
             let $obj = $('#pma_navigation_tree');
             if (! $obj.data('fastFilter')) {
-                console.log('random data');
                 $obj.data(
                     'fastFilter',
                     new PMA_fastFilter.filter($obj, '')
@@ -527,7 +529,6 @@ export function navFilterStateRestore () {
                     return true;
                 }
                 if (! $obj.data('fastFilter')) {
-                    console.log('random data');
                     $obj.data(
                         'fastFilter',
                         new PMA_fastFilter.filter($obj, '')
@@ -692,7 +693,7 @@ export var PMA_fastFilter = {
      *                  at the top of this file
      */
     events: {
-        focus: function (event) {
+        focus: function () {
             var $obj = $(this).closest('div.list_container');
             if (! $obj.data('fastFilter')) {
                 $obj.data(
@@ -706,7 +707,7 @@ export var PMA_fastFilter = {
                 $(this).select();
             }
         },
-        blur: function (event) {
+        blur: function () {
             if ($(this).val() === '') {
                 $(this).val(this.defaultValue);
             }
@@ -854,7 +855,7 @@ PMA_fastFilter.filter.prototype.request = function () {
     if (self.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length === 0) {
         var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
         if ($input.length && $input.val() !== $input[0].defaultValue) {
-            params += PMA_commonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
+            params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent($input.val());
         }
     }
     self.xhr = $.ajax({
@@ -1086,7 +1087,7 @@ export var ResizeHandler = function () {
      *
      * @return void
      */
-    this.treeResize = function (event) {
+    this.treeResize = function () {
         var $nav        = $('#pma_navigation');
         var $nav_tree   = $('#pma_navigation_tree');
         var $nav_header = $('#pma_navigation_header');
@@ -1137,12 +1138,12 @@ export function PMA_reloadNavigation (callback, paths) {
     var params = {
         reload: true,
         no_debug: true,
-        server: PMA_commonParams.get('server'),
+        server: CommonParams.get('server'),
     };
     paths = paths || traverseNavigationForPaths();
     $.extend(params, paths);
     if ($('#navi_db_select').length) {
-        params.db = PMA_commonParams.get('db');
+        params.db = CommonParams.get('db');
         requestNaviReload(params);
         return;
     }
@@ -1189,18 +1190,18 @@ export function PMA_navigationTreePagination ($this) {
         params = 'ajax_request=true';
     } else { // tagName === 'SELECT'
         url = 'navigation.php';
-        params = $this.closest('form').serialize() + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+        params = $this.closest('form').serialize() + CommonParams.get('arg_separator') + 'ajax_request=true';
     }
     var searchClause = PMA_fastFilter.getSearchClause();
     if (searchClause) {
-        params += PMA_commonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
+        params += CommonParams.get('arg_separator') + 'searchClause=' + encodeURIComponent(searchClause);
     }
     if (isDbSelector) {
-        params += PMA_commonParams.get('arg_separator') + 'full=true';
+        params += CommonParams.get('arg_separator') + 'full=true';
     } else {
         var searchClause2 = PMA_fastFilter.getSearchClause2($this);
         if (searchClause2) {
-            params += PMA_commonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
+            params += CommonParams.get('arg_separator') + 'searchClause2=' + encodeURIComponent(searchClause2);
         }
     }
     $.post(url, params, function (data) {

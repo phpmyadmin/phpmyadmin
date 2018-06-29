@@ -1,3 +1,6 @@
+import { PMA_ajaxShowMessage } from '../utils/show_ajax_messages';
+import { PMA_Messages as messages } from '../variables/export_variables';
+import CommonParams from '../variables/common_params';
 /**
  * Functions used in the export tab
  *
@@ -5,7 +8,7 @@
 /**
  * Disables the "Dump some row(s)" sub-options
  */
-export function disable_dump_some_rows_sub_options () {
+export function disableDumpSomeRowsSubOptions () {
     $('label[for=\'limit_to\']').fadeTo('fast', 0.4);
     $('label[for=\'limit_from\']').fadeTo('fast', 0.4);
     $('input[type=\'text\'][name=\'limit_to\']').prop('disabled', 'disabled');
@@ -15,7 +18,7 @@ export function disable_dump_some_rows_sub_options () {
 /**
  * Enables the "Dump some row(s)" sub-options
  */
-export function enable_dump_some_rows_sub_options () {
+export function enableDumpSomeRowsSubOptions () {
     $('label[for=\'limit_to\']').fadeTo('fast', 1);
     $('label[for=\'limit_from\']').fadeTo('fast', 1);
     $('input[type=\'text\'][name=\'limit_to\']').prop('disabled', '');
@@ -71,9 +74,9 @@ export function createTemplate (name) {
 
     var params = {
         ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
+        server : CommonParams.get('server'),
+        db : CommonParams.get('db'),
+        table : CommonParams.get('table'),
         exportType : $('input[name="export_type"]').val(),
         templateAction : 'create',
         templateName : name,
@@ -90,7 +93,7 @@ export function createTemplate (name) {
                     $(this).prop('selected', true);
                 }
             });
-            PMA_ajaxShowMessage(PMA_messages.strTemplateCreated);
+            PMA_ajaxShowMessage(messages.strTemplateCreated);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
@@ -105,9 +108,9 @@ export function createTemplate (name) {
 export function loadTemplate (id) {
     var params = {
         ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
+        server : CommonParams.get('server'),
+        db : CommonParams.get('db'),
+        table : CommonParams.get('table'),
         exportType : $('input[name="export_type"]').val(),
         templateAction : 'load',
         templateId : id,
@@ -137,7 +140,7 @@ export function loadTemplate (id) {
                 }
             });
             $('input[name="template_id"]').val(id);
-            PMA_ajaxShowMessage(PMA_messages.strTemplateLoaded);
+            PMA_ajaxShowMessage(messages.strTemplateLoaded);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
@@ -154,9 +157,9 @@ export function updateTemplate (id) {
 
     var params = {
         ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
+        server : CommonParams.get('server'),
+        db : CommonParams.get('db'),
+        table : CommonParams.get('table'),
         exportType : $('input[name="export_type"]').val(),
         templateAction : 'update',
         templateId : id,
@@ -166,7 +169,7 @@ export function updateTemplate (id) {
     PMA_ajaxShowMessage();
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
-            PMA_ajaxShowMessage(PMA_messages.strTemplateUpdated);
+            PMA_ajaxShowMessage(messages.strTemplateUpdated);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
@@ -181,9 +184,9 @@ export function updateTemplate (id) {
 export function deleteTemplate (id) {
     var params = {
         ajax_request : true,
-        server : PMA_commonParams.get('server'),
-        db : PMA_commonParams.get('db'),
-        table : PMA_commonParams.get('table'),
+        server : CommonParams.get('server'),
+        db : CommonParams.get('db'),
+        table : CommonParams.get('table'),
         exportType : $('input[name="export_type"]').val(),
         templateAction : 'delete',
         templateId : id,
@@ -193,22 +196,22 @@ export function deleteTemplate (id) {
     $.post('tbl_export.php', params, function (response) {
         if (response.success === true) {
             $('#template').find('option[value="' + id + '"]').remove();
-            PMA_ajaxShowMessage(PMA_messages.strTemplateDeleted);
+            PMA_ajaxShowMessage(messages.strTemplateDeleted);
         } else {
             PMA_ajaxShowMessage(response.error, false);
         }
     });
 }
 
-export function setup_table_structure_or_data () {
+export function setupTableStructureOrData () {
     if ($('input[name=\'export_type\']').val() !== 'database') {
         return;
     }
     var pluginName = $('#plugins').find('option:selected').val();
     var formElemName = pluginName + '_structure_or_data';
-    var force_structure_or_data = !($('input[name=\'' + formElemName + '_default\']').length);
+    var forceStructureOrData = !($('input[name=\'' + formElemName + '_default\']').length);
 
-    if (force_structure_or_data === true) {
+    if (forceStructureOrData === true) {
         $('input[name="structure_or_data_forced"]').val(1);
         $('.export_structure input[type="checkbox"], .export_data input[type="checkbox"]')
             .prop('disabled', true);
@@ -219,16 +222,16 @@ export function setup_table_structure_or_data () {
             .prop('disabled', false);
         $('.export_structure, .export_data').fadeTo('fast', 1);
 
-        var structure_or_data = $('input[name="' + formElemName + '_default"]').val();
+        var structureOrData = $('input[name="' + formElemName + '_default"]').val();
 
-        if (structure_or_data === 'structure') {
+        if (structureOrData === 'structure') {
             $('.export_data input[type="checkbox"]')
                 .prop('checked', false);
-        } else if (structure_or_data === 'data') {
+        } else if (structureOrData === 'data') {
             $('.export_structure input[type="checkbox"]')
                 .prop('checked', false);
         }
-        if (structure_or_data === 'structure' || structure_or_data === 'structure_and_data') {
+        if (structureOrData === 'structure' || structureOrData === 'structure_and_data') {
             if (!$('.export_structure input[type="checkbox"]:checked').length) {
                 $('input[name="table_select[]"]:checked')
                     .closest('tr')
@@ -236,7 +239,7 @@ export function setup_table_structure_or_data () {
                     .prop('checked', true);
             }
         }
-        if (structure_or_data === 'data' || structure_or_data === 'structure_and_data') {
+        if (structureOrData === 'data' || structureOrData === 'structure_and_data') {
             if (!$('.export_data input[type="checkbox"]:checked').length) {
                 $('input[name="table_select[]"]:checked')
                     .closest('tr')
@@ -245,9 +248,9 @@ export function setup_table_structure_or_data () {
             }
         }
 
-        check_selected_tables();
-        check_table_select_all();
-        check_table_select_struture_or_data();
+        checkSelectedTables();
+        checkTableSelectAll();
+        checkTableSelectStrutureOrData();
     }
 }
 
@@ -255,7 +258,7 @@ export function setup_table_structure_or_data () {
  * Toggles the hiding and showing of plugin structure-specific and data-specific
  * options
  */
-export function toggle_structure_data_opts () {
+export function toggleStructureDataOpts () {
     var pluginName = $('select#plugins').val();
     var radioFormName = pluginName + '_structure_or_data';
     var dataDiv = '#' + pluginName + '_data';
@@ -277,7 +280,7 @@ export function toggle_structure_data_opts () {
 /**
  * Toggles the disabling of the "save to file" options
  */
-export function toggle_save_to_file () {
+export function toggleSaveToFile () {
     var $ulSaveAsfile = $('#ul_save_asfile');
     if (!$('#radio_dump_asfile').prop('checked')) {
         $ulSaveAsfile.find('> li').fadeTo('fast', 0.4);
@@ -293,7 +296,7 @@ export function toggle_save_to_file () {
 /**
  * For SQL plugin, toggles the disabling of the "display comments" options
  */
-export function toggle_sql_include_comments () {
+export function toggleSqlIncludeComments () {
     $('#checkbox_sql_include_comments').on('change', function () {
         var $ulIncludeComments = $('#ul_include_comments');
         if (!$('#checkbox_sql_include_comments').prop('checked')) {
@@ -311,116 +314,116 @@ export function toggle_sql_include_comments () {
     });
 }
 
-export function check_table_select_all () {
+export function checkTableSelectAll () {
     var total = $('input[name="table_select[]"]').length;
-    var str_checked = $('input[name="table_structure[]"]:checked').length;
-    var data_checked = $('input[name="table_data[]"]:checked').length;
-    var str_all = $('#table_structure_all');
-    var data_all = $('#table_data_all');
+    var strChecked = $('input[name="table_structure[]"]:checked').length;
+    var dataChecked = $('input[name="table_data[]"]:checked').length;
+    var strAll = $('#table_structure_all');
+    var dataAll = $('#table_data_all');
 
-    if (str_checked === total) {
-        str_all
+    if (strChecked === total) {
+        strAll
             .prop('indeterminate', false)
             .prop('checked', true);
-    } else if (str_checked === 0) {
-        str_all
+    } else if (strChecked === 0) {
+        strAll
             .prop('indeterminate', false)
             .prop('checked', false);
     } else {
-        str_all
+        strAll
             .prop('indeterminate', true)
             .prop('checked', false);
     }
 
-    if (data_checked === total) {
-        data_all
+    if (dataChecked === total) {
+        dataAll
             .prop('indeterminate', false)
             .prop('checked', true);
-    } else if (data_checked === 0) {
-        data_all
+    } else if (dataChecked === 0) {
+        dataAll
             .prop('indeterminate', false)
             .prop('checked', false);
     } else {
-        data_all
+        dataAll
             .prop('indeterminate', true)
             .prop('checked', false);
     }
 }
 
-export function check_table_select_struture_or_data () {
-    var str_checked = $('input[name="table_structure[]"]:checked').length;
-    var data_checked = $('input[name="table_data[]"]:checked').length;
-    var auto_increment = $('#checkbox_sql_auto_increment');
+export function checkTableSelectStrutureOrData () {
+    var strChecked = $('input[name="table_structure[]"]:checked').length;
+    var dataChecked = $('input[name="table_data[]"]:checked').length;
+    var autoIncrement = $('#checkbox_sql_auto_increment');
 
     var pluginName = $('select#plugins').val();
     var dataDiv = '#' + pluginName + '_data';
     var structureDiv = '#' + pluginName + '_structure';
 
-    if (str_checked === 0) {
+    if (strChecked === 0) {
         $(structureDiv).slideUp('slow');
     } else {
         $(structureDiv).slideDown('slow');
     }
 
-    if (data_checked === 0) {
+    if (dataChecked === 0) {
         $(dataDiv).slideUp('slow');
-        auto_increment.prop('disabled', true).parent().fadeTo('fast', 0.4);
+        autoIncrement.prop('disabled', true).parent().fadeTo('fast', 0.4);
     } else {
         $(dataDiv).slideDown('slow');
-        auto_increment.prop('disabled', false).parent().fadeTo('fast', 1);
+        autoIncrement.prop('disabled', false).parent().fadeTo('fast', 1);
     }
 }
 
-export function toggle_table_select_all_str () {
-    var str_all = $('#table_structure_all').is(':checked');
-    if (str_all) {
+export function toggleTableSelectAllStr () {
+    var strAll = $('#table_structure_all').is(':checked');
+    if (strAll) {
         $('input[name="table_structure[]"]').prop('checked', true);
     } else {
         $('input[name="table_structure[]"]').prop('checked', false);
     }
 }
 
-export function toggle_table_select_all_data () {
-    var data_all = $('#table_data_all').is(':checked');
-    if (data_all) {
+export function toggleTableSelectAllData () {
+    var dataAll = $('#table_data_all').is(':checked');
+    if (dataAll) {
         $('input[name="table_data[]"]').prop('checked', true);
     } else {
         $('input[name="table_data[]"]').prop('checked', false);
     }
 }
 
-export function check_selected_tables (argument) {
+export function checkSelectedTables () {
     $('.export_table_select tbody tr').each(function () {
-        check_table_selected(this);
+        checkTableSelected(this);
     });
 }
 
-export function check_table_selected (row) {
+export function checkTableSelected (row) {
     var $row = $(row);
-    var table_select = $row.find('input[name="table_select[]"]');
-    var str_check = $row.find('input[name="table_structure[]"]');
-    var data_check = $row.find('input[name="table_data[]"]');
+    var tableSelect = $row.find('input[name="table_select[]"]');
+    var strCheck = $row.find('input[name="table_structure[]"]');
+    var dataCheck = $row.find('input[name="table_data[]"]');
 
-    var data = data_check.is(':checked:not(:disabled)');
-    var structure = str_check.is(':checked:not(:disabled)');
+    var data = dataCheck.is(':checked:not(:disabled)');
+    var structure = strCheck.is(':checked:not(:disabled)');
 
     if (data && structure) {
-        table_select.prop({ checked: true, indeterminate: false });
+        tableSelect.prop({ checked: true, indeterminate: false });
         $row.addClass('marked');
     } else if (data || structure) {
-        table_select.prop({ checked: true, indeterminate: true });
+        tableSelect.prop({ checked: true, indeterminate: true });
         $row.removeClass('marked');
     } else {
-        table_select.prop({ checked: false, indeterminate: false });
+        tableSelect.prop({ checked: false, indeterminate: false });
         $row.removeClass('marked');
     }
 }
 
-export function toggle_table_select (row) {
+export function toggleTableSelect (row) {
     var $row = $(row);
-    var table_selected = $row.find('input[name="table_select[]"]').is(':checked');
+    var tableSelected = $row.find('input[name="table_select[]"]').is(':checked');
 
-    if (table_selected) {
+    if (tableSelected) {
         $row.find('input[type="checkbox"]:not(:disabled)').prop('checked', true);
         $row.addClass('marked');
     } else {
@@ -442,7 +445,7 @@ export function handleAddProcCheckbox () {
 /**
  * Toggles display of options when quick and custom export are selected
  */
-export function toggle_quick_or_custom () {
+export function toggleQuickOrCustom () {
     if ($('input[name=\'quick_or_custom\']').length === 0 // custom_no_form option
         || $('#radio_custom_export').prop('checked') // custom
     ) {
@@ -451,8 +454,8 @@ export function toggle_quick_or_custom () {
         $('#output').show();
         $('#format_specific_opts').show();
         $('#output_quick_export').hide();
-        var selected_plugin_name = $('#plugins').find('option:selected').val();
-        $('#' + selected_plugin_name + '_options').show();
+        var selectedPluginName = $('#plugins').find('option:selected').val();
+        $('#' + selectedPluginName + '_options').show();
     } else { // quick
         $('#databases_and_tables').hide();
         $('#rows').hide();
@@ -462,12 +465,12 @@ export function toggle_quick_or_custom () {
     }
 }
 var time_out;
-export function check_time_out (time_limit) {
-    if (typeof time_limit === 'undefined' || time_limit === 0) {
+export function check_time_out (timeLimit) {
+    if (typeof timeLimit === 'undefined' || timeLimit === 0) {
         return true;
     }
     // margin of one second to avoid race condition to set/access session variable
-    time_limit = time_limit + 1;
+    timeLimit = timeLimit + 1;
     var href = 'export.php';
     var params = {
         'ajax_request' : true,
@@ -479,13 +482,13 @@ export function check_time_out (time_limit) {
             if (data.message === 'timeout') {
                 PMA_ajaxShowMessage(
                     '<div class="error">' +
-                    PMA_messages.strTimeOutError +
+                    messages.strTimeOutError +
                     '</div>',
                     false
                 );
             }
         });
-    }, time_limit * 1000);
+    }, timeLimit * 1000);
 }
 
 /**
@@ -534,7 +537,7 @@ export function aliasSelectHandler (event) {
 export function createAliasModal (event) {
     event.preventDefault();
     var dlgButtons = {};
-    dlgButtons[PMA_messages.strSaveAndClose] = function () {
+    dlgButtons[messages.strSaveAndClose] = function () {
         $(this).dialog('close');
         $('#alias_modal').parent().appendTo($('form[name="dump"]'));
     };
@@ -546,7 +549,7 @@ export function createAliasModal (event) {
         buttons: dlgButtons,
         create: function () {
             $(this).css('maxHeight', $(window).height() - 150);
-            var db = PMA_commonParams.get('db');
+            var db = CommonParams.get('db');
             if (db) {
                 var option = $('<option></option>');
                 option.text(db);
@@ -555,7 +558,7 @@ export function createAliasModal (event) {
             } else {
                 var params = {
                     ajax_request : true,
-                    server : PMA_commonParams.get('server'),
+                    server : CommonParams.get('server'),
                     type: 'list-databases'
                 };
                 $.post('ajax.php', params, function (response) {
