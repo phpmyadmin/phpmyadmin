@@ -7,21 +7,21 @@ import {
     loadTemplate,
     updateTemplate,
     deleteTemplate,
-    toggle_save_to_file,
-    toggle_structure_data_opts,
-    check_table_select_all,
+    toggleSaveToFile,
+    toggleStructureDataOpts,
+    checkTableSelectAll,
     handleAddProcCheckbox,
-    check_table_select_struture_or_data,
-    check_table_selected,
-    toggle_table_select,
-    toggle_table_select_all_str,
-    check_selected_tables,
-    toggle_table_select_all_data,
-    setup_table_structure_or_data,
-    toggle_quick_or_custom,
-    toggle_sql_include_comments,
-    disable_dump_some_rows_sub_options,
-    enable_dump_some_rows_sub_options,
+    checkTableSelectStrutureOrData,
+    checkTableSelected,
+    toggleTableSelect,
+    toggleTableSelectAllStr,
+    checkSelectedTables,
+    toggleTableSelectAllData,
+    setupTableStructureOrData,
+    toggleQuickOrCustom,
+    toggleSqlIncludeComments,
+    disableDumpSomeRowsSubOptions,
+    enableDumpSomeRowsSubOptions,
     aliasToggleRow,
     addAlias,
     createAliasModal
@@ -164,8 +164,8 @@ function onloadExportTemplate () {
 }
 
 function onloadSaveToFile () {
-    toggle_save_to_file();
-    $('input[type=\'radio\'][name=\'output_format\']').on('change', toggle_save_to_file);
+    toggleSaveToFile();
+    $('input[type=\'radio\'][name=\'output_format\']').on('change', toggleSaveToFile);
 }
 
 function onloadExportOptions () {
@@ -192,7 +192,7 @@ function onloadExportOptions () {
         if (forceFile === 'true') {
             if ($('#radio_dump_asfile').prop('checked') !== true) {
                 $('#radio_dump_asfile').prop('checked', true);
-                toggle_save_to_file();
+                toggleSaveToFile();
             }
             $('#radio_view_as_text').prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
@@ -201,42 +201,42 @@ function onloadExportOptions () {
     });
 
     $('input[type=\'radio\'][name$=\'_structure_or_data\']').on('change', function () {
-        toggle_structure_data_opts();
+        toggleStructureDataOpts();
     });
 
     $('input[name="table_select[]"]').on('change', function () {
-        toggle_table_select($(this).closest('tr'));
-        check_table_select_all();
+        toggleTableSelect($(this).closest('tr'));
+        checkTableSelectAll();
         handleAddProcCheckbox();
-        check_table_select_struture_or_data();
+        checkTableSelectStrutureOrData();
     });
 
     $('input[name="table_structure[]"]').on('change', function () {
-        check_table_selected($(this).closest('tr'));
-        check_table_select_all();
+        checkTableSelected($(this).closest('tr'));
+        checkTableSelectAll();
         handleAddProcCheckbox();
-        check_table_select_struture_or_data();
+        checkTableSelectStrutureOrData();
     });
 
     $('input[name="table_data[]"]').on('change', function () {
-        check_table_selected($(this).closest('tr'));
-        check_table_select_all();
+        checkTableSelected($(this).closest('tr'));
+        checkTableSelectAll();
         handleAddProcCheckbox();
-        check_table_select_struture_or_data();
+        checkTableSelectStrutureOrData();
     });
 
     $('#table_structure_all').on('change', function () {
-        toggle_table_select_all_str();
-        check_selected_tables();
+        toggleTableSelectAllStr();
+        checkSelectedTables();
         handleAddProcCheckbox();
-        check_table_select_struture_or_data();
+        checkTableSelectStrutureOrData();
     });
 
     $('#table_data_all').on('change', function () {
-        toggle_table_select_all_data();
-        check_selected_tables();
+        toggleTableSelectAllData();
+        checkSelectedTables();
         handleAddProcCheckbox();
-        check_table_select_struture_or_data();
+        checkTableSelectStrutureOrData();
     });
 
     if ($('input[name=\'export_type\']').val() === 'database') {
@@ -274,17 +274,17 @@ function onloadExportOptions () {
             .parent()
             .fadeTo('fast', 0.4);
 
-        setup_table_structure_or_data();
+        setupTableStructureOrData();
     }
 
     /**
      * Handle force structure_or_data
      */
-    $('#plugins').on('change', setup_table_structure_or_data);
+    $('#plugins').on('change', setupTableStructureOrData);
 }
 
 function onloadExportSubmit () {
-    $('input[type=\'radio\'][name=\'quick_or_custom\']').on('change', toggle_quick_or_custom);
+    $('input[type=\'radio\'][name=\'quick_or_custom\']').on('change', toggleQuickOrCustom);
 
     $('#scroll_to_options_msg').hide();
     $('#format_specific_opts').find('div.format_specific_options')
@@ -296,25 +296,25 @@ function onloadExportSubmit () {
         })
         .find('h3')
         .remove();
-    toggle_quick_or_custom();
-    toggle_structure_data_opts();
-    toggle_sql_include_comments();
-    check_table_select_all();
+    toggleQuickOrCustom();
+    toggleStructureDataOpts();
+    toggleSqlIncludeComments();
+    checkTableSelectAll();
     handleAddProcCheckbox();
 
     /**
      * Initially disables the "Dump some row(s)" sub-options
      */
-    disable_dump_some_rows_sub_options();
+    disableDumpSomeRowsSubOptions();
 
     /**
      * Disables the "Dump some row(s)" sub-options when it is not selected
      */
     $('input[type=\'radio\'][name=\'allrows\']').on('change', function () {
         if ($('input[type=\'radio\'][name=\'allrows\']').prop('checked')) {
-            enable_dump_some_rows_sub_options();
+            enableDumpSomeRowsSubOptions();
         } else {
-            disable_dump_some_rows_sub_options();
+            disableDumpSomeRowsSubOptions();
         }
     });
 

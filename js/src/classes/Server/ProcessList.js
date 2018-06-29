@@ -1,7 +1,7 @@
 import { PMA_ajaxShowMessage } from '../../utils/show_ajax_messages';
 import { PMA_highlightSQL } from '../../utils/sql';
 import { PMA_Messages as PMA_messages } from '../../variables/export_variables';
-import { PMA_commonParams } from '../../variables/common_params';
+import CommonParams from '../../variables/common_params';
 import { PMA_getImage } from '../../functions/get_image';
 import { escapeHtml } from '../../utils/Sanitise';
 import { jQuery as $ } from '../../utils/JqueryExtended';
@@ -35,7 +35,7 @@ class ProcessList {
         this.setRefreshLabel();
         if (this.refreshUrl === null) {
             this.refreshUrl = 'server_status_processes.php' +
-                PMA_commonParams.get('common_query');
+                CommonParams.get('common_query');
         }
         if (this.refreshInterval === null) {
             this.refreshInterval = $('#id_refreshRate').val();

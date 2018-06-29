@@ -211,12 +211,13 @@ class Header
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
-        $this->_scripts->addFile('page_settings.js');
+
         if($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
             $this->_scripts->addFile('drag_drop_import.js');
         }
+        $this->_scripts->addFile('page_settings');
         if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
-            $this->_scripts->addFile('shortcuts_handler.js');
+            $this->_scripts->addFile('shortcuts_handler');
         }
         $this->_scripts->addCode($this->getJsParamsCode());
     }
