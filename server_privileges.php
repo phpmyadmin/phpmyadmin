@@ -152,7 +152,7 @@ if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
 }
 if (! $GLOBALS['is_grantuser'] && !$GLOBALS['is_createuser']) {
     $response->addHTML(Message::notice(
-        __('You do not have privileges to manipulate with the users!')
+        __('You do not have the privileges to administrate the users!')
     )->getDisplay());
 }
 
