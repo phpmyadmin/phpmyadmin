@@ -43,7 +43,6 @@ class ServerEnginesController extends Controller
                 'type' => 'engines',
             ])
         );
-        $html = '';
 
         /**
          * Did the user request information about a certain storage engine?
@@ -56,24 +55,36 @@ class ServerEnginesController extends Controller
             ]);
         } else {
             $engine = StorageEngine::getEngine($_REQUEST['engine']);
-            $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
-            $pageOutput = ! empty($page) ? $engine->getPage($page) : '';
-
-            /**
-             * Displays details about a given Storage Engine
-             */
-            $html = $this->template->render('server/engines/show_engine', [
-                'title' => $engine->getTitle(),
-                'help_page' => $engine->getMysqlHelpPage(),
-                'comment' => $engine->getComment(),
-                'info_pages' => $engine->getInfoPages(),
-                'support' => $engine->getSupportInformationMessage(),
-                'variables' => $engine->getHtmlVariables(),
-                'page_output' => $pageOutput,
-                'page' => $page,
-                'engine' => $_REQUEST['engine'],
-            ]);
+            $html = $this->_getHtmlForShowEngine($engine);
         }
         $this->response->addHTML($html);
+    }
+
+    /**
+     * Returns HTML code for engine inspect
+     *
+     * @param  StorageEngine $engine engine beeing inspected
+     *
+     * @return void
+     */
+    private function _getHtmlForShowEngine(StorageEngine $engine):string
+    {
+        $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
+        $pageOutput = ! empty($page) ? $engine->getPage($page) : '';
+
+        /**
+         * Displays details about a given Storage Engine
+         */
+        return $this->template->render('server/engines/show_engine', [
+            'title' => $engine->getTitle(),
+            'help_page' => $engine->getMysqlHelpPage(),
+            'comment' => $engine->getComment(),
+            'info_pages' => $engine->getInfoPages(),
+            'support' => $engine->getSupportInformationMessage(),
+            'variables' => $engine->getHtmlVariables(),
+            'page_output' => $pageOutput,
+            'page' => $page,
+            'engine' => $_REQUEST['engine'],
+        ]);
     }
 }
