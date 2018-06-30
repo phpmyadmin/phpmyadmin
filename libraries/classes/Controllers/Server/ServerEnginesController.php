@@ -50,33 +50,24 @@ class ServerEnginesController extends Controller
         if (empty($_REQUEST['engine'])
             || ! StorageEngine::isValid($_REQUEST['engine'])
         ) {
-            $this->response->addHTML($this->_getHtmlForAllServerEngines());
+            $html = $this->template->render('server/engines/list_engines', [
+                'engines' => StorageEngine::getStorageEngines(),
+            ]);
         } else {
             $engine = StorageEngine::getEngine($_REQUEST['engine']);
-            $this->response->addHTML($this->_getHtmlForServerEngine($engine));
+            $html = $this->_getHtmlForShowEngine($engine);
         }
+        $this->response->addHTML($html);
     }
 
     /**
-     * Return HTML with all Storage Engine information
+     * Returns HTML code for engine inspect
      *
-     * @return string
+     * @param  StorageEngine $engine engine beeing inspected
+     *
+     * @return void
      */
-    private function _getHtmlForAllServerEngines()
-    {
-        return $this->template->render('server/engines/engines', [
-            'engines' => StorageEngine::getStorageEngines(),
-        ]);
-    }
-
-    /**
-     * Return HTML for a given Storage Engine
-     *
-     * @param StorageEngine $engine storage engine
-     *
-     * @return string
-     */
-    private function _getHtmlForServerEngine(StorageEngine $engine)
+    private function _getHtmlForShowEngine(StorageEngine $engine):string
     {
         $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
         $pageOutput = ! empty($page) ? $engine->getPage($page) : '';
@@ -84,7 +75,7 @@ class ServerEnginesController extends Controller
         /**
          * Displays details about a given Storage Engine
          */
-        return $this->template->render('server/engines/engine', [
+        return $this->template->render('server/engines/show_engine', [
             'title' => $engine->getTitle(),
             'help_page' => $engine->getMysqlHelpPage(),
             'comment' => $engine->getComment(),

@@ -113,30 +113,9 @@ class ServerDatabasesControllerTest extends PmaTestCase
 
         $html = $method->invoke($ctrl, $replication_types);
 
-        //validate 1: General info
-        $this->assertContains(
-            '<div id="tableslistcontainer">',
-            $html
-        );
-
-        //validate 2:ajax Form
-        $this->assertContains(
-            '<form class="ajax" action="server_databases.php" ',
-            $html
-        );
-
-        $this->assertContains(
-            '<table id="tabledatabases" class="data">',
-            $html
-        );
-
         //validate 3: PMA_getHtmlForColumnOrderWithSort
         $this->assertContains(
             '<a href="server_databases.php',
-            $html
-        );
-        $this->assertContains(
-            'sort_by=SCHEMA_NAME',
             $html
         );
 

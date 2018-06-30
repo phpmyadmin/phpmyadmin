@@ -344,6 +344,12 @@ class ServerVariablesController extends Controller
                 ? $this->variable_doc_links[$name] : null;
 
             list($formattedValue, $isHtmlFormatted) = $this->_formatVariable($name, $value);
+            if ($has_session_value) {
+                list($sessionFormattedValue, $sessionIsHtmlFormatted) = $this->_formatVariable(
+                    $name,
+                    $serverVarsSession[$name]
+                );
+            }
 
             $output .= $this->template->render('server/variables/variable_row', [
                 'row_class' => $row_class,
@@ -356,19 +362,10 @@ class ServerVariablesController extends Controller
                 'value' => $formattedValue,
                 'is_superuser' => $this->dbi->isSuperuser(),
                 'is_html_formatted' => $isHtmlFormatted,
+                'has_session_value' => $has_session_value,
+                'session_value' => isset($sessionFormattedValue)?$sessionFormattedValue:null,
+                'session_is_html_formated' => isset($sessionIsHtmlFormatted)?$sessionIsHtmlFormatted:null
             ]);
-
-            if ($has_session_value) {
-                list($formattedValue, $isHtmlFormatted) = $this->_formatVariable(
-                    $name,
-                    $serverVarsSession[$name]
-                );
-                $output .= $this->template->render('server/variables/session_variable_row', [
-                    'row_class' => $row_class,
-                    'value' => $formattedValue,
-                    'is_html_formatted' => $isHtmlFormatted,
-                ]);
-            }
         }
 
         return $output;
