@@ -149,30 +149,29 @@ if (! isset($_REQUEST['resize'])) {
 
     if ($_REQUEST['resize']) {
         $destImage = imagecreatetruecolor($destWidth, $destHeight);
-    }
 
-    // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
-    // $destWidth, $destHeight, $srcWidth, $srcHeight);
-    // better quality but slower:
-    imagecopyresampled(
-        $destImage,
-        $srcImage,
-        0,
-        0,
-        0,
-        0,
-        $destWidth,
-        $destHeight,
-        $srcWidth,
-        $srcHeight
-    );
-
-    if ($_REQUEST['resize'] == 'jpeg') {
-        imagejpeg($destImage, null, 75);
-    }
-    if ($_REQUEST['resize'] == 'png') {
-        imagepng($destImage);
+        // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
+        // $destWidth, $destHeight, $srcWidth, $srcHeight);
+        // better quality but slower:
+        imagecopyresampled(
+            $destImage,
+            $srcImage,
+            0,
+            0,
+            0,
+            0,
+            $destWidth,
+            $destHeight,
+            $srcWidth,
+            $srcHeight
+        );
+        if ($_REQUEST['resize'] == 'jpeg') {
+            imagejpeg($destImage, null, 75);
+        }
+        if ($_REQUEST['resize'] == 'png') {
+            imagepng($destImage);
+        }
+        imagedestroy($destImage);
     }
     imagedestroy($srcImage);
-    imagedestroy($destImage);
 }
