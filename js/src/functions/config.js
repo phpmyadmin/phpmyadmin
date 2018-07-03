@@ -26,7 +26,7 @@ export function isStorageSupported (type, warn) {
     }
     return false;
 }
-/** ******************** Common Functions for Srttings page ****************** */
+/** ******************** Common Functions for Settings page ****************** */
 /**
  * Checks whether field has its default value
  *
@@ -126,6 +126,8 @@ export function setFieldValue (field, field_type, value) {
  * Returns field type
  *
  * @param {Element} field
+ *
+ * @return {string}
  */
 export function getFieldType (field) {
     var $field = $(field);
@@ -321,7 +323,8 @@ export function setupRestoreField () {
             var field_sel;
             if ($(this).hasClass('restore-default')) {
                 field_sel = href;
-                restoreField(field_sel.substr(1), defaultValues);
+                console.log(field_sel);
+                restoreField(field_sel.substr(1));
             } else {
                 field_sel = href.match(/^[^=]+/)[0];
                 var value = href.match(/\=(.+)$/)[1];

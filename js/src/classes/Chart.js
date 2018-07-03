@@ -1,7 +1,14 @@
+import { $ } from '../utils/extend_jquery';
+import 'updated-jqplot';
+import '../../../node_modules/updated-jqplot/dist/plugins/jqplot.pieRenderer';
+import '../../../node_modules/updated-jqplot/dist/plugins/jqplot.highlighter';
+import '../../../node_modules/updated-jqplot/dist/plugins/jqplot.enhancedPieLegendRenderer';
+window.test2 = $;
+
 /**
  * Chart type enumerations
  */
-var ChartType = {
+export var ChartType = {
     LINE : 'line',
     SPLINE : 'spline',
     AREA : 'area',
@@ -15,7 +22,7 @@ var ChartType = {
 /**
  * Column type enumeration
  */
-var ColumnType = {
+export var ColumnType = {
     STRING : 'string',
     NUMBER : 'number',
     BOOLEAN : 'boolean',
@@ -153,7 +160,7 @@ ScatterChart.prototype.validateColumns = function (dataTable) {
 /**
  * The data table contains column information and data for the chart.
  */
-var DataTable = function () {
+export var DataTable = function () {
     var columns = [];
     var data = null;
 

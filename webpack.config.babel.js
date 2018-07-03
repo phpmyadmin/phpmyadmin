@@ -24,11 +24,9 @@ var plugins = [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    // new webpack.ProvidePlugin({
-    //     $: 'jquery',
-    //     jQuery: 'jquery',
-    //     'window.jQuery': 'jquery'
-    // }),
+    new webpack.ProvidePlugin({
+        jQuery: 'jquery'
+    }),
     new plugin()
 ];
 var isProd = false;

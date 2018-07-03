@@ -5,7 +5,7 @@ import 'jquery-ui-timepicker-addon';
 import 'jquery-mousewheel';
 import 'jquery.event.drag';
 import 'jquery-validation';
-import 'tablesorter';
+import '../plugins/jquery/jquery.uitablefilter';
 import { methods } from './menu_resizer';
 import { GlobalVariables, timePicker, validations } from '../variables/export_variables';
 
@@ -13,7 +13,7 @@ import { GlobalVariables, timePicker, validations } from '../variables/export_va
  * Make sure that ajax requests will not be cached
  * by appending a random variable to their parameters
  */
-$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+$.ajaxPrefilter(function (options, originalOptions) {
     var nocache = new Date().getTime() + '' + Math.floor(Math.random() * 1000000);
     if (typeof options.data === 'string') {
         options.data += '&_nocache=' + nocache + '&token=' + encodeURIComponent(PMA_commonParams.get('token'));
@@ -146,6 +146,48 @@ $.fn.PMA_confirm = function (question, url, callbackFn, openCallback) {
 };
 
 /**
+ * jQuery function to sort a table's body after a new row has been appended to it.
+ *
+ * @param string      text_selector   string to select the sortKey's text
+ *
+ * @return jQuery Object for chaining purposes
+ */
+$.fn.PMA_sort_table = function (text_selector) {
+    return this.each(function () {
+        /**
+         * @var table_body  Object referring to the table's <tbody> element
+         */
+        var table_body = $(this);
+        /**
+         * @var rows    Object referring to the collection of rows in {@link table_body}
+         */
+        var rows = $(this).find('tr').get();
+
+        // get the text of the field that we will sort by
+        $.each(rows, function (index, row) {
+            row.sortKey = $.trim($(row).find(text_selector).text().toLowerCase());
+        });
+
+        // get the sorted order
+        rows.sort(function (a, b) {
+            if (a.sortKey < b.sortKey) {
+                return -1;
+            }
+            if (a.sortKey > b.sortKey) {
+                return 1;
+            }
+            return 0;
+        });
+
+        // pull out each row from the table and then append it according to it's order
+        $.each(rows, function (index, row) {
+            $(table_body).append(row);
+            row.sortKey = null;
+        });
+    });
+};
+
+/**
  * Return POST data as stored by Util::linkOrButton
  */
 $.fn.getPostData = function () {
@@ -164,4 +206,6 @@ for (var key in timePicker) {
 
 window.jQ = $;
 
-export const jQuery = $;
+export {
+    $
+};

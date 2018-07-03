@@ -1,7 +1,11 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+import CommonParams from '../../variables/common_params';
+import { PMA_Messages as messages } from '../../variables/export_variables';
 /**
+ * @namespace ConsoleBookmarks
  * Console bookmarks card, and bookmarks items management object
  */
-export default class PMA_consoleBookmarks {
+export default class ConsoleBookmarks {
     constructor (instance) {
         this._bookmarks = [];
         this.pmaConsole = null;
@@ -15,7 +19,7 @@ export default class PMA_consoleBookmarks {
         this.pmaConsole = instance;
         this.initialize();
     }
-    addBookmark (queryString, targetDb, label, isShared, id) {
+    addBookmark (queryString, targetDb, label, isShared) {
         $('#pma_bookmarks').find('.add [name=shared]').prop('checked', false);
         $('#pma_bookmarks').find('.add [name=label]').val('');
         $('#pma_bookmarks').find('.add [name=targetdb]').val('');
@@ -42,7 +46,7 @@ export default class PMA_consoleBookmarks {
     refresh () {
         $.get('import.php',
             { ajax_request: true,
-                server: PMA_commonParams.get('server'),
+                server: CommonParams.get('server'),
                 console_bookmark_refresh: 'refresh' },
             function (data) {
                 if (data.console_message_bookmark) {
@@ -71,7 +75,7 @@ export default class PMA_consoleBookmarks {
         $('#pma_bookmarks').find('.card.add [name=submit]').click(function () {
             if ($('#pma_bookmarks').find('.card.add [name=label]').val().length === 0
                 || self.pmaConsole.pmaConsoleInput.getText('bookmark').length === 0) {
-                alert(PMA_messages.strFormEmpty);
+                alert(messages.strFormEmpty);
                 return;
             }
             $(this).prop('disabled', true);
@@ -80,7 +84,7 @@ export default class PMA_consoleBookmarks {
                     ajax_request: true,
                     console_bookmark_add: 'true',
                     label: $('#pma_bookmarks').find('.card.add [name=label]').val(),
-                    server: PMA_commonParams.get('server'),
+                    server: CommonParams.get('server'),
                     db: $('#pma_bookmarks').find('.card.add [name=targetdb]').val(),
                     bookmark_query: self.pmaConsole.pmaConsoleInput.getText('bookmark'),
                     shared: $('#pma_bookmarks').find('.card.add [name=shared]').prop('checked') },

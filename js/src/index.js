@@ -4,7 +4,7 @@
  * Module import
  */
 import './variables/import_variables';
-import { jQuery as $ } from './utils/extend_jquery';
+import { $ } from './utils/extend_jquery';
 import { AJAX } from './ajax';
 import './variables/get_config';
 import files from './consts/files';
@@ -14,9 +14,6 @@ import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { escapeHtml } from './utils/Sanitise';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 import PMA_commonParams from './variables/common_params';
-
-// console.log(PMA_messages);
-// console.log(PMA_ajaxShowMessage);
 
 /**
  * Page load event handler

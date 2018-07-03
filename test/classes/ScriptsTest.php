@@ -118,6 +118,24 @@ class ScriptsTest extends PmaTestCase
     }
 
     /**
+     * test for addCodeNew
+     *
+     * @return void
+     */
+    public function testAddCodeNew()
+    {
+
+        $this->object->addCode('alert(\'CodeAdded\');');
+
+        $this->assertEquals(
+            '<script data-cfasync="false" type="text/javascript">// <![CDATA[
+            alert(\'CodeAdded\');
+            // ]]></script>',
+            $this->object->getDisplay()
+        );
+    }
+
+    /**
      * test for addCode
      *
      * @return void
@@ -129,10 +147,10 @@ class ScriptsTest extends PmaTestCase
 
         $this->assertEquals(
             '<script data-cfasync="false" type="text/javascript">// <![CDATA[
-alert(\'CodeAdded\');
-AJAX.scriptHandler;
-$(function() {});
-// ]]></script>',
+            alert(\'CodeAdded\');
+            AJAX.scriptHandler;
+            $(function() {});
+            // ]]></script>',
             $this->object->getDisplay()
         );
     }

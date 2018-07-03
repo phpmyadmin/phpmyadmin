@@ -10,11 +10,11 @@ import { escapeHtml } from '../utils/Sanitise';
  * which may be an actual file or an icon from a sprite
  *
  * @access public
- * 
+ *
  * @param {string} image      The name of the file to get
- * 
+ *
  * @param {string} alternate  Used to set 'alt' and 'title' attributes of the image
- * 
+ *
  * @param {object} attributes An associative array of other attributes
  *
  * @return {Object} The requested image, this object has two methods:

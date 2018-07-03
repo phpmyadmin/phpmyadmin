@@ -4,11 +4,11 @@
  */
 import { AJAX } from '../ajax';
 import { PMA_Messages as PMA_messages } from '../variables/export_variables';
-import { PMA_commonParams } from '../variables/common_params';
+import PMA_commonParams from '../variables/common_params';
 import { PMA_ajaxShowMessage } from '../utils/show_ajax_messages';
 import { PMA_getImage } from '../functions/get_image';
 import TraceKit from 'tracekit';
-import { jQuery as $ } from '../utils/extend_jquery';
+// import { jQuery as $ } from '../utils/extend_jquery';
 
 /**
  * This Object uses the library TraceKit to generate the backtrace of the
@@ -39,6 +39,7 @@ var ErrorReport = {
      * @return void
      */
     error_handler: function (exception) {
+        console.error(exception);
         if (exception.name === null || typeof(exception.name) === 'undefined') {
             exception.name = ErrorReport._extractExceptionName(exception);
         }

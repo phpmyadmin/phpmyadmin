@@ -21,9 +21,9 @@ require_once 'libraries/common.inc.php';
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('db_search_new.js');
+$scripts->addFile('db_search');
 $scripts->addFile('sql.js');
-$scripts->addFile('makegrid.js');
+// $scripts->addFile('makegrid.js');
 
 require 'libraries/db_common.inc.php';
 

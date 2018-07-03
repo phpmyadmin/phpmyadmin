@@ -1,26 +1,11 @@
-import { jQuery as $ } from './utils/extend_jquery';
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
-// TODO: tablesorter shouldn't sort already sorted columns
-export function initTableSorter (tabid) {
-    var $table;
-    var opts;
-    switch (tabid) {
-    case 'statustabs_queries':
-        $table = $('#serverstatusqueriesdetails');
-        opts = {
-            sortList: [[3, 1]],
-            headers: {
-                // 1: { sorter: 'fancyNumber' },
-                // 2: { sorter: 'fancyNumber' }
-            }
-        };
-        break;
-    }
-    $table.tablesorter(opts);
-    $table.find('tr:first th')
-        .append('<div class="sorticon"></div>')
-        .addClass('header');
-}
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
+import { $ } from './utils/extend_jquery';
+import 'tablesorter';
+import { PMA_Messages as messages } from './variables/export_variables';
 
 $(function () {
     $.tablesorter.addParser({
@@ -30,8 +15,8 @@ $(function () {
         },
         format: function (s) {
             var num = $.tablesorter.formatFloat(
-                s.replace(PMA_messages.strThousandsSeparator, '')
-                    .replace(PMA_messages.strDecimalSeparator, '.')
+                s.replace(messages.strThousandsSeparator, '')
+                    .replace(messages.strDecimalSeparator, '.')
             );
 
             var factor = 1;

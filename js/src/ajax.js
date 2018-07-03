@@ -8,13 +8,14 @@ import { PMA_ajaxShowMessage,
 } from './utils/show_ajax_messages';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import CommonParams from './variables/common_params';
-import { jQuery as $ } from './utils/extend_jquery';
+// import { jQuery as $ } from './utils/extend_jquery';
 import { PMA_getImage } from './functions/get_image';
 import { PMA_ensureNaviSettings,
     PMA_reloadNavigation,
     PMA_disableNaviSettings
 } from './functions/navigation';
 import { isStorageSupported } from './functions/config';
+import PMA_MicroHistory from './classes/MicroHistory';
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
@@ -355,8 +356,6 @@ export let AJAX = {
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
                 AJAX.active = true;
                 AJAX.$msgbox = PMA_ajaxShowMessage();
-                console.log(params);
-                console.log(url);
                 $.post(url, params, AJAX.responseHandler);
             }
         }
@@ -585,7 +584,7 @@ export let AJAX = {
             var fileImports = ['server_privileges', 'server_databases', 'error_report', 'navigation', 'server_status_advisor',
                 'server_status_processes', 'server_status_variables', 'server_plugins', 'server_status_sorter', 'server_status_queries',
                 'server_status_monitor', 'server_variables', 'server_user_groups', 'replication', 'export', 'import', 'config',
-                'page_settings', 'shortcuts_handler'
+                'page_settings', 'shortcuts_handler', 'db_search', 'sql', 'functions'
             ];
             if ($.inArray(file, fileImports) !== -1) {
                 console.log('import_check');

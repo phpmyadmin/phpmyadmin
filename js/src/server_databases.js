@@ -16,9 +16,11 @@ import './variables/import_variables';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 import { escapeHtml } from './utils/Sanitise';
 import { PMA_Messages as messages } from './variables/export_variables';
-import { jQuery as $ } from './utils/extend_jquery';
+import { $ } from './utils/extend_jquery';
 import { AJAX } from './ajax';
 import CommonParams from './variables/common_params';
+import { PMA_reloadNavigation } from './functions/navigation';
+import { getJSConfirmCommonParam } from './functions/Common';
 
 /**
  * @package PhpMyAdmin

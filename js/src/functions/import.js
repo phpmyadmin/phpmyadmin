@@ -14,7 +14,7 @@ import { PMA_Messages as messages } from '../variables/export_variables';
  * according to the currently selected plugin from the dropdown list
  *
  * @access public
- * 
+ *
  * @return {void}
  */
 function changePluginOpts () {
@@ -35,7 +35,7 @@ function changePluginOpts () {
  * in the plugin dropdown list according to the format of the selected file
  *
  * @access public
- * 
+ *
  * @param {string} fname    Name of the file
  *
  * @return {void}

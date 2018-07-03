@@ -2,11 +2,14 @@
  * Creates a Profiling Chart. Used in sql.js
  * and in server_status_monitor.js
  */
+import { $ } from '../utils/extend_jquery';
 import JQPlotChartFactory from '../classes/Chart';
+import { ChartType, ColumnType, DataTable } from '../classes/Chart';
 
-export function PMA_createProfilingChart (target, data) {
+export function createProfilingChart (target, data) {
     // create the chart
     var factory = new JQPlotChartFactory();
+    console.log(factory);
     var chart = factory.createChart(ChartType.PIE, target);
 
     // create the data table and add columns
@@ -62,5 +65,6 @@ export function PMA_createProfilingChart (target, data) {
             '#2e3436'
         ]
     });
+    console.log(chart);
     return chart;
 }

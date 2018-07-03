@@ -36,6 +36,13 @@ class Scripts
      * @var array of strings
      */
     private $_code;
+    /**
+     * An array of discrete javascript code snippets for top script
+     *
+     * @access private
+     * @var array of strings
+     */
+    private $_codeNew;
 
     private $_fileName;
 
@@ -161,6 +168,19 @@ class Scripts
     }
 
     /**
+     * Adds a temporary new code snippet to the code to be executed
+     * at the top of the script before other scripts
+     *
+     * @param string $code The JS code to be added
+     *
+     * @return void
+     */
+    public function addCodeNew($code)
+    {
+        $this->_codeNew .= "$code\n";
+    }
+
+    /**
      * Returns a list with filenames and a flag to indicate
      * whether to register onload events for this file
      *
@@ -190,6 +210,13 @@ class Scripts
     public function getDisplay()
     {
         $retval = '';
+
+        $retval .= '<script data-cfasync="false" type="text/javascript">';
+        $retval .= "// <![CDATA[\n";
+        $retval .= $this->_codeNew;
+        $retval .= '// ]]>';
+        $retval .= '</script>';
+
         if (count($this->_files) > 0) {
             $retval .= $this->_includeFiles(
                 $this->_files

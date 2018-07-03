@@ -1,26 +1,33 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
-import { isStorageSupported, updatePrefsDate, offerPrefsAutoimport,
-    savePrefsToLocalStorage, setupRestoreField, getFieldType,
-    setFieldValue, setupConfigTabs, adjustPrefsNotification, setTab,
-    setupValidation } from './functions/config';
-
-// import ConfigValidate from './classes/Config';
-// let configValidate = new ConfigValidate();
-// let config = new Config();
-// console.log(config);
-
+/**
+ * Module import
+ */
+import {
+    adjustPrefsNotification,
+    getFieldType,
+    isStorageSupported,
+    offerPrefsAutoimport,
+    savePrefsToLocalStorage,
+    setFieldValue,
+    setTab,
+    setupConfigTabs,
+    setupRestoreField,
+    setupValidation,
+    updatePrefsDate
+} from './functions/config';
 import { defaultValues } from './variables/get_config';
 
-// console.log(PMA_messages);
 /**
- * Functions used in configuration forms and on user preferences pages
+ * @package PhpMyAdmin
+ *
+ * Config
  */
 
 /**
  * Unbind all event handlers before tearing down a page
  */
-export function teardown1 () {
+function teardownConfig () {
     $('.optbox input[id], .optbox select[id], .optbox textarea[id]').off('change').off('keyup');
     $('.optbox input[type=button][name=submit_reset]').off('click');
     $('div.tabs_contents').off();
@@ -30,7 +37,7 @@ export function teardown1 () {
     $('#prefs_autoload').find('a').off('click');
 }
 
-export function onload1 () {
+function onloadConfigPrefsTab () {
     var $topmenu_upt = $('#topmenu2.user_prefs_tabs');
     $topmenu_upt.find('li.active a').attr('rel', 'samepage');
     $topmenu_upt.find('li:not(.active) a').attr('rel', 'newpage');
@@ -59,7 +66,7 @@ export function onload1 () {
 //     }
 // }
 
-export function onload2 () {
+function onloadConfigValidations () {
     setupValidation();
 }
 
@@ -71,7 +78,7 @@ export function onload2 () {
 // Tabbed forms
 //
 
-export function onload3 () {
+function onloadConfigTabs () {
     setupConfigTabs();
     adjustPrefsNotification();
 
@@ -102,7 +109,7 @@ export function onload3 () {
 // Form reset buttons
 //
 
-export function onload4 () {
+function onloadConfigResetDefault () {
     $('.optbox input[type=button][name=submit_reset]').on('click', function () {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         for (var i = 0, imax = fields.length; i < imax; i++) {
@@ -119,7 +126,7 @@ export function onload4 () {
 // "Restore default" and "set value" buttons
 //
 
-export function onload5 () {
+function onloadConfigRestore () {
     setupRestoreField();
 }
 
@@ -131,7 +138,7 @@ export function onload5 () {
 // User preferences import/export
 //
 
-export function onload6 () {
+function onloadPreferenceExport () {
     offerPrefsAutoimport();
     var $radios = $('#import_local_storage, #export_local_storage');
     if (!$radios.length) {
@@ -143,31 +150,31 @@ export function onload6 () {
         .prop('disabled', false)
         .add('#export_text_file, #import_text_file')
         .on('click', function () {
-            var enable_id = $(this).attr('id');
-            var disable_id;
-            if (enable_id.match(/local_storage$/)) {
-                disable_id = enable_id.replace(/local_storage$/, 'text_file');
+            var enableId = $(this).attr('id');
+            var disableId;
+            if (enableId.match(/local_storage$/)) {
+                disableId = enableId.replace(/local_storage$/, 'text_file');
             } else {
-                disable_id = enable_id.replace(/text_file$/, 'local_storage');
+                disableId = enableId.replace(/text_file$/, 'local_storage');
             }
-            $('#opts_' + disable_id).addClass('disabled').find('input').prop('disabled', true);
-            $('#opts_' + enable_id).removeClass('disabled').find('input').prop('disabled', false);
+            $('#opts_' + disableId).addClass('disabled').find('input').prop('disabled', true);
+            $('#opts_' + enableId).removeClass('disabled').find('input').prop('disabled', false);
         });
 
     // detect localStorage state
-    var ls_supported = isStorageSupported('localStorage', true);
-    var ls_exists = ls_supported ? (window.localStorage.config || false) : false;
-    $('div.localStorage-' + (ls_supported ? 'un' : '') + 'supported').hide();
-    $('div.localStorage-' + (ls_exists ? 'empty' : 'exists')).hide();
-    if (ls_exists) {
+    var lsSupported = isStorageSupported('localStorage', true);
+    var lsExists = lsSupported ? (window.localStorage.config || false) : false;
+    $('div.localStorage-' + (lsSupported ? 'un' : '') + 'supported').hide();
+    $('div.localStorage-' + (lsExists ? 'empty' : 'exists')).hide();
+    if (lsExists) {
         updatePrefsDate();
     }
     $('form.prefs-form').on('change', function () {
         var $form = $(this);
         var disabled = false;
-        if (!ls_supported) {
+        if (!lsSupported) {
             disabled = $form.find('input[type=radio][value$=local_storage]').prop('checked');
-        } else if (!ls_exists && $form.attr('name') === 'prefs_import' &&
+        } else if (!lsExists && $form.attr('name') === 'prefs_import' &&
             $('#import_local_storage')[0].checked
         ) {
             disabled = true;
@@ -198,3 +205,16 @@ export function onload6 () {
 //
 // END: User preferences import/export
 // ------------------------------------------------------------------
+
+/**
+ * Module export
+ */
+export {
+    teardownConfig,
+    onloadConfigPrefsTab,
+    onloadConfigResetDefault,
+    onloadConfigRestore,
+    onloadConfigTabs,
+    onloadConfigValidations,
+    onloadPreferenceExport
+};

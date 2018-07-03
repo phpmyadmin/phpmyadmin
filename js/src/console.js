@@ -4,15 +4,15 @@
  *
  * @package phpMyAdmin-Console
  */
-import PMA_consoleBookmarks from './classes/Console/PMA_consoleBookmarks';
-import PMA_consoleDebug from './classes/Console/PMA_consoleDebug';
-import PMA_consoleInput from './classes/Console/PMA_consoleInput';
-import PMA_consoleMessages from './classes/Console/PMA_consoleMessages';
-import PMA_consoleResizer from './classes/Console/PMA_ConsoleResizer';
+import ConsoleBookmarks from './classes/Console/PMA_consoleBookmarks';
+import ConsoleDebug from './classes/Console/PMA_consoleDebug';
+import ConsoleInput from './classes/Console/PMA_consoleInput';
+import ConsoleMessages from './classes/Console/PMA_consoleMessages';
+import ConsoleResizer from './classes/Console/PMA_ConsoleResizer';
 /**
  * Console object
  */
-export var PMA_console = {
+var Console = {
     /**
      * @var object, jQuery object, selector is '#pma_console>.content'
      * @access private
@@ -69,18 +69,18 @@ export var PMA_console = {
             return;
         }
 
-        PMA_console.config = configGet('Console', false);
+        Console.config = configGet('Console', false);
 
-        PMA_console.isEnabled = true;
+        Console.isEnabled = true;
 
         // Vars init
-        PMA_console.$consoleToolbar = $('#pma_console').find('>.toolbar');
-        PMA_console.$consoleContent = $('#pma_console').find('>.content');
-        PMA_console.$consoleAllContents = $('#pma_console').find('.content');
-        PMA_console.$consoleTemplates = $('#pma_console').find('>.templates');
+        Console.$consoleToolbar = $('#pma_console').find('>.toolbar');
+        Console.$consoleContent = $('#pma_console').find('>.content');
+        Console.$consoleAllContents = $('#pma_console').find('.content');
+        Console.$consoleTemplates = $('#pma_console').find('>.templates');
 
         // Generate a from for post
-        PMA_console.$requestForm = $('<form method="post" action="import.php">' +
+        Console.$requestForm = $('<form method="post" action="import.php">' +
             '<input name="is_js_confirmed" value="0">' +
             '<textarea name="sql_query"></textarea>' +
             '<input name="console_message_id" value="0">' +
@@ -90,36 +90,37 @@ export var PMA_console = {
             '<input name="token" value="">' +
             '</form>'
         );
-        PMA_console.$requestForm.children('[name=token]').val(PMA_commonParams.get('token'));
-        PMA_console.$requestForm.on('submit', AJAX.requestHandler);
+        Console.$requestForm.children('[name=token]').val(PMA_commonParams.get('token'));
+        Console.$requestForm.on('submit', AJAX.requestHandler);
 
         // Event binds shouldn't run again
-        if (PMA_console.isInitialized === false) {
+        if (Console.isInitialized === false) {
             // Load config first
-            if (PMA_console.config.AlwaysExpand === true) {
+            if (Console.config.AlwaysExpand === true) {
                 $('#pma_console_options input[name=always_expand]').prop('checked', true);
             }
-            if (PMA_console.config.StartHistory === true) {
+            if (Console.config.StartHistory === true) {
                 $('#pma_console_options').find('input[name=start_history]').prop('checked', true);
             }
-            if (PMA_console.config.CurrentQuery === true) {
+            if (Console.config.CurrentQuery === true) {
                 $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
             }
-            if (PMA_console.config.EnterExecutes === true) {
+            if (Console.config.EnterExecutes === true) {
                 $('#pma_console_options').find('input[name=enter_executes]').prop('checked', true);
             }
-            if (PMA_console.config.DarkTheme === true) {
+            if (Console.config.DarkTheme === true) {
                 $('#pma_console_options').find('input[name=dark_theme]').prop('checked', true);
                 $('#pma_console').find('>.content').addClass('console_dark_theme');
             }
 
-            PMA_console.pmaConsoleResizer = new PMA_consoleResizer(PMA_console);
-            PMA_console.pmaConsoleInput = new PMA_consoleInput(PMA_console);
-            PMA_console.pmaConsoleMessages = new PMA_consoleMessages(PMA_console);
-            PMA_console.pmaConsoleBookmarks = new PMA_consoleBookmarks(PMA_console);
-            PMA_console.pmaConsoleDebug = new PMA_consoleDebug(PMA_console);
+            // Instances of helper classes
+            Console.pmaConsoleResizer = new ConsoleResizer(Console);
+            Console.pmaConsoleInput = new ConsoleInput(Console);
+            Console.pmaConsoleMessages = new ConsoleMessages(Console);
+            Console.pmaConsoleBookmarks = new ConsoleBookmarks(Console);
+            Console.pmaConsoleDebug = new ConsoleDebug(Console);
 
-            PMA_console.$consoleToolbar.children('.console_switch').click(PMA_console.toggle);
+            Console.$consoleToolbar.children('.console_switch').click(Console.toggle);
 
             $('#pma_console').find('.toolbar').children().mousedown(function (event) {
                 event.preventDefault();
@@ -127,42 +128,42 @@ export var PMA_console = {
             });
 
             $('#pma_console').find('.button.clear').click(function () {
-                PMA_console.pmaConsoleMessages.clear();
+                Console.pmaConsoleMessages.clear();
             });
 
             $('#pma_console').find('.button.history').click(function () {
-                PMA_console.pmaConsoleMessages.showHistory();
+                Console.pmaConsoleMessages.showHistory();
             });
 
             $('#pma_console').find('.button.options').click(function () {
-                PMA_console.showCard('#pma_console_options');
+                Console.showCard('#pma_console_options');
             });
 
             $('#pma_console').find('.button.debug').click(function () {
-                PMA_console.showCard('#debug_console');
+                Console.showCard('#debug_console');
             });
 
-            PMA_console.$consoleContent.click(function (event) {
+            Console.$consoleContent.click(function (event) {
                 if (event.target === this) {
-                    PMA_console.pmaConsoleInput.focus();
+                    Console.pmaConsoleInput.focus();
                 }
             });
 
             $('#pma_console').find('.mid_layer').click(function () {
-                PMA_console.hideCard($(this).parent().children('.card'));
+                Console.hideCard($(this).parent().children('.card'));
             });
             $('#debug_console').find('.switch_button').click(function () {
-                PMA_console.hideCard($(this).closest('.card'));
+                Console.hideCard($(this).closest('.card'));
             });
             $('#pma_bookmarks').find('.switch_button').click(function () {
-                PMA_console.hideCard($(this).closest('.card'));
+                Console.hideCard($(this).closest('.card'));
             });
             $('#pma_console_options').find('.switch_button').click(function () {
-                PMA_console.hideCard($(this).closest('.card'));
+                Console.hideCard($(this).closest('.card'));
             });
 
             $('#pma_console_options').find('input[type=checkbox]').change(function () {
-                PMA_console.updateConfig();
+                Console.updateConfig();
             });
 
             $('#pma_console_options').find('.button.default').click(function () {
@@ -171,11 +172,11 @@ export var PMA_console = {
                 $('#pma_console_options').find('input[name=current_query]').prop('checked', true);
                 $('#pma_console_options').find('input[name=enter_executes]').prop('checked', false);
                 $('#pma_console_options').find('input[name=dark_theme]').prop('checked', false);
-                PMA_console.updateConfig();
+                Console.updateConfig();
             });
 
             $('#pma_console_options').find('input[name=enter_executes]').change(function () {
-                PMA_console.pmaConsoleMessages.showInstructions(PMA_console.config.EnterExecutes);
+                Console.pmaConsoleMessages.showInstructions(Console.config.EnterExecutes);
             });
 
             $(document).ajaxComplete(function (event, xhr, ajaxOptions) {
@@ -187,32 +188,32 @@ export var PMA_console = {
                 }
                 try {
                     var data = JSON.parse(xhr.responseText);
-                    PMA_console.ajaxCallback(data);
+                    Console.ajaxCallback(data);
                 } catch (e) {
                     console.trace();
                     console.log('Failed to parse JSON: ' + e.message);
                 }
             });
 
-            PMA_console.isInitialized = true;
+            Console.isInitialized = true;
         }
 
         // Change console mode from cookie
-        switch (PMA_console.config.Mode) {
+        switch (Console.config.Mode) {
         case 'collapse':
-            PMA_console.collapse();
+            Console.collapse();
             break;
             /* jshint -W086 */// no break needed in default section
         case 'info':
             /* jshint +W086 */
-            PMA_console.info();
+            Console.info();
             break;
         case 'show':
-            PMA_console.show(true);
-            PMA_console.scrollBottom();
+            Console.show(true);
+            Console.scrollBottom();
             break;
         default:
-            PMA_console.setConfig('Mode', 'info');
+            Console.setConfig('Mode', 'info');
         }
     },
     /**
@@ -224,40 +225,40 @@ export var PMA_console = {
         if (typeof(queryString) !== 'string' || ! /[a-z]|[A-Z]/.test(queryString)) {
             return;
         }
-        PMA_console.$requestForm.children('textarea').val(queryString);
-        PMA_console.$requestForm.children('[name=server]').attr('value', PMA_commonParams.get('server'));
+        Console.$requestForm.children('textarea').val(queryString);
+        Console.$requestForm.children('[name=server]').attr('value', PMA_commonParams.get('server'));
         if (options && options.db) {
-            PMA_console.$requestForm.children('[name=db]').val(options.db);
+            Console.$requestForm.children('[name=db]').val(options.db);
             if (options.table) {
-                PMA_console.$requestForm.children('[name=table]').val(options.table);
+                Console.$requestForm.children('[name=table]').val(options.table);
             } else {
-                PMA_console.$requestForm.children('[name=table]').val('');
+                Console.$requestForm.children('[name=table]').val('');
             }
         } else {
-            PMA_console.$requestForm.children('[name=db]').val(
+            Console.$requestForm.children('[name=db]').val(
                 (PMA_commonParams.get('db').length > 0 ? PMA_commonParams.get('db') : ''));
         }
-        PMA_console.$requestForm.find('[name=profiling]').remove();
+        Console.$requestForm.find('[name=profiling]').remove();
         if (options && options.profiling === true) {
-            PMA_console.$requestForm.append('<input name="profiling" value="on">');
+            Console.$requestForm.append('<input name="profiling" value="on">');
         }
-        if (! confirmQuery(PMA_console.$requestForm[0], PMA_console.$requestForm.children('textarea')[0].value)) {
+        if (! confirmQuery(Console.$requestForm[0], Console.$requestForm.children('textarea')[0].value)) {
             return;
         }
-        PMA_console.$requestForm.children('[name=console_message_id]')
-            .val(PMA_console.pmaConsoleMessages.appendQuery({ sql_query: queryString }).message_id);
-        PMA_console.$requestForm.trigger('submit');
-        PMA_console.pmaConsoleInput.clear();
+        Console.$requestForm.children('[name=console_message_id]')
+            .val(Console.pmaConsoleMessages.appendQuery({ sql_query: queryString }).message_id);
+        Console.$requestForm.trigger('submit');
+        Console.pmaConsoleInput.clear();
         PMA_reloadNavigation();
     },
     ajaxCallback: function (data) {
         if (data && data.console_message_id) {
-            PMA_console.pmaConsoleMessages.updateQuery(data.console_message_id, data.success,
+            Console.pmaConsoleMessages.updateQuery(data.console_message_id, data.success,
                 (data._reloadQuerywindow ? data._reloadQuerywindow : false));
         } else if (data && data._reloadQuerywindow) {
             if (data._reloadQuerywindow.sql_query.length > 0) {
-                PMA_console.pmaConsoleMessages.appendQuery(data._reloadQuerywindow, 'successed')
-                    .$message.addClass(PMA_console.config.CurrentQuery ? '' : 'hide');
+                Console.pmaConsoleMessages.appendQuery(data._reloadQuerywindow, 'successed')
+                    .$message.addClass(Console.config.CurrentQuery ? '' : 'hide');
             }
         }
     },
@@ -267,18 +268,18 @@ export var PMA_console = {
      * @return void
      */
     collapse: function () {
-        PMA_console.setConfig('Mode', 'collapse');
-        var pmaConsoleHeight = Math.max(92, PMA_console.config.Height);
+        Console.setConfig('Mode', 'collapse');
+        var pmaConsoleHeight = Math.max(92, Console.config.Height);
 
-        PMA_console.$consoleToolbar.addClass('collapsed');
-        PMA_console.$consoleAllContents.height(pmaConsoleHeight);
-        PMA_console.$consoleContent.stop();
-        PMA_console.$consoleContent.animate({ 'margin-bottom': -1 * PMA_console.$consoleContent.outerHeight() + 'px' },
+        Console.$consoleToolbar.addClass('collapsed');
+        Console.$consoleAllContents.height(pmaConsoleHeight);
+        Console.$consoleContent.stop();
+        Console.$consoleContent.animate({ 'margin-bottom': -1 * Console.$consoleContent.outerHeight() + 'px' },
             'fast', 'easeOutQuart', function () {
-                PMA_console.$consoleContent.css({ display:'none' });
+                Console.$consoleContent.css({ display:'none' });
                 $(window).trigger('resize');
             });
-        PMA_console.hideCard();
+        Console.hideCard();
     },
     /**
      * Show console
@@ -287,21 +288,21 @@ export var PMA_console = {
      * @return void
      */
     show: function (inputFocus) {
-        PMA_console.setConfig('Mode', 'show');
+        Console.setConfig('Mode', 'show');
 
-        var pmaConsoleHeight = Math.max(92, PMA_console.config.Height);
-        pmaConsoleHeight = Math.min(PMA_console.config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight)-25);
-        PMA_console.$consoleContent.css({ display:'block' });
-        if (PMA_console.$consoleToolbar.hasClass('collapsed')) {
-            PMA_console.$consoleToolbar.removeClass('collapsed');
+        var pmaConsoleHeight = Math.max(92, Console.config.Height);
+        pmaConsoleHeight = Math.min(Console.config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight)-25);
+        Console.$consoleContent.css({ display:'block' });
+        if (Console.$consoleToolbar.hasClass('collapsed')) {
+            Console.$consoleToolbar.removeClass('collapsed');
         }
-        PMA_console.$consoleAllContents.height(pmaConsoleHeight);
-        PMA_console.$consoleContent.stop();
-        PMA_console.$consoleContent.animate({ 'margin-bottom': 0 },
+        Console.$consoleAllContents.height(pmaConsoleHeight);
+        Console.$consoleContent.stop();
+        Console.$consoleContent.animate({ 'margin-bottom': 0 },
             'fast', 'easeOutQuart', function () {
                 $(window).trigger('resize');
                 if (inputFocus) {
-                    PMA_console.pmaConsoleInput.focus();
+                    Console.pmaConsoleInput.focus();
                 }
             });
     },
@@ -314,7 +315,7 @@ export var PMA_console = {
      */
     info: function () {
         // Under construction
-        PMA_console.collapse();
+        Console.collapse();
     },
     /**
      * Toggle console mode between collapse/show
@@ -323,13 +324,13 @@ export var PMA_console = {
      * @return void
      */
     toggle: function () {
-        switch (PMA_console.config.Mode) {
+        switch (Console.config.Mode) {
         case 'collapse':
         case 'info':
-            PMA_console.show(true);
+            Console.show(true);
             break;
         case 'show':
-            PMA_console.collapse();
+            Console.collapse();
             break;
         default:
             PMA_consoleInitialize();
@@ -341,7 +342,7 @@ export var PMA_console = {
      * @return void
      */
     scrollBottom: function () {
-        PMA_console.$consoleContent.scrollTop(PMA_console.$consoleContent.prop('scrollHeight'));
+        Console.$consoleContent.scrollTop(Console.$consoleContent.prop('scrollHeight'));
     },
     /**
      * Show card
@@ -367,9 +368,9 @@ export var PMA_console = {
         }
         $card.parent().children('.mid_layer').show().fadeTo(0, 0.15);
         $card.addClass('show');
-        PMA_console.pmaConsoleInput.blur();
+        Console.pmaConsoleInput.blur();
         if ($card.parents('.card').length > 0) {
-            PMA_console.showCard($card.parents('.card'));
+            Console.showCard($card.parents('.card'));
         }
     },
     /**
@@ -394,20 +395,20 @@ export var PMA_console = {
      * @return void
      */
     updateConfig: function () {
-        PMA_console.setConfig('AlwaysExpand', $('#pma_console_options input[name=always_expand]').prop('checked'));
-        PMA_console.setConfig('StartHistory', $('#pma_console_options').find('input[name=start_history]').prop('checked'));
-        PMA_console.setConfig('CurrentQuery', $('#pma_console_options').find('input[name=current_query]').prop('checked'));
-        PMA_console.setConfig('EnterExecutes', $('#pma_console_options').find('input[name=enter_executes]').prop('checked'));
-        PMA_console.setConfig('DarkTheme', $('#pma_console_options').find('input[name=dark_theme]').prop('checked'));
+        Console.setConfig('AlwaysExpand', $('#pma_console_options input[name=always_expand]').prop('checked'));
+        Console.setConfig('StartHistory', $('#pma_console_options').find('input[name=start_history]').prop('checked'));
+        Console.setConfig('CurrentQuery', $('#pma_console_options').find('input[name=current_query]').prop('checked'));
+        Console.setConfig('EnterExecutes', $('#pma_console_options').find('input[name=enter_executes]').prop('checked'));
+        Console.setConfig('DarkTheme', $('#pma_console_options').find('input[name=dark_theme]').prop('checked'));
         /* Setting the dark theme of the console*/
-        if (PMA_console.config.DarkTheme) {
+        if (Console.config.DarkTheme) {
             $('#pma_console').find('>.content').addClass('console_dark_theme');
         } else {
             $('#pma_console').find('>.content').removeClass('console_dark_theme');
         }
     },
     setConfig: function (key, value) {
-        PMA_console.config[key] = value;
+        Console.config[key] = value;
         configSet('Console/' + key, value);
     },
     isSelect: function (queryString) {
@@ -415,3 +416,5 @@ export var PMA_console = {
         return reg_exp.test(queryString);
     }
 }
+
+export default Console;
