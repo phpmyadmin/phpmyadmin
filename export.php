@@ -139,6 +139,7 @@ $post_params = [
         'sql_create_trigger',
         'sql_view_current_user',
         'sql_if_not_exists',
+        'sql_or_replace_view',
         'sql_auto_increment',
         'sql_backquotes',
         'sql_truncate',

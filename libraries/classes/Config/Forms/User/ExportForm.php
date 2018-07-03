@@ -65,6 +65,7 @@ class ExportForm extends BaseForm
                         ':group:end',
                     'Export/sql_create_view' => ':group',
                         'Export/sql_view_current_user',
+                        'Export/sql_or_replace_view',
                         ':group:end',
                     'Export/sql_procedure_function',
                     'Export/sql_create_trigger',
