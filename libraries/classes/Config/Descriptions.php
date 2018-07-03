@@ -391,6 +391,8 @@ class Descriptions
                     'Add IF NOT EXISTS (less efficient as indexes will be generated during'
                     . ' table creation)'
                 );
+            case 'Export_sql_or_replace_view_name':
+                return sprintf(__('%s view'), 'OR REPLACE');
             case 'Export_sql_ignore_name':
                 return __('Use ignore inserts');
             case 'Export_sql_include_comments_name':

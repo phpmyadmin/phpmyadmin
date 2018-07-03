@@ -305,11 +305,21 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($subgroup_create_table);
 
                 // Add view option
+                $subgroup_create_view = new OptionsPropertySubgroup();
                 $leaf = new BoolPropertyItem(
                     'create_view',
                     sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>')
                 );
-                $subgroup->addProperty($leaf);
+                $subgroup_create_view->setSubgroupHeader($leaf);
+
+                $leaf = new BoolPropertyItem(
+                    'or_replace_view',
+                    sprintf(__('%s view'), '<code>OR REPLACE</code>')
+                );
+                $subgroup_create_view->addProperty($leaf);
+
+                $subgroup->addProperty($subgroup_create_view);
+
 
                 $leaf = new BoolPropertyItem(
                     'procedure_function',
@@ -1462,6 +1472,15 @@ class ExportSql extends ExportPlugin
 
         $schema_create .= $new_crlf;
 
+        if (!empty($sql_drop_table)
+            && $GLOBALS['dbi']->getTable($db, $table)->isView()
+        ) {
+            $schema_create .= 'DROP VIEW IF EXISTS '
+                . Util::backquote($table_alias, $sql_backquotes) . ';'
+                . $crlf;
+        }
+
+
         // no need to generate a DROP VIEW here, it was done earlier
         if (!empty($sql_drop_table)
             && !$GLOBALS['dbi']->getTable($db, $table)->isView()
@@ -1535,6 +1554,15 @@ class ExportSql extends ExportPlugin
                     '',
                     $create_query
                 );
+
+                // whether to replace existing view or not
+                if($GLOBALS['sql_or_replace_view']) {
+                    $create_query = preg_replace(
+                        '/^CREATE/',
+                        'CREATE OR REPLACE',
+                        $create_query
+                    );
+                }
             }
 
             // Substitute aliases in `CREATE` query.
