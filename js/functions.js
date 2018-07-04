@@ -155,7 +155,7 @@ function PMA_addDatepicker ($this_element, type, options) {
             }
         }
     };
-    if (type == "time") {
+    if (type == 'time') {
         $this_element.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
         PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTipTime);
@@ -674,7 +674,7 @@ function confirmLink (theLink, theSqlQuery) {
     if (is_confirmed) {
         if (typeof(theLink.href) !== 'undefined') {
             theLink.href += PMA_commonParams.get('arg_separator') + 'is_js_confirmed=1';
-        } else if (typeof(theLink.form) != 'undefined') {
+        } else if (typeof(theLink.form) !== 'undefined') {
             theLink.form.action += '?is_js_confirmed=1';
         }
     }
@@ -3738,9 +3738,9 @@ function indexEditorDialog (url, title, callback_success, callback_failure) {
         var $form = $('#index_frm');
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + "do_save_data=1", function (data) {
-            var $sqlqueryresults = $(".sqlqueryresults");
+        // User wants to submit the form
+        $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'do_save_data=1', function (data) {
+            var $sqlqueryresults = $('.sqlqueryresults');
             if ($sqlqueryresults.length !== 0) {
                 $sqlqueryresults.remove();
             }
@@ -4711,7 +4711,7 @@ $(document).on('keyup', '#filterText', function () {
             $row.removeClass('marked');
         }
     });
-    setTimeout(function(){
+    setTimeout(function () {
         $(checkboxes_sel).trigger('change');
     }, 300);
     $('#filter-rows-count').html(count);
@@ -4942,7 +4942,7 @@ AJAX.registerOnload('functions.js', function () {
  *                  .attr(name, value) - Sets a particular attribute of the IMG
  *                                       tag to the given value
  */
-function PMA_getImage(image, alternate, attributes) {
+function PMA_getImage (image, alternate, attributes) {
     // custom image object, it will eventually be returned by this functions
     var retval = {
         data: {
@@ -5022,18 +5022,17 @@ function PMA_getImage(image, alternate, attributes) {
  * @param  {object}     value       Configuration value.
  * @param  {boolean}    only_local  Configuration type.
  */
-function configSet(key, value, only_local)
-{
+function configSet (key, value, only_local) {
     only_local = (typeof only_local !== 'undefined') ? only_local : false;
     var serialized = JSON.stringify(value);
     localStorage.setItem(key, serialized);
     $.ajax({
-        url: "ajax.php",
-        type: "POST",
-        dataType: "json",
+        url: 'ajax.php',
+        type: 'POST',
+        dataType: 'json',
         data: {
             key: key,
-            type: "config-set",
+            type: 'config-set',
             server: PMA_commonParams.get('server'),
             value: serialized,
         },
@@ -5060,8 +5059,7 @@ function configSet(key, value, only_local)
  *
  * @return {object}                 Configuration value.
  */
-function configGet(key, cached)
-{
+function configGet (key, cached) {
     cached = (typeof cached !== 'undefined') ? cached : true;
     var value = localStorage.getItem(key);
     if (cached && value !== undefined && value !== null) {
@@ -5075,11 +5073,11 @@ function configGet(key, cached)
         // processing cannot continue until that value is found.
         // Another solution is to provide a callback as a parameter.
         async: false,
-        url: "ajax.php",
-        type: "POST",
-        dataType: "json",
+        url: 'ajax.php',
+        type: 'POST',
+        dataType: 'json',
         data: {
-            type: "config-get",
+            type: 'config-get',
             server: PMA_commonParams.get('server'),
             key: key
         },
@@ -5099,7 +5097,7 @@ function configGet(key, cached)
 /**
  * Return POST data as stored by Util::linkOrButton
  */
-jQuery.fn.getPostData = function() {
+jQuery.fn.getPostData = function () {
     var dataPost = this.attr('data-post');
     // Strip possible leading ?
     if (dataPost !== undefined && dataPost.substring(0,1) == '?') {
