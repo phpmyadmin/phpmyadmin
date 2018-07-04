@@ -1396,8 +1396,8 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         var ColorSample = function ColorSample (id) {
-            var title = ['Base Colour','Group Background','Background Color','Navigation Panel','Navigation Hover','Hyperlink Text','Table Row Hover and Selected','Table Header and Footer','Table Header and Footer Background',
-                'Table Row Background','Table Row Alternate Background','Header','Text Color'];
+            var title = ['Base Colour','Group Background','Background Colour','Navigation Panel','Navigation Hover','Hyperlink Text','Table Row Hover and Selected','Table Header and Footer','Table Header and Footer Background',
+                'Table Row Background','Table Row Alternate Background','Header','Text Colour'];
             var node = document.createElement('div');
             node.className = 'sample';
 
@@ -1674,13 +1674,13 @@ var ColorPickerTool = (function ColorPickerTool () {
                     var title = palette.samples[i].node.title;
                     if (title == "Group Background") {
                         var group = palette.samples[i].color;
-                    } if (title == "Background Color") {
+                    } if (title == "Background Colour") {
                         var background = palette.samples[i].color;
                     }
                 }
                 for (var i = 0; i < pallete_size; i++) {
                     var title = palette.samples[i].node.title;
-                    if (title == "Text Color" || title == "Hyperlink Text") {
+                    if (title == "Text Colour" || title == "Hyperlink Text") {
                         palette.samples[i].improveContrastRatio(group , background);
                     }
                 }
@@ -2007,7 +2007,6 @@ AJAX.registerOnload('theme_generator/color_picker.js', function () {
             input.value = tempHex;
             container.appendChild(input);
         }
-        console.log($(this).serialize());
         $.ajax({
             url: 'theme_generator.php',
             type: 'POST',

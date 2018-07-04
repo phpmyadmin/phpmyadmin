@@ -14,12 +14,13 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('theme_generator/color_picker.js');
+$scripts->addFile('theme_generator/preview.js');
 
 $theme = new ThemeGenerator();
 
 $response->addHTML($theme->colorPicker());
 $response->addHTML($theme->form());
-$response->addHTML($theme->navigationPreview());
+$response->addHTML($theme->tablePreview());
 if (isset($_POST['Base_Colour'])) {
     $theme->createFileStructure($_POST);
 }

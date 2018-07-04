@@ -57,9 +57,9 @@ class ThemeGenerator
      *
      * @return string HTML for the preview panels
      */
-    public function navigationPreview()
+    public function tablePreview()
     {
-        $output = $this->template->render('theme_generator/navigation_preview');
+        $output = $this->template->render('theme_generator/table_preview');
         return $output;
     }
 

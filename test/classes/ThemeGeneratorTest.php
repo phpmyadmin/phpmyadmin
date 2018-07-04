@@ -46,6 +46,7 @@ class ThemeGeneratorTest extends PmaTestCase
         $_POST['Table_Row_Hover_and_Selected'] = '#ffffff';
         $_POST['Hyperlink_Text'] = '#ffffff';
         $_POST['Group_Background'] = '#ffffff';
+        $_POST['font'] = 'Arial';
         $this->theme = new ThemeGenerator();
         $this->output = $this->theme->createFileStructure($_POST);
         return $_POST;

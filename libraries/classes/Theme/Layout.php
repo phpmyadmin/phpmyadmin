@@ -50,9 +50,9 @@ class Layout
          * main frame
          */
         // foreground (text) color for the main frame
-        $txt .= '$GLOBALS[\'cfg\'][\'MainColor\']                = \'' . $post['Text_Color'] . '\';';
+        $txt .= '$GLOBALS[\'cfg\'][\'MainColor\']                = \'' . $post['Text_Colour'] . '\';';
         // background for the main frame
-        $txt .= '$GLOBALS[\'cfg\'][\'MainBackground\']           = \'' . $post['Background_Color'] . '\';';
+        $txt .= '$GLOBALS[\'cfg\'][\'MainBackground\']           = \'' . $post['Background_Colour'] . '\';';
         // foreground (text) color of the pointer in browse mode
         $txt .= '$GLOBALS[\'cfg\'][\'BrowsePointerColor\']       = \'#000\';';
         // background of the pointer in browse mode
