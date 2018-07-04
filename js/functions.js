@@ -4713,7 +4713,7 @@ $(document).on('keyup', '#filterText', function () {
     });
     setTimeout(function(){
         $(checkboxes_sel).trigger('change');
-    }, 300);    
+    }, 300);
     $('#filter-rows-count').html(count);
 });
 AJAX.registerOnload('functions.js', function () {
