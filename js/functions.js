@@ -4711,7 +4711,7 @@ $(document).on('keyup', '#filterText', function () {
             $row.removeClass('marked');
         }
     });
-    setTimeout(function(){
+    setTimeout(function () {
         $(checkboxes_sel).trigger('change');
     }, 300);
     $('#filter-rows-count').html(count);
