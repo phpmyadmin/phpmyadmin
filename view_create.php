@@ -196,8 +196,11 @@ $url_params['db'] = $GLOBALS['db'];
 $url_params['reload'] = 1;
 
 echo Template::get('view_create')->render([
-    'ajax_dialog'           => isset($_REQUEST['ajax_dialog']),
-    'text_dir'              => $text_dir,
-    'url_params'            => $url_params,
-    'view'                  => $view,
+    'ajax_dialog' => isset($_REQUEST['ajax_dialog']),
+    'text_dir' => $text_dir,
+    'url_params' => $url_params,
+    'view' => $view,
+    'view_algorithm_options' => $view_algorithm_options,
+    'view_with_options' => $view_with_options,
+    'view_security_options' => $view_security_options,
 ]);
