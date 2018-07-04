@@ -5,27 +5,37 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Config\Forms\User;
 
 use PhpMyAdmin\Config\Forms\BaseForm;
 
+/**
+ * Class ImportForm
+ * @package PhpMyAdmin\Config\Forms\User
+ */
 class ImportForm extends BaseForm
 {
+    /**
+     * @return array
+     */
     public static function getForms()
     {
-        return array(
-            'Import_defaults' => array(
+        return [
+            'Import_defaults' => [
                 'Import/format',
                 'Import/charset',
                 'Import/allow_interrupt',
-                'Import/skip_queries'
-            ),
-            'Sql' => array(
+                'Import/skip_queries',
+                'enable_drag_drop_import'
+            ],
+            'Sql' => [
                 'Import/sql_compatibility',
                 'Import/sql_no_auto_value_on_zero',
                 'Import/sql_read_as_multibytes'
-            ),
-            'Csv' => array(
+            ],
+            'Csv' => [
                 ':group:' . __('CSV'),
                     'Import/csv_replace',
                     'Import/csv_ignore',
@@ -41,18 +51,21 @@ class ImportForm extends BaseForm
                     'Import/ldi_enclosed',
                     'Import/ldi_escaped',
                     'Import/ldi_local_option'
-            ),
-            'Open_Document' => array(
+            ],
+            'Open_Document' => [
                 ':group:' . __('OpenDocument Spreadsheet'),
                     'Import/ods_col_names',
                     'Import/ods_empty_rows',
                     'Import/ods_recognize_percentages',
                     'Import/ods_recognize_currency'
-            ),
+            ],
 
-        );
+        ];
     }
 
+    /**
+     * @return string
+     */
     public static function getName()
     {
         return __('Import');

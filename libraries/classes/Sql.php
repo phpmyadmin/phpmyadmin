@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Bookmark;
@@ -40,11 +42,17 @@ class Sql
     private $relation;
 
     /**
+     * @var Transformations
+     */
+    private $transformations;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->relation = new Relation();
+        $this->transformations = new Transformations();
     }
 
     /**
@@ -75,12 +83,14 @@ class Sql
      * @return void
      */
     private function handleSortOrder(
-        $db, $table, array &$analyzed_sql_results, &$full_sql_query
+        $db,
+        $table,
+        array &$analyzed_sql_results,
+        &$full_sql_query
     ) {
         $pmatable = new Table($table, $db);
 
         if (empty($analyzed_sql_results['order'])) {
-
             // Retrieving the name of the column we should sort after.
             $sortCol = $pmatable->getUiProp(Table::PROP_SORTED_COLUMN);
             if (empty($sortCol)) {
@@ -170,7 +180,7 @@ class Sql
      */
     private function resultSetContainsUniqueKey($db, $table, array $fields_meta)
     {
-        $resultSetColumnNames = array();
+        $resultSetColumnNames = [];
         foreach ($fields_meta as $oneMeta) {
             $resultSetColumnNames[] = $oneMeta->name;
         }
@@ -212,11 +222,11 @@ class Sql
         if ($foreignData['disp_row'] == null) {
             //Handle the case when number of values
             //is more than $cfg['ForeignKeyMaxLimit']
-            $_url_params = array(
+            $_url_params = [
                     'db' => $db,
                     'table' => $table,
                     'field' => $column
-            );
+            ];
 
             $dropdown = '<span class="curr_value">'
                 . htmlspecialchars($_REQUEST['curr_value'])
@@ -255,7 +265,7 @@ class Sql
         if (! empty($profiling_results)) {
             $url_query = isset($url_query)
                 ? $url_query
-                : Url::getCommon(array('db' => $db));
+                : Url::getCommon(['db' => $db]);
 
             $profiling_table = '';
             $profiling_table .= '<fieldset><legend>' . __('Profiling')
@@ -337,11 +347,11 @@ EOT;
     private function analyzeAndGetTableHtmlForProfilingResults(
         $profiling_results
     ) {
-        $profiling_stats = array(
+        $profiling_stats = [
             'total_time' => 0,
-            'states' => array(),
-        );
-        $chart_json = Array();
+            'states' => [],
+        ];
+        $chart_json = [];
         $i = 1;
         $table = '';
         foreach ($profiling_results as $one_result) {
@@ -351,10 +361,10 @@ EOT;
                     += $one_result['Duration'];
                 $states[ucwords($one_result['Status'])]['calls']++;
             } else {
-                $profiling_stats['states'][ucwords($one_result['Status'])] = array(
+                $profiling_stats['states'][ucwords($one_result['Status'])] = [
                     'total_time' => $one_result['Duration'],
                     'calls' => 1,
-                );
+                ];
             }
             $profiling_stats['total_time'] += $one_result['Duration'];
 
@@ -374,7 +384,7 @@ EOT;
                     = $one_result['Duration'];
             }
         }
-        return array($table, $chart_json, $profiling_stats);
+        return [$table, $chart_json, $profiling_stats];
     }
 
     /**
@@ -397,14 +407,17 @@ EOT;
             $table .= '<td align="right">'
                 . Util::formatNumber(
                     100 * ($stats['total_time'] / $profiling_stats['total_time']),
-                    0, 2
+                    0,
+                    2
                 )
             . '%</td>' . "\n";
             $table .= '<td align="right">' . $stats['calls'] . '</td>'
                 . "\n";
             $table .= '<td align="right">'
                 . Util::formatNumber(
-                    $stats['total_time'] / $stats['calls'], 3, 1
+                    $stats['total_time'] / $stats['calls'],
+                    3,
+                    1
                 )
                 . 's<span class="rawvalue hide">'
                 . number_format($stats['total_time'] / $stats['calls'], 8, '.', '')
@@ -430,7 +443,7 @@ EOT;
     {
         $values = $this->getValuesForColumn($db, $table, $column);
         $dropdown = '<option value="">&nbsp;</option>';
-        $dropdown .= $this->getHtmlForOptionsList($values, array($curr_value));
+        $dropdown .= $this->getHtmlForOptionsList($values, [$curr_value]);
         $dropdown = '<select>' . $dropdown . '</select>';
         return $dropdown;
     }
@@ -479,13 +492,18 @@ EOT;
         // fetch the correct full values from the table
         if ($full_values && ! empty($where_clause)) {
             $curr_value = $this->getFullValuesForSetColumn(
-                $db, $table, $column, $where_clause
+                $db,
+                $table,
+                $column,
+                $where_clause
             );
         }
 
         //converts characters of $curr_value to HTML entities
         $converted_curr_value = htmlentities(
-            $curr_value, ENT_COMPAT, "UTF-8"
+            $curr_value,
+            ENT_COMPAT,
+            "UTF-8"
         );
 
         $selected_values = explode(',', $converted_curr_value);
@@ -560,8 +578,14 @@ EOT;
      *
      * @return string $html
      */
-    public function getHtmlForBookmark(array $displayParts, array $cfgBookmark, $sql_query, $db,
-        $table, $complete_query, $bkm_user
+    public function getHtmlForBookmark(
+        array $displayParts,
+        array $cfgBookmark,
+        $sql_query,
+        $db,
+        $table,
+        $complete_query,
+        $bkm_user
     ) {
         if ($displayParts['bkm_form'] == '1'
             && (! empty($cfgBookmark) && empty($_GET['id_bookmark']))
@@ -569,12 +593,12 @@ EOT;
         ) {
             $goto = 'sql.php'
                 . Url::getCommon(
-                    array(
+                    [
                         'db' => $db,
                         'table' => $table,
                         'sql_query' => $sql_query,
-                        'id_bookmark'=> 1,
-                    )
+                        'id_bookmark' => 1,
+                    ]
                 );
             $bkm_sql_query = isset($complete_query) ? $complete_query : $sql_query;
             $html = '<form action="sql.php" method="post"'
@@ -596,7 +620,9 @@ EOT;
             $html .= '<fieldset>';
             $html .= '<legend>';
             $html .= Util::getIcon(
-                'b_bookmark', __('Bookmark this SQL query'), true
+                'b_bookmark',
+                __('Bookmark this SQL query'),
+                true
             );
             $html .= '</legend>';
             $html .= '<div class="formelement">';
@@ -617,7 +643,6 @@ EOT;
                 . ' value="' . __('Bookmark this SQL query') . '" />';
             $html .= '</fieldset>';
             $html .= '</form>';
-
         } else {
             $html = null;
         }
@@ -692,7 +717,7 @@ EOT;
             && (count($analyzed_sql_results['select_tables']) === 1)
             && (empty($analyzed_sql_results['statement']->where)
                 || (count($analyzed_sql_results['statement']->where) == 1
-                    && $analyzed_sql_results['statement']->where[0]->expr ==='1'))
+                    && $analyzed_sql_results['statement']->where[0]->expr === '1'))
             && empty($analyzed_sql_results['group'])
             && ! isset($find_real_end)
             && ! $analyzed_sql_results['is_subquery']
@@ -725,8 +750,10 @@ EOT;
      *
      * @return boolean
      */
-    public function hasNoRightsToDropDatabase(array $analyzed_sql_results,
-        $allowUserDropDatabase, $is_superuser
+    public function hasNoRightsToDropDatabase(
+        array $analyzed_sql_results,
+        $allowUserDropDatabase,
+        $is_superuser
     ) {
         return ! $allowUserDropDatabase
             && isset($analyzed_sql_results['drop_database'])
@@ -745,15 +772,15 @@ EOT;
     private function setColumnProperty($pmatable, $request_index)
     {
         $property_value = array_map('intval', explode(',', $_REQUEST[$request_index]));
-        switch($request_index) {
-        case 'col_order':
-            $property_to_set = Table::PROP_COLUMN_ORDER;
-            break;
-        case 'col_visib':
-            $property_to_set = Table::PROP_COLUMN_VISIB;
-            break;
-        default:
-            $property_to_set = '';
+        switch ($request_index) {
+            case 'col_order':
+                $property_to_set = Table::PROP_COLUMN_ORDER;
+                break;
+            case 'col_visib':
+                $property_to_set = Table::PROP_COLUMN_VISIB;
+                break;
+            default:
+                $property_to_set = '';
         }
         $retval = $pmatable->setUiProp(
             $property_to_set,
@@ -876,7 +903,10 @@ EOT;
             $curr_value = $_REQUEST['curr_value'];
         }
         $dropdown = $this->getHtmlForRelationalColumnDropdown(
-            $db, $table, $column, $curr_value
+            $db,
+            $table,
+            $column,
+            $curr_value
         );
         $response = Response::getInstance();
         $response->addJSON('dropdown', $dropdown);
@@ -899,12 +929,18 @@ EOT;
         $response = Response::getInstance();
         if ($columnType == "enum") {
             $dropdown = $this->getHtmlForEnumColumnDropdown(
-                $db, $table, $column, $curr_value
+                $db,
+                $table,
+                $column,
+                $curr_value
             );
             $response->addJSON('dropdown', $dropdown);
         } else {
             $select = $this->getHtmlForSetColumn(
-                $db, $table, $column, $curr_value
+                $db,
+                $table,
+                $column,
+                $curr_value
             );
             $response->addJSON('select', $select);
         }
@@ -941,18 +977,15 @@ EOT;
             );
             $sql_query = $bookmark->getQuery();
         } else {
-
             $defaultOrderByClause = '';
 
             if (isset($GLOBALS['cfg']['TablePrimaryKeyOrder'])
                 && ($GLOBALS['cfg']['TablePrimaryKeyOrder'] !== 'NONE')
             ) {
-
                 $primaryKey     = null;
                 $primary        = Index::getPrimary($table, $db);
 
                 if ($primary !== false) {
-
                     $primarycols    = $primary->getColumns();
 
                     foreach ($primarycols as $col) {
@@ -966,14 +999,11 @@ EOT;
                             . Util::backquote($primaryKey) . ' '
                             . $GLOBALS['cfg']['TablePrimaryKeyOrder'];
                     }
-
                 }
-
             }
 
             $sql_query = 'SELECT * FROM ' . Util::backquote($table)
                 . $defaultOrderByClause;
-
         }
 
         return $sql_query;
@@ -1012,15 +1042,19 @@ EOT;
      *
      * @return void
      */
-    public function storeTheQueryAsBookmark($db, $bkm_user, $sql_query_for_bookmark,
-        $bkm_label, $bkm_replace
+    public function storeTheQueryAsBookmark(
+        $db,
+        $bkm_user,
+        $sql_query_for_bookmark,
+        $bkm_label,
+        $bkm_replace
     ) {
-        $bfields = array(
+        $bfields = [
             'bkm_database' => $db,
             'bkm_user'  => $bkm_user,
             'bkm_sql_query' => $sql_query_for_bookmark,
             'bkm_label' => $bkm_label,
-        );
+        ];
 
         // Should we replace bookmark?
         if (isset($bkm_replace)) {
@@ -1061,14 +1095,16 @@ EOT;
         $querytime_before = array_sum(explode(' ', microtime()));
 
         $result = @$GLOBALS['dbi']->tryQuery(
-            $full_sql_query, DatabaseInterface::CONNECT_USER, DatabaseInterface::QUERY_STORE
+            $full_sql_query,
+            DatabaseInterface::CONNECT_USER,
+            DatabaseInterface::QUERY_STORE
         );
         $querytime_after = array_sum(explode(' ', microtime()));
 
         // reopen session
         session_start();
 
-        return array($result, $querytime_after - $querytime_before);
+        return [$result, $querytime_after - $querytime_before];
     }
 
     /**
@@ -1148,7 +1184,11 @@ EOT;
      * @return int $unlim_num_rows unlimited number of rows
      */
     private function countQueryResults(
-        $num_rows, $justBrowsing, $db, $table, array $analyzed_sql_results
+        $num_rows,
+        $justBrowsing,
+        $db,
+        $table,
+        array $analyzed_sql_results
     ) {
 
         /* Shortcut for not analyzed/empty query */
@@ -1191,9 +1231,7 @@ EOT;
                     $unlim_num_rows = $GLOBALS['dbi']->getTable($db, $table)
                         ->countRecords(true);
                 }
-
             } else {
-
                 // The SQL_CALC_FOUND_ROWS option of the SELECT statement is used.
 
                 // For UNION statements, only a SQL_CALC_FOUND_ROWS is required
@@ -1242,8 +1280,15 @@ EOT;
      *
      * @return mixed
      */
-    private function executeTheQuery(array $analyzed_sql_results, $full_sql_query, $is_gotofile,
-        $db, $table, $find_real_end, $sql_query_for_bookmark, $extra_data
+    private function executeTheQuery(
+        array $analyzed_sql_results,
+        $full_sql_query,
+        $is_gotofile,
+        $db,
+        $table,
+        $find_real_end,
+        $sql_query_for_bookmark,
+        $extra_data
     ) {
         $response = Response::getInstance();
         $response->getHeader()->getMenu()->setTable($table);
@@ -1278,8 +1323,10 @@ EOT;
             if (! empty($_POST['bkm_label']) && ! empty($sql_query_for_bookmark)) {
                 $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
                 $this->storeTheQueryAsBookmark(
-                    $db, $cfgBookmark['user'],
-                    $sql_query_for_bookmark, $_POST['bkm_label'],
+                    $db,
+                    $cfgBookmark['user'],
+                    $sql_query_for_bookmark,
+                    $_POST['bkm_label'],
                     isset($_POST['bkm_replace']) ? $_POST['bkm_replace'] : null
                 );
             } // end store bookmarks
@@ -1288,7 +1335,8 @@ EOT;
             // (This must be done immediately after the query because
             // mysql_affected_rows() reports about the last query done)
             $num_rows = $this->getNumberOfRowsAffectedOrChanged(
-                $analyzed_sql_results['is_affected'], $result
+                $analyzed_sql_results['is_affected'],
+                $result
             );
 
             // Grabs the profiling results
@@ -1299,11 +1347,16 @@ EOT;
             }
 
             $justBrowsing = $this->isJustBrowsing(
-                $analyzed_sql_results, isset($find_real_end) ? $find_real_end : null
+                $analyzed_sql_results,
+                isset($find_real_end) ? $find_real_end : null
             );
 
             $unlim_num_rows = $this->countQueryResults(
-                $num_rows, $justBrowsing, $db, $table, $analyzed_sql_results
+                $num_rows,
+                $justBrowsing,
+                $db,
+                $table,
+                $analyzed_sql_results
             );
 
             $this->cleanupRelations(
@@ -1325,9 +1378,9 @@ EOT;
             }
         }
 
-        return array($result, $num_rows, $unlim_num_rows,
+        return [$result, $num_rows, $unlim_num_rows,
             isset($profiling_results) ? $profiling_results : null, $extra_data
-        );
+        ];
     }
     /**
      * Delete related transformation information
@@ -1349,7 +1402,7 @@ EOT;
                 && $statement->altered[0]->options->has('DROP')
             ) {
                 if (!empty($statement->altered[0]->field->column)) {
-                    Transformations::clear(
+                    $this->transformations->clear(
                         $db,
                         $table,
                         $statement->altered[0]->field->column
@@ -1357,7 +1410,7 @@ EOT;
                 }
             }
         } elseif ($statement instanceof DropStatement) {
-            Transformations::clear($db, $table);
+            $this->transformations->clear($db, $table);
         }
     }
 
@@ -1370,8 +1423,10 @@ EOT;
      *
      * @return string $message
      */
-    private function getMessageForNoRowsReturned($message_to_show,
-        array $analyzed_sql_results, $num_rows
+    private function getMessageForNoRowsReturned(
+        $message_to_show,
+        array $analyzed_sql_results,
+        $num_rows
     ) {
         if ($analyzed_sql_results['querytype'] == 'DELETE"') {
             $message = Message::getMessageForDeletedRows($num_rows);
@@ -1461,9 +1516,18 @@ EOT;
      *
      * @return string html
      */
-    private function getQueryResponseForNoResultsReturned(array $analyzed_sql_results, $db,
-        $table, $message_to_show, $num_rows, $displayResultsObject, $extra_data,
-        $pmaThemeImage, $result, $sql_query, $complete_query
+    private function getQueryResponseForNoResultsReturned(
+        array $analyzed_sql_results,
+        $db,
+        $table,
+        $message_to_show,
+        $num_rows,
+        $displayResultsObject,
+        $extra_data,
+        $pmaThemeImage,
+        $result,
+        $sql_query,
+        $complete_query
     ) {
         if ($this->isDeleteTransformationInfo($analyzed_sql_results)) {
             $this->deleteTransformationInfo($db, $table, $analyzed_sql_results);
@@ -1474,17 +1538,19 @@ EOT;
         } else {
             $message = $this->getMessageForNoRowsReturned(
                 isset($message_to_show) ? $message_to_show : null,
-                $analyzed_sql_results, $num_rows
+                $analyzed_sql_results,
+                $num_rows
             );
         }
 
         $html_output = '';
         $html_message = Util::getMessage(
-            $message, $GLOBALS['sql_query'], 'success'
+            $message,
+            $GLOBALS['sql_query'],
+            'success'
         );
         $html_output .= $html_message;
         if (!isset($GLOBALS['show_as_php'])) {
-
             if (! empty($GLOBALS['reload'])) {
                 $extra_data['reload'] = 1;
                 $extra_data['db'] = $GLOBALS['db'];
@@ -1499,13 +1565,13 @@ EOT;
             }
 
             $response = Response::getInstance();
-            $response->addJSON(isset($extra_data) ? $extra_data : array());
+            $response->addJSON(isset($extra_data) ? $extra_data : []);
 
             if (!empty($analyzed_sql_results['is_select']) &&
                     !isset($extra_data['error'])) {
                 $url_query = isset($url_query) ? $url_query : null;
 
-                $displayParts = array(
+                $displayParts = [
                     'edit_lnk' => null,
                     'del_lnk' => null,
                     'sort_lnk' => '1',
@@ -1513,13 +1579,20 @@ EOT;
                     'bkm_form' => '1',
                     'text_btn' => '1',
                     'pview_lnk' => '1'
-                );
+                ];
 
                 $html_output .= $this->getHtmlForSqlQueryResultsTable(
                     $displayResultsObject,
-                    $pmaThemeImage, $url_query, $displayParts,
-                    false, 0, $num_rows, true, $result,
-                    $analyzed_sql_results, true
+                    $pmaThemeImage,
+                    $url_query,
+                    $displayParts,
+                    false,
+                    0,
+                    $num_rows,
+                    true,
+                    $result,
+                    $analyzed_sql_results,
+                    true
                 );
 
                 $html_output .= $displayResultsObject->getCreateViewQueryResultOp(
@@ -1531,7 +1604,9 @@ EOT;
                     $html_output .= $this->getHtmlForBookmark(
                         $displayParts,
                         $cfgBookmark,
-                        $sql_query, $db, $table,
+                        $sql_query,
+                        $db,
+                        $table,
                         isset($complete_query) ? $complete_query : $sql_query,
                         $cfgBookmark['user']
                     );
@@ -1575,9 +1650,14 @@ EOT;
      *
      * @return string $html_output
      */
-    private function getHtmlForSqlQueryResults($previous_update_query_html,
-        $profiling_chart_html, $missing_unique_column_msg, $bookmark_created_msg,
-        $table_html, $indexes_problems_html, $bookmark_support_html
+    private function getHtmlForSqlQueryResults(
+        $previous_update_query_html,
+        $profiling_chart_html,
+        $missing_unique_column_msg,
+        $bookmark_created_msg,
+        $table_html,
+        $indexes_problems_html,
+        $bookmark_support_html
     ) {
         //begin the sqlqueryresults div here. container div
         $html_output = '<div class="sqlqueryresults ajax">';
@@ -1634,17 +1714,24 @@ EOT;
      *
      * @return string
      */
-    private function getHtmlForSqlQueryResultsTable($displayResultsObject,
-        $pmaThemeImage, $url_query, array $displayParts,
-        $editable, $unlim_num_rows, $num_rows, $showtable, $result,
-        array $analyzed_sql_results, $is_limited_display = false
+    private function getHtmlForSqlQueryResultsTable(
+        $displayResultsObject,
+        $pmaThemeImage,
+        $url_query,
+        array $displayParts,
+        $editable,
+        $unlim_num_rows,
+        $num_rows,
+        $showtable,
+        $result,
+        array $analyzed_sql_results,
+        $is_limited_display = false
     ) {
         $printview = isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1' ? '1' : null;
         $table_html = '';
         $browse_dist = ! empty($_REQUEST['is_browse_distinct']);
 
         if ($analyzed_sql_results['is_procedure']) {
-
             do {
                 if (! isset($result)) {
                     $result = $GLOBALS['dbi']->storeResult();
@@ -1652,7 +1739,6 @@ EOT;
                 $num_rows = $GLOBALS['dbi']->numRows($result);
 
                 if ($result !== false && $num_rows > 0) {
-
                     $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
                     if (! is_array($fields_meta)) {
                         $fields_cnt = 0;
@@ -1682,7 +1768,7 @@ EOT;
                         $browse_dist
                     );
 
-                    $displayParts = array(
+                    $displayParts = [
                         'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                         'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                         'sort_lnk' => '1',
@@ -1690,7 +1776,7 @@ EOT;
                         'bkm_form' => '1',
                         'text_btn' => '1',
                         'pview_lnk' => '1'
-                    );
+                    ];
 
                     $table_html .= $displayResultsObject->getTable(
                         $result,
@@ -1702,9 +1788,7 @@ EOT;
 
                 $GLOBALS['dbi']->freeResult($result);
                 unset($result);
-
             } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
-
         } else {
             if (isset($result) && $result !== false) {
                 $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
@@ -1719,8 +1803,10 @@ EOT;
                 $analyzed_sql_results['is_func'],
                 $analyzed_sql_results['is_analyse'],
                 $num_rows,
-                $fields_cnt, $GLOBALS['querytime'],
-                $pmaThemeImage, $GLOBALS['text_dir'],
+                $fields_cnt,
+                $GLOBALS['querytime'],
+                $pmaThemeImage,
+                $GLOBALS['text_dir'],
                 $analyzed_sql_results['is_maint'],
                 $analyzed_sql_results['is_explain'],
                 $analyzed_sql_results['is_show'],
@@ -1754,13 +1840,18 @@ EOT;
      *
      * @return string $previous_update_query_html
      */
-    private function getHtmlForPreviousUpdateQuery($disp_query, $showSql, $sql_data,
+    private function getHtmlForPreviousUpdateQuery(
+        $disp_query,
+        $showSql,
+        $sql_data,
         $disp_message
     ) {
         // previous update query (from tbl_replace)
         if (isset($disp_query) && ($showSql == true) && empty($sql_data)) {
             $previous_update_query_html = Util::getMessage(
-                $disp_message, $disp_query, 'success'
+                $disp_message,
+                $disp_query,
+                'success'
             );
         } else {
             $previous_update_query_html = null;
@@ -1841,7 +1932,8 @@ EOT;
                 $check = Index::findDuplicates($tbl_name, $db);
                 if (! empty($check)) {
                     $indexes_problems_html .= sprintf(
-                        __('Problems with indexes of table `%s`'), $tbl_name
+                        __('Problems with indexes of table `%s`'),
+                        $tbl_name
                     );
                     $indexes_problems_html .= $check;
                 }
@@ -1880,10 +1972,24 @@ EOT;
      *
      * @return string html
      */
-    private function getQueryResponseForResultsReturned($result, array $analyzed_sql_results,
-        $db, $table, $message, $sql_data, $displayResultsObject, $pmaThemeImage,
-        $unlim_num_rows, $num_rows, $disp_query, $disp_message, $profiling_results,
-        $query_type, $selectedTables, $sql_query, $complete_query
+    private function getQueryResponseForResultsReturned(
+        $result,
+        array $analyzed_sql_results,
+        $db,
+        $table,
+        $message,
+        $sql_data,
+        $displayResultsObject,
+        $pmaThemeImage,
+        $unlim_num_rows,
+        $num_rows,
+        $disp_query,
+        $disp_message,
+        $profiling_results,
+        $query_type,
+        $selectedTables,
+        $sql_query,
+        $complete_query
     ) {
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
@@ -1933,7 +2039,9 @@ EOT;
         }
 
         $has_unique = $this->resultSetContainsUniqueKey(
-            $db, $table, $fields_meta
+            $db,
+            $table,
+            $fields_meta
         );
 
         $editable = ($has_unique
@@ -1943,7 +2051,7 @@ EOT;
 
         $_SESSION['tmpval']['possible_as_geometry'] = $editable;
 
-        $displayParts = array(
+        $displayParts = [
             'edit_lnk' => $displayResultsObject::UPDATE_ROW,
             'del_lnk' => $displayResultsObject::DELETE_ROW,
             'sort_lnk' => '1',
@@ -1951,10 +2059,10 @@ EOT;
             'bkm_form' => '1',
             'text_btn' => '0',
             'pview_lnk' => '1'
-        );
+        ];
 
         if ($GLOBALS['dbi']->isSystemSchema($db) || !$editable) {
-            $displayParts = array(
+            $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'sort_lnk' => '1',
@@ -1962,11 +2070,10 @@ EOT;
                 'bkm_form' => '1',
                 'text_btn' => '1',
                 'pview_lnk' => '1'
-            );
-
+            ];
         }
         if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
-            $displayParts = array(
+            $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'sort_lnk' => '0',
@@ -1974,7 +2081,7 @@ EOT;
                 'bkm_form' => '0',
                 'text_btn' => '0',
                 'pview_lnk' => '0'
-            );
+            ];
         }
 
         if (isset($_REQUEST['table_maintenance'])) {
@@ -1984,13 +2091,21 @@ EOT;
             if (isset($message)) {
                 $message = Message::success($message);
                 $table_maintenance_html = Util::getMessage(
-                    $message, $GLOBALS['sql_query'], 'success'
+                    $message,
+                    $GLOBALS['sql_query'],
+                    'success'
                 );
             }
             $table_maintenance_html .= $this->getHtmlForSqlQueryResultsTable(
                 $displayResultsObject,
-                $pmaThemeImage, $url_query, $displayParts,
-                false, $unlim_num_rows, $num_rows, $showtable, $result,
+                $pmaThemeImage,
+                $url_query,
+                $displayParts,
+                false,
+                $unlim_num_rows,
+                $num_rows,
+                $showtable,
+                $result,
                 $analyzed_sql_results
             );
             if (empty($sql_data) || ($sql_data['valid_queries'] = 1)) {
@@ -2010,30 +2125,43 @@ EOT;
 
         $previous_update_query_html = $this->getHtmlForPreviousUpdateQuery(
             isset($disp_query) ? $disp_query : null,
-            $GLOBALS['cfg']['ShowSQL'], isset($sql_data) ? $sql_data : null,
+            $GLOBALS['cfg']['ShowSQL'],
+            isset($sql_data) ? $sql_data : null,
             isset($disp_message) ? $disp_message : null
         );
 
         $profiling_chart_html = $this->getHtmlForProfilingChart(
-            $url_query, $db, isset($profiling_results) ? $profiling_results :array()
+            $url_query,
+            $db,
+            isset($profiling_results) ? $profiling_results : []
         );
 
         $missing_unique_column_msg = $this->getMessageIfMissingColumnIndex(
-            $table, $db, $editable, $has_unique
+            $table,
+            $db,
+            $editable,
+            $has_unique
         );
 
         $bookmark_created_msg = $this->getBookmarkCreatedMessage();
 
         $table_html = $this->getHtmlForSqlQueryResultsTable(
             $displayResultsObject,
-            $pmaThemeImage, $url_query, $displayParts,
-            $editable, $unlim_num_rows, $num_rows, $showtable, $result,
+            $pmaThemeImage,
+            $url_query,
+            $displayParts,
+            $editable,
+            $unlim_num_rows,
+            $num_rows,
+            $showtable,
+            $result,
             $analyzed_sql_results
         );
 
         $indexes_problems_html = $this->getHtmlForIndexesProblems(
             isset($query_type) ? $query_type : null,
-            isset($selectedTables) ? $selectedTables : null, $db
+            isset($selectedTables) ? $selectedTables : null,
+            $db
         );
 
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
@@ -2041,7 +2169,9 @@ EOT;
             $bookmark_support_html = $this->getHtmlForBookmark(
                 $displayParts,
                 $cfgBookmark,
-                $sql_query, $db, $table,
+                $sql_query,
+                $db,
+                $table,
                 isset($complete_query) ? $complete_query : $sql_query,
                 $cfgBookmark['user']
             );
@@ -2052,9 +2182,13 @@ EOT;
         $html_output = isset($table_maintenance_html) ? $table_maintenance_html : '';
 
         $html_output .= $this->getHtmlForSqlQueryResults(
-            $previous_update_query_html, $profiling_chart_html,
-            $missing_unique_column_msg, $bookmark_created_msg,
-            $table_html, $indexes_problems_html, $bookmark_support_html
+            $previous_update_query_html,
+            $profiling_chart_html,
+            $missing_unique_column_msg,
+            $bookmark_created_msg,
+            $table_html,
+            $indexes_problems_html,
+            $bookmark_support_html
         );
 
         return $html_output;
@@ -2087,10 +2221,24 @@ EOT;
      *
      * @return void
      */
-    public function executeQueryAndSendQueryResponse($analyzed_sql_results,
-        $is_gotofile, $db, $table, $find_real_end, $sql_query_for_bookmark,
-        $extra_data, $message_to_show, $message, $sql_data, $goto, $pmaThemeImage,
-        $disp_query, $disp_message, $query_type, $sql_query, $selectedTables,
+    public function executeQueryAndSendQueryResponse(
+        $analyzed_sql_results,
+        $is_gotofile,
+        $db,
+        $table,
+        $find_real_end,
+        $sql_query_for_bookmark,
+        $extra_data,
+        $message_to_show,
+        $message,
+        $sql_data,
+        $goto,
+        $pmaThemeImage,
+        $disp_query,
+        $disp_message,
+        $query_type,
+        $sql_query,
+        $selectedTables,
         $complete_query
     ) {
         if ($analyzed_sql_results == null) {
@@ -2160,10 +2308,24 @@ EOT;
      *
      * @return string html
      */
-    public function executeQueryAndGetQueryResponse(array $analyzed_sql_results,
-        $is_gotofile, $db, $table, $find_real_end, $sql_query_for_bookmark,
-        $extra_data, $message_to_show, $message, $sql_data, $goto, $pmaThemeImage,
-        $disp_query, $disp_message, $query_type, $sql_query, $selectedTables,
+    public function executeQueryAndGetQueryResponse(
+        array $analyzed_sql_results,
+        $is_gotofile,
+        $db,
+        $table,
+        $find_real_end,
+        $sql_query_for_bookmark,
+        $extra_data,
+        $message_to_show,
+        $message,
+        $sql_data,
+        $goto,
+        $pmaThemeImage,
+        $disp_query,
+        $disp_message,
+        $query_type,
+        $sql_query,
+        $selectedTables,
         $complete_query
     ) {
         // Handle disable/enable foreign key checks
@@ -2184,11 +2346,13 @@ EOT;
             } else {
                 unset($_SESSION['sql_from_query_box']);
             }
-
         }
 
         $displayResultsObject = new DisplayResults(
-            $GLOBALS['db'], $GLOBALS['table'], $goto, $sql_query
+            $GLOBALS['db'],
+            $GLOBALS['table'],
+            $goto,
+            $sql_query
         );
         $displayResultsObject->setConfigParamsForDisplayTable();
 
@@ -2224,11 +2388,17 @@ EOT;
             || $analyzed_sql_results['is_affected']
         ) {
             $html_output = $this->getQueryResponseForNoResultsReturned(
-                $analyzed_sql_results, $db, $table,
+                $analyzed_sql_results,
+                $db,
+                $table,
                 isset($message_to_show) ? $message_to_show : null,
-                $num_rows, $displayResultsObject, $extra_data,
-                $pmaThemeImage, isset($result) ? $result : null,
-                $sql_query, isset($complete_query) ? $complete_query : null
+                $num_rows,
+                $displayResultsObject,
+                $extra_data,
+                $pmaThemeImage,
+                isset($result) ? $result : null,
+                $sql_query,
+                isset($complete_query) ? $complete_query : null
             );
         } else {
             // At least one row is returned -> displays a table with results

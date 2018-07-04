@@ -6,6 +6,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\TableStructureController;
 use PhpMyAdmin\Di\Container;
@@ -41,7 +42,7 @@ if ($table_class_object->isView()) {
 $tbl_collation = $table_class_object->getCollation();
 $table_info_num_rows = $table_class_object->getNumRows();
 /* Define dependencies for the concerned controller */
-$dependency_definitions = array(
+$dependency_definitions = [
     'db' => $db,
     'table' => $table,
     'db_is_system_schema' => $db_is_system_schema,
@@ -50,7 +51,7 @@ $dependency_definitions = array(
     'table_info_num_rows' => $table_info_num_rows,
     'tbl_collation' => $tbl_collation,
     'showtable' => $GLOBALS['showtable']
-);
+];
 
 /** @var TableStructureController $controller */
 $controller = $container->get('TableStructureController', $dependency_definitions);

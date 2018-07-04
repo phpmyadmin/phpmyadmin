@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Server\Status\Data;
@@ -107,17 +109,17 @@ class Queries
         $retval .= '</thead>';
         $retval .= '<tbody>';
 
-        $chart_json = array();
+        $chart_json = [];
         $query_sum = array_sum($used_queries);
         $other_sum = 0;
         foreach ($used_queries as $name => $value) {
             // For the percentage column, use Questions - Connections, because
             // the number of connections is not an item of the Query types
             // but is included in Questions. Then the total of the percentages is 100.
-            $name = str_replace(array('Com_', '_'), array('', ' '), $name);
+            $name = str_replace(['Com_', '_'], ['', ' '], $name);
             // Group together values that make out less than 2% into "Other", but only
             // if we have more than 6 fractions already
-            if ($value < $query_sum * 0.02 && count($chart_json)>6) {
+            if ($value < $query_sum * 0.02 && count($chart_json) > 6) {
                 $other_sum += $value;
             } else {
                 $chart_json[$name] = $value;

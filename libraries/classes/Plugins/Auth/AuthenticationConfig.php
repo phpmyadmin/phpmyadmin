@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage Config
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -21,6 +23,14 @@ use PhpMyAdmin\Util;
  */
 class AuthenticationConfig extends AuthenticationPlugin
 {
+    /**
+     * AuthenticationConfig constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      * Displays authentication form
      *

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
@@ -23,7 +25,7 @@ class MenuTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         if (!defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
@@ -43,7 +45,7 @@ class MenuTest extends PmaTestCase
      *
      * @return void
      */
-    function testServer()
+    public function testServer()
     {
         $menu = new Menu('server', '', '');
         $this->assertContains(
@@ -57,7 +59,7 @@ class MenuTest extends PmaTestCase
      *
      * @return void
      */
-    function testDatabase()
+    public function testDatabase()
     {
         $menu = new Menu('server', 'pma_test', '');
         $this->assertContains(
@@ -71,7 +73,7 @@ class MenuTest extends PmaTestCase
      *
      * @return void
      */
-    function testTable()
+    public function testTable()
     {
         $menu = new Menu('server', 'pma_test', 'table1');
         $this->assertContains(
@@ -85,7 +87,7 @@ class MenuTest extends PmaTestCase
      *
      * @return void
      */
-    function testTableDisplay()
+    public function testTableDisplay()
     {
         $menu = new Menu('server', 'pma_test', '');
         $this->expectOutputString(
@@ -100,7 +102,7 @@ class MenuTest extends PmaTestCase
      *
      * @return void
      */
-    function testSetTable()
+    public function testSetTable()
     {
         $menu = new Menu('server', 'pma_test', '');
         $menu->setTable('table1');

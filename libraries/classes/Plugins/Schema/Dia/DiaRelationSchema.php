@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
 use PhpMyAdmin\Plugins\Schema\Eps\TableStatsEps;
@@ -34,9 +36,9 @@ class DiaRelationSchema extends ExportRelationSchema
     /**
      * @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
      */
-    private $_tables = array();
+    private $_tables = [];
     /** @var RelationStatsDia[] Relations */
-    private $_relations = array();
+    private $_relations = [];
     private $_topMargin = 2.8222000598907471;
     private $_bottomMargin = 2.8222000598907471;
     private $_leftMargin = 2.8222000598907471;
@@ -74,10 +76,14 @@ class DiaRelationSchema extends ExportRelationSchema
         $alltables = $this->getTablesFromRequest();
 
         foreach ($alltables as $table) {
-            if (!isset($this->tables[$table])) {
+            if (!isset($this->_tables[$table])) {
                 $this->_tables[$table] = new TableStatsDia(
-                    $this->diagram, $this->db, $table, $this->pageNumber,
-                    $this->showKeys, $this->offline
+                    $this->diagram,
+                    $this->db,
+                    $table,
+                    $this->pageNumber,
+                    $this->showKeys,
+                    $this->offline
                 );
             }
         }
@@ -168,7 +174,11 @@ class DiaRelationSchema extends ExportRelationSchema
     ) {
         if (!isset($this->_tables[$masterTable])) {
             $this->_tables[$masterTable] = new TableStatsDia(
-                $this->diagram, $this->db, $masterTable, $this->pageNumber, $showKeys
+                $this->diagram,
+                $this->db,
+                $masterTable,
+                $this->pageNumber,
+                $showKeys
             );
         }
         if (!isset($this->_tables[$foreignTable])) {

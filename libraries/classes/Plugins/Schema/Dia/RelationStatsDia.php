@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
 /**
@@ -47,7 +49,11 @@ class RelationStatsDia
      * @see Relation_Stats_Dia::_getXy
      */
     public function __construct(
-        $diagram, $master_table, $master_field, $foreign_table, $foreign_field
+        $diagram,
+        $master_table,
+        $master_field,
+        $foreign_table,
+        $foreign_field
     ) {
         $this->diagram = $diagram;
         $src_pos  = $this->_getXy($master_table, $master_field);
@@ -82,9 +88,9 @@ class RelationStatsDia
         // left, right, position
         $value = 12;
         if ($pos != 0) {
-            return array($pos + $value + $pos, $pos + $value + $pos + 1, $pos);
+            return [$pos + $value + $pos, $pos + $value + $pos + 1, $pos];
         }
-        return array($pos + $value , $pos + $value + 1, $pos);
+        return [$pos + $value , $pos + $value + 1, $pos];
     }
 
     /**
@@ -122,11 +128,11 @@ class RelationStatsDia
         }
 
         if ($showColor) {
-            $listOfColors = array(
+            $listOfColors = [
                 'FF0000',
                 '000099',
                 '00FF00',
-            );
+            ];
             shuffle($listOfColors);
             $this->referenceColor = '#' . $listOfColors[0] . '';
         } else {

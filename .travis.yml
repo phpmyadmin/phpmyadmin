@@ -13,11 +13,6 @@ services:
 php:
   - "7.2"
   - "7.1"
-  - "7.0"
-  - "5.6"
-  - "5.5"
-  - "hhvm-3.12"
-  - "hhvm-3.18"
   - "nightly"
 
 sudo: required
@@ -45,7 +40,7 @@ before_script:
 
 script:
   - ./scripts/generate-mo --quiet
-  - if [ $CI_MODE = test ] ; then ./test/ci-lint ; fi
+  - if [ $CI_MODE = test ] ; then ./test/ci-phplint ; fi
   - ./test/ci-$CI_MODE
 
 after_script:
@@ -63,12 +58,16 @@ matrix:
   include:
     - php: "7.1"
       env: CI_MODE=selenium
-    - php: "7.0"
+    - php: "7.1"
+      env: CI_MODE=lint
+    - php: "7.1"
       env: CI_MODE=release
     - php: "7.1"
       env: CI_MODE=docs
     - php: "7.1"
       env: CI_MODE=apidocs
+    - php: "7.2"
+      env: CI_MODE=phpstan
     - os: osx
       language: generic
       env: CI_MODE=test
@@ -80,17 +79,17 @@ matrix:
         - curl https://getcomposer.org/installer | php
         - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start
-
   allow_failures:
     - php: "nightly"
       env: CI_MODE=test
+    - php: "7.2"
+      env: CI_MODE=phpstan
 
 cache:
   pip: true
   directories:
     - $HOME/.composer/cache/
     - $HOME/browserstack
-    - $HOME/runkit
 # Install APT packages
 #  - git > 2.5.1 needed for worktrees
 #  - mysql server does not seem to be always present on Travis Trusty environment

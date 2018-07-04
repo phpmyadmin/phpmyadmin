@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Response;
@@ -42,7 +44,6 @@ class ParseAnalyze
         // currently browsed, edit `$db` and `$table` to match them so other elements
         // (page headers, links, navigation panel) can be updated properly.
         if (!empty($analyzed_sql_results['select_tables'])) {
-
             // Previous table and database name is stored to check if it changed.
             $prev_db = $db;
 
@@ -73,6 +74,6 @@ class ParseAnalyze
             $analyzed_sql_results['reload'] = $reload;
         }
 
-        return array($analyzed_sql_results, $db, $table);
+        return [$analyzed_sql_results, $db, $table];
     }
 }

@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\ServerDatabasesController;
 use PhpMyAdmin\Di\Container;
@@ -25,6 +26,7 @@ $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var ServerDatabasesController $controller */
 $controller = $container->get(
-    'ServerDatabasesController', array()
+    'ServerDatabasesController',
+    []
 );
 $controller->indexAction();

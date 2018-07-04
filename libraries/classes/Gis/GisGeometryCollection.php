@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-GIS
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Gis;
 
@@ -55,7 +56,7 @@ class GisGeometryCollection extends GisGeometry
      */
     public function scaleRow($spatial)
     {
-        $min_max = array();
+        $min_max = [];
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col
@@ -307,7 +308,7 @@ class GisGeometryCollection extends GisGeometry
      */
     private function _explodeGeomCol($geom_col)
     {
-        $sub_parts = array();
+        $sub_parts = [];
         $br_count = 0;
         $start = 0;
         $count = 0;
@@ -380,7 +381,7 @@ class GisGeometryCollection extends GisGeometry
      */
     public function generateParams($value)
     {
-        $params = array();
+        $params = [];
         $data = GisGeometry::generateParams($value);
         $params['srid'] = $data['srid'];
         $wkt = $data['wkt'];

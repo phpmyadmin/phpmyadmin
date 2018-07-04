@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
@@ -24,7 +26,7 @@ class ThemeTest extends PmaTestCase
     protected $object;
 
     /**
-     * @var backup for session theme
+     * @var Theme backup for session theme
      */
     protected $backup;
 
@@ -93,7 +95,7 @@ class ThemeTest extends PmaTestCase
         $this->object->setPath('./test/classes/_data/gen_version_info');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
-        $this->assertEquals('4.8', $this->object->getVersion());
+        $this->assertEquals('5.0', $this->object->getVersion());
     }
 
     /**
@@ -157,10 +159,10 @@ class ThemeTest extends PmaTestCase
      */
     public function listThemes()
     {
-        return array(
-            array('./themes/original'),
-            array('./themes/pmahomme/'),
-        );
+        return [
+            ['./themes/original'],
+            ['./themes/pmahomme/'],
+        ];
     }
 
     /**
@@ -304,26 +306,6 @@ class ThemeTest extends PmaTestCase
     }
 
     /**
-     * Test for getFontSize
-     *
-     * @return void
-     */
-    public function testGetFontSize()
-    {
-        $this->assertEquals(
-            $this->object->getFontSize(),
-            '82%'
-        );
-
-        $GLOBALS['PMA_Config']->set('FontSize', '12px');
-        $this->assertEquals(
-            $this->object->getFontSize(),
-            '12px'
-        );
-
-    }
-
-    /**
      * Test for getCssGradient
      *
      * @return void
@@ -369,27 +351,27 @@ class ThemeTest extends PmaTestCase
      */
     public function providerForGetImgPath()
     {
-        return array(
-            array(
+        return [
+            [
                 null,
                 null,
                 ''
-            ),
-            array(
+            ],
+            [
                 'screen.png',
                 null,
                 './themes/pmahomme/img/screen.png'
-            ),
-            array(
+            ],
+            [
                 'arrow_ltr.png',
                 null,
                 './themes/pmahomme/img/arrow_ltr.png'
-            ),
-            array(
+            ],
+            [
                 'logo_right.png',
                 'pma_logo.png',
                 './themes/pmahomme/img/pma_logo.png'
-            ),
-        );
+            ],
+        ];
     }
 }

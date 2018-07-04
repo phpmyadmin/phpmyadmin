@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Dia;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;
@@ -97,11 +99,11 @@ class TableStatsDia extends TableStats
     public function tableDraw($showColor)
     {
         if ($showColor) {
-            $listOfColors = array(
+            $listOfColors = [
                 'FF0000',
                 '000099',
                 '00FF00'
-            );
+            ];
             shuffle($listOfColors);
             $this->tableColor =  '#' . $listOfColors[0] . '';
         } else {

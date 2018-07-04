@@ -122,9 +122,8 @@ function setFieldValue (field, field_type, value) {
         var options = $field.prop('options');
         var i;
         var imax = options.length;
-        var i, imax = options.length;
         for (i = 0; i < imax; i++) {
-            options[i].selected = (value.indexOf(options[i].value) != -1);
+            options[i].selected = (value.indexOf(options[i].value) !== -1);
         }
         break;
     }
@@ -517,7 +516,7 @@ function setupValidation () {
         var tagName = $el.attr('tagName');
         // text fields can be validated after each change
         if (tagName === 'INPUT' && $el.attr('type') === 'text') {
-            $el.keyup(function () {
+            $el.on('keyup', function () {
                 validate_field_and_fieldset($el, true);
                 markField($el);
             });
@@ -590,7 +589,7 @@ function setupConfigTabs () {
         // add tabs events and activate one tab (the first one or indicated by location hash)
         $tabs.find('li').removeClass('active');
         $tabs.find('a')
-            .click(function (e) {
+            .on('click', function (e) {
                 e.preventDefault();
                 setTab($(this).attr('href').substr(1));
             })
@@ -722,7 +721,7 @@ AJAX.registerOnload('config.js', function () {
     $radios
         .prop('disabled', false)
         .add('#export_text_file, #import_text_file')
-        .click(function () {
+        .on('click', function () {
             var enable_id = $(this).attr('id');
             var disable_id;
             if (enable_id.match(/local_storage$/)) {
@@ -742,7 +741,7 @@ AJAX.registerOnload('config.js', function () {
     if (ls_exists) {
         updatePrefsDate();
     }
-    $('form.prefs-form').change(function () {
+    $('form.prefs-form').on('change', function () {
         var $form = $(this);
         var disabled = false;
         if (!ls_supported) {
@@ -836,7 +835,7 @@ function offerPrefsAutoimport () {
     if (!$cnt.length || !has_config) {
         return;
     }
-    $cnt.find('a').click(function (e) {
+    $cnt.find('a').on('click', function (e) {
         e.preventDefault();
         var $a = $(this);
         if ($a.attr('href') === '#no') {

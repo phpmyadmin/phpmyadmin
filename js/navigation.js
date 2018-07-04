@@ -341,7 +341,7 @@ $(function () {
         $('#pma_navigation_tree').find('a.expander').each(function () {
             var $icon = $(this).find('img');
             if ($icon.is('.ic_b_minus')) {
-                $(this).click();
+                $(this).trigger('click');
             }
         });
     });
@@ -678,7 +678,7 @@ function expandTreeNode ($expandElem, callback) {
             .first()
             .clone()
             .css({ visibility: 'visible', display: 'block' })
-            .click(false);
+            .on('click', false);
         $icon.hide();
         $throbber.insertBefore($icon);
 
@@ -691,7 +691,7 @@ function expandTreeNode ($expandElem, callback) {
                 if ($destination.find('ul > li').length === 1) {
                     $destination.find('ul > li')
                         .find('a.expander.container')
-                        .click();
+                        .trigger('click');
                 }
                 if (callback && typeof callback === 'function') {
                     callback.call();
@@ -829,7 +829,7 @@ function PMA_showCurrentNavigation () {
                             $(this)
                                 .children('div:first')
                                 .children('a.expander')
-                                .click();
+                                .trigger('click');
                         }
                     });
                     ret = $li;
@@ -1618,7 +1618,7 @@ PMA_fastFilter.filter.prototype.restore = function (focus) {
  * @return void
  */
 function PMA_showFullName ($containerELem) {
-    $containerELem.find('.hover_show_full').mouseenter(function () {
+    $containerELem.find('.hover_show_full').on('mouseenter', function () {
         /** mouseenter */
         var $this = $(this);
         var thisOffset = $this.offset();
@@ -1635,7 +1635,7 @@ function PMA_showFullName ($containerELem) {
                     /** mouseleave */
                     $(this).addClass('hide')
                         .removeClass('hovering');
-                }).mouseenter(function () {
+                }).on('mouseenter', function () {
                     /** mouseenter */
                     $(this).addClass('hovering');
                 });

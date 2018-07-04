@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\VersionInformation;
@@ -24,7 +25,7 @@ $versionInformation = new VersionInformation();
 $versionDetails = $versionInformation->getLatestVersion();
 
 if (empty($versionDetails)) {
-    echo json_encode(array());
+    echo json_encode([]);
 } else {
     $latestCompatible = $versionInformation->getLatestCompatibleVersion(
         $versionDetails->releases
@@ -36,9 +37,9 @@ if (empty($versionDetails)) {
         $date = $latestCompatible['date'];
     }
     echo json_encode(
-        array(
+        [
             'version' => (! empty($version) ? $version : ''),
             'date' => (! empty($date) ? $date : ''),
-        )
+        ]
     );
 }

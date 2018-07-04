@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Export
  * @subpackage PDF
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Export;
@@ -39,6 +41,7 @@ class ExportPdf extends ExportPlugin
      * @var Pdf
      */
     private $_pdf;
+
     /**
      * PDF Report Title
      *
@@ -51,6 +54,8 @@ class ExportPdf extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
+
         // initialize the specific export PDF variables
         $this->initSpecificVariables();
 
@@ -104,15 +109,16 @@ class ExportPdf extends ExportPlugin
 
         // what to dump (structure/data/both) main group
         $dumpWhat = new OptionsPropertyMainGroup(
-            "dump_what", __('Dump table')
+            "dump_what",
+            __('Dump table')
         );
         $leaf = new RadioPropertyItem("structure_or_data");
         $leaf->setValues(
-            array(
+            [
                 'structure'          => __('structure'),
                 'data'               => __('data'),
                 'structure_and_data' => __('structure and data'),
-            )
+            ]
         );
         $dumpWhat->addProperty($leaf);
         // add the group to the root group
@@ -134,7 +140,7 @@ class ExportPdf extends ExportPlugin
         $pdf = $this->_getPdf();
         $pdf->Open();
 
-        $attr = array('titleFontSize' => 18, 'titleText' => $pdf_report_title);
+        $attr = ['titleFontSize' => 18, 'titleText' => $pdf_report_title];
         $pdf->setAttributes($attr);
         $pdf->setTopMargin(30);
 
@@ -151,7 +157,7 @@ class ExportPdf extends ExportPlugin
         $pdf = $this->_getPdf();
 
         // instead of $pdf->Output():
-        return Export::outputHandler($pdf->getPDFData());
+        return $this->export->outputHandler($pdf->getPDFData());
     }
 
     /**
@@ -211,19 +217,19 @@ class ExportPdf extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $pdf = $this->_getPdf();
-        $attr = array(
+        $attr = [
             'currentDb'    => $db,
             'currentTable' => $table,
             'dbAlias'      => $db_alias,
             'tableAlias'   => $table_alias,
             'aliases'      => $aliases,
-        );
+        ];
         $pdf->setAttributes($attr);
         $pdf->purpose = __('Dumping data');
         $pdf->mysqlReport($sql_query);
@@ -265,7 +271,7 @@ class ExportPdf extends ExportPlugin
         $do_comments = false,
         $do_mime = false,
         $dates = false,
-        array $aliases = array()
+        array $aliases = []
     ) {
         $db_alias = $db;
         $table_alias = $table;
@@ -273,27 +279,27 @@ class ExportPdf extends ExportPlugin
         $pdf = $this->_getPdf();
         // getting purpose to show at top
         switch ($export_mode) {
-        case 'create_table':
-            $purpose = __('Table structure');
-            break;
-        case 'triggers':
-            $purpose = __('Triggers');
-            break;
-        case 'create_view':
-            $purpose = __('View structure');
-            break;
-        case 'stand_in':
-            $purpose = __('Stand in');
+            case 'create_table':
+                $purpose = __('Table structure');
+                break;
+            case 'triggers':
+                $purpose = __('Triggers');
+                break;
+            case 'create_view':
+                $purpose = __('View structure');
+                break;
+            case 'stand_in':
+                $purpose = __('Stand in');
         } // end switch
 
-        $attr = array(
+        $attr = [
             'currentDb'    => $db,
             'currentTable' => $table,
             'dbAlias'      => $db_alias,
             'tableAlias'   => $table_alias,
             'aliases'      => $aliases,
             'purpose'      => $purpose,
-        );
+        ];
         $pdf->setAttributes($attr);
         /**
          * comment display set true as presently in pdf
@@ -301,36 +307,36 @@ class ExportPdf extends ExportPlugin
          */
         $do_comments = true;
         switch ($export_mode) {
-        case 'create_table':
-            $pdf->getTableDef(
-                $db,
-                $table,
-                $do_relation,
-                $do_comments,
-                $do_mime,
-                false,
-                $aliases
-            );
-            break;
-        case 'triggers':
-            $pdf->getTriggers($db, $table);
-            break;
-        case 'create_view':
-            $pdf->getTableDef(
-                $db,
-                $table,
-                $do_relation,
-                $do_comments,
-                $do_mime,
-                false,
-                $aliases
-            );
-            break;
-        case 'stand_in':
-            /* export a stand-in definition to resolve view dependencies
-             * Yet to develop this function
-             * $pdf->getTableDefStandIn($db, $table, $crlf);
-             */
+            case 'create_table':
+                $pdf->getTableDef(
+                    $db,
+                    $table,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    false,
+                    $aliases
+                );
+                break;
+            case 'triggers':
+                $pdf->getTriggers($db, $table);
+                break;
+            case 'create_view':
+                $pdf->getTableDef(
+                    $db,
+                    $table,
+                    $do_relation,
+                    $do_comments,
+                    $do_mime,
+                    false,
+                    $aliases
+                );
+                break;
+            case 'stand_in':
+                /* export a stand-in definition to resolve view dependencies
+                 * Yet to develop this function
+                 * $pdf->getTableDefStandIn($db, $table, $crlf);
+                 */
         } // end switch
 
         return true;

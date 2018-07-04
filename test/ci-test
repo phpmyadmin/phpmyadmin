@@ -1,12 +1,3 @@
 #!/bin/sh
 
-case "$TRAVIS_PHP_VERSION" in
-    hhvm*)
-        CONFIG=phpunit.xml.hhvm
-        ;;
-    *)
-        CONFIG=phpunit.xml.dist
-        ;;
-esac
-
-./vendor/bin/phpunit --configuration $CONFIG --exclude-group selenium
+./vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
@@ -55,7 +57,7 @@ class BrowseForeignersTest extends TestCase
      *
      * @return void
      */
-    function testGetForeignLimit()
+    public function testGetForeignLimit()
     {
         $this->assertNull(
             $this->browseForeigners->getForeignLimit('Show all')
@@ -97,7 +99,7 @@ class BrowseForeignersTest extends TestCase
      *
      * @return void
      */
-    function testGetHtmlForGotoPage()
+    public function testGetHtmlForGotoPage()
     {
         $this->assertEquals(
             '',
@@ -108,8 +110,8 @@ class BrowseForeignersTest extends TestCase
         );
 
         $_REQUEST['pos'] = 15;
-        $foreignData = array();
-        $foreignData['disp_row'] = array();
+        $foreignData = [];
+        $foreignData['disp_row'] = [];
         $foreignData['the_total'] = 5;
 
         $this->assertEquals(
@@ -158,12 +160,12 @@ class BrowseForeignersTest extends TestCase
      *
      * @return void
      */
-    function testGetDescriptionAndTitle()
+    public function testGetDescriptionAndTitle()
     {
         $desc = 'foobar<baz';
 
         $this->assertEquals(
-            array('foobar&lt;baz', ''),
+            ['foobar&lt;baz', ''],
             $this->callProtectedMethod(
                 'getDescriptionAndTitle',
                 [$desc]
@@ -173,7 +175,7 @@ class BrowseForeignersTest extends TestCase
         $browseForeigners = new BrowseForeigners(5, 25, 100, false, '');
 
         $this->assertEquals(
-            array('fooba...', 'foobar&lt;baz'),
+            ['fooba...', 'foobar&lt;baz'],
             $this->callProtectedMethod(
                 'getDescriptionAndTitle',
                 [$desc],
@@ -187,12 +189,12 @@ class BrowseForeignersTest extends TestCase
      *
      * @return void
      */
-    function testGetHtmlForRelationalFieldSelection()
+    public function testGetHtmlForRelationalFieldSelection()
     {
         $db = '';
         $table = '';
         $field = 'foo';
-        $foreignData = array();
+        $foreignData = [];
         $foreignData['disp_row'] = '';
         $fieldkey = 'bar';
         $current_value = '';
@@ -267,7 +269,7 @@ class BrowseForeignersTest extends TestCase
             $result
         );
 
-        $foreignData['disp_row'] = array();
+        $foreignData['disp_row'] = [];
         $foreignData['the_total'] = 5;
         $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
             $db,

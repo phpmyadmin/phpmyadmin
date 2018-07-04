@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
@@ -23,7 +24,7 @@ class DbProceduresTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->dbQuery(
@@ -34,7 +35,6 @@ class DbProceduresTest extends TestBase
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-
     }
 
     /**
@@ -175,7 +175,8 @@ class DbProceduresTest extends TestBase
 
         $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byCssSelector", "button.submitOK"
+            "byCssSelector",
+            "button.submitOK"
         )->click();
 
         $this->waitAjaxMessage();

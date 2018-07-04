@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Twig
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
@@ -24,7 +26,7 @@ class UtilExtension extends AbstractExtension
      */
     public function getFunctions()
     {
-        return array(
+        return [
             new TwigFunction(
                 'Util_backquote',
                 'PhpMyAdmin\Util::backquote'
@@ -32,7 +34,7 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'Util_getBrowseUploadFileBlock',
                 'PhpMyAdmin\Util::getBrowseUploadFileBlock',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_convertBitDefaultValue',
@@ -57,47 +59,47 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'Util_formatSql',
                 'PhpMyAdmin\Util::formatSql',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getButtonOrImage',
                 'PhpMyAdmin\Util::getButtonOrImage',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getClassForType',
                 'PhpMyAdmin\Util::getClassForType',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getDivForSliderEffect',
                 'PhpMyAdmin\Util::getDivForSliderEffect',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getDocuLink',
                 'PhpMyAdmin\Util::getDocuLink',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getListNavigator',
                 'PhpMyAdmin\Util::getListNavigator',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_showDocu',
                 'PhpMyAdmin\Util::showDocu',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getDropdown',
                 'PhpMyAdmin\Util::getDropdown',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getFKCheckbox',
                 'PhpMyAdmin\Util::getFKCheckbox',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getGISDatatypes',
@@ -110,42 +112,42 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'Util_getHtmlTab',
                 'PhpMyAdmin\Util::getHtmlTab',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getIcon',
                 'PhpMyAdmin\Util::getIcon',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getImage',
                 'PhpMyAdmin\Util::getImage',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getRadioFields',
                 'PhpMyAdmin\Util::getRadioFields',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getSelectUploadFileBlock',
                 'PhpMyAdmin\Util::getSelectUploadFileBlock',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getScriptNameForOption',
                 'PhpMyAdmin\Util::getScriptNameForOption',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getStartAndNumberOfRowsPanel',
                 'PhpMyAdmin\Util::getStartAndNumberOfRowsPanel',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_getSupportedDatatypes',
                 'PhpMyAdmin\Util::getSupportedDatatypes',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_isForeignKeySupported',
@@ -154,7 +156,7 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'Util_linkOrButton',
                 'PhpMyAdmin\Util::linkOrButton',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_localisedDate',
@@ -163,12 +165,12 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'Util_showHint',
                 'PhpMyAdmin\Util::showHint',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_showDocu',
                 'PhpMyAdmin\Util::showDocu',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_showIcons',
@@ -177,13 +179,13 @@ class UtilExtension extends AbstractExtension
             new TwigFunction(
                 'Util_showMySQLDocu',
                 'PhpMyAdmin\Util::showMySQLDocu',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
             new TwigFunction(
                 'Util_sortableTableHeader',
                 'PhpMyAdmin\Util::sortableTableHeader',
-                array('is_safe' => array('html'))
+                ['is_safe' => ['html']]
             ),
-        );
+        ];
     }
 }

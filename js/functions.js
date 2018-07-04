@@ -155,7 +155,7 @@ function PMA_addDatepicker ($this_element, type, options) {
             }
         }
     };
-    if (type == "time") {
+    if (type === 'time') {
         $this_element.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
         PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTipTime);
@@ -674,7 +674,7 @@ function confirmLink (theLink, theSqlQuery) {
     if (is_confirmed) {
         if (typeof(theLink.href) !== 'undefined') {
             theLink.href += PMA_commonParams.get('arg_separator') + 'is_js_confirmed=1';
-        } else if (typeof(theLink.form) != 'undefined') {
+        } else if (typeof(theLink.form) !== 'undefined') {
             theLink.form.action += '?is_js_confirmed=1';
         }
     }
@@ -1108,7 +1108,7 @@ function setQuery (query) {
     if (codemirror_editor) {
         codemirror_editor.setValue(query);
         codemirror_editor.focus();
-    } else {
+    } else if (document.sqlform) {
         document.sqlform.sql_query.value = query;
         document.sqlform.sql_query.focus();
     }
@@ -1797,7 +1797,7 @@ function getJSConfirmCommonParam (elem, params) {
     var sep = PMA_commonParams.get('arg_separator');
     if (params) {
         // Strip possible leading ?
-        if (params.substring(0,1) == '?') {
+        if (params.substring(0,1) === '?') {
             params = params.substr(1);
         }
         params += sep;
@@ -2962,7 +2962,7 @@ AJAX.registerOnload('functions.js', function () {
             $(this)
                 .closest('form')
                 .find('input[name=submit_num_fields]')
-                .click();
+                .trigger('click');
         }
     });
 
@@ -2985,7 +2985,7 @@ AJAX.registerOnload('functions.js', function () {
             col = col[0];
             var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
             if ($selectFieldKey.val() === 'none_' + col) {
-                $selectFieldKey.val('primary_' + col).change();
+                $selectFieldKey.val('primary_' + col).trigger('change');
             }
         }
     });
@@ -3192,7 +3192,7 @@ AJAX.registerOnload('functions.js', function () {
                     .closest('.ui-dialog')
                     .find('.ui-dialog-buttonpane .ui-button')
                     .first()
-                    .click();
+                    .trigger('click');
             });
         }); // end $.get()
     }); // end handler for change password anchor
@@ -3306,7 +3306,7 @@ function autoPopulate (input_id, offset) {
         $input6.val(central_column_list[db + '_' + table][offset].col_extra);
     }
     if (central_column_list[db + '_' + table][offset].col_extra.toUpperCase() === 'AUTO_INCREMENT') {
-        $('#' + input_id + '9').prop('checked',true).change();
+        $('#' + input_id + '9').prop('checked',true).trigger('change');
     } else {
         $('#' + input_id + '9').prop('checked',false);
     }
@@ -3578,7 +3578,7 @@ AJAX.registerOnload('functions.js', function () {
                 $('.filter_rows').on('keyup', function () {
                     $.uiTableFilter($('#col_list'), $(this).val());
                 });
-                $('#seeMore').click(function () {
+                $('#seeMore').on('click', function () {
                     fields = '';
                     min = (list_size <= maxRows + result_pointer) ? list_size : maxRows + result_pointer;
                     for (i = result_pointer; i < min; i++) {
@@ -3713,7 +3713,7 @@ AJAX.registerOnload('functions.js', function () {
                 );
             $newrow.find(':input').each(tempEmptyVal);
             // focus index size input on column picked
-            $newrow.find('select').change(tempSetFocus);
+            $newrow.find('select').on('change', tempSetFocus);
         }
     });
 });
@@ -3738,9 +3738,9 @@ function indexEditorDialog (url, title, callback_success, callback_failure) {
         var $form = $('#index_frm');
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
         PMA_prepareForAjaxRequest($form);
-        //User wants to submit the form
-        $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + "do_save_data=1", function (data) {
-            var $sqlqueryresults = $(".sqlqueryresults");
+        // User wants to submit the form
+        $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'do_save_data=1', function (data) {
+            var $sqlqueryresults = $('.sqlqueryresults');
             if ($sqlqueryresults.length !== 0) {
                 $sqlqueryresults.remove();
             }
@@ -3850,7 +3850,7 @@ function showIndexEditDialog ($outer) {
     });
     $('div.add_fields').removeClass('hide');
     // focus index size input on column picked
-    $outer.find('table#index_columns select').change(function () {
+    $outer.find('table#index_columns select').on('change', function () {
         if ($(this).find('option:selected').val() === '') {
             return true;
         }
@@ -3998,7 +3998,7 @@ var toggleButton = function ($obj) {
         }
     }
     // Attach an 'onclick' event to the switch
-    $('div.container', $obj).click(function () {
+    $('div.container', $obj).on('click', function () {
         if ($(this).hasClass('isActive')) {
             return false;
         } else {
@@ -4190,7 +4190,7 @@ function PMA_init_slider () {
             .text($this.attr('title'))
             .prepend($('<span>'))
             .insertBefore($this)
-            .click(function () {
+            .on('click', function () {
                 var $wrapper = $this.closest('.slide-wrapper');
                 var visible = $this.is(':visible');
                 if (!visible) {
@@ -4429,7 +4429,7 @@ AJAX.registerOnload('functions.js', function () {
     /**
      * Theme changer.
      */
-    $('a.take_theme').click(function (e) {
+    $('a.take_theme').on('click', function (e) {
         var what = this.name;
         if (window.opener && window.opener.document.forms.setTheme.elements.set_theme) {
             window.opener.document.forms.setTheme.elements.set_theme.value = what;
@@ -4458,14 +4458,14 @@ function createPrintAndBackButtons () {
         value: PMA_messages.back,
         id: 'back_button_print_view'
     });
-    back_button.click(removePrintAndBackButton);
+    back_button.on('click', removePrintAndBackButton);
     back_button.appendTo('#page_content');
     var print_button = $('<input/>',{
         type: 'button',
         value: PMA_messages.print,
         id: 'print_button_print_view'
     });
-    print_button.click(printPage);
+    print_button.on('click', printPage);
     print_button.appendTo('#page_content');
 }
 
@@ -4498,8 +4498,8 @@ AJAX.registerTeardown('functions.js', function () {
 });
 
 AJAX.registerOnload('functions.js', function () {
-    $('input#print').click(printPage);
-    $('.logout').click(function () {
+    $('input#print').on('click', printPage);
+    $('.logout').on('click', function () {
         var form = $(
             '<form method="POST" action="' + $(this).attr('href') + '" class="disableAjax">' +
             '<input type="hidden" name="token" value="' + escapeHtml(PMA_commonParams.get('token')) + '"/>' +
@@ -4529,7 +4529,7 @@ AJAX.registerOnload('functions.js', function () {
                 // was also prevented in IE
                 $(this).blur();
 
-                $(this).closest('.ui-dialog').find('.ui-button:first').click();
+                $(this).closest('.ui-dialog').find('.ui-button:first').trigger('click');
             }
         }); // end $(document).on()
     }
@@ -4700,18 +4700,20 @@ $(document).on('keyup', '#filterText', function () {
     var count = 0;
     $('[data-filter-row]').each(function () {
         var $row = $(this);
-        console.log($row);
         /* Can not use data() here as it does magic conversion to int for numeric values */
         if ($row.attr('data-filter-row').indexOf(filterInput) > -1) {
             count += 1;
             $row.show();
-            $row.find('input.checkall').removeClass('row-hidden').trigger('change');
+            $row.find('input.checkall').removeClass('row-hidden');
         } else {
             $row.hide();
-            $row.find('input.checkall').addClass('row-hidden').prop('checked', false).trigger('change');
+            $row.find('input.checkall').addClass('row-hidden').prop('checked', false);
             $row.removeClass('marked');
         }
     });
+    setTimeout(function () {
+        $(checkboxes_sel).trigger('change');
+    }, 300);
     $('#filter-rows-count').html(count);
 });
 AJAX.registerOnload('functions.js', function () {
@@ -4883,7 +4885,7 @@ AJAX.registerOnload('functions.js', function () {
         if ((e.ctrlKey && e.which === 13) || (e.altKey && e.which === 13)) {
             $form = $(this).closest('form');
             if (! $form.find('input[type="submit"]') ||
-                ! $form.find('input[type="submit"]').click()
+                ! $form.find('input[type="submit"]').trigger('click')
             ) {
                 $form.submit();
             }
@@ -4940,7 +4942,7 @@ AJAX.registerOnload('functions.js', function () {
  *                  .attr(name, value) - Sets a particular attribute of the IMG
  *                                       tag to the given value
  */
-function PMA_getImage(image, alternate, attributes) {
+function PMA_getImage (image, alternate, attributes) {
     // custom image object, it will eventually be returned by this functions
     var retval = {
         data: {
@@ -4950,8 +4952,8 @@ function PMA_getImage(image, alternate, attributes) {
             src: 'themes/dot.gif',
         },
         attr: function (name, value) {
-            if (value == undefined) {
-                if (this.data[name] == undefined) {
+            if (value === undefined) {
+                if (this.data[name] === undefined) {
                     return '';
                 } else {
                     return this.data[name];
@@ -4970,20 +4972,20 @@ function PMA_getImage(image, alternate, attributes) {
         }
     };
     // initialise missing parameters
-    if (attributes == undefined) {
+    if (attributes === undefined) {
         attributes = {};
     }
-    if (alternate == undefined) {
+    if (alternate === undefined) {
         alternate = '';
     }
     // set alt
-    if (attributes.alt != undefined) {
+    if (attributes.alt !== undefined) {
         retval.attr('alt', escapeHtml(attributes.alt));
     } else {
         retval.attr('alt', escapeHtml(alternate));
     }
     // set title
-    if (attributes.title != undefined) {
+    if (attributes.title !== undefined) {
         retval.attr('title', escapeHtml(attributes.title));
     } else {
         retval.attr('title', escapeHtml(alternate));
@@ -4992,7 +4994,7 @@ function PMA_getImage(image, alternate, attributes) {
     retval.attr('class', 'icon ic_' + image);
     // set all other attrubutes
     for (var i in attributes) {
-        if (i == 'src') {
+        if (i === 'src') {
             // do not allow to override the 'src' attribute
             continue;
         }
@@ -5020,18 +5022,17 @@ function PMA_getImage(image, alternate, attributes) {
  * @param  {object}     value       Configuration value.
  * @param  {boolean}    only_local  Configuration type.
  */
-function configSet(key, value, only_local)
-{
+function configSet (key, value, only_local) {
     only_local = (typeof only_local !== 'undefined') ? only_local : false;
     var serialized = JSON.stringify(value);
     localStorage.setItem(key, serialized);
     $.ajax({
-        url: "ajax.php",
-        type: "POST",
-        dataType: "json",
+        url: 'ajax.php',
+        type: 'POST',
+        dataType: 'json',
         data: {
             key: key,
-            type: "config-set",
+            type: 'config-set',
             server: PMA_commonParams.get('server'),
             value: serialized,
         },
@@ -5058,8 +5059,7 @@ function configSet(key, value, only_local)
  *
  * @return {object}                 Configuration value.
  */
-function configGet(key, cached)
-{
+function configGet (key, cached) {
     cached = (typeof cached !== 'undefined') ? cached : true;
     var value = localStorage.getItem(key);
     if (cached && value !== undefined && value !== null) {
@@ -5073,11 +5073,11 @@ function configGet(key, cached)
         // processing cannot continue until that value is found.
         // Another solution is to provide a callback as a parameter.
         async: false,
-        url: "ajax.php",
-        type: "POST",
-        dataType: "json",
+        url: 'ajax.php',
+        type: 'POST',
+        dataType: 'json',
         data: {
-            type: "config-get",
+            type: 'config-get',
             server: PMA_commonParams.get('server'),
             key: key
         },
@@ -5097,10 +5097,10 @@ function configGet(key, cached)
 /**
  * Return POST data as stored by Util::linkOrButton
  */
-jQuery.fn.getPostData = function() {
+jQuery.fn.getPostData = function () {
     var dataPost = this.attr('data-post');
     // Strip possible leading ?
-    if (dataPost !== undefined && dataPost.substring(0,1) == '?') {
+    if (dataPost !== undefined && dataPost.substring(0,1) === '?') {
         dataPost = dataPost.substr(1);
     }
     return dataPost;

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -61,7 +63,13 @@ class Bookmark
      */
     private $user;
 
-    public function __construct(DatabaseInterface $dbi, $user)
+    /**
+     * Bookmark constructor.
+     *
+     * @param DatabaseInterface $dbi  DatabaseInterface object
+     * @param string            $user Current user
+     */
+    public function __construct(DatabaseInterface $dbi, string $user)
     {
         $this->dbi = $dbi;
         $this->user = $user;
@@ -72,9 +80,9 @@ class Bookmark
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
-        return $this->_id;
+        return (int)$this->_id;
     }
 
     /**
@@ -82,7 +90,7 @@ class Bookmark
      *
      * @return string
      */
-    public function getDatabase()
+    public function getDatabase(): string
     {
         return $this->_database;
     }
@@ -92,7 +100,7 @@ class Bookmark
      *
      * @return string
      */
-    public function getUser()
+    public function getUser(): string
     {
         return $this->_user;
     }
@@ -102,7 +110,7 @@ class Bookmark
      *
      * @return string
      */
-    public function getLabel()
+    public function getLabel(): string
     {
         return $this->_label;
     }
@@ -112,7 +120,7 @@ class Bookmark
      *
      * @return string
      */
-    public function getQuery()
+    public function getQuery(): string
     {
         return $this->_query;
     }
@@ -124,7 +132,7 @@ class Bookmark
      *
      * @access public
      */
-    public function save()
+    public function save(): bool
     {
         $cfgBookmark = self::getParams($this->user);
         if (empty($cfgBookmark)) {
@@ -148,7 +156,7 @@ class Bookmark
      *
      * @access public
      */
-    public function delete()
+    public function delete(): bool
     {
         $cfgBookmark = self::getParams($this->user);
         if (empty($cfgBookmark)) {
@@ -166,9 +174,9 @@ class Bookmark
      *
      * @return number number of variables
      */
-    public function getVariableCount()
+    public function getVariableCount(): int
     {
-        $matches = array();
+        $matches = [];
         preg_match_all("/\[VARIABLE[0-9]*\]/", $this->_query, $matches, PREG_SET_ORDER);
         return count($matches);
     }
@@ -180,7 +188,7 @@ class Bookmark
      *
      * @return string query with variables applied
      */
-    public function applyVariables(array $variables)
+    public function applyVariables(array $variables): string
     {
         // remove comments that encloses a variable placeholder
         $query = preg_replace(
@@ -207,10 +215,12 @@ class Bookmark
     /**
      * Defines the bookmark parameters for the current user
      *
-     * @return array the bookmark parameters for the current user
+     * @param string $user Current user
+     *
+     * @return array|bool the bookmark parameters for the current user
      * @access  public
      */
-    public static function getParams($user)
+    public static function getParams(string $user)
     {
         static $cfgBookmark = null;
 
@@ -221,11 +231,11 @@ class Bookmark
         $relation = new Relation();
         $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
-            $cfgBookmark = array(
+            $cfgBookmark = [
                 'user'  => $user,
                 'db'    => $cfgRelation['db'],
                 'table' => $cfgRelation['bookmark'],
-            );
+            ];
         } else {
             $cfgBookmark = false;
         }
@@ -236,18 +246,20 @@ class Bookmark
     /**
      * Creates a Bookmark object from the parameters
      *
-     * @param array   $bkm_fields the properties of the bookmark to add; here,
-     *                            $bkm_fields['bkm_sql_query'] is urlencoded
-     * @param boolean $all_users  whether to make the bookmark available
-     *                            for all users
+     * @param DatabaseInterface $dbi        DatabaseInterface object
+     * @param string            $user       Current user
+     * @param array             $bkm_fields the properties of the bookmark to add; here,
+     *                                      $bkm_fields['bkm_sql_query'] is urlencoded
+     * @param boolean           $all_users  whether to make the bookmark
+     *                                      available for all users
      *
      * @return Bookmark|false
      */
     public static function createBookmark(
         DatabaseInterface $dbi,
-        $user,
+        string $user,
         array $bkm_fields,
-        $all_users = false
+        bool $all_users = false
     ) {
         if (!(isset($bkm_fields['bkm_sql_query'])
             && strlen($bkm_fields['bkm_sql_query']) > 0
@@ -269,17 +281,22 @@ class Bookmark
     /**
      * Gets the list of bookmarks defined for the current database
      *
-     * @param string|bool $db the current database name or false
+     * @param DatabaseInterface $dbi  DatabaseInterface object
+     * @param string            $user Current user
+     * @param string|bool       $db   the current database name or false
      *
      * @return Bookmark[] the bookmarks list
      *
      * @access public
      */
-    public static function getList(DatabaseInterface $dbi, $user, $db = false)
-    {
+    public static function getList(
+        DatabaseInterface $dbi,
+        string $user,
+        $db = false
+    ): array {
         $cfgBookmark = self::getParams($user);
         if (empty($cfgBookmark)) {
-            return array();
+            return [];
         }
 
         $query = "SELECT * FROM " . Util::backquote($cfgBookmark['db'])
@@ -300,7 +317,7 @@ class Bookmark
         );
 
         if (! empty($result)) {
-            $bookmarks = array();
+            $bookmarks = [];
             foreach ($result as $row) {
                 $bookmark = new Bookmark($dbi, $user);
                 $bookmark->_id = $row['id'];
@@ -314,18 +331,20 @@ class Bookmark
             return $bookmarks;
         }
 
-        return array();
+        return [];
     }
 
     /**
      * Retrieve a specific bookmark
      *
-     * @param string  $db                  the current database name
-     * @param mixed   $id                  an identifier of the bookmark to get
-     * @param string  $id_field            which field to look up the identifier
-     * @param boolean $action_bookmark_all true: get all bookmarks regardless
-     *                                     of the owning user
-     * @param boolean $exact_user_match    whether to ignore bookmarks with no user
+     * @param DatabaseInterface $dbi                 DatabaseInterface object
+     * @param string            $user                Current user
+     * @param string            $db                  the current database name
+     * @param mixed             $id                  an identifier of the bookmark to get
+     * @param string            $id_field            which field to look up the identifier
+     * @param boolean           $action_bookmark_all true: get all bookmarks regardless
+     *                                               of the owning user
+     * @param boolean           $exact_user_match    whether to ignore bookmarks with no user
      *
      * @return Bookmark the bookmark
      *
@@ -334,13 +353,13 @@ class Bookmark
      */
     public static function get(
         DatabaseInterface $dbi,
-        $user,
-        $db,
+        string $user,
+        string $db,
         $id,
-        $id_field = 'id',
-        $action_bookmark_all = false,
-        $exact_user_match = false
-    ) {
+        string $id_field = 'id',
+        bool $action_bookmark_all = false,
+        bool $exact_user_match = false
+    ): ?self {
         $cfgBookmark = self::getParams($user);
         if (empty($cfgBookmark)) {
             return null;

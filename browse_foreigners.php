@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Relation;
@@ -16,10 +17,10 @@ require_once 'libraries/common.inc.php';
 /**
  * Sets globals from $_REQUEST
  */
-$request_params = array(
+$request_params = [
     'data',
     'field'
-);
+];
 
 foreach ($request_params as $one_request_param) {
     if (isset($_REQUEST[$one_request_param])) {
@@ -27,7 +28,7 @@ foreach ($request_params as $one_request_param) {
     }
 }
 
-Util::checkParameters(array('db', 'table', 'field'));
+Util::checkParameters(['db', 'table', 'field']);
 
 $response = Response::getInstance();
 $response->getFooter()->setMinimal();
@@ -53,7 +54,9 @@ $foreign_limit = $browseForeigners->getForeignLimit(
 );
 
 $foreignData = $relation->getForeignData(
-    $foreigners, $_REQUEST['field'], true,
+    $foreigners,
+    $_REQUEST['field'],
+    true,
     isset($_REQUEST['foreign_filter'])
     ? $_REQUEST['foreign_filter']
     : '',
@@ -67,8 +70,8 @@ $html = $browseForeigners->getHtmlForRelationalFieldSelection(
     $table,
     $_REQUEST['field'],
     $foreignData,
-    isset($fieldkey) ? $fieldkey : null,
-    isset($data) ? $data : null
+    isset($fieldkey) ? $fieldkey : '',
+    isset($data) ? $data : ''
 );
 
 $response->addHtml($html);

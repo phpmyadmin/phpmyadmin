@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\TableIndexesController;
 use PhpMyAdmin\Di\Container;
@@ -38,12 +39,12 @@ if (isset($_REQUEST['index'])) {
         $index = $dbi->getTable($db, $table)->getIndex($_REQUEST['index']);
     }
 } else {
-    $index = new Index;
+    $index = new Index();
 }
 
-$dependency_definitions = array(
+$dependency_definitions = [
     "index" => $index
-);
+];
 
 /** @var TableIndexesController $controller */
 $controller = $container->get('TableIndexesController', $dependency_definitions);

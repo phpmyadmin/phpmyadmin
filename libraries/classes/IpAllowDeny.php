@@ -6,11 +6,11 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
-
-require_once './libraries/hash.lib.php';
 
 /**
  * PhpMyAdmin\IpAllowDeny class
@@ -29,19 +29,19 @@ class IpAllowDeny
      *
      * @access  public
      */
-    public static function ipMaskTest($testRange, $ipToTest)
+    public function ipMaskTest($testRange, $ipToTest)
     {
         if (mb_strpos($testRange, ':') > -1
             || mb_strpos($ipToTest, ':') > -1
         ) {
             // assume IPv6
-            $result = self::ipv6MaskTest($testRange, $ipToTest);
+            $result = $this->ipv6MaskTest($testRange, $ipToTest);
         } else {
-            $result = self::ipv4MaskTest($testRange, $ipToTest);
+            $result = $this->ipv4MaskTest($testRange, $ipToTest);
         }
 
         return $result;
-    } // end of the "self::ipMaskTest()" function
+    }
 
     /**
      * Based on IP Pattern Matcher
@@ -64,7 +64,7 @@ class IpAllowDeny
      *
      * @access  public
      */
-    public static function ipv4MaskTest($testRange, $ipToTest)
+    public function ipv4MaskTest($testRange, $ipToTest)
     {
         $result = true;
         $match = preg_match(
@@ -108,7 +108,7 @@ class IpAllowDeny
         } //end for
 
         return $result;
-    } // end of the "self::ipv4MaskTest()" function
+    }
 
     /**
      * IPv6 matcher
@@ -134,7 +134,7 @@ class IpAllowDeny
      *
      * @access  public
      */
-    public static function ipv6MaskTest($test_range, $ip_to_test)
+    public function ipv6MaskTest($test_range, $ip_to_test)
     {
         $result = true;
 
@@ -156,9 +156,11 @@ class IpAllowDeny
 
         if ($is_range) {
             // what range do we operate on?
-            $range_match = array();
+            $range_match = [];
             $match = preg_match(
-                '/\[([0-9a-f]+)\-([0-9a-f]+)\]/', $test_range, $range_match
+                '/\[([0-9a-f]+)\-([0-9a-f]+)\]/',
+                $test_range,
+                $range_match
             );
             if ($match) {
                 $range_start = $range_match[1];
@@ -216,7 +218,35 @@ class IpAllowDeny
         }
 
         return $result;
-    } // end of the "self::ipv6MaskTest()" function
+    }
+
+    /**
+     * Runs through IP Allow rules the use of it below for more information
+     *
+     * @return bool Whether rule has matched
+     *
+     * @access  public
+     *
+     * @see     Core::getIp()
+     */
+    public function allow()
+    {
+        return $this->allowDeny("allow");
+    }
+
+    /**
+     * Runs through IP Deny rules the use of it below for more information
+     *
+     * @return bool Whether rule has matched
+     *
+     * @access  public
+     *
+     * @see     Core::getIp()
+     */
+    public function deny()
+    {
+        return $this->allowDeny("deny");
+    }
 
     /**
      * Runs through IP Allow/Deny rules the use of it below for more information
@@ -229,7 +259,7 @@ class IpAllowDeny
      *
      * @see     Core::getIp()
      */
-    public static function allowDeny($type)
+    private function allowDeny($type)
     {
         global $cfg;
 
@@ -246,17 +276,17 @@ class IpAllowDeny
         if (isset($cfg['Server']['AllowDeny']['rules'])) {
             $rules     = $cfg['Server']['AllowDeny']['rules'];
             if (! is_array($rules)) {
-                $rules = array();
+                $rules = [];
             }
         } else {
-            $rules = array();
+            $rules = [];
         }
 
         // lookup table for some name shortcuts
-        $shortcuts = array(
+        $shortcuts = [
             'all'       => '0.0.0.0/0',
             'localhost' => '127.0.0.1/8'
-        );
+        ];
 
         // Provide some useful shortcuts if server gives us address:
         if (Core::getenv('SERVER_ADDR')) {
@@ -296,11 +326,11 @@ class IpAllowDeny
             // Excluded for the moment
 
             // Do the actual matching now
-            if (self::ipMaskTest($rule_data[2], $remote_ip)) {
+            if ($this->ipMaskTest($rule_data[2], $remote_ip)) {
                 return true;
             }
         } // end while
 
         return false;
-    } // end of the "self::allowDeny()" function
+    }
 }

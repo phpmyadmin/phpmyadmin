@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
@@ -28,6 +30,8 @@ $scripts->addFile('sql.js');
 
 require 'libraries/db_common.inc.php';
 
+$sqlQueryForm = new SqlQueryForm();
+
 // After a syntax error, we return to this script
 // with the typed query in the textarea.
 $goto = 'db_sql.php';
@@ -37,8 +41,9 @@ $back = 'db_sql.php';
  * Query box, bookmark, insert data from textfile
  */
 $response->addHTML(
-    SqlQueryForm::getHtml(
-        true, false,
+    $sqlQueryForm->getHtml(
+        true,
+        false,
         isset($_REQUEST['delimiter'])
         ? htmlspecialchars($_REQUEST['delimiter'])
         : ';'

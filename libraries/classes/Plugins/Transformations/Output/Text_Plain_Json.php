@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage SQL
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
@@ -57,7 +59,7 @@ class Text_Plain_Json extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         return '<code class="json"><pre>' . "\n"
         . htmlspecialchars($buffer) . "\n"

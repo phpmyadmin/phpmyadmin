@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\Url;
@@ -32,7 +34,7 @@ class Select
         // Show as list?
         if ($not_only_options) {
             $list = $GLOBALS['cfg']['DisplayServersList'];
-            $not_only_options =! $list;
+            $not_only_options = ! $list;
         } else {
             $list = false;
         }
@@ -40,7 +42,8 @@ class Select
         if ($not_only_options) {
             $retval .= '<form method="post" action="'
                 . Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabServer'], 'server'
+                    $GLOBALS['cfg']['DefaultTabServer'],
+                    'server'
                 )
                 . '" class="disableAjax">';
 
@@ -48,7 +51,7 @@ class Select
                 $retval .= '<fieldset>';
             }
 
-            $retval .= Url::getHiddenFields(array());
+            $retval .= Url::getHiddenFields([]);
             $retval .= '<label for="select_server">'
                 . __('Current server:') . '</label> ';
 
@@ -94,12 +97,12 @@ class Select
                 if ($selected) {
                     $retval .= '<strong>' . htmlspecialchars($label) . '</strong>';
                 } else {
-
                     $retval .= '<a class="disableAjax item" href="'
                         . Util::getScriptNameForOption(
-                            $GLOBALS['cfg']['DefaultTabServer'], 'server'
+                            $GLOBALS['cfg']['DefaultTabServer'],
+                            'server'
                         )
-                        . Url::getCommon(array('server' => $key))
+                        . Url::getCommon(['server' => $key])
                         . '" >' . htmlspecialchars($label) . '</a>';
                 }
                 $retval .= '</li>';

@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage ImageUpload
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
@@ -40,7 +42,7 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         return $buffer;
     }
@@ -99,9 +101,9 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
      */
     public function getScripts()
     {
-        return array(
+        return [
             'transformations/image_upload.js',
-        );
+        ];
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage BinaryToIP
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
@@ -43,7 +45,7 @@ class Text_Plain_Binarytoip extends TransformationsPlugin
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         $length = strlen($buffer);
         if ($length == 4 || $length == 16) {

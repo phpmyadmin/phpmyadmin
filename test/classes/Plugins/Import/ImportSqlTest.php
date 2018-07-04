@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\File;
@@ -107,6 +109,5 @@ class ImportSqlTest extends PmaTestCase
             true,
             $GLOBALS['finished']
         );
-
     }
 }

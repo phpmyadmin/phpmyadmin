@@ -52,7 +52,7 @@ Basic settings
 
     Sets here the complete :term:`URL` (with full path) to your phpMyAdmin
     installation's directory. E.g.
-    ``https://www.example.net/path_to_your_phpMyAdmin_directory/``.  Note also
+    ``https://www.example.net/path_to_your_phpMyAdmin_directory/``. Note also
     that the :term:`URL` on most of web servers are case sensitive (even on
     Windows). Don’t forget the trailing slash at the end.
 
@@ -212,12 +212,14 @@ Basic settings
 
 .. config:option:: $cfg['AllowThirdPartyFraming']
 
-    :type: boolean
+    :type: boolean|string
     :default: false
 
     Setting this to ``true`` allows phpMyAdmin to be included inside a frame,
     and is a potential security hole allowing cross-frame scripting attacks or
-    clickjacking.
+    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be 
+    included from another document in a frame, unless that document belongs 
+    to the same domain.
 
 Server connection settings
 --------------------------
@@ -727,6 +729,12 @@ Server connection settings
 
     :type: string
     :default: ``'mysqli'``
+
+    .. deprecated:: 4.2.0
+
+        This setting was removed. The ``mysql`` extension will only be used when
+        the ``mysqli`` extension is not available. As of 5.0.0, only the
+        ``mysqli`` extension can be used.
 
     The PHP MySQL extension to use (``mysql`` or ``mysqli``).
 
@@ -1715,6 +1723,15 @@ Generic settings
 
     Define whether phpMyAdmin will continue executing a multi-query
     statement if one of the queries fails. Default is to abort execution.
+
+.. config:option:: $cfg['enable_drag_drop_import']
+
+    :type: boolean
+    :default: true
+
+    Whether or not the drag and drop import feature is enabled.
+    When enabled, a user can drag a file in to their browser and phpMyAdmin will
+    attempt to import the file.
 
 Cookie authentication options
 -----------------------------
@@ -3232,6 +3249,11 @@ Theme manager settings
 
     :type: string
     :default: '82%'
+
+    .. deprecated:: 5.0.0
+
+        This setting was removed as the browser is more efficient,
+        thus no need of this option.
 
     Font size to use, is applied in CSS.
 

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Controllers
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\TableController;
@@ -29,7 +31,11 @@ class TableIndexesController extends TableController
     /**
      * Constructor
      *
-     * @param Index $index Index
+     * @param Response                      $response Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi      DatabaseInterface object
+     * @param string                        $db       Database name
+     * @param string                        $table    Table name
+     * @param Index                         $index    Index object
      */
     public function __construct(
         $response,
@@ -65,7 +71,7 @@ class TableIndexesController extends TableController
      */
     public function displayFormAction()
     {
-        $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+        $this->dbi->selectDb($GLOBALS['db']);
         $add_fields = 0;
         if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
             // coming already from form
@@ -83,10 +89,10 @@ class TableIndexesController extends TableController
         // Get fields and stores their name/type
         if (isset($_REQUEST['create_edit_table'])) {
             $fields = json_decode($_REQUEST['columns'], true);
-            $index_params = array(
+            $index_params = [
                 'Non_unique' => ($_REQUEST['index']['Index_choice'] == 'UNIQUE')
                     ? '0' : '1',
-            );
+            ];
             $this->index->set($index_params);
             $add_fields = count($fields);
         } else {
@@ -94,10 +100,10 @@ class TableIndexesController extends TableController
                 ->getNameAndTypeOfTheColumns();
         }
 
-        $form_params = array(
+        $form_params = [
             'db' => $this->db,
             'table' => $this->table,
-        );
+        ];
 
         if (isset($_REQUEST['create_index'])) {
             $form_params['create_index'] = 1;
@@ -110,15 +116,13 @@ class TableIndexesController extends TableController
         $this->response->getHeader()->getScripts()->addFile('indexes.js');
 
         $this->response->addHTML(
-            Template::get('table/index_form')->render(
-                array(
-                    'fields' => $fields,
-                    'index' => $this->index,
-                    'form_params' => $form_params,
-                    'add_fields' => $add_fields,
-                    'create_edit_table' => isset($_REQUEST['create_edit_table'])
-                )
-            )
+            $this->template->render('table/index_form', [
+                'fields' => $fields,
+                'index' => $this->index,
+                'form_params' => $form_params,
+                'add_fields' => $add_fields,
+                'create_edit_table' => isset($_REQUEST['create_edit_table']),
+            ])
         );
     }
 
@@ -138,18 +142,11 @@ class TableIndexesController extends TableController
 
         // If there is a request for SQL previewing.
         if (isset($_REQUEST['preview_sql'])) {
-
             $this->response->addJSON(
                 'sql_data',
-                Template::get('preview_sql')
-                    ->render(
-                        array(
-                            'query_data' => $sql_query
-                        )
-                    )
+                $this->template->render('preview_sql', ['query_data' => $sql_query])
             );
         } elseif (!$error) {
-
             $this->dbi->query($sql_query);
             $response = Response::getInstance();
             if ($response->isAjax()) {
@@ -158,12 +155,14 @@ class TableIndexesController extends TableController
                 );
                 $message->addParam($this->table);
                 $this->response->addJSON(
-                    'message', Util::getMessage($message, $sql_query, 'success')
+                    'message',
+                    Util::getMessage($message, $sql_query, 'success')
                 );
                 $this->response->addJSON(
                     'index_table',
                     Index::getHtmlForIndexes(
-                        $this->table, $this->db
+                        $this->table,
+                        $this->db
                     )
                 );
             } else {

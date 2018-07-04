@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Formatted
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
@@ -40,7 +42,7 @@ abstract class FormattedTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         return '<iframe srcdoc="'
             . strtr($buffer, '"', '\'')

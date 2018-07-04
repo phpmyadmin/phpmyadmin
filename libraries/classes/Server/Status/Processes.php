@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Message;
@@ -39,7 +41,7 @@ class Processes
         $retval .= Data::getHtmlForRefreshList(
             'refreshRate',
             5,
-            Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200)
+            [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200]
         );
         $retval .= '</label>';
         $retval .= '<a id="toggleRefresh" href="#">';
@@ -56,60 +58,61 @@ class Processes
      */
     public static function getHtmlForServerProcesslist()
     {
-        $url_params = array();
+        $url_params = [];
 
         $show_full_sql = ! empty($_REQUEST['full']);
         if ($show_full_sql) {
             $url_params['full'] = 1;
             $full_text_link = 'server_status_processes.php' . Url::getCommon(
-                array(), '?'
+                [],
+                '?'
             );
         } else {
             $full_text_link = 'server_status_processes.php' . Url::getCommon(
-                array('full' => 1)
+                ['full' => 1]
             );
         }
 
         // This array contains display name and real column name of each
         // sortable column in the table
-        $sortable_columns = array(
-            array(
+        $sortable_columns = [
+            [
                 'column_name' => __('ID'),
                 'order_by_field' => 'Id'
-            ),
-            array(
+            ],
+            [
                 'column_name' => __('User'),
                 'order_by_field' => 'User'
-            ),
-            array(
+            ],
+            [
                 'column_name' => __('Host'),
                 'order_by_field' => 'Host'
-            ),
-            array(
+            ],
+            [
                 'column_name' => __('Database'),
                 'order_by_field' => 'db'
-            ),
-            array(
+            ],
+            [
                 'column_name' => __('Command'),
                 'order_by_field' => 'Command'
-            ),
-            array(
+            ],
+            [
                 'column_name' => __('Time'),
                 'order_by_field' => 'Time'
-            ),
-            array(
+            ],
+            [
                 'column_name' => __('Status'),
                 'order_by_field' => 'State'
-            ),
-            array(
+            ],
+            [
                 'column_name' => __('Progress'),
                 'order_by_field' => 'Progress'
-            ),
-            array(
+            ],
+            [
                 'column_name' => __('SQL query'),
                 'order_by_field' => 'Info'
-            )
-        );
+            ]
+        ];
         $sortableColCount = count($sortable_columns);
 
         $sql_query = $show_full_sql
@@ -139,7 +142,6 @@ class Processes
         $retval .= '<tr>';
         $retval .= '<th>' . __('Processes') . '</th>';
         foreach ($sortable_columns as $column) {
-
             $is_sorted = ! empty($_REQUEST['order_by_field'])
                 && ! empty($_REQUEST['sort_order'])
                 && ($_REQUEST['order_by_field'] == $column['order_by_field']);
@@ -216,14 +218,14 @@ class Processes
             $showExecuting = ' checked="checked"';
         }
 
-        $url_params = array(
+        $url_params = [
             'ajax_request' => true,
             'full' => (isset($_REQUEST['full']) ? $_REQUEST['full'] : ''),
             'column_name' => (isset($_REQUEST['column_name']) ? $_REQUEST['column_name'] : ''),
             'order_by_field'
                 => (isset($_REQUEST['order_by_field']) ? $_REQUEST['order_by_field'] : ''),
             'sort_order' => (isset($_REQUEST['sort_order']) ? $_REQUEST['sort_order'] : ''),
-        );
+        ];
 
         $retval  = '';
         $retval .= '<fieldset id="tableFilter">';
@@ -268,10 +270,10 @@ class Processes
             }
         }
 
-        $url_params = array(
+        $url_params = [
             'kill' => $process['Id'],
             'ajax_request' => true
-        );
+        ];
         $kill_process = 'server_status_processes.php' . Url::getCommon($url_params);
 
         $retval  = '<tr>';

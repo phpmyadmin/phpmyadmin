@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Core;
@@ -35,7 +37,7 @@ class StatusTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['cfg']['ShowHint'] = true;
@@ -43,7 +45,7 @@ class StatusTest extends TestCase
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = false;
-        $GLOBALS['replication_types'] = array();
+        $GLOBALS['replication_types'] = [];
 
         $GLOBALS['table'] = "table";
 
@@ -55,7 +57,7 @@ class StatusTest extends TestCase
             ->getMock();
 
         //this data is needed when PhpMyAdmin\Server\Status\Data constructs
-        $server_status = array(
+        $server_status = [
             "Aborted_clients" => "0",
             "Aborted_connects" => "0",
             "Com_delete_multi" => "0",
@@ -63,34 +65,34 @@ class StatusTest extends TestCase
             "Com_empty_query" => "0",
             "Com_execute_sql" => 2,
             "Com_stmt_execute" => 2,
-        );
+        ];
 
-        $server_variables= array(
+        $server_variables = [
             "auto_increment_increment" => "1",
             "auto_increment_offset" => "1",
             "automatic_sp_privileges" => "ON",
             "back_log" => "50",
             "big_tables" => "OFF",
-        );
+        ];
 
-        $fetchResult = array(
-            array(
+        $fetchResult = [
+            [
                 "SHOW GLOBAL STATUS",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 $server_status
-            ),
-            array(
+            ],
+            [
                 "SHOW GLOBAL VARIABLES",
                 0,
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
                 $server_variables
-            ),
-            array(
+            ],
+            [
                 "SELECT concat('Com_', variable_name), variable_value "
                     . "FROM data_dictionary.GLOBAL_STATEMENTS",
                 0,
@@ -98,8 +100,8 @@ class StatusTest extends TestCase
                 DatabaseInterface::CONNECT_USER,
                 0,
                 $server_status
-            ),
-        );
+            ],
+        ];
 
         $dbi->expects($this->at(0))
             ->method('tryQuery')
@@ -108,19 +110,19 @@ class StatusTest extends TestCase
 
         $dbi->expects($this->at(1))
             ->method('fetchRow')
-            ->will($this->returnValue(array("Aborted_clients", "0")));
+            ->will($this->returnValue(["Aborted_clients", "0"]));
         $dbi->expects($this->at(2))
             ->method('fetchRow')
-            ->will($this->returnValue(array("Aborted_connects", "0")));
+            ->will($this->returnValue(["Aborted_connects", "0"]));
         $dbi->expects($this->at(3))
             ->method('fetchRow')
-            ->will($this->returnValue(array("Com_delete_multi", "0")));
+            ->will($this->returnValue(["Com_delete_multi", "0"]));
         $dbi->expects($this->at(4))
             ->method('fetchRow')
-            ->will($this->returnValue(array("Com_create_function", "0")));
+            ->will($this->returnValue(["Com_create_function", "0"]));
         $dbi->expects($this->at(5))
             ->method('fetchRow')
-            ->will($this->returnValue(array("Com_empty_query", "0")));
+            ->will($this->returnValue(["Com_empty_query", "0"]));
         $dbi->expects($this->at(6))
             ->method('fetchRow')
             ->will($this->returnValue(false));

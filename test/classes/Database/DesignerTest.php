@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Database;
 
 use PhpMyAdmin\Database\Designer;
@@ -48,8 +50,6 @@ class DesignerTest extends TestCase
             ],
             ' PMA_token ' => 'token'
         ];
-
-        $this->designer = new Designer();
     }
 
     /**
@@ -101,6 +101,8 @@ class DesignerTest extends TestCase
         $db = 'db';
         $this->_mockDatabaseInteraction($db);
 
+        $this->designer = new Designer($GLOBALS['dbi']);
+
         $method = new ReflectionMethod(Designer::class, 'getPageIdsAndNames');
         $method->setAccessible(true);
         $result = $method->invokeArgs($this->designer, [$db]);
@@ -124,6 +126,8 @@ class DesignerTest extends TestCase
         $db = 'db';
         $operation = 'edit';
         $this->_mockDatabaseInteraction($db);
+
+        $this->designer = new Designer($GLOBALS['dbi']);
 
         $result = $this->designer->getHtmlForEditOrDeletePages($db, $operation);
         $this->assertContains(
@@ -150,6 +154,8 @@ class DesignerTest extends TestCase
     {
         $db = 'db';
         $this->_mockDatabaseInteraction($db);
+
+        $this->designer = new Designer($GLOBALS['dbi']);
 
         $result = $this->designer->getHtmlForPageSaveAs($db);
         $this->assertContains(
@@ -190,6 +196,8 @@ class DesignerTest extends TestCase
     {
         $db = 'db';
         $page = 2;
+
+        $this->designer = new Designer($GLOBALS['dbi']);
 
         $result = $this->designer->getHtmlForSchemaExport($db, $page);
         // export type

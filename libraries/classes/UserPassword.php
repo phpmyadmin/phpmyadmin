@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Core;
@@ -21,6 +23,19 @@ use PhpMyAdmin\Util;
  */
 class UserPassword
 {
+    /**
+     * @var Privileges $serverPrivileges
+     */
+    private $serverPrivileges;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->serverPrivileges = new Privileges(new Template());
+    }
+
     /**
      * Send the message as an ajax request
      *
@@ -75,7 +90,7 @@ class UserPassword
                 $error = true;
             }
         }
-        return array('error' => $error, 'msg' => $message);
+        return ['error' => $error, 'msg' => $message];
     }
 
     /**
@@ -103,8 +118,10 @@ class UserPassword
         ) {
             $orig_auth_plugin = $_REQUEST['authentication_plugin'];
         } else {
-            $orig_auth_plugin = Privileges::getCurrentAuthenticationPlugin(
-                'change', $username, $hostname
+            $orig_auth_plugin = $this->serverPrivileges->getCurrentAuthenticationPlugin(
+                'change',
+                $username,
+                $hostname
             );
         }
 
@@ -135,8 +152,12 @@ class UserPassword
         }
 
         $this->changePassUrlParamsAndSubmitQuery(
-            $username, $hostname, $password,
-            $sql_query, $hashing_function, $orig_auth_plugin
+            $username,
+            $hostname,
+            $password,
+            $sql_query,
+            $hashing_function,
+            $orig_auth_plugin
         );
 
         $auth_plugin->handlePasswordChange($password);
@@ -152,7 +173,9 @@ class UserPassword
     private function changePassHashingFunction()
     {
         if (Core::isValid(
-            $_REQUEST['authentication_plugin'], 'identical', 'mysql_old_password'
+            $_REQUEST['authentication_plugin'],
+            'identical',
+            'mysql_old_password'
         )) {
             $hashing_function = 'OLD_PASSWORD';
         } else {
@@ -174,7 +197,12 @@ class UserPassword
      * @return void
      */
     private function changePassUrlParamsAndSubmitQuery(
-        $username, $hostname, $password, $sql_query, $hashing_function, $orig_auth_plugin
+        $username,
+        $hostname,
+        $password,
+        $sql_query,
+        $hashing_function,
+        $orig_auth_plugin
     ) {
         $err_url = 'user_password.php' . Url::getCommon();
 
@@ -202,7 +230,7 @@ class UserPassword
                 $GLOBALS['dbi']->tryQuery('SET `old_passwords` = 2;');
             }
 
-            $hashedPassword = Privileges::getHashedPassword($_POST['pma_pw']);
+            $hashedPassword = $this->serverPrivileges->getHashedPassword($_POST['pma_pw']);
 
             $local_query = "UPDATE `mysql`.`user` SET"
                 . " `authentication_string` = '" . $hashedPassword
@@ -241,7 +269,9 @@ class UserPassword
     {
         echo '<h1>' , __('Change password') , '</h1>' , "\n\n";
         echo Util::getMessage(
-            $message, $sql_query, 'success'
+            $message,
+            $sql_query,
+            'success'
         );
         echo '<a href="index.php' , Url::getCommon()
             , ' target="_parent">' , "\n"

@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage IPToBinary
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
@@ -42,7 +44,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         $val = @inet_pton($buffer);
         if ($val !== false) {

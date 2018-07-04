@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\UserGroups;
@@ -24,19 +26,18 @@ class UserGroupsTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['cfg']['ActionLinksMode'] = 'both';
 
         $GLOBALS['server'] = 1;
-        $_SESSION['relation'][$GLOBALS['server']] = array(
+        $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'users' => 'users',
             'usergroups' => 'usergroups'
-        );
-
+        ];
     }
 
     /**
@@ -71,7 +72,7 @@ class UserGroupsTest extends TestCase
             $html
         );
         $url_tag = '<a href="server_user_groups.php'
-            . Url::getCommon(array('addUserGroup' => 1));
+            . Url::getCommon(['addUserGroup' => 1]);
         $this->assertContains(
             $url_tag,
             $html
@@ -104,11 +105,11 @@ class UserGroupsTest extends TestCase
             ->withAnyParameters()
             ->will(
                 $this->returnValue(
-                    array(
+                    [
                         'usergroup' => 'usergroup',
                         'tab' => 'server_sql',
                         'allowed' => 'Y'
-                    )
+                    ]
                 )
             );
         $dbi->expects($this->at(3))
@@ -126,9 +127,9 @@ class UserGroupsTest extends TestCase
         );
         $url_tag = '<a class="" href="server_user_groups.php'
             . Url::getCommon(
-                array(
-                    'viewUsers'=>1, 'userGroup'=>htmlspecialchars('usergroup')
-                )
+                [
+                    'viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')
+                ]
             );
         $this->assertContains(
             $url_tag,
@@ -136,10 +137,10 @@ class UserGroupsTest extends TestCase
         );
         $url_tag = '<a class="" href="server_user_groups.php'
             . Url::getCommon(
-                array(
-                    'editUserGroup'=>1,
-                    'userGroup'=>htmlspecialchars('usergroup')
-                )
+                [
+                    'editUserGroup' => 1,
+                    'userGroup' => htmlspecialchars('usergroup')
+                ]
             );
         $this->assertContains(
             $url_tag,
@@ -147,10 +148,10 @@ class UserGroupsTest extends TestCase
         );
         $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php'
             . Url::getCommon(
-                array(
-                    'deleteUserGroup'=> 1,
-                    'userGroup'=>htmlspecialchars('usergroup')
-                )
+                [
+                    'deleteUserGroup' => 1,
+                    'userGroup' => htmlspecialchars('usergroup')
+                ]
             );
         $this->assertContains(
             $url_tag,
@@ -218,11 +219,11 @@ class UserGroupsTest extends TestCase
         $dbi->expects($this->exactly(2))
             ->method('fetchAssoc')
             ->willReturnOnConsecutiveCalls(
-                array(
+                [
                     'usergroup' => 'ug',
                     'tab' => 'server_sql',
                     'allowed' => 'Y'
-                ),
+                ],
                 false
             );
         $dbi->expects($this->once())

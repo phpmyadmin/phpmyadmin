@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Message;
@@ -19,11 +20,11 @@ require_once 'libraries/replication.inc.php';
  * flush status variables if requested
  */
 if (isset($_REQUEST['flush'])) {
-    $_flush_commands = array(
+    $_flush_commands = [
         'STATUS',
         'TABLES',
         'QUERY CACHE',
-    );
+    ];
 
     if (in_array($_REQUEST['flush'], $_flush_commands)) {
         $GLOBALS['dbi']->query('FLUSH ' . $_REQUEST['flush'] . ';');

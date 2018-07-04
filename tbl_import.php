@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Display\Import;
 use PhpMyAdmin\Response;
@@ -21,6 +23,8 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('import.js');
 
+$import = new Import();
+
 /**
  * Gets tables information and displays top links
  */
@@ -28,7 +32,10 @@ require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_import.php&amp;back=tbl_import.php';
 
 $response->addHTML(
-    Import::get(
-        'table', $db, $table, $max_upload_size
+    $import->get(
+        'table',
+        $db,
+        $table,
+        $max_upload_size
     )
 );

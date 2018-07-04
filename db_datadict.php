@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
@@ -35,6 +37,7 @@ $header   = $response->getHeader();
 $header->enablePrintView();
 
 $relation = new Relation();
+$transformations = new Transformations();
 
 /**
  * Gets the relations settings
@@ -44,12 +47,12 @@ $cfgRelation  = $relation->getRelationsParam();
 /**
  * Check parameters
  */
-PhpMyAdmin\Util::checkParameters(array('db'));
+PhpMyAdmin\Util::checkParameters(['db']);
 
 /**
  * Defines the url to return to in case of error in a sql statement
  */
-$err_url = 'db_sql.php' . Url::getCommon(array('db' => $db));
+$err_url = 'db_sql.php' . Url::getCommon(['db' => $db]);
 
 if ($cfgRelation['commwork']) {
     $comment = $relation->getDbComment($db);
@@ -98,7 +101,9 @@ foreach ($tables as $table) {
 
     // Check if we can use Relations
     list($res_rel, $have_rel) = $relation->getRelationsAndStatus(
-        ! empty($cfgRelation['relation']), $db, $table
+        ! empty($cfgRelation['relation']),
+        $db,
+        $table
     );
 
     /**
@@ -127,7 +132,6 @@ foreach ($tables as $table) {
     }
     echo '</tr>';
     foreach ($columns as $row) {
-
         if ($row['Null'] == '') {
             $row['Null'] = 'NO';
         }
@@ -188,7 +192,7 @@ foreach ($tables as $table) {
         }
         echo '</td>' , "\n";
         if ($cfgRelation['mimework']) {
-            $mime_map = Transformations::getMIME($db, $table, true);
+            $mime_map = $transformations->getMime($db, $table, true);
 
             echo '    <td>';
             if (isset($mime_map[$column_name])) {

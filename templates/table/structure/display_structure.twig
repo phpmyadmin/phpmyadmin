@@ -20,72 +20,30 @@
         <tbody>
         {# Table body #}
         {% set rownum = 0 %}
-        {% set columns_list = [] %}
         {% for row in fields %}
             {% set rownum = rownum + 1 %}
-            {% set columns_list = columns_list|merge([row['Field']]) %}
-            {% set field_charset = row['Collation'] %}
 
-            {% set extracted_columnspec = Util_extractColumnSpec(row['Type']) %}
-            {% set attribute = extracted_columnspec['attribute'] %}
-            {% if strpos(row['Extra'], 'on update CURRENT_TIMESTAMP')
-                is not same as(false) %}
-                {% set attribute = 'on update CURRENT_TIMESTAMP' %}
-            {% endif %}
-
-            {% if row['Default'] is not defined %}
-                {% if row['Null'] == 'YES' %}
-                    {% set row = row|merge({'Default': '<em>NULL</em>'}) %}
-                {% endif %}
-            {% else %}
-                {% set row = row|merge({'Default': row['Default']|e}) %}
-            {% endif %}
-
+            {% set extracted_columnspec = extracted_columnspecs[rownum] %}
             {% set field_name = row['Field']|e %}
-            {% set displayed_field_name = field_name %}
             {# For column comments #}
-            {% set comments = '' %}
+            {% set comments = row_comments[rownum] %}
             {# Underline commented fields and display a hover-title (CSS only) #}
 
-            {% if comments_map[row['Field']] is defined %}
-                {% set displayed_field_name -%}
-                    <span class="commented_column" title="
-                        {{- comments_map[row['Field']] }}">
-                        {{- field_name|raw -}}
-                    </span>
-                {%- endset %}
-                {% set comments = comments_map[row['Field']] %}
-            {% endif %}
-
-            {% if primary and primary.hasColumn(field_name) %}
-                {% set displayed_field_name = displayed_field_name ~ Util_getImage(
-                    'b_primary', 'Primary'|trans
-                ) %}
-            {% endif %}
-            {% if field_name in columns_with_index %}
-                {% set displayed_field_name = displayed_field_name ~ Util_getImage(
-                    'bd_primary', 'Index'|trans
-                ) %}
-            {% endif %}
         <tr>
             {% include 'table/structure/table_structure_row.twig' with {
                 'row': row,
                 'rownum': rownum,
-                'displayed_field_name': preg_replace(
-                    '/[\\x00-\\x1F]/',
-                    '&#x2051;',
-                    displayed_field_name
-                ),
+                'displayed_field': displayed_fields[rownum],
                 'type_nowrap': Util_getClassForType(extracted_columnspec['type']),
                 'extracted_columnspec': extracted_columnspec,
-                'attribute': attribute,
+                'attribute': attributes[rownum],
                 'tbl_is_view': tbl_is_view,
                 'db_is_system_schema': db_is_system_schema,
                 'url_query': url_query,
                 'titles': titles,
                 'table': table,
                 'tbl_storage_engine': tbl_storage_engine,
-                'field_charset': field_charset,
+                'field_charset': row['Collation'],
                 'comments': comments,
                 'show_column_comments': show_column_comments,
                 'relation_commwork': relation_commwork,

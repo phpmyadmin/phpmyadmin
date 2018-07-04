@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
@@ -23,7 +25,7 @@ class PdfTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();

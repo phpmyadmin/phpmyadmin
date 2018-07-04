@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Display\CreateTable;
@@ -27,7 +29,7 @@ class CreateTableTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$GLOBALS
         $GLOBALS['server'] = 0;

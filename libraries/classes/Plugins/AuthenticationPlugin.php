@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Config;
@@ -40,6 +42,25 @@ abstract class AuthenticationPlugin
      * @var string
      */
     public $password = '';
+
+    /**
+     * @var IpAllowDeny
+     */
+    protected $ipAllowDeny;
+
+    /**
+     * @var Template
+     */
+    public $template;
+
+    /**
+     * AuthenticationPlugin constructor.
+     */
+    public function __construct()
+    {
+        $this->ipAllowDeny = new IpAllowDeny();
+        $this->template = new Template();
+    }
 
     /**
      * Displays authentication form
@@ -138,7 +159,7 @@ abstract class AuthenticationPlugin
             /* Redirect to other autenticated server */
             $_SESSION['partial_logout'] = true;
             Core::sendHeaderLocation(
-                './index.php' . Url::getCommonRaw(array('server' => $server))
+                './index.php' . Url::getCommonRaw(['server' => $server])
             );
         }
     }
@@ -233,8 +254,8 @@ abstract class AuthenticationPlugin
      *
      * @return void
      */
-     public function authenticate()
-     {
+    public function authenticate()
+    {
         $success = $this->readCredentials();
 
         /* Show login form (this exits) */
@@ -267,21 +288,21 @@ abstract class AuthenticationPlugin
             $allowDeny_forbidden         = false; // default
             if ($cfg['Server']['AllowDeny']['order'] == 'allow,deny') {
                 $allowDeny_forbidden     = true;
-                if (IpAllowDeny::allowDeny('allow')) {
+                if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
-                if (IpAllowDeny::allowDeny('deny')) {
+                if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
             } elseif ($cfg['Server']['AllowDeny']['order'] == 'deny,allow') {
-                if (IpAllowDeny::allowDeny('deny')) {
+                if ($this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = true;
                 }
-                if (IpAllowDeny::allowDeny('allow')) {
+                if ($this->ipAllowDeny->allow()) {
                     $allowDeny_forbidden = false;
                 }
             } elseif ($cfg['Server']['AllowDeny']['order'] == 'explicit') {
-                if (IpAllowDeny::allowDeny('allow') && ! IpAllowDeny::allowDeny('deny')) {
+                if ($this->ipAllowDeny->allow() && ! $this->ipAllowDeny->deny()) {
                     $allowDeny_forbidden = false;
                 } else {
                     $allowDeny_forbidden = true;
@@ -330,15 +351,15 @@ abstract class AuthenticationPlugin
                 exit;
             }
         }
-        echo Template::get('login/header')->render(['theme' => $GLOBALS['PMA_Theme']]);
+        echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
         Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.')
         )->display();
-        echo Template::get('login/twofactor')->render([
+        echo $this->template->render('login/twofactor', [
             'form' => $twofactor->render(),
             'show_submit' => $twofactor->showSubmit,
         ]);
-        echo Template::get('login/footer')->render();
+        echo $this->template->render('login/footer');
         echo Config::renderFooter();
         if (! defined('TESTSUITE')) {
             exit;

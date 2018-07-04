@@ -6,13 +6,11 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Inline
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Provides common methods for all of the inline transformations plugins.
@@ -43,7 +41,7 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Inline']);

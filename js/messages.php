@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 if (!defined('TESTSUITE')) {
     chdir('..');
@@ -27,7 +28,6 @@ if (!defined('TESTSUITE')) {
 
 // But this one is needed for Sanitize::escapeJsString()
 use PhpMyAdmin\Sanitize;
-
 
 $buffer = PhpMyAdmin\OutputBuffering::getInstance();
 $buffer->start();
@@ -404,10 +404,10 @@ $js_messages['NoExportable']
 
 /* For ENUM/SET editor*/
 $js_messages['enum_editor'] = __('ENUM/SET editor');
-$js_messages['enum_columnVals'] =__('Values for column %s');
+$js_messages['enum_columnVals'] = __('Values for column %s');
 $js_messages['enum_newColumnVals'] = __('Values for a new column');
-$js_messages['enum_hint'] =__('Enter each value in a separate field.');
-$js_messages['enum_addValue'] =__('Add %d value(s)');
+$js_messages['enum_hint'] = __('Enter each value in a separate field.');
+$js_messages['enum_addValue'] = __('Add %d value(s)');
 
 /* For import.js */
 $js_messages['strImportCSV'] = __(
@@ -421,7 +421,8 @@ $js_messages['strEdit'] = __('Edit');
 $js_messages['strDelete'] = __('Delete');
 $js_messages['strNotValidRowNumber'] = __('%d is not valid row number.');
 $js_messages['strBrowseForeignValues'] = __('Browse foreign values');
-$js_messages['strNoAutoSavedQuery'] = __('No auto-saved query');
+$js_messages['strNoAutoSavedQuery'] = __('No previously auto-saved query is available. Loading default query.');
+$js_messages['strPreviousSaveQuery'] = __('You have a previously saved query. Click Get auto-saved query to load the query.');
 $js_messages['strBookmarkVariable'] = __('Variable %d:');
 
 /* For Central list of columns */
@@ -626,18 +627,18 @@ $js_messages['back'] = __('Back');
 
 // this approach does not work when the parameter is changed via user prefs
 switch ($GLOBALS['cfg']['GridEditing']) {
-case 'double-click':
-    $js_messages['strGridEditFeatureHint'] = __(
-        'You can also edit most values<br />by double-clicking directly on them.'
-    );
-    break;
-case 'click':
-    $js_messages['strGridEditFeatureHint'] = __(
-        'You can also edit most values<br />by clicking directly on them.'
-    );
-    break;
-default:
-    break;
+    case 'double-click':
+        $js_messages['strGridEditFeatureHint'] = __(
+            'You can also edit most values<br />by double-clicking directly on them.'
+        );
+        break;
+    case 'click':
+        $js_messages['strGridEditFeatureHint'] = __(
+            'You can also edit most values<br />by clicking directly on them.'
+        );
+        break;
+    default:
+        break;
 }
 $js_messages['strGoToLink'] = __('Go to link:');
 $js_messages['strColNameCopyTitle'] = __('Copy column name.');
@@ -787,7 +788,7 @@ Sanitize::printJsValue(
 Sanitize::printJsValue("$.datepicker.regional['']['currentText']", __('Today'));
 Sanitize::printJsValue(
     "$.datepicker.regional['']['monthNames']",
-    array(
+    [
         __('January'),
         __('February'),
         __('March'),
@@ -800,11 +801,11 @@ Sanitize::printJsValue(
         __('October'),
         __('November'),
         __('December')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['monthNamesShort']",
-    array(
+    [
         /* l10n: Short month name */
         __('Jan'),
         /* l10n: Short month name */
@@ -829,11 +830,11 @@ Sanitize::printJsValue(
         __('Nov'),
         /* l10n: Short month name */
         __('Dec')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNames']",
-    array(
+    [
         __('Sunday'),
         __('Monday'),
         __('Tuesday'),
@@ -841,11 +842,11 @@ Sanitize::printJsValue(
         __('Thursday'),
         __('Friday'),
         __('Saturday')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNamesShort']",
-    array(
+    [
         /* l10n: Short week day name */
         __('Sun'),
         /* l10n: Short week day name */
@@ -860,11 +861,11 @@ Sanitize::printJsValue(
         __('Fri'),
         /* l10n: Short week day name */
         __('Sat')
-    )
+    ]
 );
 Sanitize::printJsValue(
     "$.datepicker.regional['']['dayNamesMin']",
-    array(
+    [
         /* l10n: Minimal week day name */
         __('Su'),
         /* l10n: Minimal week day name */
@@ -879,7 +880,7 @@ Sanitize::printJsValue(
         __('Fr'),
         /* l10n: Minimal week day name */
         __('Sa')
-    )
+    ]
 );
 /* l10n: Column header for week of the year in calendar */
 Sanitize::printJsValue("$.datepicker.regional['']['weekHeader']", __('Wk'));

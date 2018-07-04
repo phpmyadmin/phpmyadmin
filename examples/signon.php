@@ -10,6 +10,7 @@
  * @package    PhpMyAdmin
  * @subpackage Example
  */
+declare(strict_types=1);
 
 /* Use cookies for session */
 ini_set('session.use_cookies', 'true');
@@ -32,7 +33,7 @@ if (isset($_POST['user'])) {
     $_SESSION['PMA_single_signon_host'] = $_POST['host'];
     $_SESSION['PMA_single_signon_port'] = $_POST['port'];
     /* Update another field of server configuration */
-    $_SESSION['PMA_single_signon_cfgupdate'] = array('verbose' => 'Signon test');
+    $_SESSION['PMA_single_signon_cfgupdate'] = ['verbose' => 'Signon test'];
     $id = session_id();
     /* Close that session */
     @session_write_close();

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\ServerPluginsController;
@@ -26,7 +28,7 @@ class ServerPluginsControllerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$_REQUEST
         $_REQUEST['log'] = "index1";
@@ -49,7 +51,7 @@ class ServerPluginsControllerTest extends PmaTestCase
         /**
          * Prepare plugin list
          */
-        $row = array();
+        $row = [];
         $row["plugin_name"] = "plugin_name1";
         $row["plugin_type"] = "plugin_type1";
         $row["plugin_type_version"] = "plugin_version1";

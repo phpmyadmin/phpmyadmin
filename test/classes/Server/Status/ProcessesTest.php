@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Server\Status;
 
 use PhpMyAdmin\Core;
@@ -27,13 +29,13 @@ class ProcessesTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         $GLOBALS['cfg']['Server']['host'] = "localhost";
         $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['replication_info']['master']['status'] = true;
         $GLOBALS['replication_info']['slave']['status'] = false;
-        $GLOBALS['replication_types'] = array();
+        $GLOBALS['replication_types'] = [];
 
         $GLOBALS['pmaThemeImage'] = 'image';
 
@@ -98,7 +100,7 @@ class ProcessesTest extends TestCase
      */
     public function testPMAGetHtmlForServerProcessList()
     {
-        $process = array(
+        $process = [
             "User" => "User1",
             "Host" => "Host1",
             "Id" => "Id1",
@@ -107,7 +109,7 @@ class ProcessesTest extends TestCase
             "Info" => "Info1",
             "State" => "State1",
             "Time" => "Time1"
-        );
+        ];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
             ->will($this->onConsecutiveCalls($process));
@@ -175,7 +177,7 @@ class ProcessesTest extends TestCase
     public function testPMAGetHtmlForServerProcessItem()
     {
         //parameters
-        $process = array(
+        $process = [
             "user" => "User1",
             "host" => "Host1",
             "id" => "Id1",
@@ -184,7 +186,7 @@ class ProcessesTest extends TestCase
             "info" => "Info1",
             "state" => "State1",
             "time" => "Time1",
-        );
+        ];
         $show_full_sql = true;
 
         $_REQUEST['sort_order'] = "desc";
@@ -195,10 +197,10 @@ class ProcessesTest extends TestCase
         $html = Processes::getHtmlForServerProcessItem($process, $show_full_sql);
 
         //validate 1: $kill_process
-        $url_params = array(
+        $url_params = [
             'kill' => $process['id'],
             'ajax_request' => true
-        );
+        ];
         $kill_process = 'server_status_processes.php'
             . Url::getCommon($url_params);
         $this->assertContains(

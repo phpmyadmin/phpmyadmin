@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Sanitize;
@@ -29,8 +31,8 @@ class Descriptions
     public static function get($path, $type = 'name')
     {
         $key = str_replace(
-            array('Servers/1/', '/'),
-            array('Servers/', '_'),
+            ['Servers/1/', '/'],
+            ['Servers/', '_'],
             $path
         );
         $value = self::getString($key, $type);
@@ -248,7 +250,8 @@ class Descriptions
                 return __('Maximum execution time');
             case 'Export_lock_tables_name':
                 return sprintf(
-                    __('Use %s statement'), '<code>LOCK TABLES</code>'
+                    __('Use %s statement'),
+                    '<code>LOCK TABLES</code>'
                 );
             case 'Export_asfile_name':
                 return __('Save as file');
@@ -372,7 +375,8 @@ class Descriptions
                 return sprintf(__('Add %s'), 'DROP DATABASE');
             case 'Export_sql_drop_table_name':
                 return sprintf(
-                    __('Add %s'), 'DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT / TRIGGER'
+                    __('Add %s'),
+                    'DROP TABLE / VIEW / PROCEDURE / FUNCTION / EVENT / TRIGGER'
                 );
             case 'Export_sql_create_table_name':
                 return sprintf(__('Add %s'), 'CREATE TABLE');
@@ -623,6 +627,10 @@ class Descriptions
                     . 'This might be a good way to import large files, however it can break '
                     . 'transactions.'
                 );
+            case 'enable_drag_drop_import_name':
+                return __('Enable drag and drop import');
+            case 'enable_drag_drop_import_desc':
+                return __('Uncheck the checkbox to disable drag and drop import');
             case 'Import_allow_interrupt_name':
                 return __('Partial import: allow interrupt');
             case 'Import_charset_name':
@@ -982,7 +990,7 @@ class Descriptions
             case 'Servers_SessionTimeZone_desc':
                 return __(
                     'Sets the effective timezone; possibly different than the one from your '
-                    .  'database server'
+                    . 'database server'
                 );
             case 'Servers_auth_http_realm_desc':
                 return __('HTTP Basic Auth Realm name to display when doing HTTP Auth.');
@@ -1039,7 +1047,7 @@ class Descriptions
             case 'Servers_DisableIS_desc':
                 return __(
                     'More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin '
-                    .  'issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]'
+                    . 'issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]'
                 );
             case 'Servers_DisableIS_name':
                 return __('Disable use of INFORMATION_SCHEMA');
@@ -1213,7 +1221,7 @@ class Descriptions
             case 'Servers_userconfig_desc':
                 return __(
                     'Leave blank for no user preferences storage in database, suggested: '
-                    .  '[kbd]pma__userconfig[/kbd].'
+                    . '[kbd]pma__userconfig[/kbd].'
                 );
             case 'Servers_userconfig_name':
                 return __('User preferences storage table');
@@ -1482,12 +1490,9 @@ class Descriptions
                 return __('Order');
             case 'Console_OrderBy_name':
                 return __('Order by');
-            case 'FontSize_name':
-                return __('Font size');
             case 'DefaultConnectionCollation_name':
                 return __('Server connection collation');
         }
         return null;
     }
 }
-

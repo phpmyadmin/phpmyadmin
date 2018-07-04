@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Theme;
 
 // unplanned execution path

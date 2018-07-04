@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Display\Import;
@@ -18,6 +19,8 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('import.js');
+
+$import = new Import();
 
 /**
  * Gets tables information and displays top links
@@ -38,7 +41,10 @@ list(
 
 $response = Response::getInstance();
 $response->addHTML(
-    Import::get(
-        'database', $db, $table, $max_upload_size
+    $import->get(
+        'database',
+        $db,
+        $table,
+        $max_upload_size
     )
 );

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Tracking;
@@ -18,6 +20,10 @@ use PHPUnit\Framework\TestCase;
  */
 class TrackingTest extends TestCase
 {
+    /**
+     * @var Tracking $tracking
+     */
+    private $tracking;
 
     /**
      * Setup function for test cases
@@ -41,12 +47,14 @@ class TrackingTest extends TestCase
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 1000;
         $GLOBALS['cfg']['NavigationTreeTableSeparator'] = "_";
 
-        $_SESSION['relation'][$GLOBALS['server']] = array(
+        $this->tracking = new Tracking();
+
+        $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'tracking' => 'tracking',
             'trackingwork' => true
-        );
+        ];
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
 
@@ -54,7 +62,7 @@ class TrackingTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $fetchArray = array('version' => "10");
+        $fetchArray = ['version' => "10"];
         $dbi->expects($this->any())
             ->method('fetchArray')
             ->will($this->returnValue($fetchArray));
@@ -69,31 +77,34 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::filterTracking() method.
+     * Tests for filter() method.
      *
      * @return void
      * @test
      */
-    public function testPMAFilterTracking()
+    public function testFilter()
     {
-        $data = array(
-            array(
+        $data = [
+            [
                 "date" => "20120102",
-                "username"=> "username1",
-                "statement"=>"statement1"
-            ),
-            array(
+                "username" => "username1",
+                "statement" => "statement1"
+            ],
+            [
                 "date" => "20130102",
-                "username"=> "username2",
-                "statement"=>"statement2"
-            ),
-        );
+                "username" => "username2",
+                "statement" => "statement2"
+            ],
+        ];
         $filter_ts_from = 0;
         $filter_ts_to = 999999999999;
-        $filter_users = array("username1");
+        $filter_users = ["username1"];
 
-        $ret = Tracking::filterTracking(
-            $data, $filter_ts_from, $filter_ts_to, $filter_users
+        $ret = $this->tracking->filter(
+            $data,
+            $filter_ts_from,
+            $filter_ts_to,
+            $filter_users
         );
 
         $this->assertEquals(
@@ -107,31 +118,31 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::extractTableNames() method from nested table_list.
+     * Tests for extractTableNames() method from nested table_list.
      *
      * @return void
      * @test
      */
-    public function testPMAextractTableNames()
+    public function testExtractTableNames()
     {
-        $table_list = array(
-            "hello_"=>array(
-                "is_group"=>1,
-                "lovely_"=>array(
-                    "is_group"=>1,
-                    "hello_lovely_world"=>array(
-                        "Name"=>"hello_lovely_world"
-                    ),
-                    "hello_lovely_world2"=>array(
-                        "Name"=>"hello_lovely_world2"
-                    )
-                ),
-                "hello_world"=>array(
-                    "Name"=>"hello_world"
-                )
-            )
-        );
-        $untracked_tables = Tracking::extractTableNames($table_list, 'db', true);
+        $table_list = [
+            "hello_" => [
+                "is_group" => 1,
+                "lovely_" => [
+                    "is_group" => 1,
+                    "hello_lovely_world" => [
+                        "Name" => "hello_lovely_world"
+                    ],
+                    "hello_lovely_world2" => [
+                        "Name" => "hello_lovely_world2"
+                    ]
+                ],
+                "hello_world" => [
+                    "Name" => "hello_world"
+                ]
+            ]
+        ];
+        $untracked_tables = $this->tracking->extractTableNames($table_list, 'db', true);
         $this->assertContains(
             "hello_world",
             $untracked_tables
@@ -147,17 +158,20 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getHtmlForDataDefinitionAndManipulationStatements() method.
+     * Tests for getHtmlForDataDefinitionAndManipulationStatements() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForDataDefinitionAndManipulationStatements()
+    public function testGetHtmlForDataDefinitionAndManipulationStatements()
     {
         $url_query = "url_query";
         $last_version = 10;
-        $html = Tracking::getHtmlForDataDefinitionAndManipulationStatements(
-            $url_query, $last_version, $GLOBALS['db'], array($GLOBALS['table'])
+        $html = $this->tracking->getHtmlForDataDefinitionAndManipulationStatements(
+            $url_query,
+            $last_version,
+            $GLOBALS['db'],
+            [$GLOBALS['table']]
         );
 
         $this->assertContains(
@@ -199,17 +213,19 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getHtmlForActivateDeactivateTracking() method.
+     * Tests for getHtmlForActivateDeactivateTracking() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForActivateDeactivateTracking()
+    public function testGetHtmlForActivateDeactivateTracking()
     {
         $url_query = "url_query";
         $last_version = "10";
-        $html = Tracking::getHtmlForActivateDeactivateTracking(
-            'activate', $url_query, $last_version
+        $html = $this->tracking->getHtmlForActivateDeactivateTracking(
+            'activate',
+            $url_query,
+            $last_version
         );
 
         $this->assertContains(
@@ -236,8 +252,10 @@ class TrackingTest extends TestCase
             $html
         );
 
-        $html = Tracking::getHtmlForActivateDeactivateTracking(
-            'deactivate', $url_query, $last_version
+        $html = $this->tracking->getHtmlForActivateDeactivateTracking(
+            'deactivate',
+            $url_query,
+            $last_version
         );
 
         $this->assertContains(
@@ -266,15 +284,15 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getTableLastVersionNumber() method.
+     * Tests for getTableLastVersionNumber() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetTableLastVersionNumber()
+    public function testGetTableLastVersionNumber()
     {
         $sql_result = "sql_result";
-        $last_version = Tracking::getTableLastVersionNumber($sql_result);
+        $last_version = $this->tracking->getTableLastVersionNumber($sql_result);
 
         $this->assertEquals(
             "10",
@@ -283,14 +301,14 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getSqlResultForSelectableTables() method.
+     * Tests for getSqlResultForSelectableTables() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetSQLResultForSelectableTables()
+    public function testGetSQLResultForSelectableTables()
     {
-        $ret = Tracking::getSqlResultForSelectableTables();
+        $ret = $this->tracking->getSqlResultForSelectableTables();
 
         $this->assertEquals(
             true,
@@ -299,35 +317,35 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getHtmlForColumns() method.
+     * Tests for getHtmlForColumns() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForColumns()
+    public function testGetHtmlForColumns()
     {
-        $columns = array(
-            array(
-                'Field'=>'Field1',
-                'Type'=>'Type1',
-                'Collation'=>'Collation1',
-                "Null"=>'YES',
-                'Extra'=>'Extra1',
-                'Key'=>'PRI',
-                'Comment'=>'Comment1'
-            ),
-            array(
-                'Field'=>'Field2',
-                'Type'=>'Type2',
-                'Collation'=>'Collation2',
-                "Null"=>'No',
-                'Extra'=>'Extra2',
-                'Key'=>'Key2',
-                'Comment'=>'Comment2'
-            ),
-        );
+        $columns = [
+            [
+                'Field' => 'Field1',
+                'Type' => 'Type1',
+                'Collation' => 'Collation1',
+                "Null" => 'YES',
+                'Extra' => 'Extra1',
+                'Key' => 'PRI',
+                'Comment' => 'Comment1'
+            ],
+            [
+                'Field' => 'Field2',
+                'Type' => 'Type2',
+                'Collation' => 'Collation2',
+                "Null" => 'No',
+                'Extra' => 'Extra2',
+                'Key' => 'Key2',
+                'Comment' => 'Comment2'
+            ],
+        ];
 
-        $html = Tracking::getHtmlForColumns($columns);
+        $html = $this->tracking->getHtmlForColumns($columns);
 
         $this->assertContains(
             __('Column'),
@@ -351,7 +369,7 @@ class TrackingTest extends TestCase
         );
 
         //column1
-        $item1= $columns[0];
+        $item1 = $columns[0];
         $this->assertContains(
             htmlspecialchars($item1['Field']),
             $html
@@ -374,7 +392,7 @@ class TrackingTest extends TestCase
         );
 
         //column2
-        $item1= $columns[1];
+        $item1 = $columns[1];
         $this->assertContains(
             htmlspecialchars($item1['Field']),
             $html
@@ -398,14 +416,14 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getListOfVersionsOfTable() method.
+     * Tests for getListOfVersionsOfTable() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetListOfVersionsOfTable()
+    public function testGetListOfVersionsOfTable()
     {
-        $ret = Tracking::getListOfVersionsOfTable();
+        $ret = $this->tracking->getListOfVersionsOfTable();
 
         $this->assertEquals(
             true,
@@ -414,16 +432,16 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getHtmlForTableVersionDetails() method.
+     * Tests for getHtmlForTableVersionDetails() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForTableVersionDetails()
+    public function testGetHtmlForTableVersionDetails()
     {
         $sql_result = true;
         $last_version = "10";
-        $url_params = array();
+        $url_params = [];
         $url_query = "select * from PMA";
         $pmaThemeImage = "themePath/img";
         $text_dir = "ltr";
@@ -433,14 +451,14 @@ class TrackingTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $fetchArray = array(
+        $fetchArray = [
                 'tracking_active' => 1,
                 'version' => "10",
                 'db_name' => 'db_name',
                 'table_name' => 'table_name',
                 'date_created' => 'date_created',
                 'date_updated' => 'date_updated'
-        );
+        ];
         $dbi->expects($this->at(0))
             ->method('fetchArray')
             ->will($this->returnValue($fetchArray));
@@ -453,9 +471,13 @@ class TrackingTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $ret = Tracking::getHtmlForTableVersionDetails(
-            $sql_result, $last_version, $url_params, $url_query,
-            $pmaThemeImage, $text_dir
+        $ret = $this->tracking->getHtmlForTableVersionDetails(
+            $sql_result,
+            $last_version,
+            $url_params,
+            $url_query,
+            $pmaThemeImage,
+            $text_dir
         );
 
         $this->assertContains(
@@ -516,12 +538,12 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getHtmlForSelectableTables() method.
+     * Tests for getHtmlForSelectableTables() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForSelectableTables()
+    public function testGetHtmlForSelectableTables()
     {
         $selectable_tables_sql_result = true;
         $url_query = "select * from PMA";
@@ -531,14 +553,14 @@ class TrackingTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $fetchArray = array(
+        $fetchArray = [
                 'tracking_active' => 1,
                 'version' => "10",
                 'db_name' => 'db_name',
                 'table_name' => 'table_name',
                 'date_created' => 'date_created',
                 'date_updated' => 'date_updated'
-        );
+        ];
         $dbi->expects($this->at(0))
             ->method('fetchArray')
             ->will($this->returnValue($fetchArray));
@@ -551,8 +573,9 @@ class TrackingTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $ret = Tracking::getHtmlForSelectableTables(
-            $selectable_tables_sql_result, $url_query
+        $ret = $this->tracking->getHtmlForSelectableTables(
+            $selectable_tables_sql_result,
+            $url_query
         );
 
         $this->assertContains(
@@ -569,12 +592,12 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getHtmlForTrackingReport() method.
+     * Tests for getHtmlForTrackingReport() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForTrackingReportr()
+    public function testGetHtmlForTrackingReportr()
     {
         $_REQUEST['version'] = 10;
         $_REQUEST['date_from'] = "date_from";
@@ -582,24 +605,29 @@ class TrackingTest extends TestCase
         $_REQUEST['users'] = "users";
         $_REQUEST['logtype'] = 'logtype';
         $url_query = "select * from PMA";
-        $data = array(
-            'tracking'=>'tracking',
-            'ddlog' => array('ddlog'),
-            'dmlog' => array('dmlog')
-        );
-        $url_params = array();
-        $selection_schema = array();
-        $selection_data = array();
-        $selection_both = array();
-        $filter_ts_to = array();
-        $filter_ts_from = array();
-        $filter_users = array();
+        $data = [
+            'tracking' => 'tracking',
+            'ddlog' => ['ddlog'],
+            'dmlog' => ['dmlog']
+        ];
+        $url_params = [];
+        $selection_schema = [];
+        $selection_data = [];
+        $selection_both = [];
+        $filter_ts_to = [];
+        $filter_ts_from = [];
+        $filter_users = [];
 
-        $html = Tracking::getHtmlForTrackingReport(
-            $url_query, $data, $url_params,
-            $selection_schema, $selection_data,
-            $selection_both, $filter_ts_to,
-            $filter_ts_from, $filter_users
+        $html = $this->tracking->getHtmlForTrackingReport(
+            $url_query,
+            $data,
+            $url_params,
+            $selection_schema,
+            $selection_data,
+            $selection_both,
+            $filter_ts_to,
+            $filter_ts_from,
+            $filter_users
         );
 
         $this->assertContains(
@@ -624,9 +652,9 @@ class TrackingTest extends TestCase
 
         $version = '<form method="post" action="tbl_tracking.php'
             . Url::getCommon(
-                $url_params + array(
+                $url_params + [
                     'report' => 'true', 'version' => $_REQUEST['version']
-                )
+                ]
             );
 
         $this->assertContains(
@@ -671,36 +699,40 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getHtmlForDataManipulationStatements() method.
+     * Tests for getHtmlForDataManipulationStatements() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForDataManipulationStatements()
+    public function testGetHtmlForDataManipulationStatements()
     {
         $_REQUEST['version'] = "10";
-        $data = array(
-            'tracking'=>'tracking',
-            'dmlog' => array(
-                array(
+        $data = [
+            'tracking' => 'tracking',
+            'dmlog' => [
+                [
                     'statement' => 'statement',
                     'date' => 'date',
                     'username' => 'username',
-                )
-            ),
-            'ddlog' => array('ddlog')
-        );
-        $url_params = array();
+                ]
+            ],
+            'ddlog' => ['ddlog']
+        ];
+        $url_params = [];
         $ddlog_count = 10;
         $drop_image_or_text = "text";
         $filter_ts_to = 9999999999;
         $filter_ts_from = 0;
-        $filter_users = array("*");
+        $filter_users = ["*"];
 
-        $html = Tracking::getHtmlForDataManipulationStatements(
-            $data, $filter_users,
-            $filter_ts_from, $filter_ts_to, $url_params,
-            $ddlog_count, $drop_image_or_text
+        $html = $this->tracking->getHtmlForDataManipulationStatements(
+            $data,
+            $filter_users,
+            $filter_ts_from,
+            $filter_ts_to,
+            $url_params,
+            $ddlog_count,
+            $drop_image_or_text
         );
 
         $this->assertContains(
@@ -730,35 +762,39 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getHtmlForDataDefinitionStatements() method.
+     * Tests for getHtmlForDataDefinitionStatements() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForDataDefinitionStatements()
+    public function testGetHtmlForDataDefinitionStatements()
     {
         $_REQUEST['version'] = "10";
 
-        $data = array(
-            'tracking'=>'tracking',
-            'ddlog' => array(
-                array(
+        $data = [
+            'tracking' => 'tracking',
+            'ddlog' => [
+                [
                     'statement' => 'statement',
                     'date' => 'date',
                     'username' => 'username',
-                )
-            ),
-            'dmlog' => array('dmlog')
-        );
-        $filter_users = array("*");
+                ]
+            ],
+            'dmlog' => ['dmlog']
+        ];
+        $filter_users = ["*"];
         $filter_ts_to = 9999999999;
         $filter_ts_from = 0;
-        $url_params = array();
+        $url_params = [];
         $drop_image_or_text = "text";
 
-        list($html, $count) = Tracking::getHtmlForDataDefinitionStatements(
-            $data, $filter_users,
-            $filter_ts_from, $filter_ts_to, $url_params, $drop_image_or_text
+        list($html, $count) = $this->tracking->getHtmlForDataDefinitionStatements(
+            $data,
+            $filter_users,
+            $filter_ts_from,
+            $filter_ts_to,
+            $url_params,
+            $drop_image_or_text
         );
 
         $this->assertContains(
@@ -791,19 +827,18 @@ class TrackingTest extends TestCase
             2,
             $count
         );
-
     }
 
     /**
-     * Tests for Tracking::getHtmlForIndexes() method.
+     * Tests for getHtmlForIndexes() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetHtmlForIndexes()
+    public function testGetHtmlForIndexes()
     {
-        $indexs = array(
-            array(
+        $indexs = [
+            [
                 'Non_unique' => 0,
                 'Packed' => '',
                 'Key_name' => 'Key_name1',
@@ -813,10 +848,10 @@ class TrackingTest extends TestCase
                 'Collation' => 'Collation',
                 'Null' => 'Null',
                 'Comment' => 'Comment',
-            ),
-        );
+            ],
+        ];
 
-        $html = Tracking::getHtmlForIndexes($indexs);
+        $html = $this->tracking->getHtmlForIndexes($indexs);
 
         $this->assertContains(
             __('Indexes'),
@@ -870,12 +905,12 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for Tracking::getTrackingSet() method.
+     * Tests for getTrackingSet() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetTrackingSet()
+    public function testGetTrackingSet()
     {
         $_REQUEST['alter_table'] = false;
         $_REQUEST['rename_table'] = true;
@@ -888,7 +923,7 @@ class TrackingTest extends TestCase
         $_REQUEST['delete'] = true;
         $_REQUEST['truncate'] = true;
 
-        $tracking_set = Tracking::getTrackingSet();
+        $tracking_set = $this->tracking->getTrackingSet();
         $this->assertEquals(
             'RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE',
             $tracking_set
@@ -906,7 +941,7 @@ class TrackingTest extends TestCase
         $_REQUEST['delete'] = false;
         $_REQUEST['truncate'] = false;
 
-        $tracking_set = Tracking::getTrackingSet();
+        $tracking_set = $this->tracking->getTrackingSet();
         $this->assertEquals(
             'ALTER TABLE,CREATE INDEX,UPDATE',
             $tracking_set
@@ -915,37 +950,40 @@ class TrackingTest extends TestCase
 
 
     /**
-     * Tests for Tracking::getEntries() method.
+     * Tests for getEntries() method.
      *
      * @return void
      * @test
      */
-    public function testPMAGetEntries()
+    public function testGetEntries()
     {
         $_REQUEST['logtype'] = 'schema';
-        $data = array(
-            'tracking'=>'tracking',
-            'ddlog' => array(
-                array(
+        $data = [
+            'tracking' => 'tracking',
+            'ddlog' => [
+                [
                     'statement' => 'statement1',
                     'date' => 'date2',
                     'username' => 'username3',
-                )
-            ),
-            'dmlog' =>  array(
-                array(
+                ]
+            ],
+            'dmlog' =>  [
+                [
                     'statement' => 'statement1',
                     'date' => 'date2',
                     'username' => 'username3',
-                )
-            ),
-        );
-        $filter_users = array("*");
+                ]
+            ],
+        ];
+        $filter_users = ["*"];
         $filter_ts_to = 9999999999;
         $filter_ts_from = 0;
 
-        $entries = Tracking::getEntries(
-            $data, $filter_ts_from, $filter_ts_to, $filter_users
+        $entries = $this->tracking->getEntries(
+            $data,
+            $filter_ts_from,
+            $filter_ts_to,
+            $filter_users
         );
         $this->assertEquals(
             'username3',

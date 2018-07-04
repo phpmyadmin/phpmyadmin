@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\VersionInformation;
@@ -27,7 +29,7 @@ class Index
     public static function messagesBegin()
     {
         if (! isset($_SESSION['messages']) || !is_array($_SESSION['messages'])) {
-            $_SESSION['messages'] = array('error' => array(), 'notice' => array());
+            $_SESSION['messages'] = ['error' => [], 'notice' => []];
         } else {
             // reset message states
             foreach ($_SESSION['messages'] as &$messages) {
@@ -52,11 +54,11 @@ class Index
     public static function messagesSet($type, $msgId, $title, $message)
     {
         $fresh = ! isset($_SESSION['messages'][$type][$msgId]);
-        $_SESSION['messages'][$type][$msgId] = array(
+        $_SESSION['messages'][$type][$msgId] = [
             'fresh' => $fresh,
             'active' => true,
             'title' => $title,
-            'message' => $message);
+            'message' => $message];
     }
 
     /**
@@ -67,7 +69,7 @@ class Index
     public static function messagesEnd()
     {
         foreach ($_SESSION['messages'] as &$messages) {
-            $remove_ids = array();
+            $remove_ids = [];
             foreach ($messages as $id => &$msg) {
                 if ($msg['active'] == false) {
                     $remove_ids[] = $id;

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\ConfigFile;
 
 /**
@@ -30,7 +32,7 @@ $GLOBALS['PMA_Config']->set('is_setup', true);
 
 $GLOBALS['ConfigFile'] = new ConfigFile();
 $GLOBALS['ConfigFile']->setPersistKeys(
-    array(
+    [
         'DefaultLang',
         'ServerDefault',
         'UploadDir',
@@ -42,7 +44,7 @@ $GLOBALS['ConfigFile']->setPersistKeys(
         'Servers/1/auth_type',
         'Servers/1/user',
         'Servers/1/password'
-    )
+    ]
 );
 
 // allows for redirection even after sending some data

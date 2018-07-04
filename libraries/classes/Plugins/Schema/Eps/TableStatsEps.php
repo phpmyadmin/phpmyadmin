@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Eps;
 
 use PhpMyAdmin\Font;
@@ -108,23 +110,23 @@ class TableStatsEps extends TableStats
         foreach ($this->fields as $field) {
             $this->width = max(
                 $this->width,
-                Font::getStringWidth($field, $font, $fontSize)
+                $this->font->getStringWidth($field, $font, (int) $fontSize)
             );
         }
-        $this->width += Font::getStringWidth(
+        $this->width += $this->font->getStringWidth(
             '      ',
             $font,
-            $fontSize
+            (int) $fontSize
         );
         /*
          * it is unknown what value must be added, because
         * table title is affected by the table width value
         */
         while ($this->width
-            < Font::getStringWidth(
+            < $this->font->getStringWidth(
                 $this->getTitle(),
                 $font,
-                $fontSize
+                (int) $fontSize
             )) {
             $this->width += 7;
         }

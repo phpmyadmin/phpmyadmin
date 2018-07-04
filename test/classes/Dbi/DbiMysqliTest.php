@@ -1,23 +1,26 @@
 <?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysqli class
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Dbi;
 
 use PhpMyAdmin\Dbi\DbiMysqli;
-use PhpMyAdmin\Tests\PmaTestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Tests for PhpMyAdmin\Dbi\DbiMysqli class
  *
  * @package PhpMyAdmin-test
  */
-class DbiMysqliTest extends PmaTestCase
+class DbiMysqliTest extends TestCase
 {
     /**
-     * @access protected
+     * @var DbiMysqli
      */
     protected $object;
 
@@ -30,208 +33,193 @@ class DbiMysqliTest extends PmaTestCase
      */
     protected function setUp()
     {
-        $GLOBALS['cfg']['Server']['ssl'] = false;
-        $GLOBALS['cfg']['Server']['compress'] = true;
-
-        //$_SESSION
         $this->object = new DbiMysqli();
-    }
-
-    /**
-     * Tears down the fixture, for example, closes a network connection.
-     * This method is called after a test is executed.
-     *
-     * @access protected
-     * @return void
-     */
-    protected function tearDown()
-    {
-        unset($this->object);
-    }
-
-    /**
-     * Test for mysqli related functions, using runkit_function_redefine
-     *
-     * @return void
-     *
-     * @group medium
-     */
-    public function testMysqliDBI()
-    {
-        if (! PMA_HAS_RUNKIT) {
-            $this->markTestSkipped("Cannot redefine function");
-        }
-
-        //FOR UT, we just test the right mysql client API is called
-        runkit_function_redefine(
-            'mysqli_real_connect', '', 'return "mysqli_real_connect";'
-        );
-        runkit_function_redefine('mysqli_init', '', 'return "mysqli_init";');
-        runkit_function_redefine('mysqli_options', '', 'return "mysqli_options";');
-        runkit_function_redefine('mysqli_query', '', 'return "mysqli_query";');
-        runkit_function_redefine(
-            'mysqli_multi_query', '', 'return "mysqli_multi_query";'
-        );
-        runkit_function_redefine(
-            'mysqli_fetch_array', '', 'return "mysqli_fetch_array";'
-        );
-        runkit_function_redefine(
-            'mysqli_data_seek', '', 'return "mysqli_data_seek";'
-        );
-        runkit_function_redefine(
-            'mysqli_more_results', '', 'return "mysqli_more_results";'
-        );
-        runkit_function_redefine(
-            'mysqli_next_result', '', 'return "mysqli_next_result";'
-        );
-        runkit_function_redefine(
-            'mysqli_get_host_info', '', 'return "mysqli_get_host_info";'
-        );
-        runkit_function_redefine(
-            'mysqli_get_proto_info', '', 'return "mysqli_get_proto_info";'
-        );
-        runkit_function_redefine(
-            'mysqli_get_client_info', '', 'return "mysqli_get_client_info";'
-        );
-
-        $user = 'PMA_user';
-        $password = 'PMA_password';
-        $server = array(
-            'port' => 8080,
-            'socket' => 123,
-            'host' => 'locahost',
-            'compress' => false,
-            'ssl' => false,
-        );
-
-        //test for connect
-        $ret = $this->object->connect(
-            $user, $password, $server
-        );
-        $this->assertEquals(
-            'mysqli_init',
-            $ret
-        );
-
-        //test for realQuery
-        $query = 'select * from DBI';
-        $link = $ret;
-        $options = 0;
-        $ret = $this->object->realQuery($query, $link, $options);
-        $this->assertEquals(
-            'mysqli_query',
-            $ret
-        );
-
-        //test for realMultiQuery
-        $ret = $this->object->realMultiQuery($link, $query);
-        $this->assertEquals(
-            'mysqli_multi_query',
-            $ret
-        );
-
-        //test for fetchArray
-        $result = $ret;
-        $ret = $this->object->fetchArray($result);
-        $this->assertEquals(
-            'mysqli_fetch_array',
-            $ret
-        );
-
-        //test for fetchAssoc
-        $result = $ret;
-        $ret = $this->object->fetchAssoc($result);
-        $this->assertEquals(
-            'mysqli_fetch_array',
-            $ret
-        );
-
-        //test for fetchRow
-        $result = $ret;
-        $ret = $this->object->fetchRow($result);
-        $this->assertEquals(
-            'mysqli_fetch_array',
-            $ret
-        );
-
-        //test for dataSeek
-        $result = $ret;
-        $offset = 10;
-        $ret = $this->object->dataSeek($result, $offset);
-        $this->assertEquals(
-            'mysqli_data_seek',
-            $ret
-        );
-
-        //test for moreResults
-        $link = $ret;
-        $ret = $this->object->moreResults($link);
-        $this->assertEquals(
-            'mysqli_more_results',
-            $ret
-        );
-
-        //test for nextResult
-        $link = $ret;
-        $ret = $this->object->nextResult($link);
-        $this->assertEquals(
-            'mysqli_next_result',
-            $ret
-        );
-
-        //test for getHostInfo
-        $link = $ret;
-        $ret = $this->object->getHostInfo($link);
-        $this->assertEquals(
-            'mysqli_get_host_info',
-            $ret
-        );
-
-        //test for getProtoInfo
-        $link = $ret;
-        $ret = $this->object->getProtoInfo($link);
-        $this->assertEquals(
-            'mysqli_get_proto_info',
-            $ret
-        );
-
-        //test for getClientInfo
-        $ret = $this->object->getClientInfo();
-        $this->assertEquals(
-            'mysqli_get_client_info',
-            $ret
-        );
     }
 
     /**
      * Test for selectDb
      *
      * @return void
-     *
-     * @group medium
      */
-    public function testSelectDb()
+    public function testSelectDb(): void
     {
-        $this->markTestIncomplete('Not testing anything');
-        //$link is empty
-        $this->assertEquals(
-            false,
-            $this->object->selectDb("PMA", null)
-        );
+        $databaseName = 'test';
+        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli->expects($this->once())
+            ->method('select_db')
+            ->with($this->equalTo($databaseName))
+            ->willReturn(true);
+
+        $this->assertTrue($this->object->selectDb($databaseName, $mysqli));
+    }
+
+    /**
+     * Test for realMultiQuery
+     *
+     * @return void
+     */
+    public function testRealMultiQuery(): void
+    {
+        $query = 'test';
+        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli->expects($this->once())
+            ->method('multi_query')
+            ->with($this->equalTo($query))
+            ->willReturn(true);
+
+        $this->assertTrue($this->object->realMultiQuery($mysqli, $query));
+    }
+
+    /**
+     * Test for fetchArray
+     *
+     * @return void
+     */
+    public function testFetchArray(): void
+    {
+        $expected = [];
+        $result = $this->createMock(\mysqli_result::class);
+        $result->expects($this->once())
+            ->method('fetch_array')
+            ->with($this->equalTo(MYSQLI_BOTH))
+            ->willReturn($expected);
+
+        $this->assertEquals($expected, $this->object->fetchArray($result));
+    }
+
+    /**
+     * Test for fetchAssoc
+     *
+     * @return void
+     */
+    public function testFetchAssoc(): void
+    {
+        $expected = [];
+        $result = $this->createMock(\mysqli_result::class);
+        $result->expects($this->once())
+            ->method('fetch_array')
+            ->with($this->equalTo(MYSQLI_ASSOC))
+            ->willReturn($expected);
+
+        $this->assertEquals($expected, $this->object->fetchAssoc($result));
+    }
+
+    /**
+     * Test for fetchRow
+     *
+     * @return void
+     */
+    public function testFetchRow(): void
+    {
+        $expected = [];
+        $result = $this->createMock(\mysqli_result::class);
+        $result->expects($this->once())
+            ->method('fetch_array')
+            ->with($this->equalTo(MYSQLI_NUM))
+            ->willReturn($expected);
+
+        $this->assertEquals($expected, $this->object->fetchRow($result));
+    }
+
+    /**
+     * Test for dataSeek
+     *
+     * @return void
+     */
+    public function testDataSeek(): void
+    {
+        $offset = 1;
+        $result = $this->createMock(\mysqli_result::class);
+        $result->expects($this->once())
+            ->method('data_seek')
+            ->with($this->equalTo($offset))
+            ->willReturn(true);
+
+        $this->assertTrue($this->object->dataSeek($result, $offset));
+    }
+
+    /**
+     * Test for freeResult
+     *
+     * @return void
+     */
+    public function testFreeResult(): void
+    {
+        $result = $this->createMock(\mysqli_result::class);
+        $result->expects($this->once())
+            ->method('close');
+
+        $this->object->freeResult($result);
+    }
+
+    /**
+     * Test for moreResults
+     *
+     * @return void
+     */
+    public function testMoreResults(): void
+    {
+        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli->expects($this->once())
+            ->method('more_results')
+            ->willReturn(true);
+
+        $this->assertTrue($this->object->moreResults($mysqli));
+    }
+
+    /**
+     * Test for nextResult
+     *
+     * @return void
+     */
+    public function testNextResult(): void
+    {
+        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli->expects($this->once())
+            ->method('next_result')
+            ->willReturn(true);
+
+        $this->assertTrue($this->object->nextResult($mysqli));
+    }
+
+    /**
+     * Test for storeResult
+     *
+     * @return void
+     */
+    public function testStoreResult(): void
+    {
+        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli->expects($this->once())
+            ->method('store_result')
+            ->willReturn(true);
+
+        $this->assertTrue($this->object->storeResult($mysqli));
     }
 
     /**
      * Test for numRows
      *
      * @return void
-     *
-     * @group medium
      */
-    public function testNumRows()
+    public function testNumRows(): void
     {
-        $this->assertEquals(
-            0,
-            $this->object->numRows(true)
-        );
+        $this->assertEquals(0, $this->object->numRows(false));
+    }
+
+    /**
+     * Test for escapeString
+     *
+     * @return void
+     */
+    public function testEscapeString(): void
+    {
+        $string = 'test';
+        $mysqli = $this->createMock(\mysqli::class);
+        $mysqli->expects($this->once())
+            ->method('real_escape_string')
+            ->willReturn($string);
+
+        $this->assertEquals($string, $this->object->escapeString($mysqli, $string));
     }
 }

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Navigation;
 
 use PhpMyAdmin\Sanitize;
@@ -22,6 +24,19 @@ use PhpMyAdmin\Util;
 class NavigationHeader
 {
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
+     * NavigationHeader constructor.
+     */
+    public function __construct()
+    {
+        $this->template = new Template();
+    }
+
+    /**
      * Renders the navigation
      *
      * @return String HTML
@@ -32,9 +47,9 @@ class NavigationHeader
             $GLOBALS['url_query'] = Url::getCommon();
         }
         $link_url = Url::getCommon(
-            array(
+            [
                 'ajax_request' => true,
-            )
+            ]
         );
         $class = ' class="list_container';
         if ($GLOBALS['cfg']['NavigationLinkWithMainPanel']) {
@@ -59,10 +74,10 @@ class NavigationHeader
         $buffer .= Util::getImage(
             'ajax_clock_small',
             __('Loading…'),
-            array(
+            [
                 'style' => 'visibility: hidden; display:none',
                 'class' => 'throbber',
-            )
+            ]
         );
         $buffer .= '</div>'; // pma_navigation_header
         $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
@@ -90,7 +105,7 @@ class NavigationHeader
 
         // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
         if (!$GLOBALS['cfg']['NavigationDisplayLogo']) {
-            return Template::get('navigation/logo')->render([
+            return $this->template->render('navigation/logo', [
                 'display_logo' => false,
                 'use_logo_link' => false,
                 'logo_link' => null,
@@ -100,7 +115,7 @@ class NavigationHeader
         }
 
         if (!$GLOBALS['cfg']['NavigationLogoLink']) {
-            return Template::get('navigation/logo')->render([
+            return $this->template->render('navigation/logo', [
                 'display_logo' => true,
                 'use_logo_link' => false,
                 'logo_link' => null,
@@ -120,23 +135,23 @@ class NavigationHeader
             $logoLink = 'index.php';
         }
         switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
-        case 'new':
-            $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
-            break;
-        case 'main':
-            // do not add our parameters for an external link
-            $host = parse_url(
-                $GLOBALS['cfg']['NavigationLogoLink'],
-                PHP_URL_HOST
-            );
-            if (empty($host)) {
-                $logoLink .= Url::getCommon();
-            } else {
+            case 'new':
                 $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
-            }
+                break;
+            case 'main':
+                // do not add our parameters for an external link
+                $host = parse_url(
+                    $GLOBALS['cfg']['NavigationLogoLink'],
+                    PHP_URL_HOST
+                );
+                if (empty($host)) {
+                    $logoLink .= Url::getCommon();
+                } else {
+                    $linkAttriks = 'target="_blank" rel="noopener noreferrer"';
+                }
         }
 
-        return Template::get('navigation/logo')->render([
+        return $this->template->render('navigation/logo', [
             'display_logo' => true,
             'use_logo_link' => $useLogoLink,
             'logo_link' => $logoLink,
@@ -184,7 +199,7 @@ class NavigationHeader
                 '',
                 true,
                 '',
-                array('logout')
+                ['logout']
             );
         }
         $retval .= Util::getNavigationLink(
@@ -216,7 +231,7 @@ class NavigationHeader
             'pma_navigation_settings_icon',
             false,
             '',
-            defined('PMA_DISABLE_NAVI_SETTINGS') ? array('hide') : array()
+            defined('PMA_DISABLE_NAVI_SETTINGS') ? ['hide'] : []
         );
         $retval .= Util::getNavigationLink(
             '#',

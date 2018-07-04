@@ -10,6 +10,8 @@
  * @package    PhpMyAdmin
  * @subpackage Stubs
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Stubs;
 
 use PhpMyAdmin\Header;
@@ -71,7 +73,7 @@ class Response
     {
         $this->_isSuccess = true;
         $this->htmlString = '';
-        $this->json = array();
+        $this->json = [];
         $this->_isAjax = false;
 
         $GLOBALS['lang'] = 'en';
@@ -187,7 +189,7 @@ class Response
     public function clear()
     {
         $this->_isSuccess = true;
-        $this->json = array();
+        $this->json = [];
         $this->htmlString = '';
     }
 
@@ -201,7 +203,7 @@ class Response
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = (boolean) $isAjax;
+        $this->_isAjax = (bool) $isAjax;
     }
 
     /**

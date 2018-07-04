@@ -629,7 +629,7 @@ AJAX.registerOnload('indexes.js', function () {
                         PMA_highlightSQL($('#page_content'));
                     }
                     PMA_commonActions.refreshMain(false, function () {
-                        $('a.ajax[href^=#indexes]').click();
+                        $('a.ajax[href^=#indexes]').trigger('click');
                     });
                     PMA_reloadNavigation();
                 } else {
@@ -670,7 +670,7 @@ AJAX.registerOnload('indexes.js', function () {
         indexEditorDialog(url, title, function () {
             // refresh the page using ajax
             PMA_commonActions.refreshMain(false, function () {
-                $('a.ajax[href^=#indexes]').click();
+                $('a.ajax[href^=#indexes]').trigger('click');
             });
         });
     });

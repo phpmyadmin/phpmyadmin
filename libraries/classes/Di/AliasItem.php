@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Di
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Di;
 
 /**
@@ -39,7 +41,7 @@ class AliasItem implements Item
      * @param array $params Parameters
      * @return mixed
      */
-    public function get(array $params = array())
+    public function get(array $params = [])
     {
         return $this->container->get($this->target, $params);
     }

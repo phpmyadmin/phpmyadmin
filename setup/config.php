@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Config\Forms\Setup\ConfigForm;
 use PhpMyAdmin\Core;
@@ -45,6 +47,6 @@ if (Core::ifSetOr($_POST['submit_clear'], '')) {
     //
     // Show generated config file in a <textarea>
     //
-    $response->generateHeader303('index.php' . Url::getCommonRaw(array('page' => 'config')));
+    $response->generateHeader303('index.php' . Url::getCommonRaw(['page' => 'config']));
     exit;
 }

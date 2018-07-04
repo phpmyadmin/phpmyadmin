@@ -6,13 +6,11 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Link
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Provides common methods for all of the link transformations plugins.
@@ -42,7 +40,7 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         // must disable the page loader, see
         // https://wiki.phpmyadmin.net/pma/Page_loader#Bypassing_the_page_loader

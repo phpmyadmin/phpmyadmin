@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Header;
@@ -47,13 +49,13 @@ class Scripts
         $result = '';
         foreach ($files as $value) {
             if (strpos($value['filename'], ".php") !== false) {
-                $file_name = $value['filename'] . Url::getCommon($value['params'] + array('v' => PMA_VERSION));
+                $file_name = $value['filename'] . Url::getCommon($value['params'] + ['v' => PMA_VERSION]);
                 $result .= "<script data-cfasync='false' "
                     . "type='text/javascript' src='js/" . $file_name
                     . "'></script>\n";
             } else {
                 $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
-                    .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
+                    . $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
             }
         }
         return $result;
@@ -65,9 +67,8 @@ class Scripts
      */
     public function __construct()
     {
-        $this->_files  = array();
+        $this->_files  = [];
         $this->_code   = '';
-
     }
 
     /**
@@ -80,7 +81,7 @@ class Scripts
      */
     public function addFile(
         $filename,
-        array $params = array()
+        array $params = []
     ) {
         $hash = md5($filename);
         if (!empty($this->_files[$hash])) {
@@ -88,11 +89,11 @@ class Scripts
         }
 
         $has_onload = $this->_eventBlacklist($filename);
-        $this->_files[$hash] = array(
+        $this->_files[$hash] = [
             'has_onload' => $has_onload,
             'filename' => $filename,
             'params' => $params,
-        );
+        ];
     }
 
     /**
@@ -151,17 +152,16 @@ class Scripts
      */
     public function getFiles()
     {
-        $retval = array();
+        $retval = [];
         foreach ($this->_files as $file) {
             //If filename contains a "?", continue.
             if (strpos($file['filename'], "?") !== false) {
                 continue;
             }
-            $retval[] = array(
+            $retval[] = [
                 'name' => $file['filename'],
                 'fire' => $file['has_onload']
-            );
-
+            ];
         }
         return $retval;
     }

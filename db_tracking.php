@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
@@ -24,6 +26,8 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('db_tracking.js');
+
+$tracking = new Tracking();
 
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
@@ -49,15 +53,12 @@ list(
 // Work to do?
 //  (here, do not use $_REQUEST['db] as it can be crafted)
 if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
-
     Tracker::deleteTracking($GLOBALS['db'], $_REQUEST['table']);
     Message::success(
         __('Tracking data deleted successfully.')
     )->display();
-
 } elseif (isset($_REQUEST['submit_create_version'])) {
-
-    Tracking::createTrackingForMultipleTables($_REQUEST['selected']);
+    $tracking->createTrackingForMultipleTables($_REQUEST['selected']);
     Message::success(
         sprintf(
             __(
@@ -67,22 +68,17 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
             htmlspecialchars($_REQUEST['version'])
         )
     )->display();
-
 } elseif (isset($_REQUEST['submit_mult'])) {
-
     if (! empty($_REQUEST['selected_tbl'])) {
         if ($_REQUEST['submit_mult'] == 'delete_tracking') {
-
             foreach ($_REQUEST['selected_tbl'] as $table) {
                 Tracker::deleteTracking($GLOBALS['db'], $table);
             }
             Message::success(
                 __('Tracking data deleted successfully.')
             )->display();
-
         } elseif ($_REQUEST['submit_mult'] == 'track') {
-
-            echo Tracking::getHtmlForDataDefinitionAndManipulationStatements(
+            echo $tracking->getHtmlForDataDefinitionAndManipulationStatements(
                 'db_tracking.php' . $url_query,
                 0,
                 $GLOBALS['db'],
@@ -111,38 +107,14 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
 }
 
 // ---------------------------------------------------------------------------
-$relation = new Relation();
-$cfgRelation = $relation->getRelationsParam();
+echo $tracking->getHtmlForDbTrackingTables(
+    $GLOBALS['db'],
+    $_REQUEST['db'],
+    $url_query,
+    $pmaThemeImage,
+    $text_dir
+);
 
-// Prepare statement to get HEAD version
-$all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
-    Util::backquote($cfgRelation['db']) . '.' .
-    Util::backquote($cfgRelation['tracking']) .
-    ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($_REQUEST['db']) .
-    '\' ' .
-    ' GROUP BY table_name' .
-    ' ORDER BY table_name ASC';
-
-$all_tables_result = $relation->queryAsControlUser($all_tables_query);
-
-// If a HEAD version exists
-if (is_object($all_tables_result)
-    && $GLOBALS['dbi']->numRows($all_tables_result) > 0
-) {
-    echo Tracking::getHtmlForTrackedTables(
-        $GLOBALS['db'], $all_tables_result, $url_query, $pmaThemeImage,
-        $text_dir, $cfgRelation
-    );
-}
-
-$untracked_tables = Tracking::getUntrackedTables($GLOBALS['db']);
-
-// If untracked tables exist
-if (count($untracked_tables) > 0) {
-    echo Tracking::getHtmlForUntrackedTables(
-        $GLOBALS['db'], $untracked_tables, $url_query, $pmaThemeImage, $text_dir
-    );
-}
 // If available print out database log
 if (count($data['ddlog']) > 0) {
     $log = '';

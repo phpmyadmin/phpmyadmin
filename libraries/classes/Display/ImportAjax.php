@@ -5,6 +5,8 @@
 *
 * @package PhpMyAdmin
 */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Core;
@@ -41,13 +43,13 @@ class ImportAjax
         /**
          * list of available plugins
          */
-        $plugins = array(
+        $plugins = [
             // PHP 5.4 session-based upload progress is problematic, see bug 3964
             //"session",
             "progress",
             "apc",
             "noplugin"
-        );
+        ];
 
         // select available plugin
         foreach ($plugins as $plugin) {
@@ -61,7 +63,7 @@ class ImportAjax
                 break;
             }
         }
-        return array($SESSION_KEY, $upload_id, $plugins);
+        return [$SESSION_KEY, $upload_id, $plugins];
     }
 
     /**

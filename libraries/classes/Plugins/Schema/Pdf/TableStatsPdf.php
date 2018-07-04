@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema\Pdf;
 
 use PhpMyAdmin\Plugins\Schema\ExportRelationSchema;

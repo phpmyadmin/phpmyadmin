@@ -16,7 +16,7 @@ AJAX.registerOnload('tbl_find_replace.js', function () {
 
     $('#toggle_find')
         .html(PMA_messages.strHideFindNReplaceCriteria)
-        .click(function () {
+        .on('click', function () {
             var $link = $(this);
             $('#find_replace_form').slideToggle();
             if ($link.text() === PMA_messages.strHideFindNReplaceCriteria) {
@@ -36,7 +36,7 @@ AJAX.registerOnload('tbl_find_replace.js', function () {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success === true) {
                 $('#toggle_find_div').show();
-                $('#toggle_find').click();
+                $('#toggle_find').trigger('click');
                 $('#sqlqueryresultsouter').html(data.preview);
             } else {
                 $('#sqlqueryresultsouter').html(data.error);

@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\ServerEnginesController;
 use PhpMyAdmin\Di\Container;
@@ -25,6 +26,7 @@ $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var ServerEnginesController $controller */
 $controller = $container->get(
-    'ServerEnginesController', array()
+    'ServerEnginesController',
+    []
 );
 $controller->indexAction();

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
@@ -12,6 +14,8 @@ use PhpMyAdmin\Template;
 
 /**
  * Invalid two-factor authentication showing that configured choice is not available.
+ *
+ * @package PhpMyAdmin
  */
 class Invalid extends TwoFactorPlugin
 {
@@ -39,7 +43,7 @@ class Invalid extends TwoFactorPlugin
      */
     public function render()
     {
-        return Template::get('login/twofactor/invalid')->render();
+        return $this->template->render('login/twofactor/invalid');
     }
 
     /**
@@ -62,4 +66,3 @@ class Invalid extends TwoFactorPlugin
         return 'Error fallback only!';
     }
 }
-

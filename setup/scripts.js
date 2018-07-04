@@ -16,7 +16,7 @@ $(function () {
     if (window.location.protocol === 'https:') {
         $('#no_https').remove();
     } else {
-        $('#no_https a').click(function () {
+        $('#no_https a').on('click', function () {
             var old_location = window.location;
             window.location.href = 'https:' + old_location.href.substring(old_location.protocol.length);
             return false;
@@ -28,7 +28,7 @@ $(function () {
     if (hiddenmessages.length > 0) {
         hiddenmessages.hide();
         var link = $('#show_hidden_messages');
-        link.click(function (e) {
+        link.on('click', function (e) {
             e.preventDefault();
             hiddenmessages.show();
             $(this).remove();
@@ -201,7 +201,7 @@ $.extend(true, validators, {
 //
 
 $(function () {
-    $('.userprefs-allow').click(function (e) {
+    $('.userprefs-allow').on('click', function (e) {
         if (this !== e.target) {
             return;
         }

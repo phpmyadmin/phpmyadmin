@@ -147,7 +147,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
      **/
 
     // first column choice corresponds to the X axis
-    $('#tableid_0').change(function () {
+    $('#tableid_0').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
@@ -171,7 +171,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     });
 
     // second column choice corresponds to the Y axis
-    $('#tableid_1').change(function () {
+    $('#tableid_1').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
@@ -194,7 +194,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         });
     });
 
-    $('#tableid_2').change(function () {
+    $('#tableid_2').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
@@ -215,7 +215,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         });
     });
 
-    $('#tableid_3').change(function () {
+    $('#tableid_3').on('change', function () {
         // AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php', {
             'ajax_request' : true,
@@ -239,7 +239,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
     /**
      * Input form validation
      **/
-    $('#inputFormSubmitId').click(function () {
+    $('#inputFormSubmitId').on('click', function () {
         if ($('#tableid_0').get(0).selectedIndex === 0 || $('#tableid_1').get(0).selectedIndex === 0) {
             PMA_ajaxShowMessage(PMA_messages.strInputNull);
         } else if (xLabel === yLabel) {
@@ -568,7 +568,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         currentChart = $.jqplot('querychart', series, options);
         currentChart.resetZoom();
 
-        $('button.button-reset').click(function (event) {
+        $('button.button-reset').on('click', function (event) {
             event.preventDefault();
             currentChart.resetZoom();
         });
@@ -622,7 +622,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function () {
         );
     }
 
-    $('#help_dialog').click(function () {
+    $('#help_dialog').on('click', function () {
         displayHelp();
     });
 });

@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage SignOn
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Core;
@@ -19,6 +21,14 @@ use PhpMyAdmin\Util;
  */
 class AuthenticationSignon extends AuthenticationPlugin
 {
+    /**
+     * AuthenticationSignon constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      * Displays authentication form
      *
@@ -74,7 +84,7 @@ class AuthenticationSignon extends AuthenticationPlugin
         $single_signon_port = $GLOBALS['cfg']['Server']['port'];
 
         /* No configuration updates */
-        $single_signon_cfgupdate = array();
+        $single_signon_cfgupdate = [];
 
         /* Handle script based auth */
         if (!empty($script_name)) {
@@ -98,19 +108,25 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* Sanitize cookie params */
-            $defaultCookieParams = function($key){
+            $defaultCookieParams = function ($key) {
                 switch ($key) {
-                    case 'lifetime': return 0;
-                    case 'path': return '/';
-                    case 'domain': return '';
-                    case 'secure': return false;
-                    case 'httponly': return false;
+                    case 'lifetime':
+                        return 0;
+                    case 'path':
+                        return '/';
+                    case 'domain':
+                        return '';
+                    case 'secure':
+                        return false;
+                    case 'httponly':
+                        return false;
                 }
                 return null;
             };
-            foreach (array('lifetime', 'path', 'domain', 'secure', 'httponly') as $key) {
-                if (!isset($session_cookie_params[$key]))
+            foreach (['lifetime', 'path', 'domain', 'secure', 'httponly'] as $key) {
+                if (!isset($session_cookie_params[$key])) {
                     $session_cookie_params[$key] = $defaultCookieParams($key);
+                }
             }
 
             /* Load single signon session */

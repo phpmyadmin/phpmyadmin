@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins;
 
 /**
@@ -22,7 +24,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      *
      * @return void
      */
-    public function applyTransformationNoWrap(array $options = array())
+    public function applyTransformationNoWrap(array $options = [])
     {
         ;
     }
@@ -38,7 +40,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      */
     abstract public function applyTransformation(
         $buffer,
-        array $options = array(),
+        array $options = [],
         $meta = ''
     );
 
@@ -52,7 +54,7 @@ abstract class TransformationsPlugin implements TransformationsInterface
      */
     public function getOptions(array $options, array $defaults)
     {
-        $result = array();
+        $result = [];
         foreach ($defaults as $key => $value) {
             if (isset($options[$key]) && $options[$key] !== '') {
                 $result[$key] = $options[$key];

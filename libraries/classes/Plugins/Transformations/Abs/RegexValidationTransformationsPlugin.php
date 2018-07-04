@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage RegexValidation
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
@@ -42,7 +44,7 @@ abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlu
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         // reset properties of object
         $this->reset();

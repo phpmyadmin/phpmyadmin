@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin\Controllers
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\TableController;
@@ -41,9 +43,13 @@ class TableChartController extends TableController
     /**
      * Constructor
      *
-     * @param string $sql_query Query
-     * @param string $url_query Query URL
-     * @param array  $cfg       Configuration
+     * @param Response                      $response  Response object
+     * @param \PhpMyAdmin\DatabaseInterface $dbi       DatabaseInterface object
+     * @param string                        $db        Database name
+     * @param string                        $table     Table name
+     * @param string                        $sql_query Query
+     * @param string                        $url_query Query URL
+     * @param array                         $cfg       Configuration
      */
     public function __construct(
         $response,
@@ -87,7 +93,7 @@ class TableChartController extends TableController
         }
 
         $this->response->getHeader()->getScripts()->addFiles(
-            array(
+            [
                 'chart.js',
                 'tbl_chart.js',
                 'vendor/jqplot/jquery.jqplot.js',
@@ -100,7 +106,7 @@ class TableChartController extends TableController
                 'vendor/jqplot/plugins/jqplot.pieRenderer.js',
                 'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
                 'vendor/jqplot/plugins/jqplot.highlighter.js'
-            )
+            ]
         );
 
         /**
@@ -109,33 +115,36 @@ class TableChartController extends TableController
          */
         $db = &$this->db;
         $table = &$this->table;
-        $url_params = array();
+        $url_params = [];
 
         /**
          * Runs common work
          */
         if (strlen($this->table) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
-                $this->cfg['DefaultTabTable'], 'table'
+                $this->cfg['DefaultTabTable'],
+                'table'
             );
             $url_params['back'] = 'tbl_sql.php';
             include 'libraries/tbl_common.inc.php';
-            $GLOBALS['dbi']->selectDb($GLOBALS['db']);
+            $this->dbi->selectDb($GLOBALS['db']);
         } elseif (strlen($this->db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
-                $this->cfg['DefaultTabDatabase'], 'database'
+                $this->cfg['DefaultTabDatabase'],
+                'database'
             );
             $url_params['back'] = 'sql.php';
             include 'libraries/db_common.inc.php';
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
-                $this->cfg['DefaultTabServer'], 'server'
+                $this->cfg['DefaultTabServer'],
+                'server'
             );
             $url_params['back'] = 'sql.php';
             include 'libraries/server_common.inc.php';
         }
 
-        $data = array();
+        $data = [];
 
         $result = $this->dbi->tryQuery($this->sql_query);
         $fields_meta = $this->dbi->getFieldsMeta($result);
@@ -145,7 +154,7 @@ class TableChartController extends TableController
 
         $keys = array_keys($data[0]);
 
-        $numeric_types = array('int', 'real');
+        $numeric_types = ['int', 'real'];
         $numeric_column_count = 0;
         foreach ($keys as $idx => $key) {
             if (in_array($fields_meta[$idx]->type, $numeric_types)) {
@@ -169,17 +178,15 @@ class TableChartController extends TableController
          * Displays the page
          */
         $this->response->addHTML(
-            Template::get('table/chart/tbl_chart')->render(
-                array(
-                    'url_query' => $this->url_query,
-                    'url_params' => $url_params,
-                    'keys' => $keys,
-                    'fields_meta' => $fields_meta,
-                    'numeric_types' => $numeric_types,
-                    'numeric_column_count' => $numeric_column_count,
-                    'sql_query' => $this->sql_query
-                )
-            )
+            $this->template->render('table/chart/tbl_chart', [
+                'url_query' => $this->url_query,
+                'url_params' => $url_params,
+                'keys' => $keys,
+                'fields_meta' => $fields_meta,
+                'numeric_types' => $numeric_types,
+                'numeric_column_count' => $numeric_column_count,
+                'sql_query' => $this->sql_query,
+            ])
         );
     }
 
@@ -205,7 +212,8 @@ class TableChartController extends TableController
         $statement = $parser->statements[0];
         if (empty($statement->limit)) {
             $statement->limit = new Limit(
-                $_REQUEST['session_max_rows'], $_REQUEST['pos']
+                $_REQUEST['session_max_rows'],
+                $_REQUEST['pos']
             );
         } else {
             $start = $statement->limit->offset + $_REQUEST['pos'];
@@ -217,7 +225,7 @@ class TableChartController extends TableController
         }
         $sql_with_limit = $statement->build();
 
-        $data = array();
+        $data = [];
         $result = $this->dbi->tryQuery($sql_with_limit);
         while ($row = $this->dbi->fetchAssoc($result)) {
             $data[] = $row;
@@ -228,10 +236,10 @@ class TableChartController extends TableController
             $this->response->addJSON('message', __('No data to display'));
             return;
         }
-        $sanitized_data = array();
+        $sanitized_data = [];
 
         foreach ($data as $data_row_number => $data_row) {
-            $tmp_row = array();
+            $tmp_row = [];
             foreach ($data_row as $data_column => $data_value) {
                 $tmp_row[htmlspecialchars($data_column)] = htmlspecialchars(
                     $data_value

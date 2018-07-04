@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
@@ -19,12 +20,17 @@ use PhpMyAdmin\Util;
 require_once 'libraries/common.inc.php';
 
 // Check parameters
-Util::checkParameters(array('db'));
+Util::checkParameters(['db']);
+
+$transformations = new Transformations();
 
 /* Check if database name is empty */
 if (strlen($db) === 0) {
     Util::mysqlDie(
-        __('The database name is empty!'), '', false, 'index.php'
+        __('The database name is empty!'),
+        '',
+        false,
+        'index.php'
     );
 }
 
@@ -46,7 +52,7 @@ if ($GLOBALS['dbi']->getColumns($db, $table)) {
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
-        'db_structure.php' . Url::getCommon(array('db' => $db))
+        'db_structure.php' . Url::getCommon(['db' => $db])
     );
 }
 
@@ -81,9 +87,11 @@ if (isset($_REQUEST['do_save_data'])) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
                     && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
-                    Transformations::setMIME(
-                        $db, $table,
-                        $_REQUEST['field_name'][$fieldindex], $mimetype,
+                    $transformations->setMime(
+                        $db,
+                        $table,
+                        $_REQUEST['field_name'][$fieldindex],
+                        $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
                         $_REQUEST['field_transformation_options'][$fieldindex],
                         $_REQUEST['field_input_transformation'][$fieldindex],

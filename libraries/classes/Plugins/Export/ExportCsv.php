@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-Export
  * @subpackage CSV
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
@@ -18,6 +19,7 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 
 /**
  * Handles the export for the CSV format
@@ -32,6 +34,7 @@ class ExportCsv extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -113,21 +116,24 @@ class ExportCsv extends ExportPlugin
     public function exportHeader()
     {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
-
+        //Enable columns names by default for CSV
+        if ($what == 'csv') {
+            $GLOBALS['csv_columns'] = 'yes';
+        }
         // Here we just prepare some values for export
         if ($what == 'excel') {
             $csv_terminated = "\015\012";
             switch ($GLOBALS['excel_edition']) {
-            case 'win':
-                // as tested on Windows with Excel 2002 and Excel 2007
-                $csv_separator = ';';
-                break;
-            case 'mac_excel2003':
-                $csv_separator = ';';
-                break;
-            case 'mac_excel2008':
-                $csv_separator = ',';
-                break;
+                case 'win':
+                    // as tested on Windows with Excel 2002 and Excel 2007
+                    $csv_separator = ';';
+                    break;
+                case 'mac_excel2003':
+                    $csv_separator = ';';
+                    break;
+                case 'mac_excel2008':
+                    $csv_separator = ',';
+                    break;
             }
             $csv_enclosed = '"';
             $csv_escaped = '"';
@@ -217,7 +223,7 @@ class ExportCsv extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
 
@@ -256,7 +262,7 @@ class ExportCsv extends ExportPlugin
                 $schema_insert .= $csv_separator;
             } // end for
             $schema_insert = trim(mb_substr($schema_insert, 0, -1));
-            if (!Export::outputHandler($schema_insert . $csv_terminated)) {
+            if (!$this->export->outputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end if
@@ -321,7 +327,7 @@ class ExportCsv extends ExportPlugin
                 }
             } // end for
 
-            if (!Export::outputHandler($schema_insert . $csv_terminated)) {
+            if (!$this->export->outputHandler($schema_insert . $csv_terminated)) {
                 return false;
             }
         } // end while

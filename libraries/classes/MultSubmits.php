@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Operations;
@@ -24,6 +26,19 @@ use PhpMyAdmin\Util;
  */
 class MultSubmits
 {
+    /**
+     * @var Transformations
+     */
+    private $transformations;
+
+    /**
+     * MultSubmits constructor.
+     */
+    public function __construct()
+    {
+        $this->transformations = new Transformations();
+    }
+
     /**
      * Gets url params
      *
@@ -55,7 +70,7 @@ class MultSubmits
             'reload' => (! empty($reload) ? 1 : 0),
         ];
         if (mb_strpos(' ' . $action, 'db_') == 1) {
-            $urlParams['db']= $db;
+            $urlParams['db'] = $db;
         } elseif (mb_strpos(' ' . $action, 'tbl_') == 1
             || $what == 'row_delete'
         ) {
@@ -340,11 +355,11 @@ class MultSubmits
                 $result = $GLOBALS['dbi']->query($aQuery);
 
                 if ($queryType == 'drop_db') {
-                    Transformations::clear($selected[$i]);
+                    $this->transformations->clear($selected[$i]);
                 } elseif ($queryType == 'drop_tbl') {
-                    Transformations::clear($db, $selected[$i]);
+                    $this->transformations->clear($db, $selected[$i]);
                 } elseif ($queryType == 'drop_fld') {
-                    Transformations::clear($db, $table, $selected[$i]);
+                    $this->transformations->clear($db, $table, $selected[$i]);
                 }
             } // end if
         } // end for

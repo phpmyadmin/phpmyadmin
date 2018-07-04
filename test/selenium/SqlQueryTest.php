@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
@@ -18,13 +19,12 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class SqlQueryTest extends TestBase
 {
-
     /**
      * Setup the browser environment to run the selenium test case
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
@@ -167,11 +167,14 @@ class SqlQueryTest extends TestBase
         $this->_testInlineEdit();
     }
 
+    /**
+     * @return void
+     */
     private function _testInlineEdit()
     {
         $this->waitForElement('byCssSelector', 'a.inline_edit_sql')->click();
         // empty current query
-        $this->typeInTextArea('',  1);
+        $this->typeInTextArea('', 1);
 
         // type in next sql query
         $this->typeInTextArea('SELECT 1', 1);

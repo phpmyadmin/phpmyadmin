@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
@@ -23,7 +24,7 @@ class TableStructureTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->dbQuery(
@@ -153,7 +154,8 @@ class TableStructureTest extends TestBase
         )->click();
 
         $this->waitForElement(
-            "byCssSelector", "input[id='buttonYes']"
+            "byCssSelector",
+            "input[id='buttonYes']"
         )->click();
 
         $this->waitForElement(
@@ -165,7 +167,8 @@ class TableStructureTest extends TestBase
 
         $this->assertFalse(
             $this->isElementPresent(
-                'byCssSelector', 'label[for=checkbox_row_2]'
+                'byCssSelector',
+                'label[for=checkbox_row_2]'
             )
         );
     }

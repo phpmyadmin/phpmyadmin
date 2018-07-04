@@ -5,10 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 
 /**
@@ -17,6 +20,8 @@ use PhpMyAdmin\TwoFactor;
  * This is basic implementation which does no
  * additional authentication, subclasses are expected
  * to implement this.
+ *
+ * @package PhpMyAdmin
  */
 class TwoFactorPlugin
 {
@@ -46,6 +51,11 @@ class TwoFactorPlugin
     protected $_message;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Creates object
      *
      * @param TwoFactor $twofactor TwoFactor instance
@@ -55,6 +65,7 @@ class TwoFactorPlugin
         $this->_twofactor = $twofactor;
         $this->_provided = false;
         $this->_message = '';
+        $this->template = new Template();
     }
 
     /**
@@ -148,6 +159,7 @@ class TwoFactorPlugin
      */
     public function getAppId($return_url)
     {
+        /** @var \PhpMyAdmin\Config $PMA_Config */
         global $PMA_Config;
 
         $url = $PMA_Config->get('PmaAbsoluteUri');

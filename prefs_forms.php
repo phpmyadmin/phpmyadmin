@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Core;
@@ -36,7 +38,7 @@ if (isset($_POST['revert'])) {
     // revert erroneous fields to their default values
     $form_display->fixErrors();
     // redirect
-    $url_params = array('form' => $form_param);
+    $url_params = ['form' => $form_param];
     Core::sendHeaderLocation(
         './prefs_forms.php'
         . Url::getCommonRaw($url_params)
@@ -55,7 +57,7 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
         $hash = ltrim($tabHash, '#');
         $userPreferences->redirect(
             'prefs_forms.php',
-            array('form' => $form_param),
+            ['form' => $form_param],
             $hash
         );
         exit;

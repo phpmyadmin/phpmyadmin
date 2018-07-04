@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\SysInfoBase;
@@ -45,7 +47,7 @@ class SysInfoSunOS extends SysInfoBase
     {
         $load1 = $this->_kstat('unix:0:system_misc:avenrun_1min');
 
-        return array('loadavg' => $load1);
+        return ['loadavg' => $load1];
     }
 
     /**
@@ -66,7 +68,7 @@ class SysInfoSunOS extends SysInfoBase
     public function memory()
     {
         $pagesize = $this->_kstat('unix:0:seg_cache:slab_size');
-        $mem = array();
+        $mem = [];
         $mem['MemTotal']
             = $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;
         $mem['MemUsed']

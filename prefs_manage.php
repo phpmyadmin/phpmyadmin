@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Core;
@@ -148,7 +150,7 @@ if (isset($_POST['submit_export'])
         }
 
         // check for ThemeDefault
-        $params = array();
+        $params = [];
         $tmanager = ThemeManager::getInstance();
         if (isset($config['ThemeDefault'])
             && $tmanager->theme->getId() != $config['ThemeDefault']
@@ -190,9 +192,9 @@ if (isset($_POST['submit_export'])
         }
     }
 } elseif (isset($_POST['submit_clear'])) {
-    $result = $userPreferences->save(array());
+    $result = $userPreferences->save([]);
     if ($result === true) {
-        $params = array();
+        $params = [];
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
         $userPreferences->redirect('prefs_manage.php', $params);
@@ -271,7 +273,7 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
             // show only if setup script is available, allows to disable this message
             // by simply removing setup directory
             // Also do not show in config exists (and setup would refuse to work)
-            ?>
+    ?>
             <div class="group">
             <h2><?php echo __('More settings') ?></h2>
             <div class="group-cnt">
@@ -280,14 +282,16 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
                     __(
                         'You can set more settings by modifying config.inc.php, eg. '
                         . 'by using %sSetup script%s.'
-                    ), '<a href="setup/index.php" target="_blank">', '</a>'
+                    ),
+                    '<a href="setup/index.php" target="_blank">',
+                    '</a>'
                 ) , PhpMyAdmin\Util::showDocu('setup', 'setup-script');
                 ?>
             </div>
             </div>
         <?php
 }
-        ?>
+?>
     </div>
     <div id="main_pane_right">
         <div class="group">

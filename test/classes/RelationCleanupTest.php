@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -32,9 +34,9 @@ class RelationCleanupTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
-        $_SESSION['relation'] = array();
+        $_SESSION['relation'] = [];
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['user'] = "user";
         $GLOBALS['cfg']['Server']['pmadb'] = "pmadb";
@@ -96,7 +98,7 @@ class RelationCleanupTest extends TestCase
         //validate Relation::getDbComments when commwork = true
         $db_comments = $this->relation->getDbComments();
         $this->assertEquals(
-            array('db_name0' => 'comment0','db_name1' => 'comment1'),
+            ['db_name0' => 'comment0','db_name1' => 'comment1'],
             $db_comments
         );
 
@@ -134,11 +136,11 @@ class RelationCleanupTest extends TestCase
         $cfgRelation = $this->relation->checkRelationsParam();
 
         $is_defined_column_info
-            = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
+            = isset($cfgRelation['column_info']) ? $cfgRelation['column_info'] : null;
         $is_defined_table_info
-            = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
+            = isset($cfgRelation['table_info']) ? $cfgRelation['table_info'] : null;
         $is_defined_relation
-            = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
+            = isset($cfgRelation['relation']) ? $cfgRelation['relation'] : null;
 
         $this->assertEquals(
             null,
@@ -152,7 +154,6 @@ class RelationCleanupTest extends TestCase
             null,
             $is_defined_relation
         );
-
     }
 
     /**
@@ -192,11 +193,11 @@ class RelationCleanupTest extends TestCase
         $cfgRelation = $this->relation->checkRelationsParam();
 
         $is_defined_column_info
-            = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
+            = isset($cfgRelation['column_info']) ? $cfgRelation['column_info'] : null;
         $is_defined_table_info
-            = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
+            = isset($cfgRelation['table_info']) ? $cfgRelation['table_info'] : null;
         $is_defined_relation
-            = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
+            = isset($cfgRelation['relation']) ? $cfgRelation['relation'] : null;
         $is_defined_table_coords
             = isset($cfgRelation['table_coords'])
             ? $cfgRelation['table_coords']
@@ -264,11 +265,11 @@ class RelationCleanupTest extends TestCase
         $cfgRelation = $this->relation->checkRelationsParam();
 
         $is_defined_column_info
-            = isset($cfgRelation['column_info'])? $cfgRelation['column_info'] : null;
+            = isset($cfgRelation['column_info']) ? $cfgRelation['column_info'] : null;
         $is_defined_table_info
-            = isset($cfgRelation['table_info'])? $cfgRelation['table_info'] : null;
+            = isset($cfgRelation['table_info']) ? $cfgRelation['table_info'] : null;
         $is_defined_relation
-            = isset($cfgRelation['relation'])? $cfgRelation['relation'] : null;
+            = isset($cfgRelation['relation']) ? $cfgRelation['relation'] : null;
         $is_defined_table_coords
             = isset($cfgRelation['table_coords'])
             ? $cfgRelation['table_coords']

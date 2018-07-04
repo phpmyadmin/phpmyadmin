@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Export
  * @subpackage XML
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -18,7 +20,8 @@ use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Util;
 
-if (strlen($GLOBALS['db']) === 0) { /* Can't do server export */
+/* Can't do server export */
+if (!isset($GLOBALS['db']) || strlen($GLOBALS['db']) === 0) {
     $GLOBALS['skip_import'] = true;
     return;
 }
@@ -49,6 +52,7 @@ class ExportXml extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->setProperties();
     }
 
@@ -97,7 +101,8 @@ class ExportXml extends ExportPlugin
 
         // export structure main group
         $structure = new OptionsPropertyMainGroup(
-            "structure", __('Object creation options (all are recommended)')
+            "structure",
+            __('Object creation options (all are recommended)')
         );
 
         // create primary items and add them to the group
@@ -135,7 +140,8 @@ class ExportXml extends ExportPlugin
 
         // data main group
         $data = new OptionsPropertyMainGroup(
-            "data", __('Data dump options')
+            "data",
+            __('Data dump options')
         );
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem(
@@ -356,7 +362,10 @@ class ExportXml extends ExportPlugin
                     . "'"
                 );
                 $head .= $this->_exportDefinitions(
-                    $db, 'event', 'EVENT', $events
+                    $db,
+                    'event',
+                    'EVENT',
+                    $events
                 );
             }
 
@@ -370,7 +379,7 @@ class ExportXml extends ExportPlugin
             }
         }
 
-        return Export::outputHandler($head);
+        return $this->export->outputHandler($head);
     }
 
     /**
@@ -382,7 +391,7 @@ class ExportXml extends ExportPlugin
     {
         $foot = '</pma_xml_export>';
 
-        return Export::outputHandler($foot);
+        return $this->export->outputHandler($foot);
     }
 
     /**
@@ -409,7 +418,7 @@ class ExportXml extends ExportPlugin
                 . '    -->' . $crlf . '    <database name="'
                 . htmlspecialchars($db_alias) . '">' . $crlf;
 
-            return Export::outputHandler($head);
+            return $this->export->outputHandler($head);
         }
 
         return true;
@@ -429,7 +438,7 @@ class ExportXml extends ExportPlugin
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']
         ) {
-            return Export::outputHandler('    </database>' . $crlf);
+            return $this->export->outputHandler('    </database>' . $crlf);
         }
 
         return true;
@@ -467,7 +476,7 @@ class ExportXml extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         // Do not export data for merge tables
         if ($GLOBALS['dbi']->getTable($db, $table)->isMerge()) {
@@ -487,7 +496,7 @@ class ExportXml extends ExportPlugin
             );
 
             $columns_cnt = $GLOBALS['dbi']->numFields($result);
-            $columns = array();
+            $columns = [];
             for ($i = 0; $i < $columns_cnt; $i++) {
                 $columns[$i] = stripslashes($GLOBALS['dbi']->fieldName($result, $i));
             }
@@ -495,7 +504,7 @@ class ExportXml extends ExportPlugin
 
             $buffer = '        <!-- ' . __('Table') . ' '
                 . htmlspecialchars($table_alias) . ' -->' . $crlf;
-            if (!Export::outputHandler($buffer)) {
+            if (!$this->export->outputHandler($buffer)) {
                 return false;
             }
 
@@ -521,7 +530,7 @@ class ExportXml extends ExportPlugin
                 }
                 $buffer .= '        </table>' . $crlf;
 
-                if (!Export::outputHandler($buffer)) {
+                if (!$this->export->outputHandler($buffer)) {
                     return false;
                 }
             }

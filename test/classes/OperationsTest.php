@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Operations;
@@ -34,11 +36,11 @@ class OperationsTest extends TestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
-        $GLOBALS['cfg'] = array(
+        $GLOBALS['cfg'] = [
             'ServerDefault' => 1,
             'ActionLinksMode' => 'icons',
             'LinkLengthLimit' => 1000,
-        );
+        ];
         $GLOBALS['cfg']['DBG']['sql'] = false;
         $GLOBALS['server'] = 1;
 
@@ -123,10 +125,12 @@ class OperationsTest extends TestCase
         $_REQUEST['db_collation'] = 'db1';
         $result = $this->operations->getHtmlForChangeDatabaseCharset("pma", "bookmark");
         $this->assertRegExp(
-            '/.*select_db_collation.*Collation.*/m', $result
+            '/.*select_db_collation.*Collation.*/m',
+            $result
         );
         $this->assertRegExp(
-            '/.*db_operations.php.*/', $result
+            '/.*db_operations.php.*/',
+            $result
         );
     }
 
@@ -141,7 +145,7 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*tbl_operations.php(.|[\n])*Alter table order by([\n]|.)*order_order.*/m',
             $this->operations->getHtmlForOrderTheTable(
-                array(array('Field' => "column1"), array('Field' => "column2"))
+                [['Field' => "column1"], ['Field' => "column2"]]
             )
         );
     }
@@ -196,7 +200,8 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*Delete data or table.*Empty the table.*Delete the table.*/m',
             $this->operations->getHtmlForDeleteDataOrTable(
-                array("truncate" => 'foo'), array("drop" => 'bar')
+                ["truncate" => 'foo'],
+                ["drop" => 'bar']
             )
         );
     }
@@ -212,7 +217,7 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*TRUNCATE.TABLE.foo.*id_truncate.*Truncate table.*/m',
             $this->operations->getDeleteDataOrTablelink(
-                array("sql" => 'TRUNCATE TABLE foo'),
+                ["sql" => 'TRUNCATE TABLE foo'],
                 "TRUNCATE_TABLE",
                 "Truncate table",
                 "id_truncate"
@@ -228,8 +233,8 @@ class OperationsTest extends TestCase
     public function testGetHtmlForPartitionMaintenance()
     {
         $html = $this->operations->getHtmlForPartitionMaintenance(
-            array("partition1", "partion2"),
-            array("param1" => 'foo', "param2" => 'bar')
+            ["partition1", "partion2"],
+            ["param1" => 'foo', "param2" => 'bar']
         );
         $this->assertRegExp('/.*action="tbl_operations.php".*/', $html);
         $this->assertRegExp('/.*ANALYZE.*/', $html);
@@ -247,17 +252,15 @@ class OperationsTest extends TestCase
         $this->assertRegExp(
             '/.*Check referential integrity.*href="sql.php(.|[\n])*/m',
             $this->operations->getHtmlForReferentialIntegrityCheck(
-                array(
-                    array(
+                [
+                    [
                         'foreign_db'    => 'db1',
                         'foreign_table' => "foreign1",
                         'foreign_field' => "foreign2"
-                    )
-                ),
-                array("param1" => 'a', "param2" => 'b')
+                    ]
+                ],
+                ["param1" => 'a', "param2" => 'b']
             )
         );
     }
-
-
 }

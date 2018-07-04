@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\ConfigFile;
@@ -126,7 +128,7 @@ class ConfigGenerator
      */
     private static function _exportZeroBasedArray(array $array, $crlf)
     {
-        $retv = array();
+        $retv = [];
         foreach ($array as $v) {
             $retv[] = var_export($v, true);
         }

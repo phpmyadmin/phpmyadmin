@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Index;
@@ -35,6 +37,16 @@ class Normalization
     private $relation;
 
     /**
+     * @var Transformations
+     */
+    private $transformations;
+
+    /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -43,6 +55,8 @@ class Normalization
     {
         $this->dbi = $dbi;
         $this->relation = new Relation();
+        $this->transformations = new Transformations();
+        $this->template = new Template();
     }
 
     /**
@@ -122,8 +136,8 @@ class Normalization
         $availableMime = [];
         $mimeMap = [];
         if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
-            $mimeMap = Transformations::getMIME($db, $table);
-            $availableMime = Transformations::getAvailableMIMEtypes();
+            $mimeMap = $this->transformations->getMime($db, $table);
+            $availableMime = $this->transformations->getAvailableMimeTypes();
         }
         $commentsMap = $this->relation->getComments($db, $table);
         for ($columnNumber = 0; $columnNumber < $numFields; $columnNumber++) {
@@ -145,9 +159,7 @@ class Normalization
             ];
         }
 
-        return Template::get(
-            'columns_definitions/table_fields_definitions'
-        )->render([
+        return $this->template->render('columns_definitions/table_fields_definitions', [
             'is_backup' => true,
             'fields_meta' => null,
             'mimework' => $cfgRelation['mimework'],
@@ -477,7 +489,7 @@ class Normalization
             $html .= '<p><input type="text" name="' . htmlspecialchars($key)
                 . '" value="' . htmlspecialchars($tableName) . '"/>'
                 . '( <u>' . htmlspecialchars($key) . '</u>'
-                . (count($dependents)>0?', ':'')
+                . (count($dependents) > 0 ? ', ' : '')
                 . htmlspecialchars(implode(', ', $dependents)) . ' )';
             $i++;
             $tableName = 'table' . $i;
@@ -507,8 +519,8 @@ class Normalization
         ) . '</h3>';
         if (count((array)$partialDependencies) == 1) {
             return [
-                'legendText'=>__('End of step'), 'headText'=>$headText,
-                'queryError'=>$error
+                'legendText' => __('End of step'), 'headText' => $headText,
+                'queryError' => $error
             ];
         }
         $message = '';
@@ -518,7 +530,7 @@ class Normalization
                 $backquotedKey = implode(', ', Util::backquote(explode(', ', $key)));
                 $queries[] = 'CREATE TABLE ' . Util::backquote($tablesName->$key)
                     . ' SELECT DISTINCT ' . $backquotedKey
-                    . (count($dependents)>0?', ':'')
+                    . (count($dependents) > 0 ? ', ' : '')
                     . implode(',', Util::backquote($dependents))
                     . ' FROM ' . Util::backquote($table) . ';';
                 $queries[] = 'ALTER TABLE ' . Util::backquote($tablesName->$key)
@@ -601,7 +613,7 @@ class Normalization
                 if ($key == $table) {
                     $key = implode(', ', $pk);
                 }
-                $tmpTableCols =array_merge(explode(', ', $key), $dependents);
+                $tmpTableCols = array_merge(explode(', ', $key), $dependents);
                 sort($tmpTableCols);
                 if (!in_array($tmpTableCols, $columnList)) {
                     $columnList[] = $tmpTableCols;
@@ -609,10 +621,10 @@ class Normalization
                             . htmlspecialchars($tableName)
                             . '" value="' . htmlspecialchars($tableName) . '"/>'
                             . '( <u>' . htmlspecialchars($key) . '</u>'
-                            . (count($dependents)>0?', ':'')
+                            . (count($dependents) > 0 ? ', ' : '')
                             . htmlspecialchars(implode(', ', $dependents)) . ' )';
                         $newTables[$table][$tableName] = [
-                            "pk"=>$key, "nonpk"=>implode(', ', $dependents)
+                            "pk" => $key, "nonpk" => implode(', ', $dependents)
                         ];
                         $i++;
                         $tableName = 'table' . $i;
@@ -640,8 +652,8 @@ class Normalization
             . '</h3>';
         if (count((array)$newTables) == 0) {
             return [
-                'legendText'=>__('End of step'), 'headText'=>$headText,
-                'queryError'=>$error
+                'legendText' => __('End of step'), 'headText' => $headText,
+                'queryError' => $error
             ];
         }
         $message = '';

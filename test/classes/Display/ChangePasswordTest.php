@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Config;
@@ -29,7 +31,7 @@ class ChangePasswordTest extends TestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$GLOBALS
         $GLOBALS['PMA_Config'] = new Config();

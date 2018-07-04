@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Url;
 
 if (! defined('PHPMYADMIN')) {
@@ -12,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 // Check parameters
-PhpMyAdmin\Util::checkParameters(array('db', 'table'));
+PhpMyAdmin\Util::checkParameters(['db', 'table']);
 
 $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
 
@@ -20,12 +22,12 @@ $db_is_system_schema = $GLOBALS['dbi']->isSystemSchema($db);
  * Set parameters for links
  * @deprecated
  */
-$url_query = Url::getCommon(array('db' => $db, 'table' => $table));
+$url_query = Url::getCommon(['db' => $db, 'table' => $table]);
 
 /**
  * Set parameters for links
  */
-$url_params = array();
+$url_params = [];
 $url_params['db']    = $db;
 $url_params['table'] = $table;
 
@@ -33,12 +35,14 @@ $url_params['table'] = $table;
  * Defines the urls to return to in case of error in a sql statement
  */
 $err_url_0 = PhpMyAdmin\Util::getScriptNameForOption(
-    $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+    $GLOBALS['cfg']['DefaultTabDatabase'],
+    'database'
 )
-    . Url::getCommon(array('db' => $db));
+    . Url::getCommon(['db' => $db]);
 
 $err_url = PhpMyAdmin\Util::getScriptNameForOption(
-    $GLOBALS['cfg']['DefaultTabTable'], 'table'
+    $GLOBALS['cfg']['DefaultTabTable'],
+    'table'
 )
     . Url::getCommon($url_params);
 

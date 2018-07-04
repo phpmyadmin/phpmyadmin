@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Server\Status\Data;
@@ -141,7 +143,7 @@ class Variables
          * define some alerts
          */
         // name => max value before alert
-        $alerts = array(
+        $alerts = [
             // lower is better
             // variable => max value
             'Aborted_clients' => 0,
@@ -195,7 +197,7 @@ class Variables
             // higher is better
             // variable => min value
             //'Handler read key' => '> ',
-        );
+        ];
 
         $retval .= self::getHtmlForRenderVariables(
             $serverStatusData,
@@ -233,7 +235,7 @@ class Variables
 
         foreach ($serverStatusData->status as $name => $value) {
             $retval .= '<tr class="' . (isset($serverStatusData->allocationMap[$name])
-                    ?' s_' . $serverStatusData->allocationMap[$name]
+                    ? ' s_' . $serverStatusData->allocationMap[$name]
                     : '')
                 . '">';
 
@@ -292,7 +294,7 @@ class Variables
                     $retval .= '<span class="allfine">';
                 }
             }
-            $retval .= htmlspecialchars($value);
+            $retval .= htmlspecialchars((string) $value);
             if (isset($alerts[$name])) {
                 $retval .= '</span>';
             }
@@ -334,7 +336,7 @@ class Variables
         /**
          * Messages are built using the message name
          */
-        return array(
+        return [
             'Aborted_clients' => __(
                 'The number of connections that were aborted because the client died'
                 . ' without closing the connection properly.'
@@ -769,6 +771,6 @@ class Variables
             'Threads_running' => __(
                 'The number of threads that are not sleeping.'
             )
-        );
+        ];
     }
 }

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Navigation\Nodes;
 
 use PhpMyAdmin\Navigation\NodeFactory;
@@ -23,7 +25,7 @@ class NodeTableContainerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;

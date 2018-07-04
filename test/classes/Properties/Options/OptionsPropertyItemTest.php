@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Properties\Options;
 
 use PHPUnit\Framework\TestCase;
@@ -23,7 +25,7 @@ class OptionsPropertyItemTest extends TestCase
      *
      * @return void
      */
-    protected function setup()
+    protected function setUp()
     {
         $this->stub = $this->getMockForAbstractClass('PhpMyAdmin\Properties\Options\OptionsPropertyItem');
     }

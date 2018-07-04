@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
@@ -35,12 +37,15 @@ $err_url   = 'tbl_sql.php' . $err_url;
 $goto = 'tbl_sql.php';
 $back = 'tbl_sql.php';
 
+$sqlQueryForm = new SqlQueryForm();
+
 /**
  * Query box, bookmark, insert data from textfile
  */
 $response->addHTML(
-    SqlQueryForm::getHtml(
-        true, false,
+    $sqlQueryForm->getHtml(
+        true,
+        false,
         isset($_REQUEST['delimiter'])
         ? htmlspecialchars($_REQUEST['delimiter'])
         : ';'

@@ -10,6 +10,8 @@
  * @usedby  tbl_tracking.php
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Bookmark;
@@ -42,8 +44,10 @@ class SqlQueryForm
      * @usedby  tbl_structure.php
      * @usedby  tbl_tracking.php
      */
-    public static function getHtml(
-        $query = true, $display_tab = false, $delimiter = ';'
+    public function getHtml(
+        $query = true,
+        $display_tab = false,
+        $delimiter = ';'
     ) {
         $html = '';
         if (! $display_tab) {
@@ -96,8 +100,9 @@ class SqlQueryForm
 
         // display querybox
         if ($display_tab === 'full' || $display_tab === 'sql') {
-            $html .= self::getHtmlForInsert(
-                $query, $delimiter
+            $html .= $this->getHtmlForInsert(
+                $query,
+                $delimiter
             );
         }
 
@@ -105,7 +110,7 @@ class SqlQueryForm
         if ($display_tab === 'full') {
             $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
             if ($cfgBookmark) {
-                $html .= self::getHtmlForBookmark();
+                $html .= $this->getHtmlForBookmark();
             }
         }
 
@@ -128,12 +133,10 @@ class SqlQueryForm
      * @param string $query query to display in the textarea
      *
      * @return array ($legend, $query, $columns_list)
-     *
-     * @usedby  self::getHtmlForInsert()
      */
-    public static function init($query)
+    public function init($query)
     {
-        $columns_list    = array();
+        $columns_list    = [];
         if (strlen($GLOBALS['db']) === 0) {
             // prepare for server related
             $legend = sprintf(
@@ -149,15 +152,17 @@ class SqlQueryForm
             $db     = $GLOBALS['db'];
             // if you want navigation:
             $tmp_db_link = '<a href="' . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+                $GLOBALS['cfg']['DefaultTabDatabase'],
+                'database'
             )
-                . Url::getCommon(array('db' => $db)) . '"';
+                . Url::getCommon(['db' => $db]) . '"';
             $tmp_db_link .= '>'
                 . htmlspecialchars($db) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
             if (empty($query)) {
                 $query = Util::expandUserString(
-                    $GLOBALS['cfg']['DefaultQueryDatabase'], 'backquote'
+                    $GLOBALS['cfg']['DefaultQueryDatabase'],
+                    'backquote'
                 );
             }
         } else {
@@ -167,24 +172,29 @@ class SqlQueryForm
             // we do a try_query here, because we could be in the query window,
             // trying to synchronize and the table has not yet been created
             $columns_list = $GLOBALS['dbi']->getColumns(
-                $db, $GLOBALS['table'], null, true
+                $db,
+                $GLOBALS['table'],
+                null,
+                true
             );
 
             $tmp_tbl_link = '<a href="' . Util::getScriptNameForOption(
-                $GLOBALS['cfg']['DefaultTabTable'], 'table'
-            ) . Url::getCommon(array('db' => $db, 'table' => $table)) . '" >';
+                $GLOBALS['cfg']['DefaultTabTable'],
+                'table'
+            ) . Url::getCommon(['db' => $db, 'table' => $table]) . '" >';
             $tmp_tbl_link .= htmlspecialchars($db)
                 . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmp_tbl_link);
             if (empty($query)) {
                 $query = Util::expandUserString(
-                    $GLOBALS['cfg']['DefaultQueryTable'], 'backquote'
+                    $GLOBALS['cfg']['DefaultQueryTable'],
+                    'backquote'
                 );
             }
         }
         $legend .= ': ' . Util::showMySQLDocu('SELECT');
 
-        return array($legend, $query, $columns_list);
+        return [$legend, $query, $columns_list];
     }
 
     /**
@@ -194,11 +204,10 @@ class SqlQueryForm
      * @param string $delimiter default delimiter to use
      *
      * @return string
-     *
-     * @usedby  self::getHtml()
      */
-    public static function getHtmlForInsert(
-        $query = '', $delimiter = ';'
+    public function getHtmlForInsert(
+        $query = '',
+        $delimiter = ';'
     ) {
         // enable auto select text in textarea
         if ($GLOBALS['cfg']['TextareaAutoSelect']) {
@@ -210,7 +219,7 @@ class SqlQueryForm
         $locking = '';
         $height = $GLOBALS['cfg']['TextareaRows'] * 2;
 
-        list($legend, $query, $columns_list) = self::init($query);
+        list($legend, $query, $columns_list) = $this->init($query);
 
         if (! empty($columns_list)) {
             $sqlquerycontainer_id = 'sqlquerycontainer';
@@ -342,7 +351,7 @@ class SqlQueryForm
 
         $html .= '<div class="formelement">';
         $html .= '<input type="checkbox" name="show_query" value="1" '
-            . 'id="checkbox_show_query" tabindex="132" checked="checked" />'
+            . 'id="checkbox_show_query" tabindex="132"/>'
             . '<label for="checkbox_show_query">' . __('Show this query here again')
             . '</label>';
         $html .= '</div>';
@@ -382,10 +391,8 @@ class SqlQueryForm
      * return HTML for sql Query Form Bookmark
      *
      * @return string|null
-     *
-     * @usedby  self::getHtml()
      */
-    public static function getHtmlForBookmark()
+    public function getHtmlForBookmark()
     {
         $bookmark_list = Bookmark::getList(
             $GLOBALS['dbi'],
@@ -403,7 +410,7 @@ class SqlQueryForm
         $html .= '<select name="id_bookmark" id="id_bookmark">' . "\n";
         $html .= '<option value="">&nbsp;</option>' . "\n";
         foreach ($bookmark_list as $bookmark) {
-            $html .= '<option value="' . htmlspecialchars($bookmark->getId()) . '"'
+            $html .= '<option value="' . htmlspecialchars((string)$bookmark->getId()) . '"'
                 . ' data-varcount="' . $bookmark->getVariableCount()
                 . '">'
                 . htmlspecialchars($bookmark->getLabel())

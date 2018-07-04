@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -28,7 +30,7 @@ class ExportPhparrayTest extends PmaTestCase
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         $GLOBALS['server'] = 0;
         $GLOBALS['output_kanji_conversion'] = false;
@@ -236,7 +238,7 @@ class ExportPhparrayTest extends PmaTestCase
         $dbi->expects($this->at(4))
             ->method('fetchRow')
             ->with(true)
-            ->will($this->returnValue(array(1, 'a')));
+            ->will($this->returnValue([1, 'a']));
 
         $dbi->expects($this->at(5))
             ->method('fetchRow')
@@ -248,14 +250,18 @@ class ExportPhparrayTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db', 'table', "\n", 'phpmyadmin.net/err', 'SELECT'
+                'db',
+                'table',
+                "\n",
+                'phpmyadmin.net/err',
+                'SELECT'
             )
         );
         $result = ob_get_clean();
 
         $this->assertEquals(
             "\n" . '/* `db`.`table` */' . "\n" .
-            '$table = array('  . "\n" .
+            '$table = array(' . "\n" .
             '  array(\'c1\' => 1,\'\' => \'a\')' . "\n" .
             ');' . "\n",
             $result
@@ -286,7 +292,11 @@ class ExportPhparrayTest extends PmaTestCase
         ob_start();
         $this->assertTrue(
             $this->object->exportData(
-                'db', '0`932table', "\n", 'phpmyadmin.net/err', 'SELECT'
+                'db',
+                '0`932table',
+                "\n",
+                'phpmyadmin.net/err',
+                'SELECT'
             )
         );
         $result = ob_get_clean();

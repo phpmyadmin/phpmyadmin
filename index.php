@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
@@ -19,6 +21,7 @@ use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\UserPreferences;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -28,13 +31,13 @@ require_once 'libraries/common.inc.php';
 /**
  * pass variables to child pages
  */
-$drops = array(
+$drops = [
     'lang',
     'server',
     'collation_connection',
     'db',
     'table'
-);
+];
 foreach ($drops as $each_drop) {
     if (array_key_exists($each_drop, $_GET)) {
         unset($_GET[$each_drop]);
@@ -47,9 +50,9 @@ unset($drops, $each_drop);
  * Such scripts must not be loaded on home page.
  *
  */
-$target_blacklist = array (
+$target_blacklist =  [
     'import.php', 'export.php'
-);
+];
 
 // If we have a valid target, let's load that script instead
 if (! empty($_REQUEST['target'])
@@ -66,22 +69,17 @@ if (isset($_REQUEST['ajax_request']) && ! empty($_REQUEST['access_time'])) {
     exit;
 }
 
-// user selected font size
-if (isset($_POST['set_fontsize']) && preg_match('/^[0-9.]+(px|em|pt|\%)$/', $_POST['set_fontsize'])) {
-    $GLOBALS['PMA_Config']->setUserValue(
-        null,
-        'FontSize',
-        $_POST['set_fontsize'],
-        '82%'
-    );
-    header('Location: index.php' . Url::getCommonRaw());
-    exit();
-}
 // if user selected a theme
 if (isset($_POST['set_theme'])) {
     $tmanager = ThemeManager::getInstance();
     $tmanager->setActiveTheme($_POST['set_theme']);
     $tmanager->setThemeCookie();
+
+    $userPreferences = new UserPreferences();
+    $prefs = $userPreferences->load();
+    $prefs["config_data"]["ThemeDefault"] = $_POST['set_theme'];
+    $userPreferences->save($prefs["config_data"]);
+
     header('Location: index.php' . Url::getCommonRaw());
     exit();
 }
@@ -103,11 +101,13 @@ if (! empty($_REQUEST['db'])) {
     $page = null;
     if (! empty($_REQUEST['table'])) {
         $page = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabTable'], 'table'
+            $GLOBALS['cfg']['DefaultTabTable'],
+            'table'
         );
     } else {
         $page = Util::getScriptNameForOption(
-            $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+            $GLOBALS['cfg']['DefaultTabDatabase'],
+            'database'
         );
     }
     include $page;
@@ -253,7 +253,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
             . "&nbsp;" . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
            . Util::showMySQLDocu('Charset-connection')
-           . ': ' .  "\n"
+           . ': ' . "\n"
            . '            </label>' . "\n"
 
            . Charsets::getCollationDropdownBox(
@@ -294,9 +294,6 @@ if ($GLOBALS['cfg']['ThemeManager']) {
             ,  ThemeManager::getInstance()->getHtmlSelectBox();
     echo '</li>';
 }
-echo '<li id="li_select_fontsize">';
-echo Config::getFontsizeForm();
-echo '</li>';
 
 echo '</ul>';
 
@@ -326,7 +323,6 @@ echo '<div id="main_pane_right">';
 
 
 if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
-
     echo '<div class="group">';
     echo '<h2>' , __('Database server') , '</h2>';
     echo '<ul>' , "\n";
@@ -526,7 +522,7 @@ if ($cfg['LoginCookieValidityDisableWarning'] == false) {
      * Check whether session.gc_maxlifetime limits session validity.
      */
     $gc_time = (int)ini_get('session.gc_maxlifetime');
-    if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
+    if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity']) {
         trigger_error(
             __(
                 'Your PHP parameter [a@https://secure.php.net/manual/en/session.' .

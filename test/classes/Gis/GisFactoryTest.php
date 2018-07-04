@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Gis;
 
 use PhpMyAdmin\Gis\GisFactory;
@@ -35,39 +37,39 @@ class GisFactoryTest extends TestCase
     /**
      * data provider for testFactory
      *
-     * @return data for testFactory
+     * @return array data for testFactory
      */
     public function providerForTestFactory()
     {
-        return array(
-            array(
+        return [
+            [
                 'MULTIPOLYGON',
                 'PhpMyAdmin\Gis\GisMultiPolygon'
-            ),
-            array(
+            ],
+            [
                 'POLYGON',
                 'PhpMyAdmin\Gis\GisPolygon'
-            ),
-            array(
+            ],
+            [
                 'MULTILINESTRING',
                 'PhpMyAdmin\Gis\GisMultiLineString'
-            ),
-            array(
+            ],
+            [
                 'LINESTRING',
                 'PhpMyAdmin\Gis\GisLineString'
-            ),
-            array(
+            ],
+            [
                 'MULTIPOINT',
                 'PhpMyAdmin\Gis\GisMultiPoint'
-            ),
-            array(
+            ],
+            [
                 'POINT',
                 'PhpMyAdmin\Gis\GisPoint'
-            ),
-            array(
+            ],
+            [
                 'GEOMETRYCOLLECTION',
                 'PhpMyAdmin\Gis\GisGeometryCollection'
-            ),
-        );
+            ],
+        ];
     }
 }

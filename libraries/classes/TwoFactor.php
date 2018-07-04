@@ -5,12 +5,16 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\UserPreferences;
 
 /**
  * Two factor authentication wrapper class
+ *
+ * @package PhpMyAdmin
  */
 class TwoFactor
 {
@@ -30,7 +34,7 @@ class TwoFactor
     protected $_writable;
 
     /**
-     * @var PhpMyAdmin\Plugins\TwoFactorPlugin
+     * @var \PhpMyAdmin\Plugins\TwoFactorPlugin
      */
     protected $_backend;
 
@@ -173,7 +177,7 @@ class TwoFactor
     /**
      * Returns backend for current user
      *
-     * @return PhpMyAdmin\Plugins\TwoFactorPlugin
+     * @return \PhpMyAdmin\Plugins\TwoFactorPlugin
      */
     public function getBackend()
     {
@@ -222,7 +226,7 @@ class TwoFactor
     /**
      * Saves current configuration.
      *
-     * @return true|PhpMyAdmin\Message
+     * @return true|\PhpMyAdmin\Message
      */
     public function save()
     {

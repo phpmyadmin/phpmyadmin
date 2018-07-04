@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Message;
@@ -24,15 +25,17 @@ $scripts  = $header->getScripts();
 $scripts->addFile('tbl_structure.js');
 
 // Check parameters
-Util::checkParameters(array('db', 'table'));
+Util::checkParameters(['db', 'table']);
+
+$transformations = new Transformations();
 
 /**
  * Defines the url to return to in case of error in a sql statement
  */
 $err_url = 'tbl_sql.php' . Url::getCommon(
-    array(
+    [
         'db' => $db, 'table' => $table
-    )
+    ]
 );
 
 /**
@@ -78,8 +81,9 @@ if (isset($_REQUEST['do_save_data'])) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
                     && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
-                    Transformations::setMIME(
-                        $db, $table,
+                    $transformations->setMime(
+                        $db,
+                        $table,
                         $_REQUEST['field_name'][$fieldindex],
                         $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],

@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
@@ -18,6 +19,9 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class LoginTest extends TestBase
 {
+    /**
+     * @return void
+     */
     public function setUpPage()
     {
         parent::setUpPage();

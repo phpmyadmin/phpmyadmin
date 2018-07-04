@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Server\ServerCollationsController;
 use PhpMyAdmin\Di\Container;
@@ -25,6 +26,7 @@ $container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var ServerCollationsController $controller */
 $controller = $container->get(
-    'ServerCollationsController', array()
+    'ServerCollationsController',
+    []
 );
 $controller->indexAction();

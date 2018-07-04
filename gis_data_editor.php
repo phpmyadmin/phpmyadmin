@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Gis\GisFactory;
@@ -28,16 +29,16 @@ function escape($variable)
 require_once 'libraries/common.inc.php';
 
 if (! isset($_REQUEST['field'])) {
-    PhpMyAdmin\Util::checkParameters(array('field'));
+    PhpMyAdmin\Util::checkParameters(['field']);
 }
 
 // Get data if any posted
-$gis_data = array();
+$gis_data = [];
 if (Core::isValid($_REQUEST['gis_data'], 'array')) {
     $gis_data = $_REQUEST['gis_data'];
 }
 
-$gis_types = array(
+$gis_types = [
     'POINT',
     'MULTIPOINT',
     'LINESTRING',
@@ -45,7 +46,7 @@ $gis_types = array(
     'POLYGON',
     'MULTIPOLYGON',
     'GEOMETRYCOLLECTION'
-);
+];
 
 // Extract type from the initial call and make sure that it's a valid one.
 // Extract from field's values if available, if not use the column type passed.
@@ -73,7 +74,8 @@ $geom_type = htmlspecialchars($gis_data['gis_type']);
 $gis_obj = GisFactory::factory($geom_type);
 if (isset($_REQUEST['value'])) {
     $gis_data = array_merge(
-        $gis_data, $gis_obj->generateParams($_REQUEST['value'])
+        $gis_data,
+        $gis_obj->generateParams($_REQUEST['value'])
     );
 }
 
@@ -85,12 +87,12 @@ $wkt_with_zero = $gis_obj->generateWkt($gis_data, 0, '0');
 $result = "'" . $wkt . "'," . $srid;
 
 // Generate SVG based visualization
-$visualizationSettings = array(
+$visualizationSettings = [
     'width' => 450,
     'height' => 300,
     'spatialColumn' => 'wkt'
-);
-$data = array(array('wkt' => $wkt_with_zero, 'srid' => $srid));
+];
+$data = [['wkt' => $wkt_with_zero, 'srid' => $srid]];
 $visualization = GisVisualization::getByData($data, $visualizationSettings)
     ->toImage('svg');
 
@@ -99,11 +101,11 @@ $open_layers = GisVisualization::getByData($data, $visualizationSettings)
 
 // If the call is to update the WKT and visualization make an AJAX response
 if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
-    $extra_data = array(
+    $extra_data = [
         'result'        => $result,
         'visualization' => $visualization,
         'openLayers'    => $open_layers,
-    );
+    ];
     $response = Response::getInstance();
     $response->addJSON($extra_data);
     exit;
@@ -223,7 +225,6 @@ for ($a = 0; $a < $geom_count; $a++) {
         echo '<label for="y">' , __("Y") , '</label>';
         echo '<input name="gis_data[' , $a , '][POINT][y]" type="text"'
             , ' value="' , escape($gis_data[$a]['POINT']['y']) , '" />';
-
     } elseif ($type == 'MULTIPOINT' || $type == 'LINESTRING') {
         $no_of_points = isset($gis_data[$a][$type]['no_of_points'])
             ? intval($gis_data[$a][$type]['no_of_points']) : 1;
@@ -256,7 +257,6 @@ for ($a = 0; $a < $geom_count; $a++) {
         echo '<input type="submit"'
             , ' name="gis_data[' , $a , '][' , $type , '][add_point]"'
             , ' class="add addPoint" value="' , __("Add a point") , '" />';
-
     } elseif ($type == 'MULTILINESTRING' || $type == 'POLYGON') {
         $no_of_lines = isset($gis_data[$a][$type]['no_of_lines'])
             ? intval($gis_data[$a][$type]['no_of_lines']) : 1;
@@ -320,7 +320,6 @@ for ($a = 0; $a < $geom_count; $a++) {
         echo '<input type="submit"'
             , ' name="gis_data[' , $a , '][' , $type , '][add_line]"'
             , ' class="add addLine" value="' , $caption , '" />';
-
     } elseif ($type == 'MULTIPOLYGON') {
         $no_of_polygons = isset($gis_data[$a][$type]['no_of_polygons'])
             ? intval($gis_data[$a][$type]['no_of_polygons']) : 1;

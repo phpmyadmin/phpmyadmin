@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\Response;
@@ -18,6 +20,8 @@ use Samyoul\U2F\U2FServer\U2FException;
  * Hardware key based two-factor authentication
  *
  * Supports FIDO U2F tokens
+ *
+ * @package PhpMyAdmin
  */
 class Key extends TwoFactorPlugin
 {
@@ -48,7 +52,7 @@ class Key extends TwoFactorPlugin
     {
         $result = [];
         foreach ($this->_twofactor->config['settings']['registrations'] as $index => $data) {
-            $reg = new \StdClass;
+            $reg = new \stdClass();
             $reg->keyHandle = $data['keyHandle'];
             $reg->publicKey = $data['publicKey'];
             $reg->certificate = $data['certificate'];
@@ -116,7 +120,7 @@ class Key extends TwoFactorPlugin
         );
         $_SESSION['authenticationRequest'] = $request;
         $this->loadScripts();
-        return Template::get('login/twofactor/key')->render([
+        return $this->template->render('login/twofactor/key', [
             'request' => json_encode($request),
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
         ]);
@@ -136,7 +140,7 @@ class Key extends TwoFactorPlugin
         $_SESSION['registrationRequest'] = $registrationData['request'];
 
         $this->loadScripts();
-        return Template::get('login/twofactor/key_configure')->render([
+        return $this->template->render('login/twofactor/key_configure', [
             'request' => json_encode($registrationData['request']),
             'signatures' => json_encode($registrationData['signatures']),
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
@@ -161,7 +165,8 @@ class Key extends TwoFactorPlugin
                 return false;
             }
             $registration = U2FServer::register(
-                $_SESSION['registrationRequest'], $response
+                $_SESSION['registrationRequest'],
+                $response
             );
             $this->_twofactor->config['settings']['registrations'][] = [
                 'keyHandle' => $registration->getKeyHandle(),

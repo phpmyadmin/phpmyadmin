@@ -5,13 +5,20 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
+use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\MoTranslator\Loader;
+use PhpMyAdmin\Theme;
 
 /**
  * Set precision to sane value, with higher values
  * things behave slightly unexpectedly, for example
  * round(1.2, 2) returns 1.199999999999999956.
  */
-ini_set('precision', 14);
+ini_set('precision', '14');
 
 // Let PHP complain about all errors
 error_reporting(E_ALL);
@@ -21,7 +28,7 @@ date_default_timezone_set('UTC');
 
 // Adding phpMyAdmin sources to include path
 set_include_path(
-    get_include_path() . PATH_SEPARATOR . dirname(realpath("../index.php"))
+    get_include_path() . PATH_SEPARATOR . dirname((string) realpath("../index.php"))
 );
 
 // Setting constants for testing
@@ -29,7 +36,7 @@ define('PHPMYADMIN', 1);
 define('TESTSUITE', 1);
 
 // Selenium tests setup
-$test_defaults = array(
+$test_defaults = [
     'TESTSUITE_SERVER' => 'localhost',
     'TESTSUITE_USER' => 'root',
     'TESTSUITE_PASSWORD' => '',
@@ -43,7 +50,7 @@ $test_defaults = array(
     'TESTSUITE_BROWSERSTACK_KEY' => '',
     'TESTSUITE_FULL' => '',
     'CI_MODE' => ''
-);
+];
 if (PHP_SAPI == 'cli') {
     foreach ($test_defaults as $varname => $defvalue) {
         $envvar = getenv($varname);
@@ -57,18 +64,17 @@ if (PHP_SAPI == 'cli') {
 
 require_once 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
-PhpMyAdmin\MoTranslator\Loader::loadFunctions();
-$CFG = new PhpMyAdmin\Config();
+Loader::loadFunctions();
+$GLOBALS['PMA_Config'] = new Config();
 // Initialize PMA_VERSION variable
-define('PMA_VERSION', $CFG->get('PMA_VERSION'));
-define('PMA_MAJOR_VERSION', $CFG->get('PMA_MAJOR_VERSION'));
-unset($CFG);
+define('PMA_VERSION', $GLOBALS['PMA_Config']->get('PMA_VERSION'));
+define('PMA_MAJOR_VERSION', $GLOBALS['PMA_Config']->get('PMA_MAJOR_VERSION'));
 
-/* Ensure default langauge is active */
-PhpMyAdmin\LanguageManager::getInstance()->getLanguage('en')->activate();
+/* Ensure default language is active */
+LanguageManager::getInstance()->getLanguage('en')->activate();
 
 /* Load Database interface */
-PhpMyAdmin\DatabaseInterface::load();
+DatabaseInterface::load();
 
 // Set proxy information from env, if available
 $http_proxy = getenv('http_proxy');
@@ -87,11 +93,6 @@ session_start();
 
 // Standard environment for tests
 $_SESSION[' PMA_token '] = 'token';
-$GLOBALS['PMA_Theme'] = PhpMyAdmin\Theme::load('./themes/pmahomme');
+$GLOBALS['PMA_Theme'] = Theme::load('./themes/pmahomme');
 $_SESSION['tmpval']['pftext'] = 'F';
 $GLOBALS['lang'] = 'en';
-$GLOBALS['PMA_Config'] = new PhpMyAdmin\Config();
-
-// Check whether we have runkit extension
-define('PMA_HAS_RUNKIT', function_exists('runkit_constant_redefine'));
-$GLOBALS['runkit_internal_override'] = ini_get('runkit.internal_override');

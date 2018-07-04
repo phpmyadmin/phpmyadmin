@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
  */
+declare(strict_types=1);
 
 // unplanned execution path
 if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
@@ -15,7 +16,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 /******************************************************************************/
 /* general tags */
 html {
-    font-size: <?php echo $theme->getFontSize(); ?>
+    font-size: 82%;
 }
 
 input,
@@ -1025,6 +1026,9 @@ ul#topmenu2 a {
 
 span.caution {
     color: #FF0000;
+}
+span.success {
+    color: green;
 }
 fieldset.caution a {
     color: #FF0000;

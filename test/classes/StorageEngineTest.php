@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\StorageEngine;
@@ -32,7 +34,8 @@ class StorageEngineTest extends PmaTestCase
     {
         $GLOBALS['server'] = 1;
         $this->object = $this->getMockForAbstractClass(
-            'PhpMyAdmin\StorageEngine', array('dummy')
+            'PhpMyAdmin\StorageEngine',
+            ['dummy']
         );
     }
 
@@ -57,23 +60,23 @@ class StorageEngineTest extends PmaTestCase
     {
 
         $this->assertEquals(
-            array(
-                'dummy' => array(
+            [
+                'dummy' => [
                     'Engine' => 'dummy',
                     'Support' => 'YES',
                     'Comment' => 'dummy comment',
-                ),
-                'dummy2' => array(
+                ],
+                'dummy2' => [
                     'Engine' => 'dummy2',
                     'Support' => 'NO',
                     'Comment' => 'dummy2 comment',
-                ),
-                'FEDERATED' => array(
+                ],
+                'FEDERATED' => [
                     'Engine' => 'FEDERATED',
                     'Support' => 'NO',
                     'Comment' => 'Federated MySQL storage engine'
-                ),
-            ),
+                ],
+            ],
             $this->object->getStorageEngines()
         );
     }
@@ -108,7 +111,8 @@ class StorageEngineTest extends PmaTestCase
     public function testGetEngine($expectedClass, $engineName)
     {
         $this->assertInstanceOf(
-            $expectedClass, StorageEngine::getEngine($engineName)
+            $expectedClass,
+            StorageEngine::getEngine($engineName)
         );
     }
 
@@ -119,21 +123,21 @@ class StorageEngineTest extends PmaTestCase
      */
     public function providerGetEngine()
     {
-        return array(
-            array('PhpMyAdmin\StorageEngine', 'unknown engine'),
-            array('PhpMyAdmin\Engines\Bdb', 'Bdb'),
-            array('PhpMyAdmin\Engines\Berkeleydb', 'Berkeleydb'),
-            array('PhpMyAdmin\Engines\Binlog', 'Binlog'),
-            array('PhpMyAdmin\Engines\Innobase', 'Innobase'),
-            array('PhpMyAdmin\Engines\Innodb', 'Innodb'),
-            array('PhpMyAdmin\Engines\Memory', 'Memory'),
-            array('PhpMyAdmin\Engines\Merge', 'Merge'),
-            array('PhpMyAdmin\Engines\MrgMyisam', 'Mrg_Myisam'),
-            array('PhpMyAdmin\Engines\Myisam', 'Myisam'),
-            array('PhpMyAdmin\Engines\Ndbcluster', 'Ndbcluster'),
-            array('PhpMyAdmin\Engines\Pbxt', 'Pbxt'),
-            array('PhpMyAdmin\Engines\PerformanceSchema', 'Performance_Schema'),
-        );
+        return [
+            ['PhpMyAdmin\StorageEngine', 'unknown engine'],
+            ['PhpMyAdmin\Engines\Bdb', 'Bdb'],
+            ['PhpMyAdmin\Engines\Berkeleydb', 'Berkeleydb'],
+            ['PhpMyAdmin\Engines\Binlog', 'Binlog'],
+            ['PhpMyAdmin\Engines\Innobase', 'Innobase'],
+            ['PhpMyAdmin\Engines\Innodb', 'Innodb'],
+            ['PhpMyAdmin\Engines\Memory', 'Memory'],
+            ['PhpMyAdmin\Engines\Merge', 'Merge'],
+            ['PhpMyAdmin\Engines\MrgMyisam', 'Mrg_Myisam'],
+            ['PhpMyAdmin\Engines\Myisam', 'Myisam'],
+            ['PhpMyAdmin\Engines\Ndbcluster', 'Ndbcluster'],
+            ['PhpMyAdmin\Engines\Pbxt', 'Pbxt'],
+            ['PhpMyAdmin\Engines\PerformanceSchema', 'Performance_Schema'],
+        ];
     }
 
     /**
@@ -181,7 +185,7 @@ class StorageEngineTest extends PmaTestCase
     {
 
         $this->assertEquals(
-            array(),
+            [],
             $this->object->getInfoPages()
         );
     }
@@ -223,7 +227,7 @@ class StorageEngineTest extends PmaTestCase
     {
 
         $this->assertEquals(
-            array(),
+            [],
             $this->object->getVariables()
         );
     }
@@ -296,10 +300,10 @@ class StorageEngineTest extends PmaTestCase
     {
 
         $this->assertEquals(
-            array(
+            [
                 0 => 12,
                 1 => 'B'
-            ),
+            ],
             $this->object->resolveTypeSize(12)
         );
     }

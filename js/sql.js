@@ -41,11 +41,61 @@ function PMA_urlencode (str) {
  * @return void
  */
 function PMA_autosaveSQL (query) {
-    if (query) {
-        if (isStorageSupported('localStorage')) {
-            window.localStorage.auto_saved_sql = query;
+    if (isStorageSupported('localStorage')) {
+        window.localStorage.auto_saved_sql = query;
+    } else {
+        Cookies.set('auto_saved_sql', query);
+    }
+}
+
+/**
+ * Saves SQL query in local storage or cookie
+ *
+ * @param string database name
+ * @param string table name
+ * @param string SQL query
+ * @return void
+ */
+function PMA_showThisQuery (db, table, query) {
+    var show_this_query_object = {
+        'db': db,
+        'table': table,
+        'query': query
+    };
+    if (isStorageSupported('localStorage')) {
+        window.localStorage.show_this_query = 1;
+        window.localStorage.show_this_query_object = JSON.stringify(show_this_query_object);
+    } else {
+        Cookies.set('show_this_quey', 1);
+        Cookies.set('show_this_query_object', JSON.stringify(show_this_query_object));
+    }
+}
+
+/**
+ * Set query to codemirror if show this query is
+ * checked and query for the db and table pair exists
+ */
+function setShowThisQuery () {
+    var db = $('input[name="db"]').val();
+    var table = $('input[name="table"]').val();
+    if (isStorageSupported('localStorage')) {
+        if (window.localStorage.show_this_query_object !== undefined) {
+            var stored_db = JSON.parse(window.localStorage.show_this_query_object).db;
+            var stored_table = JSON.parse(window.localStorage.show_this_query_object).table;
+            var stored_query = JSON.parse(window.localStorage.show_this_query_object).query;
+        }
+        if (window.localStorage.show_this_query !== undefined
+            && window.localStorage.show_this_query === '1') {
+            $('input[name="show_query"]').prop('checked', true);
+            if (db === stored_db && table === stored_table) {
+                if (codemirror_editor) {
+                    codemirror_editor.setValue(stored_query);
+                } else if (document.sqlform) {
+                    document.sqlform.sql_query.value = stored_query;
+                }
+            }
         } else {
-            Cookies.set('auto_saved_sql', query);
+            $('input[name="show_query"]').prop('checked', false);
         }
     }
 }
@@ -159,6 +209,9 @@ AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function () {
+    if (codemirror_editor || document.sqlform) {
+        setShowThisQuery();
+    }
     $(function () {
         if (codemirror_editor) {
             codemirror_editor.on('change', function () {
@@ -183,7 +236,7 @@ AJAX.registerOnload('sql.js', function () {
             // If sql query with sort for current table is stored, change sort by key select value
             var sortStoredQuery = (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql_sort !== 'undefined') ? window.localStorage.auto_saved_sql_sort : Cookies.get('auto_saved_sql_sort');
             if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
-                $('select[name="sql_query"]').val(sortStoredQuery).change();
+                $('select[name="sql_query"]').val(sortStoredQuery).trigger('change');
             }
         }
     });
@@ -227,7 +280,7 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
-    $('input#bkm_label').keyup(function () {
+    $('input#bkm_label').on('keyup', function () {
         $('input#id_bkm_all_users, input#id_bkm_replace')
             .parent()
             .toggle($(this).val().length > 0);
@@ -293,8 +346,8 @@ AJAX.registerOnload('sql.js', function () {
         });
 
         $('.table_results .column_heading a').each(function () {
-        	//Don't copy ordering number text within <small> tag
-        	textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
+            // Don't copy ordering number text within <small> tag
+            textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
         });
 
         textArea.value += '\n';
@@ -407,6 +460,26 @@ AJAX.registerOnload('sql.js', function () {
         // import.php about what needs to be done
         $form.find('select[name=id_bookmark]').val('');
         // let normal event propagation happen
+        if (isStorageSupported('localStorage')) {
+            window.localStorage.removeItem('auto_saved_sql');
+        } else {
+            Cookies.set('auto_saved_sql', '');
+        }
+        var isShowQuery =  $('input[name="show_query"').is(':checked');
+        if (isShowQuery) {
+            window.localStorage.show_this_query = '1';
+            var db = $('input[name="db"]').val();
+            var table = $('input[name="table"]').val();
+            var query;
+            if (codemirror_editor) {
+                query = codemirror_editor.getValue();
+            } else {
+                query = $('#sqlquery').val();
+            }
+            PMA_showThisQuery(db, table, query);
+        } else {
+            window.localStorage.show_this_query = '0';
+        }
     });
 
     /**
@@ -451,7 +524,7 @@ AJAX.registerOnload('sql.js', function () {
             // because when you are in the Bookmarked SQL query
             // section and hit enter, you expect it to do the
             // same action as the Go button in that section.
-            $('#button_submit_bookmark').click();
+            $('#button_submit_bookmark').trigger('click');
             return false;
         } else  {
             return true;
@@ -852,6 +925,12 @@ function browseForeignDialog ($this_a) {
     });
 }
 
+function checkSavedQuery () {
+    if (isStorageSupported('localStorage') && window.localStorage.auto_saved_sql !== undefined) {
+        PMA_ajaxShowMessage(PMA_messages.strPreviousSaveQuery);
+    }
+}
+
 AJAX.registerOnload('sql.js', function () {
     $('body').on('click', 'a.browse_foreign', function (e) {
         e.preventDefault();
@@ -879,6 +958,13 @@ AJAX.registerOnload('sql.js', function () {
      * create resizable table
      */
     $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
+
+    /**
+     * Check if there is any saved query
+     */
+    if (codemirror_editor || document.sqlform) {
+        checkSavedQuery();
+    }
 });
 
 /*

@@ -11,6 +11,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
@@ -93,20 +95,24 @@ if (strlen($GLOBALS['db']) > 0
                 "export",
                 "sql",
                 'libraries/classes/Plugins/Export/',
-                array(
+                [
                     'single_table' => isset($single_table),
                     'export_type'  => 'database'
-                )
+                ]
             );
 
             // create stand-in tables for views
             $views = $operations->getViewsAndCreateSqlViewStandIn(
-                $tables_full, $export_sql_plugin, $GLOBALS['db']
+                $tables_full,
+                $export_sql_plugin,
+                $GLOBALS['db']
             );
 
             // copy tables
             $sqlConstratints = $operations->copyTables(
-                $tables_full, $move, $GLOBALS['db']
+                $tables_full,
+                $move,
+                $GLOBALS['db']
             );
 
             // handle the views

@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
 use PhpMyAdmin\Display\ImportAjax;
@@ -44,14 +46,14 @@ class UploadApc implements UploadInterface
             return null;
         }
         if (!array_key_exists($id, $_SESSION[$SESSION_KEY])) {
-            $_SESSION[$SESSION_KEY][$id] = array(
+            $_SESSION[$SESSION_KEY][$id] = [
                 'id'       => $id,
                 'finished' => false,
                 'percent'  => 0,
                 'total'    => 0,
                 'complete' => 0,
                 'plugin'   => UploadApc::getIdKey(),
-            );
+            ];
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 

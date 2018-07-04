@@ -6,14 +6,12 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage Link
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Sanitize;
-
-if (!defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Provides common methods for all of the link transformations plugins.
@@ -45,7 +43,7 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         $cfg = $GLOBALS['cfg'];
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['TextLink']);

@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
 use PhpMyAdmin\Di\Container;
@@ -26,9 +27,9 @@ $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
-$dependency_definitions = array(
+$dependency_definitions = [
     'db' => $db,
-);
+];
 
 /** @var DatabaseStructureController $controller */
 $controller = $container->get(

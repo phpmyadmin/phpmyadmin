@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage SQL
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\TransformationsPlugin;
@@ -39,7 +41,7 @@ abstract class SQLTransformationsPlugin extends TransformationsPlugin
      *
      * @return string
      */
-    public function applyTransformation($buffer, array $options = array(), $meta = '')
+    public function applyTransformation($buffer, array $options = [], $meta = '')
     {
         // see PMA_highlightSQL()
         $result = Util::formatSql($buffer);

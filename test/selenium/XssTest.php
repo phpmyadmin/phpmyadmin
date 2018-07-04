@@ -6,18 +6,22 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
 /**
- * XSSTest class
+ * XssTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class XSSTest extends TestBase
+class XssTest extends TestBase
 {
+    /**
+     * @return void
+     */
     public function setUpPage()
     {
         parent::setUpPage();

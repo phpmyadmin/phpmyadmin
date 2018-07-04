@@ -5,9 +5,12 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Font;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Util;
@@ -30,9 +33,10 @@ abstract class TableStats
     protected $showKeys;
     protected $tableDimension;
     public $displayfield;
-    public $fields = array();
-    public $primary = array();
-    public $x, $y;
+    public $fields = [];
+    public $primary = [];
+    public $x;
+    public $y;
     public $width = 0;
     public $heightCell = 0;
     protected $offline;
@@ -41,6 +45,11 @@ abstract class TableStats
      * @var Relation $relation
      */
     protected $relation;
+
+    /**
+     * @var Font
+     */
+    protected $font;
 
     /**
      * Constructor
@@ -56,7 +65,13 @@ abstract class TableStats
      *                                from the browser
      */
     public function __construct(
-        $diagram, $db, $pageNumber, $tableName, $showKeys, $tableDimension, $offline
+        $diagram,
+        $db,
+        $pageNumber,
+        $tableName,
+        $showKeys,
+        $tableDimension,
+        $offline
     ) {
         $this->diagram    = $diagram;
         $this->db         = $db;
@@ -69,6 +84,7 @@ abstract class TableStats
         $this->offline    = $offline;
 
         $this->relation = new Relation();
+        $this->font = new Font();
 
         // checks whether the table exists
         // and loads fields
@@ -100,7 +116,7 @@ abstract class TableStats
 
         if ($this->showKeys) {
             $indexes = Index::getFromTable($this->tableName, $this->db);
-            $all_columns = array();
+            $all_columns = [];
             foreach ($indexes as $index) {
                 $all_columns = array_merge(
                     $all_columns,
@@ -121,7 +137,7 @@ abstract class TableStats
      * @return void
      * @abstract
      */
-    protected abstract function showMissingTableError();
+    abstract protected function showMissingTableError();
 
     /**
      * Loads coordinates of a table

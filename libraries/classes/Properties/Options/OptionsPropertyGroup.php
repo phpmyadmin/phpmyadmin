@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Properties\Options;
 
 /**
@@ -53,7 +55,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Coun
     {
         $this->_properties = array_diff(
             $this->getProperties(),
-            array($property)
+            [$property]
         );
     }
 
@@ -98,7 +100,8 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Coun
      *
      * @return int
      */
-    public function count() {
+    public function count()
+    {
         return $this->getNrOfProperties();
     }
 }

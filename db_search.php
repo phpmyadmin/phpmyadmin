@@ -7,6 +7,7 @@
  * @todo    display executed query, optional?
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Database\Search;
 use PhpMyAdmin\Response;
@@ -29,14 +30,17 @@ require 'libraries/db_common.inc.php';
 // If config variable $GLOBALS['cfg']['UseDbSearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
     Util::mysqlDie(
-        __('Access denied!'), '', false, $err_url
+        __('Access denied!'),
+        '',
+        false,
+        $err_url
     );
 } // end if
 $url_query .= '&amp;goto=db_search.php';
 $url_params['goto'] = 'db_search.php';
 
 // Create a database search instance
-$db_search = new Search($GLOBALS['db']);
+$db_search = new Search($GLOBALS['dbi'], $GLOBALS['db']);
 
 // Display top links if we are not in an Ajax request
 if (! $response->isAjax()) {
@@ -64,10 +68,4 @@ if ($response->isAjax() && empty($_REQUEST['ajax_page_request'])) {
 }
 
 // Display the search form
-$response->addHTML($db_search->getSelectionForm());
-$response->addHTML('<div id="searchresults"></div>');
-$response->addHTML(
-    '<div id="togglesearchresultsdiv"><a id="togglesearchresultlink"></a></div>'
-);
-$response->addHTML('<br class="clearfloat" />');
-$response->addHTML($db_search->getResultDivs());
+$response->addHTML($db_search->getMainHtml());

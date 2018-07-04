@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Import
  * @subpackage CSV
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -23,6 +25,14 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
  */
 abstract class AbstractImportCsv extends ImportPlugin
 {
+    /**
+     * AbstractImportCsv constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      * Sets the import plugin properties.
      * Called in the constructor.

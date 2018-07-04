@@ -13,6 +13,7 @@
  * in the select dropdown
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Controllers\Table\TableRelationController;
 use PhpMyAdmin\Di\Container;
@@ -36,12 +37,12 @@ $container->alias('response', 'PhpMyAdmin\Response');
 $db = $container->get('db');
 $table = $container->get('table');
 $dbi = $container->get('dbi');
-$options_array = array(
+$options_array = [
     'CASCADE' => 'CASCADE',
     'SET_NULL' => 'SET NULL',
     'NO_ACTION' => 'NO ACTION',
     'RESTRICT' => 'RESTRICT',
-);
+];
 $relation = new Relation();
 $cfgRelation = $relation->getRelationsParam();
 $tbl_storage_engine = mb_strtoupper(
@@ -49,20 +50,26 @@ $tbl_storage_engine = mb_strtoupper(
 );
 $upd_query = new Table($table, $db, $dbi);
 
-$dependency_definitions = array(
+$dependency_definitions = [
     "options_array" => $options_array,
     "cfgRelation" => $cfgRelation,
     "tbl_storage_engine" => $tbl_storage_engine,
     "upd_query" => $upd_query
-);
+];
 if ($cfgRelation['relwork']) {
     $dependency_definitions['existrel'] = $relation->getForeigners(
-        $db, $table, '', 'internal'
+        $db,
+        $table,
+        '',
+        'internal'
     );
 }
 if (Util::isForeignKeySupported($tbl_storage_engine)) {
     $dependency_definitions['existrel_foreign'] = $relation->getForeigners(
-        $db, $table, '', 'foreign'
+        $db,
+        $table,
+        '',
+        'foreign'
     );
 }
 

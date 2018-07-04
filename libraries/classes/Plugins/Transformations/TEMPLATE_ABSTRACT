@@ -8,13 +8,11 @@
  * @package    PhpMyAdmin-Transformations
  * @subpackage [TransformationName]
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
-
-if (! defined('PHPMYADMIN')) {
-    exit;
-}
 
 /**
  * Provides common methods for all of the [TransformationName] transformations plugins.

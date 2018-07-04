@@ -14,7 +14,7 @@ AJAX.registerOnload('server_variables.js', function () {
     var $cancelLink = $('a.cancelLink');
 
     $('#serverVariables').find('.var-name').find('a').append(
-        $('#docImage').clone().show()
+        $('#docImage').clone().css('display', 'inline-block')
     );
 
     /* Launches the variable editor */
@@ -29,15 +29,15 @@ AJAX.registerOnload('server_variables.js', function () {
         var $cell = $link.parent();
         var $valueCell = $link.parents('.var-row').find('.var-value');
         var varName = $link.data('variable');
-        var $mySaveLink = $saveLink.clone().show();
-        var $myCancelLink = $cancelLink.clone().show();
+
+        var $mySaveLink = $saveLink.clone().css('display', 'inline-block');
+        var $myCancelLink = $cancelLink.clone().css('display', 'inline-block');
         var $msgbox = PMA_ajaxShowMessage();
         var $myEditLink = $cell.find('a.editLink');
-
         $cell.addClass('edit'); // variable is being edited
         $myEditLink.remove(); // remove edit link
 
-        $mySaveLink.click(function () {
+        $mySaveLink.on('click', function () {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
             $.post($(this).attr('href'), {
                 ajax_request: true,
@@ -63,7 +63,7 @@ AJAX.registerOnload('server_variables.js', function () {
             return false;
         });
 
-        $myCancelLink.click(function () {
+        $myCancelLink.on('click', function () {
             $valueCell.html($valueCell.data('content'));
             $cell.removeClass('edit').html($myEditLink);
             return false;
@@ -87,13 +87,15 @@ AJAX.registerOnload('server_variables.js', function () {
                     );
                     // Save and replace content
                 $cell
-                    .html($links);
+                    .html($links)
+                    .children()
+                    .css('display', 'flex');
                 $valueCell
                     .data('content', $valueCell.html())
                     .html($editor)
                     .find('input')
                     .focus()
-                    .keydown(function (event) { // Keyboard shortcuts
+                    .on('keydown', function (event) { // Keyboard shortcuts
                         if (event.keyCode === 13) { // Enter key
                             $mySaveLink.trigger('click');
                         } else if (event.keyCode === 27) { // Escape key

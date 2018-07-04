@@ -6,6 +6,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Schema;
 
 use PhpMyAdmin\Relation;
@@ -245,7 +247,7 @@ class ExportRelationSchema
      */
     protected function getTablesFromRequest()
     {
-        $tables = array();
+        $tables = [];
         $dbLength = mb_strlen($this->db);
         foreach ($_REQUEST['t_h'] as $key => $value) {
             if ($value) {
@@ -301,7 +303,7 @@ class ExportRelationSchema
         echo '    ' , $error_message , "\n";
         echo '</p>' , "\n";
         echo '<a href="db_designer.php'
-            , Url::getCommon(array('db' => $GLOBALS['db']))
+            , Url::getCommon(['db' => $GLOBALS['db']])
             , '&page=' . htmlspecialchars($pageNumber) , '">' , __('Back') , '</a>';
         echo "\n";
         exit;

@@ -5,8 +5,11 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Rte;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Events;
@@ -22,6 +25,21 @@ use PhpMyAdmin\Util;
 class General
 {
     /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * General constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     */
+    public function __construct(DatabaseInterface $dbi)
+    {
+        $this->dbi = $dbi;
+    }
+
+    /**
      * Check result
      *
      * @param resource|bool $result          Query result
@@ -31,7 +49,7 @@ class General
      *
      * @return array
      */
-    public static function checkResult($result, $error, $createStatement, array $errors)
+    public function checkResult($result, $error, $createStatement, array $errors)
     {
         if ($result) {
             return $errors;
@@ -45,7 +63,7 @@ class General
         $errors[] = $error . '<br />'
             . __('The backed up query was:')
             . "\"" . htmlspecialchars($createStatement) . "\"" . '<br />'
-            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+            . __('MySQL said: ') . $this->dbi->getError(null);
 
         return $errors;
     }
@@ -62,15 +80,18 @@ class General
      *
      * @return void
      */
-    public static function sendEditor($type, $mode, array $item, $title, $db, $operation = null)
+    public function sendEditor($type, $mode, array $item, $title, $db, $operation = null)
     {
+        $events = new Events($this->dbi);
+        $triggers = new Triggers($this->dbi);
+        $words = new Words();
         $response = Response::getInstance();
         if ($item !== false) {
             // Show form
             if ($type == 'TRI') {
-                $editor = Triggers::getEditorForm($mode, $item);
+                $editor = $triggers->getEditorForm($mode, $item);
             } else { // EVN
-                $editor = Events::getEditorForm($mode, $operation, $item);
+                $editor = $events->getEditorForm($mode, $operation, $item);
             }
             if ($response->isAjax()) {
                 $response->addJSON('message', $editor);
@@ -83,7 +104,7 @@ class General
         } else {
             $message  = __('Error in processing request:') . ' ';
             $message .= sprintf(
-                Words::get('not_found'),
+                $words->get('not_found'),
                 htmlspecialchars(Util::backquote($_REQUEST['item_name'])),
                 htmlspecialchars(Util::backquote($db))
             );

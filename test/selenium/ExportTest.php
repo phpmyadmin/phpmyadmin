@@ -6,6 +6,7 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
@@ -23,7 +24,7 @@ class ExportTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->dbQuery(
@@ -67,7 +68,6 @@ class ExportTest extends TestBase
         foreach ($expected as $str) {
             $this->assertContains($str, $text);
         }
-
     }
 
     /**
@@ -124,24 +124,24 @@ class ExportTest extends TestBase
      */
     public function exportDataProvider()
     {
-        return array(
-            array(
+        return [
+            [
                 'CSV',
-                array('"1","2"')
-            ),
-            array(
+                ['"1","2"']
+            ],
+            [
                 'SQL',
-                array(
+                [
                     "CREATE TABLE IF NOT EXISTS `test_table`",
                     "INSERT INTO `test_table` (`id`, `val`) VALUES",
                     "(1, 2)",
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'JSON',
-                array('{"id":"1","val":"2"}')
-            )
-        );
+                ['{"id":"1","val":"2"}']
+            ]
+        ];
     }
 
     /**

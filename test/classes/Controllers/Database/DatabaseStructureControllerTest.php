@@ -7,6 +7,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests\Controllers\Database;
 
 use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
@@ -35,7 +37,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         //$_REQUEST
         $_REQUEST['log'] = "index1";
@@ -110,15 +112,15 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $property->setValue($ctrl, true);
 
         $GLOBALS['cfg']['MaxExactCount'] = 10;
-        $current_table = array(
+        $current_table = [
             'ENGINE' => 'InnoDB',
             'TABLE_ROWS' => 5,
             'Data_length' => 16384,
             'Index_length' => 0,
             'TABLE_NAME' => 'table'
-        );
+        ];
         list($current_table,,, $sum_size)
-            = $method->invokeArgs($ctrl, array($current_table, 10));
+            = $method->invokeArgs($ctrl, [$current_table, 10]);
 
         $this->assertEquals(
             true,
@@ -135,7 +137,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
 
         $current_table['ENGINE'] = 'MYISAM';
         list($current_table,,, $sum_size)
-            = $method->invokeArgs($ctrl, array($current_table, 10));
+            = $method->invokeArgs($ctrl, [$current_table, 10]);
 
         $this->assertEquals(
             false,
@@ -155,7 +157,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
 
         $current_table['ENGINE'] = 'InnoDB';
         list($current_table,,, $sum_size)
-            = $method->invokeArgs($ctrl, array($current_table, 10));
+            = $method->invokeArgs($ctrl, [$current_table, 10]);
         $this->assertEquals(
             true,
             $current_table['COUNTED']
@@ -167,7 +169,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
 
         $current_table['ENGINE'] = 'MYISAM';
         list($current_table,,, $sum_size)
-            = $method->invokeArgs($ctrl, array($current_table, 10));
+            = $method->invokeArgs($ctrl, [$current_table, 10]);
         $this->assertEquals(
             false,
             $current_table['COUNTED']
@@ -204,14 +206,14 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $property->setAccessible(true);
         $property->setValue($ctrl, true);
 
-        $current_table = array(
+        $current_table = [
             'Data_length'  => 16384,
             'Index_length' => 0,
             'Name'         => 'table',
             'Data_free'    => 300,
-        );
+        ];
         list($current_table,,,,, $overhead_size, $sum_size)
-            = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0,));
+            = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0,]);
         $this->assertEquals(
             6,
             $current_table['Rows']
@@ -227,7 +229,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
 
         unset($current_table['Data_free']);
         list($current_table,,,,, $overhead_size,)
-            = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0,));
+            = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0,]);
         $this->assertEquals(0, $overhead_size);
 
         $is_show_stats = false;
@@ -237,7 +239,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
             $container->get('db')
         );
         list($current_table,,,,,, $sum_size)
-            = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0));
+            = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0]);
         $this->assertEquals(0, $sum_size);
 
         $db_is_system_schema = false;
@@ -247,7 +249,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
             $container->get('db')
         );
         list($current_table,,,,,,)
-            = $method->invokeArgs($ctrl, array($current_table, 0, 0, 0, 0, 0, 0,));
+            = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0,]);
         $this->assertArrayNotHasKey('Row', $current_table);
     }
 
@@ -273,25 +275,25 @@ class DatabaseStructureControllerTest extends PmaTestCase
         // When parameter $db is empty
         $this->assertEquals(
             false,
-            $method->invokeArgs($ctrl, array(array(), 'table'))
+            $method->invokeArgs($ctrl, [[], 'table'])
         );
 
         // Correct parameter
-        $tables = array(
+        $tables = [
             'db.table'
-        );
+        ];
         $this->assertEquals(
             true,
-            $method->invokeArgs($ctrl, array($tables, 'table'))
+            $method->invokeArgs($ctrl, [$tables, 'table'])
         );
 
         // Table not in database
-        $tables = array(
+        $tables = [
             'db.tab1e'
-        );
+        ];
         $this->assertEquals(
             false,
-            $method->invokeArgs($ctrl, array($tables, 'table'))
+            $method->invokeArgs($ctrl, [$tables, 'table'])
         );
     }
 
@@ -314,18 +316,18 @@ class DatabaseStructureControllerTest extends PmaTestCase
             $container->get('db')
         );
 
-        $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] = array(
-            array('db' => 'db', 'table' => 'table')
-        );
+        $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] = [
+            ['db' => 'db', 'table' => 'table']
+        ];
 
         $this->assertEquals(
             false,
-            $method->invokeArgs($ctrl, array(''))
+            $method->invokeArgs($ctrl, [''])
         );
 
         $this->assertEquals(
             true,
-            $method->invokeArgs($ctrl, array('table'))
+            $method->invokeArgs($ctrl, ['table'])
         );
     }
 
@@ -342,14 +344,14 @@ class DatabaseStructureControllerTest extends PmaTestCase
             ->disableOriginalConstructor()
             ->getMock();
         $fav_instance->expects($this->at(1))->method('getTables')
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue([]));
         $fav_instance->expects($this->at(2))
             ->method('getTables')
             ->will(
                 $this->returnValue(
-                    array(
-                        array('db' => 'db', 'table' => 'table'),
-                    )
+                    [
+                        ['db' => 'db', 'table' => 'table'],
+                    ]
                 )
             );
 
@@ -365,13 +367,13 @@ class DatabaseStructureControllerTest extends PmaTestCase
 
         // The user hash for test
         $user = 'abcdefg';
-        $favorite_table = array(
-            $user => array(
-                array('db' => 'db', 'table' => 'table')
-            ),
-        );
+        $favorite_table = [
+            $user => [
+                ['db' => 'db', 'table' => 'table']
+            ],
+        ];
 
-        $method->invokeArgs($ctrl, array($fav_instance, $user, $favorite_table));
+        $method->invokeArgs($ctrl, [$fav_instance, $user, $favorite_table]);
         $json = $this->_response->getJSONResult();
 
         $this->assertEquals(json_encode($favorite_table), $json['favorite_tables']);
@@ -410,21 +412,21 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $_REQUEST['real_row_count_all'] = 'abc';
         $property->setValue(
             $ctrl,
-            array(
-                array(
+            [
+                [
                     'TABLE_NAME' => 'table'
-                )
-            )
+                ]
+            ]
         );
         $ctrl->handleRealRowCountRequestAction();
         $json = $this->_response->getJSONResult();
 
-        $expected_result = array(
-            array(
+        $expected_result = [
+            [
                 'table' => 'table',
                 'row_count' => 6
-            )
-        );
+            ]
+        ];
         $this->assertEquals(
             json_encode($expected_result),
             $json['real_row_count_all']

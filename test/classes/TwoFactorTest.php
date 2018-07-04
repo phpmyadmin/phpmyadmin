@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\TwoFactor;
@@ -18,7 +20,10 @@ use Samyoul\U2F\U2FServer\SignRequest;
  */
 class TwoFactorTest extends PmaTestCase
 {
-    public function setUp()
+    /**
+     * @return void
+     */
+    protected function setUp()
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['db'] = 'db';
@@ -42,7 +47,7 @@ class TwoFactorTest extends PmaTestCase
         if (! isset($config['settings'])) {
             $config['settings'] = [];
         }
-        $result = $this->getMockbuilder('PhpMyAdmin\TwoFactor')
+        $result = $this->getMockBuilder('PhpMyAdmin\TwoFactor')
             ->setMethods(['readConfig'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -51,6 +56,9 @@ class TwoFactorTest extends PmaTestCase
         return $result;
     }
 
+    /**
+     * @return void
+     */
     public function testNone()
     {
         $object = $this->getTwoFactorMock('user', ['type' => 'db']);
@@ -66,6 +74,9 @@ class TwoFactorTest extends PmaTestCase
         $this->assertEquals('', $object->setup());
     }
 
+    /**
+     * @return void
+     */
     public function testSimple()
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
@@ -86,6 +97,9 @@ class TwoFactorTest extends PmaTestCase
         $this->assertEquals('', $object->setup());
     }
 
+    /**
+     * @return void
+     */
     public function testLoad()
     {
         $object = new TwoFactor('user');
@@ -93,6 +107,9 @@ class TwoFactorTest extends PmaTestCase
         $this->assertEquals('', $backend::$id);
     }
 
+    /**
+     * @return void
+     */
     public function testConfigureSimple()
     {
         $GLOBALS['cfg']['DBG']['simple2fa'] = true;
@@ -108,6 +125,9 @@ class TwoFactorTest extends PmaTestCase
         $this->assertFalse($object->configure('simple'));
     }
 
+    /**
+     * @return void
+     */
     public function testApplication()
     {
         $object = new TwoFactor('user');
@@ -148,6 +168,9 @@ class TwoFactorTest extends PmaTestCase
         $this->assertNotEquals('', $object->setup());
     }
 
+    /**
+     * @return void
+     */
     public function testKey()
     {
         $object = new TwoFactor('user');
@@ -186,6 +209,8 @@ class TwoFactorTest extends PmaTestCase
 
     /**
      * Test getting AppId
+     *
+     * @return void
      */
     public function testKeyAppId()
     {
@@ -209,6 +234,8 @@ class TwoFactorTest extends PmaTestCase
     /**
      * Test based on upstream test data:
      * https://github.com/Yubico/php-u2flib-server
+     *
+     * @return void
      */
     public function testKeyAuthentication()
     {
@@ -244,6 +271,8 @@ class TwoFactorTest extends PmaTestCase
 
     /**
      * Test listing of available backends.
+     *
+     * @return void
      */
     public function testBackends()
     {

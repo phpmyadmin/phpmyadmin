@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Export
  * @subpackage ODS
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
@@ -32,6 +34,7 @@ class ExportOds extends ExportPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $GLOBALS['ods_buffer'] = '';
         $this->setProperties();
     }
@@ -149,7 +152,7 @@ class ExportOds extends ExportPlugin
             . '</office:body>'
             . '</office:document-content>';
 
-        return Export::outputHandler(
+        return $this->export->outputHandler(
             OpenDocument::create(
                 'application/vnd.oasis.opendocument.spreadsheet',
                 $GLOBALS['ods_buffer']
@@ -214,7 +217,7 @@ class ExportOds extends ExportPlugin
         $crlf,
         $error_url,
         $sql_query,
-        array $aliases = array()
+        array $aliases = []
     ) {
         global $what;
 
@@ -229,7 +232,7 @@ class ExportOds extends ExportPlugin
         );
         $fields_cnt = $GLOBALS['dbi']->numFields($result);
         $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
-        $field_flags = array();
+        $field_flags = [];
         for ($j = 0; $j < $fields_cnt; $j++) {
             $field_flags[$j] = $GLOBALS['dbi']->fieldFlags($result, $j);
         }

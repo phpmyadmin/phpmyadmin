@@ -24,6 +24,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Template;
@@ -46,8 +48,7 @@ class CreateTable
      */
     public static function getHtml($db)
     {
-        return Template::get('database/create_table')->render(
-            array('db' => $db)
-        );
+        $template = new Template();
+        return $template->render('database/create_table', ['db' => $db]);
     }
 }

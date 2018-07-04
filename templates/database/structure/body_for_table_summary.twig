@@ -78,17 +78,17 @@
     {% endif %}
     {% if show_creation %}
         <th class="value tbl_creation">
-            {{ create_time_all ? Util_localisedDate(strtotime(create_time_all)) : '-' }}
+            {{ create_time_all }}
         </th>
     {% endif %}
     {% if show_last_update %}
         <th class="value tbl_last_update">
-            {{ update_time_all ? Util_localisedDate(strtotime(update_time_all)) : '-' }}
+            {{ update_time_all }}
         </th>
     {% endif %}
     {% if show_last_check %}
         <th class="value tbl_last_check">
-            {{ check_time_all ? Util_localisedDate(strtotime(check_time_all)) : '-' }}
+            {{ check_time_all }}
         </th>
     {% endif %}
 </tr>

@@ -6,6 +6,8 @@
  * @package    PhpMyAdmin-Authentication
  * @subpackage Cookie
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
@@ -21,8 +23,6 @@ use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 use phpseclib\Crypt;
 use ReCaptcha;
-
-require_once './libraries/hash.lib.php';
 
 /**
  * Remember where to redirect the user
@@ -56,6 +56,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function __construct()
     {
+        parent::__construct();
         $this->_use_openssl = ! class_exists('phpseclib\Crypt\Random');
     }
 
@@ -108,7 +109,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $autocomplete   = ' autocomplete="off"';
         }
 
-        echo Template::get('login/header')->render(['theme' => $GLOBALS['PMA_Theme']]);
+        echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
 
         if ($GLOBALS['cfg']['DBG']['demo']) {
             echo '<fieldset>';
@@ -126,7 +127,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Show error message
         if (! empty($conn_error)) {
-            Message::rawError($conn_error)->display();
+            Message::rawError((string) $conn_error)->display();
         } elseif (isset($_GET['session_expired'])
             && intval($_GET['session_expired']) == 1
         ) {
@@ -207,15 +208,14 @@ class AuthenticationCookie extends AuthenticationPlugin
             && empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
             echo '<input value="' , __('Go') , '" type="submit" id="input_go" />';
-        }
-        else {
+        } else {
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
             , $GLOBALS['lang'] , '" async defer></script>';
             echo '<input class="g-recaptcha" data-sitekey="'
             , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
-                .' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
+                . ' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
         }
-        $_form_params = array();
+        $_form_params = [];
         if (! empty($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];
         }
@@ -236,7 +236,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $GLOBALS['error_handler']->dispErrors();
             echo '</div>';
         }
-        echo Template::get('login/footer')->render();
+        echo $this->template->render('login/footer');
         echo Config::renderFooter();
         if (! defined('TESTSUITE')) {
             exit;
@@ -276,7 +276,6 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['from_cookie'] = false;
 
         if (isset($_REQUEST['pma_username']) && strlen($_REQUEST['pma_username']) > 0) {
-
             // Verify Captcha if it is required.
             if (! empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
                 && ! empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
@@ -337,7 +336,8 @@ class AuthenticationCookie extends AuthenticationPlugin
                     }
 
                     $match = preg_match(
-                        $GLOBALS['cfg']['ArbitraryServerRegexp'], $tmp_host
+                        $GLOBALS['cfg']['ArbitraryServerRegexp'],
+                        $tmp_host
                     );
                     if (! $match) {
                         $conn_error = __(
@@ -488,7 +488,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $redirect_url = './index.php';
 
             // any parameters to pass?
-            $url_params = array();
+            $url_params = [];
             if (strlen($GLOBALS['db']) > 0) {
                 $url_params['db'] = $GLOBALS['db'];
             }
@@ -553,7 +553,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function storePasswordCookie($password)
     {
-        $payload = array('password' => $password);
+        $payload = ['password' => $password];
         if ($GLOBALS['cfg']['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
             $payload['server'] = $GLOBALS['pma_auth_server'];
         }
@@ -565,7 +565,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $this->_getSessionEncryptionSecret()
             ),
             null,
-            $GLOBALS['cfg']['LoginCookieStore']
+            (int) $GLOBALS['cfg']['LoginCookieStore']
         );
     }
 
@@ -743,11 +743,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $this->cleanSSLErrors();
         $iv = base64_encode($iv);
         return json_encode(
-            array(
+            [
                 'iv' => $iv,
                 'mac' => hash_hmac('sha1', $iv . $result, $mac_secret),
                 'payload' => $result,
-            )
+            ]
         );
     }
 

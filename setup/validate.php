@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin-Setup
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Core;
@@ -14,7 +15,7 @@ use PhpMyAdmin\Core;
  */
 require './lib/common.inc.php';
 
-$validators = array();
+$validators = [];
 
 Core::headerJSON();
 

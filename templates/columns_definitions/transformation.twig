@@ -7,7 +7,7 @@
             {% set checked = column_meta['Field'] is defined
                 and mime_map[column_meta['Field']][type] is defined
                 and mime_map[column_meta['Field']][type] matches
-                    '@' ~ preg_quote(available_mime[type ~ '_file'][mimekey], '@') ~ '3?@i'
+                    '@' ~ available_mime[type ~ '_file_quoted'][mimekey] ~ '3?@i'
                 ? 'selected ' %}
             {% set tooltip = Transformations_getDescription(
                 available_mime[type ~ '_file'][mimekey]

@@ -6,8 +6,11 @@
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
+
+use PHPUnit_Extensions_Selenium2TestCase_Keys as Keys;
 
 /**
  * TableBrowseTest class
@@ -23,7 +26,7 @@ class TableBrowseTest extends TestBase
      *
      * @return void
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $this->dbQuery(
@@ -231,11 +234,12 @@ class TableBrowseTest extends TestBase
         $this->byCssSelector("textarea.edit_box")->clear();
         $this->byCssSelector("textarea.edit_box")->value("abcde");
 
-        $this->keys(\PHPUnit_Extensions_Selenium2TestCase_Keys::RETURN_);
+        $this->keys(Keys::RETURN_);
 
         $this->waitAjax();
         $success = $this->waitForElement(
-            "byCssSelector", "span.ajax_notification div.success"
+            "byCssSelector",
+            "span.ajax_notification div.success"
         );
         $this->assertContains("1 row affected", $success->text());
 
@@ -357,9 +361,9 @@ class TableBrowseTest extends TestBase
 
         $this->assertFalse(
             $this->isElementPresent(
-                "byCssSelector", "table.table_results tbody tr:nth-child(2)"
+                "byCssSelector",
+                "table.table_results tbody tr:nth-child(2)"
             )
         );
-
     }
 }

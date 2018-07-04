@@ -839,16 +839,16 @@ AJAX.registerTeardown('designer/history.js', function () {
 });
 
 AJAX.registerOnload('designer/history.js', function () {
-    $('#ok_edit_rename').click(function () {
+    $('#ok_edit_rename').on('click', function () {
         edit('Rename');
     });
-    $('#ok_edit_having').click(function () {
+    $('#ok_edit_having').on('click', function () {
         edit('Having');
     });
-    $('#ok_edit_Aggr').click(function () {
+    $('#ok_edit_Aggr').on('click', function () {
         edit('Aggregate');
     });
-    $('#ok_edit_where').click(function () {
+    $('#ok_edit_where').on('click', function () {
         edit('Where');
     });
     $('#ab').accordion({ collapsible : true, active : 'none' });

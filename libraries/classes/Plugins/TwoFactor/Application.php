@@ -5,6 +5,8 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\TwoFactor;
@@ -16,6 +18,8 @@ use PragmaRX\Google2FA\Google2FA;
  * HOTP and TOTP based two-factor authentication
  *
  * Also known as Google, Authy, or OTP
+ *
+ * @package PhpMyAdmin
  */
 class Application extends TwoFactorPlugin
 {
@@ -69,7 +73,8 @@ class Application extends TwoFactorPlugin
         }
         $this->_provided = true;
         return $this->_google2fa->verifyKey(
-            $this->_twofactor->config['settings']['secret'], $_POST['2fa_code']
+            $this->_twofactor->config['settings']['secret'],
+            $_POST['2fa_code']
         );
     }
 
@@ -80,7 +85,7 @@ class Application extends TwoFactorPlugin
      */
     public function render()
     {
-        return Template::get('login/twofactor/application')->render();
+        return $this->template->render('login/twofactor/application');
     }
 
     /**
@@ -91,15 +96,30 @@ class Application extends TwoFactorPlugin
     public function setup()
     {
         $secret = $this->_twofactor->config['settings']['secret'];
-        $inlineUrl = $this->_google2fa->getQRCodeInline(
-            'phpMyAdmin (' . $this->getAppId(false) . ')',
-            $this->_twofactor->user,
-            $secret
-        );
-        return Template::get('login/twofactor/application_configure')->render([
-            'image' => $inlineUrl,
-            'secret' => $secret
-        ]);
+        $renderArray = ['secret' => $secret];
+        if (extension_loaded('gd')) {
+            $inlineUrl = $this->_google2fa->getQRCodeInline(
+                'phpMyAdmin (' . $this->getAppId(false) . ')',
+                $this->_twofactor->user,
+                $secret
+            );
+            $renderArray['image'] = $inlineUrl;
+        } else {
+            $inlineUrl = $this->_google2fa->getQRCodeUrl(
+                'phpMyAdmin (' . $this->getAppId(false) . ')',
+                $this->_twofactor->user,
+                $secret
+            );
+            trigger_error(
+                __(
+                    'The gd PHP extension was not found.'
+                    . ' The QRcode can not be displayed without the gd PHP extension.'
+                ),
+                E_USER_WARNING
+            );
+            $renderArray['url'] = $inlineUrl;
+        }
+        return $this->template->render('login/twofactor/application_configure', $renderArray);
     }
 
     /**

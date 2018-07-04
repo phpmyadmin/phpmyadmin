@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
@@ -18,31 +19,31 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $header->disableMenuAndConsole();
 
-$types = Transformations::getAvailableMIMEtypes();
+$transformations = new Transformations();
+
+$types = $transformations->getAvailableMimeTypes();
 ?>
 
 <h2><?php echo __('Available MIME types'); ?></h2>
 <?php
 foreach ($types['mimetype'] as $key => $mimetype) {
-
     if (isset($types['empty_mimetype'][$mimetype])) {
         echo '<i>' , htmlspecialchars($mimetype) , '</i><br />';
     } else {
         echo htmlspecialchars($mimetype) , '<br />';
     }
-
 }
-$transformation_types = array(
+$transformation_types = [
     'transformation', 'input_transformation'
-);
-$label = array(
+];
+$label = [
     'transformation' => __('Available browser display transformations'),
     'input_transformation' => __('Available input transformations')
-);
-$th = array(
+];
+$th = [
     'transformation' => __('Browser display transformation'),
     'input_transformation' => __('Input transformation')
-);
+];
 ?>
 <br />
 <?php foreach ($transformation_types as $ttype) { ?>
@@ -58,7 +59,7 @@ $th = array(
     <tbody>
     <?php
     foreach ($types[$ttype] as $key => $transform) {
-        $desc = Transformations::getDescription($types[$ttype . '_file'][$key]);
+        $desc = $transformations->getDescription($types[$ttype . '_file'][$key]);
         ?>
         <tr>
             <td><?php echo htmlspecialchars($transform); ?></td>
