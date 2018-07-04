@@ -205,4 +205,7 @@ echo $template->render('view_create', [
     'text_dir' => $text_dir,
     'url_params' => $url_params,
     'view' => $view,
+    'view_algorithm_options' => $view_algorithm_options,
+    'view_with_options' => $view_with_options,
+    'view_security_options' => $view_security_options,
 ]);
