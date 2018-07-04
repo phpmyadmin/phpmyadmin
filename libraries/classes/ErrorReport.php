@@ -39,6 +39,11 @@ class ErrorReport
     private $relation;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      *
      * @param HttpRequest $httpRequest HttpRequest instance
@@ -48,6 +53,7 @@ class ErrorReport
         $this->httpRequest = $httpRequest;
         $this->submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
         $this->relation = new Relation();
+        $this->template = new Template();
     }
 
     /**
@@ -134,7 +140,7 @@ class ErrorReport
             }
 
             // if there were no 'actual' errors to be submitted.
-            if ($i==0) {
+            if ($i == 0) {
                 return []; // then return empty array
             }
             $report["exception_type"] = 'php';
@@ -257,6 +263,6 @@ class ErrorReport
             $datas['hidden_fields'] = Url::getHiddenFields($reportData, '', true);
         }
 
-        return Template::get('error/report_form')->render($datas);
+        return $this->template->render('error/report_form', $datas);
     }
 }

@@ -210,6 +210,9 @@ class Header
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
         $this->_scripts->addFile('page_settings.js');
+        if($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
+            $this->_scripts->addFile('drag_drop_import.js');
+        }
         if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
             $this->_scripts->addFile('shortcuts_handler.js');
         }
@@ -477,7 +480,7 @@ class Header
                 $retval .= '<div id="page_content">';
                 $retval .= $this->getMessage();
             }
-            if ($this->_isEnabled && isset($_REQUEST['recent_table']) && strlen($_REQUEST['recent_table'])) {
+            if ($this->_isEnabled && empty($_REQUEST['recent_table'])) {
                 $retval .= $this->_addRecentTable(
                     $GLOBALS['db'],
                     $GLOBALS['table']

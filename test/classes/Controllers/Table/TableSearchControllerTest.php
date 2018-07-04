@@ -26,7 +26,7 @@ use stdClass;
 class TableSearchControllerTest extends PmaTestCase
 {
     /**
-     * @var PhpMyAdmin\Tests\Stubs\Response
+     * @var \PhpMyAdmin\Tests\Stubs\Response
      */
     private $_response;
 
@@ -56,7 +56,7 @@ class TableSearchControllerTest extends PmaTestCase
             ->getMock();
         $dbi->types = new Types($dbi);
 
-        $columns =[
+        $columns = [
             [
                 'Field' => 'Field1',
                 'Type' => 'Type1',

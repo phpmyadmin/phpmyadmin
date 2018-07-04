@@ -590,6 +590,7 @@ class Privileges
      */
     public function setUserGroup($username, $userGroup)
     {
+        $userGroup = is_null($userGroup) ? '' : $userGroup;
         $relation = new Relation();
         $cfgRelation = $relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
@@ -966,7 +967,7 @@ class Privileges
     /**
      * Get routine privilege table as an array
      *
-     * @return privilege type array
+     * @return array privilege type array
      */
     public function getTriggerPrivilegeTable()
     {
@@ -1478,7 +1479,7 @@ class Privileges
         $versions = 'new'
     ) {
         $select_id = 'select_authentication_plugin'
-            . ($mode =='change_pw' ? '_cp' : '');
+            . ($mode == 'change_pw' ? '_cp' : '');
 
         if ($versions == 'new') {
             $active_auth_plugins = $this->getActiveAuthPlugins();
@@ -3074,7 +3075,7 @@ class Privileges
             } else {
                 $new_user_string .= __('No');
             }
-            $new_user_string .='</td>';
+            $new_user_string .= '</td>';
 
             if ($GLOBALS['is_grantuser']) {
                 $new_user_string .= '<td>'
@@ -4483,8 +4484,8 @@ class Privileges
 
         return [
             $username, $hostname,
-            isset($dbname)? $dbname : null,
-            isset($tablename)? $tablename : null,
+            isset($dbname) ? $dbname : null,
+            isset($tablename) ? $tablename : null,
             isset($routinename) ? $routinename : null,
             $db_and_table,
             $dbname_is_wildcard,

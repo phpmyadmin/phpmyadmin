@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Rte;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
@@ -52,14 +53,22 @@ class Triggers
     private $words;
 
     /**
-     * Triggers constructor.
+     * @var DatabaseInterface
      */
-    public function __construct()
+    private $dbi;
+
+    /**
+     * Triggers constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     */
+    public function __construct(DatabaseInterface $dbi)
     {
-        $this->export = new Export();
-        $this->footer = new Footer();
-        $this->general = new General();
-        $this->rteList = new RteList();
+        $this->dbi = $dbi;
+        $this->export = new Export($this->dbi);
+        $this->footer = new Footer($this->dbi);
+        $this->general = new General($this->dbi);
+        $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
     }
 
@@ -102,7 +111,7 @@ class Triggers
         /**
          * Display a list of available triggers
          */
-        $items = $GLOBALS['dbi']->getTriggers($db, $table);
+        $items = $this->dbi->getTriggers($db, $table);
         echo $this->rteList->get('trigger', $items);
         /**
          * Display a link for adding a new trigger,
@@ -134,26 +143,26 @@ class Triggers
                     $trigger = $this->getDataFromName($_REQUEST['item_original_name']);
                     $create_item = $trigger['create'];
                     $drop_item = $trigger['drop'] . ';';
-                    $result = $GLOBALS['dbi']->tryQuery($drop_item);
+                    $result = $this->dbi->tryQuery($drop_item);
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($drop_item)
                         )
                         . '<br />'
-                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError(null);
                     } else {
-                        $result = $GLOBALS['dbi']->tryQuery($item_query);
+                        $result = $this->dbi->tryQuery($item_query);
                         if (! $result) {
                             $errors[] = sprintf(
                                 __('The following query has failed: "%s"'),
                                 htmlspecialchars($item_query)
                             )
                             . '<br />'
-                            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                            . __('MySQL said: ') . $this->dbi->getError(null);
                             // We dropped the old item, but were unable to create the
                             // new one. Try to restore the backup query.
-                            $result = $GLOBALS['dbi']->tryQuery($create_item);
+                            $result = $this->dbi->tryQuery($create_item);
 
                             $errors = $this->general->checkResult(
                                 $result,
@@ -175,14 +184,14 @@ class Triggers
                     }
                 } else {
                     // 'Add a new item' mode
-                    $result = $GLOBALS['dbi']->tryQuery($item_query);
+                    $result = $this->dbi->tryQuery($item_query);
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($item_query)
                         )
                         . '<br /><br />'
-                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError(null);
                     } else {
                         $message = Message::success(
                             __('Trigger %1$s has been created.')
@@ -214,7 +223,7 @@ class Triggers
             $response = Response::getInstance();
             if ($response->isAjax()) {
                 if ($message->isSuccess()) {
-                    $items = $GLOBALS['dbi']->getTriggers($db, $table, '');
+                    $items = $this->dbi->getTriggers($db, $table, '');
                     $trigger = false;
                     foreach ($items as $value) {
                         if ($value['name'] == $_REQUEST['item_name']) {
@@ -312,7 +321,7 @@ class Triggers
         global $db, $table, $_REQUEST;
 
         $temp = [];
-        $items = $GLOBALS['dbi']->getTriggers($db, $table, '');
+        $items = $this->dbi->getTriggers($db, $table, '');
         foreach ($items as $value) {
             if ($value['name'] == $name) {
                 $temp = $value;
@@ -367,9 +376,9 @@ class Triggers
                            . "type='hidden' value='{$item['item_original_name']}'/>\n";
         }
         $query  = "SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ";
-        $query .= "WHERE `TABLE_SCHEMA`='" . $GLOBALS['dbi']->escapeString($db) . "' ";
+        $query .= "WHERE `TABLE_SCHEMA`='" . $this->dbi->escapeString($db) . "' ";
         $query .= "AND `TABLE_TYPE`='BASE TABLE'";
-        $tables = $GLOBALS['dbi']->fetchResult($query);
+        $tables = $this->dbi->fetchResult($query);
 
         // Create the output
         $retval  = "";
@@ -503,7 +512,7 @@ class Triggers
         }
         $query .= 'ON ';
         if (! empty($_REQUEST['item_table'])
-            && in_array($_REQUEST['item_table'], $GLOBALS['dbi']->getTables($db))
+            && in_array($_REQUEST['item_table'], $this->dbi->getTables($db))
         ) {
             $query .= Util::backquote($_REQUEST['item_table']);
         } else {

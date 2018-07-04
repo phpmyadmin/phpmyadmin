@@ -960,7 +960,7 @@ class Import
         $import_notice = null;
 
         /* Take care of the options */
-        if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
+        if (isset($options['db_collation']) && ! is_null($options['db_collation'])) {
             $collation = $options['db_collation'];
         } else {
             $collation = "utf8_general_ci";

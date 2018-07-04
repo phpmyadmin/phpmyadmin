@@ -48,7 +48,7 @@ class TriggersTest extends TestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
 
-        $this->triggers = new Triggers();
+        $this->triggers = new Triggers($GLOBALS['dbi']);
     }
 
     /**

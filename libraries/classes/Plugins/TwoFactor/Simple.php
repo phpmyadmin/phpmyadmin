@@ -43,7 +43,7 @@ class Simple extends TwoFactorPlugin
      */
     public function render()
     {
-        return Template::get('login/twofactor/simple')->render();
+        return $this->template->render('login/twofactor/simple');
     }
 
     /**

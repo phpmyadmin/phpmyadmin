@@ -128,7 +128,7 @@ class UserGroupsTest extends TestCase
         $url_tag = '<a class="" href="server_user_groups.php'
             . Url::getCommon(
                 [
-                    'viewUsers'=>1, 'userGroup'=>htmlspecialchars('usergroup')
+                    'viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')
                 ]
             );
         $this->assertContains(
@@ -138,8 +138,8 @@ class UserGroupsTest extends TestCase
         $url_tag = '<a class="" href="server_user_groups.php'
             . Url::getCommon(
                 [
-                    'editUserGroup'=>1,
-                    'userGroup'=>htmlspecialchars('usergroup')
+                    'editUserGroup' => 1,
+                    'userGroup' => htmlspecialchars('usergroup')
                 ]
             );
         $this->assertContains(
@@ -149,8 +149,8 @@ class UserGroupsTest extends TestCase
         $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php'
             . Url::getCommon(
                 [
-                    'deleteUserGroup'=> 1,
-                    'userGroup'=>htmlspecialchars('usergroup')
+                    'deleteUserGroup' => 1,
+                    'userGroup' => htmlspecialchars('usergroup')
                 ]
             );
         $this->assertContains(

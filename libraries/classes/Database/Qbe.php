@@ -13,6 +13,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -211,7 +212,7 @@ class Qbe
      * Current search
      *
      * @access private
-     * @var SavedSearches
+     * @var \PhpMyAdmin\SavedSearches
      */
     private $_currentSearch = null;
 
@@ -226,12 +227,17 @@ class Qbe
     public $dbi;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Public Constructor
      *
-     * @param DatabaseInterface $dbi             DatabaseInterface object
-     * @param string            $dbname          Database name
-     * @param array             $savedSearchList List of saved searches
-     * @param SavedSearches     $currentSearch   Current search id
+     * @param DatabaseInterface         $dbi             DatabaseInterface object
+     * @param string                    $dbname          Database name
+     * @param array                     $savedSearchList List of saved searches
+     * @param \PhpMyAdmin\SavedSearches $currentSearch   Current search id
      */
     public function __construct(
         $dbi,
@@ -244,6 +250,7 @@ class Qbe
         $this->_currentSearch = $currentSearch;
         $this->relation = new Relation();
         $this->dbi = $dbi;
+        $this->template = new Template();
 
         $this->_loadCriterias();
         // Sets criteria parameters
@@ -273,7 +280,7 @@ class Qbe
     /**
      * Getter for current search
      *
-     * @return SavedSearches
+     * @return \PhpMyAdmin\SavedSearches
      */
     private function _getCurrentSearch()
     {
@@ -395,7 +402,7 @@ class Qbe
      */
     private function _showColumnSelectCell($column_number, $selected = '')
     {
-        return Template::get('database/qbe/column_select_cell')->render([
+        return $this->template->render('database/qbe/column_select_cell', [
             'column_number' => $column_number,
             'column_names' => $this->_columnNames,
             'selected' => $selected,
@@ -414,7 +421,7 @@ class Qbe
         $columnNumber,
         $selected = ''
     ) {
-        return Template::get('database/qbe/sort_select_cell')->render([
+        return $this->template->render('database/qbe/sort_select_cell', [
             'real_width' => $this->_realwidth,
             'column_number' => $columnNumber,
             'selected' => $selected,
@@ -432,7 +439,7 @@ class Qbe
     private function _getSortOrderSelectCell($columnNumber, $sortOrder)
     {
         $totalColumnCount = $this->_getNewColumnCount();
-        return Template::get('database/qbe/sort_order_select_cell')->render([
+        return $this->template->render('database/qbe/sort_order_select_cell', [
             'total_column_count' => $totalColumnCount,
             'column_number' => $columnNumber,
             'sort_order' => $sortOrder,
@@ -779,7 +786,7 @@ class Qbe
      */
     private function _getFootersOptions($type)
     {
-        return Template::get('database/qbe/footer_options')->render([
+        return $this->template->render('database/qbe/footer_options', [
             'type' => $type,
         ]);
     }
@@ -1884,7 +1891,7 @@ class Qbe
         }
         $html_output .= '</select>';
         $html_output .= '<input type="text" name="searchName" id="searchName" '
-            . 'value="' . htmlspecialchars($currentSearchName) . '" />';
+            . 'value="' . htmlspecialchars((string)$currentSearchName) . '" />';
         $html_output .= '<input type="hidden" name="action" id="action" value="" />';
         $html_output .= '<input type="submit" name="saveSearch" id="saveSearch" '
             . 'value="' . __('Create bookmark') . '" />';

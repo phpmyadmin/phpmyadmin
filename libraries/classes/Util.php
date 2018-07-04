@@ -925,6 +925,7 @@ class Util
         $type = 'notice'
     ) {
         global $cfg;
+        $template = new Template();
         $retval = '';
 
         if (null === $sql_query) {
@@ -1136,16 +1137,13 @@ class Util
             // be checked, which would reexecute an INSERT, for example
             if (! empty($refresh_link) && self::profilingSupported()) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1" />';
-                $retval .= Template::get('checkbox')
-                    ->render(
-                        [
-                            'html_field_name'   => 'profiling',
-                            'label'             => __('Profiling'),
-                            'checked'           => isset($_SESSION['profiling']),
-                            'onclick'           => true,
-                            'html_field_id'     => '',
-                        ]
-                    );
+                $retval .= $template->render('checkbox', [
+                    'html_field_name' => 'profiling',
+                    'label' => __('Profiling'),
+                    'checked' => isset($_SESSION['profiling']),
+                    'onclick' => true,
+                    'html_field_id' => '',
+                ]);
             }
             $retval .= '</form>';
 
@@ -1276,11 +1274,11 @@ class Util
         $li   = pow(10, $limes);
         $unit = $byteUnits[0];
 
-        for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
+        for ($d = 6, $ex = 15; $d >= 1; $d--, $ex -= 3) {
             $unitSize = $li * pow(10, $ex);
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
-                $value = round($value / (pow(1024, $d) / $dh)) /$dh;
+                $value = round($value / (pow(1024, $d) / $dh)) / $dh;
                 $unit = $byteUnits[$d];
                 break 1;
             } // end if
@@ -1399,16 +1397,16 @@ class Util
          * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
          * to use, then lower the SI prefix
          */
-        $cur_digits = floor(log10($value / pow(1000, $d))+1);
+        $cur_digits = floor(log10($value / pow(1000, $d)) + 1);
         if ($digits_left > $cur_digits) {
-            $d -= floor(($digits_left - $cur_digits)/3);
+            $d -= floor(($digits_left - $cur_digits) / 3);
         }
 
         if ($d < 0 && $only_down) {
             $d = 0;
         }
 
-        $value = round($value / (pow(1000, $d) / $dh)) /$dh;
+        $value = round($value / (pow(1000, $d) / $dh)) / $dh;
         $unit = $units[$d];
 
         // number_format is not multibyte safe, str_replace is safe
@@ -1531,7 +1529,7 @@ class Util
         );
         $date = preg_replace(
             '@%[bB]@',
-            $month[(int) strftime('%m', (int) $timestamp)-1],
+            $month[(int) strftime('%m', (int) $timestamp) - 1],
             $date
         );
 
@@ -1567,6 +1565,7 @@ class Util
      */
     public static function getHtmlTab(array $tab, array $url_params = [])
     {
+        $template = new Template();
         // default values
         $defaults = [
             'text'      => '',
@@ -1651,9 +1650,8 @@ class Util
 
         $item['class'] = $tab['class'] == 'active' ? 'active' : '';
 
-        return Template::get('list/item')
-            ->render($item);
-    } // end of the 'getHtmlTab()' function
+        return $template->render('list/item', $item);
+    }
 
     /**
      * returns html-code for a tab navigation
@@ -2499,6 +2497,7 @@ class Util
         $class = '',
         $id_prefix = ''
     ) {
+        $template = new Template();
         $radio_html = '';
 
         foreach ($choices as $choice_value => $choice_label) {
@@ -2512,16 +2511,16 @@ class Util
             } else {
                 $checked = 0;
             }
-            $radio_html .= Template::get('radio_fields')->render([
-                            'class' =>  $class,
-                            'html_field_name'   =>  $html_field_name,
-                            'html_field_id' => $html_field_id,
-                            'choice_value' => $choice_value,
-                            'is_line_break' => $line_break,
-                            'choice_label'  => $choice_label,
-                            'escape_label'  => $escape_label,
-                            'checked' => $checked
-                        ]);
+            $radio_html .= $template->render('radio_fields', [
+                'class' => $class,
+                'html_field_name' => $html_field_name,
+                'html_field_id' => $html_field_id,
+                'choice_value' => $choice_value,
+                'is_line_break' => $line_break,
+                'choice_label' => $choice_label,
+                'escape_label' => $escape_label,
+                'checked' => $checked,
+            ]);
         }
 
         return $radio_html;
@@ -2552,6 +2551,7 @@ class Util
         $class = '',
         $placeholder = null
     ) {
+        $template = new Template();
         $resultOptions = [];
         $selected = false;
 
@@ -2565,14 +2565,14 @@ class Util
             }
             $resultOptions[$one_choice_value]['label'] = $one_choice_label;
         }
-        return Template::get('dropdown')->render([
-                'select_name' => $select_name,
-                'id'    => $id,
-                'class' => $class,
-                'placeholder' => $placeholder,
-                'selected'  => $selected,
-                'result_options' => $resultOptions,
-            ]);
+        return $template->render('dropdown', [
+            'select_name' => $select_name,
+            'id' => $id,
+            'class' => $class,
+            'placeholder' => $placeholder,
+            'selected' => $selected,
+            'result_options' => $resultOptions,
+        ]);
     }
 
     /**
@@ -2590,10 +2590,11 @@ class Util
      */
     public static function getDivForSliderEffect($id = '', $message = '', $overrideDefault = null)
     {
-        return Template::get('div_for_slider_effect')->render([
-            'id'                    => $id,
+        $template = new Template();
+        return $template->render('div_for_slider_effect', [
+            'id' => $id,
             'initial_sliders_state' => ($overrideDefault != null) ? $overrideDefault : $GLOBALS['cfg']['InitialSlidersState'],
-            'message'               => $message,
+            'message' => $message,
         ]);
     }
 
@@ -2611,6 +2612,7 @@ class Util
      */
     public static function toggleButton($action, $select_name, array $options, $callback)
     {
+        $template = new Template();
         // Do the logic first
         $link = "$action&amp;" . urlencode($select_name) . "=";
         $link_on = $link . urlencode($options[1]['value']);
@@ -2624,19 +2626,17 @@ class Util
             $state = 'on';
         }
 
-        return Template::get('toggle_button')->render(
-            [
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                'text_dir'        => $GLOBALS['text_dir'],
-                'link_on'         => $link_on,
-                'link_off'        => $link_off,
-                'toggle_on'       => $options[1]['label'],
-                'toggle_off'      => $options[0]['label'],
-                'callback'        => $callback,
-                'state'           => $state
-            ]
-        );
-    } // end toggleButton()
+        return $template->render('toggle_button', [
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+            'text_dir' => $GLOBALS['text_dir'],
+            'link_on' => $link_on,
+            'link_off' => $link_off,
+            'toggle_on' => $options[1]['label'],
+            'toggle_off' => $options[0]['label'],
+            'callback' => $callback,
+            'state' => $state
+        ]);
+    }
 
     /**
      * Clears cache content which needs to be refreshed on user change.
@@ -2925,7 +2925,7 @@ class Util
      */
     public static function isForeignKeySupported($engine)
     {
-        $engine = strtoupper($engine);
+        $engine = strtoupper((string)$engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
@@ -2963,7 +2963,8 @@ class Util
     */
     public static function getFKCheckbox()
     {
-        return Template::get('fk_checkbox')->render([
+        $template = new Template();
+        return $template->render('fk_checkbox', [
             'checked' => self::isForeignKeyCheck(),
         ]);
     }
@@ -3067,8 +3068,8 @@ class Util
         $mapping = [
             'structure' =>  __('Structure'),
             'sql' => __('SQL'),
-            'search' =>__('Search'),
-            'insert' =>__('Insert'),
+            'search' => __('Search'),
+            'insert' => __('Insert'),
             'browse' => __('Browse'),
             'operations' => __('Operations'),
 
@@ -3077,8 +3078,8 @@ class Util
             // Values for $cfg['DefaultTabTable']
             'tbl_structure.php' =>  __('Structure'),
             'tbl_sql.php' => __('SQL'),
-            'tbl_select.php' =>__('Search'),
-            'tbl_change.php' =>__('Insert'),
+            'tbl_select.php' => __('Search'),
+            'tbl_change.php' => __('Insert'),
             'sql.php' => __('Browse'),
             // Values for $cfg['DefaultTabDatabase']
             'db_structure.php' => __('Structure'),
@@ -3378,7 +3379,7 @@ class Util
         $titles['NoExecute']  = self::getIcon('bd_nextpage', __('Execute'));
         // For Favorite/NoFavorite, we need icon only.
         $titles['Favorite']  = self::getIcon('b_favorite', '');
-        $titles['NoFavorite']= self::getIcon('b_no_favorite', '');
+        $titles['NoFavorite'] = self::getIcon('b_no_favorite', '');
 
         return $titles;
     }
@@ -4239,6 +4240,7 @@ class Util
      */
     public static function getStartAndNumberOfRowsPanel($sql_query)
     {
+        $template = new Template();
         $pos = isset($_REQUEST['pos'])
             ? $_REQUEST['pos']
             : $_SESSION['tmpval']['pos'];
@@ -4252,15 +4254,12 @@ class Util
             }
         }
 
-        return Template::get('start_and_number_of_rows_panel')
-            ->render(
-                [
-                    'pos' => $pos,
-                    'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),
-                    'rows' => $rows,
-                    'sql_query' => $sql_query,
-                ]
-            );
+        return $template->render('start_and_number_of_rows_panel', [
+            'pos' => $pos,
+            'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),
+            'rows' => $rows,
+            'sql_query' => $sql_query,
+        ]);
     }
 
     /**

@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\TwoFactor;
 
 /**
@@ -50,6 +51,11 @@ class TwoFactorPlugin
     protected $_message;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Creates object
      *
      * @param TwoFactor $twofactor TwoFactor instance
@@ -59,6 +65,7 @@ class TwoFactorPlugin
         $this->_twofactor = $twofactor;
         $this->_provided = false;
         $this->_message = '';
+        $this->template = new Template();
     }
 
     /**
@@ -152,6 +159,7 @@ class TwoFactorPlugin
      */
     public function getAppId($return_url)
     {
+        /** @var \PhpMyAdmin\Config $PMA_Config */
         global $PMA_Config;
 
         $url = $PMA_Config->get('PmaAbsoluteUri');

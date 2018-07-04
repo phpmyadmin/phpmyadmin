@@ -211,18 +211,18 @@ class Validator
         }
 
         if ($extension == 'mysql') {
-            $conn = @mysql_connect($host . $port . $socket, $user, $pass);
+            $conn = @\mysql_connect($host . $port . $socket, $user, $pass);
             if (! $conn) {
                 $error = __('Could not connect to the database server!');
             } else {
-                mysql_close($conn);
+                \mysql_close($conn);
             }
         } else {
-            $conn = @mysqli_connect($host, $user, $pass, null, $port, $socket);
+            $conn = @\mysqli_connect($host, $user, $pass, null, $port, $socket);
             if (! $conn) {
                 $error = __('Could not connect to the database server!');
             } else {
-                mysqli_close($conn);
+                \mysqli_close($conn);
             }
         }
         if (! is_null($error)) {

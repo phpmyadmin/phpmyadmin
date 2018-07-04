@@ -56,7 +56,7 @@ class RoutinesTest extends TestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
 
-        $this->routines = new Routines();
+        $this->routines = new Routines($GLOBALS['dbi']);
     }
 
     /**
@@ -1134,9 +1134,11 @@ class RoutinesTest extends TestCase
             );
         $GLOBALS['dbi'] = $dbi;
 
+        $routines = new Routines($dbi);
+
         unset($_REQUEST);
         $_REQUEST = $request;
-        $this->assertEquals($query, $this->routines->getQueryFromRequest());
+        $this->assertEquals($query, $routines->getQueryFromRequest());
         $this->assertCount($num_err, $errors);
 
         // reset

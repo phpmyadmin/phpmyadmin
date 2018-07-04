@@ -266,7 +266,7 @@ class MonitorTest extends TestCase
             ['sql_text' => 'insert sql_text', '#' => 11],
             ['sql_text' => 'update sql_text', '#' => 10]
         ];
-        $result_sum = ['insert' =>11, 'TOTAL' =>21, 'update' => 10];
+        $result_sum = ['insert' => 11, 'TOTAL' => 21, 'update' => 10];
         $this->assertEquals(
             2,
             $ret['numRows']
@@ -325,7 +325,7 @@ class MonitorTest extends TestCase
             $value,
             $value2,
         ];
-        $result_sum = ['argument' =>10, 'TOTAL' =>21, 'argument3' => 11];
+        $result_sum = ['argument' => 10, 'TOTAL' => 21, 'argument3' => 11];
 
         $this->assertEquals(
             2,

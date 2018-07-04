@@ -172,7 +172,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
     $multi_edit_salt
         = isset($_REQUEST['salt']['multi_edit'][$rownumber])
         ? $_REQUEST['salt']['multi_edit'][$rownumber]
-        :null;
+        : null;
     $multi_edit_columns_type
         = isset($_REQUEST['fields_type']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_type']['multi_edit'][$rownumber]

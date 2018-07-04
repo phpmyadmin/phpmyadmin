@@ -382,7 +382,7 @@ class TableSearchController extends TableController
         }
 
         $this->response->addHTML(
-            Template::get('table/search/zoom_result_form')->render([
+            $this->template->render('table/search/zoom_result_form', [
                 'db' => $this->db,
                 'table' => $this->table,
                 'column_names' => $this->_columnNames,
@@ -521,16 +521,13 @@ class TableSearchController extends TableController
         }
         // Displays the table search form
         $this->response->addHTML(
-            Template::get('secondary_tabs')
-                ->render(
-                    [
-                        'url_params' => [
-                            'db'    => $this->db,
-                            'table' => $this->table,
-                        ],
-                        'sub_tabs'   => $this->_getSubTabs(),
-                    ]
-                )
+            $this->template->render('secondary_tabs', [
+                'url_params' => [
+                    'db'    => $this->db,
+                    'table' => $this->table,
+                ],
+                'sub_tabs'   => $this->_getSubTabs(),
+            ])
         );
 
         $column_names = $this->_columnNames;
@@ -538,14 +535,14 @@ class TableSearchController extends TableController
         $types = [];
         if ($this->_searchType == 'replace') {
             $num_cols = count($column_names);
-            for ($i= 0; $i < $num_cols; $i++) {
+            for ($i = 0; $i < $num_cols; $i++) {
                 $types[$column_names[$i]] = preg_replace('@\\(.*@s', '', $column_types[$i]);
             }
         }
 
         $criteria_column_names = isset($_POST['criteriaColumnNames']) ? $_POST['criteriaColumnNames'] : null;
         $keys = [];
-        for ($i= 0; $i < 4; $i++) {
+        for ($i = 0; $i < 4; $i++) {
             if (isset($criteria_column_names[$i])) {
                 if ($criteria_column_names[$i] != 'pma_null') {
                     $keys[$criteria_column_names[$i]] = array_search($criteria_column_names[$i], $column_names);
@@ -554,7 +551,7 @@ class TableSearchController extends TableController
         }
 
         $this->response->addHTML(
-            Template::get('table/search/selection_form')->render([
+            $this->template->render('table/search/selection_form', [
                 'search_type' => $this->_searchType,
                 'db' => $this->db,
                 'table' => $this->table,
@@ -679,17 +676,15 @@ class TableSearchController extends TableController
             $result = $this->dbi->fetchResult($sql_query, 0);
         }
 
-        return Template::get('table/search/replace_preview')->render(
-            [
-                'db' => $this->db,
-                'table' => $this->table,
-                'column_index' => $columnIndex,
-                'find' => $find,
-                'replace_with' => $replaceWith,
-                'use_regex' => $useRegex,
-                'result' => $result
-            ]
-        );
+        return $this->template->render('table/search/replace_preview', [
+            'db' => $this->db,
+            'table' => $this->table,
+            'column_index' => $columnIndex,
+            'find' => $find,
+            'replace_with' => $replaceWith,
+            'use_regex' => $useRegex,
+            'result' => $result,
+        ]);
     }
 
     /**
@@ -932,12 +927,10 @@ class TableSearchController extends TableController
             $this->_columnNullFlags[$column_index],
             $selected_operator
         );
-        $func = Template::get('table/search/column_comparison_operators')->render(
-            [
-                'search_index' => $search_index,
-                'type_operators' => $typeOperators
-            ]
-        );
+        $func = $this->template->render('table/search/column_comparison_operators', [
+            'search_index' => $search_index,
+            'type_operators' => $typeOperators,
+        ]);
         //Gets link to browse foreign data(if any) and criteria inputbox
         $foreignData = $this->relation->getForeignData(
             $this->_foreigners,
@@ -946,25 +939,23 @@ class TableSearchController extends TableController
             '',
             ''
         );
-        $value = Template::get('table/search/input_box')->render(
-            [
-                'str' => '',
-                'column_type' => (string) $type,
-                'column_id' => 'fieldID_',
-                'in_zoom_search_edit' => false,
-                'foreigners' => $this->_foreigners,
-                'column_name' => $this->_columnNames[$column_index],
-                'column_name_hash' => md5($this->_columnNames[$column_index]),
-                'foreign_data' => $foreignData,
-                'table' => $this->table,
-                'column_index' => $search_index,
-                'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
-                'criteria_values' => $entered_value,
-                'db' => $this->db,
-                'titles' => $titles,
-                'in_fbs' => true
-            ]
-        );
+        $value = $this->template->render('table/search/input_box', [
+            'str' => '',
+            'column_type' => (string) $type,
+            'column_id' => 'fieldID_',
+            'in_zoom_search_edit' => false,
+            'foreigners' => $this->_foreigners,
+            'column_name' => $this->_columnNames[$column_index],
+            'column_name_hash' => md5($this->_columnNames[$column_index]),
+            'foreign_data' => $foreignData,
+            'table' => $this->table,
+            'column_index' => $search_index,
+            'foreign_max_limit' => $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+            'criteria_values' => $entered_value,
+            'db' => $this->db,
+            'titles' => $titles,
+            'in_fbs' => true,
+        ]);
         return [
             'type' => $type,
             'collation' => $collation,

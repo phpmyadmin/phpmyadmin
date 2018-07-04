@@ -350,7 +350,7 @@ class AuthenticationHttpTest extends PmaTestCase
             'foo' => 'bar'
         ];
 
-        $GLOBALS['cfg']['Server']= [
+        $GLOBALS['cfg']['Server'] = [
             'host' => 'a',
             'user' => 'user2'
         ];
@@ -383,7 +383,7 @@ class AuthenticationHttpTest extends PmaTestCase
             'foo' => 'bar'
         ];
 
-        $GLOBALS['cfg']['Server']= [
+        $GLOBALS['cfg']['Server'] = [
             'host' => 'a',
             'user' => 'user2'
         ];

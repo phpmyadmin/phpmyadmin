@@ -57,7 +57,7 @@ class ErrorTest extends PmaTestCase
      */
     public function testSetBacktrace()
     {
-        $bt = [['file'=>'bt1','line'=>2, 'function'=>'bar', 'args'=>['foo'=>$this]]];
+        $bt = [['file' => 'bt1','line' => 2, 'function' => 'bar', 'args' => ['foo' => $this]]];
         $this->object->setBacktrace($bt);
         $bt[0]['args']['foo'] = '<Class:PhpMyAdmin\Tests\ErrorTest>';
         $this->assertEquals($bt, $this->object->getBacktrace());
@@ -171,10 +171,10 @@ class ErrorTest extends PmaTestCase
     public function testGetBacktrace()
     {
         $bt = [
-            ['file'=>'bt1','line'=>2, 'function'=>'bar', 'args'=>['foo'=>1]],
-            ['file'=>'bt2','line'=>2, 'function'=>'bar', 'args'=>['foo'=>2]],
-            ['file'=>'bt3','line'=>2, 'function'=>'bar', 'args'=>['foo'=>3]],
-            ['file'=>'bt4','line'=>2, 'function'=>'bar', 'args'=>['foo'=>4]],
+            ['file' => 'bt1','line' => 2, 'function' => 'bar', 'args' => ['foo' => 1]],
+            ['file' => 'bt2','line' => 2, 'function' => 'bar', 'args' => ['foo' => 2]],
+            ['file' => 'bt3','line' => 2, 'function' => 'bar', 'args' => ['foo' => 3]],
+            ['file' => 'bt4','line' => 2, 'function' => 'bar', 'args' => ['foo' => 4]],
         ];
 
         $this->object->setBacktrace($bt);

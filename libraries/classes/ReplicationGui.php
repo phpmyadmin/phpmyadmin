@@ -436,49 +436,49 @@ class ReplicationGui
         $html .= '<pre>server-id=' . time() . '</pre>';
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text'=>__('User name:'), 'for'=>"text_username"],
+            ['text' => __('User name:'), 'for' => "text_username"],
             [
-                'type'=>'text',
-                'name'=>'username',
-                'id'=>'text_username',
-                'maxlength'=>$username_length,
-                'title'=>__('User name'),
-                'required'=>'required'
+                'type' => 'text',
+                'name' => 'username',
+                'id' => 'text_username',
+                'maxlength' => $username_length,
+                'title' => __('User name'),
+                'required' => 'required'
             ]
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text'=>__('Password:'), 'for'=>"text_pma_pw"],
+            ['text' => __('Password:'), 'for' => "text_pma_pw"],
             [
-                'type'=>'password',
-                'name'=>'pma_pw',
-                'id'=>'text_pma_pw',
-                'title'=>__('Password'),
-                'required'=>'required'
+                'type' => 'password',
+                'name' => 'pma_pw',
+                'id' => 'text_pma_pw',
+                'title' => __('Password'),
+                'required' => 'required'
             ]
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text'=>__('Host:'), 'for'=>"text_hostname"],
+            ['text' => __('Host:'), 'for' => "text_hostname"],
             [
-                'type'=>'text',
-                'name'=>'hostname',
-                'id'=>'text_hostname',
-                'maxlength'=>$hostname_length,
-                'value'=>'',
-                'required'=>'required'
+                'type' => 'text',
+                'name' => 'hostname',
+                'id' => 'text_hostname',
+                'maxlength' => $hostname_length,
+                'value' => '',
+                'required' => 'required'
             ]
         );
 
         $html .= $this->getHtmlForAddUserInputDiv(
-            ['text'=>__('Port:'), 'for'=>"text_port"],
+            ['text' => __('Port:'), 'for' => "text_port"],
             [
-                'type'=>'number',
-                'name'=>'text_port',
-                'id'=>'text_port',
-                'maxlength'=>6,
-                'value'=>'3306',
-                'required'=>'required'
+                'type' => 'number',
+                'name' => 'text_port',
+                'id' => 'text_port',
+                'maxlength' => 6,
+                'value' => '3306',
+                'required' => 'required'
              ]
         );
 

@@ -39,7 +39,7 @@ class ServerEnginesController extends Controller
          * Displays the sub-page heading
          */
         $this->response->addHTML(
-            Template::get('server/sub_page_header')->render([
+            $this->template->render('server/sub_page_header', [
                 'type' => 'engines',
             ])
         );
@@ -50,33 +50,24 @@ class ServerEnginesController extends Controller
         if (empty($_REQUEST['engine'])
             || ! StorageEngine::isValid($_REQUEST['engine'])
         ) {
-            $this->response->addHTML($this->_getHtmlForAllServerEngines());
+            $html = $this->template->render('server/engines/list_engines', [
+                'engines' => StorageEngine::getStorageEngines(),
+            ]);
         } else {
             $engine = StorageEngine::getEngine($_REQUEST['engine']);
-            $this->response->addHTML($this->_getHtmlForServerEngine($engine));
+            $html = $this->_getHtmlForShowEngine($engine);
         }
+        $this->response->addHTML($html);
     }
 
     /**
-     * Return HTML with all Storage Engine information
+     * Returns HTML code for engine inspect
      *
-     * @return string
+     * @param  StorageEngine $engine engine beeing inspected
+     *
+     * @return void
      */
-    private function _getHtmlForAllServerEngines()
-    {
-        return Template::get('server/engines/engines')->render(
-            ['engines' => StorageEngine::getStorageEngines()]
-        );
-    }
-
-    /**
-     * Return HTML for a given Storage Engine
-     *
-     * @param StorageEngine $engine storage engine
-     *
-     * @return string
-     */
-    private function _getHtmlForServerEngine(StorageEngine $engine)
+    private function _getHtmlForShowEngine(StorageEngine $engine):string
     {
         $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
         $pageOutput = ! empty($page) ? $engine->getPage($page) : '';
@@ -84,18 +75,16 @@ class ServerEnginesController extends Controller
         /**
          * Displays details about a given Storage Engine
          */
-        return Template::get('server/engines/engine')->render(
-            [
-                'title' => $engine->getTitle(),
-                'help_page' => $engine->getMysqlHelpPage(),
-                'comment' => $engine->getComment(),
-                'info_pages' => $engine->getInfoPages(),
-                'support' => $engine->getSupportInformationMessage(),
-                'variables' => $engine->getHtmlVariables(),
-                'page_output' => $pageOutput,
-                'page' => $page,
-                'engine' => $_REQUEST['engine'],
-            ]
-        );
+        return $this->template->render('server/engines/show_engine', [
+            'title' => $engine->getTitle(),
+            'help_page' => $engine->getMysqlHelpPage(),
+            'comment' => $engine->getComment(),
+            'info_pages' => $engine->getInfoPages(),
+            'support' => $engine->getSupportInformationMessage(),
+            'variables' => $engine->getHtmlVariables(),
+            'page_output' => $pageOutput,
+            'page' => $page,
+            'engine' => $_REQUEST['engine'],
+        ]);
     }
 }

@@ -367,15 +367,15 @@ class Plugins
             $doc = $propertyGroup->getDoc();
             if ($doc != null) {
                 if (count($doc) == 3) {
-                    $ret .= PhpMyAdmin\Util::showMySQLDocu(
+                    $ret .= \PhpMyAdmin\Util::showMySQLDocu(
                         $doc[1],
                         false,
                         $doc[2]
                     );
                 } elseif (count($doc) == 1) {
-                    $ret .= PhpMyAdmin\Util::showDocu('faq', $doc[0]);
+                    $ret .= \PhpMyAdmin\Util::showDocu('faq', $doc[0]);
                 } else {
-                    $ret .= PhpMyAdmin\Util::showMySQLDocu(
+                    $ret .= \PhpMyAdmin\Util::showMySQLDocu(
                         $doc[1]
                     );
                 }

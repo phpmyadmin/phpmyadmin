@@ -48,8 +48,7 @@ class CreateTable
      */
     public static function getHtml($db)
     {
-        return Template::get('database/create_table')->render(
-            ['db' => $db]
-        );
+        $template = new Template();
+        return $template->render('database/create_table', ['db' => $db]);
     }
 }

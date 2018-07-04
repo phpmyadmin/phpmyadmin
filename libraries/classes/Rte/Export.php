@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Rte;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Words;
@@ -27,10 +28,18 @@ class Export
     private $words;
 
     /**
-     * Export constructor.
+     * @var DatabaseInterface
      */
-    public function __construct()
+    private $dbi;
+
+    /**
+     * Export constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     */
+    public function __construct(DatabaseInterface $dbi)
     {
+        $this->dbi = $dbi;
         $this->words = new Words();
     }
 
@@ -92,7 +101,7 @@ class Export
 
         if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
             $item_name = $_GET['item_name'];
-            $export_data = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $item_name);
+            $export_data = $this->dbi->getDefinition($db, 'EVENT', $item_name);
             if (! $export_data) {
                 $export_data = false;
             }
@@ -116,7 +125,7 @@ class Export
         ) {
             if ($_GET['item_type'] == 'FUNCTION' || $_GET['item_type'] == 'PROCEDURE') {
                 $rtn_definition
-                    = $GLOBALS['dbi']->getDefinition(
+                    = $this->dbi->getDefinition(
                         $db,
                         $_GET['item_type'],
                         $_GET['item_name']
@@ -146,7 +155,7 @@ class Export
 
         if (! empty($_GET['export_item']) && ! empty($_GET['item_name'])) {
             $item_name = $_GET['item_name'];
-            $triggers = $GLOBALS['dbi']->getTriggers($db, $table, '');
+            $triggers = $this->dbi->getTriggers($db, $table, '');
             $export_data = false;
             foreach ($triggers as $trigger) {
                 if ($trigger['name'] === $item_name) {

@@ -20,6 +20,13 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class SystemDatabaseTest extends PmaTestCase
 {
     /**
+     * SystemDatabase instance
+     *
+     * @var SystemDatabase
+     */
+    private $sysDb;
+
+    /**
      * Setup function for test cases
      *
      * @access protected

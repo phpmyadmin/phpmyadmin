@@ -51,6 +51,11 @@ class InsertEdit
     private $fileListing;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -61,6 +66,7 @@ class InsertEdit
         $this->relation = new Relation();
         $this->transformations = new Transformations();
         $this->fileListing = new FileListing();
+        $this->template = new Template();
     }
 
     /**
@@ -1751,7 +1757,7 @@ class InsertEdit
         array $where_clause_array,
         $err_url
     ) {
-        return Template::get('table/insert/continue_insertion_form')->render([
+        return $this->template->render('table/insert/continue_insertion_form', [
             'db' => $db,
             'table' => $table,
             'where_clause_array' => $where_clause_array,
@@ -1801,7 +1807,7 @@ class InsertEdit
             )
             . '</td>'
             . '</tr>';
-        $html_output .='<tr>'
+        $html_output .= '<tr>'
             . $this->getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
             . '</tr>'
             . '</table>'
@@ -3042,11 +3048,11 @@ class InsertEdit
      */
     public function getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
     {
-        $html_output ='<form id="insertForm" class="lock-page ';
+        $html_output = '<form id="insertForm" class="lock-page ';
         if ($has_blob_field && $is_upload) {
-            $html_output .='disableAjax';
+            $html_output .= 'disableAjax';
         }
-        $html_output .='" method="post" action="tbl_replace.php" name="insertForm" ';
+        $html_output .= '" method="post" action="tbl_replace.php" name="insertForm" ';
         if ($is_upload) {
             $html_output .= ' enctype="multipart/form-data"';
         }

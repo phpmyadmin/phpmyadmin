@@ -4,7 +4,12 @@
 <td class="right">{{ rownum }}</td>
 <th class="nowrap">
     <label for="checkbox_row_{{ rownum }}">
-        {{ displayed_field_name|raw }}
+        {% if displayed_field.comment is defined %}
+            <span class="commented_column" title="{{ displayed_field.comment }}">{{ displayed_field.text }}</span>
+        {% else %}
+            {{ displayed_field.text }}
+        {% endif %}
+        {{ displayed_field.icon|raw }}
     </label>
 </th>
 <td {{ type_nowrap }}>

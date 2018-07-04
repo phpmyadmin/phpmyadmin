@@ -10,9 +10,10 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Url;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 
 require_once './libraries/common.inc.php';
 
@@ -24,6 +25,8 @@ $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'view_create.php';
 
 $response = Response::getInstance();
+
+$template = new Template();
 
 $view_algorithm_options = [
     'UNDEFINED',
@@ -49,7 +52,7 @@ if (empty($sql_query)) {
 if (isset($_REQUEST['view']['name'])
     && empty($_REQUEST['view']['name'])
 ) {
-    $message = PhpMyAdmin\Message::error(__('View name can not be empty!'));
+    $message = Message::error(__('View name can not be empty!'));
     $response->addJSON(
         'message',
         $message
@@ -80,11 +83,11 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     if (! empty($_REQUEST['view']['definer'])) {
         if (strpos($_REQUEST['view']['definer'], '@') === false) {
             $sql_query .= $sep . 'DEFINER='
-                . PhpMyAdmin\Util::backquote($_REQUEST['view']['definer']);
+                . Util::backquote($_REQUEST['view']['definer']);
         } else {
             $arr = explode('@', $_REQUEST['view']['definer']);
-            $sql_query .= $sep . 'DEFINER=' . PhpMyAdmin\Util::backquote($arr[0]);
-            $sql_query .= '@' . PhpMyAdmin\Util::backquote($arr[1]) . ' ';
+            $sql_query .= $sep . 'DEFINER=' . Util::backquote($arr[0]);
+            $sql_query .= '@' . Util::backquote($arr[1]) . ' ';
         }
     }
 
@@ -96,7 +99,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     $sql_query .= $sep . ' VIEW '
-        . PhpMyAdmin\Util::backquote($_REQUEST['view']['name']);
+        . Util::backquote($_REQUEST['view']['name']);
 
     if (! empty($_REQUEST['view']['column_names'])) {
         $sql_query .= $sep . ' (' . $_REQUEST['view']['column_names'] . ')';
@@ -113,13 +116,13 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
     if (!$GLOBALS['dbi']->tryQuery($sql_query)) {
         if (! isset($_REQUEST['ajax_dialog'])) {
-            $message = PhpMyAdmin\Message::rawError($GLOBALS['dbi']->getError());
+            $message = Message::rawError($GLOBALS['dbi']->getError());
             return;
         }
 
         $response->addJSON(
             'message',
-            PhpMyAdmin\Message::error(
+            Message::error(
                 "<i>" . htmlspecialchars($sql_query) . "</i><br /><br />"
                 . $GLOBALS['dbi']->getError()
             )
@@ -161,13 +164,13 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     unset($pma_transformation_data);
 
     if (! isset($_REQUEST['ajax_dialog'])) {
-        $message = PhpMyAdmin\Message::success();
+        $message = Message::success();
         include 'tbl_structure.php';
     } else {
         $response->addJSON(
             'message',
-            PhpMyAdmin\Util::getMessage(
-                PhpMyAdmin\Message::success(),
+            Util::getMessage(
+                Message::success(),
                 $sql_query
             )
         );
@@ -197,12 +200,12 @@ if (Core::isValid($_REQUEST['view'], 'array')) {
 $url_params['db'] = $GLOBALS['db'];
 $url_params['reload'] = 1;
 
-echo Template::get('view_create')->render([
-    'ajax_dialog'               => isset($_REQUEST['ajax_dialog']),
-    'text_dir'                  => $text_dir,
-    'url_params'                => $url_params,
-    'view'                      => $view,
-    'view_algorithm_options'    => $view_algorithm_options,
-    'view_with_options'         => $view_with_options,
-    'view_security_options'     => $view_security_options
+echo $template->render('view_create', [
+    'ajax_dialog' => isset($_REQUEST['ajax_dialog']),
+    'text_dir' => $text_dir,
+    'url_params' => $url_params,
+    'view' => $view,
+    'view_algorithm_options' => $view_algorithm_options,
+    'view_with_options' => $view_with_options,
+    'view_security_options' => $view_security_options,
 ]);

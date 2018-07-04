@@ -174,7 +174,7 @@ abstract class TestBase extends Selenium2TestCase
      *
      * @return void
      *
-     * @throws Exception
+     * @throws \Exception
      */
     protected function setUp()
     {
@@ -198,7 +198,7 @@ abstract class TestBase extends Selenium2TestCase
             $GLOBALS['TESTSUITE_PASSWORD']
         );
         if ($this->_mysqli->connect_errno) {
-            throw new Exception(
+            throw new \Exception(
                 'Failed to connect to MySQL (' . $this->_mysqli->error . ')'
             );
         }
@@ -347,7 +347,7 @@ abstract class TestBase extends Selenium2TestCase
      *
      * @param string $query SQL Query to be executed
      *
-     * @return void|boolean|mysqli_result
+     * @return void|boolean|\mysqli_result
      *
      * @throws Exception
      */
@@ -387,7 +387,7 @@ abstract class TestBase extends Selenium2TestCase
      * @param string $func Locate using - byCss, byXPath, etc
      * @param string $arg  Selector
      *
-     * @return PHPUnit_Extensions_Selenium2TestCase_Element  Element waited for
+     * @return \PHPUnit_Extensions_Selenium2TestCase_Element  Element waited for
      */
     public function waitForElement($func, $arg)
     {
@@ -459,7 +459,7 @@ abstract class TestBase extends Selenium2TestCase
      * @param int    $row     Table row
      * @param int    $column  Table column
      *
-     * @return text Data from the particular table cell
+     * @return string text Data from the particular table cell
      */
     public function getCellByTableId($tableID, $row, $column)
     {
@@ -480,7 +480,7 @@ abstract class TestBase extends Selenium2TestCase
      * @param int    $row        Table row
      * @param int    $column     Table column
      *
-     * @return text Data from the particular table cell
+     * @return string text Data from the particular table cell
      */
     public function getCellByTableClass($tableClass, $row, $column)
     {

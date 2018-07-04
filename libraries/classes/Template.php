@@ -88,19 +88,6 @@ class Template
     }
 
     /**
-     * Template getter
-     *
-     * @param string $templateName Template path name
-     *
-     * @return \Twig_TemplateWrapper
-     */
-    public static function get(string $templateName): \Twig_TemplateWrapper
-    {
-        $template = new Template();
-        return $template->load($templateName);
-    }
-
-    /**
      * Loads a template.
      *
      * @param string $templateName Template path name

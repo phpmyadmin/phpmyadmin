@@ -111,9 +111,9 @@ class CentralColumnsTest extends TestCase
             ->will(
                 $this->returnValue(
                     [
-                        "id"=>["Type"=>"integer", "Null"=>"NO"],
-                        "col1"=>["Type"=>'varchar(100)', "Null"=>"YES"],
-                        "col2"=>["Type"=>'DATETIME', "Null"=>"NO"]
+                        "id" => ["Type" => "integer", "Null" => "NO"],
+                        "col1" => ["Type" => 'varchar(100)', "Null" => "YES"],
+                        "col2" => ["Type" => 'DATETIME', "Null" => "NO"]
                     ]
                 )
             );

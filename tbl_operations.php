@@ -274,7 +274,7 @@ if (isset($result) && empty($message_to_show)) {
     }
 
     if (! empty($warning_messages)) {
-        $_message = new Message;
+        $_message = new Message();
         $_message->addMessagesString($warning_messages);
         $_message->isError(true);
         if ($response->isAjax()) {

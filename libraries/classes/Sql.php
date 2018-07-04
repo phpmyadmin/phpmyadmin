@@ -597,7 +597,7 @@ EOT;
                         'db' => $db,
                         'table' => $table,
                         'sql_query' => $sql_query,
-                        'id_bookmark'=> 1,
+                        'id_bookmark' => 1,
                     ]
                 );
             $bkm_sql_query = isset($complete_query) ? $complete_query : $sql_query;
@@ -717,7 +717,7 @@ EOT;
             && (count($analyzed_sql_results['select_tables']) === 1)
             && (empty($analyzed_sql_results['statement']->where)
                 || (count($analyzed_sql_results['statement']->where) == 1
-                    && $analyzed_sql_results['statement']->where[0]->expr ==='1'))
+                    && $analyzed_sql_results['statement']->where[0]->expr === '1'))
             && empty($analyzed_sql_results['group'])
             && ! isset($find_real_end)
             && ! $analyzed_sql_results['is_subquery']
@@ -2133,7 +2133,7 @@ EOT;
         $profiling_chart_html = $this->getHtmlForProfilingChart(
             $url_query,
             $db,
-            isset($profiling_results) ? $profiling_results :[]
+            isset($profiling_results) ? $profiling_results : []
         );
 
         $missing_unique_column_msg = $this->getMessageIfMissingColumnIndex(

@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Rte;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Words;
 use PhpMyAdmin\SqlParser\Parser;
@@ -31,11 +32,25 @@ class RteList
     private $words;
 
     /**
-     * RteList constructor.
+     * @var Template
      */
-    public function __construct()
+    public $template;
+
+    /**
+     * @var DatabaseInterface
+     */
+    private $dbi;
+
+    /**
+     * RteList constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     */
+    public function __construct(DatabaseInterface $dbi)
     {
+        $this->dbi = $dbi;
         $this->words = new Words();
+        $this->template = new Template();
     }
 
     /**
@@ -170,14 +185,11 @@ class RteList
 
         if (count($items)) {
             $retval .= '<div class="withSelected">';
-            $retval .= Template::get('select_all')
-                ->render(
-                    [
-                        'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                        'text_dir'        => $GLOBALS['text_dir'],
-                        'form_name'       => 'rteListForm',
-                    ]
-                );
+            $retval .= $this->template->render('select_all', [
+                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+                'text_dir' => $GLOBALS['text_dir'],
+                'form_name' => 'rteListForm',
+            ]);
             $retval .= Util::getButtonOrImage(
                 'submit_mult',
                 'mult_submit',
@@ -240,19 +252,19 @@ class RteList
         // this is for our purpose to decide whether to
         // show the edit link or not, so we need the DEFINER for the routine
         $where = "ROUTINE_SCHEMA " . Util::getCollateForIS() . "="
-            . "'" . $GLOBALS['dbi']->escapeString($db) . "' "
-            . "AND SPECIFIC_NAME='" . $GLOBALS['dbi']->escapeString($routine['name']) . "'"
-            . "AND ROUTINE_TYPE='" . $GLOBALS['dbi']->escapeString($routine['type']) . "'";
+            . "'" . $this->dbi->escapeString($db) . "' "
+            . "AND SPECIFIC_NAME='" . $this->dbi->escapeString($routine['name']) . "'"
+            . "AND ROUTINE_TYPE='" . $this->dbi->escapeString($routine['type']) . "'";
         $query = "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
-        $routine_definer = $GLOBALS['dbi']->fetchValue($query);
+        $routine_definer = $this->dbi->fetchValue($query);
 
-        $curr_user = $GLOBALS['dbi']->getCurrentUser();
+        $curr_user = $this->dbi->getCurrentUser();
 
         // Since editing a procedure involved dropping and recreating, check also for
         // CREATE ROUTINE privilege to avoid lost procedures.
         if ((Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
             && $curr_user == $routine_definer)
-            || $GLOBALS['dbi']->isSuperuser()
+            || $this->dbi->isSuperuser()
         ) {
             $retval .= '                <a class="ajax edit_anchor"'
                                              . ' href="db_routines.php'
@@ -279,7 +291,7 @@ class RteList
         // we will show a dialog to get values for these parameters,
         // otherwise we can execute it directly.
 
-        $definition = $GLOBALS['dbi']->getDefinition(
+        $definition = $this->dbi->getDefinition(
             $db,
             $routine['type'],
             $routine['name']
@@ -322,7 +334,7 @@ class RteList
         $retval .= "            <td>\n";
         if ((Util::currentUserHasPrivilege('CREATE ROUTINE', $db)
             && $curr_user == $routine_definer)
-            || $GLOBALS['dbi']->isSuperuser()
+            || $this->dbi->isSuperuser()
         ) {
             $retval .= '                <a class="ajax export_anchor"'
                                              . ' href="db_routines.php'

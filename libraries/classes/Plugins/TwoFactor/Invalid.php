@@ -43,7 +43,7 @@ class Invalid extends TwoFactorPlugin
      */
     public function render()
     {
-        return Template::get('login/twofactor/invalid')->render();
+        return $this->template->render('login/twofactor/invalid');
     }
 
     /**

@@ -138,7 +138,7 @@ class Footer
             // Remove recursions and iterators from $_SESSION['debug']
             self::_removeRecursion($_SESSION['debug']);
 
-            $retval = JSON_encode($_SESSION['debug']);
+            $retval = json_encode($_SESSION['debug']);
             $_SESSION['debug'] = [];
             return json_last_error() ? '\'false\'' : $retval;
         }

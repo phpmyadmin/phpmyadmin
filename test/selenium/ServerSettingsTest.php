@@ -17,7 +17,7 @@ namespace PhpMyAdmin\Tests\Selenium;
  * @subpackage Selenium
  * @group      selenium
  */
-class SettingsTest extends TestBase
+class ServerSettingsTest extends TestBase
 {
     /**
      * setUp function that can use the selenium session (called before each test)

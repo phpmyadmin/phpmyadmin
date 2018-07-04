@@ -10,7 +10,7 @@
  */
 declare(strict_types=1);
 
-$i=0;
+$i = 0;
 $hosts =  [
     "foo.example.com",
     "bar.example.com",

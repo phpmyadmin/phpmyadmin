@@ -152,7 +152,7 @@ if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
 }
 if (! $GLOBALS['is_grantuser'] && !$GLOBALS['is_createuser']) {
     $response->addHTML(Message::notice(
-        __('You do not have privileges to manipulate with the users!')
+        __('You do not have the privileges to administrate the users!')
     )->getDisplay());
 }
 
@@ -187,10 +187,10 @@ list($queries, $password) = $serverPrivileges->getDataForChangeOrCopyUser();
  */
 list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error)
     = $serverPrivileges->addUser(
-        isset($dbname)? $dbname : null,
-        isset($username)? $username : null,
-        isset($hostname)? $hostname : null,
-        isset($password)? $password : null,
+        isset($dbname) ? $dbname : null,
+        isset($username) ? $username : null,
+        isset($hostname) ? $hostname : null,
+        isset($password) ? $password : null,
         $cfgRelation['menuswork']
     );
 //update the old variables
@@ -386,7 +386,7 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
  */
 $response->addHTML(
     $serverPrivileges->getHtmlForUserGroupDialog(
-        isset($username)? $username : null,
+        isset($username) ? $username : null,
         $cfgRelation['menuswork']
     )
 );

@@ -41,7 +41,7 @@ $operations = new Operations();
 /**
  * Updates if required
  */
-$_message = new Message;
+$_message = new Message();
 $_type = 'success';
 if (isset($_REQUEST['submitoptions'])) {
     if (isset($_REQUEST['new_name'])) {

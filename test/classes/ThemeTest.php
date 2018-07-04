@@ -26,7 +26,7 @@ class ThemeTest extends PmaTestCase
     protected $object;
 
     /**
-     * @var backup for session theme
+     * @var Theme backup for session theme
      */
     protected $backup;
 

@@ -838,7 +838,7 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
-        $dbi->expects($this->any(0))
+        $dbi->expects($this->any())
             ->method('getColumns')
             ->with('db', 'view')
             ->will(
@@ -1482,7 +1482,7 @@ class ExportSqlTest extends PmaTestCase
             ->getMock();
 
         $flags = [];
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = true;
         $a->type = 'ts';
@@ -1490,7 +1490,7 @@ class ExportSqlTest extends PmaTestCase
         $a->length = 2;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = true;
         $a->type = 'ts';
@@ -1498,7 +1498,7 @@ class ExportSqlTest extends PmaTestCase
         $a->length = 2;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = true;
         $a->numeric = false;
         $a->type = 'ts';
@@ -1506,7 +1506,7 @@ class ExportSqlTest extends PmaTestCase
         $a->length = 2;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->type = "bit";
         $a->blob = false;
         $a->numeric = false;
@@ -1514,7 +1514,7 @@ class ExportSqlTest extends PmaTestCase
         $a->length = 2;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = true;
         $a->type = 'timestamp';
@@ -1632,7 +1632,7 @@ class ExportSqlTest extends PmaTestCase
             ->getMock();
 
         $flags = [];
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = true;
         $a->type = 'real';
@@ -1643,7 +1643,7 @@ class ExportSqlTest extends PmaTestCase
         $a->primary_key = 1;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = true;
         $a->type = '';

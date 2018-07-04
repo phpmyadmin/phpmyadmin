@@ -251,11 +251,11 @@ class SqlTest extends TestCase
      */
     public function testWithMultipleTables()
     {
-        $col1 = new stdClass;
+        $col1 = new stdClass();
         $col1->table = 'table1';
-        $col2 = new stdClass;
+        $col2 = new stdClass();
         $col2->table = 'table1';
-        $col3 = new stdClass;
+        $col3 = new stdClass();
         $col3->table = 'table3';
 
         $fields_meta = [$col1, $col2, $col3];
@@ -282,11 +282,11 @@ class SqlTest extends TestCase
      */
     public function testWithSameTable()
     {
-        $col1 = new stdClass;
+        $col1 = new stdClass();
         $col1->table = 'table1';
-        $col2 = new stdClass;
+        $col2 = new stdClass();
         $col2->table = 'table1';
-        $col3 = new stdClass;
+        $col3 = new stdClass();
         $col3->table = 'table1';
         $fields_meta = [$col1, $col2, $col3];
 
@@ -303,11 +303,11 @@ class SqlTest extends TestCase
      */
     public function testWithFunctionColumns()
     {
-        $col1 = new stdClass;
+        $col1 = new stdClass();
         $col1->table = 'table1';
-        $col2 = new stdClass;
+        $col2 = new stdClass();
         $col2->table = '';
-        $col3 = new stdClass;
+        $col3 = new stdClass();
         $col3->table = 'table1';
 
         $fields_meta = [$col1, $col2, $col3];
@@ -335,11 +335,11 @@ class SqlTest extends TestCase
      */
     public function testWithOnlyFunctionColumns()
     {
-        $col1 = new stdClass;
+        $col1 = new stdClass();
         $col1->table = '';
-        $col2 = new stdClass;
+        $col2 = new stdClass();
         $col2->table = '';
-        $col3 = new stdClass;
+        $col3 = new stdClass();
         $col3->table = '';
         $fields_meta = [$col1, $col2, $col3];
 
