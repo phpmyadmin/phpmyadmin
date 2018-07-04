@@ -4701,7 +4701,7 @@ class Results
 
         $column_for_last_row = mb_strtoupper(
             mb_substr(
-                $column_for_last_row,
+                (string) $column_for_last_row,
                 0,
                 $GLOBALS['cfg']['LimitChars']
             ) . '...'
