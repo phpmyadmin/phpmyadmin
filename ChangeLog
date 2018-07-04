@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - issue #14045 Fix slow performance on DB structure filtering
 - issue #14327 Fix Editing server variable not showing save or cancel option
 - issue #14377 Populate options for view create and edit
+- issue #14171 2FA configuration fails if PHP doesn't have GD support
 
 4.8.2 (2018-06-21)
 - issue #14370 WHERE 0 causes Fatal error
