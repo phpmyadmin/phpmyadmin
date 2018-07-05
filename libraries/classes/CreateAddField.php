@@ -55,6 +55,43 @@ class CreateAddField
         ];
     }
 
+    private function getCheckConstraints(): string
+    {
+        $constraintName = trim($_REQUEST['const_name']) === '' ? 'CHECK_CONSTRAINT1' : trim($_REQUEST['const_name']);
+        $columnNames = $_REQUEST['column_name'];
+        $logical_op = $_REQUEST['logical_op'];
+        $criteria_op = $_REQUEST['criteria_op'];
+        $criteria_rhs = $_REQUEST['criteria_rhs'];
+        $tableNameSelect = $_REQUEST['tableNameSelect'];
+        $columnNameSelect = $_REQUEST['columnNameSelect'];
+        $rhs_text_val = $_REQUEST['rhs_text_val'];
+        $definition = 'CONSTRAINT ' . Util::backquote($constraintName) . ' CHECK (';
+        for($i=1; $i<count($columnNames); ++$i) {
+            if($i>1) {
+                $definition .= ' ' . $logical_op[$i] . ' ';
+            }
+            $columnNames[$i] = trim($columnNames[$i]);
+            $definition .= Util::backquote($columnNames[$i]);
+            $definition .= ' ' . $criteria_op[$i];
+            if($criteria_rhs[$i] === 'text') {
+                $definition .= ' \'' . $rhs_text_val[$i] . '\'';
+            } else if($criteria_rhs[$i] === 'anotherColumn') {
+                $definition .= ' ' . Util::backquote($tableNameSelect[$i]) . '.' + Util::backquote($columnNameSelect[$i]);
+            }
+            if($columnNames[$i] === '' && !isset($_REQUEST['preview_sql'])) {
+                $error_msg = __("You need to enter column name for all the check criterias.");
+                $response = Response::getInstance();
+                if ($response->isAjax()) {
+                    $response->setRequestStatus(false);
+                    $response->addJSON('message', $error_msg);
+                    exit;
+                }
+            }
+        }
+        $definition .= ')';
+        return $definition;
+    }
+
     /**
      * Initiate the column creation statement according to the table creation or
      * add columns to a existing table
@@ -113,7 +150,10 @@ class CreateAddField
             $previousField = $i;
             $definitions[] = $definition;
         } // end for
-
+        if($isCreateTable === true && isset($_REQUEST['add_check_constraint'])) {
+            $definition = $this->getCheckConstraints();
+            $definitions[] = $definition;
+        }
         return $definitions;
     }
 

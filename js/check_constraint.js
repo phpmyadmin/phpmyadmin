@@ -27,9 +27,11 @@ AJAX.registerOnload('check_constraint.js', function () {
         $new_column_dom.find('div').first().find('div').first().attr('id', column_count.toString());
         $new_column_dom.find('.pma_auto_slider').first().unwrap();
         $new_column_dom.find('.pma_auto_slider').first().attr('title', 'criteria');
-        if(column_count === 1) {
-            $new_column_dom.find('tr.logical_operator').remove();
-        }
+        $new_column_dom.find('.changeName').each(function() {
+            $(this).attr('name', $(this).attr('name').replace('[0]', '[' + column_count + ']'));
+            $(this).removeClass('changeName');
+        });
+        $('.column_details:eq(1)').find('tr.logical_operator').remove();
         $('#add_column_button').parent().before($new_column_dom);
         PMA_init_slider();
     });
@@ -44,9 +46,7 @@ AJAX.registerOnload('check_constraint.js', function () {
     $(document).on('click', '.removeColumn', function () {
         $(this).parent().remove();
         column_count--;
-        if(column_count === 1) {
-            $('.column_details:eq(1)').find('tr.logical_operator').remove();
-        }
+        $('.column_details:eq(1)').find('tr.logical_operator').remove();
     });
 
     $(document).on('click', 'a.ajax', function (event, from) {
