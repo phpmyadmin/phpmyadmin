@@ -475,6 +475,14 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         'mime_map' => isset($mime_map) ? $mime_map : []
     ];
 } // end for
+$tables = $GLOBALS['dbi']->getTables($db);
+$tables_hashed = [];
+foreach ($tables as $table) {
+    $tables_hashed[$table]['hash'] = md5($table);
+    $tables_hashed[$table]['columns'] = array_keys(
+        $GLOBALS['dbi']->getColumns($db, $table)
+    );
+}
 
 include ROOT_PATH . 'libraries/tbl_partition_definition.inc.php';
 $html = $template->render('columns_definitions/column_definitions_form', [
@@ -508,6 +516,9 @@ $html = $template->render('columns_definitions/column_definitions_form', [
     'have_partitioning' => Partition::havePartitioning(),
     'dbi' => $GLOBALS['dbi'],
     'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
+    'db' => $db,
+    'tables' => $tables_hashed,
+    'default_no_of_columns' => 1,
 ]);
 
 unset($form_params);
@@ -517,6 +528,8 @@ $response->getHeader()->getScripts()->addFiles(
     [
         'vendor/jquery/jquery.uitablefilter.js',
         'indexes.js',
+        'check_constraint.js',
+        'vendor/jquery/jquery.md5.js',
     ]
 );
 $response->addHTML($html);
