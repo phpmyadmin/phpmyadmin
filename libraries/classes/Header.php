@@ -168,8 +168,8 @@ class Header
         $this->_scripts->addFile('vendor/jquery/jquery-migrate.js');/////////////////
         $this->_scripts->addFile('whitelist.php');
         $this->_scripts->addFile('vendor/sprintf.js');///////////////////////////////
-        $this->_scripts->addFile('ajax.js');
-        $this->_scripts->addFile('keyhandler.js');
+        // $this->_scripts->addFile('ajax.js');
+        // $this->_scripts->addFile('keyhandler.js');
         $this->_scripts->addFile('vendor/jquery/jquery-ui.min.js');/////////////////
         $this->_scripts->addFile('vendor/js.cookie.js');
         $this->_scripts->addFile('vendor/jquery/jquery.mousewheel.js');/////////////
@@ -209,6 +209,7 @@ class Header
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addFile('navigation');
+        $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
         $this->_scripts->addFile('page_settings');

@@ -20,6 +20,17 @@ import PMA_MicroHistory from './classes/MicroHistory';
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
  */
+
+function checkNewCode (script) {
+    var check = script.split('.js');
+    // console.log(check);
+    if (check.length === 2) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 export let AJAX = {
     /**
      * @var bool test variable for checking this object
@@ -581,40 +592,42 @@ export let AJAX = {
                 // This is necessary to correctly tear down the initial page
                 this._scriptsToBeFired.push(file);
             }
-            var fileImports = ['server_privileges', 'server_databases', 'error_report', 'navigation', 'server_status_advisor',
-                'server_status_processes', 'server_status_variables', 'server_plugins', 'server_status_sorter', 'server_status_queries',
-                'server_status_monitor', 'server_variables', 'server_user_groups', 'replication', 'export', 'import', 'config',
-                'page_settings', 'shortcuts_handler', 'db_search', 'sql', 'functions'
-            ];
-            if ($.inArray(file, fileImports) !== -1) {
-                console.log('import_check');
-                console.log(file);
-                import(`./${file}`)
-                .then((module) => {
-                    /**
-                     * setTimeout is used so that scripts run only when content is
-                     * available.
-                     *
-                     * TODO:// This is a temporary measure. Will have to look for
-                     * why the content is loading earlier in new moduarized code.
-                     *
-                     * Conflicting cases:
-                     * 1). server_exports.php
-                     * 2). server_import.php
-                     */
-                    setTimeout(function () {
-                        for (var i in module) {
-                            if (i.indexOf('onload') !== -1) {
-                                AJAX.registerOnload(`${file}`, module[i]);
-                            } else if (i.indexOf('teardown') !== -1) {
-                                AJAX.registerTeardown(file, module[i]);
+            if (checkNewCode(file)) {
+                var fileImports = ['server_privileges', 'server_databases', 'error_report', 'navigation', 'server_status_advisor',
+                    'server_status_processes', 'server_status_variables', 'server_plugins', 'server_status_sorter', 'server_status_queries',
+                    'server_status_monitor', 'server_variables', 'server_user_groups', 'replication', 'export', 'import', 'config',
+                    'page_settings', 'shortcuts_handler', 'db_search', 'sql', 'functions'
+                ];
+                if ($.inArray(file, fileImports) !== -1) {
+                    console.log('import_check');
+                    console.log(file);
+                    import(`./${file}`)
+                    .then((module) => {
+                        /**
+                         * setTimeout is used so that scripts run only when content is
+                         * available.
+                         *
+                         * TODO:// This is a temporary measure. Will have to look for
+                         * why the content is loading earlier in new moduarized code.
+                         *
+                         * Conflicting cases:
+                         * 1). server_exports.php
+                         * 2). server_import.php
+                         */
+                        setTimeout(function () {
+                            for (var i in module) {
+                                if (i.indexOf('onload') !== -1) {
+                                    AJAX.registerOnload(`${file}`, module[i]);
+                                } else if (i.indexOf('teardown') !== -1) {
+                                    AJAX.registerTeardown(file, module[i]);
+                                }
                             }
-                        }
-                        AJAX.fireOnload(file);
-                    }, 250);
-                    // AJAX.fireTeardown('server_databases_new.js');
-                })
-                .catch(e => console.log(e));
+                            AJAX.fireOnload(file);
+                        }, 250);
+                        // AJAX.fireTeardown('server_databases_new.js');
+                    })
+                    .catch(e => console.log(e));
+                }
             }
             return this;
 
@@ -654,6 +667,13 @@ export let AJAX = {
                 // Only for scripts that we don't already have
                 if ($.inArray(script, self._scripts) === -1) {
                     this.add(script, 0, callback);
+                    /**
+                     * To be removed once complete code is modularised
+                     * Only for appending js files in the header if not already present
+                     */
+                    if (!checkNewCode(script)) {
+                        this.appendScript(script, callback);
+                    }
                 }
                 self.done(script, callback);
             }
@@ -692,35 +712,25 @@ export let AJAX = {
          * this is to be removed in modularised code
          * no appending of scripts is needed
          */
-        // appendScript: function (name, callback) {
-        //     var head = document.head || document.getElementsByTagName('head')[0];
-        //     var script = document.createElement('script');
-        //     var self = this;
+        appendScript: function (name, callback) {
+            var head = document.head || document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            var self = this;
 
-        //     script.type = 'text/javascript';
-        //     /**
-        //      * This piece of code is for appending the new revamped files into the
-        //      * DOM so that both new and old files can be used simultaneously
-        //      * It checks whether the file contains new in its name or not
-        //      */
-        //     var check = name.split('_');
-        //     if (check[check.length - 1] === 'new.js') {
-        //         var script_src = '';
-        //         if (CommonParams.get('environment') === 'development') {
-        //             script_src += 'http://localhost:' + CommonParams.get('webpack_port') + '/js/dist/';
-        //         } else if (CommonParams.get('environment') === 'production') {
-        //             script_src = 'js/dist/';
-        //         }
-        //         script.src = script_src + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('PMA_VERSION'));
-        //     } else {
-        //         script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('PMA_VERSION'));
-        //     }
-        //     script.async = false;
-        //     script.onload = function () {
-        //         self.done(name, callback);
-        //     };
-        //     head.appendChild(script);
-        // },
+            script.type = 'text/javascript';
+            /**
+             * This piece of code is for appending the new revamped files into the
+             * DOM so that both new and old files can be used simultaneously
+             * It checks whether the file contains new in its name or not
+             */
+            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(CommonParams.get('PMA_VERSION'));
+            script.async = false;
+
+            script.onload = function () {
+                self.done(name, callback);
+            };
+            head.appendChild(script);
+        },
         /**
          * Fires all the teardown event handlers for the current page
          * and rebinds all forms and links to the request handler
@@ -747,3 +757,8 @@ export let AJAX = {
         }
     }
 }
+
+/**
+ * Exporsing module to window for use with non modular code
+ */
+window.AJAX = AJAX;
