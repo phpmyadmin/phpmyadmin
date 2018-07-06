@@ -1329,7 +1329,7 @@ class TableStructureController extends TableController
         $displayed_fields = [];
         $row_comments = [];
         $extracted_columnspecs = [];
-        foreach ($fields as $field) {
+        foreach ($fields as &$field) {
             $rownum += 1;
             $columns_list[] = $field['Field'];
 
@@ -1339,8 +1339,8 @@ class TableStructureController extends TableController
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 
-            if (isset($field['Default'])) {
-                if ($field['Null'] == 'Yes') {
+            if (!isset($field['Default'])) {
+                if ($field['Null'] == 'YES') {
                     $field = array_merge($field, ['Default' => '<em>NULL</em>']);
                 }
             } else {

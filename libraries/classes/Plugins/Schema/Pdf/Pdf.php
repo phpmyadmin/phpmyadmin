@@ -50,6 +50,7 @@ class Pdf extends PdfLib
     public $Outlines = [];
     public $def_outlines;
     public $widths;
+    public $cMargin;
     private $_ff = PdfLib::PMA_PDF_FONT;
     private $_offline;
     private $_pageNumber;
@@ -325,7 +326,7 @@ class Pdf extends PdfLib
         $il = $this->FontSize;
         $h = ($il + 1) * $nb;
         // page break if necessary
-        $this->CheckPageBreak($h);
+        $this->checkPageBreak($h);
         // draw the cells
         $data_cnt = count($data);
         for ($i = 0; $i < $data_cnt; $i++) {

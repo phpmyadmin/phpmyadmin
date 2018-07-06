@@ -83,7 +83,9 @@ class Navigation
             }
             $retval .= '</div>'; //pma_navi_settings_container
             $retval .= '</div>'; // pma_navigation_content
-            $retval .= $this->_getDropHandler();
+            if($GLOBALS['cfg']['enable_drag_drop_import'] === true) { //load drag drop handler only if configuration setting is set to true
+                $retval .= $this->_getDropHandler();
+            }
             $retval .= '</div>'; // pma_navigation
         }
 
@@ -241,7 +243,7 @@ class Navigation
                         $html .= '<td style="width:80px"><a href="navigation.php'
                             . Url::getCommon($params) . '"'
                             . ' class="unhideNavItem ajax">'
-                            . Util::getIcon('show.png', __('Show'))
+                            . Util::getIcon('show', __('Show'))
                             . '</a></td>';
                     }
                     $html .= '</tbody></table>';

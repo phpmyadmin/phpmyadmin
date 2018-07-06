@@ -24,6 +24,13 @@ $GLOBALS['cfg']['Server']['DisableIS'] = false;
 class ListDatabaseTest extends PmaTestCase
 {
     /**
+     * ListDatabase instance
+     *
+     * @var ListDatabase
+     */
+    private $object;
+
+    /**
      * SetUp for test cases
      *
      * @return void
@@ -40,7 +47,7 @@ class ListDatabaseTest extends PmaTestCase
      * @param string $name   method name
      * @param array  $params parameters for the invocation
      *
-     * @return the output from the protected method.
+     * @return mixed the output from the protected method.
      */
     private function _callProtectedFunction($name, $params)
     {

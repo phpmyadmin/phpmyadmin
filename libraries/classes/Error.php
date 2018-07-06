@@ -101,6 +101,7 @@ class Error extends Message
      */
     public function __construct(int $errno, string $errstr, string $errfile, int $errline)
     {
+        parent::__construct();
         $this->setNumber($errno);
         $this->setMessage($errstr, false);
         $this->setFile($errfile);
@@ -420,16 +421,16 @@ class Error extends Message
         if (in_array($function, $include_functions)) {
             $retval .= self::relPath($arg);
         } elseif (in_array($function, $connect_functions)
-            && getType($arg) === 'string'
+            && gettype($arg) === 'string'
         ) {
-            $retval .= getType($arg) . ' ********';
+            $retval .= gettype($arg) . ' ********';
         } elseif (is_scalar($arg)) {
-            $retval .= getType($arg) . ' '
+            $retval .= gettype($arg) . ' '
                 . htmlspecialchars(var_export($arg, true));
         } elseif (is_object($arg)) {
             $retval .= '<Class:' . get_class($arg) . '>';
         } else {
-            $retval .= getType($arg);
+            $retval .= gettype($arg);
         }
 
         return $retval;

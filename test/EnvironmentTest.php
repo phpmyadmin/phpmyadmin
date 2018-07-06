@@ -60,7 +60,7 @@ class EnvironmentTest extends TestCase
                 $pdo->errorCode(),
                 'Error trying to show tables for database'
             );
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->markTestSkipped("Error: " . $e->getMessage());
         }
 

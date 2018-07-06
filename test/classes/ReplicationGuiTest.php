@@ -29,6 +29,13 @@ require_once 'libraries/replication.inc.php';
 class ReplicationGuiTest extends TestCase
 {
     /**
+     * ReplicationGui instance
+     *
+     * @var ReplicationGui
+     */
+    private $replicationGui;
+
+    /**
      * Prepares environment for the test.
      *
      * @return void

@@ -1282,9 +1282,9 @@ class Results
                 $display_params['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($condition_field ? ' condition"' : '')
-                    . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
+                    . '" data-column="' . htmlspecialchars((string) $fields_meta[$i]->name)
                     . '">' . '        '
-                    . htmlspecialchars($fields_meta[$i]->name)
+                    . htmlspecialchars((string) $fields_meta[$i]->name)
                     . $comments . '    </th>';
             } // end else
 
@@ -2280,7 +2280,7 @@ class Results
     {
         if (preg_match(
             '@int|decimal|float|double|real|bit|boolean|serial@i',
-            $fields_meta->type
+            (string) $fields_meta->type
         )) {
             $th_class[] = 'right';
         }
@@ -2375,9 +2375,9 @@ class Results
         $draggable_html .= ' class="' . implode(' ', $th_class) . '"';
 
         $draggable_html .= ' data-column="'
-            . htmlspecialchars($fields_meta->name) . '">';
+            . htmlspecialchars((string) $fields_meta->name) . '">';
 
-        $draggable_html .= htmlspecialchars($fields_meta->name);
+        $draggable_html .= htmlspecialchars((string) $fields_meta->name);
 
         $draggable_html .= "\n" . $comments . '</th>';
 
@@ -5282,7 +5282,7 @@ class Results
                         'tbl_gis_visualization.php'
                         . Url::getCommon($_url_params),
                         Util::getIcon(
-                            'b_globe.gif',
+                            'b_globe',
                             __('Visualize GIS data'),
                             true
                         )

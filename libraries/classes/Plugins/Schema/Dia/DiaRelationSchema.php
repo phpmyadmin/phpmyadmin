@@ -76,7 +76,7 @@ class DiaRelationSchema extends ExportRelationSchema
         $alltables = $this->getTablesFromRequest();
 
         foreach ($alltables as $table) {
-            if (!isset($this->tables[$table])) {
+            if (!isset($this->_tables[$table])) {
                 $this->_tables[$table] = new TableStatsDia(
                     $this->diagram,
                     $this->db,

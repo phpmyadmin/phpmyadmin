@@ -129,8 +129,8 @@ if (! isset($_REQUEST['resize'])) {
     // it sets the resize parameter to jpeg or png
 
     $srcImage = imagecreatefromstring($row[$transform_key]);
-    $srcWidth = ImageSX($srcImage);
-    $srcHeight = ImageSY($srcImage);
+    $srcWidth = imagesx($srcImage);
+    $srcHeight = imagesy($srcImage);
 
     // Check to see if the width > height or if width < height
     // if so adjust accordingly to make sure the image
@@ -148,13 +148,13 @@ if (! isset($_REQUEST['resize'])) {
     }
 
     if ($_REQUEST['resize']) {
-        $destImage = ImageCreateTrueColor($destWidth, $destHeight);
+        $destImage = imagecreatetruecolor($destWidth, $destHeight);
     }
 
     // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
     // $destWidth, $destHeight, $srcWidth, $srcHeight);
     // better quality but slower:
-    ImageCopyResampled(
+    imagecopyresampled(
         $destImage,
         $srcImage,
         0,
@@ -168,11 +168,11 @@ if (! isset($_REQUEST['resize'])) {
     );
 
     if ($_REQUEST['resize'] == 'jpeg') {
-        ImageJPEG($destImage, null, 75);
+        imagejpeg($destImage, null, 75);
     }
     if ($_REQUEST['resize'] == 'png') {
-        ImagePNG($destImage);
+        imagepng($destImage);
     }
-    ImageDestroy($srcImage);
-    ImageDestroy($destImage);
+    imagedestroy($srcImage);
+    imagedestroy($destImage);
 }

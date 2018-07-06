@@ -590,6 +590,7 @@ class Privileges
      */
     public function setUserGroup($username, $userGroup)
     {
+        $userGroup = is_null($userGroup) ? '' : $userGroup;
         $relation = new Relation();
         $cfgRelation = $relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
@@ -966,7 +967,7 @@ class Privileges
     /**
      * Get routine privilege table as an array
      *
-     * @return privilege type array
+     * @return array privilege type array
      */
     public function getTriggerPrivilegeTable()
     {

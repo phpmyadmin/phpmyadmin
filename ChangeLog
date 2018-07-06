@@ -10,6 +10,15 @@ phpMyAdmin - ChangeLog
 - issue #14296 Enable strict mode in PHP files
 
 4.8.3 (not yet released)
+- issue #14314 Error when naming a database '0'
+- issue #14333 Fix NULL as default not shown
+- issue #14229 Fixes issue with recent table list
+- issue #14045 Fix slow performance on DB structure filtering
+- issue #14327 Fix Editing server variable not showing save or cancel option
+- issue #14377 Populate options for view create and edit
+- issue #14171 2FA configuration fails if PHP doesn't have GD support
+- issue #14390 Can't unhide tables
+- issue #14382 "Visualize GIS data" icon missing
 
 4.8.2 (2018-06-21)
 - issue #14370 WHERE 0 causes Fatal error

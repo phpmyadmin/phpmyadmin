@@ -1724,6 +1724,15 @@ Generic settings
     Define whether phpMyAdmin will continue executing a multi-query
     statement if one of the queries fails. Default is to abort execution.
 
+.. config:option:: $cfg['enable_drag_drop_import']
+
+    :type: boolean
+    :default: true
+
+    Whether or not the drag and drop import feature is enabled.
+    When enabled, a user can drag a file in to their browser and phpMyAdmin will
+    attempt to import the file.
+
 Cookie authentication options
 -----------------------------
 

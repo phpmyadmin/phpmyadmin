@@ -73,7 +73,7 @@ class ServerDatabasesController extends Controller
 
         include_once 'libraries/replication.inc.php';
 
-        if (! empty($_POST['new_db'])
+        if (isset($_POST['new_db'])
             && $response->isAjax()
         ) {
             $this->createDatabaseAction();
@@ -108,7 +108,17 @@ class ServerDatabasesController extends Controller
             $this->_database_count = 0;
         }
 
+        $_url_params = [
+            'pos' => $this->_pos,
+            'dbstats' => $this->_dbstats,
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
+        ];
+
         if ($this->_database_count > 0 && ! empty($this->_databases)) {
+            $first_database = reset($this->_databases);
+            // table col order
+            $column_order = $this->_getColumnOrder();
             $databases = $this->_getHtmlForDatabases($replication_types);
         }
 
@@ -121,6 +131,18 @@ class ServerDatabasesController extends Controller
             'databases' => isset($databases) ? $databases : null,
             'dbi' => $this->dbi,
             'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
+            'database_count' => $this->_database_count,
+            'pos' => $this->_pos,
+            'url_params' => $_url_params,
+            'max_db_list' => $GLOBALS['cfg']['MaxDbList'],
+            'sort_by' => $this->_sort_by,
+            'sort_order' => $this->_sort_order,
+            'column_order' => $column_order,
+            'first_database' => $first_database,
+            'master_replication' => $GLOBALS['replication_info']['master']['status'],
+            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
+            'is_superuser' => $this->dbi->isSuperuser(),
+            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
         ]));
     }
 
@@ -270,14 +292,17 @@ class ServerDatabasesController extends Controller
         $first_database = reset($this->_databases);
         // table col order
         $column_order = $this->_getColumnOrder();
+        $dbColumnOrders = [];
 
         // calculate aggregate stats to display in footer
         foreach ($this->_databases as $current) {
+            $dbColumnOrders[$current['SCHEMA_NAME']] = $this->_getColumnOrder();
             foreach ($column_order as $stat_name => $stat) {
                 if (array_key_exists($stat_name, $current)
                     && is_numeric($stat['footer'])
                 ) {
                     $column_order[$stat_name]['footer'] += $current[$stat_name];
+                    $dbColumnOrders[$current['SCHEMA_NAME']][$stat_name]['footer'] = $current[$stat_name];
                 }
             }
         }
@@ -287,7 +312,7 @@ class ServerDatabasesController extends Controller
         foreach ($column_order as $stat_name => $stat) {
             if (array_key_exists($stat_name, $first_database)) {
                 if ($stat['format'] == 'byte') {
-                    $byte_format = Util_formatByteDown($stat['footer'], 3, 1);
+                    $byte_format = Util::formatByteDown($stat['footer'], 3, 1);
                     $values[$stat_name] = $byte_format[0];
                     $units[$stat_name] = $byte_format[1];
                 } elseif ($stat['format'] == 'number') {
@@ -305,22 +330,7 @@ class ServerDatabasesController extends Controller
             'sort_order' => $this->_sort_order,
         ];
 
-        $html = $this->template->render('server/databases/databases_header', [
-            'database_count' => $this->_database_count,
-            'pos' => $this->_pos,
-            'url_params' => $_url_params,
-            'max_db_list' => $GLOBALS['cfg']['MaxDbList'],
-            'sort_by' => $this->_sort_by,
-            'sort_order' => $this->_sort_order,
-            'column_order' => $column_order,
-            'first_database' => $first_database,
-            'master_replication' => $GLOBALS['replication_info']['master']['status'],
-            'slave_replication' => $GLOBALS['replication_info']['slave']['status'],
-            'is_superuser' => $this->dbi->isSuperuser(),
-            'allow_user_drop_database' => $GLOBALS['cfg']['AllowUserDropDatabase'],
-        ]);
-
-        $html .= $this->_getHtmlForTableBody($column_order, $replication_types);
+        $html = $this->_getHtmlForTableBody($dbColumnOrders, $replication_types);
 
         $html .= $this->template->render('server/databases/databases_footer', [
             'column_order' => $column_order,
@@ -391,12 +401,12 @@ class ServerDatabasesController extends Controller
     /**
      * Returns the html for Database List
      *
-     * @param array $column_order      column order
-     * @param array $replication_types replication types
+     * @param array $dbColumnOrders   databases column order
+     * @param array $replicationTypes replication types
      *
      * @return string
      */
-    private function _getHtmlForTableBody(array $column_order, array $replication_types)
+    private function _getHtmlForTableBody(array $dbColumnOrders, array $replicationTypes)
     {
         $html = '<tbody>' . "\n";
 
@@ -408,8 +418,8 @@ class ServerDatabasesController extends Controller
 
             $generated_html = $this->_buildHtmlForDb(
                 $current,
-                $column_order,
-                $replication_types,
+                $dbColumnOrders[$current['SCHEMA_NAME']],
+                $replicationTypes,
                 $GLOBALS['replication_info'],
                 $tr_class
             );
@@ -486,7 +496,7 @@ class ServerDatabasesController extends Controller
                     $values[$stat_name] = $byte_format[0];
                     $units[$stat_name] = $byte_format[1];
                 } elseif ($stat['format'] == 'number') {
-                    $values[$stat_name] = Util_formatNumber($stat['footer'], 0);
+                    $values[$stat_name] = Util::formatNumber($stat['footer'], 0);
                 } else {
                     $values[$stat_name] = htmlentities($stat['footer'], 0);
                 }

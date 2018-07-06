@@ -105,20 +105,9 @@ class ServerPluginsController extends Controller
                 mb_strtolower($plugin_type)
             );
         }
-        $html  = '<div id="plugins_plugins">';
-        $html .= $this->template->render('server/plugins/section_links', [
+        return $this->template->render('server/plugins/main', [
             'plugins' => $this->plugins,
             'plugins_type_clean' => $plugins_type_clean,
         ]);
-
-        foreach ($this->plugins as $plugin_type => $plugin_list) {
-            $html .= $this->template->render('server/plugins/section', [
-                'plugin_type' => $plugin_type,
-                'plugin_type_clean' => $plugins_type_clean[$plugin_type],
-                'plugin_list' => $plugin_list,
-            ]);
-        }
-        $html .= '</div>';
-        return $html;
     }
 }

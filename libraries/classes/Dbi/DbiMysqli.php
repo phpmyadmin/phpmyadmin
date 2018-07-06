@@ -202,6 +202,9 @@ class DbiMysqli implements DbiExtension
      */
     public function fetchArray($result)
     {
+        if (! $result instanceof \mysqli_result) {
+            return null;
+        }
         return $result->fetch_array(MYSQLI_BOTH);
     }
 
@@ -214,6 +217,9 @@ class DbiMysqli implements DbiExtension
      */
     public function fetchAssoc($result)
     {
+        if (! $result instanceof \mysqli_result) {
+            return null;
+        }
         return $result->fetch_array(MYSQLI_ASSOC);
     }
 
@@ -226,6 +232,9 @@ class DbiMysqli implements DbiExtension
      */
     public function fetchRow($result)
     {
+        if (! $result instanceof \mysqli_result) {
+            return null;
+        }
         return $result->fetch_array(MYSQLI_NUM);
     }
 
@@ -393,6 +402,9 @@ class DbiMysqli implements DbiExtension
      */
     public function getFieldsMeta($result)
     {
+        if (! $result instanceof \mysqli_result) {
+            return false;
+        }
         // Build an associative array for a type look up
         $typeAr = [];
         $typeAr[MYSQLI_TYPE_DECIMAL]     = 'real';
