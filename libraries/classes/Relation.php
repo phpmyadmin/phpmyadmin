@@ -1062,11 +1062,7 @@ class Relation
                     AND `column_name` = \'(db_comment)\'';
         }
 
-        if (isset($upd_query)) {
-            return $this->queryAsControlUser($upd_query);
-        }
-
-        return false;
+        return $this->queryAsControlUser($upd_query);
     }
 
     /**
