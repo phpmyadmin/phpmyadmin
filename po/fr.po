@@ -10084,7 +10084,7 @@ msgid ""
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
 "Affiche une représentation hexadécimale des données. Le premier paramètre "
-"est optionnel et spécifie à quel intervalle un espace sera ajouté (par "
+"est optionnel et spécifie à quel intervalle une espace sera ajouté (par "
 "défaut, à chaque 2 « nibbles »)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:30
