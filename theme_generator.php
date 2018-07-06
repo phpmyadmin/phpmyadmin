@@ -21,6 +21,7 @@ $theme = new ThemeGenerator();
 $response->addHTML($theme->colorPicker());
 $response->addHTML($theme->form());
 $response->addHTML($theme->tablePreview());
+$response->addHTML($theme->groupPreview());
 if (isset($_POST['Base_Colour'])) {
     $theme->createFileStructure($_POST);
 }

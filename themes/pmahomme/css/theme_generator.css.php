@@ -705,3 +705,21 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
     text-decoration: underline;
     color: #235a81;
 }
+
+#group_preview {
+    display: none;
+    position: relative;
+    left: 523px;
+    bottom: 700px;
+}
+
+#group_preview.group {
+    width: 294px;
+}
+
+#table_preview {
+    display: none;
+    position: relative;
+    left: 523px;
+    bottom: 718px;
+}

@@ -53,13 +53,24 @@ class ThemeGenerator
     }
 
     /**
-     * Preview panel for Navigation panel
+     * Preview panel for Table
      *
      * @return string HTML for the preview panels
      */
     public function tablePreview()
     {
         $output = $this->template->render('theme_generator/table_preview');
+        return $output;
+    }
+
+    /**
+     * Preview panel for Groups
+     *
+     * @return string HTML for the preview panels
+     */
+    public function groupPreview()
+    {
+        $output = $this->template->render('theme_generator/group_preview');
         return $output;
     }
 

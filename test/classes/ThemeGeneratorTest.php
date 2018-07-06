@@ -36,8 +36,8 @@ class ThemeGeneratorTest extends PmaTestCase
         $_POST['url'] = 'http://www.123test.com';
         $_POST['Navigation_Panel'] = '#ffffff';
         $_POST['Navigation_Hover'] = '#ffffff';
-        $_POST['Text_Color'] = '#ffffff';
-        $_POST['Background_Color'] = '#ffffff';
+        $_POST['Text_Colour'] = '#ffffff';
+        $_POST['Background_Colour'] = '#ffffff';
         $_POST['Header'] = '#ffffff';
         $_POST['Table_Header_and_Footer'] = '#ffffff';
         $_POST['Table_Header_and_Footer_Background'] = '#ffffff';
