@@ -26,7 +26,6 @@ export function onload1 () {
     });
     // Bind event handler for table header links
     $('#tableprocesslist').on('click', 'thead a', function () {
-        console.log($(this).attr('href'));
         processList.refreshUrl = $(this).attr('href');
     });
 }

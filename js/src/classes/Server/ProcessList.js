@@ -4,7 +4,7 @@ import { PMA_Messages as PMA_messages } from '../../variables/export_variables';
 import { PMA_commonParams } from '../../variables/common_params';
 import { PMA_getImage } from '../../functions/get_image';
 import { escapeHtml } from '../../utils/Sanitise';
-import { jQuery as $ } from '../../utils/extend_jquery';
+import { jQuery as $ } from '../../utils/JqueryExtended';
 // object to store process list state information
 class ProcessList {
     constructor () {

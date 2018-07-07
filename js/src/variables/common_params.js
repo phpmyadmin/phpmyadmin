@@ -30,7 +30,6 @@ export const PMA_commonParams = (function () {
                     if (i === 'db' || i === 'table') {
                         updateNavigation = true;
                     }
-                    // reload = true;
                 }
                 params[i] = obj[i];
             }
