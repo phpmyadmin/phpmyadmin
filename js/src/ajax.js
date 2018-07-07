@@ -363,7 +363,6 @@ export let AJAX = {
      * @return void
      */
     responseHandler: function (data) {
-        // console.log(data);
         if (typeof data === 'undefined' || data === null) {
             return;
         }

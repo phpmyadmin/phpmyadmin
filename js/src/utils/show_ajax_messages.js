@@ -8,7 +8,7 @@
  * Module imports
  */
 import { PMA_Messages as PMA_messages } from '../variables/export_variables';
-import { PMA_highlightSQL } from './sql';
+// import { PMA_highlightSQL } from './sql';
 
 /**
  * @var   int   ajax_message_count   Number of AJAX messages shown since page load

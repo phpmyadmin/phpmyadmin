@@ -37,8 +37,6 @@ class Scripts
      */
     private $_code;
 
-    private $_fileName;
-
     /**
      * Returns HTML code to include javascript file.
      *
