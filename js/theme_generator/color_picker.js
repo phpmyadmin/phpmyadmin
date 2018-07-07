@@ -1624,12 +1624,12 @@ var ColorPickerTool = (function ColorPickerTool () {
                     return;
                 }
                 if (max1 < contrast1 && max2 < contrast2 && i > 0) {
-                   max1 = contrast1;
-                   max2 = contrast2;
-                   maxBrightness = this.color.value;
-                   maxBrightness = this.color.saturation;
+                    max1 = contrast1;
+                    max2 = contrast2;
+                    maxBrightness = this.color.value;
+                    maxBrightness = this.color.saturation;
                 }
-                if (i % 2 == 1) {
+                if (i % 2 === 1) {
                     saturation += i * 10;
                 } else {
                     saturation = brightness;
@@ -1669,23 +1669,23 @@ var ColorPickerTool = (function ColorPickerTool () {
         };
 
         var paletteTextUpdate = function paletteTextUpdate (palette) {
-            if (document.getElementsByName("text_contrast")[0].checked) {
+            if (document.getElementsByName('text_contrast')[0].checked) {
                 for (var i = 0; i < pallete_size; i++) {
                     var title = palette.samples[i].node.title;
-                    if (title == "Group Background") {
+                    if (title === 'Group Background') {
                         var group = palette.samples[i].color;
-                    } if (title == "Background Colour") {
+                    } if (title === 'Background Colour') {
                         var background = palette.samples[i].color;
                     }
                 }
                 for (var i = 0; i < pallete_size; i++) {
                     var title = palette.samples[i].node.title;
-                    if (title == "Text Colour" || title == "Hyperlink Text") {
+                    if (title === 'Text Colour' || title === 'Hyperlink Text') {
                         palette.samples[i].improveContrastRatio(group , background);
                     }
                 }
             }
-        }
+        };
 
         var createTriadicPalette = function createTriadicPalette () {
             var palette = new Palette('Triadic', pallete_size);
@@ -1701,7 +1701,7 @@ var ColorPickerTool = (function ColorPickerTool () {
                 }
                 paletteTextUpdate (palette);
             });
-            var checkbox = document.getElementsByName("text_contrast")[0];
+            var checkbox = document.getElementsByName('text_contrast')[0];
             checkbox.addEventListener('click', function () {
                 paletteTextUpdate (palette);
             });
@@ -1723,7 +1723,7 @@ var ColorPickerTool = (function ColorPickerTool () {
                 }
                 paletteTextUpdate (palette);
             });
-            var checkbox = document.getElementsByName("text_contrast")[0];
+            var checkbox = document.getElementsByName('text_contrast')[0];
             checkbox.addEventListener('click', function () {
                 paletteTextUpdate (palette);
             });
@@ -1746,7 +1746,7 @@ var ColorPickerTool = (function ColorPickerTool () {
                 }
                 paletteTextUpdate (palette);
             });
-            var checkbox = document.getElementsByName("text_contrast")[0];
+            var checkbox = document.getElementsByName('text_contrast')[0];
             checkbox.addEventListener('click', function () {
                 paletteTextUpdate (palette);
             });
@@ -1778,7 +1778,7 @@ var ColorPickerTool = (function ColorPickerTool () {
                 }
                 paletteTextUpdate (palette);
             });
-            var checkbox = document.getElementsByName("text_contrast")[0];
+            var checkbox = document.getElementsByName('text_contrast')[0];
             checkbox.addEventListener('click', function () {
                 paletteTextUpdate (palette);
             });
@@ -1802,15 +1802,15 @@ var ColorPickerTool = (function ColorPickerTool () {
             }
         };
 
-        var luminance = function luminanace(r, g, b) {
+        var luminance = function luminanace (r, g, b) {
             var a = [r, g, b].map(function (v) {
                 v /= 255;
                 return v <= 0.03928
                     ? v / 12.92
-                    : Math.pow( (v + 0.055) / 1.055, 2.4 );
+                    : Math.pow((v + 0.055) / 1.055, 2.4);
             });
             return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
-        }
+        };
 
         var init = function init () {
             color_palette = getElemById('color-palette');
@@ -2030,16 +2030,16 @@ AJAX.registerOnload('theme_generator/color_picker.js', function () {
         }
     }
     ColorPickerTool.init();
-    document.getElementsByClassName("title")[0].onclick = function() {
-        document.getElementById("theme").options.selectedIndex = 0;
+    document.getElementsByClassName('title')[0].onclick = function () {
+        document.getElementById('theme').options.selectedIndex = 0;
     };
-    document.getElementsByClassName("title")[1].onclick = function() {
-        document.getElementById("theme").options.selectedIndex = 1;
+    document.getElementsByClassName('title')[1].onclick = function () {
+        document.getElementById('theme').options.selectedIndex = 1;
     };
-    document.getElementsByClassName("title")[2].onclick = function() {
-        document.getElementById("theme").options.selectedIndex = 2;
+    document.getElementsByClassName('title')[2].onclick = function () {
+        document.getElementById('theme').options.selectedIndex = 2;
     };
-    document.getElementsByClassName("title")[3].onclick = function() {
-        document.getElementById("theme").options.selectedIndex = 3;
+    document.getElementsByClassName('title')[3].onclick = function () {
+        document.getElementById('theme').options.selectedIndex = 3;
     };
 });
