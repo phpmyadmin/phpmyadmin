@@ -50,7 +50,6 @@ export function teardown1 () {
 }
 
 export function onload1 () {
-    d4ad4sa56d4;
     /**
      * Display a warning if there is already a user by the name entered as the username.
      */

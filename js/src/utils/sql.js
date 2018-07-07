@@ -111,7 +111,6 @@ export function codemirrorAutocompleteOnInputRead (instance) {
         && (!instance.options.hintOptions.tables || !sql_autocomplete)) {
         if (!sql_autocomplete) {
             // Reset after teardown
-            console.log('ea');
             instance.options.hintOptions.tables = false;
             instance.options.hintOptions.defaultTable = '';
 
@@ -219,7 +218,6 @@ export function PMA_getSQLEditor ($textarea, options, resize, lintOptions) {
         };
 
         if (CodeMirror.sqlLint) {
-            console.log('asd');
             $.extend(defaults, {
                 gutters: ['CodeMirror-lint-markers'],
                 lint: {
