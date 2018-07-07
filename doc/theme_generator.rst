@@ -20,6 +20,13 @@ Upon hovering the colour box it would display the element the colour corresponds
 On clicking :button:`Go` button the program would create the necessary theme files.
 Now you can choose the theme you created from the Theme drop-down on :page:`index.php` page.
 
+Automatic text colours for better visibility
+++++++++++++++++++++++++++++++++++++++++++++
+
+A checkbox can be found stating :stating:`Automatically set text colours for best visibility`.
+On using this option the text colour would be chosen for best visibility.
+You would not be able to change the text colours manually, when using this option.
+
 Preview panels
 ++++++++++++++
 
