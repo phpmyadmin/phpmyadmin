@@ -545,13 +545,6 @@ function validate_field_and_fieldset (field, isKeyUp) {
 }
 
 export function setupValidation () {
-    // debugger;
-    // console.log(defaultValues.DisplayServersList);
-    // validate = {};
-    // var configScriptLoaded = true;
-    // if (configScriptLoaded && typeof configInlineParams !== 'undefined') {
-    //     loadInlineConfig();
-    // }
     // register validators and mark custom values
     var $elements = $('.optbox input[id], .optbox select[id], .optbox textarea[id]');
     $elements.each(function () {

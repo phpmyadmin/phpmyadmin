@@ -5,14 +5,9 @@ import { isStorageSupported, updatePrefsDate, offerPrefsAutoimport,
     setFieldValue, setupConfigTabs, adjustPrefsNotification, setTab,
     setupValidation } from './functions/config';
 
-// import ConfigValidate from './classes/Config';
-// let configValidate = new ConfigValidate();
-// let config = new Config();
-// console.log(config);
 
 import { defaultValues } from './variables/get_config';
 
-// console.log(PMA_messages);
 /**
  * Functions used in configuration forms and on user preferences pages
  */
@@ -36,28 +31,9 @@ export function onload1 () {
     $topmenu_upt.find('li:not(.active) a').attr('rel', 'newpage');
 }
 
-// default values for fields
-// export var defaultValues = {};
-
 // ------------------------------------------------------------------
 // Form validation and field operations
 //
-
-// form validator assignments
-// export var validate = {};
-
-// var configInlineParams;
-// export function loadInlineConfig (params) {
-//     configInlineParams = params;
-//     if (!Array.isArray(params)) {
-//         return;
-//     }
-//     for (var i = 0; i < params.length; ++i) {
-//         if (typeof params[i] === 'function') {
-//             params[i]();
-//         }
-//     }
-// }
 
 export function onload2 () {
     setupValidation();
