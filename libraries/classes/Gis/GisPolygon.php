@@ -508,6 +508,10 @@ class GisPolygon extends GisGeometry
      */
     public static function getPointOnSurface(array $ring)
     {
+        $x0 = null;
+        $x1 = null;
+        $y0 = null;
+        $y1 = null;
         // Find two consecutive distinct points.
         for ($i = 0, $nb = count($ring) - 1; $i < $nb; $i++) {
             if ($ring[$i]['y'] != $ring[$i + 1]['y']) {
