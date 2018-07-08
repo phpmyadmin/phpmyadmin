@@ -208,6 +208,7 @@ class Header
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addFile('navigation');
+        $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
         $this->_scripts->addFile('page_settings.js');
