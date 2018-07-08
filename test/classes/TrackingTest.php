@@ -222,7 +222,7 @@ class TrackingTest extends TestCase
          * test selectables panel
          */
         $this->assertContains(
-            htmlspecialchars($fetchArray['db_name']).'.'.htmlspecialchars($fetchArray['table_name']),
+            htmlspecialchars($fetchArray['db_name']) . '.' . htmlspecialchars($fetchArray['table_name']),
             $html
         );
 
@@ -301,7 +301,6 @@ class TrackingTest extends TestCase
            'Activate now',
            $html
        );
-
 
         //restore DBI
         $GLOBALS['dbi'] = $dbi_old;

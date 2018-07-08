@@ -158,11 +158,11 @@ class Tracking
     /**
      * Function to get html for main page parts that do not use $_REQUEST
      *
-     * @param string $urlQuery     url query
-     * @param array  $urlParams    url parameters
+     * @param string $urlQuery      url query
+     * @param array  $urlParams     url parameters
      * @param string $pmaThemeImage path to theme's image folder
-     * @param string $textDir      text direction
-     * @param int    $lastVersion  last tracking version
+     * @param string $textDir       text direction
+     * @param int    $lastVersion   last tracking version
      *
      * @return string
      */
