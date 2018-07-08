@@ -24,7 +24,7 @@
     "js-cookie": "2.2.0",
     "sprintf-js": "^1.1.1",
     "tracekit": "0.4.5",
-    "updated-jqplot": "1.0.9",
+    "updated-jqplot": "1.0.9-2",
     "zxcvbn": "4.4.2"
   },
   "devDependencies": {
