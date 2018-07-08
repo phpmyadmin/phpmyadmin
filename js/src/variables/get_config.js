@@ -23,13 +23,11 @@ function validateField (id, type, onKeyUp, params) {
 }
 
 window.getConfigData = function () {
-    // debugger;
     for (var i = 0; i < arguments.length - 3; i++) {
         validateField(...arguments[i]);
     }
     $.extend(PMA_messages, arguments[arguments.length - 2]);
     $.extend(defaultValues, arguments[arguments.length - 1]);
-    // console.log(PMA_messages);
 };
 
 export { defaultValues, validate };
