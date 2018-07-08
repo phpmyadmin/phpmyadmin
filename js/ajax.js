@@ -753,9 +753,10 @@ var AJAX = {
              */
             var check = name.split('_');
             if (check[check.length - 1] === 'new.js') {
-                var script_src = '';
+                var script_src;
                 if (PMA_commonParams.get('environment') === 'development') {
-                    script_src += 'http://localhost:' + PMA_commonParams.get('webpack_port') + '/js/dist/';
+                    script_src = PMA_commonParams.get('webpack_host') + ':'
+                    + PMA_commonParams.get('webpack_port') + '/js/dist/';
                 } else if (PMA_commonParams.get('environment') === 'production') {
                     script_src = 'js/dist/';
                 }
