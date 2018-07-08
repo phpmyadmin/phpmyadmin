@@ -4,7 +4,7 @@
  * Module import
  */
 import { $ } from './utils/JqueryExtended';
-import 'tablesorter';
+import './plugins/jquery/jquery.tablesorter';
 import { PMA_Messages as messages } from './variables/export_variables';
 
 $(function () {

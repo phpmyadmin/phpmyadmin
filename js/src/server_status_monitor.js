@@ -5,13 +5,13 @@ import { $ } from './utils/extend_jquery';
 import 'updated-jqplot';
 import './plugins/jquery/jquery.sortableTable';
 
-import '../../node_modules/updated-jqplot/dist/plugins/jqplot.pieRenderer.js';
-import '../../node_modules/updated-jqplot/dist/plugins/jqplot.enhancedPieLegendRenderer.js';
-import '../../node_modules/updated-jqplot/dist/plugins/jqplot.canvasTextRenderer.js';
-import '../../node_modules/updated-jqplot/dist/plugins/jqplot.canvasAxisLabelRenderer.js';
-import '../../node_modules/updated-jqplot/dist/plugins/jqplot.dateAxisRenderer.js';
-import '../../node_modules/updated-jqplot/dist/plugins/jqplot.highlighter.js';
-import '../../node_modules/updated-jqplot/dist/plugins/jqplot.cursor.js';
+import 'updated-jqplot/dist/plugins/jqplot.pieRenderer.js';
+import 'updated-jqplot/dist/plugins/jqplot.enhancedPieLegendRenderer.js';
+import 'updated-jqplot/dist/plugins/jqplot.canvasTextRenderer.js';
+import 'updated-jqplot/dist/plugins/jqplot.canvasAxisLabelRenderer.js';
+import 'updated-jqplot/dist/plugins/jqplot.dateAxisRenderer.js';
+import 'updated-jqplot/dist/plugins/jqplot.highlighter.js';
+import 'updated-jqplot/dist/plugins/jqplot.cursor.js';
 import './plugins/jqplot/jqplot.byteFormatter';
 
 import { getOsDetail } from './functions/Server/ServerStatusMonitor';
@@ -2011,7 +2011,6 @@ export function onload3 () {
     /* Saves the monitor to localstorage */
     function saveMonitor () {
         var gridCopy = {};
-
         $.each(runtime.charts, function (key, elem) {
             gridCopy[key] = {};
             gridCopy[key].nodes = elem.nodes;

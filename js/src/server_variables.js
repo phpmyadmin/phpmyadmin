@@ -3,6 +3,7 @@
 /**
  * Module import
  */
+import { $ } from './utils/extend_jquery';
 import { editVariable } from './functions/Server/ServerVariables';
 
 /**
