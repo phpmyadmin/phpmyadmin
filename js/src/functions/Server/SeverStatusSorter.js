@@ -4,7 +4,7 @@
  * Module import
  */
 import { $ } from '../../utils/extend_jquery';
-import 'tablesorter';
+import '../../plugins/jquery/jquery.tablesorter';
 // TODO: tablesorter shouldn't sort already sorted columns
 /**
  * @access public

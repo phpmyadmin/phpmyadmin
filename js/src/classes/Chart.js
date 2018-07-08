@@ -1,9 +1,8 @@
 import { $ } from '../utils/extend_jquery';
 import 'updated-jqplot';
-import '../../../node_modules/updated-jqplot/dist/plugins/jqplot.pieRenderer';
-import '../../../node_modules/updated-jqplot/dist/plugins/jqplot.highlighter';
-import '../../../node_modules/updated-jqplot/dist/plugins/jqplot.enhancedPieLegendRenderer';
-window.test2 = $;
+import 'updated-jqplot/dist/plugins/jqplot.pieRenderer';
+import 'updated-jqplot/dist/plugins/jqplot.highlighter';
+import 'updated-jqplot/dist/plugins/jqplot.enhancedPieLegendRenderer';
 
 /**
  * Chart type enumerations

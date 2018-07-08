@@ -38,8 +38,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_status_variables');
-$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('server_status_sorter.js');
+$scripts->addFile('server_status_sorter');
 
 $response->addHTML('<div>');
 $response->addHTML($serverStatusData->getMenuHtml());
