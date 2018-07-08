@@ -7,7 +7,9 @@
   "license": "GPL-2.0",
   "scripts": {
     "dev:wds": "webpack-dev-server --progress",
-    "prod:build": "rimraf lib dist && babel js/es6/ -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress"
+    "prod:build": "del js/lib js/dist && babel js/src/ -d js/lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
+    "lint:check": "eslint js/src/*.js",
+    "lint:fix": "eslint js/src/*.js --fix"
   },
   "dependencies": {
     "codemirror": "5.37.0",
@@ -24,12 +26,12 @@
     "zxcvbn": "4.4.2"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "babel-cli": "6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.1.5",
+    "del-cli": "^1.1.0",
     "eslint": "^4.9.0",
-    "rimraf": "^2.6.2",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3",
     "webpack-dev-server": "^3.1.4"

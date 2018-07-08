@@ -31,9 +31,9 @@ export default [{
         db_search_new: './js/src/db_search.js'
     },
     output: {
-        filename: 'js/sql.js',
+        filename: 'db_search_new.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'http://localhost:3007/dist'
+        publicPath: 'http://localhost:3307/js/dist'
     },
     module: module,
     // devtool: 'source-map',

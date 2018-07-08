@@ -236,6 +236,7 @@ class Header
 
         $params = [
             'environment' => $GLOBALS['cfg']['environment'],
+            'webpack_host' => $GLOBALS['cfg']['webpack_host'],
             'webpack_port' => $GLOBALS['cfg']['webpack_port'],
             'common_query' => Url::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(

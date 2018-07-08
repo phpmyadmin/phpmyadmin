@@ -110,6 +110,23 @@ $cfg['AllowThirdPartyFraming'] = false;
  */
 $cfg['blowfish_secret'] = '';
 
+/**
+ * Working environment configuration
+ * for development mode $cfg['environment'] = 'development',
+ * for making production build $cfg['environment'] = 'production'
+ *
+ */
+$cfg['environment'] = 'production';
+
+/**
+ * Webppack host for running development server of webpack
+ */
+$cfg['webpack_host'] = 'http://localhost';
+
+/**
+ * Webppack port number for running development server of webpack
+ */
+$cfg['webpack_port'] = 3307;
 
 /*******************************************************************************
  * Server(s) configuration
@@ -3014,8 +3031,12 @@ $cfg['LinkLengthLimit'] = 1000;
 
 /**
  * Additional string to allow in CSP headers.
+ *
+ * For working envionment to be development, this has to be changed to allow
+ * cross-origin loading of js files for specified webpack host and webpack port.
+ * Eg. 'http://localhost:3307 ws://localhost:3307' for locahost and 3307 webpack pot
  */
- $cfg['CSPAllow'] = '';
+$cfg['CSPAllow'] = '';
 
 /**
  * Disable the table maintenance mass operations, like optimizing or

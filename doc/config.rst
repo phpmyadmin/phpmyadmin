@@ -3409,13 +3409,21 @@ Developer
 
     Enable you to set the working environment for loading js files
 
+.. config:option:: $cfg['webpack_host']
+
+    :type: string
+    :default: `'http://localhost'`
+
+    Enable you to start webpack development server on specified host for serving js files
+    when working in the development environment
+
 .. config:option:: $cfg['webpack_port']
 
-    :type: integer
+    :type: number
     :default: 3307
 
-    Enable you to start webpack development server for serving js files
-    when woking in the development environment
+    Enable you to start webpack development server on specified port for serving js files
+    when working in the development environment
 
 .. config:option:: $cfg['DBG']
 

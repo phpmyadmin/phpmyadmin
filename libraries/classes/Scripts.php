@@ -59,10 +59,9 @@ class Scripts
                  * DOM so that both new and old files can be used simultaneously
                  * It checks whether the file contains new in its name or not
                  */
+                $src = "";
                 if ($GLOBALS['cfg']['environment'] === 'development') {
-                    $src = "http://localhost:" . $GLOBALS['cfg']['webpack_port'] . "/";
-                } else if ($GLOBALS['cfg']['environment'] === 'production'){
-                    $src = "";
+                    $src = $GLOBALS['cfg']['webpack_host'] . ":" . $GLOBALS['cfg']['webpack_port'] . "/";
                 }
                 $result .= '<script data-cfasync="false" type="text/javascript" src="' . $src . 'js/dist/'
                     .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
