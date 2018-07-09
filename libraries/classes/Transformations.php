@@ -69,6 +69,7 @@ class Transformations
             } elseif (isset($trimmed[0]) && $trimmed[0] == "'") {
                 // '...,
                 $trimmed = ltrim($option);
+                $rtrimmed = null;
                 while (($option = array_shift($transform_options)) !== null) {
                     // ...,
                     $trimmed .= ',' . $option;
