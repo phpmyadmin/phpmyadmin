@@ -75,8 +75,8 @@ class OperationsTest extends TestCase
     public function testGetHtmlForRenameDatabase()
     {
 
-        $_REQUEST['db_collation'] = 'db1';
-        $html = $this->operations->getHtmlForRenameDatabase("pma");
+        $db_collation = 'db1';
+        $html = $this->operations->getHtmlForRenameDatabase("pma", $db_collation);
         $this->assertContains('db_operations.php', $html);
         $this->assertRegExp(
             '/.*db_rename.*Rename database to.*/',
@@ -105,8 +105,8 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForCopyDatabase()
     {
-        $_REQUEST['db_collation'] = 'db1';
-        $html = $this->operations->getHtmlForCopyDatabase("pma");
+        $db_collation = 'db1';
+        $html = $this->operations->getHtmlForCopyDatabase("pma", $db_collation);
         $this->assertRegExp('/.*db_operations.php.*/', $html);
         $this->assertRegExp('/.*db_copy.*/', $html);
         $this->assertRegExp('/.*Copy database to.*/', $html);
@@ -120,8 +120,8 @@ class OperationsTest extends TestCase
     public function testGetHtmlForChangeDatabaseCharset()
     {
 
-        $_REQUEST['db_collation'] = 'db1';
-        $result = $this->operations->getHtmlForChangeDatabaseCharset("pma", "bookmark");
+        $db_collation = 'db1';
+        $result = $this->operations->getHtmlForChangeDatabaseCharset("pma", $db_collation);
         $this->assertRegExp(
             '/.*select_db_collation.*Collation.*/m', $result
         );
