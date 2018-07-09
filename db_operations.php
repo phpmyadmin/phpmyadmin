@@ -46,31 +46,31 @@ $operations = new Operations();
  * Rename/move or copy database
  */
 if (strlen($GLOBALS['db']) > 0
-    && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_copy']))
+    && (! empty($_POST['db_rename']) || ! empty($_POST['db_copy']))
 ) {
-    if (! empty($_REQUEST['db_rename'])) {
+    if (! empty($_POST['db_rename'])) {
         $move = true;
     } else {
         $move = false;
     }
 
-    if (! isset($_REQUEST['newname']) || strlen($_REQUEST['newname']) === 0) {
+    if (! isset($_POST['newname']) || strlen($_POST['newname']) === 0) {
         $message = Message::error(__('The database name is empty!'));
     } else {
         // lower_case_table_names=1 `DB` becomes `db`
         if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
-            $_REQUEST['newname'] = mb_strtolower(
-                $_REQUEST['newname']
+            $_POST['newname'] = mb_strtolower(
+                $_POST['newname']
             );
         }
 
-        if ($_REQUEST['newname'] === $_REQUEST['db']) {
+        if ($_POST['newname'] === $_REQUEST['db']) {
             $message = Message::error(
                 __('Cannot copy database to the same name. Change the name and try again.')
             );
         } else {
             $_error = false;
-            if ($move || ! empty($_REQUEST['create_database_before_copying'])) {
+            if ($move || ! empty($_POST['create_database_before_copying'])) {
                 $operations->createDbBeforeCopy();
             }
 
@@ -135,10 +135,10 @@ if (strlen($GLOBALS['db']) > 0
             $operations->duplicateBookmarks($_error, $GLOBALS['db']);
 
             if (! $_error && $move) {
-                if (isset($_REQUEST['adjust_privileges'])
-                    && ! empty($_REQUEST['adjust_privileges'])
+                if (isset($_POST['adjust_privileges'])
+                    && ! empty($_POST['adjust_privileges'])
                 ) {
-                    $operations->adjustPrivilegesMoveDb($GLOBALS['db'], $_REQUEST['newname']);
+                    $operations->adjustPrivilegesMoveDb($GLOBALS['db'], $_POST['newname']);
                 }
 
                 /**
@@ -156,19 +156,19 @@ if (strlen($GLOBALS['db']) > 0
                     __('Database %1$s has been renamed to %2$s.')
                 );
                 $message->addParam($GLOBALS['db']);
-                $message->addParam($_REQUEST['newname']);
+                $message->addParam($_POST['newname']);
             } elseif (! $_error) {
-                if (isset($_REQUEST['adjust_privileges'])
-                    && ! empty($_REQUEST['adjust_privileges'])
+                if (isset($_POST['adjust_privileges'])
+                    && ! empty($_POST['adjust_privileges'])
                 ) {
-                    $operations->adjustPrivilegesCopyDb($GLOBALS['db'], $_REQUEST['newname']);
+                    $operations->adjustPrivilegesCopyDb($GLOBALS['db'], $_POST['newname']);
                 }
 
                 $message = Message::success(
                     __('Database %1$s has been copied to %2$s.')
                 );
                 $message->addParam($GLOBALS['db']);
-                $message->addParam($_REQUEST['newname']);
+                $message->addParam($_POST['newname']);
             } else {
                 $message = Message::error();
             }
@@ -176,13 +176,13 @@ if (strlen($GLOBALS['db']) > 0
 
             /* Change database to be used */
             if (! $_error && $move) {
-                $GLOBALS['db'] = $_REQUEST['newname'];
+                $GLOBALS['db'] = $_POST['newname'];
             } elseif (! $_error) {
-                if (isset($_REQUEST['switch_to_new'])
-                    && $_REQUEST['switch_to_new'] == 'true'
+                if (isset($_POST['switch_to_new'])
+                    && $_POST['switch_to_new'] == 'true'
                 ) {
                     $_SESSION['pma_switch_to_new'] = true;
-                    $GLOBALS['db'] = $_REQUEST['newname'];
+                    $GLOBALS['db'] = $_POST['newname'];
                 } else {
                     $_SESSION['pma_switch_to_new'] = false;
                 }
@@ -197,7 +197,7 @@ if (strlen($GLOBALS['db']) > 0
     if ($response->isAjax()) {
         $response->setRequestStatus($message->isSuccess());
         $response->addJSON('message', $message);
-        $response->addJSON('newname', $_REQUEST['newname']);
+        $response->addJSON('newname', $_POST['newname']);
         $response->addJSON(
             'sql_query',
             Util::getMessage(null, $sql_query)
@@ -218,8 +218,8 @@ $cfgRelation = $relation->getRelationsParam();
  * Check if comments were updated
  * (must be done before displaying the menu tabs)
  */
-if (isset($_REQUEST['comment'])) {
-    $relation->setDbComment($GLOBALS['db'], $_REQUEST['comment']);
+if (isset($_POST['comment'])) {
+    $relation->setDbComment($GLOBALS['db'], $_POST['comment']);
 }
 
 require 'libraries/db_common.inc.php';
@@ -247,7 +247,7 @@ if (isset($message)) {
     unset($message);
 }
 
-$_REQUEST['db_collation'] = $GLOBALS['dbi']->getDbCollation($GLOBALS['db']);
+$db_collation = $GLOBALS['dbi']->getDbCollation($GLOBALS['db']);
 $is_information_schema = $GLOBALS['dbi']->isSystemSchema($GLOBALS['db']);
 
 if (!$is_information_schema) {
@@ -266,7 +266,7 @@ if (!$is_information_schema) {
      * rename database
      */
     if ($GLOBALS['db'] != 'mysql') {
-        $response->addHTML($operations->getHtmlForRenameDatabase($GLOBALS['db']));
+        $response->addHTML($operations->getHtmlForRenameDatabase($GLOBALS['db']), $db_collation);
     }
 
     // Drop link if allowed
@@ -287,7 +287,7 @@ if (!$is_information_schema) {
     /**
      * Change database charset
      */
-    $response->addHTML($operations->getHtmlForChangeDatabaseCharset($GLOBALS['db'], $table));
+    $response->addHTML($operations->getHtmlForChangeDatabaseCharset($GLOBALS['db'], $db_collation));
 
     if (! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false
