@@ -2401,7 +2401,7 @@ class InsertEdit
             $foreigner['foreign_table']
         );
         // Field to display from the foreign table?
-        if (isset($display_field) && strlen($display_field) > 0) {
+        if (! is_null($display_field) && strlen($display_field) > 0) {
             $dispsql = 'SELECT ' . Util::backquote($display_field)
                 . ' FROM ' . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])

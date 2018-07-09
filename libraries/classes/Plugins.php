@@ -320,7 +320,7 @@ class Plugins
                     // each subgroup can have a header, which may also be a form element
                     /** @var OptionsPropertyItem $subgroup_header */
                     $subgroup_header = $propertyItem->getSubgroupHeader();
-                    if (isset($subgroup_header)) {
+                    if (! is_null($subgroup_header)) {
                         $ret .= self::getOneOption(
                             $section,
                             $plugin_name,
@@ -329,7 +329,7 @@ class Plugins
                     }
 
                     $ret .= '<li class="subgroup"><ul';
-                    if (isset($subgroup_header)) {
+                    if (! is_null($subgroup_header)) {
                         $ret .= ' id="ul_' . $subgroup_header->getName() . '">';
                     } else {
                         $ret .= '>';

@@ -137,7 +137,10 @@ class Normalization
         $mimeMap = [];
         if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
             $mimeMap = $this->transformations->getMime($db, $table);
-            $availableMime = $this->transformations->getAvailableMimeTypes();
+            $availableMimeTypes = $this->transformations->getAvailableMimeTypes();
+            if (! is_null($availableMimeTypes)) {
+                $availableMime = $availableMimeTypes;
+            }
         }
         $commentsMap = $this->relation->getComments($db, $table);
         for ($columnNumber = 0; $columnNumber < $numFields; $columnNumber++) {
@@ -154,7 +157,7 @@ class Normalization
                 'is_backup' => true,
                 'move_columns' => [],
                 'cfg_relation' => $cfgRelation,
-                'available_mime' => isset($availableMime) ? $availableMime : [],
+                'available_mime' => $availableMime,
                 'mime_map' => $mimeMap
             ];
         }

@@ -4271,7 +4271,7 @@ class Privileges
         if (empty($_REQUEST['change_copy'])) {
             $_error = false;
 
-            if (isset($create_user_real)) {
+            if (! is_null($create_user_real)) {
                 if (!$GLOBALS['dbi']->tryQuery($create_user_real)) {
                     $_error = true;
                 }
