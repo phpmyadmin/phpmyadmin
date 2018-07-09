@@ -702,7 +702,7 @@ EOT;
      * Function to check whether this query is for just browsing
      *
      * @param array        $analyzed_sql_results the analyzed query and other variables set
-     *                                      after analyzing the query
+     *                                           after analyzing the query
      * @param boolean|null $find_real_end        whether the real end should be found
      *
      * @return boolean
@@ -1644,7 +1644,7 @@ EOT;
      * @param Message|null $missing_unique_column_msg  message for the missing unique column
      * @param Message|null $bookmark_created_msg       message for bookmark creation
      * @param string       $table_html                 html for the table for displaying sql
-     *                                            results
+     *                                                 results
      * @param string|null  $indexes_problems_html      html for displaying errors in indexes
      * @param string|null  $bookmark_support_html      html for displaying bookmark form
      *
@@ -1912,9 +1912,9 @@ EOT;
      *
      * @param string|null $query_type     query type
      * @param array|null  $selectedTables array of table names selected from the
-     *                                   database structure page, for an action
-     *                                   like check table, optimize table,
-     *                                   analyze table or repair table
+     *                                    database structure page, for an action
+     *                                    like check table, optimize table,
+     *                                    analyze table or repair table
      * @param string      $db             current database
      *
      * @return string

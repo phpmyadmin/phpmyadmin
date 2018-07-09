@@ -83,7 +83,7 @@ class Navigation
             }
             $retval .= '</div>'; //pma_navi_settings_container
             $retval .= '</div>'; // pma_navigation_content
-            if($GLOBALS['cfg']['enable_drag_drop_import'] === true) { //load drag drop handler only if configuration setting is set to true
+            if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) { //load drag drop handler only if configuration setting is set to true
                 $retval .= $this->_getDropHandler();
             }
             $retval .= '</div>'; // pma_navigation

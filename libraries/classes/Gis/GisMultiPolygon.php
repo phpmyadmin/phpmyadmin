@@ -165,11 +165,11 @@ class GisMultiPolygon extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial         GIS MULTIPOLYGON object
+     * @param string      $spatial    GIS MULTIPOLYGON object
      * @param string|null $label      Label for the GIS MULTIPOLYGON object
-     * @param string      $fill_color      Color for the GIS MULTIPOLYGON object
-     * @param array       $scale_data      Array containing data related to scaling
-     * @param TCPDF       $pdf             TCPDF instance
+     * @param string      $fill_color Color for the GIS MULTIPOLYGON object
+     * @param array       $scale_data Array containing data related to scaling
+     * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      * @access public

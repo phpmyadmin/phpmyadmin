@@ -151,11 +151,11 @@ class GisMultiLineString extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string      $spatial         GIS MULTILINESTRING object
-     * @param string|null $label           Label for the GIS MULTILINESTRING object
-     * @param string      $line_color      Color for the GIS MULTILINESTRING object
-     * @param array       $scale_data      Array containing data related to scaling
-     * @param TCPDF       $pdf             TCPDF instance
+     * @param string      $spatial    GIS MULTILINESTRING object
+     * @param string|null $label      Label for the GIS MULTILINESTRING object
+     * @param string      $line_color Color for the GIS MULTILINESTRING object
+     * @param array       $scale_data Array containing data related to scaling
+     * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      * @access public

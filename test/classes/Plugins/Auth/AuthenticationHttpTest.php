@@ -58,10 +58,10 @@ class AuthenticationHttpTest extends PmaTestCase
     }
 
     /**
-     * @param mixed     $set_minimal set minimal
-     * @param mixed     $body_id     body id
-     * @param mixed     $set_title   set title
-     * @param mixed ... $headers     headers
+     * @param mixed       $set_minimal set minimal
+     * @param mixed       $body_id     body id
+     * @param mixed       $set_title   set title
+     * @param mixed[] ... $headers     headers
      *
      * @return void
      */
