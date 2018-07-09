@@ -4191,11 +4191,11 @@ class Privileges
     /**
      * update Data for information: Adds a user
      *
-     * @param string $dbname      db name
-     * @param string $username    user name
-     * @param string $hostname    host name
-     * @param string $password    password
-     * @param bool   $is_menuwork is_menuwork set?
+     * @param string      $dbname      db name
+     * @param string      $username    user name
+     * @param string      $hostname    host name
+     * @param string|null $password    password
+     * @param bool        $is_menuwork is_menuwork set?
      *
      * @return array
      */
@@ -4203,7 +4203,7 @@ class Privileges
         $dbname,
         $username,
         $hostname,
-        $password,
+        ?string $password,
         $is_menuwork
     ) {
         $_add_user_error = false;
