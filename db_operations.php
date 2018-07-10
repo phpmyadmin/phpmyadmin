@@ -266,7 +266,7 @@ if (!$is_information_schema) {
      * rename database
      */
     if ($GLOBALS['db'] != 'mysql') {
-        $response->addHTML($operations->getHtmlForRenameDatabase($GLOBALS['db']), $db_collation);
+        $response->addHTML($operations->getHtmlForRenameDatabase($GLOBALS['db'], $db_collation));
     }
 
     // Drop link if allowed
@@ -282,7 +282,7 @@ if (!$is_information_schema) {
     /**
      * Copy database
      */
-    $response->addHTML($operations->getHtmlForCopyDatabase($GLOBALS['db']));
+    $response->addHTML($operations->getHtmlForCopyDatabase($GLOBALS['db'], $db_collation));
 
     /**
      * Change database charset
