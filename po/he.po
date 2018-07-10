@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-07 03:27-0300\n"
-"PO-Revision-Date: 2018-06-15 13:38+0000\n"
+"PO-Revision-Date: 2018-07-10 23:23+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -9757,7 +9757,7 @@ msgstr "שינויי צורה זמינים"
 
 #: libraries/classes/Relation.php:210
 msgid "Please see the documentation on how to update your column_info table."
-msgstr ""
+msgstr "נא לעיין בתיעוד על אופן עדכון טבלת ה־column_info שלך."
 
 #: libraries/classes/Relation.php:226 libraries/classes/SqlQueryForm.php:397
 msgid "Bookmarked SQL query"
@@ -9783,17 +9783,15 @@ msgstr ""
 
 #: libraries/classes/Relation.php:292
 msgid "User preferences"
-msgstr ""
+msgstr "העדפות משתמש"
 
 #: libraries/classes/Relation.php:309
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configurable menus"
-msgstr "שינויים נשמרו"
+msgstr "תפריטים שניתן להגדיר"
 
 #: libraries/classes/Relation.php:320
 msgid "Hide/show navigation items"
-msgstr ""
+msgstr "הסתרה/הצגה של פריטי ניווט"
 
 #: libraries/classes/Relation.php:331
 msgid "Saving Query-By-Example searches"
@@ -9801,7 +9799,7 @@ msgstr ""
 
 #: libraries/classes/Relation.php:342
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "ניהול רשימה מרכזית של עמודות"
 
 #: libraries/classes/Relation.php:353
 #, fuzzy
@@ -9817,16 +9815,16 @@ msgstr "סוג הייצוא שגוי"
 
 #: libraries/classes/Relation.php:372
 msgid "Quick steps to set up advanced features:"
-msgstr ""
+msgstr "צעדים מהירים להגדרת תכונות מתקדמות:"
 
 #: libraries/classes/Relation.php:378
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
+msgstr "יצירת הטבלאות הנחוצות עם <code>%screate_tables.sql</code>."
 
 #: libraries/classes/Relation.php:383
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "יצירת משתמש pma והענקת גישה לטבלאות האלה."
 
 #: libraries/classes/Relation.php:386
 msgid ""
@@ -9836,7 +9834,7 @@ msgstr ""
 
 #: libraries/classes/Relation.php:391
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr ""
+msgstr "כניסה מחדש ל־phpMyAdmin כדי לטעון את קובץ התצורה המעודכן."
 
 #: libraries/classes/Relation.php:1723
 msgid "no description"
@@ -9854,13 +9852,13 @@ msgstr ""
 msgid ""
 "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
 "configuration storage there."
-msgstr ""
+msgstr "%sיצירת%s מסד נתונים בשם ‚phpmyadmin’ והגדרת האחסון של phpMyAdmin שם."
 
 #: libraries/classes/Relation.php:2037
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr ""
+msgstr "%sיצירת%s אחסון התצורה של phpMyAdmin במסד הנתונים הנוכחי."
 
 #: libraries/classes/Relation.php:2045
 #, php-format
@@ -10353,32 +10351,30 @@ msgstr ""
 
 #: libraries/classes/Rte/Events.php:670
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "עליך לציין הגדרת אירוע."
 
 #: libraries/classes/Rte/Export.php:69 libraries/classes/Rte/General.php:89
 #: libraries/classes/Rte/Routines.php:217
 #: libraries/classes/Rte/Routines.php:1373
 #: libraries/classes/Rte/Routines.php:1583
-#, fuzzy
-#| msgid "Processes"
 msgid "Error in processing request:"
-msgstr "תהליכים"
+msgstr "שגיאה בעיבוד הבקשה:"
 
 #: libraries/classes/Rte/Footer.php:117
 msgid "OFF"
-msgstr ""
+msgstr "כבוי"
 
 #: libraries/classes/Rte/Footer.php:122
 msgid "ON"
-msgstr ""
+msgstr "פעיל"
 
 #: libraries/classes/Rte/Footer.php:134
 msgid "Event scheduler status"
-msgstr ""
+msgstr "מצב מתזמן אירועים"
 
 #: libraries/classes/Rte/General.php:48
 msgid "The backed up query was:"
-msgstr ""
+msgstr "השאילתה שגובתה היא:"
 
 #: libraries/classes/Rte/Routines.php:137
 msgid ""
