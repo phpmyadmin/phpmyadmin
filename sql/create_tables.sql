@@ -287,6 +287,28 @@ CREATE TABLE IF NOT EXISTS `pma__navigationhiding` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pma__check_constraints`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__check_constraints` (
+  `const_name` varchar(64) NOT NULL,
+  `table_name` varchar(64) NOT NULL,
+  `db_name` varchar(64) NOT NULL,
+  `columns` varchar(256) NOT NULL,
+  `logical_op` varchar(256) NOT NULL,
+  `criteria_op` varchar(256) NOT NULL,
+  `criteria_rhs` varchar(256) NOT NULL,
+  `rhs_text_val` varchar(256) NOT NULL,
+  `tableNameSelect` varchar(256) NOT NULL,
+  `columnNameSelect` varchar(256) NOT NULL,
+  PRIMARY KEY (`const_name`,`db_name`,`table_name`)
+)
+  COMMENT='Check constraints defined on a table'
+  DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pma__savedsearches`
 --
 

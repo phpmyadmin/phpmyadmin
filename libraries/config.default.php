@@ -506,6 +506,14 @@ $cfg['Servers'][$i]['designer_settings'] = '';
 $cfg['Servers'][$i]['export_templates'] = '';
 
 /**
+ * table to store user check constraints
+ *     SUGGESTED: 'pma__check_constraints'
+ *
+ * @global string $cfg['Servers'][$i]['check_constraints']
+ */
+$cfg['Servers'][$i]['check_constraints'] = 'pma__check_constraints';
+
+/**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.
  *
  * In case where tables in databases is modified (e.g. dropped or renamed),

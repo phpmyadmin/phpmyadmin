@@ -1268,9 +1268,9 @@ class DatabaseInterface
             $columns[$column_name]['NUMERIC_SCALE'] = null;
             $columns[$column_name]['CHARACTER_SET_NAME']
                 = substr(
-                    $columns[$column_name]['COLLATION_NAME'],
+                    (string) $columns[$column_name]['COLLATION_NAME'],
                     0,
-                    strpos($columns[$column_name]['COLLATION_NAME'], '_')
+                    (int)strpos((string) $columns[$column_name]['COLLATION_NAME'], '_')
                 );
 
             $ordinal_position++;

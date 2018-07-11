@@ -513,6 +513,7 @@ class Relation
             'centralcolumnswork' => 'central_columns',
             'designersettingswork' => 'designer_settings',
             'exporttemplateswork' => 'export_templates',
+            'checkconstraintwork' => 'check_constraints'
         ];
 
         foreach ($workToTable as $work => $table) {
@@ -599,6 +600,8 @@ class Relation
                 $cfgRelation['designer_settings'] = $curr_table[0];
             } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['export_templates']) {
                 $cfgRelation['export_templates']    = $curr_table[0];
+            } elseif ($curr_table[0] == $GLOBALS['cfg']['Server']['check_constraints']) {
+                $cfgRelation['check_constraints']    = $curr_table[0];
             }
         } // end while
         $this->dbi->freeResult($tab_rs);
@@ -672,6 +675,10 @@ class Relation
 
         if (isset($cfgRelation['export_templates'])) {
             $cfgRelation['exporttemplateswork']      = true;
+        }
+
+        if (isset($cfgRelation['check_constraints'])) {
+            $cfgRelation['checkconstraintswork']      = true;
         }
 
         $allWorks = true;

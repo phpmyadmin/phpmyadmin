@@ -1,0 +1,158 @@
+{% if create_constraint is not null or edit_constraint is not null %}
+<form action="tbl_constraints.php"
+    method="post"
+    name="constraint_frm"
+    id="constraint_frm"
+    class="ajax">
+{% endif %}
+
+    {{ Url_getHiddenInputs(form_params) }}
+
+    <div id="div_CC">
+    {% if edit_constraint is not null %}
+        <div id="hidden_fields_old">
+            <input type="hidden" id="constName" name="old_const" value="{{ constraint.const_name }}">
+            <input type="hidden" id="constcolumns" value="{{ constraint.columns }}">
+            <input type="hidden" id="constLogicalOps" value="{{ constraint.logical_op }}">
+            <input type="hidden" id="constCriteriaOps" value="{{ constraint.criteria_op }}">
+            <input type="hidden" id="constCriteriaRhs" value="{{ constraint.criteria_rhs }}">
+            <input type="hidden" id="constCriteriaVal" value="{{ constraint.rhs_text_val }}">
+            <input type="hidden" id="constTblName" value="{{ constraint.tableNameSelect }}">
+            <input type="hidden" id="constColName" value="{{ constraint.columnNameSelect }}">
+        </div>
+    {% endif %}
+    <table><tbody><tr><th>Check Constraints</th></tr></tbody></table>
+    {% if create_constraint is null and edit_constraint is null %}
+    <input type="checkbox" name="add_check_constraint" id="add_check_constraint"><label for="add_check_constraint">Add check constraint</label><br>
+    {% endif %}
+    <input type="hidden" name="const[db_name]" value="{{ db }}">
+    <input type="hidden" name="db" value="{{ db }}">
+    {% if table is not null %}
+        <input type="hidden" name="const[table_name]" value="{{ table }}">
+        <input type="hidden" name="table" value="{{ table }}">
+    {% endif %}
+    {% if create_constraint is not null %}
+        <input type="hidden" name="create_constraint_submit" value="1">
+    {% endif %}
+    {% if edit_constraint is not null %}
+        <input type="hidden" name="edit_constraint_submit" value="1">
+    {% endif %}
+    <input type="text" id="const_name" name="const[const_name]" placeholder="Constraint Name"/>
+    <fieldset>
+        {% for table in tables %}
+            <div style="display:none" id="{{ table.hash }}">
+                {% for column in table.columns %}
+                    <option value="{{ column }}">{{ column }}</option>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+
+        {% for id in 0..default_no_of_columns %}
+            {% if id == 0 %}<div style="display:none" id="new_column_layout">{% endif %}
+            <fieldset style="display:inline" class="column_details">
+                <input type="text" name="const[columns][{{ id }}]" class="columnName{% if id == 0 %} changeName {% endif %}" placeholder="Column name"/>
+                <div>
+                    <table>
+                        {% if id != 1 %}
+                        <tr class="logical_operator" style="background:none;">
+                            <td>{% trans 'Add as' %}</td>
+                            <td>
+                                <input type="radio"
+                                    name="const[logical_op][{{ id }}]"
+                                    value="AND"
+                                    class="logical_op{% if id == 0 %} changeName {% endif %}"
+                                    checked="checked">
+                                AND
+                            </td>
+                            <td>
+                                <input type="radio"
+                                    name="const[logical_op][{{ id }}]"
+                                    value="OR"
+                                    class="logical_op{% if id == 0 %} changeName {% endif %}">
+                                OR
+                            </td>
+                        </tr>
+                        {% endif %}
+                        <tr style="background:none">
+                            <td>Op </td>
+                            <td>
+                                <select name="const[criteria_op][{{ id }}]" class="criteria_op{% if id == 0 %} changeName {% endif %}">
+                                    <option value="=">=</option>
+                                    <option value=">">&gt;</option>
+                                    <option value=">=">&gt;=</option>
+                                    <option value="<">&lt;</option>
+                                    <option value="<=">&lt;=</option>
+                                    <option value="!=">!=</option>
+                                    <option value="LIKE">LIKE</option>
+                                    <option value="NOT LIKE">NOT LIKE</option>
+                                    <option value="BETWEEN">BETWEEN</option>
+                                    <option value="NOT BETWEEN">NOT BETWEEN</option>
+                                    <option value="IS NULL">IS NULL</option>
+                                    <option value="IS NOT NULL">IS NOT NULL</option>
+                                    <option value="REGEXP">REGEXP</option>
+                                    <option value="NOT REGEXP">NOT REGEXP</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="const[criteria_rhs][{{ id }}]" class="criteria_rhs{% if id == 0 %} changeName {% endif %}">
+                                    <option value="text">{% trans 'Text' %}</option>
+                                    <option value="anotherColumn">{% trans 'Another column' %}</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr class="rhs_table" style="display:none;background:none">
+                            <td></td>
+                            <td>
+                                <select name="const[tableNameSelect][{{ id }}]" class="tableNameSelect{% if id == 0 %} changeName {% endif %}">
+                                    <option value="">{% trans 'select table' %}</option>
+                                    {% for table in tables|keys %}
+                                        <option value="{{ table }}">{{ table }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td>
+                                <select name="const[columnNameSelect][{{ id }}]" style="display:inline" class="columnNameSelect{% if id == 0 %} changeName {% endif %}">
+                                    <option value="">{% trans 'select column' %}</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr style="background:none" class="rhs_text">
+                            <td></td>
+                            <td colspan="2">
+                                <input name="const[rhs_text_val][{{ id }}]" type="text"
+                                    style="width:91%"
+                                    class="rhs_text_val{% if id == 0 %} changeName {% endif %}"
+                                    placeholder="{% trans 'Enter criteria as free text' %}">
+                            </td>
+                        </tr>
+
+                        </table>
+                </div>
+                <a href="#"
+                    title="{% trans 'Remove this criteria' %}"
+                    style="float:right;color:red"
+                    class="removeColumn">
+                    X
+                </a>
+            </fieldset>
+            {% if id == 0 %}</div>{% endif %}
+        {% endfor %}
+
+        <fieldset style="display:inline">
+            <input type="button" value="{% trans '+ Add criteria' %}" id="add_column_button">
+        </fieldset>
+    </div>{# Slider div #}
+{% if create_constraint is not null or edit_constraint is not null %}
+    <fieldset class="tblFooters">
+        <input type="button"
+            class="preview_sql"
+            value="{% trans 'Preview SQL' %}" />
+        <input type="submit"
+            name="do_save_data"
+            value="{% trans 'Save' %}" />
+    </fieldset>
+</form>
+{% endif %}

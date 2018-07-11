@@ -55,16 +55,20 @@ class CreateAddField
         ];
     }
 
+    /**
+     *
+     * @return string Check Constraint part of the query
+     */
     private function getCheckConstraints(): string
     {
-        $constraintName = trim($_REQUEST['const_name']) === '' ? 'CHECK_CONSTRAINT1' : trim($_REQUEST['const_name']);
-        $columnNames = $_REQUEST['column_name'];
-        $logical_op = $_REQUEST['logical_op'];
-        $criteria_op = $_REQUEST['criteria_op'];
-        $criteria_rhs = $_REQUEST['criteria_rhs'];
-        $tableNameSelect = $_REQUEST['tableNameSelect'];
-        $columnNameSelect = $_REQUEST['columnNameSelect'];
-        $rhs_text_val = $_REQUEST['rhs_text_val'];
+        $constraintName = trim($_REQUEST['const']['const_name']) === '' ? 'CHECK_CONSTRAINT1' : trim($_REQUEST['const']['const_name']);
+        $columnNames = $_REQUEST['const']['columns'];
+        $logical_op = $_REQUEST['const']['logical_op'];
+        $criteria_op = $_REQUEST['const']['criteria_op'];
+        $criteria_rhs = $_REQUEST['const']['criteria_rhs'];
+        $tableNameSelect = $_REQUEST['const']['tableNameSelect'];
+        $columnNameSelect = $_REQUEST['const']['columnNameSelect'];
+        $rhs_text_val = $_REQUEST['const']['rhs_text_val'];
         $definition = 'CONSTRAINT ' . Util::backquote($constraintName) . ' CHECK (';
         for($i=1; $i<count($columnNames); ++$i) {
             if($i>1) {
@@ -72,14 +76,15 @@ class CreateAddField
             }
             $columnNames[$i] = trim($columnNames[$i]);
             $definition .= Util::backquote($columnNames[$i]);
-            $definition .= ' ' . $criteria_op[$i];
             if($criteria_rhs[$i] === 'text') {
-                $definition .= ' \'' . $rhs_text_val[$i] . '\'';
+                $val = $GLOBALS['dbi']->escapeString($rhs_text_val[$i]);
+                $definition .= ' ' . $criteria_op[$i] . ' \'' . $val . '\'';
             } else if($criteria_rhs[$i] === 'anotherColumn') {
-                $definition .= ' ' . Util::backquote($tableNameSelect[$i]) . '.' + Util::backquote($columnNameSelect[$i]);
+                $val = ' ' . Util::backquote($tableNameSelect[$i]) . '.' . Util::backquote($columnNameSelect[$i]);
+                $definition .= ' ' . $criteria_op[$i] . ' ' . $val;
             }
             if($columnNames[$i] === '' && !isset($_REQUEST['preview_sql'])) {
-                $error_msg = __("You need to enter column name for all the check criterias.");
+                $error_msg = __("You need to enter column names for all the check criteria.");
                 $response = Response::getInstance();
                 if ($response->isAjax()) {
                     $response->setRequestStatus(false);

@@ -1,6 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * @fileoverview    function used in QBE for DB
+ * @fileoverview    function used in add check constraint for table
  * @name            Database Operations
  *
  * @requires    jQuery
@@ -17,6 +17,13 @@ AJAX.registerTeardown('check_constraint.js', function () {
         $(this).off('change');
     });
     $('#add_column_button').off('click');
+    $(document).off('click', '.removeColumn');
+    $(document).off('click', 'a.drop_constraint_anchor.ajax');
+    $(document).off('click', '.criteria_rhs');
+    $(document).off('click', '.criteria_col');
+    $(document).off('click', 'a.edit_constraint_anchor.ajax');
+    $(document).off('submit', '#constraint_frm');
+
 });
 
 AJAX.registerOnload('check_constraint.js', function () {
@@ -78,5 +85,132 @@ AJAX.registerOnload('check_constraint.js', function () {
             $rhs_text.css('display', 'none');
             $rhs_col.css('display', 'none');
         }
+    });
+    /**
+     * Ajax Event handler for 'Drop check constraint'
+     */
+    $(document).on('click', 'a.drop_constraint_anchor.ajax', function (event) {
+        event.preventDefault();
+        var $anchor = $(this);
+        /**
+         * @var $curr_row    Object containing reference to the current field's row
+         */
+        var $curr_row = $anchor.parents('tr');
+        /** @var    Number of columns in the key */
+        var rows = $anchor.parents('td').attr('rowspan') || 1;
+        /** @var    Rows that should be hidden */
+        var $rows_to_hide = $curr_row;
+        for (var i = 1, $last_row = $curr_row.next(); i < rows; i++, $last_row = $last_row.next()) {
+            $rows_to_hide = $rows_to_hide.add($last_row);
+        }
+
+        var question = escapeHtml(
+            $curr_row.children('td')
+                .children('.drop_constraint_msg')
+                .val()
+        );
+
+        $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
+            var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingCheckConstraint, false);
+            var params = getJSConfirmCommonParam(this, $anchor.getPostData());
+            $.post(url, params, function (data) {
+                if (typeof data !== 'undefined' && data.success === true) {
+                    PMA_ajaxRemoveMessage($msg);
+                    var $table_ref = $rows_to_hide.closest('table');
+                    if ($rows_to_hide.length === $table_ref.find('tbody > tr').length) {
+                        // We are about to remove all rows from the table
+                        $table_ref.hide('medium', function () {
+                            $('div.no_constraints_defined').show('medium');
+                            $rows_to_hide.remove();
+                        });
+                        $table_ref.siblings('div.notice').hide('medium');
+                    } else {
+                        // We are removing some of the rows only
+                        $rows_to_hide.hide('medium', function () {
+                            $(this).remove();
+                        });
+                    }
+                    if ($('.result_query').length) {
+                        $('.result_query').remove();
+                    }
+                    if (data.sql_query) {
+                        $('<div class="result_query"></div>')
+                            .html(data.sql_query)
+                            .prependTo('#structure_content');
+                        PMA_highlightSQL($('#page_content'));
+                    }
+                    PMA_reloadNavigation();
+                } else {
+                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                }
+            });
+        });
+    });
+
+    function ProcessEditForm() {
+        if($("#hidden_fields_old").length > 0) {
+            $name = $('#constName').val();
+            $columns = JSON.parse($('#constcolumns').val());
+            $logical_op = JSON.parse($('#constLogicalOps').val());
+            $criteria_op = JSON.parse($('#constCriteriaOps').val());
+            $criteria_rhs = JSON.parse($('#constCriteriaRhs').val());
+            $criteria_val = JSON.parse($('#constCriteriaVal').val());
+            $tableNameSelect = JSON.parse($('#constTblName').val());
+            $columnNameSelect = JSON.parse($('#constColName').val());
+            $("#const_name").val($name);
+            $(".column_details").each(function(i) {
+                if(i > 0) {
+                    $(this).find('.columnName').val($columns[i-1]);
+                    $(this).find('.rhs_text_val').val($criteria_val[i-1]);
+                    $(this).find('.criteria_op').val($criteria_op[i-1]);
+                    $(this).find('.criteria_rhs').val($criteria_rhs[i-1]);
+                    $(this).find('.tableNameSelect').val($tableNameSelect[i-1]);
+                    $(this).find('.columnNameSelect').val($columnNameSelect[i-1]);
+                    if(i > 1) {
+                        $(this).find("input[type='radio'][value='" + $logical_op[i-2] + "']").prop("checked",true);
+                    }
+                }
+            });
+        }
+    }
+
+    /**
+     * Ajax Event handler for 'Edit check constraint'
+     */
+    $(document).on('click', 'a.edit_constraint_anchor.ajax', function (event) {
+        event.preventDefault();
+        var $anchor = $(this);
+        var params =  $anchor.getPostData();
+        $.post($anchor.attr('href'), params, function (data) {
+            if (typeof data !== 'undefined' && data.success === true) {
+                if (data.message && data.message.length > 0) {
+                    $('#page_content').replaceWith(
+                        '<div id=\'page_content\'>' + data.message + '</div>'
+                    );
+                }
+                ProcessEditForm();
+            } else {
+                PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+            }
+        });
+    });
+
+    /**
+     * Ajax Event handler for Submitting constraint form
+     */
+    $(document).on('submit', '#constraint_frm', function (event) {
+        event.preventDefault();
+        var argsep = PMA_commonParams.get('arg_separator');
+        var params = 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'do_save_data=1';
+        params += argsep + $(this).serialize();
+        $.post($(this).attr('action'), params, function (data) {
+            if (typeof data !== 'undefined' && data.success === true) {
+                if (data.message && data.message.length > 0) {
+                    PMA_ajaxShowMessage(data.message, false);
+                }
+            } else {
+                PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+            }
+        });
     });
 });

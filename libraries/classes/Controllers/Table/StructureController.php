@@ -14,6 +14,7 @@ use PhpMyAdmin\CheckUserPrivileges;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\CheckConstraint;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
@@ -142,6 +143,8 @@ class StructureController extends AbstractController
             [
                 'tbl_structure.js',
                 'indexes.js',
+                'check_constraint.js',
+                'vendor/jquery.md5.js',
             ]
         );
 
@@ -1341,6 +1344,7 @@ class StructureController extends AbstractController
             'relation_commwork' => $GLOBALS['cfgRelation']['commwork'],
             'relation_mimework' => $GLOBALS['cfgRelation']['mimework'],
             'central_columns_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
+            'check_constraints_work' => $GLOBALS['cfgRelation']['centralcolumnswork'],
             'mysql_int_version' => $this->dbi->getVersion(),
             'pma_theme_image' => $GLOBALS['pmaThemeImage'],
             'text_dir' => $GLOBALS['text_dir'],

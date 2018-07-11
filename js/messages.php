@@ -63,6 +63,7 @@ $js_messages['strDeleteTrackingVersionMultiple']
 $js_messages['strDeletingTrackingEntry'] = __('Delete entry from tracking report?');
 $js_messages['strDeletingTrackingData'] = __('Deleting tracking data');
 $js_messages['strDroppingPrimaryKeyIndex'] = __('Dropping Primary Key/Index');
+$js_messages['strDroppingCheckConstraint'] = __('Dropping Check Constraint');
 $js_messages['strDroppingForeignKey'] = __('Dropping Foreign key.');
 $js_messages['strOperationTakesLongTime']
     = __('This operation could take a long time. Proceed anyway?');

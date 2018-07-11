@@ -10,6 +10,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\CheckConstraint;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -103,6 +104,14 @@ if (isset($_POST['do_save_data'])) {
                     );
                 }
             }
+        }
+        if(isset($_REQUEST['add_check_constraint'])) {
+            CheckConstraint::prepareData();
+            $param = $_REQUEST['const'];
+            $param['db_name'] = $db;
+            $param['table_name'] = $table;
+            $const = new CheckConstraint($param);
+            $const->saveToDb(true);
         }
     } else {
         $response = Response::getInstance();
