@@ -5558,7 +5558,7 @@ class Results
         if (isset($map[$meta->name])) {
             // Field to display from the foreign table?
             if (isset($map[$meta->name][2])
-                && strlen($map[$meta->name][2]) > 0
+                && strlen((string) $map[$meta->name][2]) > 0
             ) {
                 $dispval = $this->_getFromForeign(
                     $map,
