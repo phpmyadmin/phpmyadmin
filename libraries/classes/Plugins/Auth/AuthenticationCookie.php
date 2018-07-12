@@ -131,9 +131,11 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // wrap the login form in a div which overlays the whole page.
         if($session_expired) {
-            echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'], 'add_class' => ' modal_form', 'session_expired' => 1]);
+            echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'],
+                'add_class' => ' modal_form', 'session_expired' => 1]);
         } else {
-            echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'], 'add_class' => '', 'session_expired' => 0]);
+            echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'],
+                'add_class' => '', 'session_expired' => 0]);
         }
 
         if ($GLOBALS['cfg']['DBG']['demo']) {
@@ -670,7 +672,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // needed for PHP-CGI (not need for FastCGI or mod-php)
         $response->header('Cache-Control: no-store, no-cache, must-revalidate');
         $response->header('Pragma: no-cache');
-        
+
         $this->showLoginForm();
     }
 

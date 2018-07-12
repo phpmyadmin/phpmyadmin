@@ -351,7 +351,7 @@ var AJAX = {
      * To refer to self use 'AJAX', instead of 'this' as this function
      * is called in the jQuery context.
      *
-     * @param object e Event data
+     * @param object data Event data
      *
      * @return void
      */
@@ -418,7 +418,7 @@ var AJAX = {
             // reload page if user trying to login has changed
             if(typeof data.user_changed !== 'undefined' && data.user_changed == 1) {
                 window.location = "index.php";
-                PMA_ajaxShowMessage("Loading...", false);
+                PMA_ajaxShowMessage(PMA_messages.strLoading, false);
                 AJAX.active = false;
                 AJAX.xhr = null;
                 return;
