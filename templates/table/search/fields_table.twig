@@ -1,7 +1,16 @@
 <table class="data"{{ search_type == 'zoom' ? ' id="tableFieldsId"' }}>
-    {% include 'table/search/table_header.twig' with {
-        'geom_column_flag': geom_column_flag
-    } only %}
+    <thead>
+        <tr>
+            {% if geom_column_flag %}
+                <th>{% trans 'Function' %}</th>
+            {% endif %}
+            <th>{% trans 'Column' %}</th>
+            <th>{% trans 'Type' %}</th>
+            <th>{% trans 'Collation' %}</th>
+            <th>{% trans 'Operator' %}</th>
+            <th>{% trans 'Value' %}</th>
+        </tr>
+    </thead>
     <tbody>
     {% if search_type == 'zoom' %}
         {% include 'table/search/rows_zoom.twig' with {
