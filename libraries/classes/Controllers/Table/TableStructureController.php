@@ -288,20 +288,6 @@ class TableStructureController extends TableController
             }
         }
 
-        // display secondary level tabs if necessary
-        $engine = $this->table_obj->getStorageEngine();
-        $this->response->addHTML(
-            $this->template->render('table/secondary_tabs', [
-                'url_params' => [
-                    'db' => $this->db,
-                    'table' => $this->table,
-                ],
-                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                'cfg_relation' => $this->relation->getRelationsParam(),
-            ])
-        );
-        $this->response->addHTML('<div id="structure_content">');
-
         /**
          * Modifications have been submitted -> updates the table
          */
@@ -1368,7 +1354,14 @@ class TableStructureController extends TableController
             }
         }
 
+        $engine = $this->table_obj->getStorageEngine();
         return $this->template->render('table/structure/display_structure', [
+            'url_params' => [
+                'db' => $this->db,
+                'table' => $this->table,
+            ],
+            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'cfg_relation' => $this->relation->getRelationsParam(),
             'hide_structure_actions' => $hideStructureActions,
             'db' => $this->db,
             'table' => $this->table,
