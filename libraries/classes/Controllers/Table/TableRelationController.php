@@ -163,21 +163,6 @@ class TableRelationController extends TableController
             );
         }
 
-        // display secondary level tabs if necessary
-        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
-
-        $this->response->addHTML(
-            $this->template->render('table/secondary_tabs', [
-                'url_params' => [
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table'],
-                ],
-                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                'cfg_relation' => $this->relation->getRelationsParam(),
-            ])
-        );
-        $this->response->addHTML('<div id="structure_content">');
-
         /**
          * Dialog
          */
@@ -202,8 +187,15 @@ class TableRelationController extends TableController
         }
 
         // common form
+        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
         $this->response->addHTML(
             $this->template->render('table/relation/common_form', [
+                'url_params' => [
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
+                ],
+                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+                'cfg_relation' => $this->relation->getRelationsParam(),
                 'db' => $this->db,
                 'table' => $this->table,
                 'cfg_relation' => $this->cfgRelation,

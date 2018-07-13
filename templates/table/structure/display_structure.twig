@@ -1,3 +1,5 @@
+{% extends 'table/page_with_secondary_tabs.twig' %}
+{% block content %}
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm"
     class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
     {{ Url_getHiddenInputs(db, table) }}
@@ -501,3 +503,4 @@
     {{ table_stats|raw }}
 {% endif %}
 <div class="clearfloat"></div>
+{% endblock %}
