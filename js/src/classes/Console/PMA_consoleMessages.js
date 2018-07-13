@@ -1,5 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
+import CodeMirror from 'codemirror';
+import PMA_commonParams from '../../variables/common_params';
 /**
  * Module import
  */

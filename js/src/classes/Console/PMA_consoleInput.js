@@ -1,4 +1,13 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import CodeMirror from 'codemirror';
+import 'codemirror/mode/sql/sql.js';
+import 'codemirror/addon/runmode/runmode.js';
+import 'codemirror/addon/hint/show-hint.js';
+import 'codemirror/addon/hint/sql-hint.js';
+import 'codemirror/addon/lint/lint.js';
+import '../../plugins/codemirror/sql-lint';
+import { codemirrorAutocompleteOnInputRead } from '../../utils/sql';
+
 /**
  * Console input object
  * @namespace ConsoleInput
