@@ -206,6 +206,7 @@ class Header
         $this->_scripts->addFile('config');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
+        $this->_scripts->addFile('functions');
         $this->_scripts->addFile('navigation');
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
@@ -440,6 +441,18 @@ class Header
                         );
                     }
                 }
+                $this->_scripts->addCodeNew(
+                    'CodemirrorEnable='
+                    . ($GLOBALS['cfg']['CodemirrorEnable'] ? 'true' : 'false')
+                );
+                $this->_scripts->addCodeNew(
+                    'LintEnable='
+                    . ($GLOBALS['cfg']['LintEnable'] ? 'true' : 'false')
+                );
+                $this->_scripts->addCodeNew(
+                    'ConsoleEnterExecutes='
+                    . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false')
+                );
                 $this->_scripts->addCode(
                     'ConsoleEnterExecutes='
                     . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false')
