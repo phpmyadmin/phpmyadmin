@@ -49,3 +49,9 @@ Variables.setGlobalVars(window.globalVars);
  * @argument {hash} window.commonParams
  */
 CommonParams.setAll(window.commonParams);
+
+CommonParams.set('CodemirrorEnable', window.CodemirrorEnable);
+
+CommonParams.set('LintEnable', window.LintEnable);
+
+CommonParams.set('ConsoleEnterExecutes', window.ConsoleEnterExecutes);

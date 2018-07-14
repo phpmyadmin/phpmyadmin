@@ -7,6 +7,7 @@ import 'codemirror/addon/hint/sql-hint.js';
 import 'codemirror/addon/lint/lint.js';
 import '../../plugins/codemirror/sql-lint';
 import { codemirrorAutocompleteOnInputRead } from '../../utils/sql';
+import CommonParams from '../../variables/common_params';
 
 /**
  * Console input object
@@ -71,7 +72,7 @@ export default class ConsoleInput {
         if (this._inputs !== null) {
             return;
         }
-        if (typeof CodeMirror !== 'undefined') {
+        if (CommonParams.get('CodemirrorEnable') === true) {
             this._codemirror = true;
         }
         this._inputs = [];

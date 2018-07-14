@@ -40,7 +40,7 @@ export function PMA_handleSimulateQueryButton () {
 /**
  * Sets current value for query box.
  */
-function setQuery (query) {
+export function setQuery (query) {
     if (sqlQueryOptions.codemirror_editor) {
         sqlQueryOptions.codemirror_editor.setValue(query);
         sqlQueryOptions.codemirror_editor.focus();
