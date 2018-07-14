@@ -24,10 +24,10 @@ require './libraries/tbl_common.inc.php';
 
 if (Tracker::isActive()
     && Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])
-    && ! (isset($_REQUEST['toggle_activation'])
-    && $_REQUEST['toggle_activation'] == 'deactivate_now')
-    && ! (isset($_REQUEST['report_export'])
-    && $_REQUEST['export_type'] == 'sqldumpfile')
+    && ! (isset($_POST['toggle_activation'])
+    && $_POST['toggle_activation'] == 'deactivate_now')
+    && ! (isset($_POST['report_export'])
+    && $_POST['export_type'] == 'sqldumpfile')
 ) {
     $msg = Message::notice(
         sprintf(
@@ -43,47 +43,47 @@ $url_params['goto'] = 'tbl_tracking.php';
 $url_params['back'] = 'tbl_tracking.php';
 
 // Init vars for tracking report
-if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
+if (isset($_POST['report']) || isset($_POST['report_export'])) {
     $data = Tracker::getTrackedData(
-        $_REQUEST['db'], $_REQUEST['table'], $_REQUEST['version']
+        $GLOBALS['db'], $GLOBALS['table'], $_POST['version']
     );
 
     $selection_schema = false;
     $selection_data   = false;
     $selection_both  = false;
 
-    if (! isset($_REQUEST['logtype'])) {
-        $_REQUEST['logtype'] = 'schema_and_data';
+    if (! isset($_POST['logtype'])) {
+        $_POST['logtype'] = 'schema_and_data';
     }
-    if ($_REQUEST['logtype'] == 'schema') {
+    if ($_POST['logtype'] == 'schema') {
         $selection_schema = true;
-    } elseif ($_REQUEST['logtype'] == 'data') {
+    } elseif ($_POST['logtype'] == 'data') {
         $selection_data   = true;
     } else {
         $selection_both   = true;
     }
-    if (! isset($_REQUEST['date_from'])) {
-        $_REQUEST['date_from'] = $data['date_from'];
+    if (! isset($_POST['date_from'])) {
+        $_POST['date_from'] = $data['date_from'];
     }
-    if (! isset($_REQUEST['date_to'])) {
-        $_REQUEST['date_to'] = $data['date_to'];
+    if (! isset($_POST['date_to'])) {
+        $_POST['date_to'] = $data['date_to'];
     }
-    if (! isset($_REQUEST['users'])) {
-        $_REQUEST['users'] = '*';
+    if (! isset($_POST['users'])) {
+        $_POST['users'] = '*';
     }
-    $filter_ts_from = strtotime($_REQUEST['date_from']);
-    $filter_ts_to   = strtotime($_REQUEST['date_to']);
-    $filter_users   = array_map('trim', explode(',', $_REQUEST['users']));
+    $filter_ts_from = strtotime($_POST['date_from']);
+    $filter_ts_to   = strtotime($_POST['date_to']);
+    $filter_users   = array_map('trim', explode(',', $_POST['users']));
 }
 
 // Prepare export
-if (isset($_REQUEST['report_export'])) {
+if (isset($_POST['report_export'])) {
     $entries = Tracking::getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users);
 }
 
 // Export as file download
-if (isset($_REQUEST['report_export'])
-    && $_REQUEST['export_type'] == 'sqldumpfile'
+if (isset($_POST['report_export'])
+    && $_POST['export_type'] == 'sqldumpfile'
 ) {
     Tracking::exportAsFileDownload($entries);
 }
@@ -93,10 +93,10 @@ $html = '<br />';
 /**
  * Actions
  */
-if (isset($_REQUEST['submit_mult'])) {
-    if (! empty($_REQUEST['selected_versions'])) {
-        if ($_REQUEST['submit_mult'] == 'delete_version') {
-            foreach ($_REQUEST['selected_versions'] as $version) {
+if (isset($_POST['submit_mult'])) {
+    if (! empty($_POST['selected_versions'])) {
+        if ($_POST['submit_mult'] == 'delete_version') {
+            foreach ($_POST['selected_versions'] as $version) {
                 Tracking::deleteTrackingVersion($version);
             }
             $html .= Message::success(
@@ -110,45 +110,45 @@ if (isset($_REQUEST['submit_mult'])) {
     }
 }
 
-if (isset($_REQUEST['submit_delete_version'])) {
-    $html .= Tracking::deleteTrackingVersion($_REQUEST['version']);
+if (isset($_POST['submit_delete_version'])) {
+    $html .= Tracking::deleteTrackingVersion($_POST['version']);
 }
 
 // Create tracking version
-if (isset($_REQUEST['submit_create_version'])) {
+if (isset($_POST['submit_create_version'])) {
     $html .= Tracking::createTrackingVersion();
 }
 
 // Deactivate tracking
-if (isset($_REQUEST['toggle_activation'])
-    && $_REQUEST['toggle_activation'] == 'deactivate_now'
+if (isset($_POST['toggle_activation'])
+    && $_POST['toggle_activation'] == 'deactivate_now'
 ) {
     $html .= Tracking::changeTracking('deactivate');
 }
 
 // Activate tracking
-if (isset($_REQUEST['toggle_activation'])
-    && $_REQUEST['toggle_activation'] == 'activate_now'
+if (isset($_POST['toggle_activation'])
+    && $_POST['toggle_activation'] == 'activate_now'
 ) {
     $html .= Tracking::changeTracking('activate');
 }
 
 // Export as SQL execution
-if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'execution') {
+if (isset($_POST['report_export']) && $_POST['export_type'] == 'execution') {
     $sql_result = Tracking::exportAsSqlExecution($entries);
     $msg = Message::success(__('SQL statements executed.'));
     $html .= $msg->getDisplay();
 }
 
 // Export as SQL dump
-if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldump') {
+if (isset($_POST['report_export']) && $_POST['export_type'] == 'sqldump') {
     $html .= Tracking::exportAsSqlDump($entries);
 }
 
 /*
  * Schema snapshot
  */
-if (isset($_REQUEST['snapshot'])) {
+if (isset($_POST['snapshot'])) {
     $html .= Tracking::getHtmlForSchemaSnapshot($url_query);
 }
 // end of snapshot report
@@ -156,19 +156,18 @@ if (isset($_REQUEST['snapshot'])) {
 /*
  *  Tracking report
  */
-if (isset($_REQUEST['report'])
-    && (isset($_REQUEST['delete_ddlog']) || isset($_REQUEST['delete_dmlog']))
+if (isset($_POST['report'])
+    && (isset($_POST['delete_ddlog']) || isset($_POST['delete_dmlog']))
 ) {
     $html .= Tracking::deleteTrackingReportRows($data);
 }
 
-if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
+if (isset($_POST['report']) || isset($_POST['report_export'])) {
     $html .= Tracking::getHtmlForTrackingReport(
         $url_query, $data, $url_params, $selection_schema, $selection_data,
         $selection_both, $filter_ts_to, $filter_ts_from, $filter_users
     );
 } // end of report
-
 
 /*
  * List selectable tables
