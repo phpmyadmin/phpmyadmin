@@ -84,9 +84,9 @@ $pmadb = $cfgCentralColumns['db'];
 $pmatable = $cfgCentralColumns['table'];
 $max_rows = intval($GLOBALS['cfg']['MaxRows']);
 
-if (isset($_REQUEST['edit_central_columns_page'])) {
-    $selected_fld = $_REQUEST['selected_fld'];
-    $selected_db = $_REQUEST['db'];
+if (isset($_POST['edit_central_columns_page'])) {
+    $selected_fld = $_POST['selected_fld'];
+    $selected_db = $_POST['db'];
     $edit_central_column_page = $centralColumns->getHtmlForEditingPage(
         $selected_fld,
         $selected_db
@@ -109,15 +109,15 @@ if (isset($_POST['delete_save'])) {
         false
     );
 }
-if (!empty($_REQUEST['total_rows'])
-    && Core::isValid($_REQUEST['total_rows'], 'integer')
+if (!empty($_POST['total_rows'])
+    && Core::isValid($_POST['total_rows'], 'integer')
 ) {
-    $total_rows = $_REQUEST['total_rows'];
+    $total_rows = $_POST['total_rows'];
 } else {
     $total_rows = $centralColumns->getCount($db);
 }
-if (Core::isValid($_REQUEST['pos'], 'integer')) {
-    $pos = intval($_REQUEST['pos']);
+if (Core::isValid($_POST['pos'], 'integer')) {
+    $pos = intval($_POST['pos']);
 } else {
     $pos = 0;
 }
