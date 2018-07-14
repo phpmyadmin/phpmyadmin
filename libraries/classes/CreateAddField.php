@@ -61,39 +61,11 @@ class CreateAddField
      */
     private function getCheckConstraints(): string
     {
-        $constraintName = trim($_REQUEST['const']['const_name']) === '' ? 'CHECK_CONSTRAINT1' : trim($_REQUEST['const']['const_name']);
-        $columnNames = $_REQUEST['const']['columns'];
-        $logical_op = $_REQUEST['const']['logical_op'];
-        $criteria_op = $_REQUEST['const']['criteria_op'];
-        $criteria_rhs = $_REQUEST['const']['criteria_rhs'];
-        $tableNameSelect = $_REQUEST['const']['tableNameSelect'];
-        $columnNameSelect = $_REQUEST['const']['columnNameSelect'];
-        $rhs_text_val = $_REQUEST['const']['rhs_text_val'];
-        $definition = 'CONSTRAINT ' . Util::backquote($constraintName) . ' CHECK (';
-        for($i=1; $i<count($columnNames); ++$i) {
-            if($i>1) {
-                $definition .= ' ' . $logical_op[$i] . ' ';
-            }
-            $columnNames[$i] = trim($columnNames[$i]);
-            $definition .= Util::backquote($columnNames[$i]);
-            if($criteria_rhs[$i] === 'text') {
-                $val = $GLOBALS['dbi']->escapeString($rhs_text_val[$i]);
-                $definition .= ' ' . $criteria_op[$i] . ' \'' . $val . '\'';
-            } else if($criteria_rhs[$i] === 'anotherColumn') {
-                $val = ' ' . Util::backquote($tableNameSelect[$i]) . '.' . Util::backquote($columnNameSelect[$i]);
-                $definition .= ' ' . $criteria_op[$i] . ' ' . $val;
-            }
-            if($columnNames[$i] === '' && !isset($_REQUEST['preview_sql'])) {
-                $error_msg = __("You need to enter column names for all the check criteria.");
-                $response = Response::getInstance();
-                if ($response->isAjax()) {
-                    $response->setRequestStatus(false);
-                    $response->addJSON('message', $error_msg);
-                    exit;
-                }
-            }
-        }
-        $definition .= ')';
+        $param = $_REQUEST['const'];
+        $param['db_name'] = $_REQUEST['db'];
+        $param['table_name'] = $_REQUEST['table'];
+        $const = new CheckConstraint($param);
+        $definition = CheckConstraint::generateConstraintStatement($const);
         return $definition;
     }
 

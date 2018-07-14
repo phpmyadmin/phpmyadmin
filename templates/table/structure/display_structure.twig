@@ -443,6 +443,12 @@
     {{ displayIndexesHtml|raw }}
 {% endif %}
 
+{# Displays Check Constraints #}
+{% if not tbl_is_view and not db_is_system_schema
+    and 'ARCHIVE' !=  tbl_storage_engine %}
+    {{ Constraint_getHtmlForDisplayCCs(check_constraints_work) }}
+{% endif %}
+
 {# Display partition details #}
 {% if have_partitioning %}
     {# Detect partitioning #}

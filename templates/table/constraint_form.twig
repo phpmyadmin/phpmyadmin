@@ -51,33 +51,24 @@
         {% for id in 0..default_no_of_columns %}
             {% if id == 0 %}<div style="display:none" id="new_column_layout">{% endif %}
             <fieldset style="display:inline" class="column_details">
-                <input type="text" name="const[columns][{{ id }}]" class="columnName{% if id == 0 %} changeName {% endif %}" placeholder="Column name"/>
+                <input type="text" name="const[columns][]" class="columnName" placeholder="Column name"/>
                 <div>
                     <table>
                         {% if id != 1 %}
                         <tr class="logical_operator" style="background:none;">
                             <td>{% trans 'Add as' %}</td>
                             <td>
-                                <input type="radio"
-                                    name="const[logical_op][{{ id }}]"
-                                    value="AND"
-                                    class="logical_op{% if id == 0 %} changeName {% endif %}"
-                                    checked="checked">
-                                AND
-                            </td>
-                            <td>
-                                <input type="radio"
-                                    name="const[logical_op][{{ id }}]"
-                                    value="OR"
-                                    class="logical_op{% if id == 0 %} changeName {% endif %}">
-                                OR
+                                <select name="const[logical_op][]" class="logical_op">
+                                    <option value="AND">AND</option>
+                                    <option value="OR">OR</option>
+                                </select>
                             </td>
                         </tr>
                         {% endif %}
                         <tr style="background:none">
                             <td>Op </td>
                             <td>
-                                <select name="const[criteria_op][{{ id }}]" class="criteria_op{% if id == 0 %} changeName {% endif %}">
+                                <select name="const[criteria_op][]" class="criteria_op">
                                     <option value="=">=</option>
                                     <option value=">">&gt;</option>
                                     <option value=">=">&gt;=</option>
@@ -95,7 +86,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="const[criteria_rhs][{{ id }}]" class="criteria_rhs{% if id == 0 %} changeName {% endif %}">
+                                <select name="const[criteria_rhs][]" class="criteria_rhs">
                                     <option value="text">{% trans 'Text' %}</option>
                                     <option value="anotherColumn">{% trans 'Another column' %}</option>
                                 </select>
@@ -105,7 +96,7 @@
                         <tr class="rhs_table" style="display:none;background:none">
                             <td></td>
                             <td>
-                                <select name="const[tableNameSelect][{{ id }}]" class="tableNameSelect{% if id == 0 %} changeName {% endif %}">
+                                <select name="const[tableNameSelect][]" class="tableNameSelect">
                                     <option value="">{% trans 'select table' %}</option>
                                     {% for table in tables|keys %}
                                         <option value="{{ table }}">{{ table }}</option>
@@ -113,7 +104,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="const[columnNameSelect][{{ id }}]" style="display:inline" class="columnNameSelect{% if id == 0 %} changeName {% endif %}">
+                                <select name="const[columnNameSelect][]" style="display:inline" class="columnNameSelect">
                                     <option value="">{% trans 'select column' %}</option>
                                 </select>
                             </td>
@@ -122,9 +113,9 @@
                         <tr style="background:none" class="rhs_text">
                             <td></td>
                             <td colspan="2">
-                                <input name="const[rhs_text_val][{{ id }}]" type="text"
+                                <input name="const[rhs_text_val][]" type="text"
                                     style="width:91%"
-                                    class="rhs_text_val{% if id == 0 %} changeName {% endif %}"
+                                    class="rhs_text_val"
                                     placeholder="{% trans 'Enter criteria as free text' %}">
                             </td>
                         </tr>

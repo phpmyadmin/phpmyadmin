@@ -139,11 +139,13 @@
             {% endif %}
         </table>
         </div>
-        {% include 'table/constraint_form.twig' with {
-            'db': db,
-            'tables': tables,
-            'default_no_of_columns': default_no_of_columns
-        } only %}
+        {% if check_constraints_work %}
+            {% include 'table/constraint_form.twig' with {
+                'db': db,
+                'tables': tables,
+                'default_no_of_columns': default_no_of_columns
+            } only %}
+        {% endif %}
 
     {% endif %}
     <fieldset class="tblFooters">

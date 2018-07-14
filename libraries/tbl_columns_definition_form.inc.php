@@ -519,6 +519,7 @@ $html = $template->render('columns_definitions/column_definitions_form', [
     'db' => $db,
     'tables' => $tables_hashed,
     'default_no_of_columns' => 1,
+    'check_constraints_work' => isset($GLOBALS['cfgRelation']['checkconstraintwork']) ? isset($GLOBALS['cfgRelation']['checkconstraintwork']) : 0
 ]);
 
 unset($form_params);

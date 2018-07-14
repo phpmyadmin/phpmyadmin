@@ -16,7 +16,7 @@ AJAX.registerTeardown('check_constraint.js', function () {
     $('.tableNameSelect').each(function () {
         $(this).off('change');
     });
-    $('#add_column_button').off('click');
+    $(document).off('click', '#add_column_button');
     $(document).off('click', '.removeColumn');
     $(document).off('click', 'a.drop_constraint_anchor.ajax');
     $(document).off('click', '.criteria_rhs');
@@ -28,16 +28,12 @@ AJAX.registerTeardown('check_constraint.js', function () {
 
 AJAX.registerOnload('check_constraint.js', function () {
     var column_count = 1;
-    $('#add_column_button').on('click', function () {
+    $(document).on('click', '#add_column_button', function () {
         column_count++;
         $new_column_dom = $($('#new_column_layout').html()).clone();
         $new_column_dom.find('div').first().find('div').first().attr('id', column_count.toString());
         $new_column_dom.find('.pma_auto_slider').first().unwrap();
         $new_column_dom.find('.pma_auto_slider').first().attr('title', 'criteria');
-        $new_column_dom.find('.changeName').each(function() {
-            $(this).attr('name', $(this).attr('name').replace('[0]', '[' + column_count + ']'));
-            $(this).removeClass('changeName');
-        });
         $('.column_details:eq(1)').find('tr.logical_operator').remove();
         $('#add_column_button').parent().before($new_column_dom);
         PMA_init_slider();
@@ -140,6 +136,7 @@ AJAX.registerOnload('check_constraint.js', function () {
                         PMA_highlightSQL($('#page_content'));
                     }
                     PMA_reloadNavigation();
+                    PMA_ajaxShowMessage(data.message, false);
                 } else {
                     PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
@@ -160,14 +157,14 @@ AJAX.registerOnload('check_constraint.js', function () {
             $("#const_name").val($name);
             $(".column_details").each(function(i) {
                 if(i > 0) {
-                    $(this).find('.columnName').val($columns[i-1]);
-                    $(this).find('.rhs_text_val').val($criteria_val[i-1]);
-                    $(this).find('.criteria_op').val($criteria_op[i-1]);
-                    $(this).find('.criteria_rhs').val($criteria_rhs[i-1]);
-                    $(this).find('.tableNameSelect').val($tableNameSelect[i-1]);
-                    $(this).find('.columnNameSelect').val($columnNameSelect[i-1]);
+                    $(this).find('.columnName').val($columns[i]);
+                    $(this).find('.rhs_text_val').val($criteria_val[i]);
+                    $(this).find('.criteria_op').val($criteria_op[i]);
+                    $(this).find('.criteria_rhs').val($criteria_rhs[i]);
+                    $(this).find('.tableNameSelect').val($tableNameSelect[i]);
+                    $(this).find('.columnNameSelect').val($columnNameSelect[i]);
                     if(i > 1) {
-                        $(this).find("input[type='radio'][value='" + $logical_op[i-2] + "']").prop("checked",true);
+                        $(this).find(".logical_op").val($logical_op[i-2]);
                     }
                 }
             });
@@ -205,11 +202,9 @@ AJAX.registerOnload('check_constraint.js', function () {
         params += argsep + $(this).serialize();
         $.post($(this).attr('action'), params, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                if (data.message && data.message.length > 0) {
-                    PMA_ajaxShowMessage(data.message, false);
-                }
+                window.location.reload();
             } else {
-                PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                PMA_ajaxShowMessage(data.error, false);
             }
         });
     });

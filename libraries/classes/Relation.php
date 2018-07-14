@@ -378,6 +378,17 @@ class Relation
                 'exporttemplateswork',
                 $messages
             );
+            $retval .= $this->getDiagMessageForParameter(
+                'check_constraints',
+                isset($cfgRelation['check_constraints']),
+                $messages,
+                'check_constraints'
+            );
+            $retval .= $this->getDiagMessageForFeature(
+                __('Store description of CHECK Constraints'),
+                'checkconstraintwork',
+                $messages
+            );
             $retval .= '</table>' . "\n";
 
             if (! $cfgRelation['allworks']) {
@@ -676,9 +687,9 @@ class Relation
         if (isset($cfgRelation['export_templates'])) {
             $cfgRelation['exporttemplateswork']      = true;
         }
-
-        if (isset($cfgRelation['check_constraints'])) {
-            $cfgRelation['checkconstraintswork']      = true;
+        // Since MySQL does not support check constraints, disable this add on feature for servers running MySQL
+        if (isset($cfgRelation['check_constraints']) && Util::getServerType() !== 'MySQL') {
+            $cfgRelation['checkconstraintwork']      = true;
         }
 
         $allWorks = true;
@@ -2043,6 +2054,7 @@ class Relation
             'pma__central_columns' => 'central_columns',
             'pma__designer_settings' => 'designer_settings',
             'pma__export_templates' => 'export_templates',
+            'pma__check_constraints' => 'check_constraints'
         ];
 
         $existingTables = $this->dbi->getTables($db, DatabaseInterface::CONNECT_CONTROL);

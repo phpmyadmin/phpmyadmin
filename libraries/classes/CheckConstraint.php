@@ -238,8 +238,6 @@ class CheckConstraint
             } else {
                 $constraint = CheckConstraint::$_registry[$schema][$table][$constraintName];
             }
-
-            // $constraint->addColumns($_each_cc);
         }
 
         return true;
@@ -315,11 +313,11 @@ class CheckConstraint
     }
 
     /*
-     * HTML for check constraint statement
+     * SQL for check constraint statement
      *
      * @param $constraint Constraint object
      *
-     * @return HTML for check constraint statement
+     * @return SQL for check constraint statement
      */
     public static function generateConstraintStatement($constraint)
     {
@@ -332,17 +330,29 @@ class CheckConstraint
         $columnNameSelect = $constraint->getColumnNameSelect();
         $rhs_text_val = $constraint->getText();
         $definition = 'CONSTRAINT ' . Util::backquote($constraintName) . ' CHECK (';
-        for($i=0; $i<count($columnNames); ++$i) {
-            if($i>0) {
+        for($i=1; $i<count($columnNames); ++$i) {
+            $columnNames[$i] = trim($columnNames[$i]);
+            if($columnNames[$i] === '' && ! isset($_REQUEST['preview_sql'])) {
+                $error_msg = Message::error(__("Please fill out all the criteria."));
+                $response = Response::getInstance();
+                if ($response->isAjax()) {
+                    $response->setRequestStatus(false);
+                    $response->addJSON('message', $error_msg);
+                    exit;
+                }
+            }
+            if($i>1) {
                 $definition .= ' ' . $logical_op[$i-1] . ' ';
             }
-            $columnNames[$i] = trim($columnNames[$i]);
             $definition .= Util::backquote($columnNames[$i]);
-            $definition .= ' ' . $criteria_op[$i];
-            if($criteria_rhs[$i] === 'text') {
-                $definition .= ' \'' . $rhs_text_val[$i] . '\'';
-            } else if($criteria_rhs[$i] === 'anotherColumn') {
-                $definition .= ' ' . Util::backquote($tableNameSelect[$i]) . '.' . Util::backquote($columnNameSelect[$i]);
+            if($criteria_op[$i] === 'IS NULL' || $criteria_op[$i] === 'IS NOT NULL') {
+                $definition .= ' ' . $criteria_op[$i];
+            }
+            else if($criteria_rhs[$i] === 'text') {
+                $definition .= ' ' . $criteria_op[$i] . ' \'' . $rhs_text_val[$i] . '\'';
+            }
+            else if($criteria_rhs[$i] === 'anotherColumn') {
+                $definition .= ' ' . $criteria_op[$i] . Util::backquote($tableNameSelect[$i]) . '.' . Util::backquote($columnNameSelect[$i]);
             }
         }
         $definition .= ')';
@@ -351,30 +361,34 @@ class CheckConstraint
 
     /**
      * Get HTML to display constraints
+     * @param boolean $check_constraints_work Whether check constraints are configured properly or not
      *
      * @return string $html_output
      */
-    public static function getHtmlForDisplayCCs()
+    public static function getHtmlForDisplayCCs(bool $check_constraints_work)
     {
         $html_output = '<div id="cc_div" class="width100 ajax" >';
         $html_output .= self::getHtmlForCCs(
             $GLOBALS['table'],
-            $GLOBALS['db']
-        );
-        $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
-            . 'left;"><form action="tbl_constraints.php" method="post">';
-        $html_output .= Url::getHiddenInputs(
             $GLOBALS['db'],
-            $GLOBALS['table']
+            $check_constraints_work
         );
-        $html_output .= sprintf(__('Add a new Check Constraint'));
-        $html_output .= '<input type="hidden" name="create_constraint" value="1" />'
-            . '<input class="add_cc ajax"'
-            . ' type="submit" value="' . __('Go') . '" />';
+        if($check_constraints_work) {
+            $html_output .= '<fieldset class="tblFooters print_ignore" style="text-align: '
+                . 'left;"><form action="tbl_constraints.php" method="post">';
+            $html_output .= Url::getHiddenInputs(
+                $GLOBALS['db'],
+                $GLOBALS['table']
+            );
+            $html_output .= sprintf(__('Add a new Check Constraint'));
+            $html_output .= '<input type="hidden" name="create_constraint" value="1" />'
+                . '<input class="add_cc ajax"'
+                . ' type="submit" value="' . __('Go') . '" />';
 
-        $html_output .= '</form>'
-            . '</fieldset>'
-            . '</div>';
+            $html_output .= '</form>'
+                . '</fieldset>';
+        }
+        $html_output .= '</div>';
 
         return $html_output;
     }
@@ -385,22 +399,28 @@ class CheckConstraint
      * @param string  $table      The table name
      * @param string  $schema     The schema name
      * @param boolean $print_mode Whether the output is for the print mode
+     * @param boolean $check_constraints_work Whether check constraints are configured properly or not
      *
      * @return string HTML for showing check constraint
      *
      * @access  public
      */
-    public static function getHtmlForCCs($table, $schema, $print_mode = false)
+    public static function getHtmlForCCs($table, $schema, bool $check_constraints_work, $print_mode = false)
     {
         $constraints = CheckConstraint::getFromTable($table, $schema);
-        $no_constraints_class = count($constraints) > 0 ? ' hide' : '';
+        $no_constraints_class = (count($constraints) > 0) && $check_constraints_work ? ' hide' : '';
         $no_constraints  = "<div class='no_constraints_defined$no_constraints_class'>";
-        $no_constraints .= Message::notice(__('No constraint defined!'))->getDisplay();
+        if(! $check_constraints_work) {
+            $no_constraints .= Message::notice(__('Check Constraints haven\'t been configured properly!&nbsp;<a href="check_rel.php">Configure Now</a>'))->getDisplay();
+        }
+        else {
+            $no_constraints .= Message::notice(__('No constraint defined!'))->getDisplay();
+        }
         $no_constraints .= '</div>';
 
         if (! $print_mode) {
             $r  = '<fieldset class="constraint_info">';
-            $r .= '<legend id="constraint_header">' . __('Constraints');
+            $r .= '<legend id="constraint_header">' . __('Check Constraints');
             // Todo : Link proper documentation
 
             $r .= '</legend>';
@@ -412,7 +432,7 @@ class CheckConstraint
         } else {
             $r  = '<h3>' . __('Constraints') . '</h3>';
             $r .= $no_constraints;
-            if (count($constraints) < 1) {
+            if (count($constraints) < 1 || ! $check_constraints_work) {
                 return $r;
             }
         }
@@ -488,54 +508,69 @@ class CheckConstraint
      */
     public static function getFromDb($table, $db, $constName='')
     {
-        // Read from phpMyAdmin database
+        /** first check from information_schema.table_constraints which server uses to store constraints then read from phpMyAdmin database, if a record exists in information_schema and not in pma database (maybe due to some inconsistency), merge the results from the two.
+        */
         $tmp = new CheckConstraint();
         $sql_query
-            = " SELECT * FROM " . $tmp->_getPmaTable() .
-            " WHERE `db_name` = '" . $db . "' AND `table_name` = '" . $table . "'";
+            = " SELECT `CONSTRAINT_NAME` FROM `information_schema`.`TABLE_CONSTRAINTS` WHERE CONSTRAINT_TYPE='CHECK' AND `TABLE_SCHEMA` = '" . $db . "' AND `TABLE_NAME` = '" . $table . "'";
         if($constName !== '') {
-            $sql_query .= " AND `const_name` = '" . $constName . "'";
+            $sql_query .= " AND `CONSTRAINT_NAME` = '" . $constName . "'";
         }
         $sql_query .= ";";
-        $result = $GLOBALS['dbi']->fetchResult($sql_query, null, null, DatabaseInterface::CONNECT_CONTROL);
+        $result = $GLOBALS['dbi']->fetchResult($sql_query);
         if (! is_array($result) || count($result) < 1) {
             return [];
         }
-        return $result;
-    }
 
-    /**
-     * Prepare request data for insertion.
-     *
-     * @return void
-     */
-    public static function prepareData()
-    {
-        $_REQUEST['const']['const_name'] = trim($_REQUEST['const']['const_name']) === '' ? 'CHECK_CONSTRAINT1' : trim($_REQUEST['const']['const_name']);
-        // Discarding the first element as it is from the template.
-        array_shift($_REQUEST['const']['columns']);
-        array_shift($_REQUEST['const']['logical_op']);
-        array_shift($_REQUEST['const']['criteria_op']);
-        array_shift($_REQUEST['const']['criteria_rhs']);
-        array_shift($_REQUEST['const']['tableNameSelect']);
-        array_shift($_REQUEST['const']['columnNameSelect']);
-        array_shift($_REQUEST['const']['rhs_text_val']);
+        $sql_query
+            = " SELECT * FROM " . $tmp->_getPmaTable() .
+            " WHERE `db_name`  ='" . $db . "' AND `table_name` = '" . $table . "'"
+            . " AND `const_name` IN('" . implode("','", $result) . "');";
+
+        $result2 = $GLOBALS['dbi']->fetchResult($sql_query, null, null, DatabaseInterface::CONNECT_CONTROL);
+        $result_append = array();
+        foreach ($result as $constraint) {
+            $result_append[] = array('const_name' => $constraint, 'table_name' => '', 'db_name' => '', 'columns' => '[]', 'logical_op' => '[]', 'criteria_op' => '[]', 'criteria_rhs' => '[]', 'rhs_text_val' => '[]', 'tableNameSelect' => '[]', 'columnNameSelect' => '[]');
+        }
+        $result2 = array_merge($result2, $result_append);
+        if (! is_array($result2) || count($result2) < 1) {
+            return [];
+        }
+        return $result2;
     }
 
     /**
      * Encode Data to be saved in the db
-     * @param string $str String to be encoded
+     * @param Array $arr Array to be encoded
      *
      * @return string
      */
-    public function encodeString($str)
+    public function encodeString($arr)
     {
-        return $GLOBALS['dbi']->escapeString(json_encode($str));
+        return $GLOBALS['dbi']->escapeString(json_encode($arr));
+    }
+
+    /**
+     * Return sql query for Creating or editing a check constraint
+     * @param int $createEdit Whether to generate query for create or edit
+     *
+     * @return string SQL query
+     */
+    public function getSqlQueryForCreateOrEdit($createEdit) {
+        if($createEdit === 1) {
+            return
+                " ALTER TABLE " . Util::backquote($this->getTbl()) .
+                " ADD " . CheckConstraint::generateConstraintStatement($this);
+        } else {
+            return
+                " ALTER TABLE " . Util::backquote($this->getTbl()) . " DROP CONSTRAINT " .
+                Util::backquote($_REQUEST['old_const']) .
+                ", ADD " . CheckConstraint::generateConstraintStatement($this);
+        }
     }
 
     /**
      * Save CHECK contraints to phpMyAdmin database.
-     * @param boolean $create_table True if called from tbl_create.php
      *
      * @return void
      */
@@ -551,36 +586,12 @@ class CheckConstraint
         $rhs_text_val = $this->encodeString($this->getText());
         $table = $this->getTbl();
         $db = $this->getDb();
-
         $sql_query
             = " INSERT INTO " . $this->_getPmaTable() .
                 " VALUES('" . $constraintName . "', '" . $table . "', '" . $db . "', '" . $columnNames . "', '" . $logical_op . "', '" . $criteria_op ."', '" . $criteria_rhs . "', '" . $rhs_text_val . "', '" . $tableNameSelect . "', '" .
                 $columnNameSelect . "');";
 
         $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
-        if (! $success) {
-            $error_msg = $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL);
-            $response = Response::getInstance();
-            $response->setRequestStatus(false);
-            $response->addJSON('message', $error_msg);
-        } else if(! $create_table){
-            $sql_query
-                = " ALTER TABLE " . Util::backquote($table) .
-                " ADD " . CheckConstraint::generateConstraintStatement($this);
-            $success = $GLOBALS['dbi']->tryQuery($sql_query);
-            if (! $success) {
-                $sql_query
-                = " DELETE FROM " . $this->_getPmaTable() .
-                " WHERE `db_name` = '" . $db . "' AND `table_name` = '" . $table . "' AND" .
-                " `const_name` = '" . $constraintName . "';";
-
-                $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
-                $error_msg = __("Unable to add constraint. ") . $GLOBALS['dbi']->getError();
-                $response = Response::getInstance();
-                $response->setRequestStatus(false);
-                $response->addJSON('message', $error_msg);
-            }
-        }
     }
 
     /**
@@ -602,29 +613,11 @@ class CheckConstraint
         $db = $this->getDb();
 
         $sql_query
-            = " INSERT INTO " . $this->_getPmaTable() .
-                " VALUES('" . $constraintName . "', '" . $table . "', '" . $db . "', '" . $columnNames . "', '" . $logical_op . "', '" . $criteria_op ."', '" . $criteria_rhs . "', '" . $rhs_text_val . "', '" . $tableNameSelect . "', '" .
-                $columnNameSelect . "');";
+            = " UPDATE " . $this->_getPmaTable() .
+                " SET `const_name`='" . $constraintName . "', `table_name`='" . $table . "', `db_name`='" . $db . "', `columns`='" . $columnNames . "', `logical_op`='" . $logical_op . "', `criteria_op`='" . $criteria_op ."', `criteria_rhs`='" . $criteria_rhs . "', `rhs_text_val`='" . $rhs_text_val . "', `tableNameSelect`='" . $tableNameSelect . "', `columnNameSelect`='" .
+                $columnNameSelect . "' WHERE `db_name` = '" . $db . "' AND `table_name` = '" . $table . "' AND `const_name` = '" . $_REQUEST['old_const'] . "';";
 
         $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
-        if (! $success) {
-            $error_msg = $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL);
-            $response = Response::getInstance();
-            $response->setRequestStatus(false);
-            $response->addJSON('message', $error_msg);
-        } else {
-            $sql_query
-                = " DELETE FROM " . $this->_getPmaTable() .
-                " WHERE `db_name` = '" . $db . "' AND `table_name` = '" . $table . "' AND" .
-                " `const_name` = '" . $_REQUEST['old_const'] . "';";
-
-            $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
-
-            $sql_query
-                = " ALTER TABLE " . Util::backquote($table) . " DROP CONSTRAINT " . Util::backquote($_REQUEST['old_const']) .
-                ", ADD " . CheckConstraint::generateConstraintStatement($this);
-            $GLOBALS['dbi']->tryQuery($sql_query);
-        }
     }
 
     /**
@@ -644,21 +637,6 @@ class CheckConstraint
                 " `const_name` = '" . $constName . "'";
 
         $success = $GLOBALS['dbi']->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
-
-        if (! $success) {
-            $error_msg = __('Could not drop Constraint!');
-            $message = Message::error($error_msg);
-            $message->addMessage(
-                Message::rawError(
-                    $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
-                ),
-                '<br /><br />'
-            );
-            return $message;
-        } else {
-            $sql_query = " ALTER TABLE " . Util::backquote($table) . " DROP CONSTRAINT " . Util::backquote($constName);
-            $GLOBALS['dbi']->tryQuery($sql_query);
-        }
     }
 
     /**

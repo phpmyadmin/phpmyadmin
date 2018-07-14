@@ -511,7 +511,7 @@ $cfg['Servers'][$i]['export_templates'] = '';
  *
  * @global string $cfg['Servers'][$i]['check_constraints']
  */
-$cfg['Servers'][$i]['check_constraints'] = 'pma__check_constraints';
+$cfg['Servers'][$i]['check_constraints'] = '';
 
 /**
  * Maximum number of records saved in $cfg['Servers'][$i]['table_uiprefs'] table.

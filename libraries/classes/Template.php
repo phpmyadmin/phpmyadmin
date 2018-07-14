@@ -12,6 +12,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Twig\CharsetsExtension;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
+use PhpMyAdmin\Twig\ConstraintExtension;
 use PhpMyAdmin\Twig\MessageExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
 use PhpMyAdmin\Twig\RelationExtension;
@@ -68,6 +69,7 @@ class Template
             $twig->addExtension(new CharsetsExtension());
             $twig->addExtension(new CoreExtension());
             $twig->addExtension(new I18nExtension());
+            $twig->addExtension(new ConstraintExtension());
             $twig->addExtension(new MessageExtension());
             $twig->addExtension(new PluginsExtension());
             $twig->addExtension(new RelationExtension());

@@ -91,7 +91,7 @@ class TableConstraintsController extends TableController
                     'table' => $this->table,
                     'constraint' => $this->constraint[0],
                     'tables' => $tables_hashed,
-                    'default_no_of_columns' => count(json_decode($this->constraint[0]['columns'])),
+                    'default_no_of_columns' => count(json_decode($this->constraint[0]['columns']))-1,
                     'edit_constraint' => 1
                 ])
             );
@@ -106,7 +106,23 @@ class TableConstraintsController extends TableController
                 ])
             );
         } else if(isset($_REQUEST['drop_constraint'])) {
-            CheckConstraint::removeFromDb($_REQUEST['constraint'], $this->table, $this->db);
+            $sql_query = " ALTER TABLE " . Util::backquote($this->table) . " DROP CONSTRAINT " . Util::backquote($_REQUEST['constraint']);
+            $success = $this->dbi->tryQuery($sql_query);
+            $message = '';
+            if (! $success) {
+                $message = Message::error($this->dbi->getError());
+                $this->response->setRequestStatus(false);
+            } else {
+                CheckConstraint::removeFromDb($_REQUEST['constraint'], $this->table, $this->db);
+                $message = Message::success(
+                    __('Table %1$s has been altered successfully.')
+                );
+            }
+            $message->addParam($this->table);
+            $this->response->addJSON(
+                'message',
+                $message
+            );
         }
     }
 
@@ -122,21 +138,11 @@ class TableConstraintsController extends TableController
         $error = false;
         $this->dbi->selectDb($GLOBALS['db']);
         $sql_query = '';
-        CheckConstraint::prepareData(true);
         $param = $_REQUEST['const'];
         $const = new CheckConstraint($param);
-        $const_name = $const->getName();
-        $table = $const->getTbl();
-        if(isset($_REQUEST['edit_constraint_submit'])) {
-            $sql_query
-                = " ALTER TABLE " . Util::backquote($table) . " DROP CONSTRAINT " .
-                Util::backquote($_REQUEST['old_const']) .
-                ", ADD " . CheckConstraint::generateConstraintStatement($const);
-        } else if(isset($_REQUEST['create_constraint_submit'])) {
-            $sql_query
-                = " ALTER TABLE " . Util::backquote($table) .
-                " ADD " . CheckConstraint::generateConstraintStatement($const);
-        }
+        $create = isset($_REQUEST['create_constraint_submit']) ? 1 : 0;
+        $sql_query = $const->getSqlQueryForCreateOrEdit($create);
+
         // If there is a request for SQL previewing.
         if (isset($_REQUEST['preview_sql'])) {
             $this->response->addJSON(
@@ -144,19 +150,25 @@ class TableConstraintsController extends TableController
                 $this->template->render('preview_sql', ['query_data' => $sql_query])
             );
         } else if (!$error) {
-            if(isset($_REQUEST['edit_constraint_submit'])) {
-                $const->changeInDb();
-            } else if(isset($_REQUEST['create_constraint_submit'])) {
-                $const->saveToDb();
+            $success = $this->dbi->tryQuery($sql_query);
+            $message = '';
+            if (! $success) {
+                $message = Message::error($this->dbi->getError());
+                $this->response->setRequestStatus(false);
+            } else {
+                if($create) {
+                    $const->saveToDb();
+                } else {
+                    $const->changeInDb();
+                }
+                $message = Message::success(
+                    __('Table %1$s has been altered successfully.')
+                );
             }
-            $response = Response::getInstance();
-            $message = Message::success(
-                __('Table %1$s has been altered successfully.')
-            );
             $message->addParam($this->table);
             $this->response->addJSON(
                 'message',
-                $GLOBALS['dbi']->getError()
+                $message
             );
         } else {
             $this->response->setRequestStatus(false);
