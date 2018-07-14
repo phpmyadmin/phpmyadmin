@@ -1,13 +1,13 @@
 import CodeMirror from 'codemirror';
-import '../../../node_modules/codemirror/mode/sql/sql.js';
-import '../../../node_modules/codemirror/addon/runmode/runmode.js';
-import '../../../node_modules/codemirror/addon/hint/show-hint.js';
-import '../../../node_modules/codemirror/addon/hint/sql-hint.js';
-import '../../../node_modules/codemirror/addon/lint/lint.js';
-// import '../../../node_modules/codemirror/addon/lint/sql-lint.js';
+import 'codemirror/mode/sql/sql.js';
+import 'codemirror/addon/runmode/runmode.js';
+import 'codemirror/addon/hint/show-hint.js';
+import 'codemirror/addon/hint/sql-hint.js';
+import 'codemirror/addon/lint/lint.js';
+import '../plugins/codemirror/sql-lint';
 import { mysql_doc_builtin, mysql_doc_keyword } from '../consts/doclinks';
-
-window.cm = CodeMirror;
+import CommonParams from '../variables/common_params';
+import { GlobalVariables, PMA_Messages as PMA_messages } from '../variables/export_variables';
 
 /**
  * Adds doc link to single highlighted SQL element
@@ -18,7 +18,7 @@ function PMA_doc_add ($elm, params) {
     }
 
     var url = PMA_sprintf(
-        decodeURIComponent(mysql_doc_template),
+        decodeURIComponent(GlobalVariables.mysql_doc_template),
         params[0]
     );
     if (params.length > 1) {
@@ -106,6 +106,12 @@ export function PMA_highlightSQL ($base) {
 let sql_autocomplete_in_progress = false;
 let sql_autocomplete = false;
 var sql_autocomplete_default_table = '';
+
+export var sqlQueryOptions = {
+    codemirror_editor: false,
+    codemirror_inline_editor: false
+};
+
 export function codemirrorAutocompleteOnInputRead (instance) {
     if (!sql_autocomplete_in_progress
         && (!instance.options.hintOptions.tables || !sql_autocomplete)) {
@@ -119,8 +125,8 @@ export function codemirrorAutocompleteOnInputRead (instance) {
             var href = 'db_sql_autocomplete.php';
             var params = {
                 'ajax_request': true,
-                'server': PMA_commonParams.get('server'),
-                'db': PMA_commonParams.get('db'),
+                'server': CommonParams.get('server'),
+                'db': CommonParams.get('db'),
                 'no_debug': true
             };
 
@@ -140,7 +146,7 @@ export function codemirrorAutocompleteOnInputRead (instance) {
                 success: function (data) {
                     if (data.success) {
                         var tables = JSON.parse(data.tables);
-                        sql_autocomplete_default_table = PMA_commonParams.get('table');
+                        sql_autocomplete_default_table = CommonParams.get('table');
                         sql_autocomplete = [];
                         for (var table in tables) {
                             if (tables.hasOwnProperty(table)) {
@@ -197,76 +203,43 @@ export function codemirrorAutocompleteOnInputRead (instance) {
 }
 
 /**
- * Creates an SQL editor which supports auto completing etc.
- *
- * @param $textarea   jQuery object wrapping the textarea to be made the editor
- * @param options     optional options for CodeMirror
- * @param resize      optional resizing ('vertical', 'horizontal', 'both')
- * @param lintOptions additional options for lint
+ * Updates the input fields for the parameters based on the query
  */
-export function PMA_getSQLEditor ($textarea, options, resize, lintOptions) {
-    if ($textarea.length > 0 && typeof CodeMirror !== 'undefined') {
-        // merge options for CodeMirror
-        var defaults = {
-            lineNumbers: true,
-            matchBrackets: true,
-            extraKeys: { 'Ctrl-Space': 'autocomplete' },
-            hintOptions: { 'completeSingle': false, 'completeOnSingleClick': true },
-            indentUnit: 4,
-            mode: 'text/x-mysql',
-            lineWrapping: true
-        };
+export function updateQueryParameters () {
+    if ($('#parameterized').is(':checked')) {
+        var query = sqlQueryOptions.codemirror_editor
+            ? sqlQueryOptions.codemirror_editor.getValue()
+            : $('#sqlquery').val();
 
-        if (CodeMirror.sqlLint) {
-            $.extend(defaults, {
-                gutters: ['CodeMirror-lint-markers'],
-                lint: {
-                    'getAnnotations': CodeMirror.sqlLint,
-                    'async': true,
-                    'lintOptions': lintOptions
+        var allParameters = query.match(/:[a-zA-Z0-9_]+/g);
+        var parameters = [];
+        // get unique parameters
+        if (allParameters) {
+            $.each(allParameters, function (i, parameter) {
+                if ($.inArray(parameter, parameters) === -1) {
+                    parameters.push(parameter);
                 }
             });
+        } else {
+            $('#parametersDiv').text(PMA_messages.strNoParam);
+            return;
         }
 
-        $.extend(true, defaults, options);
+        var $temp = $('<div />');
+        $temp.append($('#parametersDiv').children());
+        $('#parametersDiv').empty();
 
-        // create CodeMirror editor
-        var codemirrorEditor = CodeMirror.fromTextArea($textarea[0], defaults);
-        // allow resizing
-        if (! resize) {
-            resize = 'vertical';
-        }
-        var handles = '';
-        if (resize === 'vertical') {
-            handles = 's';
-        }
-        if (resize === 'both') {
-            handles = 'all';
-        }
-        if (resize === 'horizontal') {
-            handles = 'e, w';
-        }
-        $(codemirrorEditor.getWrapperElement())
-            .css('resize', resize)
-            .resizable({
-                handles: handles,
-                resize: function () {
-                    codemirrorEditor.setSize($(this).width(), $(this).height());
-                }
-            });
-        // enable autocomplete
-        codemirrorEditor.on('inputRead', codemirrorAutocompleteOnInputRead);
-
-        // page locking
-        codemirrorEditor.on('change', function (e) {
-            e.data = {
-                value: 3,
-                content: codemirrorEditor.isClean(),
-            };
-            AJAX.lockPageHandler(e);
+        $.each(parameters, function (i, parameter) {
+            var paramName = parameter.substring(1);
+            var $param = $temp.find('#paramSpan_' + paramName);
+            if (! $param.length) {
+                $param = $('<span class="parameter" id="paramSpan_' + paramName + '" />');
+                $('<label for="param_' + paramName + '" />').text(parameter).appendTo($param);
+                $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '" />').appendTo($param);
+            }
+            $('#parametersDiv').append($param);
         });
-
-        return codemirrorEditor;
+    } else {
+        $('#parametersDiv').empty();
     }
-    return null;
 }

@@ -2,15 +2,28 @@
 import { $ } from './utils/extend_jquery';
 import './plugins/jquery/jquery.uitablefilter';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
-import { setShowThisQuery, PMA_autosaveSQL, PMA_autosaveSQLSort, PMA_showThisQuery } from './functions/Sql';
+import PMA_commonParams from './variables/common_params';
+import { PMA_commonActions } from './classes/CommonActions';
+import PMA_MicroHistory from './classes/MicroHistory';
+
+
 import { isStorageSupported } from './functions/config';
 import { PMA_sprintf } from './utils/sprintf';
 import { escapeHtml } from './utils/Sanitise';
-import PMA_commonParams from './variables/common_params';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import { initStickyColumns, rearrangeStickyColumns, handleStickyColumns } from './functions/Grid/StickyColumns';
 import { PMA_makegrid } from './utils/makegrid';
 import { AJAX } from './ajax';
+import { initProfilingTables, makeProfilingChart } from './functions/Sql/SqlProfiling';
+import { PMA_highlightSQL } from './utils/sql';
+import { sqlQueryOptions } from './utils/sql';
+import Cookies from 'js-cookie';
+import { printPreview } from './functions/Print';
+
+import {
+    setShowThisQuery, PMA_autosaveSQL, PMA_autosaveSQLSort, PMA_showThisQuery,
+    checkSavedQuery, setQuery, checkSqlQuery, PMA_handleSimulateQueryButton
+} from './functions/Sql/SqlQuery';
 
 /**
  * @fileoverview    functions used wherever an sql query form is used
@@ -44,8 +57,8 @@ export function teardown1 () {
     $(window).off('scroll');
     $(document).off('keyup', '.filter_rows');
     $(document).off('click', '#printView');
-    if (codemirror_editor) {
-        codemirror_editor.off('change');
+    if (sqlQueryOptions.codemirror_editor) {
+        sqlQueryOptions.codemirror_editor.off('change');
     } else {
         $('#sqlquery').off('input propertychange');
     }
@@ -73,13 +86,13 @@ export function teardown1 () {
  * @memberOf    jQuery
  */
 export function onload1 () {
-    if (codemirror_editor || document.sqlform) {
+    if (sqlQueryOptions.codemirror_editor || document.sqlform) {
         setShowThisQuery();
     }
     $(function () {
-        if (codemirror_editor) {
-            codemirror_editor.on('change', function () {
-                PMA_autosaveSQL(codemirror_editor.getValue());
+        if (sqlQueryOptions.codemirror_editor) {
+            sqlQueryOptions.codemirror_editor.on('change', function () {
+                PMA_autosaveSQL(sqlQueryOptions.codemirror_editor.getValue());
             });
         } else {
             $('#sqlquery').on('input propertychange', function () {
@@ -91,15 +104,23 @@ export function onload1 () {
                     PMA_autosaveSQLSort($('select[name="sql_query"]').val());
                 });
             } else {
-                if (isStorageSupported('localStorage') && window.localStorage.auto_saved_sql_sort !== undefined) {
+                if (isStorageSupported('localStorage')
+                    && window.localStorage.auto_saved_sql_sort !== undefined
+                ) {
                     window.localStorage.removeItem('auto_saved_sql_sort');
                 } else {
                     Cookies.set('auto_saved_sql_sort', '');
                 }
             }
             // If sql query with sort for current table is stored, change sort by key select value
-            var sortStoredQuery = (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql_sort !== 'undefined') ? window.localStorage.auto_saved_sql_sort : Cookies.get('auto_saved_sql_sort');
-            if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
+            var sortStoredQuery = (isStorageSupported('localStorage')
+                && typeof window.localStorage.auto_saved_sql_sort !== 'undefined')
+                ? window.localStorage.auto_saved_sql_sort :
+                Cookies.get('auto_saved_sql_sort');
+            if (typeof sortStoredQuery !== 'undefined'
+                && sortStoredQuery !== $('select[name="sql_query"]').val()
+                && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0
+            ) {
                 $('select[name="sql_query"]').val(sortStoredQuery).trigger('change');
             }
         }
@@ -335,8 +356,8 @@ export function onload1 () {
             var db = $('input[name="db"]').val();
             var table = $('input[name="table"]').val();
             var query;
-            if (codemirror_editor) {
-                query = codemirror_editor.getValue();
+            if (sqlQueryOptions.codemirror_editor) {
+                query = sqlQueryOptions.codemirror_editor.getValue();
             } else {
                 query = $('#sqlquery').val();
             }
@@ -406,8 +427,8 @@ export function onload1 () {
         event.preventDefault();
 
         var $form = $(this);
-        if (codemirror_editor) {
-            $form[0].elements.sql_query.value = codemirror_editor.getValue();
+        if (sqlQueryOptions.codemirror_editor) {
+            $form[0].elements.sql_query.value = sqlQueryOptions.codemirror_editor.getValue();
         }
         if (! checkSqlQuery($form[0])) {
             return false;
@@ -607,8 +628,8 @@ export function onload1 () {
         var delimiter = $('#id_sql_delimiter').val();
         var db_name = $form.find('input[name="db"]').val();
 
-        if (codemirror_editor) {
-            query = codemirror_editor.getValue();
+        if (sqlQueryOptions.codemirror_editor) {
+            query = sqlQueryOptions.codemirror_editor.getValue();
         } else {
             query = $('#sqlquery').val();
         }
@@ -789,12 +810,6 @@ function browseForeignDialog ($this_a) {
     });
 }
 
-function checkSavedQuery () {
-    if (isStorageSupported('localStorage') && window.localStorage.auto_saved_sql !== undefined) {
-        PMA_ajaxShowMessage(PMA_messages.strPreviousSaveQuery);
-    }
-}
-
 export function onload2 () {
     $('body').on('click', 'a.browse_foreign', function (e) {
         e.preventDefault();
@@ -826,65 +841,9 @@ export function onload2 () {
     /**
      * Check if there is any saved query
      */
-    if (codemirror_editor || document.sqlform) {
+    if (sqlQueryOptions.codemirror_editor || document.sqlform) {
         checkSavedQuery();
     }
-}
-
-/*
- * Profiling Chart
- */
-function makeProfilingChart () {
-    if ($('#profilingchart').length === 0 ||
-        $('#profilingchart').html().length !== 0 ||
-        !$.jqplot || !$.jqplot.Highlighter || !$.jqplot.PieRenderer
-    ) {
-        return;
-    }
-
-    var data = [];
-    $.each(JSON.parse($('#profilingChartData').html()), function (key, value) {
-        data.push([key, parseFloat(value)]);
-    });
-
-    // Remove chart and data divs contents
-    $('#profilingchart').html('').show();
-    $('#profilingChartData').html('');
-
-    PMA_createProfilingChart('profilingchart', data);
-}
-
-/*
- * initialize profiling data tables
- */
-function initProfilingTables () {
-    if (!$.tablesorter) {
-        return;
-    }
-
-    $('#profiletable').tablesorter({
-        widgets: ['zebra'],
-        sortList: [[0, 0]],
-        textExtraction: function (node) {
-            if (node.children.length > 0) {
-                return node.children[0].innerHTML;
-            } else {
-                return node.innerHTML;
-            }
-        }
-    });
-
-    $('#profilesummarytable').tablesorter({
-        widgets: ['zebra'],
-        sortList: [[1, 1]],
-        textExtraction: function (node) {
-            if (node.children.length > 0) {
-                return node.children[0].innerHTML;
-            } else {
-                return node.innerHTML;
-            }
-        }
-    });
 }
 
 export function onload4 () {
