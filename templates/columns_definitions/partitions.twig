@@ -46,7 +46,7 @@
             <td>
                 <select name="subpartition_by" id="subpartition_by">
                     {% for option in sub_partition_options %}
-                    <option value="<?= $option?>"
+                    <option value="{{ option }}"
                         {%- if partition_details['subpartition_by'] == option %}
                             selected="selected"
                         {%- endif %}>
