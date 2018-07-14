@@ -1,4 +1,11 @@
 import { AJAX } from './ajax';
+import CommonParams from './variables/common_params';
+
+// Sql based imports
+import { PMA_getSQLEditor, bindCodeMirrorToInlineEditor } from './functions/Sql/SqlEditor';
+import { sqlQueryOptions, updateQueryParameters, PMA_highlightSQL } from './utils/sql';
+import { PMA_handleSimulateQueryButton, insertQuery, checkSqlQuery } from './functions/Sql/SqlQuery';
+
 /**
  * Here we register a function that will remove the onsubmit event from all
  * forms that will be handled by the generic page loader. We then save this
@@ -108,4 +115,144 @@ export function onload1 () {
         }
         return true;
     });
+}
+
+/**
+ * Attach CodeMirror2 editor to SQL edit area.
+ */
+export function onloadSqlEditor () {
+    var $elm = $('#sqlquery');
+    if ($elm.length > 0) {
+        if (CommonParams.get('CodemirrorEnable') === true) {
+            sqlQueryOptions.codemirror_editor = PMA_getSQLEditor($elm);
+            sqlQueryOptions.codemirror_editor.focus();
+            sqlQueryOptions.codemirror_editor.on('blur', updateQueryParameters);
+        } else {
+            // without codemirror
+            $elm.focus().on('blur', updateQueryParameters);
+        }
+    }
+    PMA_highlightSQL($('body'));
+}
+export function teardownSqlEditor () {
+    if (sqlQueryOptions.codemirror_editor) {
+        $('#sqlquery').text(sqlQueryOptions.codemirror_editor.getValue());
+        sqlQueryOptions.codemirror_editor.toTextArea();
+        sqlQueryOptions.codemirror_editor = false;
+    }
+}
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+export function teardownSqlInlineEditor () {
+    $(document).off('click', 'a.inline_edit_sql');
+    $(document).off('click', 'input#sql_query_edit_save');
+    $(document).off('click', 'input#sql_query_edit_discard');
+    $('input.sqlbutton').off('click');
+    if (sqlQueryOptions.codemirror_editor) {
+        sqlQueryOptions.codemirror_editor.off('blur');
+    } else {
+        $(document).off('blur', '#sqlquery');
+    }
+    $(document).off('change', '#parameterized');
+    $(document).off('click', 'input.sqlbutton');
+    $('#sqlquery').off('keydown');
+    $('#sql_query_edit').off('keydown');
+
+    if (sqlQueryOptions.codemirror_inline_editor) {
+        // Copy the sql query to the text area to preserve it.
+        $('#sql_query_edit').text(sqlQueryOptions.codemirror_inline_editor.getValue());
+        $(sqlQueryOptions.codemirror_inline_editor.getWrapperElement()).off('keydown');
+        sqlQueryOptions.codemirror_inline_editor.toTextArea();
+        sqlQueryOptions.codemirror_inline_editor = false;
+    }
+    if (sqlQueryOptions.codemirror_editor) {
+        $(sqlQueryOptions.codemirror_editor.getWrapperElement()).off('keydown');
+    }
+}
+
+/**
+ * Jquery Coding for inline editing SQL_QUERY
+ */
+export function onloadSqlInlineEditor () {
+    // If we are coming back to the page by clicking forward button
+    // of the browser, bind the code mirror to inline query editor.
+    bindCodeMirrorToInlineEditor();
+    $(document).on('click', 'a.inline_edit_sql', function () {
+        if ($('#sql_query_edit').length) {
+            // An inline query editor is already open,
+            // we don't want another copy of it
+            return false;
+        }
+
+        var $form = $(this).prev('form');
+        var sql_query  = $form.find('input[name=\'sql_query\']').val().trim();
+        var $inner_sql = $(this).parent().prev().find('code.sql');
+        var old_text   = $inner_sql.html();
+
+        var new_content = '<textarea name="sql_query_edit" id="sql_query_edit">' + escapeHtml(sql_query) + '</textarea>\n';
+        // new_content    += getForeignKeyCheckboxLoader();
+        new_content    += '<input type="submit" id="sql_query_edit_save" class="button btnSave" value="' + PMA_messages.strGo + '"/>\n';
+        new_content    += '<input type="button" id="sql_query_edit_discard" class="button btnDiscard" value="' + PMA_messages.strCancel + '"/>\n';
+        var $editor_area = $('div#inline_editor');
+        if ($editor_area.length === 0) {
+            $editor_area = $('<div id="inline_editor_outer"></div>');
+            $editor_area.insertBefore($inner_sql);
+        }
+        $editor_area.html(new_content);
+        loadForeignKeyCheckbox();
+        $inner_sql.hide();
+
+        bindCodeMirrorToInlineEditor();
+        return false;
+    });
+
+    $(document).on('click', 'input#sql_query_edit_save', function (e) {
+        // hide already existing success message
+        var sql_query;
+        if (sqlQueryOptions.codemirror_inline_editor) {
+            sqlQueryOptions.codemirror_inline_editor.save();
+            sql_query = sqlQueryOptions.codemirror_inline_editor.getValue();
+        } else {
+            sql_query = $(this).parent().find('#sql_query_edit').val();
+        }
+        var fk_check = $(this).parent().find('#fk_checks').is(':checked');
+
+        var $form = $('a.inline_edit_sql').prev('form');
+        var $fake_form = $('<form>', { action: 'import.php', method: 'post' })
+            .append($form.find('input[name=server], input[name=db], input[name=table], input[name=token]').clone())
+            .append($('<input/>', { type: 'hidden', name: 'show_query', value: 1 }))
+            .append($('<input/>', { type: 'hidden', name: 'is_js_confirmed', value: 0 }))
+            .append($('<input/>', { type: 'hidden', name: 'sql_query', value: sql_query }))
+            .append($('<input/>', { type: 'hidden', name: 'fk_checks', value: fk_check ? 1 : 0 }));
+        if (! checkSqlQuery($fake_form[0])) {
+            return false;
+        }
+        $('.success').hide();
+        $fake_form.appendTo($('body')).submit();
+    });
+
+    $(document).on('click', 'input#sql_query_edit_discard', function () {
+        var $divEditor = $('div#inline_editor_outer');
+        $divEditor.siblings('code.sql').show();
+        $divEditor.remove();
+    });
+
+    $(document).on('click', 'input.sqlbutton', function (evt) {
+        insertQuery(evt.target.id);
+        PMA_handleSimulateQueryButton();
+        return false;
+    });
+
+    $(document).on('change', '#parameterized', updateQueryParameters);
+
+    var $inputUsername = $('#input_username');
+    if ($inputUsername) {
+        if ($inputUsername.val() === '') {
+            $inputUsername.trigger('focus');
+        } else {
+            $('#input_password').trigger('focus');
+        }
+    }
 }
