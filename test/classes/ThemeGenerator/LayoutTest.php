@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Theme;
+namespace PhpMyAdmin\Tests\ThemeGenerator;
 
 use PhpMyAdmin\Tests\ThemeGeneratorTest;
 use PhpMyAdmin\Tests\PmaTestCase;

@@ -7,7 +7,7 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Theme;
+namespace PhpMyAdmin\ThemeGenerator;
 
 /**
  * Function to create Navigation.css.php in phpMyAdmin

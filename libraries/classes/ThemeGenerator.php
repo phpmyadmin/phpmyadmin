@@ -11,9 +11,9 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Theme\Common;
-use PhpMyAdmin\Theme\Layout;
-use PhpMyAdmin\Theme\Navigation;
+use PhpMyAdmin\ThemeGenerator\Common;
+use PhpMyAdmin\ThemeGenerator\Layout;
+use PhpMyAdmin\ThemeGenerator\Navigation;
 
 /**
  * Set of functions for Automated Theme Generator in phpMyAdmin
