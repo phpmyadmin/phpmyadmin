@@ -62,12 +62,12 @@ class RoutinesTest extends TestCase
      */
     public function testGetDataFromRequest($in, $out)
     {
-        global $_REQUEST;
+        global $_POST;
 
-        unset($_REQUEST);
+        unset($_POST);
         foreach ($in as $key => $value) {
             if ($value !== '') {
-                $_REQUEST[$key] = $value;
+                $_POST[$key] = $value;
             }
         }
         Routines::setGlobals();
@@ -1100,7 +1100,7 @@ class RoutinesTest extends TestCase
      */
     public function testGetQueryFromRequest($request, $query, $num_err)
     {
-        global $_REQUEST, $errors, $cfg;
+        global $_POST, $errors, $cfg;
 
         $cfg['ShowFunctionFields'] = false;
 
@@ -1125,8 +1125,8 @@ class RoutinesTest extends TestCase
             );
         $GLOBALS['dbi'] = $dbi;
 
-        unset($_REQUEST);
-        $_REQUEST = $request;
+        unset($_POST);
+        $_POST = $request;
         $this->assertEquals($query, Routines::getQueryFromRequest());
         $this->assertCount($num_err, $errors);
 
