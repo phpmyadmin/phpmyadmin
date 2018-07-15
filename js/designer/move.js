@@ -382,7 +382,6 @@ function Re_load () {
                         row_offset_top +
                         height_field;
 
-
                     row_offset_top = 0;
                     tab_hide_button = document.getElementById('id_hide_tbody_' + contr[K][key][key2][key3][0]);
                     if (tab_hide_button.innerHTML === 'v') {
@@ -1976,6 +1975,11 @@ AJAX.registerOnload('designer/move.js', function () {
     });
     $('#SaveAs').on('click', function () {
         Save_as();
+        $(document).ready(function() {
+            $('input#selected_value').click(function () {
+                document.getElementById("save_page_new").checked = true;
+            });
+        });
         return false;
     });
     $('#delPages').on('click', function () {
