@@ -62,7 +62,7 @@ class ServerDatabasesController extends Controller
 
         $response = Response::getInstance();
 
-        if (isset($_REQUEST['drop_selected_dbs'])
+        if (isset($_POST['drop_selected_dbs'])
             && $response->isAjax()
             && ($GLOBALS['dbi']->isSuperuser() || $GLOBALS['cfg']['AllowUserDropDatabase'])
         ) {
@@ -184,7 +184,7 @@ class ServerDatabasesController extends Controller
      */
     public function dropDatabasesAction()
     {
-        if (! isset($_REQUEST['selected_dbs'])) {
+        if (! isset($_POST['selected_dbs'])) {
             $message = Message::error(__('No databases selected.'));
         } else {
             $action = 'server_databases.php';
