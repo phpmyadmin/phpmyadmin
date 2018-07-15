@@ -1,17 +1,30 @@
 import path from 'path';
 import webpack from 'webpack';
 
-// let dev server port be 3307
+// environment either development or production
+var MODE = 'development';
 
-var mode = 'development';
+var WEBPACK_HOST = 'http://localhost';
+
+// port number of dev server
+// let dev server port be 3307
+var WEBPACK_PORT = 3307;
+
+var PUBLIC_PATH;
+
+if (MODE === 'development') {
+    PUBLIC_PATH = WEBPACK_HOST + ':' + WEBPACK_PORT + '/js/dist/';
+} else {
+    PUBLIC_PATH = 'js/dist/';
+}
+
 var module = {
     rules: [
         { test: /\.(js)$/, use: 'babel-loader', exclude: /node_modules/ }
     ]
 };
 var devServer = {
-    // port number of dev server
-    port: 3307,
+    port: WEBPACK_PORT,
     hot: false,
     headers: {
         'Access-Control-Allow-Origin': '*'
@@ -25,18 +38,16 @@ var plugins = [
 ];
 
 export default [{
-    // envionment either development or production
-    mode: mode,
+    mode: MODE,
     entry: {
         db_search_new: './js/src/db_search.js'
     },
     output: {
         filename: 'db_search_new.js',
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: 'http://localhost:3307/js/dist'
+        path: path.resolve(__dirname, 'js/dist'),
+        publicPath: PUBLIC_PATH
     },
     module: module,
-    // devtool: 'source-map',
     resolve: {
         extensions: ['.js']
     },

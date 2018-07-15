@@ -217,8 +217,8 @@ Basic settings
 
     Setting this to ``true`` allows phpMyAdmin to be included inside a frame,
     and is a potential security hole allowing cross-frame scripting attacks or
-    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be 
-    included from another document in a frame, unless that document belongs 
+    clickjacking. Setting this to 'sameorigin' prevents phpMyAdmin to be
+    included from another document in a frame, unless that document belongs
     to the same domain.
 
 Server connection settings
@@ -3407,23 +3407,23 @@ Developer
     :type: string
     :default: `'production'`
 
-    Enable you to set the working environment for loading js files
+    Sets the working environment for loading JavaScript files for webpack development
+
+    Possible values are 'production' or 'development'
 
 .. config:option:: $cfg['webpack_host']
 
     :type: string
     :default: `'http://localhost'`
 
-    Enable you to start webpack development server on specified host for serving js files
-    when working in the development environment
+    Webpack development server hostname for serving JavaScript files. Requires $cfg['environment'] to be development.
 
 .. config:option:: $cfg['webpack_port']
 
     :type: number
     :default: 3307
 
-    Enable you to start webpack development server on specified port for serving js files
-    when working in the development environment
+    Webpack development server port for serving JavaScript files. Requires $cfg['environment'] to be development.
 
 .. config:option:: $cfg['DBG']
 
