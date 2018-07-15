@@ -757,7 +757,7 @@ var AJAX = {
                 if (PMA_commonParams.get('environment') === 'development') {
                     script_src = PMA_commonParams.get('webpack_host') + ':'
                     + PMA_commonParams.get('webpack_port') + '/js/dist/';
-                } else if (PMA_commonParams.get('environment') === 'production') {
+                } else {
                     script_src = 'js/dist/';
                 }
                 script.src = script_src + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));

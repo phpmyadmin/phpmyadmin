@@ -115,16 +115,19 @@ $cfg['blowfish_secret'] = '';
  * for development mode $cfg['environment'] = 'development',
  * for making production build $cfg['environment'] = 'production'
  *
+ * You will probably also have to modify the $cfg['CSPAllow'] directive
+ * in order to use the webpack development server.
+ *
  */
 $cfg['environment'] = 'production';
 
 /**
- * Webppack host for running development server of webpack
+ * Webpack host for running development server of webpack
  */
 $cfg['webpack_host'] = 'http://localhost';
 
 /**
- * Webppack port number for running development server of webpack
+ * Webpack port number for running development server of webpack
  */
 $cfg['webpack_port'] = 3307;
 
@@ -3032,9 +3035,9 @@ $cfg['LinkLengthLimit'] = 1000;
 /**
  * Additional string to allow in CSP headers.
  *
- * For working envionment to be development, this has to be changed to allow
- * cross-origin loading of js files for specified webpack host and webpack port.
- * Eg. 'http://localhost:3307 ws://localhost:3307' for locahost and 3307 webpack pot
+ * For working environment to be development, this has to be changed to allow
+ * cross-origin loading of JavaScript files for specified webpack host and webpack port.
+ * Eg. 'http://localhost:3307 ws://localhost:3307' for locahost and 3307 webpack port
  */
 $cfg['CSPAllow'] = '';
 
