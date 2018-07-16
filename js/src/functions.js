@@ -1,10 +1,13 @@
 import { AJAX } from './ajax';
 import CommonParams from './variables/common_params';
+import { PMA_Messages as PMA_messages } from './variables/export_variables';
 
 // Sql based imports
 import { PMA_getSQLEditor, bindCodeMirrorToInlineEditor } from './functions/Sql/SqlEditor';
 import { sqlQueryOptions, updateQueryParameters, PMA_highlightSQL } from './utils/sql';
 import { PMA_handleSimulateQueryButton, insertQuery, checkSqlQuery } from './functions/Sql/SqlQuery';
+import { escapeHtml } from './utils/Sanitise';
+import { getForeignKeyCheckboxLoader, loadForeignKeyCheckbox } from './functions/Sql/ForeignKey';
 
 /**
  * Here we register a function that will remove the onsubmit event from all
@@ -192,7 +195,7 @@ export function onloadSqlInlineEditor () {
         var old_text   = $inner_sql.html();
 
         var new_content = '<textarea name="sql_query_edit" id="sql_query_edit">' + escapeHtml(sql_query) + '</textarea>\n';
-        // new_content    += getForeignKeyCheckboxLoader();
+        new_content    += getForeignKeyCheckboxLoader();
         new_content    += '<input type="submit" id="sql_query_edit_save" class="button btnSave" value="' + PMA_messages.strGo + '"/>\n';
         new_content    += '<input type="button" id="sql_query_edit_discard" class="button btnDiscard" value="' + PMA_messages.strCancel + '"/>\n';
         var $editor_area = $('div#inline_editor');
@@ -255,4 +258,27 @@ export function onloadSqlInlineEditor () {
             $('#input_password').trigger('focus');
         }
     }
+}
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+export function teardownCtrlEnterFormSubmit () {
+    $(document).off('keydown', 'form input, form textarea, form select');
+}
+
+export function onloadCtrlEnterFormSubmit () {
+    /**
+     * Handle 'Ctrl/Alt + Enter' form submits
+     */
+    $('form input, form textarea, form select').on('keydown', function (e) {
+        if ((e.ctrlKey && e.which === 13) || (e.altKey && e.which === 13)) {
+            var $form = $(this).closest('form');
+            if (! $form.find('input[type="submit"]') ||
+                ! $form.find('input[type="submit"]').trigger('click')
+            ) {
+                $form.submit();
+            }
+        }
+    });
 }
