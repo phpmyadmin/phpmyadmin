@@ -97,8 +97,8 @@ class Events
     {
         global $_REQUEST, $_POST, $errors, $db;
 
-        if (! empty($_REQUEST['editor_process_add'])
-            || ! empty($_REQUEST['editor_process_edit'])
+        if (! empty($_POST['editor_process_add'])
+            || ! empty($_POST['editor_process_edit'])
         ) {
             $sql_query = '';
 
@@ -106,15 +106,15 @@ class Events
 
             if (! count($errors)) { // set by PhpMyAdmin\Rte\Routines::getQueryFromRequest()
                 // Execute the created query
-                if (! empty($_REQUEST['editor_process_edit'])) {
+                if (! empty($_POST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong
                     $create_item = $GLOBALS['dbi']->getDefinition(
                         $db,
                         'EVENT',
-                        $_REQUEST['item_original_name']
+                        $_POST['item_original_name']
                     );
                     $drop_item = "DROP EVENT "
-                        . Util::backquote($_REQUEST['item_original_name'])
+                        . Util::backquote($_POST['item_original_name'])
                         . ";\n";
                     $result = $GLOBALS['dbi']->tryQuery($drop_item);
                     if (! $result) {
@@ -149,7 +149,7 @@ class Events
                                 __('Event %1$s has been modified.')
                             );
                             $message->addParam(
-                                Util::backquote($_REQUEST['item_name'])
+                                Util::backquote($_POST['item_name'])
                             );
                             $sql_query = $drop_item . $item_query;
                         }
@@ -169,7 +169,7 @@ class Events
                             __('Event %1$s has been created.')
                         );
                         $message->addParam(
-                            Util::backquote($_REQUEST['item_name'])
+                            Util::backquote($_POST['item_name'])
                         );
                         $sql_query = $item_query;
                     }
@@ -195,12 +195,12 @@ class Events
             $response = Response::getInstance();
             if ($response->isAjax()) {
                 if ($message->isSuccess()) {
-                    $events = $GLOBALS['dbi']->getEvents($db, $_REQUEST['item_name']);
+                    $events = $GLOBALS['dbi']->getEvents($db, $_POST['item_name']);
                     $event = $events[0];
                     $response->addJSON(
                         'name',
                         htmlspecialchars(
-                            mb_strtoupper($_REQUEST['item_name'])
+                            mb_strtoupper($_POST['item_name'])
                         )
                     );
                     if (! empty($event)) {
@@ -219,14 +219,14 @@ class Events
          * Display a form used to add/edit a trigger, if necessary
          */
         if (count($errors)
-            || (empty($_REQUEST['editor_process_add'])
-            && empty($_REQUEST['editor_process_edit'])
+            || (empty($_POST['editor_process_add'])
+            && empty($_POST['editor_process_edit'])
             && (! empty($_REQUEST['add_item'])
             || ! empty($_REQUEST['edit_item'])
-            || ! empty($_REQUEST['item_changetype'])))
+            || ! empty($_POST['item_changetype'])))
         ) { // FIXME: this must be simpler than that
             $operation = '';
-            if (! empty($_REQUEST['item_changetype'])) {
+            if (! empty($_POST['item_changetype'])) {
                 $operation = 'change';
             }
             // Get the data for the form (if any)
@@ -237,8 +237,8 @@ class Events
             } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __("Edit event");
                 if (! empty($_REQUEST['item_name'])
-                    && empty($_REQUEST['editor_process_edit'])
-                    && empty($_REQUEST['item_changetype'])
+                    && empty($_POST['editor_process_edit'])
+                    && empty($_POST['item_changetype'])
                 ) {
                     $item = self::getDataFromName($_REQUEST['item_name']);
                     if ($item !== false) {
@@ -274,11 +274,11 @@ class Events
                          'item_comment',
                          'item_definer');
         foreach ($indices as $index) {
-            $retval[$index] = isset($_REQUEST[$index]) ? $_REQUEST[$index] : '';
+            $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
         }
         $retval['item_type']        = 'ONE TIME';
         $retval['item_type_toggle'] = 'RECURRING';
-        if (isset($_REQUEST['item_type']) && $_REQUEST['item_type'] == 'RECURRING') {
+        if (isset($_POST['item_type']) && $_POST['item_type'] == 'RECURRING') {
             $retval['item_type']        = 'RECURRING';
             $retval['item_type_toggle'] = 'ONE TIME';
         }
@@ -545,10 +545,10 @@ class Events
         global $_REQUEST, $errors, $event_status, $event_type, $event_interval;
 
         $query = 'CREATE ';
-        if (! empty($_REQUEST['item_definer'])) {
-            if (mb_strpos($_REQUEST['item_definer'], '@') !== false
+        if (! empty($_POST['item_definer'])) {
+            if (mb_strpos($_POST['item_definer'], '@') !== false
             ) {
-                $arr = explode('@', $_REQUEST['item_definer']);
+                $arr = explode('@', $_POST['item_definer']);
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
             } else {
@@ -556,40 +556,40 @@ class Events
             }
         }
         $query .= 'EVENT ';
-        if (! empty($_REQUEST['item_name'])) {
-            $query .= Util::backquote($_REQUEST['item_name']) . ' ';
+        if (! empty($_POST['item_name'])) {
+            $query .= Util::backquote($_POST['item_name']) . ' ';
         } else {
             $errors[] = __('You must provide an event name!');
         }
         $query .= 'ON SCHEDULE ';
-        if (! empty($_REQUEST['item_type'])
-            && in_array($_REQUEST['item_type'], $event_type)
+        if (! empty($_POST['item_type'])
+            && in_array($_POST['item_type'], $event_type)
         ) {
-            if ($_REQUEST['item_type'] == 'RECURRING') {
-                if (! empty($_REQUEST['item_interval_value'])
-                    && !empty($_REQUEST['item_interval_field'])
-                    && in_array($_REQUEST['item_interval_field'], $event_interval)
+            if ($_POST['item_type'] == 'RECURRING') {
+                if (! empty($_POST['item_interval_value'])
+                    && !empty($_POST['item_interval_field'])
+                    && in_array($_POST['item_interval_field'], $event_interval)
                 ) {
-                    $query .= 'EVERY ' . intval($_REQUEST['item_interval_value']) . ' ';
-                    $query .= $_REQUEST['item_interval_field'] . ' ';
+                    $query .= 'EVERY ' . intval($_POST['item_interval_value']) . ' ';
+                    $query .= $_POST['item_interval_field'] . ' ';
                 } else {
                     $errors[]
                         = __('You must provide a valid interval value for the event.');
                 }
-                if (! empty($_REQUEST['item_starts'])) {
+                if (! empty($_POST['item_starts'])) {
                     $query .= "STARTS '"
-                        . $GLOBALS['dbi']->escapeString($_REQUEST['item_starts'])
+                        . $GLOBALS['dbi']->escapeString($_POST['item_starts'])
                         . "' ";
                 }
-                if (! empty($_REQUEST['item_ends'])) {
+                if (! empty($_POST['item_ends'])) {
                     $query .= "ENDS '"
-                        . $GLOBALS['dbi']->escapeString($_REQUEST['item_ends'])
+                        . $GLOBALS['dbi']->escapeString($_POST['item_ends'])
                         . "' ";
                 }
             } else {
-                if (! empty($_REQUEST['item_execute_at'])) {
+                if (! empty($_POST['item_execute_at'])) {
                     $query .= "AT '"
-                        . $GLOBALS['dbi']->escapeString($_REQUEST['item_execute_at'])
+                        . $GLOBALS['dbi']->escapeString($_POST['item_execute_at'])
                         . "' ";
                 } else {
                     $errors[]
@@ -600,26 +600,26 @@ class Events
             $errors[] = __('You must provide a valid type for the event.');
         }
         $query .= 'ON COMPLETION ';
-        if (empty($_REQUEST['item_preserve'])) {
+        if (empty($_POST['item_preserve'])) {
             $query .= 'NOT ';
         }
         $query .= 'PRESERVE ';
-        if (! empty($_REQUEST['item_status'])) {
+        if (! empty($_POST['item_status'])) {
             foreach ($event_status['display'] as $key => $value) {
-                if ($value == $_REQUEST['item_status']) {
+                if ($value == $_POST['item_status']) {
                     $query .= $event_status['query'][$key] . ' ';
                     break;
                 }
             }
         }
-        if (! empty($_REQUEST['item_comment'])) {
+        if (! empty($_POST['item_comment'])) {
             $query .= "COMMENT '" . $GLOBALS['dbi']->escapeString(
-                $_REQUEST['item_comment']
+                $_POST['item_comment']
             ) . "' ";
         }
         $query .= 'DO ';
-        if (! empty($_REQUEST['item_definition'])) {
-            $query .= $_REQUEST['item_definition'];
+        if (! empty($_POST['item_definition'])) {
+            $query .= $_POST['item_definition'];
         } else {
             $errors[] = __('You must provide an event definition.');
         }
