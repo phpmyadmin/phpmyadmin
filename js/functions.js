@@ -4032,8 +4032,8 @@ var toggleButton = function ($obj) {
             addClass = 'on';
         }
 
-        var params = { 'ajax_request': true };
-        $.post(url, params, function (data) {
+        var parts = url.split('?');
+        $.post(parts[0], parts[1] + '&ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 $container
