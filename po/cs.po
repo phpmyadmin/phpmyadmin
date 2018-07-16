@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-05-24 22:35+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2018-07-16 23:02+0000\n"
+"Last-Translator: Martin Šich <sich.martin64@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-8/cs/>"
 "\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -1756,6 +1756,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Připojení k serveru bylo ztraceno. Prosím, zkontrolujte Vaše síťové "
+"připojení a stav serveru."
 
 #: js/messages.php:369
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
@@ -2670,12 +2672,12 @@ msgstr "Silné"
 
 #: js/messages.php:746
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Vypršel čas pro aktivaci bezpečnostního klíče."
 
 #: js/messages.php:747
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Selhala aktivace bezpečnostního klíče (%s)."
 
 #: js/messages.php:776
 msgctxt "Previous month"
@@ -3458,7 +3460,7 @@ msgstr "Islandština"
 #: libraries/classes/Charsets.php:491
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Latina (klasická)"
 
 #: libraries/classes/Charsets.php:495
 #, fuzzy
@@ -3521,7 +3523,7 @@ msgstr "Španělština"
 #: libraries/classes/Charsets.php:543 libraries/classes/Charsets.php:593
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Španělština (tradiční)"
 
 #: libraries/classes/Charsets.php:562
 #, fuzzy
@@ -7112,7 +7114,7 @@ msgstr "Server neodpovídá."
 
 #: libraries/classes/DatabaseInterface.php:2131
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Odhlásit se a zkusit přihlásit se jako jiný uživatel."
 
 #: libraries/classes/DatabaseInterface.php:2137
 msgid "Please check privileges of directory containing database."
@@ -7167,7 +7169,7 @@ msgstr "Heslo:"
 
 #: libraries/classes/Display/ChangePassword.php:79
 msgid "Enter:"
-msgstr ""
+msgstr "Vložit:"
 
 #: libraries/classes/Display/ChangePassword.php:86
 #: libraries/classes/ReplicationGui.php:878
@@ -7216,7 +7218,7 @@ msgstr ""
 
 #: libraries/classes/Display/Export.php:558
 msgid "Defined aliases"
-msgstr ""
+msgstr "Definované aliasy"
 
 #: libraries/classes/Display/Export.php:614
 #: templates/display/export/options_output.twig:7
@@ -8140,7 +8142,7 @@ msgstr "Pohled"
 #: libraries/classes/Menu.php:290 libraries/classes/Menu.php:309
 #, php-format
 msgid "“%s”"
-msgstr ""
+msgstr "\"%s\""
 
 #: libraries/classes/Menu.php:344
 #: libraries/classes/Navigation/Nodes/NodeTable.php:300
@@ -9201,6 +9203,8 @@ msgstr "Nepodařilo se přihlášení k MySQL serveru"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:335
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Aktivovali jste dvoustupňové ověřování. Potvrďte, prosím, své přihlašovací "
+"údaje."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:101
 #: templates/display/import/import.twig:168
@@ -9719,7 +9723,7 @@ msgstr "Tabulka:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:120
 msgid "Purpose:"
-msgstr ""
+msgstr "Účel:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:501
 msgid "MIME"
