@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #14390 Can't unhide tables
 - issue #14382 "Visualize GIS data" icon missing
 - issue #14435 Event scheduler status toggle doesn't work
+- issue #14365, View not working on multiple servers
 
 4.8.2 (2018-06-21)
 - issue #14370 WHERE 0 causes Fatal error
