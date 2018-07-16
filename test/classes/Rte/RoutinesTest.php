@@ -64,10 +64,11 @@ class RoutinesTest extends TestCase
     {
         global $_POST;
 
-        unset($_POST);
+        unset($_POST); unset($_REQUEST);
         foreach ($in as $key => $value) {
             if ($value !== '') {
                 $_POST[$key] = $value;
+                $_REQUEST[$key] = $value;
             }
         }
         Routines::setGlobals();
