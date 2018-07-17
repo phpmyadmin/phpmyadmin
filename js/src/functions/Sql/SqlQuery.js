@@ -323,3 +323,49 @@ export function PMA_autosaveSQLSort (query) {
         }
     }
 }
+
+/**
+  * Inserts multiple fields.
+  *
+  */
+export function insertValueQuery () {
+    var myQuery = document.sqlform.sql_query;
+    var myListBox = document.sqlform.dummy;
+
+    if (myListBox.options.length > 0) {
+        sql_box_locked = true;
+        var columnsList = '';
+        var NbSelect = 0;
+        for (var i = 0; i < myListBox.options.length; i++) {
+            if (myListBox.options[i].selected) {
+                NbSelect++;
+                if (NbSelect > 1) {
+                    columnsList += ', ';
+                }
+                columnsList += myListBox.options[i].value;
+            }
+        }
+
+        /* CodeMirror support */
+        if (sqlQueryOptions.codemirror_editor) {
+            sqlQueryOptions.codemirror_editor.replaceSelection(columnsList);
+            sqlQueryOptions.codemirror_editor.focus();
+        // IE support
+        } else if (document.selection) {
+            myQuery.focus();
+            var sel = document.selection.createRange();
+            sel.text = columnsList;
+        // MOZILLA/NETSCAPE support
+        } else if (document.sqlform.sql_query.selectionStart || document.sqlform.sql_query.selectionStart === '0') {
+            var startPos = document.sqlform.sql_query.selectionStart;
+            var endPos = document.sqlform.sql_query.selectionEnd;
+            var SqlString = document.sqlform.sql_query.value;
+
+            myQuery.value = SqlString.substring(0, startPos) + columnsList + SqlString.substring(endPos, SqlString.length);
+            myQuery.focus();
+        } else {
+            myQuery.value += columnsList;
+        }
+        sql_box_locked = false;
+    }
+}
