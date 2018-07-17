@@ -22,7 +22,7 @@ import { printPreview } from './functions/Print';
 
 import {
     setShowThisQuery, PMA_autosaveSQL, PMA_autosaveSQLSort, PMA_showThisQuery,
-    checkSavedQuery, setQuery, checkSqlQuery, PMA_handleSimulateQueryButton
+    checkSavedQuery, setQuery, checkSqlQuery, PMA_handleSimulateQueryButton, insertValueQuery
 } from './functions/Sql/SqlQuery';
 
 /**
@@ -713,6 +713,22 @@ export function onload1 () {
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
     });
+
+    /**
+     * Handles double click table fields to insert into query
+     */
+    $('#tablefields')
+        .on('dblclick', function () {
+            insertValueQuery();
+        });
+
+    /**
+     * Handle click on insert or arrow button to insert table fields in query
+     */
+    $('#tablefieldsSubmitLinkMode,#tablefieldsSubmitNonLinkMode')
+        .on('click', function () {
+            insertValueQuery();
+        });
 } // end $()
 
 /**
