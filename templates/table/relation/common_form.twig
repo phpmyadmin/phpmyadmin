@@ -192,4 +192,7 @@
         <input type="submit" value="{% trans 'Save' %}" />
     </fieldset>
 </form>
+{% if foreignKeySupported %}
+    {{ displayIndexesHtml|raw }}
+{% endif %}
 {% endblock %}
