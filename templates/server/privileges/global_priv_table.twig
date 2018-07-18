@@ -8,7 +8,7 @@
         {% for priv in table %}
             {% set checked = row[priv[0] ~ '_priv'] is defined and row[priv[0] ~ '_priv'] == 'Y' ? ' checked="checked"' %}
             {% set formatted_priv = ServerPrivileges_formatPrivilege(priv, true) %}
-            {% include 'privileges/global_priv_tbl_item.twig' with {
+            {% include 'server/privileges/global_priv_tbl_item.twig' with {
                 'checked': checked,
                 'formatted_priv': formatted_priv,
                 'priv': priv

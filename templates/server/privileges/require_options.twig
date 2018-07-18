@@ -5,7 +5,7 @@
             {% if require_option['name'] is same as('ssl_cipher') %}
                 <div id="specified_div" style="padding-left:20px;">
             {% endif %}
-            {% include 'privileges/require_options_item.twig' with {
+            {% include 'server/privileges/require_options_item.twig' with {
                 'require_option': require_option
             } only %}
         {% endfor %}

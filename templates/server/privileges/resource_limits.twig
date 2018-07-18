@@ -6,7 +6,7 @@
         </small>
     </p>
     {% for limit in limits %}
-        {% include 'privileges/resource_limit_item.twig' with {
+        {% include 'server/privileges/resource_limit_item.twig' with {
             'limit': limit
         } only %}
     {% endfor %}

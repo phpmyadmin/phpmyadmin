@@ -31,7 +31,7 @@
                     </tr>
                 {% else %}
                     {% for privilege in privileges %}
-                        {% include 'privileges/privileges_summary_row.twig' with
+                        {% include 'server/privileges/privileges_summary_row.twig' with
                             privilege|merge({'type': type})
                         only %}
                     {% endfor %}
@@ -40,16 +40,16 @@
         </table>
 
         {% if type == 'database' %}
-            {% include 'privileges/add_privileges_database.twig' with {
+            {% include 'server/privileges/add_privileges_database.twig' with {
                 'databases': databases
             } only %}
         {% elseif type == 'table' %}
-            {% include 'privileges/add_privileges_table.twig' with {
+            {% include 'server/privileges/add_privileges_table.twig' with {
                 'database': database,
                 'tables': tables
             } only %}
         {% else %}
-            {% include 'privileges/add_privileges_routine.twig' with {
+            {% include 'server/privileges/add_privileges_routine.twig' with {
                 'database': database,
                 'routines': routines
             } only %}
