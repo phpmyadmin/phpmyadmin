@@ -55,15 +55,15 @@ $insertEdit = new InsertEdit($GLOBALS['dbi']);
 $insertEdit->isInsertRow();
 
 $after_insert_actions = array('new_insert', 'same_insert', 'edit_next');
-if (isset($_REQUEST['after_insert'])
-    && in_array($_REQUEST['after_insert'], $after_insert_actions)
+if (isset($_POST['after_insert'])
+    && in_array($_POST['after_insert'], $after_insert_actions)
 ) {
-    $url_params['after_insert'] = $_REQUEST['after_insert'];
-    if (isset($_REQUEST['where_clause'])) {
-        foreach ($_REQUEST['where_clause'] as $one_where_clause) {
-            if ($_REQUEST['after_insert'] == 'same_insert') {
+    $url_params['after_insert'] = $_POST['after_insert'];
+    if (isset($_POST['where_clause'])) {
+        foreach ($_POST['where_clause'] as $one_where_clause) {
+            if ($_POST['after_insert'] == 'same_insert') {
                 $url_params['where_clause'][] = $one_where_clause;
-            } elseif ($_REQUEST['after_insert'] == 'edit_next') {
+            } elseif ($_POST['after_insert'] == 'edit_next') {
                 $insertEdit->setSessionForEditNext($one_where_clause);
             }
         }
@@ -144,7 +144,7 @@ $row_skipped = false;
 $unsaved_values = array();
 foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
-    if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
+    if (! $using_key && isset($_POST['insert_ignore_' . $where_clause])) {
         continue;
     }
 
@@ -153,47 +153,47 @@ foreach ($loop_array as $rownumber => $where_clause) {
 
     // Map multi-edit keys to single-level arrays, dependent on how we got the fields
     $multi_edit_columns
-        = isset($_REQUEST['fields']['multi_edit'][$rownumber])
-        ? $_REQUEST['fields']['multi_edit'][$rownumber]
+        = isset($_POST['fields']['multi_edit'][$rownumber])
+        ? $_POST['fields']['multi_edit'][$rownumber]
         : array();
     $multi_edit_columns_name
-        = isset($_REQUEST['fields_name']['multi_edit'][$rownumber])
-        ? $_REQUEST['fields_name']['multi_edit'][$rownumber]
+        = isset($_POST['fields_name']['multi_edit'][$rownumber])
+        ? $_POST['fields_name']['multi_edit'][$rownumber]
         : array();
     $multi_edit_columns_prev
-        = isset($_REQUEST['fields_prev']['multi_edit'][$rownumber])
-        ? $_REQUEST['fields_prev']['multi_edit'][$rownumber]
+        = isset($_POST['fields_prev']['multi_edit'][$rownumber])
+        ? $_POST['fields_prev']['multi_edit'][$rownumber]
         : null;
     $multi_edit_funcs
-        = isset($_REQUEST['funcs']['multi_edit'][$rownumber])
-        ? $_REQUEST['funcs']['multi_edit'][$rownumber]
+        = isset($_POST['funcs']['multi_edit'][$rownumber])
+        ? $_POST['funcs']['multi_edit'][$rownumber]
         : null;
     $multi_edit_salt
-        = isset($_REQUEST['salt']['multi_edit'][$rownumber])
-        ? $_REQUEST['salt']['multi_edit'][$rownumber]
+        = isset($_POST['salt']['multi_edit'][$rownumber])
+        ? $_POST['salt']['multi_edit'][$rownumber]
         :null;
     $multi_edit_columns_type
-        = isset($_REQUEST['fields_type']['multi_edit'][$rownumber])
-        ? $_REQUEST['fields_type']['multi_edit'][$rownumber]
+        = isset($_POST['fields_type']['multi_edit'][$rownumber])
+        ? $_POST['fields_type']['multi_edit'][$rownumber]
         : null;
     $multi_edit_columns_null
-        = isset($_REQUEST['fields_null']['multi_edit'][$rownumber])
-        ? $_REQUEST['fields_null']['multi_edit'][$rownumber]
+        = isset($_POST['fields_null']['multi_edit'][$rownumber])
+        ? $_POST['fields_null']['multi_edit'][$rownumber]
         : null;
     $multi_edit_columns_null_prev
-        = isset($_REQUEST['fields_null_prev']['multi_edit'][$rownumber])
-        ? $_REQUEST['fields_null_prev']['multi_edit'][$rownumber]
+        = isset($_POST['fields_null_prev']['multi_edit'][$rownumber])
+        ? $_POST['fields_null_prev']['multi_edit'][$rownumber]
         : null;
     $multi_edit_auto_increment
-        = isset($_REQUEST['auto_increment']['multi_edit'][$rownumber])
-        ? $_REQUEST['auto_increment']['multi_edit'][$rownumber]
+        = isset($_POST['auto_increment']['multi_edit'][$rownumber])
+        ? $_POST['auto_increment']['multi_edit'][$rownumber]
         : null;
     $multi_edit_virtual
-        = isset($_REQUEST['virtual']['multi_edit'][$rownumber])
-        ? $_REQUEST['virtual']['multi_edit'][$rownumber]
+        = isset($_POST['virtual']['multi_edit'][$rownumber])
+        ? $_POST['virtual']['multi_edit'][$rownumber]
         : null;
 
-    // When a select field is nullified, it's not present in $_REQUEST
+    // When a select field is nullified, it's not present in $_POST
     // so initialize it; this way, the foreach($multi_edit_columns) will process it
     foreach ($multi_edit_columns_name as $key => $val) {
         if (! isset($multi_edit_columns[$key])) {
@@ -298,7 +298,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $query[] = 'UPDATE ' . Util::backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause
-                . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
+                . ($_POST['clause_is_unique'] ? '' : ' LIMIT 1');
         }
     }
 } // end foreach ($loop_array as $where_clause)
@@ -313,7 +313,7 @@ unset(
 // Builds the sql query
 if ($is_insert && count($value_sets) > 0) {
     $query = $insertEdit->buildSqlQuery($is_insertignore, $query_fields, $value_sets);
-} elseif (empty($query) && ! isset($_REQUEST['preview_sql']) && !$row_skipped) {
+} elseif (empty($query) && ! isset($_POST['preview_sql']) && !$row_skipped) {
     // No change -> move back to the calling script
     //
     // Note: logic passes here for inline edit
@@ -329,7 +329,7 @@ if ($is_insert && count($value_sets) > 0) {
 unset($multi_edit_columns, $is_insertignore);
 
 // If there is a request for SQL previewing.
-if (isset($_REQUEST['preview_sql'])) {
+if (isset($_POST['preview_sql'])) {
     Core::previewSQL($query);
 }
 
@@ -384,12 +384,12 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
      * transformed fields, if they were edited. After that, output the correct
      * link/transformed value and exit
      */
-    if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
+    if (isset($_POST['rel_fields_list']) && $_POST['rel_fields_list'] != '') {
 
         $map = $relation->getForeigners($db, $table, '', 'both');
 
         $relation_fields = array();
-        parse_str($_REQUEST['rel_fields_list'], $relation_fields);
+        parse_str($_POST['rel_fields_list'], $relation_fields);
 
         // loop for each relation cell
         /** @var array $relation_fields */
@@ -408,11 +408,11 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
             }
         }   // end of loop for each relation cell
     }
-    if (isset($_REQUEST['do_transformations'])
-        && $_REQUEST['do_transformations'] == true
+    if (isset($_POST['do_transformations'])
+        && $_POST['do_transformations'] == true
     ) {
         $edited_values = array();
-        parse_str($_REQUEST['transform_fields_list'], $edited_values);
+        parse_str($_POST['transform_fields_list'], $edited_values);
 
         if (! isset($extra_data)) {
             $extra_data = array();
@@ -435,14 +435,14 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
 
     // Need to check the inline edited value can be truncated by MySQL
     // without informing while saving
-    $column_name = $_REQUEST['fields_name']['multi_edit'][0][0];
+    $column_name = $_POST['fields_name']['multi_edit'][0][0];
 
     $insertEdit->verifyWhetherValueCanBeTruncatedAndAppendExtraData(
         $db, $table, $column_name, $extra_data
     );
 
     /**Get the total row count of the table*/
-    $_table = new Table($_REQUEST['table'], $_REQUEST['db']);
+    $_table = new Table($_POST['table'], $_POST['db']);
     $extra_data['row_count'] = $_table->countRecords();
 
     $extra_data['sql_query'] = Util::getMessage(
@@ -473,8 +473,8 @@ $active_page = $goto_include;
  * WHERE clause information so that tbl_change.php does not go back
  * to the current record
  */
-if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert']) {
-    unset($_REQUEST['where_clause']);
+if (isset($_POST['after_insert']) && 'new_insert' == $_POST['after_insert']) {
+    unset($_POST['where_clause']);
 }
 
 /**
