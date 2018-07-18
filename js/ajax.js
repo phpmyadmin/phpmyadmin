@@ -639,7 +639,24 @@ var AJAX = {
             var self = this;
 
             script.type = 'text/javascript';
-            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+            /**
+             * This piece of code is for appending the new revamped files into the
+             * DOM so that both new and old files can be used simultaneously
+             * It checks whether the file contains new in its name or not
+             */
+            var check = name.split('_');
+            if (check[check.length - 1] === 'new.js') {
+                var script_src;
+                if (PMA_commonParams.get('environment') === 'development') {
+                    script_src = PMA_commonParams.get('webpack_host') + ':'
+                    + PMA_commonParams.get('webpack_port') + '/js/dist/';
+                } else {
+                    script_src = 'js/dist/';
+                }
+                script.src = script_src + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+            } else {
+                script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+            }
             script.async = false;
             script.onload = function () {
                 self.done(name, callback);

@@ -53,6 +53,18 @@ class Scripts
                 $result .= "<script data-cfasync='false' "
                     . "type='text/javascript' src='js/" . $file_name
                     . "'></script>\n";
+            } else if (strpos($value['filename'], "_new") !== false) {
+                /**
+                 * This piece of code is for appending the new revamped files into the
+                 * DOM so that both new and old files can be used simultaneously
+                 * It checks whether the file contains new in its name or not
+                 */
+                $src = "";
+                if ($GLOBALS['cfg']['environment'] === 'development') {
+                    $src = $GLOBALS['cfg']['webpack_host'] . ":" . $GLOBALS['cfg']['webpack_port'] . "/";
+                }
+                $result .= '<script data-cfasync="false" type="text/javascript" src="' . $src . 'js/dist/'
+                    .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
             } else {
                 $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
                     . $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
