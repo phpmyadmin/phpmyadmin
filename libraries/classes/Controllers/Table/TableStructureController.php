@@ -679,7 +679,7 @@ class TableStructureController extends TableController
             } else {
                 $p = $stmt->partitions[$i];
                 $type = $p->type;
-                $expr = trim($p->expr, '()');
+                $expr = trim((string) $p->expr, '()');
                 if ($expr == 'MAXVALUE') {
                     $type .= ' MAXVALUE';
                     $expr = '';
@@ -689,9 +689,9 @@ class TableStructureController extends TableController
                     'value_type' => $type,
                     'value' => $expr,
                     'engine' => $p->options->has('ENGINE', true),
-                    'comment' => trim($p->options->has('COMMENT', true), "'"),
-                    'data_directory' => trim($p->options->has('DATA DIRECTORY', true), "'"),
-                    'index_directory' => trim($p->options->has('INDEX_DIRECTORY', true), "'"),
+                    'comment' => trim((string) $p->options->has('COMMENT', true), "'"),
+                    'data_directory' => trim((string)$p->options->has('DATA DIRECTORY', true), "'"),
+                    'index_directory' => trim((string) $p->options->has('INDEX_DIRECTORY', true), "'"),
                     'max_rows' => $p->options->has('MAX_ROWS', true),
                     'min_rows' => $p->options->has('MIN_ROWS', true),
                     'tablespace' => $p->options->has('TABLESPACE', true),
