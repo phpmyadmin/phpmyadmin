@@ -153,8 +153,8 @@ class TableStructureController extends TableController
         /**
          * Handle column moving
          */
-        if (isset($_REQUEST['move_columns'])
-            && is_array($_REQUEST['move_columns'])
+        if (isset($_POST['move_columns'])
+            && is_array($_POST['move_columns'])
             && $this->response->isAjax()
         ) {
             $this->moveColumns();
@@ -164,9 +164,9 @@ class TableStructureController extends TableController
         /**
          * handle MySQL reserved words columns check
          */
-        if (isset($_REQUEST['reserved_word_check'])) {
+        if (isset($_POST['reserved_word_check'])) {
             if ($GLOBALS['cfg']['ReservedWordDisableWarning'] === false) {
-                $columns_names = $_REQUEST['field_name'];
+                $columns_names = $_POST['field_name'];
                 $reserved_keywords_names = array();
                 foreach ($columns_names as $column) {
                     if (Context::isKeyword(trim($column), true)) {
@@ -197,7 +197,7 @@ class TableStructureController extends TableController
         /**
          * A click on Change has been made for one column
          */
-        if (isset($_REQUEST['change_column'])) {
+        if (isset($_GET['change_column'])) {
             $this->displayHtmlForColumnChange(null, 'tbl_structure.php');
             return;
         }
@@ -205,8 +205,8 @@ class TableStructureController extends TableController
         /**
          * Adding or editing partitioning of the table
          */
-        if (isset($_REQUEST['edit_partitioning'])
-            && ! isset($_REQUEST['save_partitioning'])
+        if (isset($_POST['edit_partitioning'])
+            && ! isset($_POST['save_partitioning'])
         ) {
             $this->displayHtmlForPartitionChange();
             return;
@@ -220,7 +220,7 @@ class TableStructureController extends TableController
         $submit_mult = $this->getMultipleFieldCommandType();
 
         if (! empty($submit_mult)) {
-            if (isset($_REQUEST['selected_fld'])) {
+            if (isset($_POST['selected_fld'])) {
                 if ($submit_mult == 'browse') {
                     // browsing the table displaying only selected columns
                     $this->displayTableBrowseForSelectedColumns(
@@ -230,13 +230,13 @@ class TableStructureController extends TableController
                     // handle multiple field commands
                     // handle confirmation of deleting multiple columns
                     $action = 'tbl_structure.php';
-                    $GLOBALS['selected'] = $_REQUEST['selected_fld'];
+                    $GLOBALS['selected'] = $_POST['selected_fld'];
                     list(
                         $what_ret, $query_type_ret, $is_unset_submit_mult,
                         $mult_btn_ret, $centralColsError
                         )
                             = $this->getDataForSubmitMult(
-                                $submit_mult, $_REQUEST['selected_fld'], $action
+                                $submit_mult, $_POST['selected_fld'], $action
                             );
                     //update the existing variables
                     // todo: refactor mult_submits.inc.php such as
@@ -293,29 +293,29 @@ class TableStructureController extends TableController
         /**
          * Modifications have been submitted -> updates the table
          */
-        if (isset($_REQUEST['do_save_data'])) {
+        if (isset($_POST['do_save_data'])) {
             $regenerate = $this->updateColumns();
             if ($regenerate) {
                 // This happens when updating failed
                 // @todo: do something appropriate
             } else {
                 // continue to show the table's structure
-                unset($_REQUEST['selected']);
+                unset($_POST['selected']);
             }
         }
 
         /**
          * Modifications to the partitioning have been submitted -> updates the table
          */
-        if (isset($_REQUEST['save_partitioning'])) {
+        if (isset($_POST['save_partitioning'])) {
             $this->updatePartitioning();
         }
 
         /**
          * Adding indexes
          */
-        if (isset($_REQUEST['add_key'])
-            || isset($_REQUEST['partition_maintenance'])
+        if (isset($_POST['add_key'])
+            || isset($_POST['partition_maintenance'])
         ) {
             //todo: set some variables for sql.php include, to be eliminated
             //after refactoring sql.php
@@ -399,8 +399,8 @@ class TableStructureController extends TableController
         $changes = array();
 
         // move columns from first to last
-        for ($i = 0, $l = count($_REQUEST['move_columns']); $i < $l; $i++) {
-            $column = $_REQUEST['move_columns'][$i];
+        for ($i = 0, $l = count($_POST['move_columns']); $i < $l; $i++) {
+            $column = $_POST['move_columns'][$i];
             // is this column already correctly placed?
             if ($column_names[$i] == $column) {
                 continue;
@@ -554,7 +554,7 @@ class TableStructureController extends TableController
     protected function displayHtmlForPartitionChange()
     {
         $partitionDetails = null;
-        if (! isset($_REQUEST['partition_by'])) {
+        if (! isset($_POST['partition_by'])) {
             $partitionDetails = $this->_extractPartitionDetails();
         }
 
@@ -778,18 +778,18 @@ class TableStructureController extends TableController
         );
 
         foreach ($types as $type) {
-            if (isset($_REQUEST['submit_mult_' . $type . '_x'])) {
+            if (isset($_POST['submit_mult_' . $type . '_x'])) {
                 return $type;
             }
         }
 
-        if (isset($_REQUEST['submit_mult'])) {
-            return $_REQUEST['submit_mult'];
-        } elseif (isset($_REQUEST['mult_btn'])
-            && $_REQUEST['mult_btn'] == __('Yes')
+        if (isset($_POST['submit_mult'])) {
+            return $_POST['submit_mult'];
+        } elseif (isset($_POST['mult_btn'])
+            && $_POST['mult_btn'] == __('Yes')
         ) {
-            if (isset($_REQUEST['selected'])) {
-                $_REQUEST['selected_fld'] = $_REQUEST['selected'];
+            if (isset($_POST['selected'])) {
+                $_POST['selected_fld'] = $_POST['selected'];
             }
             return 'row_delete';
         }
@@ -809,7 +809,7 @@ class TableStructureController extends TableController
     {
         $GLOBALS['active_page'] = 'sql.php';
         $fields = array();
-        foreach ($_REQUEST['selected_fld'] as $sval) {
+        foreach ($_POST['selected_fld'] as $sval) {
             $fields[] = Util::backquote($sval);
         }
         $sql_query = sprintf(
@@ -867,7 +867,7 @@ class TableStructureController extends TableController
             )
         );
         $regenerate = false;
-        $field_cnt = count($_REQUEST['field_name']);
+        $field_cnt = count($_POST['field_name']);
         $changes = array();
         $adjust_privileges = array();
 
@@ -877,20 +877,20 @@ class TableStructureController extends TableController
             }
 
             $changes[] = 'CHANGE ' . Table::generateAlter(
-                Util::getValueByKey($_REQUEST, "field_orig.${i}", ''),
-                $_REQUEST['field_name'][$i],
-                $_REQUEST['field_type'][$i],
-                $_REQUEST['field_length'][$i],
-                $_REQUEST['field_attribute'][$i],
-                Util::getValueByKey($_REQUEST, "field_collation.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_null.${i}", 'NOT NULL'),
-                $_REQUEST['field_default_type'][$i],
-                $_REQUEST['field_default_value'][$i],
-                Util::getValueByKey($_REQUEST, "field_extra.${i}", false),
-                Util::getValueByKey($_REQUEST, "field_comments.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_virtuality.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_expression.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_move_to.${i}", '')
+                Util::getValueByKey($_POST, "field_orig.${i}", ''),
+                $_POST['field_name'][$i],
+                $_POST['field_type'][$i],
+                $_POST['field_length'][$i],
+                $_POST['field_attribute'][$i],
+                Util::getValueByKey($_POST, "field_collation.${i}", ''),
+                Util::getValueByKey($_POST, "field_null.${i}", 'NOT NULL'),
+                $_POST['field_default_type'][$i],
+                $_POST['field_default_value'][$i],
+                Util::getValueByKey($_POST, "field_extra.${i}", false),
+                Util::getValueByKey($_POST, "field_comments.${i}", ''),
+                Util::getValueByKey($_POST, "field_virtuality.${i}", ''),
+                Util::getValueByKey($_POST, "field_expression.${i}", ''),
+                Util::getValueByKey($_POST, "field_move_to.${i}", '')
             );
 
             // find the remembered sort expression
@@ -900,22 +900,22 @@ class TableStructureController extends TableController
             // if the old column name is part of the remembered sort expression
             if (mb_strpos(
                 $sorted_col,
-                Util::backquote($_REQUEST['field_orig'][$i])
+                Util::backquote($_POST['field_orig'][$i])
             ) !== false) {
                 // delete the whole remembered sort expression
                 $this->table_obj->removeUiProp(Table::PROP_SORTED_COLUMN);
             }
 
-            if (isset($_REQUEST['field_adjust_privileges'][$i])
-                && ! empty($_REQUEST['field_adjust_privileges'][$i])
-                && $_REQUEST['field_orig'][$i] != $_REQUEST['field_name'][$i]
+            if (isset($_POST['field_adjust_privileges'][$i])
+                && ! empty($_POST['field_adjust_privileges'][$i])
+                && $_POST['field_orig'][$i] != $_POST['field_name'][$i]
             ) {
-                $adjust_privileges[$_REQUEST['field_orig'][$i]]
-                    = $_REQUEST['field_name'][$i];
+                $adjust_privileges[$_POST['field_orig'][$i]]
+                    = $_POST['field_name'][$i];
             }
         } // end for
 
-        if (count($changes) > 0 || isset($_REQUEST['preview_sql'])) {
+        if (count($changes) > 0 || isset($_POST['preview_sql'])) {
             // Builds the primary keys statements and updates the table
             $key_query = '';
             /**
@@ -942,7 +942,7 @@ class TableStructureController extends TableController
             $sql_query .= ';';
 
             // If there is a request for SQL previewing.
-            if (isset($_REQUEST['preview_sql'])) {
+            if (isset($_POST['preview_sql'])) {
                 Core::previewSQL(count($changes) > 0 ? $sql_query : '');
             }
 
@@ -957,18 +957,18 @@ class TableStructureController extends TableController
             // While changing the Column Collation
             // First change to BLOB
             for ($i = 0; $i < $field_cnt; $i++ ) {
-                if (isset($_REQUEST['field_collation'][$i])
-                    && isset($_REQUEST['field_collation_orig'][$i])
-                    && $_REQUEST['field_collation'][$i] !== $_REQUEST['field_collation_orig'][$i]
-                    && ! in_array($_REQUEST['field_orig'][$i], $columns_with_index)
+                if (isset($_POST['field_collation'][$i])
+                    && isset($_POST['field_collation_orig'][$i])
+                    && $_POST['field_collation'][$i] !== $_POST['field_collation_orig'][$i]
+                    && ! in_array($_POST['field_orig'][$i], $columns_with_index)
                 ) {
                     $secondary_query = 'ALTER TABLE ' . Util::backquote(
                         $this->table
                     )
                     . ' CHANGE ' . Util::backquote(
-                        $_REQUEST['field_orig'][$i]
+                        $_POST['field_orig'][$i]
                     )
-                    . ' ' . Util::backquote($_REQUEST['field_orig'][$i])
+                    . ' ' . Util::backquote($_POST['field_orig'][$i])
                     . ' BLOB;';
                     $this->dbi->query($secondary_query);
                     $changedToBlob[$i] = true;
@@ -1013,20 +1013,20 @@ class TableStructureController extends TableController
                 for ($i = 0; $i < $field_cnt; $i++) {
                     if ($changedToBlob[$i]) {
                         $changes_revert[] = 'CHANGE ' . Table::generateAlter(
-                            Util::getValueByKey($_REQUEST, "field_orig.${i}", ''),
-                            $_REQUEST['field_name'][$i],
-                            $_REQUEST['field_type_orig'][$i],
-                            $_REQUEST['field_length_orig'][$i],
-                            $_REQUEST['field_attribute_orig'][$i],
-                            Util::getValueByKey($_REQUEST, "field_collation_orig.${i}", ''),
-                            Util::getValueByKey($_REQUEST, "field_null_orig.${i}", 'NOT NULL'),
-                            $_REQUEST['field_default_type_orig'][$i],
-                            $_REQUEST['field_default_value_orig'][$i],
-                            Util::getValueByKey($_REQUEST, "field_extra_orig.${i}", false),
-                            Util::getValueByKey($_REQUEST, "field_comments_orig.${i}", ''),
-                            Util::getValueByKey($_REQUEST, "field_virtuality_orig.${i}", ''),
-                            Util::getValueByKey($_REQUEST, "field_expression_orig.${i}", ''),
-                            Util::getValueByKey($_REQUEST, "field_move_to_orig.${i}", '')
+                            Util::getValueByKey($_POST, "field_orig.${i}", ''),
+                            $_POST['field_name'][$i],
+                            $_POST['field_type_orig'][$i],
+                            $_POST['field_length_orig'][$i],
+                            $_POST['field_attribute_orig'][$i],
+                            Util::getValueByKey($_POST, "field_collation_orig.${i}", ''),
+                            Util::getValueByKey($_POST, "field_null_orig.${i}", 'NOT NULL'),
+                            $_POST['field_default_type_orig'][$i],
+                            $_POST['field_default_value_orig'][$i],
+                            Util::getValueByKey($_POST, "field_extra_orig.${i}", false),
+                            Util::getValueByKey($_POST, "field_comments_orig.${i}", ''),
+                            Util::getValueByKey($_POST, "field_virtuality_orig.${i}", ''),
+                            Util::getValueByKey($_POST, "field_expression_orig.${i}", ''),
+                            Util::getValueByKey($_POST, "field_move_to_orig.${i}", '')
                         );
                     }
                 }
@@ -1051,34 +1051,34 @@ class TableStructureController extends TableController
         }
 
         // update field names in relation
-        if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
-            foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
-                if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
+        if (isset($_POST['field_orig']) && is_array($_POST['field_orig'])) {
+            foreach ($_POST['field_orig'] as $fieldindex => $fieldcontent) {
+                if ($_POST['field_name'][$fieldindex] != $fieldcontent) {
                     $this->relation->renameField(
                         $this->db, $this->table, $fieldcontent,
-                        $_REQUEST['field_name'][$fieldindex]
+                        $_POST['field_name'][$fieldindex]
                     );
                 }
             }
         }
 
         // update mime types
-        if (isset($_REQUEST['field_mimetype'])
-            && is_array($_REQUEST['field_mimetype'])
+        if (isset($_POST['field_mimetype'])
+            && is_array($_POST['field_mimetype'])
             && $GLOBALS['cfg']['BrowseMIME']
         ) {
-            foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
-                if (isset($_REQUEST['field_name'][$fieldindex])
-                    && strlen($_REQUEST['field_name'][$fieldindex]) > 0
+            foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
+                if (isset($_POST['field_name'][$fieldindex])
+                    && strlen($_POST['field_name'][$fieldindex]) > 0
                 ) {
                     Transformations::setMIME(
                         $this->db, $this->table,
-                        $_REQUEST['field_name'][$fieldindex],
+                        $_POST['field_name'][$fieldindex],
                         $mimetype,
-                        $_REQUEST['field_transformation'][$fieldindex],
-                        $_REQUEST['field_transformation_options'][$fieldindex],
-                        $_REQUEST['field_input_transformation'][$fieldindex],
-                        $_REQUEST['field_input_transformation_options'][$fieldindex]
+                        $_POST['field_transformation'][$fieldindex],
+                        $_POST['field_transformation_options'][$fieldindex],
+                        $_POST['field_input_transformation'][$fieldindex],
+                        $_POST['field_input_transformation_options'][$fieldindex]
                     );
                 }
             }
@@ -1143,15 +1143,15 @@ class TableStructureController extends TableController
     {
         // these two fields are checkboxes so might not be part of the
         // request; therefore we define them to avoid notices below
-        if (! isset($_REQUEST['field_null'][$i])) {
-            $_REQUEST['field_null'][$i] = 'NO';
+        if (! isset($_POST['field_null'][$i])) {
+            $_POST['field_null'][$i] = 'NO';
         }
-        if (! isset($_REQUEST['field_extra'][$i])) {
-            $_REQUEST['field_extra'][$i] = '';
+        if (! isset($_POST['field_extra'][$i])) {
+            $_POST['field_extra'][$i] = '';
         }
 
         // field_name does not follow the convention (corresponds to field_orig)
-        if ($_REQUEST['field_name'][$i] != $_REQUEST['field_orig'][$i]) {
+        if ($_POST['field_name'][$i] != $_POST['field_orig'][$i]) {
             return true;
         }
 
@@ -1161,11 +1161,11 @@ class TableStructureController extends TableController
             'field_length', 'field_null', 'field_type'
         );
         foreach ($fields as $field) {
-            if ($_REQUEST[$field][$i] != $_REQUEST[$field . '_orig'][$i]) {
+            if ($_POST[$field][$i] != $_POST[$field . '_orig'][$i]) {
                 return true;
             }
         }
-        return !empty($_REQUEST['field_move_to'][$i]);
+        return !empty($_POST['field_move_to'][$i]);
     }
 
     /**
