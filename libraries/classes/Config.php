@@ -1432,6 +1432,20 @@ class Config
     }
 
     /**
+     * removes cookie
+     *
+     * @param string $cookieName name of cookie to remove
+     *
+     * @return void
+     */
+    public function unsetCookie(string $cookieName): void
+    {
+        if ($this->issetCookie($cookieName)) {
+            unset($_COOKIE[$this->getCookieName($cookieName)]);
+        }
+    }
+
+    /**
      * sets cookie if value is different from current cookie value,
      * or removes if value is equal to default
      *
@@ -1482,7 +1496,7 @@ class Config
                 return true;
             }
             return setcookie(
-                $cookie,
+                $this->getCookieName($cookie),
                 $value,
                 $validity,
                 $this->getRootPath(),
@@ -1496,6 +1510,37 @@ class Config
         return true;
     }
 
+    /**
+     * get cookie
+     *
+     * @param string $cookieName   name of cookie to get
+     *
+     * @return mixed result of getCookie()
+     */
+    public function getCookie(string $cookieName) {
+        return @$_COOKIE[$this->getCookieName($cookieName)];
+    }
+
+    /**
+     * Get the real cookie name
+     *
+     * @param string $cookieName The name of the cookie
+     * @return string
+     */
+    public function getCookieName(string $cookieName): string {
+        return $cookieName.( ($this->isHttps()) ? 'Secure' : '' );
+    }
+
+    /**
+     * isset cookie
+     *
+     * @param string $cookieName   name of cookie to get
+     *
+     * @return mixed result of issetCookie()
+     */
+    public function issetCookie(string $cookieName) {
+        return isset($_COOKIE[$this->getCookieName($cookieName)]);
+    }
 
     /**
      * Error handler to catch fatal errors when loading configuration

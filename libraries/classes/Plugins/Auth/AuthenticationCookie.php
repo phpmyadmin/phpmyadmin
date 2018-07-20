@@ -357,12 +357,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         // and $this->password variables from cookies
 
         // check cookies
-        if (empty($_COOKIE['pmaUser-' . $GLOBALS['server']])) {
+        if (empty($GLOBALS['PMA_Config']->getCookie('pmaUser-' . $GLOBALS['server']))) {
             return false;
         }
 
         $value = $this->cookieDecrypt(
-            $_COOKIE['pmaUser-' . $GLOBALS['server']],
+            $GLOBALS['PMA_Config']->getCookie('pmaUser-' . $GLOBALS['server']),
             $this->_getEncryptionSecret()
         );
 
@@ -404,11 +404,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // check password cookie
-        if (empty($_COOKIE['pmaAuth-' . $GLOBALS['server']])) {
+        if (empty($GLOBALS['PMA_Config']->getCookie('pmaAuth-' . $GLOBALS['server']))) {
             return false;
         }
         $value = $this->cookieDecrypt(
-            $_COOKIE['pmaAuth-' . $GLOBALS['server']],
+            $GLOBALS['PMA_Config']->getCookie('pmaAuth-' . $GLOBALS['server']),
             $this->_getSessionEncryptionSecret()
         );
         if ($value === false) {
@@ -872,17 +872,13 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($GLOBALS['cfg']['LoginCookieDeleteAll']) {
             foreach ($GLOBALS['cfg']['Servers'] as $key => $val) {
                 $GLOBALS['PMA_Config']->removeCookie('pmaAuth-' . $key);
-                if (isset($_COOKIE['pmaAuth-' . $key])) {
-                    unset($_COOKIE['pmaAuth-' . $key]);
-                }
+                $GLOBALS['PMA_Config']->unsetCookie('pmaAuth-' . $key);
             }
         } else {
             $GLOBALS['PMA_Config']->removeCookie(
                 'pmaAuth-' . $GLOBALS['server']
             );
-            if (isset($_COOKIE['pmaAuth-' . $GLOBALS['server']])) {
-                unset($_COOKIE['pmaAuth-' . $GLOBALS['server']]);
-            }
+            $GLOBALS['PMA_Config']->unsetCookie('pmaAuth-' . $GLOBALS['server']);
         }
         parent::logOut();
     }

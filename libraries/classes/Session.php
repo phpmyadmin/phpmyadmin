@@ -179,12 +179,12 @@ class Session
         // proxy servers
         session_cache_limiter('private');
 
-        $session_name = 'phpMyAdmin';
+        $session_name = $config->getCookieName('phpMyAdmin');
         @session_name($session_name);
 
         // Restore correct sesion ID (it might have been reset by auto started session
-        if (isset($_COOKIE['phpMyAdmin'])) {
-            session_id($_COOKIE['phpMyAdmin']);
+        if ($config->issetCookie($session_name)) {
+            session_id($config->getCookie($session_name));
         }
 
         // on first start of session we check for errors

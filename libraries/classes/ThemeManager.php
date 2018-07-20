@@ -217,8 +217,8 @@ class ThemeManager
     public function getThemeCookie()
     {
         $name = $this->getThemeCookieName();
-        if (isset($_COOKIE[$name])) {
-            return $_COOKIE[$name];
+        if ($GLOBALS['PMA_Config']->issetCookie($name)) {
+            return $GLOBALS['PMA_Config']->getCookie($name);
         }
 
         return false;
