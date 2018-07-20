@@ -125,6 +125,9 @@ export function onload1 () {
  */
 export function onloadSqlEditor () {
     var $elm = $('#sqlquery');
+    if ($elm.siblings().filter('.CodeMirror').length > 0) {
+        return;
+    }
     if ($elm.length > 0) {
         if (CommonParams.get('CodemirrorEnable') === true) {
             sqlQueryOptions.codemirror_editor = PMA_getSQLEditor($elm);
