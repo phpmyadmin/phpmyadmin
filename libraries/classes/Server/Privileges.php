@@ -651,7 +651,8 @@ class Privileges
         if ($db == '*') {
             $table = '*';
         }
-
+        $username = '';
+        $hostname = '';
         if (isset($GLOBALS['username'])) {
             $username = $GLOBALS['username'];
             $hostname = $GLOBALS['hostname'];
@@ -2376,6 +2377,8 @@ class Privileges
             $current_host = $row['Host'];
             $routine = $row['Routine_name'];
             $html_output .= '<td>';
+            $specific_db = '';
+            $specific_table = '';
             if ($GLOBALS['is_grantuser']) {
                 $specific_db = (isset($row['Db']) && $row['Db'] != '*')
                     ? $row['Db'] : '';
@@ -3673,6 +3676,7 @@ class Privileges
     {
         $relation = new Relation();
         $cfgRelation = $relation->getRelationsParam();
+        $user_group_count = 0;
         if ($cfgRelation['menuswork']) {
             $users_table = Util::backquote($cfgRelation['db'])
                 . "." . Util::backquote($cfgRelation['users']);
@@ -4047,34 +4051,33 @@ class Privileges
                 );
                 unset($_REQUEST['change_copy']);
             } else {
-                extract($row, EXTR_OVERWRITE);
                 foreach ($row as $key => $value) {
                     $GLOBALS[$key] = $value;
                 }
                 $serverVersion = $GLOBALS['dbi']->getVersion();
                 // Recent MySQL versions have the field "Password" in mysql.user,
-                // so the previous extract creates $Password but this script
+                // so the previous extract creates $row['Password'] but this script
                 // uses $password
-                if (! isset($password) && isset($Password)) {
-                    $password = $Password;
+                if (! isset($row['password']) && isset($row['Password'])) {
+                    $row['password'] = $row['Password'];
                 }
                 if (Util::getServerType() == 'MySQL'
                     && $serverVersion >= 50606
                     && $serverVersion < 50706
-                    && ((isset($authentication_string)
-                    && empty($password))
-                    || (isset($plugin)
-                    && $plugin == 'sha256_password'))
+                    && ((isset($row['authentication_string'])
+                    && empty($row['password']))
+                    || (isset($row['plugin'])
+                    && $row['plugin'] == 'sha256_password'))
                 ) {
-                    $password = $authentication_string;
+                    $row['password'] = $row['authentication_string'];
                 }
 
                 if (Util::getServerType() == 'MariaDB'
                     && $serverVersion >= 50500
-                    && isset($authentication_string)
-                    && empty($password)
+                    && isset($row['authentication_string'])
+                    && empty($row['password'])
                 ) {
-                    $password = $authentication_string;
+                    $row['password'] = $row['authentication_string'];
                 }
 
                 // Always use 'authentication_string' column
@@ -4082,11 +4085,11 @@ class Privileges
                 // the 'password' column at all
                 if (Util::getServerType() == 'MySQL'
                     && $serverVersion >= 50706
-                    && isset($authentication_string)
+                    && isset($row['authentication_string'])
                 ) {
-                    $password = $authentication_string;
+                    $row['password'] = $row['authentication_string'];
                 }
-
+                $password = $row['password'];
                 $queries = [];
             }
         }
@@ -4191,7 +4194,7 @@ class Privileges
     /**
      * update Data for information: Adds a user
      *
-     * @param string      $dbname      db name
+     * @param string|null $dbname      db name
      * @param string      $username    user name
      * @param string      $hostname    host name
      * @param string|null $password    password
@@ -4200,7 +4203,7 @@ class Privileges
      * @return array
      */
     public function addUser(
-        $dbname,
+        ?string $dbname,
         $username,
         $hostname,
         ?string $password,
@@ -4294,7 +4297,7 @@ class Privileges
                 $sql_query,
                 $username,
                 $hostname,
-                isset($dbname) ? $dbname : null
+                $dbname
             );
             if (!empty($_REQUEST['userGroup']) && $is_menuwork) {
                 $this->setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
@@ -4314,7 +4317,7 @@ class Privileges
             isset($_REQUEST['old_usergroup']) ? $_REQUEST['old_usergroup'] : null;
         $this->setUserGroup($_REQUEST['username'], $old_usergroup);
 
-        if (isset($create_user_real)) {
+        if (is_null($create_user_real)) {
             $queries[] = $create_user_real;
         }
         $queries[] = $real_sql_query;
@@ -5299,7 +5302,8 @@ class Privileges
                 . $_REQUEST['authentication_plugin'];
         }
 
-        $create_user_real = $create_user_show = $create_user_stmt;
+        $create_user_real = $create_user_stmt;
+        $create_user_show = $create_user_stmt;
 
         $password_set_stmt = 'SET PASSWORD FOR \'%s\'@\'%s\' = \'%s\'';
         $password_set_show = sprintf(
@@ -5427,12 +5431,10 @@ class Privileges
         $real_sql_query .= $with_clause;
         $sql_query .= $with_clause;
 
-        if (isset($create_user_real)) {
-            $create_user_real .= ';';
-            $create_user_show .= ';';
-        }
-        $real_sql_query .= ';';
-        $sql_query .= ';';
+        $create_user_real .= ';';
+        $create_user_show .= ';';
+        $real_sql_query   .= ';';
+        $sql_query        .= ';';
         // No Global GRANT_OPTION privilege
         if (!$GLOBALS['is_grantuser']) {
             $real_sql_query = '';
