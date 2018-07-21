@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-07-22 11:05+0000\n"
-"Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
+"Last-Translator: Valeriu Cuțebov <admin@megahost.md>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ro/>\n"
 "Language: ro\n"
@@ -409,9 +409,8 @@ msgstr "Valoare pentru coloana „%s”"
 
 #: gis_data_editor.php:149
 #: templates/table/gis_visualization/gis_visualization.twig:38
-#, fuzzy
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr "Folosește OpenStreetMap ca strat de bază"
+msgstr "Utilizați OpenStreetMaps ca Strat de Bază"
 
 #. l10n: Spatial Reference System Identifier
 #: gis_data_editor.php:171
@@ -449,9 +448,9 @@ msgid "Add a point"
 msgstr "Adaugă un punct"
 
 #: gis_data_editor.php:275
-#, fuzzy, php-format
+#, php-format
 msgid "Linestring %d:"
-msgstr "Șir de caractere %d:"
+msgstr "Șir de linii %d:"
 
 #: gis_data_editor.php:278 gis_data_editor.php:355
 msgid "Outer ring:"
