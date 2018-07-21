@@ -1529,6 +1529,7 @@ EOT;
         $sql_query,
         ?string $complete_query
     ) {
+        global $url_query;
         if ($this->isDeleteTransformationInfo($analyzed_sql_results)) {
             $this->deleteTransformationInfo($db, $table, $analyzed_sql_results);
         }
@@ -1790,6 +1791,8 @@ EOT;
                 unset($result);
             } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
         } else {
+            $fields_meta = [];
+            $fields_cnt = 0;
             if (isset($result) && $result !== false) {
                 $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
                 $fields_cnt  = count($fields_meta);
@@ -1991,6 +1994,7 @@ EOT;
         $sql_query,
         ?string $complete_query
     ) {
+        global $showtable, $url_query;
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
         if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
@@ -2001,6 +2005,8 @@ EOT;
         // Gets the list of fields properties
         if (isset($result) && $result) {
             $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+        } else {
+            $fields_meta = [];
         }
 
         // Should be initialized these parameters before parsing
