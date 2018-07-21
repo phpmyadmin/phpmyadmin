@@ -303,20 +303,19 @@ class Designer
     /**
      * Returns HTML for Designer page
      *
-     * @param string  $db                   database in use
-     * @param string  $getDb                database in url
-     * @param array   $scriptTables         array on foreign key support for each table
-     * @param array   $scriptContr          initialization data array
-     * @param array   $scriptDisplayField   display fields of each table
-     * @param int     $displayPage          page number of the selected page
-     * @param boolean $hasQuery             whether this is visual query builder
-     * @param string  $selectedPage         name of the selected page
-     * @param array   $paramsArray          array with class name for various buttons on side menu
-     *                                          on side menu
-     * @param array   $tabPos               table positions
-     * @param array   $tabColumn            table column info
-     * @param array   $tablesAllKeys        all indices
-     * @param array   $tablesPkOrUniqueKeys unique or primary indices
+     * @param string     $db                   database in use
+     * @param string     $getDb                database in url
+     * @param array      $scriptTables         array on foreign key support for each table
+     * @param array      $scriptContr          initialization data array
+     * @param array      $scriptDisplayField   display fields of each table
+     * @param int        $displayPage          page number of the selected page
+     * @param boolean    $hasQuery             whether this is visual query builder
+     * @param string     $selectedPage         name of the selected page
+     * @param array      $paramsArray          array with class name for various buttons on side menu
+     * @param array|null $tabPos               table positions
+     * @param array      $tabColumn            table column info
+     * @param array      $tablesAllKeys        all indices
+     * @param array      $tablesPkOrUniqueKeys unique or primary indices
      *
      * @return string html
      */
@@ -330,7 +329,7 @@ class Designer
         $hasQuery,
         $selectedPage,
         array $paramsArray,
-        array $tabPos,
+        ?array $tabPos,
         array $tabColumn,
         array $tablesAllKeys,
         array $tablesPkOrUniqueKeys
