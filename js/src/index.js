@@ -113,7 +113,7 @@ $(document).ajaxError(function (event, request, settings) {
  * Adding common files for every page
  */
 for (let i in files.global) {
-    AJAX.scriptHandler.add(files.global[i]);
+    AJAX.scriptHandler.add(files.global[i], 1);
 }
 /**
  * This block of code is for importing javascript files needed
