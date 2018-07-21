@@ -282,9 +282,9 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return array of table positions
+     * @return array|null of table positions
      */
-    public function getTablePositions($pg)
+    public function getTablePositions($pg): ?array
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
