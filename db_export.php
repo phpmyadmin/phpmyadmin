@@ -44,7 +44,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
 
 /**
  * Displays the form
@@ -154,7 +154,7 @@ if (! isset($num_tables)) {
 if (! isset($unlim_num_rows)) {
     $unlim_num_rows = 0;
 }
-if (! isset($multi_values)) {
+if (is_null($multi_values)) {
     $multi_values = '';
 }
 $response = Response::getInstance();
