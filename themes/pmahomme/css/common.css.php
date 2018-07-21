@@ -132,8 +132,6 @@ button.mult_submit:focus,
     background: #f3f3f3;
     border: 1px solid #aaa;
     margin-bottom: 10px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
 }
 
@@ -145,8 +143,6 @@ button.mult_submit:focus,
     border: 1px solid #aaa;
     background: #fff;
     padding: 4px 8px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
     <?php echo $theme->getCssGradient('ffffff', 'e0e0e0'); ?>
 }
@@ -202,10 +198,6 @@ input[type=password],
 input[type=number],
 input[type=date] {
     border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-
-
     background: white;
     border: 1px solid #aaa;
     color: #555;
@@ -231,9 +223,6 @@ input[type=number],
 input[type=date],
 select {
     transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
 }
 
 input[type=text][disabled],
@@ -248,8 +237,6 @@ select[disabled],
 select[disabled]:hover {
     background: #e8e8e8;
     box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
 }
 
 input[type=text]:hover,
@@ -270,8 +257,6 @@ input[type=password]:hover,
 input[type=number]:hover,
 input[type=date]:hover {
     box-shadow: 0 1px 3px #aaa;
-    -webkit-box-shadow: 0 1px 3px #aaa;
-    -moz-box-shadow: 0 1px 3px #aaa;
 }
 
 input[type=submit],
@@ -292,11 +277,7 @@ input.button {
     color: #111;
     text-decoration: none;
     background: #ddd;
-
     border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-
     text-shadow: 0 1px 0 #fff;
 
     <?php echo $theme->getCssGradient('f8f8f8', 'd8d8d8'); ?>
@@ -348,14 +329,10 @@ textarea.char {
 fieldset, .preview_sql {
     margin-top: 1em;
     border-radius: 4px 4px 0 0;
-    -moz-border-radius: 4px 4px 0 0;
-    -webkit-border-radius: 4px 4px 0 0;
     border: #aaa solid 1px;
     padding: 0.5em;
     background: #eee;
     text-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
 }
 
@@ -372,12 +349,8 @@ fieldset legend {
     color: #444;
     padding: 5px 10px;
     border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     border: 1px solid #aaa;
     background-color: #fff;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>3px 3px 15px #bbb;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>3px 3px 15px #bbb;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>3px 3px 15px #bbb;
     max-width: 100%;
 }
@@ -430,10 +403,7 @@ input[type="radio"] {
 
 
 select {
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     border-radius: 2px;
-
     border: 1px solid #bbb;
     color: #333;
     padding: 3px;
@@ -528,8 +498,6 @@ fieldset.tblFooters {
     text-align: <?php echo $right; ?>;
     float: none;
     clear: both;
-    -webkit-border-radius: 0 0 4px 4px;
-    -moz-border-radius: 0 0 4px 4px;
     border-radius: 0 0 4px 5px;
 }
 
@@ -740,13 +708,7 @@ div.error {
         padding: 10px 35px 10px 10px;
         <?php
     endif; ?>
-
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
-
-    -moz-box-shadow: 0 1px 1px #fff inset;
-    -webkit-box-shadow: 0 1px 1px #fff inset;
     box-shadow: 0 1px 1px #fff inset;
 }
 
@@ -1018,8 +980,6 @@ ul#topmenu2 a {
     white-space: nowrap;
     border: 1px solid #ddd;
     border-radius: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
     background: #f2f2f2;
 
 }
@@ -1044,8 +1004,6 @@ fieldset.caution a:hover {
 }
 
 ul#topmenu ul {
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 6px #ddd;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
 }
 
@@ -1071,8 +1029,6 @@ ul#topmenu span {
 
 ul#topmenu ul a {
     border-width: 1pt 0 0 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
     border-radius: 0;
 }
 
@@ -1100,8 +1056,6 @@ ul#topmenu2 a.tab:hover,
 ul#topmenu2 a.tabactive {
     background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     border-radius: .3em;
-    -moz-border-radius: .3em;
-    -webkit-border-radius: .3em;
     text-decoration: none;
 }
 
@@ -1451,8 +1405,6 @@ div.tabLinks .icon {
     border: 1px solid #CCC;
     margin: 0;
     padding: 3px;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
     background-color: #fff;
     z-index: 2;
@@ -1542,9 +1494,6 @@ div#queryAnalyzerDialog table.queryNums {
     width: 100%;
     margin: 0 0.5em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     height: 2.2em;
 }
 #serverVariables .serverVariableEditor div {
@@ -1570,11 +1519,7 @@ p.notice {
         background-position: 99% 50%;
         padding: 25px 10px 10px 10px
     <?php endif; ?>
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
-    -moz-box-shadow: 0 1px 2px #fff inset;
-    -webkit-box-shadow: 0 1px 2px #fff inset;
     box-shadow: 0 1px 2px #fff inset;
     background: #555;
     color: #d4fb6a;
@@ -1632,11 +1577,7 @@ div#profilingchart {
     background: #f3f3f3;
     border: 1px solid #aaa;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     box-shadow: 0 1px 1px #fff inset;
-    -webkit-box-shadow: 0 1px 1px #fff inset;
-    -moz-box-shadow: 0 1px 1px #fff inset;
 }
 #sectionlinks a,
 .buttonlinks a,
@@ -1652,8 +1593,6 @@ a.button {
     background: #ddd;
     white-space: nowrap;
     border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
     <?php echo $theme->getCssGradient('f8f8f8', 'd8d8d8'); ?>
 }
 #sectionlinks a:hover,
@@ -1684,8 +1623,6 @@ div#tablefieldscontainer select {
 textarea#sqlquery {
     width: 100%;
     /* height: 100%; */
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     border: 1px solid #aaa;
     padding: 5px;
@@ -1873,11 +1810,7 @@ div.sqlvalidate {
 
     border: 1px solid #999;
     background: #f3f3f3;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
     margin-bottom: 1em;
     padding-bottom: 1em;
@@ -1891,8 +1824,6 @@ div.sqlvalidate {
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
 }
 
@@ -2013,11 +1944,7 @@ select.invalid_value,
     margin-top: 200px;
     background: #ffe57e;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     box-shadow: 0 5px 90px #888;
-    -moz-box-shadow: 0 5px 90px #888;
-    -webkit-box-shadow: 0 5px 90px #888;
 }
 
 #loading_parent {
@@ -2106,9 +2033,6 @@ select.invalid_value,
     text-decoration: none;
 
     border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-
     text-shadow: 0 1px 0 #fff;
 
     <?php echo $theme->getCssGradient('ffffff', 'cccccc'); ?>
@@ -2234,9 +2158,6 @@ input#input_import_file {
     width: 100%;
     margin: 0;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 
 #index_frm .index_info div {
@@ -2296,8 +2217,6 @@ table#index_columns select {
     font-weight: bold;
     margin: .4em;
     padding: .2em;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
     border-radius: 2px;
 }
 
@@ -2325,8 +2244,6 @@ table#index_columns select {
 
 .config-form ul.tabs li a {
     padding: 7px 10px;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
     background: #f2f2f2;
     color: #555;
@@ -2351,8 +2268,6 @@ table#index_columns select {
     margin-top: 0;
     padding: 0;
     clear: both;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
     border-radius: 0;
 }
 
@@ -2572,8 +2487,6 @@ fieldset .disabled-field td {
     overflow: hidden;
     border-right: .1em solid #888;
     border-left: .1em solid #888;
-    -webkit-border-radius: .3em;
-    -moz-border-radius: .3em;
     border-radius: .3em;
 }
 .toggleButton table,
@@ -2634,9 +2547,6 @@ fieldset .disabled-field td {
 #table_columns select {
     width: 10em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 
 #placeholder {
@@ -2750,11 +2660,7 @@ fieldset .disabled-field td {
     position: absolute;
     text-shadow: -1px -1px #000;
 
-    -moz-box-shadow: 0 0 .7em #000;
-    -webkit-box-shadow: 0 0 .7em #000;
     box-shadow: 0 0 .7em #000;
-    -moz-border-radius: .3em;
-    -webkit-border-radius: .3em;
     border-radius: .3em;
 }
 
@@ -2771,8 +2677,6 @@ fieldset .disabled-field td {
     background: #333 !important;
     opacity: .8 !important;
     border: 1px solid #000 !important;
-    -moz-border-radius: .3em !important;
-    -webkit-border-radius: .3em !important;
     border-radius: .3em !important;
     text-shadow: -1px -1px #000 !important;
     font-size: .8em !important;
@@ -2810,8 +2714,6 @@ fieldset .disabled-field td {
     background: #EEE;
     border: solid 1px #999;
     position: absolute;
-    -moz-box-shadow: 0 .2em .5em #333;
-    -webkit-box-shadow: 0 .2em .5em #333;
     box-shadow: 0 .2em .5em #333;
 }
 
@@ -2854,9 +2756,6 @@ fieldset .disabled-field td {
     margin: .8em 0;
 
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-
     <?php echo $theme->getCssGradient('eeeeee', 'cccccc'); ?>
 }
 
@@ -2885,8 +2784,6 @@ fieldset .disabled-field td {
     padding: .8em .5em;
 
     border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
 }
 
 .navigation input[type=submit]:hover,
@@ -3297,9 +3194,6 @@ html.ie8 #pma_console .message .action_content {
     border-<?php echo $left; ?>: solid 1px #999;
     z-index: 300;
     transition: <?php echo $left; ?> 0.2s;
-    -ms-transition: <?php echo $left; ?> 0.2s;
-    -webkit-transition: <?php echo $left; ?> 0.2s;
-    -moz-transition: <?php echo $left; ?> 0.2s;
 }
 #pma_console .card.show {
     <?php echo $left; ?>: 6%;
@@ -3425,11 +3319,7 @@ html.ie7 #pma_console .query_input {
     width: 400px;
     border: 1px solid #999;
     background: #f3f3f3;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
 }
 
@@ -3443,8 +3333,6 @@ html.ie7 #pma_console .query_input {
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
 }
 
@@ -3503,7 +3391,6 @@ html.ie7 #pma_console .query_input {
     background: white;
     min-height: 300px;
     z-index: 800;
-    -webkit-box-shadow: 0 0 15px #999;
     border-radius: 10px;
     cursor: move;
 }
