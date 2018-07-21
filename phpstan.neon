@@ -41,8 +41,8 @@ parameters:
         - '#Function mysqli_get_client_info invoked with 0 parameters, 1 required#'#libraries/classes/Dbi/DbiMysqli.php
         - '#Variable \$default_fk_check_value might not be defined#'#libraries/mult_submits.inc.php
         - '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'
-        - '#Variable \$(escape_class|escape_method) might not be defined#'
-
+        - '#Variable \$(escape_class|escape_method|iconLinks|icons|where_clause|where_clause_html|condition_array|pos_next|pos_prev) might not be defined#'
+        - '#Call to sprintf contains 3 placeholders, 4 values given.#'#libraries/classes/Menu.php, a phpstan bug
 
     excludes_analyse:
         - %rootDir%/../../../test/EnvironmentTest.php
