@@ -39,7 +39,7 @@ parameters:
         - '#Variable \$contentPath in isset\(\) always exists and is not nullable#'#DatabaseInterface.php
         - '#Variable \$server_info might not be defined#'#DatabaseInterface.php
         # - '#Variable \$single_table always exists and is not nullable#'#Display/ExportTest.php
-
+        - '#Function mysqli_get_client_info invoked with 0 parameters, 1 required#'#libraries/classes/Dbi/DbiMysqli.php
 
     excludes_analyse:
         - %rootDir%/../../../test/EnvironmentTest.php
