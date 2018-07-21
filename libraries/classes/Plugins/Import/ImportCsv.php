@@ -175,7 +175,8 @@ class ImportCsv extends AbstractImportCsv
 
         $buffer = '';
         $required_fields = 0;
-
+        $sql_template = '';
+        $fields = [];
         if (!$this->_getAnalyze()) {
             $sql_template = 'INSERT';
             if (isset($_POST['csv_ignore'])) {
@@ -216,7 +217,9 @@ class ImportCsv extends AbstractImportCsv
                         $error = true;
                         break;
                     }
-                    $fields[] = $field;
+                    if (isset($field)) {
+                        $fields[] = $field;
+                    }
                     $sql_template .= Util::backquote($val);
                 }
                 $sql_template .= ') ';

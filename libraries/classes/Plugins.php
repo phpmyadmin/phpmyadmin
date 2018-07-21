@@ -292,6 +292,7 @@ class Plugins
                 $ret .= '<div class="export_sub_options" id="' . $plugin_name . '_'
                     . $propertyGroup->getName() . '">';
 
+                $text = null;
                 if (method_exists($propertyGroup, 'getText')) {
                     $text = $propertyGroup->getText();
                 }
@@ -541,6 +542,8 @@ class Plugins
         // Options for plugins that support them
         foreach ($list as $plugin) {
             $properties = $plugin->getProperties();
+            $text = null;
+            $options = null;
             if ($properties != null) {
                 $text = $properties->getText();
                 $options = $properties->getOptions();

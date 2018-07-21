@@ -29,6 +29,8 @@ use PhpMyAdmin\Util;
  */
 require_once 'libraries/common.inc.php';
 
+global $url_params;
+
 // Check parameters
 Util::checkParameters(['db', 'table', 'goto']);
 

@@ -275,6 +275,7 @@ class ExportPdf extends ExportPlugin
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $purpose = null;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $pdf = $this->_getPdf();
         // getting purpose to show at top

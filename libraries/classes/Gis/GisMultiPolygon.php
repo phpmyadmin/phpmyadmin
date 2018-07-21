@@ -120,6 +120,7 @@ class GisMultiPolygon extends GisGeometry
         $polygons = explode(")),((", $multipolygon);
 
         $first_poly = true;
+        $points_arr = [];
         foreach ($polygons as $polygon) {
             // If the polygon doesn't have an inner polygon
             if (mb_strpos($polygon, "),(") === false) {

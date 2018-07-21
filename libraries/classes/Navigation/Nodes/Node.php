@@ -688,6 +688,7 @@ class Node
      */
     private function _getDatabasesToSearch($searchClause)
     {
+        $databases = [];
         if (!empty($searchClause)) {
             $databases = [
                 "%" . $GLOBALS['dbi']->escapeString($searchClause) . "%",

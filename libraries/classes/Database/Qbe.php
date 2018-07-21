@@ -746,6 +746,7 @@ class Qbe
             ) {
                 continue;
             }
+            $tmp_criteria = '';
             if (isset($this->_criteria[$column_index])) {
                 $tmp_criteria = $this->_criteria[$column_index];
             }

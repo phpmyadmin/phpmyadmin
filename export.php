@@ -268,7 +268,7 @@ if ($_REQUEST['output_format'] == 'astext') {
         $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
     }
 }
-
+$tables = [];
 // Generate error url and check for needed variables
 if ($export_type == 'server') {
     $err_url = 'server_export.php' . Url::getCommon();
