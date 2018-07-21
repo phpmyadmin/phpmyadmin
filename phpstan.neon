@@ -41,6 +41,8 @@ parameters:
         # - '#Variable \$single_table always exists and is not nullable#'#Display/ExportTest.php
         - '#Function mysqli_get_client_info invoked with 0 parameters, 1 required#'#libraries/classes/Dbi/DbiMysqli.php
         - '#Variable \$default_fk_check_value might not be defined#'#libraries/mult_submits.inc.php
+        - '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'
+        - '#Variable \$(escape_class|escape_method) might not be defined#'
 
 
     excludes_analyse:
