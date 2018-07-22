@@ -440,8 +440,7 @@ th, th a
 }
 
 .column_heading,
-.column_action
-{
+.column_action {
     border: 1px solid <?php echo $GLOBALS['cfg']['BorderColor']; ?>;
     background-color: #f6f6f6;
 }
@@ -450,8 +449,7 @@ a img {
     border: 0;
 }
 
-hr
-{
+hr {
     color: <?php echo $GLOBALS['cfg']['BorderColor']; ?>;
     background-color: <?php echo $GLOBALS['cfg']['BorderColor']; ?>;
     border: 0;
@@ -464,8 +462,7 @@ form {
     display: inline;
 }
 
-input[type=text], input[type=password], input[type=number]
-{
+input[type=text], input[type=password], input[type=number] {
     border: 1px solid <?php echo $GLOBALS['cfg']['BrowseGrayColor']; ?>;
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     padding: 5px;
@@ -474,14 +471,12 @@ input[type=text], input[type=password], input[type=number]
     background-color: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
-input[type=text]:focus, input[type=password]:focus, input[type=number]:focus
-{
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus {
     border: 1px solid <?php echo $GLOBALS['cfg']['NaviHoverBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 }
 
-input[type=submit], input[type=reset], input[type=button]
-{
+input[type=submit], input[type=reset], input[type=button] {
     margin-left: 14px;
     border: 1px solid <?php echo $GLOBALS['cfg']['ButtonBackground']; ?>;
     padding: 4px;
@@ -491,8 +486,7 @@ input[type=submit], input[type=reset], input[type=button]
     font-family: <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 }
 
-input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover
-{
+input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover {
     position: relative;
     cursor:pointer;
     background-color: <?php echo $GLOBALS['cfg']['ButtonHover']; ?>;
@@ -500,22 +494,19 @@ input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover
 
 }
 
-input[type=submit]:active, input[type=reset]:active, input[type=button]:active
-{
+input[type=submit]:active, input[type=reset]:active, input[type=button]:active {
     position: relative;
     background-color: #333;
     border: 1px solid #333;
 }
 
-.sqlbutton, #tablefieldinsertbuttoncontainer input[type=button]
-{
+.sqlbutton, #tablefieldinsertbuttoncontainer input[type=button] {
     margin-top: 1em;
     margin-left: 0 !important;
     margin-right: 14px !important;
 }
 
-button
-{
+button {
     margin-left: 14px;
     padding: 4px;
     color: <?php echo $GLOBALS['cfg']['ButtonColor']; ?>;
@@ -523,16 +514,14 @@ button
     background-color: <?php echo $GLOBALS['cfg']['ButtonBackground']; ?>;
 }
 
-textarea
-{
+textarea {
     overflow: visible;
     border: 1px solid <?php echo $GLOBALS['cfg']['BrowseGrayColor']; ?>;
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     background-color: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
-fieldset
-{
+fieldset {
     margin-top: 20px;
     padding: 5px;
     border: 1px solid <?php echo $GLOBALS['cfg']['BorderColor']; ?>;
@@ -540,16 +529,14 @@ fieldset
     background-color: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
 
-fieldset fieldset
-{
+fieldset fieldset {
     margin: 20px;
     margin-bottom: 0;
     background-color: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
     border: none;
 }
 
-legend
-{
+legend {
   padding: 0 5px;
 }
 
@@ -566,7 +553,7 @@ button {
 table caption,
 table th,
 table td {
-    padding: 0.6em;
+    padding: .6em;
     vertical-align: top;
 }
 
@@ -584,8 +571,7 @@ button {
     vertical-align: middle;
 }
 
-select
-{
+select {
     border: 1px solid <?php echo $GLOBALS['cfg']['BrowseGrayColor']; ?>;
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     padding: 4px;
@@ -595,14 +581,9 @@ select
     max-width: 17em;
 }
 
-select:focus
-{
+select:focus {
     border: 1px solid <?php echo $GLOBALS['cfg']['NaviHoverBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
-}
-
-select[multiple] {
-
 }
 
 /******************************************************************************/
@@ -669,14 +650,12 @@ tr.vbottom th, tr.vbottom td, th.vbottom, td.vbottom {
     color: #fff;
 }
 
-.result_query
-{
+.result_query {
     background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     margin-bottom: 20px;
 }
 
-div.tools
-{
+div.tools {
     padding: 10px;
     text-align: <?php echo $right; ?>;
 }
@@ -686,8 +665,7 @@ div.tools span {
     margin: 6px 2px;
 }
 
-div.tools a
-{
+div.tools a {
     color: <?php echo $GLOBALS['cfg']['BlueHeader']; ?> !important;
 }
 
@@ -739,13 +717,11 @@ div.tools a
     content: "";
 }
 
-tr.noclick td:first-child:before
-{
+tr.noclick td:first-child:before {
     content: "";
 }
 
-fieldset.tblFooters
-{
+fieldset.tblFooters {
     margin-top: -1px;
     border-top: 0;
     text-align: <?php echo $right; ?>;
@@ -760,10 +736,9 @@ div.null_div {
     min-width: 50px;
 }
 
-fieldset .formelement
-{
+fieldset .formelement {
     float: <?php echo $left; ?>;
-    margin-<?php echo $right; ?>: 0.5em;
+    margin-<?php echo $right; ?>: .5em;
 }
 
 /* revert for Gecko */
@@ -771,8 +746,7 @@ fieldset div[class=formelement] {
     white-space: normal;
 }
 
-button.mult_submit
-{
+button.mult_submit {
     border: none;
     background-color: transparent;
     color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
@@ -780,16 +754,14 @@ button.mult_submit
 }
 
 /* odd items 1,3,5,7,... */
-table tr:nth-child(odd)
-{
+table tr:nth-child(odd) {
     background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
     border-bottom: none;
 }
 
 /* even items 2,4,6,8,... */
 /* (tested on CRTs and ACLs) */
-table tr:nth-child(even)
-{
+table tr:nth-child(even) {
     background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     border-bottom: none;
 }
@@ -801,8 +773,7 @@ table tr
     border-bottom: 1px solid #eee;
 }
 
-table tr.odd, table tr.even
-{
+table tr.odd, table tr.even {
     border-left: 3px solid transparent;
 }
 
@@ -810,58 +781,49 @@ table tr.odd, table tr.even
 td.marked:not(.nomarker),
 table tr.marked:not(.nomarker) td,
 table tr.marked:not(.nomarker) th,
-table tr.marked:not(.nomarker)
-{
+table tr.marked:not(.nomarker) {
     color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 }
 
-td.marked:not(.nomarker)
-{
+td.marked:not(.nomarker) {
     background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
 }
 
-table tr.marked:not(.nomarker)
-{
+table tr.marked:not(.nomarker) {
     border-left: 3px solid #24A0DA;
 }
 
 /* hovered items */
 table tr:not(.nopointer):hover,
 .hover:not(.nopointer),
-.structure_actions_dropdown
-{
+.structure_actions_dropdown {
     background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 }
 
-.structure_actions_dropdown .icon
-{
+.structure_actions_dropdown .icon {
     vertical-align: middle !important;
 }
 
 /* hovered table rows */
-table tr.hover:not(.nopointer) th
-{
+table tr.hover:not(.nopointer) th {
     background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['ThPointerColor']; ?>;
 }
 
 /* marks table rows/cells if the db field is in a where condition */
 
-.condition
-{
+.condition {
     border-color: <?php echo $GLOBALS['cfg']['BrowseWarningColor']; ?> !important;
 }
 
-th.condition, th.condition a
-{
+th.condition, th.condition a {
     border: 1px solid <?php echo $GLOBALS['cfg']['BrowseWarningColor']; ?>;
     background: <?php echo $GLOBALS['cfg']['BrowseWarningColor']; ?>;
     color: <?php echo $GLOBALS['cfg']['MainBackground']; ?> !important;
 }
 
-td.condition
-{
+td.condition {
     border: 1px solid;
 }
 
@@ -882,10 +844,12 @@ table .valueHeader {
     text-align: <?php echo $right; ?>;
     white-space: normal;
 }
+
 table .value {
     text-align: <?php echo $right; ?>;
     white-space: normal;
 }
+
 /* IE doesnt handles 'pre' right */
 table [class=value] {
     white-space: normal;
@@ -905,7 +869,6 @@ table [class=value] {
 .allfine {
     color: green;
 }
-
 
 img.lightbulb {
     cursor: pointer;
@@ -937,7 +900,7 @@ img.lightbulb {
 /* Doc links in SQL */
 .cm-sql-doc {
     text-decoration: none;
-    border-bottom: 1px dotted #999999;
+    border-bottom: 1px dotted #999;
     color: inherit !important;
 }
 
@@ -956,8 +919,7 @@ td .icon {
     padding: 20px;
 }
 
-#pma_errors #pma_errors
-{
+#pma_errors #pma_errors {
     padding: 0;
 }
 
@@ -965,7 +927,7 @@ td .icon {
 .notice h1,
 div.error h1 {
     text-align: <?php echo $left; ?>;
-    margin: 0 0 0.2em 0;
+    margin: 0 0 .2em;
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
@@ -989,9 +951,8 @@ div.footnotes {
 
 }
 
-div.success
-{
-    margin: 0 0 1em 0;
+div.success {
+    margin: 0 0 1em;
     border: none;
 }
 
@@ -1020,50 +981,44 @@ div.success {
 
 h1.notice,
 div.notice,
-div.footnotes
-{
+div.footnotes {
     border-color: <?php echo $GLOBALS['cfg']['BlueHeader']; ?>;
 }
 
-.notice a
-{
+.notice a {
     color: <?php echo $GLOBALS['cfg']['ButtonColor']; ?>;
 }
 
-.error
-{
+.error {
     border: 1px solid <?php echo $GLOBALS['cfg']['BrowseWarningColor']; ?> !important;
     color: <?php echo $GLOBALS['cfg']['ButtonColor']; ?>;
     background-color: <?php echo $GLOBALS['cfg']['BrowseWarningColor']; ?>;
 }
 
 h1.error,
-div.error
-{
+div.error {
     border-color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 }
 
-.confirmation
-{
+.confirmation {
     color: <?php echo $GLOBALS['cfg']['ButtonColor']; ?>;
     background-color: <?php echo $GLOBALS['cfg']['BrowseWarningColor']; ?>;
 }
 
-fieldset.confirmation legend
-{
+fieldset.confirmation legend {
     background-color: <?php echo $GLOBALS['cfg']['BrowseWarningColor']; ?>;
 }
 
 /* end messageboxes */
 
-.new_central_col{
-    width:              100%;
+.new_central_col {
+    width: 100%;
 }
 
 .tblcomment {
     font-size: 70%;
     font-weight: normal;
-    color: #000099;
+    color: #009;
 }
 
 .tblHeaders {
@@ -1089,18 +1044,18 @@ div.tools a:active,
 .tblFooters a:link,
 .tblFooters a:active,
 .tblFooters a:visited {
-    color: #0000FF;
+    color: #00F;
 }
 
 .tblHeaders a:hover,
 div.tools a:hover,
 .tblFooters a:hover {
-    color: #FF0000;
+    color: #F00;
 }
 
 /* forbidden, no privileges */
 .noPrivileges {
-    color: #FF0000;
+    color: #F00;
     font-weight: bold;
 }
 
@@ -1139,15 +1094,13 @@ td.disabled {
 }
 
 ul#topmenu,
-ul#topmenu2
-{
+ul#topmenu2 {
     list-style-type: none;
     margin: 0;
     height: 48px;
 }
 
-ul.tabs
-{
+ul.tabs {
     list-style-type: none;
     margin: 0;
 }
@@ -1187,8 +1140,7 @@ ul#topmenu2 li {
     background: #fff !important;
 }
 
-#topmenu2 .tabactive
-{
+#topmenu2 .tabactive {
     background: #ccc;
 }
 
@@ -1212,14 +1164,12 @@ span.success {
     color: green;
 }
 
-fieldset.caution
-{
+fieldset.caution {
     background: <?php echo $GLOBALS['cfg']['BrowseWarningColor']; ?>;
     border: 1px solid <?php echo $GLOBALS['cfg']['BrowseWarningColor']; ?>;
 }
 
-fieldset.caution legend
-{
+fieldset.caution legend {
     background-color: #fff;
 }
 
@@ -1231,38 +1181,32 @@ fieldset.caution a
     font-weight: normal;
 }
 
-fieldset.caution ul, #tbl_maintenance
-{
+fieldset.caution ul, #tbl_maintenance {
     padding: 0;
 }
 
-fieldset.caution li, #tbl_maintenance li
-{
+fieldset.caution li, #tbl_maintenance li {
     display: block;
 }
 
-fieldset.caution li:before
-{
+fieldset.caution li:before {
     font-family: 'IcoMoon';
     content: "";
     color: <?php echo $GLOBALS['cfg']['ButtonColor']; ?>;
     margin-right: 10px;
 }
 
-fieldset.caution li a:nth-child(2) img
-{
+fieldset.caution li a:nth-child(2) img {
     background: url('./themes/metro/img/s_info.png') !important;
 }
 
-#tbl_maintenance li a
-{
+#tbl_maintenance li a {
     font-family: 'Open Sans Bold';
     text-transform: uppercase;
     font-weight: normal;
 }
 
-#tbl_maintenance li:before
-{
+#tbl_maintenance li:before {
     font-family: 'IcoMoon';
     content: "%";
     margin-right: 10px;
@@ -1273,16 +1217,8 @@ fieldset.caution li a:nth-child(2) img
     padding-right: 20px;
 }
 
-ul#topmenu ul {
-
-}
-
 ul#topmenu ul.only {
     <?php echo $left; ?>: 0;
-}
-
-ul#topmenu > li {
-
 }
 
 /* default tab styles */
@@ -1298,7 +1234,7 @@ ul#topmenu span {
 }
 
 ul#topmenu ul a {
-    border-width: 1pt 0 0 0;
+    border-width: 1pt 0 0;
 }
 
 ul#topmenu ul li:first-child a {
@@ -1317,20 +1253,13 @@ ul#topmenu ul .tabactive {
     text-decoration: none;
 }
 
-ul#topmenu a.tab:hover,
-ul#topmenu .tabactive {
-
-}
-
 ul#topmenu2 a,
 ul#topmenu2 a:hover {
-
     text-decoration: none;
 }
 
 /* to be able to cancel the bottom border, use <li class="active"> */
 ul#topmenu > li.active {
-
     border-right: 0;
 }
 /* end topmenu */
@@ -1353,15 +1282,17 @@ table#tableFieldsId {
 table.calendar {
     width: 100%;
 }
+
 table.calendar td {
     text-align: center;
 }
+
 table.calendar td a {
     display: block;
 }
 
 table.calendar td a:hover {
-    background-color: #CCFFCC;
+    background-color: #CFC;
 }
 
 table.calendar th {
@@ -1369,7 +1300,7 @@ table.calendar th {
 }
 
 table.calendar td.selected {
-    background-color: #FFCC99;
+    background-color: #FC9;
 }
 
 img.calendar {
@@ -1408,8 +1339,7 @@ div#tablestatistics table {
     width: 100%;
 }
 
-#serverinfo
-{
+#serverinfo {
     padding: 12px 30px;
     overflow: hidden;
     margin: 0;
@@ -1421,15 +1351,13 @@ div#tablestatistics table {
     height: 15px;
 }
 
-#serverinfo .item
-{
+#serverinfo .item {
     font-family: <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
     white-space: nowrap;
     color: <?php echo $GLOBALS['cfg']['ButtonColor']; ?>;
 }
 
-#serverinfo .item:before
-{
+#serverinfo .item:before {
     padding-left: 5px;
     padding-right: 5px;
     font-family: "IcoMoon";
@@ -1438,19 +1366,16 @@ div#tablestatistics table {
     content: "";
 }
 
-#serverinfo a:hover
-{
+#serverinfo a:hover {
     text-decoration: none;
 }
 
-#serverinfo a:first-child
-{
+#serverinfo a:first-child {
     display: none !important;
 }
 
 #serverinfo .separator,
-#serverinfo .icon
-{
+#serverinfo .icon {
     display: none;
 }
 
@@ -1487,7 +1412,7 @@ div#tablestatistics table {
 }
 
 #serverinfo img {
-    margin: 0 .1em 0;
+    margin: 0 .1em;
     margin-<?php echo $left; ?>: .2em;
 }
 
@@ -1505,8 +1430,8 @@ div#tablestatistics table {
     height: auto;
     overflow: visible;
     visibility: hidden;
-    background-color: #ffffcc;
-    color: #006600;
+    background-color: #ffc;
+    color: #060;
     border: .1em solid #000;
     padding: .5em;
 }
@@ -1553,8 +1478,7 @@ div#tablestatistics table {
     width: auto;
 }
 
-#fieldset_add_user_login span.options input[type=button]
-{
+#fieldset_add_user_login span.options input[type=button] {
     margin: 4px;
 }
 
@@ -1606,7 +1530,7 @@ h3#serverstatusqueries span {
 
 /* Also used for the variables page */
 fieldset#tableFilter {
-    padding: 0.1em 1em;
+    padding: .1em 1em;
 }
 
 fieldset#tableFilter input[type=submit] {
@@ -1685,7 +1609,7 @@ table#chartGrid div.monitorChart {
 }
 
 div.tabLinks {
-    margin-left: 0.3em;
+    margin-left: .3em;
     float: <?php echo $left; ?>;
     padding: 5px 0;
 }
@@ -1695,7 +1619,7 @@ div.tabLinks a, div.tabLinks label {
 }
 
 div.tabLinks .icon {
-    margin: -0.2em 0.3em 0 0;
+    margin: -0.2em .3em 0 0;
 }
 
 .popupContent {
@@ -1800,7 +1724,7 @@ div#queryAnalyzerDialog table.queryNums {
 }
 #serverVariables .serverVariableEditor input {
     width: 100%;
-    margin: 0 0.5em;
+    margin: 0 .5em;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -1814,7 +1738,7 @@ div#queryAnalyzerDialog table.queryNums {
 }
 #serverVariables .serverVariableEditor a {
     float: <?php echo $right; ?>;
-    margin: 0 0.5em;
+    margin: 0 .5em;
     line-height: 2em;
 }
 /* end server variables */
@@ -1957,8 +1881,7 @@ div#queryboxcontainer div#bookmarkoptions {
     margin-left: 20px;
 }
 
-#maincontainer ul li
-{
+#maincontainer ul li {
     line-height: 1.5;
 }
 
@@ -1977,8 +1900,7 @@ div#queryboxcontainer div#bookmarkoptions {
 
 /* iconic view for ul items */
 
-li br
-{
+li br {
     display: none;
 }
 
@@ -1986,14 +1908,12 @@ li.no_bullets {
     list-style-type:none !important;
 }
 
-li#li_mysql_client_version
-{
+li#li_mysql_client_version {
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-li#li_create_database
-{
+li#li_create_database {
     background-color: #f6f6f6;
     padding: 10px;
     border: 1px solid <?php echo $GLOBALS['cfg']['BorderColor']; ?>;
@@ -2001,14 +1921,12 @@ li#li_create_database
     margin-bottom: 20px;
 }
 
-li#li_select_lang select
-{
+li#li_select_lang select {
     margin: 0 !important;
     height: 26px;
 }
 
-li#li_select_lang
-{
+li#li_select_lang {
     display: block;
     padding: 10px;
     padding-left: 20px;
@@ -2102,7 +2020,7 @@ li#li_switch_dbstats
 
 #body_browse_foreigners {
     background: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    margin: .5em .5em 0 .5em;
+    margin: .5em .5em 0;
 }
 
 #bodyquerywindow {
@@ -2149,7 +2067,7 @@ li#li_switch_dbstats
 
 #div_mysql_charset_collations table th,
 #div_mysql_charset_collations table td {
-    padding: 0.4em;
+    padding: .4em;
 }
 
 #div_mysql_charset_collations table th#collationHeader {
@@ -2186,7 +2104,7 @@ label.desc sup {
 
 code.php {
     display: block;
-    padding-left: 0.3em;
+    padding-left: .3em;
     margin-top: 0;
     margin-bottom: 0;
     max-height: 10em;
@@ -2243,7 +2161,7 @@ code.php {
 }
 
 .group-cnt {
-    padding: 0 0 0 0.5em;
+    padding: 0 0 0 .5em;
     display: inline-block;
     width: 98%;
 }
@@ -2327,7 +2245,7 @@ input[type=password].invalid_value,
 input[type=number].invalid_value,
 input[type=date].invalid_value
 .invalid_value {
-    background: #FFCCCC;
+    background: #FCC;
 }
 
 /**
@@ -2502,7 +2420,7 @@ input#input_import_file {
 }
 
 .formelementrow {
-    margin: 5px 0 5px 0;
+    margin: 5px 0;
 }
 
 #filterText {
@@ -2538,8 +2456,8 @@ input#input_import_file {
     margin: 0;
 }
 #fieldsForm ul.table-structure-actions .submenu li span {
-    padding: 0.3em;
-    margin: 0.1em;
+    padding: .3em;
+    margin: .1em;
 }
 #structure-action-links a {
     margin-<?php echo $right; ?>: 1em;
@@ -3224,7 +3142,7 @@ form.append_fields_form .tblFooters
     border: none;
     filter: none;
     margin: 5px;
-    padding: 0.4em;
+    padding: .4em;
 }
 
 .navigation input[type=submit]:hover, .navigation input.edit_mode_active
@@ -3236,7 +3154,7 @@ form.append_fields_form .tblFooters
 
 .navigation select
 {
-    margin: 0 0.8em;
+    margin: 0 .8em;
     border: none;
 }
 
@@ -3346,21 +3264,21 @@ body .ui-widget {
 }
 
 .report-data {
-    height:13em;
-    overflow:scroll;
-    width:570px;
+    height: 13em;
+    overflow: scroll;
+    width: 570px;
     border: solid 1px;
     background: white;
     padding: 2px;
 }
 
 .report-description {
-    height:10em;
-    width:570px;
+    height: 10em;
+    width: 570px;
 }
 
 div#page_content div#tableslistcontainer table.data {
-    border-top: 0.1px solid #EEEEEE;
+    border-top: .1px solid #EEE;
 }
 
 div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
@@ -3626,10 +3544,10 @@ html.ie8 #pma_console .message .action_content {
     top: 0;
     border-<?php echo $left; ?>: solid 1px #999;
     z-index: 300;
-    transition: <?php echo $left; ?> 0.2s;
-    -ms-transition: <?php echo $left; ?> 0.2s;
-    -webkit-transition: <?php echo $left; ?> 0.2s;
-    -moz-transition: <?php echo $left; ?> 0.2s;
+    transition: <?php echo $left; ?> .2s;
+    -ms-transition: <?php echo $left; ?> .2s;
+    -webkit-transition: <?php echo $left; ?> .2s;
+    -moz-transition: <?php echo $left; ?> .2s;
 }
 #pma_console .card.show {
     <?php echo $left; ?>: 6%;
@@ -3777,7 +3695,7 @@ html.ie7 #pma_console .query_input {
 .pma_sql_import_status div li {
     padding: 8px 10px;
     border-bottom: 1px solid #bbb;
-    color: rgb(148, 14, 14);
+    color: rgb(148,14,14);
     background: white;
 }
 

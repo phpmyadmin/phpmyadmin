@@ -226,8 +226,8 @@ canvas.designer * {
 
 .designer_header {
     background-color: #F6F6F6;
-    border-top: 20px solid #FFFFFF;
-    color: #333333;
+    border-top: 20px solid #FFF;
+    color: #333;
     display: block;
     height: 28px;
     margin-left: -20px;
