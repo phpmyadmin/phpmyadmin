@@ -6627,6 +6627,8 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"%sCompresia Zip%s necesită funcții (%s) care nu sunt disponibile pe acest "
+"sistem."
 
 #: libraries/classes/Config/ServerConfigChecks.php:362
 msgid ""
@@ -6636,9 +6638,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:374
-#, fuzzy
 msgid "Key is too short, it should have at least 32 characters."
-msgstr "Cheia este prea scurtă, ar trebui sa aibă cel puţin 32 de caractere."
+msgstr "Cheia este prea scurtă, ea trebuie să aibă cel puțin 32 de caractere."
 
 #: libraries/classes/Config/ServerConfigChecks.php:384
 #, fuzzy
