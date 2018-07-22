@@ -21,7 +21,6 @@
  */
 function MenuResizer ($container, widthCalculator) {
     var self = this;
-    console.log(this);
     self.$container = $container;
     self.widthCalculator = widthCalculator;
     var windowWidth = $(window).width();

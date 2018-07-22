@@ -140,7 +140,7 @@ $.fn.PMA_confirm = function (question, url, callbackFn, openCallback) {
 $.fn.getPostData = function () {
     var dataPost = this.attr('data-post');
     // Strip possible leading ?
-    if (dataPost !== undefined && dataPost.substring(0,1) == '?') {
+    if (dataPost !== undefined && dataPost.substring(0,1) === '?') {
         dataPost = dataPost.substr(1);
     }
     return dataPost;

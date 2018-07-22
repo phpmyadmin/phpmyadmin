@@ -5,8 +5,6 @@ var jqueryValidations = {
     validationFormat: window.validateFormat,
     validationMessage: window.validationMessage
 };
-// console.log('random');
-// console.log(window.PMA_messages);
 Variables.setAllMessages(window.PMA_messages);
 Variables.setTimePickerVars({
     datePicker: window.datePicker,
@@ -14,7 +12,6 @@ Variables.setTimePickerVars({
 });
 Variables.setValidatorMessages(jqueryValidations);
 Variables.setGlobalVars(window.globalVars);
-// console.log(Variables.getMessages());
 
 /**
  * This statement to be placed in the file going to be

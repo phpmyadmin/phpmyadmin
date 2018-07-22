@@ -27,8 +27,6 @@ export const PMA_commonParams = (function () {
             var updateNavigation = false;
             for (var i in obj) {
                 if (params[i] !== undefined && params[i] !== obj[i]) {
-                    console.log('randoma5sd');
-
                     if (i === 'db' || i === 'table') {
                         updateNavigation = true;
                     }
@@ -39,7 +37,6 @@ export const PMA_commonParams = (function () {
             if (updateNavigation &&
                     $('#pma_navigation_tree').hasClass('synced')
             ) {
-                console.log('random');
                 PMA_showCurrentNavigation();
             }
         },

@@ -1,7 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Exporting of translated messages from PHP to Javascript
+ * Exporting of common params defined in Header.php to make them available in
+ * the global window object and then serialize these variables in the modules.
  *
  * @package PhpMyAdmin
  */
