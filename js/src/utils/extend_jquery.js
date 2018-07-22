@@ -6,7 +6,10 @@ import 'jquery-mousewheel';
 import 'jquery.event.drag';
 import 'jquery-validation';
 import { methods } from './menu_resizer';
-import { GlobalVariables, timePicker, validations } from '../variables/export_variables';
+// TODO: To use this import for replacing variables used in this file for
+// extending various strings for localization.
+// import { GlobalVariables, timePicker, validations } from '../variables/export_variables';
+import { PMA_Messages as PMA_messages } from '../variables/export_variables';
 
 /**
  * Comes from menu_resizer.js
@@ -143,8 +146,51 @@ $.fn.getPostData = function () {
     return dataPost;
 };
 
-for (var key in timePicker) {
-    $.datepicker.regional[''][key] = timePicker[key];
+/**
+ * Replacing default datepicker strings for localization
+ */
+if ($.datepicker) {
+    // Creating copy of datepicker strings object
+    var datePicker = Object.assign(window.datePicker);
+    // Deleting datepicker variable from window as it is of no use now
+    delete window.datePicker;
+
+    for (let key in datePicker) {
+        $.datepicker.regional[''][key] = datePicker[key];
+    }
+}
+
+/**
+ * Replacing default timepicker strings for localozation
+ */
+if ($.timePicker) {
+    // Creating copy of timepicker strings object
+    var timePicker = Object.assign(window.timePicker);
+    // Deleting timepicker variable from window as it is of no use now
+    delete window.timePicker;
+
+    for (let key in timePicker) {
+        $.timepicker.regional[''][key] = timePicker[key];
+    }
+}
+
+export function extendingValidatorMessages () {
+    // Creating copy of validationMessage strings object
+    var validateMessage = Object.assign(window.validationMessage);
+    // Deleting validationMessage variable from window as it is of no use now
+    delete window.validationMessage;
+    // Replacing default validation messages forr localization
+    $.extend($.validator.messages, validateMessage);
+
+    // Creating copy of validationFormat strings object
+    var validateFormat = Object.assign(window.validationFormat);
+    // Deleting validationFormat variable from window as it is of no use now
+    delete window.validationFormat;
+    for (let i in validateFormat) {
+        validateFormat[i] = $.validator.format(validateFormat[i]);
+    }
+    // Replacing default validation messages forr localization
+    $.extend($.validator.messages, validateFormat);
 }
 
 window.jQ = $;

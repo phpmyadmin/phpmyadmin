@@ -28,10 +28,8 @@ if (!defined('TESTSUITE')) {
 // But this one is needed for Sanitize::escapeJsString()
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Sanitize;
-// use PhpMyAdmin\Scripts;
 
 $header = new Header();
-// $scripts = new Scripts();
 
 echo "var common_params = new Array();\n";
 foreach ($header->getJsParams() as $name => $value) {
