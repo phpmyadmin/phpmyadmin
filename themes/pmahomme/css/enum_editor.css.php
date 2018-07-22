@@ -35,7 +35,7 @@ p.enum_notice {
 #enum_editor .add td {
     vertical-align: middle;
     width: 50%;
-    padding: 0 0 0;
+    padding: 0;
     padding-<?php echo $left; ?>: 1em;
 }
 
@@ -64,7 +64,7 @@ p.enum_notice {
 #enum_editor_output textarea {
     width: 100%;
     float: <?php echo $right; ?>;
-    margin: 1em 0 0 0;
+    margin: 1em 0 0;
 }
 
 /**
