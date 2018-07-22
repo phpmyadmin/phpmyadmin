@@ -1745,7 +1745,8 @@ class PrivilegesTest extends TestCase
                 'tablename' => $tablename,
                 'routinename' => '',
                 'revokeall' => 1,
-            )
+            ),
+            ''
         );
         $this->assertContains(
             $url_html,
@@ -1789,9 +1790,10 @@ class PrivilegesTest extends TestCase
         $hostname = "pma_hostname";
         $GLOBALS['dbname'] = "pma_dbname";
         $_POST['adduser_submit'] = "adduser_submit";
+        $_POST['username'] = "username";
         $_POST['change_copy'] = "change_copy";
         $_GET['validate_username'] = "validate_username";
-        $_REQUEST['username'] = "username";
+        $_GET['username'] = "username";
         $_POST['update_privs'] = "update_privs";
 
         //Privileges::getExtraDataForAjaxBehavior
