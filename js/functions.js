@@ -5124,6 +5124,8 @@ jQuery.fn.getPostData = function () {
 };
 
 /**
+ * @todo REMOVE THESE FUNCTIONS AFTER COMPLETE CODE BEING MODULAR
+ *
  * Copy of functions copied from different files to make them globally
  * available so that build does not break during modularisation
  */

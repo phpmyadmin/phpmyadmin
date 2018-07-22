@@ -4,11 +4,10 @@
  * @returns void
  */
 import { PMA_commonParams } from '../variables/common_params';
-export function PMA_showCurrentNavigation() {
+export function PMA_showCurrentNavigation () {
     var db = PMA_commonParams.get('db');
     var table = PMA_commonParams.get('table');
-    console.log(db);
-    console.log(table);
+
     $('#pma_navigation_tree').find('li.selected').removeClass('selected');
     if (db) {
         var $dbItem = findLoadedItem($('#pma_navigation_tree').find('> div'), db, 'database', !table);

@@ -14,12 +14,7 @@ import { checkPasswordStrength, displayPasswordGenerateButton } from './utils/pa
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import { PMA_commonParams } from './variables/common_params';
-import { jQuery as $ } from './utils/extend_jquery';
-
-
-// console.log(AJAX.test);
-// AJAX.test = true;
-// console.log(AJAX.test);
+import { jQuery as $ } from './utils/JqueryExtended';
 
 /**
  * AJAX scripts for server_privileges page.
@@ -36,7 +31,6 @@ import { jQuery as $ } from './utils/extend_jquery';
  * @name        document.ready
  */
 
-// console.log(AJAX.test);
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -88,7 +82,6 @@ export function onload1 () {
     var meter_obj_label;
     var username;
     $(document).on('keyup', '#text_pma_pw', function () {
-        console.log('random');
         meter_obj = $('#password_strength_meter');
         meter_obj_label = $('#password_strength');
         username = $('input[name="username"]');
@@ -433,9 +426,7 @@ export function onload1 () {
 
     $('input.autofocus').focus();
     $(checkboxes_sel).trigger('change');
-    console.log('randmo1');
     displayPasswordGenerateButton();
-    console.log('randmo2');
     if ($('#edit_user_dialog').length > 0) {
         addOrUpdateSubmenu();
     }

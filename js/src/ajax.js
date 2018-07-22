@@ -1,7 +1,7 @@
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_commonParams } from './variables/common_params';
-import { jQuery as $ } from './utils/extend_jquery';
+import { jQuery as $ } from './utils/JqueryExtended';
 import { PMA_getImage } from './functions/get_image';
 
 /**
@@ -222,7 +222,6 @@ export let AJAX = {
      * @return void
      */
     requestHandler: function (event) {
-        console.log('i am called');
         // In some cases we don't want to handle the request here and either
         // leave the browser deal with it natively (e.g: file download)
         // or leave an existing ajax event handler present elsewhere deal with it

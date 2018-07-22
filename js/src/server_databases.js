@@ -12,22 +12,14 @@ import './variables/import_variables';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 import { escapeHtml } from './utils/Sanitise';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
-import { jQuery as $ } from './utils/extend_jquery';
+import { jQuery as $ } from './utils/JqueryExtended';
 import { AJAX } from './ajax';
 import { PMA_commonParams } from './variables/common_params';
 
-// console.log(AJAX.test);
-// console.log(PMA_messages);
-// console.log(PMA_commonParams.get('server'));
-// console.log(AJAX.test);
-// AJAX.checkTest();
-// console.log(AJAX.test);
-// console.log(a.test);
 /**
  * Unbind all event handlers before tearing down a page
  */
 export function teardown1 () {
-    // console.log('firing event');
     $(document).off('submit', '#dbStatsForm');
     $(document).off('submit', '#create_database_form.ajax');
 }
@@ -157,18 +149,3 @@ export function onload1 () {
         });
     });
 }
-// export default function server_databases () {
-//     console.log('aadd');
-//     AJAX.registerTeardown('server_databases_new.js', );
-//
-//     /**
-//      * AJAX scripts for server_databases.php
-//      *
-//      * Actions ajaxified here:
-//      * Drop Databases
-//      *
-//      */
-//
-//     AJAX.registerOnload('server_databases_new.js', ); // end $()
-//
-// };
