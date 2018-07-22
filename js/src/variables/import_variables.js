@@ -2,13 +2,16 @@ import { Variables } from './global_variables';
 import { PMA_commonParams } from './common_params';
 
 var jqueryValidations = {
-    validateFormat: window.validateFormat,
+    validationFormat: window.validateFormat,
     validationMessage: window.validationMessage
 };
 // console.log('random');
 // console.log(window.PMA_messages);
 Variables.setAllMessages(window.PMA_messages);
-Variables.setTimePickerVars(window.timePicker);
+Variables.setTimePickerVars({
+    datePicker: window.datePicker,
+    timePicker: window.timePicker
+});
 Variables.setValidatorMessages(jqueryValidations);
 Variables.setGlobalVars(window.globalVars);
 // console.log(Variables.getMessages());

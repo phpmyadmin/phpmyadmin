@@ -793,26 +793,24 @@ echo 'var maxInputVars = '
 /* for old js code */
 
 /* for new js code */
-/* extending jquery-ui-timepicker-addon if ($.datepicker)
-$.extend($.datepicker._defaults, $.datepicker.regional['']); */
-
-echo "var timePicker = new Array();\n";
+echo "datePicker = new Array();\n";
+echo "timePicker = new Array();\n";
 /* l10n: Display text for calendar close link */
-Sanitize::printJsValue("timePicker['closeText']", __('Done'));
+Sanitize::printJsValue("datePicker['closeText']", __('Done'));
 /* l10n: Display text for previous month link in calendar */
 Sanitize::printJsValue(
-    "timePicker['prevText']",
+    "datePicker['prevText']",
     _pgettext('Previous month', 'Prev')
 );
 /* l10n: Display text for next month link in calendar */
 Sanitize::printJsValue(
-    "timePicker['nextText']",
+    "datePicker['nextText']",
     _pgettext('Next month', 'Next')
 );
 /* l10n: Display text for current month link in calendar */
-Sanitize::printJsValue("timePicker['currentText']", __('Today'));
+Sanitize::printJsValue("datePicker['currentText']", __('Today'));
 Sanitize::printJsValue(
-    "timePicker['monthNames']",
+    "datePicker['monthNames']",
     array(
         __('January'),
         __('February'),
@@ -829,7 +827,7 @@ Sanitize::printJsValue(
     )
 );
 Sanitize::printJsValue(
-    "timePicker['monthNamesShort']",
+    "datePicker['monthNamesShort']",
     array(
         /* l10n: Short month name */
         __('Jan'),
@@ -858,9 +856,9 @@ Sanitize::printJsValue(
     )
 );
 Sanitize::printJsValue(
-    "timePicker['dayNames']",
+    "datePicker['dayNames']",
     array(
-        __('Sundayada'),
+        __('Sunday'),
         __('Monday'),
         __('Tuesday'),
         __('Wednesday'),
@@ -870,7 +868,7 @@ Sanitize::printJsValue(
     )
 );
 Sanitize::printJsValue(
-    "timePicker['dayNamesShort']",
+    "datePicker['dayNamesShort']",
     array(
         /* l10n: Short week day name */
         __('Sun'),
@@ -889,7 +887,7 @@ Sanitize::printJsValue(
     )
 );
 Sanitize::printJsValue(
-    "timePicker['dayNamesMin']",
+    "datePicker['dayNamesMin']",
     array(
         /* l10n: Minimal week day name */
         __('Su'),
@@ -908,10 +906,10 @@ Sanitize::printJsValue(
     )
 );
 /* l10n: Column header for week of the year in calendar */
-Sanitize::printJsValue("timePicker['weekHeader']", __('Wk'));
+Sanitize::printJsValue("datePicker['weekHeader']", __('Wk'));
 
 Sanitize::printJsValue(
-    "timePicker['showMonthAfterYear']",
+    "datePicker['showMonthAfterYear']",
     /* l10n: Month-year order for calendar, use either "calendar-month-year"
     * or "calendar-year-month".
     */
@@ -920,7 +918,7 @@ Sanitize::printJsValue(
 /* l10n: Year suffix for calendar, "none" is empty. */
 $year_suffix = _pgettext('Year suffix', 'none');
 Sanitize::printJsValue(
-    "timePicker['yearSuffix']",
+    "datePicker['yearSuffix']",
     ($year_suffix == 'none' ? '' : $year_suffix)
 );
 Sanitize::printJsValue("timePicker['timeText']", __('Time'));
@@ -1075,10 +1073,8 @@ $.extend($.timepicker._defaults, $.timepicker.regional['']);
 <?php
 /* for new js code */
 /* Form validation */
-/* extending jquery form validation $.extend($.validator.messages, obj) */
-
 /* Default validation functions */
-echo "var validationMessage = {\n";
+echo "validationMessage = {\n";
     Sanitize::printJsValueForFormValidation('required', __('This field is required'));
     Sanitize::printJsValueForFormValidation('remote', __('Please fix this field'));
     Sanitize::printJsValueForFormValidation('email', __('Please enter a valid email address'));
@@ -1099,7 +1095,7 @@ echo "var validationMessage = {\n";
         __('Please enter the same value again')
     );
 echo "\n};\n";
-echo "var validateFormat = {\n";
+echo "validationFormat = {\n";
     Sanitize::printJsValueForFormValidation(
         'maxlength',
         __('Please enter no more than {0} characters')
