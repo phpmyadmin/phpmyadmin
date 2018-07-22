@@ -38,9 +38,4 @@ foreach ($header->getJsParams() as $name => $value) {
     Sanitize::printJsValue("common_params['" . $name . "']", $value);
 }
 
-// echo "var AJAX_Params = new Array();\n";
-// foreach ($header->getDisplay() as $name => $value) {
-//     Sanitize::printJsValue("AJAX_Params['" . $name . "']", $value);
-// }
-
 ?>
