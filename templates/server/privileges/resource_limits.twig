@@ -6,8 +6,16 @@
         </small>
     </p>
     {% for limit in limits %}
-        {% include 'server/privileges/resource_limit_item.twig' with {
-            'limit': limit
-        } only %}
+        <div class="item">
+            <label for="text_{{ limit['input_name'] }}">
+                <code>
+                <dfn title="{{ limit['description'] }}">
+                    {{ limit['name_main'] }}
+                </dfn>
+                </code>
+            </label>
+            <input type="number" name="{{ limit['input_name'] }}" id="text_{{ limit['input_name'] }}"
+                value="{{ limit['value'] }}" title="{{ limit['description'] }}" />
+        </div>
     {% endfor %}
 </fieldset>
