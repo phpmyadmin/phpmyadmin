@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-07-23 11:12+0000\n"
+"PO-Revision-Date: 2018-07-24 07:50+0000\n"
 "Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
@@ -5539,7 +5539,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1161
 msgid "Designer and PDF schema: table coordinates"
-msgstr "Proiectant și schemă PDF: coordonate tabel"
+msgstr "Designer și schemă PDF: coordonate tabel"
 
 #: libraries/classes/Config/Descriptions.php:1164
 msgid ""
@@ -6876,67 +6876,48 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "Nu am putut încărca modulele din schemă, te rog verifică-ți instalarea!"
 
 #: libraries/classes/Database/Designer/Common.php:573
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
-msgstr "Eroare: relația deja există."
+msgstr "Eroare: relația există deja."
 
 #: libraries/classes/Database/Designer/Common.php:619
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been added."
-msgstr "Modificările au fost salvate"
+msgstr "Relația CHEIE STRĂINĂ a fost adăugată."
 
 #: libraries/classes/Database/Designer/Common.php:625
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "Eroare: Relația nu a fost adăugată."
+msgstr "Eroare: relația CHEIE STRĂINĂ nu a putut fi adăugată!"
 
 #: libraries/classes/Database/Designer/Common.php:630
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Eroare: lipsește indexul pe coloană (coloane)."
 
 #: libraries/classes/Database/Designer/Common.php:635
-#, fuzzy
 msgid "Error: Relational features are disabled!"
-msgstr "Eroare: Relația nu a fost adăugată!"
+msgstr "Eroare: funcționalitățile relaționale sunt dezactivate!"
 
 #: libraries/classes/Database/Designer/Common.php:657
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationship has been added."
-msgstr "Relație internă adăugată"
+msgstr "Relația internă a fost adăugată."
 
 #: libraries/classes/Database/Designer/Common.php:663
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
-msgstr "Eroare: Relația nu a fost adăugată."
+msgstr "Eroare: relația internă nu a putut fi adăugată!"
 
 #: libraries/classes/Database/Designer/Common.php:701
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "Modificările au fost salvate"
+msgstr "Relația CHEIE STRĂINĂ a fost înlăturată."
 
 #: libraries/classes/Database/Designer/Common.php:707
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
-msgstr "Eroare: Relația nu a fost adăugată."
+msgstr "Eroare: relația CHEIE STRĂINĂ nu a putut fi înlăturată!"
 
 #: libraries/classes/Database/Designer/Common.php:734
-#, fuzzy
-#| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
-msgstr "Eroare: Relația nu a fost adăugată."
+msgstr "Eroare: relația internă nu a putut fi înlăturată!"
 
 #: libraries/classes/Database/Designer/Common.php:738
-#, fuzzy
-#| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
-msgstr "Relație internă adăugată"
+msgstr "Relația internă a fost înlăturată."
 
 #: libraries/classes/Database/Qbe.php:467
 #: templates/table/search/search_and_replace.twig:6
@@ -7016,9 +6997,8 @@ msgid "Submit Query"
 msgstr "Trimite interogarea"
 
 #: libraries/classes/Database/Qbe.php:1867
-#, fuzzy
 msgid "Saved bookmarked search:"
-msgstr "Căutarea salvată:"
+msgstr "Căutarea marcată cu semn de carte a fost salvată:"
 
 #: libraries/classes/Database/Qbe.php:1869
 msgid "New bookmark"
@@ -7473,88 +7453,77 @@ msgstr "Întârzieri de scriere"
 
 #: libraries/classes/Engines/Innodb.php:293
 msgid "Read misses in %"
-msgstr ""
+msgstr "Neînțelegeri de citire în %"
 
 #: libraries/classes/Engines/Innodb.php:308
-#, fuzzy
 msgid "Write waits in %"
-msgstr "Scrierea așteaptă în %"
+msgstr "Întârzieri de scriere în %"
 
 #: libraries/classes/Engines/Myisam.php:30
-#, fuzzy
 msgid "Data pointer size"
-msgstr "Mărime pointer date"
+msgstr "Dimensiune indicator de date"
 
 #: libraries/classes/Engines/Myisam.php:32
-#, fuzzy
 msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
-"Mărimea pointerului implicit (în octeți), care este folosit de CREATE TABLE "
-"pentru tabelele MyISAM atunci cînd nu este specificată nici o opțiune "
+"Dimensiune implicită indicator, în octeți, care să fie folosită de CREEAZĂ "
+"TABEL pentru tabelele MyISAM când nu este specificată nici o opțiune "
 "MAX_ROWS."
 
 #: libraries/classes/Engines/Myisam.php:38
-#, fuzzy
 msgid "Automatic recovery mode"
-msgstr "Regim de recuperare automată"
+msgstr "Mod recuperare automată"
 
 #: libraries/classes/Engines/Myisam.php:40
-#, fuzzy
 msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
-"Regimul de recuperare automată a tabelelor MyISAM deteriorate, stabilit prin "
-"opțiunea startup --myisam-recover server."
+"Modul pentru recuperarea automată a tabelelor MyISAM deteriorate, așa cum "
+"este setat prin opțiunea de pornire a serverului --myisam-recover."
 
 #: libraries/classes/Engines/Myisam.php:45
-#, fuzzy
 msgid "Maximum size for temporary sort files"
-msgstr "Mărimea maximă pentru fișierele de sortare temporare"
+msgstr "Dimensiune maximă pentru fișiere de sortare temporare"
 
 #: libraries/classes/Engines/Myisam.php:47
-#, fuzzy
 msgid ""
 "The maximum size of the temporary file MySQL is allowed to use while re-"
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
-"Mărimea maximă pentru fișierul temporar, permisă în MySQL în timpul "
-"recreării unui index MyISAM (în timpul operațiunilor REPAIR TABLE, ALTER "
-"TABLE, sau LOAD DATA INFILE)."
+"Dimensiunea maximă a fișierului temporar MySQL care este permisă să se "
+"utilizeze în timpul recreării unui index MyISAM (în timpul operațiilor "
+"REPARĂ TABELUL, MODIFICĂ TABELUL sau ÎNCARCĂ DATE ÎN FIȘIER)."
 
 #: libraries/classes/Engines/Myisam.php:54
-#, fuzzy
 msgid "Maximum size for temporary files on index creation"
-msgstr "Mărimea maximă pentru fișierele temporare la crearea indexului"
+msgstr "Dimensiune maximă pentru fișiere temporare la crearea indexului"
 
 #: libraries/classes/Engines/Myisam.php:56
-#, fuzzy
 msgid ""
 "If the temporary file used for fast MyISAM index creation would be larger "
 "than using the key cache by the amount specified here, prefer the key cache "
 "method."
 msgstr ""
-"Dacă fișierul temporar utilizat pentru crearea rapidă a indexului MyISAM ar "
-"fi mai mare decît dacă s-ar utiliza cache-ul de chei. Se preferă utilizarea "
-"metodei „cache chei”."
+"Dacă fișierul temporar utilizat pentru crearea rapidă a indexului MyISAM "
+"este mai mare decât utilizarea cache-ului cheie prin suma specificată aici, "
+"se preferă metoda cache cheie."
 
 #: libraries/classes/Engines/Myisam.php:63
-#, fuzzy
 msgid "Repair threads"
 msgstr "Repară firele de execuție"
 
 #: libraries/classes/Engines/Myisam.php:65
-#, fuzzy
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
-"Dacă această valoare este mai mare decît 1, indexurile de tabel MyISAM sînt "
-"create în paralel (fiecare index în firul de execuție propriu) în tipul "
-"operațiunii de reparare prin procesul de sortare."
+"Dacă această valoare este mai mare decât 1, indexurile tabelului MyISAM sunt "
+"create în paralel (fiecare index în firul său de execuție) în timpul "
+"reparării prin procesul de sortare."
 
 #: libraries/classes/Engines/Myisam.php:72
 #, fuzzy
@@ -7571,113 +7540,100 @@ msgstr ""
 "REPAIR TABLE sau la crearea indexurilor cu CREATE INDEX sau ALTER TABLE."
 
 #: libraries/classes/Engines/Pbxt.php:32
-#, fuzzy
 msgid "Index cache size"
 msgstr "Dimensiune cache index"
 
 #: libraries/classes/Engines/Pbxt.php:34
-#, fuzzy
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"Aceasta este memoria alocată cache-ului pentru index. Valoarea default este "
-"32MB. Memoria alocată aici este folosită doar pentru cache-uirea paginilor "
-"index."
+"Aceasta este memoria alocată cache-ului de index. Valoarea implicită este de "
+"32 MO. Memoria alocată aici este folosită numai pentru a memora în cache "
+"paginile index."
 
 #: libraries/classes/Engines/Pbxt.php:41
-#, fuzzy
 msgid "Record cache size"
-msgstr "Dimensiune cache înregistrare"
+msgstr "Dimensiune cache înregistrări"
 
 #: libraries/classes/Engines/Pbxt.php:43
-#, fuzzy
 msgid ""
 "This is the amount of memory allocated to the record cache used to cache "
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
-"Aceasta este memoria alocată cache-ului pentru înregistrări folosit pentru a "
-"cache-ui date tabelare. Valoarea default este 32MB. Memoria alocată aici "
-"este folosită pentru cache-uirea schimbărilor la datele de manipulare (.xtd) "
-"și fișierele row pointer (.xtr)."
+"Aceasta este memoria alocată cache-ului de înregistrări folosit pentru a "
+"memora în cache datele tabelului. Valoarea implicită este de 32 MO. Această "
+"memorie este folosită pentru a memora în cache modificările la datele "
+"gestionate (.xtd) și fișierele (.xtr) care indică rândul."
 
 #: libraries/classes/Engines/Pbxt.php:51
-#, fuzzy
 msgid "Log cache size"
 msgstr "Dimensiune cache jurnal"
 
 #: libraries/classes/Engines/Pbxt.php:53
-#, fuzzy
 msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
-"Cantitatea de memorie alocată pentru cache-ul jurnalului tranzacției, "
-"utilizat pentru a depozita datele jurnalului. Implicit este 16MO."
+"Memoria alocată pentru cache-ul jurnalului de tranzacții folosită pentru a "
+"memora în cache datele din jurnalul de tranzacții. Valoarea implicită este "
+"de 16 MO."
 
 #: libraries/classes/Engines/Pbxt.php:60
-#, fuzzy
 msgid "Log file threshold"
-msgstr "Prag fișiere-jurnal"
+msgstr "Prag fișier jurnal"
 
 #: libraries/classes/Engines/Pbxt.php:62
-#, fuzzy
 msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
-"Dimensiunea unui log de tranzacții înainte de rollover și un nou log este "
-"creat. Valoarea implicită este de 16MB."
+"Dimensiunea unui jurnal de tranzacții înainte de raportare și de crearea "
+"unui nou jurnal. Valoarea implicită este de 16 MO."
 
 #: libraries/classes/Engines/Pbxt.php:68
-#, fuzzy
 msgid "Transaction buffer size"
-msgstr "Dimensiune tampon tranzacție"
+msgstr "Dimensiune tampon tranzacții"
 
 #: libraries/classes/Engines/Pbxt.php:70
-#, fuzzy
 msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
-"Dimensiunea tamponului global pentru jurnale de tranzacții (engine-ul alocă "
-"2 tampoane de această dimensiune).Implicit este de 1MB."
+"Dimensiunea tamponului global pentru jurnalul de tranzacții (motorul alocă 2 "
+"tampoane de această dimensiune). Valoarea implicită este de 1 MO."
 
 #: libraries/classes/Engines/Pbxt.php:77
-#, fuzzy
 msgid "Checkpoint frequency"
-msgstr "Frecvența punctelor de control"
+msgstr "Frecvență puncte de control"
 
 #: libraries/classes/Engines/Pbxt.php:79
-#, fuzzy
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
-"Mărimea datelor scrise în jurnalul tranzacțiilor înaintea efectuării unei "
-"verificări. Mărimea implicită este 24MO."
+"Cantitatea de date înscrisă în jurnalul de tranzacții înainte de trecerea "
+"unui punct de control. Valoarea implicită este de 24 MO."
 
 #: libraries/classes/Engines/Pbxt.php:86
-#, fuzzy
 msgid "Data log threshold"
-msgstr "Prag pentru jurnalul de date"
+msgstr "Prag jurnal de date"
 
 #: libraries/classes/Engines/Pbxt.php:88
-#, fuzzy
 msgid ""
 "The maximum size of a data log file. The default value is 64MB. PBXT can "
 "create a maximum of 32000 data logs, which are used by all tables. So the "
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
-"Mărimea maximă a unui fișier jurnal de date. Valoarea implicită este 64MB. "
-"PBXT poate crea maxim 32000 de jurnale de date, care sunt folosite de toate "
-"tabelele. Prin urmare, valoarea acestei variabile poate fi marită pentru a "
-"mări cantitatea totală de date care pot fi stocate în baza de date."
+"Dimensiunea maximă a unui fișier jurnal de date. Valoarea implicită este de "
+"64 MO. PBXT poate crea maxim de 32.000 de jurnale de date, care sunt "
+"folosite de toate tabelele. Deci valoarea acestei variabile poate fi mărită "
+"pentru a crește cantitatea totală de date care poate fi stocată în baza de "
+"date."
 
 #: libraries/classes/Engines/Pbxt.php:97
-#, fuzzy
 msgid "Garbage threshold"
 msgstr "Prag gunoi"
 
@@ -7686,9 +7642,10 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
+"Procentul gunoiului într-un fișier jurnal de date înainte de a fi compactat. "
+"Este o valoare cuprinsă între 1 și 99. Valoarea implicită este 50."
 
 #: libraries/classes/Engines/Pbxt.php:106
-#, fuzzy
 msgid "Log buffer size"
 msgstr "Dimensiune tampon jurnal"
 
@@ -7698,27 +7655,29 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
+"Dimensiunea tamponului folosit la scrierea unui jurnal de date. Valoarea "
+"implicită este de 256 MO. Motorul alocă un tampon per fir de execuție, dar "
+"numai dacă firul este necesar pentru a scrie un jurnal de date."
 
 #: libraries/classes/Engines/Pbxt.php:116
 msgid "Data file grow size"
-msgstr ""
+msgstr "Dimensiune creștere fișier de date"
 
 #: libraries/classes/Engines/Pbxt.php:117
 msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
+msgstr "Dimensiunea de creștere a fișierelor de date (.xtd) gestionate."
 
 #: libraries/classes/Engines/Pbxt.php:121
 msgid "Row file grow size"
-msgstr ""
+msgstr "Dimensiune creștere fișier de rânduri"
 
 #: libraries/classes/Engines/Pbxt.php:122
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
+msgstr "Dimensiunea de creștere a fișierelor care indică rânduri (.xtr)."
 
 #: libraries/classes/Engines/Pbxt.php:126
-#, fuzzy
 msgid "Log file count"
-msgstr "Număr de fișiere-jurnal"
+msgstr "Număr fișiere jurnal"
 
 #: libraries/classes/Engines/Pbxt.php:128
 msgid ""
@@ -7727,6 +7686,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
+"Acesta este numărul de fișiere jurnal de tranzacții (pbxt/system/xlog*.xt) "
+"pe care sistemul îl va menține. Dacă numărul de jurnale depășește această "
+"valoare jurnalele vechi vor fi șterse, altfel ele sunt redenumite și li se "
+"dă numărul următor cel mai mare."
 
 #: libraries/classes/Engines/Pbxt.php:184
 #, php-format
@@ -7734,40 +7697,39 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
+"Documentația și alte informații despre PBXT pot fi găsite pe %sPrimeBase XT "
+"Home Page%s."
 
 #: libraries/classes/ErrorHandler.php:80
-#, fuzzy
 msgid "Too many error messages, some are not displayed."
 msgstr "Prea multe mesaje de eroare, unele nu sunt afișate."
 
 #: libraries/classes/ErrorHandler.php:371
-#, fuzzy
 msgid "Report"
 msgstr "Raport"
 
 #: libraries/classes/ErrorHandler.php:376 templates/error/report_form.twig:25
-#, fuzzy
 msgid "Automatically send report next time"
 msgstr "Trimite automat raportul data viitoare"
 
 #: libraries/classes/Export.php:134 libraries/classes/Export.php:173
 #: libraries/classes/Export.php:408
-#, fuzzy, php-format
+#, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "Spațiu insuficient pentru salvarea fișierului %s."
+msgstr "Spațiu insuficient pentru a salva fișierul %s."
 
 #: libraries/classes/Export.php:361
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
-"Fișierul %s există deja pe server. Schimbați denumirea fișierului sau bifați "
-"opțiunea de suprascriere."
+"Fișierul %s există deja pe server, schimbă-i numele sau verifică opțiunea de "
+"a-l suprascrie."
 
 #: libraries/classes/Export.php:369 libraries/classes/Export.php:377
-#, fuzzy, php-format
+#, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "Serverul web nu are drepturile necesare pentru a salva fișierul %s."
+msgstr "Serverul web nu are permisiunea de a salva fișierul %s."
 
 #: libraries/classes/Export.php:414
 #, fuzzy, php-format
@@ -7775,75 +7737,63 @@ msgid "Dump has been saved to file %s."
 msgstr "Copia a fost salvată în fișierul %s."
 
 #: libraries/classes/File.php:258
-#, fuzzy
 msgid "File was not an uploaded file."
-msgstr "Fișierul nu a fost un fișier încărcat."
+msgstr "Fișierul nu era un fișier încărcat."
 
 #: libraries/classes/File.php:300
-#, fuzzy
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "Fișierul încărcat depășește condiția upload_max_filesize din php.ini."
+msgstr ""
+"Fișierul încărcat depășește instrucțiunea upload_max_filesize din php.ini."
 
 #: libraries/classes/File.php:306
-#, fuzzy
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
-"Fișierul încărcat depășește directiva MAX_FILE_SIZE specificată în "
-"formularul HTML."
+"Fișierul încărcat depășește instrucțiunea MAX_FILE_SIZE care a fost "
+"specificată în formularul HTML."
 
 #: libraries/classes/File.php:312
-#, fuzzy
 msgid "The uploaded file was only partially uploaded."
-msgstr "Fișierul a fost încărcat numai parțial."
+msgstr "Fișierul încărcat a fost încărcat numai parțial."
 
 #: libraries/classes/File.php:316
-#, fuzzy
 msgid "Missing a temporary folder."
 msgstr "Lipsește un dosar temporar."
 
 #: libraries/classes/File.php:319
-#, fuzzy
 msgid "Failed to write file to disk."
-msgstr "Eșec la scrierea fișierului pe disc."
+msgstr "Scrierea fișierului pe disc a eșuat."
 
 #: libraries/classes/File.php:322
-#, fuzzy
 msgid "File upload stopped by extension."
-msgstr "Încărcarea fișierului a fost împiedicată de extensie."
+msgstr "Încărcarea fișierului a fost oprită de o extensie."
 
 #: libraries/classes/File.php:325
-#, fuzzy
 msgid "Unknown error in file upload."
-msgstr "Eroare necunoscută la încărcarea fișierului."
+msgstr "Eroare necunoscută în încărcarea fișierului."
 
 #: libraries/classes/File.php:465
-#, fuzzy
 msgid "File is a symbolic link"
-msgstr "Fişierul este o legătură simbolică"
+msgstr "Fișierul este o legătură simbolică"
 
 #: libraries/classes/File.php:470 libraries/classes/File.php:562
-#, fuzzy
 msgid "File could not be read!"
-msgstr "Fișierul nu poate fi citit!"
+msgstr "Fișierul nu a putut fi citit!"
 
 #: libraries/classes/File.php:510
-#, fuzzy
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Eroare la mutarea fișierului încărcat, vezi [doc@faq1-11]FAQ 1.11[/doc]."
+"Eroare la mutarea fișierului încărcat, vezi [doc@faq1-11]Întrebări frecvente "
+"1.11[/doc]."
 
 #: libraries/classes/File.php:529
-#, fuzzy
 msgid "Error while moving uploaded file."
-msgstr "Eroare la mutarea fișierului încărcat."
+msgstr "Eroare în timpul mutării fișierului încărcat."
 
 #: libraries/classes/File.php:537
-#, fuzzy
-#| msgid "Cannot read (moved) upload file."
 msgid "Cannot read uploaded file."
-msgstr "Nu se poate citi fișierul încărcat (și mutat)."
+msgstr "Nu pot citi fișierul încărcat."
 
 #: libraries/classes/File.php:617
 #, php-format
@@ -7856,42 +7806,36 @@ msgstr ""
 "dezactivată de configurarea ta."
 
 #: libraries/classes/Footer.php:87
-#, fuzzy, php-format
+#, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
-msgstr "În prezent se rulează Git revizuirea %1$s din ramura %2$s."
+msgstr "În prezent se rulează revizia Git %1$s din ramura %2$s."
 
 #: libraries/classes/Footer.php:94
-#, fuzzy
 msgid "Git information missing!"
-msgstr "Informațiile despe Git lipsesc!"
+msgstr "Informațiile despre Git lipsesc!"
 
 #: libraries/classes/Footer.php:209 libraries/classes/Footer.php:213
 #: libraries/classes/Footer.php:216
-#, fuzzy
 msgid "Open new phpMyAdmin window"
 msgstr "Deschide fereastră phpMyAdmin nouă"
 
 #: libraries/classes/Header.php:392
-#, fuzzy
 msgid "Print view"
 msgstr "Vizualizare imprimare"
 
 #: libraries/classes/Header.php:470
-#, fuzzy
 msgid "Click on the bar to scroll to top of page"
-msgstr "Faceţi click pe bară pentru a defila la partea de sus a paginii"
+msgstr "Dă clic pe bară pentru a derula în partea de sus a paginii"
 
 #: libraries/classes/Header.php:781 templates/login/header.twig:8
-#, fuzzy
 msgid "Javascript must be enabled past this point!"
-msgstr "Trebuie să aveți activat Javascript!"
+msgstr "Javascript trebuie să fie activat peste acest punct!"
 
 #: libraries/classes/Import.php:135 libraries/classes/InsertEdit.php:192
 #: libraries/classes/Rte/Routines.php:1527 libraries/classes/Sql.php:1427
 #: tbl_get_field.php:51
-#, fuzzy
 msgid "MySQL returned an empty result set (i.e. zero rows)."
-msgstr "MySQL a dat un set de rezultate gol (zero linii)."
+msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
 
 #: libraries/classes/Import.php:298 libraries/classes/Sql.php:1441
 msgid "[ROLLBACK occurred.]"
@@ -7900,11 +7844,11 @@ msgstr ""
 #: libraries/classes/Import.php:1228
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
+msgstr "Structurile următoare fie au fost create ori fie modificate. Aici poți:"
 
 #: libraries/classes/Import.php:1231
 msgid "View a structure's contents by clicking on its name."
-msgstr ""
+msgstr "Vezi conținutul unei structuri dând clic pe numele ei."
 
 #: libraries/classes/Import.php:1234
 msgid ""
@@ -7913,7 +7857,7 @@ msgstr "Modifică orice setare dând clic pe legătura corespondentă „Opțiun
 
 #: libraries/classes/Import.php:1236
 msgid "Edit structure by following the \"Structure\" link."
-msgstr ""
+msgstr "Editează structura urmărind legătura „Structură”."
 
 #: libraries/classes/Import.php:1240 libraries/classes/Import.php:1275
 #: libraries/classes/MultSubmits.php:412
@@ -7943,7 +7887,6 @@ msgstr ""
 #: templates/table/search/options.twig:1 templates/console/display.twig:7
 #: templates/console/display.twig:140
 #: templates/table/structure/row_stats_table.twig:19
-#, fuzzy
 msgid "Options"
 msgstr "Opțiuni"
 
@@ -7975,23 +7918,25 @@ msgstr "Du-te la vizualizarea: %s"
 #: libraries/classes/Import.php:1364
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
+"Pot fi simulate numai interogările ACTUALIZEAZĂ și ȘTERGE pentru tabele "
+"singulare."
 
 #: libraries/classes/Import.php:1591
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"Numai interogările SQL INSEREAZĂ, ACTUALIZEAZĂ, ȘTERGE și ÎNLOCUIEȘTE care "
+"conțin tabele de motoare tranzacționale pot fi derulate înapoi."
 
 #: libraries/classes/Index.php:660
-#, fuzzy, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
+#, php-format
 msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Creează un index pe&nbsp;%s&nbsp;coloană"
+msgstr "Creează un index pe coloanele %s"
 
 #: libraries/classes/Index.php:692
-#, fuzzy
 msgid "No index defined!"
-msgstr "Index nu este definit!"
+msgstr "Niciun index definit!"
 
 #: libraries/classes/Index.php:719 libraries/classes/Rte/RteList.php:104
 #: libraries/classes/Rte/RteList.php:119 libraries/classes/Rte/RteList.php:132
@@ -8014,13 +7959,11 @@ msgstr "Acțiune"
 
 #: libraries/classes/Index.php:724
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
-#, fuzzy
 msgid "Packed"
 msgstr "Împachetat"
 
 #: libraries/classes/Index.php:726
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
-#, fuzzy
 msgid "Cardinality"
 msgstr "Cardinalitate"
 
@@ -8031,31 +7974,28 @@ msgstr "Cardinalitate"
 #: templates/columns_definitions/partitions.twig:85
 #: templates/database/structure/table_header.twig:48
 #: templates/table/structure/display_partitions.twig:31
-#, fuzzy
 msgid "Comment"
 msgstr "Comentariu"
 
 #: libraries/classes/Index.php:755
-#, fuzzy
 msgid "The primary key has been dropped."
-msgstr "Cheia primară a fost aruncată."
+msgstr "Cheia principală a fost eliminată."
 
 #: libraries/classes/Index.php:762
-#, fuzzy, php-format
+#, php-format
 msgid "Index %s has been dropped."
-msgstr "Indexul %s a fost aruncat."
+msgstr "Indexul %s a fost eliminat."
 
 #: libraries/classes/Index.php:892
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr "Indecșii %1$s și %2$s par a fi egali și unul din ei poate fi șters."
+msgstr "Indexurile %1$s și %2$s par să fie egale și unul ar putea fi înlăturat."
 
 #: libraries/classes/InsertEdit.php:304
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:56
 #: templates/database/designer/table_list.twig:34
-#, fuzzy
 msgid "Hide"
 msgstr "Ascunde"
 
@@ -8063,98 +8003,78 @@ msgstr "Ascunde"
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:32
 #: libraries/classes/Rte/Routines.php:1667
 #: templates/table/search/table_header.twig:4
-#, fuzzy
 msgid "Function"
 msgstr "Funcție"
 
 #: libraries/classes/InsertEdit.php:484
-#, fuzzy
 msgid "Binary"
 msgstr "Binar"
 
 #: libraries/classes/InsertEdit.php:745
-#, fuzzy
-#| msgid "Because of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable."
 msgstr ""
-"Datorită lungimii sale, <br /> acest câmp s-ar putea să nu fie editabil"
+"Datorită lungimii sale,<br /> probabil această coloană nu poată fi editată."
 
 #: libraries/classes/InsertEdit.php:1358
-#, fuzzy
 msgid "Binary - do not edit"
-msgstr "Binar - a nu se edita"
+msgstr "Binar - nu edita"
 
 #: libraries/classes/InsertEdit.php:1518 libraries/classes/Util.php:3295
-#, fuzzy
 msgid "The directory you set for upload work cannot be reached."
-msgstr "Directorul stabilit pentru încărcare nu poate fi găsit."
+msgstr "Directorul pe care l-ai setat pentru încărcare nu poate fi găsit."
 
 #: libraries/classes/InsertEdit.php:1521 templates/table/search/options.twig:25
 #: templates/privileges/column_privileges.twig:17
-#, fuzzy
 msgid "Or"
 msgstr "Sau"
 
 #: libraries/classes/InsertEdit.php:1522
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "director de încărcare al serverului Web"
+msgstr "director încărcare pe server web:"
 
 #: libraries/classes/InsertEdit.php:1727
 #: templates/table/search/input_box.twig:39
-#, fuzzy
 msgid "Edit/Insert"
-msgstr "Editare/Inserare"
+msgstr "Editează/inserează"
 
 #: libraries/classes/InsertEdit.php:1794
-#, fuzzy
 msgid "and then"
 msgstr "și apoi"
 
 #: libraries/classes/InsertEdit.php:1832
-#, fuzzy
 msgid "Insert as new row"
-msgstr "Inserează ca o nouă linie"
+msgstr "Inserează ca rând nou"
 
 #: libraries/classes/InsertEdit.php:1835
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "Inserează ca rând nou și ignoră erorile"
 
 #: libraries/classes/InsertEdit.php:1838
-#, fuzzy
 msgid "Show insert query"
-msgstr "Afișare interogare SQL"
+msgstr "Arată interogarea inserată"
 
 #: libraries/classes/InsertEdit.php:1858
-#, fuzzy
 msgid "Go back to previous page"
-msgstr "Revenire"
+msgstr "Mergi înapoi la pagina anterioară"
 
 #: libraries/classes/InsertEdit.php:1861
-#, fuzzy
 msgid "Insert another new row"
-msgstr "Adaugă o nouă înregistrare"
+msgstr "Inserează un alt rând nou"
 
 #: libraries/classes/InsertEdit.php:1866
-#, fuzzy
 msgid "Go back to this page"
-msgstr "Înapoi la această pagină"
+msgstr "Mergi înapoi la acestă pagină"
 
 #: libraries/classes/InsertEdit.php:1889
-#, fuzzy
 msgid "Edit next row"
 msgstr "Editează rândul următor"
 
 #: libraries/classes/InsertEdit.php:1909
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
-"Folosiți tasta TAB pentru a trece de la o valoare la alta sau CTRL+săgeți "
-"pentru a merge în oricare direcție"
+"Folosește tasta TAB pentru a trece de la o valoare la alta sau CTRL+săgeți "
+"pentru a merge oriunde."
 
 #: libraries/classes/InsertEdit.php:1947
 #: libraries/classes/ReplicationGui.php:571
@@ -8167,27 +8087,24 @@ msgstr ""
 #: templates/table/search/table_header.twig:10
 #: templates/server/variables/variable_table_head.twig:5
 #: templates/table/search/zoom_result_form.twig:36
-#, fuzzy
 msgid "Value"
 msgstr "Valoare"
 
 #: libraries/classes/InsertEdit.php:2317 libraries/classes/Sql.php:1424
-#, fuzzy
 msgid "Showing SQL query"
-msgstr "Afișare interogare SQL"
+msgstr "Arăt interogarea SQL"
 
 #: libraries/classes/InsertEdit.php:2342 libraries/classes/Sql.php:1402
-#, fuzzy, php-format
+#, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rând inserat: %1$d"
 
 #: libraries/classes/LanguageManager.php:910
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "Ignor codul de limbă neacceptat."
 
 #: libraries/classes/LanguageManager.php:937
 #: libraries/classes/LanguageManager.php:938 setup/frames/index.inc.php:64
-#, fuzzy
 msgid "Language"
 msgstr "Limbă"
 
@@ -8199,7 +8116,7 @@ msgstr ""
 "deoarece depășește lungimea maximă."
 
 #: libraries/classes/Linter.php:166
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (lângă <code>%2$s</code>)"
 
@@ -8208,14 +8125,13 @@ msgstr "%1$s (lângă <code>%2$s</code>)"
 #: tbl_operations.php:229 tbl_structure.php:37
 #: templates/database/structure/structure_table_row.twig:98
 #: templates/database/structure/structure_table_row.twig:163
-#, fuzzy
 msgid "View"
-msgstr "Vizualizare"
+msgstr "Vezi"
 
 #: libraries/classes/Menu.php:298 libraries/classes/Menu.php:317
 #, php-format
 msgid "“%s”"
-msgstr ""
+msgstr "„%s”"
 
 #: libraries/classes/Menu.php:352
 #: libraries/classes/Navigation/Nodes/NodeTable.php:302
@@ -8225,9 +8141,8 @@ msgstr ""
 #: libraries/config.values.php:51 libraries/config.values.php:121
 #: templates/database/search/results.twig:34
 #: templates/table/structure/check_all_table_column.twig:8
-#, fuzzy
 msgid "Browse"
-msgstr "Navigare"
+msgstr "Răsfoiește"
 
 #: libraries/classes/Menu.php:369 libraries/classes/Menu.php:472
 #: libraries/classes/Navigation/Nodes/NodeTable.php:293
@@ -8237,7 +8152,6 @@ msgstr "Navigare"
 #: libraries/classes/Util.php:4003 libraries/config.values.php:41
 #: libraries/config.values.php:49 libraries/config.values.php:113
 #: libraries/config.values.php:119
-#, fuzzy
 msgid "Search"
 msgstr "Caută"
 
@@ -8249,9 +8163,8 @@ msgstr "Caută"
 #: libraries/classes/Util.php:3327 libraries/classes/Util.php:4004
 #: libraries/config.values.php:42 libraries/config.values.php:50
 #: libraries/config.values.php:120
-#, fuzzy
 msgid "Insert"
-msgstr "Inserare"
+msgstr "Inserează"
 
 #: libraries/classes/Menu.php:403 libraries/classes/Menu.php:507
 #: libraries/classes/Server/Privileges.php:2564
@@ -8259,23 +8172,20 @@ msgstr "Inserare"
 #: libraries/classes/Util.php:4007 libraries/config.values.php:108
 #: templates/server/sub_page_header.twig:2
 #: templates/privileges/privileges_summary.twig:15
-#, fuzzy
 msgid "Privileges"
-msgstr "Drepturi de acces"
+msgstr "Privilegii"
 
 #: libraries/classes/Menu.php:412 libraries/classes/Menu.php:420
 #: libraries/classes/Menu.php:499 libraries/classes/Util.php:3035
 #: libraries/classes/Util.php:3049 libraries/classes/Util.php:3990
 #: libraries/classes/Util.php:4008 libraries/config.values.php:114
 #: view_operations.php:103
-#, fuzzy
 msgid "Operations"
 msgstr "Operații"
 
 #: libraries/classes/Menu.php:425 libraries/classes/Menu.php:529
 #: libraries/classes/Relation.php:281 libraries/classes/Util.php:3995
 #: libraries/classes/Util.php:4009
-#, fuzzy
 msgid "Tracking"
 msgstr "Urmărire"
 
@@ -8289,24 +8199,20 @@ msgstr "Urmărire"
 #: libraries/classes/Plugins/Export/ExportXml.php:129
 #: libraries/classes/Rte/Words.php:65 libraries/classes/Util.php:3994
 #: libraries/classes/Util.php:4010
-#, fuzzy
 msgid "Triggers"
 msgstr "Declanșatori"
 
 #: libraries/classes/Menu.php:476 libraries/classes/Menu.php:483
 #: libraries/classes/Menu.php:490
-#, fuzzy
 msgid "Database seems to be empty!"
-msgstr "Baza de date pare a fi goală!"
+msgstr "Baza de date pare să fie goală!"
 
 #: libraries/classes/Menu.php:479 libraries/classes/Util.php:3987
-#, fuzzy
 msgid "Query"
-msgstr "Interogare prin exemplu"
+msgstr "Interogare"
 
 #: libraries/classes/Menu.php:512 libraries/classes/Rte/Words.php:51
 #: libraries/classes/Util.php:3992
-#, fuzzy
 msgid "Routines"
 msgstr "Rutine"
 
@@ -8315,30 +8221,24 @@ msgstr "Rutine"
 #: libraries/classes/Plugins/Export/ExportSql.php:966
 #: libraries/classes/Plugins/Export/ExportXml.php:109
 #: libraries/classes/Rte/Words.php:79 libraries/classes/Util.php:3993
-#, fuzzy
 msgid "Events"
 msgstr "Evenimente"
 
 #: libraries/classes/Menu.php:535 libraries/classes/Util.php:3996
-#, fuzzy
 msgid "Designer"
 msgstr "Designer"
 
 #: libraries/classes/Menu.php:544 libraries/classes/Util.php:3997
 #: templates/database/structure/check_all_tables.twig:32
-#, fuzzy
 msgid "Central columns"
 msgstr "Coloane centrale"
 
 #: libraries/classes/Menu.php:602
-#, fuzzy
-#| msgid "Users"
 msgid "User accounts"
-msgstr "Utilizatori"
+msgstr "Conturi utilizator"
 
 #: libraries/classes/Menu.php:629 libraries/classes/Server/Status/Data.php:123
 #: libraries/classes/Util.php:3976 templates/server/sub_page_header.twig:2
-#, fuzzy
 msgid "Binary log"
 msgstr "Jurnal binar"
 
@@ -8354,77 +8254,67 @@ msgstr "Replicare"
 #: libraries/classes/SqlQueryForm.php:428 libraries/classes/Util.php:3978
 #: libraries/config.values.php:107 templates/server/engines/engine.twig:12
 #: templates/server/engines/engine.twig:16
-#, fuzzy
 msgid "Variables"
 msgstr "Variabile"
 
 #: libraries/classes/Menu.php:644 libraries/classes/Util.php:3979
-#, fuzzy
 msgid "Charsets"
 msgstr "Seturi de caractere"
 
 #: libraries/classes/Menu.php:648 libraries/classes/Util.php:3981
-#, fuzzy
 msgid "Engines"
 msgstr "Motoare"
 
 #: libraries/classes/Menu.php:652 libraries/classes/Util.php:3980
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
 msgid "Plugins"
-msgstr "Extensii"
+msgstr "Module"
 
 #: libraries/classes/Message.php:252
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
-msgstr[0] "%1$d rânduri afectate."
-msgstr[1] "%1$d rând afectat."
-msgstr[2] "%1$d rânduri afectate."
+msgstr[0] "Un rând afectat."
+msgstr[1] "%1$d rânduri afectate."
+msgstr[2] "%1$d de rânduri afectate."
 
 #: libraries/classes/Message.php:271
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
-msgstr[0] "%1$d rânduri șterse."
-msgstr[1] "%1$d rând șters."
-msgstr[2] "%1$d rânduri șterse."
+msgstr[0] "Un rând șters."
+msgstr[1] "%1$d rânduri șterse."
+msgstr[2] "%1$d de rânduri șterse."
 
 #: libraries/classes/Message.php:290
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
-msgstr[0] "%1$d rânduri inserate."
-msgstr[1] "%1$d rând inserat."
-msgstr[2] "%1$d rânduri inserate."
+msgstr[0] "Un rând inserat."
+msgstr[1] "%1$d rânduri inserate."
+msgstr[2] "%1$d de rânduri inserate."
 
 #: libraries/classes/MultSubmits.php:414 libraries/classes/Operations.php:197
 #: libraries/classes/Operations.php:1281 libraries/classes/Tracking.php:410
-#, fuzzy
 msgid "Structure only"
-msgstr "Numai structura"
+msgstr "Numai structură"
 
 #: libraries/classes/MultSubmits.php:416 libraries/classes/Operations.php:198
 #: libraries/classes/Operations.php:1282 libraries/classes/Tracking.php:416
-#, fuzzy
 msgid "Structure and data"
-msgstr "Structura și date"
+msgstr "Structură și date"
 
 #: libraries/classes/MultSubmits.php:418 libraries/classes/Operations.php:199
 #: libraries/classes/Operations.php:1283 libraries/classes/Tracking.php:413
-#, fuzzy
 msgid "Data only"
 msgstr "Numai date"
 
 #: libraries/classes/MultSubmits.php:422
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
-msgstr "Adaugă valoare pentru AUTO_INCREMENT"
+msgstr "Adaugă valoarea INCREMENTARE AUTOMATĂ"
 
 #: libraries/classes/MultSubmits.php:424 libraries/classes/Operations.php:247
 #: libraries/classes/Operations.php:1306
-#, fuzzy
 msgid "Add constraints"
 msgstr "Adaugă constrângeri"
 
@@ -8433,193 +8323,156 @@ msgstr "Adaugă constrângeri"
 #: libraries/classes/Operations.php:971 libraries/classes/Operations.php:1325
 #: libraries/classes/Rte/Routines.php:1066
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Adjust privileges"
-msgstr "Editează drepturile de acces"
+msgstr "Ajustează privilegiile"
 
 #: libraries/classes/MultSubmits.php:448
-#, fuzzy
-#| msgid "Fri"
 msgid "From"
-msgstr "Vin"
+msgstr "De la"
 
 #: libraries/classes/MultSubmits.php:454
 msgid "To"
-msgstr ""
+msgstr "La"
 
 #: libraries/classes/MultSubmits.php:482
 msgid "Add prefix"
-msgstr ""
+msgstr "Adaugă prefix"
 
 #: libraries/classes/MultSubmits.php:515
-#, fuzzy
-#| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Sigur doriți să "
+msgstr "Sigur vrei să execuți interogarea următoare?"
 
 #: libraries/classes/Navigation/Navigation.php:71
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
+msgstr "A apărut o eroare la încărcarea afișării de navigare"
 
 #: libraries/classes/Navigation/Navigation.php:209
-#, fuzzy
-#| msgid "Column names"
 msgid "Groups:"
-msgstr "Denumirile coloanelor"
+msgstr "Grupuri:"
 
 #: libraries/classes/Navigation/Navigation.php:210
-#, fuzzy
-#| msgid "Events"
 msgid "Events:"
-msgstr "Evenimente"
+msgstr "Evenimente:"
 
 #: libraries/classes/Navigation/Navigation.php:211
-#, fuzzy
-#| msgid "Functions"
 msgid "Functions:"
-msgstr "Funcții"
+msgstr "Funcții:"
 
 #: libraries/classes/Navigation/Navigation.php:212
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedures:"
-msgstr "Proceduri"
+msgstr "Proceduri:"
 
 #: libraries/classes/Navigation/Navigation.php:213
 #: templates/display/export/selection.twig:5
-#, fuzzy
-#| msgid "Tables"
 msgid "Tables:"
-msgstr "Tabele"
+msgstr "Tabele:"
 
 #: libraries/classes/Navigation/Navigation.php:214
-#, fuzzy
-#| msgid "View"
 msgid "Views:"
-msgstr "Vizualizare"
+msgstr "Vizualizări:"
 
 #: libraries/classes/Navigation/Navigation.php:238
 #: libraries/classes/Tracking.php:179 tbl_change.php:149
 #: templates/database/multi_table_query/form.twig:29
 #: templates/database/tracking/tracked_tables.twig:17
-#, fuzzy
 msgid "Show"
 msgstr "Arată"
 
 #: libraries/classes/Navigation/NavigationHeader.php:167
-#, fuzzy
 msgid "Home"
-msgstr "Pagina de pornire"
+msgstr "Prima pagină"
 
 #: libraries/classes/Navigation/NavigationHeader.php:175
-#, fuzzy
 msgid "Log out"
-msgstr "Deconectare"
+msgstr "Dezautentificare"
 
 #: libraries/classes/Navigation/NavigationHeader.php:177
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Empty session data"
-msgstr "Salvarea datelor din tabel"
+msgstr "Golește datele sesiunii"
 
 #: libraries/classes/Navigation/NavigationHeader.php:195
-#, fuzzy
 msgid "phpMyAdmin documentation"
 msgstr "Documentație phpMyAdmin"
 
 #: libraries/classes/Navigation/NavigationHeader.php:215
 msgid "Navigation panel settings"
-msgstr "Setări panou de navigare"
+msgstr "Setări panou navigare"
 
 #: libraries/classes/Navigation/NavigationHeader.php:226
-#, fuzzy
 msgid "Reload navigation panel"
-msgstr "Personalizează cadrul principal"
+msgstr "Reîncarcă panoul de navigare"
 
 #: libraries/classes/Navigation/NavigationTree.php:757
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"Există grupuri mari de elemente în panoul de navigare, care pot afecta "
+"performanța. Ia în considerare dezactivarea grupării elementelor în panoul "
+"de navigare."
 
 #: libraries/classes/Navigation/NavigationTree.php:951
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Un rezultat găsit"
+msgstr[1] "%s rezultate găsite"
+msgstr[2] "%s de rezultate găsite"
 
 #: libraries/classes/Navigation/NavigationTree.php:1368
 #: libraries/classes/Navigation/NavigationTree.php:1400
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "Tastează pentru a le filtra, apasă Enter pentru a căuta tot"
 
 #: libraries/classes/Navigation/NavigationTree.php:1370
 #: libraries/classes/Navigation/NavigationTree.php:1401
-#, fuzzy
-#| msgid "Save as file"
 msgid "Clear fast filter"
-msgstr "Salvează ca fișier"
+msgstr "Filtru rapid de curățare"
 
 #: libraries/classes/Navigation/NavigationTree.php:1427
 msgid "Collapse all"
-msgstr ""
+msgstr "Restrânge tot"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/classes/Navigation/NodeFactory.php:36
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "Nume clasă invalid „%1$s”, folosind implicit „Node”"
 
 #: libraries/classes/Navigation/NodeFactory.php:63
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "Nu s-au putut adăuga coloanele!"
+msgstr "Nu am putut încărca clasa „%1$s”"
 
 #: libraries/classes/Navigation/Nodes/Node.php:804
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Extinde/restrânge"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:28
 #: libraries/classes/SqlQueryForm.php:267
-#, fuzzy
-#| msgid "Column names"
 msgid "Columns"
-msgstr "Denumirile coloanelor"
+msgstr "Coloane"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:37
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new column"
 msgid "New"
-msgstr "Nou"
+msgstr "Nouă"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
-#, fuzzy
-#| msgid "Database export options"
 msgid "Database operations"
-msgstr "Opțiuni de exportare a bazei de date"
+msgstr "Operații bază de date"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:687
-#, fuzzy
-#| msgid "Show hint"
 msgid "Show hidden items"
-msgstr "Arată indiciul"
+msgstr "Arată elementele ascunse"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:38
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new database"
 msgid "New"
-msgstr "Nou"
+msgstr "Nouă"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:39
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new event"
 msgid "New"
 msgstr "Nou"
@@ -8628,56 +8481,42 @@ msgstr "Nou"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:28
 #: libraries/classes/Plugins/Export/ExportSql.php:575
 #: libraries/classes/Plugins/Export/ExportXml.php:114
-#, fuzzy
 msgid "Functions"
 msgstr "Funcții"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:37
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new function"
 msgid "New"
-msgstr "Nou"
+msgstr "Nouă"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:37
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new index"
 msgid "New"
 msgstr "Nou"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:32
-#, fuzzy
-#| msgid "Procedures"
 msgid "Procedure"
-msgstr "Proceduri"
+msgstr "Procedură"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:28
 #: libraries/classes/Plugins/Export/ExportSql.php:564
 #: libraries/classes/Plugins/Export/ExportXml.php:119
-#, fuzzy
 msgid "Procedures"
 msgstr "Proceduri"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:37
 #: libraries/classes/Rte/Footer.php:52
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Nou"
+msgstr "Nouă"
 
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:38
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new table"
 msgid "New"
 msgstr "Nou"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:39
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new trigger"
 msgid "New"
 msgstr "Nou"
@@ -8686,109 +8525,102 @@ msgstr "Nou"
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:28
 #: libraries/classes/Plugins/Export/ExportXml.php:134
 #: templates/database/structure/show_create.twig:24
-#, fuzzy
-#| msgid "View"
 msgid "Views"
-msgstr "Vizualizare"
+msgstr "Vizualizări"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:38
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new view"
 msgid "New"
-msgstr "Nou"
+msgstr "Nouă"
 
 #: libraries/classes/Normalization.php:190
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "Face toate coloanele atomice"
 
 #: libraries/classes/Normalization.php:192
 #: libraries/classes/Normalization.php:891
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "Primul pas al normalizării (1NF)"
 
 #: libraries/classes/Normalization.php:195
 #: libraries/classes/Normalization.php:246
 #: libraries/classes/Normalization.php:295
 #: libraries/classes/Normalization.php:333
 msgid "Step 1."
-msgstr ""
+msgstr "Pasul 1."
 
 #: libraries/classes/Normalization.php:197
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"Ai vreo coloană care poate fi împărțită în mai multe coloane? De exemplu: "
+"adresa poate fi împărțită în stradă, oraș, țară și cod poștal."
 
 #: libraries/classes/Normalization.php:204
 msgid "Show me the central list of columns that are not already in this table"
-msgstr ""
+msgstr "Arată-mi lista centrală a coloanelor care nu sunt încă în acest tabel"
 
 #: libraries/classes/Normalization.php:207
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
+"Selectează o coloană care poate fi împărțită în mai multe coloane (la "
+"selectarea „nicio astfel de coloană” se va trece la pasul următor)."
 
 #: libraries/classes/Normalization.php:214 normalization.php:20
-#, fuzzy
-#| msgid "Select two columns"
 msgid "Select one…"
-msgstr "Alege două coloane"
+msgstr "Selectează una…"
 
 #: libraries/classes/Normalization.php:215 normalization.php:21
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "No such column"
-msgstr "Adaugă/șterge coloane"
+msgstr "Nicio astfel de coloană"
 
 #: libraries/classes/Normalization.php:219 libraries/classes/Types.php:724
 #: normalization.php:26
-#, fuzzy
 msgctxt "string types"
 msgid "String"
-msgstr "Şir de caractere"
+msgstr "Șir"
 
 #: libraries/classes/Normalization.php:222
 msgid "split into "
-msgstr ""
+msgstr "împarte în "
 
 #: libraries/classes/Normalization.php:243
 msgid "Have a primary key"
-msgstr ""
+msgstr "Ai o cheie principală"
 
 #: libraries/classes/Normalization.php:249
-#, fuzzy
-#| msgid "Error: relation already exists."
 msgid "Primary key already exists."
-msgstr "Eroare: relația deja există."
+msgstr "Cheia principală există deja."
 
 #: libraries/classes/Normalization.php:254
 msgid ""
 "There is no primary key; please add one.<br/>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"Nu există nicio cheie principală; te rog adaugă una.<br/>Sugestie: o cheie "
+"principală este o coloană (sau o combinație de coloane) care identifică în "
+"mod unic toate rândurile."
 
 #: libraries/classes/Normalization.php:262
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "Adaugă o cheie principală la coloanele existente"
 
 #: libraries/classes/Normalization.php:267
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"Dacă nu este posibilă combinarea coloanelor existente ca o cheie principală"
 
 #: libraries/classes/Normalization.php:271
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "+ Add a new primary key column"
-msgstr "Adaugă %s câmp(uri)"
+msgstr "+ Adaugă o nouă cheie principală la coloană"
 
 #: libraries/classes/Normalization.php:294
-#, fuzzy
-#| msgid "Remove chart"
 msgid "Remove redundant columns"
-msgstr "Elimină graficul"
+msgstr "Înlătură coloanele redundante"
 
 #: libraries/classes/Normalization.php:297
 msgid ""
@@ -8796,28 +8628,29 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"Ai un grup de coloane care prin combinare dau o coloană existentă? De "
+"exemplu, dacă ai first_name, last_name și full_name atunci prin combinare "
+"first_name și last_name dă full_name care este redundant."
 
 #: libraries/classes/Normalization.php:303
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"Bifează coloanele care sunt redundante și dă clic pe înlătură. Dacă nu "
+"există nicio coloană redundantă, dă clic pe ”Nicio coloană redundantă”"
 
 #: libraries/classes/Normalization.php:308
-#, fuzzy
-#| msgid "Remove selected users"
 msgid "Remove selected"
-msgstr "Eliminarea utilizatorilor selectați"
+msgstr "Înlătură cele selectate"
 
 #: libraries/classes/Normalization.php:309
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "No redundant column"
-msgstr "Adaugă %s câmp(uri)"
+msgstr "Nicio coloană redundantă"
 
 #: libraries/classes/Normalization.php:332
 msgid "Move repeating groups"
-msgstr ""
+msgstr "Mută grupurile repetate"
 
 #: libraries/classes/Normalization.php:335
 msgid ""
@@ -8827,24 +8660,31 @@ msgid ""
 "on which form a repeating group. In this case a new table (book_id, author) "
 "should be created."
 msgstr ""
+"Ai un grup de două sau mai multe coloane care sunt strâns legate și toate "
+"repetă același atribut? De exemplu, un tabel care conține date despre cărți "
+"ar putea avea coloane precum book_id, autor1, autor2, autor3 și așa mai "
+"departe, care formează un grup repetat. În acest caz, ar trebui creat un "
+"tabel nou (book_id, autor)."
 
 #: libraries/classes/Normalization.php:343
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
+"Bifează coloanele care formează un grup repetat. Dacă nu există un astfel de "
+"grup, dă clic pe „Niciun grup repetat”"
 
 #: libraries/classes/Normalization.php:349
 msgid "No repeating group"
-msgstr ""
+msgstr "Niciun grup repetat"
 
 #: libraries/classes/Normalization.php:378
 msgid "Step 2."
-msgstr ""
+msgstr "Pasul 2."
 
 #: libraries/classes/Normalization.php:378
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "Găsește dependențe parțiale"
 
 #: libraries/classes/Normalization.php:401
 #, php-format
@@ -8852,11 +8692,14 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"Nu există posibile dependențe parțiale pentru că nu există nicio coloană "
+"care nu este principală deoarece cheia principală (%1$s) este compusă din "
+"toate coloanele din tabel."
 
 #: libraries/classes/Normalization.php:407
 #: libraries/classes/Normalization.php:452
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "Tabelul este deja în a doua formă normală."
 
 #: libraries/classes/Normalization.php:412
 #, php-format
@@ -8864,6 +8707,8 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"Cheia principală (%1$s) constă din mai multe coloane, deci trebuie să găsim "
+"dependențele parțiale."
 
 #: libraries/classes/Normalization.php:417
 #: libraries/classes/Normalization.php:804
@@ -8871,10 +8716,12 @@ msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
+"Te rog răspunde la următoarele întrebări cu atenție pentru a obține o "
+"normalizare corectă."
 
 #: libraries/classes/Normalization.php:421
 msgid "+ Show me the possible partial dependencies based on data in the table"
-msgstr ""
+msgstr "+ Arată-mi posibile dependențe parțiale pe baza datelor din tabel"
 
 #: libraries/classes/Normalization.php:425
 msgid ""
@@ -8882,12 +8729,15 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"Pentru fiecare coloană de mai jos, te rog selectează <b>setul minim</b> de "
+"coloanele din setul dat, ale cărui valori combinate sunt suficiente pentru a "
+"determina valoarea coloanei."
 
 #: libraries/classes/Normalization.php:435
 #: libraries/classes/Normalization.php:843
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "„%1$s” depinde de:"
 
 #: libraries/classes/Normalization.php:447
 #, php-format
@@ -8895,6 +8745,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"Nu există posibile dependențe parțiale deoarece cheia principală (%1$s) are "
+"doar o coloană."
 
 #: libraries/classes/Normalization.php:476
 #, php-format
@@ -8902,19 +8754,19 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"Pentru a pune tabelul original „%1$s” în a doua formă normală, trebuie să "
+"creăm următoarele tabele:"
 
 #: libraries/classes/Normalization.php:513
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "Al doilea pas al normalizării este finalizat pentru tabelul „%1$s”."
 
 #: libraries/classes/Normalization.php:553
 #: libraries/classes/Normalization.php:703
 #: libraries/classes/Normalization.php:775
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing!"
-msgstr "Eroare în procesarea cererii"
+msgstr "Eroare la procesare!"
 
 #: libraries/classes/Normalization.php:599
 #, php-format
@@ -8922,25 +8774,25 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"Pentru a pune tabelul original „%1$s” în a treia formă normală, trebuie să "
+"creăm următoarele tabele:"
 
 #: libraries/classes/Normalization.php:647
 msgid "The third step of normalization is complete."
-msgstr ""
+msgstr "Al treilea pas al normalizării este finalizat."
 
 #: libraries/classes/Normalization.php:754
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
-msgstr ""
+msgstr "Grupul repetat selectat a fost mutat în tabelul „%s”"
 
 #: libraries/classes/Normalization.php:801
-#, fuzzy
-#| msgid "Sep"
 msgid "Step 3."
-msgstr "Sep"
+msgstr "Pasul 3."
 
 #: libraries/classes/Normalization.php:801
 msgid "Find transitive dependencies"
-msgstr ""
+msgstr "Găsește dependențe tranzitive"
 
 #: libraries/classes/Normalization.php:808
 msgid ""
@@ -8949,176 +8801,162 @@ msgid ""
 "value of the column.<br />Note: A column may have no transitive dependency, "
 "in that case you don't have to select any."
 msgstr ""
+"Pentru fiecare coloană de mai jos, te rog selectează <b>setul minim</b> de "
+"coloanele din setul dat ale cărui valori combinate sunt suficiente pentru a "
+"determina valoarea coloanei.<br />Notă: o coloană poate să nu aibă nicio "
+"dependență tranzitivă, în acest caz nu trebuie să selectezi niciuna."
 
 #: libraries/classes/Normalization.php:857
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"Nu există posibile dependențe tranzitive deoarece tabelul nu are nicio "
+"coloană cu o cheie care nu este principală"
 
 #: libraries/classes/Normalization.php:861
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "Tabelul este deja în a treia formă normală!"
 
 #: libraries/classes/Normalization.php:887
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Improve table structure (Normalization):"
-msgstr "Propune structura de tabele"
+msgstr "Îmbunătățește structura tabelului (normalizare):"
 
 #: libraries/classes/Normalization.php:888
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "Selectează până la ce pas vrei să normalizezi"
 
 #: libraries/classes/Normalization.php:892
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "Al doilea pas al normalizării (1NF+2NF)"
 
 #: libraries/classes/Normalization.php:893
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "Al treilea pas al normalizării (1NF+2NF+3NF)"
 
 #: libraries/classes/Normalization.php:903
 msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"Sugestie: te rog urmează procedura cu atenție pentru a obține normalizarea "
+"corectă"
 
 #: libraries/classes/Normalization.php:969
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"Această listă se bazează pe un subgrup al datelor din tabel și nu este "
+"neapărat corectă. "
 
 #: libraries/classes/Normalization.php:985
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "Nicio dependență parțială găsită!"
 
 #: libraries/classes/Operations.php:105
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename database to"
-msgstr "Redenumire bază de date în"
+msgstr "Redenumește baza de date în"
 
 #: libraries/classes/Operations.php:121 libraries/classes/Operations.php:259
 #: libraries/classes/Operations.php:878 libraries/classes/Operations.php:965
 #: libraries/classes/Operations.php:1319
 #: templates/columns_definitions/column_adjust_privileges.twig:15
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
-msgstr "Nu dețineți drepturi de acces pentru a vă afla aici!"
+msgstr ""
+"Nu ai suficiente privilegii pentru a efectua această operație; te rog "
+"consultă documentația pentru mai multe detalii"
 
 #: libraries/classes/Operations.php:159
-#, fuzzy, php-format
+#, php-format
 msgid "Database %s has been dropped."
-msgstr "Baza de date %s a fost aruncată."
+msgstr "Baza de date %s a fost eliminată."
 
 #: libraries/classes/Operations.php:171
-#, fuzzy
 msgid "Remove database"
-msgstr "Elimină baza de date"
+msgstr "Înlătură baza de date"
 
 #: libraries/classes/Operations.php:177
-#, fuzzy
 msgid "Drop the database (DROP)"
-msgstr "Ștergeți baza de date (DROP)"
+msgstr "Elimină baza de date (ELIMINĂ)"
 
 #: libraries/classes/Operations.php:222
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy database to"
-msgstr "Copiază baza de date"
+msgstr "Copiază baza de date în"
 
 #: libraries/classes/Operations.php:234
-#, fuzzy
 msgid "CREATE DATABASE before copying"
-msgstr "CREEAZĂ BAZA DE DATE înainte de copiere"
+msgstr "CREEAZĂ BAZĂ DE DATE înainte de copiere"
 
 #: libraries/classes/Operations.php:272
-#, fuzzy
 msgid "Switch to copied database"
-msgstr "Schimbă la tabela copiată"
+msgstr "Comută la baza de date copiată"
 
 #: libraries/classes/Operations.php:320
-#, fuzzy
-#| msgid "Continued table caption"
 msgid "Change all tables collations"
-msgstr "Continuare captură tabel"
+msgstr "Schimbă toate colaționările tabelelor"
 
 #: libraries/classes/Operations.php:326
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "Schimbă toate colaționările coloanelor din tabele"
 
 #: libraries/classes/Operations.php:799
-#, fuzzy
 msgid "Alter table order by"
-msgstr "Alterare „ordonare tabel după”"
+msgstr "Modifică ordinea tabelelor după"
 
 #: libraries/classes/Operations.php:807
-#, fuzzy
 msgid "(singly)"
 msgstr "(individual)"
 
 #: libraries/classes/Operations.php:843
-#, fuzzy
 msgid "Move table to (database<b>.</b>table)"
-msgstr "Mută tabelul la (bază_de_date<b>.</b>tabel)"
+msgstr "Mută tabelul la (bază de date<b>.</b>tabel)"
 
 #: libraries/classes/Operations.php:948
-#, fuzzy
 msgid "Rename table to"
-msgstr "Redenumire tabel la"
+msgstr "Redenumește tabelul în"
 
 #: libraries/classes/Operations.php:988
-#, fuzzy
 msgid "Table comments"
 msgstr "Comentarii tabel"
 
 #: libraries/classes/Operations.php:1057
-#, fuzzy
 msgid "Table options"
 msgstr "Opțiuni tabel"
 
 #: libraries/classes/Operations.php:1064
 #: templates/server/engines/engines.twig:4
-#, fuzzy
 msgid "Storage Engine"
 msgstr "Motor de stocare"
 
 #: libraries/classes/Operations.php:1093
 msgid "Change all column collations"
-msgstr ""
+msgstr "Schimbă toate colaționările coloanelor"
 
 #: libraries/classes/Operations.php:1264
-#, fuzzy
 msgid "Copy table to (database<b>.</b>table)"
-msgstr "Copiază tabelul la (bază_de_date<b>.</b>tabel)"
+msgstr "Copiază tabelul în (bază de date<b>.</b>tabel)"
 
 #: libraries/classes/Operations.php:1334
-#, fuzzy
 msgid "Switch to copied table"
-msgstr "Schimbă la tabela copiată"
+msgstr "Comută la tabelul copiat"
 
 #: libraries/classes/Operations.php:1358
 #: templates/database/structure/check_all_tables.twig:18
-#, fuzzy
 msgid "Table maintenance"
-msgstr "Administrare tabel"
+msgstr "Mentenanță tabel"
 
 #: libraries/classes/Operations.php:1391
 #: templates/database/structure/check_all_tables.twig:19
-#, fuzzy
 msgid "Analyze table"
-msgstr "Analizare tabel"
+msgstr "Analizează tabelul"
 
 #: libraries/classes/Operations.php:1406
 #: templates/database/structure/check_all_tables.twig:20
-#, fuzzy
 msgid "Check table"
-msgstr "Verificare tabel"
+msgstr "Verifică tabelul"
 
 #: libraries/classes/Operations.php:1420
 #: templates/database/structure/check_all_tables.twig:21
@@ -9128,159 +8966,134 @@ msgid "Checksum table"
 msgstr "Verificare tabel"
 
 #: libraries/classes/Operations.php:1434
-#, fuzzy
 msgid "Defragment table"
 msgstr "Defragmentare tabel"
 
 #: libraries/classes/Operations.php:1446
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s has been flushed."
-msgstr "Tabelul %s a fost curățat."
+msgstr "Tabelul %s a fost golit."
 
 #: libraries/classes/Operations.php:1452
-#, fuzzy
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
-msgstr "Curățarea tabelului (\"FLUSH\")"
+msgstr "Golește tabelul (FLUSH)"
 
 #: libraries/classes/Operations.php:1466
 #: templates/database/structure/check_all_tables.twig:22
 #: templates/table/structure/display_table_stats.twig:61
-#, fuzzy
 msgid "Optimize table"
-msgstr "Optimizare tabel"
+msgstr "Optimizează tabelul"
 
 #: libraries/classes/Operations.php:1481
 #: templates/database/structure/check_all_tables.twig:23
-#, fuzzy
 msgid "Repair table"
-msgstr "Reparare tabel"
+msgstr "Repară tabelul"
 
 #: libraries/classes/Operations.php:1527
 #: templates/database/structure/check_all_tables.twig:14
 #: view_operations.php:140
-#, fuzzy
 msgid "Delete data or table"
-msgstr "Șterge datele urmărite din acest tabel"
+msgstr "Șterge datele sau tabelul"
 
 #: libraries/classes/Operations.php:1535
 msgid "Empty the table (TRUNCATE)"
-msgstr ""
+msgstr "Golește tabelul (TRUNCATE)"
 
 #: libraries/classes/Operations.php:1543
-#, fuzzy
 msgid "Delete the table (DROP)"
-msgstr "Nu sînt baze de date"
+msgstr "Șterge tabelul (DROP)"
 
 #: libraries/classes/Operations.php:1584
 #: templates/table/structure/display_structure.twig:179
-#, fuzzy
 msgid "Analyze"
 msgstr "Analizează"
 
 #: libraries/classes/Operations.php:1585
 #: templates/table/structure/display_structure.twig:179
-#, fuzzy
 msgid "Check"
 msgstr "Verifică"
 
 #: libraries/classes/Operations.php:1586
 #: templates/table/structure/display_structure.twig:179
-#, fuzzy
 msgid "Optimize"
 msgstr "Optimizează"
 
 #: libraries/classes/Operations.php:1587
 #: templates/table/structure/display_structure.twig:179
-#, fuzzy
 msgid "Rebuild"
 msgstr "Reconstruiește"
 
 #: libraries/classes/Operations.php:1588
 #: templates/table/structure/display_structure.twig:179
-#, fuzzy
 msgid "Repair"
 msgstr "Repară"
 
 #: libraries/classes/Operations.php:1589
 #: templates/table/structure/display_structure.twig:179
 msgid "Truncate"
-msgstr ""
+msgstr "Trunchiază"
 
 #: libraries/classes/Operations.php:1603
-#, fuzzy
-#| msgid "Collapse"
 msgid "Coalesce"
-msgstr "Restrânge"
+msgstr "Fuzionează"
 
 #: libraries/classes/Operations.php:1612
-#, fuzzy
 msgid "Partition maintenance"
-msgstr "Întreținerea partiției"
+msgstr "Mentenanță partiție"
 
 #: libraries/classes/Operations.php:1629
-#, fuzzy, php-format
+#, php-format
 msgid "Partition %s"
-msgstr "Partiția %s"
+msgstr "Partiție %s"
 
 #: libraries/classes/Operations.php:1647
 #: templates/table/structure/display_partitions.twig:137
-#, fuzzy
 msgid "Remove partitioning"
-msgstr "Elimină partiționarea"
+msgstr "Înlătură partiționarea"
 
 #: libraries/classes/Operations.php:1673
-#, fuzzy
 msgid "Check referential integrity:"
-msgstr "Verificarea integrității referinței:"
+msgstr "Verifică integritatea referențială:"
 
 #: libraries/classes/Operations.php:2059
-#, fuzzy
 msgid "Can't move table to same one!"
-msgstr "Nu se poate muta tabelul în el însuși!"
+msgstr "Nu pot muta tabelul în el însuși!"
 
 #: libraries/classes/Operations.php:2061
-#, fuzzy
 msgid "Can't copy table to same one!"
-msgstr "Nu se poate copia tabelul în el însuși!"
+msgstr "Nu pot copia tabelul în el însuși!"
 
 #: libraries/classes/Operations.php:2085
-#, fuzzy, php-format
-#| msgid "Table %s has been moved to %s."
+#, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr "Tabelul %s a fost mutat la %s."
+msgstr "Tabelul %s a fost mutat în %s. Privilegiile au fost ajustate."
 
 #: libraries/classes/Operations.php:2092
-#, fuzzy, php-format
-#| msgid "Table %s has been copied to %s."
+#, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr "Tabelul %s a fost copiat la %s."
+msgstr "Tabelul %s a fost copiat în %s. Privilegiile au fost ajustate."
 
 #: libraries/classes/Operations.php:2101
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s has been moved to %s."
-msgstr "Tabelul %s a fost mutat la %s."
+msgstr "Tabelul %s a fost mutat în %s."
 
 #: libraries/classes/Operations.php:2105
-#, fuzzy, php-format
+#, php-format
 msgid "Table %s has been copied to %s."
-msgstr "Tabelul %s a fost copiat la %s."
+msgstr "Tabelul %s a fost copiat în %s."
 
 #: libraries/classes/Operations.php:2133
-#, fuzzy
 msgid "The table name is empty!"
-msgstr "Denumirea tabelului e goală!"
+msgstr "Numele tabelului este gol!"
 
 #: libraries/classes/Pdf.php:133
-#, fuzzy
 msgid "Error while creating PDF:"
-msgstr "Eroare la creare PDF:"
+msgstr "Eroare la crearea PDF-ului:"
 
 #: libraries/classes/Plugins.php:580
-#, fuzzy
-#| msgid "This format has no options"
 msgid "This format has no options"
-msgstr "Acest format nu are opțiuni"
+msgstr "Acest format nu are nicio opțiune"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:85
 msgid "Cannot connect: invalid settings."
@@ -9289,9 +9102,9 @@ msgstr "Nu pot conecta: setări invalide."
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:99
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:91
 #: templates/login/header.twig:5
-#, fuzzy, php-format
+#, php-format
 msgid "Welcome to %s"
-msgstr "Bine ați venit la %s"
+msgstr "Bun venit la %s"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:115
 #, php-format
@@ -9316,63 +9129,53 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:163
 msgid "Retry to connect"
-msgstr ""
+msgstr "Reîncearcă să te conectezi"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:135
 msgid "Your session has expired. Please log in again."
-msgstr ""
+msgstr "Sesiunea ta a expirat. Te rog autentifică-te din nou."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:155
-#, fuzzy
 msgid "Log in"
 msgstr "Autentificare"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:163
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:173
-#, fuzzy
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr "Puteți introduce adresă gazdă/IP și port separate de spațiu."
+msgstr ""
+"Poți introduce numele gazdei/adresa IP și portul separat printr-un spațiu."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:178
-#, fuzzy
 msgid "Username:"
 msgstr "Nume utilizator:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:190
-#, fuzzy
-#| msgid "Server Choice"
 msgid "Server Choice:"
-msgstr "Alegerea serverului"
+msgstr "Alegere server:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:314
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "Nu s-a putut realiza conexiunea cu serverul de baze de date!"
+msgstr "Conectarea la serviciul reCAPTCHA a eșuat!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:316
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "Captcha introdusă este greșită, încearcă din nou!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:321
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
-msgstr ""
+msgstr "Lipsește verificarea reCAPTCHA, poate a fost blocată de adblock?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:345
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "Nu pot face conexiunea catre serverul MySQL"
+msgstr "Nu ai voie să te autentifici în acest server MySQL!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:96
-#, fuzzy
 msgid "Wrong username/password. Access denied."
-msgstr "Nume de utilizator/parolă incorecte. Accesul interzis."
+msgstr "Nume de utilizator incorect/parolă incorectă. Acces refuzat."
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:93
-#, fuzzy
 msgid "Can not find signon authentication script:"
-msgstr "Tipul autentificării"
+msgstr "Nu pot găsi scriptul de autentificare signon:"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:182
 msgid ""
@@ -9382,17 +9185,14 @@ msgstr ""
 "fără parolă)"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:189
-#, fuzzy, php-format
+#, php-format
 msgid "No activity within %s seconds; please log in again."
-msgstr ""
-"Nu ați avut activitate de mai mult de %s secunde, vă rugăm să vă "
-"autentificați din nou."
+msgstr "Nicio activitate timp de %s secunde, te rog autentifică-te din nou."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:199
 #: libraries/classes/Plugins/AuthenticationPlugin.php:202
-#, fuzzy
 msgid "Cannot log in to the MySQL server"
-msgstr "Nu pot face conexiunea catre serverul MySQL"
+msgstr "Nu te pot autentifica în serverul MySQL"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:350
 msgid "You have enabled two factor authentication, please confirm your login."
@@ -9402,38 +9202,28 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
 #: templates/display/import/import.twig:168
 #: templates/display/export/format_dropdown.twig:2
-#, fuzzy
-#| msgid "Format"
 msgid "Format:"
-msgstr "Format"
+msgstr "Format:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:66
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:68
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Linii terminate de"
+msgstr "Coloane separate cu:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:71
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:74
-#, fuzzy
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
-msgstr "câmpuri încadrate de"
+msgstr "Coloane închise cu:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:76
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:81
-#, fuzzy
-#| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "câmpuri realizate de"
+msgstr "Coloane escapate cu:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:81
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:88
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Linii terminate de"
+msgstr "Linii terminate cu:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:86
 #: libraries/classes/Plugins/Export/ExportExcel.php:54
@@ -9442,10 +9232,8 @@ msgstr "Linii terminate de"
 #: libraries/classes/Plugins/Export/ExportOds.php:70
 #: libraries/classes/Plugins/Export/ExportOdt.php:135
 #: libraries/classes/Plugins/Export/ExportTexytext.php:93
-#, fuzzy
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Înlocuire NULL cu"
+msgstr "Înlocuiește NULL cu:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:91
 #: libraries/classes/Plugins/Export/ExportExcel.php:59
@@ -9453,10 +9241,8 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportExcel.php:69
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Ediția Excel"
+msgstr "Ediție Excel:"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:72
 #: libraries/classes/Plugins/Export/ExportLatex.php:105
@@ -9466,7 +9252,6 @@ msgstr "Ediția Excel"
 #: libraries/classes/Plugins/Export/ExportSql.php:215
 #: libraries/classes/Plugins/Export/ExportTexytext.php:71
 #: libraries/config.values.php:165
-#, fuzzy
 msgid "structure"
 msgstr "structură"
 
@@ -9478,7 +9263,6 @@ msgstr "structură"
 #: libraries/classes/Plugins/Export/ExportSql.php:216
 #: libraries/classes/Plugins/Export/ExportTexytext.php:72
 #: libraries/config.values.php:166
-#, fuzzy
 msgid "data"
 msgstr "date"
 
@@ -9490,7 +9274,6 @@ msgstr "date"
 #: libraries/classes/Plugins/Export/ExportSql.php:217
 #: libraries/classes/Plugins/Export/ExportTexytext.php:73
 #: libraries/config.values.php:167
-#, fuzzy
 msgid "structure and data"
 msgstr "structură și date"
 
@@ -9499,25 +9282,21 @@ msgstr "structură și date"
 #: libraries/classes/Plugins/Export/ExportOdt.php:124
 #: libraries/classes/Plugins/Export/ExportTexytext.php:82
 #: libraries/classes/Plugins/Export/ExportXml.php:141
-#, fuzzy
-#| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Opțiuni de afișare a bazelor de date"
+msgstr "Opțiuni eliminare date"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:213
 #: libraries/classes/Plugins/Export/ExportOdt.php:274
 #: libraries/classes/Plugins/Export/ExportSql.php:2352
 #: libraries/classes/Plugins/Export/ExportTexytext.php:196
-#, fuzzy
 msgid "Dumping data for table"
-msgstr "Salvarea datelor din tabel"
+msgstr "Eliminarea datelor din tabel"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:490
 #: libraries/classes/Plugins/Export/ExportOdt.php:612
 #: libraries/classes/Plugins/Export/ExportTexytext.php:454
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:364
 #: libraries/classes/Rte/RteList.php:121 libraries/classes/Rte/Triggers.php:422
-#, fuzzy
 msgid "Event"
 msgstr "Eveniment"
 
@@ -9527,7 +9306,6 @@ msgstr "Eveniment"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:366
 #: libraries/classes/Rte/Events.php:546 libraries/classes/Rte/Routines.php:1052
 #: libraries/classes/Rte/Triggers.php:436
-#, fuzzy
 msgid "Definition"
 msgstr "Definiție"
 
@@ -9535,15 +9313,13 @@ msgstr "Definiție"
 #: libraries/classes/Plugins/Export/ExportOdt.php:694
 #: libraries/classes/Plugins/Export/ExportSql.php:2012
 #: libraries/classes/Plugins/Export/ExportTexytext.php:519
-#, fuzzy
 msgid "Table structure for table"
-msgstr "Structura de tabel pentru tabelul"
+msgstr "Structură tabel pentru tabel"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:588
 #: libraries/classes/Plugins/Export/ExportOdt.php:727
 #: libraries/classes/Plugins/Export/ExportSql.php:2082
 #: libraries/classes/Plugins/Export/ExportTexytext.php:544
-#, fuzzy
 msgid "Structure for view"
 msgstr "Structură pentru vizualizare"
 
@@ -9552,206 +9328,168 @@ msgstr "Structură pentru vizualizare"
 #: libraries/classes/Plugins/Export/ExportSql.php:2127
 #: libraries/classes/Plugins/Export/ExportTexytext.php:560
 msgid "Stand-in structure for view"
-msgstr ""
+msgstr "Substitut structură pentru vizualizare"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:92
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
+"Ieșire JSON imprimată frumos (folosește formatarea care poate fi citită de "
+"oameni)"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:98
 msgid "Output unicode characters unescaped"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:53
-#, fuzzy
 msgid "Content of table @TABLE@"
-msgstr "Conținutul tabelului @TABLE@"
+msgstr "Conținut tabel @TABLE@"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:54
-#, fuzzy
 msgid "(continued)"
 msgstr "(continuare)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:55
-#, fuzzy
 msgid "Structure of table @TABLE@"
 msgstr "Structura tabelului @TABLE@"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:117
 #: libraries/classes/Plugins/Export/ExportOdt.php:95
 #: libraries/classes/Plugins/Export/ExportSql.php:229
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Opțiuni de transformare"
+msgstr "Opțiuni creare obiect"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:123
 #: libraries/classes/Plugins/Export/ExportLatex.php:175
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption:"
-msgstr "Captură tabel"
+msgstr "Text asociat tabel:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:129
 #: libraries/classes/Plugins/Export/ExportLatex.php:181
-#, fuzzy
-#| msgid "Table caption"
 msgid "Table caption (continued):"
-msgstr "Captură tabel"
+msgstr "Text asociat tabel (continuare):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:135
 #: libraries/classes/Plugins/Export/ExportLatex.php:187
-#, fuzzy
-#| msgid "Label key"
 msgid "Label key:"
-msgstr "Tasta label"
+msgstr "Cheie etichetă:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:142
 #: libraries/classes/Plugins/Export/ExportOdt.php:102
 #: libraries/classes/Plugins/Export/ExportSql.php:126
-#, fuzzy
-#| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Dezactivare verificări de cheie străine"
+msgstr "Afișează relațiile cheilor străine"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:148
 #: libraries/classes/Plugins/Export/ExportOdt.php:108
-#, fuzzy
-#| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Arată comentariile coloanei"
+msgstr "Afișează comentarii"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:154
 #: libraries/classes/Plugins/Export/ExportOdt.php:114
 #: libraries/classes/Plugins/Export/ExportSql.php:133
-#, fuzzy
-#| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "Tipuri MIME disponibile"
+msgstr "Afișează tipuri de MIME"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:170
-#, fuzzy
-#| msgid "Put columns names in the first row"
 msgid "Put columns names in the first row:"
-msgstr "Pune numele coloanelor în primul rând"
+msgstr "Pune numele coloanelor în primul rând:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:218
 #: libraries/classes/Plugins/Export/ExportSql.php:696
 #: libraries/classes/Plugins/Export/ExportXml.php:241
 #: libraries/classes/ReplicationGui.php:462
 #: libraries/classes/ReplicationGui.php:724
-#, fuzzy
-#| msgid "Host"
 msgid "Host:"
-msgstr "Gazda"
+msgstr "Gazdă:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:702
 #: libraries/classes/Plugins/Export/ExportXml.php:246
-#, fuzzy
-#| msgid "Generation Time"
 msgid "Generation Time:"
-msgstr "Timp de generare"
+msgstr "Timp de generare:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:226
 #: libraries/classes/Plugins/Export/ExportSql.php:708
 #: libraries/classes/Plugins/Export/ExportXml.php:249
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "Versiune PHP"
+msgstr "Versiune PHP:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:897
 #: libraries/classes/Plugins/Export/ExportXml.php:410
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:166
-#, fuzzy
-#| msgid "Database"
 msgid "Database:"
-msgstr "Bază de date"
+msgstr "Bază de date:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:329
 #: libraries/classes/Plugins/Export/ExportSql.php:2195
-#, fuzzy
-#| msgid "Data"
 msgid "Data:"
-msgstr "Date"
+msgstr "Date:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:509
-#, fuzzy
-#| msgid "Structure"
 msgid "Structure:"
-msgstr "Structură"
+msgstr "Structură:"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:84
-#, fuzzy
 msgid "Export table names"
-msgstr "Modul de export"
+msgstr "Exportă nume tabele"
 
 #: libraries/classes/Plugins/Export/ExportMediawiki.php:91
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "orizontal (colontitlu rotativ)"
+msgstr "Exportă anteturi tabele"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:104
-#, fuzzy
-#| msgid "Report title"
 msgid "Report title:"
-msgstr "Titlu raport"
+msgstr "Titlu raport:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:233
-#, fuzzy
-#| msgid "Dumping data for table"
 msgid "Dumping data"
-msgstr "Salvarea datelor din tabel"
+msgstr "Eliminarea datelor"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:288
-#, fuzzy
-#| msgid "structure"
 msgid "View structure"
-msgstr "structură"
+msgstr "Vezi structura"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:291
-#, fuzzy
-#| msgid "and then"
 msgid "Stand in"
-msgstr "și apoi"
+msgstr "Substituent"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:104
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Afișează comentarii <i>(include informații, cum ar fi datarea exportului, "
+"versiunea PHP și versiunea serverului)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:112
-#, fuzzy
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Adăugare comentariu la antet (\\n înseamnă delimitare de rând)"
+msgstr ""
+"Comentariu antet personalizat suplimentar (\\n"
+" separă liniile):"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:118
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Include datarea când au fost create bazele de date, când au fost actualizate "
+"și verificate ultima dată"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:177
-#, fuzzy
-#| msgid "Export method"
 msgid "Export metadata"
-msgstr "Metodă de export"
+msgstr "Exportă metadate"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:192
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Sistem baze de date sau server MySQL mai vechi pentru a maximiza "
+"compatibilitatea ieșirilor cu:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:237
-#, fuzzy
-#| msgid "Statements"
 msgid "Add statements:"
-msgstr "Comenzi"
+msgstr "Adaugă declarații:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:245
 #: libraries/classes/Plugins/Export/ExportSql.php:254
@@ -9760,41 +9498,41 @@ msgstr "Comenzi"
 #: libraries/classes/Plugins/Export/ExportSql.php:308
 #: libraries/classes/Plugins/Export/ExportSql.php:315
 #: libraries/classes/Plugins/Export/ExportSql.php:324
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Add %s statement"
-msgstr "Comenzi"
+msgstr "Adaugă declarație %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:291
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(mai puțin eficientă, deoarece indexurile vor fi generate în timpul creării "
+"tabelului)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:299
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
-msgstr "Valoare sesiune"
+msgstr "Valoare %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:333
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Închide numele tabelelor și coloanelor cu ghilimele<i>(Protejează numele "
+"coloanelor și tabelelor formate cu caractere speciale sau cuvinte cheie)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:347
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Data creation options"
-msgstr "Opțiuni de transformare"
+msgstr "Opțiuni creare date"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:352
 #: libraries/classes/Plugins/Export/ExportSql.php:2300
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Trunchiază tabelul înainte de inserare"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:359
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "În loc de declarațiile <code>INSEREAZĂ</code>, folosește:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:365
 msgid "<code>INSERT DELAYED</code> statements"
@@ -9807,11 +9545,11 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:391
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Funcție de folosit când se elimină date:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:406
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Sintaxă de folosit când se inserează date:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:416
 msgid ""
@@ -9819,6 +9557,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"include numele coloanelor în fiecare declarație <code>INSEREAZĂ</code><br "
+"/>&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN tbl_name "
+"(col_A,col_B,col_C) VALORILE (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:421
 msgid ""
@@ -9826,176 +9567,159 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"inserează mai multe rînduri în fiecare declarație <code>INSEREAZĂ</code><br "
+"/>&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN tbl_name "
+"(col_A,col_B,col_C) VALORILE (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:426
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"ambele de mai sus<br />&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN "
+"tbl_name (col_A,col_B,col_C) VALORILE (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:431
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"niciuna de mai sus<br />&nbsp; &nbsp; &nbsp; Exemplu: <code>INSEREAZĂ ÎN "
+"tbl_name VALORILE (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:450
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"Elimină coloanele binare în notație hexazecimală <i>(de exemplu, „abc” "
+"devine 0x616263)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:460
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"Elimină coloanele DATARE în UTC <i>(permite coloanelor DATARE să fie "
+"eliminate și reîncărcate între servere în diferite fusuri orare)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:521
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "Se pare că baza ta de date folosește rutine;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:524
 #: libraries/classes/Plugins/Export/ExportSql.php:1550
 #: libraries/classes/Plugins/Export/ExportSql.php:2072
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "exportul aliasului poate să nu funcționeze fiabil în toate cazurile."
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1011
-#, fuzzy
-#| msgid "Metadata Headers"
 msgid "Metadata"
-msgstr "Headere Metadata"
+msgstr "Metadate"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1081
-#, fuzzy, php-format
-#| msgid "Metadata Headers"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "Headere Metadata"
+msgstr "Metadate pentru tabelul %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1088
-#, fuzzy, php-format
-#| msgid "Metadata Headers"
+#, php-format
 msgid "Metadata for database %s"
-msgstr "Headere Metadata"
+msgstr "Metadate pentru baza de date %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1420
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:612
-#, fuzzy
 msgid "Creation:"
 msgstr "Creare:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1433
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:619
-#, fuzzy
 msgid "Last update:"
 msgstr "Ultima actualizare:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1446
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:626
-#, fuzzy
 msgid "Last check:"
 msgstr "Ultima verificare:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1493
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Structura de tabel pentru tabelul"
+msgstr "Eroare la citirea structurii tabelului %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "Se pare că baza ta de date folosește vizualizări;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1724
-#, fuzzy
 msgid "Constraints for dumped tables"
-msgstr "Restrictii pentru tabele sterse"
+msgstr "Constrângeri pentru tabele eliminate"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1725
-#, fuzzy
 msgid "Constraints for table"
-msgstr "Restrictii pentru tabele"
+msgstr "Constrângeri pentru tabele"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1755
-#, fuzzy
-#| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
-msgstr "Restrictii pentru tabele sterse"
+msgstr "Indexuri pentru tabele eliminate"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1756
-#, fuzzy
-#| msgid "Inside tables:"
 msgid "Indexes for table"
-msgstr "În interiorul tabelelor:"
+msgstr "Indexuri pentru tabele"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1789
-#, fuzzy
-#| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "AUTO_INCREMENT for dumped tables"
-msgstr "Nu folosi AUTO_INCREMENT pentru valorile de zero"
+msgstr "AUTO_INCREMENT pentru tabele eliminate"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1790
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
-msgstr "Adaugă valoare pentru AUTO_INCREMENT"
+msgstr "AUTO_INCREMENT pentru tabele"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1865
-#, fuzzy
 msgid "MIME TYPES FOR TABLE"
-msgstr "TIPURI MIME PENTRU TABEL"
+msgstr "TIPURI DE MIME PENTRU TABELE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1888
-#, fuzzy
-#| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr "RELAȚII PENTRU TABEL"
+msgstr "RELAȚII PENTRU TABELE"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2069
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "Se pare că tabelul tău folosește declanșatori;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2106
-#, fuzzy, php-format
-#| msgid "Structure for view"
+#, php-format
 msgid "Structure for view %s exported as a table"
-msgstr "Structură pentru vizualizare"
+msgstr "Structură pentru vizualizarea %s exportată ca un tabel"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2130
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(Vezi mai jos vizualizarea actuală)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
-#, fuzzy, php-format
-#| msgid "Allows reading data."
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Permite citirea datelor."
+msgstr "Eroare la citirea datelor pentru tabelul %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:103
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Opțiuni creare obiect (toate sunt recomandate)"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:146
-#, fuzzy
 msgid "Export contents"
-msgstr "Modul de export"
+msgstr "Exportă conținuturi"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:167
-#, fuzzy
-#| msgid "Table"
 msgid "Table:"
-msgstr "Tabel"
+msgstr "Tabel:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:168
 msgid "Purpose:"
-msgstr ""
+msgstr "Scop:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:549
-#, fuzzy
-#| msgid "MIME type"
 msgid "MIME"
-msgstr "Tip MIME"
+msgstr "MIME"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:61
 msgid ""
@@ -10008,6 +9732,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"Prima linie a fișierului conține numele coloanelor din tabel <i>(dacă "
+"aceasta nu este bifată, prima linie va deveni o parte a datelor)</i>"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:75
 msgid ""
@@ -10015,13 +9741,15 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Dacă datele din fiecare rând al fișierului nu sunt în aceeași ordine ca și "
+"în baza de date, înscrie aici numele coloanelor corespunzătoare. Numele "
+"coloanelor trebuie să fie separate prin virgule și să nu fie închise între "
+"ghilimele."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:83
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
-#, fuzzy
-#| msgid "Column names"
 msgid "Column names: "
-msgstr "Denumirile coloanelor"
+msgstr "Nume coloane: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:123
 #: libraries/classes/Plugins/Import/ImportCsv.php:138
@@ -10029,7 +9757,7 @@ msgstr "Denumirile coloanelor"
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "Parametru invalid pentru importul CSV: %s"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:210
 #, php-format
@@ -10037,37 +9765,37 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Coloana specificată (%s) este invalidă. Asigură-te că numele coloanelor sunt "
+"scrise corect, sunt separate prin virgule și nu sunt închise între ghilimele."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:305
 #: libraries/classes/Plugins/Import/ImportCsv.php:666
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "Format invalid pentru intrarea CSV pe linia %d."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:536
-#, fuzzy, php-format
-#| msgid "Invalid field count in CSV input on line %d."
+#, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr "Invalid field count in CSV input on line %d."
+msgstr "Număr de coloane invalid în intrarea CSV pe linia %d."
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:112
-#, fuzzy
 msgid "This plugin does not support compressed imports!"
-msgstr "Modulul opțional nu suportă importuri comprimate!"
+msgstr "Acest modul nu suportă importuri comprimate!"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:56
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabel MediaWiki"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:279
-#, fuzzy, php-format
-#| msgid "Invalid field count in CSV input on line %d."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Invalid field count in CSV input on line %d."
+msgstr "Format invalid pentru intrarea mediawiki pe linia: <br />%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:81
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
+"Importă procentele ca zecimale corecte <i>(de exemplu, 12.00% în .12)</i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:87
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
@@ -10080,46 +9808,41 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"Fișierul XML specificat a fost fie deteriorat ori fie incomplet. Te rog "
+"corectează problema și reîncearcă."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:166
-#, fuzzy
-#| msgid "Open Document Spreadsheet"
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "Foaie de calcul Open Document"
+msgstr "Nu am putut interpreta foaia de calcul OpenDocument!"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI Shapefile"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:91
 #: libraries/classes/Plugins/Import/ImportShp.php:164
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "A apărut o eroare la importarea ESRI Shapefile: „%s”."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:194
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "Extensia spațială MySQL nu acceptă tipul ESRI „%s”."
 
 #: libraries/classes/Plugins/Import/ImportShp.php:241
-#, fuzzy
-#| msgid "File %s does not contain any key id"
 msgid "The imported file does not contain any data!"
-msgstr "File %s does not contain any key id"
+msgstr "Fișierul importat nu conține niciun fel de date!"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:71
-#, fuzzy
-#| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
-msgstr "Regim de compatibilitate SQL"
+msgstr "Mod compatibilitate SQL:"
 
 #: libraries/classes/Plugins/Import/ImportSql.php:83
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr ""
+msgstr "Nu folosi <code>AUTO_INCREMENT</code> pentru valorile zero"
 
 #: libraries/classes/Plugins/Import/ImportXml.php:47
-#, fuzzy
 msgid "XML"
 msgstr "XML"
 
@@ -10127,72 +9850,60 @@ msgstr "XML"
 #: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:94
 #: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:96
 #: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:94
-#, fuzzy, php-format
-#| msgid "The \"%s\" table doesn't exist!"
+#, php-format
 msgid "The %s table doesn't exist!"
-msgstr "Tabelul „%s” nu există!"
+msgstr "Tabelul %s nu există!"
 
 #: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php:67
 #: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php:71
-#, fuzzy, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
+#, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr "Schema bazei de date \"%s\" - Pagina %s"
+msgstr "Schema bazei de date %s - pagina %s"
 
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:298
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "EROARE SCHEMĂ: "
 
 #: libraries/classes/Plugins/Schema/Pdf/Pdf.php:246
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "PDF export page"
-msgstr "Tip invalid de export"
+msgstr "Pagină export PDF"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:111
-#, fuzzy, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
+#, php-format
 msgid "Schema of the %s database"
-msgstr "Schema bazei de date \"%s\" - Pagina %s"
+msgstr "Schema bazei de date %s"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:139
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:534
-#, fuzzy
 msgid "Relational schema"
-msgstr "Schema relațională"
+msgstr "Schemă relațională"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:495
-#, fuzzy
 msgid "Table of contents"
-msgstr "Sumar"
+msgstr "Cuprins"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:643
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:666
 #: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/table_structure_header.twig:14
-#, fuzzy
 msgid "Extra"
-msgstr "Extra"
+msgstr "Suplimentar"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:62
 #: libraries/classes/Plugins/Schema/SchemaEps.php:70
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:70
-#, fuzzy
-#| msgid "Creation"
 msgid "Orientation"
-msgstr "Creare"
+msgstr "Orientare"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:66
 #: libraries/classes/Plugins/Schema/SchemaEps.php:74
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:74
-#, fuzzy
 msgid "Landscape"
-msgstr "Portret"
+msgstr "Peisaj"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:67
 #: libraries/classes/Plugins/Schema/SchemaEps.php:75
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:75
-#, fuzzy
 msgid "Portrait"
 msgstr "Portret"
 
@@ -10200,47 +9911,36 @@ msgstr "Portret"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:64
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:63
 msgid "Same width for all tables"
-msgstr ""
+msgstr "Aceeași lățime pentru toate tabelele"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:89
-#, fuzzy
 msgid "Show grid"
 msgstr "Arată grila"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:95
 #: templates/database/structure/print_view_data_dictionary_link.twig:6
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "Dicționar de date"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:101
-#, fuzzy
-#| msgid "neither of the above"
 msgid "Order of the tables"
-msgstr "niciuna din cele de mai sus"
+msgstr "Ordinea tabelelor"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:106
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
-msgstr "Crescătoare"
+msgstr "Nume (crescător)"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:107
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
-msgstr "Descrescător"
+msgstr "Nume (descrescător)"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:70
-#, fuzzy
 msgid "Show color"
 msgstr "Arată culoarea"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:72
-#, fuzzy
 msgid "Only show keys"
-msgstr "Vezi numai cheile"
+msgstr "Arată numai chei"
 
 #: libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php:31
 msgid ""
@@ -10281,9 +9981,8 @@ msgstr ""
 #. l10n: See https://secure.php.net/manual/en/function.strftime.php
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:65
 #: libraries/classes/Util.php:1524
-#, fuzzy
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d %B %Y la %H:%M"
+msgstr "%B %d, %Y la %I:%M %p"
 
 #: libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:30
 #, fuzzy
@@ -10357,28 +10056,29 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:30
-#, fuzzy
 msgid "Displays a link to download this image."
-msgstr "Afișează un link la imagine (direct blob download, i.e.)."
+msgstr "Afișează o legătură pentru a descărca această imagine."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:30
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
+"Funcționalitate de încărcare imagini, care afișează și o miniatură. "
+"Opțiunile sunt lățimea și înălțimea miniaturii în pixeli. Valoarea implicită "
+"este 100 X 100."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:89
 msgid "Image preview here"
-msgstr ""
+msgstr "Previzualizare imagine aici"
 
 #: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:30
-#, fuzzy
 msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Afișează o imagine mică clickabilă ; opțiuni: lațime, inălțime în pixeli "
-"(menține dimensiunile originale)."
+"Afișează o miniatură pe care se poate da clic. Opțiunile sunt lățimea și "
+"înălțimea maximă în pixeli. Este păstrat raportul de aspect original."
 
 #: libraries/classes/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:30
 msgid ""
@@ -10402,12 +10102,11 @@ msgstr ""
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:54
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "Validarea pentru șirul de intrare a eșuat %s."
 
 #: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:31
-#, fuzzy
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr "Formatează textul ca interogare SQL cu evidențierea sintaxei."
+msgstr "Formatează textul ca o interogare SQL cu evidențierea sintaxei."
 
 #: libraries/classes/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php:30
 #, fuzzy
@@ -10429,91 +10128,83 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"Funcționalitate de încărcare fișiere pentru coloanele TEXT. Nu are o zonă "
+"text pentru intrare."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "plays an image and a link; the field contains the filename. The first ion "
-#| "is a URL prefix like \"https://www.example.com/\". The second and rd "
-#| "options are the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"https://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
-"Afișează o imagine și un link, campul contine denumirea fisierului; prima "
-"optiune este un prefix cum ar fi \"https://domain.com/\", a doua optiune "
-"este latimea in pixeli, iar a treia este inaltimea."
+"Afișează o imagine și o legătură; coloana conține numele fișierului. Prima "
+"opțiune este un prefix URL, cum ar fi „https://www.exemplu.com/”. A doua și "
+"a treia sunt lățimea și înălțimea în pixeli."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "plays a link; the field contains the filename. The first option is a  "
-#| "prefix like \"https://www.example.com/\". The second option is a title  "
-#| "the link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
-"Afișează un link, campul contine denumirea fisierului,  prima optiune este "
-"un prefix cum ar fi \"https://domain.com/\", a doua optiune este un titlu "
-"pentru link."
+"Afișează o legătură; coloana conține numele fișierului. Prima opțiune este "
+"un prefix URL, cum ar fi „https://www.exemplu.com/”. A doua opțiune este "
+"titlul legăturii."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "Convertește o adresă de rețea Internet în format (IPv4/IPv6) la binar"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "Sintaxă evidențiată în editorul CodeMirror pentru JSON."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "Sintaxă evidențiată în editorul CodeMirror pentru SQL."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:32
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
-msgstr ""
+msgstr "Sintaxă evidențiată în editorul CodeMirror pentru XML (și HTML)."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:32
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
+"Convertește o adresă de rețea Internet stocată ca un șir binar într-un șir "
+"în format standard pentru Internet (IPv4/IPv6)."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:49
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as JSON with syntax highlighting."
-msgstr "Formatează textul ca interogare SQL cu evidențierea sintaxei."
+msgstr "Formatează textul ca JSON cu evidențierea sintaxei."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:49
-#, fuzzy
-#| msgid "Formats text as SQL query with syntax highlighting."
 msgid "Formats text as XML with syntax highlighting."
-msgstr "Formatează textul ca interogare SQL cu evidențierea sintaxei."
+msgstr "Formatează textul ca XML cu evidențierea sintaxei."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:135
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Application (2FA)"
-msgstr "Autentificare"
+msgstr "Aplicație autentificare (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:145
 msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"Furnizează autentificarea folosind aplicațiile HOTP și TOTP, cum ar fi "
+"FreeOTP, Google Authenticator sau Authy."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:190
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "Cheie de securitate hardware (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:200
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Furnizează autentificare folosind tokenuri de securitate hardware care "
+"suportă FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:56
 msgid "Simple two-factor authentication"
@@ -10521,7 +10212,7 @@ msgstr "Autentificare pe două niveluri simplă"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:66
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Numai pentru testare!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
 #, php-format
@@ -10534,67 +10225,55 @@ msgstr "Autentificarea pe două niveluri a eșuat."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:131
 msgid "No Two-Factor"
-msgstr ""
+msgstr "Fără două niveluri"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:141
 msgid "Login using password only."
-msgstr ""
+msgstr "Autentificare folosind numai parola."
 
 #: libraries/classes/RecentFavoriteTable.php:147
-#, fuzzy
 msgid "Could not save recent table!"
-msgstr "Nu s-a putut salva tabelul recent!"
+msgstr "Nu am putut salva tabelul recent!"
 
 #: libraries/classes/RecentFavoriteTable.php:151
-#, fuzzy
 msgid "Could not save favorite table!"
-msgstr "Nu s-a putut salva tabelul favorit!"
+msgstr "Nu am putut salva tabelul favorit!"
 
 #: libraries/classes/RecentFavoriteTable.php:221
 #: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
 msgid "Remove from Favorites"
-msgstr "Elimină de la favorite"
+msgstr "Înlătură din favorite"
 
 #: libraries/classes/RecentFavoriteTable.php:243
-#, fuzzy
 msgid "There are no recent tables."
-msgstr "Nu există tabele recente."
+msgstr "Nu există niciun tabel recent."
 
 #: libraries/classes/RecentFavoriteTable.php:244
-#, fuzzy
 msgid "There are no favorite tables."
-msgstr "Nu există tabele favorite."
+msgstr "Nu există niciun tabel favorit."
 
 #: libraries/classes/RecentFavoriteTable.php:259
-#, fuzzy
 msgid "Recent tables"
 msgstr "Tabele recente"
 
 #: libraries/classes/RecentFavoriteTable.php:261
-#, fuzzy
 msgid "Recent"
 msgstr "Recente"
 
 #: libraries/classes/RecentFavoriteTable.php:265
-#, fuzzy
 msgid "Favorites"
 msgstr "Favorite"
 
 #: libraries/classes/Relation.php:107
-#, fuzzy
 msgid "not OK"
-msgstr "Nu este bine"
+msgstr "nu este OK"
 
 #: libraries/classes/Relation.php:111
-#, fuzzy
-#| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
-msgstr "E bine"
+msgstr "OK"
 
 #: libraries/classes/Relation.php:114
-#, fuzzy
 msgid "Enabled"
 msgstr "Activat"
 
@@ -10603,110 +10282,91 @@ msgid "Configuration of pmadb…"
 msgstr "Configurarea pmadb…"
 
 #: libraries/classes/Relation.php:122 libraries/classes/Relation.php:158
-#, fuzzy
 msgid "General relation features"
-msgstr "Facilități generale"
+msgstr "Funcționalități generale relații"
 
 #: libraries/classes/Relation.php:169
-#, fuzzy
 msgid "Display Features"
-msgstr "Arată facilitățile"
+msgstr "Afișează funcționalități"
 
 #: libraries/classes/Relation.php:186
-#, fuzzy
-#| msgid "Creation of PDFs"
 msgid "Designer and creation of PDFs"
-msgstr "Creare PDF"
+msgstr "Designer și crearea de PDF-uri"
 
 #: libraries/classes/Relation.php:197
-#, fuzzy
 msgid "Displaying Column Comments"
-msgstr "Arată comentariile coloanei"
+msgstr "Afișez comentarii coloană"
 
 #: libraries/classes/Relation.php:203
-#, fuzzy
 msgid "Browser transformation"
 msgstr "Transformare navigator"
 
 #: libraries/classes/Relation.php:210
-#, fuzzy
-#| msgid ""
-#| "Please see the documentation on how to update your column_comments table."
 msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
-"Parcurgeti documentatia pentru modul de updatare a Column_comments Table."
+"Te rog vezi documentația despre modul de actualizare a tabelului tău "
+"column_info."
 
 #: libraries/classes/Relation.php:226 libraries/classes/SqlQueryForm.php:397
-#, fuzzy
 msgid "Bookmarked SQL query"
-msgstr "Comandă SQL salvată"
+msgstr "Interogare SQL marcată cu semn de carte"
 
 #: libraries/classes/Relation.php:237
-#, fuzzy
 msgid "SQL history"
 msgstr "Istoric SQL"
 
 #: libraries/classes/Relation.php:248
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "Tabele persistente folosite recent"
 
 #: libraries/classes/Relation.php:259
-#, fuzzy
-#| msgid "There are no favorite tables."
 msgid "Persistent favorite tables"
-msgstr "Nu există tabele favorite."
+msgstr "Tabele persistente favorite"
 
 #: libraries/classes/Relation.php:270
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Preferințe UI pentru tabele persistente"
 
 #: libraries/classes/Relation.php:292
 msgid "User preferences"
-msgstr ""
+msgstr "Preferințe utilizator"
 
 #: libraries/classes/Relation.php:309
-#, fuzzy
-#| msgid "Configuration file"
 msgid "Configurable menus"
-msgstr "Fișier de configurare"
+msgstr "Meniuri configurabile"
 
 #: libraries/classes/Relation.php:320
-#, fuzzy
 msgid "Hide/show navigation items"
-msgstr "Personalizează cadrul principal"
+msgstr "Ascunde/arată elementele de navigare"
 
 #: libraries/classes/Relation.php:331
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "Salvez căutările interogare după exemplu"
 
 #: libraries/classes/Relation.php:342
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "Administrez lista centrală a coloanelor"
 
 #: libraries/classes/Relation.php:353
-#, fuzzy
-#| msgid "Remember table's sorting"
 msgid "Remembering Designer Settings"
-msgstr "Reține sortarea tabelei"
+msgstr "Memorez setările pentru designer"
 
 #: libraries/classes/Relation.php:364
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Saving export templates"
-msgstr "Tip invalid de export"
+msgstr "Salvez șabloanele de export"
 
 #: libraries/classes/Relation.php:372
 msgid "Quick steps to set up advanced features:"
-msgstr ""
+msgstr "Pași rapizi pentru a inițializa funcționalitățile avansate:"
 
 #: libraries/classes/Relation.php:378
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
+msgstr "Creează tabelele necesare cu <code>%screate_tables.sql</code>."
 
 #: libraries/classes/Relation.php:383
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Creează un utilizator pma și dă acces la aceste tabele."
 
 #: libraries/classes/Relation.php:386
 msgid ""
@@ -10724,9 +10384,8 @@ msgstr ""
 "actualizat."
 
 #: libraries/classes/Relation.php:1723
-#, fuzzy
 msgid "no description"
-msgstr "Nu există descriere"
+msgstr "nicio descriere"
 
 #: libraries/classes/Relation.php:1914
 msgid ""
@@ -10734,6 +10393,9 @@ msgid ""
 "'phpmyadmin'. You may go to 'Operations' tab of any database to set up the "
 "phpMyAdmin configuration storage there."
 msgstr ""
+"Nu ai privilegiile necesare pentru a crea o bază de date numită „phpmyadmin”"
+". Poți merge la fila „Operații” a oricărei baze de date pentru a inițializa "
+"acolo spațiul de stocare pentru configurarea phpMyAdmin."
 
 #: libraries/classes/Relation.php:2029
 #, php-format
@@ -10763,41 +10425,31 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:372
 #: templates/server/databases/table_header.twig:32
 msgid "Master replication"
-msgstr ""
+msgstr "Replicare master"
 
 #: libraries/classes/ReplicationGui.php:74
-#, fuzzy
 msgid "This server is configured as master in a replication process."
 msgstr "Acest server este configurat ca master într-un proces de replicare."
 
 #: libraries/classes/ReplicationGui.php:77
 #: libraries/classes/Server/Status/Data.php:170
-#, fuzzy
 msgid "Show master status"
-msgstr "Afișați status master"
+msgstr "Arată stare master"
 
 #: libraries/classes/ReplicationGui.php:82
-#, fuzzy
 msgid "Show connected slaves"
-msgstr "Afișați sclavi conectați"
+msgstr "Arată sclavi conectați"
 
 #: libraries/classes/ReplicationGui.php:93
 #: libraries/classes/ReplicationGui.php:720
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Adaugă utilizator de replicare slav"
 
 #: libraries/classes/ReplicationGui.php:115
 msgid "Master configuration"
 msgstr "Configurare master"
 
 #: libraries/classes/ReplicationGui.php:117
-#, fuzzy
-#| msgid ""
-#| "This server is not configured as master server in a replication process. "
-#| "You can choose from either replicating all databases and ignoring certain "
-#| "(useful if you want to replicate majority of databases) or you can choose "
-#| "to ignore all databases by default and allow only certain databases to be "
-#| "replicated. Please select the mode:"
 msgid ""
 "This server is not configured as a master server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -10805,119 +10457,104 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Acest server nu este configurat ca master într-un proces de duplicare. "
-"Puteți alege dintre fie a duplica toate bazele de date și a ignora doar "
-"unele (util în cazul în care doriți să duplicați majoritatea bazelor de "
-"date), fie a ignora toate bazele de date implicit și a permite doar "
-"anumitora să fie duplicate. Va rugăm sa selectați modul:"
+"Acest server nu este configurat ca un master într-un proces de replicare. "
+"Poți alege fie între replicarea tuturor bazele de date și ignorarea unora "
+"dintre ele (util dacă vrei să ai duplicate după majoritatea bazelor de date) "
+"ori fie să ignori implicit toate bazele de date și să permiți să fie "
+"replicate numai anumite baze de date. Te rog selectează modul:"
 
 #: libraries/classes/ReplicationGui.php:126
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Fă duplicate pentru toate bazele de date; ignoră:"
 
 #: libraries/classes/ReplicationGui.php:128
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Ignoră toate bazele de date; fă duplicate:"
 
 #: libraries/classes/ReplicationGui.php:132
-#, fuzzy
 msgid "Please select databases:"
-msgstr "Selectați baza de date"
+msgstr "Te rog selectează bazele de date:"
 
 #: libraries/classes/ReplicationGui.php:136
-#, fuzzy
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Acum, adăugați următoarele linii la sfârșitul secțiunii [mysqld] în fișierul "
-"dumneavoastră my.cnf, după care vă rugăm să restartați server-ul MySQL."
+"Acum, adaugă următoarele linii la sfârșitul secțiunii [mysqld] în my.cnf și "
+"apoi te rog repornește serverul MySQL."
 
 #: libraries/classes/ReplicationGui.php:141
-#, fuzzy
 msgid ""
 "Once you restarted MySQL server, please click on Go button. Afterwards, you "
 "should see a message informing you, that this server <b>is</b> configured as "
 "master."
 msgstr ""
-"După ce ați restartat server-ul MySQL, vă rugăm să apăsați butonul Go. Apoi "
-"ar trebui să vedeți un mesaj care vă informează că acest server <b>este</b> "
+"După ce ai repornit serverul MySQL, te rog dă clic pe butonul Execută. Apoi "
+"ar trebui să vezi un mesaj care te informează că acest server <b>este</b> "
 "configurat ca master."
 
 #: libraries/classes/ReplicationGui.php:168
 #: templates/server/databases/table_header.twig:35
 msgid "Slave replication"
-msgstr ""
+msgstr "Replicare sclav"
 
 #: libraries/classes/ReplicationGui.php:176
-#, fuzzy
 msgid "Master connection:"
-msgstr "Comprimă conexiunea"
+msgstr "Conexiune master:"
 
 #: libraries/classes/ReplicationGui.php:243
-#, fuzzy
 msgid "Slave SQL Thread not running!"
-msgstr "Thread-ul SQL slave nu rulează!"
+msgstr "Firul de execuție SQL sclav nu rulează!"
 
 #: libraries/classes/ReplicationGui.php:248
-#, fuzzy
 msgid "Slave IO Thread not running!"
-msgstr "Thread-ul IO slave nu rulează!"
+msgstr "Firul de execuție IO sclav nu rulează!"
 
 #: libraries/classes/ReplicationGui.php:260
-#, fuzzy
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
-"Server-ul este configurat ca slave într-un proces de replicare. Doriți să:"
+msgstr "Serverul este configurat ca sclav într-un proces de replicare. Vrei să:"
 
 #: libraries/classes/ReplicationGui.php:266
 msgid "See slave status table"
-msgstr ""
+msgstr "Vezi tabel stare sclav"
 
 #: libraries/classes/ReplicationGui.php:271
 msgid "Control slave:"
-msgstr ""
+msgstr "Sclav de control:"
 
 #: libraries/classes/ReplicationGui.php:277
-#, fuzzy
 msgid "Full start"
-msgstr "Tot textul"
+msgstr "Pornire totală"
 
 #: libraries/classes/ReplicationGui.php:278
-#, fuzzy
 msgid "Full stop"
-msgstr "Tot textul"
+msgstr "Oprire totală"
 
 #: libraries/classes/ReplicationGui.php:281
 msgid "Reset slave"
-msgstr ""
+msgstr "Resetează sclavii"
 
 #: libraries/classes/ReplicationGui.php:284
-#, fuzzy
-#| msgid "Structure only"
 msgid "Start SQL Thread only"
-msgstr "Numai structura"
+msgstr "Pornește numai firul de execuție SQL"
 
 #: libraries/classes/ReplicationGui.php:287
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "Oprește numai firul de execuție SQL"
 
 #: libraries/classes/ReplicationGui.php:291
-#, fuzzy
-#| msgid "Structure only"
 msgid "Start IO Thread only"
-msgstr "Numai structura"
+msgstr "Pornește numai firul de execuție IO"
 
 #: libraries/classes/ReplicationGui.php:294
 msgid "Stop IO Thread only"
-msgstr ""
+msgstr "Oprește numai firul de execuție IO"
 
 #: libraries/classes/ReplicationGui.php:303
 #: libraries/classes/ReplicationGui.php:430
-#, fuzzy
 msgid "Change or reconfigure master server"
-msgstr "Schimbați sau reconfigurați server-ul master"
+msgstr "Schimbă sau reconfigurează serverul master"
 
 #: libraries/classes/ReplicationGui.php:314
 #, php-format
@@ -10925,40 +10562,41 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Acest server nu este configurat ca sclav într-un proces de replicare. Vrei "
+"să-l <a href=\"%s\">configurezi</a>?"
 
 #: libraries/classes/ReplicationGui.php:336
 msgid "Error management:"
-msgstr ""
+msgstr "Administrare erori:"
 
 #: libraries/classes/ReplicationGui.php:339
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
+"Omiterea erorilor ar putea duce la o desincronizare între master și sclav!"
 
 #: libraries/classes/ReplicationGui.php:343
 msgid "Skip current error"
-msgstr ""
+msgstr "Omite eroare curentă"
 
 #: libraries/classes/ReplicationGui.php:348
 #, php-format
 msgid "Skip next %s errors."
-msgstr ""
+msgstr "Sari peste următoarele %s erori."
 
 #: libraries/classes/ReplicationGui.php:375
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Acest server nu este configurat ca master într-un proces de replicare. "
-"Doriți să îl <a href=\"%s\">configurați</a>?"
+"Acest server nu este configurat ca master într-un proces de replicare. Vrei "
+"să-l <a href=\"%s\">configurezi</a>?"
 
 #: libraries/classes/ReplicationGui.php:408
 #: templates/database/search/selection_form.twig:35
 #: templates/display/export/select_options.twig:8
-#, fuzzy
-#| msgid "Unselect All"
 msgid "Unselect all"
-msgstr "Deselectează tot"
+msgstr "Anulează toată selectarea"
 
 #: libraries/classes/ReplicationGui.php:429
 msgid "Slave configuration"
@@ -10975,10 +10613,8 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:439
 #: libraries/classes/ReplicationGui.php:810
 #: libraries/classes/Server/Privileges.php:1498
-#, fuzzy
-#| msgid "User name"
 msgid "User name:"
-msgstr "Nume utilizator"
+msgstr "Nume utilizator:"
 
 #: libraries/classes/ReplicationGui.php:445
 #: libraries/classes/ReplicationGui.php:814
@@ -10987,7 +10623,6 @@ msgstr "Nume utilizator"
 #: libraries/classes/Server/Privileges.php:1525
 #: libraries/classes/Server/Privileges.php:2561
 #: libraries/classes/Server/Privileges.php:3535
-#, fuzzy
 msgid "User name"
 msgstr "Nume utilizator"
 
@@ -10997,30 +10632,24 @@ msgstr "Nume utilizator"
 #: libraries/classes/Server/Privileges.php:1664
 #: libraries/classes/Server/Privileges.php:1681
 #: libraries/classes/Server/Privileges.php:3537
-#, fuzzy
 msgid "Password"
-msgstr "Parola"
+msgstr "Parolă"
 
 #: libraries/classes/ReplicationGui.php:474
-#, fuzzy
-#| msgid "Port"
 msgid "Port:"
-msgstr "Port"
+msgstr "Port:"
 
 #: libraries/classes/ReplicationGui.php:558
-#, fuzzy
 msgid "Master status"
 msgstr "Stare master"
 
 #: libraries/classes/ReplicationGui.php:561
-#, fuzzy
 msgid "Slave status"
 msgstr "Stare sclav"
 
 #: libraries/classes/ReplicationGui.php:570
 #: libraries/classes/Server/Status/Variables.php:229
 #: templates/server/variables/variable_table_head.twig:4
-#, fuzzy
 msgid "Variable"
 msgstr "Variabil"
 
@@ -11028,37 +10657,34 @@ msgstr "Variabil"
 #: libraries/classes/ReplicationGui.php:728
 #: libraries/classes/ReplicationGui.php:862
 #: libraries/classes/Server/Status/Processes.php:87
-#, fuzzy
 msgid "Host"
-msgstr "Gazda"
+msgstr "Gazdă"
 
 #: libraries/classes/ReplicationGui.php:662
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"Numai sclavii care pornit cu opțiunea --report-host=host_name sunt vizibili "
+"în această listă."
 
 #: libraries/classes/ReplicationGui.php:766
 #: libraries/classes/Server/Privileges.php:1599
-#, fuzzy
 msgid "Any host"
-msgstr "Oricare gazdă"
+msgstr "Orice gazdă"
 
 #: libraries/classes/ReplicationGui.php:771
 #: libraries/classes/Server/Privileges.php:1607
-#, fuzzy
 msgid "Local"
-msgstr "Local"
+msgstr "Locală"
 
 #: libraries/classes/ReplicationGui.php:778
 #: libraries/classes/Server/Privileges.php:1616
-#, fuzzy
 msgid "This Host"
 msgstr "Această gazdă"
 
 #: libraries/classes/ReplicationGui.php:818
 #: libraries/classes/Server/Privileges.php:1509
-#, fuzzy
 msgid "Any user"
 msgstr "Oricare utilizator"
 
@@ -11066,38 +10692,31 @@ msgstr "Oricare utilizator"
 #: libraries/classes/ReplicationGui.php:856
 #: libraries/classes/ReplicationGui.php:885
 #: libraries/classes/Server/Privileges.php:1635
-#, fuzzy
-#| msgid "Use text field"
 msgid "Use text field:"
-msgstr "Utilizare câmp text"
+msgstr "Folosește câmp text:"
 
 #: libraries/classes/ReplicationGui.php:850
 #: libraries/classes/Server/Privileges.php:1626
-#, fuzzy
 msgid "Use Host Table"
-msgstr "Utilizare tabel gazde"
+msgstr "Folosește tabel gazde"
 
 #: libraries/classes/ReplicationGui.php:866
 #: libraries/classes/Server/Privileges.php:1652
-#, fuzzy
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
-"Când tabela Host este folosită, acest câmp este ignorat și valorile din "
-"tabela Host sunt folosite în schimb."
+"Când tabelul Gazde este folosit, acest câmp este ignorat și sunt folosite în "
+"schimb valorile stocate în tabelul Gazde."
 
 #: libraries/classes/ReplicationGui.php:897
 #: libraries/classes/Server/Privileges.php:1696
-#, fuzzy
 msgid "Re-type"
-msgstr "Re-tastează"
+msgstr "Tastează din nou"
 
 #: libraries/classes/ReplicationGui.php:901
-#, fuzzy
-#| msgid "Generate password"
 msgid "Generate password:"
-msgstr "Generează parolă"
+msgstr "Generează parola:"
 
 #: libraries/classes/ReplicationGui.php:933
 msgid ""
@@ -11108,72 +10727,61 @@ msgstr ""
 "$cfg['AllowArbitraryServer'] în configurarea phpMyAdmin."
 
 #: libraries/classes/ReplicationGui.php:942
-#, fuzzy
 msgid "Replication started successfully."
-msgstr "Replicare"
+msgstr "Replicare începută cu succes."
 
 #: libraries/classes/ReplicationGui.php:943
 msgid "Error starting replication."
-msgstr ""
+msgstr "Eroare la începerea replicării."
 
 #: libraries/classes/ReplicationGui.php:946
-#, fuzzy
-#| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
-msgstr "Drepturile au fost reîncarcate cu succes."
+msgstr "Replicare oprită cu succes."
 
 #: libraries/classes/ReplicationGui.php:947
 msgid "Error stopping replication."
-msgstr ""
+msgstr "Eroare la oprirea replicării."
 
 #: libraries/classes/ReplicationGui.php:950
-#, fuzzy
 msgid "Replication resetting successfully."
-msgstr "Replicare"
+msgstr "Replicare resetată cu succes."
 
 #: libraries/classes/ReplicationGui.php:951
 msgid "Error resetting replication."
-msgstr ""
+msgstr "Eroare la resetarea replicării."
 
 #: libraries/classes/ReplicationGui.php:954
 msgid "Success."
-msgstr ""
+msgstr "Succes."
 
 #: libraries/classes/ReplicationGui.php:955
-#, fuzzy
-#| msgid "Error"
 msgid "Error."
-msgstr "Eroare"
+msgstr "Eroare."
 
 #: libraries/classes/ReplicationGui.php:1001
-#, fuzzy
 msgid "Unknown error"
 msgstr "Eroare necunoscută"
 
 #: libraries/classes/ReplicationGui.php:1011
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to connect to master %s."
-msgstr "Nu s-a putut realiza conexiunea la master %s."
+msgstr "Nu pot face conexiunea la master %s."
 
 #: libraries/classes/ReplicationGui.php:1022
-#, fuzzy
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
-"Nu s-a putut citi poziția jurnalului master. Posibilă eroare de permisiuni "
-"pe master."
+"Nu pot citi poziția jurnalului master. Posibilă problemă de privilegii la "
+"master."
 
 #: libraries/classes/ReplicationGui.php:1040
-#, fuzzy
-#| msgid "Unable to change master"
 msgid "Unable to change master!"
-msgstr "Nu s-a putut schimba master-ul"
+msgstr "Nu pot schimba master-ul!"
 
 #: libraries/classes/ReplicationGui.php:1044
-#, fuzzy, php-format
-#| msgid "Master server changed successfully to %s"
+#, php-format
 msgid "Master server changed successfully to %s."
-msgstr "Server master schimbat cu succes în %s"
+msgstr "Serverul master schimbat cu succes în %s."
 
 #: libraries/classes/Rte/Events.php:169 libraries/classes/Rte/Events.php:178
 #: libraries/classes/Rte/Events.php:209 libraries/classes/Rte/Routines.php:285
@@ -11183,9 +10791,9 @@ msgstr "Server master schimbat cu succes în %s"
 #: libraries/classes/Rte/Triggers.php:140
 #: libraries/classes/Rte/Triggers.php:149
 #: libraries/classes/Rte/Triggers.php:181
-#, fuzzy, php-format
+#, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Următoarea interogare a eșuat: \"%s\""
+msgstr "Următoarea interogare a eșuat: „%s”"
 
 #: libraries/classes/Rte/Events.php:173 libraries/classes/Rte/Events.php:182
 #: libraries/classes/Rte/Events.php:213 libraries/classes/Rte/General.php:50
@@ -11196,84 +10804,67 @@ msgstr "Următoarea interogare a eșuat: \"%s\""
 #: libraries/classes/Rte/Triggers.php:144
 #: libraries/classes/Rte/Triggers.php:153
 #: libraries/classes/Rte/Triggers.php:185 libraries/classes/Util.php:617
-#, fuzzy
 msgid "MySQL said: "
 msgstr "MySQL zice: "
 
 #: libraries/classes/Rte/Events.php:189
-#, fuzzy
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Ne pare rău, nu am putut restaura evenimentul șters."
+msgstr "Regretăm, nu am putut restaura evenimentul eliminat."
 
 #: libraries/classes/Rte/Events.php:196
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been modified."
 msgstr "Evenimentul %1$s a fost modificat."
 
 #: libraries/classes/Rte/Events.php:216
-#, fuzzy, php-format
+#, php-format
 msgid "Event %1$s has been created."
 msgstr "Evenimentul %1$s a fost creat."
 
 #: libraries/classes/Rte/Events.php:230 libraries/classes/Rte/Routines.php:332
 #: libraries/classes/Rte/Triggers.php:202
-#, fuzzy
-#| msgid ""
-#| "<b>One or more errors have occured while processing your request:</b>"
 msgid "One or more errors have occurred while processing your request:"
-msgstr ""
-"<b>Una sau mai multe erori au apărut în timpul procesării cererii "
-"dumneavoastră:</b>"
+msgstr "Au apărut una sau mai multe erori în timpul procesării cererii tale:"
 
 #: libraries/classes/Rte/Events.php:285
-#, fuzzy
 msgid "Edit event"
 msgstr "Editează evenimentul"
 
 #: libraries/classes/Rte/Events.php:450 libraries/classes/Rte/Routines.php:948
 #: libraries/classes/Rte/Triggers.php:382 templates/view_create.twig:8
-#, fuzzy
 msgid "Details"
 msgstr "Detalii"
 
 #: libraries/classes/Rte/Events.php:453
-#, fuzzy
-#| msgid "Event type"
 msgid "Event name"
-msgstr "Tip eveniment"
+msgstr "Nume eveniment"
 
 #: libraries/classes/Rte/Events.php:496 libraries/classes/Rte/Routines.php:970
-#, fuzzy, php-format
+#, php-format
 msgid "Change to %s"
-msgstr "Schimbați în %s"
+msgstr "Schimbă în %s"
 
 #: libraries/classes/Rte/Events.php:502
-#, fuzzy
 msgid "Execute at"
 msgstr "Execută la"
 
 #: libraries/classes/Rte/Events.php:510
-#, fuzzy
 msgid "Execute every"
 msgstr "Execută fiecare"
 
 #: libraries/classes/Rte/Events.php:529
-#, fuzzy
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "Începutul"
+msgstr "Început"
 
 #: libraries/classes/Rte/Events.php:538
-#, fuzzy
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "Sfârșitul"
+msgstr "Sfârșit"
 
 #: libraries/classes/Rte/Events.php:552
-#, fuzzy
-#| msgid "Complete inserts"
 msgid "On completion preserve"
-msgstr "Inserări complete"
+msgstr "Păstrare definitivă"
 
 #: libraries/classes/Rte/Events.php:557 libraries/classes/Rte/Routines.php:1087
 #: libraries/classes/Rte/Triggers.php:442 templates/view_create.twig:45
@@ -11291,326 +10882,262 @@ msgstr ""
 "utilizator@numele-gazdei\" (username@hostname)"
 
 #: libraries/classes/Rte/Events.php:608
-#, fuzzy
-#| msgid "You must provide an event name"
 msgid "You must provide an event name!"
-msgstr "Trebuie să introduceți un nume de eveniment"
+msgstr "Trebuie să furnizezi un nume de eveniment!"
 
 #: libraries/classes/Rte/Events.php:623
-#, fuzzy
 msgid "You must provide a valid interval value for the event."
-msgstr "Trebuie să introduceți o valoare internă validă pentru eveniment."
+msgstr "Trebuie să furnizezi o valoare validă a intervalului pentru eveniment."
 
 #: libraries/classes/Rte/Events.php:642
-#, fuzzy
 msgid "You must provide a valid execution time for the event."
-msgstr "Trebuie să introduceți un timp valid de execuție pentru eveniment."
+msgstr "Trebuie să furnizezi un timp valid de execuție pentru eveniment."
 
 #: libraries/classes/Rte/Events.php:646
-#, fuzzy
 msgid "You must provide a valid type for the event."
-msgstr "Trebuie să introduceți un tip valid pentru eveniment."
+msgstr "Trebuie să furnizezi un tip valid de eveniment."
 
 #: libraries/classes/Rte/Events.php:670
-#, fuzzy
 msgid "You must provide an event definition."
-msgstr "Trebuie să introduceți o definiție pentru eveniment."
+msgstr "Trebuie să furnizezi o definiție a evenimentului."
 
 #: libraries/classes/Rte/Export.php:69 libraries/classes/Rte/General.php:89
 #: libraries/classes/Rte/Routines.php:217
 #: libraries/classes/Rte/Routines.php:1373
 #: libraries/classes/Rte/Routines.php:1583
-#, fuzzy
-#| msgid "Error in processing request"
 msgid "Error in processing request:"
-msgstr "Eroare în procesarea cererii"
+msgstr "Eroare la procesarea cererii:"
 
 #: libraries/classes/Rte/Footer.php:117
-#, fuzzy
 msgid "OFF"
 msgstr "OPRIT"
 
 #: libraries/classes/Rte/Footer.php:122
-#, fuzzy
 msgid "ON"
 msgstr "PORNIT"
 
 #: libraries/classes/Rte/Footer.php:134
-#, fuzzy
 msgid "Event scheduler status"
-msgstr "Statutul programatorului de evenimente"
+msgstr "Stare programator de evenimente"
 
 #: libraries/classes/Rte/General.php:48
-#, fuzzy
 msgid "The backed up query was:"
-msgstr "Interogarea de rezervă era:"
+msgstr "Interogarea de siguranță era:"
 
 #: libraries/classes/Rte/Routines.php:137
-#, fuzzy
 msgid ""
 "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 "handling multi queries. [strong]The execution of some stored routines may "
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"Folosiți extensia învechită 'mysql' a PHP, care nu este capabilă să "
-"manipuleze interogări multiple. [strong]Execuția unor rutine stocate poate "
-"eșua![/strong] Vă rugăm să folosiți extensia îmbunătățită 'mysqli' pentru a "
+"Folosești extensia învechită „mysql” a PHP, care nu este capabilă să "
+"gestioneze mai multe interogări. [strong]Execuția unor rutine stocate poate "
+"eșua![/strong] Te rog folosește extensia îmbunătățită „mysqli” pentru a "
 "evita orice problemă."
 
 #: libraries/classes/Rte/Routines.php:188
-#, fuzzy
-#| msgid "Edit mode"
 msgid "Edit routine"
-msgstr "Regim de redactare"
+msgstr "Editează rutina"
 
 #: libraries/classes/Rte/Routines.php:266
 #: libraries/classes/Rte/Routines.php:1177
-#, fuzzy, php-format
-#| msgid "Invalid server index: \"%s\""
+#, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr "Index de server nevalid: „%s”"
+msgstr "Tip de rutină invalid: „%s”"
 
 #: libraries/classes/Rte/Routines.php:319
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#, php-format
 msgid "Routine %1$s has been created."
-msgstr "Tabelul %1$s a fost creat."
+msgstr "Rutina %1$s a fost creată."
 
 #: libraries/classes/Rte/Routines.php:438
-#, fuzzy
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr "Ne pare rău, am eșuat încercând să recuperăm rutina ștearsă."
+msgstr "Regretăm, nu am reușit să restaurăm rutina eliminată."
 
 #: libraries/classes/Rte/Routines.php:494
-#, fuzzy, php-format
-#| msgid "Routine %1$s has been modified."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Tabelul %1$s a fost modificat."
+msgstr "Rutina %1$s a fost modificată. Privilegiile au fost ajustate."
 
 #: libraries/classes/Rte/Routines.php:499
-#, fuzzy, php-format
+#, php-format
 msgid "Routine %1$s has been modified."
-msgstr "Tabelul %1$s a fost modificat."
+msgstr "Rutina %1$s a fost modificată."
 
 #: libraries/classes/Rte/Routines.php:951
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine name"
-msgstr "Rutine"
+msgstr "Nume rutină"
 
 #: libraries/classes/Rte/Routines.php:976
-#, fuzzy
 msgid "Parameters"
-msgstr "Parametrii"
+msgstr "Parametri"
 
 #: libraries/classes/Rte/Routines.php:984
-#, fuzzy
-#| msgid "Direct links"
 msgid "Direction"
-msgstr "Legături directe"
+msgstr "Direcție"
 
 #: libraries/classes/Rte/Routines.php:1005
-#, fuzzy
 msgid "Add parameter"
-msgstr "Adăugați parametru"
+msgstr "Adaugă parametru"
 
 #: libraries/classes/Rte/Routines.php:1009
-#, fuzzy
 msgid "Remove last parameter"
-msgstr "Ștergeți ultimul parametru"
+msgstr "Înlătură ultimul parametru"
 
 #: libraries/classes/Rte/Routines.php:1014
-#, fuzzy
 msgid "Return type"
-msgstr "Tipul întors"
+msgstr "Tip de revenire"
 
 #: libraries/classes/Rte/Routines.php:1020
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Lungime/Setare"
+msgstr "Lungime/valori revenire"
 
 #: libraries/classes/Rte/Routines.php:1026
-#, fuzzy
-#| msgid "Table options"
 msgid "Return options"
-msgstr "Opțiuni tabel"
+msgstr "Opțiuni revenire"
 
 #: libraries/classes/Rte/Routines.php:1058
-#, fuzzy
 msgid "Is deterministic"
-msgstr "Este determinist"
+msgstr "Este determinat"
 
 #: libraries/classes/Rte/Routines.php:1077
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details"
 msgstr ""
+"Nu ai suficiente privilegii pentru a efectua această operațiune; Te rog "
+"consultă documentația pentru mai multe detalii"
 
 #: libraries/classes/Rte/Routines.php:1092
-#, fuzzy
 msgid "Security type"
 msgstr "Tip de securitate"
 
 #: libraries/classes/Rte/Routines.php:1101
-#, fuzzy
 msgid "SQL data access"
-msgstr "Acces date SQL"
+msgstr "Acces la date SQL"
 
 #: libraries/classes/Rte/Routines.php:1184
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
-msgstr "Trebuie să introduceți un nume de rutină"
+msgstr "Trebuie să furnizezi un nume de rutină!"
 
 #: libraries/classes/Rte/Routines.php:1218
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr "Direcție invalidă \"%s\" dată pentru parametru."
+msgstr "Direcție dată „%s” este invalidă pentru parametru."
 
 #: libraries/classes/Rte/Routines.php:1240
 #: libraries/classes/Rte/Routines.php:1304
-#, fuzzy
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
-"Trebuie să oferiți lungime/valori pentru parametrii de tipul ENUM, SET, "
-"VARCHAR și VARBINARY ai rutinei."
+"Trebuie să furnizezi lungimea/valorile pentru parametrii rutinei de tipul "
+"ENUM, SET, VARCHAR și VARBINARY."
 
 #: libraries/classes/Rte/Routines.php:1268
-#, fuzzy
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
-"Trebuie să introduceți un nume și un tip pentru fiecare parametru al rutinei."
+"Trebuie să furnizezi un nume și un tip pentru fiecare parametru al rutinei."
 
 #: libraries/classes/Rte/Routines.php:1287
-#, fuzzy
 msgid "You must provide a valid return type for the routine."
-msgstr "Rutina trebuie să întoarcă un tip valid."
+msgstr "Trebuie să furnizezi un tip de revenire valid pentru rutină."
 
 #: libraries/classes/Rte/Routines.php:1347
-#, fuzzy
 msgid "You must provide a routine definition."
-msgstr "Trebuie să introduceți o definiție a rutinei."
+msgstr "Trebuie să furnizezi o definiție a rutinei."
 
 #: libraries/classes/Rte/Routines.php:1459
-#, fuzzy, php-format
+#, php-format
 msgid "Execution results of routine %s"
-msgstr "Rezultatele execuției rutinei %s"
+msgstr "Rezultate de execuție ale rutinei %s"
 
 #: libraries/classes/Rte/Routines.php:1514
-#, fuzzy, php-format
-#| msgid "%d row affected by the last statement inside the procedure"
-#| msgid_plural "%d rows affected by the last statement inside the procedure"
+#, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] "%d rând afectat de ultima declarație din cadrul procedurii"
-msgstr[1] "%d rânduri afectate de ultima declarație din cadrul procedurii"
-msgstr[2] "%d rânduri afectate de ultima declarație din cadrul procedurii"
+msgstr[0] "Un rând afectat de ultima declarație din cadrul procedurii."
+msgstr[1] "%d rânduri afectate de ultima declarație din cadrul procedurii."
+msgstr[2] "%d de rânduri afectate de ultima declarație din cadrul procedurii."
 
 #: libraries/classes/Rte/Routines.php:1571
 #: libraries/classes/Rte/Routines.php:1578
-#, fuzzy
 msgid "Execute routine"
-msgstr "Executați rutina"
+msgstr "Execută rutina"
 
 #: libraries/classes/Rte/Routines.php:1657
 #: libraries/classes/Rte/Routines.php:1660
-#, fuzzy
 msgid "Routine parameters"
-msgstr "Parametrii rutinei"
+msgstr "Parametri rutină"
 
 #: libraries/classes/Rte/RteList.php:106
-#, fuzzy
 msgid "Returns"
-msgstr "Întoarce"
+msgstr "Reveniri"
 
 #: libraries/classes/Rte/Triggers.php:161
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "Regret, restaurarea declanșatorului eliminat a eșuat."
 
 #: libraries/classes/Rte/Triggers.php:168
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
+#, php-format
 msgid "Trigger %1$s has been modified."
-msgstr "Tabelul %s a fost aruncat"
+msgstr "Declanșatorul %1$s a fost modificat."
 
 #: libraries/classes/Rte/Triggers.php:188
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#, php-format
 msgid "Trigger %1$s has been created."
-msgstr "Tabelul %1$s a fost creat."
+msgstr "Declanșatorul %1$s a fost creat."
 
 #: libraries/classes/Rte/Triggers.php:264
-#, fuzzy
-#| msgid "Add a new server"
 msgid "Edit trigger"
-msgstr "Adaugă un server nou"
+msgstr "Editează declanșatorul"
 
 #: libraries/classes/Rte/Triggers.php:385
-#, fuzzy
-#| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Declanșatori"
+msgstr "Nume declanșator"
 
 #: libraries/classes/Rte/Triggers.php:408
-#, fuzzy
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Timp"
 
 #: libraries/classes/Rte/Triggers.php:488
-#, fuzzy
-#| msgid "You must provide a routine name"
 msgid "You must provide a trigger name!"
-msgstr "Trebuie să introduceți un nume de rutină"
+msgstr "Trebuie să furnizezi un nume de declanșator!"
 
 #: libraries/classes/Rte/Triggers.php:495
-#, fuzzy
-#| msgid "You must provide a valid type for the event."
 msgid "You must provide a valid timing for the trigger!"
-msgstr "Trebuie să introduceți un tip valid pentru eveniment."
+msgstr "Trebuie să furnizezi o sincronizare validă pentru declanșator!"
 
 #: libraries/classes/Rte/Triggers.php:502
-#, fuzzy
-#| msgid "You must provide a valid return type for the routine."
 msgid "You must provide a valid event for the trigger!"
-msgstr "Rutina trebuie să întoarcă un tip valid."
+msgstr "Trebuie să furnizezi un eveniment valid pentru declanșator!"
 
 #: libraries/classes/Rte/Triggers.php:510
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "You must provide a valid table name!"
-msgstr "Denumire de tabel nevalidă"
+msgstr "Trebuie să furnizezi un nume de tabel valid!"
 
 #: libraries/classes/Rte/Triggers.php:516
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "Trebuie să furnizezi o definiție pentru declanșator."
 
 #: libraries/classes/Rte/Words.php:34
-#, fuzzy
-#| msgid "Add %s field(s)"
 msgid "Add routine"
-msgstr "Adaugă %s câmp(uri)"
+msgstr "Adaugă rutină"
 
 #: libraries/classes/Rte/Words.php:36
-#, fuzzy, php-format
+#, php-format
 msgid "Export of routine %s"
-msgstr "Import fișiere"
+msgstr "Exportul rutinei %s"
 
 #: libraries/classes/Rte/Words.php:37
-#, fuzzy
 msgid "routine"
 msgstr "rutină"
 
 #: libraries/classes/Rte/Words.php:39
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Nu dețineți privilegiile necesare pentru a crea o rutină"
+msgstr "Nu ai privilegiile necesare pentru a crea o rutină."
 
 #: libraries/classes/Rte/Words.php:42
 #, php-format
@@ -11618,6 +11145,8 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"Nicio rutină cu numele %1$s găsită în baza de date %2$s. S-ar putea să fie "
+"blocate privilegiile necesare pentru a edita această rutină."
 
 #: libraries/classes/Rte/Words.php:46
 #, php-format
@@ -11625,168 +11154,137 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to view/export this routine."
 msgstr ""
+"Nicio rutină cu numele %1$s găsită în baza de date %2$s. S-ar putea să fie "
+"blocate privilegiile necesare pentru a vedea/exporta această rutină."
 
 #: libraries/classes/Rte/Words.php:49
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "Nicio rutină cu numele %1$s nu a fost gasită în baza de date %2$s"
+msgstr "Nicio rutină cu numele %1$s găsită în baza de date %2$s."
 
 #: libraries/classes/Rte/Words.php:50
-#, fuzzy
 msgid "There are no routines to display."
-msgstr "Nu există rutine de afișat."
+msgstr "Nu există nicio rutină de afișat."
 
 #: libraries/classes/Rte/Words.php:56
-#, fuzzy
-#| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "Adaugă un server nou"
+msgstr "Adaugă declanșator"
 
 #: libraries/classes/Rte/Words.php:58
-#, fuzzy, php-format
-#| msgid "Export triggers"
+#, php-format
 msgid "Export of trigger %s"
-msgstr "Modul de export"
+msgstr "Exportul declanșatorului %s"
 
 #: libraries/classes/Rte/Words.php:59
-#, fuzzy
-#| msgid "Triggers"
 msgid "trigger"
-msgstr "Declanșatori"
+msgstr "declanșator"
 
 #: libraries/classes/Rte/Words.php:61
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Nu dețineți drepturi de acces pentru a vă afla aici!"
+msgstr "Nu ai privilegiile necesare pentru a crea un declanșator."
 
 #: libraries/classes/Rte/Words.php:63
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Nu s-a găsit nici un tabel în baza de date."
+msgstr "Niciun declanșator cu numele %1$s găsit în baza de date %2$s."
 
 #: libraries/classes/Rte/Words.php:64
-#, fuzzy
 msgid "There are no triggers to display."
-msgstr "Tabelele urmărite"
+msgstr "Nu există niciun declanșator de afișat."
 
 #: libraries/classes/Rte/Words.php:70
-#, fuzzy
-#| msgid "Add a new server"
 msgid "Add event"
-msgstr "Adaugă un server nou"
+msgstr "Adaugă eveniment"
 
 #: libraries/classes/Rte/Words.php:72
-#, fuzzy, php-format
+#, php-format
 msgid "Export of event %s"
-msgstr "Modul de export"
+msgstr "Exportul evenimentului %s"
 
 #: libraries/classes/Rte/Words.php:73
-#, fuzzy
-#| msgid "Event"
 msgid "event"
-msgstr "Eveniment"
+msgstr "eveniment"
 
 #: libraries/classes/Rte/Words.php:75
-#, fuzzy
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event."
-msgstr "Nu dețineți drepturi de acces pentru a vă afla aici!"
+msgstr "Nu ai privilegiile necesare pentru a crea un eveniment."
 
 #: libraries/classes/Rte/Words.php:77
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "Nu s-a găsit nici un tabel în baza de date."
+msgstr "Niciun eveniment cu numele %1$s găsit în baza de date %2$s."
 
 #: libraries/classes/Rte/Words.php:78
-#, fuzzy
 msgid "There are no events to display."
-msgstr "Nu există evenimente de afișat."
+msgstr "Nu există niciun eveniment de afișat."
 
 #: libraries/classes/SavedSearches.php:269
-#, fuzzy
 msgid "Please provide a name for this bookmarked search."
 msgstr ""
-"Vă rugăm să furnizaţi un nume pentru această căutare marcată ca semn de "
-"carte."
+"Te rog furnizează un nume pentru această căutare marcată cu semn de carte."
 
 #: libraries/classes/SavedSearches.php:284
-#, fuzzy
 msgid "Missing information to save the bookmarked search."
-msgstr "Lipsesc informații pentru a putea salva această căutare."
+msgstr ""
+"Lipsesc informații pentru a putea salva căutarea marcată cu semn de carte."
 
 #: libraries/classes/SavedSearches.php:306
 #: libraries/classes/SavedSearches.php:343
-#, fuzzy
 msgid "An entry with this name already exists."
-msgstr "O înregistrare cu acest nume deja există."
+msgstr "Există deja o intrare cu acest nume."
 
 #: libraries/classes/SavedSearches.php:370
-#, fuzzy
 msgid "Missing information to delete the search."
-msgstr "Lipsesc informații pentru a putea șterge căutarea."
+msgstr "Lipsesc informațiile pentru a șterge căutarea."
 
 #: libraries/classes/SavedSearches.php:398
-#, fuzzy
 msgid "Missing information to load the search."
-msgstr "Lipsesc informații pentru a putea încărca căutarea."
+msgstr "Lipsesc informațiile pentru a încărca căutarea."
 
 #: libraries/classes/SavedSearches.php:417
-#, fuzzy
 msgid "Error while loading the search."
 msgstr "Eroare în timpul încărcării căutării."
 
 #: libraries/classes/Server/Privileges.php:224 server_privileges.php:122
-#, fuzzy
 msgid "No privileges."
-msgstr "Fără drepturi."
+msgstr "Niciun privilegiu."
 
 #: libraries/classes/Server/Privileges.php:233 server_privileges.php:67
-#, fuzzy
 msgid "Includes all privileges except GRANT."
-msgstr "Include toate privilegiile, excluzand GRANT."
+msgstr "Include toate privilegiile, cu excepția ACORDĂ."
 
 #: libraries/classes/Server/Privileges.php:306
 #: libraries/classes/Server/Privileges.php:1040
 #: libraries/classes/Server/Privileges.php:1209 server_privileges.php:111
-#, fuzzy
 msgid "Allows reading data."
 msgstr "Permite citirea datelor."
 
 #: libraries/classes/Server/Privileges.php:311
 #: libraries/classes/Server/Privileges.php:1045
 #: libraries/classes/Server/Privileges.php:1210 server_privileges.php:87
-#, fuzzy
 msgid "Allows inserting and replacing data."
 msgstr "Permite inserarea și înlocuirea datelor."
 
 #: libraries/classes/Server/Privileges.php:316
 #: libraries/classes/Server/Privileges.php:1050
 #: libraries/classes/Server/Privileges.php:1211 server_privileges.php:121
-#, fuzzy
 msgid "Allows changing data."
-msgstr "Permite schimbarea datelor."
+msgstr "Permite modificarea datelor."
 
 #: libraries/classes/Server/Privileges.php:321
 #: libraries/classes/Server/Privileges.php:1212 server_privileges.php:76
-#, fuzzy
 msgid "Allows deleting data."
-msgstr "Permite stergere de date."
+msgstr "Permite ștergerea datelor."
 
 #: libraries/classes/Server/Privileges.php:326
 #: libraries/classes/Server/Privileges.php:1238 server_privileges.php:70
-#, fuzzy
 msgid "Allows creating new databases and tables."
-msgstr "Permite crearea de noi baze de date și tabele."
+msgstr "Permite crearea de baze de date și tabele noi."
 
 #: libraries/classes/Server/Privileges.php:331
 #: libraries/classes/Server/Privileges.php:1250 server_privileges.php:77
-#, fuzzy
 msgid "Allows dropping databases and tables."
-msgstr "Permite stergerea unei baze de date sau a unor tabele."
+msgstr "Permite eliminarea bazelor de date și tabelelor."
 
 #: libraries/classes/Server/Privileges.php:336
 #: libraries/classes/Server/Privileges.php:1334 server_privileges.php:105
@@ -11797,204 +11295,170 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:341
 #: libraries/classes/Server/Privileges.php:1338 server_privileges.php:114
-#, fuzzy
 msgid "Allows shutting down the server."
 msgstr "Permite oprirea serverului."
 
 #: libraries/classes/Server/Privileges.php:346
 #: libraries/classes/Server/Privileges.php:1330 server_privileges.php:102
-#, fuzzy
-#| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
-msgstr "Permite vizualizarea proceselor tuturor utilizatorilor"
+msgstr "Permite vizualizarea proceselor pentru toți utilizatorii."
 
 #: libraries/classes/Server/Privileges.php:351
 #: libraries/classes/Server/Privileges.php:1218 server_privileges.php:81
-#, fuzzy
 msgid "Allows importing data from and exporting data into files."
-msgstr ""
-"Permite importarea datelor in fisiere și exportarea acestora din fisiere."
+msgstr "Permite importul datelor din fișiere și exportul datelor în fișiere."
 
 #: libraries/classes/Server/Privileges.php:356
 #: libraries/classes/Server/Privileges.php:1055
 #: libraries/classes/Server/Privileges.php:1362 server_privileges.php:103
-#, fuzzy
 msgid "Has no effect in this MySQL version."
-msgstr "Nu are efect în această versiune MySQL."
+msgstr "Nu are niciun efect în această versiune MySQL."
 
 #: libraries/classes/Server/Privileges.php:361
 #: libraries/classes/Server/Privileges.php:1246 server_privileges.php:86
-#, fuzzy
 msgid "Allows creating and dropping indexes."
-msgstr "Permite crearea și stergerea indexurilor."
+msgstr "Permite crearea și eliminarea indexurilor."
 
 #: libraries/classes/Server/Privileges.php:366
 #: libraries/classes/Server/Privileges.php:1244 server_privileges.php:68
-#, fuzzy
 msgid "Allows altering the structure of existing tables."
-msgstr "Permite alterarea structurii la tabelele deja existente."
+msgstr "Permite modificarea structurii tabelelor existente."
 
 #: libraries/classes/Server/Privileges.php:371
 #: libraries/classes/Server/Privileges.php:1342 server_privileges.php:112
-#, fuzzy
 msgid "Gives access to the complete list of databases."
-msgstr "Permite accesul la lista completă a bazelor de date."
+msgstr "Dă acces la lista completă de baze de date."
 
 #: libraries/classes/Server/Privileges.php:377
 #: libraries/classes/Server/Privileges.php:1322 server_privileges.php:116
-#, fuzzy
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
-"Permite conexiuni, chiar dacă s-a atins numărul maxim de conexiuni; Necesară "
-"pentru majoritatea operațiunilor administrative, cum ar fi setarea "
+"Permite conexiuni, chiar dacă s-a atins numărul maxim de conexiuni; este "
+"necesară pentru majoritatea operațiunilor administrative, cum ar fi setarea "
 "variabilelor globale sau oprirea firelor de execuție a altor utilizatori."
 
 #: libraries/classes/Server/Privileges.php:385
 #: libraries/classes/Server/Privileges.php:1256 server_privileges.php:73
-#, fuzzy
 msgid "Allows creating temporary tables."
-msgstr "Permite crearea de tabele temporare."
+msgstr "Permite crearea tabelelor temporare."
 
 #: libraries/classes/Server/Privileges.php:390
 #: libraries/classes/Server/Privileges.php:1358 server_privileges.php:88
-#, fuzzy
 msgid "Allows locking tables for the current thread."
-msgstr "Permite blocarea tabelelor din firul curent de execuție."
+msgstr "Permite blocarea tabelelor pentru firul de execuție curent."
 
 #: libraries/classes/Server/Privileges.php:395
 #: libraries/classes/Server/Privileges.php:1371 server_privileges.php:110
-#, fuzzy
 msgid "Needed for the replication slaves."
-msgstr "Necesară pentru „slave replication”."
+msgstr "Necesară pentru sclavii de replicare."
 
 #: libraries/classes/Server/Privileges.php:400
 #: libraries/classes/Server/Privileges.php:1367 server_privileges.php:108
-#, fuzzy
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr "Permite utilizatorului de a interoga locația slave/master."
+msgstr "Permite utilizatorului să întrebe unde sunt serverele sclav/master."
 
 #: libraries/classes/Server/Privileges.php:405
 #: libraries/classes/Server/Privileges.php:421
 #: libraries/classes/Server/Privileges.php:1276
 #: libraries/classes/Server/Privileges.php:1283 server_privileges.php:75
-#, fuzzy
 msgid "Allows creating new views."
-msgstr "Permite crearea noilor viziuni."
+msgstr "Permite crearea de vizualizări noi."
 
 #: libraries/classes/Server/Privileges.php:410
 #: libraries/classes/Server/Privileges.php:1290 server_privileges.php:79
-#, fuzzy
-#| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
-msgstr "Permite configurarea evenimentelor pentru planificatorul de evenimente"
+msgstr "Permite inițializarea evenimentelor pentru programatorul de evenimente."
 
 #: libraries/classes/Server/Privileges.php:415
 #: libraries/classes/Server/Privileges.php:1294 server_privileges.php:120
-#, fuzzy
-#| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
-msgstr "Permite crearea și eliminarea declanșatorilor"
+msgstr "Permite crearea și eliminarea declanșatorilor."
 
 #: libraries/classes/Server/Privileges.php:426
 #: libraries/classes/Server/Privileges.php:432
 #: libraries/classes/Server/Privileges.php:1260 server_privileges.php:113
-#, fuzzy
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr "Permite executarea interogărilor SHOW CREATE VIEW."
+msgstr "Permite executarea interogărilor ARATĂ CREARE VIZUALIZARE."
 
 #: libraries/classes/Server/Privileges.php:437
 #: libraries/classes/Server/Privileges.php:1264 server_privileges.php:71
-#, fuzzy
 msgid "Allows creating stored routines."
-msgstr "Permite crearea rutinelor stocate."
+msgstr "Permite crearea de rutine stocate."
 
 #: libraries/classes/Server/Privileges.php:442
 #: libraries/classes/Server/Privileges.php:1268 server_privileges.php:69
-#, fuzzy
 msgid "Allows altering and dropping stored routines."
-msgstr "Permite alterarea și aruncarea rutinelor stocate."
+msgstr "Permite modificarea și eliminarea rutinelor stocate."
 
 #: libraries/classes/Server/Privileges.php:447
 #: libraries/classes/Server/Privileges.php:1375 server_privileges.php:74
-#, fuzzy
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr "Permite crearea, aruncarea și redenumirea conturilor de utilizator."
+msgstr "Permite crearea, eliminarea și redenumirea conturilor utilizatorilor."
 
 #: libraries/classes/Server/Privileges.php:452
 #: libraries/classes/Server/Privileges.php:1270 server_privileges.php:80
-#, fuzzy
 msgid "Allows executing stored routines."
 msgstr "Permite executarea rutinelor stocate."
 
 #: libraries/classes/Server/Privileges.php:730
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Does not require SSL-encrypted connections."
-msgstr "Conexiuni persistente"
+msgstr "Nu necesită conexiuni criptate prin SSL."
 
 #: libraries/classes/Server/Privileges.php:746
-#, fuzzy
-#| msgid "Persistent connections"
 msgid "Requires SSL-encrypted connections."
-msgstr "Conexiuni persistente"
+msgstr "Necesită conexiuni criptate prin SSL."
 
 #: libraries/classes/Server/Privileges.php:760
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "Necesită un certificat X509 valid."
 
 #: libraries/classes/Server/Privileges.php:785
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "Necesită utilizarea unei anumite metode de cifrare pentru o conexiune."
 
 #: libraries/classes/Server/Privileges.php:798
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
-msgstr ""
+msgstr "Necesită prezentarea unui certificat X509 valid emis de acest CA."
 
 #: libraries/classes/Server/Privileges.php:811
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "Necesită prezentarea unui certificat X509 valid cu acest subiect."
 
 #: libraries/classes/Server/Privileges.php:841 server_privileges.php:93
-#, fuzzy
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
-"Limiteaza numarul de comenzi care pot fi trimise de utilizator către server "
-"într-o oră."
+"Limitează numărul de interogări pe care utilizatorul îl poate trimite la "
+"server într-o oră."
 
 #: libraries/classes/Server/Privileges.php:849 server_privileges.php:96
-#, fuzzy
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
-"Limitează numărul de comenzi pentru schimbarea vreunui tabel sau vreunei "
-"baze de date executabile de utilizator într-o oră."
+"Limitează numărul de comenzi, care modifică orice tabel sau bază de date, pe "
+"care utilizatorul îl poate executa într-o oră."
 
 #: libraries/classes/Server/Privileges.php:858 server_privileges.php:90
-#, fuzzy
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
-"Limitează numărul de noi conexiuni care pot fi deschise de utilizator într-o "
-"oră."
+"Limitează numărul de conexiuni noi pe care utilizatorul îl poate deschide "
+"într-o oră."
 
 #: libraries/classes/Server/Privileges.php:867 server_privileges.php:100
-#, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
-"Limitează numărul conexiunilor simultane pe care le poate avea utilizatorul."
+"Limitează numărul conexiunilor simultane pe care utilizatorul îl poate avea."
 
 #: libraries/classes/Server/Privileges.php:912
 #: libraries/classes/Server/Privileges.php:3347
 #: libraries/classes/Server/Privileges.php:3349
 #: libraries/classes/Server/Privileges.php:4568
 #: templates/privileges/edit_routine_privileges.twig:11
-#, fuzzy
-#| msgid "Routines"
 msgid "Routine"
-msgstr "Rutine"
+msgstr "Rutină"
 
 #: libraries/classes/Server/Privileges.php:944
 msgid ""
@@ -12458,19 +11922,24 @@ msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"Acest server MySQL funcționează ca <b>master</b> și <b>sclav</b> în procesul "
+"de <b>replicare</b>."
 
 #: libraries/classes/Server/Status.php:110
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
+"Acest server MySQL funcționează ca <b>master</b> în procesul de "
+"<b>replicare</b>."
 
 #: libraries/classes/Server/Status.php:115
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"Acest server MySQL funcționează ca <b>sclav</b> în procesul de "
+"<b>replicare</b>."
 
 #: libraries/classes/Server/Status.php:127
-#, fuzzy
 msgid "Replication status"
-msgstr "Replicare"
+msgstr "Stare replicare"
 
 #: libraries/classes/Server/Status.php:157
 msgid ""
@@ -13461,12 +12930,15 @@ msgstr ""
 #: libraries/classes/Server/Status/Variables.php:712
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
+"Numărul de tabele temporare deschise acum de firul de execuție SQL sclav."
 
 #: libraries/classes/Server/Status/Variables.php:716
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
+"Numărul total de replicări (de la pornire) ale firului de execuție SQL sclav "
+"care a reluat tranzacțiile."
 
 #: libraries/classes/Server/Status/Variables.php:720
 msgid "This is ON if this server is a slave that is connected to a master."
@@ -14886,17 +14358,17 @@ msgid "Not enough privilege to view the advisor."
 msgstr ""
 
 #: server_status_processes.php:34
-#, fuzzy, php-format
+#, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Firul de execuție %s a fost oprit cu succes."
 
 #: server_status_processes.php:40
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
-"phpMyAdmin n-a reusit sa opreasca firul de executie %s.  Probabil a fost "
-"deja oprit."
+"phpMyAdmin nu a putut să oprească firul de execuție %s. Probabil el a fost "
+"deja închis."
 
 #: server_status_queries.php:44
 msgid "Not enough privilege to view query statistics."
@@ -15502,10 +14974,8 @@ msgstr ""
 "instalează dependențe care lipsesc."
 
 #: templates/table/secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
-msgstr "Vizualizare relațională"
+msgstr "Vizualizare relație"
 
 #: templates/server/databases/table_row.twig:13
 #, fuzzy, php-format
@@ -18560,10 +18030,8 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr "Sortare Mărime tampon"
 
 #: libraries/advisory_rules.txt:344
-#, fuzzy
-#| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Key cache"
+msgstr "Cache fir de execuție"
 
 #: libraries/advisory_rules.txt:347
 msgid ""
@@ -18573,13 +18041,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:348
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "Activează cache-ul firului de execuție setând {thread_cache_size} > 0."
 
 #: libraries/advisory_rules.txt:349
-#, fuzzy
-#| msgid "Tracking is not active."
 msgid "The thread cache is set to 0"
-msgstr "Monitorizarea nu este activată"
+msgstr "Cache-ul firului de execuție este setat la 0"
 
 #: libraries/advisory_rules.txt:351
 #, fuzzy, php-format
@@ -18588,10 +18054,8 @@ msgid "Thread cache hit rate %%"
 msgstr "Monitorizarea nu este activată"
 
 #: libraries/advisory_rules.txt:354
-#, fuzzy
-#| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "Monitorizarea nu este activată"
+msgstr "Cache-ul firului de execuție nu este eficient."
 
 #: libraries/advisory_rules.txt:355
 msgid "Increase {thread_cache_size}."
