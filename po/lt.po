@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-01 13:38+0000\n"
-"Last-Translator: Edgaras Janušauskas <edgaras.janusauskas@gmail.com>\n"
+"PO-Revision-Date: 2018-07-23 10:55+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lt/>\n"
 "Language: lt\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -584,13 +584,12 @@ msgid "Bookmark %s has been created."
 msgstr "Žymė %s sukurta."
 
 #: import.php:600
-#, fuzzy, php-format
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importavimas sėkmingai baigtas, įvykdyta %d užklausa."
-msgstr[1] "Importavimas sėkmingai baigtas, įvykdyta %d užklausos."
-msgstr[2] "Importavimas sėkmingai baigtas, įvykdyta %d užklausų."
-msgstr[3] ""
+msgstr[0] "Importavimas sėkmingai baigtas, užklausa %d įvykdyta."
+msgstr[1] "Importavimas sėkmingai baigtas, užklausos %d įvykdytos."
+msgstr[2] "Importavimas sėkmingai baigtas, iš viso įvykdyta %d užklausų."
 
 #: import.php:631
 #, php-format
@@ -616,7 +615,7 @@ msgstr "„DROP DATABASE“ komandos įvykdyti negalima."
 
 #: import_status.php:108
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nepavyko įkelti importo ."
 
 #: import_status.php:117 js/messages.php:461 js/messages.php:627
 #: libraries/classes/Export.php:530
