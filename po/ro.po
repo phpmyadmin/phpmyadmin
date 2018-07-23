@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-07-23 11:06+0000\n"
+"PO-Revision-Date: 2018-07-23 11:12+0000\n"
 "Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
@@ -7464,14 +7464,12 @@ msgid "Write requests"
 msgstr "Cereri de scriere"
 
 #: libraries/classes/Engines/Innodb.php:275
-#, fuzzy
 msgid "Read misses"
-msgstr "Citiri gresite"
+msgstr "Neînțelegeri de citire"
 
 #: libraries/classes/Engines/Innodb.php:284
-#, fuzzy
 msgid "Write waits"
-msgstr "Scrierea așteaptă"
+msgstr "Întârzieri de scriere"
 
 #: libraries/classes/Engines/Innodb.php:293
 msgid "Read misses in %"
