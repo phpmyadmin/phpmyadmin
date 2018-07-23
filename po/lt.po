@@ -647,7 +647,7 @@ msgid ""
 msgstr ""
 "Jūs naudojate demonstracinį serverį. Čia galite daryti ką norite, bet "
 "nepakeiskite admistratoriaus root, debian-sys-maint ir pma vartotojų. "
-"Daugiau informacijos galima rasti čia adresu%s%s"
+"Daugiau informacijos galima rasti čia adresu %s"
 
 #: index.php:207
 msgid "General settings"
