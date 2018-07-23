@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-06-26 21:41+0000\n"
-"Last-Translator: Pedro Silva <sparta14gaming@gmail.com>\n"
+"PO-Revision-Date: 2018-07-23 11:06+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-8/pt/>\n"
 "Language: pt\n"
@@ -7073,7 +7073,7 @@ msgstr "Único"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1202
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
-msgstr ""
+msgstr "Espacial"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1198
 #: libraries/classes/Controllers/Table/TableStructureController.php:1203
@@ -9615,10 +9615,8 @@ msgstr "Data de Criação"
 #: libraries/classes/Plugins/Export/ExportLatex.php:224
 #: libraries/classes/Plugins/Export/ExportSql.php:706
 #: libraries/classes/Plugins/Export/ExportXml.php:244
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "versão do PHP"
+msgstr "versão do PHP:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:254
 #: libraries/classes/Plugins/Export/ExportSql.php:895
@@ -17247,9 +17245,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Tipo de Query"
+msgstr "Utilização da cache de comandos"
 
 #: libraries/advisory_rules.txt:170
 #, php-format
