@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-07-23 10:55+0000\n"
+"PO-Revision-Date: 2018-07-23 11:06+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/lt/>\n"
@@ -629,13 +629,13 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Jūs atsijungėte iš vieno serverio, kad visiškai išeitumėte iš phpMyAdmin, "
+"turite atsijungti iš visų serverių."
 
 #: index.php:184 libraries/classes/Footer.php:83
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:116
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin tinklalapis"
+msgstr "phpMyAdmin Demonstracinis Serveris"
 
 #: index.php:188 libraries/classes/Plugins/Auth/AuthenticationCookie.php:119
 #, php-format
@@ -646,7 +646,7 @@ msgid ""
 msgstr ""
 "Jūs naudojate demonstracinį serverį. Čia galite daryti ką norite, bet "
 "nepakeiskite admistratoriaus root, debian-sys-maint ir pma vartotojų. "
-"Daugiau informacijos galima rasti čia adresu %s"
+"Daugiau informacijos galima rasti čia adresu %s."
 
 #: index.php:198
 msgid "General settings"
@@ -680,16 +680,12 @@ msgid "Server:"
 msgstr "Darbinė stotis:"
 
 #: index.php:326
-#, fuzzy
-#| msgid "Server port"
 msgid "Server type:"
-msgstr "Serverio jungtis"
+msgstr "Serverio tipas :"
 
 #: index.php:330
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "Nesaugus susijungimas"
+msgstr "Serverio prisijungimas :"
 
 #: index.php:334 libraries/classes/Plugins/Export/ExportLatex.php:225
 #: libraries/classes/Plugins/Export/ExportSql.php:706
@@ -706,10 +702,8 @@ msgid "Protocol version:"
 msgstr "Protokolo versija"
 
 #: index.php:344
-#, fuzzy
-#| msgid "User"
 msgid "User:"
-msgstr "Naudotojas"
+msgstr "Vartotojas :"
 
 #: index.php:349
 #, fuzzy
@@ -775,7 +769,7 @@ msgstr "Pakeitimų sąrašas"
 
 #: index.php:470 templates/server/plugins/section.twig:13
 msgid "License"
-msgstr ""
+msgstr "Licencija"
 
 #: index.php:490
 msgid ""
@@ -1140,8 +1134,6 @@ msgstr "SQL užklausa"
 
 #. l10n: Default label for the y-Axis of Charts
 #: js/messages.php:141
-#, fuzzy
-#| msgid "Y Values"
 msgid "Y values"
 msgstr "Y Reikšmės"
 
@@ -1625,22 +1617,16 @@ msgid "Chart"
 msgstr "Diagrama"
 
 #: js/messages.php:298 libraries/classes/Display/Export.php:581
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "Duomenų bazė"
 
 #: js/messages.php:299 libraries/classes/Display/Export.php:593
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "Lentelė"
 
 #: js/messages.php:300 libraries/classes/Display/Export.php:604
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "Stulpelis"
@@ -2580,8 +2566,6 @@ msgid "Original length"
 msgstr "Pirminė padėtis"
 
 #: js/messages.php:617
-#, fuzzy
-#| msgid "Cancel"
 msgid "cancel"
 msgstr "Atšaukti"
 
@@ -3036,9 +3020,6 @@ msgstr "Šeštadienis"
 
 #. l10n: Short week day name
 #: js/messages.php:852
-#, fuzzy
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
 msgstr "Sek"
 
@@ -3121,8 +3102,6 @@ msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:897
-#, fuzzy
-#| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "Ne"
@@ -3383,11 +3362,11 @@ msgstr "Negalėjo išsaugoti paskiausios lentelės"
 
 #: libraries/classes/CentralColumns.php:628
 msgid "YES"
-msgstr ""
+msgstr "Taip"
 
 #: libraries/classes/CentralColumns.php:628
 msgid "NO"
-msgstr ""
+msgstr "Ne"
 
 #: libraries/classes/CentralColumns.php:776
 #, fuzzy
@@ -3458,14 +3437,10 @@ msgid "Charset"
 msgstr "Koduotė"
 
 #: libraries/classes/Charsets.php:312
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
 msgstr "nežinoma"
 
 #: libraries/classes/Charsets.php:326
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Dvejetainis"
@@ -3492,8 +3467,6 @@ msgid "Central European"
 msgstr "Centrinės Europos"
 
 #: libraries/classes/Charsets.php:360
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rusų"
@@ -3506,8 +3479,6 @@ msgid "Simplified Chinese"
 msgstr "Supaprastinta kinų"
 
 #: libraries/classes/Charsets.php:372 libraries/classes/Charsets.php:490
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "Japonų"
@@ -3520,8 +3491,6 @@ msgid "Baltic"
 msgstr "Baltų"
 
 #: libraries/classes/Charsets.php:382
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armėnų"
@@ -3541,22 +3510,16 @@ msgid "Cyrillic"
 msgstr "Kirylica"
 
 #: libraries/classes/Charsets.php:391
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabų"
 
 #: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:505
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
 msgstr "Korėjiečių"
 
 #: libraries/classes/Charsets.php:397
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "Žydų"
@@ -3569,8 +3532,6 @@ msgid "Georgian"
 msgstr "Gruzinų"
 
 #: libraries/classes/Charsets.php:403
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "Graikų"
@@ -3583,43 +3544,31 @@ msgid "Czech-Slovak"
 msgstr "Čekų-slovakų"
 
 #: libraries/classes/Charsets.php:409 libraries/classes/Charsets.php:560
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukrainiečių"
 
 #: libraries/classes/Charsets.php:412 libraries/classes/Charsets.php:556
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turkų"
 
 #: libraries/classes/Charsets.php:415 libraries/classes/Charsets.php:548
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Švedų"
 
 #: libraries/classes/Charsets.php:418 libraries/classes/Charsets.php:552
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tailando"
 
 #: libraries/classes/Charsets.php:421
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "nežinoma"
 
 #: libraries/classes/Charsets.php:437
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bulgarų"
@@ -3637,36 +3586,26 @@ msgid "Croatian"
 msgstr "Kroatų"
 
 #: libraries/classes/Charsets.php:451
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Čekų"
 
 #: libraries/classes/Charsets.php:455
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Danų"
 
 #: libraries/classes/Charsets.php:459
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "Anglų"
 
 #: libraries/classes/Charsets.php:463
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/classes/Charsets.php:467
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "Estų"
@@ -3684,8 +3623,6 @@ msgid "German (phone book order)"
 msgstr ""
 
 #: libraries/classes/Charsets.php:482
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Vengrų"
@@ -3703,15 +3640,11 @@ msgid "Classical Latin"
 msgstr ""
 
 #: libraries/classes/Charsets.php:497
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Latvių"
 
 #: libraries/classes/Charsets.php:501
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "Lietuvių"
@@ -3722,22 +3655,16 @@ msgid "Burmese"
 msgstr ""
 
 #: libraries/classes/Charsets.php:512
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persų"
 
 #: libraries/classes/Charsets.php:516
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Lenkų"
 
 #: libraries/classes/Charsets.php:523
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumunų"
@@ -3748,15 +3675,11 @@ msgid "Sinhalese"
 msgstr ""
 
 #: libraries/classes/Charsets.php:531
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovakų"
 
 #: libraries/classes/Charsets.php:535
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovėnų"
@@ -3816,8 +3739,6 @@ msgid "multi-level"
 msgstr "daugiakalbis"
 
 #: libraries/classes/Charsets.php:647
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Dvejetainis"
@@ -11203,8 +11124,6 @@ msgid "not OK"
 msgstr "Negerai"
 
 #: libraries/classes/Relation.php:111
-#, fuzzy
-#| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "Gerai"
@@ -12095,8 +12014,6 @@ msgid "Trigger name"
 msgstr ""
 
 #: libraries/classes/Rte/Triggers.php:408
-#, fuzzy
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Laikas"
@@ -12529,8 +12446,6 @@ msgid "Global privileges"
 msgstr "Globalios teisės"
 
 #: libraries/classes/Server/Privileges.php:1165
-#, fuzzy
-#| msgid "global"
 msgid "Global"
 msgstr "globalus"
 
@@ -14726,8 +14641,6 @@ msgstr "be PHP kodo"
 
 #: libraries/classes/Util.php:1100
 #: templates/database/multi_table_query/form.twig:161
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "Vykdyti užklausą"
 
@@ -15495,8 +15408,6 @@ msgid "Author"
 msgstr ""
 
 #: templates/server/plugins/section.twig:23
-#, fuzzy
-#| msgid "Disabled"
 msgid "disabled"
 msgstr "Išjungta"
 
@@ -15738,8 +15649,6 @@ msgid ""
 msgstr "Trūksta phpMyAdmin nustatymų saugyklos lentelių"
 
 #: templates/table/secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
 msgstr "Peržiūrėti sąryšius"
 
@@ -16067,8 +15976,6 @@ msgid "+ Add column"
 msgstr "Pridėti stulpelį"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Atnaujinti užklausą"
 
@@ -16088,8 +15995,6 @@ msgid "Server variables and settings"
 msgstr "Serverio kintamieji ir nustatymai"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Saugojimo varikliai"
 
@@ -16240,8 +16145,6 @@ msgstr "Tęstį įterpimą su %s eilučių"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #: templates/table/tracking/report_table.twig:4
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -16454,14 +16357,10 @@ msgid "During current session"
 msgstr "Praleisti šią klaidą"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Ascending"
 msgid "ascending"
 msgstr "Didėjimo tvarka"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Descending"
 msgid "descending"
 msgstr "Mažėjimo tvarka"
 
@@ -17054,8 +16953,6 @@ msgid "Bar"
 msgstr "Histograma"
 
 #: templates/table/chart/tbl_chart.twig:19
-#, fuzzy
-#| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Stulpelis"
@@ -18060,9 +17957,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Rūšiavimo buferio dydis"
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Užklausų saugykla"
+msgstr "Užklausų pagreitinimo (kešo) naudojamumas"
 
 #: libraries/advisory_rules.txt:170
 #, php-format
