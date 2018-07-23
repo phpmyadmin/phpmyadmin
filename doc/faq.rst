@@ -480,6 +480,8 @@ need mod\_rewrite to be enabled. Then you just need to create
 following :term:`.htaccess` file in root folder of phpMyAdmin installation (don't
 forget to change directory name inside of it):
 
+For more details about this see [Section :ref:`faq4_8`]
+
 .. code-block:: apache
 
     RewriteEngine On
@@ -1178,6 +1180,8 @@ usage of 'cookie' ``auth_type``.
 
 For example direct login URL can be constructed as
 ``https://example.com/phpmyadmin/?pma_username=user&pma_password=password``.
+
+For more details about this see [Section :ref:`faq1_34`]
 
 .. warning::
 
