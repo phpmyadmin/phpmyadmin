@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-07-23 10:54+0000\n"
+"PO-Revision-Date: 2018-07-23 11:06+0000\n"
 "Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ro/>\n"
@@ -7373,7 +7373,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:47
 msgid "Buffer pool size"
-msgstr ""
+msgstr "Dimensiune Buffer pool"
 
 #: libraries/classes/Engines/Innodb.php:49
 msgid ""
@@ -7382,65 +7382,55 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:139
-#, fuzzy
 msgid "Buffer Pool"
-msgstr "Zonă Tampon"
+msgstr "Buffer Pool"
 
 #: libraries/classes/Engines/Innodb.php:140
 #: libraries/classes/Server/Status/Data.php:195
-#, fuzzy
 msgid "InnoDB Status"
 msgstr "Stare InnoDB"
 
 #: libraries/classes/Engines/Innodb.php:164
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "Folosire Buffer Pool"
 
 #: libraries/classes/Engines/Innodb.php:175
-#, fuzzy
 msgid "pages"
 msgstr "pagini"
 
 #: libraries/classes/Engines/Innodb.php:189
-#, fuzzy
 msgid "Free pages"
 msgstr "Pagini libere"
 
 #: libraries/classes/Engines/Innodb.php:198
-#, fuzzy
 msgid "Dirty pages"
 msgstr "Pagini murdare"
 
 #: libraries/classes/Engines/Innodb.php:207
-#, fuzzy
 msgid "Pages containing data"
-msgstr "Pagini ce conțin date"
+msgstr "Pagini care conțin date"
 
 #: libraries/classes/Engines/Innodb.php:216
-#, fuzzy
 msgid "Pages to be flushed"
-msgstr "Pagini de golit"
+msgstr "Pagini care trebuie golite"
 
 #: libraries/classes/Engines/Innodb.php:225
-#, fuzzy
 msgid "Busy pages"
 msgstr "Pagini ocupate"
 
 #: libraries/classes/Engines/Innodb.php:237
 msgid "Latched pages"
-msgstr ""
+msgstr "Pagini închise"
 
 #: libraries/classes/Engines/Innodb.php:251
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "Activitate Buffer Pool"
 
 #: libraries/classes/Engines/Innodb.php:255
-#, fuzzy
 msgid "Read requests"
 msgstr "Cereri de citire"
 
 #: libraries/classes/Engines/Innodb.php:264
-#, fuzzy
 msgid "Write requests"
 msgstr "Cereri de scriere"
 
