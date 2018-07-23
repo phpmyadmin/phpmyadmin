@@ -733,8 +733,6 @@ fieldset.caution a:hover {
 }
 
 ul#topmenu ul {
-    -moz-box-shadow:    2px 2px 3px #666;
-    -webkit-box-shadow: 2px 2px 3px #666;
     box-shadow:         2px 2px 3px #666;
 }
 
@@ -747,13 +745,11 @@ ul#topmenu a, ul#topmenu span {
     background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     border:             0 solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
     border-width:       1pt 1pt 0 1pt;
-    -moz-border-radius: 0.4em 0.4em 0 0;
     border-radius:      0.4em 0.4em 0 0;
 }
 
 ul#topmenu ul a {
     border-width:       1pt 0 0 0;
-    -moz-border-radius: 0;
     border-radius:      0;
 }
 
@@ -782,7 +778,6 @@ ul#topmenu .tabactive {
 ul#topmenu2 a.tab:hover,
 ul#topmenu2 a.tabactive {
     background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
-    -moz-border-radius: 0.3em;
     border-radius:      0.3em;
     text-decoration:    none;
 }
@@ -1130,8 +1125,6 @@ div.tabLinks .icon {
     border: 1px solid #CCC;
     margin:0;
     padding:3px;
-    -moz-box-shadow:    1px 1px 6px #ddd;
-    -webkit-box-shadow: 2px 2px 3px #666;
     box-shadow:         2px 2px 3px #666;
     background-color:white;
     z-index: 2;
@@ -1204,9 +1197,6 @@ div#logTable table {
     width: 100%;
     margin: 0 0.5em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     height: 2.2em;
 }
 #serverVariables .serverVariableEditor div {
@@ -1743,9 +1733,6 @@ input#input_import_file {
 #index_frm .index_info select {
     width: 100%;
     box-sizing:         border-box;
-    -ms-box-sizing:     border-box;
-    -moz-box-sizing:    border-box;
-    -webkit-box-sizing: border-box;
 }
 
 #index_frm .slider {
@@ -1796,8 +1783,6 @@ table#index_columns select {
     font-weight: bold;
     margin: .4em;
     padding: .2em;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
     border-radius: 2px;
 }
 
@@ -2111,9 +2096,6 @@ fieldset .disabled-field td {
 #table_columns select {
     width:              10em;
     box-sizing:         border-box;
-    -ms-box-sizing:     border-box;
-    -moz-box-sizing:    border-box;
-    -webkit-box-sizing: border-box;
 }
 
 #placeholder {
@@ -2236,8 +2218,6 @@ fieldset .disabled-field td {
     background: #333 !important;
     opacity: .8 !important;
     border: 1px solid #000 !important;
-    -moz-border-radius: .3em !important;
-    -webkit-border-radius: .3em !important;
     border-radius: .3em !important;
     text-shadow: -1px -1px #000 !important;
     font-size: .8em !important;
@@ -2999,9 +2979,6 @@ html.ie8 #pma_console .message .action_content {
     border-<?php echo $left; ?>: solid 1px #999;
     z-index: 300;
     transition: <?php echo $left; ?> 0.2s;
-    -ms-transition: <?php echo $left; ?> 0.2s;
-    -webkit-transition: <?php echo $left; ?> 0.2s;
-    -moz-transition: <?php echo $left; ?> 0.2s;
 }
 #pma_console .card.show {
     <?php echo $left; ?>: 6%;
@@ -3127,11 +3104,7 @@ html.ie7 #pma_console .query_input {
     width: 400px;
     border: 1px solid #999;
     background: #f3f3f3;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
 }
 
@@ -3145,8 +3118,6 @@ html.ie7 #pma_console .query_input {
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
 }
 
@@ -3205,7 +3176,6 @@ html.ie7 #pma_console .query_input {
     background: white;
     min-height: 300px;
     z-index: 800;
-    -webkit-box-shadow: 0 0 15px #999;
     border-radius: 10px;
     cursor: move;
 }
