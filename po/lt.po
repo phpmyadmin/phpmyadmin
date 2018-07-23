@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-07-23 10:52+0000\n"
-"Last-Translator: Isaac Bennetch <bennetch@gmail.com>\n"
+"PO-Revision-Date: 2018-07-23 11:06+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-8/lt/>\n"
 "Language: lt\n"
@@ -647,7 +647,7 @@ msgid ""
 msgstr ""
 "Jūs naudojate demonstracinį serverį. Čia galite daryti ką norite, bet "
 "nepakeiskite admistratoriaus root, debian-sys-maint ir pma vartotojų. "
-"Daugiau informacijos galima rasti čia adresu%s"
+"Daugiau informacijos galima rasti čia adresu %s."
 
 #: index.php:207
 msgid "General settings"
@@ -3363,11 +3363,11 @@ msgstr "Negalėjo išsaugoti paskiausios lentelės"
 
 #: libraries/classes/CentralColumns.php:618
 msgid "YES"
-msgstr ""
+msgstr "Taip"
 
 #: libraries/classes/CentralColumns.php:618
 msgid "NO"
-msgstr ""
+msgstr "Ne"
 
 #: libraries/classes/CentralColumns.php:749
 #: libraries/classes/Display/Results.php:961
@@ -18041,9 +18041,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Rūšiavimo buferio dydis"
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Užklausų saugykla"
+msgstr "Užklausų pagreitinimo (kešo) naudojamumas"
 
 #: libraries/advisory_rules.txt:170
 #, php-format
