@@ -43,10 +43,9 @@ Core::noCacheHeader();
 <title>phpMyAdmin setup</title>
 <link href="../favicon.ico" rel="icon" type="image/x-icon" />
 <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<link href="styles.css" rel="stylesheet" type="text/css" />
+<link href="styles.css" rel="stylesheet" />
 <script type="text/javascript" src="../js/vendor/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../js/vendor/jquery/jquery-ui.min.js">
-</script>
+<script type="text/javascript" src="../js/vendor/jquery/jquery-ui.min.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript" src="../js/config.js"></script>
 <script type="text/javascript" src="scripts.js"></script>
