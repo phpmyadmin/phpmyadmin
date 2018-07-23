@@ -263,7 +263,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree div.block img {
     position: relative;
-    top: -0.6em;
+    top: -.6em;
     <?php echo $left; ?>: 0;
     margin-<?php echo $left; ?>: -5px;
 }

@@ -1121,7 +1121,7 @@ div.tabLinks a, div.tabLinks label {
 }
 
 div.tabLinks .icon {
-    margin: -0.2em 0.3em 0 0;
+    margin: -.2em 0.3em 0 0;
 }
 
 .popupContent {
@@ -2858,7 +2858,7 @@ table.show_create td {
 }
 #pma_console .message:before,
 #pma_console .query_input:before {
-    left: -0.7em;
+    left: -.7em;
     position: absolute;
     content: ">";
 }

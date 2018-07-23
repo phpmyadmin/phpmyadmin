@@ -333,7 +333,7 @@ img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reloa
 }
 #pma_navigation_tree div.block img {
     position: relative;
-    top: -0.6em;
+    top: -.6em;
     <?php echo $left; ?>: 0;
     margin-<?php echo $left; ?>: -7px;
 }
