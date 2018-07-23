@@ -191,12 +191,7 @@ class TableRelationController extends TableController
         $foreignKeySupported = Util::isForeignKeySupported($this->tbl_storage_engine);
         $this->response->addHTML(
             $this->template->render('table/relation/common_form', [
-                'url_params' => [
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table'],
-                ],
                 'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                'cfg_relation' => $this->relation->getRelationsParam(),
                 'db' => $this->db,
                 'table' => $this->table,
                 'cfg_relation' => $this->cfgRelation,
