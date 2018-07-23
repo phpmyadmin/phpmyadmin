@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-03-18 15:40+0000\n"
-"Last-Translator: Nuno Marques <nunosil@gmail.com>\n"
+"PO-Revision-Date: 2018-07-23 10:52+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pt/>\n"
 "Language: pt\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -3679,10 +3679,8 @@ msgstr ""
 "CodeMirror seja ativado."
 
 #: libraries/classes/Config/Descriptions.php:129
-#, fuzzy
-#| msgid "Enable SQL Validator"
 msgid "Enable linter"
-msgstr "Activar SQL Validator"
+msgstr "Activar Validador de SQL"
 
 #: libraries/classes/Config/Descriptions.php:132
 msgid ""
@@ -3806,10 +3804,8 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "Se as acções da estrutura da tabela devem ser escondidas."
 
 #: libraries/classes/Config/Descriptions.php:191
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "Comentários da tabela"
+msgstr "Mostrar comentários da coluna"
 
 #: libraries/classes/Config/Descriptions.php:193
 msgid "Whether column comments should be shown in table structure view"
@@ -3840,54 +3836,41 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"Valores para a lista de opções de transformações padrão. Estas serão "
+"substituídas se a transformação for preenchida na pagina da estrutura da "
+"tabela."
 
 #: libraries/classes/Config/Descriptions.php:201
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Substring"
-msgstr "Opções de tranformação"
+msgstr "Transformações para Substrings padrão"
 
 #: libraries/classes/Config/Descriptions.php:205
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Ordenação padrão"
+msgstr "Transformações para Bool2Text padrão"
 
 #: libraries/classes/Config/Descriptions.php:209
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Ordenação padrão"
+msgstr "Transformações para External padrão"
 
 #: libraries/classes/Config/Descriptions.php:213
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Opções de tranformação"
+msgstr "Transformações para PreApPend padrão"
 
 #: libraries/classes/Config/Descriptions.php:217
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Ordenação padrão"
+msgstr "Transformações para DateFormat padrão"
 
 #: libraries/classes/Config/Descriptions.php:221
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Inline"
-msgstr "Opções de tranformação"
+msgstr "Transformações para Inline padrão"
 
 #: libraries/classes/Config/Descriptions.php:225
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Opções de tranformação"
+msgstr "Transformações para TextImageLink padrão"
 
 #: libraries/classes/Config/Descriptions.php:229
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Opções de tranformação"
+msgstr "Transformações para TextLink padrão"
 
 #: libraries/classes/Config/Descriptions.php:234
 msgid "Show server listing as a list instead of a drop down."
@@ -3924,10 +3907,9 @@ msgstr "Tempo máximo de execução"
 
 #: libraries/classes/Config/Descriptions.php:253
 #: templates/display/export/options_output.twig:17
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "Itens"
+msgstr "Use a instrução %s"
 
 #: libraries/classes/Config/Descriptions.php:256 prefs_manage.php:311
 msgid "Save as file"
@@ -4070,8 +4052,6 @@ msgstr "Tipo MIME"
 #: libraries/classes/Config/Descriptions.php:316
 #: libraries/classes/Config/Descriptions.php:340
 #: libraries/classes/Config/Descriptions.php:405
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Relações"
 
@@ -4092,10 +4072,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Substituir o(s) ficheiro(s) existente(s)"
 
 #: libraries/classes/Config/Descriptions.php:348
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export as separate files"
-msgstr "horizontal (cabeçalhos rodados)"
+msgstr "Exportar como ficheiros separados"
 
 #: libraries/classes/Config/Descriptions.php:354
 msgid "Remember file name template"
@@ -7061,7 +7039,7 @@ msgstr "Único"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1240
 #: templates/columns_definitions/column_indexes.twig:20
 msgid "Spatial"
-msgstr ""
+msgstr "Espacial"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1236
 #: libraries/classes/Controllers/Table/TableStructureController.php:1241
@@ -9683,10 +9661,8 @@ msgstr "Data de Criação"
 #: libraries/classes/Plugins/Export/ExportLatex.php:226
 #: libraries/classes/Plugins/Export/ExportSql.php:708
 #: libraries/classes/Plugins/Export/ExportXml.php:249
-#, fuzzy
-#| msgid "PHP Version"
 msgid "PHP Version:"
-msgstr "versão do PHP"
+msgstr "versão do PHP:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:897
@@ -10506,8 +10482,6 @@ msgid "not OK"
 msgstr "não está OK"
 
 #: libraries/classes/Relation.php:111
-#, fuzzy
-#| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "OK"
@@ -11103,8 +11077,6 @@ msgid "Start"
 msgstr "Estado"
 
 #: libraries/classes/Rte/Events.php:538
-#, fuzzy
-#| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Fim"
@@ -11354,8 +11326,6 @@ msgid "Trigger name"
 msgstr "Nome do Utilizador"
 
 #: libraries/classes/Rte/Triggers.php:408
-#, fuzzy
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Tempo"
@@ -11777,8 +11747,6 @@ msgid "Global privileges"
 msgstr "Privilégios Globais"
 
 #: libraries/classes/Server/Privileges.php:1165
-#, fuzzy
-#| msgid "global"
 msgid "Global"
 msgstr "global"
 
@@ -14722,8 +14690,6 @@ msgid "Input transformation"
 msgstr "Transformação do navegador"
 
 #: transformation_overview.php:58
-#, fuzzy
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descrição"
@@ -14782,8 +14748,6 @@ msgid "Author"
 msgstr "Autor"
 
 #: templates/server/plugins/section.twig:23
-#, fuzzy
-#| msgid "Disabled"
 msgid "disabled"
 msgstr "Desactidado"
 
@@ -15086,8 +15050,6 @@ msgid "Inside column:"
 msgstr "Dentro da coluna:"
 
 #: templates/columns_definitions/column_default.twig:3
-#, fuzzy
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Nenhum"
@@ -15341,8 +15303,6 @@ msgid "+ Add column"
 msgstr "Adiciona novo campo"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Atualizar consulta"
 
@@ -15517,8 +15477,6 @@ msgstr ""
 
 #: templates/table/tracking/structure_snapshot_columns.twig:47
 #: templates/table/structure/table_structure_row.twig:34
-#, fuzzy
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Nenhum"
@@ -15708,14 +15666,10 @@ msgid "During current session"
 msgstr "Durante a sessão atual"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Ascending"
 msgid "ascending"
 msgstr "Ascendente"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Descending"
 msgid "descending"
 msgstr "Descendente"
 
@@ -16310,8 +16264,6 @@ msgid "Bar"
 msgstr "Mar"
 
 #: templates/table/chart/tbl_chart.twig:19
-#, fuzzy
-#| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Coluna"
@@ -16904,8 +16856,6 @@ msgstr ""
 
 #: templates/privileges/column_privileges.twig:21
 #: templates/privileges/column_privileges.twig:22
-#, fuzzy
-#| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Nenhum"
@@ -17280,9 +17230,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Tipo de Query"
+msgstr "Utilização da cache de comandos"
 
 #: libraries/advisory_rules.txt:170
 #, php-format
