@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-07-23 10:53+0000\n"
+"PO-Revision-Date: 2018-07-23 11:06+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ug/>\n"
@@ -356,7 +356,7 @@ msgstr ""
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:86
 #: libraries/classes/Plugins/AuthenticationPlugin.php:186
 msgid "Access denied!"
-msgstr "رەت قىلىندى"
+msgstr "زىيارەت رەت قىلىندى!"
 
 #: db_tracking.php:59 db_tracking.php:84
 #, fuzzy
@@ -3801,7 +3801,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:66
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "ھەرقانداق MySQL مۇلازىمىتىرىگە كىرىشكە قوشۇل"
 
 #: libraries/classes/Config/Descriptions.php:69
 msgid ""
@@ -3811,10 +3811,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:74
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "MySQL مۇلازىمىتېرىغا ئۇلىنالمىدى."
+msgstr "MySQL مۇلازىمىتېرىغا كىرىشنى چەكلە."
 
 #: libraries/classes/Config/Descriptions.php:77
 msgid ""
