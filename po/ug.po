@@ -7,22 +7,20 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2015-10-15 11:03+0200\n"
+"PO-Revision-Date: 2018-07-23 10:53+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Uighur <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ug/>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
-#, fuzzy
-#| msgid "Bar type"
 msgid "Bad type!"
-msgstr "چىقىرىش"
+msgstr "بوزۇق تىپ!"
 
 #: changelog.php:41 license.php:36
 #, php-format
@@ -345,10 +343,8 @@ msgstr ""
 "%sبۇ يەرنى كۆرۈڭ%s."
 
 #: db_qbe.php:134
-#, fuzzy
-#| msgid "You have to choose at least one column to display"
 msgid "You have to choose at least one column to display!"
-msgstr "بۇنى بىجىرىش ئۈچۈن مەزمۇن تاللانغان بولۇشى كېرەك"
+msgstr "ئەڭ ئاز بىرقۇرنى كۆرسىتىشكە تاللىشىڭىز كېرەك!"
 
 #: db_qbe.php:152
 #, php-format
