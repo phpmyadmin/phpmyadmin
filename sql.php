@@ -27,11 +27,10 @@ PageSettings::showGroup('Browse');
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
-$scripts->addFile('multi_column_sort.js');
+$scripts->addFile('multi_column_sort');
 
 $sql = new Sql();
 
