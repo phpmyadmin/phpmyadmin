@@ -8,6 +8,20 @@ import { PMA_getImage } from './functions/get_image';
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
  */
+
+/**
+ * @todo this function is to be removed when complete code is modularised
+ */
+function checkNewCode (script) {
+    var check = script.split('.js');
+    // console.log(check);
+    if (check.length === 2) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 export let AJAX = {
     /**
      * @var bool test variable for checking this object
@@ -568,22 +582,41 @@ export let AJAX = {
                 // This is necessary to correctly tear down the initial page
                 this._scriptsToBeFired.push(file);
             }
-            var fileImports = ['server_privileges', 'server_databases'];
-            if ($.inArray(file, fileImports) !== -1) {
-                console.log('import_check');
-                import(`./${file}`)
-                .then((module) => {
-                    for (var i in module) {
-                        if (i.indexOf('onload') !== -1) {
-                            AJAX.registerOnload(`${file}`, module[i]);
-                        } else if (i.indexOf('teardown') !== -1) {
-                            AJAX.registerTeardown(file, module[i]);
-                        }
-                    }
-                    AJAX.fireOnload(file);
-                    // AJAX.fireTeardown('server_databases_new.js');
-                })
-                .catch(e => console.log(e));
+            /**
+             * @todo This condition is to be removed once all the files are modularised
+             */
+            if (checkNewCode(file)) {
+                var fileImports = ['server_privileges', 'server_databases'];
+                if ($.inArray(file, fileImports) !== -1) {
+                    // Dynamic import to load the files dynamically
+                    // This is used for the purpose of code splitting
+                    import(`./${file}`)
+                    .then((module) => {
+                        /**
+                         * setTimeout is used so that scripts run only when content is
+                         * available.
+                         */
+                        setTimeout(function () {
+                            /**
+                             * @var i The name of the module exported in corresponding file
+                             */
+                            for (var i in module) {
+                                // If the export has onload in its name, register onload for that export
+                                if (i.indexOf('onload') !== -1) {
+                                    AJAX.registerOnload(`${file}`, module[i]);
+                                } else if (i.indexOf('teardown') !== -1) {
+                                    // If the export has teardown in its name, register teardown for that export
+                                    AJAX.registerTeardown(file, module[i]);
+                                }
+                            }
+                            // Firinf onload for the files being dynamically imported.
+                            AJAX.fireOnload(file);
+                        }, 250);
+                        // AJAX.fireTeardown('server_databases_new.js');
+                    })
+                    // Error of Dynamica Imoprts need to be handled with Tracekit gracefully
+                    .catch(e => console.log(e));
+                }
             }
             return this;
 
@@ -623,6 +656,13 @@ export let AJAX = {
                 // Only for scripts that we don't already have
                 if ($.inArray(script, self._scripts) === -1) {
                     this.add(script, 0, callback);
+                    /**
+                     * @todo To be removed once complete code is modularised
+                     * Only for appending js files in the header if not already present
+                     */
+                    if (!checkNewCode(script)) {
+                        this.appendScript(script, callback);
+                    }
                 }
                 self.done(script, callback);
             }
@@ -660,36 +700,23 @@ export let AJAX = {
          * @return void
          * this is to be removed in modularised code
          * no appending of scripts is needed
+         *
+         * @todo This method will be of no use in modular code
          */
-        // appendScript: function (name, callback) {
-        //     var head = document.head || document.getElementsByTagName('head')[0];
-        //     var script = document.createElement('script');
-        //     var self = this;
+        appendScript: function (name, callback) {
+            var head = document.head || document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            var self = this;
 
-        //     script.type = 'text/javascript';
-        //     /**
-        //      * This piece of code is for appending the new revamped files into the
-        //      * DOM so that both new and old files can be used simultaneously
-        //      * It checks whether the file contains new in its name or not
-        //      */
-        //     var check = name.split('_');
-        //     if (check[check.length - 1] === 'new.js') {
-        //         var script_src = '';
-        //         if (PMA_commonParams.get('environment') === 'development') {
-        //             script_src += 'http://localhost:' + PMA_commonParams.get('webpack_port') + '/js/dist/';
-        //         } else if (PMA_commonParams.get('environment') === 'production') {
-        //             script_src = 'js/dist/';
-        //         }
-        //         script.src = script_src + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
-        //     } else {
-        //         script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
-        //     }
-        //     script.async = false;
-        //     script.onload = function () {
-        //         self.done(name, callback);
-        //     };
-        //     head.appendChild(script);
-        // },
+            script.type = 'text/javascript';
+            script.src = 'js/' + name + '?' + 'v=' + encodeURIComponent(PMA_commonParams.get('PMA_VERSION'));
+            script.async = false;
+
+            script.onload = function () {
+                self.done(name, callback);
+            };
+            head.appendChild(script);
+        },
         /**
          * Fires all the teardown event handlers for the current page
          * and rebinds all forms and links to the request handler
@@ -716,3 +743,9 @@ export let AJAX = {
         }
     }
 }
+
+/**
+ * @todo this is to be removed when complete code is modularised
+ * Exporsing module to window for use with non modular code
+ */
+window.AJAX = AJAX;
