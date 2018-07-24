@@ -686,7 +686,8 @@ class FormDisplay
                         if (! $successfullyValidated) {
                             $this->_errors[$workPath][] = __('Incorrect value!');
                             $result = false;
-                            continue;
+                            // "continue" for the $form->fields foreach-loop
+                            continue 2;
                         }
                         break;
                     case 'string':
