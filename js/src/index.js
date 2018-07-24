@@ -4,17 +4,6 @@ import { jQuery as $ } from './utils/JqueryExtended';
 import files from './consts/files';
 
 /**
- * This block of code is for importing javascript files needed
- * for the first time loading of the page.
- */
-let firstPage = window.location.pathname.replace('/', '').replace('.php', '');
-if (typeof files[firstPage] !== 'undefined') {
-    for (let i in files[firstPage]) {
-        AJAX.scriptHandler.add(files[firstPage][i]);
-    }
-}
-
-/**
  * Page load event handler
  */
 $(function () {
@@ -79,8 +68,19 @@ $(function () {
 });
 
 /**
- * Attach a generic event handler to clicks
- * on pages and submissions of forms
+ * This block of code is for importing javascript files needed
+ * for the first time loading of the page.
  */
-$(document).on('click', 'a', AJAX.requestHandler);
-$(document).on('submit', 'form', AJAX.requestHandler);
+let firstPage = window.location.pathname.replace('/', '').replace('.php', '');
+let indexStart = window.location.search.indexOf('target') + 7;
+let indexEnd = window.location.search.indexOf('.php');
+let indexPage = window.location.search.slice(indexStart, indexEnd);
+if (typeof files[firstPage] !== 'undefined' && firstPage.toLocaleLowerCase() !== 'index') {
+    for (let i in files[firstPage]) {
+        AJAX.scriptHandler.add(files[firstPage][i], 1);
+    }
+} else if (typeof files[indexPage] !== 'undefined' && firstPage.toLocaleLowerCase() === 'index') {
+    for (let i in files[indexPage]) {
+        AJAX.scriptHandler.add(files[indexPage][i], 1);
+    }
+}

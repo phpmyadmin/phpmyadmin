@@ -745,6 +745,13 @@ export let AJAX = {
 }
 
 /**
+ * Attach a generic event handler to clicks
+ * on pages and submissions of forms
+ */
+$(document).on('click', 'a', AJAX.requestHandler);
+$(document).on('submit', 'form', AJAX.requestHandler);
+
+/**
  * @todo this is to be removed when complete code is modularised
  * Exporsing module to window for use with non modular code
  */

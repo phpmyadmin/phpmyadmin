@@ -195,18 +195,20 @@ class Scripts
 
         $code = 'AJAX.scriptHandler';
         foreach ($this->_files as $file) {
-            $code .= sprintf(
-                '.add("%s",%d)',
-                Sanitize::escapeJsString($file['filename']),
-                $file['has_onload'] ? 1 : 0
-            );
+            if (strpos($file['filename'], ".js") !== false) {
+                $code .= sprintf(
+                    '.add("%s",%d)',
+                    Sanitize::escapeJsString($file['filename']),
+                    $file['has_onload'] ? 1 : 0
+                );
+            }
         }
         $code .= ';';
         $this->addCode($code);
 
         $code = '$(function() {';
         foreach ($this->_files as $file) {
-            if ($file['has_onload']) {
+            if ($file['has_onload'] && strpos($file['filename'], ".js") !== false) {
                 $code .= 'AJAX.fireOnload("';
                 $code .= Sanitize::escapeJsString($file['filename']);
                 $code .= '");';
