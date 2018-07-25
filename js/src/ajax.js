@@ -591,35 +591,34 @@ export let AJAX = {
                     // Dynamic import to load the files dynamically
                     // This is used for the purpose of code splitting
                     import(`./${file}`)
-                    .then((module) => {
+                        .then((module) => {
                         /**
                          * setTimeout is used so that scripts run only when content is
                          * available.
                          */
-                        setTimeout(function () {
-                            /**
-                             * @var i The name of the module exported in corresponding file
-                             */
-                            for (var i in module) {
-                                // If the export has onload in its name, register onload for that export
-                                if (i.indexOf('onload') !== -1) {
-                                    AJAX.registerOnload(`${file}`, module[i]);
-                                } else if (i.indexOf('teardown') !== -1) {
-                                    // If the export has teardown in its name, register teardown for that export
-                                    AJAX.registerTeardown(file, module[i]);
+                            setTimeout(function () {
+                                /**
+                                 * @var i The name of the module exported in corresponding file
+                                 */
+                                for (var i in module) {
+                                    // If the export has onload in its name, register onload for that export
+                                    if (i.indexOf('onload') !== -1) {
+                                        AJAX.registerOnload(`${file}`, module[i]);
+                                    } else if (i.indexOf('teardown') !== -1) {
+                                        // If the export has teardown in its name, register teardown for that export
+                                        AJAX.registerTeardown(file, module[i]);
+                                    }
                                 }
-                            }
-                            // Firinf onload for the files being dynamically imported.
-                            AJAX.fireOnload(file);
-                        }, 250);
-                        // AJAX.fireTeardown('server_databases_new.js');
-                    })
-                    // Error of Dynamica Imoprts need to be handled with Tracekit gracefully
-                    .catch(e => console.log(e));
+                                // Firinf onload for the files being dynamically imported.
+                                AJAX.fireOnload(file);
+                            }, 250);
+                            // AJAX.fireTeardown('server_databases_new.js');
+                        })
+                        // Error of Dynamica Imoprts need to be handled with Tracekit gracefully
+                        .catch(e => console.log(e));
                 }
             }
             return this;
-
         },
         /**
          * Download a list of js files in one request
@@ -742,7 +741,7 @@ export let AJAX = {
             callback();
         }
     }
-}
+};
 
 /**
  * Attach a generic event handler to clicks
