@@ -225,9 +225,6 @@ input[type=number],
 input[type=date],
 select {
     transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
 }
 
 input[type=text][disabled],
@@ -3234,9 +3231,6 @@ html.ie8 #pma_console .message .action_content {
     border-<?php echo $left; ?>: solid 1px #999;
     z-index: 300;
     transition: <?php echo $left; ?> 0.2s;
-    -ms-transition: <?php echo $left; ?> 0.2s;
-    -webkit-transition: <?php echo $left; ?> 0.2s;
-    -moz-transition: <?php echo $left; ?> 0.2s;
 }
 #pma_console .card.show {
     <?php echo $left; ?>: 6%;
