@@ -733,8 +733,6 @@ fieldset.caution a:hover {
 }
 
 ul#topmenu ul {
-    -moz-box-shadow:    2px 2px 3px #666;
-    -webkit-box-shadow: 2px 2px 3px #666;
     box-shadow:         2px 2px 3px #666;
 }
 
@@ -1127,8 +1125,6 @@ div.tabLinks .icon {
     border: 1px solid #CCC;
     margin:0;
     padding:3px;
-    -moz-box-shadow:    1px 1px 6px #ddd;
-    -webkit-box-shadow: 2px 2px 3px #666;
     box-shadow:         2px 2px 3px #666;
     background-color:white;
     z-index: 2;
@@ -3109,8 +3105,6 @@ html.ie7 #pma_console .query_input {
     border: 1px solid #999;
     background: #f3f3f3;
     border-radius: 4px;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
 }
 
@@ -3124,8 +3118,6 @@ html.ie7 #pma_console .query_input {
     font-size: 1.6em;
     font-weight: normal;
     text-shadow: 0 1px 0 #777;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
 }
 
@@ -3184,7 +3176,6 @@ html.ie7 #pma_console .query_input {
     background: white;
     min-height: 300px;
     z-index: 800;
-    -webkit-box-shadow: 0 0 15px #999;
     border-radius: 10px;
     cursor: move;
 }
