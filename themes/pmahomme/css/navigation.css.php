@@ -120,7 +120,6 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_db_select select {
     background: url("./themes/pmahomme/img/select_bg.png") repeat scroll 0 0;
-    -webkit-border-radius: 2px;
     border-radius: 2px;
     border: 1px solid #bbb;
     border-top: 1px solid #bbb;
