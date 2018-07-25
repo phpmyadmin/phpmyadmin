@@ -36,9 +36,6 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     width: 100%;
     margin: 0;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 
 .rte_table input[type=button],

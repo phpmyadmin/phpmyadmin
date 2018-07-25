@@ -1542,9 +1542,6 @@ div#queryAnalyzerDialog table.queryNums {
     width: 100%;
     margin: 0 0.5em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     height: 2.2em;
 }
 #serverVariables .serverVariableEditor div {
@@ -2234,9 +2231,6 @@ input#input_import_file {
     width: 100%;
     margin: 0;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 
 #index_frm .index_info div {
@@ -2634,9 +2628,6 @@ fieldset .disabled-field td {
 #table_columns select {
     width: 10em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 
 #placeholder {

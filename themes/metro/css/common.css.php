@@ -228,8 +228,6 @@ body#loginform input.textfield
     background: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     margin: 0;
 }
 
@@ -239,8 +237,6 @@ body#loginform input.textfield:focus
     background-color: #fff;
     color: #333;
     box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     margin: 0;
 }
 
@@ -974,8 +970,6 @@ div.notice,
 div.error,
 div.footnotes {
     box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     margin: 20px 0 20px;
     border: 1px solid;
     background-repeat: no-repeat;
@@ -1802,9 +1796,6 @@ div#queryAnalyzerDialog table.queryNums {
     width: 100%;
     margin: 0 0.5em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     height: 2.2em;
 }
 #serverVariables .serverVariableEditor div {
@@ -2551,9 +2542,6 @@ input#input_import_file {
 #index_frm .index_info select {
     width: 14em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 
 #index_frm .index_info div {
@@ -3001,9 +2989,6 @@ form.append_fields_form .tblFooters
 #table_columns select {
     width: 10em;
     box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 
 #table_columns select {
