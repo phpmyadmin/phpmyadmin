@@ -318,10 +318,7 @@ class ThemeTest extends PmaTestCase
             . "\n" . 'background-size: 100% 100%;'
             . "\n" . 'background: -webkit-gradient(linear, left top, left bottom, '
             . 'from(#12345), to(#54321));'
-            . "\n" . 'background: -webkit-linear-gradient(top, #12345, #54321);'
-            . "\n" . 'background: -moz-linear-gradient(top, #12345, #54321);'
-            . "\n" . 'background: -ms-linear-gradient(top, #12345, #54321);'
-            . "\n" . 'background: -o-linear-gradient(top, #12345, #54321);'
+            . "\n" . 'background: linear-gradient(top, #12345, #54321);'
         );
     }
 
