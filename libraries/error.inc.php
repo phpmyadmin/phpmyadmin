@@ -25,7 +25,7 @@ if (! defined('TESTSUITE')) {
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>phpMyAdmin</title>
     <meta charset="utf-8" />
-    <style type="text/css">
+    <style>
     <!--
     html {
         padding: 0;
@@ -34,22 +34,22 @@ if (! defined('TESTSUITE')) {
     body  {
         font-family: sans-serif;
         font-size: small;
-        color: #000000;
+        color: #000;
         background-color: #F5F5F5;
         margin: 1em;
     }
     h1 {
         margin: 0;
-        padding: 0.3em;
+        padding: .3em;
         font-size: 1.4em;
         font-weight: bold;
-        color: #ffffff;
+        color: #fff;
         background-color: #ff0000;
     }
     p {
         margin: 0;
-        padding: 0.5em;
-        border: 0.1em solid red;
+        padding: .5em;
+        border: .1em solid red;
         background-color: #ffeeee;
     }
     //-->
