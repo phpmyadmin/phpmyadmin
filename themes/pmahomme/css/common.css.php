@@ -132,8 +132,6 @@ button.mult_submit:focus,
     background: #f3f3f3;
     border: 1px solid #aaa;
     margin-bottom: 10px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
 }
 
@@ -145,8 +143,6 @@ button.mult_submit:focus,
     border: 1px solid #aaa;
     background: #fff;
     padding: 4px 8px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
     <?php echo $theme->getCssGradient('ffffff', 'e0e0e0'); ?>
 }
@@ -202,8 +198,6 @@ input[type=password],
 input[type=number],
 input[type=date] {
     border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
 
 
     background: white;
@@ -294,8 +288,6 @@ input.button {
     background: #ddd;
 
     border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
 
     text-shadow: 0 1px 0 #fff;
 
@@ -348,8 +340,6 @@ textarea.char {
 fieldset, .preview_sql {
     margin-top: 1em;
     border-radius: 4px 4px 0 0;
-    -moz-border-radius: 4px 4px 0 0;
-    -webkit-border-radius: 4px 4px 0 0;
     border: #aaa solid 1px;
     padding: 0.5em;
     background: #eee;
@@ -372,8 +362,6 @@ fieldset legend {
     color: #444;
     padding: 5px 10px;
     border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     border: 1px solid #aaa;
     background-color: #fff;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>3px 3px 15px #bbb;
@@ -430,8 +418,6 @@ input[type="radio"] {
 
 
 select {
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     border-radius: 2px;
 
     border: 1px solid #bbb;
@@ -528,8 +514,6 @@ fieldset.tblFooters {
     text-align: <?php echo $right; ?>;
     float: none;
     clear: both;
-    -webkit-border-radius: 0 0 4px 4px;
-    -moz-border-radius: 0 0 4px 4px;
     border-radius: 0 0 4px 5px;
 }
 
@@ -741,8 +725,6 @@ div.error {
         <?php
     endif; ?>
 
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
 
     -moz-box-shadow: 0 1px 1px #fff inset;
@@ -1018,8 +1000,6 @@ ul#topmenu2 a {
     white-space: nowrap;
     border: 1px solid #ddd;
     border-radius: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
     background: #f2f2f2;
 
 }
@@ -1071,8 +1051,6 @@ ul#topmenu span {
 
 ul#topmenu ul a {
     border-width: 1pt 0 0 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
     border-radius: 0;
 }
 
@@ -1100,8 +1078,6 @@ ul#topmenu2 a.tab:hover,
 ul#topmenu2 a.tabactive {
     background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     border-radius: .3em;
-    -moz-border-radius: .3em;
-    -webkit-border-radius: .3em;
     text-decoration: none;
 }
 
@@ -1567,8 +1543,6 @@ p.notice {
         background-position: 99% 50%;
         padding: 25px 10px 10px 10px
     <?php endif; ?>
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
     -moz-box-shadow: 0 1px 2px #fff inset;
     -webkit-box-shadow: 0 1px 2px #fff inset;
@@ -1629,8 +1603,6 @@ div#profilingchart {
     background: #f3f3f3;
     border: 1px solid #aaa;
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     box-shadow: 0 1px 1px #fff inset;
     -webkit-box-shadow: 0 1px 1px #fff inset;
     -moz-box-shadow: 0 1px 1px #fff inset;
@@ -1649,8 +1621,6 @@ a.button {
     background: #ddd;
     white-space: nowrap;
     border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
     <?php echo $theme->getCssGradient('f8f8f8', 'd8d8d8'); ?>
 }
 #sectionlinks a:hover,
@@ -1681,8 +1651,6 @@ div#tablefieldscontainer select {
 textarea#sqlquery {
     width: 100%;
     /* height: 100%; */
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     border: 1px solid #aaa;
     padding: 5px;
@@ -1870,8 +1838,6 @@ div.sqlvalidate {
 
     border: 1px solid #999;
     background: #f3f3f3;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
     -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
@@ -2010,8 +1976,6 @@ select.invalid_value,
     margin-top: 200px;
     background: #ffe57e;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     box-shadow: 0 5px 90px #888;
     -moz-box-shadow: 0 5px 90px #888;
     -webkit-box-shadow: 0 5px 90px #888;
@@ -2103,8 +2067,6 @@ select.invalid_value,
     text-decoration: none;
 
     border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
 
     text-shadow: 0 1px 0 #fff;
 
@@ -2290,8 +2252,6 @@ table#index_columns select {
     font-weight: bold;
     margin: .4em;
     padding: .2em;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
     border-radius: 2px;
 }
 
@@ -2319,8 +2279,6 @@ table#index_columns select {
 
 .config-form ul.tabs li a {
     padding: 7px 10px;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
     background: #f2f2f2;
     color: #555;
@@ -2345,8 +2303,6 @@ table#index_columns select {
     margin-top: 0;
     padding: 0;
     clear: both;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
     border-radius: 0;
 }
 
@@ -2566,8 +2522,6 @@ fieldset .disabled-field td {
     overflow: hidden;
     border-right: .1em solid #888;
     border-left: .1em solid #888;
-    -webkit-border-radius: .3em;
-    -moz-border-radius: .3em;
     border-radius: .3em;
 }
 .toggleButton table,
@@ -2744,8 +2698,6 @@ fieldset .disabled-field td {
     -moz-box-shadow: 0 0 .7em #000;
     -webkit-box-shadow: 0 0 .7em #000;
     box-shadow: 0 0 .7em #000;
-    -moz-border-radius: .3em;
-    -webkit-border-radius: .3em;
     border-radius: .3em;
 }
 
@@ -2762,8 +2714,6 @@ fieldset .disabled-field td {
     background: #333 !important;
     opacity: .8 !important;
     border: 1px solid #000 !important;
-    -moz-border-radius: .3em !important;
-    -webkit-border-radius: .3em !important;
     border-radius: .3em !important;
     text-shadow: -1px -1px #000 !important;
     font-size: .8em !important;
@@ -2845,8 +2795,6 @@ fieldset .disabled-field td {
     margin: .8em 0;
 
     border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
 
     <?php echo $theme->getCssGradient('eeeeee', 'cccccc'); ?>
 }
@@ -2876,8 +2824,6 @@ fieldset .disabled-field td {
     padding: .8em .5em;
 
     border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
 }
 
 .navigation input[type=submit]:hover,
@@ -3416,8 +3362,6 @@ html.ie7 #pma_console .query_input {
     width: 400px;
     border: 1px solid #999;
     background: #f3f3f3;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
     -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;

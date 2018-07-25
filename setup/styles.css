@@ -127,8 +127,6 @@ div.error {
     background: no-repeat 10px 10px;
     padding: 10px 10px 10px 25px;
 
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     border-radius: 5px;
 
     -moz-box-shadow: 0 1px 1px #fff inset;
@@ -223,8 +221,6 @@ ul.tabs li a {
 
 ul.tabs li a {
     padding: 7px 10px;
-    -webkit-border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
     background: #f2f2f2;
     color: #555;
@@ -273,8 +269,6 @@ ul.tabs li.active a {
 fieldset {
     margin-top: 1em;
     border-radius: 4px 4px 0 0;
-    -moz-border-radius: 4px 4px 0 0;
-    -webkit-border-radius: 4px 4px 0 0;
     border: #aaa solid 1px;
     padding: 1.5em;
     background: #eee;
@@ -299,8 +293,6 @@ fieldset legend {
     color: #444;
     padding: 5px 10px;
     border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     border: 1px solid #aaa;
     background-color: #fff;
     -moz-box-shadow: 3px 3px 15px #bbb;
@@ -417,8 +409,6 @@ input[type=text],
 input[type=password],
 input[type=number] {
     border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
 
     box-shadow: 0 1px 2px #ddd;
     -moz-box-shadow: 0 1px 2px #ddd;
@@ -449,8 +439,6 @@ input.button {
     background: #ddd;
 
     border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
 
     text-shadow: 0 1px 0 #fff;
 
@@ -494,8 +482,6 @@ input[type="radio"] {
 
 
 select {
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     border-radius: 2px;
 
     -moz-box-shadow: 0 1px 2px #ddd;

@@ -747,13 +747,11 @@ ul#topmenu a, ul#topmenu span {
     background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
     border:             0 solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
     border-width:       1pt 1pt 0 1pt;
-    -moz-border-radius: 0.4em 0.4em 0 0;
     border-radius:      0.4em 0.4em 0 0;
 }
 
 ul#topmenu ul a {
     border-width:       1pt 0 0 0;
-    -moz-border-radius: 0;
     border-radius:      0;
 }
 
@@ -782,7 +780,6 @@ ul#topmenu .tabactive {
 ul#topmenu2 a.tab:hover,
 ul#topmenu2 a.tabactive {
     background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
-    -moz-border-radius: 0.3em;
     border-radius:      0.3em;
     text-decoration:    none;
 }
@@ -1790,8 +1787,6 @@ table#index_columns select {
     font-weight: bold;
     margin: .4em;
     padding: .2em;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
     border-radius: 2px;
 }
 
@@ -2227,8 +2222,6 @@ fieldset .disabled-field td {
     background: #333 !important;
     opacity: .8 !important;
     border: 1px solid #000 !important;
-    -moz-border-radius: .3em !important;
-    -webkit-border-radius: .3em !important;
     border-radius: .3em !important;
     text-shadow: -1px -1px #000 !important;
     font-size: .8em !important;
@@ -3118,8 +3111,6 @@ html.ie7 #pma_console .query_input {
     width: 400px;
     border: 1px solid #999;
     background: #f3f3f3;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     border-radius: 4px;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
     -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
