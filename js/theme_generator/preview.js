@@ -3,9 +3,9 @@
  * Used for generating previews
  */
 
-AJAX.registerTeardown('theme_generator/preview.js',function () {
-    window.location.reload();
-});
+// AJAX.registerTeardown('theme_generator/preview.js',function () {
+//     window.location.reload();
+// });
 
 $(document).on('click', '#preview' ,function () {
     var id = document.getElementById('theme').options.selectedIndex;
@@ -20,27 +20,20 @@ var tablePreview = function (id) {
     var tableRow = document.querySelectorAll('[title="Table Row Background"]')[id].style.backgroundColor;
     var tableAlternateRow = document.querySelectorAll('[title="Table Row Alternate Background"]')[id].style.backgroundColor;
     var hoverRow = document.querySelectorAll('[title="Table Row Hover and Selected"]')[id].style.backgroundColor;
-    $('.row').css('background-color',tableRow);
-    $('.row_alternate').css('background-color',tableAlternateRow);
+    $('.row_preview').css('background',tableRow);
+    $('.row_alternate_preview').css('background',tableAlternateRow);
     document.getElementById('table_preview').style.display = 'block';
-    $(document).on(
-        'mouseover',
-        '.row , .row_alternate',
-        function () {
-            $(this).css('background-color',hoverRow);
-        }
-    );
-    $(document).on(
-        'mouseout',
-        '.row , .row_alternate',
-        function () {
-            if ($(this).hasClass('row')) {
-                $(this).css('background-color',tableRow);
-            } else {
-                $(this).css('background-color',tableAlternateRow);
-            }
-        }
-    );
+    var head = document.getElementsByTagName('head')[0];
+    var style = document.createElement('style');
+    var cssText = 'tr.row_preview:not(.nopointer):hover, tr.row_alternate_preview:not(.nopointer):hover { background:' + hoverRow + '!important }';
+    var declarations = document.createTextNode(cssText);
+    style.type = 'text/css';
+    if (style.styleSheet) {
+      style.styleSheet.cssText = declarations.nodeValue;
+    } else {
+      style.appendChild(declarations);
+    }
+    head.appendChild(style);
 };
 
 var navigationPreview = function (id) {

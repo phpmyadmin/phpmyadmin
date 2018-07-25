@@ -100,8 +100,13 @@ class Layout
         // Group Background
         $txt .= '$GLOBALS[\'cfg\'][\'GroupBg\']            = \'' . $post['Group_Background'] . '\';';
 
-        fwrite($file, $txt);
-        fclose($file);
+        // Check if the file is writable as this condition would only occur if files are overwritten.
+        if ($file) {
+            fwrite($file, $txt);
+            fclose($file);
+        } else {
+            trigger_error("The layout.inc.php file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
+        }
         return $txt;
     }
 }

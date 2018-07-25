@@ -2032,12 +2032,14 @@ AJAX.registerOnload('theme_generator/color_picker.js', function () {
     ColorPickerTool.init();
     var paletteList = document.getElementsByClassName('palette');
     var titleList = document.getElementsByClassName('title');
-    for (var i = 0; i < paletteList.length; i++) (function (i) {
-        paletteList[i].onclick = function () {
-            document.getElementById('theme').options.selectedIndex = i;
-        };
-        titleList[i].onclick = function () {
-            document.getElementById('theme').options.selectedIndex = i;
-        };
-    })(i);
+    for (var i = 0; i < paletteList.length; i++) {
+        (function (i) {
+            paletteList[i].onclick = function () {
+                document.getElementById('theme').options.selectedIndex = i;
+            };
+            titleList[i].onclick = function () {
+                document.getElementById('theme').options.selectedIndex = i;
+            };
+        }(i));
+    }
 });

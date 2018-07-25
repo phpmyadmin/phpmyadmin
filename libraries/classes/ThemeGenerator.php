@@ -93,10 +93,14 @@ class ThemeGenerator
             mkdir("themes/" . $name);
             mkdir("themes/" . $name . "/css");
         }
-        $out['json'] = $this->createJsonFile($post);
-        $common->createCommonFile($name);
-        $out['layout'] = $layout->createLayoutFile($post);
-        $nav->createNavigationFile($name);
+        if (is_dir("themes/" . $name)) {
+            $out['json'] = $this->createJsonFile($post);
+            $common->createCommonFile($name);
+            $out['layout'] = $layout->createLayoutFile($post);
+            $nav->createNavigationFile($name);
+        } else {
+            trigger_error("The 'themes' directory is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
+        }
         return $out;
     }
 
@@ -135,8 +139,13 @@ class ThemeGenerator
         }
         $txt .= '"supports": ["5.0"]';
         $txt .= '}';
-        fwrite($file, $txt);
-        fclose($file);
+        // Check if the file is writable as this condition would only occur if files are overwritten.
+        if ($file) {
+            fwrite($file, $txt);
+            fclose($file);
+        } else {
+            trigger_error("The theme.json file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
+        }
         return $txt;
     }
 }

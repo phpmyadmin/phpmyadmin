@@ -419,8 +419,14 @@ class Navigation
         $txt .= '    float: left;';
         $txt .= '    padding: .1em .3em 0;';
         $txt .= '}';
-        fwrite($file, $txt);
-        fclose($file);
+
+        // Check if the file is writable as this condition would only occur if files are overwritten.
+        if ($file) {
+            fwrite($file, $txt);
+            fclose($file);
+        } else {
+            trigger_error("The navigation.css.php file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
+        }
         return null;
     }
 }
