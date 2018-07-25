@@ -686,27 +686,27 @@ class Header
         $v          = self::getVersionParameter();
 
         if ($this->_isPrintView) {
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
+            $retval .= '<link rel="stylesheet" href="'
                 . $basedir . 'print.css?' . $v . '" />';
         } else {
             // load jQuery's CSS prior to our theme's CSS, to let the theme
             // override jQuery's CSS
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
+            $retval .= '<link rel="stylesheet" href="'
                 . $theme_path . '/jquery/jquery-ui.css" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
+            $retval .= '<link rel="stylesheet" href="'
                 . $basedir . 'js/vendor/codemirror/lib/codemirror.css?' . $v . '" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
+            $retval .= '<link rel="stylesheet" href="'
                 . $basedir . 'js/vendor/codemirror/addon/hint/show-hint.css?' . $v . '" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
+            $retval .= '<link rel="stylesheet" href="'
                 . $basedir . 'js/vendor/codemirror/addon/lint/lint.css?' . $v . '" />';
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
+            $retval .= '<link rel="stylesheet" href="'
                 . $basedir . 'phpmyadmin.css.php?'
                 . 'nocache=' . $theme_id . $GLOBALS['text_dir']
                 . (isset($GLOBALS['server']) ? '&amp;server=' . $GLOBALS['server'] : '')
                 . '" />';
             // load Print view's CSS last, so that it overrides all other CSS while
             // 'printing'
-            $retval .= '<link rel="stylesheet" type="text/css" href="'
+            $retval .= '<link rel="stylesheet" href="'
                 . $theme_path . '/css/printview.css?' . $v . '" media="print" id="printcss"/>';
         }
 

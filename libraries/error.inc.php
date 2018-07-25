@@ -25,7 +25,7 @@ if (! defined('TESTSUITE')) {
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>phpMyAdmin</title>
     <meta charset="utf-8" />
-    <style type="text/css">
+    <style>
     <!--
     html {
         padding: 0;
