@@ -8,6 +8,13 @@
  * @requires    js/functions.js
  *
  */
+import { PMA_sprintf } from './utils/sprintf';
+import { checkPasswordStrength, displayPasswordGenerateButton } from './utils/password';
+// import { AJAX } from './ajax';
+import { PMA_Messages as PMA_messages } from './variables/export_variables';
+import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
+import { PMA_commonParams } from './variables/common_params';
+import { jQuery as $ } from './utils/JqueryExtended';
 
 /**
  * AJAX scripts for server_privileges page.
@@ -27,7 +34,7 @@
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_privileges.js', function () {
+export function teardown1 () {
     $('#fieldset_add_user_login').off('change', 'input[name=\'username\']');
     $(document).off('click', '#fieldset_delete_user_footer #buttonGo.ajax');
     $(document).off('click', 'a.edit_user_group_anchor.ajax');
@@ -39,9 +46,9 @@ AJAX.registerTeardown('server_privileges.js', function () {
     $(document).off('change', '#checkbox_SSL_priv');
     $(document).off('change', 'input[name="ssl_type"]');
     $(document).off('change', '#select_authentication_plugin');
-});
+}
 
-AJAX.registerOnload('server_privileges.js', function () {
+export function onload1 () {
     /**
      * Display a warning if there is already a user by the name entered as the username.
      */
@@ -71,7 +78,10 @@ AJAX.registerOnload('server_privileges.js', function () {
     /**
      * Indicating password strength
      */
-    $('#text_pma_pw').on('keyup', function () {
+    var meter_obj;
+    var meter_obj_label;
+    var username;
+    $(document).on('keyup', '#text_pma_pw', function () {
         meter_obj = $('#password_strength_meter');
         meter_obj_label = $('#password_strength');
         username = $('input[name="username"]');
@@ -79,7 +89,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         checkPasswordStrength($(this).val(), meter_obj, meter_obj_label, username);
     });
 
-    $('#text_pma_change_pw').on('keyup', function () {
+    $(document).on('keyup', '#text_pma_change_pw', function () {
         meter_obj = $('#change_password_strength_meter');
         meter_obj_label = $('#change_password_strength');
         checkPasswordStrength($(this).val(), meter_obj, meter_obj_label, PMA_commonParams.get('user'));
@@ -387,7 +397,7 @@ AJAX.registerOnload('server_privileges.js', function () {
         });
 
         // click handlers for submenu
-        $topmenu2.find('a').on('click', function (e) {
+        $topmenu2.find('a').click(function (e) {
             e.preventDefault();
             // if already active, ignore click
             if ($(this).hasClass('tabactive')) {
@@ -423,4 +433,4 @@ AJAX.registerOnload('server_privileges.js', function () {
 
     var windowwidth = $(window).width();
     $('.jsresponsive').css('max-width', (windowwidth - 35) + 'px');
-});
+}

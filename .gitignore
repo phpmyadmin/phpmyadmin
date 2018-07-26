@@ -55,3 +55,4 @@ composer.lock
 /vendor/
 # NPM
 /node_modules/
+yarn.lock

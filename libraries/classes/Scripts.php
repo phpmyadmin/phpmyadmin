@@ -65,7 +65,7 @@ class Scripts
                 }
                 $result .= '<script data-cfasync="false" type="text/javascript" src="' . $src . 'js/dist/'
                     .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
-            } else {
+            } else if (strpos($value['filename'], ".js") !== false) {
                 $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
                     . $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
             }
@@ -137,6 +137,7 @@ class Scripts
             || strpos($filename, 'messages.php') !== false
             || strpos($filename, 'ajax.js') !== false
             || strpos($filename, 'cross_framing_protection.js') !== false
+            || strpos($filename, 'index_new.js') !== false
         ) {
             return 0;
         }
@@ -186,7 +187,6 @@ class Scripts
     public function getDisplay()
     {
         $retval = '';
-
         if (count($this->_files) > 0) {
             $retval .= $this->_includeFiles(
                 $this->_files
@@ -195,18 +195,20 @@ class Scripts
 
         $code = 'AJAX.scriptHandler';
         foreach ($this->_files as $file) {
-            $code .= sprintf(
-                '.add("%s",%d)',
-                Sanitize::escapeJsString($file['filename']),
-                $file['has_onload'] ? 1 : 0
-            );
+            if (strpos($file['filename'], ".js") !== false) {
+                $code .= sprintf(
+                    '.add("%s",%d)',
+                    Sanitize::escapeJsString($file['filename']),
+                    $file['has_onload'] ? 1 : 0
+                );
+            }
         }
         $code .= ';';
         $this->addCode($code);
 
         $code = '$(function() {';
         foreach ($this->_files as $file) {
-            if ($file['has_onload']) {
+            if ($file['has_onload'] && strpos($file['filename'], ".js") !== false) {
                 $code .= 'AJAX.fireOnload("';
                 $code .= Sanitize::escapeJsString($file['filename']);
                 $code .= '");';

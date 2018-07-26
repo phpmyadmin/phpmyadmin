@@ -2,23 +2,23 @@
 
 /**
  * Takes parameters defined in messages.php file like messages, validations,
- * jquery-ui-timepicker edits using global functions
+ * jquery-ui-timepicker edits
  */
 
-export const PMA_messages = (function () {
+export const Variables =  (function () {
     /**
      * @var obj params An associate array having key value pairs
      * of messages to show in js files.
      *
      *  @access private
      */
-    let messages = new Array();
+    let pmaMessages = new Array();
     /**
      * @var obj params Associative array having global configurations
      *
      *  @access private
      */
-    let globalVars = new Array();
+    let globalVariables = new Array();
     /**
      * @var obj params Associative array having timepicker edits
      *
@@ -37,7 +37,7 @@ export const PMA_messages = (function () {
          *  @return array
          */
         getMessages: () => {
-            return messages;
+            return pmaMessages;
         },
         /**
          * Retrieves the globalVars array
@@ -45,7 +45,7 @@ export const PMA_messages = (function () {
          *  @return array
          */
         getGlobalVars: () => {
-            return globalVars;
+            return globalVariables;
         },
         /**
          * Retrieves the timePickerVars array
@@ -72,7 +72,7 @@ export const PMA_messages = (function () {
          */
         setAllMessages: (obj) => {
             for (var i in obj) {
-                messages[i] = obj[i];
+                pmaMessages[i] = obj[i];
             }
         },
         /**
@@ -84,7 +84,7 @@ export const PMA_messages = (function () {
          */
         setGlobalVars: (obj) => {
             for (var i in obj) {
-                globalVars[i] = obj[i];
+                globalVariables[i] = obj[i];
             }
         },
         /**
