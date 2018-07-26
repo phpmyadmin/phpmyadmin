@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-07-26 11:00+0000\n"
-"Last-Translator: Alex <amihaita@yahoo.com>\n"
+"PO-Revision-Date: 2018-07-26 11:01+0000\n"
+"Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ro/>\n"
 "Language: ro\n"
@@ -40,7 +40,7 @@ msgstr "Dă clic pentru a sorta."
 #: db_central_columns.php:175
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Afișează rând(uri) %1$s - %2$s"
+msgstr "Arăt rândurile %1$s - %2$s."
 
 #: db_datadict.php:59 libraries/classes/Operations.php:47
 msgid "Database comment"
