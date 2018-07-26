@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-07-26 11:47+0000\n"
+"PO-Revision-Date: 2018-07-27 08:20+0000\n"
 "Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
@@ -1171,7 +1171,7 @@ msgstr "Conexiuni/procese"
 
 #: js/messages.php:168
 msgid "Local monitor configuration incompatible!"
-msgstr "Configurarea monitorului local este incompatibilă!"
+msgstr "Configurarea monitorizării locale este incompatibilă!"
 
 #: js/messages.php:170
 msgid ""
@@ -1348,14 +1348,12 @@ msgid "None"
 msgstr "Niciunul"
 
 #: js/messages.php:220
-#, fuzzy
 msgid "Resume monitor"
-msgstr "Reia monitorul"
+msgstr "Reia monitorizarea"
 
 #: js/messages.php:221
-#, fuzzy
 msgid "Pause monitor"
-msgstr "Întrerupe monitorul"
+msgstr "Întrerupe monitorizarea"
 
 #: js/messages.php:222 libraries/classes/Server/Status/Processes.php:48
 msgid "Start auto refresh"
@@ -1627,7 +1625,7 @@ msgstr "Încarc jurnale"
 
 #: js/messages.php:313
 msgid "Monitor refresh failed"
-msgstr "Reîmprospătarea monitorului a eșuat"
+msgstr "Reîmprospătarea monitorizării a eșuat"
 
 #: js/messages.php:315
 #, fuzzy
@@ -1673,7 +1671,7 @@ msgstr "Importă"
 
 #: js/messages.php:330
 msgid "Import monitor configuration"
-msgstr "Importă configurarea monitorului"
+msgstr "Importă configurarea monitorizării"
 
 #: js/messages.php:332
 msgid "Please select the file you want to import."
@@ -6072,6 +6070,10 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"Numele de utilizator pentru autentificarea cu proxy. În mod implicit, nu se "
+"face nicio autentificare. Dacă este furnizat un nume de utilizator, se va "
+"face autentificarea de bază. În prezent, nu este acceptat niciun alt tip de "
+"autentificare."
 
 #: libraries/classes/Config/Descriptions.php:1428
 msgid "Proxy username"
@@ -9527,7 +9529,7 @@ msgstr "Declarații <code>INSERT DELAYED</code>"
 #: libraries/classes/Plugins/Export/ExportSql.php:377
 #: libraries/classes/Plugins/Export/ExportSql.php:411
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "Declarații <code>INSERT IGNORE</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:391
 msgid "Function to use when dumping data:"
@@ -10078,6 +10080,8 @@ msgid ""
 "Validates the string using regular expression and performs insert only if "
 "string matches it. The first option is the Regular Expression."
 msgstr ""
+"Validează șirul folosind expresia obișnuită și efectuează inserarea numai "
+"dacă șirul se potrivește. Prima opțiune este expresia obișnuită."
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:54
 #, php-format
@@ -11987,7 +11991,7 @@ msgstr "Toate variabilele de stare"
 
 #: libraries/classes/Server/Status/Data.php:443
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Monitorizare"
 
 #: libraries/classes/Server/Status/Data.php:447
 msgid "Advisor"
@@ -12040,7 +12044,7 @@ msgstr "Analizator interogare"
 
 #: libraries/classes/Server/Status/Monitor.php:119
 msgid "Monitor Instructions"
-msgstr "Instrucțiuni pentru monitor"
+msgstr "Instrucțiuni pentru monitorizare"
 
 #: libraries/classes/Server/Status/Monitor.php:121
 msgid ""
@@ -12050,15 +12054,15 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
-"Monitorul phpMyAdmin te poate ajuta în optimizarea configurării serverului "
-"și să urmărești interogările intensive de timp. Pentru cele din urmă va "
-"trebui să setezi log_output în „TABEL” și să ai activat fie slow_query_log "
-"ori fie general_log. Rețineți, totuși, că general_log produce o mulțime de "
-"date și crește încărcarea serverului cu până la 15%."
+"Monitorizarea phpMyAdmin te poate ajuta în optimizarea configurării "
+"serverului și să urmărești interogările intensive de timp. Pentru cele din "
+"urmă va trebui să setezi log_output în „TABEL” și să ai activat fie "
+"slow_query_log ori fie general_log. Rețineți, totuși, că general_log produce "
+"o mulțime de date și crește încărcarea serverului cu până la 15%."
 
 #: libraries/classes/Server/Status/Monitor.php:137
 msgid "Using the monitor:"
-msgstr "Folosind monitorul:"
+msgstr "Folosind monitorizarea:"
 
 #: libraries/classes/Server/Status/Monitor.php:140
 msgid ""
@@ -12155,7 +12159,7 @@ msgstr "Serie în diagramă:"
 
 #: libraries/classes/Server/Status/Monitor.php:263
 msgid "Start Monitor"
-msgstr "Pornește monitorul"
+msgstr "Pornește monitorizarea"
 
 #: libraries/classes/Server/Status/Monitor.php:269
 msgid "Instructions/Setup"
@@ -12474,7 +12478,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:481
 msgid "The number of logical read requests InnoDB has done."
-msgstr ""
+msgstr "Numărul de cereri de citire logice pe care le-a făcut InnoDB."
 
 #: libraries/classes/Server/Status/Variables.php:484
 msgid ""
@@ -12493,7 +12497,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Variables.php:496
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr ""
+msgstr "Numărul de scrieri făcute în buffer pool InnoDB."
 
 #: libraries/classes/Server/Status/Variables.php:499
 msgid "The number of fsync() operations so far."
@@ -12799,12 +12803,17 @@ msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
+"Numărul de asocieri fără chei care verifică utilizarea cheilor după fiecare "
+"rând. (Dacă nu este 0, ar trebui să verifici cu atenție indexurile tabelelor "
+"tale.)"
 
 #: libraries/classes/Server/Status/Variables.php:705
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
+"Numărul de asocieri care au folosit intervale în primul tabel. (În mod "
+"normal, nu este o valoare critică chiar dacă este mare.)"
 
 #: libraries/classes/Server/Status/Variables.php:709
 msgid "The number of joins that did a full scan of the first table."
@@ -12880,6 +12889,9 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
+"Numărul de fire în cache fire de execuție. Rata de succes a cache-ului poate "
+"fi calculată ca Threads_created/conexiuni. Dacă această valoare este roșie, "
+"ar trebui să crești thread_cache_size."
 
 #: libraries/classes/Server/Status/Variables.php:759
 msgid "The number of currently open connections."
@@ -13640,6 +13652,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"Stochează și permite accesul eficient la date în documentele JSON ("
+"JavaScript Object Notation)"
 
 #: libraries/classes/Types.php:697
 msgctxt "numeric types"
@@ -13714,12 +13728,12 @@ msgstr "D"
 #: libraries/classes/Util.php:1545
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "PM"
 
 #: libraries/classes/Util.php:1547
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "AM"
 
 #: libraries/classes/Util.php:1847
 #, php-format
@@ -13764,19 +13778,19 @@ msgstr "Execută"
 
 #: libraries/classes/Util.php:3841
 msgid "SSL is not being used"
-msgstr ""
+msgstr "Nu se folosește SSL"
 
 #: libraries/classes/Util.php:3846
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "Este folosit SSL cu verificarea dezactivată"
 
 #: libraries/classes/Util.php:3848
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "Este folosit SSL fără autoritatea de certificare"
 
 #: libraries/classes/Util.php:3851
 msgid "SSL is used"
-msgstr ""
+msgstr "Este folosit SSL"
 
 #: libraries/classes/Util.php:3972
 msgid "Users"
@@ -13800,6 +13814,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Setarea cookie-urilor de sesiune a eșuat. Probabil folosești HTTP în loc de "
+"HTTPS pentru a accesa phpMyAdmin."
 
 #: libraries/common.inc.php:335
 msgid "Invalid authentication method set in configuration:"
@@ -13924,7 +13940,7 @@ msgstr "niciuna din cele de sus"
 
 #: libraries/mult_submits.inc.php:327
 msgid "Success!"
-msgstr ""
+msgstr "Succes!"
 
 #: libraries/user_preferences.inc.php:33
 msgid "Manage your settings"
@@ -13949,11 +13965,11 @@ msgstr ""
 
 #: navigation.php:23
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "Eroare fatală: navigarea poate fi accesată numai prin AJAX"
 
 #: prefs_forms.php:32 setup/frames/form.inc.php:22
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "Formular specificat incorect!"
 
 #: prefs_forms.php:84
 msgid "Cannot save settings, submitted form contains errors!"
@@ -13965,7 +13981,7 @@ msgstr "Fragment configurare phpMyAdmin"
 
 #: prefs_manage.php:55
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "Plasează-l în config.inc.php"
 
 #: prefs_manage.php:95
 msgid "Could not import configuration"
@@ -14023,7 +14039,7 @@ msgstr "Salvează ca fișier PHP"
 
 #: prefs_manage.php:321
 msgid "Save to browser's storage"
-msgstr ""
+msgstr "Salvează în spațiul de stocare al navigatorului"
 
 #: prefs_manage.php:328
 msgid "Settings will be saved in your browser's local storage."
@@ -14065,14 +14081,16 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"Numele de utilizator și numele gazdei nu s-au schimbat. Dacă vrei să schimbi "
+"numai parola, trebuie să folosești fila „Schimbă parola”."
 
 #: server_status.php:36
 msgid "Not enough privilege to view server status."
-msgstr ""
+msgstr "Nu ai privilegii suficiente pentru a vedea starea serverului."
 
 #: server_status_advisor.php:34
 msgid "Not enough privilege to view the advisor."
-msgstr ""
+msgstr "Nu ai privilegii suficiente pentru a vedea consultantul."
 
 #: server_status_processes.php:34
 #, php-format
@@ -14089,11 +14107,11 @@ msgstr ""
 
 #: server_status_queries.php:44
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "Nu ai privilegii suficiente pentru a vedea statisticile de interogare."
 
 #: server_status_variables.php:53
 msgid "Not enough privilege to view status variables."
-msgstr ""
+msgstr "Nu ai privilegii suficiente pentru a vedea variabilele stării."
 
 #: setup/frames/config.inc.php:18 setup/frames/index.inc.php:190
 msgid "Configuration file"
@@ -14108,12 +14126,16 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
+"Nu folosești o conexiune securizată; toate datele (inclusiv informațiile "
+"potențial sensibile, cum ar fi parolele) sunt transferate necriptate!"
 
 #: setup/frames/index.inc.php:55
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
+"Dacă serverul tău este configurat să accepte și solicitări HTTPS, urmărește "
+"această legătură pentru a folosi o conexiune securizată."
 
 #: setup/frames/index.inc.php:59
 msgid "Insecure connection"
@@ -14149,15 +14171,15 @@ msgstr ""
 
 #: setup/frames/index.inc.php:113 setup/frames/menu.inc.php:22
 msgid "Overview"
-msgstr ""
+msgstr "Prezentare generală"
 
 #: setup/frames/index.inc.php:120
 msgid "Show hidden messages (#MSG_COUNT)"
-msgstr ""
+msgstr "Arată mesajele ascunse (#MSG_COUNT)"
 
 #: setup/frames/index.inc.php:171
 msgid "There are no configured servers"
-msgstr ""
+msgstr "Nu există niciun server configurat"
 
 #: setup/frames/index.inc.php:180
 msgid "New server"
@@ -14165,23 +14187,23 @@ msgstr "Server nou"
 
 #: setup/frames/index.inc.php:209
 msgid "Default language"
-msgstr ""
+msgstr "Limbă implicită"
 
 #: setup/frames/index.inc.php:219
 msgid "let the user choose"
-msgstr ""
+msgstr "lasă la alegerea utilizatorului"
 
 #: setup/frames/index.inc.php:230
 msgid "- none -"
-msgstr ""
+msgstr "- niciunul -"
 
 #: setup/frames/index.inc.php:234
 msgid "Default server"
-msgstr ""
+msgstr "Server implicit"
 
 #: setup/frames/index.inc.php:246
 msgid "End of line"
-msgstr ""
+msgstr "Sfârșit de linie"
 
 #: setup/frames/index.inc.php:252
 msgid "Display"
@@ -14217,19 +14239,19 @@ msgstr ""
 
 #: setup/lib/FormProcessing.php:63
 msgid "Warning"
-msgstr ""
+msgstr "Avertizare"
 
 #: setup/lib/FormProcessing.php:64
 msgid "Submitted form contains errors"
-msgstr ""
+msgstr "Formularul trimis conține erori"
 
 #: setup/lib/FormProcessing.php:66
 msgid "Try to revert erroneous fields to their default values"
-msgstr ""
+msgstr "Încearcă să readuci câmpurile eronate la valorile lor implicite"
 
 #: setup/lib/FormProcessing.php:71
 msgid "Ignore errors"
-msgstr ""
+msgstr "Ignoră erorile"
 
 #: setup/lib/FormProcessing.php:75
 msgid "Show form"
@@ -14240,6 +14262,8 @@ msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"Citirea versiunii a eșuat. Poate că ești offline sau serverul de actualizare "
+"nu răspunde."
 
 #: setup/lib/Index.php:148
 msgid "Got invalid version string from server"
@@ -14267,7 +14291,7 @@ msgstr "Date greșite"
 #: setup/validate.php:33
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "Date greșite sau nicio validare pentru %s"
 
 #: tbl_create.php:39 tbl_get_field.php:32
 #, php-format
@@ -14290,7 +14314,7 @@ msgstr "Nume tabel invalid"
 #: tbl_replace.php:246
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "Rând: %1$s, coloană: %2$s, eroare: %3$s"
 
 #: tbl_row_action.php:74
 msgid "No row selected."
@@ -14311,7 +14335,7 @@ msgstr "Nicio versiune selectată."
 
 #: tbl_tracking.php:143
 msgid "SQL statements executed."
-msgstr ""
+msgstr "Declarații SQL executate."
 
 #: themes.php:23 themes.php:28
 msgid "Theme"
@@ -14522,7 +14546,7 @@ msgstr ""
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr ""
+msgstr "Virtualitate"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 msgid "Move column"
@@ -14631,7 +14655,7 @@ msgstr "arhivat cu gzip"
 #: templates/table/tracking/activate_deactivate.twig:7
 #, php-format
 msgid "Activate tracking for %s"
-msgstr ""
+msgstr "Activează urmărirea pentru %s"
 
 #: templates/table/tracking/activate_deactivate.twig:9
 msgid "Activate now"
@@ -14709,10 +14733,12 @@ msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"Poți să ne spui pașii care conduc la această eroare? Ne ajută decisiv la "
+"depanare:"
 
 #: templates/error/report_form.twig:19
 msgid "You may examine the data in the error report:"
-msgstr ""
+msgstr "Poți examina datele în raportul de erori:"
 
 #: templates/table/structure/partition_definition_form.twig:6
 #: templates/table/structure/display_partitions.twig:141
@@ -14870,7 +14896,7 @@ msgstr "O altă coloană"
 
 #: templates/database/multi_table_query/form.twig:125
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Introdu criteriul ca text disponibil"
 
 #: templates/database/multi_table_query/form.twig:133
 msgid "Remove this column"
@@ -14892,7 +14918,7 @@ msgstr "Mută coloane"
 
 #: templates/table/structure/move_columns_dialog.twig:2
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Mută coloanele trăgându-le în sus și jos."
 
 #: templates/server/sub_page_header.twig:2
 msgid "Server variables and settings"
@@ -14978,7 +15004,7 @@ msgstr "Aliniere la grilă"
 #: templates/database/designer/side_menu.twig:129
 #: templates/database/designer/side_menu.twig:135
 msgid "Small/Big All"
-msgstr ""
+msgstr "Tot mic/mare"
 
 #: templates/database/designer/side_menu.twig:139
 #: templates/database/designer/side_menu.twig:142
@@ -15061,7 +15087,7 @@ msgstr "Opțiuni avansate"
 
 #: templates/table/index_form.twig:48
 msgid "Key block size:"
-msgstr ""
+msgstr "Dimensiune bloc chei:"
 
 #: templates/table/index_form.twig:65
 msgid "Index type:"
@@ -15093,6 +15119,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"Nu folosești https pentru a accesa phpMyAdmin, prin urmare, dispozitivul "
+"FIDO U2F probabil va refuza să te autentifice."
 
 #: templates/privileges/add_privileges_database.twig:1
 msgid "Add privileges on the following database(s):"
@@ -15123,7 +15151,7 @@ msgstr "Arată creează"
 
 #: templates/database/structure/check_all_tables.twig:25
 msgid "Prefix"
-msgstr ""
+msgstr "Prefix"
 
 #: templates/database/structure/check_all_tables.twig:26
 msgid "Add prefix to table"
@@ -15139,7 +15167,7 @@ msgstr "Adaugă coloane la lista centrală"
 
 #: templates/database/structure/check_all_tables.twig:34
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "Înlătură coloanele din lista centrală"
 
 #: templates/database/structure/check_all_tables.twig:35
 msgid "Make consistent with central list"
@@ -15150,6 +15178,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Te rog conectează-ți dispozitivul FIDO U2F la portul USB al calculatorului. "
+"Apoi confirmă autentificarea pe dispozitiv."
 
 #: templates/console/display.twig:7
 msgid "History"
@@ -15220,7 +15250,7 @@ msgstr "Ordine de execuție"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
-msgstr ""
+msgstr "Timp luat"
 
 #: templates/console/display.twig:64
 msgid "Order by:"
@@ -15291,11 +15321,14 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"Crearea unei chei străine pe o coloană neindexată creează automat un index "
+"pentru ea. Alternativ, poți defini un index mai jos, înainte de crearea "
+"cheii străine."
 
 #: templates/table/relation/common_form.twig:20
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "Vor fi afișate numai coloanele cu index. Poți defini un index mai jos."
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
@@ -15387,7 +15420,7 @@ msgstr "Personalizat - afișează toate opțiunile posibile"
 
 #: templates/export/alias_add.twig:4
 msgid "Define new aliases"
-msgstr ""
+msgstr "Definește aliasuri noi"
 
 #: templates/export/alias_add.twig:9
 msgid "Select database:"
@@ -15501,7 +15534,7 @@ msgstr ""
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "De asemenea, poți trage și plasa un fișier în orice pagină."
 
 #: templates/display/import/import.twig:86
 msgid "File uploads are not allowed on this server."
@@ -15521,6 +15554,7 @@ msgstr "Import parțial:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"Importul anterior a expirat, după retrimitere va continua din poziția %d."
 
 #: templates/display/import/import.twig:137
 #, fuzzy
@@ -15587,7 +15621,7 @@ msgstr "Statistici rânduri"
 
 #: templates/table/structure/row_stats_table.twig:8
 msgid "static"
-msgstr ""
+msgstr "static"
 
 #: templates/table/structure/row_stats_table.twig:10
 msgid "dynamic"
@@ -15607,7 +15641,7 @@ msgstr "Dimensiune rând"
 
 #: templates/table/structure/row_stats_table.twig:69
 msgid "Next autoindex"
-msgstr ""
+msgstr "Următorul index automat"
 
 #: templates/table/structure/row_stats_table.twig:76
 #: templates/database/structure/table_header.twig:53
@@ -15690,11 +15724,11 @@ msgstr "Creează versiunea %1$s"
 
 #: templates/table/tracking/create_version.twig:20
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "Urmărește aceste declarații de definiție a datelor:"
 
 #: templates/table/tracking/create_version.twig:59
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "Urmărește aceste declarații de manipulare a datelor:"
 
 #: templates/table/tracking/create_version.twig:76
 msgid "Create version"
@@ -15758,7 +15792,7 @@ msgstr "Serie:"
 
 #: templates/table/chart/tbl_chart.twig:102
 msgid "X-Axis label:"
-msgstr ""
+msgstr "Etichetă axă X:"
 
 #: templates/table/chart/tbl_chart.twig:104
 msgid "X Values"
@@ -15766,7 +15800,7 @@ msgstr "Valori X"
 
 #: templates/table/chart/tbl_chart.twig:107
 msgid "Y-Axis label:"
-msgstr ""
+msgstr "Etichetă axă Y:"
 
 #: templates/table/chart/tbl_chart.twig:109
 msgid "Y Values"
@@ -15835,7 +15869,7 @@ msgstr ""
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Următoarele pachete de compoziții lipsesc:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
@@ -15887,20 +15921,20 @@ msgstr ""
 #: templates/display/import/javascript.twig:16
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s din %s"
 
 #: templates/display/import/javascript.twig:17
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sec."
 
 #: templates/display/import/javascript.twig:18
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Cam %MIN min. %SEC sec. rămase."
 
 #: templates/display/import/javascript.twig:19
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Cam %SEC sec. rămase."
 
 #: templates/display/import/javascript.twig:20
 msgid "The file is being processed, please be patient."
@@ -15933,7 +15967,7 @@ msgstr "A fost adăugat un index pe %s."
 
 #: templates/columns_definitions/column_length.twig:9
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "Editează valorile ENUM/SET"
 
 #: templates/server/databases/index.twig:24
 msgid "No databases"
@@ -15941,7 +15975,7 @@ msgstr "Nicio bază de date"
 
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Selectează tipul relațional de export"
 
 #: templates/privileges/add_privileges_routine.twig:3
 msgid "Add privileges on the following routine:"
@@ -16088,6 +16122,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Te rog conectează dispozitivul FIDO U2F la portul USB al calculatorului. "
+"Apoi confirmă înregistrarea pe dispozitiv."
 
 #: templates/database/central_columns/table_header.twig:17
 #, fuzzy
@@ -16159,7 +16195,7 @@ msgstr "Înlătură"
 
 #: templates/columns_definitions/move_column.twig:7
 msgid "first"
-msgstr ""
+msgstr "primul"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, php-format
@@ -16235,6 +16271,7 @@ msgstr "Niciunul"
 #: templates/server/variables/variable_row.twig:6
 msgid "This is a read-only variable and can not be edited"
 msgstr ""
+"Aceasta este o variabilă care poate fi doar citită și nu poate fi editată"
 
 #: templates/table/structure/display_partitions.twig:8
 msgid "No partitioning defined!"
@@ -16270,7 +16307,7 @@ msgstr "Nu ai suficiente privilegii pentru a fi aici, chiar acum!"
 
 #: view_create.php:52
 msgid "View name can not be empty!"
-msgstr ""
+msgstr "Numele vizualizării nu poate fi gol!"
 
 #: view_operations.php:107
 msgid "Rename view to"
@@ -16282,22 +16319,26 @@ msgstr "Șterge vizualizarea (DROP)"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Timp de funcționare sub o zi"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"Timpul de funcționare este sub o zi, ajustarea performanței poate să nu fie "
+"precisă."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Pentru a obține date mult mai precise, este recomandat să lași serverul să "
+"ruleze mai mult de o zi, înainte de a rula acest analizor"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "Timpul de funcționare este de numai %s"
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
@@ -16308,12 +16349,16 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"Au fost rulate pe acest server sub 1000 de întrebări. Recomandările s-ar "
+"putea să nu fie precise."
 
 #: libraries/advisory_rules.txt:60
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Lasă serverul să ruleze o perioadă mai îndelungată de timp până ce a "
+"executat o foarte multe interogări."
 
 #: libraries/advisory_rules.txt:61
 #, php-format
@@ -16328,17 +16373,20 @@ msgstr "Procent de interogări lente"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Există o mulțime de interogări lente în comparație cu totalul interogărilor."
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Poate vrei să mărești {long_query_time} sau să optimizezi interogările "
+"listate în jurnalul interogărilor lente"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Rata de interogări lente trebuie să fie sub 5%%, valoarea ta este %s%%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -16348,6 +16396,8 @@ msgstr "Rată interogări lente"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Există un procent mare de interogări lente în comparație cu timpul de "
+"funcționare al serverului."
 
 #: libraries/advisory_rules.txt:75
 #, php-format
@@ -16355,6 +16405,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Ai o rată de interogări lente de %s pe oră, ar trebui să ai mai puțin de 1%% "
+"pe oră."
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -16365,12 +16417,16 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} este setat la 10 secunde sau mai mult, așadar sunt "
+"înregistrate numai interogările lente care durează peste 10 secunde."
 
 #: libraries/advisory_rules.txt:81
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Este recomandat să setezi {long_query_time} la o valoare mai mică, în "
+"funcție de mediul tău. De obicei, este sugerată o valoare de 1-5 secunde."
 
 #: libraries/advisory_rules.txt:82
 #, php-format
@@ -16415,13 +16471,15 @@ msgstr "Lansează serii"
 
 #: libraries/advisory_rules.txt:103
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "Versiunea serverului MySQL este mai mică decât versiunea 5.1."
 
 #: libraries/advisory_rules.txt:104
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Ar trebui să actualizezi, MySQL 5.1 a îmbunătățit performanța, iar MySQL 5.5 "
+"a adus alte îmbunătățiri."
 
 #: libraries/advisory_rules.txt:105 libraries/advisory_rules.txt:112
 #: libraries/advisory_rules.txt:119
@@ -16442,6 +16500,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Ar trebui să actualizezi, versiunile recente ale MySQL 5.1 au îmbunătățit "
+"performanța, iar MySQL 5.5 a adus alte îmbunătățiri."
 
 #: libraries/advisory_rules.txt:117
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
@@ -16483,6 +16543,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Documentația Percona este la <a href=\"https://www.percona.com/software/"
+"documentation/\">https://www.percona.com/software/documentation/</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"
@@ -16805,7 +16867,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:223
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Medie rânduri sortate: %s"
 
 #: libraries/advisory_rules.txt:226
 msgid "Rate of joins without indexes"
@@ -16874,6 +16936,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Medie rată de citire din poziție fixă: %s, această valoare ar trebui să fie "
+"mai mică decât 1 pe oră"
 
 #: libraries/advisory_rules.txt:247
 msgid "Rate of reading next table row"
@@ -16888,6 +16952,8 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Aceasta indică că multe interogări fac scanări complete de tabele. Adaugă "
+"indexuri, dacă este cazul."
 
 #: libraries/advisory_rules.txt:252
 #, php-format
@@ -16899,11 +16965,11 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:255
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr ""
+msgstr "Diferite tmp_table_size și max_heap_table_size"
 
 #: libraries/advisory_rules.txt:258
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
+msgstr "{tmp_table_size} și {max_heap_table_size} nu sunt identice."
 
 #: libraries/advisory_rules.txt:259
 msgid ""
@@ -16916,7 +16982,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:260
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Valorile curente sunt tmp_table_size: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules.txt:262
 msgid "Percentage of temp tables on disk"
@@ -16927,6 +16993,7 @@ msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Multe tabele temporare sunt scrise pe disc în loc să fie păstrate în memorie."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -16945,6 +17012,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% din toate tabelele temporare sunt scrise pe disc, această valoare ar "
+"trebui să fie sub 25%%"
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
@@ -16977,12 +17046,16 @@ msgstr "Dimensiune tampon cheie MyISAM"
 #: libraries/advisory_rules.txt:281
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"Tamponul cheii nu este inițializat. Niciun index MyISAM nu va fi memorat în "
+"cache."
 
 #: libraries/advisory_rules.txt:282
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Setează {key_buffer_size} în funcție de dimensiunea indexurilor tale MyISAM. "
+"64 M este un început bun."
 
 #: libraries/advisory_rules.txt:283
 msgid "key_buffer_size is 0"
@@ -17004,6 +17077,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Poate vrei să reduci dimensiunea {key_buffer_size}, să-ți reexaminezi "
+"tabelele pentru a vedea dacă indexurile au fost înlăturate sau să examinezi "
+"interogările și așteptările cu privire la indexurile care sunt utilizate."
 
 #: libraries/advisory_rules.txt:290
 #, php-format
@@ -17031,11 +17107,11 @@ msgstr "Procentul de citiri index din memorie"
 #: libraries/advisory_rules.txt:303
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "%% de indexuri care folosește tamponul cheii MyISAM este mic."
 
 #: libraries/advisory_rules.txt:304
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Probabil trebuie să mărești {key_buffer_size}."
 
 #: libraries/advisory_rules.txt:305
 #, php-format
@@ -17057,6 +17133,8 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Deschiderea tabelelor necesită intrări/ieșiri pe disc, care sunt "
+"costisitoare. Creșterea {table_open_cache} ar putea evita acest lucru."
 
 #: libraries/advisory_rules.txt:314
 #, php-format
@@ -17076,18 +17154,23 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"Numărul de fișiere deschise se apropie de numărul maxim de fișiere care pot "
+"fi deschise. Probabil vei primi o eroare „Prea multe fișiere deschise”."
 
 #: libraries/advisory_rules.txt:320 libraries/advisory_rules.txt:327
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
+"Ia în considerare creșterea {open_files_limit} și verifică jurnalul de erori "
+"când repornești, după modificarea {open_files_limit}."
 
 #: libraries/advisory_rules.txt:321
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"Numărul de fișiere deschise este %s%% din limită. Ar trebui să fie sub 85%%"
 
 #: libraries/advisory_rules.txt:323
 msgid "Rate of open files"
@@ -17145,6 +17228,8 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"Cache fire de execuție este dezactivat, rezultând mai multe eforturi pentru "
+"conexiunile noi la MySQL."
 
 #: libraries/advisory_rules.txt:348
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
@@ -17187,15 +17272,20 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"Acest lucru se întâmplă în general în cazul supraîncărcării generale a "
+"sistemului, deoarece operațiile sunt destul de simple. Probabil vrei să-ți "
+"monitorizezi încărcarea sistemului cu mai multă atenție."
 
 #: libraries/advisory_rules.txt:363
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
+"%s fir de execuție a durat mai mult de %s secunde pentru a începe, ar trebui "
+"să fie 0"
 
 #: libraries/advisory_rules.txt:365
 msgid "Slow launch time"
-msgstr ""
+msgstr "Durată lentă de lansare"
 
 #: libraries/advisory_rules.txt:368
 msgid "Slow_launch_time is above 2s."
@@ -17223,6 +17313,7 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr ""
+"Suma maximă de conexiuni folosite se apropie de valoarea {max_connections}."
 
 #: libraries/advisory_rules.txt:378
 msgid ""
@@ -17236,6 +17327,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections este de %s%% din max_connections, ar trebui să fie sub "
+"80%%"
 
 #: libraries/advisory_rules.txt:381
 msgid "Percentage of aborted connections"
@@ -17251,11 +17344,16 @@ msgid ""
 "\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
 "aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
+"De obicei, conexiunile sunt anulate când nu pot fi autorizate. <a href=\""
+"https://www.percona.com/blog/2008/08/23/"
+"how-to-track-down-the-source-of-aborted_connects/\">Acest articol</a> te "
+"poate ajuta să urmărești sursa."
 
 #: libraries/advisory_rules.txt:386
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s%% din toate conexiunile anulate. Această valoare trebuie să fie sub 1%%"
 
 #: libraries/advisory_rules.txt:388
 msgid "Rate of aborted connections"
@@ -17266,6 +17364,8 @@ msgstr "Rată de conexiuni anulate"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Rata de conexiuni anulate este de %s, această valoare ar trebui să fie mai "
+"mică decât 1 pe oră"
 
 #: libraries/advisory_rules.txt:395
 msgid "Percentage of aborted clients"
@@ -17281,11 +17381,15 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"De obicei, clienții sunt anulați când nu își închid corect conexiunea la "
+"MySQL. Acest lucru se datorează problemelor de rețea sau codului care nu "
+"închide corect gestionarul bazei de date. Verifică-ți rețeaua și codul."
 
 #: libraries/advisory_rules.txt:400
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s%% din toți clienții sunt anulați. Această valoare ar trebui să fie sub 2%%"
 
 #: libraries/advisory_rules.txt:402
 msgid "Rate of aborted clients"
@@ -17300,7 +17404,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:411
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Este InnoDB dizactivat?"
 
 #: libraries/advisory_rules.txt:414
 msgid "You do not have InnoDB enabled."
@@ -17308,11 +17412,11 @@ msgstr "Nu ai InnoDB activat."
 
 #: libraries/advisory_rules.txt:415
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "De obicei, InnoDB este alegerea cea mai bună pentru motoare de tabele."
 
 #: libraries/advisory_rules.txt:416
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "have_innodb este setat la „valoare”"
 
 #: libraries/advisory_rules.txt:418
 msgid "InnoDB log size"
