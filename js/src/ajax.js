@@ -16,6 +16,9 @@ import { PMA_ensureNaviSettings,
 } from './functions/navigation';
 import { isStorageSupported } from './functions/config';
 import PMA_MicroHistory from './classes/MicroHistory';
+import { escapeHtml } from './utils/Sanitise';
+import { PMA_sprintf } from './utils/sprintf';
+
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
@@ -758,12 +761,47 @@ export let AJAX = {
 };
 
 /**
+ * @todo Below mentioned two events and functions are added in this file as these
+ * events and functions are making ajax call to the server for fetching resources
+ * and data.
+ * For now there are are two jquery instances, one which is globally available in
+ * the window object and another which is being exported as module.
+ * Once all the code work on new imported jQuery instance, these events and functions
+ * can be copied to index.js
+ */
+/**
  * Attach a generic event handler to clicks
  * on pages and submissions of forms
  */
 $(document).on('click', 'a', AJAX.requestHandler);
 $(document).on('submit', 'form', AJAX.requestHandler);
 
+$(document).ajaxError(function (event, request, settings) {
+    if (AJAX._debug) {
+        console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
+    }
+    // Don't handle aborted requests
+    if (request.status !== 0 || request.statusText !== 'abort') {
+        var details = '';
+        var state = request.state();
+        if (request.status !== 0) {
+            details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorCode, request.status)) + '</div>';
+        }
+        details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
+        if (state === 'rejected' || state === 'timeout') {
+            details += '<div>' + escapeHtml(PMA_messages.strErrorConnection) + '</div>';
+        }
+        PMA_ajaxShowMessage(
+            '<div class="error">' +
+            PMA_messages.strErrorProcessingRequest +
+            details +
+            '</div>',
+            false
+        );
+        AJAX.active = false;
+        AJAX.xhr = null;
+    }
+});
 /**
  * @todo this is to be removed when complete code is modularised
  * Exporsing module to window for use with non modular code

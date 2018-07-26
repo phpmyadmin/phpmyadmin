@@ -81,34 +81,6 @@ $(function () {
     }
 });
 
-$(document).ajaxError(function (event, request, settings) {
-    if (AJAX._debug) {
-        console.log('AJAX error: status=' + request.status + ', text=' + request.statusText);
-    }
-    // Don't handle aborted requests
-    if (request.status !== 0 || request.statusText !== 'abort') {
-        var details = '';
-        var state = request.state();
-
-        if (request.status !== 0) {
-            details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorCode, request.status)) + '</div>';
-        }
-        details += '<div>' + escapeHtml(PMA_sprintf(PMA_messages.strErrorText, request.statusText + ' (' + state + ')')) + '</div>';
-        if (state === 'rejected' || state === 'timeout') {
-            details += '<div>' + escapeHtml(PMA_messages.strErrorConnection) + '</div>';
-        }
-        PMA_ajaxShowMessage(
-            '<div class="error">' +
-            PMA_messages.strErrorProcessingRequest +
-            details +
-            '</div>',
-            false
-        );
-        AJAX.active = false;
-        AJAX.xhr = null;
-    }
-});
-
 /**
  * Adding common files for every page
  */
