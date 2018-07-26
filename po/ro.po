@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-07-26 10:59+0000\n"
-"Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
+"PO-Revision-Date: 2018-07-26 11:00+0000\n"
+"Last-Translator: Stefan Murariu <stefan.murariu@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ro/>\n"
 "Language: ro\n"
@@ -31,7 +31,7 @@ msgstr ""
 
 #: db_central_columns.php:127
 msgid "The central list of columns for the current database is empty."
-msgstr "Lista centrală de coloane pentru baza de date curentă este goală."
+msgstr "Lista centralizată de coloane în baza de date curentă este goală."
 
 #: db_central_columns.php:156
 msgid "Click to sort."
