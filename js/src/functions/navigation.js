@@ -146,7 +146,7 @@ export function PMA_showCurrentNavigation () {
 
     function isItemInContainer ($container, name, clazz) {
         var $whichItem = null;
-        $items = $container.find(clazz);
+        var $items = $container.find(clazz);
         var found = false;
         $items.each(function () {
             if ($(this).children('a').text() === name) {

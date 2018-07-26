@@ -12,7 +12,7 @@ import PMA_consoleResizer from './classes/Console/PMA_ConsoleResizer';
 /**
  * Console object
  */
-export var PMA_console = {
+var PMA_console = {
     /**
      * @var object, jQuery object, selector is '#pma_console>.content'
      * @access private
@@ -290,7 +290,7 @@ export var PMA_console = {
         PMA_console.setConfig('Mode', 'show');
 
         var pmaConsoleHeight = Math.max(92, PMA_console.config.Height);
-        pmaConsoleHeight = Math.min(PMA_console.config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight)-25);
+        pmaConsoleHeight = Math.min(PMA_console.config.Height, (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) - 25);
         PMA_console.$consoleContent.css({ display:'block' });
         if (PMA_console.$consoleToolbar.hasClass('collapsed')) {
             PMA_console.$consoleToolbar.removeClass('collapsed');
@@ -414,4 +414,6 @@ export var PMA_console = {
         var reg_exp = /^SELECT\s+/i;
         return reg_exp.test(queryString);
     }
-}
+};
+
+export default PMA_console;

@@ -124,7 +124,7 @@ class Console
      */
     public function getScripts(): array
     {
-        return ['console.js'];
+        return ['console'];
     }
 
     /**
