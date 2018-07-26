@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-07-26 11:01+0000\n"
-"Last-Translator: Raul Molnar <molnar.raul@wservices.eu>\n"
+"PO-Revision-Date: 2018-07-26 11:46+0000\n"
+"Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ro/>\n"
 "Language: ro\n"
@@ -329,7 +329,8 @@ msgstr "Baza de date %1$s a fost copiată în %2$s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Configurările phpMyAdmin au fost dezactivate. Află de ce, click  %saici%s."
+"Spațiul de stocare pentru configurarea phpMyAdmin a fost dezactivat. %sAflă "
+"de ce%s."
 
 #: db_qbe.php:130
 msgid "You have to choose at least one column to display!"
@@ -1275,31 +1276,26 @@ msgstr "KiO"
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:201 libraries/classes/Server/Status/Monitor.php:225
 #: libraries/classes/Util.php:1266
-#, fuzzy
 msgid "MiB"
 msgstr "MiO"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:202 libraries/classes/Util.php:1268
-#, fuzzy
 msgid "GiB"
 msgstr "GiO"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:203 libraries/classes/Util.php:1270
-#, fuzzy
 msgid "TiB"
 msgstr "TiO"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:204 libraries/classes/Util.php:1272
-#, fuzzy
 msgid "PiB"
 msgstr "PiO"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:205 libraries/classes/Util.php:1274
-#, fuzzy
 msgid "EiB"
 msgstr "EiO"
 
@@ -3143,6 +3139,8 @@ msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
+"Spațiul de stocare pentru configurare nu este pregătit pentru lista centrală "
+"a funcționalității coloane."
 
 #: libraries/classes/CentralColumns.php:355
 #, php-format
@@ -15773,7 +15771,7 @@ msgstr "Salvează ieșirea într-un fișier"
 #: templates/display/export/options_output.twig:51
 #, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr ""
+msgstr "Sari peste tabelele mai mari de %s MiO"
 
 #: templates/display/export/options_output_separate_files.twig:7
 msgid "Export databases as separate files"
@@ -16489,16 +16487,14 @@ msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL nu este compilat ca un pachet de 64 de biți."
 
 #: libraries/advisory_rules.txt:139
-#, fuzzy
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
-"Capacitatea de memorie depășește 3 GiB (presupunând că serverul de bază de "
-"date este pe server-ul, PC-ul, propriu), așa că este posibil ca MySQL sa nu "
-"poată accesa toată memoria RAM a sistemului. Ați putea lua în considerare "
-"instalarea versiunii de MySQL pe 64 de biți."
+"Capacitatea memoriei tale depășește 3 GiO (presupunând că serverul este pe "
+"localhost), probabil MySQL nu poate să-ți acceseze toată. Poate iei în "
+"considerare instalarea versiunii MySQL pe 64 de biți."
 
 #: libraries/advisory_rules.txt:140
 #, php-format
@@ -16522,7 +16518,7 @@ msgid ""
 msgstr ""
 "Este binecunoscut, cache-ul interogărilor îmbunătățește performanța dacă "
 "este configurat corect. Activează-l setând {query_cache_size} la o valoare "
-"de 2 MiB și setând {query_cache_type} la „PORNIT”. <b>Notă:</b> Dacă "
+"de 2 MiO și setând {query_cache_type} la „PORNIT”. <b>Notă:</b> Dacă "
 "folosești memcached, ignoră această recomandare."
 
 #: libraries/advisory_rules.txt:151
@@ -16684,15 +16680,13 @@ msgid "Query cache max size"
 msgstr "Dimensiune maximă cache interogări"
 
 #: libraries/advisory_rules.txt:191
-#, fuzzy
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
-"Dimensiunea memoriei cache a interogărilor depășește 128 MiB. Dimensiunile "
-"mari ale memoriei cache a interogărilor poate provoca încărcări "
-"semnificative deoarece este necesar un efort suplimentar pentru a întreține "
-"memoria cache."
+"Dimensiunea cache interogări depășește 128 MiO. Cache-urile mari de "
+"interogări pot genera încărcări semnificative care necesită un efort "
+"suplimentar pentru menținerea cache-ului."
 
 #: libraries/advisory_rules.txt:192
 msgid ""
@@ -16715,8 +16709,8 @@ msgstr "Dimensiune minimă rezultate cache interogări"
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
-"Implicit, dimensiunea maximă a setului rezultate în cache interogări este de "
-"1 MiO."
+"Implicit, dimensiunea maximă a setului de rezultate în cache interogări este "
+"de 1 MiO."
 
 #: libraries/advisory_rules.txt:199
 #, fuzzy
