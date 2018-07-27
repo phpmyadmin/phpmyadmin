@@ -383,8 +383,6 @@ class TableStructureController extends TableController
                 $columns_with_index
             )
         );
-
-        $this->response->addHTML('</div>');
     }
 
     /**
@@ -1481,7 +1479,14 @@ class TableStructureController extends TableController
             $avg_size = $avg_unit = '';
         }
 
+        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
         return $this->template->render('table/structure/display_table_stats', [
+            'url_params' => [
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table'],
+            ],
+            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'cfg_relation' => $this->relation->getRelationsParam(),
             'showtable' => $this->_showtable,
             'table_info_num_rows' => $this->_table_info_num_rows,
             'tbl_is_view' => $this->_tbl_is_view,

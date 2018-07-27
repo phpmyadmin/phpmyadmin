@@ -151,16 +151,36 @@
                             {% set unique_columns = table_obj.getUniqueColumns(false, false) %}
                         {% endif %}
 
-                        {% include 'table/relation/internal_relational_row.twig' with {
-                            'myfield': myfield,
-                            'myfield_md5': myfield_md5,
-                            'databases': databases,
-                            'tables': tables,
-                            'columns': unique_columns,
-                            'foreign_db': foreign_db,
-                            'foreign_table': foreign_table,
-                            'foreign_column': foreign_column
-                        } only %}
+                        <tr>
+                            <td class="vmiddle">
+                                <strong>{{ myfield }}</strong>
+                                <input type="hidden" name="fields_name[{{ myfield_md5 }}]"
+                                    value="{{ myfield }}"/>
+                            </td>
+
+                            <td>
+                                {% include 'table/relation/relational_dropdown.twig' with {
+                                    'name': 'destination_db[' ~ myfield_md5 ~ ']',
+                                    'title': 'Database'|trans,
+                                    'values': databases,
+                                    'foreign': foreign_db
+                                } only %}
+
+                                {% include 'table/relation/relational_dropdown.twig' with {
+                                    'name': 'destination_table[' ~ myfield_md5 ~ ']',
+                                    'title': 'Table'|trans,
+                                    'values': tables,
+                                    'foreign': foreign_table
+                                } only %}
+
+                                {% include 'table/relation/relational_dropdown.twig' with {
+                                    'name': 'destination_column[' ~ myfield_md5 ~ ']',
+                                    'title': 'Column'|trans,
+                                    'values': unique_columns,
+                                    'foreign': foreign_column
+                                } only %}
+                            </td>
+                        </tr>
                     {% endfor %}
             </table>
         </fieldset>
@@ -192,4 +212,7 @@
         <input type="submit" value="{% trans 'Save' %}" />
     </fieldset>
 </form>
+{% if foreignKeySupported %}
+    {{ displayIndexesHtml|raw }}
+{% endif %}
 {% endblock %}
