@@ -361,9 +361,9 @@ class Util
     /**
      * Get a link to variable documentation
      *
-     * @param string $name The variable name
+     * @param string  $name       The variable name
      * @param boolean $useMariaDB Use only MariaDB documentation
-     * @param string $text (optional) The text for the link
+     * @param string  $text       (optional) The text for the link
      * @return string link or empty string
      */
     public static function linkToVarDocumentation(
