@@ -51,7 +51,7 @@
         </th>
         <th>
             {% if db_collation is not empty %}
-                <dfn title="{{ Charsets_getCollationDescr(db_collation) }} ({% trans 'Default' %})">
+                <dfn title="{{ get_collation_descr(db_collation) }} ({% trans 'Default' %})">
                     {{ db_collation }}
                 </dfn>
             {% endif %}

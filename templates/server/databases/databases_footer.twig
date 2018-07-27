@@ -11,7 +11,7 @@
         {% for stat_name, stat in column_order if stat_name in first_database|keys %}
             <th class="value">
                 {% if stat['description_function'] is defined %}
-                    <dfn title="{{ Charsets_getCollationDescr(stat['footer']) }}">
+                    <dfn title="{{ get_collation_descr(stat['footer']) }}">
                         {{ values[stat_name] }}
                     </dfn>
                 {% else %}

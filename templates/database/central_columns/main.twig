@@ -91,7 +91,7 @@
                             } only %}
                         </td>
                         <td name="collation" class="nowrap">
-                            {{ Charsets_getCollationDropdownBox(
+                            {{ get_collation_dropdown_box(
                                     dbi,
                                     disableIs,
                                     'field_collation[0]',
@@ -338,7 +338,7 @@
                             </td>
                             <td name="collation" class="nowrap">
                                 <span>{{ row['col_collation'] | raw }}</span>
-                                {{ Charsets_getCollationDropdownBox(
+                                {{ get_collation_dropdown_box(
                                     dbi,
                                     disableIs,
                                     'field_collation[' ~ row_num ~ ']',

@@ -17,7 +17,7 @@
     {% for stat_name, stat in column_order if stat_name in current|keys %}
         <td class="value">
             {% if stat['description_function'] is defined %}
-                <dfn title="{{ Charsets_getCollationDescr(current[stat_name]) }}">
+                <dfn title="{{ get_collation_descr(current[stat_name]) }}">
                     {{ values[stat_name] }}
                 </dfn>
             {% else %}

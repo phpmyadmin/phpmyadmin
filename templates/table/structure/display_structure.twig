@@ -73,7 +73,7 @@
             </td>
             <td>
             {% if row['Collation'] is not empty %}
-                <dfn title="{{ Charsets_getCollationDescr(row['Collation']) }}">{{ row['Collation'] }}</dfn>
+                <dfn title="{{ get_collation_descr(row['Collation']) }}">{{ row['Collation'] }}</dfn>
             {% endif %}
             </td>
             <td class="column_attribute nowrap">{{ attributes[rownum] }}</td>

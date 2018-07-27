@@ -26,7 +26,7 @@
                     <input type="text" name="new_db" value="{{ db_to_create }}"
                         maxlength="64" class="textfield" id="text_create_db" required
                         placeholder="{% trans 'Database name' %}" />
-                    {{ Charsets_getCollationDropdownBox(
+                    {{ get_collation_dropdown_box(
                         dbi,
                         disable_is,
                         'db_collation',
