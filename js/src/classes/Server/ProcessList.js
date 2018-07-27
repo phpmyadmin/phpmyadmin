@@ -51,11 +51,11 @@ class ProcessList {
      *
      * @return void
      */
-    killProcessHandler (event) {
+    killProcessHandler (event, elementRef) {
         event.preventDefault();
-        var url = $(this).attr('href');
+        var url = $(elementRef).attr('href');
         // Get row element of the process to be killed.
-        var $tr = $(this).closest('tr');
+        var $tr = $(elementRef).closest('tr');
         $.getJSON(url, function (data) {
             // Check if process was killed or not.
             if (data.hasOwnProperty('success') && data.success) {
@@ -104,7 +104,7 @@ class ProcessList {
                         this.refresh,
                         interval
                     );
-                });
+                }.bind(this));
         }
     }
 
