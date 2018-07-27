@@ -2,6 +2,7 @@ import { AJAX } from './ajax';
 import './variables/import_variables';
 import { jQuery as $ } from './utils/JqueryExtended';
 import files from './consts/files';
+import Console from './console';
 
 /**
  * Page load event handler
@@ -84,3 +85,7 @@ if (typeof files[firstPage] !== 'undefined' && firstPage.toLocaleLowerCase() !==
         AJAX.scriptHandler.add(files[indexPage][i], 1);
     }
 }
+
+$(function () {
+    Console.initialize();
+});
