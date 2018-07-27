@@ -586,7 +586,8 @@ export let AJAX = {
              * @todo This condition is to be removed once all the files are modularised
              */
             if (checkNewCode(file)) {
-                var fileImports = ['server_privileges', 'server_databases'];
+                var fileImports = ['server_privileges', 'server_databases', 'server_status_advisor',
+                    'server_status_processes', 'server_status_variables',];
                 if ($.inArray(file, fileImports) !== -1) {
                     // Dynamic import to load the files dynamically
                     // This is used for the purpose of code splitting
