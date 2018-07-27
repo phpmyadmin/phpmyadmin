@@ -52,7 +52,7 @@ if ($response->isAjax() && !empty($_REQUEST['kill'])) {
     // Load the full page
     $header   = $response->getHeader();
     $scripts  = $header->getScripts();
-    $scripts->addFile('server_status_processes.js');
+    $scripts->addFile('server_status_processes');
     $response->addHTML('<div>');
     $response->addHTML($serverStatusData->getMenuHtml());
     $response->addHTML(Processes::getHtmlForProcessListFilter());
