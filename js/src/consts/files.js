@@ -29,7 +29,8 @@ const PhpToJsFileMapping = {
     sql: ['sql', 'multi_column_sort'],
     db_structure: ['db_structure'],
     db_operations: ['db_operations'],
-    db_tracking: ['db_tracking']
+    db_tracking: ['db_tracking'],
+    db_central_columns: ['db_central_columns']
 };
 
 const JsFileList = [
@@ -58,7 +59,8 @@ const JsFileList = [
     'multi_column_sort',
     'db_structure',
     'db_operations',
-    'db_tracking'
+    'db_tracking',
+    'db_central_columns'
 ];
 
 export {
