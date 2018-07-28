@@ -8,14 +8,11 @@ import { $ } from './utils/JqueryExtended';
 import { AJAX } from './ajax';
 import './variables/get_config';
 import './variables/InlineScripting';
-import files from './consts/files';
 import Console from './console';
-import { PMA_sprintf } from './utils/sprintf';
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
-import { escapeHtml } from './utils/Sanitise';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 import PMA_commonParams from './variables/common_params';
 import PMA_MicroHistory from './classes/MicroHistory';
+import FileHandler from './classes/FileHandler';
 
 /**
  * Page load event handler
@@ -81,29 +78,8 @@ $(function () {
     }
 });
 
-/**
- * Adding common files for every page
- */
-for (let i in files.global) {
-    AJAX.scriptHandler.add(files.global[i], 1);
-}
-/**
- * This block of code is for importing javascript files needed
- * for the first time loading of the page.
- */
-let firstPage = window.location.pathname.replace('/', '').replace('.php', '');
-let indexStart = window.location.search.indexOf('target') + 7;
-let indexEnd = window.location.search.indexOf('.php');
-let indexPage = window.location.search.slice(indexStart, indexEnd);
-if (typeof files[firstPage] !== 'undefined' && firstPage.toLocaleLowerCase() !== 'index') {
-    for (let i in files[firstPage]) {
-        AJAX.scriptHandler.add(files[firstPage][i], 1);
-    }
-} else if (typeof files[indexPage] !== 'undefined' && firstPage.toLocaleLowerCase() === 'index') {
-    for (let i in files[indexPage]) {
-        AJAX.scriptHandler.add(files[indexPage][i], 1);
-    }
-}
+let fileHandler = new FileHandler();
+fileHandler.init();
 
 $(function () {
     Console.initialize();
