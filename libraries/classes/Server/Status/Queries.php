@@ -46,6 +46,8 @@ class Queries
         $retval .= Util::showMySQLDocu(
             'server-status-variables',
             false,
+            null,
+            null,
             'statvar_Questions'
         );
         $retval .= '<br />';
