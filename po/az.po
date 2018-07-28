@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-07-27 08:19+0000\n"
+"PO-Revision-Date: 2018-07-29 07:34+0000\n"
 "Last-Translator: Yusif Məmmədov <yusifmv@gmail.com>\n"
 "Language-Team: Azerbaijani <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/az/>\n"
@@ -13,11 +13,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.1-dev\n"
+"X-Generator: Weblate 3.1.1\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
-msgstr "Pis tip!"
+msgstr "Qeyri-münasib dəyişən"
 
 #: changelog.php:41 license.php:36
 #, php-format
@@ -25,7 +25,7 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"%s faylı sistemdə yoxdur. Bütün lazımi informasiyanı %s saytından tapa "
+"%s faylı sistemdə yoxdur. Bütün lazımi informasiyanı %s ünvanından tapa "
 "bilərsiniz."
 
 #: db_central_columns.php:130
@@ -39,11 +39,11 @@ msgstr "Sıralamaq üçün klikləyin."
 #: db_central_columns.php:178
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "%1$s - %2$s sətir göstərilir."
+msgstr "%1$s - %2$s sətirləri göstərilir."
 
 #: db_datadict.php:64 libraries/classes/Operations.php:62
 msgid "Database comment"
-msgstr "Verilənlər bazasına şərh"
+msgstr "Verilənlər bazası şərhi"
 
 #: db_datadict.php:111
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:605
@@ -147,7 +147,7 @@ msgstr "Null"
 #: templates/database/central_columns/table_header.twig:21
 #: templates/table/structure/table_structure_header.twig:10
 msgid "Default"
-msgstr "Susmaya görə"
+msgstr "İlkin vəziyyət"
 
 #: db_datadict.php:125 libraries/classes/Plugins/Export/ExportHtmlword.php:402
 #: libraries/classes/Plugins/Export/ExportLatex.php:533
@@ -333,7 +333,7 @@ msgstr ""
 
 #: db_qbe.php:134
 msgid "You have to choose at least one column to display!"
-msgstr "Göstərilməsi üçün ən az bir sütun seçməlisiniz!"
+msgstr "Göstərmək üçün ən az bir sütun seçməlisiniz!"
 
 #: db_qbe.php:152
 #, php-format
@@ -794,6 +794,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Giriş çərəz anbarı phpMyAdmində quraşdırılmış çərəz etibarlılıq müddətindən "
+"azdır, buna görə də, sizin girişiniz phpMyAdmində quraşdırılmış müddətdən "
+"tez bağlanacaq."
 
 #: index.php:554
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
