@@ -38,7 +38,7 @@ require_once 'libraries/check_user_privileges.inc.php';
 $response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('db_operations.js');
+$scripts->addFile('db_operations');
 
 $sql_query = '';
 
