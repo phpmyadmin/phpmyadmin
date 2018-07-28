@@ -1079,6 +1079,33 @@ class CentralColumns
     }
 
     /**
+     * build dropdown select html to select column in selected table,
+     * include only columns which are not already in central list
+     *
+     * @param string $db           current database to which selected table belongs
+     * @param string $selected_tbl selected table
+     *
+     * @return string html to select column
+     */
+    public function getHtmlForColumnDropdown($db, $selected_tbl)
+    {
+        $existing_cols = $this->getFromTable($db, $selected_tbl);
+        $this->dbi->selectDb($db);
+        $columns = (array) $this->dbi->getColumnNames(
+            $db, $selected_tbl
+        );
+        $selectColHtml = "";
+        foreach ($columns as $column) {
+            if (!in_array($column, $existing_cols)) {
+                $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
+                    . htmlspecialchars($column)
+                    . '</option>';
+            }
+        }
+        return $selectColHtml;
+    }
+
+    /**
      * build html for adding a new user defined column to central list
      *
      * @param string $db            current database
