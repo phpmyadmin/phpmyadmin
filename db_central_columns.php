@@ -93,9 +93,7 @@ if (isset($_POST['add_column'])) {
 $response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
-$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('db_central_columns.js');
+$scripts->addFile('db_central_columns');
 $cfgCentralColumns = $centralColumns->getParams();
 $pmadb = $cfgCentralColumns['db'];
 $pmatable = $cfgCentralColumns['table'];
