@@ -15,6 +15,7 @@ import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import { PMA_commonParams } from './variables/common_params';
 import { jQuery as $ } from './utils/JqueryExtended';
+import { PMA_getSQLEditor } from './utils/sql';
 
 /**
  * AJAX scripts for server_privileges page.

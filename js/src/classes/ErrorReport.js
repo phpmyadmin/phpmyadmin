@@ -268,13 +268,11 @@ var ErrorReport = {
      * @return function
      */
     wrap_function: function (func) {
-        // console.log(func.wrapped);
         if (!func.wrapped) {
             var new_func = function () {
                 try {
                     return func.apply(this, arguments);
                 } catch (x) {
-                    // console.log(new Error(x));
                     TraceKit.report(x);
                 }
             };
@@ -284,7 +282,6 @@ var ErrorReport = {
             new_func.guid = func.guid = func.guid || new_func.guid || jQuery.guid++;
             return new_func;
         } else {
-            // console.log(func);
             return func;
         }
     },
