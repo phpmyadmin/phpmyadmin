@@ -6,7 +6,7 @@
 /**
  * @type {Object} files
  */
-const files = {
+const PhpToJsFileMapping = {
     global: ['error_report', 'config', 'navigation', 'page_settings', 'shortcuts_handler', 'functions'],
     server_privileges: ['server_privileges'],
     server_databases: ['server_databases'],
@@ -31,4 +31,35 @@ const files = {
     db_operations: ['db_operations']
 };
 
-export default files;
+const JsFileList = [
+    'server_privileges',
+    'server_databases',
+    'error_report',
+    'navigation',
+    'server_status_advisor',
+    'server_status_processes',
+    'server_status_variables',
+    'server_plugins',
+    'server_status_sorter',
+    'server_status_queries',
+    'server_status_monitor',
+    'server_variables',
+    'server_user_groups',
+    'replication',
+    'export',
+    'import',
+    'config',
+    'page_settings',
+    'shortcuts_handler',
+    'db_search',
+    'sql',
+    'functions',
+    'multi_column_sort',
+    'db_structure',
+    'db_operations'
+];
+
+export {
+    PhpToJsFileMapping,
+    JsFileList
+};

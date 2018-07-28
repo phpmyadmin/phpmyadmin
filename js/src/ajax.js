@@ -18,6 +18,7 @@ import { isStorageSupported } from './functions/config';
 import PMA_MicroHistory from './classes/MicroHistory';
 import { escapeHtml } from './utils/Sanitise';
 import { PMA_sprintf } from './utils/sprintf';
+import { JsFileList } from './consts/files';
 
 /**
  * This object handles ajax requests for pages. It also
@@ -599,13 +600,7 @@ export let AJAX = {
              * @todo This condition is to be removed once all the files are modularised
              */
             if (checkNewCode(file)) {
-                var fileImports = ['server_privileges', 'server_databases', 'error_report', 'navigation', 'server_status_advisor',
-                    'server_status_processes', 'server_status_variables', 'server_plugins', 'server_status_sorter', 'server_status_queries',
-                    'server_status_monitor', 'server_variables', 'server_user_groups', 'replication', 'export', 'import', 'config',
-                    'page_settings', 'shortcuts_handler', 'db_search', 'sql', 'functions', 'multi_column_sort', 'db_structure',
-                    'db_operations'
-                ];
-                if ($.inArray(file, fileImports) !== -1) {
+                if ($.inArray(file, JsFileList) !== -1) {
                     // Dynamic import to load the files dynamically
                     // This is used for the purpose of code splitting
                     import(`./${file}`)
