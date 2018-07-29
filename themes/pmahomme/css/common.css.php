@@ -1003,21 +1003,22 @@ ul#topmenu2 a {
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     background: #f2f2f2;
-
 }
 
 span.caution {
-    color: #FF0000;
+    color: #F00;
 }
 span.success {
     color: green;
 }
+
 fieldset.caution a {
-    color: #FF0000;
+    color: #F00;
 }
+
 fieldset.caution a:hover {
     color: #fff;
-    background-color: #FF0000;
+    background-color: #F00;
 }
 
 #topmenu {
@@ -1052,7 +1053,7 @@ ul#topmenu span {
 }
 
 ul#topmenu ul a {
-    border-width: 1pt 0 0 0;
+    border-width: 1pt 0 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -1101,9 +1102,11 @@ div#dataDisplay select {
     margin: 0;
     margin-<?php echo $right; ?>: .5em;
 }
+
 div#dataDisplay th {
     line-height: 2em;
 }
+
 table#tableFieldsId {
     width: 100%;
 }
@@ -1120,7 +1123,7 @@ table.calendar td a {
 }
 
 table.calendar td a:hover {
-    background-color: #CCFFCC;
+    background-color: #CFC;
 }
 
 table.calendar th {
@@ -1128,12 +1131,13 @@ table.calendar th {
 }
 
 table.calendar td.selected {
-    background-color: #FFCC99;
+    background-color: #FC9;
 }
 
 img.calendar {
     border: none;
 }
+
 form.clock {
     text-align: center;
 }
@@ -1218,10 +1222,9 @@ div#tablestatistics table {
 }
 
 #serverinfo img {
-    margin: 0 .1em 0;
+    margin: 0 .1em;
     margin-<?php echo $left; ?>: .2em;
 }
-
 
 #textSQLDUMP {
     width: 95%;
@@ -1237,8 +1240,8 @@ div#tablestatistics table {
     height: auto;
     overflow: visible;
     visibility: hidden;
-    background-color: #ffffcc;
-    color: #006600;
+    background-color: #ffc;
+    color: #060;
     border: .1em solid #000;
     padding: .5em;
 }
@@ -1336,7 +1339,7 @@ h3#serverstatusqueries span {
 
 /* Also used for the variables page */
 fieldset#tableFilter {
-    padding: 0.1em 1em;
+    padding: .1em 1em;
 }
 
 div#serverStatusTabs {
@@ -1424,7 +1427,7 @@ div.tabLinks a, div.tabLinks label {
 }
 
 div.tabLinks .icon {
-    margin: -0.2em 0.3em 0 0;
+    margin: -.2em .3em 0 0;
 }
 
 .popupContent {
@@ -1492,7 +1495,7 @@ div#queryAnalyzerDialog table.queryNums {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
-    padding: 0.5em;
+    padding: .5em;
     min-height: 18px;
 }
 #serverVariables .var-name {
@@ -1516,24 +1519,28 @@ div#queryAnalyzerDialog table.queryNums {
     padding-<?php echo $right; ?>: 1em;
     font-family: sans-serif;
 }
+
 #serverVariables .serverVariableEditor {
     width: 100%;
     overflow: hidden;
 }
+
 #serverVariables .serverVariableEditor input {
     width: 100%;
-    margin: 0 0.5em;
+    margin: 0 .5em;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     height: 2.2em;
 }
+
 #serverVariables .serverVariableEditor div {
     display: block;
     overflow: hidden;
     padding-<?php echo $right; ?>: 1em;
 }
+
 #serverVariables .serverVariableEditor a {
     margin: 0 0.5em;
     line-height: 2em;
@@ -1601,13 +1608,13 @@ div#profilingchart {
     margin: 0 10px;
 }
 
-#serverstatus h3
-{
+#serverstatus h3 {
     margin: 15px 0;
     font-weight: normal;
     color: #999;
     font-size: 1.7em;
 }
+
 #sectionlinks {
     margin-bottom: 15px;
     padding: 16px;
@@ -1620,6 +1627,7 @@ div#profilingchart {
     -webkit-box-shadow: 0 1px 1px #fff inset;
     -moz-box-shadow: 0 1px 1px #fff inset;
 }
+
 #sectionlinks a,
 .buttonlinks a,
 a.button {
@@ -1714,7 +1722,6 @@ div#queryboxcontainer div#bookmarkoptions {
     border-radius: 3px;
     border: solid 1px #888;
     background: #fff;
-
 }
 /* end main page */
 
@@ -1773,7 +1780,7 @@ li.no_bullets {
 
 #div_mysql_charset_collations table th,
 #div_mysql_charset_collations table td {
-    padding: 0.4em;
+    padding: .4em;
 }
 
 #div_mysql_charset_collations table th#collationHeader {
@@ -1852,7 +1859,6 @@ div.sqlvalidate {
 }
 
 .group {
-
     border: 1px solid #999;
     background: #f3f3f3;
     -moz-border-radius: 4px;
@@ -1889,7 +1895,6 @@ textarea#partitiondefinition {
     height: 3em;
 }
 
-
 /* for elements that should be revealed only via js */
 .hide {
     display: none;
@@ -1903,15 +1908,13 @@ textarea#partitiondefinition {
 /**
   *  Progress bar styles
   */
-div.upload_progress
-{
+div.upload_progress {
     width: 400px;
     margin: 3em auto;
     text-align: center;
 }
 
-div.upload_progress_bar_outer
-{
+div.upload_progress_bar_outer {
     border: 1px solid #000;
     width: 202px;
     position: relative;
@@ -1919,8 +1922,7 @@ div.upload_progress_bar_outer
     color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 }
 
-div.upload_progress_bar_inner
-{
+div.upload_progress_bar_inner {
     background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     width: 0;
     height: 12px;
@@ -1930,16 +1932,14 @@ div.upload_progress_bar_inner
     position: relative;
 }
 
-div.upload_progress_bar_outer div.percentage
-{
+div.upload_progress_bar_outer div.percentage {
     position: absolute;
     top: 0;
     <?php echo $left; ?>: 0;
     width: 202px;
 }
 
-div.upload_progress_bar_inner div.percentage
-{
+div.upload_progress_bar_inner div.percentage {
     top: -1px;
     <?php echo $left; ?>: -1px;
 }
@@ -1963,7 +1963,7 @@ input[type=number].invalid_value,
 input[type=date].invalid_value,
 select.invalid_value,
 .invalid_value {
-    background: #FFCCCC;
+    background: #FCC;
 }
 
 /**
@@ -2006,7 +2006,7 @@ select.invalid_value,
     /** Need this parent to properly center the notification division */
     position: relative;
     width: 100%;
- }
+}
 /**
   * Export and Import styles
   */
@@ -2086,13 +2086,10 @@ select.invalid_value,
     padding: 5px 12px;
     color: #111;
     text-decoration: none;
-
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
-
     text-shadow: 0 1px 0 #fff;
-
     <?php echo $theme->getCssGradient('ffffff', 'cccccc'); ?>
     cursor: pointer;
 }
@@ -2138,12 +2135,15 @@ select#table_select {
 .export_sub_options li {
     margin-bottom: 0;
 }
+
 #export_refresh_form {
     margin-left: 20px;
 }
+
 #export_back_button {
     display: inline;
 }
+
 #output_quick_export {
     display: none;
 }
@@ -2161,7 +2161,7 @@ input#input_import_file {
 }
 
 .formelementrow {
-    margin: 5px 0 5px 0;
+    margin: 5px 0;
 }
 
 #filterText {
@@ -2286,7 +2286,7 @@ table#index_columns select {
 /* config forms */
 .config-form ul.tabs {
     margin: 1.1em .2em 0;
-    padding: 0 0 .3em 0;
+    padding: 0 0 .3em;
     list-style: none;
     font-weight: bold;
 }
@@ -2544,6 +2544,7 @@ fieldset .disabled-field td {
     float: <?php echo $left; ?>;
     margin-bottom: 1.5em;
 }
+
 .toggleButton {
     position: relative;
     cursor: pointer;
@@ -2558,25 +2559,30 @@ fieldset .disabled-field td {
     -moz-border-radius: .3em;
     border-radius: .3em;
 }
+
 .toggleButton table,
 .toggleButton td,
 .toggleButton img {
     padding: 0;
     position: relative;
 }
+
 .toggleButton .container {
     position: absolute;
 }
+
 .toggleButton .container td,
 .toggleButton .container tr {
     background-image: none;
     background: none !important;
 }
+
 .toggleButton .toggleOn {
     color: #fff;
     padding: 0 1em;
     text-shadow: 0 0 .2em #000;
 }
+
 .toggleButton .toggleOff {
     padding: 0 1em;
 }
@@ -2834,11 +2840,9 @@ fieldset .disabled-field td {
 
 .navigation {
     margin: .8em 0;
-
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-
     <?php echo $theme->getCssGradient('eeeeee', 'cccccc'); ?>
 }
 
@@ -2865,7 +2869,6 @@ fieldset .disabled-field td {
     filter: none;
     margin: 0;
     padding: .8em .5em;
-
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -2876,7 +2879,6 @@ fieldset .disabled-field td {
     color: #fff;
     cursor: pointer;
     text-shadow: none;
-
     <?php echo $theme->getCssGradient('333333', '555555'); ?>
 }
 
@@ -2982,30 +2984,30 @@ body .ui-widget {
 
 /* over-riding jqplot-yaxis class */
 .jqplot-yaxis {
-    left:0 !important;
-    min-width:25px;
-    width:auto;
+    left: 0 !important;
+    min-width: 25px;
+    width: auto;
 }
 .jqplot-axis {
     overflow:hidden;
 }
 
 .report-data {
-    height:13em;
-    overflow:scroll;
-    width:570px;
+    height: 13em;
+    overflow: scroll;
+    width: 570px;
     border: solid 1px;
     background: white;
     padding: 2px;
 }
 
 .report-description {
-    height:10em;
-    width:570px;
+    height: 10em;
+    width: 570px;
 }
 
 div#page_content div#tableslistcontainer table.data {
-    border-top: 0.1px solid #EEEEEE;
+    border-top: .1px solid #EEEEEE;
 }
 
 div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
@@ -3147,7 +3149,7 @@ table.show_create td {
 }
 #pma_console .message:before,
 #pma_console .query_input:before {
-    left: -0.7em;
+    left: -.7em;
     position: absolute;
     content: ">";
 }
@@ -3278,10 +3280,10 @@ html.ie8 #pma_console .message .action_content {
     top: 0;
     border-<?php echo $left; ?>: solid 1px #999;
     z-index: 300;
-    transition: <?php echo $left; ?> 0.2s;
-    -ms-transition: <?php echo $left; ?> 0.2s;
-    -webkit-transition: <?php echo $left; ?> 0.2s;
-    -moz-transition: <?php echo $left; ?> 0.2s;
+    transition: <?php echo $left; ?> .2s;
+    -ms-transition: <?php echo $left; ?> .2s;
+    -webkit-transition: <?php echo $left; ?> .2s;
+    -moz-transition: <?php echo $left; ?> .2s;
 }
 #pma_console .card.show {
     <?php echo $left; ?>: 6%;
@@ -3390,7 +3392,7 @@ html.ie7 #pma_console .query_input {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, .6);
     height: 100%;
     z-index: 999;
     color: white;
@@ -3432,8 +3434,8 @@ html.ie7 #pma_console .query_input {
 
 .pma_sql_import_status div {
     height: 270px;
-    overflow-y:auto;
-    overflow-x:hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     list-style-type: none;
 }
 
@@ -3464,7 +3466,7 @@ html.ie7 #pma_console .query_input {
 .pma_sql_import_status h2 .minimize:hover,
 .pma_sql_import_status h2 .close:hover,
 .pma_drop_result h2 .close:hover {
-    background: rgba(155, 149, 149, 0.78);
+    background: rgba(155, 149, 149, .78);
     cursor: pointer;
 }
 
@@ -3665,5 +3667,5 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
 /* templates/database/designer */
 /* side menu */
 #name-panel {
-    overflow:hidden;
+    overflow: hidden;
 }

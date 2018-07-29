@@ -89,7 +89,7 @@ h1 {
 }
 
 #footer a {
-    margin-right: 0.5em;
+    margin-right: .5em;
     text-decoration: none;
     font-size: small;
 }
@@ -97,11 +97,11 @@ h1 {
 /* phpMyAdmin logo colors */
 
 .blue {
-    color: #666699;
+    color: #669;
 }
 
 .orange {
-    color: #FF9900;
+    color: #F90;
 }
 
 .red {
@@ -116,7 +116,7 @@ h1 {
 div.error h4 {
     border-bottom: 1px solid;
     font-weight: bold;
-    margin: 0 0 .2em 0;
+    margin: 0 0 .2em;
 }
 
 div.success,
@@ -153,7 +153,7 @@ div.success {
     background: url(../themes/pmahomme/img/s_success.png) no-repeat 5px 10px;
 }
 .success h4 {
-    border-color: #00FF00;
+    border-color: #0F0;
 }
 
 .notice {
@@ -184,7 +184,7 @@ div.error {
 }
 
 div.error h4 {
-    border-color: #ff0000;
+    border-color: #f00;
 }
 
 div.notice[id^=version_check] {
@@ -196,13 +196,11 @@ div.notice[id^=version_check] h4 {
     border-color: #002DFF;
 }
 
-
-
 /* form tabs */
 
 ul.tabs {
     margin: 1.1em 2px 0;
-    padding: 0 0 3px 0;
+    padding: 0 0 3px;
     list-style: none;
     font-weight: bold;
 }
@@ -321,7 +319,7 @@ fieldset p {
 
 fieldset .errors { /* form error list */
     margin: 0 -2px 1em -2px;
-    padding: 0.5em 1.5em;
+    padding: .5em 1.5em;
     background: #FBEAD9;
     border: 1px #C83838 solid;
     border-width: 1px 0;
@@ -331,7 +329,7 @@ fieldset .errors { /* form error list */
 }
 
 fieldset .inline_errors { /* field error list */
-    margin: 0.3em 0.3em 0.3em 0;
+    margin: .3em .3em .3em 0;
     padding: 0;
     list-style: none;
     color: #9A0000;
@@ -339,13 +337,13 @@ fieldset .inline_errors { /* field error list */
 }
 
 table caption, table th, table td {
-    text-shadow: 0 1px 0 #FFFFFF;
+    text-shadow: 0 1px 0 #FFF;
 }
 
 fieldset th {
     width: 40%;
     min-width: 350px;
-    padding: 0.3em 0.3em 0.3em 0.5em;
+    padding: .3em .3em .3em .5em;
     text-align: left;
     font-weight: bold;
     vertical-align: top;
@@ -361,7 +359,7 @@ fieldset .doc {
 }
 
 fieldset td {
-    padding-top: 0.3em;
+    padding-top: .3em;
     vertical-align: top;
 }
 
@@ -456,10 +454,10 @@ input.button {
 
     background-image: url(../themes/svg_gradient.php?from=ffffff&to=cccccc);
     background-size: 100% 100%;
-    background: -webkit-linear-gradient(top, #ffffff, #cccccc);
-    background: -moz-linear-gradient(top, #ffffff, #cccccc);
-    background: -ms-linear-gradient(top, #ffffff, #cccccc);
-    background: -o-linear-gradient(top, #ffffff, #cccccc);
+    background: -webkit-linear-gradient(top, #fff, #ccc);
+    background: -moz-linear-gradient(top, #fff, #ccc);
+    background: -ms-linear-gradient(top, #fff, #ccc);
+    background: -o-linear-gradient(top, #fff, #ccc);
 }
 
 input[type=submit]:hover,
@@ -470,10 +468,10 @@ input.button:hover {
     position: relative;
     background-image: url(../themes/svg_gradient.php?from=cccccc&to=dddddd);
     background-size: 100% 100%;
-    background: -webkit-linear-gradient(top, #cccccc, #dddddd);
-    background: -moz-linear-gradient(top, #cccccc, #dddddd);
-    background: -ms-linear-gradient(top, #cccccc, #dddddd);
-    background: -o-linear-gradient(top, #cccccc, #dddddd);
+    background: -webkit-linear-gradient(top, #ccc, #ddd);
+    background: -moz-linear-gradient(top, #ccc, #ddd);
+    background: -ms-linear-gradient(top, #ccc, #ddd);
+    background: -o-linear-gradient(top, #ccc, #ddd);
     cursor: pointer;
 }
 
@@ -539,13 +537,12 @@ span.checkbox {
 }
 
 .field-comment {
-
     position: relative;
 }
 
 .field-comment-mark {
     cursor: help;
-    padding: 0 0.2em;
+    padding: 0 .2em;
     font-weight: bold;
     font-style: italic;
 }
@@ -559,11 +556,11 @@ span.checkbox {
 }
 
 table.datatable {
-    margin: 0.5em 0 1em;
+    margin: .5em 0 1em;
 }
 
 table.datatable th {
-    padding: 0 1em 0 0.5em;
+    padding: 0 1em 0 .5em;
     border-bottom: 1px #999 solid;
     text-align: left;
 }
@@ -583,7 +580,7 @@ table.datatable td {
 /* error list */
 
 dd {
-    margin-left: 0.5em;
+    margin-left: .5em;
 }
 
 dd:before {

@@ -102,7 +102,7 @@ canvas.designer * {
 }
 
 .tab_field:hover, .tab_field_3:hover {
-    background-color: #CCFFCC;
+    background-color: #CFC;
     color: #000;
     background-repeat: repeat-x;
     cursor: default;
@@ -117,10 +117,10 @@ canvas.designer * {
 #designer_hint {
     white-space: nowrap;
     position: absolute;
-    background-color: #99FF99;
+    background-color: #9F9;
     color: #000;
     z-index: 3;
-    border: #00CC66 solid 1px;
+    border: #0C6 solid 1px;
     display: none;
 }
 
@@ -132,7 +132,7 @@ canvas.designer * {
 
 .designer_Tabs {
     cursor: default;
-    color: #0055bb;
+    color: #05b;
     white-space: nowrap;
     text-decoration: none;
     text-indent: 3px;
@@ -146,13 +146,13 @@ canvas.designer * {
 
 .designer_Tabs:hover {
     cursor: default;
-    color: #0055bb;
-    background: #FFEE99;
+    color: #05b;
+    background: #FE9;
     text-indent: 3px;
     font-weight: bold;
     white-space: nowrap;
     text-decoration: none;
-    border: #9999FF solid 1px;
+    border: #99F solid 1px;
     text-align: <?php echo $left; ?>;
 }
 
@@ -242,8 +242,8 @@ canvas.designer * {
 
 .L_butt2_1:hover {
     padding: 0;
-    border: #0099CC solid 1px;
-    background: #FFEE99;
+    border: #09C solid 1px;
+    background: #FE9;
     color: #000;
     text-decoration: none;
     vertical-align: middle;
@@ -339,15 +339,15 @@ canvas.designer * {
 a.M_butt_Selected_down_IE,
 a.M_butt_Selected_down {
     border: 1px solid #C0C0BB;
-    background-color: #99FF99;
+    background-color: #9F9;
     color: #000;
 }
 
 a.M_butt_Selected_down_IE:hover,
 a.M_butt_Selected_down:hover,
 a.M_butt:hover {
-    border: 1px solid #0099CC;
-    background-color: #FFEE99;
+    border: 1px solid #09C;
+    background-color: #FE9;
     color: #000;
 }
 
