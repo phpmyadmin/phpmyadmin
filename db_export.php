@@ -24,7 +24,7 @@ PageSettings::showGroup('Export');
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('export.js');
+$scripts->addFile('export');
 
 $export = new Export();
 
