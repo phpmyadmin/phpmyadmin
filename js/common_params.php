@@ -13,6 +13,11 @@ if (!defined('TESTSUITE')) {
     // Send correct type:
     header('Content-Type: text/javascript; charset=UTF-8');
 
+    // Preventing caching of this file
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+
     // Cache output in client - the nocache query parameter makes sure that this
     // file is reloaded when config changes
     header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
@@ -36,5 +41,3 @@ echo "var common_params = new Array();\n";
 foreach ($header->getJsParams() as $name => $value) {
     Sanitize::printJsValue("common_params['" . $name . "']", $value);
 }
-
-?>
