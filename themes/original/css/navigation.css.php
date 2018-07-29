@@ -60,8 +60,8 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 
 #pma_navigation div.pageselector {
     text-align: center;
-    margin: 0 0 0;
-    margin-<?php echo $left; ?>: 0.75em;
+    margin: 0;
+    margin-<?php echo $left; ?>: .75em;
     border-<?php echo $left; ?>: 1px solid #666;
 }
 
@@ -74,7 +74,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 #pma_navigation div#recentTableList,
 #pma_navigation div#FavoriteTableList {
     text-align: center;
-    margin-bottom: 0.5em;
+    margin-bottom: .5em;
 }
 
 #pma_navigation #recentTable,
@@ -89,16 +89,15 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 #pma_navigation #FavoriteTableList,
 #pma_navigation #databaseList,
 #pma_navigation div.pageselector.dbselector {
-    text-align:         center;
-    margin-bottom:      0.3em;
-    padding-bottom:     0.3em;
+    text-align: center;
+    margin-bottom: .3em;
+    padding-bottom: .3em;
     border: 0;
 }
 
 #pma_navigation #recentTableList select,
 #pma_navigation #FavoriteTableList select,
-#pma_navigation #serverChoice select
- {
+#pma_navigation #serverChoice select {
     width: 80%;
 }
 
@@ -124,14 +123,14 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 
 #pma_navigation_select_database {
     text-align: left;
-    padding: 0 0 0;
+    padding: 0;
     border: 0;
     margin: 0;
 }
 
 #pma_navigation_db_select {
-    margin-top: 0.5em;
-    margin-<?php echo $left; ?>: 0.75em;
+    margin-top: .5em;
+    margin-<?php echo $left; ?>: .75em;
 }
 #pma_navigation_db_select select {
     background: url("./themes/pmahomme/img/select_bg.png") repeat scroll 0 0;
@@ -141,7 +140,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     border-top: 1px solid #bbb;
     color: #333;
     padding: 4px 6px;
-    margin: 0 0 0;
+    margin: 0;
     width: 92%;
     font-size: 1.11em;
 }
@@ -181,7 +180,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree li.activePointer .navItemControls {
     display: inline;
-    opacity: 0.5;
+    opacity: .5;
 }
 #pma_navigation_tree li.activePointer .navItemControls:hover {
     display: inline;
@@ -209,8 +208,8 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree div.block {
     position: relative;
-    width:1.5em;
-    height:1.5em;
+    width: 1.5em;
+    height: 1.5em;
     min-width: 16px;
     min-height: 16px;
     float: <?php echo $left; ?>;
@@ -225,8 +224,8 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     min-width: 16px;
     min-height: 8px;
     position: absolute;
-    bottom: 0.7em;
-    <?php echo $left; ?>: 0.75em;
+    bottom: .7em;
+    <?php echo $left; ?>: .75em;
     z-index: 0;
 }
 #pma_navigation_tree div.block i {
@@ -241,9 +240,9 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 /* Bottom segment for the tree element connections */
 #pma_navigation_tree div.block b {
     display: block;
-    height: 0.75em;
+    height: .75em;
     bottom: 0;
-    <?php echo $left; ?>: 0.75em;
+    <?php echo $left; ?>: .75em;
     border-<?php echo $left; ?>: 1px solid #666;
 }
 #pma_navigation_tree div.block a,
@@ -264,7 +263,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 }
 #pma_navigation_tree div.block img {
     position: relative;
-    top: -0.6em;
+    top: -.6em;
     <?php echo $left; ?>: 0;
     margin-<?php echo $left; ?>: -5px;
 }
@@ -274,12 +273,12 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 #pma_navigation_tree li > a, #pma_navigation_tree li > i {
     line-height: 1.5em;
     height: 1.5em;
-    padding-<?php echo $left; ?>: 0.3em;
+    padding-<?php echo $left; ?>: .3em;
 }
 #pma_navigation_tree .list_container {
     border-<?php echo $left; ?>: 1px solid #666;
-    margin-<?php echo $left; ?>: 0.75em;
-    padding-<?php echo $left; ?>: 0.75em;
+    margin-<?php echo $left; ?>: .75em;
+    padding-<?php echo $left; ?>: .75em;
 }
 #pma_navigation_tree .last > .list_container {
     border-<?php echo $left; ?>: 0 solid #666;
@@ -299,7 +298,7 @@ li.fast_filter input {
 li.fast_filter span {
     position: relative;
     <?php echo $right; ?>: 1.5em;
-    padding: 0.2em;
+    padding: .2em;
     cursor: pointer;
     font-weight: bold;
     color: #800;

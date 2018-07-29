@@ -72,6 +72,9 @@ canvas.designer * {
     border: 1px solid #aaa;
     z-index: 1;
     -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .designer_tab .header {
