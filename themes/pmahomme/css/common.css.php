@@ -80,7 +80,7 @@ h2 {
     font-size: 2em;
     font-weight: normal;
     text-shadow: 0 1px 0 #fff;
-    padding: 10px 0 10px;
+    padding: 10px 0;
     padding-<?php echo $left; ?>: 3px;
     color: #777;
 }
@@ -611,17 +611,17 @@ table tr.hover:not(.nopointer) th {
 }
 
 th.condition {
-    border-width: 1px 1px 0 1px;
+    border-width: 1px 1px 0;
     border-style: solid;
 }
 
 td.condition {
-    border-width: 0 1px 0 1px;
+    border-width: 0 1px;
     border-style: solid;
 }
 
 tr:last-child td.condition {
-    border-width: 0 1px 1px 1px;
+    border-width: 0 1px 1px;
 }
 
 <?php if ($GLOBALS['text_dir'] === 'ltr') : ?>
@@ -723,18 +723,18 @@ div.error h1 {
     border-bottom: 2px solid;
     font-weight: bold;
     text-align: <?php echo $left; ?>;
-    margin: 0 0 .2em 0;
+    margin: 0 0 .2em;
 }
 
 div.success,
 div.notice,
 div.error {
-    margin: .5em 0 0.5em;
+    margin: .5em 0;
     border: 1px solid;
     background-repeat: no-repeat;
     <?php if ($GLOBALS['text_dir'] === 'ltr') : ?>
         background-position: 10px 50%;
-        padding: 10px 10px 10px 10px;
+        padding: 10px;
     <?php else : ?>
         background-position: 99% 50%;
         padding: 10px 35px 10px 10px;
@@ -923,17 +923,17 @@ form.login select {
 }
 
 .cfg_dbg_demo{
-    margin: 0.5em 1em 0.5em 1em;
+    margin: .5em 1em;
 }
 
 .central_columns_navigation{
-    padding:1.5% 0em !important;
+    padding: 1.5% 0 !important;
 }
 
 .central_columns_add_column{
     display:inline-block;
-    margin-left:1%;
-    max-width:50%
+    margin-left: 1%;
+    max-width: 50%
 }
 
 .message_errors_found{
@@ -965,7 +965,9 @@ form.login select {
 }
 
 #topmenu .error {
-    background: #eee;border: 0 !important;color: #aaa;
+    background: #eee;
+    border: 0 !important;
+    color: #aaa;
 }
 
 ul#topmenu,
@@ -1025,17 +1027,17 @@ ul#topmenu2 a {
 }
 
 span.caution {
-    color: #FF0000;
+    color: red;
 }
 span.success {
     color: green;
 }
 fieldset.caution a {
-    color: #FF0000;
+    color: red;
 }
 fieldset.caution a:hover {
     color: #fff;
-    background-color: #FF0000;
+    background-color: red;
 }
 
 #topmenu {
@@ -1070,7 +1072,7 @@ ul#topmenu span {
 }
 
 ul#topmenu ul a {
-    border-width: 1pt 0 0 0;
+    border-width: 1pt 0 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;
@@ -1236,7 +1238,7 @@ div#tablestatistics table {
 }
 
 #serverinfo img {
-    margin: 0 .1em 0;
+    margin: 0 .1em;
     margin-<?php echo $left; ?>: .2em;
 }
 
@@ -1354,7 +1356,7 @@ h3#serverstatusqueries span {
 
 /* Also used for the variables page */
 fieldset#tableFilter {
-    padding: 0.1em 1em;
+    padding: .1em 1em;
 }
 
 div#serverStatusTabs {
@@ -1510,7 +1512,7 @@ div#queryAnalyzerDialog table.queryNums {
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
-    padding: 0.5em;
+    padding: .5em;
     min-height: 18px;
 }
 #serverVariables .var-name {
@@ -1540,7 +1542,7 @@ div#queryAnalyzerDialog table.queryNums {
 }
 #serverVariables .serverVariableEditor input {
     width: 100%;
-    margin: 0 0.5em;
+    margin: 0 .5em;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -1553,7 +1555,7 @@ div#queryAnalyzerDialog table.queryNums {
     padding-<?php echo $right; ?>: 1em;
 }
 #serverVariables .serverVariableEditor a {
-    margin: 0 0.5em;
+    margin: 0 .5em;
     line-height: 2em;
 }
 /* end server variables */
@@ -1791,7 +1793,7 @@ li.no_bullets {
 
 #div_mysql_charset_collations table th,
 #div_mysql_charset_collations table td {
-    padding: 0.4em;
+    padding: .4em;
 }
 
 #div_mysql_charset_collations table th#collationHeader {
@@ -2179,7 +2181,7 @@ input#input_import_file {
 }
 
 .formelementrow {
-    margin: 5px 0 5px 0;
+    margin: 5px 0;
 }
 
 #filterText {
@@ -2216,8 +2218,8 @@ input#input_import_file {
     margin: 0;
 }
 #fieldsForm ul.table-structure-actions .submenu li span {
-    padding: 0.3em;
-    margin: 0.1em;
+    padding: .3em;
+    margin: .1em;
 }
 #structure-action-links a {
     margin-<?php echo $right; ?>: 1em;
@@ -2304,7 +2306,7 @@ table#index_columns select {
 /* config forms */
 .config-form ul.tabs {
     margin: 1.1em .2em 0;
-    padding: 0 0 .3em 0;
+    padding: 0 0 .3em;
     list-style: none;
     font-weight: bold;
 }
@@ -2379,7 +2381,7 @@ table#index_columns select {
 }
 
 .config-form fieldset .inline_errors { /* field error list */
-    margin: .3em .3em .3em;
+    margin: .3em;
     margin-<?php echo $left; ?>: 0;
     padding: 0;
     list-style: none;
@@ -2388,7 +2390,7 @@ table#index_columns select {
 }
 
 .config-form fieldset th {
-    padding: .3em .3em .3em;
+    padding: .3em;
     padding-<?php echo $left; ?>: .5em;
     text-align: <?php echo $left; ?>;
     vertical-align: top;
@@ -2405,7 +2407,7 @@ table#index_columns select {
 .config-form fieldset .disabled-notice {
     font-size: 80%;
     text-transform: uppercase;
-    color: #E00;
+    color: #e00;
     cursor: help;
 }
 
@@ -3009,17 +3011,17 @@ body .ui-widget {
 }
 
 .report-data {
-    height:13em;
-    overflow:scroll;
-    width:570px;
+    height: 13em;
+    overflow: scroll;
+    width: 570px;
     border: solid 1px;
     background: white;
     padding: 2px;
 }
 
 .report-description {
-    height:10em;
-    width:570px;
+    height: 10em;
+    width: 570px;
 }
 
 div#page_content div#tableslistcontainer table.data {
