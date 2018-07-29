@@ -53,11 +53,11 @@ body#loginform {
     width: 100%;
 }
 
-.all85{
+.all85 {
     width: 85%;
 }
 
-.auth_config_tbl{
+.auth_config_tbl {
     margin: 0 auto;
 }
 
@@ -66,7 +66,7 @@ body#loginform {
     tt,
     pre,
     code {
-    font-family: <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+        font-family: <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
     }
 <?php endif; ?>
 
@@ -80,7 +80,7 @@ h2 {
     font-size: 2em;
     font-weight: normal;
     text-shadow: 0 1px 0 #fff;
-    padding: 10px 0 10px;
+    padding: 10px 0;
     padding-<?php echo $left; ?>: 3px;
     color: #777;
 }
@@ -117,7 +117,6 @@ button.mult_submit,
     color: #235a81;
     cursor: pointer;
     outline: none;
-
 }
 
 a:hover,
@@ -204,8 +203,6 @@ input[type=date] {
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-
-
     background: white;
     border: 1px solid #aaa;
     color: #555;
@@ -230,10 +227,10 @@ input[type=password],
 input[type=number],
 input[type=date],
 select {
-    transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
+    transition: all .2s;
+    -ms-transition: all .2s;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
 }
 
 input[type=text][disabled],
@@ -292,13 +289,10 @@ input.button {
     color: #111;
     text-decoration: none;
     background: #ddd;
-
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
-
     text-shadow: 0 1px 0 #fff;
-
     <?php echo $theme->getCssGradient('f8f8f8', 'd8d8d8'); ?>
 }
 
@@ -351,7 +345,7 @@ fieldset, .preview_sql {
     -moz-border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
     border: #aaa solid 1px;
-    padding: 0.5em;
+    padding: .5em;
     background: #eee;
     text-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
@@ -364,7 +358,6 @@ fieldset fieldset {
     background: #fff;
     border: 1px solid #aaa;
     background: #E8E8E8;
-
 }
 
 fieldset legend {
@@ -417,7 +410,6 @@ th {
     text-align: left;
 }
 
-
 img,
 button {
     vertical-align: middle;
@@ -428,17 +420,15 @@ input[type="radio"] {
     vertical-align: -11%;
 }
 
-
 select {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
-
     border: 1px solid #bbb;
     color: #333;
     padding: 3px;
     background: white;
-    margin:6px;
+    margin: 6px;
 }
 
 select[multiple] {
@@ -627,7 +617,7 @@ tr:last-child td.condition {
 <?php if ($GLOBALS['text_dir'] === 'ltr') : ?>
     /* for first th which must have right border set (ltr only) */
     .before-condition {
-    border-right: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+        border-right: 1px solid <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     }
 <?php endif; ?>
 
@@ -652,7 +642,6 @@ table [class=value] {
     white-space: normal;
 }
 
-
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) : ?>
     .value {
     font-family: <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
@@ -665,7 +654,6 @@ table [class=value] {
 .allfine {
     color: green;
 }
-
 
 img.lightbulb {
     cursor: pointer;
@@ -714,7 +702,7 @@ td .icon {
 
 /* message boxes: error, confirmation */
 #pma_errors, #pma_demo, #pma_footer {
-    padding: 0 0.5em;
+    padding: 0 .5em;
 }
 
 .success h1,
@@ -723,18 +711,18 @@ div.error h1 {
     border-bottom: 2px solid;
     font-weight: bold;
     text-align: <?php echo $left; ?>;
-    margin: 0 0 .2em 0;
+    margin: 0 0 .2em;
 }
 
 div.success,
 div.notice,
 div.error {
-    margin: .5em 0 0.5em;
+    margin: .5em 0;
     border: 1px solid;
     background-repeat: no-repeat;
     <?php if ($GLOBALS['text_dir'] === 'ltr') : ?>
         background-position: 10px 50%;
-        padding: 10px 10px 10px 10px;
+        padding: 10px;
     <?php else : ?>
         background-position: 99% 50%;
         padding: 10px 35px 10px 10px;
@@ -795,18 +783,12 @@ div.error {
 }
 
 div.error h1 {
-    border-color: #ff0000;
+    border-color: #f00;
 }
 
 .confirmation {
     color: #000;
     background-color: pink;
-}
-
-fieldset.confirmation {
-}
-
-fieldset.confirmation legend {
 }
 
 /* end messageboxes */
@@ -818,7 +800,7 @@ fieldset.confirmation legend {
 .tblcomment {
     font-size: 70%;
     font-weight: normal;
-    color: #000099;
+    color: #009;
 }
 
 .tblHeaders {
@@ -843,18 +825,18 @@ div.tools a:active,
 .tblFooters a:link,
 .tblFooters a:active,
 .tblFooters a:visited {
-    color: #0000FF;
+    color: #00F;
 }
 
 .tblHeaders a:hover,
 div.tools a:hover,
 .tblFooters a:hover {
-    color: #FF0000;
+    color: #F00;
 }
 
 /* forbidden, no privileges */
 .noPrivileges {
-    color: #FF0000;
+    color: #F00;
     font-weight: bold;
 }
 
@@ -923,17 +905,17 @@ form.login select {
 }
 
 .cfg_dbg_demo{
-    margin: 0.5em 1em 0.5em 1em;
+    margin: 0.5em 1em;
 }
 
 .central_columns_navigation{
-    padding:1.5% 0em !important;
+    padding: 1.5% 0 !important;
 }
 
 .central_columns_add_column{
-    display:inline-block;
-    margin-left:1%;
-    max-width:50%
+    display: inline-block;
+    margin-left: 1%;
+    max-width: 50%
 }
 
 .message_errors_found{

@@ -82,7 +82,7 @@ canvas.designer * {
 }
 
 .tab_field:hover, .tab_field_3:hover {
-    background-color: #CCFFCC;
+    background-color: #CFC;
     color: #000;
     background-repeat: repeat-x;
     cursor: default;
@@ -97,7 +97,7 @@ canvas.designer * {
 #designer_hint {
     white-space: nowrap;
     position: absolute;
-    background-color: #99FF99;
+    background-color: #9F9;
     color: #000;
     z-index: 3;
     border: #00CC66 solid 1px;
@@ -169,7 +169,7 @@ canvas.designer * {
 .small_tab:hover {
     vertical-align: top;
     color: #fff;
-    background-color: #FF9966;
+    background-color: #F96;
     cursor: default;
     padding-left: 2px;
     padding-right: 2px;
@@ -188,7 +188,7 @@ canvas.designer * {
 .small_tab_pref:hover {
     vertical-align: top;
     color: #fff;
-    background-color: #FF9966;
+    background-color: #F96;
     cursor: default;
     text-align: center;
     font-weight: bold;
@@ -226,8 +226,8 @@ canvas.designer * {
 
 .designer_header {
     background-color: #F6F6F6;
-    border-top: 20px solid #FFFFFF;
-    color: #333333;
+    border-top: 20px solid #FFF;
+    color: #333;
     display: block;
     height: 28px;
     margin-left: -20px;
@@ -278,7 +278,7 @@ a.M_butt:hover {
 #layer_menu {
     z-index: 98;
     position: relative;
-    float: right;;
+    float: right;
     background-color: #f6f6f6;
     border: #ccc solid 1px;
     border-top: 0;
@@ -386,7 +386,7 @@ a.active.trigger:hover {
 }
 
 .history_table2 {
-    opacity: 0.7;
+    opacity: .7;
 }
 
 #ab {

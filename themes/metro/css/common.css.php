@@ -1982,10 +1982,7 @@ li#li_switch_dbstats {
 #selflink {
     clear: both;
     display: block;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 20px;
     border-top: 1px solid silver;
     text-align: <?php echo $right; ?>;
 }
@@ -2001,7 +1998,7 @@ li#li_switch_dbstats {
 
 #div_mysql_charset_collations table th,
 #div_mysql_charset_collations table td {
-    padding: 0.4em;
+    padding: .4em;
 }
 
 #div_mysql_charset_collations table th#collationHeader {
@@ -2038,7 +2035,7 @@ label.desc sup {
 
 code.php {
     display: block;
-    padding-left: 0.3em;
+    padding-left: .3em;
     margin-top: 0;
     margin-bottom: 0;
     max-height: 10em;
@@ -2046,8 +2043,7 @@ code.php {
     direction: ltr;
 }
 
-.sqlOuter code.sql, div.sqlvalidate, #inline_editor_outer
-{
+.sqlOuter code.sql, div.sqlvalidate, #inline_editor_outer {
     display: block;
     padding: 1em;
     margin: 1em;
@@ -2057,45 +2053,40 @@ code.php {
     direction: ltr;
 }
 
-#main_pane_left
-{
+#main_pane_left {
     width: 60%;
     min-width: 260px;
     float: <?php echo $left; ?>;
     padding-top: 1em;
 }
 
-#main_pane_right
-{
+#main_pane_right {
     overflow: hidden;
     min-width: 160px;
     padding-top: 1em;
     padding-<?php echo $left; ?>: 3em;
 }
 
-.group
-{
+.group {
     margin-bottom: 1em;
     padding-bottom: 1em;
 }
 
-.group input[type=submit]
-{
+.group input[type=submit] {
     margin-left: 0;
 }
 
-.group h2
-{
+.group h2 {
     color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     font-size: 2.8em;
     font-weight: normal;
     font-family: <?php echo $GLOBALS['cfg']['FontFamilyLight']; ?>;
     margin-top: 0;
-    margin-bottom: 0.6em;
+    margin-bottom: .6em;
 }
 
 .group-cnt {
-    padding: 0 0 0 0.5em;
+    padding: 0 0 0 .5em;
     display: inline-block;
     width: 98%;
 }
@@ -2103,7 +2094,6 @@ code.php {
 textarea#partitiondefinition {
     height: 3em;
 }
-
 
 /* for elements that should be revealed only via js */
 .hide {
@@ -2118,15 +2108,13 @@ textarea#partitiondefinition {
 /**
   *  Progress bar styles
   */
-div.upload_progress
-{
+div.upload_progress {
     width: 400px;
     margin: 3em auto;
     text-align: center;
 }
 
-div.upload_progress_bar_outer
-{
+div.upload_progress_bar_outer {
     border: 1px solid #000;
     width: 202px;
     position: relative;
@@ -2134,8 +2122,7 @@ div.upload_progress_bar_outer
     color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 }
 
-div.upload_progress_bar_inner
-{
+div.upload_progress_bar_inner {
     background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     width: 0;
     height: 12px;
@@ -2147,16 +2134,14 @@ div.upload_progress_bar_inner
     position: relative;
 }
 
-div.upload_progress_bar_outer div.percentage
-{
+div.upload_progress_bar_outer div.percentage {
     position: absolute;
     top: 0;
     <?php echo $left; ?>: 0;
     width: 202px;
 }
 
-div.upload_progress_bar_inner div.percentage
-{
+div.upload_progress_bar_inner div.percentage {
     top: -1px;
     <?php echo $left; ?>: -1px;
 }
@@ -2179,7 +2164,7 @@ input[type=password].invalid_value,
 input[type=number].invalid_value,
 input[type=date].invalid_value
 .invalid_value {
-    background: #FFCCCC;
+    background: #FCC;
 }
 
 /**
@@ -2206,8 +2191,7 @@ input[type=date].invalid_value
     height: 19px;
 }
 
-.dismissable
-{
+.dismissable {
     margin-left: -10px;
     margin-top: -10px;
 }
@@ -2291,9 +2275,6 @@ input[type=date].invalid_value
     cursor: pointer;
     margin: 0;
 }
-#buttonGo:hover {
-
-}
 
 .format_specific_options h3 {
     margin: 10px 0 0;
@@ -2354,7 +2335,7 @@ input#input_import_file {
 }
 
 .formelementrow {
-    margin: 5px 0 5px 0;
+    margin: 5px 0;
 }
 
 #filterText {
@@ -2383,15 +2364,15 @@ input#input_import_file {
 }
 #fieldsForm ul.table-structure-actions li {
     float: <?php echo $left; ?>;
-    margin-<?php echo $right; ?>: 0.3em; /* same as padding of "table td" */
+    margin-<?php echo $right; ?>: .3em; /* same as padding of "table td" */
 }
 #fieldsForm ul.table-structure-actions .submenu li {
     padding: 0;
     margin: 0;
 }
 #fieldsForm ul.table-structure-actions .submenu li span {
-    padding: 0.3em;
-    margin: 0.1em;
+    padding: .3em;
+    margin: .1em;
 }
 #structure-action-links a {
     margin-<?php echo $right; ?>: 1em;
@@ -2470,7 +2451,7 @@ table#index_columns select {
 /* config forms */
 .config-form ul.tabs {
     margin: 1.1em .2em 0;
-    padding: 0 0 .3em 0;
+    padding: 0 0 .3em;
     list-style: none;
     font-weight: bold;
 }
@@ -2540,7 +2521,7 @@ table#index_columns select {
 }
 
 .config-form fieldset .inline_errors { /* field error list */
-    margin: .3em .3em .3em;
+    margin: .3em;
     margin-<?php echo $left; ?>: 0;
     padding: 0;
     list-style: none;
@@ -2548,19 +2529,16 @@ table#index_columns select {
     font-size: small;
 }
 
-.config-form fieldset table
-{
+.config-form fieldset table {
     background-color: #fff;
 }
 
-.config-form fieldset label
-{
+.config-form fieldset label {
     font-weight: normal;
 }
 
 .config-form fieldset textarea,
-.insertRowTable textarea
-{
+.insertRowTable textarea {
     margin: 5px;
     padding: 5px;
 }
@@ -2652,41 +2630,34 @@ form#change_db_charset_form .tblFooters,
 form#alterTableOrderby .tblFooters,
 form#moveTableForm .tblFooters,
 form#copyTable .tblFooters,
-form#tableOptionsForm .tblFooters
-{
+form#tableOptionsForm .tblFooters {
     margin-top: -40px;
 }
 
-#create_table_form_minimal
-{
+#create_table_form_minimal {
     display: block;
 }
 
 #fieldset_zoom_search table th,
-#fieldset_zoom_search table td
-{
+#fieldset_zoom_search table td {
     line-height: 35px;
 }
 
 #fieldset_table_qbe table th,
-#fieldset_table_qbe table td
-{
+#fieldset_table_qbe table td {
     line-height: 35px;
 }
 
-#fieldset_delete_user_footer
-{
+#fieldset_delete_user_footer {
     margin-top: -59px;
 }
 
-#db_or_table_specific_priv .tblFooters
-{
+#db_or_table_specific_priv .tblFooters {
     margin-top: -68px;
 }
 
 #edit_user_dialog,
-#add_user_dialog
-{
+#add_user_dialog {
     margin: 20px !important;
 }
 
@@ -2840,8 +2811,7 @@ form#tableOptionsForm .tblFooters
     padding: 1.5em;
 }
 
-form.append_fields_form .tblFooters
-{
+form.append_fields_form .tblFooters {
     background: none;
     border: none;
 }
@@ -3011,7 +2981,7 @@ form.append_fields_form .tblFooters
 }
 
 .cList .lDiv div {
-    padding: .2em .5em .2em;
+    padding: .2em .5em;
     padding-<?php echo $left; ?>: .2em;
 }
 
@@ -3046,23 +3016,20 @@ form.append_fields_form .tblFooters
     line-height: 1.5;
 }
 
-.navigation
-{
+.navigation {
     width: 100%;
     background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
-.navigation td
-{
+.navigation td {
     margin: 0;
     padding: 0;
     vertical-align: middle;
     white-space: nowrap;
 }
 
-.navigation_separator
-{
+.navigation_separator {
     color: #eee;
     display: inline-block;
     font-size: 1.5em;
@@ -3070,40 +3037,34 @@ form.append_fields_form .tblFooters
     height: 1.4em;
 }
 
-.navigation input[type=submit]
-{
+.navigation input[type=submit] {
     background: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     border: none;
     filter: none;
     margin: 5px;
-    padding: 0.4em;
+    padding: .4em;
 }
 
-.navigation input[type=submit]:hover, .navigation input.edit_mode_active
-{
+.navigation input[type=submit]:hover, .navigation input.edit_mode_active {
     color: <?php echo $GLOBALS['cfg']['ButtonColor']; ?>;
     cursor: pointer;
     background-color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
 }
 
-.navigation select
-{
-    margin: 0 0.8em;
+.navigation select {
+    margin: 0 .8em;
     border: none;
 }
 
-.navigation input[type=text]
-{
+.navigation input[type=text] {
     border: none;
 }
 
-.navigation_goto
-{
+.navigation_goto {
     width: 100%;
 }
 
-.insertRowTable td, .insertRowTable th
-{
+.insertRowTable td, .insertRowTable th {
     vertical-align: middle;
 }
 
@@ -3198,21 +3159,21 @@ body .ui-widget {
 }
 
 .report-data {
-    height:13em;
-    overflow:scroll;
-    width:570px;
+    height: 13em;
+    overflow: scroll;
+    width: 570px;
     border: solid 1px;
     background: white;
     padding: 2px;
 }
 
 .report-description {
-    height:10em;
-    width:570px;
+    height: 10em;
+    width: 570px;
 }
 
 div#page_content div#tableslistcontainer table.data {
-    border-top: 0.1px solid #EEEEEE;
+    border-top: .1px solid #EEE;
 }
 
 div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
@@ -3353,7 +3314,7 @@ table.show_create td {
 }
 #pma_console .message:before,
 #pma_console .query_input:before {
-    left: -0.7em;
+    left: -.7em;
     position: absolute;
     content: ">";
 }
@@ -3478,10 +3439,10 @@ html.ie8 #pma_console .message .action_content {
     top: 0;
     border-<?php echo $left; ?>: solid 1px #999;
     z-index: 300;
-    transition: <?php echo $left; ?> 0.2s;
-    -ms-transition: <?php echo $left; ?> 0.2s;
-    -webkit-transition: <?php echo $left; ?> 0.2s;
-    -moz-transition: <?php echo $left; ?> 0.2s;
+    transition: <?php echo $left; ?> .2s;
+    -ms-transition: <?php echo $left; ?> .2s;
+    -webkit-transition: <?php echo $left; ?> .2s;
+    -moz-transition: <?php echo $left; ?> .2s;
 }
 #pma_console .card.show {
     <?php echo $left; ?>: 6%;
@@ -3589,7 +3550,7 @@ html.ie7 #pma_console .query_input {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, .6);
     height: 100%;
     z-index: 999;
     color: white;
@@ -3621,8 +3582,8 @@ html.ie7 #pma_console .query_input {
 
 .pma_sql_import_status div {
     height: 270px;
-    overflow-y:auto;
-    overflow-x:hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     list-style-type: none;
 }
 
@@ -3653,7 +3614,7 @@ html.ie7 #pma_console .query_input {
 .pma_sql_import_status h2 .minimize:hover,
 .pma_sql_import_status h2 .close:hover,
 .pma_drop_result h2 .close:hover {
-    background: rgba(155, 149, 149, 0.78);
+    background: rgba(155, 149, 149, .78);
     cursor: pointer;
 }
 

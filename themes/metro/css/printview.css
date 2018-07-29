@@ -19,15 +19,15 @@
 
 /* Standard CSS */
 body, table, th, td {
-    color:             #000;
-    background-color:  #fff;
+    color: #000;
+    background-color: #fff;
     font-size: 12px;
 }
 
 /* To remove link text decoration */
 a:link {
-    color:#000;
-    text-decoration:none
+    color: #000;
+    text-decoration: none
 }
 
 /* To remove any image borders */
@@ -42,24 +42,24 @@ table, th, td {
 }
 
 table {
-    border-collapse:   collapse;
-    border-spacing:    0.2em;
+    border-collapse: collapse;
+    border-spacing: .2em;
 }
 
 thead {
-    border-collapse:   collapse;
-    border-spacing:    0.2em;
+    border-collapse: collapse;
+    border-spacing: .2em;
     border: .1em solid #000;
     font-weight: 900;
 }
 
 th, td {
-    padding:           0.2em;
+    padding: .2em;
 }
 
 thead th {
-    font-weight:       bold;
-    background-color:  #e5e5e5;
+    font-weight: bold;
+    background-color: #e5e5e5;
     border: .1em solid #000;
 }
 
