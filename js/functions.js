@@ -5012,7 +5012,7 @@ function PMA_getImage (image, alternate, attributes) {
  * A configuration value may be set in both browser's local storage and
  * remotely in server's configuration table.
  *
- * If the `only_local` argument is `true`, the value is store is stored only in
+ * If the `only_local` argument is `true`, the value is stored only in
  * browser's local storage and may be lost if the user resets his browser's
  * settings.
  *
@@ -5106,3 +5106,47 @@ jQuery.fn.getPostData = function () {
     }
     return dataPost;
 };
+
+AJAX.registerOnload('functions.js', function () {
+    /* Save username and server cookies on login */
+    if (isStorageSupported('localStorage') && $("#login_form").length > 0) {
+        // $("#login_form").removeClass('disableAjax');
+        $("#login_form").on("submit", function() {
+            username = $("#input_username").val();
+            server = 1;
+            if($("#select_server").length) {
+                server = $("#select_server").val();
+            }
+            var configurations = localStorage.getItem(username + "/" + server);
+            if(typeof configurations !== 'undefined' && configurations !== null) {
+                 configurations = JSON.stringify(configurations);
+                $('<input />').attr('type', 'hidden')
+                    .attr('name', 'configurations')
+                    .attr('value', configurations)
+                    .appendTo('#login_form');
+            }
+        });
+    } else if(isStorageSupported('localStorage') && $("#login_form").length === 0) {
+        var username = PMA_commonParams.get('user');
+        var server = PMA_commonParams.get('server');
+        var configurations = localStorage.getItem(username + "/" + server);
+        if(typeof configurations === 'undefined' || configurations === null) {
+            configurations = [];
+        } else {
+            configurations = JSON.parse(configurations);
+        }
+        for(i = 0; i < configurations.length; ++i) {
+            currentConfig = configurations[i];
+            type = currentConfig["type"];
+            if(type === "") break;
+            for(var j = 0; j < currentConfig["configurations"].length; ++j) {
+                config = currentConfig["configurations"][j];
+                if(type === "General") {
+                    configSet(config["name"], config["value"]);
+                } else {
+                    configSet(type + "/" + config["name"], config["value"]);
+                }
+            }
+        }
+    }
+});

@@ -67,6 +67,7 @@ if (!empty($_GET['saved'])) {
 $relation = new Relation();
 $cfgRelation = $relation->getRelationsParam();
 if (! $cfgRelation['userconfigwork']) {
+    echo "<span id='noCfg'>";
     $msg = __(
         'Your preferences will be saved for current session only. Storing them '
         . 'permanently requires %sphpMyAdmin configuration storage%s.'
@@ -75,4 +76,5 @@ if (! $cfgRelation['userconfigwork']) {
         sprintf($msg, '[doc@linked-tables]', '[/doc]')
     );
     Message::notice($msg)->display();
+    echo "</span>";
 }
