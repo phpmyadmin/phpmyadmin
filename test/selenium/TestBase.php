@@ -303,7 +303,7 @@ abstract class TestBase extends Selenium2TestCase
         if ($this->isSuccessLogin()) {
             return;
         }
-        $usernameField = $this->waitForElement('byId', 'input_username');
+        $usernameField = $this->byId('input_username');
         $usernameField->value($username);
         $passwordField = $this->byId('input_password');
         $passwordField->value($password);

@@ -303,10 +303,12 @@ function PMA_getCompositeIndexList (source_array, col_index) {
  * @param array  target_columns Columns for an INDEX
  * @param string col_index      Index of column on form
  * @param object index          Index detail object
+ * @param bool showDialog       Whether to show index creation dialog or not
  *
  * @return void
  */
-function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_index, index, showDialog = true) {
+function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_index, index, showDialog) {
+    showDialog = typeof showDialog !== 'undefined' ? showDialog : true;
     // Prepare post-data.
     var $table = $('input[name="table"]');
     var table = $table.length > 0 ? $table.val() : '';
@@ -376,10 +378,10 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
             PMA_ajaxShowMessage(data.error, false);
         } else {
             PMA_ajaxRemoveMessage($msgbox);
-            if(showDialog) {
+            if (showDialog) {
                 // Show dialog if the request was successful
-                if($("#addIndex").length > 0) {
-                    $("#addIndex").remove();
+                if ($('#addIndex').length > 0) {
+                    $('#addIndex').remove();
                 }
                 var $div = $('<div/>');
                 $div
@@ -413,9 +415,9 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
                 var $div = $('<div/>');
                 $div
                     .append(data.message);
-                $div.css({"display" : "none"});
+                $div.css({ 'display' : 'none' });
                 $div.appendTo($('body'));
-                $div.attr({"id" : "addIndex"});
+                $div.attr({ 'id' : 'addIndex' });
                 var is_missing_value = false;
                 $('select[name="index[columns][names][]"]').each(function () {
                     if ($(this).val() === '') {
@@ -714,7 +716,8 @@ AJAX.registerOnload('indexes.js', function () {
      * Ajax event handler for advanced index creation during table creation
      * and column addition.
      */
-    $('body').on('change', 'select[name*="field_key"]', function (e, showDialog = true) {
+    $('body').on('change', 'select[name*="field_key"]', function (e, showDialog) {
+        showDialog = typeof showDialog !== 'undefined' ? showDialog : true;
         // Index of column on Table edit and create page.
         var col_index = /\d+/.exec($(this).attr('name'));
         col_index = col_index[0];
