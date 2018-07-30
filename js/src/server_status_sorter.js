@@ -1,4 +1,3 @@
-import { jQuery as $ } from './utils/extend_jquery';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 // TODO: tablesorter shouldn't sort already sorted columns
 export function initTableSorter (tabid) {

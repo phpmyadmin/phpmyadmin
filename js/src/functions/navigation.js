@@ -4,7 +4,6 @@
  * @returns void
  */
 import { PMA_commonParams } from '../variables/common_params';
-import { setupRestoreField, setupConfigTabs, setupValidation } from './config';
 
 /**
  * Traverse the navigation tree backwards to generate all the actual
