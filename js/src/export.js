@@ -5,7 +5,7 @@ import { createTemplate, loadTemplate, updateTemplate,
     check_table_selected, toggle_table_select, toggle_table_select_all_str,
     check_selected_tables, toggle_table_select_all_data, setup_table_structure_or_data,
     toggle_quick_or_custom, toggle_sql_include_comments, disable_dump_some_rows_sub_options,
-    enable_dump_some_rows_sub_options, aliasToggleRow, addAlias, createAliasModal
+    enable_dump_some_rows_sub_options, aliasToggleRow, addAlias, createAliasModal, check_time_out
 } from './functions/export';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_commonParams } from './variables/common_params';
@@ -35,6 +35,7 @@ export function teardown1 () {
     $('select[name="template"]').off('change');
     $('input[name="updateTemplate"]').off('click');
     $('input[name="deleteTemplate"]').off('click');
+    $('form[name=\'dump\']').off('submit');
 }
 
 export function onload1 () {
@@ -127,6 +128,12 @@ export function onload1 () {
         if ($('option:selected').val() !== 'zip') {
             $('input[type="checkbox"][name="as_separate_files"]').prop('checked', false);
         }
+    });
+
+    // Handle submit of form to export sql
+    $('form[name=\'dump\']').on('submit', function (e) {
+        var timeout = $('input[type=\'submit\'][id=\'buttonGo\']').data().timeout;
+        check_time_out(timeout);
     });
 }
 
