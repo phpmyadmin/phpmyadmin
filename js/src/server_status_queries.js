@@ -2,7 +2,7 @@
 /**
  */
 import { PMA_createProfilingChart } from './functions/chart';
-import { jQuery as $ } from './utils/extend_jquery';
+import { jQuery as $ } from './utils/JqueryExtended';
 /**
  * Unbind all event handlers before tearing down a page
  */
