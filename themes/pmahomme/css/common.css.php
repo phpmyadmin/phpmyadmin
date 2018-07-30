@@ -79,10 +79,10 @@ h1 {
 h2 {
     font-size: 2em;
     font-weight: normal;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 #ffffff;
     padding: 10px 0;
     padding-<?php echo $left; ?>: 3px;
-    color: #777;
+    color: #777777;
 }
 
 /* Hiding icons in the page titles */
@@ -129,7 +129,7 @@ button.mult_submit:focus,
 
 #initials_table {
     background: #f3f3f3;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     margin-bottom: 10px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -141,8 +141,8 @@ button.mult_submit:focus,
 }
 
 #initials_table a {
-    border: 1px solid #aaa;
-    background: #fff;
+    border: 1px solid #aaaaaa;
+    background: #ffffff;
     padding: 4px 8px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -151,8 +151,8 @@ button.mult_submit:focus,
 }
 
 #initials_table a.active {
-    border: 1px solid #666;
-    box-shadow: 0 0 2px #999;
+    border: 1px solid #666666;
+    box-shadow: 0 0 2px #999999;
     <?php echo $theme->getCssGradient('bbbbbb', 'ffffff'); ?>
 }
 
@@ -189,7 +189,6 @@ form {
     display: inline;
 }
 
-
 input,
 select {
     /* Fix outline in Chrome: */
@@ -204,8 +203,8 @@ input[type=date] {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     background: white;
-    border: 1px solid #aaa;
-    color: #555;
+    border: 1px solid #aaaaaa;
+    color: #555555;
     padding: 4px;
 }
 
@@ -259,16 +258,16 @@ input[type=date]:hover,
 input[type=date]:focus,
 select:focus {
     border: 1px solid #7c7c7c;
-    background: #fff;
+    background: #ffffff;
 }
 
 input[type=text]:hover,
 input[type=password]:hover,
 input[type=number]:hover,
 input[type=date]:hover {
-    box-shadow: 0 1px 3px #aaa;
-    -webkit-box-shadow: 0 1px 3px #aaa;
-    -moz-box-shadow: 0 1px 3px #aaa;
+    box-shadow: 0 1px 3px #aaaaaa;
+    -webkit-box-shadow: 0 1px 3px #aaaaaa;
+    -moz-box-shadow: 0 1px 3px #aaaaaa;
 }
 
 input[type=submit],
@@ -284,15 +283,15 @@ input[type=reset],
 input[name=submit_reset],
 input.button {
     margin: 6px 14px;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     padding: 3px 7px;
-    color: #111;
+    color: #111111;
     text-decoration: none;
-    background: #ddd;
+    background: #dddddd;
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 #ffffff;
     <?php echo $theme->getCssGradient('f8f8f8', 'd8d8d8'); ?>
 }
 
@@ -315,7 +314,7 @@ input[name=submit_reset]:active,
 input.button:active {
     position: relative;
     <?php echo $theme->getCssGradient('eee', 'ddd'); ?>
-    box-shadow: 0 1px 6px -2px #333 inset;
+    box-shadow: 0 1px 6px -2px #333333 inset;
     text-shadow: none;
 }
 
@@ -325,8 +324,8 @@ button[type=submit]:not(.mult_submit):disabled,
 input[type=reset]:disabled,
 input[name=submit_reset]:disabled,
 input.button:disabled {
-    background: #ccc;
-    color: #666;
+    background: #cccccc;
+    color: #666666;
     text-shadow: none;
 }
 
@@ -344,9 +343,9 @@ fieldset, .preview_sql {
     border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
-    border: #aaa solid 1px;
+    border: #aaaaaa solid 1px;
     padding: .5em;
-    background: #eee;
+    background: #eeeeee;
     text-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
     -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 2px #fff inset;
@@ -355,20 +354,20 @@ fieldset, .preview_sql {
 
 fieldset fieldset {
     margin: .8em;
-    background: #fff;
-    border: 1px solid #aaa;
+    background: #ffffff;
+    border: 1px solid #aaaaaa;
     background: #E8E8E8;
 }
 
 fieldset legend {
     font-weight: bold;
-    color: #444;
+    color: #444444;
     padding: 5px 10px;
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-    border: 1px solid #aaa;
-    background-color: #fff;
+    border: 1px solid #aaaaaa;
+    background-color: #ffffff;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>3px 3px 15px #bbb;
     -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>3px 3px 15px #bbb;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>3px 3px 15px #bbb;
@@ -390,7 +389,7 @@ table td {
     padding: .1em .3em;
     margin: .1em;
     vertical-align: middle;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 #ffffff;
 }
 
 /* 3.4 */
@@ -403,7 +402,7 @@ table {
 }
 
 thead th {
-    border-right: 1px solid #fff;
+    border-right: 1px solid #ffffff;
 }
 
 th {
@@ -424,8 +423,8 @@ select {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
-    border: 1px solid #bbb;
-    color: #333;
+    border: 1px solid #bbbbbb;
+    color: #333333;
     padding: 3px;
     background: white;
     margin: 6px;
@@ -496,12 +495,12 @@ tr.vbottom th, tr.vbottom td, th.vbottom, td.vbottom {
 }
 
 .separator {
-    color: #fff;
-    text-shadow: 0 1px 0 #000;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #000000;
 }
 
 div.tools {
-    /* border: 1px solid #000; */
+    /* border: 1px solid #000000; */
     padding: .2em;
 }
 
@@ -552,7 +551,7 @@ table tbody:first-of-type tr:nth-child(odd),
 table tbody:first-of-type tr:nth-child(odd) th,
 #table_index tbody:nth-of-type(odd) tr,
 #table_index tbody:nth-of-type(odd) th {
-    background: #fff;
+    background: #ffffff;
 }
 
 /* even items 2,4,6,8,... */
@@ -601,17 +600,17 @@ table tr.hover:not(.nopointer) th {
 }
 
 th.condition {
-    border-width: 1px 1px 0 1px;
+    border-width: 1px 1px 0;
     border-style: solid;
 }
 
 td.condition {
-    border-width: 0 1px 0 1px;
+    border-width: 0 1px;
     border-style: solid;
 }
 
 tr:last-child td.condition {
-    border-width: 0 1px 1px 1px;
+    border-width: 0 1px 1px;
 }
 
 <?php if ($GLOBALS['text_dir'] === 'ltr') : ?>
@@ -662,15 +661,15 @@ img.lightbulb {
 .pdflayout {
     overflow: hidden;
     clip: inherit;
-    background-color: #fff;
+    background-color: #ffffff;
     display: none;
-    border: 1px solid #000;
+    border: 1px solid #000000;
     position: relative;
 }
 
 .pdflayout_table {
     background: #D3DCE3;
-    color: #000;
+    color: #000000;
     overflow: hidden;
     clip: inherit;
     z-index: 2;
@@ -679,13 +678,13 @@ img.lightbulb {
     cursor: move;
     position: absolute;
     font-size: 80%;
-    border: 1px dashed #000;
+    border: 1px dashed #000000;
 }
 
 /* Doc links in SQL */
 .cm-sql-doc {
     text-decoration: none;
-    border-bottom: 1px dotted #000;
+    border-bottom: 1px dotted #000000;
     color: inherit !important;
 }
 
@@ -733,9 +732,9 @@ div.error {
     -webkit-border-radius: 5px;
     border-radius: 5px;
 
-    -moz-box-shadow: 0 1px 1px #fff inset;
-    -webkit-box-shadow: 0 1px 1px #fff inset;
-    box-shadow: 0 1px 1px #fff inset;
+    -moz-box-shadow: 0 1px 1px #ffffff inset;
+    -webkit-box-shadow: 0 1px 1px #ffffff inset;
+    box-shadow: 0 1px 1px #ffffff inset;
 }
 
 .success a,
@@ -745,7 +744,7 @@ div.error {
 }
 
 .success {
-    color: #000;
+    color: #000000;
     background-color: #ebf8a4;
 }
 
@@ -758,7 +757,7 @@ div.success {
 }
 
 .notice {
-    color: #000;
+    color: #000000;
     background-color: #e8eef1;
 }
 
@@ -773,21 +772,21 @@ div.notice {
 
 .error {
     border: 1px solid maroon !important;
-    color: #000;
+    color: #000000;
     background: pink;
 }
 
 h1.error,
 div.error {
-    border-color: #333;
+    border-color: #333333;
 }
 
 div.error h1 {
-    border-color: #f00;
+    border-color: #ff0000;
 }
 
 .confirmation {
-    color: #000;
+    color: #000000;
     background-color: pink;
 }
 
@@ -800,7 +799,7 @@ div.error h1 {
 .tblcomment {
     font-size: 70%;
     font-weight: normal;
-    color: #009;
+    color: #000099;
 }
 
 .tblHeaders {
@@ -825,18 +824,18 @@ div.tools a:active,
 .tblFooters a:link,
 .tblFooters a:active,
 .tblFooters a:visited {
-    color: #00F;
+    color: #0000FF;
 }
 
 .tblHeaders a:hover,
 div.tools a:hover,
 .tblFooters a:hover {
-    color: #F00;
+    color: #FF0000;
 }
 
 /* forbidden, no privileges */
 .noPrivileges {
-    color: #F00;
+    color: #FF0000;
     font-weight: bold;
 }
 
@@ -845,18 +844,18 @@ div.tools a:hover,
 .disabled a:link,
 .disabled a:active,
 .disabled a:visited {
-    color: #666;
+    color: #666666;
 }
 
 .disabled a:hover {
-    color: #666;
+    color: #666666;
     text-decoration: none;
 }
 
 tr.disabled td,
 td.disabled {
     background-color: #f3f3f3;
-    color: #aaa;
+    color: #aaaaaa;
 }
 
 .nowrap {
@@ -897,7 +896,7 @@ form.login select {
 }
 
 .commented_column {
-    border-bottom: 1px dashed #000;
+    border-bottom: 1px dashed #000000;
 }
 
 .column_attribute {
@@ -943,11 +942,13 @@ form.login select {
 
 /* topmenu */
 #topmenu a {
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 #ffffff;
 }
 
 #topmenu .error {
-    background: #eee;border: 0 !important;color: #aaa;
+    background: #eeeeee;
+    border: 0 !important;
+    color: #aaaaaa;
 }
 
 ul#topmenu,
@@ -980,7 +981,7 @@ ul#topmenu2 li {
 
 .menucontainer {
     <?php echo $theme->getCssGradient('ffffff', 'dcdcdc'); ?>
-    border-top: 1px solid #aaa;
+    border-top: 1px solid #aaaaaa;
 }
 
 .scrollindicator {
@@ -989,7 +990,7 @@ ul#topmenu2 li {
 
 /* default tab styles */
 .tabactive {
-    background: #fff !important;
+    background: #ffffff !important;
 }
 
 ul#topmenu2 a {
@@ -998,7 +999,7 @@ ul#topmenu2 a {
     margin-<?php echo $left; ?>: 0;
     padding: 4px 10px;
     white-space: nowrap;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     border-radius: 20px;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -1006,19 +1007,19 @@ ul#topmenu2 a {
 }
 
 span.caution {
-    color: #F00;
+    color: #FF0000;
 }
 span.success {
     color: green;
 }
 
 fieldset.caution a {
-    color: #F00;
+    color: #FF0000;
 }
 
 fieldset.caution a:hover {
-    color: #fff;
-    background-color: #F00;
+    color: #ffffff;
+    background-color: #FF0000;
 }
 
 #topmenu {
@@ -1027,9 +1028,9 @@ fieldset.caution a:hover {
 }
 
 ul#topmenu ul {
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 6px #ddd;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
-    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 6px #dddddd;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666666;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666666;
 }
 
 ul#topmenu ul.only {
@@ -1037,9 +1038,9 @@ ul#topmenu ul.only {
 }
 
 ul#topmenu > li {
-    border-right: 1px solid #fff;
-    border-left: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
 }
 
 ul#topmenu > li:first-child {
@@ -1092,7 +1093,7 @@ ul#topmenu2 a.tabactive {
 ul#topmenu > li.active {
     /* border-bottom: 0pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>; */
     border-right: 0;
-    border-bottom-color: #fff;
+    border-bottom-color: #ffffff;
 }
 /* end topmenu */
 
@@ -1123,7 +1124,7 @@ table.calendar td a {
 }
 
 table.calendar td a:hover {
-    background-color: #CFC;
+    background-color: #CCFFCC;
 }
 
 table.calendar th {
@@ -1131,7 +1132,7 @@ table.calendar th {
 }
 
 table.calendar td.selected {
-    background-color: #FC9;
+    background-color: #FFCC99;
 }
 
 img.calendar {
@@ -1172,10 +1173,10 @@ div#tablestatistics table {
 }
 
 #serverinfo {
-    background: #888;
+    background: #888888;
     padding: .3em .9em;
     padding-<?php echo $left; ?>: 2.2em;
-    text-shadow: 0 1px 0 #000;
+    text-shadow: 0 1px 0 #000000;
     max-width: 100%;
     max-height: 16px;
     overflow: hidden;
@@ -1183,7 +1184,7 @@ div#tablestatistics table {
 
 #serverinfo .item {
     white-space: nowrap;
-    color: #fff;
+    color: #ffffff;
 }
 
 #page_nav_icons {
@@ -1196,7 +1197,7 @@ div#tablestatistics table {
 
 #goto_pagetop, #lock_page_icon, #page_settings_icon {
     padding: .25em;
-    background: #888;
+    background: #888888;
 }
 
 #page_settings_icon {
@@ -1240,9 +1241,9 @@ div#tablestatistics table {
     height: auto;
     overflow: visible;
     visibility: hidden;
-    background-color: #ffc;
-    color: #060;
-    border: .1em solid #000;
+    background-color: #ffffcc;
+    color: #006600;
+    border: .1em solid #000000;
     padding: .5em;
 }
 
@@ -1400,7 +1401,7 @@ div.liveChart {
 }
 
 div#chartVariableSettings {
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     background-color: #E6E6E6;
     margin-left: 10px;
 }
@@ -1433,13 +1434,13 @@ div.tabLinks .icon {
 .popupContent {
     display: none;
     position: absolute;
-    border: 1px solid #CCC;
+    border: 1px solid #CCCCCC;
     margin: 0;
     padding: 3px;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
     -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 3px #666;
-    background-color: #fff;
+    background-color: #ffffff;
     z-index: 2;
 }
 
@@ -1542,7 +1543,7 @@ div#queryAnalyzerDialog table.queryNums {
 }
 
 #serverVariables .serverVariableEditor a {
-    margin: 0 0.5em;
+    margin: 0 .5em;
     line-height: 2em;
 }
 /* end server variables */
@@ -1550,7 +1551,7 @@ div#queryAnalyzerDialog table.queryNums {
 
 p.notice {
     margin: 1.5em 0;
-    border: 1px solid #000;
+    border: 1px solid #000000;
     background-repeat: no-repeat;
     <?php if ($GLOBALS['text_dir'] === 'ltr') : ?>
         background-position: 10px 50%;
@@ -1562,15 +1563,15 @@ p.notice {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    -moz-box-shadow: 0 1px 2px #fff inset;
-    -webkit-box-shadow: 0 1px 2px #fff inset;
-    box-shadow: 0 1px 2px #fff inset;
-    background: #555;
+    -moz-box-shadow: 0 1px 2px #ffffff inset;
+    -webkit-box-shadow: 0 1px 2px #ffffff inset;
+    box-shadow: 0 1px 2px #ffffff inset;
+    background: #555555;
     color: #d4fb6a;
 }
 
 p.notice a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: underline;
 }
 
@@ -1611,7 +1612,7 @@ div#profilingchart {
 #serverstatus h3 {
     margin: 15px 0;
     font-weight: normal;
-    color: #999;
+    color: #999999;
     font-size: 1.7em;
 }
 
@@ -1619,27 +1620,27 @@ div#profilingchart {
     margin-bottom: 15px;
     padding: 16px;
     background: #f3f3f3;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    box-shadow: 0 1px 1px #fff inset;
-    -webkit-box-shadow: 0 1px 1px #fff inset;
-    -moz-box-shadow: 0 1px 1px #fff inset;
+    box-shadow: 0 1px 1px #ffffff inset;
+    -webkit-box-shadow: 0 1px 1px #ffffff inset;
+    -moz-box-shadow: 0 1px 1px #ffffff inset;
 }
 
 #sectionlinks a,
 .buttonlinks a,
 a.button {
     font-weight: bold;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 #ffffff;
     line-height: 35px;
     margin-<?php echo $left; ?>: 7px;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     padding: 3px 7px;
-    color: #111 !important;
+    color: #111111 !important;
     text-decoration: none;
-    background: #ddd;
+    background: #dddddd;
     white-space: nowrap;
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -1667,7 +1668,7 @@ div#tablefieldscontainer {
 
 div#tablefieldscontainer select {
     width: 100%;
-    background: #fff;
+    background: #ffffff;
     /* height: 12em; */
 }
 
@@ -1677,7 +1678,7 @@ textarea#sqlquery {
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     padding: 5px;
     font-family: inherit;
 }
@@ -1720,8 +1721,8 @@ div#queryboxcontainer div#bookmarkoptions {
     z-index: 801;
 
     border-radius: 3px;
-    border: solid 1px #888;
-    background: #fff;
+    border: solid 1px #888888;
+    background: #ffffff;
 }
 /* end main page */
 
@@ -1747,7 +1748,7 @@ li.no_bullets {
 }
 
 #bodythemes img {
-    border: .1em solid #000;
+    border: .1em solid #000000;
 }
 
 #bodythemes a:hover img {
@@ -1859,26 +1860,26 @@ div.sqlvalidate {
 }
 
 .group {
-    border: 1px solid #999;
+    border: 1px solid #999999;
     background: #f3f3f3;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
-    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
-    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
-    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #ccc;
+    -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #cccccc;
+    -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #cccccc;
+    box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>2px 2px 5px #cccccc;
     margin-bottom: 1em;
     padding-bottom: 1em;
 }
 
 .group h2 {
-    background-color: #bbb;
+    background-color: #bbbbbb;
     padding: .1em .3em;
     margin-top: 0;
-    color: #fff;
+    color: #ffffff;
     font-size: 1.6em;
     font-weight: normal;
-    text-shadow: 0 1px 0 #777;
+    text-shadow: 0 1px 0 #777777;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
     -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
@@ -1915,7 +1916,7 @@ div.upload_progress {
 }
 
 div.upload_progress_bar_outer {
-    border: 1px solid #000;
+    border: 1px solid #000000;
     width: 202px;
     position: relative;
     margin: 0 auto 1em;
@@ -1997,9 +1998,9 @@ select.invalid_value,
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    box-shadow: 0 5px 90px #888;
-    -moz-box-shadow: 0 5px 90px #888;
-    -webkit-box-shadow: 0 5px 90px #888;
+    box-shadow: 0 5px 90px #888888;
+    -moz-box-shadow: 0 5px 90px #888888;
+    -webkit-box-shadow: 0 5px 90px #888888;
 }
 
 #loading_parent {
@@ -2041,7 +2042,7 @@ select.invalid_value,
 
 .exportoptions h3,
 .importoptions h3 {
-    border-bottom: 1px #999 solid;
+    border-bottom: 1px #999999 solid;
     font-size: 110%;
 }
 
@@ -2082,14 +2083,14 @@ select.invalid_value,
 .importoptions #buttonGo {
     font-weight: bold;
     margin-<?php echo $left; ?>: 14px;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     padding: 5px 12px;
-    color: #111;
+    color: #111111;
     text-decoration: none;
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 #ffffff;
     <?php echo $theme->getCssGradient('ffffff', 'cccccc'); ?>
     cursor: pointer;
 }
@@ -2101,7 +2102,7 @@ select.invalid_value,
 }
 
 .format_specific_options {
-    border: 1px solid #999;
+    border: 1px solid #999999;
     margin: 7px 0;
     padding: 3px;
 }
@@ -2124,7 +2125,7 @@ select#table_select {
 }
 
 .export_sub_options h4 {
-    border-bottom: 1px #999 solid;
+    border-bottom: 1px #999999 solid;
 }
 
 .export_sub_options li.subgroup {
@@ -2176,7 +2177,7 @@ input#input_import_file {
     height: 100%;
     top: 0;
     <?php echo $left; ?>: 0;
-    background: #000;
+    background: #000000;
     z-index: 1000;
     overflow: hidden;
 }
@@ -2191,15 +2192,15 @@ input#input_import_file {
 }
 #fieldsForm ul.table-structure-actions li {
     float: <?php echo $left; ?>;
-    margin-<?php echo $right; ?>: 0.3em; /* same as padding of "table td" */
+    margin-<?php echo $right; ?>: .3em; /* same as padding of "table td" */
 }
 #fieldsForm ul.table-structure-actions .submenu li {
     padding: 0;
     margin: 0;
 }
 #fieldsForm ul.table-structure-actions .submenu li span {
-    padding: 0.3em;
-    margin: 0.1em;
+    padding: .3em;
+    margin: .1em;
 }
 #structure-action-links a {
     margin-<?php echo $right; ?>: 1em;
@@ -2273,7 +2274,7 @@ table#index_columns select {
 
 #move_columns_dialog li {
     background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     font-weight: bold;
     margin: .4em;
@@ -2302,7 +2303,7 @@ table#index_columns select {
     white-space: nowrap;
     text-decoration: none;
     border: 1px solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #aaaaaa;
 }
 
 .config-form ul.tabs li a {
@@ -2311,8 +2312,8 @@ table#index_columns select {
     -moz-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
     background: #f2f2f2;
-    color: #555;
-    text-shadow: 0 1px 0 #fff;
+    color: #555555;
+    text-shadow: 0 1px 0 #ffffff;
 }
 
 .config-form ul.tabs li a:hover,
@@ -2321,12 +2322,12 @@ table#index_columns select {
 }
 
 .config-form ul.tabs li.active a {
-    background-color: #fff;
+    background-color: #ffffff;
     margin-top: 1px;
-    color: #000;
+    color: #000000;
     text-shadow: none;
-    border-color: #aaa;
-    border-bottom: 1px solid #fff;
+    border-color: #aaaaaa;
+    border-bottom: 1px solid #ffffff;
 }
 
 .config-form fieldset {
@@ -2345,7 +2346,7 @@ table#index_columns select {
 .config-form fieldset p {
     margin: 0;
     padding: .5em;
-    background: #fff;
+    background: #ffffff;
     border-top: 0;
 }
 
@@ -2361,7 +2362,7 @@ table#index_columns select {
 }
 
 .config-form fieldset .inline_errors { /* field error list */
-    margin: .3em .3em .3em;
+    margin: .3em;
     margin-<?php echo $left; ?>: 0;
     padding: 0;
     list-style: none;
@@ -2370,7 +2371,7 @@ table#index_columns select {
 }
 
 .config-form fieldset th {
-    padding: .3em .3em .3em;
+    padding: .3em;
     padding-<?php echo $left; ?>: .5em;
     text-align: <?php echo $left; ?>;
     vertical-align: top;
@@ -2387,7 +2388,7 @@ table#index_columns select {
 .config-form fieldset .disabled-notice {
     font-size: 80%;
     text-transform: uppercase;
-    color: #E00;
+    color: #EE0000;
     cursor: help;
 }
 
@@ -2402,7 +2403,7 @@ table#index_columns select {
     font-weight: normal;
     font-family: sans-serif;
     font-size: x-small;
-    color: #444;
+    color: #444444;
 }
 
 .config-form fieldset th,
@@ -2436,12 +2437,12 @@ fieldset .group-field-3 th {
 fieldset .disabled-field th,
 fieldset .disabled-field th small,
 fieldset .disabled-field td {
-    color: #666;
-    background-color: #ddd;
+    color: #666666;
+    background-color: #dddddd;
 }
 
 .config-form .lastrow {
-    border-top: 1px #000 solid;
+    border-top: 1px #000000 solid;
 }
 
 .config-form .lastrow {
@@ -2462,13 +2463,13 @@ fieldset .disabled-field td {
 }
 
 .config-form .custom { /* customized field */
-    background: #FFC;
+    background: #FFFFCC;
 }
 
 .config-form span.checkbox.custom {
     padding: 1px;
     border: 1px #EDEC90 solid;
-    background: #FFC;
+    background: #FFFFCC;
 }
 
 .config-form .field-error {
@@ -2495,7 +2496,7 @@ fieldset .disabled-field td {
 
 .config-form .field-comment-mark {
     font-family: serif;
-    color: #007;
+    color: #000077;
     cursor: help;
     padding: 0 .2em;
     font-weight: bold;
@@ -2503,7 +2504,7 @@ fieldset .disabled-field td {
 }
 
 .config-form .field-comment-warning {
-    color: #A00;
+    color: #AA0000;
 }
 
 /* error list */
@@ -2535,8 +2536,8 @@ fieldset .disabled-field td {
 
 #placeholder div.button {
     font-size: smaller;
-    color: #999;
-    background-color: #eee;
+    color: #999999;
+    background-color: #eeeeee;
     padding: 2px;
 }
 
@@ -2553,8 +2554,8 @@ fieldset .disabled-field td {
     line-height: 1.4em;
     height: 1.55em;
     overflow: hidden;
-    border-right: .1em solid #888;
-    border-left: .1em solid #888;
+    border-right: .1em solid #888888;
+    border-left: .1em solid #888888;
     -webkit-border-radius: .3em;
     -moz-border-radius: .3em;
     border-radius: .3em;
@@ -2578,9 +2579,9 @@ fieldset .disabled-field td {
 }
 
 .toggleButton .toggleOn {
-    color: #fff;
+    color: #ffffff;
     padding: 0 1em;
-    text-shadow: 0 0 .2em #000;
+    text-shadow: 0 0 .2em #00000;
 }
 
 .toggleButton .toggleOff {
@@ -2629,7 +2630,7 @@ fieldset .disabled-field td {
 
 #placeholder {
     position: relative;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     float: <?php echo $right; ?>;
     overflow: hidden;
     width: 450px;
@@ -2730,17 +2731,17 @@ fieldset .disabled-field td {
 }
 
 .cCpy {
-    background: #333;
-    color: #FFF;
+    background: #333333;
+    color: #FFFFFF;
     font-weight: bold;
     margin: .1em;
     padding: .3em;
     position: absolute;
-    text-shadow: -1px -1px #000;
+    text-shadow: -1px -1px #000000;
 
-    -moz-box-shadow: 0 0 .7em #000;
-    -webkit-box-shadow: 0 0 .7em #000;
-    box-shadow: 0 0 .7em #000;
+    -moz-box-shadow: 0 0 .7em #000000;
+    -webkit-box-shadow: 0 0 .7em #000000;
+    box-shadow: 0 0 .7em #000000;
     -moz-border-radius: .3em;
     -webkit-border-radius: .3em;
     border-radius: .3em;
@@ -2756,13 +2757,13 @@ fieldset .disabled-field td {
 }
 
 .tooltip {
-    background: #333 !important;
+    background: #333333 !important;
     opacity: .8 !important;
-    border: 1px solid #000 !important;
+    border: 1px solid #000000 !important;
     -moz-border-radius: .3em !important;
     -webkit-border-radius: .3em !important;
     border-radius: .3em !important;
-    text-shadow: -1px -1px #000 !important;
+    text-shadow: -1px -1px #000000 !important;
     font-size: .8em !important;
     font-weight: bold !important;
     padding: 1px 3px !important;
@@ -2770,7 +2771,7 @@ fieldset .disabled-field td {
 
 .tooltip * {
     background: none !important;
-    color: #FFF !important;
+    color: #FFFFFF !important;
 }
 
 .cDrop {
@@ -2791,16 +2792,16 @@ fieldset .disabled-field td {
 
 .coldrop:hover,
 .coldrop-hover {
-    background-color: #999;
+    background-color: #999999;
 }
 
 .cList {
-    background: #EEE;
-    border: solid 1px #999;
+    background: #EEEEEE;
+    border: solid 1px #999999;
     position: absolute;
-    -moz-box-shadow: 0 .2em .5em #333;
-    -webkit-box-shadow: 0 .2em .5em #333;
-    box-shadow: 0 .2em .5em #333;
+    -moz-box-shadow: 0 .2em .5em #333333;
+    -webkit-box-shadow: 0 .2em .5em #333333;
+    box-shadow: 0 .2em .5em #333333;
 }
 
 .cList .lDiv div {
@@ -2809,7 +2810,7 @@ fieldset .disabled-field td {
 }
 
 .cList .lDiv div:hover {
-    background: #DDD;
+    background: #DDDDDD;
     cursor: pointer;
 }
 
@@ -2818,8 +2819,8 @@ fieldset .disabled-field td {
 }
 
 .showAllColBtn {
-    border-bottom: solid 1px #999;
-    border-top: solid 1px #999;
+    border-bottom: solid 1px #999999;
+    border-top: solid 1px #999999;
     cursor: pointer;
     font-size: .9em;
     font-weight: bold;
@@ -2828,7 +2829,7 @@ fieldset .disabled-field td {
 }
 
 .showAllColBtn:hover {
-    background: #DDD;
+    background: #DDDDDD;
 }
 
 .turnOffSelect {
@@ -2854,13 +2855,13 @@ fieldset .disabled-field td {
 }
 
 .navigation_separator {
-    color: #999;
+    color: #999999;
     display: inline-block;
     font-size: 1.5em;
     text-align: center;
     height: 1.4em;
     width: 1.2em;
-    text-shadow: 1px 0 #FFF;
+    text-shadow: 1px 0 #FFFFFF;
 }
 
 .navigation input[type=submit] {
@@ -2876,7 +2877,7 @@ fieldset .disabled-field td {
 
 .navigation input[type=submit]:hover,
 .navigation input.edit_mode_active {
-    color: #fff;
+    color: #ffffff;
     cursor: pointer;
     text-shadow: none;
     <?php echo $theme->getCssGradient('333333', '555555'); ?>
@@ -2893,15 +2894,15 @@ fieldset .disabled-field td {
 }
 
 .cEdit input[type=text] {
-    background: #FFF;
+    background: #FFFFFF;
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
 .cEdit .edit_area {
-    background: #FFF;
-    border: 1px solid #999;
+    background: #FFFFFF;
+    border: 1px solid #999999;
     min-width: 10em;
     padding: .3em .5em;
 }
@@ -2912,7 +2913,7 @@ fieldset .disabled-field td {
 }
 
 .cEdit .cell_edit_hint {
-    color: #555;
+    color: #555555;
     font-size: .8em;
     margin: .3em .2em;
 }
@@ -2925,18 +2926,18 @@ fieldset .disabled-field td {
 }
 
 .cEdit .edit_box_posting {
-    background: #FFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
+    background: #FFFFFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
     padding-<?php echo $right; ?>: 1.5em;
 }
 
 .cEdit .edit_area_loading {
-    background: #FFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
+    background: #FFFFFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
     height: 10em;
 }
 
 .cEdit .goto_link {
-    background: #EEE;
-    color: #555;
+    background: #EEEEEE;
+    color: #555555;
     padding: .2em .3em;
 }
 
@@ -2966,7 +2967,7 @@ fieldset .disabled-field td {
 .ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
 
 input.btn {
-    color: #333;
+    color: #333333;
     background-color: #D0DCE0;
 }
 
@@ -3019,7 +3020,7 @@ table.show_create {
 }
 
 table.show_create td {
-    border-right: 1px solid #bbb;
+    border-right: 1px solid #bbbbbb;
 }
 
 #alias_modal table {
@@ -3033,7 +3034,6 @@ table.show_create td {
 .ui-dialog {
     position: fixed;
 }
-
 
 .small_font {
     font-size: smaller;
@@ -3060,8 +3060,8 @@ table.show_create td {
 }
 #pma_console .toolbar {
     position: relative;
-    background: #ccc;
-    border-top: solid 1px #aaa;
+    background: #cccccc;
+    border-top: solid 1px #aaaaaa;
     cursor: n-resize;
 }
 #pma_console .toolbar.collapsed:not(:hover) {
@@ -3092,7 +3092,7 @@ table.show_create td {
 #pma_console .toolbar .button:hover,
 #pma_console .switch_button:hover,
 #pma_console .toolbar .button.active {
-    background: #ddd;
+    background: #dddddd;
 }
 #pma_console .toolbar .text {
     font-weight: bold;
@@ -3109,26 +3109,26 @@ table.show_create td {
     overflow-x: hidden;
     overflow-y: auto;
     margin-bottom: -65px;
-    border-top: solid 1px #aaa;
-    background: #fff;
+    border-top: solid 1px #aaaaaa;
+    background: #ffffff;
     padding-top: .4em;
 }
 #pma_console .content.console_dark_theme {
-    background: #000;
-    color: #fff;
+    background: #000000;
+    color: #ffffff;
 }
 #pma_console .content.console_dark_theme .CodeMirror-wrap {
-    background: #000;
-    color: #fff;
+    background: #000000;
+    color: #ffffff;
 }
 #pma_console .content.console_dark_theme .action_content {
-    color: #000;
+    color: #000000;
 }
 #pma_console .content.console_dark_theme .message {
     border-color: #373B41;
 }
 #pma_console .content.console_dark_theme .CodeMirror-cursor {
-    border-color: #fff;
+    border-color: #ffffff;
 }
 #pma_console .content.console_dark_theme .cm-keyword {
     color: #de935f;
@@ -3141,7 +3141,7 @@ table.show_create td {
     margin: 0 10px .2em 1.4em;
 }
 #pma_console .message {
-    border-bottom: solid 1px #ccc;
+    border-bottom: solid 1px #cccccc;
     padding-bottom: .2em;
 }
 #pma_console .message.expanded>.action_content {
@@ -3162,7 +3162,7 @@ table.show_create td {
     resize: vertical;
 }
 #pma_console .message:hover:before {
-    color: #7cf;
+    color: #77ccff;
     font-weight: bold;
 }
 #pma_console .message.expanded:before {
@@ -3175,7 +3175,7 @@ table.show_create td {
 #pma_console .message.failed.expanded:before,
 #pma_console .message.failed:hover:before {
     content: "=";
-    color: #944;
+    color: #994444;
 }
 #pma_console .message.pending:before {
     opacity: .3;
@@ -3214,8 +3214,8 @@ table.show_create td {
 #pma_console .message .action_content {
     position: absolute;
     bottom: 100%;
-    background: #ccc;
-    border: solid 1px #aaa;
+    background: #cccccc;
+    border: solid 1px #aaaaaa;
     border-top-<?php echo $left; ?>-radius: 3px;
 }
 html.ie8 #pma_console .message .action_content {
@@ -3234,7 +3234,7 @@ html.ie8 #pma_console .message .action_content {
     display: inline-block;
 }
 #pma_console .message .text {
-    background: #fff;
+    background: #ffffff;
 }
 #pma_console .message.collapsed>.action_content {
     display: none;
@@ -3245,12 +3245,12 @@ html.ie8 #pma_console .message .action_content {
 #pma_console .message .bookmark_label {
     padding: 0 4px;
     top: 0;
-    background: #369;
-    color: #fff;
+    background: #336699;
+    color: #ffffff;
     border-radius: 3px;
 }
 #pma_console .message .bookmark_label.shared {
-    background: #396;
+    background: #339966;
 }
 #pma_console .message.expanded .bookmark_label {
     border-top-left-radius: 0;
@@ -3266,7 +3266,7 @@ html.ie8 #pma_console .message .action_content {
     top: 0;
     /* For support IE8, this layer doesn't use filter:opacity or opacity,
     js code will fade this layer opacity to 0.18(using animation) */
-    background: #666;
+    background: #666666;
     display: none;
     cursor: pointer;
     z-index: 200;
@@ -3278,7 +3278,7 @@ html.ie8 #pma_console .message .action_content {
     min-height: 48px;
     <?php echo $left; ?>: 100%;
     top: 0;
-    border-<?php echo $left; ?>: solid 1px #999;
+    border-<?php echo $left; ?>: solid 1px #999999;
     z-index: 300;
     transition: <?php echo $left; ?> .2s;
     -ms-transition: <?php echo $left; ?> .2s;
@@ -3287,7 +3287,7 @@ html.ie8 #pma_console .message .action_content {
 }
 #pma_console .card.show {
     <?php echo $left; ?>: 6%;
-    box-shadow: -2px 1px 4px -1px #999;
+    box-shadow: -2px 1px 4px -1px #999999;
 }
 
 html.ie7 #pma_console .query_input {
@@ -3302,7 +3302,7 @@ html.ie7 #pma_console .query_input {
     margin-<?php echo $left; ?>: 1.4em;
     padding-bottom: .4em;
     margin-bottom: .4em;
-    border-bottom: solid 1px #ccc;
+    border-bottom: solid 1px #cccccc;
 }
 #pma_bookmarks .content.add_bookmark .options button {
     margin: 0 7px;
@@ -3407,7 +3407,7 @@ html.ie7 #pma_console .query_input {
     bottom: 0;
     right: 25px;
     width: 400px;
-    border: 1px solid #999;
+    border: 1px solid #999999;
     background: #f3f3f3;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -3419,14 +3419,14 @@ html.ie7 #pma_console .query_input {
 
 .pma_sql_import_status h2,
 .pma_drop_result h2 {
-    background-color: #bbb;
+    background-color: #bbbbbb;
     padding: .1em .3em;
     margin-top: 0;
     margin-bottom: 0;
-    color: #fff;
+    color: #ffffff;
     font-size: 1.6em;
     font-weight: normal;
-    text-shadow: 0 1px 0 #777;
+    text-shadow: 0 1px 0 #777777;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
     -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
@@ -3441,7 +3441,7 @@ html.ie7 #pma_console .query_input {
 
 .pma_sql_import_status div li {
     padding: 8px 10px;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #bbbbbb;
     color: rgb(148, 14, 14);
     background: white;
 }
@@ -3487,7 +3487,7 @@ html.ie7 #pma_console .query_input {
     background: white;
     min-height: 300px;
     z-index: 800;
-    -webkit-box-shadow: 0 0 15px #999;
+    -webkit-box-shadow: 0 0 15px #999999;
     border-radius: 10px;
     cursor: move;
 }

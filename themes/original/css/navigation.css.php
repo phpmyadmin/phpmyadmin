@@ -62,7 +62,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     text-align: center;
     margin: 0;
     margin-<?php echo $left; ?>: 0.75em;
-    border-<?php echo $left; ?>: 1px solid #666;
+    border-<?php echo $left; ?>: 1px solid #666666;
 }
 
 #pma_navigation div#pmalogo {
@@ -116,7 +116,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 #pma_navigation_tree {
     margin: 0;
     margin-<?php echo $left; ?>: 1em;
-    color: #444;
+    color: #444444;
     height: 74%;
     position: relative;
 }
@@ -137,9 +137,9 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     background: url("./themes/pmahomme/img/select_bg.png") repeat scroll 0 0;
     -webkit-border-radius: 2px;
     border-radius: 2px;
-    border: 1px solid #bbb;
-    border-top: 1px solid #bbb;
-    color: #333;
+    border: 1px solid #bbbbbb;
+    border-top: 1px solid #bbbbbb;
+    color: #333333;
     padding: 4px 6px;
     margin: 0;
     width: 92%;
@@ -230,8 +230,8 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     z-index: 0;
 }
 #pma_navigation_tree div.block i {
-    border-<?php echo $left; ?>: 1px solid #666;
-    border-bottom: 1px solid #666;
+    border-<?php echo $left; ?>: 1px solid #666666;
+    border-bottom: 1px solid #666666;
     position: relative;
     z-index: 0;
 }
@@ -244,7 +244,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     height: .75em;
     bottom: 0;
     <?php echo $left; ?>: .75em;
-    border-<?php echo $left; ?>: 1px solid #666;
+    border-<?php echo $left; ?>: 1px solid #666666;
 }
 #pma_navigation_tree div.block a,
 #pma_navigation_tree div.block u {
@@ -277,12 +277,12 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     padding-<?php echo $left; ?>: .3em;
 }
 #pma_navigation_tree .list_container {
-    border-<?php echo $left; ?>: 1px solid #666;
+    border-<?php echo $left; ?>: 1px solid #666666;
     margin-<?php echo $left; ?>: .75em;
     padding-<?php echo $left; ?>: .75em;
 }
 #pma_navigation_tree .last > .list_container {
-    border-<?php echo $left; ?>: 0 solid #666;
+    border-<?php echo $left; ?>: 0 solid #666666;
 }
 
 /* Fast filter */
@@ -290,7 +290,7 @@ li.fast_filter {
     padding-<?php echo $left; ?>: .75em;
     margin-<?php echo $left; ?>: .75em;
     padding-<?php echo $right; ?>: 35px;
-    border-<?php echo $left; ?>: 1px solid #666;
+    border-<?php echo $left; ?>: 1px solid #666666;
 }
 li.fast_filter input {
     padding-<?php echo $right; ?>: 1.7em;
@@ -302,7 +302,7 @@ li.fast_filter span {
     padding: 0.2em;
     cursor: pointer;
     font-weight: bold;
-    color: #800;
+    color: #880000;
 }
 /* IE10+ has its own reset X */
 html.ie li.fast_filter span {
@@ -327,7 +327,7 @@ li.fast_filter.db_fast_filter {
 #pma_navigation_resizer {
     width: 3px;
     height: 100%;
-    background-color: #aaa;
+    background-color: #aaaaaa;
     cursor: col-resize;
     position: fixed;
     top: 0;
@@ -339,8 +339,8 @@ li.fast_filter.db_fast_filter {
     width: 20px;
     height: 22px;
     line-height: 22px;
-    background: #eee;
-    color: #555;
+    background: #eeeeee;
+    color: #555555;
     font-weight: bold;
     position: fixed;
     top: 0;
@@ -348,9 +348,9 @@ li.fast_filter.db_fast_filter {
     text-align: center;
     cursor: pointer;
     z-index: 800;
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 #ffffff;
     filter: dropshadow(color=#fff, offx=0, offy=1);
-    border: 1px solid #888;
+    border: 1px solid #888888;
 }
 
 #navigation_controls_outer {
@@ -379,12 +379,12 @@ li.fast_filter.db_fast_filter {
 }
 .pma_quick_warp .drop_button{
     padding: 0 .3em;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     background: #f2f2f2;
     cursor: pointer;
 }
 .pma_quick_warp .drop_list:hover .drop_button {
-    background: #fff;
+    background: #ffffff;
 }
 .pma_quick_warp .drop_list ul {
     position: absolute;
@@ -393,8 +393,8 @@ li.fast_filter.db_fast_filter {
     overflow: hidden;
     overflow-y: auto;
     list-style: none;
-    background: #fff;
-    border: 1px solid #ddd;
+    background: #ffffff;
+    border: 1px solid #dddddd;
     border-top-<?php echo $right; ?>-radius: 0;
     border-bottom-<?php echo $right; ?>-radius: 0;
     top: 100%;

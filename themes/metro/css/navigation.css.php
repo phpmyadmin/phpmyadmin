@@ -74,7 +74,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     display: inline;
 }
 
-
 /******************************************************************************/
 /* specific elements */
 
@@ -191,9 +190,9 @@ img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reloa
     margin-<?php echo $left; ?>: 0.75em;
 }
 #pma_navigation_db_select select {
-    border: 1px solid #bbb;
-    border-top: 1px solid #bbb;
-    color: #333;
+    border: 1px solid #bbbbbb;
+    border-top: 1px solid #bbbbbb;
+    color: #333333;
     padding: 4px 6px;
     margin: 0;
     width: 92%;
@@ -350,9 +349,9 @@ li.fast_filter {
 }
 li.fast_filter input {
     width: 100%;
-    background-color: #FFF;
-    border: 1px solid #CCC;
-    color: #666;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    color: #666666;
     font-family: "Open Sans","Segoe UI";
     padding: 2px;
 }
@@ -363,7 +362,7 @@ li.fast_filter span {
     padding: .2em;
     cursor: pointer;
     font-weight: bold;
-    color: #800;
+    color: #880000;
 }
 li.fast_filter.db_fast_filter {
     border: 0;
@@ -392,7 +391,7 @@ li.fast_filter.db_fast_filter {
 #pma_navigation_resizer {
     width: 1px;
     height: 100%;
-    background-color: #aaa;
+    background-color: #aaaaaa;
     cursor: col-resize;
     position: fixed;
     top: 0;
@@ -407,7 +406,7 @@ li.fast_filter.db_fast_filter {
     background: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     border-bottom: 1px solid <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     line-height: 22px;
-    color: #fff;
+    color: #ffffff;
     position: fixed;
     top: 0;
     <?php echo $left; ?>: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
@@ -429,12 +428,12 @@ li.fast_filter.db_fast_filter {
 }
 .pma_quick_warp .drop_button {
     padding: .2em .5em;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     background: #f2f2f2;
     cursor: pointer;
 }
 .pma_quick_warp .drop_list:hover .drop_button {
-    background: #fff;
+    background: #ffffff;
 }
 .pma_quick_warp .drop_list ul {
     position: absolute;
@@ -443,8 +442,8 @@ li.fast_filter.db_fast_filter {
     overflow: hidden;
     overflow-y: auto;
     list-style: none;
-    background: #fff;
-    border: 1px solid #ddd;
+    background: #ffffff;
+    border: 1px solid #dddddd;
     top: 100%;
     <?php echo $left; ?>: 3px;
     <?php echo $right; ?>: 0;

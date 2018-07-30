@@ -18,7 +18,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 /*rules for the plot target div.  These will be cascaded down to all plot elements according to css rules*/
 .jqplot-target {
     position: relative;
-    color: #222;
+    color: #222222;
     font-family: "open sans", "segoe ui";
     font-size: 1em;
 /*    height: 300px;
@@ -52,7 +52,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     position: absolute;
     white-space: pre;
 }
-
 
 .jqplot-xaxis-tick {
     top: 0;
@@ -134,12 +133,12 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 .jqplot-meterGauge-tick {
     font-size: .75em;
-    color: #999;
+    color: #999999;
 }
 
 .jqplot-meterGauge-label {
     font-size: 1em;
-    color: #999;
+    color: #999999;
 }
 
 table.jqplot-table-legend {
@@ -148,7 +147,7 @@ table.jqplot-table-legend {
 
 table.jqplot-table-legend, table.jqplot-cursor-legend {
     background-color: rgba(255,255,255,.6);
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     position: absolute;
     font-size: .75em;
 }
@@ -182,7 +181,7 @@ td.jqplot-seriesToggle:hover, td.jqplot-seriesToggle:active {
 }
 
 div.jqplot-table-legend-swatch-outline {
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     padding: 1px;
 }
 
@@ -201,13 +200,13 @@ div.jqplot-table-legend-swatch {
 }
 
 table.jqplot-cursor-tooltip {
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     font-size: .75em;
 }
 
 
 .jqplot-cursor-tooltip {
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     font-size: .75em;
     white-space: nowrap;
     background: rgba(208,208,208,.5);
@@ -215,7 +214,7 @@ table.jqplot-cursor-tooltip {
 }
 
 .jqplot-highlighter-tooltip, .jqplot-canvasOverlay-tooltip {
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     font-size: .75em;
     white-space: nowrap;
     background: rgba(208,208,208,.5);
