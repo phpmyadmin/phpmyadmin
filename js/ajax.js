@@ -336,10 +336,9 @@ var AJAX = {
             if (typeof onsubmit !== 'function' || onsubmit.apply(this, [event])) {
                 AJAX.active = true;
                 AJAX.$msgbox = PMA_ajaxShowMessage();
-                if($(this).attr('id') == 'login_form') {
+                if($(this).attr('id') === 'login_form') {
                     $.post(url, params, AJAX.loginResponseHandler);
-                }
-                else {
+                } else {
                     $.post(url, params, AJAX.responseHandler);
                 }
             }
@@ -416,7 +415,7 @@ var AJAX = {
 
         if (typeof data.success !== 'undefined' && data.success) {
             // reload page if user trying to login has changed
-            if(typeof data.user_changed !== 'undefined' && data.user_changed == 1) {
+            if(PMA_commonParams.get('user') !== data._params['user']) {
                 window.location = "index.php";
                 PMA_ajaxShowMessage(PMA_messages.strLoading, false);
                 AJAX.active = false;
@@ -424,21 +423,19 @@ var AJAX = {
                 return;
             }
             // remove the login modal if the login is successful otherwise show error.
-            if(typeof data.logged_in !== 'undefined' && data.logged_in == 1) {
-                AJAX.fireTeardown("functions.js");
-                AJAX.fireOnload("functions.js");
+            if(typeof data.logged_in !== 'undefined' && data.logged_in === 1) {
                 if($("#modalOverlay").length) {
                     $("#modalOverlay").remove();
                 }
                 $("fieldset.disabled_for_expiration").removeAttr("disabled").removeClass("disabled_for_expiration");
+                AJAX.fireTeardown("functions.js");
+                AJAX.fireOnload("functions.js");
             }
             if(typeof data.new_token !== 'undefined') {
                 $("input[name=token]").val(data.new_token);
             }
 
-        } else if(typeof data.logged_in !== 'undefined' && data.logged_in == 0) {
-            AJAX.fireTeardown("functions.js");
-            AJAX.fireOnload("functions.js");
+        } else if(typeof data.logged_in !== 'undefined' && data.logged_in === 0) {
             $("#modalOverlay").replaceWith(data.error);
         } else {
             PMA_ajaxShowMessage(data.error, false);

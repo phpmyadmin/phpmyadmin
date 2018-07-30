@@ -179,7 +179,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         <fieldset>
         <legend>';
         echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '" />';
-        
+
         // Add a hidden element session_timedout which is used to check if the user requested login after session expiration
         if($session_expired) {
             echo '<input type="hidden" name="session_timedout" value="1" />';
@@ -277,7 +277,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         echo Config::renderFooter();
-        
+
         if (! defined('TESTSUITE')) {
             exit;
         } else {
@@ -512,9 +512,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
-        
-        // check if the user trying to login after session expiration is the same user as before
-        $user_changed = !hash_equals($_COOKIE['pmaUserHashed-' . $GLOBALS['server']], crypt($this->user, "SillYSAlTstRInG"));
+
         $this->storeUsernameCookie($this->user);
 
         // Duration = as configured
@@ -571,7 +569,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
         if (! $GLOBALS['from_cookie']) {
-            
+
             /**
              * Clear user cache.
              */
@@ -611,10 +609,6 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $username,
                 $this->_getEncryptionSecret()
             )
-        );
-        $GLOBALS['PMA_Config']->setCookie(
-            'pmaUserHashed-' . $GLOBALS['server'],
-            crypt($username, "SillYSAlTstRInG")
         );
     }
 
