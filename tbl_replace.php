@@ -47,7 +47,7 @@ $scripts = $header->getScripts();
 $scripts->addFile('makegrid.js');
 // Needed for generation of Inline Edit anchors
 $scripts->addFile('sql.js');
-$scripts->addFile('indexes.js');
+$scripts->addFile('indexes');
 $scripts->addFile('gis_data_editor.js');
 
 $relation = new Relation();
