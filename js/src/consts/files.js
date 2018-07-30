@@ -7,7 +7,7 @@
  * @type {Object} files
  */
 const PhpToJsFileMapping = {
-    global: ['error_report', 'config', 'navigation', 'page_settings', 'shortcuts_handler', 'functions'],
+    global: ['error_report', 'config', 'navigation', 'page_settings', 'shortcuts_handler', 'functions', 'indexes'],
     server_privileges: ['server_privileges'],
     server_databases: ['server_databases'],
     server_status_advisor: ['server_status_advisor'],
@@ -32,7 +32,11 @@ const PhpToJsFileMapping = {
     db_tracking: ['db_tracking'],
     db_central_columns: ['db_central_columns'],
     db_export: ['export'],
-    db_import: ['import']
+    db_import: ['import'],
+    tbl_structure: [],
+    tbl_indexes: [],
+    tbl_relation: [],
+    tbl_replace: []
 };
 
 const JsFileList = [
@@ -62,7 +66,8 @@ const JsFileList = [
     'db_structure',
     'db_operations',
     'db_tracking',
-    'db_central_columns'
+    'db_central_columns',
+    'indexes'
 ];
 
 export {
