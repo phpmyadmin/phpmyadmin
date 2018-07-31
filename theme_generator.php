@@ -18,6 +18,7 @@ $scripts->addFile('theme_generator/preview.js');
 
 $theme = new ThemeGenerator();
 
+$response->addHTML($theme->testWritableThemeDirectory());
 $response->addHTML($theme->colorPicker());
 $response->addHTML($theme->form());
 $response->addHTML($theme->tablePreview());

@@ -1,9 +1,9 @@
 <form action="theme_generator.php" method="post" id="save">
     <select name="type" id="theme">
-        <option value="0">Triadic</option>
-        <option value="1">Complementary</option>
-        <option value="2">Adjacent</option>
-        <option value="3">Monochrome</option>
+        <option value="0">{% trans 'Triadic' %}</option>
+        <option value="1">{% trans 'Complementary' %}</option>
+        <option value="2">{% trans 'Adjacent' %}</option>
+        <option value="3">{% trans 'Monochrome' %}</option>
     </select>
     <br>
     &nbsp; Font :<br>
@@ -19,22 +19,22 @@
         <option value="Verdana">Verdana</option>
     </select>
     <br>
-    &nbsp; Theme Name :<br>
+    &nbsp; {% trans 'Theme Name' %} :<br>
     <input type="text" name="theme_name" required></input> <br>
     <br>
-    &nbsp; Version :<br>
+    &nbsp; {% trans 'Version' %} :<br>
     <input type="text" name="version"></input> <br>
     <br>
-    &nbsp; Description :<br>
+    &nbsp; {% trans 'Description' %} :<br>
     <input type="text" name="description"></input> <br>
     <br>
-    &nbsp; Author :<br>
+    &nbsp; {% trans 'Author' %} :<br>
     <input type="text" name="author"></input> <br>
     <br>
-    &nbsp; URL :<br>
+    &nbsp; {% trans 'URL' %} :<br>
     <input type="text" name="url"></input> <br>
-    <input type="checkbox" name="text_contrast">Automatically set text colours for best visibility<br>
+    <input type="checkbox" name="text_contrast">{% trans 'Automatically set text colours for best visibility' %}<br>
     <br><br>
-    <input type="button" value="Preview" id="preview">
-    <input type="submit">
+    <input type="button" value="{% trans 'Preview' %}" id="preview">
+    <input type="submit" value="{% trans 'Save theme' %}">
 </form>

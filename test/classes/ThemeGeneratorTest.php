@@ -78,7 +78,7 @@ class ThemeGeneratorTest extends PmaTestCase
         $output = $this->theme->form();
         $this->assertContains('<form action="theme_generator.php" method="post" id="save">' , $output);
         $this->assertContains('<select name="type" id="theme">' , $output);
-        $this->assertContains('<input type="text" name="theme_name"></input>' , $output);
+        $this->assertContains('<input type="text" name="theme_name" required></input>' , $output);
         $this->assertContains('<input type="submit">' , $output);
     }
 

@@ -90,18 +90,24 @@ class ThemeGenerator
         $post['theme_name'] = Sanitize::sanitizeFilename($post['theme_name'], true);
         $name = $post['theme_name'];
         if (!is_dir("themes/" . $name)) {
-            mkdir("themes/" . $name);
-            mkdir("themes/" . $name . "/css");
+            @mkdir("themes/" . $name);
+            @mkdir("themes/" . $name . "/css");
         }
         if (is_dir("themes/" . $name)) {
             $out['json'] = $this->createJsonFile($post);
             $common->createCommonFile($name);
             $out['layout'] = $layout->createLayoutFile($post);
             $nav->createNavigationFile($name);
-        } else {
-            trigger_error("The 'themes' directory is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
         }
         return $out;
+    }
+
+    public function testWritableThemeDirectory()
+    {
+      clearstatcache();
+      if (! is_writable('themes')) {
+        trigger_error(__("The 'themes' directory is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme."), E_USER_WARNING);
+      }
     }
 
     /**
@@ -144,7 +150,7 @@ class ThemeGenerator
             fwrite($file, $txt);
             fclose($file);
         } else {
-            trigger_error("The theme.json file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
+            trigger_error(__("The theme.json file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme."), E_USER_ERROR);
         }
         return $txt;
     }
