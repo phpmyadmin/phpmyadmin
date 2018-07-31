@@ -33,7 +33,7 @@ const PhpToJsFileMapping = {
     db_central_columns: ['db_central_columns'],
     db_export: ['export'],
     db_import: ['import'],
-    tbl_structure: [],
+    tbl_structure: ['tbl_structure'],
     tbl_indexes: [],
     tbl_relation: [],
     tbl_replace: []
@@ -67,7 +67,8 @@ const JsFileList = [
     'db_operations',
     'db_tracking',
     'db_central_columns',
-    'indexes'
+    'indexes',
+    'tbl_structure'
 ];
 
 export {
