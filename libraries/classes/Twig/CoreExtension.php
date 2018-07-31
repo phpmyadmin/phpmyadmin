@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
+use Twig\TwigFilter;
 
 /**
  * Class CoreExtension
@@ -20,15 +20,15 @@ use Twig\TwigFunction;
 class CoreExtension extends AbstractExtension
 {
     /**
-     * Returns a list of functions to add to the existing list.
+     * Returns a list of filters to add to the existing list.
      *
-     * @return TwigFunction[]
+     * @return TwigFilter[]
      */
-    public function getFunctions()
+    public function getFilters()
     {
         return [
-            new TwigFunction(
-                'Core_mimeDefaultFunction',
+            new TwigFilter(
+                'mime_default_function',
                 'PhpMyAdmin\Core::mimeDefaultFunction',
                 ['is_safe' => ['html']]
             ),
