@@ -444,9 +444,9 @@ class DatabaseInterface
 
         if ($table_type) {
             if ($table_type == 'view') {
-                $sql_where_table .= " AND t.`TABLE_TYPE` != 'BASE TABLE'";
+                $sql_where_table .= " AND t.`TABLE_TYPE` NOT IN ('BASE TABLE', 'SYSTEM VERSIONED')";
             } elseif ($table_type == 'table') {
-                $sql_where_table .= " AND t.`TABLE_TYPE` = 'BASE TABLE'";
+                $sql_where_table .= " AND t.`TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
             }
         }
         return $sql_where_table;

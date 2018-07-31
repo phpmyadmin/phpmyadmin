@@ -377,7 +377,7 @@ class Triggers
         }
         $query  = "SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ";
         $query .= "WHERE `TABLE_SCHEMA`='" . $this->dbi->escapeString($db) . "' ";
-        $query .= "AND `TABLE_TYPE`='BASE TABLE'";
+        $query .= "AND `TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')";
         $tables = $this->dbi->fetchResult($query);
 
         // Create the output

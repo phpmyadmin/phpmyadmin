@@ -113,9 +113,9 @@ class NodeDatabase extends Node
     {
         $db = $this->real_name;
         if ($which == 'tables') {
-            $condition = '=';
+            $condition = 'IN';
         } else {
-            $condition = '!=';
+            $condition = 'NOT IN';
         }
 
         if (! $GLOBALS['cfg']['Server']['DisableIS']) {
@@ -123,7 +123,7 @@ class NodeDatabase extends Node
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-            $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
+            $query .= "AND `TABLE_TYPE`" . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
                     $searchClause,
@@ -135,7 +135,7 @@ class NodeDatabase extends Node
         } else {
             $query = "SHOW FULL TABLES FROM ";
             $query .= Util::backquote($db);
-            $query .= " WHERE `Table_type`" . $condition . "'BASE TABLE' ";
+            $query .= " WHERE `Table_type`" . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (!empty($searchClause)) {
                 $query .= "AND " . $this->_getWhereClauseForSearch(
                     $searchClause,
@@ -448,9 +448,9 @@ class NodeDatabase extends Node
     private function _getTablesOrViews($which, $pos, $searchClause)
     {
         if ($which == 'tables') {
-            $condition = '=';
+            $condition = 'IN';
         } else {
-            $condition = '!=';
+            $condition = 'NOT IN';
         }
         $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
         $retval   = [];
@@ -460,7 +460,7 @@ class NodeDatabase extends Node
             $query  = "SELECT `TABLE_NAME` AS `name` ";
             $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
             $query .= "WHERE `TABLE_SCHEMA`='$escdDb' ";
-            $query .= "AND `TABLE_TYPE`" . $condition . "'BASE TABLE' ";
+            $query .= "AND `TABLE_TYPE`" . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (! empty($searchClause)) {
                 $query .= "AND `TABLE_NAME` LIKE '%";
                 $query .= $GLOBALS['dbi']->escapeString($searchClause);
@@ -472,7 +472,7 @@ class NodeDatabase extends Node
         } else {
             $query = " SHOW FULL TABLES FROM ";
             $query .= Util::backquote($db);
-            $query .= " WHERE `Table_type`" . $condition . "'BASE TABLE' ";
+            $query .= " WHERE `Table_type`" . $condition . "('BASE TABLE', 'SYSTEM VERSIONED') ";
             if (!empty($searchClause)) {
                 $query .= "AND " . Util::backquote(
                     "Tables_in_" . $db
