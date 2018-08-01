@@ -28,22 +28,22 @@ class PluginsExtension extends AbstractExtension
     {
         return [
             new TwigFunction(
-                'Plugins_checkboxCheck',
+                'checkbox_check',
                 'PhpMyAdmin\Plugins::checkboxCheck',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Plugins_getChoice',
+                'get_choice',
                 'PhpMyAdmin\Plugins::getChoice',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Plugins_getDefault',
+                'get_default_plugin',
                 'PhpMyAdmin\Plugins::getDefault',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Plugins_getOptions',
+                'get_options',
                 'PhpMyAdmin\Plugins::getOptions',
                 ['is_safe' => ['html']]
             ),
