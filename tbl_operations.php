@@ -34,7 +34,7 @@ $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('tbl_operations.js');
+$scripts->addFile('tbl_operations');
 
 /**
  * Runs common work
