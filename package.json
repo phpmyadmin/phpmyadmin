@@ -7,7 +7,7 @@
   "license": "GPL-2.0",
   "scripts": {
     "dev:wds": "webpack-dev-server --progress",
-    "prod:build": "del js/lib js/dist && babel js/src/ -d js/lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
+    "prod:build": "del js/lib js/dist && babel js/src/ -d js/lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --env.production --progress",
     "lint:check": "eslint js/src/*.js",
     "lint:fix": "eslint js/src/*.js --fix"
   },
