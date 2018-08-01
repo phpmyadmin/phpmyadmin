@@ -444,7 +444,6 @@
 {% if have_partitioning %}
     {# Detect partitioning #}
     {% if partition_names is not empty and partition_names[0] is not null %}
-        {% set partitions = Partition_getPartitions(db, table) %}
         {% set first_partition = partitions[0] %}
         {% set range_or_list = first_partition.getMethod() == 'RANGE'
             or first_partition.getMethod() == 'RANGE COLUMNS'

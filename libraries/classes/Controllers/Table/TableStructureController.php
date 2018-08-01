@@ -1392,6 +1392,7 @@ class TableStructureController extends TableController
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
+            'partitions' => Partition::getPartitions($this->db, $this->table),
             'partition_names' => Partition::getPartitionNames($this->db, $this->table),
             'attributes' => $attributes,
             'displayed_fields' => $displayed_fields,
