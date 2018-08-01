@@ -437,7 +437,7 @@
 {# Displays indexes #}
 {% if not tbl_is_view and not db_is_system_schema
     and 'ARCHIVE' !=  tbl_storage_engine %}
-    {{ Index_getHtmlForDisplayIndexes() }}
+    {{ displayIndexesHtml|raw }}
 {% endif %}
 
 {# Display partition details #}
