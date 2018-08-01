@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-08-01 07:00+0000\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
+"Last-Translator: H Zeng <zhx@cnzhx.net>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -8076,7 +8076,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:190
 msgid "Show me the central list of columns that are not already in this table"
-msgstr "显示此表中尚未包含的列的中心列表"
+msgstr "显示目前不在此表中的栏目的主要列表"
 
 #: libraries/classes/Normalization.php:193
 msgid ""
