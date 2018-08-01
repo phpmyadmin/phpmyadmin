@@ -7,7 +7,7 @@
  * @type {Object} files
  */
 const files = {
-    global: ['error_report', 'navigation'],
+    global: ['error_report', 'navigation', 'config'],
     server_privileges: ['server_privileges'],
     server_databases: ['server_databases'],
     server_status_advisor: ['server_status_advisor'],
