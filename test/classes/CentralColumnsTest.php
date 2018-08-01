@@ -715,4 +715,24 @@ class CentralColumnsTest extends TestCase
             $result
         );
     }
+
+    /**
+     * Test for getHtmlForColumnDropdown
+     *
+     * @return void
+     */
+    public function testGetHtmlForColumnDropdown()
+    {
+        $db = 'PMA_db';
+        $selected_tbl = 'PMA_table';
+        $result = $this->centralColumns->getHtmlForColumnDropdown(
+            $db,
+            $selected_tbl
+        );
+        $this->assertEquals(
+            '<option value="id">id</option><option value="col1">col1</option>'
+            . '<option value="col2">col2</option>',
+            $result
+        );
+    }
 }
