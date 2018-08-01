@@ -5,9 +5,9 @@
 <h1>{{ 'Welcome to %s'|trans|format('<bdo dir="ltr" lang="en">phpMyAdmin</bdo>')|raw }}</h1>
 
 <noscript>
-{{ Message_error("Javascript must be enabled past this point!"|trans) }}
+{{ "Javascript must be enabled past this point!"|trans|error }}
 </noscript>
 
 <div class="hide" id="js-https-mismatch">
-{{ Message_error("There is mismatch between HTTPS indicated on the server and client. This can lead to non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly."|trans) }}
+{{ "There is mismatch between HTTPS indicated on the server and client. This can lead to non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly."|trans|error }}
 </div>

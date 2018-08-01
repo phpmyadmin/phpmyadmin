@@ -2,7 +2,7 @@
 <h2>{% trans "Confirm disabling two-factor authentication" %}</h2>
 <div class="group-cnt">
 <form method="POST" action="prefs_twofactor.php">
-{{ Message_notice("By disabling two factor authentication you will be again able to login using password only."|trans) }}
+{{ "By disabling two factor authentication you will be again able to login using password only."|trans|notice }}
 {{ Url_getHiddenInputs() }}
 {{ form|raw }}
 <input type="hidden" name="2fa_remove" value="1" />

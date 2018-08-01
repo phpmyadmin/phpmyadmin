@@ -83,7 +83,7 @@
                     {{ Util_getBrowseUploadFileBlock(max_upload_size) }}
                     <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
                 {% elseif not is_upload %}
-                    {{ Message_notice('File uploads are not allowed on this server.'|trans) }}
+                    {{ 'File uploads are not allowed on this server.'|trans|notice }}
                 {% elseif upload_dir is not empty %}
                     {{ Util_getSelectUploadFileBlock(
                         import_list,

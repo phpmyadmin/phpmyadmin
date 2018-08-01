@@ -52,7 +52,7 @@
 
 {# Enable statistics #}
 {% if dbstats is empty %}
-    {{ Message_notice('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans) }}
+    {{ 'Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'|trans|notice }}
 
     {% set content %}
         <strong>{% trans 'Enable statistics' %}</strong>

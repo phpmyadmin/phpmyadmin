@@ -5,7 +5,7 @@
             {{ Util_showMySQLDocu('partitioning') }}
         </legend>
         {% if partitions is empty %}
-            {{ Message_notice('No partitioning defined!'|trans) }}
+            {{ 'No partitioning defined!'|trans|notice }}
         {% else %}
             <p>
                 {% trans 'Partitioned by:' %}
