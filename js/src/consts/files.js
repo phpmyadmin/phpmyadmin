@@ -37,7 +37,8 @@ const PhpToJsFileMapping = {
     tbl_indexes: [],
     tbl_relation: ['tbl_relation'],
     tbl_replace: [],
-    tbl_chart: ['tbl_chart']
+    tbl_chart: ['tbl_chart'],
+    tbl_operations: ['tbl_operations']
 };
 
 const JsFileList = [
@@ -71,7 +72,8 @@ const JsFileList = [
     'indexes',
     'tbl_structure',
     'tbl_relation',
-    'tbl_chart'
+    'tbl_chart',
+    'tbl_operations'
 ];
 
 export {
