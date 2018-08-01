@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-08-01 07:04+0000\n"
+"PO-Revision-Date: 2018-08-01 22:48+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
@@ -817,8 +817,7 @@ msgstr "服务器上运行了 Suhosin。请查看%s文档%s了解可能发生的
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
-msgstr ""
-"$cfg['TempDir'] (%s) 读取失败且不能建立缓存, phpMyAdmin运行速度将受影响."
+msgstr "变量 $cfg['TempDir'] （%s）无法访问。phpMyAdmin无法缓存模板文件，所以会运行缓慢。"
 
 #: js/messages.php:44
 msgid "Confirm"
@@ -2608,7 +2607,7 @@ msgstr "等待安全密钥激活超时。"
 #: js/messages.php:752
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr "安全密钥激活失败（%s）"
+msgstr "安全密钥激活失败（%s）。"
 
 #: js/messages.php:781
 msgctxt "Previous month"
@@ -3526,7 +3525,7 @@ msgstr "编辑 CHAR 类型字段"
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
-msgstr "启用编辑器行号与代码高亮"
+msgstr "使用人性化编辑器编辑SQL查询（CodeMirror），包含语法高亮和行号显示。"
 
 #: libraries/classes/Config/Descriptions.php:122
 msgid "Enable CodeMirror"
@@ -5834,7 +5833,7 @@ msgstr "显示当前浏览查询"
 
 #: libraries/classes/Config/Descriptions.php:1474
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr "使用Enter执行查询，使用Shift + Enter插入新行。"
+msgstr "使用Enter执行查询，使用Shift + Enter插入新行"
 
 #: libraries/classes/Config/Descriptions.php:1476
 #: templates/console/display.twig:168
@@ -9129,7 +9128,7 @@ msgstr "最后检查："
 #: libraries/classes/Plugins/Export/ExportSql.php:1493
 #, php-format
 msgid "Error reading structure for table %s:"
-msgstr "读取表 %s 的结构时出错"
+msgstr "读取表 %s 的结构时出错："
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
@@ -9183,7 +9182,7 @@ msgstr "（参见下面的实际视图）"
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
 #, php-format
 msgid "Error reading data for table %s:"
-msgstr "读取表 %s 的数据时发生错误"
+msgstr "读取表 %s 的数据时发生错误："
 
 #: libraries/classes/Plugins/Export/ExportXml.php:103
 msgid "Object creation options (all are recommended)"
@@ -9290,7 +9289,7 @@ msgstr "该 XML 文件有错误或者不完整。请修复错误后重试。"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:166
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr "无法解析电子表格"
+msgstr "无法解析OpenDocument电子表格！"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:59
 msgid "ESRI Shape File"
@@ -10778,7 +10777,7 @@ msgstr "不需要 SSL 加密连接。"
 
 #: libraries/classes/Server/Privileges.php:746
 msgid "Requires SSL-encrypted connections."
-msgstr "启用SSL加密"
+msgstr "需要SSL加密连接。"
 
 #: libraries/classes/Server/Privileges.php:760
 msgid "Requires a valid X509 certificate."
