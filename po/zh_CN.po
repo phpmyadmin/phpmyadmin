@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-08-01 06:58+0000\n"
-"Last-Translator: H Zeng <zhx@cnzhx.net>\n"
+"Last-Translator: Lasm Gratel <lasm_gratel@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -6667,7 +6667,7 @@ msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1509
 msgid "Failed to set configured collation connection!"
-msgstr "读取配置文件失败！"
+msgstr "无法设置配置的整理连接！"
 
 #: libraries/classes/DatabaseInterface.php:2122
 msgid ""
