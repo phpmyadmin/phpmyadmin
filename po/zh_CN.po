@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-08-01 06:59+0000\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
+"Last-Translator: ctyzxx <ctyzxx@126.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -7642,7 +7642,7 @@ msgstr "语言"
 #: libraries/classes/Linter.php:98
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
-msgstr "由于超出最大长度，本次查询结果的归整化已禁用。"
+msgstr "超出最大长度，本次查询结果的归整化已禁用。"
 
 #: libraries/classes/Linter.php:164
 #, php-format
