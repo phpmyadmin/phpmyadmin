@@ -1,10 +1,10 @@
-import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
+import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_commonParams } from './variables/common_params';
 import { jQuery as $ } from './utils/JqueryExtended';
 import { PMA_getImage } from './functions/get_image';
-import { PMA_ensureNaviSettings } from './functions/navigation';
-
+import { PMA_ensureNaviSettings, PMA_reloadNavigation,
+    PMA_disableNaviSettings } from './functions/navigation';
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
@@ -263,12 +263,10 @@ export let AJAX = {
             event.preventDefault();
             event.stopImmediatePropagation();
         }
-
         // triggers a confirm dialog if:
         // the user has performed some operations on loaded page
         // the user clicks on some link, (won't trigger for buttons)
         // the click event is not triggered by script
-
         if (typeof event !== 'undefined' && event.type === 'click' &&
             event.isTrigger !== true &&
             !$.isEmptyObject(AJAX.lockedTargets)
@@ -590,7 +588,9 @@ export let AJAX = {
              */
             if (checkNewCode(file)) {
                 var fileImports = ['server_privileges', 'server_databases', 'error_report', 'navigation', 'server_status_advisor',
-                    'server_status_processes', 'server_status_variables'];
+                    'server_status_processes', 'server_status_variables', 'server_plugins', 'server_status_sorter', 'server_status_queries',
+                    'server_status_monitor', 'server_variables', 'server_user_groups', 'replication', 'export', 'import', 'config'
+                ];
                 if ($.inArray(file, fileImports) !== -1) {
                     // Dynamic import to load the files dynamically
                     // This is used for the purpose of code splitting
