@@ -88,7 +88,7 @@
         <td class="value tbl_rows"
             data-table="{{ current_table['TABLE_NAME'] }}">
             {% if approx_rows %}
-                <a href="db_structure.php{{ Url_getCommon({
+                <a href="db_structure.php{{ get_common({
                     'ajax_request': true,
                     'db': db,
                     'table': current_table['TABLE_NAME'],

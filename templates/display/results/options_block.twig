@@ -1,5 +1,5 @@
 <form method="post" action="sql.php" name="displayOptionsForm" class="ajax print_ignore">
-    {{ Url_getHiddenInputs({
+    {{ get_hidden_inputs({
         'db': db,
         'table': table,
         'sql_query': sql_query,

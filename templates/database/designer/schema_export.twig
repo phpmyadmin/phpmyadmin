@@ -1,6 +1,6 @@
 <form method="post" action="schema_export.php" class="disableAjax" id="id_export_pages">
     <fieldset>
-        {{ Url_getHiddenInputs(db) }}
+        {{ get_hidden_inputs(db) }}
         <label>{% trans 'Select Export Relational Type' %}</label>
         {{ get_choice('Schema', 'export_type', export_list, 'format') }}
         <input type="hidden" name="page_number" value="{{ page }}" />

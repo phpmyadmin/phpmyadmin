@@ -1,6 +1,6 @@
 <a id="db_search"></a>
 <form id="db_search_form" method="post" action="db_search.php" name="db_search" class="ajax lock-page">
-    {{ Url_getHiddenInputs(db) }}
+    {{ get_hidden_inputs(db) }}
     <fieldset>
         <legend>{% trans 'Search in database' %}</legend>
         <p>

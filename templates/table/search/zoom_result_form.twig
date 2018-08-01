@@ -1,5 +1,5 @@
 <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form" class="ajax">
-    {{ Url_getHiddenInputs(db, table) }}
+    {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="goto" value="{{ goto }}" />
     <input type="hidden" name="back" value="tbl_zoom_select.php" />
 

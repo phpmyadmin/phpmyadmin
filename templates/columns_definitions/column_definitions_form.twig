@@ -1,7 +1,7 @@
 <form method="post" action="{{ action }}" class="
     {{- action == 'tbl_create.php' ? 'create_table' : 'append_fields' -}}
     _form ajax lock-page">
-    {{ Url_getHiddenInputs(form_params) }}
+    {{ get_hidden_inputs(form_params) }}
     {# happens when an index has been set on a column #}
     {# and a column is added to the table creation dialog #}
     {# This contains a JSON-encoded string #}

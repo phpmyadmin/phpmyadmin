@@ -2,7 +2,7 @@
 
 {% block content %}
 <form method="post" action="tbl_relation.php">
-    {{ Url_getHiddenInputs(db, table) }}
+    {{ get_hidden_inputs(db, table) }}
     {# InnoDB #}
     {% if Util_isForeignKeySupported(tbl_storage_engine) %}
         <fieldset>

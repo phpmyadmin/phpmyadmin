@@ -6,7 +6,7 @@
         {%- endif %}
         {% trans "Create table" %}
         </legend>
-        {{ Url_getHiddenInputs(db) }}
+        {{ get_hidden_inputs(db) }}
         <div class="formelement">
             {% trans "Name" %}:
             <input type="text" name="table" maxlength="64" size="30" required="required" />

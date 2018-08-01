@@ -29,7 +29,7 @@
     {% if approx_rows %}
         {% set cell_text -%}
             <a href="db_structure.php
-                {{- Url_getCommon(row_sum_url) }}" class="ajax row_count_sum">~
+                {{- get_common(row_sum_url) }}" class="ajax row_count_sum">~
                 {{- row_count_sum -}}
             </a>
         {%- endset %}

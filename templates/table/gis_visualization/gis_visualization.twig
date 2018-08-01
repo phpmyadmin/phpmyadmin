@@ -3,7 +3,7 @@
         <legend>{% trans 'Display GIS Visualization' %}</legend>
         <div id="gis_div" style="position:relative;">
             <form method="post" action="tbl_gis_visualization.php">
-                {{ Url_getHiddenInputs(url_params) }}
+                {{ get_hidden_inputs(url_params) }}
                 <label for="labelColumn">
                     {% trans "Label column" %}
                 </label>

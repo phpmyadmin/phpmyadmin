@@ -2,7 +2,7 @@
 {% block content %}
 <form method="post" action="tbl_structure.php" name="fieldsForm" id="fieldsForm"
     class="ajax{{ hide_structure_actions ? ' HideStructureActions' }}">
-    {{ Url_getHiddenInputs(db, table) }}
+    {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="table_type" value=
         {%- if db_is_system_schema -%}
             "information_schema"
@@ -362,7 +362,7 @@
     <p>{% trans 'Move the columns by dragging them up and down.' %}</p>
     <form action="tbl_structure.php" name="move_column_form" id="move_column_form">
         <div>
-            {{ Url_getHiddenInputs(db, table) }}
+            {{ get_hidden_inputs(db, table) }}
             <ul></ul>
         </div>
     </form>
@@ -409,7 +409,7 @@
 </div>
 {% if not tbl_is_view and not db_is_system_schema %}
     <form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns">
-        {{ Url_getHiddenInputs(db, table) }}
+        {{ get_hidden_inputs(db, table) }}
         {% if Util_showIcons('ActionLinksMode') %}
             {{ Util_getImage('b_insrow', 'Add column'|trans) }}&nbsp;
         {% endif %}

@@ -5,7 +5,7 @@
 
         <form method="post" action="db_tracking.php" name="trackedForm"
             id="trackedForm" class="ajax">
-            {{ Url_getHiddenInputs(db) }}
+            {{ get_hidden_inputs(db) }}
             <table id="versions" class="data">
                 <thead>
                     <tr>
@@ -90,7 +90,7 @@
     <h3>{% trans 'Untracked tables' %}</h3>
     <form method="post" action="db_tracking.php" name="untrackedForm"
         id="untrackedForm" class="ajax">
-        {{ Url_getHiddenInputs(db) }}
+        {{ get_hidden_inputs(db) }}
         <table id="noversions" class="data">
             <thead>
                 <tr>
