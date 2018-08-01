@@ -92,7 +92,7 @@
     </td>
     {% set tables = [] %}
     {% if foreign_db %}
-        {% set tables = Relation_getTables(foreign_db, tbl_storage_engine) %}
+        {% set tables = get_tables(foreign_db, tbl_storage_engine) %}
     {% endif %}
     <td>
         <span class="formelement clearfloat">

@@ -30,25 +30,25 @@ class RelationExtension extends AbstractExtension
         $relation = new Relation();
         return [
             new TwigFunction(
-                'Relation_foreignDropdown',
+                'foreign_dropdown',
                 [$relation, 'foreignDropdown'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Relation_getDisplayField',
+                'get_display_field',
                 [$relation, 'getDisplayField'],
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Relation_getForeignData',
+                'get_foreign_data',
                 [$relation, 'getForeignData']
             ),
             new TwigFunction(
-                'Relation_getTables',
+                'get_tables',
                 [$relation, 'getTables']
             ),
             new TwigFunction(
-                'Relation_searchColumnInForeigners',
+                'search_column_in_foreigners',
                 [$relation, 'searchColumnInForeigners']
             ),
         ];

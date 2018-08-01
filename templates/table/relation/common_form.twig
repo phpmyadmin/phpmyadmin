@@ -190,7 +190,7 @@
     {% endif %}
 
     {% if cfg_relation['displaywork'] %}
-        {% set disp = Relation_getDisplayField(db, table) %}
+        {% set disp = get_display_field(db, table) %}
         <fieldset>
             <label>{% trans 'Choose column to display:' %}</label>
             <select name="display_field">

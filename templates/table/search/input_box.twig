@@ -1,9 +1,9 @@
 {# Get inputbox based on different column types (Foreign key, geometrical, enum) #}
-{% if foreigners and Relation_searchColumnInForeigners(foreigners, column_name) %}
+{% if foreigners and search_column_in_foreigners(foreigners, column_name) %}
     {% if foreign_data['disp_row'] is iterable %}
         <select name="criteriaValues[{{ column_index }}]"
             id="{{ column_id }}{{ column_index }}">
-            {{ Relation_foreignDropdown(
+            {{ foreign_dropdown(
                 foreign_data['disp_row'],
                 foreign_data['foreign_field'],
                 foreign_data['foreign_display'],
