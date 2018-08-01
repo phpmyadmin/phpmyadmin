@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
 "PO-Revision-Date: 2018-08-01 06:58+0000\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
+"Last-Translator: H Zeng <zhx@cnzhx.net>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -1809,7 +1809,7 @@ msgstr "导出"
 
 #: js/messages.php:401
 msgid "No routine is exportable. Required privileges may be lacking."
-msgstr "可能权限不足，无法输出 routine。"
+msgstr "无法导出。可能缺少相应权限。"
 
 #: js/messages.php:404 libraries/classes/Rte/Routines.php:760
 msgid "ENUM/SET editor"
