@@ -51,7 +51,7 @@
                         {% endif %}
                         {% set unique_columns = [] %}
                         {% if foreign_db and foreign_table %}
-                            {% set table_obj = Table_get(foreign_table, foreign_db) %}
+                            {% set table_obj = table_get(foreign_table, foreign_db) %}
                             {% set unique_columns = table_obj.getUniqueColumns(false, false) %}
                         {% endif %}
                         {% include 'table/relation/foreign_key_row.twig' with {
@@ -147,7 +147,7 @@
                             {% if existrel[myfield] is defined %}
                                 {% set foreign_column = existrel[myfield]['foreign_field'] %}
                             {% endif %}
-                            {% set table_obj = Table_get(foreign_table, foreign_db) %}
+                            {% set table_obj = table_get(foreign_table, foreign_db) %}
                             {% set unique_columns = table_obj.getUniqueColumns(false, false) %}
                         {% endif %}
 
