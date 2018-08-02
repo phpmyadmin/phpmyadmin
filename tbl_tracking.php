@@ -18,8 +18,7 @@ require_once './libraries/common.inc.php';
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('tbl_tracking.js');
+$scripts->addFile('tbl_tracking');
 
 define('TABLE_MAY_BE_ABSENT', true);
 require './libraries/tbl_common.inc.php';
