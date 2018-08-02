@@ -11,10 +11,10 @@
                 <form method="post" action="server_databases.php" id="create_database_form" class="ajax">
                     <p><strong>
                         <label for="text_create_db">
-                            {{ Util_getImage('b_newdb') }}
+                            {{ get_image('b_newdb') }}
                             {% trans 'Create database' %}
                         </label>
-                        {{ Util_showMySQLDocu('CREATE_DATABASE') }}
+                        {{ show_mysql_docu('CREATE_DATABASE') }}
                     </strong></p>
 
                     {{ get_hidden_inputs('', '', 5) }}
@@ -39,13 +39,13 @@
             {% else %}
                 {# db creation no privileges message #}
                 <p><strong>
-                    {{ Util_getImage('b_newdb') }}
+                    {{ get_image('b_newdb') }}
                     {% trans 'Create database' %}
-                    {{ Util_showMySQLDocu('CREATE_DATABASE') }}
+                    {{ show_mysql_docu('CREATE_DATABASE') }}
                 </strong></p>
 
                 <span class="noPrivileges">
-                    {{ Util_getImage(
+                    {{ get_image(
                         's_error',
                         '',
                         {'hspace': 2, 'border': 0, 'align': 'middle'}
@@ -62,7 +62,7 @@
 {# Displays the table #}
 {% if databases is not null %}
     <div id="tableslistcontainer">
-        {{ Util_getListNavigator(
+        {{ get_list_navigator(
             database_count,
             pos,
             url_params,
@@ -86,7 +86,7 @@
                             <th>
                                 <a href="server_databases.php{{ get_common(url_params) }}">
                                     {% trans 'Database' %}
-                                    {{ sort_by == 'SCHEMA_NAME' ? Util_getImage(
+                                    {{ sort_by == 'SCHEMA_NAME' ? get_image(
                                         's_' ~ sort_order,
                                         sort_order == 'asc' ? 'Ascending'|trans : 'Descending'|trans
                                     ) }}
@@ -101,7 +101,7 @@
                                 <th{{ stat['format'] is same as('byte') ? ' colspan="2"' }}>
                                     <a href="server_databases.php{{ get_common(url_params) }}">
                                         {{ stat['disp_name'] }}
-                                        {{ sort_by == stat_name ? Util_getImage(
+                                        {{ sort_by == stat_name ? get_image(
                                             's_' ~ sort_order,
                                             sort_order == 'asc' ? 'Ascending'|trans : 'Descending'|trans
                                         ) }}

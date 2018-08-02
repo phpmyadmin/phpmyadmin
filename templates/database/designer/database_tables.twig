@@ -64,7 +64,7 @@
                     table_names_small_url[i],
                     tab_column[t_n]['COLUMN_NAME'][j]|url_encode
                 ] %}
-                {% if not Util_isForeignKeySupported(table_types[i]) %}
+                {% if not is_foreign_key_supported(table_types[i]) %}
                     {% set click_field_param = click_field_param|merge([tables_pk_or_unique_keys[tmp_column] is defined ? 1 : 0]) %}
                 {% else %}
                     {# if foreign keys are supported, it's not necessary that the

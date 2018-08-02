@@ -4,9 +4,9 @@
         {% set js_msg = '' %}
         {% set this_params = null %}
         {% if one_key['constraint'] is defined %}
-            {% set drop_fk_query = 'ALTER TABLE ' ~ Util_backquote(db) ~ '.' ~ Util_backquote(table)
+            {% set drop_fk_query = 'ALTER TABLE ' ~ backquote(db) ~ '.' ~ backquote(table)
                 ~ ' DROP FOREIGN KEY '
-                ~ Util_backquote(one_key['constraint']) ~ ';'
+                ~ backquote(one_key['constraint']) ~ ';'
             %}
             {% set this_params = url_params %}
             {% set this_params = {
@@ -27,8 +27,8 @@
             <input type="hidden" class="drop_foreign_key_msg" value="
                 {{- js_msg }}" />
             {% set drop_url = 'sql.php' ~ get_common(this_params) %}
-            {% set drop_str = Util_getIcon('b_drop', 'Drop'|trans) %}
-            {{ Util_linkOrButton(drop_url, drop_str, {'class': 'drop_foreign_key_anchor ajax'}) }}
+            {% set drop_str = get_icon('b_drop', 'Drop'|trans) %}
+            {{ link_or_button(drop_url, drop_str, {'class': 'drop_foreign_key_anchor ajax'}) }}
         {% endif %}
     </td>
     <td>

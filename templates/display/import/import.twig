@@ -35,7 +35,7 @@
 
         <div class="exportoptions" id="header">
             <h2>
-                {{ Util_getImage('b_import', 'Import'|trans) }}
+                {{ get_image('b_import', 'Import'|trans) }}
                 {% if import_type == 'server' %}
                     {% trans 'Importing into the current server' %}
                 {% elseif import_type == 'database' %}
@@ -65,7 +65,7 @@
                     <ul>
                         <li>
                             <input type="radio" name="file_location" id="radio_import_file" required="required" />
-                            {{ Util_getBrowseUploadFileBlock(max_upload_size) }}
+                            {{ get_browse_upload_file_block(max_upload_size) }}
                             {% trans 'You may also drag and drop a file on any page.' %}
                         </li>
                         <li>
@@ -73,19 +73,19 @@
                                 {%- if timeout_passed_global is not empty and local_import_file is not empty %}
                                     checked="checked"
                                 {%- endif %} />
-                            {{ Util_getSelectUploadFileBlock(
+                            {{ get_select_upload_file_block(
                                 import_list,
                                 upload_dir
                             ) }}
                         </li>
                     </ul>
                 {% elseif is_upload %}
-                    {{ Util_getBrowseUploadFileBlock(max_upload_size) }}
+                    {{ get_browse_upload_file_block(max_upload_size) }}
                     <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
                 {% elseif not is_upload %}
                     {{ 'File uploads are not allowed on this server.'|trans|notice }}
                 {% elseif upload_dir is not empty %}
-                    {{ Util_getSelectUploadFileBlock(
+                    {{ get_select_upload_file_block(
                         import_list,
                         upload_dir
                     ) }}
@@ -160,7 +160,7 @@
         <div class="importoptions">
             <h3>{% trans 'Other options:' %}</h3>
             <div class="formelementrow">
-                {{ Util_getFKCheckbox() }}
+                {{ get_fk_checkbox() }}
             </div>
         </div>
 

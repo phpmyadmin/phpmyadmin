@@ -13,7 +13,7 @@
                     <strong>
                         <label for="input_index_name">
                             {% trans 'Index name:' %}
-                            {{ Util_showHint('"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'|trans) }}
+                            {{ show_hint('"PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!'|trans) }}
                         </label>
                     </strong>
                 </div>
@@ -32,14 +32,14 @@
                     <strong>
                         <label for="select_index_choice">
                             {% trans 'Index choice:' %}
-                            {{ Util_showMySQLDocu('ALTER_TABLE') }}
+                            {{ show_mysql_docu('ALTER_TABLE') }}
                         </label>
                     </strong>
                 </div>
                 {{ index.generateIndexChoiceSelector(create_edit_table)|raw }}
             </div>
 
-            {{ Util_getDivForSliderEffect('indexoptions', 'Advanced Options'|trans) }}
+            {{ get_div_for_slider_effect('indexoptions', 'Advanced Options'|trans) }}
 
             <div>
                 <div class="label">
@@ -63,7 +63,7 @@
                     <strong>
                         <label for="select_index_type">
                             {% trans 'Index type:' %}
-                            {{ Util_showMySQLDocu('ALTER_TABLE') }}
+                            {{ show_mysql_docu('ALTER_TABLE') }}
                         </label>
                     </strong>
                 </div>

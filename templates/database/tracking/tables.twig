@@ -48,23 +48,23 @@
                                 <a class="delete_tracking_anchor ajax"
                                     href="db_tracking.php{{ url_query|raw }}&amp;table=
                                     {{- version.table_name }}&amp;delete_tracking=true">
-                                    {{ Util_getIcon('b_drop', 'Delete tracking'|trans) }}
+                                    {{ get_icon('b_drop', 'Delete tracking'|trans) }}
                                 </a>
                             </td>
                             <td>
                                 <a href="tbl_tracking.php{{ url_query|raw }}&amp;table=
                                     {{- version.table_name }}">
-                                    {{ Util_getIcon('b_versions', 'Versions'|trans) }}
+                                    {{ get_icon('b_versions', 'Versions'|trans) }}
                                 </a>
                                 <a href="tbl_tracking.php{{ url_query|raw }}&amp;table=
                                     {{- version.table_name }}&amp;report=true&amp;version=
                                     {{- version.version }}">
-                                    {{ Util_getIcon('b_report', 'Tracking report'|trans) }}
+                                    {{ get_icon('b_report', 'Tracking report'|trans) }}
                                 </a>
                                 <a href="tbl_tracking.php{{ url_query|raw }}&amp;table=
                                     {{- version.table_name }}&amp;snapshot=true&amp;version=
                                     {{- version.version }}">
-                                    {{ Util_getIcon('b_props', 'Structure snapshot'|trans) }}
+                                    {{ get_icon('b_props', 'Structure snapshot'|trans) }}
                                 </a>
                             </td>
                         </tr>
@@ -76,7 +76,7 @@
                 'text_dir': text_dir,
                 'form_name': 'trackedForm'
             } only %}
-            {{ Util_getButtonOrImage(
+            {{ get_button_or_image(
                 'submit_mult',
                 'mult_submit',
                 'Delete tracking'|trans,
@@ -114,7 +114,7 @@
                         </th>
                         <td>
                             <a href="tbl_tracking.php{{ url_query|raw }}&amp;table={{ table_name }}">
-                                {{ Util_getIcon('eye', 'Track table'|trans) }}
+                                {{ get_icon('eye', 'Track table'|trans) }}
                             </a>
                         </td>
                     </tr>
@@ -126,7 +126,7 @@
             'text_dir': text_dir,
             'form_name': 'untrackedForm'
         } only %}
-        {{ Util_getButtonOrImage(
+        {{ get_button_or_image(
             'submit_mult',
             'mult_submit',
             'Track table'|trans,

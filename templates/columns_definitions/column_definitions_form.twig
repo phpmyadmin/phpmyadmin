@@ -75,12 +75,12 @@
                 <td width="25">&nbsp;</td>
                 <th>
                     {% trans 'Storage Engine:' %}
-                    {{ Util_showMySQLDocu('Storage_engines') }}
+                    {{ show_mysql_docu('Storage_engines') }}
                 </th>
                 <td width="25">&nbsp;</td>
                 <th>
                     {% trans 'Connection:' %}
-                    {{ Util_showMySQLDocu('federated-create-connection') }}
+                    {{ show_mysql_docu('federated-create-connection') }}
                 </th>
             </tr>
             <tr>
@@ -126,7 +126,7 @@
                 <tr class="vtop">
                     <th colspan="5">
                         {% trans 'PARTITION definition:' %}
-                        {{ Util_showMySQLDocu('Partitioning') }}
+                        {{ show_mysql_docu('Partitioning') }}
                     </th>
                 </tr>
                 <tr>

@@ -1,8 +1,8 @@
 <form id="create_table_form_minimal" method="post" action="tbl_create.php" class="lock-page">
     <fieldset>
         <legend>
-        {% if Util_showIcons('ActionLinksMode') -%}
-            {{ Util_getImage('b_table_add') }}
+        {% if show_icons('ActionLinksMode') -%}
+            {{ get_image('b_table_add') }}
         {%- endif %}
         {% trans "Create table" %}
         </legend>

@@ -17,12 +17,12 @@
         {%- endif %}" href="tbl_structure.php" data-post="{{ url_query|raw -}}
         &amp;add_key=1&amp;sql_query=
         {{- ('ALTER TABLE ' ~
-            Util_backquote(table) ~
+            backquote(table) ~
             (is_primary ? (primary ? ' DROP PRIMARY KEY,')) ~
             ' ' ~
             syntax ~
             '(' ~
-            Util_backquote(row['Field']) ~
+            backquote(row['Field']) ~
             ');')|url_encode -}}
             &amp;message_to_show={{ message|format(row['Field']|e)|url_encode }}">
         {{ titles[action]|raw }}

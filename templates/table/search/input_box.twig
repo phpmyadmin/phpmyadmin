@@ -28,7 +28,7 @@
             {{ titles['Browse']|replace({"'": "\\'"})|raw }}
         </a>
     {% endif %}
-{% elseif column_type in Util_getGISDatatypes() %}
+{% elseif column_type in get_gis_datatypes() %}
     <input type="text"
         name="criteriaValues[{{ column_index }}]"
         size="40"
@@ -36,9 +36,9 @@
         id="field_{{ column_index }}" />
     {% if in_fbs %}
         {% set edit_url = 'gis_data_editor.php' ~ get_common() %}
-        {% set edit_str = Util_getIcon('b_edit', 'Edit/Insert'|trans) %}
+        {% set edit_str = get_icon('b_edit', 'Edit/Insert'|trans) %}
         <span class="open_search_gis_editor">
-            {{ Util_linkOrButton(edit_url, edit_str, [], '_blank') }}
+            {{ link_or_button(edit_url, edit_str, [], '_blank') }}
         </span>
     {% endif %}
 {% elseif column_type starts with 'enum'

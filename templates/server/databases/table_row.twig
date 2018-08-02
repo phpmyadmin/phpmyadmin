@@ -8,7 +8,7 @@
         </td>
     {% endif %}
     <td class="name">
-        <a href="{{ Util_getScriptNameForOption(default_tab_database, 'database') }}
+        <a href="{{ get_script_name_for_option(default_tab_database, 'database') }}
             {{- get_common({'db': current['SCHEMA_NAME']}) }}" title="
             {{- "Jump to database '%s'"|trans|format(current['SCHEMA_NAME']|e) }}">
             {{ current['SCHEMA_NAME'] }}
@@ -49,7 +49,7 @@
                 'checkprivsdb': current['SCHEMA_NAME']
             }) }}" title="
             {{- 'Check privileges for database "%s".'|trans|format(current['SCHEMA_NAME']|e) }}">
-            {{ Util_getIcon('s_rights', 'Check privileges'|trans) }}
+            {{ get_icon('s_rights', 'Check privileges'|trans) }}
         </a>
     </td>
 </tr>

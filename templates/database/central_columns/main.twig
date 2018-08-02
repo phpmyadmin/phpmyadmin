@@ -189,7 +189,7 @@
     <tr>
         <td class="navigation_separator largescreenonly"></td>
         <td class="central_columns_navigation">
-            {{ Util_getIcon('centralColumns_add', 'Add column' | trans)|raw }}
+            {{ get_icon('centralColumns_add', 'Add column' | trans)|raw }}
             <form id="add_column" action="db_central_columns.php" method="post">
                 {{ get_hidden_inputs(db) | raw }}
                 <input type="hidden" name="add_column" value="add">
@@ -276,10 +276,10 @@
                                 value="{{ row['col_name'] | raw }}" id="{{ 'checkbox_row_' ~ row_num }}"/>
                             </td>
                             <td id="{{ 'edit_' ~ row_num }}" class="edit center">
-                                <a href="#"> {{ Util_getIcon('b_edit', 'Edit' | trans) | raw }}</a>
+                                <a href="#"> {{ get_icon('b_edit', 'Edit' | trans) | raw }}</a>
                             </td>
                             <td class="del_row" data-rownum = "{{ row_num }}">
-                                <a hrf="#">{{ Util_getIcon('b_drop', 'Delete' | trans) }}</a>
+                                <a hrf="#">{{ get_icon('b_drop', 'Delete' | trans) }}</a>
                                 <input type="submit" data-rownum = "{{ row_num }}" class="edit_cancel_form" value="Cancel">
                             </td>
                             <td id="{{ 'save_' ~ row_num  }}" class="hide">
@@ -391,14 +391,14 @@
                 'text_dir'       : text_dir,
                 'form_name'      : 'tableslistcontainer',
             } only %}
-            {{ Util_getButtonOrImage(
+            {{ get_button_or_image(
                 'edit_central_columns',
                 'mult_submit change_central_columns',
                 'Edit' | trans,
                 'b_edit',
                 'edit central columns'
             ) | raw }}
-            {{ Util_getButtonOrImage(
+            {{ get_button_or_image(
             'delete_central_columns',
             'mult_submit',
             'Delete' | trans,
