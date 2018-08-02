@@ -9,22 +9,24 @@ if [ -n "$GATEWAY_INTERFACE" ] ; then
     exit 1
 fi
 
-# Going back into the direcory
-cd ..
-
 if [ -f package.json ] ; then
     echo "Running Yarn Install"
     yarn install
 
-    echo "Creating production build of js files"
-    yarn prod:build
+    if  [ -d node_modules ] ; then
+        echo "Creating production build of js files"
+        yarn prod:build
+    fi
 fi
 
 #Performing cleanup
 #Removing yarn files
-rm yarn.lock
+if [ -f yarn.lock ] ; then
+    rm -f yarn.lock
+fi
+
 if [ -f yarn-error.log ] ; then
-    rm yarn-error.log
+    rm -f yarn-error.log
 fi
 #Removing node_modules from the directory
 rm -rf node_modules
@@ -33,7 +35,8 @@ rm -rf js/lib
 #Removing JavaScript source code
 rm -rf js/src
 #Removing babel files as they are not required in production
-rm .babelrc
-rm webpack.config.babel.js
+rm -f .babelrc
+rm -f webpack.config.babel.js
+rm -f .jshintrc
 
 echo "Finished building js files"

@@ -365,9 +365,6 @@ class FormDisplay
 
         return $htmlOutput;
     }
-    public function getFormParams () {
-        return $this->_formParams;
-    }
 
     /**
      * Prepares data for input field display and outputs HTML code

@@ -539,10 +539,10 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertEquals(
             [
-                'validateField(\'testID\', \'PMA_\\\';\', true, '
+                '[\'testID\', \'PMA_\\\';\', true, '
                     . '[\'\\\\r\\\\n\\\\\\\''
-                    . '<scrIpt></\\\' + \\\'script>\'])',
-                'validateField(\'testID\', \'PMA_\', true)'
+                    . '<scrIpt></\\\' + \\\'script>\']]',
+                '[\'testID\', \'PMA_\', true]'
             ],
             $js
         );
@@ -564,16 +564,11 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertEquals(
             '<script type="text/javascript">' . "\n"
-            . 'if (typeof configInlineParams === "undefined"'
-            . ' || !Array.isArray(configInlineParams)) '
-            . 'configInlineParams = [];' . "\n"
-            . 'configInlineParams.push(function() {' . "\n"
-            . 'var i = 1;' . "\n"
-            . 'i++;' . "\n"
-            . '});' . "\n"
-            . 'if (typeof configScriptLoaded !== "undefined"'
-            . ' && configInlineParams) loadInlineConfig();'
-            . "\n" . '</script>' . "\n",
+            . 'getConfigData(' . "\n"
+            . 'var i = 1,' . "\n"
+            . 'i++' . "\n"
+            . ');' . "\n"
+            . '</script>' . "\n",
             $result
         );
     }
