@@ -497,7 +497,6 @@ export function navFilterStateRestore () {
         ) {
             let $obj = $('#pma_navigation_tree');
             if (! $obj.data('fastFilter')) {
-
                 $obj.data(
                     'fastFilter',
                     new PMA_fastFilter.filter($obj, '')
@@ -528,7 +527,6 @@ export function navFilterStateRestore () {
                     return true;
                 }
                 if (! $obj.data('fastFilter')) {
-
                     $obj.data(
                         'fastFilter',
                         new PMA_fastFilter.filter($obj, '')

@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 
 function WebpackConfig (env) {
-    let BindleAnalyzer = BundleAnalyzerPlugin.BundleAnalyzerPlugin;
+    let BundleAnalyzer = BundleAnalyzerPlugin.BundleAnalyzerPlugin;
 
     // environment either development or production
     var MODE;
@@ -49,7 +49,7 @@ function WebpackConfig (env) {
         new webpack.NoEmitOnErrorsPlugin()
     ];
     if (MODE === 'development') {
-        plugins.push(new BindleAnalyzer());
+        plugins.push(new BundleAnalyzer());
     }
 
     return {

@@ -94,7 +94,6 @@ export let AJAX = {
      * @return self For chaining
      */
     registerOnload: function (file, func) {
-
         var eventName = 'onload_' + this.hash(file);
         $(document).on(eventName, func);
         if (this._debug) {
