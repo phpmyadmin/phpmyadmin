@@ -298,7 +298,7 @@ class Util
     /**
      * Displays a button to copy content to clipboard
      *
-     * @param string $text    Text to copy to clipboard
+     * @param string $text Text to copy to clipboard
      *
      * @return string  the html link
      *
