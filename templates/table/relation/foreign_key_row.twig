@@ -17,11 +17,7 @@
                     one_key['constraint']
                 )
             } %}
-            {% set js_msg = Sanitize_jsFormat(
-                'ALTER TABLE ' ~ db ~ '.' ~ table
-                ~ ' DROP FOREIGN KEY '
-                ~ one_key['constraint'] ~ ';'
-            ) %}
+            {% set js_msg = 'ALTER TABLE ' ~ db ~ '.' ~ table ~ ' DROP FOREIGN KEY ' ~ one_key['constraint'] ~ ';'|js_format %}
         {% endif %}
         {% if one_key['constraint'] is defined %}
             <input type="hidden" class="drop_foreign_key_msg" value="

@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
+use Twig\TwigFilter;
 
 /**
  * Class SanitizeExtension
@@ -20,25 +20,25 @@ use Twig\TwigFunction;
 class SanitizeExtension extends AbstractExtension
 {
     /**
-     * Returns a list of functions to add to the existing list.
+     * Returns a list of filters to add to the existing list.
      *
-     * @return TwigFunction[]
+     * @return TwigFilter[]
      */
-    public function getFunctions()
+    public function getFilters()
     {
         return [
-            new TwigFunction(
-                'Sanitize_escapeJsString',
+            new TwigFilter(
+                'escape_js_string',
                 'PhpMyAdmin\Sanitize::escapeJsString',
                 ['is_safe' => ['html']]
             ),
-            new TwigFunction(
-                'Sanitize_jsFormat',
+            new TwigFilter(
+                'js_format',
                 'PhpMyAdmin\Sanitize::jsFormat',
                 ['is_safe' => ['html']]
             ),
-            new TwigFunction(
-                'Sanitize_sanitize',
+            new TwigFilter(
+                'sanitize',
                 'PhpMyAdmin\Sanitize::sanitize',
                 ['is_safe' => ['html']]
             ),

@@ -43,7 +43,7 @@
 
     <td class="tool">
         <a class="server_databases" data="
-            {{- Sanitize_jsFormat(current['SCHEMA_NAME']) }}" href="server_privileges.php
+            {{- current['SCHEMA_NAME']|js_format }}" href="server_privileges.php
             {{- get_common({
                 'db': current['SCHEMA_NAME'],
                 'checkprivsdb': current['SCHEMA_NAME']
