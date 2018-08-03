@@ -1,5 +1,5 @@
 <form class="submenu-item" action="server_privileges.php" id="{{ form_id }}" method="post">
-    {{ Url_getHiddenInputs() }}
+    {{ get_hidden_inputs() }}
     <input type="hidden" name="username" value="{{ username }}" />
     <input type="hidden" name="hostname" value="{{ hostname }}" />
 
@@ -56,7 +56,7 @@
             {%- if databases is not empty %}
                 <select name="pred_dbname[]" multiple="multiple">
                     {% for database in databases %}
-                        <option value="{{ Util_escapeMysqlWildcards(database) }}">
+                        <option value="{{ database|escape_mysql_wildcards }}">
                             {{ database }}
                         </option>
                     {% endfor %}
@@ -64,7 +64,7 @@
             {% endif -%}
 
             <input type="text" id="text_dbname" name="dbname" />
-            {{ Util_showHint("Wildcards % and _ should be escaped with a \\ to use them literally."|trans) }}
+            {{ show_hint("Wildcards % and _ should be escaped with a \\ to use them literally."|trans) }}
         {% elseif type == 'table' %}
             <input type="hidden" name="dbname" value="{{ database }}"/>
 
