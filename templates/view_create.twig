@@ -1,7 +1,7 @@
 <!-- CREATE VIEW options -->
 <div id="div_view_options">
     <form method="post" action="view_create.php">
-    {{ Url_getHiddenInputs(url_params) }}
+    {{ get_hidden_inputs(url_params) }}
     <fieldset>
         <legend>
             {% if ajax_dialog %}

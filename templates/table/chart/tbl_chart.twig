@@ -4,7 +4,7 @@
 {# Display Chart options #}
 <div id="div_view_options">
     <form method="post" id="tblchartform" action="tbl_chart.php" class="ajax">
-        {{ Url_getHiddenInputs(url_params) }}
+        {{ get_hidden_inputs(url_params) }}
         <fieldset>
             <legend>
                 {% trans 'Display chart' %}
@@ -145,12 +145,12 @@
                     {% endfor %}
                 </select>
             </div>
-            {{ Util_getStartAndNumberOfRowsPanel(sql_query) }}
+            {{ get_start_and_number_of_rows_panel(sql_query) }}
             <div class="clearfloat"></div>
             <div id="resizer" style="width:600px; height:400px;">
                 <div style="position: absolute; right: 10px; top: 10px; cursor: pointer; z-index: 1000;">
                     <a class="disableAjax" id="saveChart" href="#" download="chart.png">
-                        {{ Util_getImage('b_saveimage', 'Save chart as image'|trans) }}
+                        {{ get_image('b_saveimage', 'Save chart as image'|trans) }}
                     </a>
                 </div>
                 <div id="querychart" dir="ltr">

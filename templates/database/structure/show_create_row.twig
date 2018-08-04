@@ -10,8 +10,8 @@
         <tbody>
         {% for object in db_objects %}
             <tr>
-                <td><strong>{{ Core_mimeDefaultFunction(object) }}</strong></td>
-                <td>{{ Core_mimeDefaultFunction(dbi.getTable(db, object).showCreate()) }}</td>
+                <td><strong>{{ object|mime_default_function }}</strong></td>
+                <td>{{ dbi.getTable(db, object).showCreate()|mime_default_function }}</td>
             </tr>
         {% endfor %}
         </tbody>

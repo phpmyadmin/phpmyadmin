@@ -139,6 +139,14 @@ textarea {
     overflow:           visible;
 }
 
+th.fillPage {
+    width: 80%;
+}
+
+textarea.charField {
+    width: 95%;
+}
+
 fieldset {
     margin-top:         1em;
     border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;

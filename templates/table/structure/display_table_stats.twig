@@ -57,8 +57,8 @@
                     <tr class="tblFooters print_ignore">
                         <td colspan="3" class="center">
                             <a href="sql.php" data-post="{{ url_query }}&amp;pos=0&amp;sql_query=
-                                {{- ('OPTIMIZE TABLE ' ~ Util_backquote(table))|url_encode }}">
-                                {{ Util_getIcon('b_tbloptimize', 'Optimize table'|trans) }}
+                                {{- ('OPTIMIZE TABLE ' ~ backquote(table))|url_encode }}">
+                                {{ get_icon('b_tbloptimize', 'Optimize table'|trans) }}
                             </a>
                         </td>
                     </tr>
@@ -100,7 +100,7 @@
                     <tr>
                     <th class="name">{% trans 'Collation' %}</th>
                     <td class="value">
-                        <dfn title="{{ Charsets_getCollationDescr(tbl_collation) }}">
+                        <dfn title="{{ get_collation_descr(tbl_collation) }}">
                             {{ tbl_collation }}
                         </dfn>
                     </td>
@@ -110,7 +110,7 @@
                 {% if not is_innodb and showtable['Rows'] is defined %}
                     <tr>
                     <th class="name">{% trans 'Rows' %}</th>
-                    <td class="value">{{ Util_formatNumber(showtable['Rows'], 0) }}</td>
+                    <td class="value">{{ format_number(showtable['Rows'], 0) }}</td>
                     </tr>
                 {% endif %}
 
@@ -119,7 +119,7 @@
                     and showtable['Avg_row_length'] > 0 %}
                     <tr>
                     <th class="name">{% trans 'Row length' %}</th>
-                    {% set avg_row_length = Util_formatByteDown(showtable['Avg_row_length'], 6, 1) %}
+                    {% set avg_row_length = format_byte_down(showtable['Avg_row_length'], 6, 1) %}
                     <td class="value">{{ avg_row_length[0] }} {{ avg_row_length[1] }}</td>
                     </tr>
                 {% endif %}
@@ -138,28 +138,28 @@
                 {% if showtable['Auto_increment'] is defined %}
                     <tr>
                     <th class="name">{% trans 'Next autoindex' %}</th>
-                    <td class="value">{{ Util_formatNumber(showtable['Auto_increment'], 0) }}</td>
+                    <td class="value">{{ format_number(showtable['Auto_increment'], 0) }}</td>
                     </tr>
                 {% endif %}
 
                 {% if showtable['Create_time'] is defined %}
                     <tr>
                     <th class="name">{% trans 'Creation' %}</th>
-                    <td class="value">{{ Util_localisedDate(showtable['Create_time']|date('U')) }}</td>
+                    <td class="value">{{ localised_date(showtable['Create_time']|date('U')) }}</td>
                     </tr>
                 {% endif %}
 
                 {% if showtable['Update_time'] is defined %}
                     <tr>
                     <th class="name">{% trans 'Last update' %}</th>
-                    <td class="value">{{ Util_localisedDate(showtable['Update_time']|date('U')) }}</td>
+                    <td class="value">{{ localised_date(showtable['Update_time']|date('U')) }}</td>
                     </tr>
                 {% endif %}
 
                 {% if showtable['Check_time'] is defined %}
                     <tr>
                     <th class="name">{% trans 'Last check' %}</th>
-                    <td class="value">{{ Util_localisedDate(showtable['Check_time']|date('U')) }}</td>
+                    <td class="value">{{ localised_date(showtable['Check_time']|date('U')) }}</td>
                     </tr>
                 {% endif %}
             </tbody>

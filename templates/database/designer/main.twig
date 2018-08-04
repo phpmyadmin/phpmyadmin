@@ -110,7 +110,7 @@ var designer_config = {{ designer_config | raw }};
                 {% trans 'Reload' %}
             </span>
         </a>
-        <a href="{{ Util_getDocuLink('faq', 'faq6-31') }}"
+        <a href="{{ get_docu_link('faq', 'faq6-31') }}"
            target="documentation"
            class="M_butt">
             <img title="{% trans 'Help' %}"
@@ -1130,7 +1130,7 @@ var designer_config = {{ designer_config | raw }};
         <form method="post" action="db_qbe.php" id="vqb_form">
             <textarea cols="80" name="sql_query" id="textSqlquery" rows="15"></textarea>
             <input type="hidden" name="submit_sql" value="true">
-            {{ Url_getHiddenInputs(get_db) }}
+            {{ get_hidden_inputs(get_db) }}
         </form>
     </div>
 {% endif %}
