@@ -1353,12 +1353,14 @@ class TableStructureController extends TableController
         }
 
         $engine = $this->table_obj->getStorageEngine();
+        $foreignKeySupported = Util::isForeignKeySupported($engine);
         return $this->template->render('table/structure/display_structure', [
             'url_params' => [
                 'db' => $this->db,
                 'table' => $this->table,
             ],
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
             'cfg_relation' => $this->relation->getRelationsParam(),
             'hide_structure_actions' => $hideStructureActions,
             'db' => $this->db,
@@ -1390,6 +1392,7 @@ class TableStructureController extends TableController
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
+            'partitions' => Partition::getPartitions($this->db, $this->table),
             'partition_names' => Partition::getPartitionNames($this->db, $this->table),
             'attributes' => $attributes,
             'displayed_fields' => $displayed_fields,

@@ -94,7 +94,7 @@
             <div id="gis_editor"></div>
             <div id="popup_background"></div>
         </fieldset>
-        {{ Util_getDivForSliderEffect('searchoptions', 'Options'|trans) }}
+        {{ get_div_for_slider_effect('searchoptions', 'Options'|trans) }}
 
         {# Displays columns select list for selecting distinct columns in the search #}
         <fieldset id="fieldset_select_fields">
@@ -121,7 +121,7 @@
                 <em>{% trans 'Or' %}</em>
                 {% trans 'Add search conditions (body of the "where" clause):' %}
             </legend>
-            {{ Util_showMySQLDocu('Functions') }}
+            {{ show_mysql_docu('Functions') }}
             <input type="text" name="customWhereClause" class="textfield" size="64" />
         </fieldset>
 
@@ -147,7 +147,7 @@
                 {% endfor %}
             </select>
 
-            {{ Util_getRadioFields(
+            {{ get_radio_fields(
                 'order',
                 {
                     'ASC': 'Ascending'|trans,

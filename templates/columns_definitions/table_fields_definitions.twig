@@ -2,7 +2,7 @@
 <table id="table_columns" class="noclick">
     <caption class="tblHeaders">
         {% trans 'Structure' %}
-        {{ Util_showMySQLDocu('CREATE_TABLE') }}
+        {{ show_mysql_docu('CREATE_TABLE') }}
     </caption>
     <tr>
         <th>
@@ -10,15 +10,15 @@
         </th>
         <th>
             {% trans 'Type' %}
-            {{ Util_showMySQLDocu('data-types') }}
+            {{ show_mysql_docu('data-types') }}
         </th>
         <th>
             {% trans 'Length/Values' %}
-            {{ Util_showHint('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'…<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
+            {{ show_hint('If column type is "enum" or "set", please enter the values using this format: \'a\',\'b\',\'c\'…<br />If you ever need to put a backslash ("\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
         </th>
         <th>
             {% trans 'Default' %}
-            {{ Util_showHint('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'|trans) }}
+            {{ show_hint('For default values, please enter just a single value, without backslash escaping or quotes, using this format: a'|trans) }}
         </th>
         <th>
             {% trans 'Collation' %}
@@ -34,7 +34,7 @@
         {% if change_column is defined and change_column is not empty %}
             <th>
                 {% trans 'Adjust privileges' %}
-                {{ Util_showDocu('faq', 'faq6-39') }}
+                {{ show_docu('faq', 'faq6-39') }}
             </th>
         {% endif %}
 
@@ -72,7 +72,7 @@
             </th>
             <th>
                 <a href="transformation_overview.php
-                    {{- Url_getCommon() }}#transformation" title="
+                    {{- get_common() }}#transformation" title="
                     {%- trans 'List of available transformations and their options' -%}
                     " target="_blank">
                     {% trans 'Browser display transformation' %}
@@ -80,10 +80,10 @@
             </th>
             <th>
                 {% trans 'Browser display transformation options' %}
-                {{ Util_showHint('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br />If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
+                {{ show_hint('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br />If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
             </th>
             <th>
-                <a href="transformation_overview.php{{ Url_getCommon() }}#input_transformation"
+                <a href="transformation_overview.php{{ get_common() }}#input_transformation"
                    title="{% trans 'List of available transformations and their options' %}"
                    target="_blank">
                     {% trans 'Input transformation' %}
@@ -91,7 +91,7 @@
             </th>
             <th>
                 {% trans 'Input transformation options' %}
-                {{ Util_showHint('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br />If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
+                {{ show_hint('Please enter the values for transformation options using this format: \'a\', 100, b,\'c\'…<br />If you ever need to put a backslash ("\\") or a single quote ("\'") amongst those values, precede it with a backslash (for example \'\\\\xyz\' or \'a\\\'b\').'|trans) }}
             </th>
         {% endif %}
     </tr>

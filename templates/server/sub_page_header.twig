@@ -39,10 +39,10 @@
 } %}
 <h2>
     {% if is_image|default(true) %}
-        {{ Util_getImage(header[type]['image']) }}
+        {{ get_image(header[type]['image']) }}
     {% else %}
-        {{ Util_getIcon(header[type]['image']) }}
+        {{ get_icon(header[type]['image']) }}
     {% endif %}
     {{ header[type]['text'] }}
-    {{ link is defined ? Util_showMySQLDocu(link) }}
+    {{ link is defined ? show_mysql_docu(link) }}
 </h2>

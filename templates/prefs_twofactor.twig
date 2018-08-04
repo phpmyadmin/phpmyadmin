@@ -1,7 +1,7 @@
 <div class="group">
 <h2>
 {% trans "Two-factor authentication status" %}
-{{ Util_showDocu('two_factor') }}
+{{ show_docu('two_factor') }}
 </h2>
 <div class="group-cnt">
 {% if enabled %}
@@ -33,7 +33,7 @@
 <p>{% trans "You have enabled two factor authentication." %}</p>
 <p>{{ backend_description }}</p>
 <form method="POST" action="prefs_twofactor.php">
-{{ Url_getHiddenInputs() }}
+{{ get_hidden_inputs() }}
 <input type="submit" name="2fa_remove" value="{% trans "Disable two-factor authentication" %}" />
 </form>
 </div>
@@ -43,7 +43,7 @@
 <h2>{% trans "Configure two-factor authentication" %}</h2>
 <div class="group-cnt">
 <form method="POST" action="prefs_twofactor.php">
-{{ Url_getHiddenInputs() }}
+{{ get_hidden_inputs() }}
 {% for backend in backends %}
 <label>
 <input type="radio" name="2fa_configure" {% if backend["id"] == "" %}checked="checked"{% endif %} value="{{ backend["id"] }}"/>

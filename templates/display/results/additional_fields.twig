@@ -4,7 +4,7 @@
 <input type="hidden" name="pos" size="3" value="{{ pos }}" />
 <input type="hidden" name="is_browse_distinct" value="{{ is_browse_distinct }}" />
 {% trans 'Number of rows:' %}
-{{ Util_getDropdown(
+{{ get_dropdown(
     'session_max_rows',
     number_of_rows_choices,
     max_rows,

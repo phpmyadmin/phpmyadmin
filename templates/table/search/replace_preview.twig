@@ -2,7 +2,7 @@
       action="tbl_find_replace.php"
       name="previewForm"
       id="previewForm">
-    {{ Url_getHiddenInputs(db, table) }}
+    {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="replace" value="true" />
     <input type="hidden" name="columnIndex" value="{{ column_index }}" />
     <input type="hidden" name="findString" value="{{ find }}" />

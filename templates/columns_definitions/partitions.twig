@@ -134,7 +134,7 @@
                         </td>
                     {% endif %}
                     <td>
-                        {{ StorageEngine_getHtmlSelect(
+                        {{ get_html_select(
                             subpartition['prefix'] ~ '[engine]',
                             null,
                             subpartition['engine'],
