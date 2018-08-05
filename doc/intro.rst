@@ -63,7 +63,7 @@ A word about users
 ------------------
 
 Many people have difficulty understanding the concept of user
-management with regards to phpMyAdmin. When a user logs in to
+management with regards to phpMyAdmin. When a user login to
 phpMyAdmin, that username and password are passed directly to MySQL.
 phpMyAdmin does no account management on its own (other than allowing
 one to manipulate the MySQL user account information); all users must
