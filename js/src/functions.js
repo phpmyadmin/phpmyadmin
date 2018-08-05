@@ -20,6 +20,8 @@ import { checkTableEditForm, PMA_checkReservedWordColumns } from './functions/Ta
 import { PMA_adjustTotals } from './functions/Database/Structure';
 import { PMA_verifyColumnsProperties, PMA_hideShowConnection } from './functions/Table/TableColumns';
 
+import { addDateTimePicker } from './utils/DateTime';
+
 /**
  * Here we register a function that will remove the onsubmit event from all
  * forms that will be handled by the generic page loader. We then save this
@@ -496,3 +498,110 @@ export function onloadCreateTable () {
         });
 }
 /* *************************************** CREATE TABLE STARTS *************************************** */
+
+/* ************************************** HANDLE CHECKALL CLICK ************************************** */
+/**
+ * True if last click is to check a row.
+ */
+var last_click_checked = false;
+
+/**
+ * Zero-based index of last clicked row.
+ * Used to handle the shift + click event in the code above.
+ */
+var last_clicked_row = -1;
+
+/**
+ * Zero-based index of last shift clicked row.
+ */
+var last_shift_clicked_row = -1;
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+export function teadownFunctions () {
+    $(document).off('click', 'input:checkbox.checkall');
+}
+
+export function onloadFunctions () {
+    /**
+     * Row marking in horizontal mode (use "on" so that it works also for
+     * next pages reached via AJAX); a tr may have the class noclick to remove
+     * this behavior.
+     */
+
+    $(document).on('click', 'input:checkbox.checkall', function (e) {
+        var $this = $(this);
+        var $tr = $this.closest('tr');
+        var $table = $this.closest('table');
+
+        if (!e.shiftKey || last_clicked_row === -1) {
+            // usual click
+
+            var $checkbox = $tr.find(':checkbox.checkall');
+            var checked = $this.prop('checked');
+            $checkbox.prop('checked', checked).trigger('change');
+            if (checked) {
+                $tr.addClass('marked');
+            } else {
+                $tr.removeClass('marked');
+            }
+            last_click_checked = checked;
+
+            // remember the last clicked row
+            last_clicked_row = last_click_checked ? $table.find('tr:not(.noclick)').index($tr) : -1;
+            last_shift_clicked_row = -1;
+        } else {
+            // handle the shift click
+            PMA_clearSelection();
+            var start;
+            var end;
+
+            // clear last shift click result
+            if (last_shift_clicked_row >= 0) {
+                if (last_shift_clicked_row >= last_clicked_row) {
+                    start = last_clicked_row;
+                    end = last_shift_clicked_row;
+                } else {
+                    start = last_shift_clicked_row;
+                    end = last_clicked_row;
+                }
+                $tr.parent().find('tr:not(.noclick)')
+                    .slice(start, end + 1)
+                    .removeClass('marked')
+                    .find(':checkbox')
+                    .prop('checked', false)
+                    .trigger('change');
+            }
+
+            // handle new shift click
+            var curr_row = $table.find('tr:not(.noclick)').index($tr);
+            if (curr_row >= last_clicked_row) {
+                start = last_clicked_row;
+                end = curr_row;
+            } else {
+                start = curr_row;
+                end = last_clicked_row;
+            }
+            $tr.parent().find('tr:not(.noclick)')
+                .slice(start, end)
+                .addClass('marked')
+                .find(':checkbox')
+                .prop('checked', true)
+                .trigger('change');
+
+            // remember the last shift clicked row
+            last_shift_clicked_row = curr_row;
+        }
+    });
+
+    addDateTimePicker();
+
+    /**
+     * Add attribute to text boxes for iOS devices (based on bugID: 3508912)
+     */
+    if (navigator.userAgent.match(/(iphone|ipod|ipad)/i)) {
+        $('input[type=text]').attr('autocapitalize', 'off').attr('autocorrect', 'off');
+    }
+}
+/* ************************************** HANDLE CHECKALL CLICK ************************************** */
