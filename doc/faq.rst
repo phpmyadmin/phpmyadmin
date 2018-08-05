@@ -1174,14 +1174,15 @@ name is defined in the config file.
 When starting phpMyAdmin, you can use the ``db``, ``pma_username``,
 ``pma_password`` and ``server`` parameters. This last one can contain
 either the numeric host index (from ``$i`` of the configuration file)
-or one of the host names present in the configuration file. Using
+or one of the host names present in the configuration file. You can use :term:`URL` like
+``http://server/phpMyAdmin/index.php?server=X&db=database&table=table&target=script``. Table and script parts are optional. Using
 ``pma_username`` and ``pma_password`` has been tested along with the
 usage of 'cookie' ``auth_type``.
 
 For example direct login URL can be constructed as
 ``https://example.com/phpmyadmin/?pma_username=user&pma_password=password``.
 
-For more details about this see [Section :ref:`faq1_34`]
+For more details about parameters, refer [Section :ref:`faq1_34`]
 
 .. warning::
 
