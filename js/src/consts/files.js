@@ -24,10 +24,10 @@ const PhpToJsFileMapping = {
     server_import: ['import'],
     db_search: ['db_search', 'sql'],
     server_sql: ['sql', 'multi_column_sort'],
-    tbl_sql: ['sql', 'multi_column_sort'],
+    tbl_sql: ['sql', 'multi_column_sort', 'tbl_change'],
     db_sql: ['sql', 'multi_column_sort'],
     sql: ['sql', 'multi_column_sort'],
-    db_structure: ['db_structure'],
+    db_structure: ['db_structure', 'tbl_change'],
     db_operations: ['db_operations'],
     db_tracking: ['db_tracking'],
     db_central_columns: ['db_central_columns'],
@@ -36,10 +36,14 @@ const PhpToJsFileMapping = {
     tbl_structure: ['tbl_structure'],
     tbl_indexes: [],
     tbl_relation: ['tbl_relation'],
-    tbl_replace: [],
+    tbl_replace: ['tbl_change', 'sql'],
     tbl_chart: ['tbl_chart'],
     tbl_operations: ['tbl_operations'],
-    tbl_tracking: ['tbl_tracking']
+    tbl_tracking: ['tbl_tracking'],
+    tbl_change: ['sql', 'tbl_change'],
+    tbl_select: ['sql', 'tbl_change'],
+    tbl_zoom_select: ['sql', 'tbl_change'],
+    tbl_find_replace: ['']
 };
 
 const JsFileList = [
@@ -75,7 +79,8 @@ const JsFileList = [
     'tbl_relation',
     'tbl_chart',
     'tbl_operations',
-    'tbl_tracking'
+    'tbl_tracking',
+    'tbl_change'
 ];
 
 export {

@@ -212,10 +212,9 @@ class TableSearchController extends TableController
                 ->getScripts()
                 ->addFiles(
                     [
-                        'makegrid.js',
-                        'sql.js',
+                        'sql',
                         'tbl_select.js',
-                        'tbl_change.js',
+                        'tbl_change',
                         'vendor/jquery/jquery.uitablefilter.js',
                         'gis_data_editor.js',
                     ]
@@ -244,8 +243,7 @@ class TableSearchController extends TableController
                 ->getScripts()
                 ->addFiles(
                     [
-                        'makegrid.js',
-                        'sql.js',
+                        'sql',
                         'vendor/jqplot/jquery.jqplot.js',
                         'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
                         'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
@@ -253,7 +251,7 @@ class TableSearchController extends TableController
                         'vendor/jqplot/plugins/jqplot.highlighter.js',
                         'vendor/jqplot/plugins/jqplot.cursor.js',
                         'tbl_zoom_plot_jqplot.js',
-                        'tbl_change.js',
+                        'tbl_change',
                     ]
                 );
 

@@ -42,9 +42,8 @@ $goto_include = false;
 $response = Response::getInstance();
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('makegrid.js');
 // Needed for generation of Inline Edit anchors
-$scripts->addFile('sql.js');
+$scripts->addFile('sql');
 $scripts->addFile('indexes');
 $scripts->addFile('gis_data_editor.js');
 
@@ -515,8 +514,7 @@ if (! empty($return_to_sql_query)) {
     $GLOBALS['sql_query'] = $return_to_sql_query;
 }
 
-$scripts->addFile('vendor/jquery/additional-methods.js');
-$scripts->addFile('tbl_change.js');
+$scripts->addFile('tbl_change');
 
 $active_page = $goto_include;
 

@@ -1,10 +1,10 @@
 import $ from 'jquery';
 import 'jquery-migrate';
 import 'jquery-ui-bundle';
-import 'jquery-ui-timepicker-addon';
 import 'jquery-mousewheel';
 import 'jquery.event.drag';
 import 'jquery-validation';
+import 'jquery-ui-timepicker-addon';
 import '../plugins/jquery/jquery.uitablefilter';
 import { methods } from './menu_resizer';
 // TODO: To use this import for replacing variables used in this file for
@@ -231,15 +231,21 @@ if ($.timePicker) {
 }
 
 export function extendingValidatorMessages () {
+    var validateMessage;
+    var validateFormat;
     // Creating copy of validationMessage strings object
-    var validateMessage = Object.assign(window.validationMessage);
+    if (typeof window.validateMessage !== 'undefined') {
+        validateMessage = Object.assign(window.validationMessage);
+    }
     // Deleting validationMessage variable from window as it is of no use now
     delete window.validationMessage;
     // Replacing default validation messages forr localization
     $.extend($.validator.messages, validateMessage);
 
     // Creating copy of validationFormat strings object
-    var validateFormat = Object.assign(window.validationFormat);
+    if (typeof window.validationFormat !== 'undefined') {
+        validateFormat = Object.assign(window.validationFormat);
+    }
     // Deleting validationFormat variable from window as it is of no use now
     delete window.validationFormat;
     for (let i in validateFormat) {
