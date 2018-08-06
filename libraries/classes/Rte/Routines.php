@@ -241,7 +241,7 @@ class Routines
                             htmlspecialchars($drop_routine)
                         )
                         . '<br />'
-                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                        . __('MySQL said: ') . $GLOBALS['dbi']->getError();
                     } else {
                         list($newErrors, $message) = self::create(
                             $routine_query,
@@ -268,7 +268,7 @@ class Routines
                         htmlspecialchars($routine_query)
                     )
                     . '<br /><br />'
-                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                    . __('MySQL said: ') . $GLOBALS['dbi']->getError();
                 } else {
                     $message = Message::success(
                         __('Routine %1$s has been created.')
@@ -382,7 +382,7 @@ class Routines
                 htmlspecialchars($routine_query)
             )
             . '<br />'
-            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+            . __('MySQL said: ') . $GLOBALS['dbi']->getError();
             // We dropped the old routine,
             // but were unable to create the new one
             // Try to restore the backup query
@@ -1495,7 +1495,7 @@ class Routines
                         htmlspecialchars($multiple_query)
                     )
                     . '<br /><br />'
-                    . __('MySQL said: ') . $GLOBALS['dbi']->getError(null)
+                    . __('MySQL said: ') . $GLOBALS['dbi']->getError()
                 );
             }
 
