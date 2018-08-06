@@ -179,7 +179,7 @@ class Events
                             htmlspecialchars($drop_item)
                         )
                         . '<br />'
-                        . __('MySQL said: ') . $this->dbi->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $result = $this->dbi->tryQuery($item_query);
                         if (! $result) {
@@ -188,7 +188,7 @@ class Events
                                 htmlspecialchars($item_query)
                             )
                             . '<br />'
-                            . __('MySQL said: ') . $this->dbi->getError(null);
+                            . __('MySQL said: ') . $this->dbi->getError();
                             // We dropped the old item, but were unable to create
                             // the new one. Try to restore the backup query
                             $result = $this->dbi->tryQuery($create_item);
@@ -219,7 +219,7 @@ class Events
                             htmlspecialchars($item_query)
                         )
                         . '<br /><br />'
-                        . __('MySQL said: ') . $this->dbi->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $message = Message::success(
                             __('Event %1$s has been created.')
