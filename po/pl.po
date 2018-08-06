@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-02-27 21:31+0000\n"
+"PO-Revision-Date: 2018-07-23 11:06+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "pl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -3279,8 +3279,6 @@ msgid "Central European"
 msgstr "Środkowoeuropejski"
 
 #: libraries/classes/Charsets.php:360
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "Rosyjski"
@@ -3303,8 +3301,6 @@ msgid "Baltic"
 msgstr "Bałtycki"
 
 #: libraries/classes/Charsets.php:382
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Ormiański"
@@ -3322,8 +3318,6 @@ msgid "Cyrillic"
 msgstr "Cyrylica"
 
 #: libraries/classes/Charsets.php:391
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "Arabski"
@@ -3356,29 +3350,21 @@ msgid "Czech-Slovak"
 msgstr "Czesko-słowacki"
 
 #: libraries/classes/Charsets.php:409 libraries/classes/Charsets.php:560
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "Ukraiński"
 
 #: libraries/classes/Charsets.php:412 libraries/classes/Charsets.php:556
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "Turecki"
 
 #: libraries/classes/Charsets.php:415 libraries/classes/Charsets.php:548
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "Szwedzki"
 
 #: libraries/classes/Charsets.php:418 libraries/classes/Charsets.php:552
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "Tajski"
@@ -3389,8 +3375,6 @@ msgid "Unknown"
 msgstr "Nieznany"
 
 #: libraries/classes/Charsets.php:437
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "Bułgarski"
@@ -3408,15 +3392,11 @@ msgid "Croatian"
 msgstr "Chorwacki"
 
 #: libraries/classes/Charsets.php:451
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "Czeski"
 
 #: libraries/classes/Charsets.php:455
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "Duński"
@@ -3447,8 +3427,6 @@ msgid "German (phone book order)"
 msgstr "Język niemiecki (kolejność w telefonicznej książce adresowej)"
 
 #: libraries/classes/Charsets.php:482
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "Węgierski"
@@ -3491,8 +3469,6 @@ msgid "Polish"
 msgstr "Polski"
 
 #: libraries/classes/Charsets.php:523
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumuński"
@@ -3503,15 +3479,11 @@ msgid "Sinhalese"
 msgstr "Cejloński"
 
 #: libraries/classes/Charsets.php:531
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Słowacki"
 
 #: libraries/classes/Charsets.php:535
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Słoweński"
@@ -3557,8 +3529,6 @@ msgid "multi-level"
 msgstr "wielopoziomowy"
 
 #: libraries/classes/Charsets.php:647
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "Binarne"
@@ -7235,7 +7205,7 @@ msgstr "Serwer nie odpowiada."
 
 #: libraries/classes/DatabaseInterface.php:2209
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Wyloguj się i spróbuj jako inny użytkownik."
 
 #: libraries/classes/DatabaseInterface.php:2215
 msgid "Please check privileges of directory containing database."
@@ -10381,7 +10351,7 @@ msgstr "Zarejestruj się na uwierzytelnianiu"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:66
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "Tylko do celów testowych!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
 #, fuzzy, php-format
@@ -15215,8 +15185,6 @@ msgid "+ Add column"
 msgstr "Dodaj kolumnę"
 
 #: templates/database/multi_table_query/form.twig:160
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "Zaktualizuj zapytanie"
 
@@ -15234,8 +15202,6 @@ msgid "Server variables and settings"
 msgstr "Zmienne i ustawienia serwera"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "Mechanizmy składowania"
 
@@ -15371,8 +15337,6 @@ msgstr "Kontynuuj wstawianie %s wierszy"
 
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 #: templates/table/tracking/report_table.twig:4
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -16209,7 +16173,7 @@ msgstr "Brakuje tabel przechowujących konfigurację phpMyAdmin"
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "Aktywowałeś podwójną weryfikację."
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"

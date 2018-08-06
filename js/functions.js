@@ -4045,8 +4045,8 @@ var toggleButton = function ($obj) {
             addClass = 'on';
         }
 
-        var params = { 'ajax_request': true };
-        $.post(url, params, function (data) {
+        var parts = url.split('?');
+        $.post(parts[0], parts[1] + '&ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 $container
@@ -4559,7 +4559,8 @@ function PMA_createViewDialog ($this) {
     var $msg = PMA_ajaxShowMessage();
     var syntaxHighlighter = null;
     var sep = PMA_commonParams.get('arg_separator');
-    $.get($this.attr('href') + sep + 'ajax_request=1' + sep + 'ajax_dialog=1', function (data) {
+    params = $this.getPostData();
+    $.get($this.attr('href') + sep + 'ajax_request=1' + sep + 'ajax_dialog=1' + sep + params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             PMA_ajaxRemoveMessage($msg);
             var buttonOptions = {};

@@ -492,7 +492,7 @@ class Privileges
         $name_for_dfn,
         $name_for_current
     ) {
-        return $this->template->render('privileges/column_privileges', [
+        return $this->template->render('server/privileges/column_privileges', [
             'columns' => $columns,
             'row' => $row,
             'name_for_select' => $name_for_select,
@@ -573,7 +573,7 @@ class Privileges
         }
         $GLOBALS['dbi']->freeResult($result);
 
-        return $this->template->render('privileges/choose_user_group', [
+        return $this->template->render('server/privileges/choose_user_group', [
             'all_user_groups' => $allUserGroups,
             'user_group' => $userGroup,
             'params' => ['username' => $username]
@@ -845,7 +845,7 @@ class Privileges
             ],
         ];
 
-        return $this->template->render('privileges/require_options', [
+        return $this->template->render('server/privileges/require_options', [
             'require_options' => $require_options
         ]);
     }
@@ -897,7 +897,7 @@ class Privileges
             ]
         ];
 
-        $html_output = $this->template->render('privileges/resource_limits', [
+        $html_output = $this->template->render('server/privileges/resource_limits', [
             'limits' => $limits
         ]);
 
@@ -953,7 +953,7 @@ class Privileges
             $privs
         );
 
-        return $this->template->render('privileges/edit_routine_privileges', [
+        return $this->template->render('server/privileges/edit_routine_privileges', [
             'username' => $username,
             'hostname' => $hostname,
             'database' => $db,
@@ -1455,7 +1455,7 @@ class Privileges
         array $privTableNames,
         array $row
     ) {
-        return $this->template->render('privileges/global_priv_table', [
+        return $this->template->render('server/privileges/global_priv_table', [
             'priv_table' => $privTable,
             'priv_table_names' => $privTableNames,
             'row' => $row,
@@ -3581,7 +3581,7 @@ class Privileges
             $data['routines'] = $routines;
         }
 
-        return $this->template->render('privileges/privileges_summary', $data);
+        return $this->template->render('server/privileges/privileges_summary', $data);
     }
 
     /**
@@ -3812,7 +3812,7 @@ class Privileges
     {
         $html_output = $this->getAddUserHtmlFieldset();
 
-        $html_output .= $this->template->render('privileges/delete_user_fieldset');
+        $html_output .= $this->template->render('server/privileges/delete_user_fieldset');
 
         return $html_output;
     }
@@ -3851,7 +3851,7 @@ class Privileges
 
         uksort($array_initials, "strnatcasecmp");
 
-        return $this->template->render('privileges/initials_row', [
+        return $this->template->render('server/privileges/initials_row', [
             'array_initials' => $array_initials,
             'initial' => isset($_REQUEST['initial']) ? $_REQUEST['initial'] : null,
         ]);
@@ -4572,7 +4572,7 @@ class Privileges
                     = $table;
         }
 
-        return $this->template->render('privileges/add_user_fieldset', [
+        return $this->template->render('server/privileges/add_user_fieldset', [
             'url_params' => $url_params,
             'rel_params' => $rel_params
         ]);
@@ -4842,6 +4842,8 @@ class Privileges
                         . Util::showMySQLDocu(
                             'privileges-provided',
                             false,
+                            null,
+                            null,
                             'priv_reload'
                         ),
                         Message::NOTICE

@@ -54,7 +54,7 @@
 </td>
 <td class="center">
     {# column collation #}
-    {{ Charsets_getCollationDropdownBox(
+    {{ get_collation_dropdown_box(
         dbi,
         disable_is,
         'field_collation[' ~ column_number ~ ']',

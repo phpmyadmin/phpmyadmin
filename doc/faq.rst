@@ -463,20 +463,22 @@ Yes. This procedure was tested with phpMyAdmin 2.6.1, PHP 4.3.9 in
 
 .. _faq1_34:
 
-1.34 Can I access directly to database or table pages?
-------------------------------------------------------
+1.34 Can I directly access a database or table pages?
+-----------------------------------------------------
 
-Yes. Out of the box, you can use :term:`URL` like
+Yes. Out of the box, you can use a :term:`URL` like
 ``http://server/phpMyAdmin/index.php?server=X&db=database&table=table&target=script``.
-For ``server`` you use the server number
-which refers to the order of the server paragraph in
-:file:`config.inc.php`. Table and script parts are optional. If you want
-``http://server/phpMyAdmin/database[/table][/script]`` :term:`URL`, you need to do some configuration. Following
-lines apply only for `Apache <https://httpd.apache.org>`_ web server.
-First make sure, that you have enabled some features within global
+For ``server`` you can use the server number
+which refers to the numeric host index (from ``$i``) in
+:file:`config.inc.php`. The table and script parts are optional.
+
+If you want a URL like
+``http://server/phpMyAdmin/database[/table][/script]``, you need to do some additional configuration. The following
+lines apply only for the `Apache <https://httpd.apache.org>`_ web server.
+First, make sure that you have enabled some features within the Apache global
 configuration. You need ``Options SymLinksIfOwnerMatch`` and ``AllowOverride
 FileInfo`` enabled for directory where phpMyAdmin is installed and you
-need mod\_rewrite to be enabled. Then you just need to create
+need mod\_rewrite to be enabled. Then you just need to create the
 following :term:`.htaccess` file in root folder of phpMyAdmin installation (don't
 forget to change directory name inside of it):
 
@@ -488,6 +490,8 @@ forget to change directory name inside of it):
     RewriteRule ^([a-zA-Z0-9_]+)/([a-z_]+\.php)$ index.php?db=$1&target=$2 [R]
     RewriteRule ^([a-zA-Z0-9_]+)/([a-zA-Z0-9_]+)$ index.php?db=$1&table=$2 [R]
     RewriteRule ^([a-zA-Z0-9_]+)$ index.php?db=$1 [R]
+
+.. seealso:: :ref:`faq4_8`
 
 .. _faq1_35:
 
@@ -1169,19 +1173,21 @@ name is defined in the config file.
 4.8 Which parameters can I use in the URL that starts phpMyAdmin?
 -----------------------------------------------------------------
 
-When starting phpMyAdmin, you can use the ``db``, ``pma_username``,
-``pma_password`` and ``server`` parameters. This last one can contain
+When accessing phpMyAdmin, you can use the ``db``, ``pma_username``,
+``pma_password`` and ``server`` :term:`URL` parameters. The "server" parameter  can contain
 either the numeric host index (from ``$i`` of the configuration file)
 or one of the host names present in the configuration file. Using
-``pma_username`` and ``pma_password`` has been tested along with the
-usage of 'cookie' ``auth_type``.
+``pma_username`` and ``pma_password`` has been tested with the
+'cookie' ``auth_type``.
 
-For example direct login URL can be constructed as
+For example, a direct login URL can be constructed as
 ``https://example.com/phpmyadmin/?pma_username=user&pma_password=password``.
+
+.. seealso:: :ref:`faq1_34`
 
 .. warning::
 
-    Passing password and username in URL is insecure and should not be used in
+    Passing a password and username in URL is potentially insecure and should not be used in
     production environments.
 
 .. _faqbrowsers:

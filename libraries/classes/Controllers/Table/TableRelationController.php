@@ -163,21 +163,6 @@ class TableRelationController extends TableController
             );
         }
 
-        // display secondary level tabs if necessary
-        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
-
-        $this->response->addHTML(
-            $this->template->render('table/secondary_tabs', [
-                'url_params' => [
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table'],
-                ],
-                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                'cfg_relation' => $this->relation->getRelationsParam(),
-            ])
-        );
-        $this->response->addHTML('<div id="structure_content">');
-
         /**
          * Dialog
          */
@@ -202,8 +187,11 @@ class TableRelationController extends TableController
         }
 
         // common form
+        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
+        $foreignKeySupported = Util::isForeignKeySupported($this->tbl_storage_engine);
         $this->response->addHTML(
             $this->template->render('table/relation/common_form', [
+                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
                 'db' => $this->db,
                 'table' => $this->table,
                 'cfg_relation' => $this->cfgRelation,
@@ -218,13 +206,10 @@ class TableRelationController extends TableController
                 'url_params' => $GLOBALS['url_params'],
                 'databases' => $GLOBALS['dblist']->databases,
                 'dbi' => $this->dbi,
+                'foreignKeySupported' => $foreignKeySupported,
+                'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
             ])
         );
-
-        if (Util::isForeignKeySupported($this->tbl_storage_engine)) {
-            $this->response->addHTML(Index::getHtmlForDisplayIndexes());
-        }
-        $this->response->addHTML('</div>');
     }
 
     /**

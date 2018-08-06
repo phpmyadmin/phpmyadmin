@@ -986,8 +986,8 @@ class InsertEdit
              * @todo clarify the meaning of the "textfield" class and explain
              *       why character columns have the "char" class instead
              */
-            $the_class = 'char';
-            $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
+            $the_class = 'char charField';
+            $textAreaRows = max($GLOBALS['cfg']['CharTextareaRows'], 7);
             $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
             $extracted_columnspec = Util::extractColumnSpec(
                 $column['Type']
@@ -1950,7 +1950,7 @@ class InsertEdit
         }
 
         $html_output .= '<th>' . __('Null') . '</th>'
-            . '<th>' . __('Value') . '</th>'
+            . '<th class="fillPage">' . __('Value') . '</th>'
             . '</tr>'
             . '</thead>'
             . ' <tfoot>'

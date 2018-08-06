@@ -25,17 +25,17 @@
 
         <input type="hidden" name="{{ id_key }}" value="{{ upload_id }}" />
         {% if import_type == 'server' %}
-            {{ Url_getHiddenInputs('', '', 1) }}
+            {{ get_hidden_inputs('', '', 1) }}
         {% elseif import_type == 'database' %}
-            {{ Url_getHiddenInputs(db, '', 1) }}
+            {{ get_hidden_inputs(db, '', 1) }}
         {% else %}
-            {{ Url_getHiddenInputs(db, table, 1) }}
+            {{ get_hidden_inputs(db, table, 1) }}
         {% endif %}
         <input type="hidden" name="import_type" value="{{ import_type }}" />
 
         <div class="exportoptions" id="header">
             <h2>
-                {{ Util_getImage('b_import', 'Import'|trans) }}
+                {{ get_image('b_import', 'Import'|trans) }}
                 {% if import_type == 'server' %}
                     {% trans 'Importing into the current server' %}
                 {% elseif import_type == 'database' %}
@@ -65,7 +65,7 @@
                     <ul>
                         <li>
                             <input type="radio" name="file_location" id="radio_import_file" required="required" />
-                            {{ Util_getBrowseUploadFileBlock(max_upload_size) }}
+                            {{ get_browse_upload_file_block(max_upload_size) }}
                             {% trans 'You may also drag and drop a file on any page.' %}
                         </li>
                         <li>
@@ -73,19 +73,19 @@
                                 {%- if timeout_passed_global is not empty and local_import_file is not empty %}
                                     checked="checked"
                                 {%- endif %} />
-                            {{ Util_getSelectUploadFileBlock(
+                            {{ get_select_upload_file_block(
                                 import_list,
                                 upload_dir
                             ) }}
                         </li>
                     </ul>
                 {% elseif is_upload %}
-                    {{ Util_getBrowseUploadFileBlock(max_upload_size) }}
+                    {{ get_browse_upload_file_block(max_upload_size) }}
                     <p>{% trans 'You may also drag and drop a file on any page.' %}</p>
                 {% elseif not is_upload %}
-                    {{ Message_notice('File uploads are not allowed on this server.'|trans) }}
+                    {{ 'File uploads are not allowed on this server.'|trans|notice }}
                 {% elseif upload_dir is not empty %}
-                    {{ Util_getSelectUploadFileBlock(
+                    {{ get_select_upload_file_block(
                         import_list,
                         upload_dir
                     ) }}
@@ -108,7 +108,7 @@
                         {% endfor %}
                     </select>
                 {% else %}
-                    {{ Charsets_getCharsetDropdownBox(
+                    {{ get_charset_dropdown_box(
                         dbi,
                         disable_is,
                         'charset_of_file',
@@ -132,7 +132,7 @@
 
             <div class="formelementrow">
                 <input type="checkbox" name="allow_interrupt" value="yes" id="checkbox_allow_interrupt"
-                    {{ Plugins_checkboxCheck('Import', 'allow_interrupt') }} />
+                    {{ checkbox_check('Import', 'allow_interrupt') }} />
                 <label for="checkbox_allow_interrupt">
                     {% trans 'Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <em>(This might be a good way to import large files, however it can break transactions.)</em>' %}
                 </label>
@@ -144,7 +144,7 @@
                         {% trans 'Skip this number of queries (for SQL) starting from the first one:' %}
                     </label>
                     <input type="number" name="skip_queries" value="
-                        {{- Plugins_getDefault('Import', 'skip_queries') -}}
+                        {{- get_default_plugin('Import', 'skip_queries') -}}
                         " id="text_skip_queries" min="0" />
                 </div>
             {% else %}
@@ -152,7 +152,7 @@
                    do not show the Skip dialog to avoid the risk of someone
                    entering a value here that would interfere with "skip" #}
                 <input type="hidden" name="skip_queries" value="
-                    {{- Plugins_getDefault('Import', 'skip_queries') -}}
+                    {{- get_default_plugin('Import', 'skip_queries') -}}
                     " id="text_skip_queries" />
             {% endif %}
         </div>
@@ -160,13 +160,13 @@
         <div class="importoptions">
             <h3>{% trans 'Other options:' %}</h3>
             <div class="formelementrow">
-                {{ Util_getFKCheckbox() }}
+                {{ get_fk_checkbox() }}
             </div>
         </div>
 
         <div class="importoptions">
             <h3>{% trans 'Format:' %}</h3>
-            {{ Plugins_getChoice('Import', 'format', import_list) }}
+            {{ get_choice('Import', 'format', import_list) }}
             <div id="import_notification"></div>
         </div>
 
@@ -175,7 +175,7 @@
             <p class="no_js_msg" id="scroll_to_options_msg">
                 {% trans 'Scroll down to fill in the options for the selected format and ignore the options for other formats.' %}
             </p>
-            {{ Plugins_getOptions('Import', import_list) }}
+            {{ get_options('Import', import_list) }}
         </div>
         <div class="clearfloat"></div>
 

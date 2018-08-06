@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2017-08-22 09:47+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2018-07-27 08:19+0000\n"
+"Last-Translator: ROYAL Randhawa <imroyalrandhawa@gmail.com>\n"
 "Language-Team: Punjabi <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/pa/>\n"
 "Language: pa\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -312,6 +312,8 @@ msgstr "ਡਾਟਾਬੇਸ ਨਾਂ ਖਾਲੀ ਹੈ!"
 #: db_operations.php:71
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
+"ਇੱਕੋ ਨਾਮ ਦੇ ਡੇਟਾਬੇਸ ਨੂੰ ਕਾਪੀ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ, ਨਾਮ ਬਦਲੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ "
+"।"
 
 #: db_operations.php:158
 #, php-format
@@ -425,9 +427,8 @@ msgstr "X"
 
 #: gis_data_editor.php:224 gis_data_editor.php:252 gis_data_editor.php:308
 #: gis_data_editor.php:383 js/messages.php:522
-#, fuzzy
 msgid "Y"
-msgstr "Y"
+msgstr "✓"
 
 #: gis_data_editor.php:246 gis_data_editor.php:302 gis_data_editor.php:375
 #: js/messages.php:524
@@ -603,32 +604,37 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+"ਹਾਲਾਂਕਿ ਆਖਰੀ ਦੌਰੇ ਤੇ ਕੋਈ ਡਾਟਾ ਪਾਰਸ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਹੈ, ਇਸ ਦਾ ਆਮ ਤੌਰ ਤੇ ਮਤਲਬ ਹੈ "
+"ਕਿ [ਪੀਐਚਪੀ ਮਾਈ ਐਡਮਿਨ] ਇਸ ਆਯਾਤ ਨੂੰ ਪੂਰਾ ਕਰਨ ਦੇ ਯੋਗ ਨਹੀਂ ਹੋਵੇਗਾ ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ "
+"[ਪੀਐਚਪੀ] ਸਮਾਂ ਸੀਮਾਵਾਂ ਵਧਾਉਂਦੇ ਨਹੀਂ ਹੋ ।"
 
 #: import.php:709 sql.php:161
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr ""
+msgstr "\"ਡ੍ਰੌਪ ਡੈਟਾਬੈਏਸ\" ਬਿਆਨ ਅਸਮਰਥਿਤ ਹਨ ।"
 
 #: import_status.php:108
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "ਆਯਾਤ ਦੀ ਪ੍ਰਗਤੀ ਲੋਡ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ ।"
 
 #: import_status.php:117 js/messages.php:461 js/messages.php:627
 #: libraries/classes/Export.php:530
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:307
 #: libraries/classes/UserPassword.php:263 libraries/classes/Util.php:667
 msgid "Back"
-msgstr ""
+msgstr "ਪਿੱਛੇ"
 
 #: index.php:140
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"ਤੁਸੀਂ ਇਕ ਸਰਵਰ ਤੋਂ ਲਾਗਆਉਟ ਹੋਏ ਹੋ, ਸੰਪੂਰਨ ਰੂਪ ਤੋਂ ਲਾਗਆਉਟ ਹੋਣ ਲਈ ਤੁਹਾਨੂੰ ਸਾਰੇ "
+"ਸਰਵਰਾਂ ਤੋਂ ਲਾਗਆਉਟ ਹੋਣਾ ਪਵੇਗਾ ।"
 
 #: index.php:184 libraries/classes/Footer.php:83
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:116
 msgid "phpMyAdmin Demo Server"
-msgstr ""
+msgstr "[ਪੀਐਚਪੀ ਮਾਈ ਐਡਮਿਨ] ਡੈਮੋ ਸਰਵਰ"
 
 #: index.php:188 libraries/classes/Plugins/Auth/AuthenticationCookie.php:119
 #, php-format
@@ -640,64 +646,64 @@ msgstr ""
 
 #: index.php:198
 msgid "General settings"
-msgstr ""
+msgstr "ਜਨਰਲ ਸੈਟਿੰਗਜ਼"
 
 #: index.php:227 js/messages.php:652
 #: libraries/classes/Display/ChangePassword.php:61
 #: libraries/classes/Display/ChangePassword.php:64
 #: libraries/classes/UserPassword.php:257
 msgid "Change password"
-msgstr ""
+msgstr "ਪਾਸਵਰਡ ਬਦਲੋ"
 
 #: index.php:244 libraries/classes/Config/Descriptions.php:1488
 msgid "Server connection collation"
-msgstr ""
+msgstr "ਸਰਵਰ ਤੋਂ ਰਾਬਤਾ ਦੀ ਸੋਧ"
 
 #: index.php:267
 msgid "Appearance settings"
-msgstr ""
+msgstr "ਦਿੱਖ ਸੈਟਿੰਗਜ਼"
 
 #: index.php:297 prefs_manage.php:278
 msgid "More settings"
-msgstr ""
+msgstr "ਹੋਰ ਸੈਟਿੰਗਜ਼"
 
 #: index.php:319
 msgid "Database server"
-msgstr ""
+msgstr "ਡਾਟਾਬੇਸ ਸਰਵਰ"
 
 #: index.php:322 libraries/classes/Plugins/Auth/AuthenticationCookie.php:166
 msgid "Server:"
-msgstr ""
+msgstr "ਸਰਵਰ:"
 
 #: index.php:326
 msgid "Server type:"
-msgstr ""
+msgstr "ਸਰਵਰ ਦੀ ਕਿਸਮ:"
 
 #: index.php:330
 msgid "Server connection:"
-msgstr ""
+msgstr "ਸਰਵਰ ਰਾਬਤਾ:"
 
 #: index.php:334 libraries/classes/Plugins/Export/ExportLatex.php:225
 #: libraries/classes/Plugins/Export/ExportSql.php:706
 #: libraries/classes/Plugins/Export/ExportXml.php:248
 msgid "Server version:"
-msgstr ""
+msgstr "ਸਰਵਰ ਪ੍ਰਤੀਰੂਪ:"
 
 #: index.php:340
 msgid "Protocol version:"
-msgstr ""
+msgstr "ਪ੍ਰੋਟੋਕੋਲ ਪ੍ਰਤੀਰੂਪ:"
 
 #: index.php:344
 msgid "User:"
-msgstr ""
+msgstr "ਉਪਭੋਗੀ:"
 
 #: index.php:349
 msgid "Server charset:"
-msgstr ""
+msgstr "ਸਰਵਰ ਚਾਰਸੈੱਟ:"
 
 #: index.php:365
 msgid "Web server"
-msgstr ""
+msgstr "ਵੈੱਬ ਸਰਵਰ"
 
 #: index.php:376
 msgid "Database client version:"

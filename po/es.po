@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-01-08 13:02+0000\n"
-"Last-Translator: Guillermo Lengemann <omerta@unefa-glug.org.ve>\n"
+"PO-Revision-Date: 2018-07-23 11:06+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -9250,6 +9250,8 @@ msgstr "El servidor MySQL no autorizó su acceso"
 #: libraries/classes/Plugins/AuthenticationPlugin.php:350
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"Ha habilitado la autenticación de dos factores, confirme su inicio de sesión "
+"por favor."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
 #: templates/display/import/import.twig:168

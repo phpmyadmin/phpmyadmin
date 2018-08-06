@@ -1,5 +1,5 @@
 <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form" class="ajax">
-    {{ Url_getHiddenInputs(db, table) }}
+    {{ get_hidden_inputs(db, table) }}
     <input type="hidden" name="goto" value="{{ goto }}" />
     <input type="hidden" name="back" value="tbl_zoom_select.php" />
 
@@ -39,7 +39,7 @@
                 <tbody>
                 {% for column_index in 0..column_names|length - 1 %}
                     {% set field_popup = column_names[column_index] %}
-                    {% set foreign_data = Relation_getForeignData(
+                    {% set foreign_data = get_foreign_data(
                         foreigners,
                         field_popup,
                         false,

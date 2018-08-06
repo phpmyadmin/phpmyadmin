@@ -345,6 +345,14 @@ textarea.char {
     margin: 6px;
 }
 
+th.fillPage {
+    width: 80%;
+}
+
+textarea.charField {
+    width: 95%;
+}
+
 fieldset, .preview_sql {
     margin-top: 1em;
     border-radius: 4px 4px 0 0;

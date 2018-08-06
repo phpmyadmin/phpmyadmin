@@ -370,6 +370,8 @@ class Plugins
                     $ret .= \PhpMyAdmin\Util::showMySQLDocu(
                         $doc[1],
                         false,
+                        null,
+                        null,
                         $doc[2]
                     );
                 } elseif (count($doc) == 1) {

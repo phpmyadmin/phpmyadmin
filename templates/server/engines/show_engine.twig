@@ -1,7 +1,7 @@
 <h2>
-    {{ Util_getImage('b_engine') }}
+    {{ get_image('b_engine') }}
     {{ title }}
-    {{ Util_showMySQLDocu(help_page) }}
+    {{ show_mysql_docu(help_page) }}
 </h2>
 <p><em>{{ comment }}</em></p>
 
@@ -12,7 +12,7 @@
                 <strong>{% trans 'Variables' %}</strong>
             {% else %}
                 <a href="server_engines.php
-                    {{- Url_getCommon({'engine': engine}) }}">
+                    {{- get_common({'engine': engine}) }}">
                     {% trans 'Variables' %}
                 </a>
             {% endif %}
@@ -22,7 +22,7 @@
                     <strong>{{ label }}</strong>
                 {% else %}
                     <a href="server_engines.php
-                        {{- Url_getCommon({'engine': engine, 'page': current}) }}">
+                        {{- get_common({'engine': engine, 'page': current}) }}">
                         {{ label }}
                     </a>
                 {% endif %}

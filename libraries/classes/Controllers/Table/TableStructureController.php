@@ -288,20 +288,6 @@ class TableStructureController extends TableController
             }
         }
 
-        // display secondary level tabs if necessary
-        $engine = $this->table_obj->getStorageEngine();
-        $this->response->addHTML(
-            $this->template->render('table/secondary_tabs', [
-                'url_params' => [
-                    'db' => $this->db,
-                    'table' => $this->table,
-                ],
-                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                'cfg_relation' => $this->relation->getRelationsParam(),
-            ])
-        );
-        $this->response->addHTML('<div id="structure_content">');
-
         /**
          * Modifications have been submitted -> updates the table
          */
@@ -397,8 +383,6 @@ class TableStructureController extends TableController
                 $columns_with_index
             )
         );
-
-        $this->response->addHTML('</div>');
     }
 
     /**
@@ -693,7 +677,7 @@ class TableStructureController extends TableController
             } else {
                 $p = $stmt->partitions[$i];
                 $type = $p->type;
-                $expr = trim($p->expr, '()');
+                $expr = trim((string) $p->expr, '()');
                 if ($expr == 'MAXVALUE') {
                     $type .= ' MAXVALUE';
                     $expr = '';
@@ -703,9 +687,9 @@ class TableStructureController extends TableController
                     'value_type' => $type,
                     'value' => $expr,
                     'engine' => $p->options->has('ENGINE', true),
-                    'comment' => trim($p->options->has('COMMENT', true), "'"),
-                    'data_directory' => trim($p->options->has('DATA DIRECTORY', true), "'"),
-                    'index_directory' => trim($p->options->has('INDEX_DIRECTORY', true), "'"),
+                    'comment' => trim((string) $p->options->has('COMMENT', true), "'"),
+                    'data_directory' => trim((string) $p->options->has('DATA DIRECTORY', true), "'"),
+                    'index_directory' => trim((string) $p->options->has('INDEX_DIRECTORY', true), "'"),
                     'max_rows' => $p->options->has('MAX_ROWS', true),
                     'min_rows' => $p->options->has('MIN_ROWS', true),
                     'tablespace' => $p->options->has('TABLESPACE', true),
@@ -1368,7 +1352,16 @@ class TableStructureController extends TableController
             }
         }
 
+        $engine = $this->table_obj->getStorageEngine();
+        $foreignKeySupported = Util::isForeignKeySupported($engine);
         return $this->template->render('table/structure/display_structure', [
+            'url_params' => [
+                'db' => $this->db,
+                'table' => $this->table,
+            ],
+            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
+            'cfg_relation' => $this->relation->getRelationsParam(),
             'hide_structure_actions' => $hideStructureActions,
             'db' => $this->db,
             'table' => $this->table,
@@ -1399,6 +1392,7 @@ class TableStructureController extends TableController
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
+            'partitions' => Partition::getPartitions($this->db, $this->table),
             'partition_names' => Partition::getPartitionNames($this->db, $this->table),
             'attributes' => $attributes,
             'displayed_fields' => $displayed_fields,
@@ -1488,7 +1482,14 @@ class TableStructureController extends TableController
             $avg_size = $avg_unit = '';
         }
 
+        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
         return $this->template->render('table/structure/display_table_stats', [
+            'url_params' => [
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table'],
+            ],
+            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'cfg_relation' => $this->relation->getRelationsParam(),
             'showtable' => $this->_showtable,
             'table_info_num_rows' => $this->_table_info_num_rows,
             'tbl_is_view' => $this->_tbl_is_view,

@@ -2,7 +2,7 @@
 <h2>{% trans "Configure two-factor authentication" %}</h2>
 <div class="group-cnt">
 <form method="POST" action="prefs_twofactor.php">
-{{ Url_getHiddenInputs() }}
+{{ get_hidden_inputs() }}
 <input type="hidden" name="2fa_configure" value="{{ configure }}" />
 {{ form|raw }}
 <input type="submit" value="{% trans "Enable two-factor authentication" %}" />

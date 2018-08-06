@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-04-16 18:41+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2018-07-27 08:20+0000\n"
+"Last-Translator: Wolterhon <hotmottot.1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -4786,7 +4786,7 @@ msgstr "Отображать логотип в панели навигации."
 
 #: libraries/classes/Config/Descriptions.php:784
 msgid "Display logo"
-msgstr "Выводить логотип"
+msgstr "Показывать логотип"
 
 #: libraries/classes/Config/Descriptions.php:786
 msgid "URL where logo in the navigation panel will point to."
@@ -4794,7 +4794,7 @@ msgstr "URL, на который будет ссылаться логотип в
 
 #: libraries/classes/Config/Descriptions.php:788
 msgid "Logo link URL"
-msgstr "URL ссылка логотипа"
+msgstr "Ссылка логотипа"
 
 #: libraries/classes/Config/Descriptions.php:791
 msgid ""
@@ -15357,7 +15357,7 @@ msgstr "Сделать закладку общедоступной"
 
 #: templates/console/display.twig:140
 msgid "Set default"
-msgstr "Установить изначальное значение"
+msgstr "Сбросить настройки"
 
 #: templates/console/display.twig:162
 msgid ""

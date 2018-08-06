@@ -5,7 +5,7 @@
     </a>
     <form id="add_new" class="new_central_col{{ (total_rows != 0) ? ' hide' : ''}}"
         method="post" action="db_central_columns.php">
-        {{ Url_getHiddenInputs(db) }}
+        {{ get_hidden_inputs(db) }}
         <input type="hidden" name="add_new_column" value="add_new_column">
         <div class="responsivetable">
             <table>
@@ -91,7 +91,7 @@
                             } only %}
                         </td>
                         <td name="collation" class="nowrap">
-                            {{ Charsets_getCollationDropdownBox(
+                            {{ get_collation_dropdown_box(
                                     dbi,
                                     disableIs,
                                     'field_collation[0]',
@@ -147,7 +147,7 @@
             {% if pos - max_rows >= 0 %}
                 <td>
                     <form action="db_central_columns.php" method="post">
-                        {{ Url_getHiddenInputs(db) }}
+                        {{ get_hidden_inputs(db) }}
                         <input type="hidden" name="pos" value="{{ pos - max_rows }}" />
                         <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
                         <input type="submit" name="navig" class="ajax" value="&lt" />
@@ -157,7 +157,7 @@
             {% if tn_nbTotalPage > 1 %}
                 <td>
                     <form action="db_central_columns.php" method="post">
-                        {{ Url_getHiddenInputs(db) }}
+                        {{ get_hidden_inputs(db) }}
                         <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
                         {{ tn_page_selector | raw }}
                     </form>
@@ -166,7 +166,7 @@
             {% if pos + max_rows < total_rows %}
                 <td>
                     <form action="db_central_columns.php" method="post">
-                        {{ Url_getHiddenInputs(db) }}
+                        {{ get_hidden_inputs(db) }}
                         <input type="hidden" name="pos" value="{{ pos + max_rows }}"/>
                         <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
                         <input type="submit" name="navig" class="ajax" value="&gt" />
@@ -189,9 +189,9 @@
     <tr>
         <td class="navigation_separator largescreenonly"></td>
         <td class="central_columns_navigation">
-            {{ Util_getIcon('centralColumns_add', 'Add column' | trans)|raw }}
+            {{ get_icon('centralColumns_add', 'Add column' | trans)|raw }}
             <form id="add_column" action="db_central_columns.php" method="post">
-                {{ Url_getHiddenInputs(db) | raw }}
+                {{ get_hidden_inputs(db) | raw }}
                 <input type="hidden" name="add_column" value="add">
                 <input type="hidden" name="pos" value="{{ pos }}" />
                 <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
@@ -215,7 +215,7 @@
 </table>
 {% if total_rows > 0 %}
     <form method="post" id="del_form" action="db_central_columns.php">
-        {{ Url_getHiddenInputs(db) }}
+        {{ get_hidden_inputs(db) }}
         <input id="del_col_name" type="hidden" name="col_name" value="">
         <input type="hidden" name="pos" value="{{ pos }}">
         <input type="hidden" name="delete_save" value="delete">
@@ -269,17 +269,17 @@
                     {% for row in rows_list %}
                         {# getHtmlForTableRow #}
                         <tr data-rownum="{{ row_num }}" id="{{ 'f_' ~ row_num }}">
-                            {{ Url_getHiddenInputs(db) }}
+                            {{ get_hidden_inputs(db) }}
                             <input type="hidden" name="edit_save" value="save">
                             <td class="nowrap">
                                 <input type="checkbox" class="checkall" name="selected_fld[]"
                                 value="{{ row['col_name'] | raw }}" id="{{ 'checkbox_row_' ~ row_num }}"/>
                             </td>
                             <td id="{{ 'edit_' ~ row_num }}" class="edit center">
-                                <a href="#"> {{ Util_getIcon('b_edit', 'Edit' | trans) | raw }}</a>
+                                <a href="#"> {{ get_icon('b_edit', 'Edit' | trans) | raw }}</a>
                             </td>
                             <td class="del_row" data-rownum = "{{ row_num }}">
-                                <a hrf="#">{{ Util_getIcon('b_drop', 'Delete' | trans) }}</a>
+                                <a hrf="#">{{ get_icon('b_drop', 'Delete' | trans) }}</a>
                                 <input type="submit" data-rownum = "{{ row_num }}" class="edit_cancel_form" value="Cancel">
                             </td>
                             <td id="{{ 'save_' ~ row_num  }}" class="hide">
@@ -338,7 +338,7 @@
                             </td>
                             <td name="collation" class="nowrap">
                                 <span>{{ row['col_collation'] | raw }}</span>
-                                {{ Charsets_getCollationDropdownBox(
+                                {{ get_collation_dropdown_box(
                                     dbi,
                                     disableIs,
                                     'field_collation[' ~ row_num ~ ']',
@@ -391,14 +391,14 @@
                 'text_dir'       : text_dir,
                 'form_name'      : 'tableslistcontainer',
             } only %}
-            {{ Util_getButtonOrImage(
+            {{ get_button_or_image(
                 'edit_central_columns',
                 'mult_submit change_central_columns',
                 'Edit' | trans,
                 'b_edit',
                 'edit central columns'
             ) | raw }}
-            {{ Util_getButtonOrImage(
+            {{ get_button_or_image(
             'delete_central_columns',
             'mult_submit',
             'Delete' | trans,
