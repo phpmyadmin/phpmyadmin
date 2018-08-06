@@ -143,6 +143,9 @@ $show_query = '1';
 if (! empty($message)) {
     echo Util::getMessage($message);
     unset($message);
+} else {
+    // Displays welcome message if no other message needs to be displayed
+    echo Util::getMessage('Hello '.$_SESSION['relation'][1]['user'].', welcome back.');
 }
 if (isset($_SESSION['partial_logout'])) {
     Message::success(
