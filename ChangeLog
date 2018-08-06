@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - issue #14155 Add move columns preview SQL button
 - issue #14296 Enable strict mode in PHP files
 - issue #13627 Increase field width for editing varchar fields
+- issue #12603 Show warning for users with the default values for controluser and controlpass
 
 4.8.3 (not yet released)
 - issue #14314 Error when naming a database '0'
