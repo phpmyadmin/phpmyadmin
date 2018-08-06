@@ -60,6 +60,24 @@ class ImportCsv extends AbstractImportCsv
         $this->properties->setExtension('csv');
 
         if ($GLOBALS['plugin_param'] !== 'table') {
+            $leaf = new TextPropertyItem(
+                "new_tbl_name",
+                __(
+                    'Name of the new table: '
+                )
+            );
+            $generalOptions->addProperty($leaf);
+
+            if($GLOBALS['plugin_param'] === 'server') {
+                $leaf = new TextPropertyItem(
+                    "new_db_name",
+                    __(
+                        'Name of the new database: '
+                    )
+                );
+            }
+
+            $generalOptions->addProperty($leaf);
             $leaf = new BoolPropertyItem(
                 "col_names",
                 __(
@@ -617,7 +635,11 @@ class ImportCsv extends AbstractImportCsv
                 }
             }
 
-            if (mb_strlen((string) $db)) {
+            if (isset($_REQUEST['csv_new_tbl_name'])
+                && strlen($_REQUEST['csv_new_tbl_name']) > 0
+            ) {
+                $tbl_name = $_REQUEST['csv_new_tbl_name'];
+            } else if (mb_strlen($db)) {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
                 $tbl_name = 'TABLE ' . (count($result) + 1);
             } else {
@@ -644,8 +666,19 @@ class ImportCsv extends AbstractImportCsv
              * array $options = an associative array of options
              */
 
-            /* Set database name to the currently selected one, if applicable */
-            list($db_name, $options) = $this->getDbnameAndOptions($db, 'CSV_DB');
+            /* Set database name to the currently selected one, if applicable,
+             * Otherwise, check if user provided the database name in the request,
+             * if not, set the default name
+             */
+            if(isset($_REQUEST['csv_new_db_name'])
+                && strlen($_REQUEST['csv_new_db_name']) > 0
+            ) {
+                $newDb = $_REQUEST['csv_new_db_name'];
+            } else {
+                $result = $GLOBALS['dbi']->fetchResult('SHOW DATABASES');
+                $newDb = 'CSV_DB ' . (count($result) + 1);
+            }
+            list($db_name, $options) = $this->getDbnameAndOptions($db, $newDb);
 
             /* Non-applicable parameters */
             $create = null;
