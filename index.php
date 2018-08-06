@@ -560,7 +560,7 @@ if ($server != 0
     && isset($GLOBALS['cfg']['Server']['controlpass']) && $GLOBALS['cfg']['Server']['controlpass'] == 'pmapass'
 ) {
     trigger_error(
-        __('Your MySQL server is running with default controluser and password, and is open to intrusion, you really should fix this security hole by changing the password for controluser \'pma\'.'),
+        __('Your server is running with default values for the controluser and password (controlpass) and is open to intrusion; you really should fix this security weakness by changing the password for controluser \'pma\'.'),
         E_USER_WARNING
     );
 }
