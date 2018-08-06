@@ -15,6 +15,7 @@ use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Util;
 
 /**
@@ -63,7 +64,7 @@ class ImportCsv extends AbstractImportCsv
             $leaf = new TextPropertyItem(
                 "new_tbl_name",
                 __(
-                    'Name of the new table: '
+                    'Name of the new table(optional): '
                 )
             );
             $generalOptions->addProperty($leaf);
@@ -72,12 +73,20 @@ class ImportCsv extends AbstractImportCsv
                 $leaf = new TextPropertyItem(
                     "new_db_name",
                     __(
-                        'Name of the new database: '
+                        'Name of the new database(optional): '
                     )
                 );
+                $generalOptions->addProperty($leaf);
             }
 
+            $leaf = new NumberPropertyItem(
+                "partial_import",
+                __(
+                    'Import these many number of rows(optional): '
+                )
+            );
             $generalOptions->addProperty($leaf);
+
             $leaf = new BoolPropertyItem(
                 "col_names",
                 __(
@@ -253,6 +262,17 @@ class ImportCsv extends AbstractImportCsv
         $lasti = -1;
         $values = [];
         $csv_finish = false;
+        $max_lines = 0; // defaults to 0 (get all the lines)
+
+        // If we get a negative value, probably someone changed min value attribute in DOM or there is an integer overflow, whatever be the case, get all the lines
+        if(isset($_REQUEST['csv_partial_import']) && $_REQUEST['csv_partial_import'] > 0){
+            $max_lines = $_REQUEST['csv_partial_import'];
+        }
+        $max_lines_constraint = $max_lines+1;
+        // if the first row has to be counted as column names, include one more row in the max lines
+        if(isset($_REQUEST['csv_col_names'])) {
+            $max_lines_constraint++;
+        }
 
         $tempRow = [];
         $rows = [];
@@ -604,8 +624,14 @@ class ImportCsv extends AbstractImportCsv
                     $i = 0;
                     $lasti = -1;
                     $ch = mb_substr($buffer, 0, 1);
+                    if($max_lines > 0 && $line == $max_lines_constraint){
+                        break;
+                    }
                 }
             } // End of parser loop
+            if($max_lines > 0 && $line == $max_lines_constraint){
+                break;
+            }
         } // End of import loop
 
         if ($this->_getAnalyze()) {
@@ -635,11 +661,12 @@ class ImportCsv extends AbstractImportCsv
                 }
             }
 
+            // get new table name, if user didn't provide one, set the default name
             if (isset($_REQUEST['csv_new_tbl_name'])
                 && strlen($_REQUEST['csv_new_tbl_name']) > 0
             ) {
                 $tbl_name = $_REQUEST['csv_new_tbl_name'];
-            } else if (mb_strlen($db)) {
+            } else if (mb_strlen((string) $db)) {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
                 $tbl_name = 'TABLE ' . (count($result) + 1);
             } else {
