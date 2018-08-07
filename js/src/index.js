@@ -1,5 +1,6 @@
 import { AJAX } from './ajax';
 import './variables/import_variables';
+import './variables/get_config';
 import { jQuery as $ } from './utils/JqueryExtended';
 import files from './consts/files';
 import Console from './console';

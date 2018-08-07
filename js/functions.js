@@ -5165,3 +5165,21 @@ function checkPasswordStrength (value, meter_obj, meter_object_label, username) 
     case 4: meter_object_label.html(PMA_messages.strStrong);
     }
 }
+
+function isStorageSupported (type, warn) {
+    try {
+        window[type].setItem('PMATest', 'test');
+        // Check whether key-value pair was set successfully
+        if (window[type].getItem('PMATest') === 'test') {
+            // Supported, remove test variable from storage
+            window[type].removeItem('PMATest');
+            return true;
+        }
+    } catch (error) {
+        // Not supported
+        if (warn) {
+            PMA_ajaxShowMessage(PMA_messages.strNoLocalStorage, false);
+        }
+    }
+    return false;
+}

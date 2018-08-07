@@ -216,7 +216,7 @@ rm -rf .github
 rm -rf PMAStandard
 
 # Testsuite setup
-rm -f .travis.yml .coveralls.yml .scrutinizer.yml .jshintrc .weblate codecov.yml
+rm -f .travis.yml .coveralls.yml .scrutinizer.yml .weblate codecov.yml
 
 # Remove readme for github
 rm -f README.rst
@@ -274,10 +274,7 @@ if [ ! -d libraries/tcpdf ] ; then
     fi
 fi
 
-if [ -f package.json ] ; then
-    echo "* Running Yarn"
-    yarn install --production
-fi
+./scripts/build-js.sh
 
 # Remove git metadata
 rm .git
@@ -334,7 +331,6 @@ for kit in $KITS ; do
         rm doc/html/.buildinfo doc/html/objects.inv
         # Javascript sources
         rm -rf js/vendor/openlayers/src/
-        rm -rf node_modules
     fi
 
     # Remove developer scripts

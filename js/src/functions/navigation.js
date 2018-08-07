@@ -4,6 +4,7 @@
  * @returns void
  */
 import { PMA_commonParams } from '../variables/common_params';
+import { setupRestoreField, setupConfigTabs, setupValidation } from './config';
 
 /**
  * Traverse the navigation tree backwards to generate all the actual
@@ -496,7 +497,6 @@ export function navFilterStateRestore () {
         ) {
             let $obj = $('#pma_navigation_tree');
             if (! $obj.data('fastFilter')) {
-
                 $obj.data(
                     'fastFilter',
                     new PMA_fastFilter.filter($obj, '')
@@ -527,7 +527,6 @@ export function navFilterStateRestore () {
                     return true;
                 }
                 if (! $obj.data('fastFilter')) {
-
                     $obj.data(
                         'fastFilter',
                         new PMA_fastFilter.filter($obj, '')

@@ -5,6 +5,8 @@ import { jQuery as $ } from './utils/JqueryExtended';
 import { PMA_getImage } from './functions/get_image';
 import { PMA_ensureNaviSettings, PMA_reloadNavigation,
     PMA_disableNaviSettings } from './functions/navigation';
+import { isStorageSupported } from './functions/config';
+
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts.
@@ -92,7 +94,6 @@ export let AJAX = {
      * @return self For chaining
      */
     registerOnload: function (file, func) {
-
         var eventName = 'onload_' + this.hash(file);
         $(document).on(eventName, func);
         if (this._debug) {
