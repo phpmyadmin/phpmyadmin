@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\ThemeGenerator;
 
@@ -24,5 +25,16 @@ $response->addHTML($theme->form());
 $response->addHTML($theme->tablePreview());
 $response->addHTML($theme->groupPreview());
 if (isset($_POST['Base_Colour'])) {
-    $theme->createFileStructure($_POST);
+    $output = $theme->createFileStructure($_POST);
+    if ($output['json'] && $output['layout']) {
+        $response->addHTML(
+            Message::success(
+                sprintf(
+                    __('Theme saved, go to the %smain page%s to try it'),
+                    '<a href="index.php">',
+                    '</a>'
+                )
+            )
+        );
+    }
 }

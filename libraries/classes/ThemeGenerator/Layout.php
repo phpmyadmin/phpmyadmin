@@ -84,10 +84,10 @@ class Layout
         $txt .= '$GLOBALS[\'cfg\'][\'Border\']               = 0;';
         // table header and footer color
         // Dialogue Footer color
-        $txt .= '$GLOBALS[\'cfg\'][\'ThBackground\']         = \'' . $post['Table_Header_and_Footer'] . '\';';
+        $txt .= '$GLOBALS[\'cfg\'][\'ThBackground\']         = \'' . $post['Table_Header_and_Footer_Background'] . '\';';
         // table header and footer background
         //text color footer and dialogue
-        $txt .= '$GLOBALS[\'cfg\'][\'ThColor\']              = \'' . $post['Table_Header_and_Footer_Background'] . '\';';
+        $txt .= '$GLOBALS[\'cfg\'][\'ThColor\']              = \'' . $post['Table_Header_and_Footer_Text_Colour'] . '\';';
         // table data row background
         // Dialougue result background
         $txt .= '$GLOBALS[\'cfg\'][\'BgOne\']                = \'' . $post['Table_Row_Background'] . '\';';
@@ -104,9 +104,10 @@ class Layout
         if ($file) {
             fwrite($file, $txt);
             fclose($file);
+            return $txt;
         } else {
             trigger_error("The layout.inc.php file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme.", E_USER_ERROR);
+            return;
         }
-        return $txt;
     }
 }

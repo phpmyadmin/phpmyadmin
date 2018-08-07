@@ -479,16 +479,12 @@ var UIColorPicker = (function UIColorPicker () {
         this.newInputComponent('B', 'value', this.inputChangeValue.bind(this));
         this.newInputComponent('L', 'lightness', this.inputChangeLightness.bind(this));
 
-        this.createAlphaArea();
-
         this.newInputComponent('R', 'red', this.inputChangeRed.bind(this));
         this.newInputComponent('G', 'green', this.inputChangeGreen.bind(this));
         this.newInputComponent('B', 'blue', this.inputChangeBlue.bind(this));
 
         this.createPreviewBox();
-        this.createChangeModeButton();
 
-        this.newInputComponent('alpha', 'alpha', this.inputChangeAlpha.bind(this));
         this.newInputComponent('hexa', 'hexa', this.inputChangeHexa.bind(this));
 
         this.setColor(this.color);
@@ -526,25 +522,6 @@ var UIColorPicker = (function UIColorPicker () {
         setMouseTracking(area, this.updateHueSlider.bind(this));
 
         area.appendChild(picker);
-        this.node.appendChild(area);
-    };
-
-    ColorPicker.prototype.createAlphaArea = function createAlphaArea () {
-        var area = document.createElement('div');
-        var mask = document.createElement('div');
-        var picker = document.createElement('div');
-
-        area.className = 'alpha';
-        mask.className = 'alpha-mask';
-        picker.className = 'slider-picker';
-
-        this.alpha_area = area;
-        this.alpha_mask = mask;
-        this.alpha_picker = picker;
-        setMouseTracking(area, this.updateAlphaSlider.bind(this));
-
-        area.appendChild(mask);
-        mask.appendChild(picker);
         this.node.appendChild(area);
     };
 
@@ -586,20 +563,6 @@ var UIColorPicker = (function UIColorPicker () {
         });
     };
 
-    ColorPicker.prototype.createChangeModeButton = function createChangeModeButton () {
-        var button = document.createElement('div');
-        button.className = 'switch_mode';
-        button.addEventListener('click', function () {
-            if (this.picker_mode === 'HSB') {
-                this.setPickerMode('HSL');
-            } else {
-                this.setPickerMode('HSB');
-            }
-        }.bind(this));
-
-        this.node.appendChild(button);
-    };
-
     /** ********************************************************************* **/
     //					Updates properties of UI elements
     /** ********************************************************************* **/
@@ -638,7 +601,6 @@ var UIColorPicker = (function UIColorPicker () {
         this.color_picker.style.left = x - picker_offset + 'px';
         this.color_picker.style.top = y - picker_offset + 'px';
 
-        this.updateAlphaGradient();
         this.updatePreviewColor();
 
         this.notify('value', value);
@@ -696,7 +658,6 @@ var UIColorPicker = (function UIColorPicker () {
         this.color.setHue(value);
 
         this.updatePickerBackground();
-        this.updateAlphaGradient();
         this.updatePreviewColor();
 
         this.notify('red', this.color.r);
@@ -756,13 +717,6 @@ var UIColorPicker = (function UIColorPicker () {
         this.hue_picker.style.left = pos - offset + 'px';
     };
 
-    ColorPicker.prototype.updateAlphaPicker = function updateAlphaPicker () {
-        var size = this.alpha_area.clientWidth;
-        var offset = 1;
-        var pos = (this.color.a * size) | 0;
-        this.alpha_picker.style.left = pos - offset + 'px';
-    };
-
     /** ********************************************************************* **/
     //						Update background colors
     /** ********************************************************************* **/
@@ -771,10 +725,6 @@ var UIColorPicker = (function UIColorPicker () {
         var nc = new Color(this.color);
         nc.setHSB(nc.hue, 100, 100);
         this.picking_area.style.backgroundColor = nc.getHexa();
-    };
-
-    ColorPicker.prototype.updateAlphaGradient = function updateAlphaGradient () {
-        this.alpha_mask.style.backgroundColor = this.color.getHexa();
     };
 
     ColorPicker.prototype.updatePreviewColor = function updatePreviewColor () {
@@ -833,18 +783,6 @@ var UIColorPicker = (function UIColorPicker () {
         this.setColor(this.color);
     };
 
-    ColorPicker.prototype.inputChangeAlpha = function inputChangeAlpha (e) {
-        var value = parseFloat(e.target.value);
-
-        if (typeof value === 'number' && isNaN(value) === false &&
-            value >= 0 && value <= 1) {
-            this.color.a = value.toFixed(2);
-        }
-
-        e.target.value = this.color.a;
-        this.updateAlphaPicker();
-    };
-
     ColorPicker.prototype.inputChangeHexa = function inputChangeHexa (e) {
         var value = e.target.value;
         this.color.setHexa(value);
@@ -879,8 +817,6 @@ var UIColorPicker = (function UIColorPicker () {
         this.updateHuePicker();
         this.updatePickerPosition();
         this.updatePickerBackground();
-        this.updateAlphaPicker();
-        this.updateAlphaGradient();
         this.updatePreviewColor();
 
         this.notify('red', this.color.r);
@@ -1389,14 +1325,14 @@ var ColorPickerTool = (function ColorPickerTool () {
         var samples = [];
         var color_palette;
         var complementary;
-        var pallete_size = 17;
+        var pallete_size = 13;
 
         var hideNode = function (node) {
             node.setAttribute('data-hidden', 'true');
         };
 
         var ColorSample = function ColorSample (id) {
-            var title = ['Base Colour','Group Background','Background Colour','Navigation Panel','Navigation Hover','Hyperlink Text','Table Row Hover and Selected','Table Header and Footer','Table Header and Footer Background',
+            var title = ['Base Colour','Group Background','Background Colour','Navigation Panel','Navigation Hover','Hyperlink Text','Table Row Hover and Selected','Table Header and Footer Text Colour','Table Header and Footer Background',
                 'Table Row Background','Table Row Alternate Background','Header','Text Colour'];
             var node = document.createElement('div');
             node.className = 'sample';
@@ -1451,8 +1387,8 @@ var ColorPickerTool = (function ColorPickerTool () {
             }
 
             if (saturation > 100 || brightness > 100) {
-                this.node.setAttribute('data-hidden', 'true');
-                return;
+                var saturation = 0;
+                var brightness = 100;
             }
             this.node.removeAttribute('data-hidden');
             this.color.copy(color);
@@ -1531,8 +1467,8 @@ var ColorPickerTool = (function ColorPickerTool () {
             }
 
             if (saturation > 100 || brightness > 100) {
-                this.node.setAttribute('data-hidden', 'true');
-                return;
+                var saturation = 0;
+                var brightness = 100;
             }
 
             this.node.removeAttribute('data-hidden');
@@ -1553,8 +1489,8 @@ var ColorPickerTool = (function ColorPickerTool () {
             }
 
             if (saturation > 100 || brightness > 100) {
-                this.node.setAttribute('data-hidden', 'true');
-                return;
+                var saturation = 0;
+                var brightness = 100;
             }
             this.node.removeAttribute('data-hidden');
             this.color.copy(color);
@@ -1584,8 +1520,8 @@ var ColorPickerTool = (function ColorPickerTool () {
             }
 
             if (saturation > 100 || brightness > 100) {
-                this.node.setAttribute('data-hidden', 'true');
-                return;
+                var saturation = 0;
+                var brightness = 100;
             }
             this.node.removeAttribute('data-hidden');
             this.color.copy(color);

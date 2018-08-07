@@ -3,9 +3,27 @@
  * Used for generating previews
  */
 
-// AJAX.registerTeardown('theme_generator/preview.js',function () {
-//     window.location.reload();
-// });
+AJAX.registerTeardown('theme_generator/preview.js',function () {
+    document.getElementById('pma_navigation').style.background = '';
+    document.getElementById('serverinfo').style.background = '';
+    document.getElementById('lock_page_icon').style.background = '';
+    document.getElementById('page_settings_icon').style.background = '';
+    document.getElementById('goto_pagetop').style.background = '';
+    document.getElementsByTagName('body')[0].style.background = '';
+    document.getElementsByTagName('body')[0].style.color = '';
+    $(document).on(
+        'mouseover',
+        '#pma_navigation_tree.highlight li:not(.fast_filter)',
+        function () {
+            if ($('li:visible', this).length === 0) {
+                $(this).css('background-color','');
+            }
+        }
+    );
+    var head = document.getElementsByTagName('head')[0];
+    head.removeChild(head.lastChild);
+
+});
 
 $(document).on('click', '#preview' ,function () {
     var id = document.getElementById('theme').options.selectedIndex;
@@ -20,18 +38,23 @@ var tablePreview = function (id) {
     var tableRow = document.querySelectorAll('[title="Table Row Background"]')[id].style.backgroundColor;
     var tableAlternateRow = document.querySelectorAll('[title="Table Row Alternate Background"]')[id].style.backgroundColor;
     var hoverRow = document.querySelectorAll('[title="Table Row Hover and Selected"]')[id].style.backgroundColor;
+    var tableHeader = document.querySelectorAll('[title="Table Header and Footer Background"]')[id].style.backgroundColor;
     $('.row_preview').css('background',tableRow);
     $('.row_alternate_preview').css('background',tableAlternateRow);
     document.getElementById('table_preview').style.display = 'block';
     var head = document.getElementsByTagName('head')[0];
     var style = document.createElement('style');
-    var cssText = 'tr.row_preview:not(.nopointer):hover, tr.row_alternate_preview:not(.nopointer):hover { background:' + hoverRow + '!important }';
-    var declarations = document.createTextNode(cssText);
+    var cssText = 'tr.row_preview:not(.nopointer):hover, tr.row_alternate_preview:not(.nopointer):hover , tr.marked:not(.nomarker) td { background:' + hoverRow + '!important }';
+    var hoverDeclarations = document.createTextNode(cssText);
+    var cssText = 'th { background: ' + tableHeader + ' !important}';
+    var headerDeclarations = document.createTextNode(cssText);
     style.type = 'text/css';
     if (style.styleSheet) {
-      style.styleSheet.cssText = declarations.nodeValue;
+      style.styleSheet.cssText = hoverDeclarations.nodeValue;
+      style.styleSheet.cssText += headerDeclarations.nodeValue;
     } else {
-      style.appendChild(declarations);
+      style.appendChild(hoverDeclarations);
+      style.appendChild(headerDeclarations);
     }
     head.appendChild(style);
 };

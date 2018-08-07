@@ -607,7 +607,7 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
  */
 
 #palette {
-    width: 820px;
+    width: 675px;
     height: 220px;
     padding: 10px 0;
     background-image: url(<?php echo $grain; ?>);
@@ -648,7 +648,7 @@ $grain = $theme->getImgPath('theme_generator/grain.png');
 }
 
 #color-palette .palette {
-    width: 647px;
+    width: 494px;
     height: 38px;
     margin: 3px;
     padding: 3px;

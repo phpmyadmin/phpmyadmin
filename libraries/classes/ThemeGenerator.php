@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\ThemeGenerator\Common;
@@ -136,7 +137,7 @@ class ThemeGenerator
         if ($post['author'] != "") {
             $txt .= '"author": "' . $post['author'] . '",';
         } else {
-            $txt .= '"author": "phpMyAdmin developers",';
+            $txt .= '"author": "",';
         }
         if ($post['url'] != "") {
             $txt .= '"url": "' . $post['url'] . '",';
@@ -149,10 +150,11 @@ class ThemeGenerator
         if ($file) {
             fwrite($file, $txt);
             fclose($file);
+            return $txt;
         } else {
             trigger_error(__("The theme.json file is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme."), E_USER_ERROR);
+            return;
         }
-        return $txt;
     }
 }
 
