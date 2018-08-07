@@ -30,7 +30,7 @@ class Footer
     {
         global $db, $table, $url_query;
 
-        $icon = mb_strtolower($name) . '_add.png';
+        $icon = mb_strtolower($name) . '_add';
         $retval  = "";
         $retval .= "<!-- ADD " . $name . " FORM START -->\n";
         $retval .= "<fieldset class='left'>\n";
