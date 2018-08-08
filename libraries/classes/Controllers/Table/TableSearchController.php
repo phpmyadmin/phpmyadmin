@@ -197,7 +197,7 @@ class TableSearchController extends TableController
                 $this->response
                 ->getHeader()
                 ->getScripts()
-                ->addFile('tbl_find_replace.js');
+                ->addFile('tbl_find_replace');
 
                 if (isset($_POST['replace'])) {
                     $this->replaceAction();
