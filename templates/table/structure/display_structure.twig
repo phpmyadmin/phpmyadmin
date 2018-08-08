@@ -467,7 +467,12 @@
             {% set action_icons = action_icons|merge({'DROP': get_icon('b_drop', 'Drop'|trans)}) %}
         {% endif %}
 
-        {{ get_div_for_slider_effect('partitions', 'Partitions'|trans) }}
+        {# open Slider Effect div #}
+        {% include 'div_for_slider_effect.twig' with {
+            'id': 'partitions-2',
+            'message': 'Partitions'|trans,
+            'initial_sliders_state': default_sliders_state
+        } only %}
 
         {% set remove_sql = 'ALTER TABLE ' ~ backquote(table) ~ ' REMOVE PARTITIONING' %}
         {% set remove_url = 'sql.php' ~ url_query ~ '&sql_query=' ~ remove_sql|url_encode %}

@@ -1758,6 +1758,7 @@ class Results
             'table' => $this->__get('table'),
             'sql_query' => $this->__get('sql_query'),
             'goto' => $this->__get('goto'),
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
         ]);
     }
 

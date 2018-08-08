@@ -39,7 +39,11 @@
                 {{ index.generateIndexChoiceSelector(create_edit_table)|raw }}
             </div>
 
-            {{ get_div_for_slider_effect('indexoptions', 'Advanced Options'|trans) }}
+            {% include 'div_for_slider_effect.twig' with {
+                'id': 'indexoptions',
+                'message': 'Advanced Options'|trans,
+                'initial_sliders_state': default_sliders_state
+            } only %}
 
             <div>
                 <div class="label">

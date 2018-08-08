@@ -1394,6 +1394,7 @@ class TableStructureController extends TableController
             'have_partitioning' => Partition::havePartitioning(),
             'partitions' => Partition::getPartitions($this->db, $this->table),
             'partition_names' => Partition::getPartitionNames($this->db, $this->table),
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'attributes' => $attributes,
             'displayed_fields' => $displayed_fields,
             'row_comments' => $row_comments,

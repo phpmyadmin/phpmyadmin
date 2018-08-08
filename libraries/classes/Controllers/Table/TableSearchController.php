@@ -565,6 +565,7 @@ class TableSearchController extends TableController
                 'data_label' => $dataLabel,
                 'keys' => $keys,
                 'criteria_column_names' => $criteria_column_names,
+                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
                 'criteria_column_types' => isset($_POST['criteriaColumnTypes']) ? $_POST['criteriaColumnTypes'] : null,
                 'sql_types' => $this->dbi->types,
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
