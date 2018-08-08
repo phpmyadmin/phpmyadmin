@@ -713,6 +713,7 @@ class ImportCsv extends AbstractImportCsv
                 $newDb = $_REQUEST['csv_new_db_name'];
             } else {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW DATABASES');
+                if(! is_array($result)) $result = [];
                 $newDb = 'CSV_DB ' . (count($result) + 1);
             }
             list($db_name, $options) = $this->getDbnameAndOptions($db, $newDb);
