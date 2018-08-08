@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2017-06-03 10:16+0000\n"
-"Last-Translator: 某玩家 <bckps7336@gmail.com>\n"
+"PO-Revision-Date: 2018-08-09 18:35+0000\n"
+"Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/zh_Hant/>\n"
+"phpmyadmin/4-8/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.15-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -3227,8 +3227,6 @@ msgid "Russian"
 msgstr "俄語"
 
 #: libraries/classes/Charsets.php:363
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
 msgstr "簡體中文"
@@ -3255,11 +3253,9 @@ msgid "Armenian"
 msgstr "亞美尼亞語"
 
 #: libraries/classes/Charsets.php:383
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
-msgstr "正體中文"
+msgstr "繁體中文"
 
 #: libraries/classes/Charsets.php:386
 #, fuzzy
@@ -3355,7 +3351,7 @@ msgstr "保加利亞語"
 #: libraries/classes/Charsets.php:440
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "中文"
 
 #: libraries/classes/Charsets.php:445
 #, fuzzy
