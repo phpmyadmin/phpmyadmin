@@ -213,7 +213,7 @@ class TableSearchController extends TableController
                 ->addFiles(
                     [
                         'sql',
-                        'tbl_select.js',
+                        'tbl_select',
                         'tbl_change',
                         'vendor/jquery/jquery.uitablefilter.js',
                         'gis_data_editor.js',
