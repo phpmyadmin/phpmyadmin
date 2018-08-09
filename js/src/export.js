@@ -2,30 +2,7 @@
 /**
  * Module import
  */
-import {
-    createTemplate,
-    loadTemplate,
-    updateTemplate,
-    deleteTemplate,
-    toggleSaveToFile,
-    toggleStructureDataOpts,
-    checkTableSelectAll,
-    handleAddProcCheckbox,
-    checkTableSelectStrutureOrData,
-    checkTableSelected,
-    toggleTableSelect,
-    toggleTableSelectAllStr,
-    checkSelectedTables,
-    toggleTableSelectAllData,
-    setupTableStructureOrData,
-    toggleQuickOrCustom,
-    toggleSqlIncludeComments,
-    disableDumpSomeRowsSubOptions,
-    enableDumpSomeRowsSubOptions,
-    aliasToggleRow,
-    addAlias,
-    createAliasModal
-} from './functions/export';
+import * as Export from './functions/export';
 import { PMA_Messages as messages } from './variables/export_variables';
 import CommonParams from './variables/common_params';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
@@ -73,7 +50,7 @@ function onloadExportTemplate () {
         e.preventDefault();
         var name = $('input[name="templateName"]').val();
         if (name.length) {
-            createTemplate(name);
+            Export.createTemplate(name);
         }
     });
 
@@ -82,7 +59,7 @@ function onloadExportTemplate () {
         e.preventDefault();
         var id = $(this).val();
         if (id.length) {
-            loadTemplate(id);
+            Export.loadTemplate(id);
         }
     });
 
@@ -91,7 +68,7 @@ function onloadExportTemplate () {
         e.preventDefault();
         var id = $('select[name="template"]').val();
         if (id.length) {
-            updateTemplate(id);
+            Export.updateTemplate(id);
         }
     });
 
@@ -100,7 +77,7 @@ function onloadExportTemplate () {
         e.preventDefault();
         var id = $('select[name="template"]').val();
         if (id.length) {
-            deleteTemplate(id);
+            Export.deleteTemplate(id);
         }
     });
 
@@ -164,8 +141,8 @@ function onloadExportTemplate () {
 }
 
 function onloadSaveToFile () {
-    toggleSaveToFile();
-    $('input[type=\'radio\'][name=\'output_format\']').on('change', toggleSaveToFile);
+    Export.toggleSaveToFile();
+    $('input[type=\'radio\'][name=\'output_format\']').on('change', Export.toggleSaveToFile);
 }
 
 function onloadExportOptions () {
@@ -192,7 +169,7 @@ function onloadExportOptions () {
         if (forceFile === 'true') {
             if ($('#radio_dump_asfile').prop('checked') !== true) {
                 $('#radio_dump_asfile').prop('checked', true);
-                toggleSaveToFile();
+                Export.toggleSaveToFile();
             }
             $('#radio_view_as_text').prop('disabled', true).parent().fadeTo('fast', 0.4);
         } else {
@@ -201,42 +178,42 @@ function onloadExportOptions () {
     });
 
     $('input[type=\'radio\'][name$=\'_structure_or_data\']').on('change', function () {
-        toggleStructureDataOpts();
+        Export.toggleStructureDataOpts();
     });
 
     $('input[name="table_select[]"]').on('change', function () {
-        toggleTableSelect($(this).closest('tr'));
-        checkTableSelectAll();
-        handleAddProcCheckbox();
-        checkTableSelectStrutureOrData();
+        Export.toggleTableSelect($(this).closest('tr'));
+        Export.checkTableSelectAll();
+        Export.handleAddProcCheckbox();
+        Export.checkTableSelectStrutureOrData();
     });
 
     $('input[name="table_structure[]"]').on('change', function () {
-        checkTableSelected($(this).closest('tr'));
-        checkTableSelectAll();
-        handleAddProcCheckbox();
-        checkTableSelectStrutureOrData();
+        Export.checkTableSelected($(this).closest('tr'));
+        Export.checkTableSelectAll();
+        Export.handleAddProcCheckbox();
+        Export.checkTableSelectStrutureOrData();
     });
 
     $('input[name="table_data[]"]').on('change', function () {
-        checkTableSelected($(this).closest('tr'));
-        checkTableSelectAll();
-        handleAddProcCheckbox();
-        checkTableSelectStrutureOrData();
+        Export.checkTableSelected($(this).closest('tr'));
+        Export.checkTableSelectAll();
+        Export.handleAddProcCheckbox();
+        Export.checkTableSelectStrutureOrData();
     });
 
     $('#table_structure_all').on('change', function () {
-        toggleTableSelectAllStr();
-        checkSelectedTables();
-        handleAddProcCheckbox();
-        checkTableSelectStrutureOrData();
+        Export.toggleTableSelectAllStr();
+        Export.checkSelectedTables();
+        Export.handleAddProcCheckbox();
+        Export.checkTableSelectStrutureOrData();
     });
 
     $('#table_data_all').on('change', function () {
-        toggleTableSelectAllData();
-        checkSelectedTables();
-        handleAddProcCheckbox();
-        checkTableSelectStrutureOrData();
+        Export.toggleTableSelectAllData();
+        Export.checkSelectedTables();
+        Export.handleAddProcCheckbox();
+        Export.checkTableSelectStrutureOrData();
     });
 
     if ($('input[name=\'export_type\']').val() === 'database') {
@@ -274,17 +251,17 @@ function onloadExportOptions () {
             .parent()
             .fadeTo('fast', 0.4);
 
-        setupTableStructureOrData();
+            Export.setupTableStructureOrData();
     }
 
     /**
      * Handle force structure_or_data
      */
-    $('#plugins').on('change', setupTableStructureOrData);
+    $('#plugins').on('change', Export.setupTableStructureOrData);
 }
 
 function onloadExportSubmit () {
-    $('input[type=\'radio\'][name=\'quick_or_custom\']').on('change', toggleQuickOrCustom);
+    $('input[type=\'radio\'][name=\'quick_or_custom\']').on('change', Export.toggleQuickOrCustom);
 
     $('#scroll_to_options_msg').hide();
     $('#format_specific_opts').find('div.format_specific_options')
@@ -296,35 +273,35 @@ function onloadExportSubmit () {
         })
         .find('h3')
         .remove();
-    toggleQuickOrCustom();
-    toggleStructureDataOpts();
-    toggleSqlIncludeComments();
-    checkTableSelectAll();
-    handleAddProcCheckbox();
+    Export.toggleQuickOrCustom();
+    Export.toggleStructureDataOpts();
+    Export.toggleSqlIncludeComments();
+    Export.checkTableSelectAll();
+    Export.handleAddProcCheckbox();
 
     /**
      * Initially disables the "Dump some row(s)" sub-options
      */
-    disableDumpSomeRowsSubOptions();
+    Export.disableDumpSomeRowsSubOptions();
 
     /**
      * Disables the "Dump some row(s)" sub-options when it is not selected
      */
     $('input[type=\'radio\'][name=\'allrows\']').on('change', function () {
         if ($('input[type=\'radio\'][name=\'allrows\']').prop('checked')) {
-            enableDumpSomeRowsSubOptions();
+            Export.enableDumpSomeRowsSubOptions();
         } else {
-            disableDumpSomeRowsSubOptions();
+            Export.disableDumpSomeRowsSubOptions();
         }
     });
 
     // Open Alias Modal Dialog on click
-    $('#btn_alias_config').on('click', createAliasModal);
+    $('#btn_alias_config').on('click', Export.createAliasModal);
     $('.alias_remove').on('click', function () {
         $(this).parents('tr').remove();
     });
     $('#db_alias_select').on('change', function () {
-        aliasToggleRow($(this));
+        Export.aliasToggleRow($(this));
         // var db = $(this).val();
         var table = CommonParams.get('table');
         if (table) {
@@ -354,7 +331,7 @@ function onloadExportSubmit () {
         }
     });
     $('#table_alias_select').on('change', function () {
-        aliasToggleRow($(this));
+        Export.aliasToggleRow($(this));
         var params = {
             ajax_request : true,
             server : CommonParams.get('server'),
@@ -376,12 +353,12 @@ function onloadExportSubmit () {
         });
     });
     $('#column_alias_select').on('change', function () {
-        aliasToggleRow($(this));
+        Export.aliasToggleRow($(this));
     });
     $('#db_alias_button').on('click', function (e) {
         e.preventDefault();
         var db = $('#db_alias_select').val();
-        addAlias(
+        Export.addAlias(
             messages.strAliasDatabase,
             db,
             'aliases[' + db + '][alias]',
@@ -393,7 +370,7 @@ function onloadExportSubmit () {
         e.preventDefault();
         var db = $('#db_alias_select').val();
         var table = $('#table_alias_select').val();
-        addAlias(
+        Export.addAlias(
             messages.strAliasTable,
             db + '.' + table,
             'aliases[' + db + '][tables][' + table + '][alias]',
@@ -406,7 +383,7 @@ function onloadExportSubmit () {
         var db = $('#db_alias_select').val();
         var table = $('#table_alias_select').val();
         var column = $('#column_alias_select').val();
-        addAlias(
+        Export.addAlias(
             messages.strAliasColumn,
             db + '.' + table + '.' + column,
             'aliases[' + db + '][tables][' + table + '][colums][' + column + ']',
