@@ -1,4 +1,4 @@
-import { $ } from '../utils/extend_jquery';
+import { $ } from '../utils/JqueryExtended';
 import 'updated-jqplot';
 import 'updated-jqplot/dist/plugins/jqplot.pieRenderer';
 import 'updated-jqplot/dist/plugins/jqplot.highlighter';

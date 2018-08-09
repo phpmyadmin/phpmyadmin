@@ -16,11 +16,7 @@ import './variables/import_variables';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 import { escapeHtml } from './utils/Sanitise';
 import { PMA_Messages as messages } from './variables/export_variables';
-<<<<<<< HEAD
-import { jQuery as $ } from './utils/JqueryExtended';
-=======
-import { $ } from './utils/extend_jquery';
->>>>>>> Weekly progress.
+import { $ } from './utils/JqueryExtended';
 import { AJAX } from './ajax';
 import CommonParams from './variables/common_params';
 import { PMA_reloadNavigation } from './functions/navigation';

@@ -4,7 +4,7 @@
  * Module import
  */
 import { PMA_getImage } from '../functions/get_image';
-import { PMA_messages as messages } from '../variables/export_variables';
+import { PMA_Messages as messages } from '../variables/export_variables';
 /**
  * Handles the resizing of a menu according to the available screen width
  *

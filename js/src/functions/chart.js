@@ -2,7 +2,7 @@
  * Creates a Profiling Chart. Used in sql.js
  * and in server_status_monitor.js
  */
-import { $ } from '../utils/extend_jquery';
+import { $ } from '../utils/JqueryExtended';
 import JQPlotChartFactory from '../classes/Chart';
 import { ChartType, ColumnType, DataTable } from '../classes/Chart';
 

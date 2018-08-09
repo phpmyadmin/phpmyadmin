@@ -8,7 +8,7 @@ import { PMA_ajaxShowMessage,
 } from './utils/show_ajax_messages';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import CommonParams from './variables/common_params';
-import { jQuery as $ } from './utils/JqueryExtended';
+import { $ } from './utils/JqueryExtended';
 import { PMA_getImage } from './functions/get_image';
 import { PMA_ensureNaviSettings,
     PMA_reloadNavigation,
