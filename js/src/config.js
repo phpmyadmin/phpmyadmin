@@ -1,11 +1,5 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
-import { isStorageSupported, updatePrefsDate, offerPrefsAutoimport,
-    savePrefsToLocalStorage, setupRestoreField, getFieldType,
-    setFieldValue, setupConfigTabs, adjustPrefsNotification, setTab,
-    setupValidation } from './functions/config';
-
-
+import * as Config from './functions/config';
 import { defaultValues } from './variables/get_config';
 
 /**
@@ -36,7 +30,7 @@ export function onload1 () {
 //
 
 export function onload2 () {
-    setupValidation();
+    Config.setupValidation();
 }
 
 //
@@ -48,8 +42,8 @@ export function onload2 () {
 //
 
 export function onload3 () {
-    setupConfigTabs();
-    adjustPrefsNotification();
+    Config.setupConfigTabs();
+    Config.adjustPrefsNotification();
 
     // tab links handling, check each 200ms
     // (works with history in FF, further browser support here would be an overkill)
@@ -61,7 +55,7 @@ export function onload3 () {
                 // session ID is sometimes appended here
                 var hash = prev_hash.substr(5).split('&')[0];
                 if ($('#' + hash).length) {
-                    setTab(hash);
+                    Config.setTab(hash);
                 }
             }
         }
@@ -82,7 +76,7 @@ export function onload4 () {
     $('.optbox input[type=button][name=submit_reset]').on('click', function () {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         for (var i = 0, imax = fields.length; i < imax; i++) {
-            setFieldValue(fields[i], getFieldType(fields[i]), defaultValues[fields[i].id]);
+            Config.setFieldValue(fields[i], Config.getFieldType(fields[i]), defaultValues[fields[i].id]);
         }
     });
 }
@@ -96,7 +90,7 @@ export function onload4 () {
 //
 
 export function onload5 () {
-    setupRestoreField();
+    Config.setupRestoreField();
 }
 
 //
@@ -108,7 +102,7 @@ export function onload5 () {
 //
 
 export function onload6 () {
-    offerPrefsAutoimport();
+    Config.offerPrefsAutoimport();
     var $radios = $('#import_local_storage, #export_local_storage');
     if (!$radios.length) {
         return;
@@ -131,12 +125,12 @@ export function onload6 () {
         });
 
     // detect localStorage state
-    var ls_supported = isStorageSupported('localStorage', true);
+    var ls_supported = Config.isStorageSupported('localStorage', true);
     var ls_exists = ls_supported ? (window.localStorage.config || false) : false;
     $('div.localStorage-' + (ls_supported ? 'un' : '') + 'supported').hide();
     $('div.localStorage-' + (ls_exists ? 'empty' : 'exists')).hide();
     if (ls_exists) {
-        updatePrefsDate();
+        Config.updatePrefsDate();
     }
     $('form.prefs-form').on('change', function () {
         var $form = $(this);
@@ -154,7 +148,7 @@ export function onload6 () {
         if ($form.attr('name') === 'prefs_export' && $('#export_local_storage')[0].checked) {
             e.preventDefault();
             // use AJAX to read JSON settings and save them
-            savePrefsToLocalStorage($form);
+            Config.savePrefsToLocalStorage($form);
         } else if ($form.attr('name') === 'prefs_import' && $('#import_local_storage')[0].checked) {
             // set 'json' input and submit form
             $form.find('input[name=json]').val(window.localStorage.config);
