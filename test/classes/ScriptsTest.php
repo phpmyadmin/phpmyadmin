@@ -125,12 +125,16 @@ class ScriptsTest extends PmaTestCase
     public function testAddCodeNew()
     {
 
-        $this->object->addCode('alert(\'CodeAdded\');');
+        $this->object->addCodeNew('alert(\'CodeAdded\');');
 
         $this->assertEquals(
-            '<script data-cfasync="false" type="text/javascript">// <![CDATA[
-            alert(\'CodeAdded\');
-            // ]]></script>',
+            '<script data-cfasync="false" type="text/javascript">// <![CDATA[' . "\n"
+            . 'alert(\'CodeAdded\');' . "\n"
+            . '// ]]></script>'
+            . '<script data-cfasync="false" type="text/javascript">// <![CDATA[' . "\n"
+            . 'AJAX.scriptHandler;' . "\n"
+            . '$(function() {});' . "\n"
+            . '// ]]></script>',
             $this->object->getDisplay()
         );
     }
@@ -146,11 +150,13 @@ class ScriptsTest extends PmaTestCase
         $this->object->addCode('alert(\'CodeAdded\');');
 
         $this->assertEquals(
-            '<script data-cfasync="false" type="text/javascript">// <![CDATA[
-            alert(\'CodeAdded\');
-            AJAX.scriptHandler;
-            $(function() {});
-            // ]]></script>',
+            '<script data-cfasync="false" type="text/javascript">// <![CDATA[' . "\n"
+            . '// ]]></script>'
+            . '<script data-cfasync="false" type="text/javascript">// <![CDATA[' . "\n"
+            . 'alert(\'CodeAdded\');' . "\n"
+            . 'AJAX.scriptHandler;' . "\n"
+            . '$(function() {});' . "\n"
+            . '// ]]></script>',
             $this->object->getDisplay()
         );
     }

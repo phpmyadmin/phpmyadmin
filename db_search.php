@@ -22,8 +22,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('db_search');
-$scripts->addFile('sql.js');
-// $scripts->addFile('makegrid.js');
+$scripts->addFile('sql');
 
 require 'libraries/db_common.inc.php';
 

@@ -251,7 +251,7 @@ function onloadExportOptions () {
             .parent()
             .fadeTo('fast', 0.4);
 
-            Export.setupTableStructureOrData();
+        Export.setupTableStructureOrData();
     }
 
     /**

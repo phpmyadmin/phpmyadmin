@@ -3,7 +3,7 @@
 /**
  * Module import
  */
-import { $ } from './utils/extend_jquery';
+import { $ } from './utils/JqueryExtended';
 import './plugins/jquery/jquery.tablesorter';
 
 /**

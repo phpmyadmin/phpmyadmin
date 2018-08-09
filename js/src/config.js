@@ -31,7 +31,7 @@ function onloadConfigPrefsTab () {
 // Form validation and field operations
 //
 
-export function onload2 () {
+function onloadConfigValidations () {
     Config.setupValidation();
 }
 
@@ -43,7 +43,7 @@ export function onload2 () {
 // Tabbed forms
 //
 
-export function onload3 () {
+function onloadConfigTabs () {
     Config.setupConfigTabs();
     Config.adjustPrefsNotification();
 
@@ -91,7 +91,7 @@ function onloadConfigResetDefault () {
 // "Restore default" and "set value" buttons
 //
 
-export function onload5 () {
+function onloadConfigRestore () {
     Config.setupRestoreField();
 }
 
@@ -103,7 +103,7 @@ export function onload5 () {
 // User preferences import/export
 //
 
-export function onload6 () {
+function onloadPreferenceExport () {
     Config.offerPrefsAutoimport();
     var $radios = $('#import_local_storage, #export_local_storage');
     if (!$radios.length) {

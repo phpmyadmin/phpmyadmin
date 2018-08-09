@@ -3,3 +3,4 @@ tmp/
 vendor/
 js/dist/
 js/lib/
+js/src/plugins/

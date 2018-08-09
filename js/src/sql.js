@@ -1,5 +1,5 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-import { $ } from './utils/extend_jquery';
+import { $ } from './utils/JqueryExtended';
 import './plugins/jquery/jquery.uitablefilter';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import PMA_commonParams from './variables/common_params';

@@ -1,6 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 import { PMA_Messages as messages } from './variables/export_variables';
-import { $ } from './utils/extend_jquery';
+import { $ } from './utils/JqueryExtended';
 
 import 'updated-jqplot';
 import './plugins/jquery/jquery.sortableTable';

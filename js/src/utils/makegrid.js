@@ -3,7 +3,7 @@
 /**
  * Module import
  */
-import { $ } from './extend_jquery';
+import { $ } from './JqueryExtended';
 import { PMA_Messages as messages } from '../variables/export_variables';
 import { PMA_ajaxShowMessage, PMA_tooltip } from './show_ajax_messages';
 import { rearrangeStickyColumns } from '../functions/Grid/StickyColumns';

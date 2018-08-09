@@ -24,8 +24,6 @@ PageSettings::showGroup('Sql');
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-// $scripts->addFile('makegrid.js');
-// $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('sql');
 
 require_once 'libraries/server_common.inc.php';
