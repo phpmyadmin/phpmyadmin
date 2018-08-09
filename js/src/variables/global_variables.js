@@ -3,113 +3,128 @@
 /**
  * Takes parameters defined in messages.php file like messages, validations,
  * jquery-ui-timepicker edits
+ *
+ * @module
  */
 
-export const Variables =  (function () {
+class PmaVariables {
     /**
-     * @var obj params An associate array having key value pairs
-     * of messages to show in js files.
-     *
-     *  @access private
+     * @constructor
      */
-    let pmaMessages = new Array();
+    constructor () {
+        /**
+         * @var obj params An associate array having key value pairs
+         * of messages to show in js files.
+         *
+         * @access private
+         */
+        this.pmaMessages = new Array();
+        /**
+         * @var obj params Associative array having global configurations
+         *
+         * @access private
+         */
+        this.globalVariables = new Array();
+        /**
+         * @var obj params Associative array having timepicker edits
+         *
+         * @access private
+         */
+        this.timePickerVars = new Array();
+        /**
+         *
+         *  @var obj params Object having validation edits for jQuery
+         */
+        this.validationVars = {};
+    }
     /**
-     * @var obj params Associative array having global configurations
+     * Retrieves the messages array
      *
-     *  @access private
+     *  @return array
      */
-    let globalVariables = new Array();
+    getMessages () {
+        return this.pmaMessages;
+    }
     /**
-     * @var obj params Associative array having timepicker edits
+     * Retrieves the globalVars array
      *
-     *  @access private
+     *  @return array
      */
-    let timePickerVars = new Array();
+    getGlobalVars () {
+        return this.globalVariables;
+    }
     /**
+     * Retrieves the timePickerVars array
      *
-     *  @var obj params Object having validation edits for jQuery
+     *  @return array
      */
-    let validationVars = {};
-    return {
-        /**
-         * Retrieves the messages array
-         *
-         *  @return array
-         */
-        getMessages: () => {
-            return pmaMessages;
-        },
-        /**
-         * Retrieves the globalVars array
-         *
-         *  @return array
-         */
-        getGlobalVars: () => {
-            return globalVariables;
-        },
-        /**
-         * Retrieves the timePickerVars array
-         *
-         *  @return array
-         */
-        getTimePickerVars: () => {
-            return timePickerVars;
-        },
-        /**
-         * Retrieves the validationVars array
-         *
-         *  @return array
-         */
-        getValidatorMessages: () => {
-            return validationVars;
-        },
-        /**
-         * Saves the key value pair provided in input
-         *
-         *  @param obj array The input array of messages
-         *
-         *  @return void
-         */
-        setAllMessages: (obj) => {
-            for (var i in obj) {
-                pmaMessages[i] = obj[i];
-            }
-        },
-        /**
-         * Saves the key value pair provided in input
-         *
-         *  @param obj array The input array of global variables
-         *
-         *  @return void
-         */
-        setGlobalVars: (obj) => {
-            for (var i in obj) {
-                globalVariables[i] = obj[i];
-            }
-        },
-        /**
-         * Saves the key value pair provided in input
-         *
-         * @param obj array The input array of timepicker edits
-         *
-         *  @return void
-         */
-        setTimePickerVars: (obj) => {
-            for (var i in obj) {
-                timePickerVars[i] = obj[i];
-            }
-        },
-        /**
-         * Saves the key value pair provided in input
-         *
-         * @param obj array The input array jQuery validation edits
-         *
-         * @return void
-         */
-        setValidatorMessages: (obj) => {
-            for (var i in obj) {
-                validationVars[i] = obj[i];
-            }
-        },
-    };
-}());
+    getTimePickerVars () {
+        return this.timePickerVars;
+    }
+    /**
+     * Retrieves the validationVars array
+     *
+     *  @return array
+     */
+    getValidatorMessages () {
+        return this.validationVars;
+    }
+    /**
+     * Saves the key value pair provided in input
+     *
+     *  @param obj array The input array of messages
+     *
+     *  @return void
+     */
+    setAllMessages (obj) {
+        for (var i in obj) {
+            this.pmaMessages[i] = obj[i];
+        }
+    }
+    /**
+     * Saves the key value pair provided in input
+     *
+     *  @param obj array The input array of global variables
+     *
+     *  @return void
+     */
+    setGlobalVars (obj) {
+        for (var i in obj) {
+            this.globalVariables[i] = obj[i];
+        }
+    }
+    /**
+     * Saves the key value pair provided in input
+     *
+     * @param obj array The input array of timepicker edits
+     *
+     *  @return void
+     */
+    setTimePickerVars (obj) {
+        for (var i in obj) {
+            this.timePickerVars[i] = obj[i];
+        }
+    }
+    /**
+     * Saves the key value pair provided in input
+     *
+     * @param obj array The input array jQuery validation edits
+     *
+     * @return void
+     */
+    setValidatorMessages (obj) {
+        for (var i in obj) {
+            this.validationVars[i] = obj[i];
+        }
+    }
+}
+
+/**
+ * @type {Object} Variables
+ */
+let Variables = new PmaVariables();
+
+/**
+ * Module export
+ */
+export default Variables;

@@ -7,25 +7,29 @@
 /**
  * Module imports
  */
-import { PMA_Messages as PMA_messages } from '../variables/export_variables';
+import { PMA_Messages as messages } from '../variables/export_variables';
 import { PMA_highlightSQL } from './sql';
 
 /**
- * @var   int   ajax_message_count   Number of AJAX messages shown since page load
+ * @var {int} ajax_message_count   Number of AJAX messages shown since page load
  */
 let ajax_message_count = 0;
 
 /**
  * Create a jQuery UI tooltip
  *
+ * @access public
+ *
  * @param $elements     jQuery object representing the elements
+ *
  * @param item          the item
  *                      (see https://api.jqueryui.com/tooltip/#option-items)
  * @param myContent     content of the tooltip
+ *
  * @param additionalOptions to override the default options
  *
  */
-export function PMA_tooltip ($elements, item, myContent, additionalOptions) {
+function PMA_tooltip ($elements, item, myContent, additionalOptions) {
     if ($('#no_hint').length > 0) {
         return;
     }
@@ -65,6 +69,8 @@ export function PMA_tooltip ($elements, item, myContent, additionalOptions) {
  * This will show a message that will not disappear automatically, but it
  * can be dismissed by the user after he has finished reading it.
  *
+ * @access public
+ *
  * @param string  message     string containing the message to be shown.
  *                              optional, defaults to 'Loading...'
  * @param mixed   timeout     number of milliseconds for the message to be visible
@@ -81,11 +87,11 @@ export function PMA_tooltip ($elements, item, myContent, additionalOptions) {
  *                              to remove the notification
  */
 
-export const PMA_ajaxShowMessage = (message, timeout, type) => {
+const PMA_ajaxShowMessage = (message, timeout, type) => {
     /**
      * @var self_closing Whether the notification will automatically disappear
      */
-    var self_closing = true;
+    var selfClosing = true;
     /**
      * @var dismissable Whether the user will be able to remove
      *                  the notification by clicking on it
@@ -97,19 +103,19 @@ export const PMA_ajaxShowMessage = (message, timeout, type) => {
         return true;
     } else if (! message) {
         // If the message is undefined, show the default
-        message = PMA_messages.strLoading;
+        message = messages.strLoading;
         dismissable = false;
-        self_closing = false;
-    } else if (message === PMA_messages.strProcessingRequest) {
+        selfClosing = false;
+    } else if (message === messages.strProcessingRequest) {
         // This is another case where the message should not disappear
         dismissable = false;
-        self_closing = false;
+        selfClosing = false;
     }
     // Figure out whether (or after how long) to remove the notification
     if (timeout === undefined) {
         timeout = 5000;
     } else if (timeout === false) {
-        self_closing = false;
+        selfClosing = false;
     }
     // Determine type of message, add styling as required
     if (type === 'error') {
@@ -140,7 +146,7 @@ export const PMA_ajaxShowMessage = (message, timeout, type) => {
         .html(message)
         .show();
     // If the notification is self-closing we should create a callback to remove it
-    if (self_closing) {
+    if (selfClosing) {
         $retval
             .delay(timeout)
             .fadeOut('medium', function () {
@@ -162,7 +168,7 @@ export const PMA_ajaxShowMessage = (message, timeout, type) => {
         PMA_tooltip(
             $retval,
             'span',
-            PMA_messages.strDismiss
+            messages.strDismiss
         );
     }
     PMA_highlightSQL($retval);
@@ -173,19 +179,30 @@ export const PMA_ajaxShowMessage = (message, timeout, type) => {
 /**
  * Removes the message shown for an Ajax operation when it's completed
  *
+ * @access public
+ *
  * @param jQuery object   jQuery Element that holds the notification
  *
  * @return nothing
  */
-export function PMA_ajaxRemoveMessage ($this_msgbox) {
-    if ($this_msgbox !== undefined && $this_msgbox instanceof jQuery) {
-        $this_msgbox
+function PMA_ajaxRemoveMessage ($thisMsgbox) {
+    if ($thisMsgbox !== undefined && $thisMsgbox instanceof jQuery) {
+        $thisMsgbox
             .stop(true, true)
             .fadeOut('medium');
-        if ($this_msgbox.is(':data(tooltip)')) {
-            $this_msgbox.tooltip('destroy');
+        if ($thisMsgbox.is(':data(tooltip)')) {
+            $thisMsgbox.tooltip('destroy');
         } else {
-            $this_msgbox.remove();
+            $thisMsgbox.remove();
         }
     }
 }
+
+/**
+ * Module export
+ */
+export {
+    PMA_ajaxRemoveMessage,
+    PMA_ajaxShowMessage,
+    PMA_tooltip
+};

@@ -1,11 +1,20 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
- * Server Status Processes
- *
- * @package PhpMyAdmin
+ * Module import
  */
 import processList from './classes/Server/ProcessList';
-export function onload1 () {
+
+/**
+ * @package PhpMyAdmin
+ *
+ * Server Status Processes
+ */
+
+/**
+ * Binding event handlers on page load
+ */
+function onloadServerStatusProcesses () {
     processList.init();
     // Bind event handler for kill_process
     $('#tableprocesslist').on('click', 'a.kill_process', function (event) {
@@ -31,7 +40,7 @@ export function onload1 () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-export function teardown1 () {
+function teardownServerStatusProcesses () {
     $('#tableprocesslist').off('click', 'a.kill_process');
     $('a#toggleRefresh').off('click');
     $('#id_refreshRate').off('change');
@@ -39,3 +48,11 @@ export function teardown1 () {
     // stop refreshing further
     processList.abortRefresh();
 }
+
+/**
+ * Module export
+ */
+export {
+    teardownServerStatusProcesses,
+    onloadServerStatusProcesses
+};

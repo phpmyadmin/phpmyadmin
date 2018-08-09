@@ -1,23 +1,30 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-/**
- * Server Status Advisor
- *
- * @package PhpMyAdmin
- */
 
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
+/**
+ * Module import
+ */
+import { PMA_Messages as messages } from './variables/export_variables';
+
+/**
+ * @package PhpMyAdmin
+ *
+ * Server Status Advisor
+ */
 
 /**
  * Unbind all event handlers before tearing down a page
  */
-export function teardown1 () {
+function teardownServerStatusAdvisor () {
     $('a[href="#openAdvisorInstructions"]').off('click');
     $('#statustabs_advisor').html('');
     $('#advisorDialog').remove();
     $('#instructionsDialog').remove();
 }
 
-export function onload1 () {
+/**
+ * Binding event handlers on page load
+ */
+function onloadServerStatusAdvisor () {
     // if no advisor is loaded
     if ($('#advisorData').length === 0) {
         return;
@@ -31,11 +38,11 @@ export function onload1 () {
 
     $('a[href="#openAdvisorInstructions"]').click(function () {
         var dlgBtns = {};
-        dlgBtns[PMA_messages.strClose] = function () {
+        dlgBtns[messages.strClose] = function () {
             $(this).dialog('close');
         };
         $instructionsDialog.dialog({
-            title: PMA_messages.strAdvisorSystem,
+            title: messages.strAdvisorSystem,
             width: 700,
             buttons: dlgBtns
         });
@@ -62,9 +69,9 @@ export function onload1 () {
     }
 
     if (data.run.fired.length > 0) {
-        $cnt.append('<p><b>' + PMA_messages.strPerformanceIssues + '</b></p>');
+        $cnt.append('<p><b>' + messages.strPerformanceIssues + '</b></p>');
         $cnt.append('<table class="data" id="rulesFired" border="0"><thead><tr>' +
-                    '<th>' + PMA_messages.strIssuse + '</th><th>' + PMA_messages.strRecommendation +
+                    '<th>' + messages.strIssuse + '</th><th>' + messages.strRecommendation +
                     '</th></tr></thead><tbody></tbody></table>');
         $tbody = $cnt.find('table#rulesFired');
 
@@ -81,17 +88,17 @@ export function onload1 () {
             $tr.click(function () {
                 var rule = $(this).data('rule');
                 $dialog
-                    .dialog({ title: PMA_messages.strRuleDetails })
+                    .dialog({ title: messages.strRuleDetails })
                     .html(
-                        '<p><b>' + PMA_messages.strIssuse + ':</b><br />' + rule.issue + '</p>' +
-                    '<p><b>' + PMA_messages.strRecommendation + ':</b><br />' + rule.recommendation + '</p>' +
-                    '<p><b>' + PMA_messages.strJustification + ':</b><br />' + rule.justification + '</p>' +
-                    '<p><b>' + PMA_messages.strFormula + ':</b><br />' + rule.formula + '</p>' +
-                    '<p><b>' + PMA_messages.strTest + ':</b><br />' + rule.test + '</p>'
+                        '<p><b>' + messages.strIssuse + ':</b><br />' + rule.issue + '</p>' +
+                    '<p><b>' + messages.strRecommendation + ':</b><br />' + rule.recommendation + '</p>' +
+                    '<p><b>' + messages.strJustification + ':</b><br />' + rule.justification + '</p>' +
+                    '<p><b>' + messages.strFormula + ':</b><br />' + rule.formula + '</p>' +
+                    '<p><b>' + messages.strTest + ':</b><br />' + rule.test + '</p>'
                     );
 
                 var dlgBtns = {};
-                dlgBtns[PMA_messages.strClose] = function () {
+                dlgBtns[messages.strClose] = function () {
                     $(this).dialog('close');
                 };
 
@@ -100,3 +107,11 @@ export function onload1 () {
         });
     }
 }
+
+/**
+ * Module export
+ */
+export {
+    teardownServerStatusAdvisor,
+    onloadServerStatusAdvisor
+};

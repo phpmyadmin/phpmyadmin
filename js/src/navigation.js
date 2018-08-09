@@ -1,15 +1,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-import { expandTreeNode,
-    navTreeStateUpdate,
-    PMA_showCurrentNavigation,
-    navFilterStateRestore,
-    collapseTreeNode,
-    PMA_fastFilter,
-    ResizeHandler,
-    PMA_reloadNavigation,
-    PMA_navigationTreePagination } from './functions/navigation';
+import * as Navigation from './functions/navigation';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
-import { PMA_commonParams } from './variables/common_params';
+import CommonParams from './variables/common_params';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage, PMA_tooltip } from './utils/show_ajax_messages';
 import { isStorageSupported } from './functions/config';
 
@@ -34,7 +26,7 @@ $(function () {
     });
 
     // Fire up the resize handlers
-    new ResizeHandler();
+    new Navigation.ResizeHandler();
 
     /**
      * opens/closes (hides/shows) tree elements
@@ -45,9 +37,9 @@ $(function () {
         event.stopImmediatePropagation();
         var $icon = $(this).find('img');
         if ($icon.is('.ic_b_plus')) {
-            expandTreeNode($(this));
+            Navigation.expandTreeNode($(this));
         } else {
-            collapseTreeNode($(this));
+            Navigation.collapseTreeNode($(this));
         }
     });
 
@@ -65,7 +57,7 @@ $(function () {
         var icon_reload_src = $icon.attr('src');
         // replace the source of the reload icon with the one for throbber
         $icon.attr('src', icon_throbber_src);
-        PMA_reloadNavigation();
+        Navigation.PMA_reloadNavigation();
         // after one second, put back the reload icon
         setTimeout(function () {
             $icon.attr('src', icon_reload_src);
@@ -74,8 +66,8 @@ $(function () {
 
     $(document).on('change', '#navi_db_select',  function () {
         if (! $(this).val()) {
-            PMA_commonParams.set('db', '');
-            PMA_reloadNavigation();
+            CommonParams.set('db', '');
+            Navigation.PMA_reloadNavigation();
         }
         $(this).closest('form').trigger('submit');
     });
@@ -149,24 +141,24 @@ $(function () {
                 .attr('alt', PMA_messages.unlinkWithMain)
                 .attr('title', PMA_messages.unlinkWithMain);
             $('#pma_navigation_tree').addClass('synced');
-            PMA_showCurrentNavigation();
+            Navigation.PMA_showCurrentNavigation();
         }
     });
 
     /**
      * Bind all "fast filter" events
      */
-    $(document).on('click', '#pma_navigation_tree li.fast_filter span', PMA_fastFilter.events.clear);
-    $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.focus);
-    $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.blur);
-    $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', PMA_fastFilter.events.keyup);
+    $(document).on('click', '#pma_navigation_tree li.fast_filter span', Navigation.PMA_fastFilter.events.clear);
+    $(document).on('focus', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.PMA_fastFilter.events.focus);
+    $(document).on('blur', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.PMA_fastFilter.events.blur);
+    $(document).on('keyup', '#pma_navigation_tree li.fast_filter input.searchClause', Navigation.PMA_fastFilter.events.keyup);
 
     /**
      * Ajax handler for pagination
      */
     $(document).on('click', '#pma_navigation_tree div.pageselector a.ajax', function (event) {
         event.preventDefault();
-        PMA_navigationTreePagination($(this));
+        Navigation.PMA_navigationTreePagination($(this));
     });
 
     /**
@@ -243,7 +235,7 @@ $(function () {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
-        ) + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+        ) + CommonParams.get('arg_separator') + 'ajax_request=true';
         var title = PMA_messages.strAddIndex;
         indexEditorDialog(url, title);
     });
@@ -253,7 +245,7 @@ $(function () {
         event.preventDefault();
         var url = $(this).attr('href').substr(
             $(this).attr('href').indexOf('?') + 1
-        ) + PMA_commonParams.get('arg_separator') + 'ajax_request=true';
+        ) + CommonParams.get('arg_separator') + 'ajax_request=true';
         var title = PMA_messages.strEditIndex;
         indexEditorDialog(url, title);
     });
@@ -270,12 +262,12 @@ $(function () {
         $.ajax({
             type: 'POST',
             data: {
-                server: PMA_commonParams.get('server'),
+                server: CommonParams.get('server'),
             },
-            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
+            url: $(this).attr('href') + CommonParams.get('arg_separator') + 'ajax_request=true',
             success: function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
-                    PMA_reloadNavigation();
+                    Navigation.PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error);
                 }
@@ -287,7 +279,7 @@ $(function () {
     $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
-        $.get($(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=1', function (data) {
+        $.get($(this).attr('href') + CommonParams.get('arg_separator') + 'ajax_request=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 var buttonOptions = {};
@@ -321,14 +313,14 @@ $(function () {
         $.ajax({
             type: 'POST',
             data: {
-                server: PMA_commonParams.get('server'),
+                server: CommonParams.get('server'),
             },
-            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
+            url: $(this).attr('href') + CommonParams.get('arg_separator') + 'ajax_request=true',
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
                 if (typeof data !== 'undefined' && data.success === true) {
                     $tr.remove();
-                    PMA_reloadNavigation();
+                    Navigation.PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error);
                 }
@@ -356,7 +348,7 @@ $(function () {
                 favorite_tables: (isStorageSupported('localStorage') && typeof window.localStorage.favorite_tables !== 'undefined')
                     ? window.localStorage.favorite_tables
                     : '',
-                server: PMA_commonParams.get('server'),
+                server: CommonParams.get('server'),
             },
             success: function (data) {
                 if (data.changes) {
@@ -388,15 +380,15 @@ $(function () {
         if ($('#pma_navigation_tree_content').length &&
             typeof storage.navTreePaths === 'undefined'
         ) {
-            PMA_reloadNavigation();
-        } else if (PMA_commonParams.get('server') === storage.server &&
-            PMA_commonParams.get('token') === storage.token
+            Navigation.PMA_reloadNavigation();
+        } else if (CommonParams.get('server').toString() === storage.server.toString() &&
+            CommonParams.get('token').toString() === storage.token.toString()
         ) {
             // Reload the tree to the state before page refresh
-            PMA_reloadNavigation(navFilterStateRestore, JSON.parse(storage.navTreePaths));
+            Navigation.PMA_reloadNavigation(Navigation.navFilterStateRestore, JSON.parse(storage.navTreePaths));
         } else {
             // If the user is different
-            navTreeStateUpdate();
+            Navigation.navTreeStateUpdate();
         }
     }
 });
