@@ -103,6 +103,9 @@ class ThemeGenerator
         return $out;
     }
 
+    /**
+     * Checks whether the theme directory is writable
+     */
     public function testWritableThemeDirectory()
     {
       clearstatcache();
@@ -144,7 +147,9 @@ class ThemeGenerator
         } else {
             $txt .= '"url": "https://www.phpmyadmin.net/",';
         }
-        $txt .= '"supports": ["5.0"]';
+        $version = str_split(PMA_VERSION);
+        $trimmed_version = array_slice($version, 0, 3);
+        $txt .= '"supports": ["' . implode($trimmed_version) . '"]';
         $txt .= '}';
         // Check if the file is writable as this condition would only occur if files are overwritten.
         if ($file) {

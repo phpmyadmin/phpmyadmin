@@ -41,6 +41,7 @@ class ThemeGeneratorTest extends PmaTestCase
         $_POST['Header'] = '#ffffff';
         $_POST['Table_Header_and_Footer'] = '#ffffff';
         $_POST['Table_Header_and_Footer_Background'] = '#ffffff';
+        $_POST['Table_Header_and_Footer_Text_Colour'] = '#ffffff';
         $_POST['Table_Row_Background'] = '#ffffff';
         $_POST['Table_Row_Alternate_Background'] = '#ffffff';
         $_POST['Table_Row_Hover_and_Selected'] = '#ffffff';
