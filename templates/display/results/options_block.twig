@@ -7,7 +7,11 @@
         'display_options_form': 1
     }) }}
 
-    {{ get_div_for_slider_effect('', 'Options'|trans) }}
+    {% include 'div_for_slider_effect.twig' with {
+        'id': '',
+        'message': 'Options'|trans,
+        'initial_sliders_state': default_sliders_state
+    } only %}
         <fieldset>
             <div class="formelement">
                 {# pftext means "partial or full texts" (done to reduce line lengths #}

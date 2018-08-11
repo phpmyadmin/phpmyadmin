@@ -65,11 +65,6 @@ class UtilExtension extends AbstractExtension
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'get_div_for_slider_effect',
-                'PhpMyAdmin\Util::getDivForSliderEffect',
-                ['is_safe' => ['html']]
-            ),
-            new TwigFunction(
                 'get_docu_link',
                 'PhpMyAdmin\Util::getDocuLink',
                 ['is_safe' => ['html']]

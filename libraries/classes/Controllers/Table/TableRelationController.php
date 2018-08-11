@@ -206,6 +206,7 @@ class TableRelationController extends TableController
                 'url_params' => $GLOBALS['url_params'],
                 'databases' => $GLOBALS['dblist']->databases,
                 'dbi' => $this->dbi,
+                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
                 'foreignKeySupported' => $foreignKeySupported,
                 'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
             ])
