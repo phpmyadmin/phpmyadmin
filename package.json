@@ -9,7 +9,8 @@
     "dev:wds": "webpack-dev-server --progress",
     "prod:build": "del js/lib js/dist && babel js/src/ -d js/lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --env.production --progress",
     "lint:check": "eslint js/src/*.js",
-    "lint:fix": "eslint js/src/*.js --fix"
+    "lint:fix": "eslint js/src/*.js --fix",
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
   "dependencies": {
     "codemirror": "5.37.0",
@@ -36,6 +37,8 @@
     "cross-env": "^5.1.5",
     "del-cli": "^1.1.0",
     "eslint": "^4.9.0",
+    "jsdoc": "^3.5.5",
+    "minami": "^1.2.3",
     "webpack": "^4.8.3",
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^2.1.3",
