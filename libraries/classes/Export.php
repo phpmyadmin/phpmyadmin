@@ -341,9 +341,9 @@ class Export
             . preg_replace('@[/\\\\]@', '_', $filename);
 
         if (@file_exists($save_filename)
-            && ((! $quick_export && empty($_REQUEST['onserver_overwrite']))
+            && ((! $quick_export && empty($_POST['onserver_overwrite']))
             || ($quick_export
-            && $_REQUEST['quick_export_onserver_overwrite'] != 'saveitover'))
+            && $_POST['quick_export_onserver_overwrite'] != 'saveitover'))
         ) {
             $message = Message::error(
                 __(
@@ -469,45 +469,45 @@ class Export
         $html = '<div>';
 
         /**
-         * Displays a back button with all the $_REQUEST data in the URL
+         * Displays a back button with all the $_POST data in the URL
          * (store in a variable to also display after the textarea)
          */
         $back_button = '<p id="export_back_button">[ <a href="';
         if ($export_type == 'server') {
-            $back_button .= 'server_export.php' . Url::getCommon();
+            $back_button .= 'server_export.php" data-post="' . Url::getCommon([], '');
         } elseif ($export_type == 'database') {
-            $back_button .= 'db_export.php' . Url::getCommon(array('db' => $db));
+            $back_button .= 'db_export.php" data-post="' . Url::getCommon(array('db' => $db), '');
         } else {
-            $back_button .= 'tbl_export.php' . Url::getCommon(
+            $back_button .= 'tbl_export.php" data-post="' . Url::getCommon(
                 array(
                     'db' => $db, 'table' => $table
-                )
+                ), ''
             );
         }
 
         // Convert the multiple select elements from an array to a string
-        if ($export_type == 'server' && isset($_REQUEST['db_select'])) {
-            $_REQUEST['db_select'] = implode(",", $_REQUEST['db_select']);
+        if ($export_type == 'server' && isset($_POST['db_select'])) {
+            $_POST['db_select'] = implode(",", $_POST['db_select']);
         } elseif ($export_type == 'database') {
-            if (isset($_REQUEST['table_select'])) {
-                $_REQUEST['table_select'] = implode(",", $_REQUEST['table_select']);
+            if (isset($_POST['table_select'])) {
+                $_POST['table_select'] = implode(",", $_POST['table_select']);
             }
-            if (isset($_REQUEST['table_structure'])) {
-                $_REQUEST['table_structure'] = implode(
+            if (isset($_POST['table_structure'])) {
+                $_POST['table_structure'] = implode(
                     ",",
-                    $_REQUEST['table_structure']
+                    $_POST['table_structure']
                 );
-            } elseif (empty($_REQUEST['structure_or_data_forced'])) {
-                $_REQUEST['table_structure'] = '';
+            } elseif (empty($_POST['structure_or_data_forced'])) {
+                $_POST['table_structure'] = '';
             }
-            if (isset($_REQUEST['table_data'])) {
-                $_REQUEST['table_data'] = implode(",", $_REQUEST['table_data']);
-            } elseif (empty($_REQUEST['structure_or_data_forced'])) {
-                $_REQUEST['table_data'] = '';
+            if (isset($_POST['table_data'])) {
+                $_POST['table_data'] = implode(",", $_POST['table_data']);
+            } elseif (empty($_POST['structure_or_data_forced'])) {
+                $_POST['table_data'] = '';
             }
         }
 
-        foreach ($_REQUEST as $name => $value) {
+        foreach ($_POST as $name => $value) {
             if (!is_array($value)) {
                 $back_button .= '&amp;' . urlencode($name) . '=' . urlencode($value);
             }
