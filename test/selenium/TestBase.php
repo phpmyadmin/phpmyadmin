@@ -162,6 +162,16 @@ abstract class TestBase extends Selenium2TestCase
                     'browserName' => $GLOBALS['TESTSUITE_SELENIUM_BROWSER'],
                     'host' => $GLOBALS['TESTSUITE_SELENIUM_HOST'],
                     'port' => intval($GLOBALS['TESTSUITE_SELENIUM_PORT']),
+                    'desiredCapabilities' => array(
+                        /*'chromeOptions' => array(// If set browser will be chrome ...
+                            'args' => array(
+                                "--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36 Selenium/Bot",
+                                "--prefs={'intl.accept_languages': 'en'}",
+                                "--lang=en_US",
+                                "--window-size=1400x1300"
+                            )
+                        )*/
+                    )
                 ]
             ];
         } else {
@@ -195,7 +205,9 @@ abstract class TestBase extends Selenium2TestCase
         $this->_mysqli = new \mysqli(
             $GLOBALS['TESTSUITE_SERVER'],
             $GLOBALS['TESTSUITE_USER'],
-            $GLOBALS['TESTSUITE_PASSWORD']
+            $GLOBALS['TESTSUITE_PASSWORD'],
+            'mysql',
+            (int) $GLOBALS['TESTSUITE_PORT']
         );
         if ($this->_mysqli->connect_errno) {
             throw new \Exception(
