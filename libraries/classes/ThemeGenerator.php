@@ -105,6 +105,8 @@ class ThemeGenerator
 
     /**
      * Checks whether the theme directory is writable
+     *
+     * @return null
      */
     public function testWritableThemeDirectory()
     {
@@ -112,6 +114,7 @@ class ThemeGenerator
       if (! is_writable('themes')) {
         trigger_error(__("The 'themes' directory is not writable by the webserver process. You must change permissions for the theme generator to be able to write the generated theme."), E_USER_WARNING);
       }
+      return;
     }
 
     /**
