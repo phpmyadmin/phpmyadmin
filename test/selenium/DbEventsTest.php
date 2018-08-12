@@ -40,23 +40,13 @@ class DbEventsTest extends TestBase
         $this->dbQuery(
             "SET GLOBAL event_scheduler=\"ON\""
         );
-    }
-
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
-
         $this->login();
         $this->navigateDatabase($this->database_name);
 
         // Let the Database page load
         $this->waitAjax();
         $this->expandMore();
+        $this->maximize();
     }
 
     /**
@@ -99,27 +89,27 @@ class DbEventsTest extends TestBase
      */
     public function testAddEvent()
     {
-        $this->waitForElement("byPartialLinkText", "Events")->click();
+        $this->waitForElement('partialLinkText', "Events")->click();
         $this->waitAjax();
 
-        $this->waitForElement("byPartialLinkText", "Add event")->click();
+        $this->waitForElement('partialLinkText', "Add event")->click();
         $this->waitAjax();
 
-        $this->waitForElement("byClassName", "rte_form");
+        $this->waitForElement('className', "rte_form");
 
-        $this->select($this->byName("item_type"))
-            ->selectOptionByLabel("RECURRING");
+        $this->selectByLabel($this->byName("item_type"), 'RECURRING');
 
-        $this->byName("item_name")->value("test_event");
-        $this->select($this->byName("item_interval_field"))
-            ->selectOptionByLabel("MINUTE_SECOND");
+        $this->byName("item_name")->sendKeys("test_event");
+        $this->selectByLabel(
+            $this->byName("item_interval_field"), 'MINUTE_SECOND'
+        );
 
-        $this->byName("item_starts")->value(date('Y-m-d', strtotime('-1 day')) . ' 00:00:00');
+        $this->byName("item_starts")->sendKeys(date('Y-m-d', strtotime('-1 day')) . ' 00:00:00');
 
-        $this->byName("item_ends")->value(date('Y-m-d', strtotime('+1 day')) . ' 00:00:00');
+        $this->byName("item_ends")->sendKeys(date('Y-m-d', strtotime('+1 day')) . ' 00:00:00');
 
-        $ele = $this->waitForElement('byName', "item_interval_value");
-        $ele->value('1');
+        $ele = $this->waitForElement('name', "item_interval_value");
+        $ele->sendKeys('1');
 
         $proc = "UPDATE " . $this->database_name . ".`test_table` SET val=val+1";
         $this->typeInTextArea($proc);
@@ -127,21 +117,21 @@ class DbEventsTest extends TestBase
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., "
             . "'Event `test_event` has been created')]"
         );
         $this->waitForElementNotPresent(
-            'byXPath',
+            'xpath',
             '//div[@id=\'alertLabel\' and not(contains(@style,\'display: none;\'))]'
         );
 
         // Refresh the page
-        $this->url($this->url());
+        $this->webDriver->navigate()->refresh();
 
         $this->assertTrue(
             $this->isElementPresent(
-                'byXPath',
+                'xpath',
                 "//td[contains(., 'test_event')]"
             )
         );
@@ -170,24 +160,24 @@ class DbEventsTest extends TestBase
     public function testEditEvents()
     {
         $this->_eventSQL();
-        $this->waitForElement("byPartialLinkText", "Events")->click();
+        $this->waitForElement('partialLinkText', "Events")->click();
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'Events')]"
         );
 
         $this->byPartialLinkText("Edit")->click();
 
-        $this->waitForElement("byClassName", "rte_form");
+        $this->waitForElement('className', "rte_form");
         $this->byName("item_interval_value")->clear();
-        $this->byName("item_interval_value")->value("2");
+        $this->byName("item_interval_value")->sendKeys("2");
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., "
             . "'Event `test_event` has been modified')]"
         );
@@ -210,17 +200,17 @@ class DbEventsTest extends TestBase
     public function testDropEvent()
     {
         $this->_eventSQL();
-        $this->waitForElement("byPartialLinkText", "Events")->click();
+        $this->waitForElement('partialLinkText', "Events")->click();
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'Events')]"
         );
 
         $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byClassName",
+            'className',
             "submitOK"
         )->click();
 

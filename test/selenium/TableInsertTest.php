@@ -36,16 +36,6 @@ class TableInsertTest extends TestBase
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-    }
-
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
 
         $this->login();
         $this->navigateTable('test_table');
@@ -60,47 +50,48 @@ class TableInsertTest extends TestBase
      */
     public function testAddData()
     {
-        if (mb_strtolower($this->getBrowser()) == 'safari') {
+        if ($this->isSafari()) {
             /* TODO: this should be fixed, but the cause is unclear to me */
             $this->markTestIncomplete('Fails with Safari');
         }
         $this->waitAjax();
         $this->expandMore();
+        $this->maximize();
 
         $this->byPartialLinkText("Insert")->click();
         $this->waitAjax();
-        $this->waitForElement("byId", "insertForm");
+        $this->waitForElement('id', "insertForm");
 
-        $this->byId("field_3_3")->click();
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
-        $this->keys("2011-01-2");
+        $this->byId("field_3_3")->click()->sendKeys("2011-01-2");
 
-        $this->byId("field_1_3")->value("1");
-        $this->byId("field_2_3")->value("abcd");
+        $this->byId("field_1_3")->sendKeys("1");
+        $this->byId("field_2_3")->sendKeys("abcd");
 
-        $this->byId("field_6_3")->click();
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
-        $this->keys("2012-01-2");
+        $this->byId("field_6_3")->click()->sendKeys("2012-01-2");
 
-        $this->byId("field_5_3")->value("foo");
+        $this->byId("field_5_3")->sendKeys("foo");
 
-        $select = $this->select($this->byName("after_insert"));
-        $select->selectOptionByLabel("Insert another new row");
+        $this->selectByLabel(
+            $this->byName("after_insert"),
+            'Insert another new row'
+        );
 
         // post
         $this->byId("buttonYes")->click();
         $this->waitAjax();
 
-        $ele = $this->waitForElement("byClassName", "success");
-        $this->assertContains("2 rows inserted", $ele->text());
+        $ele = $this->waitForElement('className', "success");
+        $this->assertContains("2 rows inserted", $ele->getText());
 
-        $this->byId("field_3_3")->click();
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
-        $this->keys("2013-01-2");
-        $this->byId("field_2_3")->value("Abcd");
+        $this->byId("field_3_3")->click()->sendKeys("2013-01-2");
+
+        $this->byId("field_2_3")->sendKeys("Abcd");
 
         // post
         $this->byCssSelector(
@@ -111,10 +102,10 @@ class TableInsertTest extends TestBase
 
         // New message
         $ele = $this->waitForElement(
-            'byXPath',
+            'xpath',
             "//div[contains(@class, 'success') and not(contains(@class, 'message'))]"
         );
-        $this->assertContains("1 row inserted", $ele->text());
+        $this->assertContains("1 row inserted", $ele->getText());
 
         $this->_assertDataPresent();
     }
@@ -129,7 +120,7 @@ class TableInsertTest extends TestBase
         $this->byPartialLinkText("Browse")->click();
 
         $this->waitAjax();
-        $this->waitForElement("byCssSelector", "table.table_results");
+        $this->waitForElement('cssSelector', "table.table_results");
 
         $this->assertEquals(
             "1",

@@ -29,14 +29,7 @@ class CreateDropDatabaseTest extends TestBase
         parent::setUp();
         /* TODO: For now this tests needs superuser for deleting database */
         $this->skipIfNotSuperUser();
-    }
-
-    /**
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
+        $this->maximize();
         $this->login();
     }
 
@@ -54,16 +47,16 @@ class CreateDropDatabaseTest extends TestBase
             'DROP DATABASE IF EXISTS ' . $this->database_name . ';'
         );
 
-        $this->waitForElement('byPartialLinkText', 'Databases')->click();
+        $this->waitForElement('partialLinkText', 'Databases')->click();
         $this->waitAjax();
 
-        $element = $this->waitForElement('byId', 'text_create_db');
+        $element = $this->waitForElement('id', 'text_create_db');
         $element->clear();
-        $element->value($this->database_name);
+        $element->sendKeys($this->database_name);
 
         $this->byId("buttonGo")->click();
 
-        $element = $this->waitForElement('byLinkText', 'Database: ' . $this->database_name);
+        $element = $this->waitForElement('linkText', 'Database: ' . $this->database_name);
 
         $result = $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $this->database_name . '\';'
@@ -94,12 +87,12 @@ class CreateDropDatabaseTest extends TestBase
         $this->byCssSelector("button.submitOK")->click();
 
         $this->waitForElementNotPresent(
-            "byCssSelector",
+            'cssSelector',
             "input[name='selected_dbs[]'][value='" . $this->database_name . "']"
         );
 
         $this->waitForElement(
-            "byCssSelector",
+            'cssSelector',
             "span.ajax_notification div.success"
         );
 
