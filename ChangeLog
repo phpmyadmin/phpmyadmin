@@ -8,6 +8,8 @@ phpMyAdmin - ChangeLog
 - issue #12373 Add Metro theme
 - issue #14155 Add move columns preview SQL button
 - issue #14296 Enable strict mode in PHP files
+- issue #13627 Increase field width for editing varchar fields
+- issue #12603 Show warning for users with the default values for controluser and controlpass
 
 4.8.3 (not yet released)
 - issue #14314 Error when naming a database '0'
@@ -23,6 +25,9 @@ phpMyAdmin - ChangeLog
 - issue #14365 View not working on multiple servers
 - issue #14207 Partition actions in table structure do not work
 - issue #14375 Fixes ERR_BLOCKED_BY_XSS_AUDITOR on export table
+- issue #14552 Blank message shown instead of MySQL error when adding trigger and other locations
+- issue #14525 Fix PHP 7.3 warning: "continue" in "switch" is equal to "break"
+- issue #14554 Icon missing when creating a new trigger, routine, and event
 
 4.8.2 (2018-06-21)
 - issue #14370 WHERE 0 causes Fatal error

@@ -99,7 +99,11 @@
 
     {% if cfg_relation['relwork'] %}
         {% if is_foreign_key_supported(tbl_storage_engine) %}
-            {{ get_div_for_slider_effect('ir_div', 'Internal relationships'|trans) }}
+            {% include 'div_for_slider_effect.twig' with {
+                'id': 'ir_div',
+                'message': 'Internal relationships'|trans,
+                'initial_sliders_state': default_sliders_state
+            } only %}
         {% endif %}
 
         <fieldset>
