@@ -174,7 +174,7 @@ class NavigationHeader
 
         $retval = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
-        
+
         /**
         $retval .= Util::getNavigationLink(
             'index.php' . Url::getCommon(),
@@ -244,7 +244,7 @@ class NavigationHeader
             's_reload',
             'pma_navigation_reload'
         );
-        
+
         $retval .= Util::getNavigationLink(
             'index.php' . Url::getCommon(),
             $showText,
@@ -252,7 +252,7 @@ class NavigationHeader
             $showIcon,
             'b_home'
         );
-        
+
         $retval .= '</div>';
         $retval .= '<!-- LINKS ENDS -->';
 

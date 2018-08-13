@@ -1450,7 +1450,6 @@ class NavigationTree
         $retval .= '</li>';
         $retval .= '<!-- CONTROLS ENDS -->';
 
-
         return $retval;
     }
 
@@ -1556,7 +1555,7 @@ class NavigationTree
             $retval .= RecentFavoriteTable::getInstance('favorite')
                 ->getHtml();
         }
-        
+
         $retval .= '<div class="clearfloat"></div>';
         $retval .= '</div>';
 
