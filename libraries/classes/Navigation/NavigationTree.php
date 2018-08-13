@@ -855,6 +855,10 @@ class NavigationTree
             $retval .= $this->_controls();
         }
         $retval .= '</ul>';
+        $retval .= '<div class="table_button_group">';
+        $retval .= '<span class="table_buttons"><span class="table_button" id="expand_tables" title="Expands tables">Expand Tables</span></span>';
+        $retval .= '<span class="table_buttons"><span class="table_button" id="collapse_tables" title="Collapses tables">Collapse Tables</span></span>';
+        $retval .= '</div>';
         $retval .= $this->_getPageSelector($this->_tree);
         $this->groupTree();
         $retval .= "<div id='pma_navigation_tree_content'><ul>";
@@ -1446,6 +1450,7 @@ class NavigationTree
         $retval .= '</li>';
         $retval .= '<!-- CONTROLS ENDS -->';
 
+
         return $retval;
     }
 
@@ -1551,6 +1556,7 @@ class NavigationTree
             $retval .= RecentFavoriteTable::getInstance('favorite')
                 ->getHtml();
         }
+        
         $retval .= '<div class="clearfloat"></div>';
         $retval .= '</div>';
 

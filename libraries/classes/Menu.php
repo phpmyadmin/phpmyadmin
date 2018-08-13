@@ -647,13 +647,13 @@ class Menu
         $tabs['charset']['link'] = 'server_collations.php';
         $tabs['charset']['text'] = __('Charsets');
 
-        $tabs['engine']['icon'] = 'b_engine';
-        $tabs['engine']['link'] = 'server_engines.php';
-        $tabs['engine']['text'] = __('Engines');
-
         $tabs['plugins']['icon'] = 'b_plugin';
         $tabs['plugins']['link'] = 'server_plugins.php';
         $tabs['plugins']['text'] = __('Plugins');
+
+        $tabs['engine']['icon'] = 'b_engine';
+        $tabs['engine']['link'] = 'server_engines.php';
+        $tabs['engine']['text'] = __('Engines');
 
         return $tabs;
     }

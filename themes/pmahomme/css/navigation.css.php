@@ -135,7 +135,6 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     width: 100%;
     overflow: hidden;
     overflow-y: auto;
-    position: absolute;
     height: 100%;
 }
 #pma_navigation_tree_content a.hover_show_full {
@@ -370,22 +369,51 @@ li.fast_filter.db_fast_filter {
     margin-top: 5px;
     margin-<?php echo $left; ?>: 2px;
     position: relative;
+    text-align: center;
+    width:  100%;
 }
+
 .pma_quick_warp .drop_list {
-    float: <?php echo $left; ?>;
-    margin-<?php echo $left; ?>: 3px;
-    padding: 2px 0;
+    display:    inline-block;
+    width:  45%;
+    border: 1px solid #ccc;
+    border-radius: .3em;
 }
+
 .pma_quick_warp .drop_button {
     padding: 0 .3em;
-    border: 1px solid #ddd;
-    border-radius: .3em;
     background: #f2f2f2;
     cursor: pointer;
 }
-.pma_quick_warp .drop_list:hover .drop_button {
+
+.pma_quick_warp .drop_list:hover, .pma_quick_warp .drop_list:hover .drop_button {
     background: #fff;
 }
+
+/* Expand table buttons */
+.table_button_group {
+    text-align: center;
+}
+
+.table_buttons {
+    display:    inline-block;
+    width:  90%;
+    text-align: center;
+    padding: 2px 0;
+    border: 1px solid #ccc;
+    border-radius: .3em;
+}
+
+.table_button {
+    padding: 0 .3em;
+    background: #f2f2f2;
+    cursor: pointer;
+}
+
+.table_buttons:hover, .table_buttons:hover .table_button {
+    background: #fff;
+}
+
 .pma_quick_warp .drop_list ul {
     position: absolute;
     margin: 0;
