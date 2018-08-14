@@ -391,6 +391,8 @@ class Descriptions
                     'Add IF NOT EXISTS (less efficient as indexes will be generated during'
                     . ' table creation)'
                 );
+            case 'Export_sql_view_current_user':
+                return __('Exclude definition of current user');
             case 'Export_sql_ignore_name':
                 return __('Use ignore inserts');
             case 'Export_sql_include_comments_name':
