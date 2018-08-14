@@ -1,4 +1,17 @@
-export default class PMA_consoleDebug {
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
+import { PMA_Messages as messages } from '../../variables/export_variables';
+import { PMA_sprintf } from '../../utils/sprintf';
+import { escapeHtml } from '../../utils/Sanitise';
+
+/**
+ * Console debug object
+ * @namespace ConsoleDebug
+ */
+export default class ConsoleDebug {
     constructor (instance) {
         this.pmaConsole = null;
         this._config = {
@@ -123,7 +136,7 @@ export default class PMA_consoleDebug {
                     $('<div class="message welcome">')
                         .text(
                             PMA_sprintf(
-                                PMA_messages.strConsoleDebugArgsSummary,
+                                messages.strConsoleDebugArgsSummary,
                                 dbgStep.args.length
                             )
                         )
@@ -186,12 +199,12 @@ export default class PMA_consoleDebug {
                                 $('<div class="action_content">')
                                     .append(
                                         '<span class="action dbg_show_args">' +
-                                PMA_messages.strConsoleDebugShowArgs +
+                                messages.strConsoleDebugShowArgs +
                                 '</span> '
                                     )
                                     .append(
                                         '<span class="action dbg_hide_args">' +
-                                PMA_messages.strConsoleDebugHideArgs +
+                                messages.strConsoleDebugHideArgs +
                                 '</span> '
                                     )
                             );
@@ -259,7 +272,7 @@ export default class PMA_consoleDebug {
                     .text((parseInt(i) + 1) + '.')
                     .append(
                         $('<span class="time">').text(
-                            PMA_messages.strConsoleDebugTimeTaken +
+                            messages.strConsoleDebugTimeTaken +
                         ' ' + queryInfo[i].time + 's' +
                         ' (' + ((queryInfo[i].time * 100) / totalTime).toFixed(3) + '%)'
                         )
@@ -304,7 +317,7 @@ export default class PMA_consoleDebug {
         }
         if (debugJson === false) {
             $('#debug_console').find('.debug>.welcome').text(
-                PMA_messages.strConsoleDebugError
+                messages.strConsoleDebugError
             );
             return;
         }
@@ -336,7 +349,7 @@ export default class PMA_consoleDebug {
         $('#debug_console').find('.debug>.welcome').append(
             $('<span class="debug_summary">').text(
                 PMA_sprintf(
-                    PMA_messages.strConsoleDebugSummary,
+                    messages.strConsoleDebugSummary,
                     totalUnique,
                     totalExec,
                     totalTime
@@ -351,7 +364,7 @@ export default class PMA_consoleDebug {
 
         // For sorting queries
         function sortByTime (a, b) {
-            var order = ((PMA_console.config.Order === 'asc') ? 1 : -1);
+            var order = ((this.pmaConsole.config.Order === 'asc') ? 1 : -1);
             if (Array.isArray(a) && Array.isArray(b)) {
                 // It is grouped
                 var timeA = 0;
@@ -370,7 +383,7 @@ export default class PMA_consoleDebug {
         }
 
         function sortByCount (a, b) {
-            var order = ((PMA_console.config.Oorder === 'asc') ? 1 : -1);
+            var order = ((this.pmaConsole.config.Order === 'asc') ? 1 : -1);
             return (a.length - b.length) * order;
         }
 

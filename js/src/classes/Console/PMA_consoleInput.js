@@ -1,7 +1,24 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+import CodeMirror from 'codemirror';
+import 'codemirror/mode/sql/sql.js';
+import 'codemirror/addon/runmode/runmode.js';
+import 'codemirror/addon/hint/show-hint.js';
+import 'codemirror/addon/hint/sql-hint.js';
+import 'codemirror/addon/lint/lint.js';
+import '../../plugins/codemirror/sql-lint';
+import { codemirrorAutocompleteOnInputRead } from '../../utils/sql';
+import CommonParams from '../../variables/common_params';
+
 /**
  * Console input object
+ * @namespace ConsoleInput
  */
-export default class PMA_consoleInput {
+export default class ConsoleInput {
+    /**
+     * @constructor
+     *
+     * @param {object} pmaConsoleInstance Instance of pma console
+     */
     constructor (pmaConsoleInstance) {
         /**
          * @var array, contains Codemirror objects or input jQuery objects
@@ -23,9 +40,16 @@ export default class PMA_consoleInput {
          * @access private
          */
         this._historyPreserveCurrent = null;
-
+        /**
+         * @var object
+         * @access private
+         */
         this.pmaConsole = null;
 
+        /**
+         * Bindings for accessing the instance of the class using this
+         * insde the methods.
+         */
         this.setPmaConsole = this.setPmaConsole.bind(this);
         this.initialize = this.initialize.bind(this);
         this._historyNavigate = this._historyNavigate.bind(this);
@@ -48,7 +72,7 @@ export default class PMA_consoleInput {
         if (this._inputs !== null) {
             return;
         }
-        if (typeof CodeMirror !== 'undefined') {
+        if (CommonParams.get('CodemirrorEnable') === true) {
             this._codemirror = true;
         }
         this._inputs = [];
@@ -214,6 +238,7 @@ export default class PMA_consoleInput {
      *
      * @param string text
      * @param string target
+     *
      * @return void
      */
     setText (text, target) {
@@ -237,6 +262,13 @@ export default class PMA_consoleInput {
             }
         }
     }
+    /**
+     * Used for getting the text of input
+     *
+     * @param {string} target
+     *
+     * @return {string}
+     */
     getText (target) {
         if (this._codemirror) {
             switch (target) {

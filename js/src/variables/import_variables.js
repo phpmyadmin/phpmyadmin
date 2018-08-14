@@ -46,6 +46,12 @@ Variables.setGlobalVars(window.globalVars);
 /**
  * Importing common parameters like db, table, url etc
  *
- * @argument {hash} window.common_params
+ * @argument {hash} window.commonParams
  */
-CommonParams.setAll(window.common_params);
+CommonParams.setAll(window.commonParams);
+
+CommonParams.set('CodemirrorEnable', window.CodemirrorEnable);
+
+CommonParams.set('LintEnable', window.LintEnable);
+
+CommonParams.set('ConsoleEnterExecutes', window.ConsoleEnterExecutes);

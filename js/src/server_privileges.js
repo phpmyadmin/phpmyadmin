@@ -16,8 +16,8 @@ import { checkPasswordStrength, displayPasswordGenerateButton } from './utils/pa
 import { PMA_Messages as messages } from './variables/export_variables';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import CommonParams from './variables/common_params';
-import { jQuery as $ } from './utils/JqueryExtended';
-import { PMA_getSQLEditor } from './utils/sql';
+import { $ } from './utils/JqueryExtended';
+import { PMA_getSQLEditor } from './functions/Sql/SqlEditor';
 
 /**
  * @package PhpMyAdmin

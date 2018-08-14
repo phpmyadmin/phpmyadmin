@@ -46,7 +46,10 @@ function WebpackConfig (env) {
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery'
+        }),
     ];
     if (MODE === 'development') {
         plugins.push(new BundleAnalyzer());

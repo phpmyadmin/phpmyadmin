@@ -182,7 +182,6 @@ class Header
         // the user preferences have not been merged at this point
 
         $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
-        $this->_scripts->addFile('common_params.php', array('l' => $GLOBALS['lang']));
         $this->_scripts->addFile('vendors~index_new.js');
         $this->_scripts->addFile('index_new.js');
         $this->_scripts->addFile('keyhandler.js');
@@ -207,6 +206,7 @@ class Header
         $this->_scripts->addFile('config');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
+        $this->_scripts->addFile('functions');
         $this->_scripts->addFile('navigation');
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
@@ -220,6 +220,7 @@ class Header
             $this->_scripts->addFile('shortcuts_handler');
         }
         $this->_scripts->addCode($this->getJsParamsCode());
+        $this->_scripts->addCodeNew($this->getJsParamsCode(true));
     }
 
     /**
@@ -287,9 +288,11 @@ class Header
      * Returns, as a string, a list of parameters
      * used on the client side
      *
+     * @param bool $flag to check for CommonParams for Modular Code
+     *
      * @return string
      */
-    public function getJsParamsCode(): string
+    public function getJsParamsCode($flag = false): string
     {
         $params = $this->getJsParams();
         foreach ($params as $key => $value) {
@@ -299,7 +302,11 @@ class Header
                 $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
             }
         }
-        return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
+        if ($flag) {
+            return 'var commonParams = {' . implode(',', $params) . '};';
+        } else {
+            return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
+        }
     }
 
     /**
@@ -434,6 +441,18 @@ class Header
                         );
                     }
                 }
+                $this->_scripts->addCodeNew(
+                    'CodemirrorEnable='
+                    . ($GLOBALS['cfg']['CodemirrorEnable'] ? 'true' : 'false')
+                );
+                $this->_scripts->addCodeNew(
+                    'LintEnable='
+                    . ($GLOBALS['cfg']['LintEnable'] ? 'true' : 'false')
+                );
+                $this->_scripts->addCodeNew(
+                    'ConsoleEnterExecutes='
+                    . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false')
+                );
                 $this->_scripts->addCode(
                     'ConsoleEnterExecutes='
                     . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false')

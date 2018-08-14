@@ -73,20 +73,9 @@ if ($response->isAjax()) {
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('vendor/jquery/jquery.sortableTable.js');
-// for charting
-$scripts->addFile('vendor/jqplot/jquery.jqplot.js');
-$scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
-$scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
-$scripts->addFile('vendor/jqplot/plugins/jqplot.canvasTextRenderer.js');
-$scripts->addFile('vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
-$scripts->addFile('vendor/jqplot/plugins/jqplot.dateAxisRenderer.js');
-$scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
-$scripts->addFile('vendor/jqplot/plugins/jqplot.cursor.js');
-$scripts->addFile('jqplot/plugins/jqplot.byteFormatter.js');
 
-$scripts->addFile('server_status_monitor.js');
-$scripts->addFile('server_status_sorter.js');
+$scripts->addFile('server_status_monitor');
+$scripts->addFile('server_status_sorter');
 
 /**
  * Output

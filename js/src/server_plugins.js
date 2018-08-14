@@ -1,6 +1,12 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 /**
+ * Module import
+ */
+import { $ } from './utils/JqueryExtended';
+import './plugins/jquery/jquery.tablesorter';
+
+/**
  * @package PhpMyAdmin
  *
  * Server Plugins

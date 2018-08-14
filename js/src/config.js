@@ -3,13 +3,15 @@ import * as Config from './functions/config';
 import { defaultValues } from './variables/get_config';
 
 /**
- * Functions used in configuration forms and on user preferences pages
+ * @package PhpMyAdmin
+ *
+ * Config
  */
 
 /**
  * Unbind all event handlers before tearing down a page
  */
-export function teardown1 () {
+function teardownConfig () {
     $('.optbox input[id], .optbox select[id], .optbox textarea[id]').off('change').off('keyup');
     $('.optbox input[type=button][name=submit_reset]').off('click');
     $('div.tabs_contents').off();
@@ -19,7 +21,7 @@ export function teardown1 () {
     $('#prefs_autoload').find('a').off('click');
 }
 
-export function onload1 () {
+function onloadConfigPrefsTab () {
     var $topmenu_upt = $('#topmenu2.user_prefs_tabs');
     $topmenu_upt.find('li.active a').attr('rel', 'samepage');
     $topmenu_upt.find('li:not(.active) a').attr('rel', 'newpage');
@@ -29,7 +31,7 @@ export function onload1 () {
 // Form validation and field operations
 //
 
-export function onload2 () {
+function onloadConfigValidations () {
     Config.setupValidation();
 }
 
@@ -41,7 +43,7 @@ export function onload2 () {
 // Tabbed forms
 //
 
-export function onload3 () {
+function onloadConfigTabs () {
     Config.setupConfigTabs();
     Config.adjustPrefsNotification();
 
@@ -72,7 +74,7 @@ export function onload3 () {
 // Form reset buttons
 //
 
-export function onload4 () {
+function onloadConfigResetDefault () {
     $('.optbox input[type=button][name=submit_reset]').on('click', function () {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         for (var i = 0, imax = fields.length; i < imax; i++) {
@@ -89,7 +91,7 @@ export function onload4 () {
 // "Restore default" and "set value" buttons
 //
 
-export function onload5 () {
+function onloadConfigRestore () {
     Config.setupRestoreField();
 }
 
@@ -101,7 +103,7 @@ export function onload5 () {
 // User preferences import/export
 //
 
-export function onload6 () {
+function onloadPreferenceExport () {
     Config.offerPrefsAutoimport();
     var $radios = $('#import_local_storage, #export_local_storage');
     if (!$radios.length) {
@@ -113,15 +115,15 @@ export function onload6 () {
         .prop('disabled', false)
         .add('#export_text_file, #import_text_file')
         .on('click', function () {
-            var enable_id = $(this).attr('id');
-            var disable_id;
-            if (enable_id.match(/local_storage$/)) {
-                disable_id = enable_id.replace(/local_storage$/, 'text_file');
+            var enableId = $(this).attr('id');
+            var disableId;
+            if (enableId.match(/local_storage$/)) {
+                disableId = enableId.replace(/local_storage$/, 'text_file');
             } else {
-                disable_id = enable_id.replace(/text_file$/, 'local_storage');
+                disableId = enableId.replace(/text_file$/, 'local_storage');
             }
-            $('#opts_' + disable_id).addClass('disabled').find('input').prop('disabled', true);
-            $('#opts_' + enable_id).removeClass('disabled').find('input').prop('disabled', false);
+            $('#opts_' + disableId).addClass('disabled').find('input').prop('disabled', true);
+            $('#opts_' + enableId).removeClass('disabled').find('input').prop('disabled', false);
         });
 
     // detect localStorage state
@@ -135,9 +137,9 @@ export function onload6 () {
     $('form.prefs-form').on('change', function () {
         var $form = $(this);
         var disabled = false;
-        if (!ls_supported) {
+        if (!lsSupported) {
             disabled = $form.find('input[type=radio][value$=local_storage]').prop('checked');
-        } else if (!ls_exists && $form.attr('name') === 'prefs_import' &&
+        } else if (!lsExists && $form.attr('name') === 'prefs_import' &&
             $('#import_local_storage')[0].checked
         ) {
             disabled = true;
@@ -168,3 +170,16 @@ export function onload6 () {
 //
 // END: User preferences import/export
 // ------------------------------------------------------------------
+
+/**
+ * Module export
+ */
+export {
+    teardownConfig,
+    onloadConfigPrefsTab,
+    onloadConfigResetDefault,
+    onloadConfigRestore,
+    onloadConfigTabs,
+    onloadConfigValidations,
+    onloadPreferenceExport
+};

@@ -278,7 +278,7 @@ class SqlQueryForm
                 . '<label>' . __('Columns') . '</label>'
                 . '<select id="tablefields" name="dummy" '
                 . 'size="' . ($GLOBALS['cfg']['TextareaRows'] - 2) . '" '
-                . 'multiple="multiple" ondblclick="insertValueQuery()">';
+                . 'multiple="multiple">';
             foreach ($columns_list as $field) {
                 $html .= '<option value="'
                     . Util::backquote(htmlspecialchars($field['Field']))
@@ -295,12 +295,11 @@ class SqlQueryForm
                 . '<div id="tablefieldinsertbuttoncontainer">';
             if (Util::showIcons('ActionLinksMode')) {
                 $html .= '<input type="button" class="button" name="insert"'
-                    . ' value="&lt;&lt;" onclick="insertValueQuery()"'
+                    . ' value="&lt;&lt;" id="tablefieldsSubmitLinkMode"'
                     . ' title="' . __('Insert') . '" />';
             } else {
                 $html .= '<input type="button" class="button" name="insert"'
-                    . ' value="' . __('Insert') . '"'
-                    . ' onclick="insertValueQuery()" />';
+                    . ' value="' . __('Insert') . '" id="tablefieldsSubmitNonLinkMode" />';
             }
             $html .= '</div>' . "\n"
                 . '</div>' . "\n";

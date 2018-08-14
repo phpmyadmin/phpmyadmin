@@ -49,9 +49,34 @@ function escapeJsString (unsafe) {
 }
 
 /**
+ * decode a string URL_encoded
+ *
+ * @param string str
+ * @return string the URL-decoded string
+ */
+function PMA_urldecode (str) {
+    if (typeof str !== 'undefined') {
+        return decodeURIComponent(str.replace(/\+/g, '%20'));
+    }
+}
+
+/**
+ * endecode a string URL_decoded
+ *
+ * @param string str
+ * @return string the URL-encoded string
+ */
+function PMA_urlencode (str) {
+    if (typeof str !== 'undefined') {
+        return encodeURIComponent(str).replace(/\%20/g, '+');
+    }
+}
+
+/**
  * Module export
  */
 export {
     escapeHtml,
-    escapeJsString
+    escapeJsString,
+    PMA_urlencode
 };

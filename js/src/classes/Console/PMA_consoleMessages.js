@@ -1,7 +1,15 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+import CodeMirror from 'codemirror';
+import PMA_commonParams from '../../variables/common_params';
+/**
+ * Module import
+ */
+import { PMA_Messages as messages } from '../../variables/export_variables';
 /**
  * Console messages, and message items management object
+ * @namespace ConsoleMessages
  */
-export default class PMA_consoleMessages {
+export default class ConsoleMessages {
     constructor (instance) {
         this.pmaConsole = null;
         this.clear = this.clear.bind(this);
@@ -167,7 +175,7 @@ export default class PMA_consoleMessages {
         $targetMessage.find('.action.requery').click(function () {
             var query = $(this).parent().siblings('.query').text();
             var $message = $(this).closest('.message');
-            if (confirm(PMA_messages.strConsoleRequeryConfirm + '\n' +
+            if (confirm(messages.strConsoleRequeryConfirm + '\n' +
                 (query.length < 100 ? query : query.slice(0, 100) + '...'))
             ) {
                 self.pmaConsole.execute(query, { db: $message.attr('targetdb'), table: $message.attr('targettable') });
@@ -189,7 +197,7 @@ export default class PMA_consoleMessages {
         });
         $targetMessage.find('.action.delete_bookmark').click(function () {
             var $message = $(this).closest('.message');
-            if (confirm(PMA_messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
+            if (confirm(messages.strConsoleDeleteBookmarkConfirm + '\n' + $message.find('.bookmark_label').text())) {
                 $.post('import.php',
                     {
                         server: PMA_commonParams.get('server'),

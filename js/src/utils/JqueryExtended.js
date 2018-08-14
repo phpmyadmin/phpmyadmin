@@ -15,7 +15,7 @@ import { PMA_Messages as PMA_messages } from '../variables/export_variables';
  * Make sure that ajax requests will not be cached
  * by appending a random variable to their parameters
  */
-$.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+$.ajaxPrefilter(function (options, originalOptions) {
     var nocache = new Date().getTime() + '' + Math.floor(Math.random() * 1000000);
     if (typeof options.data === 'string') {
         options.data += '&_nocache=' + nocache + '&token=' + encodeURIComponent(PMA_commonParams.get('token'));
@@ -250,4 +250,6 @@ export function extendingValidatorMessages () {
 
 window.jQ = $;
 
-export const jQuery = $;
+export {
+    $
+};
