@@ -2237,6 +2237,7 @@ fieldset .disabled-field td {
     margin-left: -5px;  /* must be minus half of its width */
     margin-top: -10px;
     position: absolute;
+    top: 0;
     width: 10px;
 }
 
@@ -3343,6 +3344,10 @@ body .ui-dialog .ui-button-text-only .ui-button-text {
 
 .scrollindicator {
     display: none;
+}
+
+.responsivetable, .responsivetable > .data{
+    overflow-x: auto;
 }
 
 @media only screen and (max-width: 768px) {

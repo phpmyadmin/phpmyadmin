@@ -401,13 +401,19 @@ AJAX.registerOnload('sql.js', function () {
         $('.sticky_columns').remove();
         $('.table_results').each(function () {
             var $table_results = $(this);
+
             // add sticky columns div
             var $stick_columns = initStickyColumns($table_results);
             rearrangeStickyColumns($stick_columns, $table_results);
-            // adjust sticky columns on scroll
-            $(window).on('scroll', function () {
+
+            // scroll event callback function
+            var scrollEventCallback = function () {
                 handleStickyColumns($stick_columns, $table_results);
-            });
+            };
+
+            // adjust sticky columns on scroll
+            $(window).on('scroll', scrollEventCallback);
+            $('.table_results').closest('.data').on('scroll', scrollEventCallback);
         });
     });
 
@@ -1057,13 +1063,8 @@ function rearrangeStickyColumns ($sticky_columns, $table_results) {
     var $originalColumns = $originalHeader.find('tr:first').children();
     var $clonedHeader = $originalHeader.clone();
     // clone width per cell
-    $clonedHeader.find('tr:first').children().width(function (i,val) {
-        var width = $originalColumns.eq(i).width();
-        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
-        if (! is_firefox) {
-            width += 1;
-        }
-        return width;
+    $clonedHeader.find('tr:first').children().css('min-width', function (i) {
+        return $originalColumns.eq(i).width();
     });
     $sticky_columns.empty().append($clonedHeader);
 }
@@ -1081,11 +1082,13 @@ function handleAllStickyColumns () {
  * Adjust sticky columns on horizontal/vertical scroll
  */
 function handleStickyColumns ($sticky_columns, $table_results) {
-    var currentScrollX = $(window).scrollLeft();
+    var currentScrollX = $table_results.closest('.data').scrollLeft();
     var windowOffset = $(window).scrollTop();
     var tableStartOffset = $table_results.offset().top;
     var tableEndOffset = tableStartOffset + $table_results.height();
-    if (windowOffset >= tableStartOffset && windowOffset <= tableEndOffset) {
+    var stickyColumnsUpperBoundary = windowOffset + $sticky_columns.height() + $('#floating_menubar').height() + 1;
+    var tableBodyOffset = $table_results.find('tbody').offset().top;
+    if (stickyColumnsUpperBoundary >= tableBodyOffset && windowOffset <= tableEndOffset) {
         // for horizontal scrolling
         if (prevScrollX !== currentScrollX) {
             prevScrollX = currentScrollX;
