@@ -5109,43 +5109,46 @@ jQuery.fn.getPostData = function () {
 
 AJAX.registerOnload('functions.js', function () {
     /* Save username and server cookies on login */
-    if (isStorageSupported('localStorage') && $("#login_form").length > 0) {
-        // $("#login_form").removeClass('disableAjax');
-        $("#login_form").on("submit", function() {
-            username = $("#input_username").val();
-            server = 1;
-            if($("#select_server").length) {
-                server = $("#select_server").val();
+    var username;
+    var server = 1;
+    if (isStorageSupported('localStorage') && $('#login_form').length > 0) {
+        $('#login_form').on('submit', function () {
+            username = $('#input_username').val();
+            if ($('#select_server').length) {
+                server = $('#select_server').val();
             }
-            var configurations = localStorage.getItem(username + "/" + server);
-            if(typeof configurations !== 'undefined' && configurations !== null) {
-                 configurations = JSON.stringify(configurations);
+            var configurations = localStorage.getItem(username + '/' + server);
+            if (typeof configurations !== 'undefined' && configurations !== null) {
+                configurations = JSON.stringify(configurations);
                 $('<input />').attr('type', 'hidden')
                     .attr('name', 'configurations')
                     .attr('value', configurations)
                     .appendTo('#login_form');
             }
         });
-    } else if(isStorageSupported('localStorage') && $("#login_form").length === 0) {
-        var username = PMA_commonParams.get('user');
-        var server = PMA_commonParams.get('server');
-        var configurations = localStorage.getItem(username + "/" + server);
-        if(typeof configurations === 'undefined' || configurations === null) {
+    } else if (isStorageSupported('localStorage') && $('#login_form').length === 0) {
+        username = PMA_commonParams.get('user');
+        server = PMA_commonParams.get('server');
+        var configurations = localStorage.getItem(username + '/' + server);
+        if (typeof configurations === 'undefined' || configurations === null) {
             configurations = [];
         } else {
             configurations = JSON.parse(configurations);
         }
-        for(i = 0; i < configurations.length; ++i) {
+        for (var i = 0; i < configurations.length; ++i) {
             currentConfig = configurations[i];
-            type = currentConfig["type"];
-            if(type === "") break;
-            for(var j = 0; j < currentConfig["configurations"].length; ++j) {
-                config = currentConfig["configurations"][j];
-                if(type === "General") {
-                    configSet(config["name"], config["value"]);
-                } else {
-                    configSet(type + "/" + config["name"], config["value"]);
-                }
+            type = currentConfig.type;
+            if (type === '') {
+                break;
+            }
+            if (type === 'General') {
+                type = '';
+            } else {
+                type = type + '/';
+            }
+            for (var j = 0; j < currentConfig.configurations.length; ++j) {
+                config = currentConfig.configurations[j];
+                configSet(type + config.name, config.value);
             }
         }
     }

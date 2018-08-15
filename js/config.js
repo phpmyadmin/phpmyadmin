@@ -631,9 +631,9 @@ AJAX.registerOnload('config.js', function () {
     };
     tab_check_fnc();
     setInterval(tab_check_fnc, 200);
-    //disable Message if local storage is supported
-    if(isStorageSupported("localStorage")) {
-        $("#noCfg").remove();
+    // disable Message if local storage is supported
+    if (isStorageSupported('localStorage')) {
+        $('#noCfg').remove();
     }
 });
 
@@ -655,13 +655,13 @@ AJAX.registerOnload('config.js', function () {
     $('.optbox input[type=submit][name=submit_save]').on('click', function () {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         // Class defining a configuration
-        function Config(name, value) {
+        function Config (name, value) {
             this.name = name;
             this.value = value;
         }
         // Class defining the path of configuration
-        function ConfigType() {
-            this.type = "";
+        function ConfigType () {
+            this.type = '';
             this.configurations = [];
         }
         // Username and server are used to uniquely identify the config.
@@ -672,49 +672,67 @@ AJAX.registerOnload('config.js', function () {
             var $field = $(fields[i]);
             var fieldType = getFieldType($field);
             var isDefault = checkFieldDefault($field, fieldType);
-            if(! isDefault) {
+            if (! isDefault) {
                 var tmp = $field.attr('name').split('-');
-                var configName = "";
-                if(tmp.length === 1) {
+                var configName = '';
+                if (tmp.length === 1) {
                     configName = tmp[0];
-                    if(configType.type === "") configType.type = "General";
+                    if (configType.type === '') {
+                        configType.type = 'General';
+                    }
                 } else {
                     configName = tmp[1];
-                    if(configType.type === "") configType.type =  tmp[0];
+                    if (configType.type === '') {
+                        configType.type =  tmp[0];
+                    }
                 }
                 var configValue = getFieldValue($field, fieldType);
-                if(Array.isArray(configValue)) {
+                if (Array.isArray(configValue)) {
                     configValue = configValue[0];
                 }
                 config = new Config(configName, configValue);
                 configType.configurations.push(config);
-            }
-        }
-
-        var currentConfig = JSON.parse(localStorage.getItem(username + "/" + server));
-        if(typeof currentConfig === 'undefined' || currentConfig === null) {
-            currentConfig = [];
-        }
-        // find if the current type of configuration is already stored in the local storage
-        var ind = currentConfig.findIndex(function(elem) {
-            return elem.type === configType.type;
-        });
-        if(ind === -1) {
-            currentConfig.push(configType);
-        } else {
-            // if yes, update the values
-            for(var j = 0, jmax = configType.configurations.length; j < jmax; ++j) {
-                var index = currentConfig[ind].configurations.findIndex(function(elem) {
-                    return elem.name === configType.configurations[j].name;
-                });
-                if(index === -1) {
-                    currentConfig[ind].configurations.push(configType.configurations[j]);
+            } else if (configType.type === '') {
+                var tmp = $field.attr('name').split('-');
+                if (tmp.length === 1) {
+                    configType.type = 'General';
                 } else {
-                    currentConfig[ind].configurations[index] = configType.configurations[j];
+                    configType.type =  tmp[0];
                 }
             }
         }
-        localStorage.setItem(username + "/" + server, JSON.stringify(currentConfig));
+
+        var currentConfig = JSON.parse(localStorage.getItem(username + '/' + server));
+        if (typeof currentConfig === 'undefined' || currentConfig === null) {
+            currentConfig = [];
+        }
+        // find if the current type of configuration is already stored in the local storage
+        var ind = currentConfig.findIndex(function (elem) {
+            return elem.type === configType.type;
+        });
+        if (ind === -1) { // not found
+            // if user hasn't reset the configurations, push them
+            if (configType.configurations.length !== 0) {
+                currentConfig.push(configType);
+            }
+        } else {    // found
+            // if user has reset all the changed configurations, remove them from the stored ones.
+            if (configType.configurations.length === 0) {
+                currentConfig.splice(ind, 1);
+            } else {
+                for (var j = 0, jmax = configType.configurations.length; j < jmax; ++j) {
+                    var index = currentConfig[ind].configurations.findIndex(function (elem) {
+                        return elem.name === configType.configurations[j].name;
+                    });
+                    if (index === -1) {
+                        currentConfig[ind].configurations.push(configType.configurations[j]);
+                    } else {
+                        currentConfig[ind].configurations[index] = configType.configurations[j];
+                    }
+                }
+            }
+        }
+        localStorage.setItem(username + '/' + server, JSON.stringify(currentConfig));
     });
 });
 
