@@ -365,7 +365,7 @@ class Table
      * @return string Return comment info if it is set for the selected table or return blank.
      */
     public function getComment() {
-        $table_comment = $this->getStatusInfo('COMMENT', false, true);
+        $table_comment = $this->getStatusInfo('TABLE_COMMENT', false, true);
         if ($table_comment === false) {
             return '';
         }
