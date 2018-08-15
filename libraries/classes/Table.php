@@ -370,7 +370,7 @@ class Table
      */
     public function getComment()
     {
-        $table_comment = $this->getStatusInfo('COMMENT', false, true);
+        $table_comment = $this->getStatusInfo('TABLE_COMMENT', false, true);
         if ($table_comment === false) {
             return '';
         }
