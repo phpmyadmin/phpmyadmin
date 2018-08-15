@@ -1,4 +1,5 @@
 import { AJAX } from './ajax';
+import { $ } from './utils/JqueryExtended';
 import CommonParams from './variables/common_params';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 
