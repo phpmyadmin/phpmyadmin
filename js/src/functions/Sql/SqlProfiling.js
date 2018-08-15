@@ -1,5 +1,5 @@
 import { createProfilingChart } from '../chart';
-import { $ } from '../../utils/extend_jquery';
+import { $ } from '../../utils/JqueryExtended';
 import '../../plugins/jquery/jquery.tablesorter';
 
 /*
