@@ -221,7 +221,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertContains(
             '<form method="post" id="login_form" action="index.php" name="login_form" ' .
-            'class="disableAjax login hide js-show">',
+            'class="(disableAjax hide login js-show|login js-show)">',
             $result
         );
 
@@ -324,7 +324,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertContains(
             '<form method="post" id="login_form" action="index.php" name="login_form" ' .
-            'autocomplete="off" class="disableAjax login hide js-show">',
+            'class="(disableAjax hide login js-show|login js-show)">',
             $result
         );
 

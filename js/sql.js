@@ -177,7 +177,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('mouseenter', 'th.column_heading.pointer');
     $(document).off('mouseleave', 'th.column_heading.pointer');
     $(document).off('click', 'th.column_heading.marker');
-    $(window).off('scroll');
+    $(document).off('scroll', window);
     $(document).off('keyup', '.filter_rows');
     $(document).off('click', '#printView');
     if (codemirror_editor) {
@@ -405,7 +405,7 @@ AJAX.registerOnload('sql.js', function () {
             var $stick_columns = initStickyColumns($table_results);
             rearrangeStickyColumns($stick_columns, $table_results);
             // adjust sticky columns on scroll
-            $(window).on('scroll', function () {
+            $(document).on('scroll', window, function () {
                 handleStickyColumns($stick_columns, $table_results);
             });
         });

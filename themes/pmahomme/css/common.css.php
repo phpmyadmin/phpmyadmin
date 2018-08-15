@@ -909,6 +909,28 @@ body#loginform div.container {
     margin: 0 auto;
 }
 
+div.container.modal_form {
+    margin: 0 auto;
+    width: 30em;
+    text-align: center;
+    background: #fff;
+    z-index: 999;
+}
+
+#login_form {
+    text-align: left;
+}
+
+div#modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    z-index: 900;
+}
+
 form.login label {
     float: <?php echo $left; ?>;
     width: 10em;
