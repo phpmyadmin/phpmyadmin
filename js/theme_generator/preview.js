@@ -22,7 +22,6 @@ AJAX.registerTeardown('theme_generator/preview.js',function () {
     );
     var head = document.getElementsByTagName('head')[0];
     head.removeChild(head.lastChild);
-
 });
 
 $(document).on('click', '#preview' ,function () {
@@ -50,11 +49,11 @@ var tablePreview = function (id) {
     var headerDeclarations = document.createTextNode(cssText);
     style.type = 'text/css';
     if (style.styleSheet) {
-      style.styleSheet.cssText = hoverDeclarations.nodeValue;
-      style.styleSheet.cssText += headerDeclarations.nodeValue;
+        style.styleSheet.cssText = hoverDeclarations.nodeValue;
+        style.styleSheet.cssText += headerDeclarations.nodeValue;
     } else {
-      style.appendChild(hoverDeclarations);
-      style.appendChild(headerDeclarations);
+        style.appendChild(hoverDeclarations);
+        style.appendChild(headerDeclarations);
     }
     head.appendChild(style);
 };
