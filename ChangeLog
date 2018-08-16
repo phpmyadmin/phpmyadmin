@@ -29,6 +29,7 @@ phpMyAdmin - ChangeLog
 - issue #14525 Fix PHP 7.3 warning: "continue" in "switch" is equal to "break"
 - issue #14554 Icon missing when creating a new trigger, routine, and event
 - issue #14422 Table comment not showing since 4.8.1
+- issue #14426 Drop table doesn't work when you copy tables to another database
 
 4.8.2 (2018-06-21)
 - issue #14370 WHERE 0 causes Fatal error
