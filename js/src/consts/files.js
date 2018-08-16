@@ -23,9 +23,10 @@ const files = {
     server_export: ['export'],
     server_import: ['import'],
     db_search: ['db_search', 'sql'],
-    server_sql: ['multi_column_sort', 'sql'],
-    tbl_sql: ['sql'],
-    db_sql: ['sql']
+    server_sql: ['sql', 'multi_column_sort'],
+    tbl_sql: ['sql', 'multi_column_sort'],
+    db_sql: ['sql', 'multi_column_sort'],
+    sql: ['sql', 'multi_column_sort']
 };
 
 export default files;

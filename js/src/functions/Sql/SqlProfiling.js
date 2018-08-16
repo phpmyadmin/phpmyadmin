@@ -1,4 +1,6 @@
 import { createProfilingChart } from '../chart';
+import { $ } from '../../utils/JqueryExtended';
+import '../../plugins/jquery/jquery.tablesorter';
 
 /*
  * Profiling Chart
