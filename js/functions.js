@@ -980,16 +980,16 @@ AJAX.registerOnload('functions.js', function () {
                         window.sessionStorage.clear();
                     }
                     // append the login form on the page, disable all the forms which were not disabled already, close all the open jqueryui modal boxes
-                    if (!$("#modalOverlay").length) {
-                        $("fieldset").not(':disabled').attr("disabled", "disabled").addClass("disabled_for_expiration");
+                    if (!$('#modalOverlay').length) {
+                        $('fieldset').not(':disabled').attr('disabled', 'disabled').addClass('disabled_for_expiration');
                         $('body').append(data.error);
-                        $(".ui-dialog").each(function(i) {
-                            $("#" + $(this).attr("aria-describedby")).dialog("close");
+                        $('.ui-dialog').each(function (i) {
+                            $('#' + $(this).attr('aria-describedby')).dialog('close');
                         });
-                        $("#input_username").focus();
+                        $('#input_username').focus();
                     } else {
-                        PMA_commonParams.set("token", data.new_token);
-                        $("input[name=token]").val(data.new_token);
+                        PMA_commonParams.set('token', data.new_token);
+                        $('input[name=token]').val(data.new_token);
                     }
                     _idleSecondsCounter = 0;
                 }
@@ -4334,7 +4334,7 @@ function PMA_slidingMessage (msg, $obj) {
  */
 AJAX.registerOnload('functions.js', function () {
     var $elm = $('#sqlquery');
-    if ($elm.siblings().filter(".CodeMirror").length > 0) {
+    if ($elm.siblings().filter('.CodeMirror').length > 0) {
         return;
     }
     if ($elm.length > 0) {
