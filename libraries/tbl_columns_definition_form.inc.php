@@ -60,10 +60,10 @@ if ($action == 'tbl_create.php') {
     if ($action == 'tbl_addfield.php') {
         $form_params = array_merge(
             $form_params, array(
-            'field_where' => Util::getValueByKey($_REQUEST, 'field_where'))
+            'field_where' => Util::getValueByKey($_POST, 'field_where'))
         );
-        if (isset($_REQUEST['field_where'])) {
-            $form_params['after_field'] = $_REQUEST['after_field'];
+        if (isset($_POST['field_where'])) {
+            $form_params['after_field'] = $_POST['after_field'];
         }
     }
     $form_params['table'] = $table;
@@ -76,8 +76,8 @@ if (isset($num_fields)) {
 $form_params = array_merge(
     $form_params,
     array(
-        'orig_field_where' => Util::getValueByKey($_REQUEST, 'field_where'),
-        'orig_after_field' => Util::getValueByKey($_REQUEST, 'after_field'),
+        'orig_field_where' => Util::getValueByKey($_POST, 'field_where'),
+        'orig_after_field' => Util::getValueByKey($_POST, 'after_field'),
     )
 );
 
@@ -114,8 +114,8 @@ if (isset($field_fulltext) && is_array($field_fulltext)) {
         $submit_fulltext[$fulltext_indexkey] = $fulltext_indexkey;
     }
 }
-if (isset($_REQUEST['submit_num_fields'])
-    || isset($_REQUEST['submit_partition_change'])
+if (isset($_POST['submit_num_fields'])
+    || isset($_POST['submit_partition_change'])
 ) {
     //if adding new fields, set regenerate to keep the original values
     $regenerate = 1;
@@ -143,38 +143,38 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             $columnMeta,
             array(
                 'Field'        => Util::getValueByKey(
-                    $_REQUEST, "field_name.${columnNumber}", false
+                    $_POST, "field_name.${columnNumber}", false
                 ),
                 'Type'         => Util::getValueByKey(
-                    $_REQUEST, "field_type.${columnNumber}", false
+                    $_POST, "field_type.${columnNumber}", false
                 ),
                 'Collation'    => Util::getValueByKey(
-                    $_REQUEST, "field_collation.${columnNumber}", ''
+                    $_POST, "field_collation.${columnNumber}", ''
                 ),
                 'Null'         => Util::getValueByKey(
-                    $_REQUEST, "field_null.${columnNumber}", ''
+                    $_POST, "field_null.${columnNumber}", ''
                 ),
                 'DefaultType'  => Util::getValueByKey(
-                    $_REQUEST, "field_default_type.${columnNumber}", 'NONE'
+                    $_POST, "field_default_type.${columnNumber}", 'NONE'
                 ),
                 'DefaultValue' => Util::getValueByKey(
-                    $_REQUEST, "field_default_value.${columnNumber}", ''
+                    $_POST, "field_default_value.${columnNumber}", ''
                 ),
                 'Extra'        => Util::getValueByKey(
-                    $_REQUEST, "field_extra.${columnNumber}", false
+                    $_POST, "field_extra.${columnNumber}", false
                 ),
                 'Virtuality'   => Util::getValueByKey(
-                    $_REQUEST, "field_virtuality.${columnNumber}", ''
+                    $_POST, "field_virtuality.${columnNumber}", ''
                 ),
                 'Expression'   => Util::getValueByKey(
-                    $_REQUEST, "field_expression.${columnNumber}", ''
+                    $_POST, "field_expression.${columnNumber}", ''
                 ),
             )
         );
 
         $columnMeta['Key'] = '';
         $parts = explode(
-            '_', Util::getValueByKey($_REQUEST, "field_key.${columnNumber}", ''), 2
+            '_', Util::getValueByKey($_POST, "field_key.${columnNumber}", ''), 2
         );
         if (count($parts) == 2 && $parts[1] == $columnNumber) {
             $columnMeta['Key'] = Util::getValueByKey(
@@ -208,23 +208,23 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
             break;
         }
 
-        $length = Util::getValueByKey($_REQUEST, "field_length.${columnNumber}", $length);
+        $length = Util::getValueByKey($_POST, "field_length.${columnNumber}", $length);
         $submit_attribute = Util::getValueByKey(
-            $_REQUEST, "field_attribute.${columnNumber}", false
+            $_POST, "field_attribute.${columnNumber}", false
         );
         $comments_map[$columnMeta['Field']] = Util::getValueByKey(
-            $_REQUEST, "field_comments.${columnNumber}"
+            $_POST, "field_comments.${columnNumber}"
         );
 
         $mime_map[$columnMeta['Field']] = array_merge(
             $mime_map[$columnMeta['Field']],
             array(
-                'mimetype' => Util::getValueByKey($_REQUEST, "field_mimetype.${$columnNumber}"),
+                'mimetype' => Util::getValueByKey($_POST, "field_mimetype.${$columnNumber}"),
                 'transformation' => Util::getValueByKey(
-                    $_REQUEST, "field_transformation.${$columnNumber}"
+                    $_POST, "field_transformation.${$columnNumber}"
                 ),
                 'transformation_options' => Util::getValueByKey(
-                    $_REQUEST, "field_transformation_options.${$columnNumber}"
+                    $_POST, "field_transformation_options.${$columnNumber}"
                 ),
             )
         );
@@ -405,17 +405,17 @@ $html = Template::get('columns_definitions/column_definitions_form')->render([
     'form_params' => $form_params,
     'content_cells' => $content_cells,
     'partition_details' => $partitionDetails,
-    'primary_indexes' => isset($_REQUEST['primary_indexes']) ? $_REQUEST['primary_indexes'] : null,
-    'unique_indexes' => isset($_REQUEST['unique_indexes']) ? $_REQUEST['unique_indexes'] : null,
-    'indexes' => isset($_REQUEST['indexes']) ? $_REQUEST['indexes'] : null,
-    'fulltext_indexes' => isset($_REQUEST['fulltext_indexes']) ? $_REQUEST['fulltext_indexes'] : null,
-    'spatial_indexes' => isset($_REQUEST['spatial_indexes']) ? $_REQUEST['spatial_indexes'] : null,
-    'table' => isset($_REQUEST['table']) ? $_REQUEST['table'] : null,
-    'comment' => isset($_REQUEST['comment']) ? $_REQUEST['comment'] : null,
-    'tbl_collation' => isset($_REQUEST['tbl_collation']) ? $_REQUEST['tbl_collation'] : null,
-    'tbl_storage_engine' => isset($_REQUEST['tbl_storage_engine']) ? $_REQUEST['tbl_storage_engine'] : null,
-    'connection' => isset($_REQUEST['connection']) ? $_REQUEST['connection'] : null,
-    'change_column' => isset($_REQUEST['change_column']) ? $_REQUEST['change_column'] : null,
+    'primary_indexes' => isset($_POST['primary_indexes']) ? $_POST['primary_indexes'] : null,
+    'unique_indexes' => isset($_POST['unique_indexes']) ? $_POST['unique_indexes'] : null,
+    'indexes' => isset($_POST['indexes']) ? $_POST['indexes'] : null,
+    'fulltext_indexes' => isset($_POST['fulltext_indexes']) ? $_POST['fulltext_indexes'] : null,
+    'spatial_indexes' => isset($_POST['spatial_indexes']) ? $_POST['spatial_indexes'] : null,
+    'table' => isset($_POST['table']) ? $_POST['table'] : null,
+    'comment' => isset($_POST['comment']) ? $_POST['comment'] : null,
+    'tbl_collation' => isset($_POST['tbl_collation']) ? $_POST['tbl_collation'] : null,
+    'tbl_storage_engine' => isset($_POST['tbl_storage_engine']) ? $_POST['tbl_storage_engine'] : null,
+    'connection' => isset($_POST['connection']) ? $_POST['connection'] : null,
+    'change_column' => isset($_POST['change_column']) ? $_POST['change_column'] : null,
     'is_virtual_columns_supported' => Util::isVirtualColumnsSupported(),
     'browse_mime' => isset($GLOBALS['cfg']['BrowseMIME']) ? $GLOBALS['cfg']['BrowseMIME'] : null,
     'server_type' => Util::getServerType(),
