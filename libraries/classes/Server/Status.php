@@ -14,7 +14,6 @@ namespace PhpMyAdmin\Server;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\DatabaseInterface;
 
 /**
  * PhpMyAdmin\Server\Status
