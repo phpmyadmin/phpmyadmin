@@ -14,7 +14,7 @@
  * Actions ajaxified here:
  * Retrieve result of SQL query
  */
-
+import { $ } from './utils/JqueryExtended';
 import { PMA_Messages as messages } from './variables/export_variables';
 import { PMA_ajaxShowMessage, PMA_sprintf, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import PMA_commonParams from './variables/common_params';
