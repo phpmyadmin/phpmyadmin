@@ -1400,7 +1400,7 @@ table#serverstatusvariables .name {
 table#serverstatusvariables .value {
     width: 6em;
 }
-table#serverstatusconnections {
+table#serverstatusconnections, table#numRelations {
     float: <?php echo $left; ?>;
     margin-<?php echo $left; ?>: 30px;
 }
@@ -3654,7 +3654,7 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         display: none;
     }
 
-    table#serverstatusconnections {
+    table#serverstatusconnections, table#numRelations {
         margin-left: 0;
     }
 
