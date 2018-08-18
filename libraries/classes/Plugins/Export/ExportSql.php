@@ -1400,7 +1400,7 @@ class ExportSql extends ExportPlugin
         // with $GLOBALS['dbi']->numRows() in mysqli
         $result = $GLOBALS['dbi']->tryQuery(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
-            . ' WHERE Name = \'' . $GLOBALS['dbi']->escapeString($table) . '\'',
+            . ' WHERE Name = \'' . $GLOBALS['dbi']->escapeString((string)$table) . '\'',
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );

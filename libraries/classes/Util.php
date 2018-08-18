@@ -944,7 +944,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (strlen($a_name) > 0 && $a_name !== '*') {
+        if (strlen((string)$a_name) > 0 && $a_name !== '*') {
             return $quote . $a_name . $quote;
         }
 
