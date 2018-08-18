@@ -1,4 +1,5 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { $ } from './utils/JqueryExtended';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_sprintf } from './utils/sprintf';
 import { escapeHtml } from './utils/Sanitise';
