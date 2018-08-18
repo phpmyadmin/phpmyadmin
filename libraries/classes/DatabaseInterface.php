@@ -901,7 +901,7 @@ class DatabaseInterface
                                            AS SCHEMA_DATA_FREE';
             }
             $sql .= '
-                   FROM `information_schema`.SCHEMATA s';
+                   FROM `information_schema`.SCHEMATA s ';
             if ($force_stats) {
                 $sql .= '
                     LEFT JOIN `information_schema`.TABLES t

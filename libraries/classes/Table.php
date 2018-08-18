@@ -245,8 +245,8 @@ class Table
         $result = $this->_dbi->fetchResult(
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = '" . $GLOBALS['dbi']->escapeString($db) . "'
-                AND TABLE_NAME = '" . $GLOBALS['dbi']->escapeString($table) . "'"
+            WHERE TABLE_SCHEMA = '" . $GLOBALS['dbi']->escapeString((string)$db) . "'
+                AND TABLE_NAME = '" . $GLOBALS['dbi']->escapeString((string)$table) . "'"
         );
         return $result ? true : false;
     }
@@ -370,7 +370,7 @@ class Table
      */
     public function getComment()
     {
-        $table_comment = $this->getStatusInfo('COMMENT', false, true);
+        $table_comment = $this->getStatusInfo('TABLE_COMMENT', false, true);
         if ($table_comment === false) {
             return '';
         }
@@ -850,14 +850,14 @@ class Table
         $where_parts = [];
         foreach ($where_fields as $_where => $_value) {
             $where_parts[] = Util::backquote($_where) . ' = \''
-                . $GLOBALS['dbi']->escapeString($_value) . '\'';
+                . $GLOBALS['dbi']->escapeString((string)$_value) . '\'';
         }
 
         $new_parts = [];
         $new_value_parts = [];
         foreach ($new_fields as $_where => $_value) {
             $new_parts[] = Util::backquote($_where);
-            $new_value_parts[] = $GLOBALS['dbi']->escapeString($_value);
+            $new_value_parts[] = $GLOBALS['dbi']->escapeString((string)$_value);
         }
 
         $table_copy_query = '
@@ -1290,7 +1290,7 @@ class Table
                 . $GLOBALS['dbi']->escapeString($source_db) . '\''
                 . ' AND '
                 . ' table_name = \''
-                . $GLOBALS['dbi']->escapeString($source_table) . '\''
+                . $GLOBALS['dbi']->escapeString((string)$source_table) . '\''
             );
 
             // Write every comment as new copied entry. [MIME]
@@ -1453,7 +1453,7 @@ class Table
      */
     public static function isValidName($table_name, $is_backquoted = false)
     {
-        if ($table_name !== rtrim($table_name)) {
+        if ($table_name !== rtrim((string)$table_name)) {
             // trailing spaces not allowed even in backquotes
             return false;
         }

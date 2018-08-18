@@ -1341,11 +1341,11 @@ class TableTest extends PmaTestCase
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
-        $tbl_object = new Table($target_db, $target_table);
-        $tbl_object->getStatusInfo(null, true);
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $expect = '';
+        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object->getStatusInfo(null, true);
+        $expect = 'DBIDUMMY';
         $tbl_storage_engine = $dbi->getTable(
             $target_db,
             $target_table
@@ -1365,11 +1365,11 @@ class TableTest extends PmaTestCase
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
-        $tbl_object = new Table($target_db, $target_table);
-        $tbl_object->getStatusInfo(null, true);
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $expect = '';
+        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object->getStatusInfo(null, true);
+        $expect = 'Test comment for "table1" in \'pma_test\'';
         $show_comment = $dbi->getTable(
             $target_db,
             $target_table
@@ -1389,11 +1389,11 @@ class TableTest extends PmaTestCase
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
-        $tbl_object = new Table($target_db, $target_table);
-        $tbl_object->getStatusInfo(null, true);
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $expect = '';
+        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object->getStatusInfo(null, true);
+        $expect = 'utf8mb4_general_ci';
         $tbl_collation = $dbi->getTable(
             $target_db,
             $target_table
@@ -1413,11 +1413,11 @@ class TableTest extends PmaTestCase
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
-        $tbl_object = new Table($target_db, $target_table);
-        $tbl_object->getStatusInfo(null, true);
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $expect = '';
+        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object->getStatusInfo(null, true);
+        $expect = 'Redundant';
         $row_format = $dbi->getTable(
             $target_db,
             $target_table
@@ -1437,11 +1437,11 @@ class TableTest extends PmaTestCase
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
-        $tbl_object = new Table($target_db, $target_table);
-        $tbl_object->getStatusInfo(null, true);
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $expect = '';
+        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object->getStatusInfo(null, true);
+        $expect = '5';
         $auto_increment = $dbi->getTable(
             $target_db,
             $target_table
@@ -1461,11 +1461,11 @@ class TableTest extends PmaTestCase
     {
         $target_table = 'table1';
         $target_db = 'pma_test';
-        $tbl_object = new Table($target_db, $target_table);
-        $tbl_object->getStatusInfo(null, true);
         $extension = new DbiDummy();
         $dbi = new DatabaseInterface($extension);
-        $expect = ['pack_keys' => 'DEFAULT'];
+        $tbl_object = new Table($target_db, $target_table, $dbi);
+        $tbl_object->getStatusInfo(null, true);
+        $expect = ['pack_keys' => 'DEFAULT', 'row_format' => 'REDUNDANT'];
         $create_options = $dbi->getTable(
             $target_db,
             $target_table

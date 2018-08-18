@@ -89,7 +89,7 @@
         "bacon/bacon-qr-code": "^1.0",
         "samyoul/u2f-php-server": "^1.1",
         "phpmyadmin/coding-standard": "^0.3",
-        "phpstan/phpstan": "dev-master#d04bf35ce378305ee5740d7b5ce672d1373175bb"
+        "phpstan/phpstan": "^0.10.3"
     },
     "extra": {
         "branch-alias": {

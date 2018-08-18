@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-05-18 01:25+0000\n"
+"PO-Revision-Date: 2018-08-16 19:16+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -1962,6 +1962,8 @@ msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Sul on varem salvestatud päring. Päringu laadimiseks klõpsa Hangi "
+"autosalvestatud päring."
 
 #: js/messages.php:427
 #, php-format
@@ -2291,7 +2293,7 @@ msgstr ""
 
 #: js/messages.php:564
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "väärtus/alampäring on tühi"
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -14241,7 +14243,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:9
 msgid "Secret/key:"
-msgstr ""
+msgstr "Saladus/võti:"
 
 #: templates/login/twofactor/application_configure.twig:12
 #: templates/login/twofactor/application.twig:2
@@ -15486,7 +15488,7 @@ msgstr "Muuda vaadet"
 #: templates/table/structure/display_structure.twig:191
 #: templates/table/structure/display_partitions.twig:4
 msgid "Partitions"
-msgstr "Partitsioonid"
+msgstr "Jaotised"
 
 #: templates/prefs_twofactor_confirm.twig:2
 msgid "Confirm disabling two-factor authentication"

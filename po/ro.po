@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-05-28 21:06-0300\n"
-"PO-Revision-Date: 2018-07-27 21:17+0000\n"
+"PO-Revision-Date: 2018-08-13 08:42+0000\n"
 "Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 3.1.1\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1150
 msgid "Bad type!"
@@ -765,15 +765,14 @@ msgid "License"
 msgstr "Licență"
 
 #: index.php:490
-#, fuzzy
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"Nu s-a găsit extensia PHP mbstring și se pare că folosiți un set de "
-"charactere multi-octet. Fără extensia mbstring, phpMyAdmin nu poate diviza "
-"șirurile de caractere corect, fapt ce poate duce la rezultate neașteptate."
+"Extensia PHP mbstring nu a fost găsită și se pare că folosești un set de "
+"caractere multi-octet. Fără extensia mbstring, phpMyAdmin nu poate să "
+"împartă corect șirurile și pot apărea rezultate neașteptate."
 
 #: index.php:505
 msgid ""
@@ -1507,15 +1506,13 @@ msgstr ""
 "ora de pornire, pot să difere."
 
 #: js/messages.php:277
-#, fuzzy
 msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
-"Din moment ce gruparea interogărilor INSERT a fost aleasă, interogările "
-"INSERT în același tabel sunt și ele grupate împreună, indiferent de datele "
-"inserate."
+"Deoarece a fost selectată gruparea interogărilor INSERT, interogările INSERT "
+"din același tabel sunt și ele grupate împreună, ignorând datele introduse."
 
 #: js/messages.php:282
 msgid "Log data loaded. Queries executed in this time span:"
@@ -2947,7 +2944,7 @@ msgstr "Săpt."
 #: js/messages.php:894
 #, fuzzy
 msgid "calendar-month-year"
-msgstr "calendar-lună-an"
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:897
@@ -3257,8 +3254,6 @@ msgid "Binary"
 msgstr "Binar"
 
 #: libraries/classes/Charsets.php:338 libraries/classes/Charsets.php:568
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicod"
@@ -3289,11 +3284,9 @@ msgid "Japanese"
 msgstr "Japoneză"
 
 #: libraries/classes/Charsets.php:377
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "Baltic"
+msgstr "Baltică"
 
 #: libraries/classes/Charsets.php:382
 msgctxt "Collation"
@@ -4577,7 +4570,7 @@ msgstr "Numele coloanelor în primul rând"
 #: libraries/classes/Config/Descriptions.php:670
 #: libraries/classes/Plugins/Import/ImportOds.php:75
 msgid "Do not import empty rows"
-msgstr "Nu importă rânduri goale"
+msgstr "Nu importa rânduri goale"
 
 #: libraries/classes/Config/Descriptions.php:672
 msgid "Import currencies ($5.00 to 5.00)"
@@ -10021,14 +10014,12 @@ msgstr ""
 "output va fi afișat fără reformatare (implicit 1)"
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:30
-#, fuzzy
-#| msgid ""
-#| "plays the contents of the field as-is, without running it through "
-#| "lspecialchars(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
-msgstr "Menține formatarea originală a câmpului."
+msgstr ""
+"Afișează conținutul coloanei așa cum este, fără a o rula prin "
+"htmlspecialchars(). Adică, coloana acceptă să conțină HTML valid."
 
 #: libraries/classes/Plugins/Transformations/Abs/HexTransformationsPlugin.php:30
 msgid ""
@@ -14535,13 +14526,12 @@ msgstr ""
 "( '\\\\xyz' or 'a\\'b')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
-#, fuzzy
 msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
-"Pentru valorile implicite, vă rugăm să introduceți o singură valoare, fără "
-"backslash, escape sau ghilimele, folosind formatul: a"
+"Pentru valori implicite, te rog introdu o singură valoare, fără linie oblică "
+"sau ghilimele, folosind acest format: a"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
@@ -15981,10 +15971,9 @@ msgid "Add privileges on the following routine:"
 msgstr "Adaugă privilegii la următoarea rutină:"
 
 #: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
+#, php-format
 msgid "Referenced by %s."
-msgstr "Alegere cheie referențiată"
+msgstr "Face referire la %s."
 
 #: templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
@@ -17143,10 +17132,8 @@ msgstr ""
 "pe oră"
 
 #: libraries/advisory_rules.txt:316
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Formatul fișierului importat"
+msgstr "Procentul limitei de fișiere deschise folosite"
 
 #: libraries/advisory_rules.txt:319
 msgid ""

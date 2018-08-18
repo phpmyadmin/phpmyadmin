@@ -1,4 +1,7 @@
 parameters:
+    level: 1
+    paths:
+        - %rootDir%/../../../
     bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:
@@ -44,8 +47,6 @@ parameters:
         - '#Variable \$(escape_class|escape_method|iconLinks|icons|where_clause|where_clause_html|condition_array|pos_next|pos_prev) might not be defined#'
         - '#Call to sprintf contains 3 placeholders, 4 values given.#'#libraries/classes/Menu.php, a phpstan bug
         - '#Variable \$(in_table_header|cur_temp_table_headers|cur_temp_table) might not be defined#'#Plugins/Import/ImportMediawiki.php
-
-
     excludes_analyse:
         - %rootDir%/../../../test/EnvironmentTest.php
         - %rootDir%/../../../test/libraries/FilesTest.php
@@ -58,4 +59,3 @@ parameters:
         - %rootDir%/../../../themes/*/css/*.css.php
         - %rootDir%/../../../examples/signon-script.php
         - %rootDir%/../../../examples/openid.php
-
