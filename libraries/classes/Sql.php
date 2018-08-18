@@ -1724,7 +1724,7 @@ EOT;
         $unlim_num_rows,
         $num_rows,
         $showtable,
-        ?object $result,
+        $result,
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
@@ -1976,7 +1976,7 @@ EOT;
      * @return string html
      */
     private function getQueryResponseForResultsReturned(
-        ?object $result,
+        $result,
         array $analyzed_sql_results,
         $db,
         $table,
