@@ -32,7 +32,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     border: none;
 }
 span.cm-keyword, span.cm-statement-verb {
-    color: #909;
+    color: #990099;
 }
 span.cm-variable {
     color: black;
@@ -50,13 +50,13 @@ span.cm-mysql-word {
     color: black;
 }
 span.cm-builtin {
-    color: #f00;
+    color: #ff0000;
 }
 span.cm-variable-2 {
-    color: #f90;
+    color: #ff9900;
 }
 span.cm-variable-3 {
-    color: #00f;
+    color: #0000ff;
 }
 span.cm-separator {
     color: fuchsia;
@@ -70,7 +70,7 @@ span.cm-number {
 .autocomplete-column-hint {
     display: inline-block;
     float: right;
-    color: #666;
+    color: #666666;
     margin-left: 1em;
 }
 .CodeMirror-hints {

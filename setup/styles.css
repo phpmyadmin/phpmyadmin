@@ -4,7 +4,7 @@ body {
     margin-right: auto;
     min-width: 960px;
     padding-bottom: 1em;
-    color: #444;
+    color: #444444;
     font: .8em sans-serif;
     background: url(../themes/pmahomme/img/left_nav_bg.png) repeat-y 80px 0 #f3f3f3;
 }
@@ -68,7 +68,7 @@ h1 {
     padding: .5em .6em;
     margin-right: .6em;
     display: block;
-    color: #333;
+    color: #333333;
     text-decoration: none;
     zoom: 1; /* IE fix */
 }
@@ -89,7 +89,7 @@ h1 {
 }
 
 #footer a {
-    margin-right: 0.5em;
+    margin-right: .5em;
     text-decoration: none;
     font-size: small;
 }
@@ -105,7 +105,7 @@ h1 {
 }
 
 .red {
-    color: #C00;
+    color: #CC0000;
 }
 
 /* main page messages */
@@ -116,24 +116,22 @@ h1 {
 div.error h4 {
     border-bottom: 1px solid;
     font-weight: bold;
-    margin: 0 0 .2em 0;
+    margin: 0 0 .2em;
 }
 
 div.success,
 div.notice,
 div.error {
-    margin: .5em 0 1.3em 0;
+    margin: .5em 0 1.3em;
     border: 1px solid;
     background: no-repeat 10px 10px;
     padding: 10px 10px 10px 25px;
-
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-
-    -moz-box-shadow: 0 1px 1px #fff inset;
-    -webkit-box-shadow: 0 1px 1px #fff inset;
-    box-shadow: 0 1px 1px #fff inset;
+    -moz-box-shadow: 0 1px 1px #ffffff inset;
+    -webkit-box-shadow: 0 1px 1px #ffffff inset;
+    box-shadow: 0 1px 1px #ffffff inset;
 }
 
 .success a,
@@ -143,7 +141,7 @@ div.error {
 }
 
 .success {
-    color: #000;
+    color: #000000;
     background-color: #ebf8a4;
 }
 
@@ -157,7 +155,7 @@ div.success {
 }
 
 .notice {
-    color: #000;
+    color: #000000;
     background-color: #e8eef1;
 }
 
@@ -173,13 +171,13 @@ div.notice {
 
 .error {
     border: 1px solid maroon !important;
-    color: #000;
+    color: #000000;
     background: pink;
 }
 
 h1.error,
 div.error {
-    border-color: #333;
+    border-color: #333333;
     background: url(../themes/pmahomme/img/s_error.png) no-repeat 5px 10px;
 }
 
@@ -189,20 +187,18 @@ div.error h4 {
 
 div.notice[id^=version_check] {
     border-color: #002DFF;
-    background-color: #EEF;
+    background-color: #EEEEFF;
 }
 
 div.notice[id^=version_check] h4 {
     border-color: #002DFF;
 }
 
-
-
 /* form tabs */
 
 ul.tabs {
     margin: 1.1em 2px 0;
-    padding: 0 0 3px 0;
+    padding: 0 0 3px;
     list-style: none;
     font-weight: bold;
 }
@@ -218,7 +214,7 @@ ul.tabs li a {
     white-space: nowrap;
     text-decoration: none;
     border: 1px solid #D5D5D5;
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid #aaaaaa;
 }
 
 ul.tabs li a {
@@ -227,8 +223,8 @@ ul.tabs li a {
     -moz-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
     background: #f2f2f2;
-    color: #555;
-    text-shadow: 0 1px 0 #fff;
+    color: #555555;
+    text-shadow: 0 1px 0 #ffffff;
 }
 
 ul.tabs li a:hover,
@@ -237,12 +233,12 @@ ul.tabs li a:active {
 }
 
 ul.tabs li.active a {
-    background-color: #fff;
+    background-color: #ffffff;
     margin-top: 1px;
-    color: #000;
+    color: #000000;
     text-shadow: none;
-    border-color: #aaa;
-    border-bottom: 1px solid #fff;
+    border-color: #aaaaaa;
+    border-bottom: 1px solid #ffffff;
 }
 
 .tabs_contents {
@@ -275,13 +271,13 @@ fieldset {
     border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
-    border: #aaa solid 1px;
+    border: #aaaaaa solid 1px;
     padding: 1.5em;
-    background: #eee;
-    text-shadow: 0 1px 0 #fff;
-    -moz-box-shadow: 1px 1px 2px #fff inset;
-    -webkit-box-shadow: 1px 1px 2px #fff inset;
-    box-shadow: 1px 1px 2px #fff inset;
+    background: #eeeeee;
+    text-shadow: 0 1px 0 #ffffff;
+    -moz-box-shadow: 1px 1px 2px #ffffff inset;
+    -webkit-box-shadow: 1px 1px 2px #ffffff inset;
+    box-shadow: 1px 1px 2px #ffffff inset;
 }
 
 fieldset.optbox {
@@ -290,22 +286,22 @@ fieldset.optbox {
 
 fieldset fieldset {
     margin: .8em;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     background: #E8E8E8;
 }
 
 fieldset legend {
     font-weight: bold;
-    color: #444;
+    color: #444444;
     padding: 5px 10px;
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-    border: 1px solid #aaa;
-    background-color: #fff;
-    -moz-box-shadow: 3px 3px 15px #bbb;
-    -webkit-box-shadow: 3px 3px 15px #bbb;
-    box-shadow: 3px 3px 15px #bbb;
+    border: 1px solid #aaaaaa;
+    background-color: #ffffff;
+    -moz-box-shadow: 3px 3px 15px #bbbbbb;
+    -webkit-box-shadow: 3px 3px 15px #bbbbbb;
+    box-shadow: 3px 3px 15px #bbbbbb;
 }
 
 .form {
@@ -315,13 +311,13 @@ fieldset legend {
 fieldset p {
     margin: 0;
     padding: .5em;
-    background: #fff;
+    background: #ffffff;
     border-top: 0;
 }
 
 fieldset .errors { /* form error list */
     margin: 0 -2px 1em -2px;
-    padding: 0.5em 1.5em;
+    padding: .5em 1.5em;
     background: #FBEAD9;
     border: 1px #C83838 solid;
     border-width: 1px 0;
@@ -331,7 +327,7 @@ fieldset .errors { /* form error list */
 }
 
 fieldset .inline_errors { /* field error list */
-    margin: 0.3em 0.3em 0.3em 0;
+    margin: .3em .3em .3em 0;
     padding: 0;
     list-style: none;
     color: #9A0000;
@@ -345,7 +341,7 @@ table caption, table th, table td {
 fieldset th {
     width: 40%;
     min-width: 350px;
-    padding: 0.3em 0.3em 0.3em 0.5em;
+    padding: .3em .3em .3em .5em;
     text-align: left;
     font-weight: bold;
     vertical-align: top;
@@ -361,7 +357,7 @@ fieldset .doc {
 }
 
 fieldset td {
-    padding-top: 0.3em;
+    padding-top: .3em;
     vertical-align: top;
 }
 
@@ -374,7 +370,7 @@ fieldset td.userprefs-allow {
 
 fieldset td.userprefs-allow:hover {
     cursor: pointer;
-    background-color: #EEE;
+    background-color: #EEEEEE;
 }
 
 fieldset th small {
@@ -382,7 +378,7 @@ fieldset th small {
     font-weight: normal;
     font-family: sans-serif;
     font-size: x-small;
-    color: #666;
+    color: #666666;
 }
 
 fieldset th, fieldset td, .form .lastrow {
@@ -407,7 +403,7 @@ fieldset .group-field-3 th {
 }
 
 fieldset .lastrow, .form .lastrow {
-    border-top: 1px #000 solid;
+    border-top: 1px #000000 solid;
     background: #D3DCE3;
     padding: .5em;
     text-align: center;
@@ -419,14 +415,12 @@ input[type=number] {
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-
-    box-shadow: 0 1px 2px #ddd;
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
-
+    box-shadow: 0 1px 2px #dddddd;
+    -moz-box-shadow: 0 1px 2px #dddddd;
+    -webkit-box-shadow: 0 1px 2px #dddddd;
     background: white;
-    border: 1px solid #aaa;
-    color: #555;
+    border: 1px solid #aaaaaa;
+    color: #555555;
     padding: 4px;
     margin: 6px;
 }
@@ -442,17 +436,17 @@ input[type=reset],
 input[name=submit_reset],
 input.button {
     margin-left: 14px;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     padding: 3px 7px;
-    color: #111;
+    color: #111111;
     text-decoration: none;
-    background: #ddd;
+    background: #dddddd;
 
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
 
-    text-shadow: 0 1px 0 #fff;
+    text-shadow: 0 1px 0 #ffffff;
 
     background-image: url(../themes/svg_gradient.php?from=ffffff&to=cccccc);
     background-size: 100% 100%;
@@ -498,12 +492,12 @@ select {
     -webkit-border-radius: 2px;
     border-radius: 2px;
 
-    -moz-box-shadow: 0 1px 2px #ddd;
-    -webkit-box-shadow: 0 1px 2px #ddd;
+    -moz-box-shadow: 0 1px 2px #dddddd;
+    -webkit-box-shadow: 0 1px 2px #dddddd;
     box-shadow: 0 1px 2px #ddd;
 
-    border: 1px solid #aaa;
-    color: #333;
+    border: 1px solid #aaaaaa;
+    color: #333333;
     padding: 3px;
     background: white;
     margin: 6px;
@@ -511,7 +505,7 @@ select {
 
 fieldset.simple th, fieldset.simple td {
     border-top: none;
-    border-bottom: 1px #555 dotted;
+    border-bottom: 1px #555555 dotted;
 }
 
 fieldset.simple .lastrow {
@@ -526,7 +520,7 @@ span.checkbox {
 }
 
 .custom { /* customized field */
-    background: #FFC;
+    background: #FFFFCC;
 }
 
 .checkbox.custom {
@@ -535,36 +529,35 @@ span.checkbox {
 }
 
 .field-error {
-    border-color: #C11 !important;
+    border-color: #CC1111 !important;
 }
 
 .field-comment {
-
     position: relative;
 }
 
 .field-comment-mark {
     cursor: help;
-    padding: 0 0.2em;
+    padding: 0 .2em;
     font-weight: bold;
     font-style: italic;
 }
 
 .field-comment-warning {
-    color: #A00;
+    color: #AA0000;
 }
 
 .green { /* default form button */
-    color: #080 !important;
+    color: #008800 !important;
 }
 
 table.datatable {
-    margin: 0.5em 0 1em;
+    margin: .5em 0 1em;
 }
 
 table.datatable th {
-    padding: 0 1em 0 0.5em;
-    border-bottom: 1px #999 solid;
+    padding: 0 1em 0 .5em;
+    border-bottom: 1px #999999 solid;
     text-align: left;
 }
 
@@ -583,7 +576,7 @@ table.datatable td {
 /* error list */
 
 dd {
-    margin-left: 0.5em;
+    margin-left: .5em;
 }
 
 dd:before {

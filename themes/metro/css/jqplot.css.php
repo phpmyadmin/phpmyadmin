@@ -27,7 +27,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 /*rules applied to all axes*/
 .jqplot-axis {
-    font-size: 0.75em;
+    font-size: .75em;
 }
 
 .jqplot-xaxis {
@@ -52,7 +52,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     position: absolute;
     white-space: pre;
 }
-
 
 .jqplot-xaxis-tick {
     top: 0;
@@ -81,7 +80,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 .jqplot-yaxis-tick.jqplot-breakTick {
     <?php echo $right; ?>: -20px;
     margin-<?php echo $right; ?>: 0;
-    padding:1px 5px 1px;
+    padding: 1px 5px;
 /*    background-color: white;*/
     z-index: 2;
     font-size: 1.5em;
@@ -133,7 +132,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 
 .jqplot-meterGauge-tick {
-    font-size: 0.75em;
+    font-size: .75em;
     color: #999999;
 }
 
@@ -143,17 +142,14 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 
 table.jqplot-table-legend {
-    margin-top: 12px;
-    margin-bottom: 12px;
-    margin-left: 12px;
-    margin-right: 12px;
+    margin: 12px;
 }
 
 table.jqplot-table-legend, table.jqplot-cursor-legend {
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,.6);
     border: 1px solid #cccccc;
     position: absolute;
-    font-size: 0.75em;
+    font-size: .75em;
 }
 
 td.jqplot-table-legend {
@@ -167,7 +163,7 @@ element styles and relying on js object properties.
 
 /*
 td.jqplot-table-legend-swatch {
-    padding-top: 0.5em;
+    padding-top: .5em;
     text-align: center;
 }
 
@@ -192,47 +188,41 @@ div.jqplot-table-legend-swatch-outline {
 div.jqplot-table-legend-swatch {
     width: 0;
     height: 0;
-    border-top-width: 5px;
-    border-bottom-width: 5px;
-    border-left-width: 6px;
-    border-right-width: 6px;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
+    border: 5px 6px;
+    border-style: solid;
 }
 
 .jqplot-title {
     top: 0;
     <?php echo $left; ?>: 0;
-    padding-bottom: 0.5em;
+    padding-bottom: .5em;
     font-size: 1.2em;
 }
 
 table.jqplot-cursor-tooltip {
     border: 1px solid #cccccc;
-    font-size: 0.75em;
+    font-size: .75em;
 }
 
 
 .jqplot-cursor-tooltip {
     border: 1px solid #cccccc;
-    font-size: 0.75em;
+    font-size: .75em;
     white-space: nowrap;
-    background: rgba(208,208,208,0.5);
+    background: rgba(208,208,208,.5);
     padding: 1px;
 }
 
 .jqplot-highlighter-tooltip, .jqplot-canvasOverlay-tooltip {
     border: 1px solid #cccccc;
-    font-size: 0.75em;
+    font-size: .75em;
     white-space: nowrap;
-    background: rgba(208,208,208,0.5);
+    background: rgba(208,208,208,.5);
     padding: 1px;
 }
 
 .jqplot-point-label {
-    font-size: 0.75em;
+    font-size: .75em;
     z-index: 2;
 }
 
@@ -243,7 +233,7 @@ td.jqplot-cursor-legend-swatch {
 
 div.jqplot-cursor-legend-swatch {
     width: 1.2em;
-    height: 0.7em;
+    height: .7em;
 }
 
 .jqplot-error {
@@ -260,17 +250,17 @@ div.jqplot-cursor-legend-swatch {
 
 div.jqplot-bubble-label {
     font-size: 0.8em;
-/*    background: rgba(90%, 90%, 90%, 0.15);*/
+/*    background: rgba(90%, 90%, 90%, .15);*/
     padding-left: 2px;
     padding-right: 2px;
     color: rgb(20%, 20%, 20%);
 }
 
 div.jqplot-bubble-label.jqplot-bubble-label-highlight {
-    background: rgba(90%, 90%, 90%, 0.7);
+    background: rgba(90%, 90%, 90%, .7);
 }
 
 div.jqplot-noData-container {
     text-align: center;
-    background-color: rgba(96%, 96%, 96%, 0.3);
+    background-color: rgba(96%, 96%, 96%, .3);
 }

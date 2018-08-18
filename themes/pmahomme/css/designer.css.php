@@ -36,7 +36,7 @@ $resizeImg = $theme->getImgPath('designer/resize.png');
 /* Designer */
 .input_tab {
     background-color: #A6C7E1;
-    color: #000;
+    color: #000000;
 }
 
 .content_fullscreen {
@@ -51,8 +51,8 @@ $resizeImg = $theme->getImgPath('designer/resize.png');
 }
 
 #canvas {
-    background-color: #fff;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 canvas.designer {
@@ -66,10 +66,10 @@ canvas.designer * {
 }
 
 .designer_tab {
-    background-color: #fff;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
     border-collapse: collapse;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     z-index: 1;
     -moz-user-select: none;
 }
@@ -96,21 +96,21 @@ canvas.designer * {
 }
 
 .tab_field {
-    background: #fff;
-    color: #000;
+    background: #ffffff;
+    color: #000000;
     cursor: default;
 }
 
 .tab_field:hover, .tab_field_3:hover {
     background-color: #CCFFCC;
-    color: #000;
+    color: #000000;
     background-repeat: repeat-x;
     cursor: default;
 }
 
 .tab_field_3 {
     background-color: #FFE6E6; /*#DDEEFF*/
-    color: #000;
+    color: #000000;
     cursor: default;
 }
 
@@ -118,7 +118,7 @@ canvas.designer * {
     white-space: nowrap;
     position: absolute;
     background-color: #99FF99;
-    color: #000;
+    color: #000000;
     z-index: 3;
     border: #00CC66 solid 1px;
     display: none;
@@ -139,9 +139,9 @@ canvas.designer * {
     font-weight: bold;
     margin-left: 2px;
     text-align: <?php echo $left; ?>;
-    background-color: #fff;
+    background-color: #ffffff;
     background-image: url(<?php echo $leftPanelButtonImg; ?>);
-    border: #ccc solid 1px;
+    border: #cccccc solid 1px;
 }
 
 .designer_Tabs:hover {
@@ -158,7 +158,7 @@ canvas.designer * {
 
 .owner {
     font-weight: normal;
-    color: #888;
+    color: #888888;
 }
 
 .option_tab {
@@ -173,7 +173,7 @@ canvas.designer * {
     padding-right: 2px;
     cursor: default;
     width: 1px;
-    color: #000;
+    color: #000000;
     background-image: url(<?php echo $headerImg; ?>);
     background-repeat: repeat-x;
 }
@@ -181,7 +181,7 @@ canvas.designer * {
 .small_tab {
     vertical-align: top;
     background-color: #0064ea;
-    color: #fff;
+    color: #ffffff;
     background-image: url(<?php echo $smallTabImg; ?>);
     cursor: default;
     text-align: center;
@@ -194,7 +194,7 @@ canvas.designer * {
 
 .small_tab:hover {
     vertical-align: top;
-    color: #fff;
+    color: #ffffff;
     background-color: #FF9966;
     cursor: default;
     padding-left: 2px;
@@ -214,7 +214,7 @@ canvas.designer * {
 
 .small_tab_pref:hover {
     vertical-align: top;
-    color: #fff;
+    color: #ffffff;
     background-color: #FF9966;
     cursor: default;
     text-align: center;
@@ -228,8 +228,8 @@ canvas.designer * {
     font-weight: bold;
     height: 19px;
     width: 70px;
-    background-color: #fff;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
     vertical-align: baseline;
 }
 
@@ -244,7 +244,7 @@ canvas.designer * {
     padding: 0;
     border: #0099CC solid 1px;
     background: #FFEE99;
-    color: #000;
+    color: #000000;
     text-decoration: none;
     vertical-align: middle;
     cursor: default;
@@ -290,13 +290,13 @@ canvas.designer * {
 
 #osn_tab {
     position: absolute;
-    background-color: #fff;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .designer_header {
     background-color: #EAEEF0;
-    color: #000;
+    color: #000000;
     text-align: center;
     font-weight: bold;
     margin: 0;
@@ -304,8 +304,8 @@ canvas.designer * {
     background-image: url(<?php echo $topPanelImg; ?>);
     background-position: top;
     background-repeat: repeat-x;
-    border-right: #999 solid 1px;
-    border-left: #999 solid 1px;
+    border-right: #999999 solid 1px;
+    border-left: #999999 solid 1px;
     height: 28px;
     z-index: 101;
     width: 100%;
@@ -317,7 +317,7 @@ canvas.designer * {
     float: <?php echo $left; ?>;
     margin: 3px 1px 4px;
     height: 20px;
-    border: 1px dotted #fff;
+    border: 1px dotted #ffffff;
 }
 
 .designer_header .M_bord {
@@ -340,7 +340,7 @@ a.M_butt_Selected_down_IE,
 a.M_butt_Selected_down {
     border: 1px solid #C0C0BB;
     background-color: #99FF99;
-    color: #000;
+    color: #000000;
 }
 
 a.M_butt_Selected_down_IE:hover,
@@ -348,7 +348,7 @@ a.M_butt_Selected_down:hover,
 a.M_butt:hover {
     border: 1px solid #0099CC;
     background-color: #FFEE99;
-    color: #000;
+    color: #000000;
 }
 
 #layer_menu {
@@ -356,7 +356,7 @@ a.M_butt:hover {
     position: relative;
     float: right;
     background-color: #EAEEF0;
-    border: #999 solid 1px;
+    border: #999999 solid 1px;
 }
 
 #layer_menu.left {
@@ -412,10 +412,10 @@ a.trigger {
     text-decoration: none;
     top: 60px;
     <?php echo $right; ?>: 0;
-    color: #fff;
+    color: #ffffff;
     padding: 10px 40px 10px 15px;
-    background: #333 url(<?php echo $plusImg; ?>) 85% 55% no-repeat;
-    border: 1px solid #444;
+    background: #333333 url(<?php echo $plusImg; ?>) 85% 55% no-repeat;
+    border: 1px solid #444444;
     display: block;
     z-index: 102;
 }
@@ -423,11 +423,11 @@ a.trigger {
 a.trigger:hover {
     color: #080808;
     background: #fff696 url(<?php echo $plusImg; ?>) 85% 55% no-repeat;
-    border: 1px solid #999;
+    border: 1px solid #999999;
 }
 
 a.active.trigger {
-    background: #222 url(<?php echo $minusImg; ?>) 85% 55% no-repeat;
+    background: #222222 url(<?php echo $minusImg; ?>) 85% 55% no-repeat;
     z-index: 999;
 }
 
@@ -437,7 +437,7 @@ a.active.trigger:hover {
 
 .toggle_container .block {
     background-color: #DBE4E8;
-    border-top: 1px solid #999;
+    border-top: 1px solid #999999;
 }
 
 .history_table {

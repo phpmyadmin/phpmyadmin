@@ -28,41 +28,31 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     z-index: 800;
 }
 
-#pma_navigation select,
-#pma_navigation#recentTable
-{
-}
-
-#pma_navigation input[type=text]
-{
+#pma_navigation input[type=text] {
     background-color: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
     font-family: <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
 }
 
-#pma_navigation a img
-{
+#pma_navigation a img {
     border: 0;
 }
 
 #pma_navigation a:link,
 #pma_navigation a:visited,
-#pma_navigation a:active
-{
+#pma_navigation a:active {
     text-decoration: none;
     color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 
 #pma_navigation select#select_server,
-#pma_navigation select#lightm_db
-{
+#pma_navigation select#lightm_db {
     width: 100%;
 }
 
 /* buttons in some browsers (eg. Konqueror) are block elements,
    this breaks design */
 
-#pma_navigation button
-{
+#pma_navigation button {
     display: inline;
 }
 
@@ -84,27 +74,24 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     display: inline;
 }
 
-
 /******************************************************************************/
 /* specific elements */
 
 #pma_navigation div.pageselector {
     text-align: center;
     margin: 0;
-    margin-<?php echo $left; ?>: 0.75em;
+    margin-<?php echo $left; ?>: .75em;
     border-<?php echo $left; ?>: 1px solid #666;
 }
 
-#pma_navigation #pmalogo:after
-{
+#pma_navigation #pmalogo:after {
     font-family: 'Open Sans Extrabold';
     text-transform: uppercase;
     margin-left: 5px;
     content: 'phpMyAdmin';
 }
 
-#pma_navigation #pmalogo
-{
+#pma_navigation #pmalogo {
     margin: 0;
     padding: 12px;
     background: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
@@ -115,57 +102,48 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     line-height: 100%;
 }
 
-#pma_navigation #imgpmalogo
-{
+#pma_navigation #imgpmalogo {
     display: none;
 }
 
-#pma_navigation #recentTableList
-{
+#pma_navigation #recentTableList {
     text-align: center;
     padding: 10px;
 }
 
-#pma_navigation #recentTableList select
-{
+#pma_navigation #recentTableList select {
     min-width: 100%;
 }
 
-#pma_navigation #databaseList
-{
+#pma_navigation #databaseList {
     text-align: center;
     margin: 10px;
 }
 
-#pma_navigation #navipanellinks
-{
+#pma_navigation #navipanellinks {
     padding-top: 1em;
     padding-bottom: 1em;
     text-align: center;
     background-color: <?php echo $GLOBALS['cfg']['BorderColor']; ?>;
 }
 
-div#left_tableList li a:first-child:before
-{
+div#left_tableList li a:first-child:before {
     color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
     font-family: 'IcoMoon';
     content: "";
     margin: 10px;
 }
 
-div#left_tableList li:hover a:first-child:before
-{
+div#left_tableList li:hover a:first-child:before {
     color: <?php echo $GLOBALS['cfg']['ButtonColor']; ?>;
 }
 
-img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reload
-{
+img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reload {
     -webkit-filter: invert(70%);
     filter: invert(70%);
 }
 
-#navipanellinks a
-{
+#navipanellinks a {
     display: inline-block;
     height: 16px;
     width: 16px;
@@ -175,8 +153,7 @@ img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reloa
     font-size: 15px;
 }
 
-#navipanellinks a:hover
-{
+#navipanellinks a:hover {
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
 }
 
@@ -203,21 +180,21 @@ img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reloa
 }
 #pma_navigation_select_database {
     text-align: left;
-    padding: 0 0 0;
+    padding: 0;
     border: 0;
     margin: 0;
 }
 
 #pma_navigation_db_select {
-    margin-top: 0.5em;
+    margin-top: .5em;
     margin-<?php echo $left; ?>: 0.75em;
 }
 #pma_navigation_db_select select {
-    border: 1px solid #bbb;
-    border-top: 1px solid #bbb;
-    color: #333;
+    border: 1px solid #bbbbbb;
+    border-top: 1px solid #bbbbbb;
+    color: #333333;
     padding: 4px 6px;
-    margin: 0 0 0;
+    margin: 0;
     width: 92%;
 }
 #pma_navigation_tree_content {
@@ -236,7 +213,7 @@ img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reloa
 }
 #pma_navigation_tree li.activePointer .navItemControls {
     display: inline;
-    opacity: 0.5;
+    opacity: .5;
 }
 #pma_navigation_tree li.activePointer .navItemControls:hover {
     display: inline;
@@ -297,8 +274,8 @@ img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reloa
     min-width: 16px;
     min-height: 8px;
     position: absolute;
-    bottom: 0.7em;
-    <?php echo $left; ?>: 0.75em;
+    bottom: .7em;
+    <?php echo $left; ?>: .75em;
     z-index: 0;
     margin-top: -4px;
 }
@@ -314,9 +291,9 @@ img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reloa
 }
 #pma_navigation_tree div.block b { /* Bottom segment for the tree element connections */
     display: block;
-    height: 0.75em;
+    height: .75em;
     bottom: 0;
-    <?php echo $left; ?>: 0.75em;
+    <?php echo $left; ?>: .75em;
     border-<?php echo $left; ?>: 1px solid #616161;
 }
 #pma_navigation_tree div.block a,
@@ -338,7 +315,7 @@ img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reloa
 }
 #pma_navigation_tree div.block img {
     position: relative;
-    top: -0.6em;
+    top: -.6em;
     <?php echo $left; ?>: 0;
     margin-<?php echo $left; ?>: -7px;
 }
@@ -352,12 +329,12 @@ img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reloa
 #pma_navigation_tree li > a, #pma_navigation_tree li > i {
     line-height: 1.5em;
     height: 1.5em;
-    padding-<?php echo $left; ?>: 0.3em;
+    padding-<?php echo $left; ?>: .3em;
 }
 #pma_navigation_tree .list_container {
     border-<?php echo $left; ?>: 1px solid #616161;
-    margin-<?php echo $left; ?>: 0.75em;
-    padding-<?php echo $left; ?>: 0.75em;
+    margin-<?php echo $left; ?>: .75em;
+    padding-<?php echo $left; ?>: .75em;
 }
 #pma_navigation_tree .last > .list_container {
     border-<?php echo $left; ?>: 0 solid #616161;
@@ -365,8 +342,8 @@ img.ic_b_home, img.ic_s_loggoff, img.ic_b_docs, img.ic_b_sqlhelp, img.ic_s_reloa
 
 /* Fast filter */
 li.fast_filter {
-    padding-<?php echo $left; ?>: 0.75em;
-    margin-<?php echo $left; ?>: 0.75em;
+    padding-<?php echo $left; ?>: .75em;
+    margin-<?php echo $left; ?>: .75em;
     padding-<?php echo $right; ?>: 15px;
     border-<?php echo $left; ?>: 1px solid #616161;
 }
@@ -382,10 +359,10 @@ li.fast_filter input {
 li.fast_filter span {
     position: relative;
     <?php echo $right; ?>: 1.5em;
-    padding: 0.2em;
+    padding: .2em;
     cursor: pointer;
     font-weight: bold;
-    color: #800;
+    color: #880000;
 }
 li.fast_filter.db_fast_filter {
     border: 0;
@@ -414,7 +391,7 @@ li.fast_filter.db_fast_filter {
 #pma_navigation_resizer {
     width: 1px;
     height: 100%;
-    background-color: #aaa;
+    background-color: #aaaaaa;
     cursor: col-resize;
     position: fixed;
     top: 0;
@@ -429,7 +406,7 @@ li.fast_filter.db_fast_filter {
     background: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     border-bottom: 1px solid <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     line-height: 22px;
-    color: #fff;
+    color: #ffffff;
     position: fixed;
     top: 0;
     <?php echo $left; ?>: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
@@ -451,12 +428,12 @@ li.fast_filter.db_fast_filter {
 }
 .pma_quick_warp .drop_button {
     padding: .2em .5em;
-    border: 1px solid #ddd;
+    border: 1px solid #dddddd;
     background: #f2f2f2;
     cursor: pointer;
 }
 .pma_quick_warp .drop_list:hover .drop_button {
-    background: #fff;
+    background: #ffffff;
 }
 .pma_quick_warp .drop_list ul {
     position: absolute;
@@ -465,8 +442,8 @@ li.fast_filter.db_fast_filter {
     overflow: hidden;
     overflow-y: auto;
     list-style: none;
-    background: #fff;
-    border: 1px solid #ddd;
+    background: #ffffff;
+    border: 1px solid #dddddd;
     top: 100%;
     <?php echo $left; ?>: 3px;
     <?php echo $right; ?>: 0;

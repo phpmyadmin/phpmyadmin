@@ -20,7 +20,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 .rte_table td {
     vertical-align: middle;
-    padding: 0.2em;
+    padding: .2em;
 }
 
 .rte_table input,

@@ -29,15 +29,15 @@ textarea {
 
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
-    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
+    font-family: <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
     <?php
 }
 ?>
-    padding:            0;
+    padding:  0;
     margin: 0;
     margin-<?php echo $left; ?>: 240px;
-    color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
-    background:         <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    background: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
 body#loginform {
@@ -66,23 +66,23 @@ body#loginform {
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
     textarea, tt, pre, code {
-    font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+        font-family: <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
     }
     <?php
 }
 ?>
 h1 {
-    font-size:          140%;
-    font-weight:        bold;
+    font-size: 140%;
+    font-weight: bold;
 }
 
 h2 {
-    font-size:          120%;
-    font-weight:        bold;
+    font-size: 120%;
+    font-weight: bold;
 }
 
 h3 {
-    font-weight:        bold;
+    font-weight: bold;
 }
 
 a, a:link,
@@ -90,53 +90,53 @@ a:visited,
 a:active,
 button.mult_submit,
 .checkall_box+label {
-    text-decoration:    none;
-    color:              #0000FF;
-    cursor:             pointer;
+    text-decoration: none;
+    color: #0000FF;
+    cursor: pointer;
 }
 
 a:hover,
 button.mult_submit:hover,
 button.mult_submit:focus,
 .checkall_box+label:hover {
-    text-decoration:    underline;
-    color:              #FF0000;
+    text-decoration: underline;
+    color: #FF0000;
 }
 
 dfn {
-    font-style:         normal;
+    font-style: normal;
 }
 
 dfn:hover {
-    font-style:         normal;
-    cursor:             help;
+    font-style: normal;
+    cursor: help;
 }
 
 th {
-    font-weight:        bold;
-    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
-    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    font-weight: bold;
+    color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
 
 a img {
-    border:             0;
+    border: 0;
 }
 
 hr {
-    color:              <?php echo $GLOBALS['cfg']['MainColor']; ?>;
-    background-color:   <?php echo $GLOBALS['cfg']['MainColor']; ?>;
-    border:             0;
-    height:             1px;
+    color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+    border: 0;
+    height: 1px;
 }
 
 form {
-    padding:            0;
-    margin:             0;
-    display:            inline;
+    padding: 0;
+    margin: 0;
+    display: inline;
 }
 
 textarea {
-    overflow:           visible;
+    overflow: visible;
 }
 
 th.fillPage {
@@ -148,20 +148,20 @@ textarea.charField {
 }
 
 fieldset {
-    margin-top:         1em;
-    border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
-    padding:            0.5em;
-    background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    margin-top: 1em;
+    border: <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
+    padding: .5em;
+    background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 fieldset fieldset {
-    margin:             0.8em;
+    margin: .8em;
 }
 
 fieldset legend {
-    font-weight:        bold;
-    color:              #444444;
-    background-color:   <?php echo 'OPERA' != PMA_USR_BROWSER_AGENT ? 'transparent' : $GLOBALS['cfg']['BgOne']; ?>;
+    font-weight: bold;
+    color: #444444;
+    background-color: <?php echo 'OPERA' != PMA_USR_BROWSER_AGENT ? 'transparent' : $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 .some-margin {
@@ -172,22 +172,22 @@ fieldset legend {
 /* buttons in some browsers (eg. Konqueror) are block elements,
    this breaks design */
 button {
-    display:            inline;
+    display: inline;
 }
 
 table caption,
 table th,
 table td {
-    padding:            0.1em 0.5em 0.1em 0.5em;
-    margin:             0.1em;
-    vertical-align:     top;
+    padding: .1em .5em;
+    margin: .1em;
+    vertical-align: top;
 }
 
 img,
 input,
 select,
 button {
-    vertical-align:     middle;
+    vertical-align: middle;
 }
 
 /******************************************************************************/
@@ -244,42 +244,42 @@ tr.vbottom, th.vbottom, td.vbottom {
 
 div.tools {
     border: 1px solid #000000;
-    padding: 0.2em;
+    padding: .2em;
 }
 
 div.tools,
 fieldset.tblFooters {
-    margin-top:         0;
-    margin-bottom:      0.5em;
+    margin-top: 0;
+    margin-bottom: .5em;
     /* avoid a thick line since this should be used under another fieldset */
-    border-top:         0;
-    text-align:         <?php echo $right; ?>;
-    float:              none;
-    clear:              both;
+    border-top: 0;
+    text-align: <?php echo $right; ?>;
+    float: none;
+    clear: both;
 }
 
 div.null_div {
     height: 20px;
     text-align: center;
-    font-style:normal;
-    min-width:50px;
+    font-style: normal;
+    min-width: 50px;
 }
 
 fieldset .formelement {
-    float:              <?php echo $left; ?>;
-    margin-<?php echo $right; ?>:       0.5em;
+    float: <?php echo $left; ?>;
+    margin-<?php echo $right; ?>: .5em;
     /* IE */
-    white-space:        nowrap;
+    white-space: nowrap;
 }
 
 /* revert for Gecko */
 fieldset div[class=formelement] {
-    white-space:        normal;
+    white-space: normal;
 }
 
 button.mult_submit {
-    border:             none;
-    background-color:   transparent;
+    border: none;
+    background-color: transparent;
 }
 
 /* odd items 1,3,5,7,... */
@@ -298,7 +298,7 @@ table tr:nth-child(even),
 
 table tr th,
 table tr {
-    text-align:         <?php echo $left; ?>;
+    text-align: <?php echo $left; ?>;
 }
 
 /* marked table rows */
@@ -306,8 +306,8 @@ td.marked:not(.nomarker),
 table tr.marked:not(.nomarker) td,
 table tr.marked:not(.nomarker) th,
 table tr.marked:not(.nomarker) {
-    background:   <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
-    color:   <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
+    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
 /* hovered items */
@@ -321,8 +321,8 @@ table tr:not(.nopointer):hover,
 #table_index tbody:hover tr,
 #table_index tbody:hover th,
 table tr.hover:not(.nopointer) th {
-    background:   <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
-    color:   <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
+    background: <?php echo $GLOBALS['cfg']['BrowsePointerBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['BrowsePointerColor']; ?>;
 }
 
 /**
@@ -342,74 +342,73 @@ td.null {
 }
 
 table .valueHeader {
-    text-align:         <?php echo $right; ?>;
-    white-space:        normal;
+    text-align: <?php echo $right; ?>;
+    white-space: normal;
 }
 table .value {
-    text-align:         <?php echo $right; ?>;
-    white-space:        normal;
+    text-align: <?php echo $right; ?>;
+    white-space: normal;
 }
 /* IE doesnt handles 'pre' right */
 table [class=value] {
-    white-space:        normal;
+    white-space: normal;
 }
 
 
 <?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
     .value {
-        font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
+        font-family: <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
     }
     <?php
 }
 ?>
 .attention {
-    color:              red;
-    font-weight:        bold;
+    color: red;
+    font-weight: bold;
 }
 .allfine {
-    color:              green;
+    color: green;
 }
 
-
 img.lightbulb {
-    cursor:             pointer;
+    cursor: pointer;
 }
 
 .pdflayout {
-    overflow:           hidden;
-    clip:               inherit;
-    background-color:   #FFFFFF;
-    display:            none;
-    border:             1px solid #000000;
-    position:           relative;
+    overflow: hidden;
+    clip: inherit;
+    background-color: #FFFFFF;
+    display: none;
+    border: 1px solid #000000;
+    position: relative;
 }
 
 .pdflayout_table {
-    background:         #D3DCE3;
-    color:              #000000;
-    overflow:           hidden;
-    clip:               inherit;
-    z-index:            2;
-    display:            inline;
-    visibility:         inherit;
-    cursor:             move;
-    position:           absolute;
-    font-size:          80%;
-    border:             1px dashed #000000;
+    background: #D3DCE3;
+    color: #000000;
+    overflow: hidden;
+    clip: inherit;
+    z-index: 2;
+    display: inline;
+    visibility: inherit;
+    cursor: move;
+    position: absolute;
+    font-size: 80%;
+    border: 1px dashed #000000;
 }
 
 /* Doc links in SQL */
 .cm-sql-doc {
     text-decoration: none;
-    border-bottom: 1px dotted #000;
+    border-bottom: 1px dotted #000000;
     color: inherit !important;
 }
 
 /* leave some space between icons and text */
 .icon {
     image-rendering: pixelated;
-    vertical-align:     middle;
-    margin-<?php echo $left; ?>:        0.3em;
+    vertical-align: middle;
+    margin-<?php echo $left; ?>: .3em;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -420,39 +419,39 @@ td .icon {
 }
 
 .selectallarrow {
-    margin-<?php echo $right; ?>: 0.3em;
-    margin-<?php echo $left; ?>: 0.6em;
+    margin-<?php echo $right; ?>: .3em;
+    margin-<?php echo $left; ?>: .6em;
 }
 
 /* message boxes: error, confirmation */
 #pma_errors, #pma_demo, #pma_footer {
-    padding: 0 0.5em;
+    padding: 0 .5em;
 }
 
 .success h1,
 .notice h1,
 div.error h1 {
-    border-bottom:      2px solid;
-    font-weight:        bold;
-    text-align:         <?php echo $left; ?>;
-    margin:             0 0 0.2em 0;
+    border-bottom: 2px solid;
+    font-weight:  bold;
+    text-align: <?php echo $left; ?>;
+    margin: 0 0 .2em;
 }
 
 div.success,
 div.notice,
 div.error {
-    margin:             0.3em 0 0 0;
-    border:             2px solid;
-    background-repeat:  no-repeat;
-    clear:              both;
+    margin: .3em 0 0;
+    border: 2px solid;
+    background-repeat: no-repeat;
+    clear: both;
     <?php
     if ($GLOBALS['text_dir'] === 'ltr') { ?>
         background-position: 10px 50%;
-        padding:            0.1em 0.1em 0.1em 42px;
+        padding: .1em .1em .1em 42px;
         <?php
     } else { ?>
         background-position: 99% 50%;
-        padding:            0.1em 40px 0.1em 0.1em;
+        padding: .1em 40px .1em .1em;
         <?php
     }
     ?>
@@ -461,67 +460,72 @@ div.success img.icon,
 div.notice img.icon,
 div.error img.icon {
     display: block;
-    float:              <?php echo $left; ?>;
+    float: <?php echo $left; ?>;
     margin-<?php echo $left; ?>: -22px;
 }
 
 .success {
-    color:              #000000;
-    background-color:   #f0fff0;
+    color: #000000;
+    background-color: #f0fff0;
 }
 h1.success,
 div.success {
-    border-color:       #00FF00;
+    border-color: #00FF00;
 }
 .success h1 {
-    border-color:       #00FF00;
+    border-color: #00FF00;
 }
 
 .notice {
-    color:              #000000;
-    background-color:   #FFFFDD;
+    color: #000000;
+    background-color: #FFFFDD;
 }
+
 h1.notice,
 div.notice {
-    border-color:       #FFD700;
+    border-color: #FFD700;
 }
+
 .notice h1 {
-    border-color:       #FFD700;
+    border-color: #FFD700;
 }
 
 .error {
-    background-color:   #FFFFCC;
-    color:              #ff0000;
+    background-color: #FFFFCC;
+    color: #ff0000;
 }
 
 h1.error,
 div.error {
-    border-color:       #ff0000;
+    border-color: #ff0000;
 }
+
 div.error h1 {
-    border-color:       #ff0000;
+    border-color: #ff0000;
 }
 
 .confirmation {
-    background-color:   #FFFFCC;
+    background-color: #FFFFCC;
 }
+
 fieldset.confirmation {
-    border:             0.1em solid #FF0000;
+    border: .1em solid #FF0000;
 }
+
 fieldset.confirmation legend {
-    border-left:        0.1em solid #FF0000;
-    border-right:       0.1em solid #FF0000;
-    font-weight:        bold;
-    background-image:   url(<?php echo $theme->getImgPath('s_really.png');?>);
-    background-repeat:  no-repeat;
+    border-left: .1em solid #FF0000;
+    border-right: .1em solid #FF0000;
+    font-weight: bold;
+    background-image: url(<?php echo $theme->getImgPath('s_really.png');?>);
+    background-repeat: no-repeat;
     <?php
     if ($GLOBALS['text_dir'] === 'ltr') { ?>
         background-position: 5px 50%;
-        padding:            0.2em 0.2em 0.2em 25px;
+        padding: .2em .2em .2em 25px;
         <?php
     } else { ?>
         background-position: 97% 50%;
-        padding:            0.2em 25px 0.2em 0.2em;
+        padding: .2em 25px .2em .2em;
         <?php
     }
     ?>
@@ -529,26 +533,26 @@ fieldset.confirmation legend {
 /* end messageboxes */
 
 .new_central_col{
-    width:              100%;
+    width: 100%;
 }
 
 .tblcomment {
-    font-size:          70%;
-    font-weight:        normal;
-    color:              #000099;
+    font-size: 70%;
+    font-weight: normal;
+    color: #000099;
 }
 
 .tblHeaders {
-    font-weight:        bold;
-    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
-    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    font-weight: bold;
+    color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
 
 div.tools,
 .tblFooters {
-    font-weight:        normal;
-    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
-    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    font-weight: normal;
+    color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
 }
 
 .tblHeaders a:link,
@@ -560,19 +564,19 @@ div.tools a:active,
 .tblFooters a:link,
 .tblFooters a:active,
 .tblFooters a:visited {
-    color:              #0000FF;
+    color: #0000FF;
 }
 
 .tblHeaders a:hover,
 div.tools a:hover,
 .tblFooters a:hover {
-    color:              #FF0000;
+    color: #FF0000;
 }
 
 /* forbidden, no privilegs */
 .noPrivileges {
-    color:              #FF0000;
-    font-weight:        bold;
+    color: #FF0000;
+    font-weight: bold;
 }
 
 /* disabled text */
@@ -580,33 +584,33 @@ div.tools a:hover,
 .disabled a:link,
 .disabled a:active,
 .disabled a:visited {
-    color:              #666666;
+    color: #666666;
 }
 
 .disabled a:hover {
-    color:              #666666;
-    text-decoration:    none;
+    color: #666666;
+    text-decoration: none;
 }
 
 tr.disabled td,
 td.disabled {
-    background-color:   #cccccc;
+    background-color: #cccccc;
 }
 
 .nowrap {
-    white-space:        nowrap;
+    white-space: nowrap;
 }
 
 /**
  * zoom search
  */
 div#resizer {
-    width:              600px;
-    height:             400px;
+    width: 600px;
+    height: 400px;
 }
 div#querychart {
-    float:              left;
-    width:              600px;
+    float: left;
+    width: 600px;
 }
 
 /**
@@ -666,17 +670,17 @@ form.login label {
 }
 
 .cfg_dbg_demo{
-    margin: 0.5em 1em 0.5em 1em;
+    margin: .5em 1em;
 }
 
 .central_columns_navigation{
-    padding:1.5% 0em !important;
+    padding: 1.5% 0 !important;
 }
 
 .central_columns_add_column{
-    display:inline-block;
-    margin-left:1%;
-    max-width:50%
+    display: inline-block;
+    margin-left: 1%;
+    max-width: 50%
 }
 
 .message_errors_found{
@@ -704,43 +708,43 @@ form.login label {
 
 /* topmenu */
 ul#topmenu, ul#topmenu2, ul.tabs {
-    font-weight:        bold;
-    list-style-type:    none;
-    margin:             0;
-    padding:            0;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 ul#topmenu2 {
-    margin: 0.25em 0.5em 0;
+    margin: .25em .5em 0;
     height: 2em;
     clear: both;
 }
 
 ul#topmenu li, ul#topmenu2 li {
-    float:              <?php echo $left; ?>;
-    margin:             0;
-    padding:            0;
-    vertical-align:     middle;
+    float: <?php echo $left; ?>;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
 }
 
 #topmenu img, #topmenu2 img {
-    vertical-align:     middle;
-    margin-<?php echo $right; ?>:       0.1em;
+    vertical-align: middle;
+    margin-<?php echo $right; ?>: .1em;
 }
 
 /* default tab styles */
 ul#topmenu a, ul#topmenu span {
-    display:            block;
-    margin:             2px 2px 0;
-    padding:            2px 2px 0;
-    white-space:        nowrap;
+    display: block;
+    margin: 2px 2px 0;
+    padding: 2px 2px 0;
+    white-space: nowrap;
 }
 
 ul#topmenu2 a {
-    display:            block;
-    margin:             0.1em;
-    padding:            0.2em;
-    white-space:        nowrap;
+    display: block;
+    margin: .1em;
+    padding: .2em;
+    white-space: nowrap;
 }
 
 span.caution {
@@ -750,83 +754,83 @@ span.success {
     color: green;
 }
 fieldset.caution a {
-    color:              #FF0000;
+    color: #FF0000;
 }
 fieldset.caution a:hover {
-    color:              #ffffff;
-    background-color:   #FF0000;
+    color: #ffffff;
+    background-color: #FF0000;
 }
 
 #topmenu {
-    margin-top:         0.5em;
-    padding:            0.1em 0.3em 0.1em 0.3em;
+    margin-top: .5em;
+    padding: .1em .3em;
 }
 
 ul#topmenu ul {
-    -moz-box-shadow:    2px 2px 3px #666;
-    -webkit-box-shadow: 2px 2px 3px #666;
-    box-shadow:         2px 2px 3px #666;
+    -moz-box-shadow: 2px 2px 3px #666666;
+    -webkit-box-shadow: 2px 2px 3px #666666;
+    box-shadow: 2px 2px 3px #666666;
 }
 
 ul#topmenu > li {
-    border-bottom:      1pt solid black;
+    border-bottom: 1pt solid black;
 }
 
 /* default tab styles */
 ul#topmenu a, ul#topmenu span {
-    background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
-    border:             0 solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
-    border-width:       1pt 1pt 0 1pt;
-    -moz-border-radius: 0.4em 0.4em 0 0;
-    border-radius:      0.4em 0.4em 0 0;
+    background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    border: 0 solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    border-width: 1pt 1pt 0;
+    -moz-border-radius: .4em .4em 0 0;
+    border-radius: .4em .4em 0 0;
 }
 
 ul#topmenu ul a {
-    border-width:       1pt 0 0 0;
+    border-width: 1pt 0 0;
     -moz-border-radius: 0;
-    border-radius:      0;
+    border-radius: 0;
 }
 
 ul#topmenu ul li:first-child a {
-    border-width:       0;
+    border-width: 0;
 }
 
 /* enabled hover/active tabs */
 ul#topmenu > li > a:hover,
 ul#topmenu > li > .tabactive {
-    margin:             0;
-    padding:            2px 4px;
-    text-decoration:    none;
+    margin: 0;
+    padding: 2px 4px;
+    text-decoration: none;
 }
 
 ul#topmenu ul a:hover,
 ul#topmenu ul .tabactive {
-    text-decoration:    none;
+    text-decoration: none;
 }
 
 ul#topmenu a.tab:hover,
 ul#topmenu .tabactive {
-    background-color:   <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+    background-color: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 
 ul#topmenu2 a.tab:hover,
 ul#topmenu2 a.tabactive {
-    background-color:   <?php echo $GLOBALS['cfg']['BgOne']; ?>;
-    -moz-border-radius: 0.3em;
-    border-radius:      0.3em;
-    text-decoration:    none;
+    background-color: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    -moz-border-radius: .3em;
+    border-radius: .3em;
+    text-decoration: none;
 }
 
 /* to be able to cancel the bottom border, use <li class="active"> */
 ul#topmenu > li.active {
-     border-bottom:      1pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
+     border-bottom: 1pt solid <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
 }
 /* end topmenu */
 
 /* zoom search */
 div#dataDisplay input, div#dataDisplay select {
     margin: 0;
-    margin-<?php echo $right; ?>: 0.5em;
+    margin-<?php echo $right; ?>: .5em;
 }
 div#dataDisplay th {
     line-height: 2em;
@@ -837,32 +841,33 @@ table#tableFieldsId {
 
 /* Calendar */
 table.calendar {
-    width:              100%;
+    width: 100%;
 }
 table.calendar td {
-    text-align:         center;
+    text-align: center;
 }
 table.calendar td a {
-    display:            block;
+    display: block;
 }
 
 table.calendar td a:hover {
-    background-color:   #CCFFCC;
+    background-color: #CCFFCC;
 }
 
 table.calendar th {
-    background-color:   #D3DCE3;
+    background-color: #D3DCE3;
 }
 
 table.calendar td.selected {
-    background-color:   #FFCC99;
+    background-color: #FFCC99;
 }
 
 img.calendar {
-    border:             none;
+    border: none;
 }
+
 form.clock {
-    text-align:         center;
+    text-align: center;
 }
 /* end Calendar */
 
@@ -870,9 +875,9 @@ form.clock {
 /* table stats */
 div#tablestatistics table {
     float: <?php echo $left; ?>;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-<?php echo $right; ?>: 0.5em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    margin-<?php echo $right; ?>: .5em;
     min-width: 16em;
 }
 /* end table stats */
@@ -887,7 +892,6 @@ div#tablestatistics table {
 /* end server privileges */
 
 
-
 /* Heading */
 #topmenucontainer {
     background: white;
@@ -897,14 +901,14 @@ div#tablestatistics table {
 
 #serverinfo {
     background: white;
-    font-weight:        bold;
-    padding-bottom: 0.5em;
+    font-weight: bold;
+    padding-bottom: .5em;
     width: 10000px;
     overflow: hidden;
 }
 
 #serverinfo .item {
-    white-space:        nowrap;
+    white-space: nowrap;
 }
 
 #page_nav_icons {
@@ -943,51 +947,51 @@ div#tablestatistics table {
 }
 
 #serverinfo img {
-    margin:             0 0.1em 0 0.2em;
+    margin: 0 .1em 0 .2em;
 }
 
 
 #textSQLDUMP {
-    width:              95%;
-    height:             95%;
-    font-family:        "Courier New", Courier, mono;
-    font-size:          110%;
+    width: 95%;
+    height: 95%;
+    font-family: "Courier New", Courier, mono;
+    font-size: 110%;
 }
 
 #TooltipContainer {
-    position:           absolute;
-    z-index:            99;
-    width:              20em;
-    height:             auto;
-    overflow:           visible;
-    visibility:         hidden;
-    background-color:   #ffffcc;
-    color:              #006600;
-    border:             0.1em solid #000000;
-    padding:            0.5em;
+    position: absolute;
+    z-index: 99;
+    width: 20em;
+    height: auto;
+    overflow: visible;
+    visibility: hidden;
+    background-color: #ffffcc;
+    color: #006600;
+    border: .1em solid #000000;
+    padding: .5em;
 }
 
 /* user privileges */
 #fieldset_add_user_login div.item {
-    border-bottom:      1px solid silver;
-    padding-bottom:     0.3em;
-    margin-bottom:      0.3em;
+    border-bottom: 1px solid silver;
+    padding-bottom: .3em;
+    margin-bottom: .3em;
 }
 
 #fieldset_add_user_login label {
-    float:              <?php echo $left; ?>;
-    display:            block;
-    width:              15em;
-    max-width:          100%;
-    text-align:         <?php echo $right; ?>;
-    padding-<?php echo $right; ?>:      0.5em;
+    float: <?php echo $left; ?>;
+    display: block;
+    width: 15em;
+    max-width: 100%;
+    text-align: <?php echo $right; ?>;
+    padding-<?php echo $right; ?>: .5em;
 }
 
 #fieldset_add_user_login span.options #select_pred_username,
 #fieldset_add_user_login span.options #select_pred_hostname,
 #fieldset_add_user_login span.options #select_pred_password {
-    width:              100%;
-    max-width:          100%;
+    width: 100%;
+    max-width: 100%;
 }
 
 #fieldset_add_user_login span.options {
@@ -995,7 +999,7 @@ div#tablestatistics table {
     display: block;
     width: 12em;
     max-width: 100%;
-    padding-<?php echo $right; ?>: 0.5em;
+    padding-<?php echo $right; ?>: .5em;
 }
 
 #fieldset_add_user_login input {
@@ -1043,14 +1047,14 @@ div#tablestatistics table {
 /* serverstatus */
 
 .linkElem:hover {
-    text-decoration:    underline;
-    color:              #235a81;
+    text-decoration: underline;
+    color: #235a81;
     cursor: pointer;
 }
 
 h3#serverstatusqueries span {
-    font-size:60%;
-    display:inline;
+    font-size: 60%;
+    display: inline;
 }
 
 .buttonlinks {
@@ -1060,11 +1064,11 @@ h3#serverstatusqueries span {
 
 /* Also used for the variables page */
 fieldset#tableFilter {
-    padding: 0.1em 1em;
+    padding: .1em 1em;
 }
 
 div#serverStatusTabs {
-    margin-top:1em;
+    margin-top: 1em;
 }
 
 caption a.top {
@@ -1112,21 +1116,21 @@ div#serverstatus table .tblFooters a {
 }
 
 div.liveChart {
-    clear:both;
-    min-width:500px;
-    height:400px;
-    padding-bottom:80px;
+    clear: both;
+    min-width: 500px;
+    height: 400px;
+    padding-bottom: 80px;
 }
 
 #addChartDialog input[type="text"] {
     margin: 0;
-    padding:3px;
+    padding: 3px;
 }
 
 div#chartVariableSettings {
-    border:1px solid #ddd;
-    background-color:#E6E6E6;
-    margin-left:10px;
+    border: 1px solid #dddddd;
+    background-color: #E6E6E6;
+    margin-left: 10px;
 }
 
 table#chartGrid td {
@@ -1141,7 +1145,7 @@ table#chartGrid div.monitorChart {
 }
 
 div.tabLinks {
-    margin-left: 0.3em;
+    margin-left: .3em;
     float: <?php echo $left; ?>;
     padding: 5px 0;
 }
@@ -1151,18 +1155,18 @@ div.tabLinks a, div.tabLinks label {
 }
 
 div.tabLinks .icon {
-    margin: -0.2em 0.3em 0 0;
+    margin: -.2em .3em 0 0;
 }
 
 .popupContent {
     display: none;
     position: absolute;
-    border: 1px solid #CCC;
-    margin:0;
+    border: 1px solid #CCCCCC;
+    margin: 0;
     padding:3px;
-    -moz-box-shadow:    1px 1px 6px #ddd;
-    -webkit-box-shadow: 2px 2px 3px #666;
-    box-shadow:         2px 2px 3px #666;
+    -moz-box-shadow: 1px 1px 6px #dddddd;
+    -webkit-box-shadow: 2px 2px 3px #666666;
+    box-shadow: 2px 2px 3px #666666;
     background-color:white;
     z-index: 2;
 }
@@ -1173,7 +1177,7 @@ div#logTable {
 }
 
 div#logTable table {
-    width:100%;
+    width: 100%;
 }
 
 .smallIndent {
@@ -1185,7 +1189,7 @@ div#logTable table {
 #sectionlinks {
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #CCC;
+    border: 1px solid #CCCCCC;
 }
 #sectionlinks a {
     margin-<?php echo $right; ?>: 7px;
@@ -1200,13 +1204,13 @@ div#logTable table {
 }
 
 #serverVariables .var-header {
-    font-weight:        bold;
-    color:              <?php echo $GLOBALS['cfg']['ThColor']; ?>;
-    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    font-weight: bold;
+    color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
+    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     text-align: <?php echo $left; ?>;
 }
 #serverVariables .var-row {
-    padding: 0.5em;
+    padding: .5em;
     min-height: 18px;
 }
 #serverVariables .var-name {
@@ -1232,7 +1236,7 @@ div#logTable table {
 }
 #serverVariables .serverVariableEditor input {
     width: 100%;
-    margin: 0 0.5em;
+    margin: 0 .5em;
     box-sizing: border-box;
     -ms-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -1245,7 +1249,7 @@ div#logTable table {
     padding-<?php echo $right; ?>: 1em;
 }
 #serverVariables .serverVariableEditor a {
-    margin: 0 0.5em;
+    margin: 0 .5em;
     line-height: 2em;
 }
 /* end server variables */
@@ -1261,7 +1265,7 @@ div#profilingchart {
 #profilingchart .jqplot-highlighter-tooltip{
     top: auto !important;
     left: 11px;
-    bottom:24px;
+    bottom: 24px;
 }
 /* end profiling */
 
@@ -1324,7 +1328,7 @@ div#queryboxcontainer div#bookmarkoptions {
 }
 
 #maincontainer li {
-    margin:  0.2em 0;
+    margin: .2em 0;
 }
 
 #full_name_layer {
@@ -1332,10 +1336,8 @@ div#queryboxcontainer div#bookmarkoptions {
     padding: 2px;
     margin-top: -3px;
     z-index: 801;
-
-    border: solid 1px #888;
-    background: #fff;
-
+    border: solid 1px #888888;
+    background: #ffffff;
 }
 /* end main page */
 
@@ -1349,8 +1351,8 @@ li.no_bullets {
 /* end iconic view for ul items */
 
 #body_browse_foreigners {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    margin: .5em .5em 0 .5em;
+    background: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    margin: .5em .5em 0;
 }
 
 #bodythemes {
@@ -1360,7 +1362,7 @@ li.no_bullets {
 }
 
 #bodythemes img {
-    border: .1em solid #000;
+    border: .1em solid #000000;
 }
 
 #bodythemes a:hover img {
@@ -1393,7 +1395,7 @@ li.no_bullets {
 
 #div_mysql_charset_collations table th,
 #div_mysql_charset_collations table td {
-    padding: 0.4em;
+    padding: .4em;
 }
 
 #div_mysql_charset_collations table th#collationHeader {
@@ -1419,7 +1421,7 @@ label.desc sup {
 
 code.php {
     display: block;
-    padding-left: 0.3em;
+    padding-left: .3em;
     margin-top: 0;
     margin-bottom: 0;
     max-height: 10em;
@@ -1429,21 +1431,21 @@ code.php {
 
 code.sql,
 div.sqlvalidate {
-    display:            block;
-    padding:            0.3em;
-    margin-top:         0;
-    margin-bottom:      0;
-    max-height:         10em;
-    overflow:           auto;
-    direction:          ltr;
+    display: block;
+    padding: .3em;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-height: 10em;
+    overflow: auto;
+    direction: ltr;
 }
 
 .result_query div.sqlOuter,
-div.sqlvalidate  {
-    border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
-    border-top:         0;
-    border-bottom:      0;
-    background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+div.sqlvalidate {
+    border: <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
+    border-top: 0;
+    border-bottom: 0;
+    background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 .result_query div.sqlOuter {
@@ -1451,50 +1453,49 @@ div.sqlvalidate  {
 }
 
 #PMA_slidingMessage code.sql {
-    border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
-    border-top:         0;
-    background:         <?php echo $GLOBALS['cfg']['BgOne']; ?>;
+    border: <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
+    border-top: 0;
+    background: <?php echo $GLOBALS['cfg']['BgOne']; ?>;
 }
 
 #main_pane_left {
-    width:              60%;
-    min-width:          260px;
-    float:              <?php echo $left; ?>;
-    padding-top:        1em;
+    width: 60%;
+    min-width: 260px;
+    float: <?php echo $left; ?>;
+    padding-top: 1em;
 }
 
 #main_pane_right {
-    overflow:           hidden;
-    min-width:          160px;
+    overflow: hidden;
+    min-width: 160px;
     padding-top: 1em;
     padding-<?php echo $left; ?>: 1em;
 }
 
 .group {
-    border-<?php echo $left; ?>: 0.3em solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-    margin-bottom:      1em;
+    border-<?php echo $left; ?>: .3em solid <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    margin-bottom: 1em;
 }
 
 .group h2 {
-    background:         <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-    padding:            0.1em 0.3em;
-    margin-top:         0;
+    background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
+    padding: .1em .3em;
+    margin-top: 0;
 }
 
 .group-cnt {
-    padding: 0 0 0 0.5em;
+    padding: 0 0 0 .5em;
     display: inline-block;
     width: 98%;
 }
 
 textarea#partitiondefinition {
-    height:3em;
+    height: 3em;
 }
-
 
 /* for elements that should be revealed only via js */
 .hide {
-    display:            none;
+    display: none;
 }
 
 #list_server {
@@ -1505,24 +1506,21 @@ textarea#partitiondefinition {
 /**
   *  Progress bar styles
   */
-div.upload_progress
-{
+div.upload_progress {
     width: 400px;
     margin: 3em auto;
     text-align: center;
 }
 
-div.upload_progress_bar_outer
-{
-    border: 1px solid #000;
+div.upload_progress_bar_outer {
+    border: 1px solid #000000;
     width: 202px;
     position: relative;
     margin: 0 auto 1em;
     color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
 }
 
-div.upload_progress_bar_inner
-{
+div.upload_progress_bar_inner {
     background-color: <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     width: 0;
     height: 12px;
@@ -1532,16 +1530,14 @@ div.upload_progress_bar_inner
     position: relative;
 }
 
-div.upload_progress_bar_outer div.percentage
-{
+div.upload_progress_bar_outer div.percentage {
     position: absolute;
     top: 0;
     left: 0;
     width: 202px;
 }
 
-div.upload_progress_bar_inner div.percentage
-{
+div.upload_progress_bar_inner div.percentage {
     top: -1px;
     left: -1px;
 }
@@ -1571,13 +1567,10 @@ select.invalid_value,
 /**
   *  Ajax notification styling
   */
- .ajax_notification {
+.ajax_notification {
     top: 0;           /** The notification needs to be shown on the top of the page */
     position: fixed;
-    margin-top: 0;
-    margin-right: auto;
-    margin-bottom: 0;
-    margin-left: auto;
+    margin: 0 auto;
     padding: 3px 5px;   /** Keep a little space on the sides of the text */
     width: 350px;
     background-color: #FFD700;
@@ -1589,13 +1582,13 @@ select.invalid_value,
     background-image: url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>);
     background-repeat: no-repeat;
     background-position: 2%;
- }
+}
 
- #loading_parent {
+#loading_parent {
     /** Need this parent to properly center the notification division */
     position: relative;
     width: 100%;
- }
+}
 /**
   * Export and Import styles
   */
@@ -1661,7 +1654,7 @@ select.invalid_value,
 }
 
 .format_specific_options {
-    border: 1px solid #999;
+    border: 1px solid #999999;
     margin: 7px 0;
     padding: 3px;
 }
@@ -1683,7 +1676,7 @@ select#table_select {
 }
 
 .export_sub_options h4 {
-    border-bottom: 1px #999 solid;
+    border-bottom: 1px #999999 solid;
 }
 
 .export_sub_options li.subgroup {
@@ -1712,7 +1705,7 @@ input#input_import_file {
 }
 
 .formelementrow {
-    margin: 5px 0 5px 0;
+    margin: 5px 0;
 }
 
 #filterText {
@@ -1727,7 +1720,7 @@ input#input_import_file {
     height: 100%;
     top: 0;
     left: 0;
-    background: #000;
+    background: #000000;
     z-index: 1000;
     overflow: hidden;
 }
@@ -1752,8 +1745,8 @@ input#input_import_file {
     margin-<?php echo $right; ?>: 0.5em; /* same as padding of "table td" */
 }
 #fieldsForm ul.table-structure-actions .submenu li {
-    padding: 0.3em;
-    margin: 0.1em;
+    padding: .3em;
+    margin: .1em;
 }
 #structure-action-links a {
     margin-<?php echo $right; ?>: 1em;
@@ -1772,9 +1765,9 @@ input#input_import_file {
 #index_frm .index_info input[type="text"],
 #index_frm .index_info select {
     width: 100%;
-    box-sizing:         border-box;
-    -ms-box-sizing:     border-box;
-    -moz-box-sizing:    border-box;
+    box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
 
@@ -1821,7 +1814,7 @@ table#index_columns select {
 
 #move_columns_dialog li {
     background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     font-weight: bold;
     margin: .4em;
@@ -1833,9 +1826,9 @@ table#index_columns select {
 
 /* config forms */
 .config-form ul.tabs {
-    margin:      1.1em 0.2em 0;
-    padding:     0 0 0.3em 0;
-    list-style:  none;
+    margin: 1.1em .2em 0;
+    padding: 0 0 .3em;
+    list-style: none;
     font-weight: bold;
 }
 
@@ -1844,20 +1837,20 @@ table#index_columns select {
 }
 
 .config-form ul.tabs li a {
-    display:          block;
-    margin:           0.1em 0.2em 0;
-    padding:          0.1em 0.4em;
-    white-space:      nowrap;
-    text-decoration:  none;
-    border:           1px solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
-    border-bottom:    none;
+    display: block;
+    margin: .1em .2em 0;
+    padding: .1em .4em;
+    white-space: nowrap;
+    text-decoration: none;
+    border: 1px solid <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
+    border-bottom: none;
 }
 
 .config-form ul.tabs li a:hover,
 .config-form ul.tabs li a:active,
 .config-form ul.tabs li a.active {
-    margin:           0;
-    padding:          0.1em 0.6em 0.2em;
+    margin: 0;
+    padding: .1em .6em .2em;
 }
 
 .config-form ul.tabs li.active a {
@@ -1865,9 +1858,9 @@ table#index_columns select {
 }
 
 .config-form fieldset {
-    margin-top:   0;
-    padding:      0;
-    clear:        both;
+    margin-top: 0;
+    padding: 0;
+    clear: both;
     /*border-color: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;*/
 }
 
@@ -1876,36 +1869,36 @@ table#index_columns select {
 }
 
 .config-form fieldset p {
-    margin:    0;
-    padding:   0.5em;
+    margin: 0;
+    padding: .5em;
     background: <?php echo $GLOBALS['cfg']['BgTwo']; ?>;
 }
 
 .config-form fieldset .errors { /* form error list */
-    margin:       0 -2px 1em -2px;
+    margin: 0 -2px 1em;
     padding: .5em 1.5em;
-    background:   #FBEAD9;
-    border:       0 #C83838 solid;
+    background: #FBEAD9;
+    border: 0 #C83838 solid;
     border-width: 1px 0;
-    list-style:   none;
-    font-family:  sans-serif;
-    font-size:    small;
+    list-style: none;
+    font-family: sans-serif;
+    font-size: small;
 }
 
 .config-form fieldset .inline_errors { /* field error list */
     margin: .3em .3em .3em 0;
-    padding:    0;
+    padding: 0;
     list-style: none;
-    color:      #9A0000;
-    font-size:  small;
+    color: #9A0000;
+    font-size: small;
 }
 
 .config-form fieldset th {
     padding: .3em .3em .3em .5em;
-    text-align:     left;
+    text-align: left;
     vertical-align: top;
-    width:          40%;
-    background:     transparent;
+    width: 40%;
+    background: transparent;
 }
 
 .config-form fieldset .doc,
@@ -1916,7 +1909,7 @@ table#index_columns select {
 .config-form fieldset .disabled-notice {
     font-size: 80%;
     text-transform: uppercase;
-    color: #E00;
+    color: #EE0000;
     cursor: help;
 }
 
@@ -1927,11 +1920,11 @@ table#index_columns select {
 }
 
 .config-form fieldset th small {
-    display:     block;
+    display: block;
     font-weight: normal;
     font-family: sans-serif;
-    font-size:   x-small;
-    color:       #444;
+    font-size: x-small;
+    color: #444444;
 }
 
 .config-form fieldset th,
@@ -1964,12 +1957,12 @@ fieldset .group-field-3 th {
 fieldset .disabled-field th,
 fieldset .disabled-field th small,
 fieldset .disabled-field td {
-    color: #666;
-    background-color: #ddd;
+    color: #666666;
+    background-color: #dddddd;
 }
 
 .config-form .lastrow {
-    border-top: 1px #000 solid;
+    border-top: 1px #000000 solid;
 }
 
 .config-form .lastrow {
@@ -1990,17 +1983,17 @@ fieldset .disabled-field td {
 }
 
 .config-form .custom { /* customized field */
-    background: #FFC;
+    background: #FFFFCC;
 }
 
 .config-form span.checkbox.custom {
-    padding:    1px;
-    border:     1px #EDEC90 solid;
-    background: #FFC;
+    padding: 1px;
+    border: 1px #EDEC90 solid;
+    background: #FFFFCC;
 }
 
 .config-form .field-error {
-    border-color: #A11 !important;
+    border-color: #AA1111 !important;
 }
 
 .config-form input[type="text"],
@@ -2017,21 +2010,21 @@ fieldset .disabled-field td {
 .config-form input[type="number"]:focus,
 .config-form select:focus,
 .config-form textarea:focus {
-    border:     1px #6676FF solid;
+    border: 1px #6676FF solid;
     background: #F7FBFF;
 }
 
 .config-form .field-comment-mark {
     font-family: serif;
-    color: #007;
+    color: #000077;
     cursor: help;
-    padding: 0 0.2em;
+    padding: 0 .2em;
     font-weight: bold;
     font-style: italic;
 }
 
 .config-form .field-comment-warning {
-    color: #A00;
+    color: #AA0000;
 }
 
 /* error list */
@@ -2063,14 +2056,14 @@ fieldset .disabled-field td {
 
 #placeholder div.button {
     font-size: smaller;
-    color: #999;
-    background-color: #eee;
+    color: #999999;
+    background-color: #eeeeee;
     padding: 2px;
 }
 
 .wrapper {
     float: <?php echo $left; ?>;
-    margin-bottom: 0.5em;
+    margin-bottom: .5em;
 }
 .toggleButton {
     position: relative;
@@ -2080,8 +2073,8 @@ fieldset .disabled-field td {
     line-height: 1.4em;
     height: 1.55em;
     overflow: hidden;
-    border-right: .1em solid #888;
-    border-left: .1em solid #888;
+    border-right: .1em solid #888888;
+    border-left: .1em solid #888888;
 }
 .toggleButton table,
 .toggleButton td,
@@ -2098,7 +2091,7 @@ fieldset .disabled-field td {
     background: none !important;
 }
 .toggleButton .toggleOn {
-    color: #fff;
+    color: #ffffff;
     padding: 0 1em;
 }
 .toggleButton .toggleOff {
@@ -2117,10 +2110,10 @@ fieldset .disabled-field td {
     margin-<?php echo $left; ?>: 1%;
 }
 .doubleFieldset legend {
-    margin-<?php echo $left; ?>: 0.5em;
+    margin-<?php echo $left; ?>: .5em;
 }
 .doubleFieldset div.wrap {
-    padding: 0.5em;
+    padding: .5em;
 }
 
 #table_name_col_no_outer {
@@ -2139,16 +2132,16 @@ fieldset .disabled-field td {
 #table_columns input[type="number"],
 #table_columns input[type="date"],
 #table_columns select {
-    width:              10em;
-    box-sizing:         border-box;
-    -ms-box-sizing:     border-box;
-    -moz-box-sizing:    border-box;
+    width: 10em;
+    box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
 
 #placeholder {
     position: relative;
-    border: 1px solid #aaa;
+    border: 1px solid #aaaaaa;
     float: <?php echo $right; ?>;
     overflow: hidden;
     width: 450px;
@@ -2212,7 +2205,7 @@ fieldset .disabled-field td {
 }
 
 .colborder_active {
-    border-right: 2px solid #a44;
+    border-right: 2px solid #aa4444;
 }
 
 .pma_table td {
@@ -2245,11 +2238,11 @@ fieldset .disabled-field td {
 }
 
 .cCpy {
-    background: #000;
-    color: #FFF;
+    background: #000000;
+    color: #FFFFFF;
     font-weight: bold;
-    margin: 0.1em;
-    padding: 0.3em;
+    margin: .1em;
+    padding: .3em;
     position: absolute;
 }
 
@@ -2263,13 +2256,13 @@ fieldset .disabled-field td {
 }
 
 .tooltip {
-    background: #333 !important;
+    background: #333333 !important;
     opacity: .8 !important;
-    border: 1px solid #000 !important;
+    border: 1px solid #000000 !important;
     -moz-border-radius: .3em !important;
     -webkit-border-radius: .3em !important;
     border-radius: .3em !important;
-    text-shadow: -1px -1px #000 !important;
+    text-shadow: -1px -1px #000000 !important;
     font-size: .8em !important;
     font-weight: bold !important;
     padding: 1px 3px !important;
@@ -2277,7 +2270,7 @@ fieldset .disabled-field td {
 
 .tooltip * {
     background: none !important;
-    color: #FFF !important;
+    color: #FFFFFF !important;
 }
 
 
@@ -2295,20 +2288,20 @@ fieldset .disabled-field td {
     background: url(<?php echo $theme->getImgPath('col_drop.png');?>);
     cursor: pointer;
     height: 16px;
-    margin-left: 0.5em;
-    margin-top: 0.3em;
+    margin-left: .5em;
+    margin-top: .3em;
     position: absolute;
     width: 16px;
 }
 
 .coldrop:hover,
 .coldrop-hover {
-    background-color: #999;
+    background-color: #999999;
 }
 
 .cList {
-    background: #EEE;
-    border: solid 1px #999;
+    background: #EEEEEE;
+    border: solid 1px #999999;
     position: absolute;
 }
 
@@ -2317,7 +2310,7 @@ fieldset .disabled-field td {
 }
 
 .cList .lDiv div:hover {
-    background: #DDD;
+    background: #DDDDDD;
     cursor: pointer;
 }
 
@@ -2326,8 +2319,8 @@ fieldset .disabled-field td {
 }
 
 .showAllColBtn {
-    border-bottom: solid 1px #999;
-    border-top: solid 1px #999;
+    border-bottom: solid 1px #999999;
+    border-top: solid 1px #999999;
     cursor: pointer;
     font-size: .9em;
     font-weight: bold;
@@ -2336,13 +2329,13 @@ fieldset .disabled-field td {
 }
 
 .showAllColBtn:hover {
-    background: #DDD;
+    background: #DDDDDD;
 }
 
 .navigation {
     background: #E5E5E5;
     border: 1px solid black;
-    margin: 0.8em 0;
+    margin: .8em 0;
 }
 
 .navigation td {
@@ -2353,24 +2346,24 @@ fieldset .disabled-field td {
 }
 
 .navigation_separator {
-    color: #555;
+    color: #555555;
     display: inline-block;
     text-align: center;
     width: 1.2em;
-    text-shadow: 1px 0 #FFF;
+    text-shadow: 1px 0 #FFFFFF;
 }
 
 .navigation input[type=submit] {
     background: none;
     border: 0;
     margin: 0;
-    padding: 0.3em 0.5em;
+    padding: .3em .5em;
     min-width: 1.5em;
     font-weight: bold;
 }
 
 .navigation input[type=submit]:hover, .navigation input.edit_mode_active {
-    background: #333;
+    background: #333333;
     color: white;
     cursor: pointer;
 }
@@ -2388,15 +2381,15 @@ fieldset .disabled-field td {
 .cEdit input[type=text],
 .cEdit input[type=password],
 .cEdit input[type=number] {
-    background: #FFF;
+    background: #FFFFFF;
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
 .cEdit .edit_area {
-    background: #FFF;
-    border: 1px solid #999;
+    background: #FFFFFF;
+    border: 1px solid #999999;
     min-width: 10em;
     padding: .3em .5em;
 }
@@ -2407,7 +2400,7 @@ fieldset .disabled-field td {
 }
 
 .cEdit .cell_edit_hint {
-    color: #555;
+    color: #555555;
     font-size: .8em;
     margin: .3em .2em;
 }
@@ -2419,18 +2412,18 @@ fieldset .disabled-field td {
 }
 
 .cEdit .edit_box_posting {
-    background: #FFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
+    background: #FFFFFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
     padding-right: 1.5em;
 }
 
 .cEdit .edit_area_loading {
-    background: #FFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
+    background: #FFFFFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
     height: 10em;
 }
 
 .cEdit .goto_link {
-    background: #EEE;
-    color: #555;
+    background: #EEEEEE;
+    color: #555555;
     padding: .2em .3em;
 }
 
@@ -2451,7 +2444,7 @@ fieldset .disabled-field td {
 .ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
 
 input.btn {
-    color: #333;
+    color: #333333;
     background-color: #D0DCE0;
 }
 
@@ -2482,7 +2475,7 @@ according to css rules*/
 
 /*rules applied to all axes*/
 .jqplot-axis {
-    font-size: 0.75em;
+    font-size: .75em;
 }
 
 .jqplot-xaxis {
@@ -2512,7 +2505,6 @@ according to css rules*/
     white-space: pre;
 }
 
-
 .jqplot-xaxis-tick {
     top: 0;
     /* initial position untill tick is drawn in proper place */
@@ -2537,7 +2529,7 @@ according to css rules*/
 .jqplot-yaxis-tick.jqplot-breakTick {
     right: -20px;
     margin-right: 0;
-    padding:1px 5px 1px 5px;
+    padding: 1px 5px;
     z-index: 2;
     font-size: 1.5em;
 }
@@ -2589,7 +2581,7 @@ according to css rules*/
 }
 
 .jqplot-meterGauge-tick {
-    font-size: 0.75em;
+    font-size: .75em;
     color: #999999;
 }
 
@@ -2599,21 +2591,18 @@ according to css rules*/
 }
 
 table.jqplot-table-legend {
-    margin-top: 12px;
-    margin-bottom: 12px;
-    margin-left: 12px;
-    margin-right: 12px;
+    margin: 12px;
 }
 
 table.jqplot-table-legend, table.jqplot-cursor-legend {
-    background-color: rgba(255,255,255,0.6);
+    background-color: rgba(255,255,255,.6);
     border: 1px solid #cccccc;
     position: absolute;
-    font-size: 0.75em;
+    font-size: .75em;
 }
 
 td.jqplot-table-legend {
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
 /*
@@ -2623,12 +2612,12 @@ element styles and relying on js object properties.
 
 /*
 td.jqplot-table-legend-swatch {
-    padding-top: 0.5em;
+    padding-top: .5em;
     text-align: center;
 }
 
 tr.jqplot-table-legend:first td.jqplot-table-legend-swatch {
-    padding-top: 0px;
+    padding-top: 0;
 }
 */
 
@@ -2642,53 +2631,46 @@ td.jqplot-seriesToggle:hover, td.jqplot-seriesToggle:active {
 
 div.jqplot-table-legend-swatch-outline {
     border: 1px solid #cccccc;
-    padding:1px;
+    padding: 1px;
 }
 
 div.jqplot-table-legend-swatch {
-    width:0;
-    height:0;
-    border-top-width: 5px;
-    border-bottom-width: 5px;
-    border-left-width: 6px;
-    border-right-width: 6px;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
+    width: 0;
+    height: 0;
+    border-width: 5px 6pc;
+    border-style: solid;
 }
 
 .jqplot-title {
     top: 0;
     left: 0;
-    padding-bottom: 0.5em;
+    padding-bottom: .5em;
     font-size: 1.2em;
 }
 
 table.jqplot-cursor-tooltip {
     border: 1px solid #cccccc;
-    font-size: 0.75em;
+    font-size: .75em;
 }
-
 
 .jqplot-cursor-tooltip {
     border: 1px solid #cccccc;
-    font-size: 0.75em;
+    font-size: .75em;
     white-space: nowrap;
-    background: rgba(208,208,208,0.5);
+    background: rgba(208,208,208,.5);
     padding: 1px;
 }
 
 .jqplot-highlighter-tooltip, .jqplot-canvasOverlay-tooltip {
     border: 1px solid #cccccc;
-    font-size: 0.75em;
+    font-size: .75em;
     white-space: nowrap;
-    background: rgba(208,208,208,0.5);
+    background: rgba(208,208,208,.5);
     padding: 1px;
 }
 
 .jqplot-point-label {
-    font-size: 0.75em;
+    font-size: .75em;
     z-index: 2;
 }
 
@@ -2699,7 +2681,7 @@ td.jqplot-cursor-legend-swatch {
 
 div.jqplot-cursor-legend-swatch {
     width: 1.2em;
-    height: 0.7em;
+    height: .7em;
 }
 
 .jqplot-error {
@@ -2715,20 +2697,20 @@ div.jqplot-cursor-legend-swatch {
 }
 
 div.jqplot-bubble-label {
-    font-size: 0.8em;
-/*    background: rgba(90%, 90%, 90%, 0.15);*/
+    font-size: .8em;
+/*    background: rgba(90%, 90%, 90%, .15);*/
     padding-left: 2px;
     padding-right: 2px;
     color: rgb(20%, 20%, 20%);
 }
 
 div.jqplot-bubble-label.jqplot-bubble-label-highlight {
-    background: rgba(90%, 90%, 90%, 0.7);
+    background: rgba(90%, 90%, 90%, .7);
 }
 
 div.jqplot-noData-container {
     text-align: center;
-    background-color: rgba(96%, 96%, 96%, 0.3);
+    background-color: rgba(96%, 96%, 96%, .3);
 }
 
 .relationalTable td {
@@ -2741,21 +2723,21 @@ div.jqplot-noData-container {
 }
 
 .report-data {
-    height:13em;
-    overflow:scroll;
-    width:570px;
+    height: 13em;
+    overflow: scroll;
+    width: 570px;
     border: solid 1px;
     background: white;
     padding: 2px;
 }
 
 .report-description {
-    height:10em;
-    width:570px;
+    height: 10em;
+    width: 570px;
 }
 
 div#page_content div#tableslistcontainer table.data {
-    border-top: 0.1px solid #EEEEEE;
+    border-top: .1px solid #EEEEEE;
 }
 
 div#page_content div#tableslistcontainer, div#page_content div.notice, div#page_content div.result_query {
@@ -2767,7 +2749,7 @@ table.show_create {
 }
 
 table.show_create td {
-    border-right: 1px solid #bbb;
+    border-right: 1px solid #bbbbbb;
 }
 
 #alias_modal table {
@@ -2808,14 +2790,14 @@ table.show_create td {
 }
 #pma_console .toolbar {
     position: relative;
-    background: #ccc;
-    border-top: solid 1px #aaa;
+    background: #cccccc;
+    border-top: solid 1px #aaaaaa;
     cursor: n-resize;
 }
 #pma_console .toolbar.collapsed:not(:hover) {
     display: inline-block;
     border-top-<?php echo $right; ?>-radius: 3px;
-    border-<?php echo $right; ?>: solid 1px #aaa;
+    border-<?php echo $right; ?>: solid 1px #aaaaaa;
 }
 #pma_console .toolbar.collapsed {
     cursor: default;
@@ -2840,7 +2822,7 @@ table.show_create td {
 #pma_console .toolbar .button:hover,
 #pma_console .switch_button:hover,
 #pma_console .toolbar .button.active {
-    background: #ddd;
+    background: #dddddd;
 }
 #pma_console .toolbar .text {
     font-weight: bold;
@@ -2857,26 +2839,26 @@ table.show_create td {
     overflow-x: hidden;
     overflow-y: auto;
     margin-bottom: -65px;
-    border-top: solid 1px #aaa;
-    background: #fff;
+    border-top: solid 1px #aaaaaa;
+    background: #ffffff;
     padding-top: .4em;
 }
 #pma_console .content.console_dark_theme {
-    background: #000;
-    color: #fff;
+    background: #00000;
+    color: #ffffff;
 }
 #pma_console .content.console_dark_theme .CodeMirror-wrap {
-    background: #000;
-    color: #fff;
+    background: #000000;
+    color: #ffffff;
 }
 #pma_console .content.console_dark_theme .action_content {
-    color: #000;
+    color: #000000;
 }
 #pma_console .content.console_dark_theme .message {
     border-color: #373B41;
 }
 #pma_console .content.console_dark_theme .CodeMirror-cursor {
-    border-color: #fff;
+    border-color: #ffffff;
 }
 #pma_console .content.console_dark_theme .cm-keyword {
     color: #de935f;
@@ -2889,7 +2871,7 @@ table.show_create td {
     margin: 0 10px .2em 1.4em;
 }
 #pma_console .message {
-    border-bottom: solid 1px #ccc;
+    border-bottom: solid 1px #cccccc;
     padding-bottom: .2em;
 }
 #pma_console .message.expanded>.action_content {
@@ -2897,7 +2879,7 @@ table.show_create td {
 }
 #pma_console .message:before,
 #pma_console .query_input:before {
-    left: -0.7em;
+    left: -.7em;
     position: absolute;
     content: ">";
 }
@@ -2910,7 +2892,7 @@ table.show_create td {
     resize: vertical;
 }
 #pma_console .message:hover:before {
-    color: #7cf;
+    color: #77ccff;
     font-weight: bold;
 }
 #pma_console .message.expanded:before {
@@ -2923,7 +2905,7 @@ table.show_create td {
 #pma_console .message.failed.expanded:before,
 #pma_console .message.failed:hover:before {
     content: "=";
-    color: #944;
+    color: #994444;
 }
 #pma_console .message.pending:before {
     opacity: .3;
@@ -2962,8 +2944,8 @@ table.show_create td {
 #pma_console .message .action_content {
     position: absolute;
     bottom: 100%;
-    background: #ccc;
-    border: solid 1px #aaa;
+    background: #cccccc;
+    border: solid 1px #aaaaaa;
     border-top-<?php echo $left; ?>-radius: 3px;
 }
 html.ie8 #pma_console .message .action_content {
@@ -2982,7 +2964,7 @@ html.ie8 #pma_console .message .action_content {
     display: inline-block;
 }
 #pma_console .message .text {
-    background: #fff;
+    background: #ffffff;
 }
 #pma_console .message.collapsed>.action_content {
     display: none;
@@ -2993,12 +2975,12 @@ html.ie8 #pma_console .message .action_content {
 #pma_console .message .bookmark_label {
     padding: 0 4px;
     top: 0;
-    background: #369;
-    color: #fff;
+    background: #336699;
+    color: #ffffff;
     border-radius: 3px;
 }
 #pma_console .message .bookmark_label.shared {
-    background: #396;
+    background: #339966;
 }
 #pma_console .message.expanded .bookmark_label {
     border-top-left-radius: 0;
@@ -3014,7 +2996,7 @@ html.ie8 #pma_console .message .action_content {
     top: 0;
     /* For support IE8, this layer doesn't use filter:opacity or opacity,
     js code will fade this layer opacity to 0.18(using animation) */
-    background: #666;
+    background: #666666;
     display: none;
     cursor: pointer;
     z-index: 200;
@@ -3026,16 +3008,16 @@ html.ie8 #pma_console .message .action_content {
     min-height: 48px;
     <?php echo $left; ?>: 100%;
     top: 0;
-    border-<?php echo $left; ?>: solid 1px #999;
+    border-<?php echo $left; ?>: solid 1px #999999;
     z-index: 300;
-    transition: <?php echo $left; ?> 0.2s;
-    -ms-transition: <?php echo $left; ?> 0.2s;
-    -webkit-transition: <?php echo $left; ?> 0.2s;
-    -moz-transition: <?php echo $left; ?> 0.2s;
+    transition: <?php echo $left; ?> .2s;
+    -ms-transition: <?php echo $left; ?> .2s;
+    -webkit-transition: <?php echo $left; ?> .2s;
+    -moz-transition: <?php echo $left; ?> .2s;
 }
 #pma_console .card.show {
     <?php echo $left; ?>: 6%;
-    box-shadow: -2px 1px 4px -1px #999;
+    box-shadow: -2px 1px 4px -1px #999999;
 }
 
 html.ie7 #pma_console .query_input {
@@ -3050,7 +3032,7 @@ html.ie7 #pma_console .query_input {
     margin-<?php echo $left; ?>: 1.4em;
     padding-bottom: .4em;
     margin-bottom: .4em;
-    border-bottom: solid 1px #ccc;
+    border-bottom: solid 1px #cccccc;
 }
 #pma_bookmarks .content.add_bookmark .options button {
     margin: 0 7px;
@@ -3140,7 +3122,7 @@ html.ie7 #pma_console .query_input {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, .6);
     height: 100%;
     z-index: 999;
     color: white;
@@ -3155,7 +3137,7 @@ html.ie7 #pma_console .query_input {
     bottom: 0;
     right: 25px;
     width: 400px;
-    border: 1px solid #999;
+    border: 1px solid #999999;
     background: #f3f3f3;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -3167,14 +3149,14 @@ html.ie7 #pma_console .query_input {
 
 .pma_sql_import_status h2,
 .pma_drop_result h2 {
-    background-color: #bbb;
+    background-color: #bbbbbb;
     padding: .1em .3em;
     margin-top: 0;
     margin-bottom: 0;
-    color: #fff;
+    color: #ffffff;
     font-size: 1.6em;
     font-weight: normal;
-    text-shadow: 0 1px 0 #777;
+    text-shadow: 0 1px 0 #777777;
     -moz-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
     -webkit-box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
     box-shadow: <?php echo $GLOBALS['text_dir'] === 'rtl' ? '-' : ''; ?>1px 1px 15px #999 inset;
@@ -3182,14 +3164,14 @@ html.ie7 #pma_console .query_input {
 
 .pma_sql_import_status div {
     height: 270px;
-    overflow-y:auto;
-    overflow-x:hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     list-style-type: none;
 }
 
 .pma_sql_import_status div li {
     padding: 8px 10px;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #bbbbbb;
     color: rgb(148, 14, 14);
     background: white;
 }
@@ -3214,7 +3196,7 @@ html.ie7 #pma_console .query_input {
 .pma_sql_import_status h2 .minimize:hover,
 .pma_sql_import_status h2 .close:hover,
 .pma_drop_result h2 .close:hover {
-    background: rgba(155, 149, 149, 0.78);
+    background: rgba(155, 149, 149, .78);
     cursor: pointer;
 }
 
@@ -3235,7 +3217,7 @@ html.ie7 #pma_console .query_input {
     background: white;
     min-height: 300px;
     z-index: 800;
-    -webkit-box-shadow: 0 0 15px #999;
+    -webkit-box-shadow: 0 0 15px #999999;
     border-radius: 10px;
     cursor: move;
 }

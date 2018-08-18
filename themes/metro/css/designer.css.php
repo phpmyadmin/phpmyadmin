@@ -16,8 +16,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 /* Designer */
 .input_tab {
     background-color: #efefef;
-    color: #000;
-    border: 1px solid #ccc;
+    color: #000000;
+    border: 1px solid #cccccc;
 }
 
 .content_fullscreen {
@@ -32,8 +32,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 
 #canvas {
-    background-color: #fff;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 canvas.designer {
@@ -47,9 +47,9 @@ canvas.designer * {
 }
 
 .designer_tab {
-    color: #333;
+    color: #333333;
     border-collapse: collapse;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     z-index: 1;
     -moz-user-select: none;
 }
@@ -76,21 +76,21 @@ canvas.designer * {
 }
 
 .tab_field {
-    background: #fff;
-    color: #000;
+    background: #ffffff;
+    color: #000000;
     cursor: default;
 }
 
 .tab_field:hover, .tab_field_3:hover {
     background-color: #CCFFCC;
-    color: #000;
+    color: #000000;
     background-repeat: repeat-x;
     cursor: default;
 }
 
 .tab_field_3 {
     background-color: #FFE6E6; /*#DDEEFF*/
-    color: #000;
+    color: #000000;
     cursor: default;
 }
 
@@ -98,7 +98,7 @@ canvas.designer * {
     white-space: nowrap;
     position: absolute;
     background-color: #99FF99;
-    color: #000;
+    color: #000000;
     z-index: 3;
     border: #00CC66 solid 1px;
     display: none;
@@ -112,29 +112,29 @@ canvas.designer * {
 
 .designer_Tabs {
     cursor: default;
-    color: #333;
+    color: #333333;
     white-space: nowrap;
     text-decoration: none;
     text-indent: 3px;
     margin-left: 2px;
     text-align: <?php echo $left; ?>;
-    border: #ccc solid 0;
+    border: #cccccc solid 0;
 }
 
 .designer_Tabs:hover {
     cursor: default;
-    color: #666;
-    background: #eee;
+    color: #666666;
+    background: #eeeeee;
     text-indent: 3px;
     white-space: nowrap;
     text-decoration: none;
-    border: #eee solid 0;
+    border: #eeeeee solid 0;
     text-align: <?php echo $left; ?>;
 }
 
 .owner {
     font-weight: normal;
-    color: #888;
+    color: #888888;
 }
 
 .option_tab {
@@ -149,14 +149,14 @@ canvas.designer * {
     padding-right: 2px;
     cursor: default;
     width: 1px;
-    color: #000;
+    color: #000000;
     background-repeat: repeat-x;
 }
 
 .small_tab {
     vertical-align: top;
-    background-color: #666;
-    color: #fff;
+    background-color: #666666;
+    color: #ffffff;
     cursor: default;
     text-align: center;
     font-weight: bold;
@@ -168,7 +168,7 @@ canvas.designer * {
 
 .small_tab:hover {
     vertical-align: top;
-    color: #fff;
+    color: #ffffff;
     background-color: #FF9966;
     cursor: default;
     padding-left: 2px;
@@ -187,7 +187,7 @@ canvas.designer * {
 
 .small_tab_pref:hover {
     vertical-align: top;
-    color: #fff;
+    color: #ffffff;
     background-color: #FF9966;
     cursor: default;
     text-align: center;
@@ -205,7 +205,7 @@ canvas.designer * {
 
 .L_butt2_1:hover {
     padding-left: 5px;
-    color: #000;
+    color: #000000;
     text-decoration: none;
     vertical-align: middle;
     cursor: default;
@@ -219,8 +219,8 @@ canvas.designer * {
 
 #osn_tab {
     position: absolute;
-    background-color: #fff;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
     width: 100% !important;
 }
 
@@ -264,23 +264,23 @@ canvas.designer * {
 
 a.M_butt_Selected_down_IE,
 a.M_butt_Selected_down {
-    background-color: #eee;
-    color: #000;
+    background-color: #eeeeee;
+    color: #000000;
 }
 
 a.M_butt_Selected_down_IE:hover,
 a.M_butt_Selected_down:hover,
 a.M_butt:hover {
-    background-color: #eee;
-    color: #000;
+    background-color: #eeeeee;
+    color: #000000;
 }
 
 #layer_menu {
     z-index: 98;
     position: relative;
-    float: right;;
+    float: right;
     background-color: #f6f6f6;
-    border: #ccc solid 1px;
+    border: #cccccc solid 1px;
     border-top: 0;
     margin-right: -20px;
 }
@@ -347,10 +347,10 @@ a.trigger {
     text-decoration: none;
     top: 90px;
     <?php echo $right; ?>: 0;
-    color: #fff;
+    color: #ffffff;
     padding: 10px 40px 10px 15px;
     background: #333 url(<?php echo $theme->getImgPath('designer/plus.png'); ?>) 85% 55% no-repeat;
-    border: 1px solid #444;
+    border: 1px solid #444444;
     display: block;
     z-index: 102;
 }
@@ -358,11 +358,11 @@ a.trigger {
 a.trigger:hover {
     color: #080808;
     background: #fff696 url(<?php echo $theme->getImgPath('designer/plus.png'); ?>) 85% 55% no-repeat;
-    border: 1px solid #999;
+    border: 1px solid #999999;
 }
 
 a.active.trigger {
-    background: #222 url(<?php echo $theme->getImgPath('designer/minus.png'); ?>) 85% 55% no-repeat;
+    background: #222222 url(<?php echo $theme->getImgPath('designer/minus.png'); ?>) 85% 55% no-repeat;
     z-index: 999;
 }
 
@@ -372,7 +372,7 @@ a.active.trigger:hover {
 
 .toggle_container .block {
     background-color: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground'] ?>;
-    border-top: 1px solid #999;
+    border-top: 1px solid #999999;
 }
 
 .toggle_container .block img.ic_s_info {
@@ -386,7 +386,7 @@ a.active.trigger:hover {
 }
 
 .history_table2 {
-    opacity: 0.7;
+    opacity: .7;
 }
 
 #ab {
@@ -413,7 +413,7 @@ a.active.trigger:hover {
     width: auto;
     height: auto;
     background: #efefef;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-top: 0;
     overflow: hidden;
     z-index: 50;
@@ -453,7 +453,7 @@ a.active.trigger:hover {
 }
 
 #name-panel {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #cccccc;
     text-align: center;
     background: #efefef;
     font-size: 1.2em;
