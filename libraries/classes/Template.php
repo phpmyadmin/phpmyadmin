@@ -74,8 +74,8 @@ class Template
             $twig->addExtension(new SanitizeExtension());
             $twig->addExtension(new ServerPrivilegesExtension());
             $twig->addExtension(new StorageEngineExtension());
-            $twig->addExtension(new TrackerExtension());
             $twig->addExtension(new TableExtension());
+            $twig->addExtension(new TrackerExtension());
             $twig->addExtension(new TransformationsExtension());
             $twig->addExtension(new UrlExtension());
             $twig->addExtension(new UtilExtension());

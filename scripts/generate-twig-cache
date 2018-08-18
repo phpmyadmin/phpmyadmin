@@ -2,16 +2,11 @@
 /* vim: set expandtab sw=4 ts=4 sts=4 ft=php: */
 declare(strict_types=1);
 
-define('PHPMYADMIN', 1);
-require_once 'libraries/vendor_config.php';
-require_once AUTOLOAD_FILE;
-
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Twig\CharsetsExtension;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
-use PhpMyAdmin\Twig\IndexExtension;
 use PhpMyAdmin\Twig\MessageExtension;
-use PhpMyAdmin\Twig\PartitionExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
 use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
@@ -22,22 +17,28 @@ use PhpMyAdmin\Twig\TrackerExtension;
 use PhpMyAdmin\Twig\TransformationsExtension;
 use PhpMyAdmin\Twig\UrlExtension;
 use PhpMyAdmin\Twig\UtilExtension;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
+
+define('PHPMYADMIN', 1);
+require_once 'libraries/vendor_config.php';
+require_once AUTOLOAD_FILE;
+
+$GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
 
 $tplDir = dirname(__FILE__) . '/../templates';
 $tmpDir = dirname(__FILE__) . '/../twig-templates';
-$loader = new Twig\Loader\FilesystemLoader($tplDir);
+$loader = new FilesystemLoader($tplDir);
 
 // force auto-reload to always have the latest version of the template
-$twig = new Twig\Environment($loader, array(
+$twig = new Environment($loader, array(
     'cache' => $tmpDir,
     'auto_reload' => true
 ));
 $twig->addExtension(new CharsetsExtension());
 $twig->addExtension(new CoreExtension());
 $twig->addExtension(new I18nExtension());
-$twig->addExtension(new IndexExtension());
 $twig->addExtension(new MessageExtension());
-$twig->addExtension(new PartitionExtension());
 $twig->addExtension(new PluginsExtension());
 $twig->addExtension(new RelationExtension());
 $twig->addExtension(new SanitizeExtension());
@@ -54,9 +55,9 @@ $replacements = [];
 $twigCache = $twig->getCache(false);
 
 // iterate over all templates
-foreach (new RecursiveIteratorIterator(
-    new RecursiveDirectoryIterator($tplDir),
-    RecursiveIteratorIterator::LEAVES_ONLY
+foreach (new \RecursiveIteratorIterator(
+    new \RecursiveDirectoryIterator($tplDir),
+    \RecursiveIteratorIterator::LEAVES_ONLY
 ) as $file) {
     // Skip test files
     if (strpos($file->getPathname(), '/test/') !== false) {
