@@ -31,6 +31,7 @@ class ParseAnalyze
      */
     public static function sqlQuery($sql_query, $db)
     {
+        global $reload;
         // @todo: move to returned results (also in all the calling chain)
         $GLOBALS['unparsed_sql'] = $sql_query;
 

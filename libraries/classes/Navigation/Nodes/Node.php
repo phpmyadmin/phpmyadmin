@@ -208,7 +208,7 @@ class Node
             $parents[] = $this;
         }
         $parent = $this->parent;
-        while (isset($parent)) {
+        while (! is_null($parent)) {
             if (($parent->type != Node::CONTAINER || $containers)
                 && (!$parent->is_group || $groups)
             ) {
@@ -688,6 +688,7 @@ class Node
      */
     private function _getDatabasesToSearch($searchClause)
     {
+        $databases = [];
         if (!empty($searchClause)) {
             $databases = [
                 "%" . $GLOBALS['dbi']->escapeString($searchClause) . "%",

@@ -405,7 +405,7 @@ class Common
             DatabaseInterface::QUERY_STORE
         );
 
-        if (isset($default_page_no) && count($default_page_no)) {
+        if (! is_null($default_page_no) && count($default_page_no)) {
             return intval($default_page_no[0]);
         }
         return -1;

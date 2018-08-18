@@ -644,7 +644,7 @@ class Message
     /**
      * wrapper for sprintf()
      *
-     * @param mixed ... $params Params
+     * @param mixed[] ... $params Params
      * @return string formatted
      */
     public static function format(...$params): string

@@ -1062,11 +1062,7 @@ class Relation
                     AND `column_name` = \'(db_comment)\'';
         }
 
-        if (isset($upd_query)) {
-            return $this->queryAsControlUser($upd_query);
-        }
-
-        return false;
+        return $this->queryAsControlUser($upd_query);
     }
 
     /**
@@ -1785,13 +1781,13 @@ class Relation
     /**
      * Create a PDF page
      *
-     * @param string $newpage     name of the new PDF page
-     * @param array  $cfgRelation Relation configuration
-     * @param string $db          database name
+     * @param string|null $newpage     name of the new PDF page
+     * @param array       $cfgRelation Relation configuration
+     * @param string      $db          database name
      *
      * @return int $pdf_page_number
      */
-    public function createPage($newpage, array $cfgRelation, $db)
+    public function createPage(?string $newpage, array $cfgRelation, $db)
     {
         if (! isset($newpage) || $newpage == '') {
             $newpage = __('no description');

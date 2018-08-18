@@ -902,20 +902,20 @@ class Table
     /**
      * Copies or renames table
      *
-     * @param string $source_db    source database
-     * @param string $source_table source table
-     * @param string $target_db    target database
-     * @param string $target_table target table
-     * @param string $what         what to be moved or copied (data, dataonly)
-     * @param bool   $move         whether to move
-     * @param string $mode         mode
+     * @param string      $source_db    source database
+     * @param string      $source_table source table
+     * @param string|null $target_db    target database
+     * @param string      $target_table target table
+     * @param string      $what         what to be moved or copied (data, dataonly)
+     * @param bool        $move         whether to move
+     * @param string      $mode         mode
      *
      * @return bool true if success, false otherwise
      */
     public static function moveCopy(
         $source_db,
         $source_table,
-        $target_db,
+        ?string $target_db,
         $target_table,
         $what,
         $move,

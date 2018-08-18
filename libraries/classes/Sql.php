@@ -568,13 +568,13 @@ EOT;
      * Function to get html for bookmark support if bookmarks are enabled. Else will
      * return null
      *
-     * @param array  $displayParts   the parts to display
-     * @param array  $cfgBookmark    configuration setting for bookmarking
-     * @param string $sql_query      sql query
-     * @param string $db             current database
-     * @param string $table          current table
-     * @param string $complete_query complete query
-     * @param string $bkm_user       bookmarking user
+     * @param array       $displayParts   the parts to display
+     * @param array       $cfgBookmark    configuration setting for bookmarking
+     * @param string      $sql_query      sql query
+     * @param string      $db             current database
+     * @param string      $table          current table
+     * @param string|null $complete_query complete query
+     * @param string      $bkm_user       bookmarking user
      *
      * @return string $html
      */
@@ -584,7 +584,7 @@ EOT;
         $sql_query,
         $db,
         $table,
-        $complete_query,
+        ?string $complete_query,
         $bkm_user
     ) {
         if ($displayParts['bkm_form'] == '1'
@@ -701,13 +701,13 @@ EOT;
     /**
      * Function to check whether this query is for just browsing
      *
-     * @param array   $analyzed_sql_results the analyzed query and other variables set
-     *                                      after analyzing the query
-     * @param boolean $find_real_end        whether the real end should be found
+     * @param array        $analyzed_sql_results the analyzed query and other variables set
+     *                                           after analyzing the query
+     * @param boolean|null $find_real_end        whether the real end should be found
      *
      * @return boolean
      */
-    public function isJustBrowsing(array $analyzed_sql_results, $find_real_end)
+    public function isJustBrowsing(array $analyzed_sql_results, ?bool $find_real_end): bool
     {
         return ! $analyzed_sql_results['is_group']
             && ! $analyzed_sql_results['is_func']
@@ -1034,11 +1034,11 @@ EOT;
     /**
      * Function to store the query as a bookmark
      *
-     * @param string  $db                     the current database
-     * @param string  $bkm_user               the bookmarking user
-     * @param string  $sql_query_for_bookmark the query to be stored in bookmark
-     * @param string  $bkm_label              bookmark label
-     * @param boolean $bkm_replace            whether to replace existing bookmarks
+     * @param string       $db                     the current database
+     * @param string       $bkm_user               the bookmarking user
+     * @param string       $sql_query_for_bookmark the query to be stored in bookmark
+     * @param string       $bkm_label              bookmark label
+     * @param boolean|null $bkm_replace            whether to replace existing bookmarks
      *
      * @return void
      */
@@ -1047,7 +1047,7 @@ EOT;
         $bkm_user,
         $sql_query_for_bookmark,
         $bkm_label,
-        $bkm_replace
+        ?bool $bkm_replace
     ) {
         $bfields = [
             'bkm_database' => $db,
@@ -1148,14 +1148,14 @@ EOT;
     /**
      * If a table, database or column gets dropped, clean comments.
      *
-     * @param string $db     current database
-     * @param string $table  current table
-     * @param string $column current column
-     * @param bool   $purge  whether purge set or not
+     * @param string      $db     current database
+     * @param string      $table  current table
+     * @param string|null $column current column
+     * @param bool        $purge  whether purge set or not
      *
      * @return array $extra_data
      */
-    private function cleanupRelations($db, $table, $column, $purge)
+    private function cleanupRelations($db, $table, ?string $column, $purge)
     {
         if (! empty($purge) && strlen($db) > 0) {
             if (strlen($table) > 0) {
@@ -1269,14 +1269,14 @@ EOT;
     /**
      * Function to handle all aspects relating to executing the query
      *
-     * @param array   $analyzed_sql_results   analyzed sql results
-     * @param string  $full_sql_query         full sql query
-     * @param boolean $is_gotofile            whether to go to a file
-     * @param string  $db                     current database
-     * @param string  $table                  current table
-     * @param boolean $find_real_end          whether to find the real end
-     * @param string  $sql_query_for_bookmark sql query to be stored as bookmark
-     * @param array   $extra_data             extra data
+     * @param array        $analyzed_sql_results   analyzed sql results
+     * @param string       $full_sql_query         full sql query
+     * @param boolean      $is_gotofile            whether to go to a file
+     * @param string       $db                     current database
+     * @param string       $table                  current table
+     * @param boolean|null $find_real_end          whether to find the real end
+     * @param string       $sql_query_for_bookmark sql query to be stored as bookmark
+     * @param array        $extra_data             extra data
      *
      * @return mixed
      */
@@ -1286,7 +1286,7 @@ EOT;
         $is_gotofile,
         $db,
         $table,
-        $find_real_end,
+        ?bool $find_real_end,
         $sql_query_for_bookmark,
         $extra_data
     ) {
@@ -1505,14 +1505,14 @@ EOT;
      * @param array          $analyzed_sql_results analyzed sql results
      * @param string         $db                   current database
      * @param string         $table                current table
-     * @param string         $message_to_show      message to show
+     * @param string|null    $message_to_show      message to show
      * @param int            $num_rows             number of rows
      * @param DisplayResults $displayResultsObject DisplayResult instance
-     * @param array          $extra_data           extra data
+     * @param array|null     $extra_data           extra data
      * @param string         $pmaThemeImage        uri of the theme image
      * @param object         $result               executed query results
      * @param string         $sql_query            sql query
-     * @param string         $complete_query       complete sql query
+     * @param string|null    $complete_query       complete sql query
      *
      * @return string html
      */
@@ -1520,15 +1520,16 @@ EOT;
         array $analyzed_sql_results,
         $db,
         $table,
-        $message_to_show,
+        ?string $message_to_show,
         $num_rows,
         $displayResultsObject,
-        $extra_data,
+        ?array $extra_data,
         $pmaThemeImage,
         $result,
         $sql_query,
-        $complete_query
+        ?string $complete_query
     ) {
+        global $url_query;
         if ($this->isDeleteTransformationInfo($analyzed_sql_results)) {
             $this->deleteTransformationInfo($db, $table, $analyzed_sql_results);
         }
@@ -1639,25 +1640,25 @@ EOT;
     /**
      * Function to get html for the sql query results div
      *
-     * @param string  $previous_update_query_html html for the previously executed query
-     * @param string  $profiling_chart_html       html for profiling
-     * @param Message $missing_unique_column_msg  message for the missing unique column
-     * @param Message $bookmark_created_msg       message for bookmark creation
-     * @param string  $table_html                 html for the table for displaying sql
-     *                                            results
-     * @param string  $indexes_problems_html      html for displaying errors in indexes
-     * @param string  $bookmark_support_html      html for displaying bookmark form
+     * @param string|null  $previous_update_query_html html for the previously executed query
+     * @param string|null  $profiling_chart_html       html for profiling
+     * @param Message|null $missing_unique_column_msg  message for the missing unique column
+     * @param Message|null $bookmark_created_msg       message for bookmark creation
+     * @param string       $table_html                 html for the table for displaying sql
+     *                                                 results
+     * @param string|null  $indexes_problems_html      html for displaying errors in indexes
+     * @param string|null  $bookmark_support_html      html for displaying bookmark form
      *
      * @return string $html_output
      */
     private function getHtmlForSqlQueryResults(
-        $previous_update_query_html,
-        $profiling_chart_html,
-        $missing_unique_column_msg,
-        $bookmark_created_msg,
+        ?string $previous_update_query_html,
+        ?string $profiling_chart_html,
+        ?Message $missing_unique_column_msg,
+        ?Message $bookmark_created_msg,
         $table_html,
-        $indexes_problems_html,
-        $bookmark_support_html
+        ?string $indexes_problems_html,
+        ?string $bookmark_support_html
     ) {
         //begin the sqlqueryresults div here. container div
         $html_output = '<div class="sqlqueryresults ajax">';
@@ -1708,7 +1709,7 @@ EOT;
      * @param int            $unlim_num_rows       unlimited number of rows
      * @param int            $num_rows             number of rows
      * @param bool           $showtable            whether to show table or not
-     * @param object         $result               result of the executed query
+     * @param object|null    $result               result of the executed query
      * @param array          $analyzed_sql_results analyzed sql results
      * @param bool           $is_limited_display   Show only limited operations or not
      *
@@ -1723,7 +1724,7 @@ EOT;
         $unlim_num_rows,
         $num_rows,
         $showtable,
-        $result,
+        ?object $result,
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
@@ -1790,6 +1791,8 @@ EOT;
                 unset($result);
             } while ($GLOBALS['dbi']->moreResults() && $GLOBALS['dbi']->nextResult());
         } else {
+            $fields_meta = [];
+            $fields_cnt = 0;
             if (isset($result) && $result !== false) {
                 $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
                 $fields_cnt  = count($fields_meta);
@@ -1833,15 +1836,15 @@ EOT;
      * Function to get html for the previous query if there is such. If not will return
      * null
      *
-     * @param string $disp_query   display query
-     * @param bool   $showSql      whether to show sql
-     * @param array  $sql_data     sql data
-     * @param string $disp_message display message
+     * @param string|null    $disp_query   display query
+     * @param bool           $showSql      whether to show sql
+     * @param array          $sql_data     sql data
+     * @param Message|string $disp_message display message
      *
      * @return string $previous_update_query_html
      */
     private function getHtmlForPreviousUpdateQuery(
-        $disp_query,
+        ?string $disp_query,
         $showSql,
         $sql_data,
         $disp_message
@@ -1910,16 +1913,16 @@ EOT;
     /**
      * Function to get html to display problems in indexes
      *
-     * @param string     $query_type     query type
-     * @param array|null $selectedTables array of table names selected from the
-     *                                   database structure page, for an action
-     *                                   like check table, optimize table,
-     *                                   analyze table or repair table
-     * @param string     $db             current database
+     * @param string|null $query_type     query type
+     * @param array|null  $selectedTables array of table names selected from the
+     *                                    database structure page, for an action
+     *                                    like check table, optimize table,
+     *                                    analyze table or repair table
+     * @param string      $db             current database
      *
      * @return string
      */
-    private function getHtmlForIndexesProblems($query_type, $selectedTables, $db)
+    private function getHtmlForIndexesProblems(?string $query_type, ?array $selectedTables, string $db)
     {
         // BEGIN INDEX CHECK See if indexes should be checked.
         if (isset($query_type)
@@ -1948,49 +1951,50 @@ EOT;
     /**
      * Function to display results when the executed query returns non empty results
      *
-     * @param object         $result               executed query results
-     * @param array          $analyzed_sql_results analysed sql results
-     * @param string         $db                   current database
-     * @param string         $table                current table
-     * @param string         $message              message to show
-     * @param array          $sql_data             sql data
-     * @param DisplayResults $displayResultsObject Instance of DisplayResults
-     * @param string         $pmaThemeImage        uri of the theme image
-     * @param int            $unlim_num_rows       unlimited number of rows
-     * @param int            $num_rows             number of rows
-     * @param string         $disp_query           display query
-     * @param string         $disp_message         display message
-     * @param array          $profiling_results    profiling results
-     * @param string         $query_type           query type
-     * @param array|null     $selectedTables       array of table names selected
-     *                                             from the database structure page, for
-     *                                             an action like check table,
-     *                                             optimize table, analyze table or
-     *                                             repair table
-     * @param string         $sql_query            sql query
-     * @param string         $complete_query       complete sql query
+     * @param object|null         $result               executed query results
+     * @param array               $analyzed_sql_results analysed sql results
+     * @param string              $db                   current database
+     * @param string              $table                current table
+     * @param string|null         $message              message to show
+     * @param array|null          $sql_data             sql data
+     * @param DisplayResults      $displayResultsObject Instance of DisplayResults
+     * @param string              $pmaThemeImage        uri of the theme image
+     * @param int                 $unlim_num_rows       unlimited number of rows
+     * @param int                 $num_rows             number of rows
+     * @param string|null         $disp_query           display query
+     * @param Message|string|null $disp_message         display message
+     * @param array|null          $profiling_results    profiling results
+     * @param string|null         $query_type           query type
+     * @param array|null          $selectedTables       array of table names selected
+     *                                                     from the database structure page, for
+     *                                                     an action like check table,
+     *                                                     optimize table, analyze table or
+     *                                                     repair table
+     * @param string              $sql_query            sql query
+     * @param string|null         $complete_query       complete sql query
      *
      * @return string html
      */
     private function getQueryResponseForResultsReturned(
-        $result,
+        ?object $result,
         array $analyzed_sql_results,
         $db,
         $table,
-        $message,
-        $sql_data,
+        ?string $message,
+        ?array $sql_data,
         $displayResultsObject,
         $pmaThemeImage,
         $unlim_num_rows,
         $num_rows,
-        $disp_query,
+        ?string $disp_query,
         $disp_message,
-        $profiling_results,
-        $query_type,
+        ?array $profiling_results,
+        ?string $query_type,
         $selectedTables,
         $sql_query,
-        $complete_query
+        ?string $complete_query
     ) {
+        global $showtable, $url_query;
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
         if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
@@ -2001,6 +2005,8 @@ EOT;
         // Gets the list of fields properties
         if (isset($result) && $result) {
             $fields_meta = $GLOBALS['dbi']->getFieldsMeta($result);
+        } else {
+            $fields_meta = [];
         }
 
         // Should be initialized these parameters before parsing
@@ -2197,27 +2203,27 @@ EOT;
     /**
      * Function to execute the query and send the response
      *
-     * @param array      $analyzed_sql_results   analysed sql results
-     * @param bool       $is_gotofile            whether goto file or not
-     * @param string     $db                     current database
-     * @param string     $table                  current table
-     * @param bool|null  $find_real_end          whether to find real end or not
-     * @param string     $sql_query_for_bookmark the sql query to be stored as bookmark
-     * @param array|null $extra_data             extra data
-     * @param string     $message_to_show        message to show
-     * @param string     $message                message
-     * @param array|null $sql_data               sql data
-     * @param string     $goto                   goto page url
-     * @param string     $pmaThemeImage          uri of the PMA theme image
-     * @param string     $disp_query             display query
-     * @param string     $disp_message           display message
-     * @param string     $query_type             query type
-     * @param string     $sql_query              sql query
-     * @param array|null $selectedTables         array of table names selected from the
-     *                                           database structure page, for an action
-     *                                           like check table, optimize table,
-     *                                           analyze table or repair table
-     * @param string     $complete_query         complete query
+     * @param array          $analyzed_sql_results   analysed sql results
+     * @param bool           $is_gotofile            whether goto file or not
+     * @param string         $db                     current database
+     * @param string         $table                  current table
+     * @param bool|null      $find_real_end          whether to find real end or not
+     * @param string         $sql_query_for_bookmark the sql query to be stored as bookmark
+     * @param array|null     $extra_data             extra data
+     * @param string         $message_to_show        message to show
+     * @param string         $message                message
+     * @param array|null     $sql_data               sql data
+     * @param string         $goto                   goto page url
+     * @param string         $pmaThemeImage          uri of the PMA theme image
+     * @param string         $disp_query             display query
+     * @param Message|string $disp_message           display message
+     * @param string         $query_type             query type
+     * @param string         $sql_query              sql query
+     * @param array|null     $selectedTables         array of table names selected from the
+     *                                                   database structure page, for an action
+     *                                                   like check table, optimize table,
+     *                                                   analyze table or repair table
+     * @param string         $complete_query         complete query
      *
      * @return void
      */
@@ -2284,27 +2290,27 @@ EOT;
     /**
      * Function to execute the query and send the response
      *
-     * @param array      $analyzed_sql_results   analysed sql results
-     * @param bool       $is_gotofile            whether goto file or not
-     * @param string     $db                     current database
-     * @param string     $table                  current table
-     * @param bool|null  $find_real_end          whether to find real end or not
-     * @param string     $sql_query_for_bookmark the sql query to be stored as bookmark
-     * @param array|null $extra_data             extra data
-     * @param string     $message_to_show        message to show
-     * @param string     $message                message
-     * @param array|null $sql_data               sql data
-     * @param string     $goto                   goto page url
-     * @param string     $pmaThemeImage          uri of the PMA theme image
-     * @param string     $disp_query             display query
-     * @param string     $disp_message           display message
-     * @param string     $query_type             query type
-     * @param string     $sql_query              sql query
-     * @param array|null $selectedTables         array of table names selected from the
-     *                                           database structure page, for an action
-     *                                           like check table, optimize table,
-     *                                           analyze table or repair table
-     * @param string     $complete_query         complete query
+     * @param array               $analyzed_sql_results   analysed sql results
+     * @param bool                $is_gotofile            whether goto file or not
+     * @param string              $db                     current database
+     * @param string              $table                  current table
+     * @param bool|null           $find_real_end          whether to find real end or not
+     * @param string|null         $sql_query_for_bookmark the sql query to be stored as bookmark
+     * @param array|null          $extra_data             extra data
+     * @param string|null         $message_to_show        message to show
+     * @param string|null         $message                message
+     * @param array|null          $sql_data               sql data
+     * @param string              $goto                   goto page url
+     * @param string              $pmaThemeImage          uri of the PMA theme image
+     * @param string|null         $disp_query             display query
+     * @param Message|string|null $disp_message           display message
+     * @param string|null         $query_type             query type
+     * @param string              $sql_query              sql query
+     * @param array|null          $selectedTables         array of table names selected from the
+     *                                                    database structure page, for an action
+     *                                                    like check table, optimize table,
+     *                                                    analyze table or repair table
+     * @param string|null         $complete_query         complete query
      *
      * @return string html
      */
@@ -2314,19 +2320,19 @@ EOT;
         $db,
         $table,
         $find_real_end,
-        $sql_query_for_bookmark,
+        ?string $sql_query_for_bookmark,
         $extra_data,
-        $message_to_show,
-        $message,
+        ?string $message_to_show,
+        ?string $message,
         $sql_data,
         $goto,
         $pmaThemeImage,
-        $disp_query,
+        ?string $disp_query,
         $disp_message,
-        $query_type,
+        ?string $query_type,
         $sql_query,
         $selectedTables,
-        $complete_query
+        ?string $complete_query
     ) {
         // Handle disable/enable foreign key checks
         $default_fk_check = Util::handleDisableFKCheckInit();

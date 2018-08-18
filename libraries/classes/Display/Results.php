@@ -1453,9 +1453,9 @@ class Results
     /**
      * Prepare sort by key dropdown - html code segment
      *
-     * @param Index[] $indexes            the indexes of the table for sort criteria
-     * @param string  $sort_expression    the sort expression
-     * @param string  $unsorted_sql_query the unsorted sql query
+     * @param Index[]     $indexes            the indexes of the table for sort criteria
+     * @param string|null $sort_expression    the sort expression
+     * @param string      $unsorted_sql_query the unsorted sql query
      *
      * @return  string  $drop_down_html         html content
      *
@@ -1465,7 +1465,7 @@ class Results
      */
     private function _getSortByKeyDropDown(
         $indexes,
-        $sort_expression,
+        ?string $sort_expression,
         $unsorted_sql_query
     ) {
 
@@ -3155,7 +3155,7 @@ class Results
 
                 $display_params['data'][$row_no][$i]
                     = $this->_getDataCellForNumericColumns(
-                        $row[$i],
+                        (string) $row[$i],
                         $class,
                         $condition_field,
                         $meta,
@@ -3611,20 +3611,20 @@ class Results
     /**
      * Prepare placed links
      *
-     * @param string  $dir               the direction of links should place
-     * @param string  $del_url           the url for delete row
-     * @param array   $displayParts      which elements to display
-     * @param integer $row_no            the index of current row
-     * @param string  $where_clause      the where clause of the sql
-     * @param string  $where_clause_html the html encoded where clause
-     * @param array   $condition_array   array of keys (primary, unique, condition)
-     * @param string  $edit_url          the url for edit row
-     * @param string  $copy_url          the url for copy row
-     * @param string  $edit_anchor_class the class for html element for edit
-     * @param string  $edit_str          the label for edit row
-     * @param string  $copy_str          the label for copy row
-     * @param string  $del_str           the label for delete row
-     * @param string  $js_conf           text for the JS confirmation
+     * @param string      $dir               the direction of links should place
+     * @param string      $del_url           the url for delete row
+     * @param array       $displayParts      which elements to display
+     * @param integer     $row_no            the index of current row
+     * @param string      $where_clause      the where clause of the sql
+     * @param string      $where_clause_html the html encoded where clause
+     * @param array       $condition_array   array of keys (primary, unique, condition)
+     * @param string      $edit_url          the url for edit row
+     * @param string      $copy_url          the url for copy row
+     * @param string      $edit_anchor_class the class for html element for edit
+     * @param string      $edit_str          the label for edit row
+     * @param string      $copy_str          the label for copy row
+     * @param string      $del_str           the label for delete row
+     * @param string|null $js_conf           text for the JS confirmation
      *
      * @return  string                      html content
      *
@@ -3646,7 +3646,7 @@ class Results
         $edit_str,
         $copy_str,
         $del_str,
-        $js_conf
+        ?string $js_conf
     ) {
 
         if (! isset($js_conf)) {
@@ -3734,7 +3734,7 @@ class Results
     /**
      * Prepare data cell for numeric type fields
      *
-     * @param string        $column                the column's value
+     * @param string|null   $column                the column's value
      * @param string        $class                 the html class for column
      * @param boolean       $condition_field       the column should highlighted
      *                                             or not
@@ -3756,7 +3756,7 @@ class Results
      * @see     _getTableBody()
      */
     private function _getDataCellForNumericColumns(
-        $column,
+        ?string $column,
         $class,
         $condition_field,
         $meta,
@@ -3810,7 +3810,7 @@ class Results
     /**
      * Get data cell for geometry type fields
      *
-     * @param string        $column                the relevant column in data row
+     * @param string|null   $column                the relevant column in data row
      * @param string        $class                 the html class for column
      * @param object        $meta                  the meta-information about
      *                                             this field
@@ -3832,7 +3832,7 @@ class Results
      * @see     _getTableBody()
      */
     private function _getDataCellForGeometryColumns(
-        $column,
+        ?string $column,
         $class,
         $meta,
         array $map,
@@ -3956,7 +3956,7 @@ class Results
     /**
      * Get data cell for non numeric type fields
      *
-     * @param string        $column                the relevant column in data row
+     * @param string|null   $column                the relevant column in data row
      * @param string        $class                 the html class for column
      * @param object        $meta                  the meta-information about
      *                                             the field
@@ -3985,7 +3985,7 @@ class Results
      * @see     _getTableBody()
      */
     private function _getDataCellForNonNumericColumns(
-        $column,
+        ?string $column,
         $class,
         $meta,
         array $map,
@@ -5322,17 +5322,18 @@ class Results
      * Verifies what to do with non-printable contents (binary or BLOB)
      * in Browse mode.
      *
-     * @param string  $category              BLOB|BINARY|GEOMETRY
-     * @param string  $content               the binary content
-     * @param mixed   $transformation_plugin transformation plugin.
-     *                                       Can also be the default function:
-     *                                       Core::mimeDefaultFunction
-     * @param string  $transform_options     transformation parameters
-     * @param string  $default_function      default transformation function
-     * @param object  $meta                  the meta-information about the field
-     * @param array   $url_params            parameters that should go to the
-     *                                       download link
-     * @param boolean &$is_truncated         the result is truncated or not
+     * @param string      $category              BLOB|BINARY|GEOMETRY
+     * @param string|null $content               the binary content
+     * @param mixed       $transformation_plugin transformation plugin.
+     *                                           Can also be the
+     *                                           default function:
+     *                                           Core::mimeDefaultFunction
+     * @param string      $transform_options     transformation parameters
+     * @param string      $default_function      default transformation function
+     * @param object      $meta                  the meta-information about the field
+     * @param array       $url_params            parameters that should go to the
+     *                                           download link
+     * @param boolean     &$is_truncated         the result is truncated or not
      *
      * @return mixed  string or float
      *
@@ -5344,7 +5345,7 @@ class Results
      */
     private function _handleNonPrintableContents(
         $category,
-        $content,
+        ?string $content,
         $transformation_plugin,
         $transform_options,
         $default_function,

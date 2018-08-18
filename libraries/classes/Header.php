@@ -210,7 +210,7 @@ class Header
         $this->_scripts->addFile('indexes.js');
         $this->_scripts->addFile('common.js');
         $this->_scripts->addFile('page_settings.js');
-        if($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
+        if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
             $this->_scripts->addFile('drag_drop_import.js');
         }
         if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {

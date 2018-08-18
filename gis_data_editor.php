@@ -17,7 +17,7 @@ use PhpMyAdmin\Url;
  * Escapes special characters if the variable is set.
  * Returns an empty string otherwise.
  *
- * @param string $variable variable to be escaped
+ * @param string|null $variable variable to be escaped
  *
  * @return string escaped variable
  */

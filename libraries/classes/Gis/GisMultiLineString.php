@@ -78,18 +78,18 @@ class GisMultiLineString extends GisGeometry
     /**
      * Adds to the PNG image object, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS MULTILINESTRING object
-     * @param string $label      Label for the GIS MULTILINESTRING object
-     * @param string $line_color Color for the GIS MULTILINESTRING object
-     * @param array  $scale_data Array containing data related to scaling
-     * @param object $image      Image object
+     * @param string      $spatial    GIS POLYGON object
+     * @param string|null $label      Label for the GIS POLYGON object
+     * @param string      $line_color Color for the GIS POLYGON object
+     * @param array       $scale_data Array containing data related to scaling
+     * @param resource    $image      Image object
      *
-     * @return object the modified image object
+     * @return resource the modified image object
      * @access public
      */
     public function prepareRowAsPng(
         $spatial,
-        $label,
+        ?string $label,
         $line_color,
         array $scale_data,
         $image
@@ -151,16 +151,16 @@ class GisMultiLineString extends GisGeometry
     /**
      * Adds to the TCPDF instance, the data related to a row in the GIS dataset.
      *
-     * @param string $spatial    GIS MULTILINESTRING object
-     * @param string $label      Label for the GIS MULTILINESTRING object
-     * @param string $line_color Color for the GIS MULTILINESTRING object
-     * @param array  $scale_data Array containing data related to scaling
-     * @param TCPDF  $pdf        TCPDF instance
+     * @param string      $spatial    GIS MULTILINESTRING object
+     * @param string|null $label      Label for the GIS MULTILINESTRING object
+     * @param string      $line_color Color for the GIS MULTILINESTRING object
+     * @param array       $scale_data Array containing data related to scaling
+     * @param TCPDF       $pdf        TCPDF instance
      *
      * @return TCPDF the modified TCPDF instance
      * @access public
      */
-    public function prepareRowAsPdf($spatial, $label, $line_color, array $scale_data, $pdf)
+    public function prepareRowAsPdf($spatial, ?string $label, $line_color, array $scale_data, $pdf)
     {
         // allocate colors
         $red = hexdec(mb_substr($line_color, 1, 2));
