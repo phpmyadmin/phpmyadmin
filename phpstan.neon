@@ -1,4 +1,7 @@
 parameters:
+    level: 0
+    paths:
+        - %rootDir%/../../../
     bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:
@@ -27,8 +30,6 @@ parameters:
         - '#Undefined variable: \$(unsaved_values|is_upload)#'#tbl_change.php
         - '#Undefined variable: \$max_upload_size#'#tbl_import.php
         - '#Undefined variable: \$(repobase|fullrevision|revision|repobranchbase|branch)#'#Footer.php
-
-
     excludes_analyse:
         - %rootDir%/../../../test/EnvironmentTest.php
         - %rootDir%/../../../test/libraries/FilesTest.php
