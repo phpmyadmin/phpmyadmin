@@ -40,6 +40,9 @@ class Status
         //display the server state connection information
         $retval .= self::getHtmlForServerStateConnections($serverStatusData);
 
+        // Display table of number of relations in each database
+        $retval .= self::getHtmlForNumRelationsInDatabase();
+
         // display replication information
         if ($GLOBALS['replication_info']['master']['status']
             || $GLOBALS['replication_info']['slave']['status']
@@ -366,6 +369,43 @@ class Status
         $retval .= '</tbody>';
         $retval .= '</table>';
 
+        return $retval;
+    }
+
+    /**
+     * Prints number of relations in each database
+     *
+     * @param Array $databases: Array with names of all databases
+     *
+     * @return string (HTML for table)
+     */
+    public static function getHtmlForNumRelationsInDatabase() {
+        $retval  = '<table id="numRelations" class="width100 data noclick">';
+
+        /* Create header cells for the table */
+        $retval .= '<thead>';
+        $retval .= '<tr>';
+        $retval .= '<th>Database</th>';
+        $retval .= '<th>Relations</th>';
+        $retval .= '</tr>';
+        $retval .= '</thead>';
+
+        /* Generate data rows for the databases */
+        $retval .= '<tbody>';
+
+        /* Loop over all databases */
+        foreach ($GLOBALS['dblist']->databases as $db) {
+            $data = Util::getDbInfo($db, null);
+
+            /* Get database name followed by number of relations in it */
+            $retval .= '<tr>';
+            $retval .= '<th>'.$db.'</th>';
+            $retval .= '<td>'.$data[1].'</td>';
+            $retval .= '</tr>';
+        }
+
+        $retval .= '</tbody>';
+        $retval .= '</table>';
         return $retval;
     }
 }
