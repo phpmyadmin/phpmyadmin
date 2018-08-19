@@ -78,7 +78,7 @@ class NodeDatabaseChildTest extends PmaTestCase
             $html
         );
         $this->assertContains(
-            '<a href="navigation.php?'
+            '<a href="navigation.php" data-post="'
             . 'hideNavItem=1&amp;itemType=itemType&amp;itemName=child'
             . '&amp;dbName=parent&amp;lang=en" class="hideNavItem ajax">',
             $html
