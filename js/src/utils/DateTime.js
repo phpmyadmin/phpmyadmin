@@ -1,6 +1,6 @@
+import { $ } from './JqueryExtended';
 import { PMA_Messages as PMA_messages } from '../variables/export_variables';
 import { PMA_tooltip } from './show_ajax_messages';
-import { $ } from './extend_jquery';
 /*
  * Adds a date/time picker to an element
  *

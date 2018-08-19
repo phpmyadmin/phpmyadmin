@@ -1,3 +1,5 @@
+import { $ } from '../../utils/JqueryExtended';
+
 export function changeValueFieldType (elem, searchIndex) {
     var fieldsValue = $('select#fieldID_' + searchIndex);
     if (0 === fieldsValue.size()) {

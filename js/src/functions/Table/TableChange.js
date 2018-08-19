@@ -1,5 +1,5 @@
+import { $ } from '../../utils/JqueryExtended';
 import { PMA_Messages as PMA_messages } from '../../variables/export_variables';
-import { $ } from '../../utils/extend_jquery';
 
 /**
  * Modify form controls when the "NULL" checkbox is checked

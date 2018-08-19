@@ -1,4 +1,5 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { $, extendingValidatorMessages } from './utils/JqueryExtended';
 import {
     isDate,
     isTime,
@@ -8,7 +9,6 @@ import {
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { addDateTimePicker } from './utils/DateTime';
 import { AJAX } from './ajax';
-import { $, extendingValidatorMessages } from './utils/extend_jquery';
 
 /**
  * @fileoverview    function used in table data manipulation pages

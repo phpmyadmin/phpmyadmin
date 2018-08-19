@@ -1,3 +1,4 @@
+import { $ } from '../../utils/JqueryExtended';
 import { escapeHtml } from '../../utils/Sanitise';
 import PMA_commonParams from '../../variables/common_params';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from '../../utils/show_ajax_messages';

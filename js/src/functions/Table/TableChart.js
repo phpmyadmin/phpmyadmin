@@ -1,3 +1,4 @@
+import { $ } from '../../utils/JqueryExtended';
 import JQPlotChartFactory, { DataTable, ColumnType } from '../../classes/Chart';
 import { escapeHtml } from '../../utils/Sanitise';
 import { PMA_Messages as PMA_messages } from '../../variables/export_variables';

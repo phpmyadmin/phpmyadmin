@@ -1,3 +1,4 @@
+import { $ } from '../../utils/JqueryExtended';
 /**
  * Hides/shows the "Open in ENUM/SET editor" message, depending on the data type of the column currently selected
  */
