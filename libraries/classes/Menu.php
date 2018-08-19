@@ -654,10 +654,10 @@ class Menu
         $tabs['engine']['icon'] = 'b_engine';
         $tabs['engine']['link'] = 'server_engines.php';
         $tabs['engine']['text'] = __('Engines');
-		
-		$tabs['new']['icon'] = 's_db';
-        $tabs['new']['link'] = 'newtab.php';
-        $tabs['new']['text'] = __('New Tab');
+
+		    $tabs['news']['icon'] = 'b_sql';
+        $tabs['news']['link'] = 'server_news.php';
+        $tabs['news']['text'] = __('News');
 
         return $tabs;
     }
