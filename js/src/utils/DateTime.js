@@ -1,3 +1,4 @@
+import { $ } from './JqueryExtended';
 import { PMA_Messages as PMA_messages } from '../variables/export_variables';
 import { PMA_tooltip } from './show_ajax_messages';
 /*
@@ -81,7 +82,7 @@ export function PMA_addDatepicker ($this_element, type, options) {
  * Add a date/time picker to each element that needs it
  * (only when jquery-ui-timepicker-addon.js is loaded)
  */
-function addDateTimePicker () {
+export function addDateTimePicker () {
     if ($.timepicker !== undefined) {
         $('input.timefield, input.datefield, input.datetimefield').each(function () {
             var decimals = $(this).parent().attr('data-decimals');

@@ -4,6 +4,13 @@ import 'updated-jqplot/dist/plugins/jqplot.pieRenderer';
 import 'updated-jqplot/dist/plugins/jqplot.highlighter';
 import 'updated-jqplot/dist/plugins/jqplot.enhancedPieLegendRenderer';
 
+import 'updated-jqplot/dist/plugins/jqplot.barRenderer.js';
+import 'updated-jqplot/dist/plugins/jqplot.canvasAxisLabelRenderer.js';
+import 'updated-jqplot/dist/plugins/jqplot.canvasTextRenderer.js';
+import 'updated-jqplot/dist/plugins/jqplot.categoryAxisRenderer.js';
+import 'updated-jqplot/dist/plugins/jqplot.dateAxisRenderer.js';
+import 'updated-jqplot/dist/plugins/jqplot.pointLabels.js';
+
 /**
  * Chart type enumerations
  */

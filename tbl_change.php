@@ -74,9 +74,8 @@ $comments_map = $insertEdit->getCommentsMap($db, $table);
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('sql.js');
-$scripts->addFile('tbl_change.js');
-$scripts->addFile('vendor/jquery/additional-methods.js');
+$scripts->addFile('sql');
+$scripts->addFile('tbl_change');
 $scripts->addFile('gis_data_editor.js');
 
 /**

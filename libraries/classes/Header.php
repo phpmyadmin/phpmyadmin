@@ -209,7 +209,7 @@ class Header
         $this->_scripts->addFile('functions');
         $this->_scripts->addFile('navigation');
         $this->_scripts->addFile('navigation.js');
-        $this->_scripts->addFile('indexes.js');
+        $this->_scripts->addFile('indexes');
         $this->_scripts->addFile('common.js');
 
         if($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
