@@ -4058,7 +4058,7 @@ class Util
                 'charset'     => __('Charsets'),
                 'plugins'     => __('Plugins'),
                 'engine'      => __('Engines'),
-				'new'         => __('New Tab')
+				        'news'        => __('News')
             ],
             'db'     => [
                 'structure'   => __('Structure'),
