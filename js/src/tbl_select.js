@@ -1,4 +1,5 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+import { $ } from './utils/JqueryExtended';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import {
     changeValueFieldType,
@@ -9,7 +10,6 @@ import { PMA_prepareForAjaxRequest } from './functions/AjaxRequest';
 import { PMA_init_slider } from './utils/Slider';
 import { PMA_highlightSQL } from './utils/sql';
 import { PMA_addDatepicker } from './utils/DateTime';
-import { $ } from './utils/extend_jquery';
 import { PMA_commonParams } from './variables/common_params';
 
 /**

@@ -43,7 +43,9 @@ const PhpToJsFileMapping = {
     tbl_change: ['sql', 'tbl_change'],
     tbl_select: ['sql', 'tbl_change', 'tbl_select'],
     tbl_zoom_select: ['sql', 'tbl_change'],
-    tbl_find_replace: ['tbl_find_replace']
+    tbl_find_replace: ['tbl_find_replace'],
+    tbl_import: ['import'],
+    tbl_export: ['export']
 };
 
 const JsFileList = [

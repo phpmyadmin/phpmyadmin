@@ -1,4 +1,4 @@
-import { $ } from './utils/extend_jquery';
+import { $ } from './utils/JqueryExtended';
 import './plugins/jquery/jquery.tablesorter';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import PMA_commonParams from './variables/common_params';
