@@ -24,8 +24,7 @@ require_once 'libraries/common.inc.php';
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('db_tracking.js');
+$scripts->addFile('db_tracking');
 
 $tracking = new Tracking();
 
