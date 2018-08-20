@@ -11,13 +11,13 @@
 /**
  * Module import
  */
-import { PMA_sprintf } from './utils/sprintf';
-import { checkPasswordStrength, displayPasswordGenerateButton } from './utils/password';
-import { PMA_Messages as messages } from './variables/export_variables';
-import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
-import CommonParams from './variables/common_params';
 import { $ } from './utils/JqueryExtended';
+import { checkPasswordStrength, displayPasswordGenerateButton } from './utils/password';
+import CommonParams from './variables/common_params';
+import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import { PMA_getSQLEditor } from './functions/Sql/SqlEditor';
+import { PMA_Messages as messages } from './variables/export_variables';
+import { PMA_sprintf } from './utils/sprintf';
 
 /**
  * @package PhpMyAdmin
@@ -26,8 +26,6 @@ import { PMA_getSQLEditor } from './functions/Sql/SqlEditor';
  */
 
 /**
- * AJAX scripts for server_privileges page.
- *
  * Actions ajaxified here:
  * Add user
  * Revoke a user

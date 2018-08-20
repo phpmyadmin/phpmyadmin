@@ -1,7 +1,12 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-import { PMA_Messages as messages } from './variables/export_variables';
-import { $ } from './utils/JqueryExtended';
 
+/**
+ * Module import
+ */
+import { $ } from './utils/JqueryExtended';
+import { PMA_Messages as messages } from './variables/export_variables';
+
+// jQplot and related plugins import
 import 'updated-jqplot';
 import './plugins/jquery/jquery.sortableTable';
 
@@ -14,12 +19,12 @@ import 'updated-jqplot/dist/plugins/jqplot.highlighter.js';
 import 'updated-jqplot/dist/plugins/jqplot.cursor.js';
 import './plugins/jqplot/jqplot.byteFormatter';
 
-import { getOsDetail } from './functions/Server/ServerStatusMonitor';
-import { isStorageSupported } from './functions/config';
-import { createProfilingChart } from './functions/chart';
 import CommonParams from './variables/common_params';
+import { createProfilingChart } from './functions/chart';
 import { escapeHtml } from './utils/Sanitise';
+import { getOsDetail } from './functions/Server/ServerStatusMonitor';
 import { PMA_getImage } from './functions/get_image';
+import { isStorageSupported } from './functions/config';
 
 var runtime = {};
 var server_time_diff;

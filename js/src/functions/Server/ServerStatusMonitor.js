@@ -1,13 +1,24 @@
-import { PMA_Messages as PMA_messages } from '../../variables/export_variables';
-export function getOsDetail (server_os, presetCharts) {
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
+import { PMA_Messages as messages } from '../../variables/export_variables';
+
+/**
+ * @param {string} serverOs    Type of operating system
+ *
+ * @param {Object} presetCharts Charts already set
+ */
+export function getOsDetail (serverOs, presetCharts) {
     /* Add OS specific system info charts to the preset chart list */
-    switch (server_os) {
+    switch (serverOs) {
     case 'WINNT':
         $.extend(presetCharts, {
             'cpu': {
-                title: PMA_messages.strSystemCPUUsage,
+                title: messages.strSystemCPUUsage,
                 series: [{
-                    label: PMA_messages.strAverageLoad
+                    label: messages.strAverageLoad
                 }],
                 nodes: [{
                     dataPoints: [{ type: 'cpu', name: 'loadavg' }]
@@ -16,13 +27,13 @@ export function getOsDetail (server_os, presetCharts) {
             },
 
             'memory': {
-                title: PMA_messages.strSystemMemory,
+                title: messages.strSystemMemory,
                 series: [{
-                    label: PMA_messages.strTotalMemory,
+                    label: messages.strTotalMemory,
                     fill: true
                 }, {
                     dataType: 'memory',
-                    label: PMA_messages.strUsedMemory,
+                    label: messages.strUsedMemory,
                     fill: true
                 }],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'MemTotal' }], valueDivisor: 1024 },
@@ -32,12 +43,12 @@ export function getOsDetail (server_os, presetCharts) {
             },
 
             'swap': {
-                title: PMA_messages.strSystemSwap,
+                title: messages.strSystemSwap,
                 series: [{
-                    label: PMA_messages.strTotalSwap,
+                    label: messages.strTotalSwap,
                     fill: true
                 }, {
-                    label: PMA_messages.strUsedSwap,
+                    label: messages.strUsedSwap,
                     fill: true
                 }],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'SwapTotal' }] },
@@ -51,20 +62,20 @@ export function getOsDetail (server_os, presetCharts) {
     case 'Linux':
         $.extend(presetCharts, {
             'cpu': {
-                title: PMA_messages.strSystemCPUUsage,
+                title: messages.strSystemCPUUsage,
                 series: [{
-                    label: PMA_messages.strAverageLoad
+                    label: messages.strAverageLoad
                 }],
                 nodes: [{ dataPoints: [{ type: 'cpu', name: 'irrelevant' }], transformFn: 'cpu-linux' }],
                 maxYLabel: 0
             },
             'memory': {
-                title: PMA_messages.strSystemMemory,
+                title: messages.strSystemMemory,
                 series: [
-                    { label: PMA_messages.strBufferedMemory, fill: true },
-                    { label: PMA_messages.strUsedMemory, fill: true },
-                    { label: PMA_messages.strCachedMemory, fill: true },
-                    { label: PMA_messages.strFreeMemory, fill: true }
+                    { label: messages.strBufferedMemory, fill: true },
+                    { label: messages.strUsedMemory, fill: true },
+                    { label: messages.strCachedMemory, fill: true },
+                    { label: messages.strFreeMemory, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
@@ -75,11 +86,11 @@ export function getOsDetail (server_os, presetCharts) {
                 maxYLabel: 0
             },
             'swap': {
-                title: PMA_messages.strSystemSwap,
+                title: messages.strSystemSwap,
                 series: [
-                    { label: PMA_messages.strCachedSwap, fill: true },
-                    { label: PMA_messages.strUsedSwap, fill: true },
-                    { label: PMA_messages.strFreeSwap, fill: true }
+                    { label: messages.strCachedSwap, fill: true },
+                    { label: messages.strUsedSwap, fill: true },
+                    { label: messages.strFreeSwap, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024 },
@@ -94,9 +105,9 @@ export function getOsDetail (server_os, presetCharts) {
     case 'SunOS':
         $.extend(presetCharts, {
             'cpu': {
-                title: PMA_messages.strSystemCPUUsage,
+                title: messages.strSystemCPUUsage,
                 series: [{
-                    label: PMA_messages.strAverageLoad
+                    label: messages.strAverageLoad
                 }],
                 nodes: [{
                     dataPoints: [{ type: 'cpu', name: 'loadavg' }]
@@ -104,10 +115,10 @@ export function getOsDetail (server_os, presetCharts) {
                 maxYLabel: 0
             },
             'memory': {
-                title: PMA_messages.strSystemMemory,
+                title: messages.strSystemMemory,
                 series: [
-                    { label: PMA_messages.strUsedMemory, fill: true },
-                    { label: PMA_messages.strFreeMemory, fill: true }
+                    { label: messages.strUsedMemory, fill: true },
+                    { label: messages.strFreeMemory, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
@@ -116,10 +127,10 @@ export function getOsDetail (server_os, presetCharts) {
                 maxYLabel: 0
             },
             'swap': {
-                title: PMA_messages.strSystemSwap,
+                title: messages.strSystemSwap,
                 series: [
-                    { label: PMA_messages.strUsedSwap, fill: true },
-                    { label: PMA_messages.strFreeSwap, fill: true }
+                    { label: messages.strUsedSwap, fill: true },
+                    { label: messages.strFreeSwap, fill: true }
                 ],
                 nodes: [
                     { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
