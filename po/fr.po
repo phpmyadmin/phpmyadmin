@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-18 16:02-0300\n"
-"PO-Revision-Date: 2018-07-08 23:37+0000\n"
+"PO-Revision-Date: 2018-08-20 23:54+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.1-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -807,6 +807,10 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Votre serveur est lancé avec les valeurs par défaut pour le controluser et "
+"le mot de passe (controlpass) et est ouvert aux intrusions; vous devriez "
+"vraiment corriger cette faiblesse de sécurité en changeant le mot de passe "
+"pour controluser 'pma'."
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -4574,11 +4578,12 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:388
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Activer l'importation par glissé/déposé"
 
 #: libraries/classes/Config/Descriptions.php:389
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
+"Décocher la boîte-à-cocher pour désactiver l'importation par glissé/déposé"
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Partial import: allow interrupt"
@@ -10242,6 +10247,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"L'extension PHP gd est introuvable. Le QRcode ne peut pas être affiché sans "
+"l'extension PHP gd."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:151
 msgid "Authentication Application (2FA)"
@@ -14235,11 +14242,9 @@ msgid "No Privileges"
 msgstr "Aucun privilège"
 
 #: server_privileges.php:155
-#, fuzzy
-#| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
 msgstr ""
-"L'utilisateur n'a pas les privilèges nécessaires pour modifier les "
+"L'utilisateur n'a pas les privilèges nécessaires pour administrer les "
 "utilisateurs !"
 
 #: server_privileges.php:169
@@ -14880,11 +14885,9 @@ msgid "Attribute"
 msgstr "Attribut"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
 msgstr ""
-"La liste centrale de colonnes pour la base de données actuelle est vide."
+"La liste centrale des colonnes pour la base de données actuelle est vide"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:414
@@ -15973,21 +15976,17 @@ msgstr ""
 "généré."
 
 #: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
-"Merci de capturer le code QR suivant dans l'application d'authentification à "
-"deux facteurs sur votre appareil et de saisir le code d'authentification "
-"généré."
+"Veuillez saisir le/la secret/clef suivant dans l'application "
+"d'authentification à deux facteurs sur votre appareil et saisir le code "
+"d'authentification généré."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "url OTP :"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
