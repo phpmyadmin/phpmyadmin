@@ -658,6 +658,10 @@ class Menu
 		    $tabs['news']['icon'] = 'b_sql';
         $tabs['news']['link'] = 'server_news.php';
         $tabs['news']['text'] = __('News');
+		
+		 $tabs['contact']['icon'] = 'b_sql';
+        $tabs['contact']['link'] = 'contactus.php';
+        $tabs['contact']['text'] = __('Contact Us');
 
         return $tabs;
     }
