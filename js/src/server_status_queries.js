@@ -3,9 +3,9 @@
 /**
  * Module import
  */
-import { createProfilingChart } from './functions/chart';
 import { $ } from './utils/JqueryExtended';
-import { initTableSorter } from './functions/Server/SeverStatusSorter';
+import { createProfilingChart } from './functions/chart';
+import { initTableSorter } from './functions/Server/ServerStatusSorter';
 
 /**
  * @package PhpMyAdmin

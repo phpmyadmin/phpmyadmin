@@ -3,9 +3,9 @@
 /**
  * Module import
  */
+import { escapeHtml } from './utils/Sanitise';
 import { PMA_Messages as messages } from './variables/export_variables';
 import { PMA_sprintf } from './utils/sprintf';
-import { escapeHtml } from './utils/Sanitise';
 
 /**
  * @package PhpMyAdmin

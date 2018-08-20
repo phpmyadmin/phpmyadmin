@@ -1,12 +1,23 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
+import { $ } from '../../utils/JqueryExtended';
+import CommonParams from '../../variables/common_params';
+import { escapeHtml } from '../../utils/Sanitise';
 import { PMA_ajaxShowMessage } from '../../utils/show_ajax_messages';
+import { PMA_getImage } from '../../functions/get_image';
 import { PMA_highlightSQL } from '../../utils/sql';
 import { PMA_Messages as messages } from '../../variables/export_variables';
-import CommonParams from '../../variables/common_params';
-import { PMA_getImage } from '../../functions/get_image';
-import { escapeHtml } from '../../utils/Sanitise';
-import { $ } from '../../utils/JqueryExtended';
-// object to store process list state information
+
+/**
+ * @class Object to  store process list state information
+ */
 class ProcessList {
+    /**
+     * @constructor Create a ProcessList
+     */
     constructor () {
         // denotes whether auto refresh is on or off
         this.autoRefresh = false;
@@ -19,6 +30,8 @@ class ProcessList {
         // the refresh URL (required to save last used option)
         // i.e. full or sorting url
         this.refreshUrl = null;
+
+        // Bindings for methods
         this.init = this.init.bind(this);
         this.killProcessHandler = this.killProcessHandler.bind(this);
         this.refresh = this.refresh.bind(this);

@@ -11,16 +11,16 @@
 /**
  * Moduele import
  */
-import { PMA_sprintf } from './utils/sprintf';
 import './variables/import_variables';
-import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
-import { escapeHtml } from './utils/Sanitise';
-import { PMA_Messages as messages } from './variables/export_variables';
 import { $ } from './utils/JqueryExtended';
 import { AJAX } from './ajax';
 import CommonParams from './variables/common_params';
-import { PMA_reloadNavigation } from './functions/navigation';
+import { escapeHtml } from './utils/Sanitise';
 import { getJSConfirmCommonParam } from './functions/Common';
+import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
+import { PMA_Messages as messages } from './variables/export_variables';
+import { PMA_reloadNavigation } from './functions/navigation';
+import { PMA_sprintf } from './utils/sprintf';
 
 /**
  * @package PhpMyAdmin
