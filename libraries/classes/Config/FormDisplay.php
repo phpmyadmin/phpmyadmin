@@ -413,7 +413,7 @@ class FormDisplay
             'userprefs_comment' => Descriptions::get($systemPath, 'cmt')
         ];
         if (isset($form->default[$systemPath])) {
-            $opts['setvalue'] = $form->default[$systemPath];
+            $opts['setvalue'] = (string) $form->default[$systemPath];
         }
 
         if (isset($this->_errors[$workPath])) {
