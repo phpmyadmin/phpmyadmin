@@ -438,10 +438,7 @@ export function onloadTblStructure () {
         var $link = $(this);
 
         function submitPartitionAction (url) {
-            var params = {
-                'ajax_request' : true,
-                'ajax_page_request' : true
-            };
+            var params = 'ajax_request=true&ajax_page_request=true&' + $link.getPostData();
             PMA_ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);
