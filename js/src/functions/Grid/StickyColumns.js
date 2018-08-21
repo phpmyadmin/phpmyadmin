@@ -1,3 +1,5 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
 var prevScrollX = 0;
 /*
  * Set position, left, top, width of sticky_columns div

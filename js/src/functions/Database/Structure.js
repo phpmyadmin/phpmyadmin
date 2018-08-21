@@ -1,4 +1,9 @@
-import { PMA_Messages as PMA_messages } from '../../variables/export_variables';
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
+import { PMA_Messages as messages } from '../../variables/export_variables';
 import { PMA_sprintf } from '../../utils/sprintf';
 import { PMA_ajaxShowMessage } from '../../utils/show_ajax_messages';
 /**
@@ -7,13 +12,13 @@ import { PMA_ajaxShowMessage } from '../../utils/show_ajax_messages';
  */
 export function PMA_adjustTotals () {
     var byteUnits = [
-        PMA_messages.strB,
-        PMA_messages.strKiB,
-        PMA_messages.strMiB,
-        PMA_messages.strGiB,
-        PMA_messages.strTiB,
-        PMA_messages.strPiB,
-        PMA_messages.strEiB
+        messages.strB,
+        messages.strKiB,
+        messages.strMiB,
+        messages.strGiB,
+        messages.strTiB,
+        messages.strPiB,
+        messages.strEiB
     ];
     /**
      * @var $allTr jQuery object that references all the rows in the list of tables
@@ -97,7 +102,7 @@ export function PMA_adjustTotals () {
 
     // Update summary with new data
     var $summary = $('#tbl_summary_row');
-    $summary.find('.tbl_num').text(PMA_sprintf(PMA_messages.strNTables, tableSum));
+    $summary.find('.tbl_num').text(PMA_sprintf(messages.strNTables, tableSum));
     if (rowSumApproximated) {
         $summary.find('.row_count_sum').text(strRowSum);
     } else {
@@ -143,11 +148,11 @@ export function PMA_fetchRealRowCount ($target) {
                 // Adjust the 'Sum' displayed at the bottom.
                 PMA_adjustTotals();
             } else {
-                PMA_ajaxShowMessage(PMA_messages.strErrorRealRowCount);
+                PMA_ajaxShowMessage(messages.strErrorRealRowCount);
             }
         },
         error: function () {
-            PMA_ajaxShowMessage(PMA_messages.strErrorRealRowCount);
+            PMA_ajaxShowMessage(messages.strErrorRealRowCount);
         }
     });
 }
