@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-18 16:02-0300\n"
-"PO-Revision-Date: 2018-05-30 07:55+0000\n"
+"PO-Revision-Date: 2018-08-22 03:31+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ca/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -808,6 +808,10 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"El vostre servidor s'executa amb els valors predeterminats per a l'usuari de "
+"control i la contrasenya (controlpass) i està obert a la intrusió; realment "
+"hauríeu de solucionar aquesta debilitat en la seguretat amb el canvi de la "
+"contrasenya de l'usuari de control «pma»."
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -4565,11 +4569,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:388
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Habilita la importació d'arrossegar i deixar anar"
 
 #: libraries/classes/Config/Descriptions.php:389
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
+"Desmarqueu la casella per inhabilitar la importació d'arrossegar i deixar "
+"anar"
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Partial import: allow interrupt"
@@ -10233,6 +10239,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"No s'ha trobat l'extensió de PHP gd. El codi QR no es pot mostrar sense "
+"l'extensió de PHP gd."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:151
 msgid "Authentication Application (2FA)"
@@ -15942,7 +15950,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "URL OTP:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
