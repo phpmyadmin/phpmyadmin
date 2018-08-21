@@ -1,14 +1,13 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import { $, extendingValidatorMessages } from './utils/JqueryExtended';
-import {
-    isDate,
-    isTime,
-    nullify,
-    verificationsAfterFieldChange
-} from './functions/Table/TableChange';
+import { AJAX } from './ajax';
+import * as TableChange from './functions/Table/TableChange';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { addDateTimePicker } from './utils/DateTime';
-import { AJAX } from './ajax';
 
 /**
  * @fileoverview    function used in table data manipulation pages
@@ -60,9 +59,9 @@ export function onloadTblChange () {
             var dt_value = value;
             var theType = options;
             if (theType === 'date') {
-                return isDate(dt_value);
+                return TableChange.isDate(dt_value);
             } else if (theType === 'time') {
-                return isTime(dt_value);
+                return TableChange.isTime(dt_value);
             } else if (theType === 'datetime' || theType === 'timestamp') {
                 var tmstmp = false;
                 dt_value = dt_value.trim();
@@ -77,11 +76,11 @@ export function onloadTblChange () {
                 }
                 var dv = dt_value.indexOf(' ');
                 if (dv === -1) { // Only the date component, which is valid
-                    return isDate(dt_value, tmstmp);
+                    return TableChange.isDate(dt_value, tmstmp);
                 }
 
-                return isDate(dt_value.substring(0, dv), tmstmp) &&
-                    isTime(dt_value.substring(dv + 1));
+                return TableChange.isDate(dt_value.substring(0, dv), tmstmp) &&
+                    TableChange.isTime(dt_value.substring(dv + 1));
             }
         });
         /*
@@ -137,7 +136,7 @@ export function onloadTblChange () {
      *
      */
     $(document).on('click', 'input.checkbox_null', function () {
-        nullify(
+        TableChange.nullify(
             // use hidden fields populated by tbl_change.php
             $(this).siblings('.nullify_code').val(),
             $(this).closest('tr').find('input:hidden').first().val(),
@@ -264,7 +263,7 @@ export function onloadTblChange () {
                         .data('new_row_index', new_row_index)
                         .on('change', function () {
                             var $changed_element = $(this);
-                            verificationsAfterFieldChange(
+                            TableChange.verificationsAfterFieldChange(
                                 $changed_element.data('hashed_field'),
                                 $changed_element.data('new_row_index'),
                                 $changed_element.closest('tr').find('span.column_type').html()
@@ -283,7 +282,7 @@ export function onloadTblChange () {
                         .data('new_row_index', new_row_index)
                         .on('click', function () {
                             var $changed_element = $(this);
-                            nullify(
+                            TableChange.nullify(
                                 $changed_element.siblings('.nullify_code').val(),
                                 $this_element.closest('tr').find('input:hidden').first().val(),
                                 $changed_element.data('hashed_field'),

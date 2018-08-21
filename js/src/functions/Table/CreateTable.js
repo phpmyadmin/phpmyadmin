@@ -1,5 +1,11 @@
-import PMA_commonParams from '../../variables/common_params';
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
+import CommonParams from '../../variables/common_params';
 import { PMA_Messages as PMA_messages } from '../../variables/export_variables';
+
 /**
  * Check if a form's element is empty.
  * An element containing only spaces is also considered empty
@@ -81,7 +87,7 @@ export function PMA_checkReservedWordColumns ($form) {
     $.ajax({
         type: 'POST',
         url: 'tbl_structure.php',
-        data: $form.serialize() + PMA_commonParams.get('arg_separator') + 'reserved_word_check=1',
+        data: $form.serialize() + CommonParams.get('arg_separator') + 'reserved_word_check=1',
         success: function (data) {
             if (typeof data.success !== 'undefined' && data.success === true) {
                 is_confirmed = confirm(data.message);

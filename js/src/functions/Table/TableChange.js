@@ -1,3 +1,8 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import { $ } from '../../utils/JqueryExtended';
 import { PMA_Messages as PMA_messages } from '../../variables/export_variables';
 
@@ -65,13 +70,13 @@ function fractionReplace (num) {
     return num >= 1 && num <= 9 ? '0' + num : '00';
 }
 
-/* function to check the validity of date
-* The following patterns are accepted in this validation (accepted in mysql as well)
-* 1) 2001-12-23
-* 2) 2001-1-2
-* 3) 02-12-23
-* 4) And instead of using '-' the following punctuations can be used (+,.,*,^,@,/) All these are accepted by mysql as well. Therefore no issues
-*/
+/** function to check the validity of date
+ * The following patterns are accepted in this validation (accepted in mysql as well)
+ * 1) 2001-12-23
+ * 2) 2001-1-2
+ * 3) 02-12-23
+ * 4) And instead of using '-' the following punctuations can be used (+,.,*,^,@,/) All these are accepted by mysql as well. Therefore no issues
+ */
 export function isDate (val, tmstmp) {
     val = val.replace(/[.|*|^|+|//|@]/g, '-');
     var arrayVal = val.split('-');
@@ -110,12 +115,12 @@ export function isDate (val, tmstmp) {
     return true;
 }
 
-/* function to check the validity of time
-* The following patterns are accepted in this validation (accepted in mysql as well)
-* 1) 2:3:4
-* 2) 2:23:43
-* 3) 2:23:43.123456
-*/
+/** function to check the validity of time
+ * The following patterns are accepted in this validation (accepted in mysql as well)
+ * 1) 2:3:4
+ * 2) 2:23:43
+ * 3) 2:23:43.123456
+ */
 export function isTime (val) {
     var arrayVal = val.split(':');
     for (var a = 0, l = arrayVal.length; a < l; a++) {

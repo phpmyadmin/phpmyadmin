@@ -1,3 +1,8 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import { $ } from '../../utils/JqueryExtended';
 import JQPlotChartFactory, { DataTable, ColumnType } from '../../classes/Chart';
 import { escapeHtml } from '../../utils/Sanitise';
