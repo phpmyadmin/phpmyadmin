@@ -87,128 +87,6 @@ $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
     }
 });
 
-/*
- * Adds a date/time picker to an element
- *
- * @param object  $this_element   a jQuery object pointing to the element
- */
-function PMA_addDatepicker ($this_element, type, options) {
-    var showTimepicker = true;
-    if (type === 'date') {
-        showTimepicker = false;
-    }
-
-    var defaultOptions = {
-        showOn: 'button',
-        buttonImage: themeCalendarImage, // defined in js/messages.php
-        buttonImageOnly: true,
-        stepMinutes: 1,
-        stepHours: 1,
-        showSecond: true,
-        showMillisec: true,
-        showMicrosec: true,
-        showTimepicker: showTimepicker,
-        showButtonPanel: false,
-        dateFormat: 'yy-mm-dd', // yy means year with four digits
-        timeFormat: 'HH:mm:ss.lc',
-        constrainInput: false,
-        altFieldTimeOnly: false,
-        showAnim: '',
-        beforeShow: function (input, inst) {
-            // Remember that we came from the datepicker; this is used
-            // in tbl_change.js by verificationsAfterFieldChange()
-            $this_element.data('comes_from', 'datepicker');
-            if ($(input).closest('.cEdit').length > 0) {
-                setTimeout(function () {
-                    inst.dpDiv.css({
-                        top: 0,
-                        left: 0,
-                        position: 'relative'
-                    });
-                }, 0);
-            }
-            setTimeout(function () {
-                // Fix wrong timepicker z-index, doesn't work without timeout
-                $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
-                // Integrate tooltip text into dialog
-                var tooltip = $this_element.tooltip('instance');
-                if (typeof tooltip !== 'undefined') {
-                    tooltip.disable();
-                    var $note = $('<p class="note"></div>');
-                    $note.text(tooltip.option('content'));
-                    $('div.ui-datepicker').append($note);
-                }
-            }, 0);
-        },
-        onSelect: function () {
-            $this_element.data('datepicker').inline = true;
-        },
-        onClose: function (dateText, dp_inst) {
-            // The value is no more from the date picker
-            $this_element.data('comes_from', '');
-            if (typeof $this_element.data('datepicker') !== 'undefined') {
-                $this_element.data('datepicker').inline = false;
-            }
-            var tooltip = $this_element.tooltip('instance');
-            if (typeof tooltip !== 'undefined') {
-                tooltip.enable();
-            }
-        }
-    };
-    if (type === 'time') {
-        $this_element.timepicker($.extend(defaultOptions, options));
-        // Add a tip regarding entering MySQL allowed-values for TIME data-type
-        PMA_tooltip($this_element, 'input', PMA_messages.strMysqlAllowedValuesTipTime);
-    } else {
-        $this_element.datetimepicker($.extend(defaultOptions, options));
-    }
-}
-
-/**
- * Add a date/time picker to each element that needs it
- * (only when jquery-ui-timepicker-addon.js is loaded)
- */
-function addDateTimePicker () {
-    if ($.timepicker !== undefined) {
-        $('input.timefield, input.datefield, input.datetimefield').each(function () {
-            var decimals = $(this).parent().attr('data-decimals');
-            var type = $(this).parent().attr('data-type');
-
-            var showMillisec = false;
-            var showMicrosec = false;
-            var timeFormat = 'HH:mm:ss';
-            var hourMax = 23;
-            // check for decimal places of seconds
-            if (decimals > 0 && type.indexOf('time') !== -1) {
-                if (decimals > 3) {
-                    showMillisec = true;
-                    showMicrosec = true;
-                    timeFormat = 'HH:mm:ss.lc';
-                } else {
-                    showMillisec = true;
-                    timeFormat = 'HH:mm:ss.l';
-                }
-            }
-            if (type === 'time') {
-                hourMax = 99;
-            }
-            PMA_addDatepicker($(this), type, {
-                showMillisec: showMillisec,
-                showMicrosec: showMicrosec,
-                timeFormat: timeFormat,
-                hourMax: hourMax
-            });
-            // Add a tip regarding entering MySQL allowed-values
-            // for TIME and DATE data-type
-            if ($(this).hasClass('timefield')) {
-                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTipTime);
-            } else if ($(this).hasClass('datefield')) {
-                PMA_tooltip($(this), 'input', PMA_messages.strMysqlAllowedValuesTipDate);
-            }
-        });
-    }
-}
-
 /**
  * Handle redirect and reload flags sent as part of AJAX requests
  *
@@ -1012,93 +890,6 @@ AJAX.registerOnload('functions.js', function () {
         updateTimeout = window.setTimeout(UpdateIdleTime, interval);
     }
 });
-/**
- * Unbind all event handlers before tearing down a page
- */
-AJAX.registerTeardown('functions.js', function () {
-    $(document).off('click', 'input:checkbox.checkall');
-});
-AJAX.registerOnload('functions.js', function () {
-    /**
-     * Row marking in horizontal mode (use "on" so that it works also for
-     * next pages reached via AJAX); a tr may have the class noclick to remove
-     * this behavior.
-     */
-
-    $(document).on('click', 'input:checkbox.checkall', function (e) {
-        $this = $(this);
-        var $tr = $this.closest('tr');
-        var $table = $this.closest('table');
-
-        if (!e.shiftKey || last_clicked_row === -1) {
-            // usual click
-
-            var $checkbox = $tr.find(':checkbox.checkall');
-            var checked = $this.prop('checked');
-            $checkbox.prop('checked', checked).trigger('change');
-            if (checked) {
-                $tr.addClass('marked');
-            } else {
-                $tr.removeClass('marked');
-            }
-            last_click_checked = checked;
-
-            // remember the last clicked row
-            last_clicked_row = last_click_checked ? $table.find('tr:not(.noclick)').index($tr) : -1;
-            last_shift_clicked_row = -1;
-        } else {
-            // handle the shift click
-            PMA_clearSelection();
-            var start;
-            var end;
-
-            // clear last shift click result
-            if (last_shift_clicked_row >= 0) {
-                if (last_shift_clicked_row >= last_clicked_row) {
-                    start = last_clicked_row;
-                    end = last_shift_clicked_row;
-                } else {
-                    start = last_shift_clicked_row;
-                    end = last_clicked_row;
-                }
-                $tr.parent().find('tr:not(.noclick)')
-                    .slice(start, end + 1)
-                    .removeClass('marked')
-                    .find(':checkbox')
-                    .prop('checked', false)
-                    .trigger('change');
-            }
-
-            // handle new shift click
-            var curr_row = $table.find('tr:not(.noclick)').index($tr);
-            if (curr_row >= last_clicked_row) {
-                start = last_clicked_row;
-                end = curr_row;
-            } else {
-                start = curr_row;
-                end = last_clicked_row;
-            }
-            $tr.parent().find('tr:not(.noclick)')
-                .slice(start, end)
-                .addClass('marked')
-                .find(':checkbox')
-                .prop('checked', true)
-                .trigger('change');
-
-            // remember the last shift clicked row
-            last_shift_clicked_row = curr_row;
-        }
-    });
-
-    addDateTimePicker();
-
-    /**
-     * Add attribute to text boxes for iOS devices (based on bugID: 3508912)
-     */
-    if (navigator.userAgent.match(/(iphone|ipod|ipad)/i)) {
-        $('input[type=text]').attr('autocapitalize', 'off').attr('autocorrect', 'off');
-    }
-});
 
 /**
   * Checks/unchecks all options of a <select> element
@@ -1820,121 +1611,6 @@ function getJSConfirmCommonParam (elem, params) {
     params += 'is_js_confirmed=1' + sep + 'ajax_request=true' + sep + 'fk_checks=' + ($elem.find('#fk_checks').is(':checked') ? 1 : 0);
     return params;
 }
-
-/**
- * Unbind all event handlers before tearing down a page
- */
-AJAX.registerTeardown('functions.js', function () {
-    $(document).off('click', 'a.inline_edit_sql');
-    $(document).off('click', 'input#sql_query_edit_save');
-    $(document).off('click', 'input#sql_query_edit_discard');
-    $('input.sqlbutton').off('click');
-    if (codemirror_editor) {
-        codemirror_editor.off('blur');
-    } else {
-        $(document).off('blur', '#sqlquery');
-    }
-    $(document).off('change', '#parameterized');
-    $(document).off('click', 'input.sqlbutton');
-    $('#sqlquery').off('keydown');
-    $('#sql_query_edit').off('keydown');
-
-    if (codemirror_inline_editor) {
-        // Copy the sql query to the text area to preserve it.
-        $('#sql_query_edit').text(codemirror_inline_editor.getValue());
-        $(codemirror_inline_editor.getWrapperElement()).off('keydown');
-        codemirror_inline_editor.toTextArea();
-        codemirror_inline_editor = false;
-    }
-    if (codemirror_editor) {
-        $(codemirror_editor.getWrapperElement()).off('keydown');
-    }
-});
-
-/**
- * Jquery Coding for inline editing SQL_QUERY
- */
-AJAX.registerOnload('functions.js', function () {
-    // If we are coming back to the page by clicking forward button
-    // of the browser, bind the code mirror to inline query editor.
-    bindCodeMirrorToInlineEditor();
-    $(document).on('click', 'a.inline_edit_sql', function () {
-        if ($('#sql_query_edit').length) {
-            // An inline query editor is already open,
-            // we don't want another copy of it
-            return false;
-        }
-
-        var $form = $(this).prev('form');
-        var sql_query  = $form.find('input[name=\'sql_query\']').val().trim();
-        var $inner_sql = $(this).parent().prev().find('code.sql');
-        var old_text   = $inner_sql.html();
-
-        var new_content = '<textarea name="sql_query_edit" id="sql_query_edit">' + escapeHtml(sql_query) + '</textarea>\n';
-        new_content    += getForeignKeyCheckboxLoader();
-        new_content    += '<input type="submit" id="sql_query_edit_save" class="button btnSave" value="' + PMA_messages.strGo + '"/>\n';
-        new_content    += '<input type="button" id="sql_query_edit_discard" class="button btnDiscard" value="' + PMA_messages.strCancel + '"/>\n';
-        var $editor_area = $('div#inline_editor');
-        if ($editor_area.length === 0) {
-            $editor_area = $('<div id="inline_editor_outer"></div>');
-            $editor_area.insertBefore($inner_sql);
-        }
-        $editor_area.html(new_content);
-        loadForeignKeyCheckbox();
-        $inner_sql.hide();
-
-        bindCodeMirrorToInlineEditor();
-        return false;
-    });
-
-    $(document).on('click', 'input#sql_query_edit_save', function () {
-        // hide already existing success message
-        var sql_query;
-        if (codemirror_inline_editor) {
-            codemirror_inline_editor.save();
-            sql_query = codemirror_inline_editor.getValue();
-        } else {
-            sql_query = $(this).parent().find('#sql_query_edit').val();
-        }
-        var fk_check = $(this).parent().find('#fk_checks').is(':checked');
-
-        var $form = $('a.inline_edit_sql').prev('form');
-        var $fake_form = $('<form>', { action: 'import.php', method: 'post' })
-            .append($form.find('input[name=server], input[name=db], input[name=table], input[name=token]').clone())
-            .append($('<input/>', { type: 'hidden', name: 'show_query', value: 1 }))
-            .append($('<input/>', { type: 'hidden', name: 'is_js_confirmed', value: 0 }))
-            .append($('<input/>', { type: 'hidden', name: 'sql_query', value: sql_query }))
-            .append($('<input/>', { type: 'hidden', name: 'fk_checks', value: fk_check ? 1 : 0 }));
-        if (! checkSqlQuery($fake_form[0])) {
-            return false;
-        }
-        $('.success').hide();
-        $fake_form.appendTo($('body')).submit();
-    });
-
-    $(document).on('click', 'input#sql_query_edit_discard', function () {
-        var $divEditor = $('div#inline_editor_outer');
-        $divEditor.siblings('code.sql').show();
-        $divEditor.remove();
-    });
-
-    $(document).on('click', 'input.sqlbutton', function (evt) {
-        insertQuery(evt.target.id);
-        PMA_handleSimulateQueryButton();
-        return false;
-    });
-
-    $(document).on('change', '#parameterized', updateQueryParameters);
-
-    var $inputUsername = $('#input_username');
-    if ($inputUsername) {
-        if ($inputUsername.val() === '') {
-            $inputUsername.trigger('focus');
-        } else {
-            $('#input_password').trigger('focus');
-        }
-    }
-});
 
 /**
  * "inputRead" event handler for CodeMirror SQL query editors for autocompletion
@@ -2820,196 +2496,6 @@ AJAX.registerTeardown('functions.js', function () {
     $(document).off('keyup', 'form.create_table_form.ajax input');
     $(document).off('change', 'input[name=partition_count],input[name=subpartition_count],select[name=partition_by]');
 });
-
-/**
- * jQuery coding for 'Create Table'.  Used on db_operations.php,
- * db_structure.php and db_tracking.php (i.e., wherever
- * PhpMyAdmin\Display\CreateTable is used)
- *
- * Attach Ajax Event handlers for Create Table
- */
-AJAX.registerOnload('functions.js', function () {
-    /**
-     * Attach event handler for submission of create table form (save)
-     */
-    $(document).on('submit', 'form.create_table_form.ajax', function (event) {
-        event.preventDefault();
-
-        /**
-         * @var    the_form    object referring to the create table form
-         */
-        var $form = $(this);
-
-        /*
-         * First validate the form; if there is a problem, avoid submitting it
-         *
-         * checkTableEditForm() needs a pure element and not a jQuery object,
-         * this is why we pass $form[0] as a parameter (the jQuery object
-         * is actually an array of DOM elements)
-         */
-
-        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
-            PMA_prepareForAjaxRequest($form);
-            if (PMA_checkReservedWordColumns($form)) {
-                PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-                // User wants to submit the form
-                $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'do_save_data=1', function (data) {
-                    if (typeof data !== 'undefined' && data.success === true) {
-                        $('#properties_message')
-                            .removeClass('error')
-                            .html('');
-                        PMA_ajaxShowMessage(data.message);
-                        // Only if the create table dialog (distinct panel) exists
-                        var $createTableDialog = $('#create_table_dialog');
-                        if ($createTableDialog.length > 0) {
-                            $createTableDialog.dialog('close').remove();
-                        }
-                        $('#tableslistcontainer').before(data.formatted_sql);
-
-                        /**
-                         * @var tables_table    Object referring to the <tbody> element that holds the list of tables
-                         */
-                        var tables_table = $('#tablesForm').find('tbody').not('#tbl_summary_row');
-                        // this is the first table created in this db
-                        if (tables_table.length === 0) {
-                            PMA_commonActions.refreshMain(
-                                PMA_commonParams.get('opendb_url')
-                            );
-                        } else {
-                            /**
-                             * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
-                             */
-                            var curr_last_row = $(tables_table).find('tr:last');
-                            /**
-                             * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
-                             */
-                            var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
-                            /**
-                             * @var curr_last_row_index Index of {@link curr_last_row}
-                             */
-                            var curr_last_row_index = parseFloat(curr_last_row_index_string);
-                            /**
-                             * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
-                             */
-                            var new_last_row_index = curr_last_row_index + 1;
-                            /**
-                             * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
-                             */
-                            var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
-
-                            data.new_table_string = data.new_table_string.replace(/checkbox_tbl_/, new_last_row_id);
-                            // append to table
-                            $(data.new_table_string)
-                                .appendTo(tables_table);
-
-                            // Sort the table
-                            $(tables_table).PMA_sort_table('th');
-
-                            // Adjust summary row
-                            PMA_adjustTotals();
-                        }
-
-                        // Refresh navigation as a new table has been added
-                        PMA_reloadNavigation();
-                        // Redirect to table structure page on creation of new table
-                        var argsep = PMA_commonParams.get('arg_separator');
-                        var params_12 = 'ajax_request=true' + argsep + 'ajax_page_request=true';
-                        if (! (history && history.pushState)) {
-                            params_12 += PMA_MicroHistory.menus.getRequestParam();
-                        }
-                        tblStruct_url = 'tbl_structure.php?server=' + data._params.server +
-                            argsep + 'db=' + data._params.db + argsep + 'token=' + data._params.token +
-                            argsep + 'goto=db_structure.php' + argsep + 'table=' + data._params.table + '';
-                        $.get(tblStruct_url, params_12, AJAX.responseHandler);
-                    } else {
-                        PMA_ajaxShowMessage(
-                            '<div class="error">' + data.error + '</div>',
-                            false
-                        );
-                    }
-                }); // end $.post()
-            }
-        } // end if (checkTableEditForm() )
-    }); // end create table form (save)
-
-    /**
-     * Submits the intermediate changes in the table creation form
-     * to refresh the UI accordingly
-     */
-    function submitChangesInCreateTableForm (actionParam) {
-        /**
-         * @var    the_form    object referring to the create table form
-         */
-        var $form = $('form.create_table_form.ajax');
-
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-        PMA_prepareForAjaxRequest($form);
-
-        // User wants to add more fields to the table
-        $.post($form.attr('action'), $form.serialize() + '&' + actionParam, function (data) {
-            if (typeof data !== 'undefined' && data.success) {
-                var $pageContent = $('#page_content');
-                $pageContent.html(data.message);
-                PMA_highlightSQL($pageContent);
-                PMA_verifyColumnsProperties();
-                PMA_hideShowConnection($('.create_table_form select[name=tbl_storage_engine]'));
-                PMA_ajaxRemoveMessage($msgbox);
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        }); // end $.post()
-    }
-
-    /**
-     * Attach event handler for create table form (add fields)
-     */
-    $(document).on('click', 'form.create_table_form.ajax input[name=submit_num_fields]', function (event) {
-        event.preventDefault();
-        submitChangesInCreateTableForm('submit_num_fields=1');
-    }); // end create table form (add fields)
-
-    $(document).on('keydown', 'form.create_table_form.ajax input[name=added_fields]', function (event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            event.stopImmediatePropagation();
-            $(this)
-                .closest('form')
-                .find('input[name=submit_num_fields]')
-                .trigger('click');
-        }
-    });
-
-    /**
-     * Attach event handler to manage changes in number of partitions and subpartitions
-     */
-    $(document).on('change', 'input[name=partition_count],input[name=subpartition_count],select[name=partition_by]', function (event) {
-        $this = $(this);
-        $form = $this.parents('form');
-        if ($form.is('.create_table_form.ajax')) {
-            submitChangesInCreateTableForm('submit_partition_change=1');
-        } else {
-            $form.submit();
-        }
-    });
-
-    $(document).on('change', 'input[value=AUTO_INCREMENT]', function () {
-        if (this.checked) {
-            var col = /\d/.exec($(this).attr('name'));
-            col = col[0];
-            var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
-            if ($selectFieldKey.val() === 'none_' + col) {
-                $selectFieldKey.val('primary_' + col).trigger('change');
-            }
-        }
-    });
-    $('body')
-        .off('click', 'input.preview_sql')
-        .on('click', 'input.preview_sql', function () {
-            var $form = $(this).closest('form');
-            PMA_previewSQL($form);
-        });
-});
-
 
 /**
  * Validates the password field in a form
@@ -4329,33 +3815,6 @@ function PMA_slidingMessage (msg, $obj) {
     return true;
 } // end PMA_slidingMessage()
 
-/**
- * Attach CodeMirror2 editor to SQL edit area.
- */
-AJAX.registerOnload('functions.js', function () {
-    var $elm = $('#sqlquery');
-    if ($elm.siblings().filter('.CodeMirror').length > 0) {
-        return;
-    }
-    if ($elm.length > 0) {
-        if (typeof CodeMirror !== 'undefined') {
-            codemirror_editor = PMA_getSQLEditor($elm);
-            codemirror_editor.focus();
-            codemirror_editor.on('blur', updateQueryParameters);
-        } else {
-            // without codemirror
-            $elm.focus().on('blur', updateQueryParameters);
-        }
-    }
-    PMA_highlightSQL($('body'));
-});
-AJAX.registerTeardown('functions.js', function () {
-    if (codemirror_editor) {
-        $('#sqlquery').text(codemirror_editor.getValue());
-        codemirror_editor.toTextArea();
-        codemirror_editor = false;
-    }
-});
 AJAX.registerOnload('functions.js', function () {
     // initializes all lock-page elements lock-id and
     // val-hash data property
@@ -4413,49 +3872,6 @@ $(window).on('popstate', function (event, data) {
     return true;
 });
 
-/**
- * Unbind all event handlers before tearing down a page
- */
-AJAX.registerTeardown('functions.js', function () {
-    $(document).off('click', 'a.themeselect');
-    $(document).off('change', '.autosubmit');
-    $('a.take_theme').off('click');
-});
-
-AJAX.registerOnload('functions.js', function () {
-    /**
-     * Theme selector.
-     */
-    $(document).on('click', 'a.themeselect', function (e) {
-        window.open(
-            e.target,
-            'themes',
-            'left=10,top=20,width=510,height=350,scrollbars=yes,status=yes,resizable=yes'
-        );
-        return false;
-    });
-
-    /**
-     * Automatic form submission on change.
-     */
-    $(document).on('change', '.autosubmit', function (e) {
-        $(this).closest('form').submit();
-    });
-
-    /**
-     * Theme changer.
-     */
-    $('a.take_theme').on('click', function (e) {
-        var what = this.name;
-        if (window.opener && window.opener.document.forms.setTheme.elements.set_theme) {
-            window.opener.document.forms.setTheme.elements.set_theme.value = what;
-            window.opener.document.forms.setTheme.submit();
-            window.close();
-            return false;
-        }
-        return true;
-    });
-});
 
 /**
  * Produce print preview
@@ -5122,3 +4538,81 @@ jQuery.fn.getPostData = function () {
     }
     return dataPost;
 };
+
+/**
+ * @todo REMOVE THESE FUNCTIONS AFTER COMPLETE CODE BEING MODULAR
+ *
+ * Copy of functions copied from different files to make them globally
+ * available so that build does not break during modularisation
+ */
+/**
+ * server_privilages.js
+ */
+/**
+ * Validates the "add a user" form
+ *
+ * @return boolean  whether the form is validated or not
+ */
+function checkAddUser (the_form) {
+    if (the_form.elements.pred_hostname.value === 'userdefined' && the_form.elements.hostname.value === '') {
+        alert(PMA_messages.strHostEmpty);
+        the_form.elements.hostname.focus();
+        return false;
+    }
+
+    if (the_form.elements.pred_username.value === 'userdefined' && the_form.elements.username.value === '') {
+        alert(PMA_messages.strUserEmpty);
+        the_form.elements.username.focus();
+        return false;
+    }
+
+    return PMA_checkPassword($(the_form));
+} // end of the 'checkAddUser()' function
+
+function checkPasswordStrength (value, meter_obj, meter_object_label, username) {
+    // List of words we don't want to appear in the password
+    var customDict = [
+        'phpmyadmin',
+        'mariadb',
+        'mysql',
+        'php',
+        'my',
+        'admin',
+    ];
+    if (username !== null) {
+        customDict.push(username);
+    }
+    var zxcvbn_obj = zxcvbn(value, customDict);
+    var strength = zxcvbn_obj.score;
+    strength = parseInt(strength);
+    meter_obj.val(strength);
+    switch (strength) {
+    case 0: meter_object_label.html(PMA_messages.strExtrWeak);
+        break;
+    case 1: meter_object_label.html(PMA_messages.strVeryWeak);
+        break;
+    case 2: meter_object_label.html(PMA_messages.strWeak);
+        break;
+    case 3: meter_object_label.html(PMA_messages.strGood);
+        break;
+    case 4: meter_object_label.html(PMA_messages.strStrong);
+    }
+}
+
+function isStorageSupported (type, warn) {
+    try {
+        window[type].setItem('PMATest', 'test');
+        // Check whether key-value pair was set successfully
+        if (window[type].getItem('PMATest') === 'test') {
+            // Supported, remove test variable from storage
+            window[type].removeItem('PMATest');
+            return true;
+        }
+    } catch (error) {
+        // Not supported
+        if (warn) {
+            PMA_ajaxShowMessage(PMA_messages.strNoLocalStorage, false);
+        }
+    }
+    return false;
+}

@@ -5,6 +5,9 @@
     // Globals
     "jquery" : true,
 
+    // ES6
+    "esversion": 6,
+
     // Stricter checking
     "curly" : true,
     "immed" : true,

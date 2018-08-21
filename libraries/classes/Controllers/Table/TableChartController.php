@@ -92,22 +92,7 @@ class TableChartController extends TableController
             return;
         }
 
-        $this->response->getHeader()->getScripts()->addFiles(
-            [
-                'chart.js',
-                'tbl_chart.js',
-                'vendor/jqplot/jquery.jqplot.js',
-                'vendor/jqplot/plugins/jqplot.barRenderer.js',
-                'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-                'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
-                'vendor/jqplot/plugins/jqplot.categoryAxisRenderer.js',
-                'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
-                'vendor/jqplot/plugins/jqplot.pointLabels.js',
-                'vendor/jqplot/plugins/jqplot.pieRenderer.js',
-                'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
-                'vendor/jqplot/plugins/jqplot.highlighter.js'
-            ]
-        );
+        $this->response->getHeader()->getScripts()->addFile('tbl_chart');
 
         /**
          * Extract values for common work

@@ -113,7 +113,7 @@ class TableIndexesController extends TableController
             $form_params['old_index'] = $_REQUEST['index'];
         }
 
-        $this->response->getHeader()->getScripts()->addFile('indexes.js');
+        $this->response->getHeader()->getScripts()->addFile('indexes');
 
         $this->response->addHTML(
             $this->template->render('table/index_form', [

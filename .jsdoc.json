@@ -1,0 +1,30 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc", "closure"]
+    },
+    "recurseDepth": 10,
+    "source": {
+        "include": ["js/src/", "package.json"],
+        "includePattern": ".js$",
+        "exclude": ["js/src/plugins"],
+        "excludePattern": "(node_modules/|docs)"
+    },
+    "sourceType": "module",
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "templates": {
+        "cleverLinks": true,
+        "monospaceLinks": true,
+        "useLongnameInNav": false,
+        "showInheritedInNav": true
+    },
+    "opts": {
+        "destination": "./doc/js/",
+        "encoding": "utf8",
+        "private": true,
+        "recurse": true,
+        "template": "./node_modules/minami"
+    }
+}

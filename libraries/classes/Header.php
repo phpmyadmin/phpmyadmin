@@ -168,8 +168,6 @@ class Header
         $this->_scripts->addFile('vendor/jquery/jquery-migrate.js');
         $this->_scripts->addFile('whitelist.php');
         $this->_scripts->addFile('vendor/sprintf.js');
-        $this->_scripts->addFile('ajax.js');
-        $this->_scripts->addFile('keyhandler.js');
         $this->_scripts->addFile('vendor/jquery/jquery-ui.min.js');
         $this->_scripts->addFile('vendor/js.cookie.js');
         $this->_scripts->addFile('vendor/jquery/jquery.mousewheel.js');
@@ -178,23 +176,25 @@ class Header
         $this->_scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
         $this->_scripts->addFile('vendor/jquery/jquery.ba-hashchange-1.3.js');
         $this->_scripts->addFile('vendor/jquery/jquery.debounce-1.0.5.js');
-        $this->_scripts->addFile('menu-resizer.js');
+        $this->_scripts->addFile('menu_resizer.js');
 
+        // Here would not be a good place to add CodeMirror because
+        // the user preferences have not been merged at this point
+
+        $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
+        $this->_scripts->addFile('vendors~index_new.js');
+        $this->_scripts->addFile('index_new.js');
+        $this->_scripts->addFile('keyhandler.js');
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
             $this->_scripts->addFile('cross_framing_protection.js');
         }
-
         $this->_scripts->addFile('rte.js');
         if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
             $this->_scripts->addFile('vendor/tracekit.js');
             $this->_scripts->addFile('error_report.js');
         }
 
-        // Here would not be a good place to add CodeMirror because
-        // the user preferences have not been merged at this point
-
-        $this->_scripts->addFile('messages.php', ['l' => $GLOBALS['lang']]);
         // Append the theme id to this url to invalidate
         // the cache on a theme change. Though this might be
         // unavailable for fatal errors.
@@ -203,20 +203,24 @@ class Header
         } else {
             $theme_id = 'default';
         }
-        $this->_scripts->addFile('config.js');
+        $this->_scripts->addFile('config');
         $this->_scripts->addFile('doclinks.js');
         $this->_scripts->addFile('functions.js');
+        $this->_scripts->addFile('functions');
+        $this->_scripts->addFile('navigation');
         $this->_scripts->addFile('navigation.js');
-        $this->_scripts->addFile('indexes.js');
+        $this->_scripts->addFile('indexes');
         $this->_scripts->addFile('common.js');
-        $this->_scripts->addFile('page_settings.js');
-        if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
+
+        if($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
             $this->_scripts->addFile('drag_drop_import.js');
         }
+        $this->_scripts->addFile('page_settings');
         if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {
-            $this->_scripts->addFile('shortcuts_handler.js');
+            $this->_scripts->addFile('shortcuts_handler');
         }
         $this->_scripts->addCode($this->getJsParamsCode());
+        $this->_scripts->addCodeNew($this->getJsParamsCode(true));
     }
 
     /**
@@ -233,6 +237,9 @@ class Header
             ? $_SESSION['tmpval']['pftext'] : '';
 
         $params = [
+            'environment' => $GLOBALS['cfg']['environment'],
+            'webpack_host' => $GLOBALS['cfg']['webpack_host'],
+            'webpack_port' => $GLOBALS['cfg']['webpack_port'],
             'common_query' => Url::getCommonRaw(),
             'opendb_url' => Util::getScriptNameForOption(
                 $GLOBALS['cfg']['DefaultTabDatabase'],
@@ -281,9 +288,11 @@ class Header
      * Returns, as a string, a list of parameters
      * used on the client side
      *
+     * @param bool $flag to check for CommonParams for Modular Code
+     *
      * @return string
      */
-    public function getJsParamsCode(): string
+    public function getJsParamsCode($flag = false): string
     {
         $params = $this->getJsParams();
         foreach ($params as $key => $value) {
@@ -293,7 +302,11 @@ class Header
                 $params[$key] = $key . ':"' . Sanitize::escapeJsString($value) . '"';
             }
         }
-        return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
+        if ($flag) {
+            return 'var commonParams = {' . implode(',', $params) . '};';
+        } else {
+            return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
+        }
     }
 
     /**
@@ -428,6 +441,18 @@ class Header
                         );
                     }
                 }
+                $this->_scripts->addCodeNew(
+                    'CodemirrorEnable='
+                    . ($GLOBALS['cfg']['CodemirrorEnable'] ? 'true' : 'false')
+                );
+                $this->_scripts->addCodeNew(
+                    'LintEnable='
+                    . ($GLOBALS['cfg']['LintEnable'] ? 'true' : 'false')
+                );
+                $this->_scripts->addCodeNew(
+                    'ConsoleEnterExecutes='
+                    . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false')
+                );
                 $this->_scripts->addCode(
                     'ConsoleEnterExecutes='
                     . ($GLOBALS['cfg']['ConsoleEnterExecutes'] ? 'true' : 'false')

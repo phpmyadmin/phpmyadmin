@@ -24,9 +24,7 @@ PageSettings::showGroup('Sql');
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('makegrid.js');
-$scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
-$scripts->addFile('sql.js');
+$scripts->addFile('sql');
 
 require 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';

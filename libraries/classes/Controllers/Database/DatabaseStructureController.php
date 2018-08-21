@@ -144,8 +144,8 @@ class DatabaseStructureController extends DatabaseController
 
         $this->response->getHeader()->getScripts()->addFiles(
             [
-                'db_structure.js',
-                'tbl_change.js',
+                'db_structure',
+                'tbl_change',
             ]
         );
 

@@ -355,12 +355,12 @@ class FormDisplay
             foreach ($this->_jsLangStrings as $strName => $strValue) {
                 $jsLang[] = "'$strName': '" . Sanitize::jsFormat($strValue, false) . '\'';
             }
-            $js[] = "$.extend(PMA_messages, {\n\t"
-                . implode(",\n\t", $jsLang) . '})';
+            $js[] = "{\n\t"
+                . implode(",\n\t", $jsLang) . '}';
         }
 
-        $js[] = "$.extend(defaultValues, {\n\t"
-            . implode(",\n\t", $jsDefault) . '})';
+        $js[] = "{\n\t"
+            . implode(",\n\t", $jsDefault) . '}';
         $htmlOutput .= $this->formDisplayTemplate->displayJavascript($js);
 
         return $htmlOutput;

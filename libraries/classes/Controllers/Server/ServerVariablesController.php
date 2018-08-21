@@ -67,7 +67,7 @@ class ServerVariablesController extends Controller
 
         $header   = $this->response->getHeader();
         $scripts  = $header->getScripts();
-        $scripts->addFile('server_variables.js');
+        $scripts->addFile('server_variables');
 
         /**
          * Displays the sub-page heading

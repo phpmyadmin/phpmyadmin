@@ -18,7 +18,7 @@ PageSettings::showGroup('Import');
 $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('import.js');
+$scripts->addFile('import');
 
 $import = new Import();
 

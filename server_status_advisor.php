@@ -19,7 +19,7 @@ $serverStatusData = new Data();
 
 $response = Response::getInstance();
 $scripts = $response->getHeader()->getScripts();
-$scripts->addFile('server_status_advisor.js');
+$scripts->addFile('server_status_advisor');
 
 /**
  * Output

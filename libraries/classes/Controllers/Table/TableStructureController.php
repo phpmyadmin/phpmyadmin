@@ -155,8 +155,8 @@ class TableStructureController extends TableController
 
         $this->response->getHeader()->getScripts()->addFiles(
             [
-                'tbl_structure.js',
-                'indexes.js'
+                'tbl_structure',
+                'indexes'
             ]
         );
 

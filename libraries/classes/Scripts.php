@@ -36,6 +36,13 @@ class Scripts
      * @var array of strings
      */
     private $_code;
+    /**
+     * An array of discrete javascript code snippets for top script
+     *
+     * @access private
+     * @var array of strings
+     */
+    private $_codeNew;
 
     /**
      * Returns HTML code to include javascript file.
@@ -53,7 +60,19 @@ class Scripts
                 $result .= "<script data-cfasync='false' "
                     . "type='text/javascript' src='js/" . $file_name
                     . "'></script>\n";
-            } else {
+            } else if (strpos($value['filename'], "_new") !== false) {
+                /**
+                 * This piece of code is for appending the new revamped files into the
+                 * DOM so that both new and old files can be used simultaneously
+                 * It checks whether the file contains new in its name or not
+                 */
+                $src = "";
+                if ($GLOBALS['cfg']['environment'] === 'development') {
+                    $src = $GLOBALS['cfg']['webpack_host'] . ":" . $GLOBALS['cfg']['webpack_port'] . "/";
+                }
+                $result .= '<script data-cfasync="false" type="text/javascript" src="' . $src . 'js/dist/'
+                    .  $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
+            } else if (strpos($value['filename'], ".js") !== false) {
                 $result .= '<script data-cfasync="false" type="text/javascript" src="js/'
                     . $value['filename'] . '?' . Header::getVersionParameter() . '"></script>' . "\n";
             }
@@ -125,6 +144,7 @@ class Scripts
             || strpos($filename, 'messages.php') !== false
             || strpos($filename, 'ajax.js') !== false
             || strpos($filename, 'cross_framing_protection.js') !== false
+            || strpos($filename, 'index_new.js') !== false
         ) {
             return 0;
         }
@@ -142,6 +162,19 @@ class Scripts
     public function addCode($code)
     {
         $this->_code .= "$code\n";
+    }
+
+    /**
+     * Adds a temporary new code snippet to the code to be executed
+     * at the top of the script before other scripts
+     *
+     * @param string $code The JS code to be added
+     *
+     * @return void
+     */
+    public function addCodeNew($code)
+    {
+        $this->_codeNew .= "$code\n";
     }
 
     /**
@@ -175,6 +208,12 @@ class Scripts
     {
         $retval = '';
 
+        $retval .= '<script data-cfasync="false" type="text/javascript">';
+        $retval .= "// <![CDATA[\n";
+        $retval .= $this->_codeNew;
+        $retval .= '// ]]>';
+        $retval .= '</script>';
+
         if (count($this->_files) > 0) {
             $retval .= $this->_includeFiles(
                 $this->_files
@@ -183,18 +222,20 @@ class Scripts
 
         $code = 'AJAX.scriptHandler';
         foreach ($this->_files as $file) {
-            $code .= sprintf(
-                '.add("%s",%d)',
-                Sanitize::escapeJsString($file['filename']),
-                $file['has_onload'] ? 1 : 0
-            );
+            if (strpos($file['filename'], ".js") !== false) {
+                $code .= sprintf(
+                    '.add("%s",%d)',
+                    Sanitize::escapeJsString($file['filename']),
+                    $file['has_onload'] ? 1 : 0
+                );
+            }
         }
         $code .= ';';
         $this->addCode($code);
 
         $code = '$(function() {';
         foreach ($this->_files as $file) {
-            if ($file['has_onload']) {
+            if ($file['has_onload'] && strpos($file['filename'], ".js") !== false) {
                 $code .= 'AJAX.fireOnload("';
                 $code .= Sanitize::escapeJsString($file['filename']);
                 $code .= '");';

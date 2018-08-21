@@ -23,15 +23,8 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 
-// for charting
-$scripts->addFile('chart.js');
-$scripts->addFile('vendor/jqplot/jquery.jqplot.js');
-$scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
-$scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
-$scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
-$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
-$scripts->addFile('server_status_sorter.js');
-$scripts->addFile('server_status_queries.js');
+$scripts->addFile('server_status_sorter');
+$scripts->addFile('server_status_queries');
 
 // Add the html content to the response
 $response->addHTML('<div>');
