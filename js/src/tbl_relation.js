@@ -1,5 +1,9 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
+
+/**
+ * Module import
+ */
+import { PMA_Messages as messages } from './variables/export_variables';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import { escapeHtml } from './utils/Sanitise';
 import { PMA_commonActions } from './classes/CommonActions';
@@ -112,10 +116,10 @@ export function onloadTblRelation () {
                 .val()
         );
 
-        var question = PMA_sprintf(PMA_messages.strDoYouReally, drop_query);
+        var question = PMA_sprintf(messages.strDoYouReally, drop_query);
 
         $anchor.PMA_confirm(question, $anchor.attr('href'), function (url) {
-            var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingForeignKey, false);
+            var $msg = PMA_ajaxShowMessage(messages.strDroppingForeignKey, false);
             var params = getJSConfirmCommonParam(this, $anchor.getPostData());
             $.post(url, params, function (data) {
                 if (data.success === true) {
@@ -124,7 +128,7 @@ export function onloadTblRelation () {
                         // Do nothing
                     });
                 } else {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ' : ' + data.error, false);
+                    PMA_ajaxShowMessage(messages.strErrorProcessingRequest + ' : ' + data.error, false);
                 }
             }); // end $.post()
         }); // end $.PMA_confirm()

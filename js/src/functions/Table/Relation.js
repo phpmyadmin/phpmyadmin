@@ -1,7 +1,13 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import { $ } from '../../utils/JqueryExtended';
+import CommonParams from '../../variables/common_params';
 import { escapeHtml } from '../../utils/Sanitise';
-import PMA_commonParams from '../../variables/common_params';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from '../../utils/show_ajax_messages';
+
 /**
  * for tbl_relation.php
  *
@@ -74,7 +80,7 @@ export function getDropdownValues ($dropdown) {
     }
     var $msgbox = PMA_ajaxShowMessage();
     var $form = $dropdown.parents('form');
-    var argsep = PMA_commonParams.get('arg_separator');
+    var argsep = CommonParams.get('arg_separator');
     var url = 'tbl_relation.php?getDropdownValues=true' + argsep + 'ajax_request=true' +
         argsep + 'db=' + $form.find('input[name="db"]').val() +
         argsep + 'table=' + $form.find('input[name="table"]').val() +

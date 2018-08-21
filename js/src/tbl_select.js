@@ -1,6 +1,10 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import { $ } from './utils/JqueryExtended';
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
+import { PMA_Messages as messages } from './variables/export_variables';
 import {
     changeValueFieldType,
     PMA_checkIfDataTypeNumericOrDate
@@ -10,7 +14,7 @@ import { PMA_prepareForAjaxRequest } from './functions/AjaxRequest';
 import { PMA_init_slider } from './utils/Slider';
 import { PMA_highlightSQL } from './utils/sql';
 import { PMA_addDatepicker } from './utils/DateTime';
-import { PMA_commonParams } from './variables/common_params';
+import CommonParams from './variables/common_params';
 
 /**
  * @fileoverview JavaScript functions used on tbl_select.php
@@ -48,14 +52,14 @@ export function onloadTblSelect () {
         .hide();
 
     $('#togglesearchformlink')
-        .html(PMA_messages.strShowSearchCriteria)
+        .html(messages.strShowSearchCriteria)
         .on('click', function () {
             var $link = $(this);
             $('#tbl_search_form').slideToggle();
-            if ($link.text() === PMA_messages.strHideSearchCriteria) {
-                $link.text(PMA_messages.strShowSearchCriteria);
+            if ($link.text() === messages.strHideSearchCriteria) {
+                $link.text(messages.strShowSearchCriteria);
             } else {
-                $link.text(PMA_messages.strHideSearchCriteria);
+                $link.text(messages.strHideSearchCriteria);
             }
             // avoid default click action
             return false;
@@ -92,7 +96,7 @@ export function onloadTblSelect () {
 
         // empty previous search results while we are waiting for new results
         $('#sqlqueryresultsouter').empty();
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages.strSearching, false);
+        var $msgbox = PMA_ajaxShowMessage(messages.strSearching, false);
 
         PMA_prepareForAjaxRequest($search_form);
 
@@ -152,7 +156,7 @@ export function onloadTblSelect () {
                     .hide();
                 $('#togglesearchformlink')
                     // always start with the Show message
-                    .text(PMA_messages.strShowSearchCriteria);
+                    .text(messages.strShowSearchCriteria);
                 $('#togglesearchformdiv')
                     // now it's time to show the div containing the link
                     .show();
@@ -285,7 +289,7 @@ export function onloadTblSelect () {
                 url: 'tbl_select.php',
                 type: 'POST',
                 data: {
-                    server: PMA_commonParams.get('server'),
+                    server: CommonParams.get('server'),
                     ajax_request: 1,
                     db: $('input[name="db"]').val(),
                     table: $('input[name="table"]').val(),
@@ -297,16 +301,16 @@ export function onloadTblSelect () {
                     if (response.success) {
                         // Get the column min value.
                         var min = response.column_data.min
-                            ? '(' + PMA_messages.strColumnMin +
+                            ? '(' + messages.strColumnMin +
                                 ' ' + response.column_data.min + ')'
                             : '';
                         // Get the column max value.
                         var max = response.column_data.max
-                            ? '(' + PMA_messages.strColumnMax +
+                            ? '(' + messages.strColumnMax +
                                 ' ' + response.column_data.max + ')'
                             : '';
                         var button_options = {};
-                        button_options[PMA_messages.strGo] = function () {
+                        button_options[messages.strGo] = function () {
                             var min_value = $('#min_value').val();
                             var max_value = $('#max_value').val();
                             var final_value = '';
@@ -347,7 +351,7 @@ export function onloadTblSelect () {
                             }
                             $(this).dialog('close');
                         };
-                        button_options[PMA_messages.strCancel] = function () {
+                        button_options[messages.strCancel] = function () {
                             $(this).dialog('close');
                         };
 
@@ -355,11 +359,11 @@ export function onloadTblSelect () {
                         $('<div/>').append(
                             '<fieldset>' +
                             '<legend>' + operator + '</legend>' +
-                            '<label for="min_value">' + PMA_messages.strMinValue +
+                            '<label for="min_value">' + messages.strMinValue +
                             '</label>' +
                             '<input type="text" id="min_value" />' + '<br>' +
                             '<span class="small_font">' + min + '</span>' + '<br>' +
-                            '<label for="max_value">' + PMA_messages.strMaxValue +
+                            '<label for="max_value">' + messages.strMaxValue +
                             '</label>' +
                             '<input type="text" id="max_value" />' + '<br>' +
                             '<span class="small_font">' + max + '</span>' +
@@ -369,7 +373,7 @@ export function onloadTblSelect () {
                             maxHeight: 400,
                             modal: true,
                             buttons: button_options,
-                            title: PMA_messages.strRangeSearch,
+                            title: messages.strRangeSearch,
                             open: function () {
                                 // Add datepicker wherever required.
                                 PMA_addDatepicker($('#min_value'), data_type);
@@ -384,7 +388,7 @@ export function onloadTblSelect () {
                     }
                 },
                 error: function (response) {
-                    PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest);
+                    PMA_ajaxShowMessage(messages.strErrorProcessingRequest);
                 }
             });
         }

@@ -1,7 +1,12 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import { $ } from './utils/JqueryExtended';
 import './plugins/jquery/jquery.tablesorter';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
-import PMA_commonParams from './variables/common_params';
+import CommonParams from './variables/common_params';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 import { AJAX } from './ajax';
 
@@ -60,7 +65,7 @@ export function onloadTblTracking () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parent('form');
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
 
         if ($button.val() === 'delete_version') {
