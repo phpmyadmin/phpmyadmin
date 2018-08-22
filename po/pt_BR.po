@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-01-31 20:39+0000\n"
-"Last-Translator: RD WebDesign <weblate@rdwebdesign.com.br>\n"
+"PO-Revision-Date: 2018-08-23 02:09+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"phpmyadmin/master/pt_BR/>\n"
+"phpmyadmin/4-8/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -8417,7 +8417,7 @@ msgstr "Colunas"
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:35
 msgctxt "Create new column"
 msgid "New"
-msgstr "Nova coluna"
+msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:41
 msgid "Database operations"
@@ -8430,12 +8430,12 @@ msgstr "Exibir itens ocultos"
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:36
 msgctxt "Create new database"
 msgid "New"
-msgstr "Novo BD"
+msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:37
 msgctxt "Create new event"
 msgid "New"
-msgstr "Novo evento"
+msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
@@ -8447,12 +8447,12 @@ msgstr "Funções"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:35
 msgctxt "Create new function"
 msgid "New"
-msgstr "Nova função"
+msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:35
 msgctxt "Create new index"
 msgid "New"
-msgstr "Novo índice"
+msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:30
 msgid "Procedure"
@@ -8469,17 +8469,17 @@ msgstr "Procedimentos"
 #: libraries/classes/Rte/Footer.php:37
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Nova procedure"
+msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:36
 msgctxt "Create new table"
 msgid "New"
-msgstr "Nova tabela"
+msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:37
 msgctxt "Create new trigger"
 msgid "New"
-msgstr "Novo trigger"
+msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
@@ -8491,7 +8491,7 @@ msgstr "Views"
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:36
 msgctxt "Create new view"
 msgid "New"
-msgstr "Nova view"
+msgstr "Nova"
 
 #: libraries/classes/Normalization.php:176
 msgid "Make all columns atomic"
@@ -14708,7 +14708,7 @@ msgstr "Novo nome da coluna"
 #: templates/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
 msgid "New"
-msgstr "Novo usuário"
+msgstr "Novo"
 
 #: templates/display/export/options_quick_export.twig:2
 #: templates/display/export/options_output.twig:2
