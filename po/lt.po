@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-01 13:38+0000\n"
-"Last-Translator: Edgaras Janušauskas <edgaras.janusauskas@gmail.com>\n"
+"PO-Revision-Date: 2018-07-23 11:06+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/lt/>\n"
+"4-8/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -585,13 +585,12 @@ msgid "Bookmark %s has been created."
 msgstr "Žymė %s sukurta."
 
 #: import.php:595
-#, fuzzy, php-format
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
-msgstr[0] "Importavimas sėkmingai baigtas, įvykdyta %d užklausa."
-msgstr[1] "Importavimas sėkmingai baigtas, įvykdyta %d užklausos."
-msgstr[2] "Importavimas sėkmingai baigtas, įvykdyta %d užklausų."
-msgstr[3] ""
+msgstr[0] "Importavimas sėkmingai baigtas, užklausa %d įvykdyta."
+msgstr[1] "Importavimas sėkmingai baigtas, užklausos %d įvykdytos."
+msgstr[2] "Importavimas sėkmingai baigtas, iš viso įvykdyta %d užklausų."
 
 #: import.php:626
 #, php-format
@@ -617,7 +616,7 @@ msgstr "„DROP DATABASE“ komandos įvykdyti negalima."
 
 #: import_status.php:107
 msgid "Could not load the progress of the import."
-msgstr ""
+msgstr "Nepavyko įkelti importo ."
 
 #: import_status.php:116 js/messages.php:457 js/messages.php:622
 #: libraries/classes/Export.php:514
@@ -631,13 +630,13 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
+"Jūs atsijungėte iš vieno serverio, kad visiškai išeitumėte iš phpMyAdmin, "
+"turite atsijungti iš visų serverių."
 
 #: index.php:193 libraries/classes/Footer.php:75
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
-msgstr "phpMyAdmin tinklalapis"
+msgstr "phpMyAdmin Demonstracinis Serveris"
 
 #: index.php:197 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
@@ -646,6 +645,9 @@ msgid ""
 "change root, debian-sys-maint and pma users. More information is available "
 "at %s."
 msgstr ""
+"Jūs naudojate demonstracinį serverį. Čia galite daryti ką norite, bet "
+"nepakeiskite admistratoriaus root, debian-sys-maint ir pma vartotojų. "
+"Daugiau informacijos galima rasti čia adresu %s."
 
 #: index.php:207
 msgid "General settings"
@@ -679,16 +681,12 @@ msgid "Server:"
 msgstr "Darbinė stotis:"
 
 #: index.php:338
-#, fuzzy
-#| msgid "Server port"
 msgid "Server type:"
-msgstr "Serverio jungtis"
+msgstr "Serverio tipas :"
 
 #: index.php:342
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "Nesaugus susijungimas"
+msgstr "Serverio prisijungimas :"
 
 #: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:704
@@ -705,10 +703,8 @@ msgid "Protocol version:"
 msgstr "Protokolo versija"
 
 #: index.php:356
-#, fuzzy
-#| msgid "User"
 msgid "User:"
-msgstr "Naudotojas"
+msgstr "Vartotojas :"
 
 #: index.php:361
 #, fuzzy
@@ -774,7 +770,7 @@ msgstr "Pakeitimų sąrašas"
 
 #: index.php:482 templates/server/plugins/section.twig:13
 msgid "License"
-msgstr ""
+msgstr "Licencija"
 
 #: index.php:502
 msgid ""
@@ -3367,11 +3363,11 @@ msgstr "Negalėjo išsaugoti paskiausios lentelės"
 
 #: libraries/classes/CentralColumns.php:618
 msgid "YES"
-msgstr ""
+msgstr "Taip"
 
 #: libraries/classes/CentralColumns.php:618
 msgid "NO"
-msgstr ""
+msgstr "Ne"
 
 #: libraries/classes/CentralColumns.php:749
 #: libraries/classes/Display/Results.php:961
@@ -18045,9 +18041,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Rūšiavimo buferio dydis"
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Užklausų saugykla"
+msgstr "Užklausų pagreitinimo (kešo) naudojamumas"
 
 #: libraries/advisory_rules.txt:170
 #, php-format

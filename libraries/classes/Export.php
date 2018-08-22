@@ -520,11 +520,11 @@ class Export
         foreach($_POST as $name => $value) {
             if (is_array($value)) {
                 foreach($value as $val) {
-                    $refreshButton .= '<input type="hidden" name="' . $name . '[]" value="' . $val . '">';
+                    $refreshButton .= '<input type="hidden" name="' . urlencode((string) $name) . '[]" value="' . urlencode((string) $val) . '">';
                 }
             }
             else {
-                $refreshButton .= '<input type="hidden" name="' . $name . '" value="' . $value . '">';
+                $refreshButton .= '<input type="hidden" name="' . urlencode((string) $name) . '" value="' . urlencode((string) $value) . '">';
             }
         }
         $refreshButton .= '</form>';

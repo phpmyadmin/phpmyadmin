@@ -33,7 +33,7 @@
                 {% set attribute = 'on update CURRENT_TIMESTAMP' %}
             {% endif %}
 
-            {% if row['Default'] is not defined %}
+            {% if row['Default'] is null %}
                 {% if row['Null'] == 'YES' %}
                     {% set row = row|merge({'Default': '<em>NULL</em>'}) %}
                 {% endif %}

@@ -44,6 +44,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 .ic_b_find_replace { background-image: url('<?= $theme->getImgPath('b_find_replace.png'); ?>'); }
 .ic_b_firstpage { background-image: url('<?= $theme->getImgPath('b_firstpage.png'); ?>'); }
 .ic_b_ftext { background-image: url('<?= $theme->getImgPath('b_ftext.png'); ?>'); }
+.ic_b_globe { background-image: url('<?= $theme->getImgPath('b_globe.gif'); ?>'); }
 .ic_b_group { background-image: url('<?= $theme->getImgPath('b_group.png'); ?>'); }
 .ic_b_help { background-image: url('<?= $theme->getImgPath('b_help.png'); ?>'); }
 .ic_b_home { background-image: url('<?= $theme->getImgPath('b_home.png'); ?>'); }

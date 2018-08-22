@@ -4,7 +4,7 @@
     {%- endfor %}>
 <legend>{{ title }}</legend>
 {% if description is not empty %}
-    <p>{{ description }}</p>
+    <p>{{ description|raw }}</p>
 {% endif %}
 {# This must match with displayErrors() in scripts.js #}
 {% if errors is iterable and errors|length > 0 %}

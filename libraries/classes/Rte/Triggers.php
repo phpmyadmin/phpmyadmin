@@ -98,7 +98,7 @@ class Triggers
                             htmlspecialchars($drop_item)
                         )
                         . '<br />'
-                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                        . __('MySQL said: ') . $GLOBALS['dbi']->getError();
                     } else {
                         $result = $GLOBALS['dbi']->tryQuery($item_query);
                         if (! $result) {
@@ -107,7 +107,7 @@ class Triggers
                                 htmlspecialchars($item_query)
                             )
                             . '<br />'
-                            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                            . __('MySQL said: ') . $GLOBALS['dbi']->getError();
                             // We dropped the old item, but were unable to create the
                             // new one. Try to restore the backup query.
                             $result = $GLOBALS['dbi']->tryQuery($create_item);
@@ -139,7 +139,7 @@ class Triggers
                             htmlspecialchars($item_query)
                         )
                         . '<br /><br />'
-                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                        . __('MySQL said: ') . $GLOBALS['dbi']->getError();
                     } else {
                         $message = Message::success(
                             __('Trigger %1$s has been created.')

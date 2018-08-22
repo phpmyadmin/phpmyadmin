@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-04-16 18:41+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2018-07-27 08:19+0000\n"
+"Last-Translator: Wolterhon <hotmottot.1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ru/>\n"
 "Language: ru\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
 "4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -2953,7 +2953,7 @@ msgstr "Секунда"
 
 #: js/messages.php:917
 msgid "This field is required"
-msgstr "Это обязательное поле"
+msgstr "Это поле нужно заполнить"
 
 #: js/messages.php:918
 msgid "Please fix this field"
@@ -4820,7 +4820,7 @@ msgstr "Отображать логотип в панели навигации."
 
 #: libraries/classes/Config/Descriptions.php:782
 msgid "Display logo"
-msgstr "Выводить логотип"
+msgstr "Показывать логотип"
 
 #: libraries/classes/Config/Descriptions.php:784
 msgid "URL where logo in the navigation panel will point to."
@@ -4828,7 +4828,7 @@ msgstr "URL, на который будет ссылаться логотип в
 
 #: libraries/classes/Config/Descriptions.php:786
 msgid "Logo link URL"
-msgstr "URL ссылка логотипа"
+msgstr "Ссылка логотипа"
 
 #: libraries/classes/Config/Descriptions.php:789
 msgid ""
@@ -8308,7 +8308,7 @@ msgstr "Показать"
 
 #: libraries/classes/Navigation/NavigationHeader.php:165
 msgid "Home"
-msgstr "К началу"
+msgstr "На главную"
 
 #: libraries/classes/Navigation/NavigationHeader.php:173
 msgid "Log out"
@@ -13891,7 +13891,7 @@ msgstr "Клик"
 
 #: libraries/config.values.php:94
 msgid "Double click"
-msgstr "Двойной клик"
+msgstr "Двойное нажатие"
 
 #: libraries/config.values.php:98
 msgid "key"
@@ -15461,7 +15461,7 @@ msgstr "Сделать закладку общедоступной"
 
 #: templates/console/display.twig:140
 msgid "Set default"
-msgstr "Установить изначальное значение"
+msgstr "Сбросить настройки"
 
 #: templates/console/display.twig:162
 msgid ""
@@ -16356,7 +16356,7 @@ msgstr "gzip"
 
 #: url.php:41
 msgid "Taking you to the target site."
-msgstr "Переход на целевой сайт."
+msgstr "Происходит переадресация."
 
 #: user_password.php:35
 msgid "You don't have sufficient privileges to be here right now!"
@@ -16608,8 +16608,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
-"Документация по Percona находится на <a href=\"https://www.percona.com/"
-"software/documentation/\">https://www.percona.com/software/documentation/</a>"
+"Документация Percona находится <a href=\"https://www.percona.com/software/"
+"documentation/\">здесь</a>"
 
 #: libraries/advisory_rules.txt:133
 msgid "'percona' found in version_comment"

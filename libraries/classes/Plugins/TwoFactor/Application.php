@@ -91,15 +91,30 @@ class Application extends TwoFactorPlugin
     public function setup()
     {
         $secret = $this->_twofactor->config['settings']['secret'];
-        $inlineUrl = $this->_google2fa->getQRCodeInline(
-            'phpMyAdmin (' . $this->getAppId(false) . ')',
-            $this->_twofactor->user,
-            $secret
-        );
-        return Template::get('login/twofactor/application_configure')->render([
-            'image' => $inlineUrl,
-            'secret' => $secret
-        ]);
+        $renderArray = ['secret' => $secret];
+        if (extension_loaded('gd')) {
+            $inlineUrl = $this->_google2fa->getQRCodeInline(
+                'phpMyAdmin (' . $this->getAppId(false) . ')',
+                $this->_twofactor->user,
+                $secret
+            );
+            $renderArray['image'] = $inlineUrl;
+        } else {
+            $inlineUrl = $this->_google2fa->getQRCodeUrl(
+                'phpMyAdmin (' . $this->getAppId(false) . ')',
+                $this->_twofactor->user,
+                $secret
+            );
+            trigger_error(
+                __(
+                    'The gd PHP extension was not found.'
+                    . ' The QRcode can not be displayed without the gd PHP extension.'
+                ),
+                E_USER_WARNING
+            );
+            $renderArray['url'] = $inlineUrl;
+        }
+        return Template::get('login/twofactor/application_configure')->render($renderArray);
     }
 
     /**
