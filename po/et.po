@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-18 16:02-0300\n"
-"PO-Revision-Date: 2018-08-22 04:12+0000\n"
+"PO-Revision-Date: 2018-08-22 04:21+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -799,6 +799,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Su server töötab kontrollkasutaja ja salasõna (controlpass) vaikeväärtustega "
+"ning on seetõttu sissetungimiseks avatud. Sa peaksid vahetama "
+"kontrollkasutaja 'pma' salasõna, et parandada see turvanõrkus."
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -4499,11 +4502,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:388
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Luba importimine lohistamise-kukutamisega"
 
 #: libraries/classes/Config/Descriptions.php:389
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "Lohistamise-kukutamisega importimise keelamiseks eemalda kastist märge"
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Partial import: allow interrupt"
@@ -14551,12 +14554,8 @@ msgid "Attribute"
 msgstr "Atribuut"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr ""
-"Selle andmebaasi jaoks ei ole keskses veergude nimekirjas mitte ühtegi "
-"veergu."
+msgstr "Selle andmebaasi keskne veergude nimekiri on tühi"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:414
@@ -15637,16 +15636,12 @@ msgstr ""
 "seadmel ja sisesta genereeritud autentimise kood."
 
 #: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
-"Palun skanni järgmine QR kood kaheastmelise autentimise rakendusse oma "
-"seadmel ja sisesta genereeritud autentimise kood."
+"Palun sisesta järgmine saladus/võti kood kaheastmelise autentimise "
+"rakendusse oma seadmel ja sisesta genereeritud autentimise kood."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
