@@ -31,6 +31,7 @@ phpMyAdmin - ChangeLog
 - issue #14422 Table comment not showing since 4.8.1
 - issue #14426 Drop table doesn't work when you copy tables to another database
 - issue #14581 Escaped HTML in 'Add a new server' setup
+- issue #14548 [security] HTML injection in import warning messages
 
 4.8.2 (2018-06-21)
 - issue #14370 WHERE 0 causes Fatal error

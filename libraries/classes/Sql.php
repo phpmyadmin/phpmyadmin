@@ -2433,7 +2433,7 @@ EOT;
         Util::handleDisableFKCheckCleanup($default_fk_check);
 
         foreach ($warning_messages as $warning) {
-            $message = Message::notice($warning);
+            $message = Message::notice(Message::sanitize($warning));
             $html_output .= $message->getDisplay();
         }
 
