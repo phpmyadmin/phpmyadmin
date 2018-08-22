@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.8.3 (not yet released)
+4.8.3 (2018-08-22)
 - issue #14314 Error when naming a database '0'
 - issue #14333 Fix NULL as default not shown
 - issue #14229 Fixes issue with recent table list
