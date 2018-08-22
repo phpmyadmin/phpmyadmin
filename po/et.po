@@ -10031,7 +10031,7 @@ msgstr "Vormindab teksti süntaksi esiletõstuga XML failiks."
 msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
-msgstr ""
+msgstr "PHP laiendust gd ei leitud. Selle laienduseta ei saa kuvada QR koodi."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:151
 msgid "Authentication Application (2FA)"
@@ -15645,7 +15645,7 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "OTP URL:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
