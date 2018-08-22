@@ -11,7 +11,9 @@ phpMyAdmin - ChangeLog
 - issue #13627 Increase field width for editing varchar fields
 - issue #12603 Show warning for users with the default values for controluser and controlpass
 
-4.8.3 (not yet released)
+4.8.4 (not yet released)
+
+4.8.3 (2018-08-22)
 - issue #14314 Error when naming a database '0'
 - issue #14333 Fix NULL as default not shown
 - issue #14229 Fixes issue with recent table list
@@ -31,7 +33,7 @@ phpMyAdmin - ChangeLog
 - issue #14422 Table comment not showing since 4.8.1
 - issue #14426 Drop table doesn't work when you copy tables to another database
 - issue #14581 Escaped HTML in 'Add a new server' setup
-- issue #14548 [security] HTML injection in import warning messages
+- issue #14548 [security] HTML injection in import warning messages, see PMASA-2018-5
 
 4.8.2 (2018-06-21)
 - issue #14370 WHERE 0 causes Fatal error
