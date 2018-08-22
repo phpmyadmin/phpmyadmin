@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-18 16:02-0300\n"
-"PO-Revision-Date: 2018-08-16 19:16+0000\n"
+"PO-Revision-Date: 2018-08-22 04:12+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -13913,10 +13913,8 @@ msgid "No Privileges"
 msgstr "Õigused puuduvad"
 
 #: server_privileges.php:155
-#, fuzzy
-#| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "Sul puuduvad õigused kasutajate haldamiseks!"
+msgstr "Sul puuduvad kasutajate haldamise õigused!"
 
 #: server_privileges.php:169
 msgid ""
