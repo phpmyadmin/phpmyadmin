@@ -1,14 +1,20 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
  * Used in or for console
  *
  * @package phpMyAdmin-Console
+ */
+
+/**
+ * Module import
  */
 import ConsoleBookmarks from './classes/Console/PMA_consoleBookmarks';
 import ConsoleDebug from './classes/Console/PMA_consoleDebug';
 import ConsoleInput from './classes/Console/PMA_consoleInput';
 import ConsoleMessages from './classes/Console/PMA_consoleMessages';
 import ConsoleResizer from './classes/Console/PMA_ConsoleResizer';
+
 /**
  * Console object
  */
@@ -54,11 +60,27 @@ var Console = {
      * @access private
      */
     isInitialized: false,
+    /**
+     * @var object, instance of PMA Console Resizer
+     */
     pmaConsoleResizer: null,
+    /**
+     * @var object, instance of PMA Console Input
+     */
     pmaConsoleInput: null,
+    /**
+     * @var object, instance of PMA Console Messages
+     */
     pmaConsoleMessages: null,
+    /**
+     * @var object, instance of PMA Console Bookmaks
+     */
     pmaConsoleBookmarks: null,
+    /**
+     * @var object, instance of PMA Console Debug
+     */
     pmaConsoleDebug: null,
+
     /**
      * Used for console initialize, reinit is ok, just some variable assignment
      *
@@ -216,6 +238,7 @@ var Console = {
             Console.setConfig('Mode', 'info');
         }
     },
+
     /**
      * Execute query and show results in console
      *
@@ -251,6 +274,7 @@ var Console = {
         Console.pmaConsoleInput.clear();
         PMA_reloadNavigation();
     },
+
     ajaxCallback: function (data) {
         if (data && data.console_message_id) {
             Console.pmaConsoleMessages.updateQuery(data.console_message_id, data.success,
@@ -262,6 +286,7 @@ var Console = {
             }
         }
     },
+
     /**
      * Change console to collapse mode
      *
@@ -281,6 +306,7 @@ var Console = {
             });
         Console.hideCard();
     },
+
     /**
      * Show console
      *
@@ -306,6 +332,7 @@ var Console = {
                 }
             });
     },
+
     /**
      * Change console to SQL information mode
      * this mode shows current SQL query
@@ -317,6 +344,7 @@ var Console = {
         // Under construction
         Console.collapse();
     },
+
     /**
      * Toggle console mode between collapse/show
      * Used for toggle buttons and shortcuts
@@ -336,6 +364,7 @@ var Console = {
             PMA_consoleInitialize();
         }
     },
+
     /**
      * Scroll console to bottom
      *
@@ -344,6 +373,7 @@ var Console = {
     scrollBottom: function () {
         Console.$consoleContent.scrollTop(Console.$consoleContent.prop('scrollHeight'));
     },
+
     /**
      * Show card
      *
@@ -373,6 +403,7 @@ var Console = {
             Console.showCard($card.parents('.card'));
         }
     },
+
     /**
      * Scroll console to bottom
      *
@@ -389,6 +420,7 @@ var Console = {
             $targetCard.removeClass('show');
         }
     },
+
     /**
      * Used for update console config
      *
@@ -407,10 +439,12 @@ var Console = {
             $('#pma_console').find('>.content').removeClass('console_dark_theme');
         }
     },
+
     setConfig: function (key, value) {
         Console.config[key] = value;
         configSet('Console/' + key, value);
     },
+
     isSelect: function (queryString) {
         var reg_exp = /^SELECT\s+/i;
         return reg_exp.test(queryString);

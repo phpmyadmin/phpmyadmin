@@ -1,11 +1,21 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import CommonParams from '../../variables/common_params';
 import { PMA_Messages as messages } from '../../variables/export_variables';
+
 /**
- * @namespace ConsoleBookmarks
+ * @class ConsoleBookmarks
  * Console bookmarks card, and bookmarks items management object
  */
 export default class ConsoleBookmarks {
+    /**
+     * @constructor
+     * @param {Object} instance    Instance of the PMA Console
+     * @return {void}
+     */
     constructor (instance) {
         this._bookmarks = [];
         this.pmaConsole = null;
@@ -15,10 +25,23 @@ export default class ConsoleBookmarks {
         this.initialize = this.initialize.bind(this);
         this.setPmaConsole(instance);
     }
+
+    /**
+     * @param {Object} instance    Instance of PMA Console
+     * @return {void}
+     */
     setPmaConsole (instance) {
         this.pmaConsole = instance;
         this.initialize();
     }
+
+    /**
+     * @param {string} queryString    Query string to be bookmarked
+     * @param {string} targetDb       Target database for the query string
+     * @param {string} label          Label for the query
+     * @param {bool} isShared         Is the query shared
+     * @return {void}
+     */
     addBookmark (queryString, targetDb, label, isShared) {
         $('#pma_bookmarks').find('.add [name=shared]').prop('checked', false);
         $('#pma_bookmarks').find('.add [name=label]').val('');
@@ -43,6 +66,11 @@ export default class ConsoleBookmarks {
             break;
         }
     }
+
+    /**
+     * Method to refresh the bookmak list
+     * @return {void}
+     */
     refresh () {
         $.get('import.php',
             { ajax_request: true,
@@ -55,6 +83,7 @@ export default class ConsoleBookmarks {
                 }
             }.bind(this));
     }
+
     /**
      * Used for console bookmarks initialize
      * message events are already binded by PMA_consoleMsg._msgEventBinds

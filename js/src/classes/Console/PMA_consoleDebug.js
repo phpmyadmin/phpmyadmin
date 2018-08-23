@@ -9,9 +9,13 @@ import { escapeHtml } from '../../utils/Sanitise';
 
 /**
  * Console debug object
- * @namespace ConsoleDebug
+ * @class ConsoleDebug
  */
 export default class ConsoleDebug {
+    /**
+     * @constructor
+     * @param {Object} instance    Instance of PMA Console
+     */
     constructor (instance) {
         this.pmaConsole = null;
         this._config = {
@@ -36,10 +40,20 @@ export default class ConsoleDebug {
         this.refresh = this.refresh.bind(this);
         this.setPmaConsole(instance);
     }
+
+    /**
+     * @param {Object} instance    Instance of PMA Console
+     * @return {void}
+     */
     setPmaConsole (instance) {
         this.pmaConsole = instance;
         this.initialize();
     }
+
+    /**
+     * Used for Console Debug initialise
+     * @return {void}
+     */
     initialize () {
         var self = this;
         // Try to get debug info after every AJAX request
