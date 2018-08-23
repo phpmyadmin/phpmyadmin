@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-18 16:02-0300\n"
-"PO-Revision-Date: 2018-05-26 18:42+0000\n"
-"Last-Translator: Flavio Lisboa <flavio.lisboa@fgsl.eti.br>\n"
+"PO-Revision-Date: 2018-08-23 01:44+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -8461,7 +8461,7 @@ msgstr "Colunas"
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:37
 msgctxt "Create new column"
 msgid "New"
-msgstr "Nova coluna"
+msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
 msgid "Database operations"
@@ -8474,12 +8474,12 @@ msgstr "Exibir itens ocultos"
 #: libraries/classes/Navigation/Nodes/NodeDatabaseContainer.php:38
 msgctxt "Create new database"
 msgid "New"
-msgstr "Novo BD"
+msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:39
 msgctxt "Create new event"
 msgid "New"
-msgstr "Novo evento"
+msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:28
@@ -8491,12 +8491,12 @@ msgstr "Funções"
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:37
 msgctxt "Create new function"
 msgid "New"
-msgstr "Nova função"
+msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:37
 msgctxt "Create new index"
 msgid "New"
-msgstr "Novo índice"
+msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedure.php:32
 msgid "Procedure"
@@ -8513,17 +8513,17 @@ msgstr "Procedimentos"
 #: libraries/classes/Rte/Footer.php:61
 msgctxt "Create new procedure"
 msgid "New"
-msgstr "Nova procedure"
+msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeTableContainer.php:38
 msgctxt "Create new table"
 msgid "New"
-msgstr "Nova tabela"
+msgstr "Nova"
 
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:39
 msgctxt "Create new trigger"
 msgid "New"
-msgstr "Novo trigger"
+msgstr "Novo"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:27
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:28
@@ -8535,7 +8535,7 @@ msgstr "Views"
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:38
 msgctxt "Create new view"
 msgid "New"
-msgstr "Nova view"
+msgstr "Nova"
 
 #: libraries/classes/Normalization.php:197
 msgid "Make all columns atomic"
@@ -14775,10 +14775,8 @@ msgid "Attribute"
 msgstr "Atributos"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "A lista central de colunas para o banco de dados atual está vazia."
+msgstr "A lista central de colunas para o banco de dados atual está vazia"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:414
@@ -16101,7 +16099,7 @@ msgstr "Selecionar página"
 #: templates/server/privileges/add_user_fieldset.twig:2
 msgctxt "Create new user"
 msgid "New"
-msgstr "Novo usuário"
+msgstr "Novo"
 
 #: templates/server/plugins/main.twig:18
 msgid "Plugin"
