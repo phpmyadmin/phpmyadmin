@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-02-12 16:30+0100\n"
-"PO-Revision-Date: 2018-02-19 01:36+0000\n"
-"Last-Translator: Daigo Hamasaki <daigo.hamasaki.16@gmail.com>\n"
-"Language-Team: Japanese "
-"<https://hosted.weblate.org/projects/phpmyadmin/master/ja/>\n"
+"PO-Revision-Date: 2018-08-25 02:39+0000\n"
+"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
+"ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.19\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1100
 msgid "Bad type!"
@@ -2021,14 +2021,12 @@ msgid "Done"
 msgstr "決定"
 
 #: js/messages.php:450
-#, fuzzy
 msgid "Confirm partial dependencies"
-msgstr "部分従属の確認"
+msgstr "部分的な依存の確認"
 
 #: js/messages.php:451
-#, fuzzy
 msgid "Selected partial dependencies are as follows:"
-msgstr "選択された部分従属は以下の通りです："
+msgstr "選択された部分的な依存は以下の通りです："
 
 #: js/messages.php:453
 msgid ""
@@ -2037,19 +2035,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:456
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "部分従属が選択されていません!"
+msgstr "部分的な依存が選択されていません!"
 
 #: js/messages.php:459
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
 #: js/messages.php:460
-#, fuzzy
 msgid "Hide partial dependencies list"
-msgstr "部分従属の一覧を隠す"
+msgstr "部分な依存の一覧を隠す"
 
 #: js/messages.php:462
 msgid ""
@@ -2218,11 +2213,10 @@ msgid "Encryption key"
 msgstr "暗号化キー"
 
 #: js/messages.php:534
-#, fuzzy
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
-msgstr "MySQLはスライダーで選択できない値を直接キー入力することもできます。"
+msgstr "MySQLはスライダーで選択できない追加の値を直接キー入力することもできます。"
 
 #: js/messages.php:540
 #, fuzzy
