@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-18 16:02-0300\n"
-"PO-Revision-Date: 2018-05-25 03:36+0000\n"
+"PO-Revision-Date: 2018-08-24 18:07+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -804,6 +804,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Vaš strežnik je pognan s privzetimi vrednostmi za controluserja in geslom "
+"(controlpass), zato je odprt za vdore. Močno priporočamo, da odpravite to "
+"varnostno pomanjkljivost s spremembo gesla za controluserja 'pma'."
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -4527,11 +4530,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:388
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Omogoči uvoz s povleci-in-spusti"
 
 #: libraries/classes/Config/Descriptions.php:389
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
+"Odstranite kljukico potrditvenega polja, da onemogočite uvoz s povleci-in-"
+"spusti"
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Partial import: allow interrupt"
@@ -10103,6 +10108,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"PHP-razširitve gd nismo našli. QRcode ne moremo prikazati brez PHP-"
+"razširitve gd."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:151
 msgid "Authentication Application (2FA)"
@@ -14027,8 +14034,6 @@ msgid "No Privileges"
 msgstr "Brez privilegijev"
 
 #: server_privileges.php:155
-#, fuzzy
-#| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nimate pravic za upravljanje z uporabniki!"
 
@@ -14668,10 +14673,8 @@ msgid "Attribute"
 msgstr "Atribut"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Osrednji seznam stolpcev je za trenutno zbirko podatkov prazen."
+msgstr "Osrednji seznam stolpcev je za trenutno zbirko podatkov prazen"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:414
@@ -15758,20 +15761,16 @@ msgstr ""
 "vaši napravi in vnesite overovitveno kodo, ki jo ustvari."
 
 #: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
-"Prosimo, poskenirajte QR-kodo v aplikacijo za dvostopenjsko overovitev na "
-"vaši napravi in vnesite overovitveno kodo, ki jo ustvari."
+"Prosimo, vnesite spodnjo skrivnost/ključ v aplikacijo za dvostopenjsko "
+"overovitev na vaši napravi in vnesite overovitveno kodo, ki jo ustvari."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "URL OTP:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
