@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-08-18 16:02-0300\n"
+"POT-Creation-Date: 2018-08-26 18:20+0200\n"
 "PO-Revision-Date: 2018-08-13 08:42+0000\n"
 "Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -58,19 +58,19 @@ msgstr "Comentarii tabel:"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:540
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:708
-#: templates/columns_definitions/column_name.twig:16
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/relation/foreign_key_row.twig:118
-#: templates/table/relation/foreign_key_row.twig:128
-#: templates/table/search/fields_table.twig:7
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/index_form.twig:119
 #: templates/table/search/zoom_result_form.twig:34
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
 #: templates/table/relation/common_form.twig:116
 #: templates/table/relation/common_form.twig:181
+#: templates/table/relation/foreign_key_row.twig:118
+#: templates/table/relation/foreign_key_row.twig:128
+#: templates/columns_definitions/column_name.twig:16
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/search/fields_table.twig:7
 msgid "Column"
 msgstr "Coloană"
 
@@ -91,14 +91,14 @@ msgstr "Coloană"
 #: libraries/classes/Rte/Routines.php:1674
 #: libraries/classes/Rte/RteList.php:120 libraries/classes/Rte/RteList.php:148
 #: libraries/classes/Server/Privileges.php:2632
+#: templates/database/structure/table_header.twig:30
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:238
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/structure/display_structure.twig:22
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/search/fields_table.twig:8
-#: templates/database/structure/table_header.twig:30
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/display_structure.twig:22
-#: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Tip"
 
@@ -116,11 +116,11 @@ msgstr "Tip"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:711
 #: templates/database/central_columns/main.twig:41
 #: templates/database/central_columns/main.twig:258
-#: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/search/zoom_result_form.twig:35
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/display_structure.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/search/zoom_result_form.twig:35
+#: templates/table/structure/display_structure.twig:25
+#: templates/table/tracking/structure_snapshot_columns.twig:9
 msgid "Null"
 msgstr "Nul"
 
@@ -138,10 +138,10 @@ msgstr "Nul"
 #: libraries/classes/ReplicationGui.php:181
 #: templates/database/central_columns/main.twig:29
 #: templates/database/central_columns/main.twig:246
-#: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
-#: templates/table/structure/display_structure.twig:26
 #: templates/columns_definitions/table_fields_definitions.twig:20
+#: templates/table/structure/display_structure.twig:26
+#: templates/table/tracking/structure_snapshot_columns.twig:10
 msgid "Default"
 msgstr "Implicit"
 
@@ -165,8 +165,8 @@ msgstr "Legături la"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:562
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
-#: templates/table/structure/display_structure.twig:28
 #: templates/columns_definitions/table_fields_definitions.twig:54
+#: templates/table/structure/display_structure.twig:28
 msgid "Comments"
 msgstr "Comentarii"
 
@@ -174,9 +174,9 @@ msgstr "Comentarii"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1229
 #: libraries/classes/Controllers/Table/TableStructureController.php:1234
 #: libraries/classes/Controllers/Table/TableStructureController.php:1346
-#: templates/table/tracking/structure_snapshot_columns.twig:25
-#: templates/table/structure/display_structure.twig:298
 #: templates/columns_definitions/column_indexes.twig:4
+#: templates/table/structure/display_structure.twig:298
+#: templates/table/tracking/structure_snapshot_columns.twig:25
 msgid "Primary"
 msgstr "Principal"
 
@@ -195,14 +195,14 @@ msgstr "Principal"
 #: libraries/classes/Server/Privileges.php:3743
 #: libraries/classes/Server/Privileges.php:3772 prefs_manage.php:147
 #: templates/database/central_columns/main.twig:362
-#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
 #: templates/prefs_autoload.twig:12
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/table/structure/display_structure.twig:80
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 msgid "No"
 msgstr "Nu"
 
@@ -210,11 +210,11 @@ msgstr "Nu"
 #: libraries/classes/Config/FormDisplayTemplate.php:315
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:227
 #: libraries/classes/Controllers/Table/TableStructureController.php:799
-#: libraries/classes/Controllers/Table/TableStructureController.php:1570
-#: libraries/classes/Controllers/Table/TableStructureController.php:1579
-#: libraries/classes/Controllers/Table/TableStructureController.php:1584
-#: libraries/classes/Controllers/Table/TableStructureController.php:1589
-#: libraries/classes/Controllers/Table/TableStructureController.php:1594
+#: libraries/classes/Controllers/Table/TableStructureController.php:1569
+#: libraries/classes/Controllers/Table/TableStructureController.php:1578
+#: libraries/classes/Controllers/Table/TableStructureController.php:1583
+#: libraries/classes/Controllers/Table/TableStructureController.php:1588
+#: libraries/classes/Controllers/Table/TableStructureController.php:1593
 #: libraries/classes/Index.php:599 libraries/classes/IndexColumn.php:146
 #: libraries/classes/MultSubmits.php:428 libraries/classes/MultSubmits.php:461
 #: libraries/classes/MultSubmits.php:490 libraries/classes/MultSubmits.php:527
@@ -230,14 +230,14 @@ msgstr "Nu"
 #: libraries/classes/Server/Privileges.php:3772
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:232
 #: prefs_manage.php:145 templates/database/central_columns/main.twig:362
-#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
 #: templates/prefs_autoload.twig:11
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/table/structure/display_structure.twig:80
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 msgid "Yes"
 msgstr "Da"
 
@@ -276,10 +276,10 @@ msgstr "Tabele"
 #: libraries/classes/Util.php:4080 libraries/config.values.php:39
 #: libraries/config.values.php:53 libraries/config.values.php:126
 #: libraries/config.values.php:136
-#: templates/table/tracking/structure_snapshot_columns.twig:1
-#: templates/database/central_columns/edit_table_header.twig:2
-#: templates/database/designer/main.twig:226
 #: templates/columns_definitions/table_fields_definitions.twig:4
+#: templates/database/central_columns/edit_table_header.twig:2
+#: templates/table/tracking/structure_snapshot_columns.twig:1
+#: templates/database/designer/main.twig:226
 msgid "Structure"
 msgstr "Structură"
 
@@ -294,8 +294,8 @@ msgid "Data"
 msgstr "Date"
 
 #: db_export.php:77 libraries/classes/ReplicationGui.php:406
-#: templates/display/export/select_options.twig:4
 #: templates/database/search/main.twig:32
+#: templates/display/export/select_options.twig:4
 msgid "Select all"
 msgstr "Selectează tot"
 
@@ -505,22 +505,23 @@ msgstr "Adaugă geometrie"
 #: libraries/classes/SqlQueryForm.php:383
 #: libraries/classes/SqlQueryForm.php:447 libraries/classes/Tracking.php:373
 #: libraries/classes/Tracking.php:529 prefs_manage.php:269 prefs_manage.php:355
-#: server_privileges.php:330 templates/table/search/selection_form.twig:223
-#: templates/header_location.twig:18
-#: templates/server/binlog/log_selector.twig:27
-#: templates/display/import/import.twig:191
-#: templates/server/privileges/privileges_summary.twig:102
+#: server_privileges.php:330 templates/header_location.twig:18
 #: templates/database/search/main.twig:58
-#: templates/display/export/options_format.twig:18
-#: templates/view_create.twig:114 templates/view_create.twig:120
-#: templates/table/index_form.twig:221
-#: templates/server/privileges/edit_routine_privileges.twig:23
-#: templates/database/create_table.twig:21
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/display/results/options_block.twig:118
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/search/selection_form.twig:223
 #: templates/server/privileges/delete_user_fieldset.twig:16
+#: templates/display/import/import.twig:191
+#: templates/database/create_table.twig:21
+#: templates/server/privileges/privileges_summary.twig:102
+#: templates/start_and_number_of_rows_panel.twig:14
+#: templates/table/index_form.twig:221 templates/view_create.twig:114
+#: templates/view_create.twig:120
+#: templates/table/structure/display_structure.twig:433
+#: templates/display/results/options_block.twig:118
+#: templates/display/export/options_format.twig:18
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/table/structure/display_structure.twig:433 view_operations.php:118
+#: templates/server/privileges/edit_routine_privileges.twig:23
+#: view_operations.php:118
 msgid "Go"
 msgstr "Execută"
 
@@ -1083,8 +1084,8 @@ msgstr "Te rog selectează coloana (coloanele) pentru index."
 
 #: js/messages.php:131 libraries/classes/InsertEdit.php:1924
 #: templates/table/index_form.twig:220
-#: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:215
+#: templates/columns_definitions/column_definitions_form.twig:146
 msgid "Preview SQL"
 msgstr "Previzualizare SQL"
 
@@ -1339,10 +1340,10 @@ msgstr "Te rog adaugă cel puțin o variabilă la serie!"
 #: libraries/classes/Server/Status/Monitor.php:245
 #: libraries/classes/Server/Status/Processes.php:287
 #: libraries/config.values.php:80 templates/table/search/selection_form.twig:35
-#: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/table/search/rows_zoom.twig:20
 #: templates/columns_definitions/transformation.twig:4
+#: templates/display/export/options_output_compression.twig:7
 #: templates/database/designer/main.twig:629
 msgid "None"
 msgstr "Niciunul"
@@ -1543,8 +1544,8 @@ msgstr "Explică ieșirea"
 #: libraries/classes/Rte/Events.php:468 libraries/classes/Rte/RteList.php:146
 #: libraries/classes/Server/Status/Processes.php:104
 #: libraries/classes/Util.php:4050 libraries/config.values.php:118
-#: templates/table/tracking/main.twig:31
 #: templates/database/tracking/tables.twig:17
+#: templates/table/tracking/main.twig:31
 msgid "Status"
 msgstr "Stare"
 
@@ -1875,8 +1876,8 @@ msgstr "Definiția unei funcții stocate trebuie să conțină o declarație RET
 #: libraries/classes/Util.php:3420 libraries/classes/Util.php:3421
 #: libraries/classes/Util.php:4052 libraries/classes/Util.php:4067
 #: libraries/classes/Util.php:4084 prefs_manage.php:298
-#: templates/database/structure/check_all_tables.twig:12
 #: templates/display/export/option_header.twig:3
+#: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
 msgstr "Exportă"
 
@@ -1929,12 +1930,12 @@ msgstr "Arată caseta de interogare"
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:641
 #: libraries/classes/Util.php:1121 libraries/classes/Util.php:3418
 #: libraries/classes/Util.php:3419 setup/frames/index.inc.php:165
-#: templates/server/variables/variable_row.twig:4
-#: templates/server/variables/variable_row.twig:7
 #: templates/database/central_columns/main.twig:279
 #: templates/database/central_columns/main.twig:394
-#: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/console/bookmark_content.twig:7
+#: templates/server/variables/variable_row.twig:4
+#: templates/server/variables/variable_row.twig:7
+#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Edit"
 msgstr "Editează"
 
@@ -1943,12 +1944,13 @@ msgstr "Editează"
 #: libraries/classes/Display/Results.php:4916
 #: libraries/classes/Server/UserGroups.php:142
 #: libraries/classes/SqlQueryForm.php:434 libraries/classes/Tracking.php:299
-#: setup/frames/index.inc.php:168 templates/database/search/results.twig:43
+#: setup/frames/index.inc.php:168
 #: templates/database/central_columns/main.twig:282
 #: templates/database/central_columns/main.twig:401
+#: templates/database/search/results.twig:43
+#: templates/console/bookmark_content.twig:7
 #: templates/display/export/template_loading.twig:22
 #: templates/database/designer/main.twig:429
-#: templates/console/bookmark_content.twig:7
 msgid "Delete"
 msgstr "Șterge"
 
@@ -2127,10 +2129,10 @@ msgstr "Nicio dependență selectată!"
 #: js/messages.php:481 libraries/classes/CentralColumns.php:967
 #: libraries/classes/InsertEdit.php:1836
 #: templates/server/variables/link_template.twig:2
-#: templates/table/structure/partition_definition_form.twig:12
-#: templates/columns_definitions/column_definitions_form.twig:149
-#: templates/table/relation/common_form.twig:216
 #: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/table/structure/partition_definition_form.twig:12
+#: templates/table/relation/common_form.twig:216
+#: templates/columns_definitions/column_definitions_form.twig:149
 msgid "Save"
 msgstr "Salvează"
 
@@ -2418,9 +2420,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr "Dă clic pe săgeată jos<br />pentru a comuta vizibilitatea coloanei."
 
 #: js/messages.php:602 libraries/classes/BrowseForeigners.php:350
-#: templates/table/browse_foreigners/show_all.twig:4
 #: templates/display/results/show_all_checkbox.twig:11
 #: templates/server/privileges/initials_row.twig:20
+#: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Arată tot"
 
@@ -2476,8 +2478,8 @@ msgstr "Mai întâi selectează baza de date"
 
 #: js/messages.php:625 libraries/classes/Display/Results.php:5143
 #: libraries/classes/Util.php:3947
-#: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/display_structure.twig:378
+#: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
 msgstr "Imprimare"
 
@@ -3131,8 +3133,8 @@ msgstr "Nume cheie"
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:231
 #: templates/server/collations/charsets.twig:6
-#: templates/server/engines/list_engines.twig:5
 #: templates/server/plugins/main.twig:19
+#: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Descriere"
 
@@ -3193,8 +3195,8 @@ msgstr "NU"
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:234
 #: templates/database/create_table.twig:11
-#: templates/table/structure/display_structure.twig:21
 #: templates/columns_definitions/table_fields_definitions.twig:9
+#: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "Nume"
 
@@ -3208,24 +3210,24 @@ msgstr "Lungime/valori"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:365
 #: libraries/classes/Index.php:730 libraries/classes/Operations.php:308
 #: libraries/classes/Operations.php:1123
-#: templates/server/collations/charsets.twig:5
-#: templates/table/structure/display_table_stats.twig:101
+#: templates/database/structure/table_header.twig:31
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
+#: templates/server/collations/charsets.twig:5
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/structure/display_structure.twig:23
+#: templates/table/structure/display_table_stats.twig:101
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/search/fields_table.twig:9
-#: templates/database/structure/table_header.twig:31
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
-#: templates/table/structure/display_structure.twig:23
-#: templates/columns_definitions/table_fields_definitions.twig:24
 msgid "Collation"
 msgstr "Colaționare"
 
 #: libraries/classes/CentralColumns.php:1018
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:687
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:710
-#: templates/table/structure/display_structure.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:27
+#: templates/table/structure/display_structure.twig:24
 msgid "Attributes"
 msgstr "Atribute"
 
@@ -5940,12 +5942,12 @@ msgstr "Titlul ferestrei navigatorului când este selectată o bază de date."
 #: libraries/classes/Server/Privileges.php:3431
 #: libraries/classes/Server/Privileges.php:4629
 #: libraries/classes/Server/Status/Processes.php:92
-#: templates/table/relation/foreign_key_row.twig:96
-#: templates/server/databases/index.twig:88 templates/console/display.twig:40
-#: templates/console/display.twig:184
+#: templates/server/databases/index.twig:88
+#: templates/console/bookmark_content.twig:7
 #: templates/table/relation/common_form.twig:35
 #: templates/table/relation/common_form.twig:167
-#: templates/console/bookmark_content.twig:7
+#: templates/table/relation/foreign_key_row.twig:96
+#: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Database"
 msgstr "Bază de date"
 
@@ -5979,12 +5981,12 @@ msgstr "Titlul ferestrei navigatorului când este selectat un tabel."
 #: libraries/classes/Server/Privileges.php:3435
 #: libraries/classes/Server/Privileges.php:3437
 #: libraries/classes/Server/Privileges.php:4643
-#: templates/table/relation/foreign_key_row.twig:106
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:98
 #: templates/table/relation/common_form.twig:36
 #: templates/table/relation/common_form.twig:174
+#: templates/table/relation/foreign_key_row.twig:106
 msgid "Table"
 msgstr "Tabel"
 
@@ -6629,10 +6631,10 @@ msgstr[2] "%1$d de baze de data au fost eliminate cu succes."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:376
 #: libraries/classes/Import.php:127
-#: templates/table/structure/display_table_stats.twig:112
-#: templates/table/structure/display_partitions.twig:28
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_structure.twig:232
+#: templates/table/structure/display_partitions.twig:28
+#: templates/table/structure/display_table_stats.twig:112
 msgid "Rows"
 msgstr "Rânduri"
 
@@ -6648,14 +6650,14 @@ msgstr "Indexuri"
 #: libraries/classes/Engines/Innodb.php:171
 #: libraries/classes/Server/Status.php:214
 #: libraries/classes/Server/Status.php:347
-#: templates/table/structure/display_table_stats.twig:45
 #: templates/server/databases/databases_footer.twig:7
+#: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Total"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:396
-#: templates/table/structure/display_table_stats.twig:32
 #: templates/database/structure/table_header.twig:38
+#: templates/table/structure/display_table_stats.twig:32
 #, fuzzy
 msgid "Overhead"
 msgstr "Asupra"
@@ -6776,11 +6778,11 @@ msgstr "Modifică"
 #: libraries/classes/Index.php:776 libraries/classes/Operations.php:1655
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3414
 #: libraries/classes/Util.php:3415
-#: templates/database/structure/check_all_tables.twig:16
-#: templates/table/relation/foreign_key_row.twig:26
 #: templates/server/databases/databases_footer.twig:45
 #: templates/table/structure/display_structure.twig:289
 #: templates/table/structure/display_structure.twig:467
+#: templates/table/relation/foreign_key_row.twig:26
+#: templates/database/structure/check_all_tables.twig:16
 msgid "Drop"
 msgstr "Elimină"
 
@@ -6788,11 +6790,11 @@ msgstr "Elimină"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1235
 #: libraries/classes/Controllers/Table/TableStructureController.php:1351
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:32
+#: templates/columns_definitions/column_indexes.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:46
+#: templates/table/structure/display_structure.twig:312
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:27
-#: templates/table/structure/display_structure.twig:312
-#: templates/columns_definitions/table_fields_definitions.twig:46
-#: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr "Index"
 
@@ -6800,8 +6802,8 @@ msgstr "Index"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1236
 #: libraries/classes/Index.php:726
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
-#: templates/table/structure/display_structure.twig:305
 #: templates/columns_definitions/column_indexes.twig:8
+#: templates/table/structure/display_structure.twig:305
 msgid "Unique"
 msgstr "Unic"
 
@@ -6813,9 +6815,9 @@ msgstr "Spațial"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1233
 #: libraries/classes/Controllers/Table/TableStructureController.php:1238
+#: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:319
 #: templates/table/structure/display_structure.twig:331
-#: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "Text întreg"
 
@@ -7243,11 +7245,11 @@ msgstr "Texte întregi"
 #: libraries/classes/Server/Status/Processes.php:171
 #: libraries/classes/Util.php:4775 libraries/classes/Util.php:4792
 #: libraries/config.values.php:82
-#: templates/table/search/selection_form.twig:154
 #: templates/database/multi_table_query/form.twig:52
+#: templates/table/search/selection_form.twig:154
+#: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
-#: templates/database/qbe/sort_select_cell.twig:7
 msgid "Descending"
 msgstr "Descrescător"
 
@@ -7257,11 +7259,11 @@ msgstr "Descrescător"
 #: libraries/classes/Server/Status/Processes.php:174
 #: libraries/classes/Util.php:4770 libraries/classes/Util.php:4787
 #: libraries/config.values.php:81
-#: templates/table/search/selection_form.twig:154
 #: templates/database/multi_table_query/form.twig:51
+#: templates/table/search/selection_form.twig:154
+#: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
-#: templates/database/qbe/sort_select_cell.twig:5
 msgid "Ascending"
 msgstr "Crescător"
 
@@ -7304,9 +7306,9 @@ msgstr "Interogarea a durat %01.4f secunde."
 
 #: libraries/classes/Display/Results.php:4921
 #: libraries/classes/Display/Results.php:4928 libraries/mult_submits.inc.php:59
+#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Cu cele selectate:"
 
@@ -7314,11 +7316,11 @@ msgstr "Cu cele selectate:"
 #: libraries/classes/Display/Results.php:4927
 #: libraries/classes/Server/Privileges.php:1238
 #: libraries/classes/Server/Privileges.php:1239
-#: libraries/classes/Server/UserGroups.php:247
+#: libraries/classes/Server/UserGroups.php:247 templates/select_all.twig:4
+#: templates/select_all.twig:5
+#: templates/server/privileges/global_priv_table.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/select_all.twig:4 templates/select_all.twig:5
-#: templates/server/privileges/global_priv_table.twig:5
 msgid "Check all"
 msgstr "Bifează tot"
 
@@ -7876,9 +7878,9 @@ msgstr "Editează structura urmărind legătura „Structură”."
 #: libraries/classes/Plugins/Import/ImportXml.php:51
 #: libraries/classes/Rte/Routines.php:998
 #: templates/table/search/selection_form.twig:97
+#: templates/display/results/options_block.twig:10
 #: templates/table/structure/display_table_stats.twig:90
 #: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/display/results/options_block.twig:10
 msgid "Options"
 msgstr "Opțiuni"
 
@@ -7935,17 +7937,17 @@ msgstr "Niciun index definit!"
 #: libraries/classes/Server/Privileges.php:2635
 #: libraries/classes/Server/Privileges.php:3634
 #: libraries/classes/Server/UserGroups.php:95
-#: templates/table/structure/display_partitions.twig:33
-#: templates/database/central_columns/main.twig:232
 #: templates/table/tracking/report_table.twig:8
-#: templates/server/privileges/privileges_summary.twig:22
-#: templates/table/tracking/main.twig:32
-#: templates/server/databases/index.twig:117
 #: templates/database/structure/table_header.twig:22
+#: templates/database/central_columns/main.twig:232
+#: templates/server/variables/variable_table_head.twig:3
+#: templates/server/databases/index.twig:117
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:99
-#: templates/server/variables/variable_table_head.twig:3
+#: templates/server/privileges/privileges_summary.twig:22
 #: templates/table/structure/display_structure.twig:34
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/tracking/main.twig:32
 msgid "Action"
 msgstr "Acțiune"
 
@@ -7961,11 +7963,11 @@ msgstr "Cardinalitate"
 
 #: libraries/classes/Index.php:732 libraries/classes/Rte/Events.php:571
 #: libraries/classes/Rte/Routines.php:1123
-#: templates/table/structure/display_partitions.twig:31
-#: templates/table/tracking/structure_snapshot_columns.twig:12
-#: templates/columns_definitions/partitions.twig:85
 #: templates/database/structure/table_header.twig:46
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
+#: templates/columns_definitions/partitions.twig:85
+#: templates/table/structure/display_partitions.twig:31
+#: templates/table/tracking/structure_snapshot_columns.twig:12
 msgid "Comment"
 msgstr "Comentariu"
 
@@ -8074,9 +8076,9 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:571
 #: libraries/classes/Rte/Routines.php:1678
 #: libraries/classes/Server/Status/Variables.php:230
-#: templates/table/search/fields_table.twig:11
 #: templates/server/variables/variable_table_head.twig:5
 #: templates/table/search/zoom_result_form.twig:36
+#: templates/table/search/fields_table.twig:11
 #: templates/database/designer/main.twig:525
 #: templates/database/designer/main.twig:690
 #: templates/database/designer/main.twig:892
@@ -8238,8 +8240,8 @@ msgstr "Jurnal binar"
 
 #: libraries/classes/Menu.php:639 libraries/classes/Server/Status/Data.php:128
 #: libraries/classes/Util.php:4056
-#: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
+#: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 #, fuzzy
 msgid "Replication"
@@ -8367,9 +8369,9 @@ msgid "Views:"
 msgstr "Vizualizări:"
 
 #: libraries/classes/Navigation/Navigation.php:246 tbl_change.php:157
-#: templates/table/tracking/main.twig:33
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/tracking/tables.twig:19
+#: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "Arată"
 
@@ -9195,8 +9197,8 @@ msgstr ""
 "Ai activat autentificarea pe două niveluri, te rog confirmă autentificarea."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
-#: templates/display/import/import.twig:168
 #: templates/display/export/format_dropdown.twig:2
+#: templates/display/import/import.twig:168
 msgid "Format:"
 msgstr "Format:"
 
@@ -9883,8 +9885,8 @@ msgstr "Cuprins"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:690
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:713
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/display_structure.twig:30
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Suplimentar"
 
@@ -10592,8 +10594,8 @@ msgstr ""
 "să-l <a href=\"%s\">configurezi</a>?"
 
 #: libraries/classes/ReplicationGui.php:408
-#: templates/display/export/select_options.twig:8
 #: templates/database/search/main.twig:35
+#: templates/display/export/select_options.twig:8
 msgid "Unselect all"
 msgstr "Anulează toată selectarea"
 
@@ -13258,8 +13260,9 @@ msgstr "Cale temă negăsită pentru tema %s!"
 msgid "Theme:"
 msgstr "Temă:"
 
-#: libraries/classes/Tracking.php:276 templates/table/tracking/main.twig:69
+#: libraries/classes/Tracking.php:276
 #: templates/database/tracking/tables.twig:62
+#: templates/table/tracking/main.twig:69
 msgid "Tracking report"
 msgstr "Raport de urmărire"
 
@@ -13309,8 +13312,9 @@ msgstr "Declarație manipulare date"
 msgid "Data definition statement"
 msgstr "Declarație definiție date"
 
-#: libraries/classes/Tracking.php:681 templates/table/tracking/main.twig:76
+#: libraries/classes/Tracking.php:681
 #: templates/database/tracking/tables.twig:67
+#: templates/table/tracking/main.twig:76
 msgid "Structure snapshot"
 msgstr "Instantaneu structură"
 
@@ -14373,333 +14377,234 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Descriere"
 
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to open"
-msgstr "Pagină de deschis"
+#: templates/database/qbe/footer_options.twig:3
+msgid "Add/Delete criteria rows"
+msgstr "Adaugă/șterge rândurile de criterii"
 
-#: templates/database/designer/edit_delete_pages.twig:6
-msgid "Page to delete"
-msgstr "Pagină de șters"
+#: templates/database/qbe/footer_options.twig:5
+msgid "Add/Delete columns"
+msgstr "Adaugă/șterge coloane"
 
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
+msgstr "Dă clic pentru a comuta"
+
+#: templates/encoding/kanji_encoding_form.twig:6
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Niciuna"
+
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
 msgstr ""
-"Aceasta este o variabilă care poate fi doar citită și nu poate fi editată"
 
-#: templates/server/variables/variable_row.twig:31
-msgid "Session value"
-msgstr "Valoare sesiune"
+#: templates/create_tracking_version.twig:11
+#, php-format
+msgid "Create version %1$s of %2$s"
+msgstr "Creează versiunea %1$s din %2$s"
 
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
-msgstr "Editează valorile ENUM/SET"
+#: templates/create_tracking_version.twig:16
+#, php-format
+msgid "Create version %1$s"
+msgstr "Creează versiunea %1$s"
 
-#: templates/columns_definitions/column_virtuality.twig:30
-#: templates/table/structure/display_partitions.twig:26
-msgid "Expression"
-msgstr "Expresie"
+#: templates/create_tracking_version.twig:20
+msgid "Track these data definition statements:"
+msgstr "Urmărește aceste declarații de definiție a datelor:"
 
-#: templates/table/search/selection_form.twig:12
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr ""
-"Execută o „interogare prin exemplu„ (metacaracter: „%”) pentru două coloane "
-"diferite"
+#: templates/create_tracking_version.twig:59
+msgid "Track these data manipulation statements:"
+msgstr "Urmărește aceste declarații de manipulare a datelor:"
 
-#: templates/table/search/selection_form.twig:29
-msgid "Use this column to label each point"
-msgstr "Folosește această coloana pentru a eticheta fiecare punct"
+#: templates/create_tracking_version.twig:76
+msgid "Create version"
+msgstr "Creează versiunea"
 
-#: templates/table/search/selection_form.twig:55
-msgid "Maximum rows to plot"
-msgstr "Număr maxim de rânduri de trasat"
+#: templates/database/multi_table_query/form.twig:1
+msgid "Query window"
+msgstr "Fereastră interogare"
 
-#: templates/table/search/selection_form.twig:80
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Execută o „interogare prin exemplu„ (metacaracter: „%”)"
+#: templates/database/multi_table_query/form.twig:22
+#: templates/database/multi_table_query/form.twig:110
+msgid "select table"
+msgstr "selectează tabelul"
 
-#: templates/table/search/selection_form.twig:106
-msgid "Select columns (at least one):"
-msgstr "Selectează coloane (cel puțin una):"
+#: templates/database/multi_table_query/form.twig:29
+#: templates/database/multi_table_query/form.twig:118
+msgid "select column"
+msgstr "selectează coloana"
 
-#: templates/table/search/selection_form.twig:126
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Adaugă condiții de căutare (corpul propoziției „unde”):"
+#: templates/database/multi_table_query/form.twig:35
+msgid "Table alias"
+msgstr "Alias tabel"
 
-#: templates/table/search/selection_form.twig:134
-msgid "Number of rows per page"
-msgstr "Număr de rânduri per pagină"
+#: templates/database/multi_table_query/form.twig:36
+msgid "Column alias"
+msgstr "Alias coloană"
 
-#: templates/table/search/selection_form.twig:145
-msgid "Display order:"
-msgstr "Ordine de afișare:"
+#: templates/database/multi_table_query/form.twig:39
+msgid "Use this column in criteria"
+msgstr "Folosește această coloană în criteriu"
 
-#: templates/table/search/selection_form.twig:181
-#: templates/database/search/main.twig:15
-msgid "Find:"
-msgstr "Găsește:"
+#: templates/database/multi_table_query/form.twig:42
+msgid "criteria"
+msgstr "criteriu"
 
-#: templates/table/search/selection_form.twig:183
-msgid "Replace with:"
-msgstr "Înlocuiește cu:"
+#: templates/database/multi_table_query/form.twig:56
+msgid "Add as"
+msgstr "Adaugă ca"
 
-#: templates/table/search/selection_form.twig:199
-msgid "Use regular expression"
-msgstr "Folosește expresia obișnuită"
+#: templates/database/multi_table_query/form.twig:101
+msgid "Another column"
+msgstr "O altă coloană"
 
-#: templates/display/export/options_output_compression.twig:4
-msgid "Compression:"
-msgstr "Compresie:"
+#: templates/database/multi_table_query/form.twig:129
+msgid "Enter criteria as free text"
+msgstr "Introdu criteriul ca text disponibil"
 
-#: templates/display/export/options_output_compression.twig:11
-msgid "zipped"
-msgstr "arhivat cu zip"
+#: templates/database/multi_table_query/form.twig:137
+msgid "Remove this column"
+msgstr "Înlătură această coloană"
 
-#: templates/display/export/options_output_compression.twig:17
-msgid "gzipped"
-msgstr "arhivat cu gzip"
+#: templates/database/multi_table_query/form.twig:147
+#: templates/table/relation/foreign_key_row.twig:86
+msgid "+ Add column"
+msgstr "+ Adaugă coloană"
 
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
-msgid "Authentication code:"
-msgstr "Cod de autentificare:"
+#: templates/database/multi_table_query/form.twig:164
+msgid "Update query"
+msgstr "Actualizează interogarea"
 
-#: templates/login/twofactor/application.twig:4
+#: templates/table/tracking/report_table.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+msgctxt "Number"
+msgid "#"
+msgstr "#"
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr "Dată"
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr "Nume utilizator"
+
+#: templates/login/twofactor/key_configure.twig:3
 msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
 msgstr ""
-"Deschide aplicația autentificare pe două niveluri pe dispozitivul tău pentru "
-"a-ți vedea codul de autentificare și pentru a-ți verifica identitatea."
+"Te rog conectează dispozitivul FIDO U2F la portul USB al calculatorului. "
+"Apoi confirmă înregistrarea pe dispozitiv."
 
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
-msgid "Number of rows:"
-msgstr "Număr de rânduri:"
+#: templates/database/structure/table_header.twig:27
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr ""
+"Poate fi aproximativ. Dă clic pe număr pentru a obține valoarea exactă. Vezi "
+"[doc@faq3-11]Întrebări frecvente 3.11[/doc]."
 
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Utilizare spațiu"
+#: templates/database/structure/table_header.twig:36
+#: templates/table/index_form.twig:122
+msgid "Size"
+msgstr "Dimensiune"
 
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Efectiv"
-
-#: templates/table/structure/display_table_stats.twig:73
-msgid "Row statistics"
-msgstr "Statistici rânduri"
-
-#: templates/table/structure/display_table_stats.twig:79
-msgid "static"
-msgstr "static"
-
-#: templates/table/structure/display_table_stats.twig:81
-msgid "dynamic"
-msgstr "dinamic"
-
-#: templates/table/structure/display_table_stats.twig:92
-msgid "partitioned"
-msgstr "partiționat"
-
-#: templates/table/structure/display_table_stats.twig:121
-msgid "Row length"
-msgstr "Lungime rând"
-
-#: templates/table/structure/display_table_stats.twig:133
-msgid "Row size"
-msgstr "Dimensiune rând"
-
-#: templates/table/structure/display_table_stats.twig:140
-msgid "Next autoindex"
-msgstr "Următorul index automat"
-
-#: templates/table/structure/display_table_stats.twig:147
 #: templates/database/structure/table_header.twig:51
+#: templates/table/structure/display_table_stats.twig:147
 msgid "Creation"
 msgstr "Creare"
 
-#: templates/table/structure/display_table_stats.twig:154
 #: templates/database/structure/table_header.twig:56
+#: templates/table/structure/display_table_stats.twig:154
 msgid "Last update"
 msgstr "Ultima actualizare"
 
-#: templates/table/structure/display_table_stats.twig:161
 #: templates/database/structure/table_header.twig:61
+#: templates/table/structure/display_table_stats.twig:161
 msgid "Last check"
 msgstr "Ultima verificare"
 
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:471
-msgid "Partitions"
-msgstr "Partiții"
+#: templates/database/search/main.twig:5
+msgid "Search in database"
+msgstr "Caută în baza de date"
 
-#: templates/table/structure/display_partitions.twig:8
-msgid "No partitioning defined!"
-msgstr "Nicio partiționare definită!"
+#: templates/database/search/main.twig:8
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Cuvinte sau valori de căutat (metacaracter: „%”):"
 
-#: templates/table/structure/display_partitions.twig:11
-msgid "Partitioned by:"
-msgstr "Partiționat de:"
+#: templates/database/search/main.twig:15
+#: templates/table/search/selection_form.twig:181
+msgid "Find:"
+msgstr "Găsește:"
 
-#: templates/table/structure/display_partitions.twig:16
-msgid "Sub partitioned by:"
-msgstr "Sub-partiționat de:"
+#: templates/database/search/main.twig:29
+msgid "Inside tables:"
+msgstr "În interiorul tabelelor:"
 
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-msgid "Partition"
-msgstr "Partiție"
+#: templates/database/search/main.twig:51
+msgid "Inside column:"
+msgstr "În interiorul coloanei:"
 
-#: templates/table/structure/display_partitions.twig:29
-msgid "Data length"
-msgstr "Lungime date"
+#: templates/prefs_twofactor_confirm.twig:2
+msgid "Confirm disabling two-factor authentication"
+msgstr "Confirmă dezactivarea autentificării pe două niveluri"
 
-#: templates/table/structure/display_partitions.twig:30
-msgid "Index length"
-msgstr "Lungime index"
-
-#: templates/table/structure/display_partitions.twig:135
-msgid "Partition table"
-msgstr "Tabel de partiții"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-msgid "Edit partitioning"
-msgstr "Editează partiționarea"
-
-#: templates/database/structure/show_create.twig:2
-msgid "Showing create queries"
-msgstr "Arăt creează interogări"
-
-#: templates/columns_definitions/column_name.twig:4
-#, php-format
-msgid "Referenced by %s."
-msgstr "Face referire la %s."
-
-#: templates/columns_definitions/column_name.twig:12
-msgid "Is a foreign key."
-msgstr "Este o cheie străină."
-
-#: templates/columns_definitions/column_name.twig:40
-msgid "Pick from Central Columns"
-msgstr "Alege din coloanele centrale"
-
-#: templates/display/import/javascript.twig:12
+#: templates/prefs_twofactor_confirm.twig:5
 msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
+"By disabling two factor authentication you will be again able to login using "
+"password only."
 msgstr ""
-"Fișierul încărcat este probabil mai mare decât dimensiunea maximă permisă "
-"sau aceasta este o eroare cunoscută în navigatoarele bazate pe webkit "
-"(Safari, Google Chrome, Arora etc.)."
+"Prin dezactivarea autentificării pe două niveluri, vei putea să te "
+"autentifici din nou folosind numai parola."
 
-#: templates/display/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr "%s din %s"
-
-#: templates/display/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr "%s/sec."
-
-#: templates/display/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr "Cam %MIN min. %SEC sec. rămase."
-
-#: templates/display/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr "Cam %SEC sec. rămase."
-
-#: templates/display/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr "Fișierul este procesat, te rog ai răbdare."
-
-#: templates/display/import/javascript.twig:30
-msgid "Uploading your import file…"
-msgstr "Încarc fișierul tău de import…"
-
-#: templates/display/import/javascript.twig:155
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-"Te rog ai răbdare, fișierul este încărcat acum. Nu sunt disponibile detalii "
-"despre încărcare."
-
-#: templates/table/page_with_secondary_tabs.twig:9
-msgid "Relation view"
-msgstr "Vizualizare relație"
-
-#: templates/prefs_twofactor.twig:3
-msgid "Two-factor authentication status"
-msgstr "Stare autentificare pe două niveluri"
-
-#: templates/prefs_twofactor.twig:9
-msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
-msgstr ""
-"Autentificarea pe două niveluri nu este disponibilă, te rog instalează "
-"dependințe opționale pentru a activa părțile administrative de autentificare."
-
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr "Următoarele pachete de compoziții lipsesc:"
-
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-"Autentificarea pe două niveluri este disponibilă și configurată pentru acest "
-"cont."
-
-#: templates/prefs_twofactor.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-"Autentificarea pe două niveluri este disponibilă, dar nu este configurată "
-"pentru acest cont."
-
-#: templates/prefs_twofactor.twig:24
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-"Autentificarea pe două niveluri nu este disponibilă, activează spațiul de "
-"stocare pentru configurarea phpMyAdmin pentru a o utiliza."
-
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
-msgstr "Ai activat autentificarea pe două niveluri."
-
-#: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
 msgid "Disable two-factor authentication"
 msgstr "Dezactivează autentificarea pe două niveluri"
 
-#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
-#: templates/prefs_twofactor_configure.twig:2
-msgid "Configure two-factor authentication"
-msgstr "Configurează autentificarea pe două niveluri"
+#: templates/display/export/options_output.twig:2
+#: templates/display/export/options_quick_export.twig:2
+msgid "Output:"
+msgstr "Ieșire:"
 
-#: templates/database/search/results.twig:12
+#: templates/display/export/options_output.twig:26
+msgid "Save output to a file"
+msgstr "Salvează ieșirea într-un fișier"
+
+#: templates/display/export/options_output.twig:51
 #, php-format
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "O potrivire în <strong>%2$s</strong>"
-msgstr[1] "%1$s potriviri în <strong>%2$s</strong>"
-msgstr[2] "%1$s de potriviri în <strong>%2$s</strong>"
-
-#: templates/database/search/results.twig:56
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<strong>Total:</strong> <em>o</em> potrivire"
-msgstr[1] "<strong>Total:</strong> <em>%count%</em> potriviri"
-msgstr[2] "<strong>Total:</strong> <em>%count%</em> de potriviri"
+msgid "Skip tables larger than %s MiB"
+msgstr "Sari peste tabelele mai mari de %s MiO"
 
 #: templates/server/binlog/log_selector.twig:5
 msgid "Select binary log to view"
 msgstr "Selectează jurnalul binar pentru vizualizare"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr "Selectează tipul relațional de export"
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+"Acest raport include automat date despre erori și informații despre setările "
+"de configurare relevante. El va fi trimis echipei phpMyAdmin pentru "
+"depanarea erorilor."
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+"Poți să ne spui pașii care conduc la această eroare? Ne ajută decisiv la "
+"depanare:"
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr "Poți examina datele în raportul de erori:"
 
 #: templates/database/central_columns/main.twig:4
 msgid "Add new column"
@@ -14737,8 +14642,9 @@ msgstr "Selectează o coloană."
 
 #: templates/database/central_columns/main.twig:210
 #: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46 templates/console/display.twig:99
+#: templates/export/alias_add.twig:46
 #: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/console/display.twig:99
 msgid "Add"
 msgstr "Adaugă"
 
@@ -14746,42 +14652,105 @@ msgstr "Adaugă"
 msgid "Click to sort."
 msgstr "Dă clic pentru a sorta."
 
-#: templates/database/structure/check_all_tables.twig:6
-#, fuzzy
-msgid "Check tables having overhead"
-msgstr "Verificare depășit"
+#: templates/database/structure/show_create.twig:2
+msgid "Showing create queries"
+msgstr "Arăt creează interogări"
 
-#: templates/database/structure/check_all_tables.twig:10
-msgid "Copy table"
-msgstr "Copiază tabelul"
+#: templates/display/export/method.twig:3
+msgid "Export method:"
+msgstr "Metodă de export:"
 
-#: templates/database/structure/check_all_tables.twig:11
-msgid "Show create"
-msgstr "Arată creează"
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
+msgstr "Rapid - afișează numai opțiuni minime"
 
-#: templates/database/structure/check_all_tables.twig:25
-msgid "Prefix"
-msgstr "Prefix"
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
+msgstr "Personalizat - afișează toate opțiunile posibile"
 
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
-msgstr "Adaugă prefix la tabel"
+#: templates/display/export/template_options.twig:1
+msgid "Select a template"
+msgstr "Selectează un șablon"
 
-#: templates/database/structure/check_all_tables.twig:27
-msgid "Replace table prefix"
-msgstr "Înlocuiește prefix tabel"
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr "Înlătură"
 
-#: templates/database/structure/check_all_tables.twig:33
-msgid "Add columns to central list"
-msgstr "Adaugă coloane la lista centrală"
+#: templates/table/search/selection_form.twig:12
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr ""
+"Execută o „interogare prin exemplu„ (metacaracter: „%”) pentru două coloane "
+"diferite"
 
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
-msgstr "Înlătură coloanele din lista centrală"
+#: templates/table/search/selection_form.twig:29
+msgid "Use this column to label each point"
+msgstr "Folosește această coloana pentru a eticheta fiecare punct"
 
-#: templates/database/structure/check_all_tables.twig:35
-msgid "Make consistent with central list"
-msgstr "Asigură consecvență în lista centrală"
+#: templates/table/search/selection_form.twig:55
+msgid "Maximum rows to plot"
+msgstr "Număr maxim de rânduri de trasat"
+
+#: templates/table/search/selection_form.twig:80
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Execută o „interogare prin exemplu„ (metacaracter: „%”)"
+
+#: templates/table/search/selection_form.twig:106
+msgid "Select columns (at least one):"
+msgstr "Selectează coloane (cel puțin una):"
+
+#: templates/table/search/selection_form.twig:126
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Adaugă condiții de căutare (corpul propoziției „unde”):"
+
+#: templates/table/search/selection_form.twig:134
+msgid "Number of rows per page"
+msgstr "Număr de rânduri per pagină"
+
+#: templates/table/search/selection_form.twig:145
+msgid "Display order:"
+msgstr "Ordine de afișare:"
+
+#: templates/table/search/selection_form.twig:183
+msgid "Replace with:"
+msgstr "Înlocuiește cu:"
+
+#: templates/table/search/selection_form.twig:199
+msgid "Use regular expression"
+msgstr "Folosește expresia obișnuită"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, php-format
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tabel"
+msgstr[1] "%s tabele"
+msgstr[2] "%s de tabele"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Total"
+
+#: templates/server/privileges/delete_user_fieldset.twig:3
+msgid "Remove selected user accounts"
+msgstr "Înlătură conturile utilizatorilor selectați"
+
+#: templates/server/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "Revocă toate privilegiile active pentru utilizatori și apoi le șterge."
+
+#: templates/server/privileges/delete_user_fieldset.twig:7
+#: templates/server/privileges/delete_user_fieldset.twig:10
+#: templates/server/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr "Elimină bazele de date care are același nume ca utilizatorii."
+
+#: templates/display/export/options_output_separate_files.twig:7
+msgid "Export databases as separate files"
+msgstr "Exportă bazele de date ca fișiere separate"
+
+#: templates/display/export/options_output_separate_files.twig:9
+msgid "Export tables as separate files"
+msgstr "Exportă tabelele ca fișiere separate"
 
 #: templates/display/import/import.twig:40
 msgid "Importing into the current server"
@@ -14881,70 +14850,174 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr "Codarea conversiei:"
 
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#: templates/table/tracking/report_table.twig:4
-msgctxt "Number"
-msgid "#"
-msgstr "#"
+#: templates/login/twofactor.twig:5
+msgid "Verify"
+msgstr "Verifică"
 
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-#: templates/table/structure/display_structure.twig:89
-msgctxt "None for default"
+#: templates/columns_definitions/column_virtuality.twig:30
+#: templates/table/structure/display_partitions.twig:26
+msgid "Expression"
+msgstr "Expresie"
+
+#: templates/database/create_table.twig:7
+#: templates/database/designer/main.twig:86
+#: templates/database/designer/main.twig:89
+msgid "Create table"
+msgstr "Creează tabel"
+
+#: templates/database/create_table.twig:15
+msgid "Number of columns"
+msgstr "Număr de coloane"
+
+#: templates/server/privileges/column_privileges.twig:21
+#: templates/server/privileges/column_privileges.twig:22
+msgctxt "None privileges"
 msgid "None"
-msgstr "Niciuna"
+msgstr "Niciunul"
 
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr "Dată"
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr "Nume utilizator"
-
-#: templates/table/insert/continue_insertion_form.twig:18
+#: templates/database/search/results.twig:12
 #, php-format
-msgid "Continue insertion with %s rows"
-msgstr "Continuă inserarea cu %s rânduri"
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "O potrivire în <strong>%2$s</strong>"
+msgstr[1] "%1$s potriviri în <strong>%2$s</strong>"
+msgstr[2] "%1$s de potriviri în <strong>%2$s</strong>"
 
-#: templates/server/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Privilegii specifice coloanelor"
+#: templates/database/search/results.twig:56
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "<strong>Total:</strong> <em>o</em> potrivire"
+msgstr[1] "<strong>Total:</strong> <em>%count%</em> potriviri"
+msgstr[2] "<strong>Total:</strong> <em>%count%</em> de potriviri"
 
-#: templates/server/privileges/privileges_summary.twig:54
-msgid "Add privileges on the following database(s):"
-msgstr "Adaugă privilegii pentru următoarele baze de date:"
-
-#: templates/server/privileges/privileges_summary.twig:67
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
 msgstr ""
-"Metacaracterele % și _ trebuie să fie escapate cu un \\ pentru a fi folosite "
-"cum trebuie."
+"Te rog scanează următorul cod QR în aplicația autentificare pe două niveluri "
+"pe dispozitivul tău și introdu codul de autentificare pe care îl generează."
 
-#: templates/server/privileges/privileges_summary.twig:71
-msgid "Add privileges on the following table:"
-msgstr "Adaugă privilegii la următorul tabel:"
+#: templates/login/twofactor/application_configure.twig:11
+#, fuzzy
+#| msgid ""
+#| "Please scan following QR code into the two-factor authentication app on "
+#| "your device and enter authentication code it generates."
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+"Te rog scanează următorul cod QR în aplicația autentificare pe două niveluri "
+"pe dispozitivul tău și introdu codul de autentificare pe care îl generează."
 
-#: templates/server/privileges/privileges_summary.twig:86
-msgid "Add privileges on the following routine:"
-msgstr "Adaugă privilegii la următoarea rutină:"
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr ""
 
-#: templates/display/export/template_options.twig:1
-msgid "Select a template"
-msgstr "Selectează un șablon"
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr ""
 
-#: templates/table/relation/foreign_key_row.twig:15
-#, php-format
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Constrângerea cheii străine %s a fost eliminată"
+#: templates/login/twofactor/application_configure.twig:21
+#: templates/login/twofactor/application.twig:2
+msgid "Authentication code:"
+msgstr "Cod de autentificare:"
 
-#: templates/table/relation/foreign_key_row.twig:34
-msgid "Constraint name"
-msgstr "Nume constrângere"
+#: templates/database/designer/page_save_as.twig:17
+msgid "Save to selected page"
+msgstr "Salvează în pagina selectată"
 
-#: templates/table/relation/foreign_key_row.twig:86
-#: templates/database/multi_table_query/form.twig:147
-msgid "+ Add column"
-msgstr "+ Adaugă coloană"
+#: templates/database/designer/page_save_as.twig:17
+msgid "Create a page and save to it"
+msgstr "Creează o pagină și salvează în ea"
+
+#: templates/database/designer/page_save_as.twig:30
+msgid "New page name"
+msgstr "Nume pagină nouă"
+
+#: templates/server/databases/index.twig:15
+#: templates/server/databases/index.twig:43
+msgid "Create database"
+msgstr "Creează bază de date"
+
+#: templates/server/databases/index.twig:37
+#: templates/display/export/template_loading.twig:10
+msgid "Create"
+msgstr "Creează"
+
+#: templates/server/databases/index.twig:122
+msgid "No databases"
+msgstr "Nicio bază de date"
+
+#: templates/columns_definitions/partitions.twig:17
+msgid "Partition by:"
+msgstr "Partiție de:"
+
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+msgid "Expression or column list"
+msgstr "Expresie sau listă de coloane"
+
+#: templates/columns_definitions/partitions.twig:37
+msgid "Partitions:"
+msgstr "Partiții:"
+
+#: templates/columns_definitions/partitions.twig:45
+msgid "Subpartition by:"
+msgstr "Sub-partiție de:"
+
+#: templates/columns_definitions/partitions.twig:65
+msgid "Subpartitions:"
+msgstr "Sub-partiții:"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+msgid "Partition"
+msgstr "Partiție"
+
+#: templates/columns_definitions/partitions.twig:78
+msgid "Values"
+msgstr "Valori"
+
+#: templates/columns_definitions/partitions.twig:82
+msgid "Subpartition"
+msgstr "Sub-partiție"
+
+#: templates/columns_definitions/partitions.twig:84
+msgid "Engine"
+msgstr "Motor"
+
+#: templates/columns_definitions/partitions.twig:86
+msgid "Data directory"
+msgstr "Director de date"
+
+#: templates/columns_definitions/partitions.twig:87
+msgid "Index directory"
+msgstr "Director de indexuri"
+
+#: templates/columns_definitions/partitions.twig:88
+msgid "Max rows"
+msgstr "Număr maxim de rânduri"
+
+#: templates/columns_definitions/partitions.twig:89
+msgid "Min rows"
+msgstr "Număr minim de rânduri"
+
+#: templates/columns_definitions/partitions.twig:90
+msgid "Table space"
+msgstr "Spațiu tabel"
+
+#: templates/columns_definitions/partitions.twig:91
+msgid "Node group"
+msgstr "Grup de noduri"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
+"Te rog conectează-ți dispozitivul FIDO U2F la portul USB al calculatorului. "
+"Apoi confirmă autentificarea pe dispozitiv."
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -15034,411 +15107,139 @@ msgstr "Coloană de valori:"
 msgid "Save chart as image"
 msgstr "Salvează diagrama ca imagine"
 
-#: templates/prefs_twofactor_configure.twig:8
-msgid "Enable two-factor authentication"
-msgstr "Activează autentificarea pe două niveluri"
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Folosește această valoare"
 
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/export/options_rows.twig:10
+msgid "Number of rows:"
+msgstr "Număr de rânduri:"
+
+#: templates/table/page_with_secondary_tabs.twig:9
+msgid "Relation view"
+msgstr "Vizualizare relație"
+
+#: templates/database/tracking/tables.twig:4
+msgid "Tracked tables"
+msgstr "Tabele urmărite"
+
+#: templates/database/tracking/tables.twig:14
+msgid "Last version"
+msgstr "Ultima versiune"
+
+#: templates/database/tracking/tables.twig:15
+#: templates/table/tracking/main.twig:29
+msgid "Created"
+msgstr "Creată"
+
+#: templates/database/tracking/tables.twig:16
+#: templates/table/tracking/main.twig:30
+msgid "Updated"
+msgstr "Actualizată"
+
+#: templates/database/tracking/tables.twig:51
+#: templates/database/tracking/tables.twig:79
+msgid "Delete tracking"
+msgstr "Șterge urmărirea"
+
+#: templates/database/tracking/tables.twig:57
+msgid "Versions"
+msgstr "Versiuni"
+
+#: templates/database/tracking/tables.twig:90
+msgid "Untracked tables"
+msgstr "Tabele neurmărite"
+
+#: templates/database/tracking/tables.twig:117
+#: templates/database/tracking/tables.twig:129
+#: templates/table/structure/display_structure.twig:392
+msgid "Track table"
+msgstr "Urmărește tabelul"
+
+#: templates/server/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "Privilegii specifice coloanelor"
+
+#: templates/server/privileges/privileges_summary.twig:54
+msgid "Add privileges on the following database(s):"
+msgstr "Adaugă privilegii pentru următoarele baze de date:"
+
+#: templates/server/privileges/privileges_summary.twig:67
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
 msgstr ""
-"Te rog conectează-ți dispozitivul FIDO U2F la portul USB al calculatorului. "
-"Apoi confirmă autentificarea pe dispozitiv."
+"Metacaracterele % și _ trebuie să fie escapate cu un \\ pentru a fi folosite "
+"cum trebuie."
 
-#: templates/server/databases/table_row.twig:13
-#, php-format
-msgid "Jump to database '%s'"
-msgstr "Sari la baza de date „%s”"
+#: templates/server/privileges/privileges_summary.twig:71
+msgid "Add privileges on the following table:"
+msgstr "Adaugă privilegii la următorul tabel:"
 
-#: templates/server/databases/table_row.twig:51
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Verifică privilegiile pentru baza de date „%s”."
+#: templates/server/privileges/privileges_summary.twig:86
+msgid "Add privileges on the following routine:"
+msgstr "Adaugă privilegii la următoarea rutină:"
 
-#: templates/server/databases/table_row.twig:52
-msgid "Check privileges"
-msgstr "Verifică privilegiile"
+#: templates/prefs_twofactor.twig:3
+msgid "Two-factor authentication status"
+msgstr "Stare autentificare pe două niveluri"
 
-#: templates/display/export/template_loading.twig:2
-msgid "Export templates:"
-msgstr "Exportă șabloane:"
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
+"Autentificarea pe două niveluri nu este disponibilă, te rog instalează "
+"dependințe opționale pentru a activa părțile administrative de autentificare."
 
-#: templates/display/export/template_loading.twig:6
-msgid "New template:"
-msgstr "Șablon nou:"
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr "Următoarele pachete de compoziții lipsesc:"
 
-#: templates/display/export/template_loading.twig:8
-msgid "Template name"
-msgstr "Nume șablon"
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+"Autentificarea pe două niveluri este disponibilă și configurată pentru acest "
+"cont."
 
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/index.twig:37
-msgid "Create"
-msgstr "Creează"
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+"Autentificarea pe două niveluri este disponibilă, dar nu este configurată "
+"pentru acest cont."
 
-#: templates/display/export/template_loading.twig:16
-msgid "Existing templates:"
-msgstr "Șabloane existente:"
+#: templates/prefs_twofactor.twig:24
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+"Autentificarea pe două niveluri nu este disponibilă, activează spațiul de "
+"stocare pentru configurarea phpMyAdmin pentru a o utiliza."
 
-#: templates/display/export/template_loading.twig:17
-msgid "Template:"
-msgstr "Șablon:"
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr "Ai activat autentificarea pe două niveluri."
 
-#: templates/display/export/template_loading.twig:21
-msgid "Update"
-msgstr "Actualizează"
+#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
+#: templates/prefs_twofactor_configure.twig:2
+msgid "Configure two-factor authentication"
+msgstr "Configurează autentificarea pe două niveluri"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
 msgstr "Criteriu de căutare suplimentar"
 
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr "Definește aliasuri noi"
+#: templates/start_and_number_of_rows_panel.twig:3
+msgid "Start row:"
+msgstr "Rând de început:"
 
-#: templates/export/alias_add.twig:9
-msgid "Select database:"
-msgstr "Selectează baza de date:"
-
-#: templates/export/alias_add.twig:15
-msgid "New database name"
-msgstr "Nume bază de date nouă"
-
-#: templates/export/alias_add.twig:23
-msgid "Select table:"
-msgstr "Selectează tabelul:"
-
-#: templates/export/alias_add.twig:29
-msgid "New table name"
-msgstr "Nume tabel nou"
-
-#: templates/export/alias_add.twig:37
-msgid "Select column:"
-msgstr "Selectează coloana:"
-
-#: templates/export/alias_add.twig:43
-msgid "New column name"
-msgstr "Nume coloană nouă"
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr "Urmărirea este activă."
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr "Urmărirea nu este activă."
-
-#: templates/login/twofactor/invalid.twig:2
+#: templates/login/header.twig:15
 msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
 msgstr ""
-"Autentificarea pe două niveluri configurată nu este disponibilă, te rog "
-"instalează dependențe care lipsesc."
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr "Ieșire:"
-
-#: templates/display/export/options_output.twig:26
-msgid "Save output to a file"
-msgstr "Salvează ieșirea într-un fișier"
-
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr "Sari peste tabelele mai mari de %s MiO"
-
-#: templates/server/databases/databases_footer.twig:55
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Notă: Activarea statisticilor bazei de date aici poate cauza un trafic "
-"intens între serverul web și serverul MySQL."
-
-#: templates/server/databases/databases_footer.twig:58
-#: templates/server/databases/databases_footer.twig:61
-msgid "Enable statistics"
-msgstr "Activează statisticile"
-
-#: templates/table/tracking/main.twig:28 templates/server/plugins/main.twig:20
-msgid "Version"
-msgstr "Versiune"
-
-#: templates/table/tracking/main.twig:29
-#: templates/database/tracking/tables.twig:15
-msgid "Created"
-msgstr "Creată"
-
-#: templates/table/tracking/main.twig:30
-#: templates/database/tracking/tables.twig:16
-msgid "Updated"
-msgstr "Actualizată"
-
-#: templates/table/tracking/main.twig:61 templates/table/tracking/main.twig:88
-msgid "Delete version"
-msgstr "Șterge versiunea"
-
-#: templates/table/tracking/main.twig:103
-#, php-format
-msgid "Activate tracking for %s"
-msgstr "Activează urmărirea pentru %s"
-
-#: templates/table/tracking/main.twig:105
-msgid "Activate now"
-msgstr "Activează acum"
-
-#: templates/table/tracking/main.twig:107
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr "Dezactivează urmărirea pentru %s"
-
-#: templates/table/tracking/main.twig:109
-msgid "Deactivate now"
-msgstr "Dezactivează acum"
-
-#: templates/database/multi_table_query/form.twig:1
-msgid "Query window"
-msgstr "Fereastră interogare"
-
-#: templates/database/multi_table_query/form.twig:22
-#: templates/database/multi_table_query/form.twig:110
-msgid "select table"
-msgstr "selectează tabelul"
-
-#: templates/database/multi_table_query/form.twig:29
-#: templates/database/multi_table_query/form.twig:118
-msgid "select column"
-msgstr "selectează coloana"
-
-#: templates/database/multi_table_query/form.twig:35
-msgid "Table alias"
-msgstr "Alias tabel"
-
-#: templates/database/multi_table_query/form.twig:36
-msgid "Column alias"
-msgstr "Alias coloană"
-
-#: templates/database/multi_table_query/form.twig:39
-msgid "Use this column in criteria"
-msgstr "Folosește această coloană în criteriu"
-
-#: templates/database/multi_table_query/form.twig:42
-msgid "criteria"
-msgstr "criteriu"
-
-#: templates/database/multi_table_query/form.twig:56
-msgid "Add as"
-msgstr "Adaugă ca"
-
-#: templates/database/multi_table_query/form.twig:101
-msgid "Another column"
-msgstr "O altă coloană"
-
-#: templates/database/multi_table_query/form.twig:129
-msgid "Enter criteria as free text"
-msgstr "Introdu criteriul ca text disponibil"
-
-#: templates/database/multi_table_query/form.twig:137
-msgid "Remove this column"
-msgstr "Înlătură această coloană"
-
-#: templates/database/multi_table_query/form.twig:164
-msgid "Update query"
-msgstr "Actualizează interogarea"
-
-#: templates/database/search/main.twig:5
-msgid "Search in database"
-msgstr "Caută în baza de date"
-
-#: templates/database/search/main.twig:8
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Cuvinte sau valori de căutat (metacaracter: „%”):"
-
-#: templates/database/search/main.twig:29
-msgid "Inside tables:"
-msgstr "În interiorul tabelelor:"
-
-#: templates/database/search/main.twig:51
-msgid "Inside column:"
-msgstr "În interiorul coloanei:"
-
-#: templates/display/export/option_header.twig:5
-msgid "Exporting databases from the current server"
-msgstr "Export bazele de date de pe serverul curent"
-
-#: templates/display/export/option_header.twig:7
-#, php-format
-msgid "Exporting tables from \"%s\" database"
-msgstr "Export tabelele din baza de date „%s”"
-
-#: templates/display/export/option_header.twig:9
-#, php-format
-msgid "Exporting rows from \"%s\" table"
-msgstr "Export rândurile din tabelul „%s”"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr "primul"
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/display_structure.twig:429
-#, php-format
-msgid "after %s"
-msgstr "după %s"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Niciuna"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr ""
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr "Înlătură"
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-"Acest raport include automat date despre erori și informații despre setările "
-"de configurare relevante. El va fi trimis echipei phpMyAdmin pentru "
-"depanarea erorilor."
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-"Poți să ne spui pașii care conduc la această eroare? Ne ajută decisiv la "
-"depanare:"
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr "Poți examina datele în raportul de erori:"
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-"Nu folosești https pentru a accesa phpMyAdmin, prin urmare, dispozitivul "
-"FIDO U2F probabil va refuza să te autentifice."
-
-#: templates/view_create.twig:13
-#: templates/table/structure/display_structure.twig:374
-msgid "Edit view"
-msgstr "Editează vizualizarea"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "Nume VIZUALIZARE"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Nume coloane"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-"Te rog conectează dispozitivul FIDO U2F la portul USB al calculatorului. "
-"Apoi confirmă înregistrarea pe dispozitiv."
-
-#: templates/create_tracking_version.twig:11
-#, php-format
-msgid "Create version %1$s of %2$s"
-msgstr "Creează versiunea %1$s din %2$s"
-
-#: templates/create_tracking_version.twig:16
-#, php-format
-msgid "Create version %1$s"
-msgstr "Creează versiunea %1$s"
-
-#: templates/create_tracking_version.twig:20
-msgid "Track these data definition statements:"
-msgstr "Urmărește aceste declarații de definiție a datelor:"
-
-#: templates/create_tracking_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr "Urmărește aceste declarații de manipulare a datelor:"
-
-#: templates/create_tracking_version.twig:76
-msgid "Create version"
-msgstr "Creează versiunea"
-
-#: templates/server/databases/index.twig:15
-#: templates/server/databases/index.twig:43
-msgid "Create database"
-msgstr "Creează bază de date"
-
-#: templates/server/databases/index.twig:122
-msgid "No databases"
-msgstr "Nicio bază de date"
-
-#: templates/display/export/options_output_separate_files.twig:7
-msgid "Export databases as separate files"
-msgstr "Exportă bazele de date ca fișiere separate"
-
-#: templates/display/export/options_output_separate_files.twig:9
-msgid "Export tables as separate files"
-msgstr "Exportă tabelele ca fișiere separate"
-
-#: templates/table/search/fields_table.twig:10
-#: templates/database/designer/main.twig:557
-#: templates/database/designer/main.twig:621
-#: templates/database/designer/main.twig:822
-#: templates/database/designer/main.twig:853
-#: templates/database/designer/main.twig:961
-#: templates/database/designer/main.twig:1046
-msgid "Operator"
-msgstr "Operator"
-
-#: templates/database/structure/favorite_anchor.twig:4
-msgid "Add to Favorites"
-msgstr "Adaugă la favorite"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, php-format
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tabel"
-msgstr[1] "%s tabele"
-msgstr[2] "%s de tabele"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Total"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr "Caută și înlocuiește - previzualizare"
-
-#: templates/table/search/replace_preview.twig:17
-#: templates/console/display.twig:64 templates/console/display.twig:84
-msgid "Count"
-msgstr "Număr"
-
-#: templates/table/search/replace_preview.twig:18
-msgid "Original string"
-msgstr "Șir original"
-
-#: templates/table/search/replace_preview.twig:19
-msgid "Replaced string"
-msgstr "Șir înlocuit"
-
-#: templates/table/search/replace_preview.twig:37
-msgid "Replace"
-msgstr "Înlocuiește"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
@@ -15474,79 +15275,306 @@ msgstr "Interpretor:"
 msgid "Comment:"
 msgstr "Comentariu:"
 
-#: templates/table/index_form.twig:122
-#: templates/database/structure/table_header.twig:36
-msgid "Size"
-msgstr "Dimensiune"
-
 #: templates/table/index_form.twig:140 templates/table/index_form.twig:177
 msgid "Drag to reorder"
 msgstr "Trage pentru a reordona"
 
-#: templates/database/qbe/footer_options.twig:3
-msgid "Add/Delete criteria rows"
-msgstr "Adaugă/șterge rândurile de criterii"
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
+"Autentificarea pe două niveluri configurată nu este disponibilă, te rog "
+"instalează dependențe care lipsesc."
 
-#: templates/database/qbe/footer_options.twig:5
-msgid "Add/Delete columns"
-msgstr "Adaugă/șterge coloane"
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:374
+msgid "Edit view"
+msgstr "Editează vizualizarea"
 
-#: templates/columns_definitions/partitions.twig:17
-msgid "Partition by:"
-msgstr "Partiție de:"
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "Nume VIZUALIZARE"
 
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
-msgid "Expression or column list"
-msgstr "Expresie sau listă de coloane"
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Nume coloane"
 
-#: templates/columns_definitions/partitions.twig:37
-msgid "Partitions:"
-msgstr "Partiții:"
+#: templates/columns_definitions/table_fields_definitions.twig:17
+#, fuzzy
+#| msgid ""
+#| "field type is \"enum\" or \"set\", please enter the values using this "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
+#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
+#| "example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Dacă câmpul este „enum” sau „set”, vă rugăm să adăugați valori folosind "
+"formatul: 'a','b','c'…<br />Daca aveti nevoie sa puneti bara intoarsa "
+"(backslash) (\"\\\") sau semnul (\"'\") la aceste valori, folosiți exemplul "
+"( '\\\\xyz' or 'a\\'b')."
 
-#: templates/columns_definitions/partitions.twig:45
-msgid "Subpartition by:"
-msgstr "Sub-partiție de:"
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"Pentru valori implicite, te rog introdu o singură valoare, fără linie oblică "
+"sau ghilimele, folosind acest format: a"
 
-#: templates/columns_definitions/partitions.twig:65
-msgid "Subpartitions:"
-msgstr "Sub-partiții:"
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr "Virtualitate"
 
-#: templates/columns_definitions/partitions.twig:78
-msgid "Values"
-msgstr "Valori"
+#: templates/columns_definitions/table_fields_definitions.twig:65
+msgid "Move column"
+msgstr "Mută coloana"
 
-#: templates/columns_definitions/partitions.twig:82
-msgid "Subpartition"
-msgstr "Sub-partiție"
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
+msgid "List of available transformations and their options"
+msgstr "Lista transformărilor disponibile și opțiunile lor"
 
-#: templates/columns_definitions/partitions.twig:84
-msgid "Engine"
-msgstr "Motor"
+#: templates/columns_definitions/table_fields_definitions.twig:82
+msgid "Browser display transformation options"
+msgstr "Opțiuni transformare afișare navigator"
 
-#: templates/columns_definitions/partitions.twig:86
-msgid "Data directory"
-msgstr "Director de date"
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Te rog introdu valorile pentru opțiunile de transformare folosind acest "
+"format: 'a', 100, b,'c'…<br />Dacă trebuie să pui o linie oblică („\\”) sau "
+"un apostrof  („'”) între aceste valori, precede-le cu o linie oblică "
+"(exemplu, '\\\\xyz' sau 'a\\'b')."
 
-#: templates/columns_definitions/partitions.twig:87
-msgid "Index directory"
-msgstr "Director de indexuri"
+#: templates/columns_definitions/table_fields_definitions.twig:93
+msgid "Input transformation options"
+msgstr "Opțiuni transformare intrări"
 
-#: templates/columns_definitions/partitions.twig:88
-msgid "Max rows"
-msgstr "Număr maxim de rânduri"
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Collapse"
+msgstr "Restrânge"
 
-#: templates/columns_definitions/partitions.twig:89
-msgid "Min rows"
-msgstr "Număr minim de rânduri"
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Expand"
+msgstr "Extinde"
 
-#: templates/columns_definitions/partitions.twig:90
-msgid "Table space"
-msgstr "Spațiu tabel"
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+msgid "Requery"
+msgstr "Reinterogare"
 
-#: templates/columns_definitions/partitions.twig:91
-msgid "Node group"
-msgstr "Grup de noduri"
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Variabile și setări server"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Storage engines"
+msgstr "Motoare de stocare"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Character sets and collations"
+msgstr "Seturi de caractere și colaționări"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Statistici baze de date"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr "Răsfoiește/editează punctele"
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr "Cum să folosești"
+
+#: templates/table/search/zoom_result_form.twig:23
+msgid "Reset zoom"
+msgstr "Resetează zoom-ul"
+
+#: templates/prefs_twofactor_configure.twig:8
+msgid "Enable two-factor authentication"
+msgstr "Activează autentificarea pe două niveluri"
+
+#: templates/server/databases/databases_footer.twig:55
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Notă: Activarea statisticilor bazei de date aici poate cauza un trafic "
+"intens între serverul web și serverul MySQL."
+
+#: templates/server/databases/databases_footer.twig:58
+#: templates/server/databases/databases_footer.twig:61
+msgid "Enable statistics"
+msgstr "Activează statisticile"
+
+#: templates/database/structure/structure_table_row.twig:214
+msgid "in use"
+msgstr "în uz"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr "Afișează vizualizarea GIS"
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+msgid "Label column"
+msgstr "Coloană de etichete"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr "-- Niciunul --"
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+msgid "Spatial column"
+msgstr "Coloană spațială"
+
+#: templates/server/plugins/main.twig:18
+msgid "Plugin"
+msgstr "Modul"
+
+#: templates/server/plugins/main.twig:20 templates/table/tracking/main.twig:28
+msgid "Version"
+msgstr "Versiune"
+
+#: templates/server/plugins/main.twig:21
+msgid "Author"
+msgstr "Autor"
+
+#: templates/server/plugins/main.twig:32
+msgid "disabled"
+msgstr "dezactivat"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+"Navigatorul tău are configurarea phpMyAdmin pentru acest domeniu. Vrei s-o "
+"imporți pentru sesiunea curentă?"
+
+#: templates/prefs_autoload.twig:13
+msgid "Delete settings"
+msgstr "Șterge setările"
+
+#: templates/server/databases/table_row.twig:13
+#, php-format
+msgid "Jump to database '%s'"
+msgstr "Sari la baza de date „%s”"
+
+#: templates/server/databases/table_row.twig:51
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Verifică privilegiile pentru baza de date „%s”."
+
+#: templates/server/databases/table_row.twig:52
+msgid "Check privileges"
+msgstr "Verifică privilegiile"
+
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
+msgid "Edit partitioning"
+msgstr "Editează partiționarea"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+"Deschide aplicația autentificare pe două niveluri pe dispozitivul tău pentru "
+"a-ți vedea codul de autentificare și pentru a-ți verifica identitatea."
+
+#: templates/table/structure/display_structure.twig:89
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+msgctxt "None for default"
+msgid "None"
+msgstr "Niciuna"
+
+#: templates/table/structure/display_structure.twig:110
+#, php-format
+msgid "Column %s has been dropped."
+msgstr "Coloana %s a fost eliminată."
+
+#: templates/table/structure/display_structure.twig:133
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr "A fost adăugată o cheie principală pe %s."
+
+#: templates/table/structure/display_structure.twig:151
+#: templates/table/structure/display_structure.twig:169
+#: templates/table/structure/display_structure.twig:198
+#: templates/table/structure/display_structure.twig:221
+#, php-format
+msgid "An index has been added on %s."
+msgstr "A fost adăugat un index pe %s."
+
+#: templates/table/structure/display_structure.twig:245
+#: templates/table/structure/display_structure.twig:348
+msgid "Remove from central columns"
+msgstr "Înlătură din coloanele centrale"
+
+#: templates/table/structure/display_structure.twig:249
+#: templates/table/structure/display_structure.twig:341
+msgid "Add to central columns"
+msgstr "Adaugă în coloanele centrale"
+
+#: templates/table/structure/display_structure.twig:361
+#: templates/table/structure/display_structure.twig:396
+msgid "Move columns"
+msgstr "Mută coloane"
+
+#: templates/table/structure/display_structure.twig:362
+msgid "Move the columns by dragging them up and down."
+msgstr "Mută coloanele trăgându-le în sus și jos."
+
+#: templates/table/structure/display_structure.twig:383
+msgid "Propose table structure"
+msgstr "Propune structura de tabel"
+
+#: templates/table/structure/display_structure.twig:399
+msgid "Normalize"
+msgstr "Normalizează"
+
+#: templates/table/structure/display_structure.twig:405
+msgid "Track view"
+msgstr "Urmărește vizualizarea"
+
+#: templates/table/structure/display_structure.twig:419
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Adaugă coloane %s"
+
+#: templates/table/structure/display_structure.twig:424
+msgid "at beginning of table"
+msgstr "la începutul tabelului"
+
+#: templates/table/structure/display_structure.twig:429
+#: templates/columns_definitions/move_column.twig:12
+#, php-format
+msgid "after %s"
+msgstr "după %s"
+
+#: templates/table/structure/display_structure.twig:471
+#: templates/table/structure/display_partitions.twig:4
+msgid "Partitions"
+msgstr "Partiții"
+
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
+#, php-format
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Salvează pe server în directorul <strong>%s</strong>"
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
@@ -15557,6 +15585,505 @@ msgstr "Niciuna"
 msgid "As defined:"
 msgstr "Așa cum este definit:"
 
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr "Caută și înlocuiește - previzualizare"
+
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
+msgid "Count"
+msgstr "Număr"
+
+#: templates/table/search/replace_preview.twig:18
+msgid "Original string"
+msgstr "Șir original"
+
+#: templates/table/search/replace_preview.twig:19
+msgid "Replaced string"
+msgstr "Șir înlocuit"
+
+#: templates/table/search/replace_preview.twig:37
+msgid "Replace"
+msgstr "Înlocuiește"
+
+#: templates/display/results/options_block.twig:34
+msgid "Relational key"
+msgstr "Cheie relațională"
+
+#: templates/display/results/options_block.twig:34
+msgid "Display column for relationships"
+msgstr "Afișează coloana pentru relații"
+
+#: templates/display/results/options_block.twig:50
+msgid "Show binary contents"
+msgstr "Arată conținut binar"
+
+#: templates/display/results/options_block.twig:57
+msgid "Show BLOB contents"
+msgstr "Arată conținut BLOB"
+
+#: templates/display/results/options_block.twig:71
+msgid "Hide browser transformation"
+msgstr "Ascunde transformarea navigatorului"
+
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Text"
+msgstr "Text bine cunoscut"
+
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Binary"
+msgstr "Binar Popular"
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr "Definește aliasuri noi"
+
+#: templates/export/alias_add.twig:9
+msgid "Select database:"
+msgstr "Selectează baza de date:"
+
+#: templates/export/alias_add.twig:15
+msgid "New database name"
+msgstr "Nume bază de date nouă"
+
+#: templates/export/alias_add.twig:23
+msgid "Select table:"
+msgstr "Selectează tabelul:"
+
+#: templates/export/alias_add.twig:29
+msgid "New table name"
+msgstr "Nume tabel nou"
+
+#: templates/export/alias_add.twig:37
+msgid "Select column:"
+msgstr "Selectează coloana:"
+
+#: templates/export/alias_add.twig:43
+msgid "New column name"
+msgstr "Nume coloană nouă"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr "primul"
+
+#: templates/table/structure/display_partitions.twig:8
+msgid "No partitioning defined!"
+msgstr "Nicio partiționare definită!"
+
+#: templates/table/structure/display_partitions.twig:11
+msgid "Partitioned by:"
+msgstr "Partiționat de:"
+
+#: templates/table/structure/display_partitions.twig:16
+msgid "Sub partitioned by:"
+msgstr "Sub-partiționat de:"
+
+#: templates/table/structure/display_partitions.twig:29
+msgid "Data length"
+msgstr "Lungime date"
+
+#: templates/table/structure/display_partitions.twig:30
+msgid "Index length"
+msgstr "Lungime index"
+
+#: templates/table/structure/display_partitions.twig:135
+msgid "Partition table"
+msgstr "Tabel de partiții"
+
+#: templates/display/export/options_rows.twig:2
+msgid "Rows:"
+msgstr "Rânduri:"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr "Dump câteva rânduri"
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr "Rând pentru a începe la:"
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr "Dump la toate rândurile"
+
+#: templates/display/export/selection.twig:3
+msgid "Databases:"
+msgstr "Baze de date:"
+
+#: templates/database/designer/page_selector.twig:2
+msgid "Select page"
+msgstr "Selectează pagina"
+
+#: templates/table/tracking/main.twig:61 templates/table/tracking/main.twig:88
+msgid "Delete version"
+msgstr "Șterge versiunea"
+
+#: templates/table/tracking/main.twig:103
+#, php-format
+msgid "Activate tracking for %s"
+msgstr "Activează urmărirea pentru %s"
+
+#: templates/table/tracking/main.twig:105
+msgid "Activate now"
+msgstr "Activează acum"
+
+#: templates/table/tracking/main.twig:107
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr "Dezactivează urmărirea pentru %s"
+
+#: templates/table/tracking/main.twig:109
+msgid "Deactivate now"
+msgstr "Dezactivează acum"
+
+#: templates/server/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr "Nou"
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Utilizare spațiu"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Efectiv"
+
+#: templates/table/structure/display_table_stats.twig:73
+msgid "Row statistics"
+msgstr "Statistici rânduri"
+
+#: templates/table/structure/display_table_stats.twig:79
+msgid "static"
+msgstr "static"
+
+#: templates/table/structure/display_table_stats.twig:81
+msgid "dynamic"
+msgstr "dinamic"
+
+#: templates/table/structure/display_table_stats.twig:92
+msgid "partitioned"
+msgstr "partiționat"
+
+#: templates/table/structure/display_table_stats.twig:121
+msgid "Row length"
+msgstr "Lungime rând"
+
+#: templates/table/structure/display_table_stats.twig:133
+msgid "Row size"
+msgstr "Dimensiune rând"
+
+#: templates/table/structure/display_table_stats.twig:140
+msgid "Next autoindex"
+msgstr "Următorul index automat"
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "Nicio previzualizare disponibilă."
+
+#: templates/theme_preview.twig:13
+msgid "Take it"
+msgstr "Ia-l"
+
+#: templates/display/export/options_output_compression.twig:4
+msgid "Compression:"
+msgstr "Compresie:"
+
+#: templates/display/export/options_output_compression.twig:11
+msgid "zipped"
+msgstr "arhivat cu zip"
+
+#: templates/display/export/options_output_compression.twig:17
+msgid "gzipped"
+msgstr "arhivat cu gzip"
+
+#: templates/display/export/option_header.twig:5
+msgid "Exporting databases from the current server"
+msgstr "Export bazele de date de pe serverul curent"
+
+#: templates/display/export/option_header.twig:7
+#, php-format
+msgid "Exporting tables from \"%s\" database"
+msgstr "Export tabelele din baza de date „%s”"
+
+#: templates/display/export/option_header.twig:9
+#, php-format
+msgid "Exporting rows from \"%s\" table"
+msgstr "Export rândurile din tabelul „%s”"
+
+#: templates/database/structure/favorite_anchor.twig:4
+msgid "Add to Favorites"
+msgstr "Adaugă la favorite"
+
+#: templates/table/relation/common_form.twig:9
+msgid "Foreign key constraints"
+msgstr "Constrângeri cheie străină"
+
+#: templates/table/relation/common_form.twig:13
+msgid "Actions"
+msgstr "Acțiuni"
+
+#: templates/table/relation/common_form.twig:14
+msgid "Constraint properties"
+msgstr "Proprietăți constrângere"
+
+#: templates/table/relation/common_form.twig:18
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+"Crearea unei chei străine pe o coloană neindexată creează automat un index "
+"pentru ea. Alternativ, poți defini un index mai jos, înainte de crearea "
+"cheii străine."
+
+#: templates/table/relation/common_form.twig:23
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr "Vor fi afișate numai coloanele cu index. Poți defini un index mai jos."
+
+#: templates/table/relation/common_form.twig:27
+msgid "Foreign key constraint"
+msgstr "Constrângere cheie străină"
+
+#: templates/table/relation/common_form.twig:92
+msgid "+ Add constraint"
+msgstr "+ Adaugă constrângere"
+
+#: templates/table/relation/common_form.twig:102
+#: templates/table/relation/common_form.twig:111
+msgid "Internal relationships"
+msgstr "Relații interne"
+
+#: templates/table/relation/common_form.twig:117
+msgid "Internal relation"
+msgstr "Relație internă"
+
+#: templates/table/relation/common_form.twig:119
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+"Nu este necesară o relație internă când există o relație CHEIE STRĂINĂ "
+"corespondentă."
+
+#: templates/table/relation/common_form.twig:199
+msgid "Choose column to display:"
+msgstr "Alege coloana de afișat:"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, php-format
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Constrângerea cheii străine %s a fost eliminată"
+
+#: templates/table/relation/foreign_key_row.twig:34
+msgid "Constraint name"
+msgstr "Nume constrângere"
+
+#: templates/display/export/template_loading.twig:2
+msgid "Export templates:"
+msgstr "Exportă șabloane:"
+
+#: templates/display/export/template_loading.twig:6
+msgid "New template:"
+msgstr "Șablon nou:"
+
+#: templates/display/export/template_loading.twig:8
+msgid "Template name"
+msgstr "Nume șablon"
+
+#: templates/display/export/template_loading.twig:16
+msgid "Existing templates:"
+msgstr "Șabloane existente:"
+
+#: templates/display/export/template_loading.twig:17
+msgid "Template:"
+msgstr "Șablon:"
+
+#: templates/display/export/template_loading.twig:21
+msgid "Update"
+msgstr "Actualizează"
+
+#: templates/columns_definitions/column_name.twig:4
+#, php-format
+msgid "Referenced by %s."
+msgstr "Face referire la %s."
+
+#: templates/columns_definitions/column_name.twig:12
+msgid "Is a foreign key."
+msgstr "Este o cheie străină."
+
+#: templates/columns_definitions/column_name.twig:40
+msgid "Pick from Central Columns"
+msgstr "Alege din coloanele centrale"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+"Nu folosești https pentru a accesa phpMyAdmin, prin urmare, dispozitivul "
+"FIDO U2F probabil va refuza să te autentifice."
+
+#: templates/server/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Limitele resursă"
+
+#: templates/server/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "Notă: Setarea acestor opțiuni la 0 (zero) înlătură limita."
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+"Aceasta este o variabilă care poate fi doar citită și nu poate fi editată"
+
+#: templates/server/variables/variable_row.twig:31
+msgid "Session value"
+msgstr "Valoare sesiune"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+"Fișierul încărcat este probabil mai mare decât dimensiunea maximă permisă "
+"sau aceasta este o eroare cunoscută în navigatoarele bazate pe webkit "
+"(Safari, Google Chrome, Arora etc.)."
+
+#: templates/display/import/javascript.twig:13
+#, php-format
+msgid "%s of %s"
+msgstr "%s din %s"
+
+#: templates/display/import/javascript.twig:14
+#, php-format
+msgid "%s/sec."
+msgstr "%s/sec."
+
+#: templates/display/import/javascript.twig:15
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr "Cam %MIN min. %SEC sec. rămase."
+
+#: templates/display/import/javascript.twig:16
+msgid "About %SEC sec. remaining."
+msgstr "Cam %SEC sec. rămase."
+
+#: templates/display/import/javascript.twig:17
+msgid "The file is being processed, please be patient."
+msgstr "Fișierul este procesat, te rog ai răbdare."
+
+#: templates/display/import/javascript.twig:30
+msgid "Uploading your import file…"
+msgstr "Încarc fișierul tău de import…"
+
+#: templates/display/import/javascript.twig:155
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+"Te rog ai răbdare, fișierul este încărcat acum. Nu sunt disponibile detalii "
+"despre încărcare."
+
+#: templates/display/export/options_output_radio.twig:5
+msgid "View output as text"
+msgstr "Vizualizează ieșirea ca text"
+
+#: templates/display/export/options_output_format.twig:3
+msgid "File name template:"
+msgstr "Șablon nume fișier:"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr "folosește asta exporturi viitoare"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to open"
+msgstr "Pagină de deschis"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+msgid "Page to delete"
+msgstr "Pagină de șters"
+
+#: templates/database/structure/check_all_tables.twig:6
+#, fuzzy
+msgid "Check tables having overhead"
+msgstr "Verificare depășit"
+
+#: templates/database/structure/check_all_tables.twig:10
+msgid "Copy table"
+msgstr "Copiază tabelul"
+
+#: templates/database/structure/check_all_tables.twig:11
+msgid "Show create"
+msgstr "Arată creează"
+
+#: templates/database/structure/check_all_tables.twig:25
+msgid "Prefix"
+msgstr "Prefix"
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr "Adaugă prefix la tabel"
+
+#: templates/database/structure/check_all_tables.twig:27
+msgid "Replace table prefix"
+msgstr "Înlocuiește prefix tabel"
+
+#: templates/database/structure/check_all_tables.twig:33
+msgid "Add columns to central list"
+msgstr "Adaugă coloane la lista centrală"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr "Înlătură coloanele din lista centrală"
+
+#: templates/database/structure/check_all_tables.twig:35
+msgid "Make consistent with central list"
+msgstr "Asigură consecvență în lista centrală"
+
+#: templates/table/search/fields_table.twig:10
+#: templates/database/designer/main.twig:557
+#: templates/database/designer/main.twig:621
+#: templates/database/designer/main.twig:822
+#: templates/database/designer/main.twig:853
+#: templates/database/designer/main.twig:961
+#: templates/database/designer/main.twig:1046
+msgid "Operator"
+msgstr "Operator"
+
+#: templates/database/structure/show_create_row.twig:7
+#, php-format
+msgid "Create %s"
+msgstr "Creează %s"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Nume tabel"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+msgid "column(s)"
+msgstr "coloană(e)"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+msgid "Collation:"
+msgstr "Colaționare:"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+msgid "Storage Engine:"
+msgstr "Motor de stocare:"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+msgid "Connection:"
+msgstr "Conexiune:"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+msgid "PARTITION definition:"
+msgstr "Definiție PARTIȚIE:"
+
 #: templates/database/designer/database_tables.twig:31
 msgid "Show/hide columns"
 msgstr "Arată/ascunde coloane"
@@ -15565,23 +16092,13 @@ msgstr "Arată/ascunde coloane"
 msgid "See table structure"
 msgstr "Vezi structura tabelului"
 
-#: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:86
-#: templates/database/designer/main.twig:89
-msgid "Create table"
-msgstr "Creează tabel"
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr "Urmărirea este activă."
 
-#: templates/database/create_table.twig:15
-msgid "Number of columns"
-msgstr "Număr de coloane"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-msgid "Start row:"
-msgstr "Rând de început:"
-
-#: templates/display/export/selection.twig:3
-msgid "Databases:"
-msgstr "Baze de date:"
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr "Urmărirea nu este activă."
 
 #: templates/console/display.twig:7
 msgid "History"
@@ -15598,21 +16115,6 @@ msgstr "Apasă Ctrl+Enter pentru a executa interogarea"
 #: templates/console/display.twig:23
 msgid "Press Enter to execute query"
 msgstr "Apasă Enter pentru a executa interogarea"
-
-#: templates/console/display.twig:31 templates/console/display.twig:84
-#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
-msgid "Collapse"
-msgstr "Restrânge"
-
-#: templates/console/display.twig:31 templates/console/display.twig:84
-#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
-msgid "Expand"
-msgstr "Extinde"
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-#: templates/console/bookmark_content.twig:7
-msgid "Requery"
-msgstr "Reinterogare"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Explain"
@@ -15698,393 +16200,14 @@ msgstr ""
 "Execută interogări apăsând pe Enter și inserează o linie nouă cu Shift + "
 "Enter. Pentru a face asta permanent, vizualizează setările."
 
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
-msgstr ""
-"Navigatorul tău are configurarea phpMyAdmin pentru acest domeniu. Vrei s-o "
-"imporți pentru sesiunea curentă?"
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
+msgstr "Editează valorile ENUM/SET"
 
-#: templates/prefs_autoload.twig:13
-msgid "Delete settings"
-msgstr "Șterge setările"
-
-#: templates/display/export/method.twig:3
-msgid "Export method:"
-msgstr "Metodă de export:"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr "Rapid - afișează numai opțiuni minime"
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr "Personalizat - afișează toate opțiunile posibile"
-
-#: templates/database/structure/table_header.twig:27
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr ""
-"Poate fi aproximativ. Dă clic pe număr pentru a obține valoarea exactă. Vezi "
-"[doc@faq3-11]Întrebări frecvente 3.11[/doc]."
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr "Verifică"
-
-#: templates/database/tracking/tables.twig:4
-msgid "Tracked tables"
-msgstr "Tabele urmărite"
-
-#: templates/database/tracking/tables.twig:14
-msgid "Last version"
-msgstr "Ultima versiune"
-
-#: templates/database/tracking/tables.twig:51
-#: templates/database/tracking/tables.twig:79
-msgid "Delete tracking"
-msgstr "Șterge urmărirea"
-
-#: templates/database/tracking/tables.twig:57
-msgid "Versions"
-msgstr "Versiuni"
-
-#: templates/database/tracking/tables.twig:90
-msgid "Untracked tables"
-msgstr "Tabele neurmărite"
-
-#: templates/database/tracking/tables.twig:117
-#: templates/database/tracking/tables.twig:129
-#: templates/table/structure/display_structure.twig:392
-msgid "Track table"
-msgstr "Urmărește tabelul"
-
-#: templates/display/results/options_block.twig:34
-msgid "Relational key"
-msgstr "Cheie relațională"
-
-#: templates/display/results/options_block.twig:34
-msgid "Display column for relationships"
-msgstr "Afișează coloana pentru relații"
-
-#: templates/display/results/options_block.twig:50
-msgid "Show binary contents"
-msgstr "Arată conținut binar"
-
-#: templates/display/results/options_block.twig:57
-msgid "Show BLOB contents"
-msgstr "Arată conținut BLOB"
-
-#: templates/display/results/options_block.twig:71
-msgid "Hide browser transformation"
-msgstr "Ascunde transformarea navigatorului"
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Text"
-msgstr "Text bine cunoscut"
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Binary"
-msgstr "Binar Popular"
-
-#: templates/prefs_twofactor_confirm.twig:2
-msgid "Confirm disabling two-factor authentication"
-msgstr "Confirmă dezactivarea autentificării pe două niveluri"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-"Prin dezactivarea autentificării pe două niveluri, vei putea să te "
-"autentifici din nou folosind numai parola."
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-"Te rog scanează următorul cod QR în aplicația autentificare pe două niveluri "
-"pe dispozitivul tău și introdu codul de autentificare pe care îl generează."
-
-#: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-"Te rog scanează următorul cod QR în aplicația autentificare pe două niveluri "
-"pe dispozitivul tău și introdu codul de autentificare pe care îl generează."
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/login/header.twig:15
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/server/privileges/delete_user_fieldset.twig:3
-msgid "Remove selected user accounts"
-msgstr "Înlătură conturile utilizatorilor selectați"
-
-#: templates/server/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "Revocă toate privilegiile active pentru utilizatori și apoi le șterge."
-
-#: templates/server/privileges/delete_user_fieldset.twig:7
-#: templates/server/privileges/delete_user_fieldset.twig:10
-#: templates/server/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr "Elimină bazele de date care are același nume ca utilizatorii."
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Nume tabel"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-msgid "column(s)"
-msgstr "coloană(e)"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-msgid "Collation:"
-msgstr "Colaționare:"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-msgid "Storage Engine:"
-msgstr "Motor de stocare:"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-msgid "Connection:"
-msgstr "Conexiune:"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-msgid "PARTITION definition:"
-msgstr "Definiție PARTIȚIE:"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Folosește această valoare"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr "Răsfoiește/editează punctele"
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr "Cum să folosești"
-
-#: templates/table/search/zoom_result_form.twig:23
-msgid "Reset zoom"
-msgstr "Resetează zoom-ul"
-
-#: templates/database/structure/show_create_row.twig:7
+#: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
-msgid "Create %s"
-msgstr "Creează %s"
-
-#: templates/table/structure/display_structure.twig:110
-#, php-format
-msgid "Column %s has been dropped."
-msgstr "Coloana %s a fost eliminată."
-
-#: templates/table/structure/display_structure.twig:133
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr "A fost adăugată o cheie principală pe %s."
-
-#: templates/table/structure/display_structure.twig:151
-#: templates/table/structure/display_structure.twig:169
-#: templates/table/structure/display_structure.twig:198
-#: templates/table/structure/display_structure.twig:221
-#, php-format
-msgid "An index has been added on %s."
-msgstr "A fost adăugat un index pe %s."
-
-#: templates/table/structure/display_structure.twig:245
-#: templates/table/structure/display_structure.twig:348
-msgid "Remove from central columns"
-msgstr "Înlătură din coloanele centrale"
-
-#: templates/table/structure/display_structure.twig:249
-#: templates/table/structure/display_structure.twig:341
-msgid "Add to central columns"
-msgstr "Adaugă în coloanele centrale"
-
-#: templates/table/structure/display_structure.twig:361
-#: templates/table/structure/display_structure.twig:396
-msgid "Move columns"
-msgstr "Mută coloane"
-
-#: templates/table/structure/display_structure.twig:362
-msgid "Move the columns by dragging them up and down."
-msgstr "Mută coloanele trăgându-le în sus și jos."
-
-#: templates/table/structure/display_structure.twig:383
-msgid "Propose table structure"
-msgstr "Propune structura de tabel"
-
-#: templates/table/structure/display_structure.twig:399
-msgid "Normalize"
-msgstr "Normalizează"
-
-#: templates/table/structure/display_structure.twig:405
-msgid "Track view"
-msgstr "Urmărește vizualizarea"
-
-#: templates/table/structure/display_structure.twig:419
-#, php-format
-msgid "Add %s column(s)"
-msgstr "Adaugă coloane %s"
-
-#: templates/table/structure/display_structure.twig:424
-msgid "at beginning of table"
-msgstr "la începutul tabelului"
-
-#: templates/display/export/options_rows.twig:2
-msgid "Rows:"
-msgstr "Rânduri:"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr "Dump câteva rânduri"
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr "Rând pentru a începe la:"
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr "Dump la toate rândurile"
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr "Selectează tipul relațional de export"
-
-#: templates/server/privileges/column_privileges.twig:21
-#: templates/server/privileges/column_privileges.twig:22
-msgctxt "None privileges"
-msgid "None"
-msgstr "Niciunul"
-
-#: templates/table/relation/common_form.twig:9
-msgid "Foreign key constraints"
-msgstr "Constrângeri cheie străină"
-
-#: templates/table/relation/common_form.twig:13
-msgid "Actions"
-msgstr "Acțiuni"
-
-#: templates/table/relation/common_form.twig:14
-msgid "Constraint properties"
-msgstr "Proprietăți constrângere"
-
-#: templates/table/relation/common_form.twig:18
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-"Crearea unei chei străine pe o coloană neindexată creează automat un index "
-"pentru ea. Alternativ, poți defini un index mai jos, înainte de crearea "
-"cheii străine."
-
-#: templates/table/relation/common_form.twig:23
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr "Vor fi afișate numai coloanele cu index. Poți defini un index mai jos."
-
-#: templates/table/relation/common_form.twig:27
-msgid "Foreign key constraint"
-msgstr "Constrângere cheie străină"
-
-#: templates/table/relation/common_form.twig:92
-msgid "+ Add constraint"
-msgstr "+ Adaugă constrângere"
-
-#: templates/table/relation/common_form.twig:102
-#: templates/table/relation/common_form.twig:111
-msgid "Internal relationships"
-msgstr "Relații interne"
-
-#: templates/table/relation/common_form.twig:117
-msgid "Internal relation"
-msgstr "Relație internă"
-
-#: templates/table/relation/common_form.twig:119
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-"Nu este necesară o relație internă când există o relație CHEIE STRĂINĂ "
-"corespondentă."
-
-#: templates/table/relation/common_form.twig:199
-msgid "Choose column to display:"
-msgstr "Alege coloana de afișat:"
-
-#: templates/database/designer/page_selector.twig:2
-msgid "Select page"
-msgstr "Selectează pagina"
-
-#: templates/server/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr "Nou"
-
-#: templates/server/plugins/main.twig:18
-msgid "Plugin"
-msgstr "Modul"
-
-#: templates/server/plugins/main.twig:21
-msgid "Author"
-msgstr "Autor"
-
-#: templates/server/plugins/main.twig:32
-msgid "disabled"
-msgstr "dezactivat"
-
-#: templates/display/export/options_output_format.twig:3
-msgid "File name template:"
-msgstr "Șablon nume fișier:"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr "folosește asta exporturi viitoare"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Variabile și setări server"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Storage engines"
-msgstr "Motoare de stocare"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Character sets and collations"
-msgstr "Seturi de caractere și colaționări"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Statistici baze de date"
-
-#: templates/display/export/options_output_radio.twig:5
-msgid "View output as text"
-msgstr "Vizualizează ieșirea ca text"
+msgid "Continue insertion with %s rows"
+msgstr "Continuă inserarea cu %s rânduri"
 
 #: templates/database/designer/main.twig:21
 #: templates/database/designer/main.twig:27
@@ -16231,124 +16354,6 @@ msgstr "Global"
 #: templates/database/designer/main.twig:1128
 msgid "Active options"
 msgstr "Opțiuni active"
-
-#: templates/database/structure/structure_table_row.twig:214
-msgid "in use"
-msgstr "în uz"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Dacă câmpul este „enum” sau „set”, vă rugăm să adăugați valori folosind "
-"formatul: 'a','b','c'…<br />Daca aveti nevoie sa puneti bara intoarsa "
-"(backslash) (\"\\\") sau semnul (\"'\") la aceste valori, folosiți exemplul "
-"( '\\\\xyz' or 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"Pentru valori implicite, te rog introdu o singură valoare, fără linie oblică "
-"sau ghilimele, folosind acest format: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr "Virtualitate"
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-msgid "Move column"
-msgstr "Mută coloana"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-msgid "List of available transformations and their options"
-msgstr "Lista transformărilor disponibile și opțiunile lor"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-msgid "Browser display transformation options"
-msgstr "Opțiuni transformare afișare navigator"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Te rog introdu valorile pentru opțiunile de transformare folosind acest "
-"format: 'a', 100, b,'c'…<br />Dacă trebuie să pui o linie oblică („\\”) sau "
-"un apostrof  („'”) între aceste valori, precede-le cu o linie oblică "
-"(exemplu, '\\\\xyz' sau 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-msgid "Input transformation options"
-msgstr "Opțiuni transformare intrări"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr "Dă clic pentru a comuta"
-
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, php-format
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Salvează pe server în directorul <strong>%s</strong>"
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr "Afișează vizualizarea GIS"
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-msgid "Label column"
-msgstr "Coloană de etichete"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr "-- Niciunul --"
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-msgid "Spatial column"
-msgstr "Coloană spațială"
-
-#: templates/server/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Limitele resursă"
-
-#: templates/server/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Notă: Setarea acestor opțiuni la 0 (zero) înlătură limita."
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "Nicio previzualizare disponibilă."
-
-#: templates/theme_preview.twig:13
-msgid "Take it"
-msgstr "Ia-l"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Save to selected page"
-msgstr "Salvează în pagina selectată"
-
-#: templates/database/designer/page_save_as.twig:17
-msgid "Create a page and save to it"
-msgstr "Creează o pagină și salvează în ea"
-
-#: templates/database/designer/page_save_as.twig:30
-msgid "New page name"
-msgstr "Nume pagină nouă"
 
 #: url.php:42
 msgid "Taking you to the target site."

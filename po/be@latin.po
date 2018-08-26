@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-08-18 16:02-0300\n"
+"POT-Creation-Date: 2018-08-26 18:20+0200\n"
 "PO-Revision-Date: 2015-10-15 11:22+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian (latin) <https://hosted.weblate.org/projects/"
@@ -61,19 +61,19 @@ msgstr "Kamentar da tablicy"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:540
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:685
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:708
-#: templates/columns_definitions/column_name.twig:16
-#: templates/table/tracking/structure_snapshot_columns.twig:6
-#: templates/table/relation/foreign_key_row.twig:118
-#: templates/table/relation/foreign_key_row.twig:128
-#: templates/table/search/fields_table.twig:7
+#: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/index_form.twig:119
 #: templates/table/search/zoom_result_form.twig:34
-#: templates/table/tracking/structure_snapshot_indexes.twig:9
 #: templates/table/relation/common_form.twig:17
 #: templates/table/relation/common_form.twig:22
 #: templates/table/relation/common_form.twig:37
 #: templates/table/relation/common_form.twig:116
 #: templates/table/relation/common_form.twig:181
+#: templates/table/relation/foreign_key_row.twig:118
+#: templates/table/relation/foreign_key_row.twig:128
+#: templates/columns_definitions/column_name.twig:16
+#: templates/table/tracking/structure_snapshot_columns.twig:6
+#: templates/table/search/fields_table.twig:7
 #, fuzzy
 #| msgid "Column names"
 msgid "Column"
@@ -96,14 +96,14 @@ msgstr "Nazvy kalonak"
 #: libraries/classes/Rte/Routines.php:1674
 #: libraries/classes/Rte/RteList.php:120 libraries/classes/Rte/RteList.php:148
 #: libraries/classes/Server/Privileges.php:2632
+#: templates/database/structure/table_header.twig:30
 #: templates/database/central_columns/main.twig:21
 #: templates/database/central_columns/main.twig:238
+#: templates/table/tracking/structure_snapshot_indexes.twig:6
+#: templates/columns_definitions/table_fields_definitions.twig:12
+#: templates/table/structure/display_structure.twig:22
 #: templates/table/tracking/structure_snapshot_columns.twig:7
 #: templates/table/search/fields_table.twig:8
-#: templates/database/structure/table_header.twig:30
-#: templates/table/tracking/structure_snapshot_indexes.twig:6
-#: templates/table/structure/display_structure.twig:22
-#: templates/columns_definitions/table_fields_definitions.twig:12
 msgid "Type"
 msgstr "Typ"
 
@@ -121,11 +121,11 @@ msgstr "Typ"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:711
 #: templates/database/central_columns/main.twig:41
 #: templates/database/central_columns/main.twig:258
-#: templates/table/tracking/structure_snapshot_columns.twig:9
-#: templates/table/search/zoom_result_form.twig:35
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
-#: templates/table/structure/display_structure.twig:25
 #: templates/columns_definitions/table_fields_definitions.twig:30
+#: templates/table/search/zoom_result_form.twig:35
+#: templates/table/structure/display_structure.twig:25
+#: templates/table/tracking/structure_snapshot_columns.twig:9
 msgid "Null"
 msgstr "Nul"
 
@@ -143,10 +143,10 @@ msgstr "Nul"
 #: libraries/classes/ReplicationGui.php:181
 #: templates/database/central_columns/main.twig:29
 #: templates/database/central_columns/main.twig:246
-#: templates/table/tracking/structure_snapshot_columns.twig:10
 #: templates/database/structure/body_for_table_summary.twig:54
-#: templates/table/structure/display_structure.twig:26
 #: templates/columns_definitions/table_fields_definitions.twig:20
+#: templates/table/structure/display_structure.twig:26
+#: templates/table/tracking/structure_snapshot_columns.twig:10
 msgid "Default"
 msgstr "Pa zmoŭčańni"
 
@@ -170,8 +170,8 @@ msgstr "Źviazanaja z"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:562
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:702
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
-#: templates/table/structure/display_structure.twig:28
 #: templates/columns_definitions/table_fields_definitions.twig:54
+#: templates/table/structure/display_structure.twig:28
 msgid "Comments"
 msgstr "Kamentary"
 
@@ -179,9 +179,9 @@ msgstr "Kamentary"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1229
 #: libraries/classes/Controllers/Table/TableStructureController.php:1234
 #: libraries/classes/Controllers/Table/TableStructureController.php:1346
-#: templates/table/tracking/structure_snapshot_columns.twig:25
-#: templates/table/structure/display_structure.twig:298
 #: templates/columns_definitions/column_indexes.twig:4
+#: templates/table/structure/display_structure.twig:298
+#: templates/table/tracking/structure_snapshot_columns.twig:25
 msgid "Primary"
 msgstr "Pieršasny"
 
@@ -200,14 +200,14 @@ msgstr "Pieršasny"
 #: libraries/classes/Server/Privileges.php:3743
 #: libraries/classes/Server/Privileges.php:3772 prefs_manage.php:147
 #: templates/database/central_columns/main.twig:362
-#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
 #: templates/prefs_autoload.twig:12
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/table/structure/display_structure.twig:80
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 msgid "No"
 msgstr "Nie"
 
@@ -215,11 +215,11 @@ msgstr "Nie"
 #: libraries/classes/Config/FormDisplayTemplate.php:315
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:227
 #: libraries/classes/Controllers/Table/TableStructureController.php:799
-#: libraries/classes/Controllers/Table/TableStructureController.php:1570
-#: libraries/classes/Controllers/Table/TableStructureController.php:1579
-#: libraries/classes/Controllers/Table/TableStructureController.php:1584
-#: libraries/classes/Controllers/Table/TableStructureController.php:1589
-#: libraries/classes/Controllers/Table/TableStructureController.php:1594
+#: libraries/classes/Controllers/Table/TableStructureController.php:1569
+#: libraries/classes/Controllers/Table/TableStructureController.php:1578
+#: libraries/classes/Controllers/Table/TableStructureController.php:1583
+#: libraries/classes/Controllers/Table/TableStructureController.php:1588
+#: libraries/classes/Controllers/Table/TableStructureController.php:1593
 #: libraries/classes/Index.php:599 libraries/classes/IndexColumn.php:146
 #: libraries/classes/MultSubmits.php:428 libraries/classes/MultSubmits.php:461
 #: libraries/classes/MultSubmits.php:490 libraries/classes/MultSubmits.php:527
@@ -235,14 +235,14 @@ msgstr "Nie"
 #: libraries/classes/Server/Privileges.php:3772
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:232
 #: prefs_manage.php:145 templates/database/central_columns/main.twig:362
-#: templates/table/tracking/structure_snapshot_columns.twig:33
+#: templates/table/tracking/structure_snapshot_indexes.twig:23
+#: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/server/privileges/privileges_summary.twig:37
 #: templates/server/privileges/privileges_summary.twig:40
 #: templates/server/privileges/privileges_summary.twig:42
 #: templates/prefs_autoload.twig:11
-#: templates/table/tracking/structure_snapshot_indexes.twig:23
-#: templates/table/tracking/structure_snapshot_indexes.twig:24
 #: templates/table/structure/display_structure.twig:80
+#: templates/table/tracking/structure_snapshot_columns.twig:33
 msgid "Yes"
 msgstr "Tak"
 
@@ -281,10 +281,10 @@ msgstr "Tablic"
 #: libraries/classes/Util.php:4080 libraries/config.values.php:39
 #: libraries/config.values.php:53 libraries/config.values.php:126
 #: libraries/config.values.php:136
-#: templates/table/tracking/structure_snapshot_columns.twig:1
-#: templates/database/central_columns/edit_table_header.twig:2
-#: templates/database/designer/main.twig:226
 #: templates/columns_definitions/table_fields_definitions.twig:4
+#: templates/database/central_columns/edit_table_header.twig:2
+#: templates/table/tracking/structure_snapshot_columns.twig:1
+#: templates/database/designer/main.twig:226
 msgid "Structure"
 msgstr "Struktura"
 
@@ -299,8 +299,8 @@ msgid "Data"
 msgstr "Dadzienyja"
 
 #: db_export.php:77 libraries/classes/ReplicationGui.php:406
-#: templates/display/export/select_options.twig:4
 #: templates/database/search/main.twig:32
+#: templates/display/export/select_options.twig:4
 #, fuzzy
 #| msgid "Select All"
 msgid "Select all"
@@ -526,22 +526,23 @@ msgstr "Dadać novaha karystalnika"
 #: libraries/classes/SqlQueryForm.php:383
 #: libraries/classes/SqlQueryForm.php:447 libraries/classes/Tracking.php:373
 #: libraries/classes/Tracking.php:529 prefs_manage.php:269 prefs_manage.php:355
-#: server_privileges.php:330 templates/table/search/selection_form.twig:223
-#: templates/header_location.twig:18
-#: templates/server/binlog/log_selector.twig:27
-#: templates/display/import/import.twig:191
-#: templates/server/privileges/privileges_summary.twig:102
+#: server_privileges.php:330 templates/header_location.twig:18
 #: templates/database/search/main.twig:58
-#: templates/display/export/options_format.twig:18
-#: templates/view_create.twig:114 templates/view_create.twig:120
-#: templates/table/index_form.twig:221
-#: templates/server/privileges/edit_routine_privileges.twig:23
-#: templates/database/create_table.twig:21
-#: templates/start_and_number_of_rows_panel.twig:14
-#: templates/display/results/options_block.twig:118
+#: templates/server/binlog/log_selector.twig:27
+#: templates/table/search/selection_form.twig:223
 #: templates/server/privileges/delete_user_fieldset.twig:16
+#: templates/display/import/import.twig:191
+#: templates/database/create_table.twig:21
+#: templates/server/privileges/privileges_summary.twig:102
+#: templates/start_and_number_of_rows_panel.twig:14
+#: templates/table/index_form.twig:221 templates/view_create.twig:114
+#: templates/view_create.twig:120
+#: templates/table/structure/display_structure.twig:433
+#: templates/display/results/options_block.twig:118
+#: templates/display/export/options_format.twig:18
 #: templates/columns_definitions/column_definitions_form.twig:43
-#: templates/table/structure/display_structure.twig:433 view_operations.php:118
+#: templates/server/privileges/edit_routine_privileges.twig:23
+#: view_operations.php:118
 msgid "Go"
 msgstr "Paniesłasia"
 
@@ -1170,8 +1171,8 @@ msgstr "Dadać %s novyja pali"
 
 #: js/messages.php:131 libraries/classes/InsertEdit.php:1924
 #: templates/table/index_form.twig:220
-#: templates/columns_definitions/column_definitions_form.twig:146
 #: templates/table/relation/common_form.twig:215
+#: templates/columns_definitions/column_definitions_form.twig:146
 msgid "Preview SQL"
 msgstr ""
 
@@ -1468,10 +1469,10 @@ msgstr ""
 #: libraries/classes/Server/Status/Monitor.php:245
 #: libraries/classes/Server/Status/Processes.php:287
 #: libraries/config.values.php:80 templates/table/search/selection_form.twig:35
-#: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/table/search/rows_zoom.twig:20
 #: templates/columns_definitions/transformation.twig:4
+#: templates/display/export/options_output_compression.twig:7
 #: templates/database/designer/main.twig:629
 msgid "None"
 msgstr "Nijakaja"
@@ -1679,8 +1680,8 @@ msgstr "Tłumačyć SQL"
 #: libraries/classes/Rte/Events.php:468 libraries/classes/Rte/RteList.php:146
 #: libraries/classes/Server/Status/Processes.php:104
 #: libraries/classes/Util.php:4050 libraries/config.values.php:118
-#: templates/table/tracking/main.twig:31
 #: templates/database/tracking/tables.twig:17
+#: templates/table/tracking/main.twig:31
 msgid "Status"
 msgstr "Stan"
 
@@ -2075,8 +2076,8 @@ msgstr ""
 #: libraries/classes/Util.php:3420 libraries/classes/Util.php:3421
 #: libraries/classes/Util.php:4052 libraries/classes/Util.php:4067
 #: libraries/classes/Util.php:4084 prefs_manage.php:298
-#: templates/database/structure/check_all_tables.twig:12
 #: templates/display/export/option_header.twig:3
+#: templates/database/structure/check_all_tables.twig:12
 msgid "Export"
 msgstr "Ekspart"
 
@@ -2132,12 +2133,12 @@ msgstr "U vyhladzie SQL-zapytu"
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:641
 #: libraries/classes/Util.php:1121 libraries/classes/Util.php:3418
 #: libraries/classes/Util.php:3419 setup/frames/index.inc.php:165
-#: templates/server/variables/variable_row.twig:4
-#: templates/server/variables/variable_row.twig:7
 #: templates/database/central_columns/main.twig:279
 #: templates/database/central_columns/main.twig:394
-#: templates/console/display.twig:31 templates/console/display.twig:175
 #: templates/console/bookmark_content.twig:7
+#: templates/server/variables/variable_row.twig:4
+#: templates/server/variables/variable_row.twig:7
+#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Edit"
 msgstr "Redagavać"
 
@@ -2146,12 +2147,13 @@ msgstr "Redagavać"
 #: libraries/classes/Display/Results.php:4916
 #: libraries/classes/Server/UserGroups.php:142
 #: libraries/classes/SqlQueryForm.php:434 libraries/classes/Tracking.php:299
-#: setup/frames/index.inc.php:168 templates/database/search/results.twig:43
+#: setup/frames/index.inc.php:168
 #: templates/database/central_columns/main.twig:282
 #: templates/database/central_columns/main.twig:401
+#: templates/database/search/results.twig:43
+#: templates/console/bookmark_content.twig:7
 #: templates/display/export/template_loading.twig:22
 #: templates/database/designer/main.twig:429
-#: templates/console/bookmark_content.twig:7
 msgid "Delete"
 msgstr "Vydalić"
 
@@ -2343,10 +2345,10 @@ msgstr "Nia vybranaja baza dadzienych."
 #: js/messages.php:481 libraries/classes/CentralColumns.php:967
 #: libraries/classes/InsertEdit.php:1836
 #: templates/server/variables/link_template.twig:2
-#: templates/table/structure/partition_definition_form.twig:12
-#: templates/columns_definitions/column_definitions_form.twig:149
-#: templates/table/relation/common_form.twig:216
 #: templates/table/gis_visualization/gis_visualization.twig:48
+#: templates/table/structure/partition_definition_form.twig:12
+#: templates/table/relation/common_form.twig:216
+#: templates/columns_definitions/column_definitions_form.twig:149
 msgid "Save"
 msgstr "Zachavać"
 
@@ -2668,9 +2670,9 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility."
 msgstr ""
 
 #: js/messages.php:602 libraries/classes/BrowseForeigners.php:350
-#: templates/table/browse_foreigners/show_all.twig:4
 #: templates/display/results/show_all_checkbox.twig:11
 #: templates/server/privileges/initials_row.twig:20
+#: templates/table/browse_foreigners/show_all.twig:4
 msgid "Show all"
 msgstr "Pakazać usie"
 
@@ -2730,8 +2732,8 @@ msgstr "Vybierycie tablicu(y)"
 
 #: js/messages.php:625 libraries/classes/Display/Results.php:5143
 #: libraries/classes/Util.php:3947
-#: templates/database/structure/print_view_data_dictionary_link.twig:3
 #: templates/table/structure/display_structure.twig:378
+#: templates/database/structure/print_view_data_dictionary_link.twig:3
 msgid "Print"
 msgstr "Druk"
 
@@ -3503,8 +3505,8 @@ msgstr "Imia kluča"
 #: libraries/classes/BrowseForeigners.php:227
 #: libraries/classes/Server/Status/Variables.php:231
 #: templates/server/collations/charsets.twig:6
-#: templates/server/engines/list_engines.twig:5
 #: templates/server/plugins/main.twig:19
+#: templates/server/engines/list_engines.twig:5
 msgid "Description"
 msgstr "Apisańnie"
 
@@ -3565,8 +3567,8 @@ msgstr ""
 #: templates/database/central_columns/main.twig:17
 #: templates/database/central_columns/main.twig:234
 #: templates/database/create_table.twig:11
-#: templates/table/structure/display_structure.twig:21
 #: templates/columns_definitions/table_fields_definitions.twig:9
+#: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr "Nazva"
 
@@ -3580,24 +3582,24 @@ msgstr "Daŭžynia/Značeńni*"
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:365
 #: libraries/classes/Index.php:730 libraries/classes/Operations.php:308
 #: libraries/classes/Operations.php:1123
-#: templates/server/collations/charsets.twig:5
-#: templates/table/structure/display_table_stats.twig:101
+#: templates/database/structure/table_header.twig:31
 #: templates/database/central_columns/main.twig:33
 #: templates/database/central_columns/main.twig:250
+#: templates/server/collations/charsets.twig:5
+#: templates/table/tracking/structure_snapshot_indexes.twig:11
+#: templates/columns_definitions/table_fields_definitions.twig:24
+#: templates/table/structure/display_structure.twig:23
+#: templates/table/structure/display_table_stats.twig:101
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/table/search/fields_table.twig:9
-#: templates/database/structure/table_header.twig:31
-#: templates/table/tracking/structure_snapshot_indexes.twig:11
-#: templates/table/structure/display_structure.twig:23
-#: templates/columns_definitions/table_fields_definitions.twig:24
 msgid "Collation"
 msgstr "Supastaŭleńnie"
 
 #: libraries/classes/CentralColumns.php:1018
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:687
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:710
-#: templates/table/structure/display_structure.twig:24
 #: templates/columns_definitions/table_fields_definitions.twig:27
+#: templates/table/structure/display_structure.twig:24
 msgid "Attributes"
 msgstr "Atrybuty"
 
@@ -6411,12 +6413,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3431
 #: libraries/classes/Server/Privileges.php:4629
 #: libraries/classes/Server/Status/Processes.php:92
-#: templates/table/relation/foreign_key_row.twig:96
-#: templates/server/databases/index.twig:88 templates/console/display.twig:40
-#: templates/console/display.twig:184
+#: templates/server/databases/index.twig:88
+#: templates/console/bookmark_content.twig:7
 #: templates/table/relation/common_form.twig:35
 #: templates/table/relation/common_form.twig:167
-#: templates/console/bookmark_content.twig:7
+#: templates/table/relation/foreign_key_row.twig:96
+#: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Database"
 msgstr "Baza dadzienych"
 
@@ -6452,12 +6454,12 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3435
 #: libraries/classes/Server/Privileges.php:3437
 #: libraries/classes/Server/Privileges.php:4643
-#: templates/table/relation/foreign_key_row.twig:106
 #: templates/database/structure/table_header.twig:8
 #: templates/database/tracking/tables.twig:13
 #: templates/database/tracking/tables.twig:98
 #: templates/table/relation/common_form.twig:36
 #: templates/table/relation/common_form.twig:174
+#: templates/table/relation/foreign_key_row.twig:106
 msgid "Table"
 msgstr "Tablica"
 
@@ -7092,10 +7094,10 @@ msgstr[2] "%s bazaŭ dadzienych byli paśpiachova vydalenyja."
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:376
 #: libraries/classes/Import.php:127
-#: templates/table/structure/display_table_stats.twig:112
-#: templates/table/structure/display_partitions.twig:28
 #: templates/database/structure/table_header.twig:26
 #: templates/table/structure/display_structure.twig:232
+#: templates/table/structure/display_partitions.twig:28
+#: templates/table/structure/display_table_stats.twig:112
 msgid "Rows"
 msgstr "Radki"
 
@@ -7111,14 +7113,14 @@ msgstr "Indeksy"
 #: libraries/classes/Engines/Innodb.php:171
 #: libraries/classes/Server/Status.php:214
 #: libraries/classes/Server/Status.php:347
-#: templates/table/structure/display_table_stats.twig:45
 #: templates/server/databases/databases_footer.twig:7
+#: templates/table/structure/display_table_stats.twig:45
 msgid "Total"
 msgstr "Ahułam"
 
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:396
-#: templates/table/structure/display_table_stats.twig:32
 #: templates/database/structure/table_header.twig:38
+#: templates/table/structure/display_table_stats.twig:32
 msgid "Overhead"
 msgstr "Vykarystańnie resursaŭ"
 
@@ -7259,11 +7261,11 @@ msgstr "Źmianić"
 #: libraries/classes/Index.php:776 libraries/classes/Operations.php:1655
 #: libraries/classes/Rte/RteList.php:203 libraries/classes/Util.php:3414
 #: libraries/classes/Util.php:3415
-#: templates/database/structure/check_all_tables.twig:16
-#: templates/table/relation/foreign_key_row.twig:26
 #: templates/server/databases/databases_footer.twig:45
 #: templates/table/structure/display_structure.twig:289
 #: templates/table/structure/display_structure.twig:467
+#: templates/table/relation/foreign_key_row.twig:26
+#: templates/database/structure/check_all_tables.twig:16
 msgid "Drop"
 msgstr "Vydalić"
 
@@ -7271,11 +7273,11 @@ msgstr "Vydalić"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1235
 #: libraries/classes/Controllers/Table/TableStructureController.php:1351
 #: libraries/classes/Navigation/Nodes/NodeIndex.php:32
+#: templates/columns_definitions/column_indexes.twig:12
+#: templates/columns_definitions/table_fields_definitions.twig:46
+#: templates/table/structure/display_structure.twig:312
 #: templates/table/structure/display_table_stats.twig:24
 #: templates/table/tracking/structure_snapshot_columns.twig:27
-#: templates/table/structure/display_structure.twig:312
-#: templates/columns_definitions/table_fields_definitions.twig:46
-#: templates/columns_definitions/column_indexes.twig:12
 msgid "Index"
 msgstr "Indeks"
 
@@ -7283,8 +7285,8 @@ msgstr "Indeks"
 #: libraries/classes/Controllers/Table/TableStructureController.php:1236
 #: libraries/classes/Index.php:726
 #: templates/table/tracking/structure_snapshot_indexes.twig:7
-#: templates/table/structure/display_structure.twig:305
 #: templates/columns_definitions/column_indexes.twig:8
+#: templates/table/structure/display_structure.twig:305
 msgid "Unique"
 msgstr "Unikalnaje"
 
@@ -7296,9 +7298,9 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1233
 #: libraries/classes/Controllers/Table/TableStructureController.php:1238
+#: templates/columns_definitions/column_indexes.twig:16
 #: templates/table/structure/display_structure.twig:319
 #: templates/table/structure/display_structure.twig:331
-#: templates/columns_definitions/column_indexes.twig:16
 msgid "Fulltext"
 msgstr "Poŭnatekstekstavaje"
 
@@ -7804,11 +7806,11 @@ msgstr "Poŭnyja teksty"
 #: libraries/classes/Server/Status/Processes.php:171
 #: libraries/classes/Util.php:4775 libraries/classes/Util.php:4792
 #: libraries/config.values.php:82
-#: templates/table/search/selection_form.twig:154
 #: templates/database/multi_table_query/form.twig:52
+#: templates/table/search/selection_form.twig:154
+#: templates/database/qbe/sort_select_cell.twig:7
 #: templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
-#: templates/database/qbe/sort_select_cell.twig:7
 msgid "Descending"
 msgstr "advarotny"
 
@@ -7818,11 +7820,11 @@ msgstr "advarotny"
 #: libraries/classes/Server/Status/Processes.php:174
 #: libraries/classes/Util.php:4770 libraries/classes/Util.php:4787
 #: libraries/config.values.php:81
-#: templates/table/search/selection_form.twig:154
 #: templates/database/multi_table_query/form.twig:51
+#: templates/table/search/selection_form.twig:154
+#: templates/database/qbe/sort_select_cell.twig:5
 #: templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
-#: templates/database/qbe/sort_select_cell.twig:5
 msgid "Ascending"
 msgstr "pramy"
 
@@ -7870,9 +7872,9 @@ msgstr "Zapyt vykonvaŭsia %01.4f sek"
 
 #: libraries/classes/Display/Results.php:4921
 #: libraries/classes/Display/Results.php:4928 libraries/mult_submits.inc.php:59
+#: templates/select_all.twig:2 templates/select_all.twig:6
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
 msgstr "Z adznačanymi:"
 
@@ -7880,11 +7882,11 @@ msgstr "Z adznačanymi:"
 #: libraries/classes/Display/Results.php:4927
 #: libraries/classes/Server/Privileges.php:1238
 #: libraries/classes/Server/Privileges.php:1239
-#: libraries/classes/Server/UserGroups.php:247
+#: libraries/classes/Server/UserGroups.php:247 templates/select_all.twig:4
+#: templates/select_all.twig:5
+#: templates/server/privileges/global_priv_table.twig:5
 #: templates/database/structure/check_all_tables.twig:3
 #: templates/database/structure/check_all_tables.twig:4
-#: templates/select_all.twig:4 templates/select_all.twig:5
-#: templates/server/privileges/global_priv_table.twig:5
 #, fuzzy
 #| msgid "Check All"
 msgid "Check all"
@@ -8460,9 +8462,9 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportXml.php:51
 #: libraries/classes/Rte/Routines.php:998
 #: templates/table/search/selection_form.twig:97
+#: templates/display/results/options_block.twig:10
 #: templates/table/structure/display_table_stats.twig:90
 #: templates/console/display.twig:7 templates/console/display.twig:140
-#: templates/display/results/options_block.twig:10
 msgid "Options"
 msgstr "Nałady"
 
@@ -8519,17 +8521,17 @@ msgstr "Indeks nia vyznačany!"
 #: libraries/classes/Server/Privileges.php:2635
 #: libraries/classes/Server/Privileges.php:3634
 #: libraries/classes/Server/UserGroups.php:95
-#: templates/table/structure/display_partitions.twig:33
-#: templates/database/central_columns/main.twig:232
 #: templates/table/tracking/report_table.twig:8
-#: templates/server/privileges/privileges_summary.twig:22
-#: templates/table/tracking/main.twig:32
-#: templates/server/databases/index.twig:117
 #: templates/database/structure/table_header.twig:22
+#: templates/database/central_columns/main.twig:232
+#: templates/server/variables/variable_table_head.twig:3
+#: templates/server/databases/index.twig:117
 #: templates/database/tracking/tables.twig:18
 #: templates/database/tracking/tables.twig:99
-#: templates/server/variables/variable_table_head.twig:3
+#: templates/server/privileges/privileges_summary.twig:22
 #: templates/table/structure/display_structure.twig:34
+#: templates/table/structure/display_partitions.twig:33
+#: templates/table/tracking/main.twig:32
 msgid "Action"
 msgstr "Dziejańnie"
 
@@ -8545,11 +8547,11 @@ msgstr "Kolkaść elementaŭ"
 
 #: libraries/classes/Index.php:732 libraries/classes/Rte/Events.php:571
 #: libraries/classes/Rte/Routines.php:1123
-#: templates/table/structure/display_partitions.twig:31
-#: templates/table/tracking/structure_snapshot_columns.twig:12
-#: templates/columns_definitions/partitions.twig:85
 #: templates/database/structure/table_header.twig:46
 #: templates/table/tracking/structure_snapshot_indexes.twig:13
+#: templates/columns_definitions/partitions.twig:85
+#: templates/table/structure/display_partitions.twig:31
+#: templates/table/tracking/structure_snapshot_columns.twig:12
 msgid "Comment"
 msgstr "Kamentar"
 
@@ -8667,9 +8669,9 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:571
 #: libraries/classes/Rte/Routines.php:1678
 #: libraries/classes/Server/Status/Variables.php:230
-#: templates/table/search/fields_table.twig:11
 #: templates/server/variables/variable_table_head.twig:5
 #: templates/table/search/zoom_result_form.twig:36
+#: templates/table/search/fields_table.twig:11
 #: templates/database/designer/main.twig:525
 #: templates/database/designer/main.twig:690
 #: templates/database/designer/main.twig:892
@@ -8833,8 +8835,8 @@ msgstr "Dvajkovy łog"
 
 #: libraries/classes/Menu.php:639 libraries/classes/Server/Status/Data.php:128
 #: libraries/classes/Util.php:4056
-#: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
+#: templates/database/structure/body_for_table_summary.twig:11
 #: templates/server/sub_page_header.twig:2
 msgid "Replication"
 msgstr "Replikacyja"
@@ -8983,9 +8985,9 @@ msgid "Views:"
 msgstr "Vyhlad"
 
 #: libraries/classes/Navigation/Navigation.php:246 tbl_change.php:157
-#: templates/table/tracking/main.twig:33
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/tracking/tables.twig:19
+#: templates/table/tracking/main.twig:33
 msgid "Show"
 msgstr "Pakazać"
 
@@ -9829,8 +9831,8 @@ msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
-#: templates/display/import/import.twig:168
 #: templates/display/export/format_dropdown.twig:2
+#: templates/display/import/import.twig:168
 #, fuzzy
 #| msgid "Format"
 msgid "Format:"
@@ -10596,8 +10598,8 @@ msgstr "Źmiest"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:690
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:713
-#: templates/table/tracking/structure_snapshot_columns.twig:11
 #: templates/table/structure/display_structure.twig:30
+#: templates/table/tracking/structure_snapshot_columns.twig:11
 msgid "Extra"
 msgstr "Dadatkova"
 
@@ -11348,8 +11350,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:408
-#: templates/display/export/select_options.twig:8
 #: templates/database/search/main.twig:35
+#: templates/display/export/select_options.twig:8
 #, fuzzy
 #| msgid "Unselect All"
 msgid "Unselect all"
@@ -14273,8 +14275,9 @@ msgstr "Nia znojdzieny šlach da temy %s!"
 msgid "Theme:"
 msgstr ""
 
-#: libraries/classes/Tracking.php:276 templates/table/tracking/main.twig:69
+#: libraries/classes/Tracking.php:276
 #: templates/database/tracking/tables.twig:62
+#: templates/table/tracking/main.twig:69
 msgid "Tracking report"
 msgstr ""
 
@@ -14328,8 +14331,9 @@ msgstr ""
 msgid "Data definition statement"
 msgstr ""
 
-#: libraries/classes/Tracking.php:681 templates/table/tracking/main.twig:76
+#: libraries/classes/Tracking.php:681
 #: templates/database/tracking/tables.twig:67
+#: templates/table/tracking/main.twig:76
 msgid "Structure snapshot"
 msgstr ""
 
@@ -15394,379 +15398,265 @@ msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Apisańnie"
 
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/database/qbe/footer_options.twig:3
 #, fuzzy
-#| msgid "Page number:"
-msgid "Page to open"
-msgstr "Staronka:"
+#| msgid "Add/Delete Criteria Row"
+msgid "Add/Delete criteria rows"
+msgstr "Dadać/vydalić radok kryteru"
 
-#: templates/database/designer/edit_delete_pages.twig:6
+#: templates/database/qbe/footer_options.twig:5
 #, fuzzy
-#| msgid "Relation deleted"
-msgid "Page to delete"
-msgstr "Suviaź vydalenaja"
+#| msgid "Add/Delete Field Columns"
+msgid "Add/Delete columns"
+msgstr "Dadać/vydalić kalonku kryteru"
 
-#: templates/server/variables/variable_row.twig:6
-msgid "This is a read-only variable and can not be edited"
+#: templates/toggle_button.twig:3
+msgid "Click to toggle"
 msgstr ""
 
-#: templates/server/variables/variable_row.twig:31
-msgid "Session value"
-msgstr "Značeńnie sesii"
+#: templates/encoding/kanji_encoding_form.twig:6
+#, fuzzy
+#| msgid "None"
+msgctxt "None encoding conversion"
+msgid "None"
+msgstr "Nijakaja"
 
-#: templates/columns_definitions/column_length.twig:9
-msgid "Edit ENUM/SET values"
+#: templates/encoding/kanji_encoding_form.twig:17
+msgid "Convert to Kana"
 msgstr ""
 
-#: templates/columns_definitions/column_virtuality.twig:30
-#: templates/table/structure/display_partitions.twig:26
-#, fuzzy
-#| msgid "Compression"
-msgid "Expression"
-msgstr "Ścisk"
+#: templates/create_tracking_version.twig:11
+#, fuzzy, php-format
+#| msgid "General relation features"
+msgid "Create version %1$s of %2$s"
+msgstr "Mahčymaści asnoŭnych suviaziaŭ"
 
-#: templates/table/search/selection_form.twig:12
-#, fuzzy
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Vykanać \"zapyt zhodna prykłada\" (symbal padstanoŭki: \"%\")"
+#: templates/create_tracking_version.twig:16
+#, fuzzy, php-format
+#| msgid "General relation features"
+msgid "Create version %1$s"
+msgstr "Mahčymaści asnoŭnych suviaziaŭ"
 
-#: templates/table/search/selection_form.twig:29
-msgid "Use this column to label each point"
+#: templates/create_tracking_version.twig:20
+msgid "Track these data definition statements:"
 msgstr ""
 
-#: templates/table/search/selection_form.twig:55
-msgid "Maximum rows to plot"
+#: templates/create_tracking_version.twig:59
+msgid "Track these data manipulation statements:"
 msgstr ""
 
-#: templates/table/search/selection_form.twig:80
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "Vykanać \"zapyt zhodna prykłada\" (symbal padstanoŭki: \"%\")"
+#: templates/create_tracking_version.twig:76
+msgid "Create version"
+msgstr ""
 
-#: templates/table/search/selection_form.twig:106
+#: templates/database/multi_table_query/form.twig:1
+msgid "Query window"
+msgstr "Akno zapytu"
+
+#: templates/database/multi_table_query/form.twig:22
+#: templates/database/multi_table_query/form.twig:110
 #, fuzzy
-#| msgid "Select fields (at least one):"
-msgid "Select columns (at least one):"
-msgstr "Vybrać pali (prynamsi adno):"
+#| msgid "Select Tables"
+msgid "select table"
+msgstr "Vybierycie tablicu(y)"
 
-#: templates/table/search/selection_form.twig:126
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "Dadać umovy pošuku (cieła dla ŭmovy \"where\"):"
-
-#: templates/table/search/selection_form.twig:134
-msgid "Number of rows per page"
-msgstr "Kolkaść radkoŭ na staronku"
-
-#: templates/table/search/selection_form.twig:145
-msgid "Display order:"
-msgstr "Paradak prahladu:"
-
-#: templates/table/search/selection_form.twig:181
-#: templates/database/search/main.twig:15
-msgid "Find:"
-msgstr "Znajści:"
-
-#: templates/table/search/selection_form.twig:183
+#: templates/database/multi_table_query/form.twig:29
+#: templates/database/multi_table_query/form.twig:118
 #, fuzzy
-#| msgid "Replace NULL by"
-msgid "Replace with:"
-msgstr "Zamianiać NULL na"
+#| msgid "Add/Delete Field Columns"
+msgid "select column"
+msgstr "Dadać/vydalić kalonku kryteru"
 
-#: templates/table/search/selection_form.twig:199
+#: templates/database/multi_table_query/form.twig:35
 #, fuzzy
-#| msgid "as regular expression"
-msgid "Use regular expression"
-msgstr "rehularny vyraz"
+#| msgid "Tables"
+msgid "Table alias"
+msgstr "Tablic"
 
-#: templates/display/export/options_output_compression.twig:4
+#: templates/database/multi_table_query/form.twig:36
 #, fuzzy
-#| msgid "Compression"
-msgid "Compression:"
-msgstr "Ścisk"
+#| msgid "Column names"
+msgid "Column alias"
+msgstr "Nazvy kalonak"
 
-#: templates/display/export/options_output_compression.twig:11
+#: templates/database/multi_table_query/form.twig:39
+msgid "Use this column in criteria"
+msgstr ""
+
+#: templates/database/multi_table_query/form.twig:42
 #, fuzzy
-#| msgid "\"zipped\""
-msgid "zipped"
-msgstr "archivavany ŭ zip"
+#| msgid "Criteria"
+msgid "criteria"
+msgstr "Kryter"
 
-#: templates/display/export/options_output_compression.twig:17
+#: templates/database/multi_table_query/form.twig:56
 #, fuzzy
-#| msgid "\"gzipped\""
-msgid "gzipped"
-msgstr "archivavany ŭ gzip"
+#| msgid "Add %s"
+msgid "Add as"
+msgstr "Dadać %s"
 
-#: templates/login/twofactor/application.twig:2
-#: templates/login/twofactor/application_configure.twig:21
+#: templates/database/multi_table_query/form.twig:101
 #, fuzzy
-#| msgid "Authenticating…"
-msgid "Authentication code:"
-msgstr "Aŭtentyfikacyja…"
+#| msgid "Add/Delete Field Columns"
+msgid "Another column"
+msgstr "Dadać/vydalić kalonku kryteru"
 
-#: templates/login/twofactor/application.twig:4
+#: templates/database/multi_table_query/form.twig:129
+msgid "Enter criteria as free text"
+msgstr ""
+
+#: templates/database/multi_table_query/form.twig:137
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Remove this column"
+msgstr "Pierajmienavać bazu dadzienych u"
+
+#: templates/database/multi_table_query/form.twig:147
+#: templates/table/relation/foreign_key_row.twig:86
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "+ Add column"
+msgstr "Dadać %s novyja pali"
+
+#: templates/database/multi_table_query/form.twig:164
+#, fuzzy
+#| msgid "Update Query"
+msgid "Update query"
+msgstr "Abnavić zapyt"
+
+#: templates/table/tracking/report_table.twig:4
+#: templates/table/tracking/structure_snapshot_columns.twig:5
+msgctxt "Number"
+msgid "#"
+msgstr ""
+
+#: templates/table/tracking/report_table.twig:5
+msgid "Date"
+msgstr ""
+
+#: templates/table/tracking/report_table.twig:6
+msgid "Username"
+msgstr ""
+
+#: templates/login/twofactor/key_configure.twig:3
 msgid ""
-"Open the two-factor authentication app on your device to view your "
-"authentication code and verify your identity."
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
 msgstr ""
 
-#: templates/display/results/additional_fields.twig:6
-#: templates/start_and_number_of_rows_panel.twig:10
-#: templates/display/export/options_rows.twig:10
+#: templates/database/structure/table_header.twig:27
 #, fuzzy
-#| msgid "Number of fields"
-msgid "Number of rows:"
-msgstr "Kolkaść paloŭ"
+#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
+msgid ""
+"May be approximate. Click on the number to get the exact count. See "
+"[doc@faq3-11]FAQ 3.11[/doc]."
+msgstr "Značeńnie moža być prybliznym. Hł. [doc@faq3-11]FAQ 3.11[/doc]"
 
-#: templates/table/structure/display_table_stats.twig:14
-msgid "Space usage"
-msgstr "Vykarystańnie prastory"
+#: templates/database/structure/table_header.twig:36
+#: templates/table/index_form.twig:122
+msgid "Size"
+msgstr "Pamier"
 
-#: templates/table/structure/display_table_stats.twig:37
-msgid "Effective"
-msgstr "Efektyŭnaść"
-
-#: templates/table/structure/display_table_stats.twig:73
-#, fuzzy
-#| msgid "Row Statistics"
-msgid "Row statistics"
-msgstr "Statystyka radku"
-
-#: templates/table/structure/display_table_stats.twig:79
-msgid "static"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:81
-msgid "dynamic"
-msgstr "dynamičny"
-
-#: templates/table/structure/display_table_stats.twig:92
-msgid "partitioned"
-msgstr "padzielenaja na sekcyi"
-
-#: templates/table/structure/display_table_stats.twig:121
-msgid "Row length"
-msgstr "Daŭžynia radka"
-
-#: templates/table/structure/display_table_stats.twig:133
-msgid "Row size"
-msgstr "Pamier radka"
-
-#: templates/table/structure/display_table_stats.twig:140
-msgid "Next autoindex"
-msgstr ""
-
-#: templates/table/structure/display_table_stats.twig:147
 #: templates/database/structure/table_header.twig:51
+#: templates/table/structure/display_table_stats.twig:147
 msgid "Creation"
 msgstr "Stvoranaja"
 
-#: templates/table/structure/display_table_stats.twig:154
 #: templates/database/structure/table_header.twig:56
+#: templates/table/structure/display_table_stats.twig:154
 msgid "Last update"
 msgstr "Apošniaje abnaŭleńnie"
 
-#: templates/table/structure/display_table_stats.twig:161
 #: templates/database/structure/table_header.twig:61
+#: templates/table/structure/display_table_stats.twig:161
 msgid "Last check"
 msgstr "Apošniaja pravierka"
 
-#: templates/table/structure/display_partitions.twig:4
-#: templates/table/structure/display_structure.twig:471
+#: templates/database/search/main.twig:5
+msgid "Search in database"
+msgstr "Pošuk u bazie dadzienych"
+
+#: templates/database/search/main.twig:8
 #, fuzzy
-#| msgid "Partition %s"
-msgid "Partitions"
-msgstr "Padzieł %s"
+#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Słova(y) abo značeńnie(i) dla pošuku (maska: \"%\"):"
 
-#: templates/table/structure/display_partitions.twig:8
+#: templates/database/search/main.twig:15
+#: templates/table/search/selection_form.twig:181
+msgid "Find:"
+msgstr "Znajści:"
+
+#: templates/database/search/main.twig:29
 #, fuzzy
-#| msgid "No index defined!"
-msgid "No partitioning defined!"
-msgstr "Indeks nia vyznačany!"
+#| msgid "Inside table(s):"
+msgid "Inside tables:"
+msgstr "U tablicy(ach):"
 
-#: templates/table/structure/display_partitions.twig:11
+#: templates/database/search/main.twig:51
 #, fuzzy
-#| msgid "partitioned"
-msgid "Partitioned by:"
-msgstr "padzielenaja na sekcyi"
+#| msgid "Inside field:"
+msgid "Inside column:"
+msgstr "Unutry pola:"
 
-#: templates/table/structure/display_partitions.twig:16
-#, fuzzy
-#| msgid "partitioned"
-msgid "Sub partitioned by:"
-msgstr "padzielenaja na sekcyi"
-
-#: templates/table/structure/display_partitions.twig:24
-#: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Partition %s"
-msgid "Partition"
-msgstr "Padzieł %s"
-
-#: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
-msgid "Data length"
-msgstr "Daŭžynia radka"
-
-#: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
-msgid "Index length"
-msgstr "Daŭžynia radka"
-
-#: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "partitioned"
-msgid "Partition table"
-msgstr "padzielenaja na sekcyi"
-
-#: templates/table/structure/display_partitions.twig:141
-#: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Remove partitioning"
-msgid "Edit partitioning"
-msgstr "Skasavać padzieł na častki"
-
-#: templates/database/structure/show_create.twig:2
-#, fuzzy
-#| msgid "Showing SQL query"
-msgid "Showing create queries"
-msgstr "U vyhladzie SQL-zapytu"
-
-#: templates/columns_definitions/column_name.twig:4
-#, fuzzy, php-format
-#| msgid "Select referenced key"
-msgid "Referenced by %s."
-msgstr "Vybierycie spasyłkavy kluč"
-
-#: templates/columns_definitions/column_name.twig:12
-#, fuzzy
-#| msgid "Select Foreign Key"
-msgid "Is a foreign key."
-msgstr "Vybierycie źniešni kluč"
-
-#: templates/columns_definitions/column_name.twig:40
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Pick from Central Columns"
-msgstr "Pierajmienavać bazu dadzienych u"
-
-#: templates/display/import/javascript.twig:12
-msgid ""
-"The file being uploaded is probably larger than the maximum allowed size or "
-"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
-"browsers."
-msgstr ""
-
-#: templates/display/import/javascript.twig:13
-#, php-format
-msgid "%s of %s"
-msgstr ""
-
-#: templates/display/import/javascript.twig:14
-#, php-format
-msgid "%s/sec."
-msgstr ""
-
-#: templates/display/import/javascript.twig:15
-msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:16
-msgid "About %SEC sec. remaining."
-msgstr ""
-
-#: templates/display/import/javascript.twig:17
-msgid "The file is being processed, please be patient."
-msgstr ""
-
-#: templates/display/import/javascript.twig:30
-#, fuzzy
-#| msgid "Format of imported file"
-msgid "Uploading your import file…"
-msgstr "Farmat impartavanaha fajła"
-
-#: templates/display/import/javascript.twig:155
-msgid ""
-"Please be patient, the file is being uploaded. Details about the upload are "
-"not available."
-msgstr ""
-
-#: templates/table/page_with_secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relation view"
-msgid "Relation view"
-msgstr "Prahlad zaležnaściaŭ"
-
-#: templates/prefs_twofactor.twig:3
+#: templates/prefs_twofactor_confirm.twig:2
 #, fuzzy
 #| msgid "Authenticating…"
-msgid "Two-factor authentication status"
+msgid "Confirm disabling two-factor authentication"
 msgstr "Aŭtentyfikacyja…"
 
-#: templates/prefs_twofactor.twig:9
+#: templates/prefs_twofactor_confirm.twig:5
 msgid ""
-"Two-factor authentication is not available, please install optional "
-"dependencies to enable authentication backends."
+"By disabling two factor authentication you will be again able to login using "
+"password only."
 msgstr ""
 
-#: templates/prefs_twofactor.twig:10
-msgid "Following composer packages are missing:"
-msgstr ""
-
-#: templates/prefs_twofactor.twig:18
-msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:20
-msgid ""
-"Two-factor authentication is available, but not configured for this account."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:24
-msgid ""
-"Two-factor authentication is not available, enable phpMyAdmin configuration "
-"storage to use it."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:33
-msgid "You have enabled two factor authentication."
-msgstr ""
-
-#: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
+#: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
 #, fuzzy
 #| msgid "Authenticating…"
 msgid "Disable two-factor authentication"
 msgstr "Aŭtentyfikacyja…"
 
-#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
-#: templates/prefs_twofactor_configure.twig:2
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Configure two-factor authentication"
-msgstr "Aŭtentyfikacyja…"
+#: templates/display/export/options_output.twig:2
+#: templates/display/export/options_quick_export.twig:2
+msgid "Output:"
+msgstr ""
 
-#: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s supadzieńniaŭ u tablicy %s"
-msgstr[1] "%s supadzieńniaŭ u tablicy %s"
-msgstr[2] "%s supadzieńniaŭ u tablicy %s"
-
-#: templates/database/search/results.twig:56
+#: templates/display/export/options_output.twig:26
 #, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match(es)"
-msgid "<strong>Total:</strong> <em>%count%</em> match"
-msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "Ahułam: %s supadzieńniaŭ"
-msgstr[1] "Ahułam: %s supadzieńniaŭ"
-msgstr[2] "Ahułam: %s supadzieńniaŭ"
+#| msgid "Save as file"
+msgid "Save output to a file"
+msgstr "Zachavać jak fajł"
+
+#: templates/display/export/options_output.twig:51
+#, php-format
+msgid "Skip tables larger than %s MiB"
+msgstr ""
 
 #: templates/server/binlog/log_selector.twig:5
 msgid "Select binary log to view"
 msgstr "Vyłučycie dvajkovy łog dla prahladu"
+
+#: templates/database/designer/schema_export.twig:4
+msgid "Select Export Relational Type"
+msgstr ""
+
+#: templates/error/report_form.twig:6
+msgid ""
+"This report automatically includes data about the error and information "
+"about relevant configuration settings. It will be sent to the phpMyAdmin "
+"team for debugging the error."
+msgstr ""
+
+#: templates/error/report_form.twig:12
+msgid ""
+"Can you tell us the steps leading to this error? It decisively helps in "
+"debugging:"
+msgstr ""
+
+#: templates/error/report_form.twig:19
+msgid "You may examine the data in the error report:"
+msgstr ""
 
 #: templates/database/central_columns/main.twig:4
 #, fuzzy
@@ -15813,8 +15703,9 @@ msgstr "Dadać/vydalić kalonku kryteru"
 
 #: templates/database/central_columns/main.twig:210
 #: templates/export/alias_add.twig:18 templates/export/alias_add.twig:32
-#: templates/export/alias_add.twig:46 templates/console/display.twig:99
+#: templates/export/alias_add.twig:46
 #: templates/columns_definitions/column_definitions_form.twig:32
+#: templates/console/display.twig:99
 #, fuzzy
 #| msgid "And"
 msgid "Add"
@@ -15824,53 +15715,125 @@ msgstr "I"
 msgid "Click to sort."
 msgstr ""
 
-#: templates/database/structure/check_all_tables.twig:6
-msgid "Check tables having overhead"
-msgstr "Adznačyć tyja, što patrabujuć aptymizacyi"
-
-#: templates/database/structure/check_all_tables.twig:10
+#: templates/database/structure/show_create.twig:2
 #, fuzzy
-#| msgid "Copy"
-msgid "Copy table"
-msgstr "Skapijavać"
+#| msgid "Showing SQL query"
+msgid "Showing create queries"
+msgstr "U vyhladzie SQL-zapytu"
 
-#: templates/database/structure/check_all_tables.twig:11
+#: templates/display/export/method.twig:3
 #, fuzzy
-#| msgid "Show color"
-msgid "Show create"
-msgstr "Pakazać koler"
+#| msgid "Export type"
+msgid "Export method:"
+msgstr "Typ ekspartu"
 
-#: templates/database/structure/check_all_tables.twig:25
-#, fuzzy
-#| msgid "Add new field"
-msgid "Prefix"
-msgstr "Dadać novaje pole"
-
-#: templates/database/structure/check_all_tables.twig:26
-msgid "Add prefix to table"
+#: templates/display/export/method.twig:9
+msgid "Quick - display only the minimal options"
 msgstr ""
 
-#: templates/database/structure/check_all_tables.twig:27
-#, fuzzy
-#| msgid "Replace table data with file"
-msgid "Replace table prefix"
-msgstr "Zamianić dadzienyja tablicy dadzienymi z fajła"
-
-#: templates/database/structure/check_all_tables.twig:33
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Add columns to central list"
-msgstr "Dadać %s novyja pali"
-
-#: templates/database/structure/check_all_tables.twig:34
-msgid "Remove columns from central list"
+#: templates/display/export/method.twig:17
+msgid "Custom - display all possible options"
 msgstr ""
 
-#: templates/database/structure/check_all_tables.twig:35
+#: templates/display/export/template_options.twig:1
 #, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Make consistent with central list"
-msgstr "Dadać %s novyja pali"
+#| msgid "Select Tables"
+msgid "Select a template"
+msgstr "Vybierycie tablicu(y)"
+
+#: templates/export/alias_item.twig:8
+msgid "Remove"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:12
+#, fuzzy
+#| msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+msgstr "Vykanać \"zapyt zhodna prykłada\" (symbal padstanoŭki: \"%\")"
+
+#: templates/table/search/selection_form.twig:29
+msgid "Use this column to label each point"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:55
+msgid "Maximum rows to plot"
+msgstr ""
+
+#: templates/table/search/selection_form.twig:80
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "Vykanać \"zapyt zhodna prykłada\" (symbal padstanoŭki: \"%\")"
+
+#: templates/table/search/selection_form.twig:106
+#, fuzzy
+#| msgid "Select fields (at least one):"
+msgid "Select columns (at least one):"
+msgstr "Vybrać pali (prynamsi adno):"
+
+#: templates/table/search/selection_form.twig:126
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "Dadać umovy pošuku (cieła dla ŭmovy \"where\"):"
+
+#: templates/table/search/selection_form.twig:134
+msgid "Number of rows per page"
+msgstr "Kolkaść radkoŭ na staronku"
+
+#: templates/table/search/selection_form.twig:145
+msgid "Display order:"
+msgstr "Paradak prahladu:"
+
+#: templates/table/search/selection_form.twig:183
+#, fuzzy
+#| msgid "Replace NULL by"
+msgid "Replace with:"
+msgstr "Zamianiać NULL na"
+
+#: templates/table/search/selection_form.twig:199
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Use regular expression"
+msgstr "rehularny vyraz"
+
+#: templates/database/structure/body_for_table_summary.twig:6
+#, fuzzy, php-format
+#| msgid "%s table(s)"
+msgid "%s table"
+msgid_plural "%s tables"
+msgstr[0] "%s tablic(y)"
+msgstr[1] "%s tablic(y)"
+msgstr[2] "%s tablic(y)"
+
+#: templates/database/structure/body_for_table_summary.twig:17
+msgid "Sum"
+msgstr "Usiaho"
+
+#: templates/server/privileges/delete_user_fieldset.twig:3
+#, fuzzy
+#| msgid "Remove selected users"
+msgid "Remove selected user accounts"
+msgstr "Vydalić vybranych karystalnikaŭ"
+
+#: templates/server/privileges/delete_user_fieldset.twig:6
+msgid "Revoke all active privileges from the users and delete them afterwards."
+msgstr "Anulavać usie aktyŭnyja pryvilei karystalnikaŭ i paśla vydalić ich."
+
+#: templates/server/privileges/delete_user_fieldset.twig:7
+#: templates/server/privileges/delete_user_fieldset.twig:10
+#: templates/server/privileges/delete_user_fieldset.twig:11
+msgid "Drop the databases that have the same names as the users."
+msgstr ""
+"Vydalić bazy dadzienych, jakija majuć takija ž imiony jak i karystalniki."
+
+#: templates/display/export/options_output_separate_files.twig:7
+#, fuzzy
+#| msgid "Create table on database %s"
+msgid "Export databases as separate files"
+msgstr "Stvaryć novuju tablicu ŭ BD %s"
+
+#: templates/display/export/options_output_separate_files.twig:9
+#, fuzzy
+#| msgid "horizontal (rotated headers)"
+msgid "Export tables as separate files"
+msgstr "haryzantalna (paviernutyja zahałoŭki)"
 
 #: templates/display/import/import.twig:40
 #, fuzzy
@@ -15981,86 +15944,213 @@ msgstr ""
 msgid "Encoding Conversion:"
 msgstr ""
 
-#: templates/table/tracking/structure_snapshot_columns.twig:5
-#: templates/table/tracking/report_table.twig:4
-msgctxt "Number"
-msgid "#"
+#: templates/login/twofactor.twig:5
+msgid "Verify"
 msgstr ""
 
-#: templates/table/tracking/structure_snapshot_columns.twig:47
-#: templates/table/structure/display_structure.twig:89
+#: templates/columns_definitions/column_virtuality.twig:30
+#: templates/table/structure/display_partitions.twig:26
+#, fuzzy
+#| msgid "Compression"
+msgid "Expression"
+msgstr "Ścisk"
+
+#: templates/database/create_table.twig:7
+#: templates/database/designer/main.twig:86
+#: templates/database/designer/main.twig:89
+msgid "Create table"
+msgstr "Stvaryć tablicu"
+
+#: templates/database/create_table.twig:15
+#, fuzzy
+#| msgid "Number of fields"
+msgid "Number of columns"
+msgstr "Kolkaść paloŭ"
+
+#: templates/server/privileges/column_privileges.twig:21
+#: templates/server/privileges/column_privileges.twig:22
 #, fuzzy
 #| msgid "None"
-msgctxt "None for default"
+msgctxt "None privileges"
 msgid "None"
 msgstr "Nijakaja"
 
-#: templates/table/tracking/report_table.twig:5
-msgid "Date"
-msgstr ""
-
-#: templates/table/tracking/report_table.twig:6
-msgid "Username"
-msgstr ""
-
-#: templates/table/insert/continue_insertion_form.twig:18
+#: templates/database/search/results.twig:12
 #, fuzzy, php-format
-#| msgid "Restart insertion with %s rows"
-msgid "Continue insertion with %s rows"
-msgstr "Pačać ustaŭku znoŭ z %s-ha radku"
+#| msgid "%s match(es) inside table <i>%s</i>"
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%s supadzieńniaŭ u tablicy %s"
+msgstr[1] "%s supadzieńniaŭ u tablicy %s"
+msgstr[2] "%s supadzieńniaŭ u tablicy %s"
 
-#: templates/server/privileges/privileges_summary.twig:20
-msgid "Column-specific privileges"
-msgstr "Specyfičnyja pryvilei kalonak"
-
-#: templates/server/privileges/privileges_summary.twig:54
+#: templates/database/search/results.twig:56
 #, fuzzy
-#| msgid "Add privileges on the following database"
-msgid "Add privileges on the following database(s):"
-msgstr "Dadać pryvilei na nastupnuju bazu"
+#| msgid "<b>Total:</b> <i>%s</i> match(es)"
+msgid "<strong>Total:</strong> <em>%count%</em> match"
+msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+msgstr[0] "Ahułam: %s supadzieńniaŭ"
+msgstr[1] "Ahułam: %s supadzieńniaŭ"
+msgstr[2] "Ahułam: %s supadzieńniaŭ"
 
-#: templates/server/privileges/privileges_summary.twig:67
-msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+#: templates/login/twofactor/application_configure.twig:4
+msgid ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
 msgstr ""
-"Symbali padstanoŭki % i _ musiać być ekranavanymi symbalem \\ dla ich "
-"litaralnaha vykarystańnia."
 
-#: templates/server/privileges/privileges_summary.twig:71
+#: templates/login/twofactor/application_configure.twig:11
+msgid ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:14
+msgid "OTP url:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:18
+msgid "Secret/key:"
+msgstr ""
+
+#: templates/login/twofactor/application_configure.twig:21
+#: templates/login/twofactor/application.twig:2
 #, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following table:"
-msgstr "Dadać pryvilei na nastupnuju tablicu"
+#| msgid "Authenticating…"
+msgid "Authentication code:"
+msgstr "Aŭtentyfikacyja…"
 
-#: templates/server/privileges/privileges_summary.twig:86
+#: templates/database/designer/page_save_as.twig:17
 #, fuzzy
-#| msgid "Add privileges on the following table"
-msgid "Add privileges on the following routine:"
-msgstr "Dadać pryvilei na nastupnuju tablicu"
+#| msgid "Export/Import to scale"
+msgid "Save to selected page"
+msgstr "Maštab"
 
-#: templates/display/export/template_options.twig:1
+#: templates/database/designer/page_save_as.twig:17
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select a template"
-msgstr "Vybierycie tablicu(y)"
+#| msgid "Create a new index"
+msgid "Create a page and save to it"
+msgstr "Stvaryć novy indeks"
 
-#: templates/table/relation/foreign_key_row.twig:15
-#, fuzzy, php-format
-#| msgid "Disable foreign key checks"
-msgid "Foreign key constraint %s has been dropped"
-msgstr "Adklučyć pravierku źniešnich klučoŭ"
-
-#: templates/table/relation/foreign_key_row.twig:34
+#: templates/database/designer/page_save_as.twig:30
 #, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint name"
-msgstr "Abmiežavańni dla tablicy"
+#| msgid "User name"
+msgid "New page name"
+msgstr "Imia karystalnika"
 
-#: templates/table/relation/foreign_key_row.twig:86
-#: templates/database/multi_table_query/form.twig:147
+#: templates/server/databases/index.twig:15
+#: templates/server/databases/index.twig:43
 #, fuzzy
-#| msgid "Add %s field(s)"
-msgid "+ Add column"
-msgstr "Dadać %s novyja pali"
+#| msgid "Create new database"
+msgid "Create database"
+msgstr "Stvaryć novuju bazu dadzienych"
+
+#: templates/server/databases/index.twig:37
+#: templates/display/export/template_loading.twig:10
+msgid "Create"
+msgstr "Stvaryć"
+
+#: templates/server/databases/index.twig:122
+msgid "No databases"
+msgstr "Bazy dadzienych adsutničajuć"
+
+#: templates/columns_definitions/partitions.twig:17
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partition by:"
+msgstr "padzielenaja na sekcyi"
+
+#: templates/columns_definitions/partitions.twig:32
+#: templates/columns_definitions/partitions.twig:60
+#, fuzzy
+#| msgid "Number of fields"
+msgid "Expression or column list"
+msgstr "Kolkaść paloŭ"
+
+#: templates/columns_definitions/partitions.twig:37
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partitions:"
+msgstr "Padzieł %s"
+
+#: templates/columns_definitions/partitions.twig:45
+#, fuzzy
+#| msgid "partitioned"
+msgid "Subpartition by:"
+msgstr "padzielenaja na sekcyi"
+
+#: templates/columns_definitions/partitions.twig:65
+#, fuzzy
+#| msgid "partitioned"
+msgid "Subpartitions:"
+msgstr "padzielenaja na sekcyi"
+
+#: templates/columns_definitions/partitions.twig:76
+#: templates/table/structure/display_partitions.twig:24
+#, fuzzy
+#| msgid "Partition %s"
+msgid "Partition"
+msgstr "Padzieł %s"
+
+#: templates/columns_definitions/partitions.twig:78
+#, fuzzy
+#| msgid "Value"
+msgid "Values"
+msgstr "Značeńnie"
+
+#: templates/columns_definitions/partitions.twig:82
+#, fuzzy
+#| msgid "partitioned"
+msgid "Subpartition"
+msgstr "padzielenaja na sekcyi"
+
+#: templates/columns_definitions/partitions.twig:84
+#, fuzzy
+#| msgid "Engines"
+msgid "Engine"
+msgstr "Mašyny"
+
+#: templates/columns_definitions/partitions.twig:86
+#, fuzzy
+#| msgid "Data home directory"
+msgid "Data directory"
+msgstr "Chatniaja tečka dadzienych"
+
+#: templates/columns_definitions/partitions.twig:87
+#, fuzzy
+#| msgid "Data home directory"
+msgid "Index directory"
+msgstr "Chatniaja tečka dadzienych"
+
+#: templates/columns_definitions/partitions.twig:88
+#, fuzzy
+#| msgid "Latched pages"
+msgid "Max rows"
+msgstr "Fiksavanyja staronki"
+
+#: templates/columns_definitions/partitions.twig:89
+#, fuzzy
+#| msgid "rows"
+msgid "Min rows"
+msgstr "Prahlad"
+
+#: templates/columns_definitions/partitions.twig:90
+#, fuzzy
+#| msgid "Search"
+msgid "Table space"
+msgstr "Pošuk"
+
+#: templates/columns_definitions/partitions.twig:91
+#, fuzzy
+#| msgid "User"
+msgid "Node group"
+msgstr "Karystalnik"
+
+#: templates/login/twofactor/key.twig:3
+msgid ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
+msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:15
 #, fuzzy
@@ -16174,76 +16264,132 @@ msgstr "Kolkaść paloŭ"
 msgid "Save chart as image"
 msgstr "Zachavać jak fajł"
 
-#: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Enable two-factor authentication"
-msgstr "Aŭtentyfikacyja…"
+#: templates/table/browse_foreigners/column_element.twig:4
+msgid "Use this value"
+msgstr "Vykarystoŭvać heta značeńnie"
 
-#: templates/login/twofactor/key.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm login on the device."
+#: templates/display/results/additional_fields.twig:6
+#: templates/start_and_number_of_rows_panel.twig:10
+#: templates/display/export/options_rows.twig:10
+#, fuzzy
+#| msgid "Number of fields"
+msgid "Number of rows:"
+msgstr "Kolkaść paloŭ"
+
+#: templates/table/page_with_secondary_tabs.twig:9
+#, fuzzy
+#| msgid "Relation view"
+msgid "Relation view"
+msgstr "Prahlad zaležnaściaŭ"
+
+#: templates/database/tracking/tables.twig:4
+msgid "Tracked tables"
 msgstr ""
 
-#: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "No databases"
-msgid "Jump to database '%s'"
-msgstr "Bazy dadzienych adsutničajuć"
+#: templates/database/tracking/tables.twig:14
+msgid "Last version"
+msgstr ""
 
-#: templates/server/databases/table_row.twig:51
-#, php-format
-msgid "Check privileges for database \"%s\"."
-msgstr "Pravieryć pryvilei dla bazy \"%s\"."
+#: templates/database/tracking/tables.twig:15
+#: templates/table/tracking/main.twig:29
+msgid "Created"
+msgstr ""
 
-#: templates/server/databases/table_row.twig:52
+#: templates/database/tracking/tables.twig:16
+#: templates/table/tracking/main.twig:30
+msgid "Updated"
+msgstr ""
+
+#: templates/database/tracking/tables.twig:51
+#: templates/database/tracking/tables.twig:79
 #, fuzzy
-#| msgid "Check Privileges"
-msgid "Check privileges"
-msgstr "Pravieryć pryvilei"
+#| msgid "Allows inserting and replacing data."
+msgid "Delete tracking"
+msgstr "Dazvalaje ŭstaŭlać i zamianiać dadzienyja."
 
-#: templates/display/export/template_loading.twig:2
+#: templates/database/tracking/tables.twig:57
+msgid "Versions"
+msgstr ""
+
+#: templates/database/tracking/tables.twig:90
+msgid "Untracked tables"
+msgstr ""
+
+#: templates/database/tracking/tables.twig:117
+#: templates/database/tracking/tables.twig:129
+#: templates/table/structure/display_structure.twig:392
+msgid "Track table"
+msgstr ""
+
+#: templates/server/privileges/privileges_summary.twig:20
+msgid "Column-specific privileges"
+msgstr "Specyfičnyja pryvilei kalonak"
+
+#: templates/server/privileges/privileges_summary.twig:54
 #, fuzzy
-#| msgid "Export"
-msgid "Export templates:"
-msgstr "Ekspart"
+#| msgid "Add privileges on the following database"
+msgid "Add privileges on the following database(s):"
+msgstr "Dadać pryvilei na nastupnuju bazu"
 
-#: templates/display/export/template_loading.twig:6
+#: templates/server/privileges/privileges_summary.twig:67
+msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
+msgstr ""
+"Symbali padstanoŭki % i _ musiać być ekranavanymi symbalem \\ dla ich "
+"litaralnaha vykarystańnia."
+
+#: templates/server/privileges/privileges_summary.twig:71
 #, fuzzy
-#| msgid "File name template"
-msgid "New template:"
-msgstr "Šablon nazvy fajła"
+#| msgid "Add privileges on the following table"
+msgid "Add privileges on the following table:"
+msgstr "Dadać pryvilei na nastupnuju tablicu"
 
-#: templates/display/export/template_loading.twig:8
+#: templates/server/privileges/privileges_summary.twig:86
 #, fuzzy
-#| msgid "Table name"
-msgid "Template name"
-msgstr "Imia tablicy"
+#| msgid "Add privileges on the following table"
+msgid "Add privileges on the following routine:"
+msgstr "Dadać pryvilei na nastupnuju tablicu"
 
-#: templates/display/export/template_loading.twig:10
-#: templates/server/databases/index.twig:37
-msgid "Create"
-msgstr "Stvaryć"
-
-#: templates/display/export/template_loading.twig:16
+#: templates/prefs_twofactor.twig:3
 #, fuzzy
-#| msgid "File name template"
-msgid "Existing templates:"
-msgstr "Šablon nazvy fajła"
+#| msgid "Authenticating…"
+msgid "Two-factor authentication status"
+msgstr "Aŭtentyfikacyja…"
 
-#: templates/display/export/template_loading.twig:17
-#, fuzzy
-#| msgid "%s table(s)"
-msgid "Template:"
-msgstr "%s tablic(y)"
+#: templates/prefs_twofactor.twig:9
+msgid ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
+msgstr ""
 
-#: templates/display/export/template_loading.twig:21
+#: templates/prefs_twofactor.twig:10
+msgid "Following composer packages are missing:"
+msgstr ""
+
+#: templates/prefs_twofactor.twig:18
+msgid "Two-factor authentication is available and configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:20
+msgid ""
+"Two-factor authentication is available, but not configured for this account."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:24
+msgid ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:33
+msgid "You have enabled two factor authentication."
+msgstr ""
+
+#: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
+#: templates/prefs_twofactor_configure.twig:2
 #, fuzzy
-#| msgctxt "Create UPDATE query"
-#| msgid "Update"
-msgid "Update"
-msgstr "Abnavić zapyt"
+#| msgid "Authenticating…"
+msgid "Configure two-factor authentication"
+msgstr "Aŭtentyfikacyja…"
 
 #: templates/table/search/rows_zoom.twig:12
 #, fuzzy
@@ -16251,411 +16397,18 @@ msgstr "Abnavić zapyt"
 msgid "Additional search criteria"
 msgstr "pa zapytu"
 
-#: templates/export/alias_add.twig:4
-msgid "Define new aliases"
-msgstr ""
-
-#: templates/export/alias_add.twig:9
+#: templates/start_and_number_of_rows_panel.twig:3
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Select database:"
-msgstr "Vybierycie tablicu(y)"
+#| msgid "Showing rows"
+msgid "Start row:"
+msgstr "Pakazanyja zapisy"
 
-#: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "database name"
-msgid "New database name"
-msgstr "imia bazy dadzienych"
-
-#: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Select table:"
-msgstr "Vybierycie tablicu(y)"
-
-#: templates/export/alias_add.twig:29
-#, fuzzy
-#| msgid "User name"
-msgid "New table name"
-msgstr "Imia karystalnika"
-
-#: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Select column:"
-msgstr "Dadać/vydalić kalonku kryteru"
-
-#: templates/export/alias_add.twig:43
-#, fuzzy
-#| msgid "Column names"
-msgid "New column name"
-msgstr "Nazvy kalonak"
-
-#: templates/database/structure/tracking_icon.twig:3
-msgid "Tracking is active."
-msgstr ""
-
-#: templates/database/structure/tracking_icon.twig:5
-msgid "Tracking is not active."
-msgstr ""
-
-#: templates/login/twofactor/invalid.twig:2
+#: templates/login/header.twig:15
 msgid ""
-"The configured two factor authentication is not available, please install "
-"missing dependencies."
+"There is mismatch between HTTPS indicated on the server and client. This can "
+"lead to non working phpMyAdmin or a security risk. Please fix your server "
+"configuration to indicate HTTPS properly."
 msgstr ""
-
-#: templates/display/export/options_output.twig:2
-#: templates/display/export/options_quick_export.twig:2
-msgid "Output:"
-msgstr ""
-
-#: templates/display/export/options_output.twig:26
-#, fuzzy
-#| msgid "Save as file"
-msgid "Save output to a file"
-msgstr "Zachavać jak fajł"
-
-#: templates/display/export/options_output.twig:51
-#, php-format
-msgid "Skip tables larger than %s MiB"
-msgstr ""
-
-#: templates/server/databases/databases_footer.twig:55
-msgid ""
-"Note: Enabling the database statistics here might cause heavy traffic "
-"between the web server and the MySQL server."
-msgstr ""
-"Zaŭvaha: Uklučeńnie statystyki bazy dadzienych moža vyklikać vialikuju "
-"kolkaść trafiku pamiž web-serveram i serveram MySQL."
-
-#: templates/server/databases/databases_footer.twig:58
-#: templates/server/databases/databases_footer.twig:61
-#, fuzzy
-#| msgid "Enable Statistics"
-msgid "Enable statistics"
-msgstr "Uklučyć statystyku"
-
-#: templates/table/tracking/main.twig:28 templates/server/plugins/main.twig:20
-msgid "Version"
-msgstr ""
-
-#: templates/table/tracking/main.twig:29
-#: templates/database/tracking/tables.twig:15
-msgid "Created"
-msgstr ""
-
-#: templates/table/tracking/main.twig:30
-#: templates/database/tracking/tables.twig:16
-msgid "Updated"
-msgstr ""
-
-#: templates/table/tracking/main.twig:61 templates/table/tracking/main.twig:88
-#, fuzzy
-#| msgid "Delete relation"
-msgid "Delete version"
-msgstr "Vydalić suviaź"
-
-#: templates/table/tracking/main.twig:103
-#, php-format
-msgid "Activate tracking for %s"
-msgstr ""
-
-#: templates/table/tracking/main.twig:105
-msgid "Activate now"
-msgstr ""
-
-#: templates/table/tracking/main.twig:107
-#, php-format
-msgid "Deactivate tracking for %s"
-msgstr ""
-
-#: templates/table/tracking/main.twig:109
-msgid "Deactivate now"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:1
-msgid "Query window"
-msgstr "Akno zapytu"
-
-#: templates/database/multi_table_query/form.twig:22
-#: templates/database/multi_table_query/form.twig:110
-#, fuzzy
-#| msgid "Select Tables"
-msgid "select table"
-msgstr "Vybierycie tablicu(y)"
-
-#: templates/database/multi_table_query/form.twig:29
-#: templates/database/multi_table_query/form.twig:118
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "select column"
-msgstr "Dadać/vydalić kalonku kryteru"
-
-#: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Tables"
-msgid "Table alias"
-msgstr "Tablic"
-
-#: templates/database/multi_table_query/form.twig:36
-#, fuzzy
-#| msgid "Column names"
-msgid "Column alias"
-msgstr "Nazvy kalonak"
-
-#: templates/database/multi_table_query/form.twig:39
-msgid "Use this column in criteria"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:42
-#, fuzzy
-#| msgid "Criteria"
-msgid "criteria"
-msgstr "Kryter"
-
-#: templates/database/multi_table_query/form.twig:56
-#, fuzzy
-#| msgid "Add %s"
-msgid "Add as"
-msgstr "Dadać %s"
-
-#: templates/database/multi_table_query/form.twig:101
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Another column"
-msgstr "Dadać/vydalić kalonku kryteru"
-
-#: templates/database/multi_table_query/form.twig:129
-msgid "Enter criteria as free text"
-msgstr ""
-
-#: templates/database/multi_table_query/form.twig:137
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Remove this column"
-msgstr "Pierajmienavać bazu dadzienych u"
-
-#: templates/database/multi_table_query/form.twig:164
-#, fuzzy
-#| msgid "Update Query"
-msgid "Update query"
-msgstr "Abnavić zapyt"
-
-#: templates/database/search/main.twig:5
-msgid "Search in database"
-msgstr "Pošuk u bazie dadzienych"
-
-#: templates/database/search/main.twig:8
-#, fuzzy
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Słova(y) abo značeńnie(i) dla pošuku (maska: \"%\"):"
-
-#: templates/database/search/main.twig:29
-#, fuzzy
-#| msgid "Inside table(s):"
-msgid "Inside tables:"
-msgstr "U tablicy(ach):"
-
-#: templates/database/search/main.twig:51
-#, fuzzy
-#| msgid "Inside field:"
-msgid "Inside column:"
-msgstr "Unutry pola:"
-
-#: templates/display/export/option_header.twig:5
-#, fuzzy
-#| msgid "Allows locking tables for the current thread."
-msgid "Exporting databases from the current server"
-msgstr "Dazvalaje blakavać tablicy dla biahučaha patoku."
-
-#: templates/display/export/option_header.twig:7
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting tables from \"%s\" database"
-msgstr "Stvaryć novuju tablicu ŭ BD %s"
-
-#: templates/display/export/option_header.twig:9
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Exporting rows from \"%s\" table"
-msgstr "Stvaryć novuju tablicu ŭ BD %s"
-
-#: templates/columns_definitions/move_column.twig:7
-msgid "first"
-msgstr ""
-
-#: templates/columns_definitions/move_column.twig:12
-#: templates/table/structure/display_structure.twig:429
-#, fuzzy, php-format
-#| msgid "After %s"
-msgid "after %s"
-msgstr "Paśla %s"
-
-#: templates/encoding/kanji_encoding_form.twig:6
-#, fuzzy
-#| msgid "None"
-msgctxt "None encoding conversion"
-msgid "None"
-msgstr "Nijakaja"
-
-#: templates/encoding/kanji_encoding_form.twig:17
-msgid "Convert to Kana"
-msgstr ""
-
-#: templates/export/alias_item.twig:8
-msgid "Remove"
-msgstr ""
-
-#: templates/error/report_form.twig:6
-msgid ""
-"This report automatically includes data about the error and information "
-"about relevant configuration settings. It will be sent to the phpMyAdmin "
-"team for debugging the error."
-msgstr ""
-
-#: templates/error/report_form.twig:12
-msgid ""
-"Can you tell us the steps leading to this error? It decisively helps in "
-"debugging:"
-msgstr ""
-
-#: templates/error/report_form.twig:19
-msgid "You may examine the data in the error report:"
-msgstr ""
-
-#: templates/login/twofactor/key-https-warning.twig:3
-msgid ""
-"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
-"most likely refuse to authenticate you."
-msgstr ""
-
-#: templates/view_create.twig:13
-#: templates/table/structure/display_structure.twig:374
-#, fuzzy
-#| msgid "Print view"
-msgid "Edit view"
-msgstr "Versija dla druku"
-
-#: templates/view_create.twig:65
-msgid "VIEW name"
-msgstr "Nazva prahladu"
-
-#: templates/view_create.twig:79
-msgid "Column names"
-msgstr "Nazvy kalonak"
-
-#: templates/login/twofactor/key_configure.twig:3
-msgid ""
-"Please connect your FIDO U2F device into your computer's USB port. Then "
-"confirm registration on the device."
-msgstr ""
-
-#: templates/create_tracking_version.twig:11
-#, fuzzy, php-format
-#| msgid "General relation features"
-msgid "Create version %1$s of %2$s"
-msgstr "Mahčymaści asnoŭnych suviaziaŭ"
-
-#: templates/create_tracking_version.twig:16
-#, fuzzy, php-format
-#| msgid "General relation features"
-msgid "Create version %1$s"
-msgstr "Mahčymaści asnoŭnych suviaziaŭ"
-
-#: templates/create_tracking_version.twig:20
-msgid "Track these data definition statements:"
-msgstr ""
-
-#: templates/create_tracking_version.twig:59
-msgid "Track these data manipulation statements:"
-msgstr ""
-
-#: templates/create_tracking_version.twig:76
-msgid "Create version"
-msgstr ""
-
-#: templates/server/databases/index.twig:15
-#: templates/server/databases/index.twig:43
-#, fuzzy
-#| msgid "Create new database"
-msgid "Create database"
-msgstr "Stvaryć novuju bazu dadzienych"
-
-#: templates/server/databases/index.twig:122
-msgid "No databases"
-msgstr "Bazy dadzienych adsutničajuć"
-
-#: templates/display/export/options_output_separate_files.twig:7
-#, fuzzy
-#| msgid "Create table on database %s"
-msgid "Export databases as separate files"
-msgstr "Stvaryć novuju tablicu ŭ BD %s"
-
-#: templates/display/export/options_output_separate_files.twig:9
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
-msgid "Export tables as separate files"
-msgstr "haryzantalna (paviernutyja zahałoŭki)"
-
-#: templates/table/search/fields_table.twig:10
-#: templates/database/designer/main.twig:557
-#: templates/database/designer/main.twig:621
-#: templates/database/designer/main.twig:822
-#: templates/database/designer/main.twig:853
-#: templates/database/designer/main.twig:961
-#: templates/database/designer/main.twig:1046
-msgid "Operator"
-msgstr "Aperatar"
-
-#: templates/database/structure/favorite_anchor.twig:4
-#, fuzzy
-#| msgid "Add a new User"
-msgid "Add to Favorites"
-msgstr "Dadać novaha karystalnika"
-
-#: templates/database/structure/body_for_table_summary.twig:6
-#, fuzzy, php-format
-#| msgid "%s table(s)"
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s tablic(y)"
-msgstr[1] "%s tablic(y)"
-msgstr[2] "%s tablic(y)"
-
-#: templates/database/structure/body_for_table_summary.twig:17
-msgid "Sum"
-msgstr "Usiaho"
-
-#: templates/table/search/replace_preview.twig:13
-msgid "Find and replace - preview"
-msgstr ""
-
-#: templates/table/search/replace_preview.twig:17
-#: templates/console/display.twig:64 templates/console/display.twig:84
-#, fuzzy
-#| msgid "Column names"
-msgid "Count"
-msgstr "Nazvy kalonak"
-
-#: templates/table/search/replace_preview.twig:18
-#, fuzzy
-#| msgid "Original position"
-msgid "Original string"
-msgstr "Pieršapačatkovaja pazycyja"
-
-#: templates/table/search/replace_preview.twig:19
-#, fuzzy
-#| msgid "Relations"
-msgid "Replaced string"
-msgstr "Suviazi"
-
-#: templates/table/search/replace_preview.twig:37
-#, fuzzy
-#| msgid "Replication"
-msgid "Replace"
-msgstr "Replikacyja"
 
 #: templates/table/index_form.twig:15
 msgid "Index name:"
@@ -16699,111 +16452,359 @@ msgstr "Karystalnik"
 msgid "Comment:"
 msgstr "Kamentar"
 
-#: templates/table/index_form.twig:122
-#: templates/database/structure/table_header.twig:36
-msgid "Size"
-msgstr "Pamier"
-
 #: templates/table/index_form.twig:140 templates/table/index_form.twig:177
 msgid "Drag to reorder"
 msgstr ""
 
-#: templates/database/qbe/footer_options.twig:3
-#, fuzzy
-#| msgid "Add/Delete Criteria Row"
-msgid "Add/Delete criteria rows"
-msgstr "Dadać/vydalić radok kryteru"
+#: templates/login/twofactor/invalid.twig:2
+msgid ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
+msgstr ""
 
-#: templates/database/qbe/footer_options.twig:5
+#: templates/view_create.twig:13
+#: templates/table/structure/display_structure.twig:374
+#, fuzzy
+#| msgid "Print view"
+msgid "Edit view"
+msgstr "Versija dla druku"
+
+#: templates/view_create.twig:65
+msgid "VIEW name"
+msgstr "Nazva prahladu"
+
+#: templates/view_create.twig:79
+msgid "Column names"
+msgstr "Nazvy kalonak"
+
+#: templates/columns_definitions/table_fields_definitions.twig:17
+#, fuzzy
+#| msgid ""
+#| "field type is \"enum\" or \"set\", please enter the values using this "
+#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
+#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
+#| "example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"If column type is \"enum\" or \"set\", please enter the values using this "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
+"single quote (\"'\") amongst those values, precede it with a backslash (for "
+"example '\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Kali typ pola \"enum\" abo \"set\", kali łaska, uvodźcie značeńni "
+"vykarystoŭvajučy hety farmat: 'a','b','c'… Kali vam patrebna ŭžyć zvarotny "
+"słeš (\"\\\") abo apostraf (\"'\") siarod hetych značeńniaŭ, pastaŭcie "
+"pierad imi zvarotny słeš (naprykład, '\\\\xyz' abo 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:21
+msgid ""
+"For default values, please enter just a single value, without backslash "
+"escaping or quotes, using this format: a"
+msgstr ""
+"Dla značeńniaŭ pa zmoŭčańni, kali łaska, uviadzicie prosta značeńnie, biez "
+"vykarystańnia zvarotnych słešaŭ i dvukośsia, vykarystoŭvajučy farmat: a"
+
+#: templates/columns_definitions/table_fields_definitions.twig:59
+msgid "Virtuality"
+msgstr ""
+
+#: templates/columns_definitions/table_fields_definitions.twig:65
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
-msgid "Add/Delete columns"
+msgid "Move column"
 msgstr "Dadać/vydalić kalonku kryteru"
 
-#: templates/columns_definitions/partitions.twig:17
+#: templates/columns_definitions/table_fields_definitions.twig:76
+#: templates/columns_definitions/table_fields_definitions.twig:87
 #, fuzzy
-#| msgid "partitioned"
-msgid "Partition by:"
-msgstr "padzielenaja na sekcyi"
+#| msgid "Available transformations"
+msgid "List of available transformations and their options"
+msgstr "Dastupnyja pieraŭtvareńni"
 
-#: templates/columns_definitions/partitions.twig:32
-#: templates/columns_definitions/partitions.twig:60
+#: templates/columns_definitions/table_fields_definitions.twig:82
 #, fuzzy
-#| msgid "Number of fields"
-msgid "Expression or column list"
-msgstr "Kolkaść paloŭ"
+#| msgid "Browser transformation"
+msgid "Browser display transformation options"
+msgstr "Pieraŭtvareńnie MIME-typu braŭzeram"
 
-#: templates/columns_definitions/partitions.twig:37
+#: templates/columns_definitions/table_fields_definitions.twig:83
+#: templates/columns_definitions/table_fields_definitions.twig:94
+#, fuzzy
+#| msgid ""
+#| "Please enter the values for transformation options using this format: "
+#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
+#| "single quote (\"'\") amongst those values, precede it with a backslash "
+#| "(for example '\\\\xyz' or 'a\\'b')."
+msgid ""
+"Please enter the values for transformation options using this format: 'a', "
+"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
+"quote (\"'\") amongst those values, precede it with a backslash (for example "
+"'\\\\xyz' or 'a\\'b')."
+msgstr ""
+"Kali łaska, uvodźcie značeńni opcyjaŭ pieraŭtvareńnia vykarystoŭvajučy hety "
+"farmat: 'a', 100, b,'c'…<br />Kali vam treba ŭžyć zvarotny słeš (\"\\\") abo "
+"apostraf (\"'\") u hetych značeńniach, ustaŭcie zvarotny słeš pierad imi "
+"(naprykład, '\\\\xyz' abo 'a\\'b')."
+
+#: templates/columns_definitions/table_fields_definitions.twig:93
+#, fuzzy
+#| msgid "Transformation options"
+msgid "Input transformation options"
+msgstr "Opcyi pieraŭtvareńnia"
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Collapse"
+msgstr ""
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
+msgid "Expand"
+msgstr ""
+
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:175
+#, fuzzy
+#| msgid "in query"
+msgid "Requery"
+msgstr "pa zapytu"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Server variables and settings"
+msgstr "Nałady i źmiennyja servera"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Storage Engines"
+msgid "Storage engines"
+msgstr "Mašyny zachavańnia dadzienych"
+
+#: templates/server/sub_page_header.twig:2
+#, fuzzy
+#| msgid "Character Sets and Collations"
+msgid "Character sets and collations"
+msgstr "Raskładki i supastaŭleńni"
+
+#: templates/server/sub_page_header.twig:2
+msgid "Databases statistics"
+msgstr "Statystyka bazaŭ dadzienych"
+
+#: templates/table/search/zoom_result_form.twig:7
+msgid "Browse/Edit the points"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:15
+msgid "How to use"
+msgstr ""
+
+#: templates/table/search/zoom_result_form.twig:23
+#, fuzzy
+#| msgid "Reset"
+msgid "Reset zoom"
+msgstr "Skinuć"
+
+#: templates/prefs_twofactor_configure.twig:8
+#, fuzzy
+#| msgid "Authenticating…"
+msgid "Enable two-factor authentication"
+msgstr "Aŭtentyfikacyja…"
+
+#: templates/server/databases/databases_footer.twig:55
+msgid ""
+"Note: Enabling the database statistics here might cause heavy traffic "
+"between the web server and the MySQL server."
+msgstr ""
+"Zaŭvaha: Uklučeńnie statystyki bazy dadzienych moža vyklikać vialikuju "
+"kolkaść trafiku pamiž web-serveram i serveram MySQL."
+
+#: templates/server/databases/databases_footer.twig:58
+#: templates/server/databases/databases_footer.twig:61
+#, fuzzy
+#| msgid "Enable Statistics"
+msgid "Enable statistics"
+msgstr "Uklučyć statystyku"
+
+#: templates/database/structure/structure_table_row.twig:214
+msgid "in use"
+msgstr "vykarystoŭvajecca"
+
+#: templates/table/gis_visualization/gis_visualization.twig:3
+msgid "Display GIS Visualization"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:8
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Label column"
+msgstr "Dadać/vydalić kalonku kryteru"
+
+#: templates/table/gis_visualization/gis_visualization.twig:11
+msgid "-- None --"
+msgstr ""
+
+#: templates/table/gis_visualization/gis_visualization.twig:19
+#, fuzzy
+#| msgid "Log file count"
+msgid "Spatial column"
+msgstr "Kolkaść fajłaŭ łogu"
+
+#: templates/server/plugins/main.twig:18
+msgid "Plugin"
+msgstr ""
+
+#: templates/server/plugins/main.twig:20 templates/table/tracking/main.twig:28
+msgid "Version"
+msgstr ""
+
+#: templates/server/plugins/main.twig:21
+msgid "Author"
+msgstr ""
+
+#: templates/server/plugins/main.twig:32
+#, fuzzy
+#| msgid "Disabled"
+msgid "disabled"
+msgstr "Adklučana"
+
+#: templates/prefs_autoload.twig:7
+msgid ""
+"Your browser has phpMyAdmin configuration for this domain. Would you like to "
+"import it for current session?"
+msgstr ""
+
+#: templates/prefs_autoload.twig:13
+#, fuzzy
+#| msgid "Allows inserting and replacing data."
+msgid "Delete settings"
+msgstr "Dazvalaje ŭstaŭlać i zamianiać dadzienyja."
+
+#: templates/server/databases/table_row.twig:13
+#, fuzzy, php-format
+#| msgid "No databases"
+msgid "Jump to database '%s'"
+msgstr "Bazy dadzienych adsutničajuć"
+
+#: templates/server/databases/table_row.twig:51
+#, php-format
+msgid "Check privileges for database \"%s\"."
+msgstr "Pravieryć pryvilei dla bazy \"%s\"."
+
+#: templates/server/databases/table_row.twig:52
+#, fuzzy
+#| msgid "Check Privileges"
+msgid "Check privileges"
+msgstr "Pravieryć pryvilei"
+
+#: templates/table/structure/partition_definition_form.twig:6
+#: templates/table/structure/display_partitions.twig:141
+#, fuzzy
+#| msgid "Remove partitioning"
+msgid "Edit partitioning"
+msgstr "Skasavać padzieł na častki"
+
+#: templates/login/twofactor/application.twig:4
+msgid ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:89
+#: templates/table/tracking/structure_snapshot_columns.twig:47
+#, fuzzy
+#| msgid "None"
+msgctxt "None for default"
+msgid "None"
+msgstr "Nijakaja"
+
+#: templates/table/structure/display_structure.twig:110
+#, fuzzy, php-format
+#| msgid "Table %s has been dropped."
+msgid "Column %s has been dropped."
+msgstr "Tablica %s była vydalenaja"
+
+#: templates/table/structure/display_structure.twig:133
+#, php-format
+msgid "A primary key has been added on %s."
+msgstr "Pieršasny kluč byŭ dadadzieny da %s."
+
+#: templates/table/structure/display_structure.twig:151
+#: templates/table/structure/display_structure.twig:169
+#: templates/table/structure/display_structure.twig:198
+#: templates/table/structure/display_structure.twig:221
+#, php-format
+msgid "An index has been added on %s."
+msgstr "Byŭ dadadzieny indeks dla %s."
+
+#: templates/table/structure/display_structure.twig:245
+#: templates/table/structure/display_structure.twig:348
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Remove from central columns"
+msgstr "Pierajmienavać bazu dadzienych u"
+
+#: templates/table/structure/display_structure.twig:249
+#: templates/table/structure/display_structure.twig:341
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Add to central columns"
+msgstr "Dadać %s novyja pali"
+
+#: templates/table/structure/display_structure.twig:361
+#: templates/table/structure/display_structure.twig:396
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Move columns"
+msgstr "Dadać %s novyja pali"
+
+#: templates/table/structure/display_structure.twig:362
+msgid "Move the columns by dragging them up and down."
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:383
+msgid "Propose table structure"
+msgstr "Prapanavanaja struktura tablicy"
+
+#: templates/table/structure/display_structure.twig:399
+msgid "Normalize"
+msgstr ""
+
+#: templates/table/structure/display_structure.twig:405
+#, fuzzy
+#| msgid "Create"
+msgid "Track view"
+msgstr "Stvaryć"
+
+#: templates/table/structure/display_structure.twig:419
+#, fuzzy, php-format
+#| msgid "Add %s field(s)"
+msgid "Add %s column(s)"
+msgstr "Dadać %s novyja pali"
+
+#: templates/table/structure/display_structure.twig:424
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "at beginning of table"
+msgstr "U pačatku tablicy"
+
+#: templates/table/structure/display_structure.twig:429
+#: templates/columns_definitions/move_column.twig:12
+#, fuzzy, php-format
+#| msgid "After %s"
+msgid "after %s"
+msgstr "Paśla %s"
+
+#: templates/table/structure/display_structure.twig:471
+#: templates/table/structure/display_partitions.twig:4
 #, fuzzy
 #| msgid "Partition %s"
-msgid "Partitions:"
+msgid "Partitions"
 msgstr "Padzieł %s"
 
-#: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "partitioned"
-msgid "Subpartition by:"
-msgstr "padzielenaja na sekcyi"
-
-#: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "partitioned"
-msgid "Subpartitions:"
-msgstr "padzielenaja na sekcyi"
-
-#: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "Value"
-msgid "Values"
-msgstr "Značeńnie"
-
-#: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "partitioned"
-msgid "Subpartition"
-msgstr "padzielenaja na sekcyi"
-
-#: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
-msgid "Engine"
-msgstr "Mašyny"
-
-#: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
-msgid "Data directory"
-msgstr "Chatniaja tečka dadzienych"
-
-#: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Data home directory"
-msgid "Index directory"
-msgstr "Chatniaja tečka dadzienych"
-
-#: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Latched pages"
-msgid "Max rows"
-msgstr "Fiksavanyja staronki"
-
-#: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "rows"
-msgid "Min rows"
-msgstr "Prahlad"
-
-#: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Search"
-msgid "Table space"
-msgstr "Pošuk"
-
-#: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "User"
-msgid "Node group"
-msgstr "Karystalnik"
+#: templates/display/export/options_quick_export.twig:8
+#: templates/display/export/options_output_save_dir.twig:5
+#, fuzzy, php-format
+#| msgid "Save on server in %s directory"
+msgid "Save on server in the directory <strong>%s</strong>"
+msgstr "Zachavać na servery ŭ tečcy %s"
 
 #: templates/columns_definitions/column_default.twig:3
 #, fuzzy
@@ -16815,6 +16816,619 @@ msgstr "Nijakaja"
 #: templates/columns_definitions/column_default.twig:5
 msgid "As defined:"
 msgstr "Jak vyznačana:"
+
+#: templates/table/search/replace_preview.twig:13
+msgid "Find and replace - preview"
+msgstr ""
+
+#: templates/table/search/replace_preview.twig:17
+#: templates/console/display.twig:64 templates/console/display.twig:84
+#, fuzzy
+#| msgid "Column names"
+msgid "Count"
+msgstr "Nazvy kalonak"
+
+#: templates/table/search/replace_preview.twig:18
+#, fuzzy
+#| msgid "Original position"
+msgid "Original string"
+msgstr "Pieršapačatkovaja pazycyja"
+
+#: templates/table/search/replace_preview.twig:19
+#, fuzzy
+#| msgid "Relations"
+msgid "Replaced string"
+msgstr "Suviazi"
+
+#: templates/table/search/replace_preview.twig:37
+#, fuzzy
+#| msgid "Replication"
+msgid "Replace"
+msgstr "Replikacyja"
+
+#: templates/display/results/options_block.twig:34
+msgid "Relational key"
+msgstr "Kluč suviazi"
+
+#: templates/display/results/options_block.twig:34
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Display column for relationships"
+msgstr "Adklučyć pravierku źniešnich klučoŭ"
+
+#: templates/display/results/options_block.twig:50
+msgid "Show binary contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:57
+msgid "Show BLOB contents"
+msgstr ""
+
+#: templates/display/results/options_block.twig:71
+#, fuzzy
+#| msgid "Browser transformation"
+msgid "Hide browser transformation"
+msgstr "Pieraŭtvareńnie MIME-typu braŭzeram"
+
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Text"
+msgstr ""
+
+#: templates/display/results/options_block.twig:83
+#: templates/display/results/options_block.twig:100
+msgid "Well Known Binary"
+msgstr ""
+
+#: templates/export/alias_add.twig:4
+msgid "Define new aliases"
+msgstr ""
+
+#: templates/export/alias_add.twig:9
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select database:"
+msgstr "Vybierycie tablicu(y)"
+
+#: templates/export/alias_add.twig:15
+#, fuzzy
+#| msgid "database name"
+msgid "New database name"
+msgstr "imia bazy dadzienych"
+
+#: templates/export/alias_add.twig:23
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Select table:"
+msgstr "Vybierycie tablicu(y)"
+
+#: templates/export/alias_add.twig:29
+#, fuzzy
+#| msgid "User name"
+msgid "New table name"
+msgstr "Imia karystalnika"
+
+#: templates/export/alias_add.twig:37
+#, fuzzy
+#| msgid "Add/Delete Field Columns"
+msgid "Select column:"
+msgstr "Dadać/vydalić kalonku kryteru"
+
+#: templates/export/alias_add.twig:43
+#, fuzzy
+#| msgid "Column names"
+msgid "New column name"
+msgstr "Nazvy kalonak"
+
+#: templates/columns_definitions/move_column.twig:7
+msgid "first"
+msgstr ""
+
+#: templates/table/structure/display_partitions.twig:8
+#, fuzzy
+#| msgid "No index defined!"
+msgid "No partitioning defined!"
+msgstr "Indeks nia vyznačany!"
+
+#: templates/table/structure/display_partitions.twig:11
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partitioned by:"
+msgstr "padzielenaja na sekcyi"
+
+#: templates/table/structure/display_partitions.twig:16
+#, fuzzy
+#| msgid "partitioned"
+msgid "Sub partitioned by:"
+msgstr "padzielenaja na sekcyi"
+
+#: templates/table/structure/display_partitions.twig:29
+#, fuzzy
+#| msgid "Row length"
+msgid "Data length"
+msgstr "Daŭžynia radka"
+
+#: templates/table/structure/display_partitions.twig:30
+#, fuzzy
+#| msgid "Row length"
+msgid "Index length"
+msgstr "Daŭžynia radka"
+
+#: templates/table/structure/display_partitions.twig:135
+#, fuzzy
+#| msgid "partitioned"
+msgid "Partition table"
+msgstr "padzielenaja na sekcyi"
+
+#: templates/display/export/options_rows.twig:2
+#, fuzzy
+#| msgid "Rows"
+msgid "Rows:"
+msgstr "Radki"
+
+#: templates/display/export/options_rows.twig:7
+msgid "Dump some row(s)"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:23
+msgid "Row to begin at:"
+msgstr ""
+
+#: templates/display/export/options_rows.twig:32
+msgid "Dump all rows"
+msgstr ""
+
+#: templates/display/export/selection.twig:3
+#, fuzzy
+#| msgid "Databases"
+msgid "Databases:"
+msgstr "Bazy dadzienych"
+
+#: templates/database/designer/page_selector.twig:2
+#, fuzzy
+#| msgid "Select All"
+msgid "Select page"
+msgstr "Vybrać usio"
+
+#: templates/table/tracking/main.twig:61 templates/table/tracking/main.twig:88
+#, fuzzy
+#| msgid "Delete relation"
+msgid "Delete version"
+msgstr "Vydalić suviaź"
+
+#: templates/table/tracking/main.twig:103
+#, php-format
+msgid "Activate tracking for %s"
+msgstr ""
+
+#: templates/table/tracking/main.twig:105
+msgid "Activate now"
+msgstr ""
+
+#: templates/table/tracking/main.twig:107
+#, php-format
+msgid "Deactivate tracking for %s"
+msgstr ""
+
+#: templates/table/tracking/main.twig:109
+msgid "Deactivate now"
+msgstr ""
+
+#: templates/server/privileges/add_user_fieldset.twig:2
+msgctxt "Create new user"
+msgid "New"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:14
+msgid "Space usage"
+msgstr "Vykarystańnie prastory"
+
+#: templates/table/structure/display_table_stats.twig:37
+msgid "Effective"
+msgstr "Efektyŭnaść"
+
+#: templates/table/structure/display_table_stats.twig:73
+#, fuzzy
+#| msgid "Row Statistics"
+msgid "Row statistics"
+msgstr "Statystyka radku"
+
+#: templates/table/structure/display_table_stats.twig:79
+msgid "static"
+msgstr ""
+
+#: templates/table/structure/display_table_stats.twig:81
+msgid "dynamic"
+msgstr "dynamičny"
+
+#: templates/table/structure/display_table_stats.twig:92
+msgid "partitioned"
+msgstr "padzielenaja na sekcyi"
+
+#: templates/table/structure/display_table_stats.twig:121
+msgid "Row length"
+msgstr "Daŭžynia radka"
+
+#: templates/table/structure/display_table_stats.twig:133
+msgid "Row size"
+msgstr "Pamier radka"
+
+#: templates/table/structure/display_table_stats.twig:140
+msgid "Next autoindex"
+msgstr ""
+
+#: templates/theme_preview.twig:11
+msgid "No preview available."
+msgstr "Papiaredni prahlad niedastupny."
+
+#: templates/theme_preview.twig:13
+#, fuzzy
+#| msgid "take it"
+msgid "Take it"
+msgstr "hetaja"
+
+#: templates/display/export/options_output_compression.twig:4
+#, fuzzy
+#| msgid "Compression"
+msgid "Compression:"
+msgstr "Ścisk"
+
+#: templates/display/export/options_output_compression.twig:11
+#, fuzzy
+#| msgid "\"zipped\""
+msgid "zipped"
+msgstr "archivavany ŭ zip"
+
+#: templates/display/export/options_output_compression.twig:17
+#, fuzzy
+#| msgid "\"gzipped\""
+msgid "gzipped"
+msgstr "archivavany ŭ gzip"
+
+#: templates/display/export/option_header.twig:5
+#, fuzzy
+#| msgid "Allows locking tables for the current thread."
+msgid "Exporting databases from the current server"
+msgstr "Dazvalaje blakavać tablicy dla biahučaha patoku."
+
+#: templates/display/export/option_header.twig:7
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting tables from \"%s\" database"
+msgstr "Stvaryć novuju tablicu ŭ BD %s"
+
+#: templates/display/export/option_header.twig:9
+#, fuzzy, php-format
+#| msgid "Create table on database %s"
+msgid "Exporting rows from \"%s\" table"
+msgstr "Stvaryć novuju tablicu ŭ BD %s"
+
+#: templates/database/structure/favorite_anchor.twig:4
+#, fuzzy
+#| msgid "Add a new User"
+msgid "Add to Favorites"
+msgstr "Dadać novaha karystalnika"
+
+#: templates/table/relation/common_form.twig:9
+#, fuzzy
+#| msgid "Disable foreign key checks"
+msgid "Foreign key constraints"
+msgstr "Adklučyć pravierku źniešnich klučoŭ"
+
+#: templates/table/relation/common_form.twig:13
+msgid "Actions"
+msgstr "Dziejańni"
+
+#: templates/table/relation/common_form.twig:14
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint properties"
+msgstr "Abmiežavańni dla tablicy"
+
+#: templates/table/relation/common_form.twig:18
+msgid ""
+"Creating a foreign key over a non-indexed column would automatically create "
+"an index on it. Alternatively, you can define an index below, before "
+"creating the foreign key."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:23
+msgid ""
+"Only columns with index will be displayed. You can define an index below."
+msgstr ""
+
+#: templates/table/relation/common_form.twig:27
+msgid "Foreign key constraint"
+msgstr ""
+
+#: templates/table/relation/common_form.twig:92
+#, fuzzy
+#| msgid "Add constraints"
+msgid "+ Add constraint"
+msgstr "Dadać abmiežavańni"
+
+#: templates/table/relation/common_form.twig:102
+#: templates/table/relation/common_form.twig:111
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relationships"
+msgstr "Unutranyja suviazi"
+
+#: templates/table/relation/common_form.twig:117
+#, fuzzy
+#| msgid "Internal relations"
+msgid "Internal relation"
+msgstr "Unutranyja suviazi"
+
+#: templates/table/relation/common_form.twig:119
+msgid ""
+"An internal relation is not necessary when a corresponding FOREIGN KEY "
+"relation exists."
+msgstr ""
+"Unutranaja suviaź nie źjaŭlajecca abaviazkovaj, kali isnuje adpaviednaja "
+"suviaź FOREIGN KEY."
+
+#: templates/table/relation/common_form.twig:199
+#, fuzzy
+#| msgid "Choose field to display"
+msgid "Choose column to display:"
+msgstr "Vybierycie pole dla adlustravańnia"
+
+#: templates/table/relation/foreign_key_row.twig:15
+#, fuzzy, php-format
+#| msgid "Disable foreign key checks"
+msgid "Foreign key constraint %s has been dropped"
+msgstr "Adklučyć pravierku źniešnich klučoŭ"
+
+#: templates/table/relation/foreign_key_row.twig:34
+#, fuzzy
+#| msgid "Constraints for table"
+msgid "Constraint name"
+msgstr "Abmiežavańni dla tablicy"
+
+#: templates/display/export/template_loading.twig:2
+#, fuzzy
+#| msgid "Export"
+msgid "Export templates:"
+msgstr "Ekspart"
+
+#: templates/display/export/template_loading.twig:6
+#, fuzzy
+#| msgid "File name template"
+msgid "New template:"
+msgstr "Šablon nazvy fajła"
+
+#: templates/display/export/template_loading.twig:8
+#, fuzzy
+#| msgid "Table name"
+msgid "Template name"
+msgstr "Imia tablicy"
+
+#: templates/display/export/template_loading.twig:16
+#, fuzzy
+#| msgid "File name template"
+msgid "Existing templates:"
+msgstr "Šablon nazvy fajła"
+
+#: templates/display/export/template_loading.twig:17
+#, fuzzy
+#| msgid "%s table(s)"
+msgid "Template:"
+msgstr "%s tablic(y)"
+
+#: templates/display/export/template_loading.twig:21
+#, fuzzy
+#| msgctxt "Create UPDATE query"
+#| msgid "Update"
+msgid "Update"
+msgstr "Abnavić zapyt"
+
+#: templates/columns_definitions/column_name.twig:4
+#, fuzzy, php-format
+#| msgid "Select referenced key"
+msgid "Referenced by %s."
+msgstr "Vybierycie spasyłkavy kluč"
+
+#: templates/columns_definitions/column_name.twig:12
+#, fuzzy
+#| msgid "Select Foreign Key"
+msgid "Is a foreign key."
+msgstr "Vybierycie źniešni kluč"
+
+#: templates/columns_definitions/column_name.twig:40
+#, fuzzy
+#| msgid "Rename database to"
+msgid "Pick from Central Columns"
+msgstr "Pierajmienavać bazu dadzienych u"
+
+#: templates/login/twofactor/key-https-warning.twig:3
+msgid ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
+msgstr ""
+
+#: templates/server/privileges/resource_limits.twig:2
+msgid "Resource limits"
+msgstr "Abmiežavańni resursaŭ"
+
+#: templates/server/privileges/resource_limits.twig:5
+msgid "Note: Setting these options to 0 (zero) removes the limit."
+msgstr "Zaŭvaha: Paznačeńnie hetych opcyjaŭ jak 0 (nul) zdymaje abmiežavańnie."
+
+#: templates/server/variables/variable_row.twig:6
+msgid "This is a read-only variable and can not be edited"
+msgstr ""
+
+#: templates/server/variables/variable_row.twig:31
+msgid "Session value"
+msgstr "Značeńnie sesii"
+
+#: templates/display/import/javascript.twig:12
+msgid ""
+"The file being uploaded is probably larger than the maximum allowed size or "
+"this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
+"browsers."
+msgstr ""
+
+#: templates/display/import/javascript.twig:13
+#, php-format
+msgid "%s of %s"
+msgstr ""
+
+#: templates/display/import/javascript.twig:14
+#, php-format
+msgid "%s/sec."
+msgstr ""
+
+#: templates/display/import/javascript.twig:15
+msgid "About %MIN min. %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:16
+msgid "About %SEC sec. remaining."
+msgstr ""
+
+#: templates/display/import/javascript.twig:17
+msgid "The file is being processed, please be patient."
+msgstr ""
+
+#: templates/display/import/javascript.twig:30
+#, fuzzy
+#| msgid "Format of imported file"
+msgid "Uploading your import file…"
+msgstr "Farmat impartavanaha fajła"
+
+#: templates/display/import/javascript.twig:155
+msgid ""
+"Please be patient, the file is being uploaded. Details about the upload are "
+"not available."
+msgstr ""
+
+#: templates/display/export/options_output_radio.twig:5
+#, fuzzy
+#| msgid "Save as file"
+msgid "View output as text"
+msgstr "Zachavać jak fajł"
+
+#: templates/display/export/options_output_format.twig:3
+#, fuzzy
+#| msgid "File name template"
+msgid "File name template:"
+msgstr "Šablon nazvy fajła"
+
+#: templates/display/export/options_output_format.twig:11
+msgid "use this for future exports"
+msgstr ""
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Page number:"
+msgid "Page to open"
+msgstr "Staronka:"
+
+#: templates/database/designer/edit_delete_pages.twig:6
+#, fuzzy
+#| msgid "Relation deleted"
+msgid "Page to delete"
+msgstr "Suviaź vydalenaja"
+
+#: templates/database/structure/check_all_tables.twig:6
+msgid "Check tables having overhead"
+msgstr "Adznačyć tyja, što patrabujuć aptymizacyi"
+
+#: templates/database/structure/check_all_tables.twig:10
+#, fuzzy
+#| msgid "Copy"
+msgid "Copy table"
+msgstr "Skapijavać"
+
+#: templates/database/structure/check_all_tables.twig:11
+#, fuzzy
+#| msgid "Show color"
+msgid "Show create"
+msgstr "Pakazać koler"
+
+#: templates/database/structure/check_all_tables.twig:25
+#, fuzzy
+#| msgid "Add new field"
+msgid "Prefix"
+msgstr "Dadać novaje pole"
+
+#: templates/database/structure/check_all_tables.twig:26
+msgid "Add prefix to table"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:27
+#, fuzzy
+#| msgid "Replace table data with file"
+msgid "Replace table prefix"
+msgstr "Zamianić dadzienyja tablicy dadzienymi z fajła"
+
+#: templates/database/structure/check_all_tables.twig:33
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Add columns to central list"
+msgstr "Dadać %s novyja pali"
+
+#: templates/database/structure/check_all_tables.twig:34
+msgid "Remove columns from central list"
+msgstr ""
+
+#: templates/database/structure/check_all_tables.twig:35
+#, fuzzy
+#| msgid "Add %s field(s)"
+msgid "Make consistent with central list"
+msgstr "Dadać %s novyja pali"
+
+#: templates/table/search/fields_table.twig:10
+#: templates/database/designer/main.twig:557
+#: templates/database/designer/main.twig:621
+#: templates/database/designer/main.twig:822
+#: templates/database/designer/main.twig:853
+#: templates/database/designer/main.twig:961
+#: templates/database/designer/main.twig:1046
+msgid "Operator"
+msgstr "Aperatar"
+
+#: templates/database/structure/show_create_row.twig:7
+#, fuzzy, php-format
+#| msgid "Create User"
+msgid "Create %s"
+msgstr "Stvaryć"
+
+#: templates/columns_definitions/column_definitions_form.twig:23
+msgid "Table name"
+msgstr "Imia tablicy"
+
+#: templates/columns_definitions/column_definitions_form.twig:40
+#, fuzzy
+#| msgid "Column names"
+msgid "column(s)"
+msgstr "Nazvy kalonak"
+
+#: templates/columns_definitions/column_definitions_form.twig:74
+#, fuzzy
+#| msgid "Collation"
+msgid "Collation:"
+msgstr "Supastaŭleńnie"
+
+#: templates/columns_definitions/column_definitions_form.twig:77
+#, fuzzy
+#| msgid "Storage Engine"
+msgid "Storage Engine:"
+msgstr "Mašyna zachavańnia dadzienych"
+
+#: templates/columns_definitions/column_definitions_form.twig:82
+#, fuzzy
+#| msgid "Connections"
+msgid "Connection:"
+msgstr "Padłučeńni"
+
+#: templates/columns_definitions/column_definitions_form.twig:128
+#, fuzzy
+#| msgid "PARTITION definition"
+msgid "PARTITION definition:"
+msgstr "Aznačeńnie PARTITION"
 
 #: templates/database/designer/database_tables.twig:31
 #, fuzzy
@@ -16828,29 +17442,13 @@ msgstr "Dadać %s novyja pali"
 msgid "See table structure"
 msgstr "Baza dadzienych dla karystalnika"
 
-#: templates/database/create_table.twig:7
-#: templates/database/designer/main.twig:86
-#: templates/database/designer/main.twig:89
-msgid "Create table"
-msgstr "Stvaryć tablicu"
+#: templates/database/structure/tracking_icon.twig:3
+msgid "Tracking is active."
+msgstr ""
 
-#: templates/database/create_table.twig:15
-#, fuzzy
-#| msgid "Number of fields"
-msgid "Number of columns"
-msgstr "Kolkaść paloŭ"
-
-#: templates/start_and_number_of_rows_panel.twig:3
-#, fuzzy
-#| msgid "Showing rows"
-msgid "Start row:"
-msgstr "Pakazanyja zapisy"
-
-#: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
-msgid "Databases:"
-msgstr "Bazy dadzienych"
+#: templates/database/structure/tracking_icon.twig:5
+msgid "Tracking is not active."
+msgstr ""
 
 #: templates/console/display.twig:7
 #, fuzzy
@@ -16875,23 +17473,6 @@ msgstr "Vykanać zapyt z zakładak"
 #| msgid "Execute bookmarked query"
 msgid "Press Enter to execute query"
 msgstr "Vykanać zapyt z zakładak"
-
-#: templates/console/display.twig:31 templates/console/display.twig:84
-#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
-msgid "Collapse"
-msgstr ""
-
-#: templates/console/display.twig:31 templates/console/display.twig:84
-#: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
-msgid "Expand"
-msgstr ""
-
-#: templates/console/display.twig:31 templates/console/display.twig:175
-#: templates/console/bookmark_content.twig:7
-#, fuzzy
-#| msgid "in query"
-msgid "Requery"
-msgstr "pa zapytu"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 #, fuzzy
@@ -17003,446 +17584,15 @@ msgid ""
 "this permanent, view settings."
 msgstr ""
 
-#: templates/prefs_autoload.twig:7
-msgid ""
-"Your browser has phpMyAdmin configuration for this domain. Would you like to "
-"import it for current session?"
+#: templates/columns_definitions/column_length.twig:9
+msgid "Edit ENUM/SET values"
 msgstr ""
 
-#: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
-msgid "Delete settings"
-msgstr "Dazvalaje ŭstaŭlać i zamianiać dadzienyja."
-
-#: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export type"
-msgid "Export method:"
-msgstr "Typ ekspartu"
-
-#: templates/display/export/method.twig:9
-msgid "Quick - display only the minimal options"
-msgstr ""
-
-#: templates/display/export/method.twig:17
-msgid "Custom - display all possible options"
-msgstr ""
-
-#: templates/database/structure/table_header.twig:27
-#, fuzzy
-#| msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]"
-msgid ""
-"May be approximate. Click on the number to get the exact count. See "
-"[doc@faq3-11]FAQ 3.11[/doc]."
-msgstr "Značeńnie moža być prybliznym. Hł. [doc@faq3-11]FAQ 3.11[/doc]"
-
-#: templates/login/twofactor.twig:5
-msgid "Verify"
-msgstr ""
-
-#: templates/database/tracking/tables.twig:4
-msgid "Tracked tables"
-msgstr ""
-
-#: templates/database/tracking/tables.twig:14
-msgid "Last version"
-msgstr ""
-
-#: templates/database/tracking/tables.twig:51
-#: templates/database/tracking/tables.twig:79
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
-msgid "Delete tracking"
-msgstr "Dazvalaje ŭstaŭlać i zamianiać dadzienyja."
-
-#: templates/database/tracking/tables.twig:57
-msgid "Versions"
-msgstr ""
-
-#: templates/database/tracking/tables.twig:90
-msgid "Untracked tables"
-msgstr ""
-
-#: templates/database/tracking/tables.twig:117
-#: templates/database/tracking/tables.twig:129
-#: templates/table/structure/display_structure.twig:392
-msgid "Track table"
-msgstr ""
-
-#: templates/display/results/options_block.twig:34
-msgid "Relational key"
-msgstr "Kluč suviazi"
-
-#: templates/display/results/options_block.twig:34
-#, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Display column for relationships"
-msgstr "Adklučyć pravierku źniešnich klučoŭ"
-
-#: templates/display/results/options_block.twig:50
-msgid "Show binary contents"
-msgstr ""
-
-#: templates/display/results/options_block.twig:57
-msgid "Show BLOB contents"
-msgstr ""
-
-#: templates/display/results/options_block.twig:71
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Hide browser transformation"
-msgstr "Pieraŭtvareńnie MIME-typu braŭzeram"
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Text"
-msgstr ""
-
-#: templates/display/results/options_block.twig:83
-#: templates/display/results/options_block.twig:100
-msgid "Well Known Binary"
-msgstr ""
-
-#: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Authenticating…"
-msgid "Confirm disabling two-factor authentication"
-msgstr "Aŭtentyfikacyja…"
-
-#: templates/prefs_twofactor_confirm.twig:5
-msgid ""
-"By disabling two factor authentication you will be again able to login using "
-"password only."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:4
-msgid ""
-"Please scan following QR code into the two-factor authentication app on your "
-"device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:11
-msgid ""
-"Please enter following secret/key into the two-factor authentication app on "
-"your device and enter authentication code it generates."
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:14
-msgid "OTP url:"
-msgstr ""
-
-#: templates/login/twofactor/application_configure.twig:18
-msgid "Secret/key:"
-msgstr ""
-
-#: templates/login/header.twig:15
-msgid ""
-"There is mismatch between HTTPS indicated on the server and client. This can "
-"lead to non working phpMyAdmin or a security risk. Please fix your server "
-"configuration to indicate HTTPS properly."
-msgstr ""
-
-#: templates/server/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Remove selected users"
-msgid "Remove selected user accounts"
-msgstr "Vydalić vybranych karystalnikaŭ"
-
-#: templates/server/privileges/delete_user_fieldset.twig:6
-msgid "Revoke all active privileges from the users and delete them afterwards."
-msgstr "Anulavać usie aktyŭnyja pryvilei karystalnikaŭ i paśla vydalić ich."
-
-#: templates/server/privileges/delete_user_fieldset.twig:7
-#: templates/server/privileges/delete_user_fieldset.twig:10
-#: templates/server/privileges/delete_user_fieldset.twig:11
-msgid "Drop the databases that have the same names as the users."
-msgstr ""
-"Vydalić bazy dadzienych, jakija majuć takija ž imiony jak i karystalniki."
-
-#: templates/columns_definitions/column_definitions_form.twig:23
-msgid "Table name"
-msgstr "Imia tablicy"
-
-#: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Column names"
-msgid "column(s)"
-msgstr "Nazvy kalonak"
-
-#: templates/columns_definitions/column_definitions_form.twig:74
-#, fuzzy
-#| msgid "Collation"
-msgid "Collation:"
-msgstr "Supastaŭleńnie"
-
-#: templates/columns_definitions/column_definitions_form.twig:77
-#, fuzzy
-#| msgid "Storage Engine"
-msgid "Storage Engine:"
-msgstr "Mašyna zachavańnia dadzienych"
-
-#: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
-msgid "Connection:"
-msgstr "Padłučeńni"
-
-#: templates/columns_definitions/column_definitions_form.twig:128
-#, fuzzy
-#| msgid "PARTITION definition"
-msgid "PARTITION definition:"
-msgstr "Aznačeńnie PARTITION"
-
-#: templates/table/browse_foreigners/column_element.twig:4
-msgid "Use this value"
-msgstr "Vykarystoŭvać heta značeńnie"
-
-#: templates/table/search/zoom_result_form.twig:7
-msgid "Browse/Edit the points"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:15
-msgid "How to use"
-msgstr ""
-
-#: templates/table/search/zoom_result_form.twig:23
-#, fuzzy
-#| msgid "Reset"
-msgid "Reset zoom"
-msgstr "Skinuć"
-
-#: templates/database/structure/show_create_row.twig:7
+#: templates/table/insert/continue_insertion_form.twig:18
 #, fuzzy, php-format
-#| msgid "Create User"
-msgid "Create %s"
-msgstr "Stvaryć"
-
-#: templates/table/structure/display_structure.twig:110
-#, fuzzy, php-format
-#| msgid "Table %s has been dropped."
-msgid "Column %s has been dropped."
-msgstr "Tablica %s była vydalenaja"
-
-#: templates/table/structure/display_structure.twig:133
-#, php-format
-msgid "A primary key has been added on %s."
-msgstr "Pieršasny kluč byŭ dadadzieny da %s."
-
-#: templates/table/structure/display_structure.twig:151
-#: templates/table/structure/display_structure.twig:169
-#: templates/table/structure/display_structure.twig:198
-#: templates/table/structure/display_structure.twig:221
-#, php-format
-msgid "An index has been added on %s."
-msgstr "Byŭ dadadzieny indeks dla %s."
-
-#: templates/table/structure/display_structure.twig:245
-#: templates/table/structure/display_structure.twig:348
-#, fuzzy
-#| msgid "Rename database to"
-msgid "Remove from central columns"
-msgstr "Pierajmienavać bazu dadzienych u"
-
-#: templates/table/structure/display_structure.twig:249
-#: templates/table/structure/display_structure.twig:341
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Add to central columns"
-msgstr "Dadać %s novyja pali"
-
-#: templates/table/structure/display_structure.twig:361
-#: templates/table/structure/display_structure.twig:396
-#, fuzzy
-#| msgid "Add %s field(s)"
-msgid "Move columns"
-msgstr "Dadać %s novyja pali"
-
-#: templates/table/structure/display_structure.twig:362
-msgid "Move the columns by dragging them up and down."
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:383
-msgid "Propose table structure"
-msgstr "Prapanavanaja struktura tablicy"
-
-#: templates/table/structure/display_structure.twig:399
-msgid "Normalize"
-msgstr ""
-
-#: templates/table/structure/display_structure.twig:405
-#, fuzzy
-#| msgid "Create"
-msgid "Track view"
-msgstr "Stvaryć"
-
-#: templates/table/structure/display_structure.twig:419
-#, fuzzy, php-format
-#| msgid "Add %s field(s)"
-msgid "Add %s column(s)"
-msgstr "Dadać %s novyja pali"
-
-#: templates/table/structure/display_structure.twig:424
-#, fuzzy
-#| msgid "At Beginning of Table"
-msgid "at beginning of table"
-msgstr "U pačatku tablicy"
-
-#: templates/display/export/options_rows.twig:2
-#, fuzzy
-#| msgid "Rows"
-msgid "Rows:"
-msgstr "Radki"
-
-#: templates/display/export/options_rows.twig:7
-msgid "Dump some row(s)"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:23
-msgid "Row to begin at:"
-msgstr ""
-
-#: templates/display/export/options_rows.twig:32
-msgid "Dump all rows"
-msgstr ""
-
-#: templates/database/designer/schema_export.twig:4
-msgid "Select Export Relational Type"
-msgstr ""
-
-#: templates/server/privileges/column_privileges.twig:21
-#: templates/server/privileges/column_privileges.twig:22
-#, fuzzy
-#| msgid "None"
-msgctxt "None privileges"
-msgid "None"
-msgstr "Nijakaja"
-
-#: templates/table/relation/common_form.twig:9
-#, fuzzy
-#| msgid "Disable foreign key checks"
-msgid "Foreign key constraints"
-msgstr "Adklučyć pravierku źniešnich klučoŭ"
-
-#: templates/table/relation/common_form.twig:13
-msgid "Actions"
-msgstr "Dziejańni"
-
-#: templates/table/relation/common_form.twig:14
-#, fuzzy
-#| msgid "Constraints for table"
-msgid "Constraint properties"
-msgstr "Abmiežavańni dla tablicy"
-
-#: templates/table/relation/common_form.twig:18
-msgid ""
-"Creating a foreign key over a non-indexed column would automatically create "
-"an index on it. Alternatively, you can define an index below, before "
-"creating the foreign key."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:23
-msgid ""
-"Only columns with index will be displayed. You can define an index below."
-msgstr ""
-
-#: templates/table/relation/common_form.twig:27
-msgid "Foreign key constraint"
-msgstr ""
-
-#: templates/table/relation/common_form.twig:92
-#, fuzzy
-#| msgid "Add constraints"
-msgid "+ Add constraint"
-msgstr "Dadać abmiežavańni"
-
-#: templates/table/relation/common_form.twig:102
-#: templates/table/relation/common_form.twig:111
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relationships"
-msgstr "Unutranyja suviazi"
-
-#: templates/table/relation/common_form.twig:117
-#, fuzzy
-#| msgid "Internal relations"
-msgid "Internal relation"
-msgstr "Unutranyja suviazi"
-
-#: templates/table/relation/common_form.twig:119
-msgid ""
-"An internal relation is not necessary when a corresponding FOREIGN KEY "
-"relation exists."
-msgstr ""
-"Unutranaja suviaź nie źjaŭlajecca abaviazkovaj, kali isnuje adpaviednaja "
-"suviaź FOREIGN KEY."
-
-#: templates/table/relation/common_form.twig:199
-#, fuzzy
-#| msgid "Choose field to display"
-msgid "Choose column to display:"
-msgstr "Vybierycie pole dla adlustravańnia"
-
-#: templates/database/designer/page_selector.twig:2
-#, fuzzy
-#| msgid "Select All"
-msgid "Select page"
-msgstr "Vybrać usio"
-
-#: templates/server/privileges/add_user_fieldset.twig:2
-msgctxt "Create new user"
-msgid "New"
-msgstr ""
-
-#: templates/server/plugins/main.twig:18
-msgid "Plugin"
-msgstr ""
-
-#: templates/server/plugins/main.twig:21
-msgid "Author"
-msgstr ""
-
-#: templates/server/plugins/main.twig:32
-#, fuzzy
-#| msgid "Disabled"
-msgid "disabled"
-msgstr "Adklučana"
-
-#: templates/display/export/options_output_format.twig:3
-#, fuzzy
-#| msgid "File name template"
-msgid "File name template:"
-msgstr "Šablon nazvy fajła"
-
-#: templates/display/export/options_output_format.twig:11
-msgid "use this for future exports"
-msgstr ""
-
-#: templates/server/sub_page_header.twig:2
-msgid "Server variables and settings"
-msgstr "Nałady i źmiennyja servera"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
-msgid "Storage engines"
-msgstr "Mašyny zachavańnia dadzienych"
-
-#: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
-msgid "Character sets and collations"
-msgstr "Raskładki i supastaŭleńni"
-
-#: templates/server/sub_page_header.twig:2
-msgid "Databases statistics"
-msgstr "Statystyka bazaŭ dadzienych"
-
-#: templates/display/export/options_output_radio.twig:5
-#, fuzzy
-#| msgid "Save as file"
-msgid "View output as text"
-msgstr "Zachavać jak fajł"
+#| msgid "Restart insertion with %s rows"
+msgid "Continue insertion with %s rows"
+msgstr "Pačać ustaŭku znoŭ z %s-ha radku"
 
 #: templates/database/designer/main.twig:21
 #: templates/database/designer/main.twig:27
@@ -17625,151 +17775,6 @@ msgstr "Stvaryć"
 #| msgid "Table options"
 msgid "Active options"
 msgstr "Opcyi tablicy"
-
-#: templates/database/structure/structure_table_row.twig:214
-msgid "in use"
-msgstr "vykarystoŭvajecca"
-
-#: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "field type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
-#| "single quote (\"'\") amongst those values, precede it with a kslash (for "
-#| "example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
-"single quote (\"'\") amongst those values, precede it with a backslash (for "
-"example '\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Kali typ pola \"enum\" abo \"set\", kali łaska, uvodźcie značeńni "
-"vykarystoŭvajučy hety farmat: 'a','b','c'… Kali vam patrebna ŭžyć zvarotny "
-"słeš (\"\\\") abo apostraf (\"'\") siarod hetych značeńniaŭ, pastaŭcie "
-"pierad imi zvarotny słeš (naprykład, '\\\\xyz' abo 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:21
-msgid ""
-"For default values, please enter just a single value, without backslash "
-"escaping or quotes, using this format: a"
-msgstr ""
-"Dla značeńniaŭ pa zmoŭčańni, kali łaska, uviadzicie prosta značeńnie, biez "
-"vykarystańnia zvarotnych słešaŭ i dvukośsia, vykarystoŭvajučy farmat: a"
-
-#: templates/columns_definitions/table_fields_definitions.twig:59
-msgid "Virtuality"
-msgstr ""
-
-#: templates/columns_definitions/table_fields_definitions.twig:65
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Move column"
-msgstr "Dadać/vydalić kalonku kryteru"
-
-#: templates/columns_definitions/table_fields_definitions.twig:76
-#: templates/columns_definitions/table_fields_definitions.twig:87
-#, fuzzy
-#| msgid "Available transformations"
-msgid "List of available transformations and their options"
-msgstr "Dastupnyja pieraŭtvareńni"
-
-#: templates/columns_definitions/table_fields_definitions.twig:82
-#, fuzzy
-#| msgid "Browser transformation"
-msgid "Browser display transformation options"
-msgstr "Pieraŭtvareńnie MIME-typu braŭzeram"
-
-#: templates/columns_definitions/table_fields_definitions.twig:83
-#: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
-msgid ""
-"Please enter the values for transformation options using this format: 'a', "
-"100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
-"quote (\"'\") amongst those values, precede it with a backslash (for example "
-"'\\\\xyz' or 'a\\'b')."
-msgstr ""
-"Kali łaska, uvodźcie značeńni opcyjaŭ pieraŭtvareńnia vykarystoŭvajučy hety "
-"farmat: 'a', 100, b,'c'…<br />Kali vam treba ŭžyć zvarotny słeš (\"\\\") abo "
-"apostraf (\"'\") u hetych značeńniach, ustaŭcie zvarotny słeš pierad imi "
-"(naprykład, '\\\\xyz' abo 'a\\'b')."
-
-#: templates/columns_definitions/table_fields_definitions.twig:93
-#, fuzzy
-#| msgid "Transformation options"
-msgid "Input transformation options"
-msgstr "Opcyi pieraŭtvareńnia"
-
-#: templates/toggle_button.twig:3
-msgid "Click to toggle"
-msgstr ""
-
-#: templates/display/export/options_quick_export.twig:8
-#: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in %s directory"
-msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Zachavać na servery ŭ tečcy %s"
-
-#: templates/table/gis_visualization/gis_visualization.twig:3
-msgid "Display GIS Visualization"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:8
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
-msgid "Label column"
-msgstr "Dadać/vydalić kalonku kryteru"
-
-#: templates/table/gis_visualization/gis_visualization.twig:11
-msgid "-- None --"
-msgstr ""
-
-#: templates/table/gis_visualization/gis_visualization.twig:19
-#, fuzzy
-#| msgid "Log file count"
-msgid "Spatial column"
-msgstr "Kolkaść fajłaŭ łogu"
-
-#: templates/server/privileges/resource_limits.twig:2
-msgid "Resource limits"
-msgstr "Abmiežavańni resursaŭ"
-
-#: templates/server/privileges/resource_limits.twig:5
-msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr "Zaŭvaha: Paznačeńnie hetych opcyjaŭ jak 0 (nul) zdymaje abmiežavańnie."
-
-#: templates/theme_preview.twig:11
-msgid "No preview available."
-msgstr "Papiaredni prahlad niedastupny."
-
-#: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
-msgid "Take it"
-msgstr "hetaja"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Export/Import to scale"
-msgid "Save to selected page"
-msgstr "Maštab"
-
-#: templates/database/designer/page_save_as.twig:17
-#, fuzzy
-#| msgid "Create a new index"
-msgid "Create a page and save to it"
-msgstr "Stvaryć novy indeks"
-
-#: templates/database/designer/page_save_as.twig:30
-#, fuzzy
-#| msgid "User name"
-msgid "New page name"
-msgstr "Imia karystalnika"
 
 #: url.php:42
 #, fuzzy
