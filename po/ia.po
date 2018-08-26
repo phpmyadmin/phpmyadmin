@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 18:20+0200\n"
-"PO-Revision-Date: 2018-04-29 18:03+0000\n"
+"PO-Revision-Date: 2018-08-27 14:27+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -952,8 +952,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Tu es essayante reducer le numero de rangos, ma tu ja ha insertate datos in "
-"ille rangos que essera perdite. Tu vole continuar?"
+"Tu es essayante a reducer le numero de rangos, ma tu ja ha insertate datos "
+"in ille rangos que essera perdite. Tu vole continuar?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2325,7 +2325,7 @@ msgstr ""
 
 #: js/messages.php:563
 msgid "value/subQuery is empty"
-msgstr "valor/sunQuery es vacue"
+msgstr "valor/subQuery es vacue"
 
 #: js/messages.php:564 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
@@ -14362,10 +14362,8 @@ msgstr "Adde nove columna"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Lenght/Value"
-msgstr "Longitudine/Valores"
+msgstr "Longitude/Valores"
 
 #: templates/database/central_columns/main.twig:37
 #: templates/database/central_columns/main.twig:254
@@ -14373,10 +14371,8 @@ msgid "Attribute"
 msgstr "Attributo"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Le lista central de columnas pro le base de datos currente es vacue."
+msgstr "Le lista central de columnas pro le base de datos currente es vacue"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:414
