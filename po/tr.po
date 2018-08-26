@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 18:20+0200\n"
-"PO-Revision-Date: 2018-05-07 09:54+0000\n"
+"PO-Revision-Date: 2018-08-27 08:08+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -800,6 +800,10 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Sunucunuz denetim kullanıcısı (controluser) ve parola (controlpass) için "
+"varsayılan değerler ile çalışıyor ve saldırıya açıktır; gerçekten denetim "
+"kullanıcısı (controluser) 'pma' parolasını değiştirerek bu güvenlik "
+"zayıflığını düzeltmelisiniz."
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -4521,11 +4525,13 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:388
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Sürükle ve bırak ile içe aktarmayı etkinleştir"
 
 #: libraries/classes/Config/Descriptions.php:389
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
+"Sürükle ve bırak ile içe aktarmayı etkisizleştirmek için onay kutusunun "
+"işaretini kaldırın"
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Partial import: allow interrupt"
@@ -7054,7 +7060,7 @@ msgstr "Eksik bağlantı parametreleri!"
 #: libraries/classes/DatabaseInterface.php:2579
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
-"Yapılandırma dosyanız içinde tanımlanmış denetim kullanıcıları için bağlantı "
+"Yapılandırma dosyanız içinde tanımlanmış denetim kullanıcısı için bağlantı "
 "başarısız oldu."
 
 #: libraries/classes/DatabaseInterface.php:3089
@@ -10127,6 +10133,7 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"Gd PHP uzantısı bulunamadı. QR kodu, gd PHP uzantısı olmadan görüntülenemez."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:151
 msgid "Authentication Application (2FA)"
@@ -14058,10 +14065,8 @@ msgid "No Privileges"
 msgstr "Yetkiniz yok"
 
 #: server_privileges.php:155
-#, fuzzy
-#| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "Kullanıcıları işlemek için yetkilere sahip değilsiniz!"
+msgstr "Kullanıcıları yönetmek için yetkilere sahip değilsiniz!"
 
 #: server_privileges.php:169
 msgid ""
@@ -14604,10 +14609,8 @@ msgid "Attribute"
 msgstr "Öznitelik"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "Şu anki veritabanı için sütunların merkezi listesi boş."
+msgstr "Şu anki veritabanı için sütunların merkezi listesi boş"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:414
@@ -14873,20 +14876,17 @@ msgstr ""
 "uygulaması içinde taratın ve oluşturduğu kimlik doğrulama kodunu girin."
 
 #: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
-"Lütfen aşağıdaki QR kodu cihazınızdaki iki etkenli kimlik doğrulaması "
-"uygulaması içinde taratın ve oluşturduğu kimlik doğrulama kodunu girin."
+"Lütfen aşağıdaki gizliyi/anahtarı cihazınızdaki iki etkenli kimlik "
+"doğrulaması uygulaması içine girin ve oluşturduğu kimlik doğrulama kodunu "
+"girin."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "OTP url:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
