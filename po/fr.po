@@ -15999,8 +15999,8 @@ msgid ""
 "configuration to indicate HTTPS properly."
 msgstr ""
 "Il y a une discordance entre le HTTPS indiqué sur le serveur et le client. "
-"Cela peut mené à un phpMyAdmin non fonctionnel ou à un risque de sécurité. "
-"S'il-vous-plait corriger la configuration de votre serveur pour indiqué "
+"Cela peut mener à un phpMyAdmin non fonctionnel ou à un risque de sécurité. "
+"S'il-vous-plait corrigez la configuration de votre serveur pour indiquer "
 "HTTPS correctement."
 
 #: templates/server/privileges/delete_user_fieldset.twig:3
