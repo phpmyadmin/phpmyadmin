@@ -158,12 +158,12 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 'Field'        => Util::getValueByKey(
                     $_REQUEST,
                     "field_name.${columnNumber}",
-                    false
+                    null
                 ),
                 'Type'         => Util::getValueByKey(
                     $_REQUEST,
                     "field_type.${columnNumber}",
-                    false
+                    null
                 ),
                 'Collation'    => Util::getValueByKey(
                     $_REQUEST,
@@ -188,7 +188,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 'Extra'        => Util::getValueByKey(
                     $_REQUEST,
                     "field_extra.${columnNumber}",
-                    false
+                    null
                 ),
                 'Virtuality'   => Util::getValueByKey(
                     $_REQUEST,
