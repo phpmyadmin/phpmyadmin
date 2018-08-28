@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 
 4.8.4 (not yet released)
 - issue #14452 Remove hash param in edit query URL
+- issue #14295 Issue in Changing theme
 
 4.8.3 (2018-08-22)
 - issue #14314 Error when naming a database '0'
