@@ -1323,14 +1323,6 @@ class TableStructureController extends TableController
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 
-            if (!isset($field['Default'])) {
-                if ($field['Null'] == 'YES') {
-                    $field = array_merge($field, ['Default' => '<em>NULL</em>']);
-                }
-            } else {
-                $field = array_merge($field, ['Default' => $field['Default']]);
-            }
-
             $displayed_fields[$rownum] = new \stdClass();
             $displayed_fields[$rownum]->text = $field['Field'];
             $displayed_fields[$rownum]->icon = "";
