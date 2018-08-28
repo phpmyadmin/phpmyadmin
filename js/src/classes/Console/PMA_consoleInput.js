@@ -11,15 +11,14 @@ import CommonParams from '../../variables/common_params';
 
 /**
  * Console input object
- * @namespace ConsoleInput
+ * @class ConsoleInput
  */
 export default class ConsoleInput {
     /**
      * @constructor
-     *
-     * @param {object} pmaConsoleInstance Instance of pma console
+     * @param {object} instance    Instance of PMA Console
      */
-    constructor (pmaConsoleInstance) {
+    constructor (instance) {
         /**
          * @var array, contains Codemirror objects or input jQuery objects
          * @access private
@@ -61,12 +60,22 @@ export default class ConsoleInput {
         this.setText = this.setText.bind(this);
         this.getText = this.getText.bind(this);
 
-        this.setPmaConsole(pmaConsoleInstance);
+        this.setPmaConsole(instance);
     }
+
+    /**
+     * @param {Object} instance    Instance of PMA Console
+     * @return {void}
+     */
     setPmaConsole (instance) {
         this.pmaConsole = instance;
         this.initialize();
     }
+
+    /**
+     * Used for Console Input initialise
+     * @return {void}
+     */
     initialize () {
         // _cm object can't be reinitialize
         if (this._inputs !== null) {
@@ -119,6 +128,11 @@ export default class ConsoleInput {
         }
         $('#pma_console').find('.console_query_input').keydown(this._keydown);
     }
+
+    /**
+     * @param {jQueryEvent} event
+     * @return {void}
+     */
     _historyNavigate (event) {
         if (event.keyCode === 38 || event.keyCode === 40) {
             var upPermitted = false;
@@ -172,6 +186,7 @@ export default class ConsoleInput {
             }
         }
     }
+
     /**
      * Mousedown event handler for bind to input
      * Shortcut is Ctrl+Enter key or just ENTER, depending on console's
@@ -192,6 +207,7 @@ export default class ConsoleInput {
             }
         }
     }
+
     /**
      * Used for send text to PMA_console.execute()
      *
@@ -204,6 +220,7 @@ export default class ConsoleInput {
             this.pmaConsole.execute(this._inputs.console.val());
         }
     }
+
     /**
      * Used for clear the input
      *
@@ -213,6 +230,7 @@ export default class ConsoleInput {
     clear (target) {
         this.setText('', target);
     }
+
     /**
      * Used for set focus to input
      *
@@ -221,6 +239,7 @@ export default class ConsoleInput {
     focus () {
         this._inputs.console.focus();
     }
+
     /**
      * Used for blur input
      *
@@ -233,6 +252,7 @@ export default class ConsoleInput {
             this._inputs.console.blur();
         }
     }
+
     /**
      * Used for set text in input
      *
@@ -262,6 +282,7 @@ export default class ConsoleInput {
             }
         }
     }
+
     /**
      * Used for getting the text of input
      *

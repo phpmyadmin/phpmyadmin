@@ -1,13 +1,18 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import { $ } from './utils/JqueryExtended';
+import CommonParams from './variables/common_params';
 import { PMA_commonActions } from './classes/CommonActions';
-import PMA_commonParams from './variables/common_params';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 import { escapeHtml } from './utils/Sanitise';
 import { PMA_prepareForAjaxRequest } from './functions/AjaxRequest';
 import { PMA_sprintf } from './utils/sprintf';
 import { getJSConfirmCommonParam } from './functions/Common';
+
 /**
  * @fileoverview    function used in server privilege pages
  * @name            Database Operations
@@ -45,7 +50,7 @@ export function onloadDbOperations () {
     $(document).on('submit', '#rename_db_form.ajax', function (event) {
         event.preventDefault();
 
-        var old_db_name = PMA_commonParams.get('db');
+        var old_db_name = CommonParams.get('db');
         var new_db_name = $('#new_db_name').val();
 
         if (new_db_name === old_db_name) {
@@ -61,10 +66,10 @@ export function onloadDbOperations () {
 
         $form.PMA_confirm(question, $form.attr('action'), function (url) {
             PMA_ajaxShowMessage(PMA_messages.strRenamingDatabases, false);
-            $.post(url, $('#rename_db_form').serialize() + PMA_commonParams.get('arg_separator') + 'is_js_confirmed=1', function (data) {
+            $.post(url, $('#rename_db_form').serialize() + CommonParams.get('arg_separator') + 'is_js_confirmed=1', function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxShowMessage(data.message);
-                    PMA_commonParams.set('db', data.newname);
+                    CommonParams.set('db', data.newname);
 
                     PMA_reloadNavigation(function () {
                         $('#pma_navigation_tree')
@@ -98,12 +103,12 @@ export function onloadDbOperations () {
             $('div.success, div.error').fadeOut();
             if (typeof data !== 'undefined' && data.success === true) {
                 if ($('#checkbox_switch').is(':checked')) {
-                    PMA_commonParams.set('db', data.newname);
+                    CommonParams.set('db', data.newname);
                     PMA_commonActions.refreshMain(false, function () {
                         PMA_ajaxShowMessage(data.message);
                     });
                 } else {
-                    PMA_commonParams.set('db', data.db);
+                    CommonParams.set('db', data.db);
                     PMA_ajaxShowMessage(data.message);
                 }
                 PMA_reloadNavigation();
@@ -129,7 +134,7 @@ export function onloadDbOperations () {
         var $form = $(this);
         PMA_prepareForAjaxRequest($form);
         PMA_ajaxShowMessage(PMA_messages.strChangingCharset);
-        $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'submitcollation=1', function (data) {
+        $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'submitcollation=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxShowMessage(data.message);
             } else {
@@ -150,7 +155,7 @@ export function onloadDbOperations () {
         var question = PMA_messages.strDropDatabaseStrongWarning + ' ';
         question += PMA_sprintf(
             PMA_messages.strDoYouReally,
-            'DROP DATABASE `' + escapeHtml(PMA_commonParams.get('db') + '`')
+            'DROP DATABASE `' + escapeHtml(CommonParams.get('db') + '`')
         );
         var params = getJSConfirmCommonParam(this, $link.getPostData());
 
@@ -160,7 +165,7 @@ export function onloadDbOperations () {
                 if (typeof data !== 'undefined' && data.success) {
                     // Database deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
-                    PMA_commonParams.set('db', '');
+                    CommonParams.set('db', '');
                     PMA_commonActions.refreshMain(
                         'server_databases.php',
                         function () {

@@ -4,9 +4,12 @@
  * Resizer object
  * Careful: this object UI logics highly related with functions under PMA_console
  * Resizing min-height is 32, if small than it, console will collapse
- * @namespace ConsoleResizer
+ * @class ConsoleResizer
  */
 export default class ConsoleResizer {
+    /**
+     * @param {Object} instance    Instance of PMA Console
+     */
     constructor (instance) {
         this._posY = 0;
         this._height = 0;
@@ -18,10 +21,16 @@ export default class ConsoleResizer {
         this._mouseup = this._mouseup.bind(this);
         this.setPmaConsole(instance);
     }
+
+    /**
+     * @param {Object} instance    Instance of PMA Console
+     * @return {void}
+     */
     setPmaConsole (instance) {
         this.pmaConsole = instance;
         this.initialize();
     }
+
     /**
      * Mousedown event handler for bind to resizer
      *
@@ -40,6 +49,7 @@ export default class ConsoleResizer {
             return false;
         });
     }
+
     /**
      * Mousemove event handler for bind to resizer
      *
@@ -65,6 +75,7 @@ export default class ConsoleResizer {
             }
         }
     }
+
     /**
      * Mouseup event handler for bind to resizer
      *
@@ -77,6 +88,7 @@ export default class ConsoleResizer {
         $(document).off('mouseup');
         $(document).off('selectstart');
     }
+
     /**
      * Used for console resizer initialize
      *

@@ -1,4 +1,14 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
+import { $ } from './utils/JqueryExtended';
+import { PMA_Messages as messages } from './variables/export_variables';
+import { PMA_ajaxShowMessage, PMA_sprintf, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
+import CommonParams from './variables/common_params';
+import { PMA_makegrid } from './utils/makegrid';
+
 /**
  * JavaScript functions used on Database Search page
  *
@@ -14,11 +24,6 @@
  * Actions ajaxified here:
  * Retrieve result of SQL query
  */
-import { $ } from './utils/JqueryExtended';
-import { PMA_Messages as messages } from './variables/export_variables';
-import { PMA_ajaxShowMessage, PMA_sprintf, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
-import PMA_commonParams from './variables/common_params';
-import { PMA_makegrid } from './utils/makegrid';
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -217,7 +222,7 @@ export function onloadDbSearch () {
         PMA_prepareForAjaxRequest($form);
 
         var url = `${$form.serialize()}
-            ${PMA_commonParams.get('arg_separator')}submit_search=${$('#buttonGo').val()}`;
+            ${CommonParams.get('arg_separator')}submit_search=${$('#buttonGo').val()}`;
         $.post($form.attr('action'), url, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 // found results

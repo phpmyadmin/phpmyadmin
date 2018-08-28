@@ -1,15 +1,20 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-import CodeMirror from 'codemirror';
-import PMA_commonParams from '../../variables/common_params';
+
 /**
  * Module import
  */
+import CodeMirror from 'codemirror';
+import PMA_commonParams from '../../variables/common_params';
 import { PMA_Messages as messages } from '../../variables/export_variables';
+
 /**
  * Console messages, and message items management object
- * @namespace ConsoleMessages
+ * @class ConsoleMessages
  */
 export default class ConsoleMessages {
+    /**
+     * @param {Object} instance    Instance of PMA Console
+     */
     constructor (instance) {
         this.pmaConsole = null;
         this.clear = this.clear.bind(this);
@@ -25,10 +30,16 @@ export default class ConsoleMessages {
         this.setPmaConsole = this.setPmaConsole.bind(this);
         this.setPmaConsole(instance);
     }
+
+    /**
+     * @param {Object} instance    Instance of PMA Console
+     * @return {void}
+     */
     setPmaConsole (instance) {
         this.pmaConsole = instance;
         this.initialize();
     }
+
     /**
      * Used for clear the messages
      *
@@ -39,6 +50,7 @@ export default class ConsoleMessages {
         $('#pma_console').find('.content .console_message_container .message.failed').remove();
         $('#pma_console').find('.content .console_message_container .message.expanded').find('.action.collapse').click();
     }
+
     /**
      * Used for show history messages
      *
@@ -47,6 +59,7 @@ export default class ConsoleMessages {
     showHistory () {
         $('#pma_console').find('.content .console_message_container .message.hide').removeClass('hide');
     }
+
     /**
      * Used for getting a perticular history query
      *
@@ -63,6 +76,7 @@ export default class ConsoleMessages {
             return $query.text();
         }
     }
+
     /**
      * Used to show the correct message depending on which key
      * combination executes the query (Ctrl+Enter or Enter).
@@ -76,6 +90,7 @@ export default class ConsoleMessages {
         $welcomeMsg.children('[id^=instructions]').hide();
         $welcomeMsg.children('#instructions-' + enterExecutes).show();
     }
+
     /**
      * Used for log new message
      *
@@ -117,6 +132,7 @@ export default class ConsoleMessages {
         return { message_id: msgId,
             $message: $newMessage.appendTo('#pma_console .content .console_message_container') };
     }
+
     /**
      * Used for log new query
      *
@@ -151,6 +167,7 @@ export default class ConsoleMessages {
         }
         return targetMessage;
     }
+
     _msgEventBinds ($targetMessage) {
         var self = this;
         // Leave unbinded elements, remove binded.
@@ -258,6 +275,12 @@ export default class ConsoleMessages {
             });
         }
     }
+
+    /**
+     * @param {string} msgId       Id of the message
+     * @param {string} msgString   Message string
+     * @param {string} msgType     Type of message
+     */
     msgAppend (msgId, msgString, msgType) {
         var $targetMessage = $('#pma_console').find('.content .console_message_container .message[msgid=' + msgId + ']');
         if ($targetMessage.length === 0 || isNaN(parseInt(msgId)) || typeof(msgString) !== 'string') {
@@ -265,6 +288,12 @@ export default class ConsoleMessages {
         }
         $targetMessage.append('<div>' + msgString + '</div>');
     }
+
+    /**
+     * @param {string} msgId        Id of the message
+     * @param {bool} isSuccessed    is update succeded
+     * @param {Object} queryData    Data associated with the query
+     */
     updateQuery (msgId, isSuccessed, queryData) {
         var $targetMessage = $('#pma_console').find('.console_message_container .message[msgid=' + parseInt(msgId) + ']');
         if ($targetMessage.length === 0 || isNaN(parseInt(msgId))) {
@@ -292,6 +321,7 @@ export default class ConsoleMessages {
             $targetMessage.addClass('failed');
         }
     }
+
     /**
      * Used for console messages initialize
      *

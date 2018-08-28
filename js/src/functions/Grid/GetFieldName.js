@@ -1,3 +1,5 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
 /**
  * Get the field name for the current field.  Required to construct the query
  * for grid editing

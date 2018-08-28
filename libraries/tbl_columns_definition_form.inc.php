@@ -501,10 +501,5 @@ $html = $template->render('columns_definitions/column_definitions_form', [
 unset($form_params);
 
 $response = Response::getInstance();
-$response->getHeader()->getScripts()->addFiles(
-    [
-        'vendor/jquery/jquery.uitablefilter.js',
-        'indexes.js'
-    ]
-);
+$response->getHeader()->getScripts()->addFiles('indexes');
 $response->addHTML($html);

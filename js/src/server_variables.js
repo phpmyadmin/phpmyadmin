@@ -24,7 +24,6 @@ function teardownServerVariables () {
  * Binding event handlers on page load.
  */
 function onloadServerVariables () {
-    // var $editLink = $('a.editLink');
     var $saveLink = $('a.saveLink');
     var $cancelLink = $('a.cancelLink');
 
@@ -39,6 +38,9 @@ function onloadServerVariables () {
     });
 }
 
+/**
+ * Module export
+ */
 export {
     teardownServerVariables,
     onloadServerVariables

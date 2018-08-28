@@ -1,7 +1,11 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import Indexes from './utils/IndexEnum';
-import PMA_commonParams from './variables/common_params';
+import CommonParams from './variables/common_params';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage } from './utils/show_ajax_messages';
 import { PMA_highlightSQL } from './utils/sql';
 import { PMA_prepareForAjaxRequest } from './functions/AjaxRequest';
@@ -13,6 +17,8 @@ import { escapeHtml } from './utils/Sanitise';
 import { AJAX } from './ajax';
 import { PMA_previewSQL } from './functions/Sql/PreviewSql';
 import { printPreview } from './functions/Print';
+import { reloadFieldForm, checkFirst } from './functions/Table/TableStructure';
+
 /**
  * @fileoverview    functions used on the table structure page
  * @name            Table Structure
@@ -32,27 +38,7 @@ import { printPreview } from './functions/Print';
  *
  */
 
-/**
- * Reload fields table
- */
-function reloadFieldForm () {
-    $.post($('#fieldsForm').attr('action'), $('#fieldsForm').serialize() + PMA_commonParams.get('arg_separator') + 'ajax_request=true', function (form_data) {
-        var $temp_div = $('<div id=\'temp_div\'><div>').append(form_data.message);
-        $('#fieldsForm').replaceWith($temp_div.find('#fieldsForm'));
-        $('#addColumns').replaceWith($temp_div.find('#addColumns'));
-        $('#move_columns_dialog').find('ul').replaceWith($temp_div.find('#move_columns_dialog ul'));
-        $('#moveColumns').removeClass('move-active');
-    });
-    $('#page_content').show();
-}
 
-function checkFirst () {
-    if ($('select[name=after_field] option:selected').data('pos') === 'first') {
-        $('input[name=field_where]').val('first');
-    } else {
-        $('input[name=field_where]').val('after');
-    }
-}
 /**
  * Unbind all event handlers before tearing down a page
  */
@@ -89,7 +75,7 @@ export function onloadTblStructure () {
 
         function submitForm () {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.post($form.attr('action'), $form.serialize() + PMA_commonParams.get('arg_separator') + 'do_save_data=1', function (data) {
+            $.post($form.attr('action'), $form.serialize() + CommonParams.get('arg_separator') + 'do_save_data=1', function (data) {
                 if ($('.sqlqueryresults').length !== 0) {
                     $('.sqlqueryresults').remove();
                 } else if ($('.error:not(.tab)').length !== 0) {
@@ -198,7 +184,7 @@ export function onloadTblStructure () {
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function (url) {
             var $msg = PMA_ajaxShowMessage(PMA_messages.strDroppingColumn, false);
             var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
-            params += PMA_commonParams.get('arg_separator') + 'ajax_page_request=1';
+            params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msg);
@@ -284,7 +270,7 @@ export function onloadTblStructure () {
             AJAX.source = $this;
 
             var params = getJSConfirmCommonParam(this, $this_anchor.getPostData());
-            params += PMA_commonParams.get('arg_separator') + 'ajax_page_request=1';
+            params += CommonParams.get('arg_separator') + 'ajax_page_request=1';
             $.post(url, params, AJAX.responseHandler);
         }); // end $.PMA_confirm()
     }); // end Add key
@@ -317,7 +303,7 @@ export function onloadTblStructure () {
                 $this.dialog('close');
                 return;
             }
-            $.post($form.prop('action'), serialized + PMA_commonParams.get('arg_separator') + 'ajax_request=true', function (data) {
+            $.post($form.prop('action'), serialized + CommonParams.get('arg_separator') + 'ajax_request=true', function (data) {
                 if (data.success === false) {
                     PMA_ajaxRemoveMessage($msgbox);
                     $this
@@ -423,7 +409,7 @@ export function onloadTblStructure () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.parents('form');
-        var argsep = PMA_commonParams.get('arg_separator');
+        var argsep = CommonParams.get('arg_separator');
         var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
         AJAX.source = $form;
@@ -438,10 +424,7 @@ export function onloadTblStructure () {
         var $link = $(this);
 
         function submitPartitionAction (url) {
-            var params = {
-                'ajax_request' : true,
-                'ajax_page_request' : true
-            };
+            var params = 'ajax_request=true&ajax_page_request=true&' + $link.getPostData();
             PMA_ajaxShowMessage();
             AJAX.source = $link;
             $.post(url, params, AJAX.responseHandler);

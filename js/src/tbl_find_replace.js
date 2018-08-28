@@ -1,4 +1,9 @@
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
+import { PMA_Messages as messages } from './variables/export_variables';
 import { PMA_prepareForAjaxRequest } from './functions/AjaxRequest';
 import { PMA_ajaxRemoveMessage, PMA_ajaxShowMessage } from './utils/show_ajax_messages';
 
@@ -19,14 +24,14 @@ export function onloadTblFindReplace () {
         .hide();
 
     $('#toggle_find')
-        .html(PMA_messages.strHideFindNReplaceCriteria)
+        .html(messages.strHideFindNReplaceCriteria)
         .on('click', function () {
             var $link = $(this);
             $('#find_replace_form').slideToggle();
-            if ($link.text() === PMA_messages.strHideFindNReplaceCriteria) {
-                $link.text(PMA_messages.strShowFindNReplaceCriteria);
+            if ($link.text() === messages.strHideFindNReplaceCriteria) {
+                $link.text(messages.strShowFindNReplaceCriteria);
             } else {
-                $link.text(PMA_messages.strHideFindNReplaceCriteria);
+                $link.text(messages.strHideFindNReplaceCriteria);
             }
             return false;
         });

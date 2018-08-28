@@ -1,10 +1,15 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Module import
+ */
 import { $ } from './utils/JqueryExtended';
 import './plugins/jquery/jquery.tablesorter';
-import { PMA_Messages as PMA_messages } from './variables/export_variables';
-import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
-import PMA_commonParams from './variables/common_params';
 import { AJAX } from './ajax';
+import CommonParams from './variables/common_params';
+import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
+import { PMA_Messages as messages } from './variables/export_variables';
+
 /**
  * @fileoverview   events handling from central columns page
  * @name            Central columns
@@ -56,7 +61,7 @@ export function onloadDbCentralColumns () {
         event.preventDefault();
         var multi_delete_columns = $('.checkall:checkbox:checked').serialize();
         if (multi_delete_columns === '') {
-            PMA_ajaxShowMessage(PMA_messages.strRadioUnchecked);
+            PMA_ajaxShowMessage(messages.strRadioUnchecked);
             return false;
         }
         PMA_ajaxShowMessage();
@@ -67,11 +72,11 @@ export function onloadDbCentralColumns () {
         event.preventDefault();
         var editColumnList = $('.checkall:checkbox:checked').serialize();
         if (editColumnList === '') {
-            PMA_ajaxShowMessage(PMA_messages.strRadioUnchecked);
+            PMA_ajaxShowMessage(messages.strRadioUnchecked);
             return false;
         }
-        var argsep = PMA_commonParams.get('arg_separator');
-        var editColumnData = editColumnList + '' + argsep + 'edit_central_columns_page=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + PMA_commonParams.get('db');
+        var argsep = CommonParams.get('arg_separator');
+        var editColumnData = editColumnList + '' + argsep + 'edit_central_columns_page=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + CommonParams.get('db');
         PMA_ajaxShowMessage();
         AJAX.source = $(this);
         $.get('db_central_columns.php', editColumnData, AJAX.responseHandler);
@@ -79,8 +84,8 @@ export function onloadDbCentralColumns () {
     $('#multi_edit_central_columns').submit(function (event) {
         event.preventDefault();
         event.stopPropagation();
-        var argsep = PMA_commonParams.get('arg_separator');
-        var multi_column_edit_data = $('#multi_edit_central_columns').serialize() + argsep + 'multi_edit_central_column_save=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(PMA_commonParams.get('db'));
+        var argsep = CommonParams.get('arg_separator');
+        var multi_column_edit_data = $('#multi_edit_central_columns').serialize() + argsep + 'multi_edit_central_column_save=true' + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'db=' + encodeURIComponent(CommonParams.get('db'));
         PMA_ajaxShowMessage();
         AJAX.source = $(this);
         $.post('db_central_columns.php', multi_column_edit_data, AJAX.responseHandler);
@@ -122,7 +127,7 @@ export function onloadDbCentralColumns () {
         event.preventDefault();
         event.stopPropagation();
         var $td = $(this);
-        var question = PMA_messages.strDeleteCentralColumnWarning;
+        var question = messages.strDeleteCentralColumnWarning;
         $td.PMA_confirm(question, null, function (url) {
             var rownum = $td.data('rownum');
             $('#del_col_name').val('selected_fld%5B%5D=' + $('#checkbox_row_' + rownum).val());
@@ -160,7 +165,7 @@ export function onloadDbCentralColumns () {
         $.ajax({
             type: 'POST',
             url: 'db_central_columns.php',
-            data: datastring + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
+            data: datastring + CommonParams.get('arg_separator') + 'ajax_request=true',
             dataType: 'json',
             success: function (data) {
                 if (data.message !== '1') {
@@ -190,7 +195,7 @@ export function onloadDbCentralColumns () {
             error: function () {
                 PMA_ajaxShowMessage(
                     '<div class="error">' +
-                        PMA_messages.strErrorProcessingRequest +
+                        messages.strErrorProcessingRequest +
                         '</div>',
                     false
                 );
@@ -203,12 +208,12 @@ export function onloadDbCentralColumns () {
         var href = 'db_central_columns.php';
         var params = {
             'ajax_request' : true,
-            'server' : PMA_commonParams.get('server'),
-            'db' : PMA_commonParams.get('db'),
+            'server' : CommonParams.get('server'),
+            'db' : CommonParams.get('db'),
             'selectedTable' : selectvalue,
             'populateColumns' : true
         };
-        $('#column-select').html('<option value="">' + PMA_messages.strLoading + '</option>');
+        $('#column-select').html('<option value="">' + messages.strLoading + '</option>');
         if (selectvalue !== '') {
             $.post(href, params, function (data) {
                 $('#column-select').empty().append(default_column_select);

@@ -5,6 +5,7 @@
  */
 import { $ } from '../../utils/JqueryExtended';
 import '../../plugins/jquery/jquery.tablesorter';
+
 // TODO: tablesorter shouldn't sort already sorted columns
 /**
  * @access public
