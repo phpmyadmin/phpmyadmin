@@ -10,6 +10,7 @@ phpMyAdmin - ChangeLog
 - issue #14296 Enable strict mode in PHP files
 - issue #13627 Increase field width for editing varchar fields
 - issue #12603 Show warning for users with the default values for controluser and controlpass
+- issue        Fix rendering of column comments in Safari, improve display in all browsers (pull request #14589).
 
 4.8.4 (not yet released)
 - issue #14452 Remove hash param in edit query URL
