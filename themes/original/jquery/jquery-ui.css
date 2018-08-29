@@ -170,7 +170,7 @@
 }
 .ui-selectable-helper {
 	position: absolute;
-	z-index: 100;
+       z-index: 100;
 	border: 1px dotted black;
 }
 .ui-sortable-handle {
@@ -403,6 +403,7 @@ button.ui-button::-moz-focus-inner {
 	width: 17em;
 	padding: .2em .2em 0;
 	display: none;
+       z-index: 99 !important;
 }
 .ui-datepicker .ui-datepicker-header {
 	position: relative;
