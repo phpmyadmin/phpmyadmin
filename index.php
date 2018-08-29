@@ -621,7 +621,7 @@ if ($server > 0) {
                 );
         }
         $msg = Message::notice($msg_text);
-        $msg->addParamHtml('<a href="./chk_rel.php' . $common_url_query . '">');
+        $msg->addParamHtml('<a href="./chk_rel.php" data-post="' . $common_url_query . '">');
         $msg->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
