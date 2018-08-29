@@ -221,8 +221,8 @@ class Sql
             $dropdown = '<span class="curr_value">'
                 . htmlspecialchars($_POST['curr_value'])
                 . '</span>'
-                . '<a href="browse_foreigners.php'
-                . Url::getCommon($_url_params) . '"'
+                . '<a href="browse_foreigners.php" data-post="'
+                . Url::getCommon($_url_params, '') . '"'
                 . 'class="ajax browse_foreign" ' . '>'
                 . __('Browse foreign values')
                 . '</a>';
