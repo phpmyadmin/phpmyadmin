@@ -88,10 +88,10 @@ class ErrorReport
         ];
 
         if ($exceptionType == 'js') {
-            if (empty($_REQUEST['exception'])) {
+            if (empty($_POST['exception'])) {
                 return [];
             }
-            $exception = $_REQUEST['exception'];
+            $exception = $_POST['exception'];
             $exception["stack"] = $this->translateStacktrace($exception["stack"]);
             list($uri, $scriptName) = $this->sanitizeUrl($exception["url"]);
             $exception["uri"] = $uri;
@@ -100,10 +100,10 @@ class ErrorReport
             $report["exception_type"] = 'js';
             $report["exception"] = $exception;
             $report["script_name"] = $scriptName;
-            $report["microhistory"] = $_REQUEST['microhistory'];
+            $report["microhistory"] = $_POST['microhistory'];
 
-            if (! empty($_REQUEST['description'])) {
-                $report['steps'] = $_REQUEST['description'];
+            if (! empty($_POST['description'])) {
+                $report['steps'] = $_POST['description'];
             }
         } elseif ($exceptionType == 'php') {
             $errors = [];
