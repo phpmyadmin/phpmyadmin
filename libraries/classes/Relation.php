@@ -40,9 +40,9 @@ class Relation
     /**
      * Relation constructor.
      *
-     * @param DatabaseInterface $dbi Database interface
+     * @param DatabaseInterface|null $dbi Database interface
      */
-    public function __construct(DatabaseInterface $dbi)
+    public function __construct(?DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
         $this->template = new Template();
