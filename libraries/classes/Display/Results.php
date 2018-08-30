@@ -4915,17 +4915,11 @@ class Results
         $url_query = $this->__get('url_query');
         $delete_text = ($del_link == self::DELETE_ROW) ? __('Delete') : __('Kill');
 
-        $links_html .= '<img class="selectallarrow" width="38" height="22"'
-            . ' src="' . $this->__get('pma_theme_image') . 'arrow_'
-            . $this->__get('text_dir') . '.png' . '"'
-            . ' alt="' . __('With selected:') . '" />';
-
-        $links_html .= '<input type="checkbox" '
-            . 'id="resultsForm_' . $this->__get('unique_id') . '_checkall" '
-            . 'class="checkall_box" title="' . __('Check all') . '" /> '
-            . '<label for="resultsForm_' . $this->__get('unique_id') . '_checkall">'
-            . __('Check all') . '</label> '
-            . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+        $links_html .= $this->template->render('select_all', [
+            'pma_theme_image' => $this->__get('pma_theme_image'),
+            'text_dir' => $this->__get('text_dir'),
+            'form_name' => 'resultsForm_' . $this->__get('unique_id'),
+        ]);
 
         $links_html .= Util::getButtonOrImage(
             'submit_mult',
