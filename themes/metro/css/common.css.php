@@ -951,6 +951,9 @@ td .icon {
     margin-<?php echo $right; ?>: .3em;
     margin-<?php echo $left; ?>: .6em;
 }
+.with-selected {
+    margin-<?php echo $left; ?>: 2em;
+}
 
 /* message boxes: error, confirmation */
 #pma_errors, #pma_demo, #pma_footer {
@@ -1056,6 +1059,11 @@ fieldset.confirmation legend
 }
 
 /* end messageboxes */
+
+.column_name {
+    font-size: 80%;
+    margin: 5px 2px;
+}
 
 .new_central_col{
     width:              100%;
