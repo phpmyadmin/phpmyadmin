@@ -47,7 +47,7 @@ class TableSearchControllerTest extends PmaTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
@@ -90,6 +90,7 @@ class TableSearchControllerTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $relation->dbi = $dbi;
 
         $this->_response = new ResponseStub();
 

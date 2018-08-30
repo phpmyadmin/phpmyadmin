@@ -24,7 +24,7 @@ require_once 'libraries/common.inc.php';
 $response = Response::getInstance();
 
 // Gets the relation settings
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
 
 $savedSearchList = [];

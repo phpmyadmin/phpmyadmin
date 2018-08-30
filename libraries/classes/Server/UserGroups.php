@@ -29,7 +29,7 @@ class UserGroups
      */
     public static function getHtmlForListingUsersofAGroup($userGroup)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $html_output  = '<h2>'
             . sprintf(__('Users of \'%s\' user group'), htmlspecialchars($userGroup))
             . '</h2>';
@@ -73,7 +73,7 @@ class UserGroups
      */
     public static function getHtmlForUserGroupsTable()
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $html_output  = '<h2>' . __('User groups') . '</h2>';
         $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
@@ -193,7 +193,7 @@ class UserGroups
      */
     public static function delete($userGroup)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         $userTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['users']);
@@ -218,7 +218,7 @@ class UserGroups
      */
     public static function getHtmlToEditUserGroup($userGroup = null)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $html_output = '';
         if ($userGroup == null) {
             $html_output .= '<h2>' . __('Add user group') . '</h2>';
@@ -349,7 +349,7 @@ class UserGroups
      */
     public static function edit($userGroup, $new = false)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $tabs = Util::getMenuTabList();
         $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])

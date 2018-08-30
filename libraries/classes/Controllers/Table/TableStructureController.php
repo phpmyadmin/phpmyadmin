@@ -135,7 +135,7 @@ class TableStructureController extends TableController
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
 
         $this->createAddField = new CreateAddField($dbi);
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
         $this->transformations = new Transformations();
     }
 

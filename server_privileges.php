@@ -26,7 +26,7 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/check_user_privileges.inc.php';
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
 
 /**

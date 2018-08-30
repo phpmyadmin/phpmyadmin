@@ -214,7 +214,7 @@ class Results
      */
     public function __construct($db, $table, $goto, $sql_query)
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->transformations = new Transformations();
         $this->template = new Template();
 

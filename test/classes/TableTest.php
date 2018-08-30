@@ -44,7 +44,7 @@ class TableTest extends PmaTestCase
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['cfg']['Server']['table_uiprefs'] = "pma__table_uiprefs";
 
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['dblist'] = new \stdClass();
         $GLOBALS['dblist']->databases = new class

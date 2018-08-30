@@ -27,14 +27,14 @@ class Navigation
     /**
      * @var Relation $relation
      */
-    private $relation;
+    public $relation;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**

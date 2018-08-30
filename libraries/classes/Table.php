@@ -98,7 +98,7 @@ class Table
         $this->_dbi = $dbi;
         $this->_name = $table_name;
         $this->_db_name = $db_name;
-        $this->relation = new Relation();
+        $this->relation = new Relation($this->_dbi);
     }
 
     /**
@@ -833,7 +833,7 @@ class Table
         array $where_fields,
         array $new_fields
     ) {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $last_id = -1;
 
         if (!isset($GLOBALS['cfgRelation']) || !$GLOBALS['cfgRelation'][$work]) {
@@ -923,7 +923,7 @@ class Table
     ) {
         global $err_url;
 
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
 
         // Try moving the tables directly, using native `RENAME` statement.
         if ($move && $what == 'data') {

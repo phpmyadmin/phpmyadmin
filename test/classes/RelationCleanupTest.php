@@ -60,8 +60,8 @@ class RelationCleanupTest extends TestCase
         $GLOBALS['cfg']['Server']['designer_settings'] = 'designer_settings';
         $GLOBALS['cfg']['Server']['export_templates'] = 'pma__export_templates';
 
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->redefineRelation();
-        $this->relation = new Relation();
     }
 
 
@@ -73,6 +73,7 @@ class RelationCleanupTest extends TestCase
     public function redefineRelation()
     {
         $GLOBALS['dbi'] = new RelationCleanupDbiMock();
+        $this->relation->dbi = $GLOBALS['dbi'];
         unset($_SESSION['relation'][$GLOBALS['server']]);
     }
 

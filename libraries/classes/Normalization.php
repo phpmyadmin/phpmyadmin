@@ -54,7 +54,7 @@ class Normalization
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation();
+        $this->relation = new Relation($this->dbi);
         $this->transformations = new Transformations();
         $this->template = new Template();
     }

@@ -30,7 +30,7 @@ Util::checkParameters(
 
 global $db, $table;
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $transformations = new Transformations();
 $template = new Template();
 

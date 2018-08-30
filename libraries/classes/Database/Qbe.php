@@ -248,8 +248,8 @@ class Qbe
         $this->_db = $dbname;
         $this->_savedSearchList = $savedSearchList;
         $this->_currentSearch = $currentSearch;
-        $this->relation = new Relation();
         $this->dbi = $dbi;
+        $this->relation = new Relation($this->dbi);
         $this->template = new Template();
 
         $this->_loadCriterias();

@@ -23,7 +23,7 @@ define('IS_TRANSFORMATION_WRAPPER', true);
 require_once './libraries/common.inc.php';
 
 $transformations = new Transformations();
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
 
 /**

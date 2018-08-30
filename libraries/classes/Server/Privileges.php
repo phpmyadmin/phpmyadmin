@@ -544,7 +544,7 @@ class Privileges
      */
     public function getHtmlToChooseUserGroup($username)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['usergroups']);
@@ -591,7 +591,7 @@ class Privileges
     public function setUserGroup($username, $userGroup)
     {
         $userGroup = is_null($userGroup) ? '' : $userGroup;
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
             return;
@@ -2944,7 +2944,7 @@ class Privileges
      */
     public function getUserGroupCount()
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         $user_group_table = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['usergroups']);
@@ -2968,7 +2968,7 @@ class Privileges
      */
     public function getUserGroupForUser($username)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         if (empty($cfgRelation['db'])
@@ -3013,7 +3013,7 @@ class Privileges
         $hostname,
         $username
     ) {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
             if (preg_match('/(?<!\\\\)(?:_|%)/i', $GLOBALS['dbname'])) {
@@ -3674,7 +3674,7 @@ class Privileges
      */
     public function getHtmlTableBodyForUserRights(array $db_rights)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         $user_group_count = 0;
         if ($cfgRelation['menuswork']) {

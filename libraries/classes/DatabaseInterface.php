@@ -139,7 +139,7 @@ class DatabaseInterface
         $this->_table_cache = [];
         $this->_current_user = [];
         $this->types = new Types($this);
-        $this->relation = new Relation();
+        $this->relation = new Relation($this);
     }
 
     /**

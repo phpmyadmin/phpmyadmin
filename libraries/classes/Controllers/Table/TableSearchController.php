@@ -115,7 +115,7 @@ class TableSearchController extends TableController
         $this->_columnCollations = [];
         $this->_geomColumnFlag = false;
         $this->_foreigners = [];
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
         // Loads table's information
         $this->_loadTableInfo();
         $this->_connectionCharSet = $this->dbi->fetchValue(

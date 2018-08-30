@@ -216,7 +216,7 @@ if (strlen($GLOBALS['db']) > 0
 /**
  * Settings for relations stuff
  */
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 
 $cfgRelation = $relation->getRelationsParam();
 

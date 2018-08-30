@@ -63,7 +63,7 @@ class InsertEdit
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->transformations = new Transformations();
         $this->fileListing = new FileListing();
         $this->template = new Template();

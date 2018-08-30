@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Plugins\Export\ExportLatex;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -743,6 +744,7 @@ class ExportLatexTest extends PmaTestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
         if (isset($GLOBALS['latex_caption'])) {
             unset($GLOBALS['latex_caption']);
         }
@@ -852,6 +854,7 @@ class ExportLatexTest extends PmaTestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [

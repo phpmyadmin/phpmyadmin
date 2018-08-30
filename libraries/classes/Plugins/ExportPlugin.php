@@ -35,7 +35,7 @@ abstract class ExportPlugin
     /**
      * @var Relation $relation
      */
-    protected $relation;
+    public $relation;
 
     /**
      * @var Export $export
@@ -52,7 +52,7 @@ abstract class ExportPlugin
      */
     public function __construct()
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->export = new Export();
         $this->transformations = new Transformations();
     }

@@ -61,7 +61,7 @@ class Menu
         $this->_server = $server;
         $this->_db = $db;
         $this->_table = $table;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**

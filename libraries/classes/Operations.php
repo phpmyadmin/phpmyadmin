@@ -39,7 +39,7 @@ class Operations
      */
     public function __construct()
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**

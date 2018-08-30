@@ -604,7 +604,7 @@ if (@file_exists('config')) {
     );
 }
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 
 if ($server > 0) {
     $cfgRelation = $relation->getRelationsParam();

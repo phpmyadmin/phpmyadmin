@@ -86,7 +86,7 @@ class Pdf extends PdfLib
         $this->_pageNumber = $pageNumber;
         $this->_withDoc = $withDoc;
         $this->_db = $db;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**

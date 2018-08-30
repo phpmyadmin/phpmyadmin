@@ -127,7 +127,7 @@ class Node
             $this->type = Node::CONTAINER;
         }
         $this->is_group = (bool)$is_group;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**

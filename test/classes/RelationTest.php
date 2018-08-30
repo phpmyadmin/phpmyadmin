@@ -47,7 +47,7 @@ class RelationTest extends TestCase
         $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
         $GLOBALS['cfg']['ServerDefault'] = 0;
 
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -70,6 +70,7 @@ class RelationTest extends TestCase
             ->will($this->returnValue('executeResult2'));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->relation->dbi = $GLOBALS['dbi'];
 
         $sql = "insert into PMA_bookmark A,B values(1, 2)";
         $this->assertEquals(
@@ -232,6 +233,7 @@ class RelationTest extends TestCase
             ->will($this->returnValue($getColumnsResult));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->relation->dbi = $GLOBALS['dbi'];
 
         $db = 'information_schema';
         $this->assertEquals(
@@ -270,6 +272,7 @@ class RelationTest extends TestCase
             ->method('getError')
             ->will($this->onConsecutiveCalls(true, false));
         $GLOBALS['dbi'] = $dbi;
+        $this->relation->dbi = $GLOBALS['dbi'];
 
         $GLOBALS['cfg']['Server']['pmadb'] = 'pmadb';
         $GLOBALS['cfg']['Server']['column_info'] = 'column_info';

@@ -52,7 +52,7 @@ class ErrorReport
     {
         $this->httpRequest = $httpRequest;
         $this->submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
     }
 

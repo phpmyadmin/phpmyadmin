@@ -141,7 +141,7 @@ class Tracking
      */
     public function getListOfVersionsOfTable()
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         $sql_query = " SELECT * FROM " .
             Util::backquote($cfgRelation['db']) . "." .
@@ -234,7 +234,7 @@ class Tracking
      */
     public function getSqlResultForSelectableTables()
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
@@ -1184,7 +1184,7 @@ class Tracking
         string $pmaThemeImage,
         string $textDir
     ) {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         // Prepare statement to get HEAD version
