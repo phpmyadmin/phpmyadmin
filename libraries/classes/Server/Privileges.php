@@ -33,6 +33,11 @@ class Privileges
     public $template;
 
     /**
+     * @var RelationCleanup
+     */
+    private $relationCleanup;
+
+    /**
      * Privileges constructor.
      *
      * @param Template $template Template instance
@@ -40,6 +45,7 @@ class Privileges
     public function __construct(Template $template)
     {
         $this->template = $template;
+        $this->relationCleanup = new RelationCleanup();
     }
 
     /**
@@ -4131,7 +4137,7 @@ class Privileges
             $queries[] = 'DROP USER \''
                 . $GLOBALS['dbi']->escapeString($this_user)
                 . '\'@\'' . $GLOBALS['dbi']->escapeString($this_host) . '\';';
-            RelationCleanup::user($this_user);
+            $this->relationCleanup->user($this_user);
 
             if (isset($_REQUEST['drop_users_db'])) {
                 $queries[] = 'DROP DATABASE IF EXISTS '

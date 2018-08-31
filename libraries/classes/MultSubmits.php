@@ -32,11 +32,17 @@ class MultSubmits
     private $transformations;
 
     /**
+     * @var RelationCleanup
+     */
+    private $relationCleanup;
+
+    /**
      * MultSubmits constructor.
      */
     public function __construct()
     {
         $this->transformations = new Transformations();
+        $this->relationCleanup = new RelationCleanup();
     }
 
     /**
@@ -153,7 +159,7 @@ class MultSubmits
                     break;
 
                 case 'drop_db':
-                    RelationCleanup::database($selected[$i]);
+                    $this->relationCleanup->database($selected[$i]);
                     $aQuery = 'DROP DATABASE '
                            . Util::backquote($selected[$i]);
                     $reload = 1;
@@ -162,7 +168,7 @@ class MultSubmits
                     break;
 
                 case 'drop_tbl':
-                    RelationCleanup::table($db, $selected[$i]);
+                    $this->relationCleanup->table($db, $selected[$i]);
                     $current = $selected[$i];
                     if (!empty($views) && in_array($current, $views)) {
                         $sqlQueryViews .= (empty($sqlQueryViews) ? 'DROP VIEW ' : ', ')
@@ -212,7 +218,7 @@ class MultSubmits
                     break;
 
                 case 'drop_fld':
-                    RelationCleanup::column($db, $table, $selected[$i]);
+                    $this->relationCleanup->column($db, $table, $selected[$i]);
                     $sqlQuery .= (empty($sqlQuery)
                         ? 'ALTER TABLE ' . Util::backquote($table)
                         : ',')

@@ -30,6 +30,11 @@ class RelationCleanupTest extends TestCase
     private $relation;
 
     /**
+     * @var RelationCleanup
+     */
+    private $relationCleanup;
+
+    /**
      * Prepares environment for the test.
      *
      * @return void
@@ -61,6 +66,7 @@ class RelationCleanupTest extends TestCase
         $GLOBALS['cfg']['Server']['export_templates'] = 'pma__export_templates';
 
         $this->relation = new Relation($GLOBALS['dbi']);
+        $this->relationCleanup = new RelationCleanup();
         $this->redefineRelation();
     }
 
@@ -78,7 +84,7 @@ class RelationCleanupTest extends TestCase
     }
 
     /**
-     * Test for RelationCleanup::column
+     * Test for column
      *
      * @return void
      * @group medium
@@ -131,7 +137,7 @@ class RelationCleanupTest extends TestCase
         );
 
         //cleanup
-        RelationCleanup::column($db, $table, $column);
+        $this->relationCleanup->column($db, $table, $column);
 
         //the $cfgRelation value after cleanup column
         $cfgRelation = $this->relation->checkRelationsParam();
@@ -158,7 +164,7 @@ class RelationCleanupTest extends TestCase
     }
 
     /**
-     * Test for RelationCleanup::table
+     * Test for table
      *
      * @return void
      */
@@ -187,8 +193,7 @@ class RelationCleanupTest extends TestCase
             $cfgRelation['relation']
         );
 
-        //RelationCleanup::table
-        RelationCleanup::table($db, $table);
+        $this->relationCleanup->table($db, $table);
 
         //the $cfgRelation value after cleanup column
         $cfgRelation = $this->relation->checkRelationsParam();
@@ -223,7 +228,7 @@ class RelationCleanupTest extends TestCase
     }
 
     /**
-     * Test for RelationCleanup::database
+     * Test for database
      *
      * @return void
      */
@@ -260,7 +265,7 @@ class RelationCleanupTest extends TestCase
         );
 
         //cleanup
-        RelationCleanup::database($db);
+        $this->relationCleanup->database($db);
 
         //the value after cleanup column
         $cfgRelation = $this->relation->checkRelationsParam();
