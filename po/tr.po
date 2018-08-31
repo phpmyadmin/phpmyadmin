@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 18:20+0200\n"
-"PO-Revision-Date: 2018-08-27 08:08+0000\n"
+"PO-Revision-Date: 2018-09-01 17:23+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -7089,13 +7089,13 @@ msgstr "Parola:"
 
 #: libraries/classes/Display/ChangePassword.php:83
 msgid "Enter:"
-msgstr "Giriş:"
+msgstr "Girin:"
 
 #: libraries/classes/Display/ChangePassword.php:90
 #: libraries/classes/ReplicationGui.php:892
 #: libraries/classes/Server/Privileges.php:1757
 msgid "Re-type:"
-msgstr "Parola tekrarı:"
+msgstr "Tekrar yazın:"
 
 #: libraries/classes/Display/ChangePassword.php:123
 #: libraries/classes/Display/ChangePassword.php:158
@@ -10664,7 +10664,7 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:896
 #: libraries/classes/Server/Privileges.php:1761
 msgid "Re-type"
-msgstr "Parola tekrarı"
+msgstr "Tekrar yazın"
 
 #: libraries/classes/ReplicationGui.php:900
 msgid "Generate password:"
@@ -11547,7 +11547,7 @@ msgstr "Kullanıcı hesabı için veritabanı"
 
 #: libraries/classes/Server/Privileges.php:2244
 msgid "Create database with same name and grant all privileges."
-msgstr "Aynı isimle veritabanı oluşturur ve tüm yetkileri verir."
+msgstr "Aynı isimle veritabanı oluştur ve tüm yetkileri ver."
 
 #: libraries/classes/Server/Privileges.php:2252
 msgid "Grant all privileges on wildcard name (username\\_%)."
