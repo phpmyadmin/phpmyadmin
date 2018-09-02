@@ -57,7 +57,7 @@ class Sql
     public function __construct()
     {
         $this->relation = new Relation($GLOBALS['dbi']);
-        $this->relationCleanup = new RelationCleanup();
+        $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $this->relation);
         $this->transformations = new Transformations();
     }
 

@@ -45,7 +45,8 @@ class Privileges
     public function __construct(Template $template)
     {
         $this->template = $template;
-        $this->relationCleanup = new RelationCleanup();
+        $relation = new Relation($GLOBALS['dbi']);
+        $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
     }
 
     /**

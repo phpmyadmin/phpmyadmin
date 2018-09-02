@@ -42,7 +42,8 @@ class MultSubmits
     public function __construct()
     {
         $this->transformations = new Transformations();
-        $this->relationCleanup = new RelationCleanup();
+        $relation = new Relation($GLOBALS['dbi']);
+        $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
     }
 
     /**
