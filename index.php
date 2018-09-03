@@ -143,6 +143,9 @@ $show_query = '1';
 if (! empty($message)) {
     echo Util::getMessage($message);
     unset($message);
+} else {
+    // Displays welcome message if no other message needs to be displayed
+    echo Util::getMessage('Hello '.$_SESSION['relation'][1]['user'].', welcome back.');
 }
 if (isset($_SESSION['partial_logout'])) {
     Message::success(
@@ -363,9 +366,34 @@ if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
     );
     echo '           ' , $charsets[$unicode], ' (' . $unicode, ')';
     echo '        </span>'
-       . '    </li>'
-       . '  </ul>'
-       . ' </div>';
+       . '    </li>';
+    echo '  </ul>';
+
+    /* Export all server DB to pdf button, hidden inputs are to specify
+       appropriate variables in export.php */
+    echo '<form class="disableAjax" action="export.php" method="post">
+            <input name="token" type="hidden" value="'.htmlspecialchars($_SESSION[' PMA_token ']).'">
+            <input name="what" type="hidden" value="pdf" />
+            <input name="export_type" type="hidden" value="server" />
+            <input name="export_method" type="hidden" value="quick" />
+            <input name="output_format" type="hidden" value="sendit" />
+            <input name="template_id" type="hidden" value="" />
+            <input name="asfile" type="hidden" value="true" />
+            <input name="filename_template" type="hidden" value="@SERVER@" />
+            <input name="pdf_structure_or_data" type="hidden" value="data" />
+            <input name="sql_structure_or_data" type="hidden" value="data" />
+            <input name="compression" type="hidden" value="none" />
+            <input id="buttonGo" type="submit" value="Export All DB to PDF" />';
+
+    /* Ensure to export all tables on the server to the PDF */
+    foreach ($GLOBALS['dblist']->databases as $db) {
+        if ($db != 'information_schema' && $db != 'mysql' && $db != 'performance_schema') {
+            echo '<input name="db_select[]" type="hidden" value="'.$db.'" />';
+        }
+    }
+
+    echo '</form>
+          </div>';
 }
 
 if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {

@@ -303,6 +303,32 @@ $(function () {
         }
     });
 
+    /*
+        Expands tables when clicking the expand_tables button
+    */
+    $(document).on('click', '#expand_tables', function (event) {
+        event.preventDefault();
+        $('#pma_navigation_tree').find('li.database > .block > a.expander').each(function () {
+            var $icon = $(this).find('img');
+            if ($icon.is('.ic_b_plus')) {
+                $(this).trigger('click');
+            }
+        });
+    });
+
+    /*
+        Collapses tables when clicking the collapse_table button
+    */
+    $(document).on('click', '#collapse_tables', function (event) {
+        event.preventDefault();
+        $('#pma_navigation_tree').find('li.database > .block > a.expander').each(function () {
+            var $icon = $(this).find('img');
+            if ($icon.is('.ic_b_minus')) {
+                $(this).trigger('click');
+            }
+        });
+    });
+
     /**
      * Register event handler for click on the reload
      * navigation icon at the top of the panel

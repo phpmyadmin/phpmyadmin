@@ -1247,7 +1247,7 @@ div#tablestatistics table {
 
 #goto_pagetop, #lock_page_icon, #page_settings_icon {
     padding: .25em;
-    background: #888;
+    background: #ff0000;
 }
 
 #page_settings_icon {
@@ -1429,7 +1429,7 @@ table#serverstatusvariables .name {
 table#serverstatusvariables .value {
     width: 6em;
 }
-table#serverstatusconnections {
+table#serverstatusconnections, table#numRelations {
     float: <?php echo $left; ?>;
     margin-<?php echo $left; ?>: 30px;
 }
@@ -1921,7 +1921,7 @@ div.sqlvalidate {
 }
 
 .group h2 {
-    background-color: #bbb;
+    background-color: #ff0000;
     padding: .1em .3em;
     margin-top: 0;
     color: #fff;
@@ -3683,7 +3683,7 @@ body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
         display: none;
     }
 
-    table#serverstatusconnections {
+    table#serverstatusconnections, table#numRelations {
         margin-left: 0;
     }
 

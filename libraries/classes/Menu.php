@@ -647,13 +647,21 @@ class Menu
         $tabs['charset']['link'] = 'server_collations.php';
         $tabs['charset']['text'] = __('Charsets');
 
+        $tabs['plugins']['icon'] = 'b_plugin';
+        $tabs['plugins']['link'] = 'server_plugins.php';
+        $tabs['plugins']['text'] = __('Plugins');
+
         $tabs['engine']['icon'] = 'b_engine';
         $tabs['engine']['link'] = 'server_engines.php';
         $tabs['engine']['text'] = __('Engines');
 
-        $tabs['plugins']['icon'] = 'b_plugin';
-        $tabs['plugins']['link'] = 'server_plugins.php';
-        $tabs['plugins']['text'] = __('Plugins');
+		    $tabs['news']['icon'] = 'b_sql';
+        $tabs['news']['link'] = 'server_news.php';
+        $tabs['news']['text'] = __('News');
+		
+		 $tabs['contact']['icon'] = 'b_sql';
+        $tabs['contact']['link'] = 'contactus.php';
+        $tabs['contact']['text'] = __('Contact Us');
 
         return $tabs;
     }

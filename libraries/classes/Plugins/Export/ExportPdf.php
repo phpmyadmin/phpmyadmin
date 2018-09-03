@@ -223,15 +223,16 @@ class ExportPdf extends ExportPlugin
         $table_alias = $table;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $pdf = $this->_getPdf();
+        $purpose = __('Table Data');
         $attr = [
             'currentDb'    => $db,
             'currentTable' => $table,
             'dbAlias'      => $db_alias,
             'tableAlias'   => $table_alias,
             'aliases'      => $aliases,
+            'purpose'      => $purpose,
         ];
         $pdf->setAttributes($attr);
-        $pdf->purpose = __('Dumping data');
         $pdf->mysqlReport($sql_query);
 
         return true;

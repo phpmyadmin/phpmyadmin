@@ -96,8 +96,8 @@ class NavigationHeader
         $logo = 'phpMyAdmin';
         if (isset($GLOBALS['pmaThemeImage'])) {
             $imgTag = '<img src="%s%s" ' . 'alt="' . $logo . '" id="imgpmalogo" />';
-            if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
-                $logo = sprintf($imgTag, $GLOBALS['pmaThemeImage'], 'logo_left.png');
+            if (@file_exists($GLOBALS['pmaThemeImage'] . 'newlogo.png')) {
+                $logo = sprintf($imgTag, $GLOBALS['pmaThemeImage'], 'newlogo.png');
             } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {
                 $logo = sprintf($imgTag, $GLOBALS['pmaThemeImage'], 'pma_logo2.png');
             }
@@ -174,6 +174,8 @@ class NavigationHeader
 
         $retval = '<!-- LINKS START -->';
         $retval .= '<div id="navipanellinks">';
+
+        /**
         $retval .= Util::getNavigationLink(
             'index.php' . Url::getCommon(),
             $showText,
@@ -181,6 +183,7 @@ class NavigationHeader
             $showIcon,
             'b_home'
         );
+        **/
         // if we have chosen server
         if ($GLOBALS['server'] != 0) {
             // Logout for advanced authentication
@@ -241,6 +244,15 @@ class NavigationHeader
             's_reload',
             'pma_navigation_reload'
         );
+
+        $retval .= Util::getNavigationLink(
+            'index.php' . Url::getCommon(),
+            $showText,
+            __('Home'),
+            $showIcon,
+            'b_home'
+        );
+
         $retval .= '</div>';
         $retval .= '<!-- LINKS ENDS -->';
 

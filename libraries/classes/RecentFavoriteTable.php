@@ -255,7 +255,7 @@ class RecentFavoriteTable
      */
     public function getHtml()
     {
-        $html  = '<div class="drop_list">';
+        $html  = '<span class="drop_list">';
         if ($this->_tableType == 'recent') {
             $html .= '<span title="' . __('Recent tables')
                 . '" class="drop_button">'
@@ -266,7 +266,7 @@ class RecentFavoriteTable
                 . __('Favorites') . '</span><ul id="pma_favorite_list">';
         }
         $html .= $this->getHtmlList();
-        $html .= '</ul></div>';
+        $html .= '</ul></span>';
         return $html;
     }
 
