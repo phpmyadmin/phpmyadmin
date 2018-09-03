@@ -16,7 +16,6 @@ parameters:
         - '#Instantiated class COM not found#'
         - '#Function (escape|PMA_gradientGetColor|recode_string|apc_fetch) not found#'
         - '#TableStructureController has an unused parameter#'
-        - '#RelationCleanupDbiMock::__construct\(\) does not call parent constructor#'
         - '#NodeTrans::__construct\(\) does not call parent constructor#'
         - '#GisGeomTestCase::\$object#'
         - '#Undefined variable: \$array#'
