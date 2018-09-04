@@ -49,6 +49,7 @@ after_script:
   - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
   - if [ -f build/logs/phpunit.json ] ; then ./scripts/phpunit-top-tests build/logs/phpunit.json ; fi
   - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
+  - if [ "$CI_MODE" = "selenium" ] ; then ~/browserstack/BrowserStackLocal --daemon stop; fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
