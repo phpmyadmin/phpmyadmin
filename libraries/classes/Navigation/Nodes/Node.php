@@ -119,7 +119,7 @@ class Node
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
-        if (strlen($name)) {
+        if (strlen((string)$name)) {
             $this->name = $name;
             $this->real_name = $name;
         }
