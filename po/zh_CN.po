@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 18:20+0200\n"
-"PO-Revision-Date: 2018-08-01 22:48+0000\n"
+"PO-Revision-Date: 2018-09-06 02:54+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.1.1\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -778,6 +778,8 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"您的服务器使用控制用户（controluser）和密码（controlpass）的默认值运行，可能会遭到入侵；你确实应该通过改变控制用户“pma”的密码来"
+"解决这个安全漏洞。"
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -905,7 +907,7 @@ msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
-msgstr "您正在尝试减少行数，但已经在那些将丢失的行中输入数据。你想继续吗？"
+msgstr "您正在尝试减少行数，但那些行中已经输入了数据，这些数据即将丢失。你想继续吗？"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -4370,11 +4372,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:388
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "启用拖放导入"
 
 #: libraries/classes/Config/Descriptions.php:389
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "取消选中该复选框以禁用拖放导入"
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Partial import: allow interrupt"
@@ -9656,7 +9658,7 @@ msgstr "将文本以 XML 语法高亮显示。"
 msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
-msgstr ""
+msgstr "找不到gd PHP扩展。没有gd PHP扩展，无法显示二维码（QRcode）。"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:151
 msgid "Authentication Application (2FA)"
@@ -13393,10 +13395,8 @@ msgid "No Privileges"
 msgstr "无权限"
 
 #: server_privileges.php:155
-#, fuzzy
-#| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "您没有权限与用户进行操作！"
+msgstr "您没有权限管理用户！"
 
 #: server_privileges.php:169
 msgid ""
@@ -13920,10 +13920,8 @@ msgid "Attribute"
 msgstr "属性"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "当前数据库的列的中央列表是空的。"
+msgstr "当前数据库的列的中央列表是空的"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:414
@@ -14180,20 +14178,14 @@ msgstr ""
 "码。"
 
 #: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
-msgstr ""
-"请将以下QR码扫描到设备上的双因素身份验证应用程序中，然后输入它生成的身份验证"
-"码。"
+msgstr "请将以下密钥输入到设备上的双因素身份验证应用程序中，然后输入它生成的身份验证码。"
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "一次性密码（OTP） url:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
