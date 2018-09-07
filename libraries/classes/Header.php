@@ -184,10 +184,10 @@ class Header
         $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
         $this->_scripts->addFile('vendors~index_new.js');
         $this->_scripts->addFile('index_new.js');
-        $this->_scripts->addFile('keyhandler.js');
+        $this->_scripts->addFile('key_handler');
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
-            $this->_scripts->addFile('cross_framing_protection.js');
+            $this->_scripts->addFile('cross_framing_protection');
         }
         $this->_scripts->addFile('rte.js');
         if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
