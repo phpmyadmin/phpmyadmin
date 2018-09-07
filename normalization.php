@@ -75,7 +75,7 @@ if (isset($_REQUEST['getNewTables3NF'])) {
 
 $header = $response->getHeader();
 $scripts = $header->getScripts();
-$scripts->addFile('normalization.js');
+$scripts->addFile('normalization');
 $scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $normalForm = '1nf';
 if (Core::isValid($_REQUEST['normalizeTo'], ['1nf', '2nf', '3nf'])) {

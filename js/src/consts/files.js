@@ -56,7 +56,8 @@ const PhpToJsFileMapping = {
     tbl_zoom_select: ['sql', 'tbl_change'],
     tbl_find_replace: ['tbl_find_replace'],
     tbl_import: ['import'],
-    tbl_export: ['export']
+    tbl_export: ['export'],
+    normalization: ['normalization']
 };
 
 const JsFileList = [
@@ -98,7 +99,8 @@ const JsFileList = [
     'tbl_find_replace',
     'key_handler',
     'cross_framing_protection',
-    'drag_drop_import'
+    'drag_drop_import',
+    'normalization'
 ];
 
 export {

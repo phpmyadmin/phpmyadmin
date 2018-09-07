@@ -4,6 +4,7 @@ import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import CommonParams from './variables/common_params';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage, PMA_tooltip } from './utils/show_ajax_messages';
 import { isStorageSupported } from './functions/config';
+import { indexEditorDialog } from './functions/Indexes';
 
 /**
  * function used in or for navigation panel
