@@ -152,7 +152,7 @@ class CentralColumnsTest extends TestCase
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs(
-            $object !== null ? $object : $this->centralColumns,
+            $object ?? $this->centralColumns,
             $params
         );
     }
