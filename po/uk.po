@@ -7245,7 +7245,7 @@ msgstr "Рядок видалено."
 #: libraries/classes/Display/Results.php:4916
 #: libraries/classes/Server/Status/Processes.php:281
 msgid "Kill"
-msgstr "Аналювати"
+msgstr "Анулювати"
 
 #: libraries/classes/Display/Results.php:4351
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
