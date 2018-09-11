@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-09-10 07:27+0000\n"
-"Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
+"PO-Revision-Date: 2018-09-12 13:51+0000\n"
+"Last-Translator: Isaac Bennetch <bennetch@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "uk/>\n"
 "Language: uk\n"
@@ -7264,7 +7264,7 @@ msgstr "Рядок видалено."
 #: libraries/classes/Display/Results.php:4679
 #: libraries/classes/Server/Status/Processes.php:279
 msgid "Kill"
-msgstr "Аналювати"
+msgstr "Анулювати"
 
 #: libraries/classes/Display/Results.php:4120
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
