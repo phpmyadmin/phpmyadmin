@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 18:20+0200\n"
-"PO-Revision-Date: 2018-02-12 15:28+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2018-09-12 07:16+0000\n"
+"Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -798,6 +798,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Your server is running with default values for the controluser and password "
+"(controlpass) and is open to intrusion; you really should fix this security "
+"weakness by changing the password for controluser 'pma'."
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -933,6 +936,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"You are trying to reduce the number of rows, but have already entered data "
+"in those rows which will be lost. Do you wish to continue?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1949,13 +1954,15 @@ msgstr "Browse foreign values"
 
 #: js/messages.php:424
 msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
+msgstr "No previously auto-saved query is available. Loading default query."
 
 #: js/messages.php:425
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"You have a previously saved query. Click Get auto-saved query to load the "
+"query."
 
 #: js/messages.php:426
 #, php-format
@@ -2282,7 +2289,7 @@ msgstr ""
 
 #: js/messages.php:563
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "value/subQuery is empty"
 
 #: js/messages.php:564 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
@@ -2685,12 +2692,12 @@ msgstr "Strong"
 
 #: js/messages.php:750
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Timed out waiting for security key activation."
 
 #: js/messages.php:751
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Failed security key activation (%s)."
 
 #: js/messages.php:780
 msgctxt "Previous month"
@@ -4489,11 +4496,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:388
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Enable drag and drop import"
 
 #: libraries/classes/Config/Descriptions.php:389
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "Uncheck the checkbox to disable drag and drop import"
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Partial import: allow interrupt"
@@ -4733,16 +4740,12 @@ msgid "Show databases navigation as tree"
 msgstr "Show databases navigation as tree"
 
 #: libraries/classes/Config/Descriptions.php:475
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "Navigation panel"
+msgstr "Navigation panel width"
 
 #: libraries/classes/Config/Descriptions.php:476
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "Show logo in navigation panel."
+msgstr "Set to 0 to collapse navigation panel."
 
 #: libraries/classes/Config/Descriptions.php:477
 msgid "Link with main panel by highlighting the current database or table."
@@ -5235,18 +5238,14 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "Hide databases matching regular expression (PCRE)."
 
 #: libraries/classes/Config/Descriptions.php:631
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA "
-"bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 
 #: libraries/classes/Config/Descriptions.php:634
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -6073,14 +6072,8 @@ msgid "Show current browsing query"
 msgstr "Show current browsing query"
 
 #: libraries/classes/Config/Descriptions.php:910
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr ""
-"Execute queries on Enter and insert new line with Shift + Enter. To make "
-"this permanent, view settings."
+msgstr "Execute queries on Enter and insert new line with Shift + Enter"
 
 #: libraries/classes/Config/Descriptions.php:911
 #: templates/console/display.twig:168
@@ -6088,16 +6081,12 @@ msgid "Switch to dark theme"
 msgstr "Switch to dark theme"
 
 #: libraries/classes/Config/Descriptions.php:912
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "Console"
+msgstr "Console height"
 
 #: libraries/classes/Config/Descriptions.php:913
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "Console"
+msgstr "Console mode"
 
 #: libraries/classes/Config/Descriptions.php:914
 #: templates/console/display.twig:64
@@ -6109,10 +6098,8 @@ msgid "Order"
 msgstr "Order"
 
 #: libraries/classes/Config/Descriptions.php:916
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Order by:"
+msgstr "Order by"
 
 #: libraries/classes/Config/FormDisplay.php:107
 #: libraries/classes/Config/Validator.php:530
@@ -9078,7 +9065,7 @@ msgstr "Cannot log in to the MySQL server"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:356
 msgid "You have enabled two factor authentication, please confirm your login."
-msgstr ""
+msgstr "You have enabled two factor authentication, please confirm your login."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:104
 #: templates/display/export/format_dropdown.twig:2
@@ -10045,6 +10032,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"The gd PHP extension was not found. The QRcode can not be displayed without "
+"the gd PHP extension."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:151
 msgid "Authentication Application (2FA)"
@@ -10067,6 +10056,7 @@ msgstr "Hardware Sicherheitsschlüssel (FIDO U2F)"
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"Provides authentication using hardware security tokens supporting FIDO U2F."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:56
 msgid "Simple two-factor authentication"
@@ -10074,27 +10064,24 @@ msgstr "Einfache Authentifizierung in zwei Schritten"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:66
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "For testing purposes only!"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:81
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Hardware authentication failed!"
+msgstr "Two-factor authentication failed: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:85
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Hardware authentication failed!"
+msgstr "Two-factor authentication failed."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
 msgid "No Two-Factor"
-msgstr ""
+msgstr "No Two-Factor"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:148
 msgid "Login using password only."
-msgstr ""
+msgstr "Login using password only."
 
 #: libraries/classes/RecentFavoriteTable.php:147
 msgid "Could not save recent table!"
@@ -13683,6 +13670,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
+"access phpMyAdmin."
 
 #: libraries/common.inc.php:335
 msgid "Invalid authentication method set in configuration:"
@@ -13814,10 +13803,8 @@ msgid "Manage your settings"
 msgstr "Manage your settings"
 
 #: libraries/user_preferences.inc.php:41
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Config authentication"
+msgstr "Two-factor authentication"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:302
 msgid "Configuration has been saved."
@@ -13922,16 +13909,12 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr "You can reset all your settings and restore them to default values."
 
 #: prefs_twofactor.php:32
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Internal relationship has been removed."
+msgstr "Two-factor authentication has been removed."
 
 #: prefs_twofactor.php:42
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "Invalid authentication method set in configuration:"
+msgstr "Two-factor authentication has been configured."
 
 #: server_export.php:27
 msgid "View dump (schema) of databases"
@@ -13943,10 +13926,8 @@ msgid "No Privileges"
 msgstr "No Privileges"
 
 #: server_privileges.php:155
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger."
 msgid "You do not have the privileges to administrate the users!"
-msgstr "You do not have privileges to manipulate with the users!"
+msgstr "You do not have the privileges to administrate the users!"
 
 #: server_privileges.php:169
 msgid ""
@@ -14292,63 +14273,45 @@ msgstr "Query window"
 
 #: templates/database/multi_table_query/form.twig:22
 #: templates/database/multi_table_query/form.twig:110
-#, fuzzy
-#| msgid "Select table:"
 msgid "select table"
-msgstr "Select table:"
+msgstr "select table"
 
 #: templates/database/multi_table_query/form.twig:29
 #: templates/database/multi_table_query/form.twig:118
-#, fuzzy
-#| msgid "Select column:"
 msgid "select column"
-msgstr "Select column:"
+msgstr "select column"
 
 #: templates/database/multi_table_query/form.twig:35
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "Tables"
+msgstr "Table alias"
 
 #: templates/database/multi_table_query/form.twig:36
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "Column names"
+msgstr "Column alias"
 
 #: templates/database/multi_table_query/form.twig:39
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "Use this column to label each point"
+msgstr "Use this column in criteria"
 
 #: templates/database/multi_table_query/form.twig:42
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "Criteria:"
+msgstr "criteria"
 
 #: templates/database/multi_table_query/form.twig:56
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "Add %s"
+msgstr "Add as"
 
 #: templates/database/multi_table_query/form.twig:101
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "Alter column(s)"
+msgstr "Another column"
 
 #: templates/database/multi_table_query/form.twig:129
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "Enter criteria as free text"
 
 #: templates/database/multi_table_query/form.twig:137
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "Remove redundant columns"
+msgstr "Remove this column"
 
 #: templates/database/multi_table_query/form.twig:147
 #: templates/table/relation/foreign_key_row.twig:86
@@ -14356,15 +14319,11 @@ msgid "+ Add column"
 msgstr "+ Add column"
 
 #: templates/database/multi_table_query/form.twig:164
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
-msgstr "Update Query"
+msgstr "Update query"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -14382,6 +14341,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm registration on the device."
 msgstr ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm registration on the device."
 
 #: templates/database/structure/table_header.twig:27
 msgid ""
@@ -14433,22 +14394,20 @@ msgid "Inside column:"
 msgstr "Inside column:"
 
 #: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Config authentication"
+msgstr "Confirm disabling two-factor authentication"
 
 #: templates/prefs_twofactor_confirm.twig:5
 msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"By disabling two factor authentication you will be again able to login using "
+"password only."
 
 #: templates/prefs_twofactor_confirm.twig:9 templates/prefs_twofactor.twig:37
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Config authentication"
+msgstr "Disable two-factor authentication"
 
 #: templates/display/export/options_output.twig:2
 #: templates/display/export/options_quick_export.twig:2
@@ -14460,10 +14419,9 @@ msgid "Save output to a file"
 msgstr "Save output to a file"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "Skip tables larger than"
+msgstr "Skip tables larger than %s MiB"
 
 #: templates/server/binlog/log_selector.twig:5
 msgid "Select binary log to view"
@@ -14512,10 +14470,8 @@ msgid "Attribute"
 msgstr "Attribute"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "The central list of columns for the current database is empty."
+msgstr "The central list of columns for the current database is empty"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:414
@@ -14664,16 +14620,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "File may be compressed (%s) or uncompressed."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"A compressed file's name must end in <b>.[format].[compression]</b>. "
-"Example: <b>.sql.zip</b>"
+"A compressed file's name must end in <strong>.[format].[compression]</strong>"
+". Example: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -14701,19 +14653,14 @@ msgstr ""
 "Previous import timed out, after resubmitting will continue from position %d."
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
 "Allow the interruption of an import in case the script detects it is close "
-"to the PHP timeout limit. <i>(This might be a good way to import large "
-"files, however it can break transactions.)</i>"
+"to the PHP timeout limit. <em>(This might be a good way to import large "
+"files, however it can break transactions.)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -14744,7 +14691,7 @@ msgstr "Encoding Conversion:"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Verify"
 
 #: templates/columns_definitions/column_virtuality.twig:30
 #: templates/table/structure/display_partitions.twig:26
@@ -14775,40 +14722,39 @@ msgstr[0] "%1$s match in <strong>%2$s</strong>"
 msgstr[1] "%1$s matches in <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> match"
-msgstr[1] "<b>Total:</b> <i>%s</i> matches"
+msgstr[0] "<strong>Total:</strong> <em>%count%</em> match"
+msgstr[1] "<strong>Total:</strong> <em>%count%</em> matches"
 
 #: templates/login/twofactor/application_configure.twig:4
 msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"Please scan following QR code into the two-factor authentication app on your "
+"device and enter authentication code it generates."
 
 #: templates/login/twofactor/application_configure.twig:11
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
+"Please enter following secret/key into the two-factor authentication app on "
+"your device and enter authentication code it generates."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "OTP url:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Secret/key:"
 
 #: templates/login/twofactor/application_configure.twig:21
 #: templates/login/twofactor/application.twig:2
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "Authentication"
+msgstr "Authentication code:"
 
 #: templates/database/designer/page_save_as.twig:17
 msgid "Save to selected page"
@@ -14903,6 +14849,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"Please connect your FIDO U2F device into your computer's USB port. Then "
+"confirm login on the device."
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -15064,48 +15012,47 @@ msgid "Add privileges on the following routine:"
 msgstr "Add privileges on the following routine:"
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "Authentication settings."
+msgstr "Two-factor authentication status"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"Two-factor authentication is not available, please install optional "
+"dependencies to enable authentication backends."
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Following composer packages are missing:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
-msgstr ""
+msgstr "Two-factor authentication is available and configured for this account."
 
 #: templates/prefs_twofactor.twig:20
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"Two-factor authentication is available, but not configured for this account."
 
 #: templates/prefs_twofactor.twig:24
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "%sCreate%s missing phpMyAdmin configuration storage tables."
+msgstr ""
+"Two-factor authentication is not available, enable phpMyAdmin configuration "
+"storage to use it."
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "You have enabled two factor authentication."
 
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Config authentication"
+msgstr "Configure two-factor authentication"
 
 #: templates/table/search/rows_zoom.twig:12
 msgid "Additional search criteria"
@@ -15140,10 +15087,8 @@ msgid "Index choice:"
 msgstr "Index choice:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "Active options"
+msgstr "Advanced Options"
 
 #: templates/table/index_form.twig:52
 msgid "Key block size:"
@@ -15166,12 +15111,12 @@ msgid "Drag to reorder"
 msgstr "Drag to reorder"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
-msgstr "%sCreate%s missing phpMyAdmin configuration storage tables."
+msgstr ""
+"The configured two factor authentication is not available, please install "
+"missing dependencies."
 
 #: templates/view_create.twig:13
 #: templates/table/structure/display_structure.twig:374
@@ -15187,12 +15132,6 @@ msgid "Column names"
 msgstr "Column names"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
@@ -15200,7 +15139,7 @@ msgid ""
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
-"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or a "
+"format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 
@@ -15231,12 +15170,6 @@ msgstr "Browser display transformation options"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
@@ -15272,16 +15205,12 @@ msgid "Server variables and settings"
 msgstr "Server variables and settings"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
-msgstr "Storage Engines"
+msgstr "Storage engines"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
-msgstr "Character Sets and Collations"
+msgstr "Character sets and collations"
 
 #: templates/server/sub_page_header.twig:2
 msgid "Databases statistics"
@@ -15300,10 +15229,8 @@ msgid "Reset zoom"
 msgstr "Reset zoom"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Config authentication"
+msgstr "Enable two-factor authentication"
 
 #: templates/server/databases/databases_footer.twig:55
 msgid ""
@@ -15367,10 +15294,9 @@ msgid "Delete settings"
 msgstr "Delete settings"
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Jump to database"
+msgstr "Jump to database '%s'"
 
 #: templates/server/databases/table_row.twig:51
 #, php-format
@@ -15391,6 +15317,8 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"Open the two-factor authentication app on your device to view your "
+"authentication code and verify your identity."
 
 #: templates/table/structure/display_structure.twig:89
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -15469,10 +15397,9 @@ msgstr "Partitions"
 
 #: templates/display/export/options_quick_export.twig:8
 #: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "Save on server in the directory <b>%s</b>"
+msgstr "Save on server in the directory <strong>%s</strong>"
 
 #: templates/columns_definitions/column_default.twig:3
 msgctxt "for default"
@@ -15682,10 +15609,8 @@ msgid "No preview available."
 msgstr "No preview available."
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "take it"
+msgstr "Take it"
 
 #: templates/display/export/options_output_compression.twig:4
 msgid "Compression:"
@@ -15825,6 +15750,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
+"most likely refuse to authenticate you."
 
 #: templates/server/privileges/resource_limits.twig:2
 msgid "Resource limits"
@@ -15953,10 +15880,9 @@ msgid "Operator"
 msgstr "Operator"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "Create User"
+msgstr "Create %s"
 
 #: templates/columns_definitions/column_definitions_form.twig:23
 msgid "Table name"
@@ -16203,10 +16129,8 @@ msgid "Hide/Show all"
 msgstr "Hide/Show all"
 
 #: templates/database/designer/main.twig:216
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
-msgstr "Hide/Show Tables with no relationship"
+msgstr "Hide/Show tables with no relationship"
 
 #: templates/database/designer/main.twig:257
 msgid "Number of tables:"
