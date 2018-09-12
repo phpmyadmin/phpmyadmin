@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 4.8.4 (not yet released)
 - issue #14452 Remove hash param in edit query URL
 - issue #14295 Issue in Changing theme
+- issue #13267 Ensure that database names with '.' are handled properly when DisableIS is true
 
 4.8.3 (2018-08-22)
 - issue #14314 Error when naming a database '0'
