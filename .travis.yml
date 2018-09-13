@@ -18,6 +18,9 @@ php:
   - "5.5"
   - "hhvm-3.12"
   - "hhvm-3.18"
+  - "hhvm-3.21"
+  - "hhvm-3.24"
+  - "hhvm-3.27"
   - "nightly"
 
 sudo: required
