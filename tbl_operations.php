@@ -47,6 +47,8 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
  * Gets relation settings
  */
 $relation = new Relation($GLOBALS['dbi']);
+$operations = new Operations($GLOBALS['dbi'], $relation);
+
 $cfgRelation = $relation->getRelationsParam();
 
 // reselect current db (needed in some cases probably due to
@@ -96,8 +98,6 @@ $pma_table = $GLOBALS['dbi']->getTable(
 );
 $reread_info = false;
 $table_alters = [];
-
-$operations = new Operations();
 
 /**
  * If the table has to be moved to some other database

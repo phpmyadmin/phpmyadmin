@@ -37,6 +37,11 @@ class MultSubmits
     private $relationCleanup;
 
     /**
+     * @var Operations $operations
+     */
+    private $operations;
+
+    /**
      * MultSubmits constructor.
      */
     public function __construct()
@@ -44,6 +49,7 @@ class MultSubmits
         $this->transformations = new Transformations();
         $relation = new Relation($GLOBALS['dbi']);
         $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
+        $this->operations = new Operations($GLOBALS['dbi'], $relation);
     }
 
     /**
@@ -341,8 +347,7 @@ class MultSubmits
                         'one_table'
                     );
                     if (isset($_POST['adjust_privileges']) && !empty($_POST['adjust_privileges'])) {
-                        $operations = new Operations();
-                        $operations->adjustPrivilegesCopyTable(
+                        $this->operations->adjustPrivilegesCopyTable(
                             $db,
                             $selected[$i],
                             $_POST['target_db'],

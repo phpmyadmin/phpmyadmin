@@ -42,8 +42,8 @@ $scripts->addFile('db_operations.js');
 
 $sql_query = '';
 
-$operations = new Operations();
 $relation = new Relation($GLOBALS['dbi']);
+$operations = new Operations($GLOBALS['dbi'], $relation);
 $relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
 
 /**

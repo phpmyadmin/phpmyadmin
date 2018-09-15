@@ -52,12 +52,18 @@ class Sql
     private $transformations;
 
     /**
+     * @var Operations $operations
+     */
+    private $operations;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->relation = new Relation($GLOBALS['dbi']);
         $this->relationCleanup = new RelationCleanup($GLOBALS['dbi'], $this->relation);
+        $this->operations = new Operations($GLOBALS['dbi'], $this->relation);
         $this->transformations = new Transformations();
     }
 
@@ -2392,8 +2398,7 @@ EOT;
                 isset($extra_data) ? $extra_data : null
             );
 
-        $operations = new Operations();
-        $warning_messages = $operations->getWarningMessagesArray();
+        $warning_messages = $this->operations->getWarningMessagesArray();
 
         // No rows returned -> move back to the calling page
         if ((0 == $num_rows && 0 == $unlim_num_rows)
