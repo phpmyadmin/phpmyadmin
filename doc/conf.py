@@ -313,4 +313,6 @@ linkcheck_ignore = [
     r'https://pecl.php.net/.*',
     # Expired SSL certificate
     r'https://texy.info/.*',
+    # 403 Client Error: Forbidden
+    r'https://authy.com/.*',
 ]
