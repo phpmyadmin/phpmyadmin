@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-09-14 19:22+0000\n"
-"Last-Translator: RD WebDesign <weblate@rdwebdesign.com.br>\n"
+"PO-Revision-Date: 2018-09-17 14:29+0000\n"
+"Last-Translator: Ray Santos <ray.smgl@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -946,8 +946,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Você está tentando reduzir o número de registros, mas já foram inseridos "
-"dados nesses registros que serão perdidos. Deseja continuar?"
+"Você está tentando reduzir o número de linhas, mas já inseriu dados nessas "
+"linhas que serão perdidas. Você deseja continuar?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2307,7 +2307,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr "valor/sub consulta vazio"
+msgstr "valor/sub consulta está vazio"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
