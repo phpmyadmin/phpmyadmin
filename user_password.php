@@ -10,7 +10,11 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Server\Privileges;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPassword;
 
 /**
@@ -24,7 +28,11 @@ $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
-$userPassword = new UserPassword();
+$template = new Template();
+$relation = new Relation($GLOBALS['dbi']);
+$relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
+$serverPrivileges = new Privileges($template, $GLOBALS['dbi'], $relation, $relationCleanup);
+$userPassword = new UserPassword($serverPrivileges);
 
 /**
  * Displays an error message and exits if the user isn't allowed to use this

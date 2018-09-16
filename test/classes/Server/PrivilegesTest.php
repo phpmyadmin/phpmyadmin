@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -82,7 +84,13 @@ class PrivilegesTest extends TestCase
         $GLOBALS['text_dir'] = "text_dir";
         $GLOBALS['is_reload_priv'] = true;
 
-        $this->serverPrivileges = new Privileges(new Template());
+        $relation = new Relation($GLOBALS['dbi']);
+        $this->serverPrivileges = new Privileges(
+            new Template(),
+            $GLOBALS['dbi'],
+            $relation,
+            new RelationCleanup($GLOBALS['dbi'], $relation)
+        );
 
         //$_POST
         $_POST['pred_password'] = 'none';
@@ -138,6 +146,7 @@ class PrivilegesTest extends TestCase
 
         $GLOBALS['dbi'] = $dbi;
         $this->serverPrivileges->dbi = $dbi;
+        $this->serverPrivileges->relation->dbi = $dbi;
         $GLOBALS['is_grantuser'] = true;
         $GLOBALS['is_createuser'] = true;
         $GLOBALS['is_reload_priv'] = true;

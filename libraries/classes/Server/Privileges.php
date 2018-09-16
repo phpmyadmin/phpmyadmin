@@ -43,16 +43,28 @@ class Privileges
     public $dbi;
 
     /**
+     * @var Relation $relation
+     */
+    public $relation;
+
+    /**
      * Privileges constructor.
      *
-     * @param Template $template Template instance
+     * @param Template          $template        Template object
+     * @param DatabaseInterface $dbi             DatabaseInterface object
+     * @param Relation          $relation        Relation object
+     * @param RelationCleanup   $relationCleanup RelationCleanup object
      */
-    public function __construct(Template $template)
-    {
+    public function __construct(
+        Template $template,
+        DatabaseInterface $dbi,
+        Relation $relation,
+        RelationCleanup $relationCleanup
+    ) {
         $this->template = $template;
-        $this->dbi = $GLOBALS['dbi'];
-        $relation = new Relation($this->dbi);
-        $this->relationCleanup = new RelationCleanup($this->dbi, $relation);
+        $this->dbi = $dbi;
+        $this->relation = $relation;
+        $this->relationCleanup = $relationCleanup;
     }
 
     /**
@@ -557,8 +569,7 @@ class Privileges
      */
     public function getHtmlToChooseUserGroup($username)
     {
-        $relation = new Relation($this->dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $groupTable = Util::backquote($cfgRelation['db'])
             . "." . Util::backquote($cfgRelation['usergroups']);
         $userTable = Util::backquote($cfgRelation['db'])
@@ -578,7 +589,7 @@ class Privileges
 
         $allUserGroups = ['' => ''];
         $sql_query = "SELECT DISTINCT `usergroup` FROM " . $groupTable;
-        $result = $relation->queryAsControlUser($sql_query, false);
+        $result = $this->relation->queryAsControlUser($sql_query, false);
         if ($result) {
             while ($row = $this->dbi->fetchRow($result)) {
                 $allUserGroups[$row[0]] = $row[0];
@@ -604,8 +615,7 @@ class Privileges
     public function setUserGroup($username, $userGroup)
     {
         $userGroup = is_null($userGroup) ? '' : $userGroup;
-        $relation = new Relation($this->dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         if (empty($cfgRelation['db']) || empty($cfgRelation['users']) || empty($cfgRelation['usergroups'])) {
             return;
         }
@@ -637,7 +647,7 @@ class Privileges
             }
         }
         if (isset($upd_query)) {
-            $relation->queryAsControlUser($upd_query);
+            $this->relation->queryAsControlUser($upd_query);
         }
     }
 
@@ -2957,8 +2967,7 @@ class Privileges
      */
     public function getUserGroupCount()
     {
-        $relation = new Relation($this->dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $user_group_table = Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['usergroups']);
         $sql_query = 'SELECT COUNT(*) FROM ' . $user_group_table;
@@ -2981,8 +2990,7 @@ class Privileges
      */
     public function getUserGroupForUser($username)
     {
-        $relation = new Relation($this->dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
 
         if (empty($cfgRelation['db'])
             || empty($cfgRelation['users'])
@@ -3026,7 +3034,6 @@ class Privileges
         $hostname,
         $username
     ) {
-        $relation = new Relation($this->dbi);
         if (isset($GLOBALS['dbname'])) {
             //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
             if (preg_match('/(?<!\\\\)(?:_|%)/i', $GLOBALS['dbname'])) {
@@ -3080,7 +3087,7 @@ class Privileges
 
             // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
             // enabled
-            $cfgRelation = $relation->getRelationsParam();
+            $cfgRelation = $this->relation->getRelationsParam();
             if (!empty($cfgRelation['users']) && !empty($cfgRelation['usergroups'])) {
                 $new_user_string .= '<td class="usrGroup"></td>';
             }
@@ -3687,14 +3694,13 @@ class Privileges
      */
     public function getHtmlTableBodyForUserRights(array $db_rights)
     {
-        $relation = new Relation($this->dbi);
-        $cfgRelation = $relation->getRelationsParam();
+        $cfgRelation = $this->relation->getRelationsParam();
         $user_group_count = 0;
         if ($cfgRelation['menuswork']) {
             $users_table = Util::backquote($cfgRelation['db'])
                 . "." . Util::backquote($cfgRelation['users']);
             $sql_query = 'SELECT * FROM ' . $users_table;
-            $result = $relation->queryAsControlUser($sql_query, false);
+            $result = $this->relation->queryAsControlUser($sql_query, false);
             $group_assignment = [];
             if ($result) {
                 while ($row = $this->dbi->fetchAssoc($result)) {

@@ -10,8 +10,8 @@ declare(strict_types=1);
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
@@ -39,7 +39,8 @@ $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
 $template = new Template();
-$serverPrivileges = new Privileges($template);
+$relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
+$serverPrivileges = new Privileges($template, $GLOBALS['dbi'], $relation, $relationCleanup);
 
 if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')
