@@ -68,6 +68,7 @@ class PrivilegesTest extends TestCase
         $GLOBALS['cfg']['ShowHint'] = true;
         $GLOBALS['cfg']['ShowDatabasesNavigationAsTree'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['cfg']['enable_drag_drop_import'] = true;
 
         $GLOBALS['cfgRelation'] = [];
         $GLOBALS['cfgRelation']['menuswork'] = false;
@@ -136,6 +137,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
         $GLOBALS['is_grantuser'] = true;
         $GLOBALS['is_createuser'] = true;
         $GLOBALS['is_reload_priv'] = true;
@@ -561,6 +563,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $actualHtml = $this->serverPrivileges->getHtmlForUserGroupDialog($username, $is_menuswork);
         $this->assertContains(
@@ -594,6 +597,7 @@ class PrivilegesTest extends TestCase
 
         /* reset original dbi */
         $GLOBALS['dbi'] = $oldDbi;
+        $this->serverPrivileges->dbi = $oldDbi;
     }
 
     /**
@@ -842,6 +846,7 @@ class PrivilegesTest extends TestCase
         // Case 1 : Test with Newer version
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50706));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $dbname = 'pma_dbname';
         $username = 'pma_username';
@@ -889,6 +894,7 @@ class PrivilegesTest extends TestCase
     {
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50506));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $dbname = 'pma_dbname';
         $username = 'pma_username';
@@ -1083,6 +1089,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $html = $this->serverPrivileges->getHtmlToDisplayPrivilegesTable();
         $GLOBALS['username'] = "username";
@@ -1166,6 +1173,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1179,6 +1187,7 @@ class PrivilegesTest extends TestCase
 
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50706));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
 
         $username = "PMA_username";
         $hostname = "PMA_hostname";
@@ -1341,6 +1350,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $html = $this->serverPrivileges->getHtmlForLoginInformationFields();
 
@@ -1374,6 +1384,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1448,6 +1459,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $dbname = "pma_dbname";
 
@@ -1497,6 +1509,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1523,6 +1536,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $db = "pma_dbname";
 
@@ -1577,6 +1591,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1603,6 +1618,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnValue(true));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $db = "pma_dbname";
         $table = "pma_table";
@@ -1666,6 +1682,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1929,6 +1946,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $html = $this->serverPrivileges->getChangeLoginInformationHtmlForm($username, $hostname);
 
@@ -1966,6 +1984,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -1992,6 +2011,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $returned_userGroup = $this->serverPrivileges->getUserGroupForUser($username);
 
@@ -2001,6 +2021,7 @@ class PrivilegesTest extends TestCase
         );
 
         $GLOBALS['dbi'] = $dbi_old;
+        $this->serverPrivileges->dbi = $dbi_old;
     }
 
     /**
@@ -2469,6 +2490,7 @@ class PrivilegesTest extends TestCase
         // Setup for the test
         $GLOBALS['dbi']->expects($this->any())->method('fetchRow')
             ->will($this->onConsecutiveCalls(['-']));
+        $this->serverPrivileges->dbi = $GLOBALS['dbi'];
         $actual = $this->serverPrivileges->getHtmlForInitials(['"' => true]);
         $this->assertContains('<td>A</td>', $actual);
         $this->assertContains('<td>Z</td>', $actual);
@@ -2515,6 +2537,7 @@ class PrivilegesTest extends TestCase
 
         $_GET['initial'] = 'A';
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         $expected = [
             'pmauser' => [
@@ -2571,6 +2594,7 @@ class PrivilegesTest extends TestCase
                 )
             );
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         /* Assertion 1 */
         $actualHtml = $this->serverPrivileges->getHtmlForAuthPluginsDropdown(
@@ -2643,6 +2667,7 @@ class PrivilegesTest extends TestCase
 
         // Restore old DBI
         $GLOBALS['dbi'] = $oldDbi;
+        $this->serverPrivileges->dbi = $oldDbi;
     }
 
     /**
@@ -2667,6 +2692,7 @@ class PrivilegesTest extends TestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->serverPrivileges->dbi = $dbi;
 
         // Test case 1 : empty queries
         $queries = [];
