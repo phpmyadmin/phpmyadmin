@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-09-17 14:29+0000\n"
-"Last-Translator: Ray Santos <ray.smgl@gmail.com>\n"
+"PO-Revision-Date: 2018-09-18 23:30+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2307,7 +2307,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr "valor/sub consulta está vazio"
+msgstr "valor/subconsulta está vazio"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -10178,8 +10178,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
-"A extensão gd PHP não foi encontrada. O QRcode não pode ser exibido sem a "
-"extensão gd PHP."
+"A extensão gd do PHP não foi encontrada. O QRcode não pode ser exibido sem a "
+"extensão gd do PHP."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 msgid "Authentication Application (2FA)"
@@ -14520,7 +14520,6 @@ msgstr ""
 "dois fatores do seu dispositivo e informe o código gerado por ele."
 
 #: templates/login/twofactor/application_configure.twig:14
-#, fuzzy
 msgid "OTP url:"
 msgstr "url OTP:"
 
