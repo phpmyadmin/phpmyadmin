@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-17 18:18-0300\n"
-"PO-Revision-Date: 2018-09-01 17:23+0000\n"
+"PO-Revision-Date: 2018-09-18 22:32+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -14866,8 +14866,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Taban Katman olarak OpenStreetMaps kullan"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -14884,10 +14882,9 @@ msgstr "Nokta:"
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Nokta %d"
+msgstr "Nokta %d:"
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
@@ -15817,18 +15814,13 @@ msgid "Secret/key:"
 msgstr "Gizli/anahtar:"
 
 #: templates/login/header.twig:15
-#, fuzzy
-#| msgid ""
-#| "There is mismatch between HTTPS indicated on the server and client. This "
-#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
-#| "server configuration to indicate HTTPS properly."
 msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
-"İstemci ve sunucu üzerinde HTTPS arasında gösterilen uyumsuzluk var. Bu, "
-"çalışmayan phpMyAdmin veya bir güvenlik riskine neden olabilir. Lütfen "
+"İstemci ve sunucu üzerinde HTTPS arasında gösterilen bir uyumsuzluk var. Bu, "
+"çalışmayan bir phpMyAdmin veya bir güvenlik riskine neden olabilir. Lütfen "
 "HTTPS'yi düzgün bir şekilde göstermesi için sunucu yapılandırmanızı düzeltin."
 
 #: templates/server/privileges/delete_user_fieldset.twig:3
