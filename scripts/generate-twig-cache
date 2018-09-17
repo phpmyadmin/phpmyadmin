@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbi\DbiDummy;
 use PhpMyAdmin\Twig\CharsetsExtension;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
@@ -25,6 +27,7 @@ require_once 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
+$GLOBALS['dbi'] = new DatabaseInterface(new DbiDummy());
 
 $tplDir = dirname(__FILE__) . '/../templates';
 $tmpDir = dirname(__FILE__) . '/../twig-templates';
