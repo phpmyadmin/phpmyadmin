@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-17 18:18-0300\n"
-"PO-Revision-Date: 2018-08-27 14:27+0000\n"
+"PO-Revision-Date: 2018-09-19 21:27+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -672,6 +672,10 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Tu servitor es executante con valores predefinite per le usator de controlo  "
+"(controluser)e le contrasigno (controlpass) e es aperite a intrusion; tu "
+"realmente vole corriger iste debilitate de securitate per modificar  le "
+"contrasigno per le usator de controlo (controluser) 'pma'."
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -681,7 +685,8 @@ msgstr ""
 
 #: index.php:583
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr "Le passphrase in configuration (blowfish_secret) es troppo curte."
+msgstr ""
+"Le passphrase secrete in configuration (blowfish_secret) es troppo curte."
 
 #: index.php:597
 msgid ""
@@ -719,7 +724,7 @@ msgid ""
 "issues."
 msgstr ""
 "Sur le servitor es executante Suhosin. Controla le documentation: "
-"%sdocumentation%s pro possibile problema."
+"%sdocumentation%s pro possibile problemas."
 
 #: index.php:661
 #, php-format
@@ -727,6 +732,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"Le dossier $cfg['TempDir'] (%s) non es accessibile. phpMyAdmin non es habile "
+"a pre.memorisar le patronos e essera relentate per isto."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -14627,8 +14634,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Usa OpenStreetMaps como disposition o nivello basic"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -14645,10 +14650,9 @@ msgstr "Puncto:"
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Puncto %d"
+msgstr "Puncto %d:"
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
