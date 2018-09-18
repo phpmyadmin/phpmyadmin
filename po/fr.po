@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-17 18:18-0300\n"
-"PO-Revision-Date: 2018-08-29 19:15+0000\n"
-"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
+"PO-Revision-Date: 2018-09-19 17:25+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -15057,11 +15057,9 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Utiliser OpenStreetMaps comme couche de base"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
-msgstr "SRID : "
+msgstr "SRID :"
 
 #: templates/gis_data_editor_form.twig:52
 #, php-format
@@ -15075,10 +15073,9 @@ msgstr "Point : "
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Point %d"
+msgstr "Point %d :"
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
@@ -16009,11 +16006,6 @@ msgid "Secret/key:"
 msgstr "Secret/clef :"
 
 #: templates/login/header.twig:15
-#, fuzzy
-#| msgid ""
-#| "There is mismatch between HTTPS indicated on the server and client. This "
-#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
-#| "server configuration to indicate HTTPS properly."
 msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
@@ -16021,7 +16013,7 @@ msgid ""
 msgstr ""
 "Il existe une discordance entre le HTTPS indiqué sur le serveur et le "
 "client. Cela peut rendre phpMyAdmin non fonctionnel ou amener un risque de "
-"sécurité. Merci de corriger la configuration du serveur pour indiquer HTTPS "
+"sécurité. Veuillez corriger la configuration du serveur pour indiquer HTTPS "
 "correctement."
 
 #: templates/server/privileges/delete_user_fieldset.twig:3
