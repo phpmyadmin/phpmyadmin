@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-08-27 20:39+0000\n"
+"PO-Revision-Date: 2018-09-19 21:27+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-8/ia/>\n"
@@ -818,7 +818,8 @@ msgstr ""
 
 #: index.php:573
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
-msgstr "Le passphrase in configuration (blowfish_secret) es troppo curte."
+msgstr ""
+"Le passphrase secrete in configuration (blowfish_secret) es troppo curte."
 
 #: index.php:587
 msgid ""
@@ -856,7 +857,7 @@ msgid ""
 "issues."
 msgstr ""
 "Sur le servitor es executante Suhosin. Controla le documentation: "
-"%sdocumentation%s pro possibile problema."
+"%sdocumentation%s pro possibile problemas."
 
 #: index.php:651
 #, php-format
@@ -864,6 +865,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"Le dossier $cfg['TempDir'] (%s) non es accessibile. phpMyAdmin non es habile "
+"a pre.memorisar le patronos e essera relentate per isto."
 
 #: js/messages.php:43
 msgid "Confirm"
