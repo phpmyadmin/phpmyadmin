@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-17 18:18-0300\n"
-"PO-Revision-Date: 2018-09-20 07:25+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"PO-Revision-Date: 2018-09-20 07:26+0000\n"
+"Last-Translator: Albrecht Köhnlein <weblate@bestof1983.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
 "Language: de\n"
@@ -8884,7 +8884,7 @@ msgstr "Zu kopierter Datenbank wechseln"
 
 #: libraries/classes/Operations.php:332
 msgid "Change all tables collations"
-msgstr "Alle Spaltenkollationen ändern"
+msgstr "Alle Tabellenkollationen ändern"
 
 #: libraries/classes/Operations.php:338
 msgid "Change all tables columns collations"
