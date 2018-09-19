@@ -17,7 +17,8 @@ const PhpToJsFileMapping = {
         'indexes',
         'key_handler',
         'cross_framing_protection',
-        'drag_drop_import'
+        'drag_drop_import',
+        'rte'
     ],
     server_privileges: ['server_privileges'],
     server_databases: ['server_databases'],
@@ -100,7 +101,8 @@ const JsFileList = [
     'key_handler',
     'cross_framing_protection',
     'drag_drop_import',
-    'normalization'
+    'normalization',
+    'rte'
 ];
 
 export {

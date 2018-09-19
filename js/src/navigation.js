@@ -1,10 +1,13 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/* Module import */
 import * as Navigation from './functions/navigation';
 import { PMA_Messages as PMA_messages } from './variables/export_variables';
 import CommonParams from './variables/common_params';
 import { PMA_ajaxShowMessage, PMA_ajaxRemoveMessage, PMA_tooltip } from './utils/show_ajax_messages';
 import { isStorageSupported } from './functions/config';
 import { indexEditorDialog } from './functions/Indexes';
+import RTE from './classes/RTE';
 
 /**
  * function used in or for navigation panel

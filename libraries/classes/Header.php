@@ -189,7 +189,7 @@ class Header
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
             $this->_scripts->addFile('cross_framing_protection');
         }
-        $this->_scripts->addFile('rte.js');
+        $this->_scripts->addFile('rte');
         if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
             $this->_scripts->addFile('vendor/tracekit.js');
             $this->_scripts->addFile('error_report.js');
