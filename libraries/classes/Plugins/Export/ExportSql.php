@@ -320,7 +320,6 @@ class ExportSql extends ExportPlugin
 
                 $subgroup->addProperty($subgroup_create_view);
 
-
                 $leaf = new BoolPropertyItem(
                     'procedure_function',
                     sprintf(
@@ -1479,7 +1478,6 @@ class ExportSql extends ExportPlugin
                 . Util::backquote($table_alias, $sql_backquotes) . ';'
                 . $crlf;
         }
-
 
         // no need to generate a DROP VIEW here, it was done earlier
         if (!empty($sql_drop_table)
