@@ -37,7 +37,7 @@
             </p>
             <select name="criteriaTables[]" multiple>
                 {% for each_table in tables_names_only %}
-                    <option value="{{ each_table }}"
+                    <option selected value="{{ each_table }}"
                         {{- each_table in criteria_tables ? ' selected' }}>
                         {{ each_table }}
                     </option>
