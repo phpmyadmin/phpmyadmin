@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-17 18:18-0300\n"
-"PO-Revision-Date: 2018-09-12 13:50+0000\n"
-"Last-Translator: Isaac Bennetch <bennetch@gmail.com>\n"
+"PO-Revision-Date: 2018-09-20 21:57+0000\n"
+"Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
@@ -14866,8 +14866,6 @@ msgstr "Використовуйте OpenStreetMaps як базовий плас
 
 # Ідентифікатор просторової системи координат
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -14884,10 +14882,9 @@ msgstr "Точка:"
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Точка %d"
+msgstr "Точка %d:"
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
@@ -15816,17 +15813,12 @@ msgid "Secret/key:"
 msgstr "Секрет/ключ:"
 
 #: templates/login/header.twig:15
-#, fuzzy
-#| msgid ""
-#| "There is mismatch between HTTPS indicated on the server and client. This "
-#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
-#| "server configuration to indicate HTTPS properly."
 msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
-"Існує невідповідність між HTTPS вказаними на сервері і клієнтом. Це може "
+"Існує невідповідність між зазначеним HTTPS на сервері і клієнтом. Це може "
 "привести до неполадок або загрозі безпеки phpMyAdmin. Будь ласка, виправте "
 "конфігурацією сервера, щоб вказати HTTPS належним чином."
 
