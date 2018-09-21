@@ -88,10 +88,7 @@ class FileListing
         $compressions = '';
 
         if ($cfg['GZipDump'] && function_exists('gzopen')) {
-            if (!empty($compressions)) {
-                $compressions .= '|';
-            }
-            $compressions .= 'gz';
+            $compressions = 'gz';
         }
         if ($cfg['BZipDump'] && function_exists('bzopen')) {
             if (!empty($compressions)) {
