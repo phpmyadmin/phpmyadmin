@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-17 18:18-0300\n"
-"PO-Revision-Date: 2018-09-19 17:25+0000\n"
-"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
+"PO-Revision-Date: 2018-09-24 16:25+0000\n"
+"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -491,8 +491,8 @@ msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
-"Vous avez été déconnecté d'un serveur ; pour se déconnecter complètement de "
-"phpMyAdmin, il faut se déconnecter de tous les serveurs."
+"Vous avez été déconnecté d'un seul serveur ; pour se déconnecter "
+"complètement de phpMyAdmin, il faut se déconnecter de tous les serveurs."
 
 #: index.php:193 libraries/classes/Footer.php:83
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:143
@@ -818,9 +818,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Vous êtes en train d'essayer de réduire le nombre de rangées, mais vous avez "
-"déjà entré des données dans ces rangées qui seront perdues. Souhaitez-vous "
-"continuer ?"
+"Le nombre de rangées va être réduit alors que des données ont déjà été "
+"saisies dans ces rangées qui seront perdues. Faut-il continuer ?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -6843,7 +6842,7 @@ msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
-"Vous avez désactivé ini_get et/ou ini_set dans php.ini. Ces options sont "
+"ini_get et/ou ini_set sont désactivés dans php.ini. Ces options sont "
 "incompatibles avec phpMyAdmin !"
 
 #: libraries/classes/Core.php:1296
@@ -7052,7 +7051,7 @@ msgstr "Le serveur ne répond pas."
 
 #: libraries/classes/DatabaseInterface.php:2227
 msgid "Logout and try as another user."
-msgstr "Déconnectez-vous et essayer en tant qu'un autre utilisateur."
+msgstr "Se déconnecter et réessayer en tant qu'autre utilisateur."
 
 #: libraries/classes/DatabaseInterface.php:2233
 msgid "Please check privileges of directory containing database."
@@ -13909,8 +13908,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
-"Impossible de créer le cookie de session. Peut-être que vous utilisez HTTP "
-"au lieu de HTTPS pour accéder à phpMyAdmin."
+"Impossible de créer le cookie de session. Peut-être HTTP est-il utilisé au "
+"lieu de HTTPS pour accéder à phpMyAdmin."
 
 #: libraries/common.inc.php:336
 msgid "Invalid authentication method set in configuration:"
