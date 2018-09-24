@@ -7,7 +7,9 @@ stages:
   - name: "Documentation"
   - name: "Other tests"
 
-install: composer install --no-interaction
+install:
+  - composer install --no-interaction
+  - yarn install --non-interactive
 
 before_script:
   - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
@@ -44,9 +46,6 @@ jobs:
       before_script: skip
       after_script: skip
       after_success: skip
-      install:
-        - composer install --no-interaction
-        - yarn install --non-interactive
       script:
         - ./test/ci-phplint
         - ./vendor/bin/phpcs --exclude=PSR1.Files.SideEffects,Generic.Metrics.NestingLevel
@@ -146,6 +145,7 @@ jobs:
       install:
         - ./test/install-browserstack
         - composer install --no-interaction
+        - yarn install --non-interactive
         - echo -e "<?php\n\$cfg['UploadDir'] = './test/test_data/';" > config.inc.php
       script: ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --group selenium
       addons:
