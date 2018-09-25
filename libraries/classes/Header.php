@@ -572,7 +572,7 @@ class Header
             header(
                 'X-Frame-Options: DENY'
             );
-        } 
+        }
         header('Referrer-Policy: no-referrer');
         header(
             "Content-Security-Policy: default-src 'self' "
