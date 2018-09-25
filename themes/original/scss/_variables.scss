@@ -1,0 +1,60 @@
+// configures general layout for detailed layout configuration please refer to the css files
+
+// navi frame
+
+// navi frame width
+$navi-width: 240px;
+
+// foreground (text) color for the navi frame
+$navi-color: #000000;
+
+// background for the navi frame
+$navi-background: #D0DCE0;
+
+// foreground (text) color of the pointer in navi frame
+$navi-pointer-color: #000000;
+
+// background of the pointer in navi frame
+$navi-pointer-background: #9999CC;
+
+// main frame
+
+// foreground (text) color for the main frame
+$main-color: #000000;
+
+// background for the main frame
+$main-background: #F5F5F5;
+
+// foreground (text) color of the pointer in browse mode
+$browse-pointer-color: #000000;
+
+// background of the pointer in browse mode
+$browse-pointer-background: #CCFFCC;
+
+// foreground (text) color of the marker (visually marks row by clicking on it)
+// in browse mode
+$browse-marker-color: #000000;
+
+// background of the marker (visually marks row by clicking on it) in browse mode
+$browse-marker-background: #FFCC99;
+
+// fonts
+
+// the font family as a valid css font family value, if not set the browser default will be
+// used (depending on browser, DTD and system settings)
+$font-family: sans-serif;
+// fixed width font family, used in textarea
+$font-family-fixed: monospace;
+
+// tables
+
+// border
+$border: 0;
+// table header and footer color
+$th-background: #D3DCE3;
+// table header and footer background
+$th-color: #000000;
+// table data row background
+$bg-one: #E5E5E5;
+// table data row background, alternate
+$bg-two: #D5D5D5;
