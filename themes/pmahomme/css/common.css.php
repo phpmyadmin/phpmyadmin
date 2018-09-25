@@ -192,7 +192,8 @@ form {
 
 
 input,
-select {
+select,
+textarea {
     /* Fix outline in Chrome: */
     outline: none;
 }
