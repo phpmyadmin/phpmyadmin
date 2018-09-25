@@ -2310,7 +2310,7 @@ EOT;
      * @param string|null         $sql_query_for_bookmark the sql query to be stored as bookmark
      * @param array|null          $extra_data             extra data
      * @param string|null         $message_to_show        message to show
-     * @param string|null         $message                message
+     * @param Message|string|null $message                message
      * @param array|null          $sql_data               sql data
      * @param string              $goto                   goto page url
      * @param string              $pmaThemeImage          uri of the PMA theme image
@@ -2335,7 +2335,7 @@ EOT;
         ?string $sql_query_for_bookmark,
         $extra_data,
         ?string $message_to_show,
-        ?string $message,
+        $message,
         $sql_data,
         $goto,
         $pmaThemeImage,
