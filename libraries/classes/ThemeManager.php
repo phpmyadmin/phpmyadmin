@@ -446,12 +446,5 @@ class ThemeManager
          * @global string $GLOBALS['pmaThemeImage']
          */
         $GLOBALS['pmaThemeImage']   = $GLOBALS['PMA_Theme']->getImgPath();
-
-        /**
-         * load layout file if exists
-         */
-        if (@file_exists($GLOBALS['PMA_Theme']->getLayoutFile())) {
-            include $GLOBALS['PMA_Theme']->getLayoutFile();
-        }
     }
 }
