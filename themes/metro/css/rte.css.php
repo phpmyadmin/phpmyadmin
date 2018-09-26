@@ -23,6 +23,10 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     padding: 0.2em;
 }
 
+.rte_table tr td:nth-child(1) {
+    width: 20%;
+}
+
 .rte_table input,
 .rte_table select,
 .rte_table textarea {
