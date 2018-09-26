@@ -180,9 +180,11 @@ class Processes
             if (0 === --$sortableColCount) {
                 $retval .= '<a href="' . $full_text_link . '">';
                 if ($show_full_sql) {
-                    $retval .= Util::getImage('s_partialtext', __('Truncate Shown Queries'));
+                    $retval .= Util::getImage('s_partialtext',
+                        __('Truncate Shown Queries'), ['class' => 'icon_fulltext']);
                 } else {
-                    $retval .= Util::getImage('s_fulltext', __('Show Full Queries'));
+                    $retval .= Util::getImage('s_fulltext',
+                        __('Show Full Queries'), ['class' => 'icon_fulltext']);
                 }
                 $retval .= '</a>';
             }
