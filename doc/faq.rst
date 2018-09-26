@@ -167,7 +167,7 @@ to the latest version to take advantage of the new import features.
 
 The first things to check (or ask your host provider to check) are the values
 of ``max_execution_time``, ``upload_max_filesize``, ``memory_limit`` and
-``post_max_size`` in the :file:`php.ini` configuration file. All of these 
+``post_max_size`` in the :file:`php.ini` configuration file. All of these
 settings limit the maximum size of data that can be submitted and handled by
 PHP. Please note that ``post_max_size`` needs to be larger than
 ``upload_max_filesize``. There exist several workarounds if your upload is too
