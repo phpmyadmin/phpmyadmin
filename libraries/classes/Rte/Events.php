@@ -457,9 +457,9 @@ class Events
         $retval .= Url::getHiddenInputs($db, $table) . "\n";
         $retval .= "<fieldset>\n";
         $retval .= "<legend>" . __('Details') . "</legend>\n";
-        $retval .= "<table class='rte_table' style='width: 100%'>\n";
+        $retval .= "<table class='rte_table'>\n";
         $retval .= "<tr>\n";
-        $retval .= "    <td style='width: 20%;'>" . __('Event name') . "</td>\n";
+        $retval .= "    <td>" . __('Event name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' \n";
         $retval .= "               value='{$item['item_name']}'\n";
         $retval .= "               maxlength='64' /></td>\n";
