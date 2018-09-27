@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-09-17 18:18-0300\n"
+"POT-Creation-Date: 2018-09-27 13:13-0300\n"
 "PO-Revision-Date: 2018-02-12 15:28+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1192,7 +1192,7 @@ msgstr "Tilføj mindst en variabel til serien!"
 #: libraries/classes/Plugins/Export/ExportSql.php:2200
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
 #: libraries/classes/Server/Status/Monitor.php:245
-#: libraries/classes/Server/Status/Processes.php:287
+#: libraries/classes/Server/Status/Processes.php:289
 #: libraries/config.values.php:80 templates/table/search/selection_form.twig:35
 #: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
@@ -1634,7 +1634,7 @@ msgstr "Udfør"
 msgid "Cancel"
 msgstr "Annuller"
 
-#: js/messages.php:356 libraries/classes/Header.php:467
+#: js/messages.php:356 libraries/classes/Header.php:486
 msgid "Page-related settings"
 msgstr "Siderelaterede indstillinger"
 
@@ -5748,7 +5748,7 @@ msgstr "Forklar SQL"
 
 #: libraries/classes/Config/Descriptions.php:820
 #: libraries/classes/Export.php:534
-#: libraries/classes/Server/Status/Processes.php:235
+#: libraries/classes/Server/Status/Processes.php:237
 #: libraries/classes/Server/Status/Variables.php:52
 #: libraries/classes/Util.php:1165 templates/console/display.twig:99
 msgid "Refresh"
@@ -6492,12 +6492,12 @@ msgid "Previous"
 msgstr "Forrige"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:214
-#: libraries/classes/Server/Status/Processes.php:183
+#: libraries/classes/Server/Status/Processes.php:184
 msgid "Truncate Shown Queries"
 msgstr "Trunker viste forespørgsler"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:218
-#: libraries/classes/Server/Status/Processes.php:185
+#: libraries/classes/Server/Status/Processes.php:187
 msgid "Show Full Queries"
 msgstr "Vis fuldstændige forespørgsler"
 
@@ -6735,11 +6735,9 @@ msgstr ""
 
 #: libraries/classes/Core.php:1241
 msgid ""
-"You have disabled ini_get and/or ini_set in php.ini. This option is "
-"incompatible with phpMyAdmin!"
+"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
+"requires these functions!"
 msgstr ""
-"Du har deaktiveret ini_get og/eller ini_set i php.ini. Denne indstilling er "
-"ikke kompatibel med phpMyAdmin!"
 
 #: libraries/classes/Core.php:1296
 msgid "GLOBALS overwrite attempt"
@@ -7154,7 +7152,7 @@ msgstr "Rækken er slettet."
 
 #: libraries/classes/Display/Results.php:3560
 #: libraries/classes/Display/Results.php:4916
-#: libraries/classes/Server/Status/Processes.php:281
+#: libraries/classes/Server/Status/Processes.php:283
 msgid "Kill"
 msgstr "Dræb (Kill)"
 
@@ -7661,15 +7659,15 @@ msgstr "Information om Git mangler!"
 msgid "Open new phpMyAdmin window"
 msgstr "Åbn nyt phpMyAdmin vindue"
 
-#: libraries/classes/Header.php:396
+#: libraries/classes/Header.php:403
 msgid "Print view"
 msgstr "Udskriv"
 
-#: libraries/classes/Header.php:474
+#: libraries/classes/Header.php:493
 msgid "Click on the bar to scroll to top of page"
 msgstr "Klik på bjælken for at rulle til sidens top"
 
-#: libraries/classes/Header.php:785 templates/login/header.twig:11
+#: libraries/classes/Header.php:707 templates/login/header.twig:11
 msgid "Javascript must be enabled past this point!"
 msgstr "Herefter skal JavaScript være slået til!"
 
@@ -12038,12 +12036,12 @@ msgstr "Kommando"
 msgid "Progress"
 msgstr "Fremskridt"
 
-#: libraries/classes/Server/Status/Processes.php:232
+#: libraries/classes/Server/Status/Processes.php:234
 #: libraries/classes/Server/Status/Variables.php:49 templates/filter.twig:2
 msgid "Filters"
 msgstr "Filtre"
 
-#: libraries/classes/Server/Status/Processes.php:240
+#: libraries/classes/Server/Status/Processes.php:242
 msgid "Show only active"
 msgstr "Vis kun aktive"
 
@@ -17591,6 +17589,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert er sat til 0"
+
+#~ msgid ""
+#~ "You have disabled ini_get and/or ini_set in php.ini. This option is "
+#~ "incompatible with phpMyAdmin!"
+#~ msgstr ""
+#~ "Du har deaktiveret ini_get og/eller ini_set i php.ini. Denne indstilling "
+#~ "er ikke kompatibel med phpMyAdmin!"
 
 #~ msgid "No auto-saved query"
 #~ msgstr "Ingen automatisk gemt forespørgsel"

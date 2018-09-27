@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-09-17 18:18-0300\n"
+"POT-Creation-Date: 2018-09-27 13:13-0300\n"
 "PO-Revision-Date: 2018-08-22 03:31+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1212,7 +1212,7 @@ msgstr "Afegiu com a mínim una variable a les sèries!"
 #: libraries/classes/Plugins/Export/ExportSql.php:2200
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
 #: libraries/classes/Server/Status/Monitor.php:245
-#: libraries/classes/Server/Status/Processes.php:287
+#: libraries/classes/Server/Status/Processes.php:289
 #: libraries/config.values.php:80 templates/table/search/selection_form.twig:35
 #: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
@@ -1660,7 +1660,7 @@ msgstr "Executa"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: js/messages.php:356 libraries/classes/Header.php:467
+#: js/messages.php:356 libraries/classes/Header.php:486
 msgid "Page-related settings"
 msgstr "Paràmetres relacionats amb la pàgina"
 
@@ -5849,7 +5849,7 @@ msgstr "Desenvolupa l'SQL"
 
 #: libraries/classes/Config/Descriptions.php:820
 #: libraries/classes/Export.php:534
-#: libraries/classes/Server/Status/Processes.php:235
+#: libraries/classes/Server/Status/Processes.php:237
 #: libraries/classes/Server/Status/Variables.php:52
 #: libraries/classes/Util.php:1165 templates/console/display.twig:99
 msgid "Refresh"
@@ -6602,12 +6602,12 @@ msgid "Previous"
 msgstr "Pàgina anterior"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:214
-#: libraries/classes/Server/Status/Processes.php:183
+#: libraries/classes/Server/Status/Processes.php:184
 msgid "Truncate Shown Queries"
 msgstr "Trunca les consultes mostrades"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:218
-#: libraries/classes/Server/Status/Processes.php:185
+#: libraries/classes/Server/Status/Processes.php:187
 msgid "Show Full Queries"
 msgstr "Mostra les consultes completes"
 
@@ -6847,11 +6847,9 @@ msgstr ""
 
 #: libraries/classes/Core.php:1241
 msgid ""
-"You have disabled ini_get and/or ini_set in php.ini. This option is "
-"incompatible with phpMyAdmin!"
+"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
+"requires these functions!"
 msgstr ""
-"Teniu inhabilitat ini_get i/o ini_set a php.ini. Aquesta opció és "
-"incompatible amb phpMyAdmin!"
 
 #: libraries/classes/Core.php:1296
 msgid "GLOBALS overwrite attempt"
@@ -7273,7 +7271,7 @@ msgstr "S'ha esborrat la fila."
 
 #: libraries/classes/Display/Results.php:3560
 #: libraries/classes/Display/Results.php:4916
-#: libraries/classes/Server/Status/Processes.php:281
+#: libraries/classes/Server/Status/Processes.php:283
 msgid "Kill"
 msgstr "Mata"
 
@@ -7791,15 +7789,15 @@ msgstr "No es troba la informació de Git!"
 msgid "Open new phpMyAdmin window"
 msgstr "Obrir nova finestra de phpMyAdmin"
 
-#: libraries/classes/Header.php:396
+#: libraries/classes/Header.php:403
 msgid "Print view"
 msgstr "Imprimeix vista"
 
-#: libraries/classes/Header.php:474
+#: libraries/classes/Header.php:493
 msgid "Click on the bar to scroll to top of page"
 msgstr "Feu clic a la barra per desplaçar-se al principi d'aquesta pàgina"
 
-#: libraries/classes/Header.php:785 templates/login/header.twig:11
+#: libraries/classes/Header.php:707 templates/login/header.twig:11
 msgid "Javascript must be enabled past this point!"
 msgstr "A partir d'aquest punt és necessari tenir el javascript activat!"
 
@@ -12214,12 +12212,12 @@ msgstr "Ordre"
 msgid "Progress"
 msgstr "Progrés"
 
-#: libraries/classes/Server/Status/Processes.php:232
+#: libraries/classes/Server/Status/Processes.php:234
 #: libraries/classes/Server/Status/Variables.php:49 templates/filter.twig:2
 msgid "Filters"
 msgstr "Filtres"
 
-#: libraries/classes/Server/Status/Processes.php:240
+#: libraries/classes/Server/Status/Processes.php:242
 msgid "Show only active"
 msgstr "Mostra només els actius"
 
@@ -17825,6 +17823,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» està establert a 0"
+
+#~ msgid ""
+#~ "You have disabled ini_get and/or ini_set in php.ini. This option is "
+#~ "incompatible with phpMyAdmin!"
+#~ msgstr ""
+#~ "Teniu inhabilitat ini_get i/o ini_set a php.ini. Aquesta opció és "
+#~ "incompatible amb phpMyAdmin!"
 
 #~ msgid "No auto-saved query"
 #~ msgstr "No hi ha cap consulta desada automàticament"

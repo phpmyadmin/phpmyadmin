@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-09-17 18:18-0300\n"
+"POT-Creation-Date: 2018-09-27 13:13-0300\n"
 "PO-Revision-Date: 2018-07-27 08:20+0000\n"
 "Last-Translator: Wolterhon <hotmottot.1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1193,7 +1193,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 #: libraries/classes/Plugins/Export/ExportSql.php:2200
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
 #: libraries/classes/Server/Status/Monitor.php:245
-#: libraries/classes/Server/Status/Processes.php:287
+#: libraries/classes/Server/Status/Processes.php:289
 #: libraries/config.values.php:80 templates/table/search/selection_form.twig:35
 #: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
@@ -1636,7 +1636,7 @@ msgstr "Вперёд"
 msgid "Cancel"
 msgstr "Отменить"
 
-#: js/messages.php:356 libraries/classes/Header.php:467
+#: js/messages.php:356 libraries/classes/Header.php:486
 msgid "Page-related settings"
 msgstr "Настройки, касающиеся страницы"
 
@@ -5769,7 +5769,7 @@ msgstr "Анализ SQL запроса"
 
 #: libraries/classes/Config/Descriptions.php:820
 #: libraries/classes/Export.php:534
-#: libraries/classes/Server/Status/Processes.php:235
+#: libraries/classes/Server/Status/Processes.php:237
 #: libraries/classes/Server/Status/Variables.php:52
 #: libraries/classes/Util.php:1165 templates/console/display.twig:99
 msgid "Refresh"
@@ -6516,12 +6516,12 @@ msgid "Previous"
 msgstr "Предыдущая"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:214
-#: libraries/classes/Server/Status/Processes.php:183
+#: libraries/classes/Server/Status/Processes.php:184
 msgid "Truncate Shown Queries"
 msgstr "Сокращенное отображение запросов"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:218
-#: libraries/classes/Server/Status/Processes.php:185
+#: libraries/classes/Server/Status/Processes.php:187
 msgid "Show Full Queries"
 msgstr "Развернутое отображение запросов"
 
@@ -6760,11 +6760,9 @@ msgstr ""
 
 #: libraries/classes/Core.php:1241
 msgid ""
-"You have disabled ini_get and/or ini_set in php.ini. This option is "
-"incompatible with phpMyAdmin!"
+"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
+"requires these functions!"
 msgstr ""
-"Вы отключили ini_get и / или ini_set в php.ini. Этот параметр несовместим с "
-"phpMyAdmin!"
 
 #: libraries/classes/Core.php:1296
 msgid "GLOBALS overwrite attempt"
@@ -7188,7 +7186,7 @@ msgstr "Строка была удалена."
 
 #: libraries/classes/Display/Results.php:3560
 #: libraries/classes/Display/Results.php:4916
-#: libraries/classes/Server/Status/Processes.php:281
+#: libraries/classes/Server/Status/Processes.php:283
 msgid "Kill"
 msgstr "Завершить"
 
@@ -7705,15 +7703,15 @@ msgstr "Отсутствует Git информация!"
 msgid "Open new phpMyAdmin window"
 msgstr "Открыть phpMyAdmin в новом окне"
 
-#: libraries/classes/Header.php:396
+#: libraries/classes/Header.php:403
 msgid "Print view"
 msgstr "Версия для печати"
 
-#: libraries/classes/Header.php:474
+#: libraries/classes/Header.php:493
 msgid "Click on the bar to scroll to top of page"
 msgstr "Кликните на строку, чтобы перейти вверх страницы"
 
-#: libraries/classes/Header.php:785 templates/login/header.twig:11
+#: libraries/classes/Header.php:707 templates/login/header.twig:11
 msgid "Javascript must be enabled past this point!"
 msgstr "Для полноценной работы необходимо включить JavaScript!"
 
@@ -12118,12 +12116,12 @@ msgstr "Команда"
 msgid "Progress"
 msgstr "Прогресс"
 
-#: libraries/classes/Server/Status/Processes.php:232
+#: libraries/classes/Server/Status/Processes.php:234
 #: libraries/classes/Server/Status/Variables.php:49 templates/filter.twig:2
 msgid "Filters"
 msgstr "Фильтры"
 
-#: libraries/classes/Server/Status/Processes.php:240
+#: libraries/classes/Server/Status/Processes.php:242
 msgid "Show only active"
 msgstr "Выводить только активные"
 
@@ -17754,6 +17752,13 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert установлен в 0"
+
+#~ msgid ""
+#~ "You have disabled ini_get and/or ini_set in php.ini. This option is "
+#~ "incompatible with phpMyAdmin!"
+#~ msgstr ""
+#~ "Вы отключили ini_get и / или ini_set в php.ini. Этот параметр несовместим "
+#~ "с phpMyAdmin!"
 
 #~ msgid "No auto-saved query"
 #~ msgstr "Нет автосохраненных запросов"

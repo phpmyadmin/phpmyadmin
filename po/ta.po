@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-09-17 18:18-0300\n"
+"POT-Creation-Date: 2018-09-27 13:13-0300\n"
 "PO-Revision-Date: 2018-02-15 06:43+0000\n"
 "Last-Translator: Gladson Samuel Stephen <samuels.gladson@hotmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1211,7 +1211,7 @@ msgstr "தயவுசெய்து குறைந்தது ஒரு ம
 #: libraries/classes/Plugins/Export/ExportSql.php:2200
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
 #: libraries/classes/Server/Status/Monitor.php:245
-#: libraries/classes/Server/Status/Processes.php:287
+#: libraries/classes/Server/Status/Processes.php:289
 #: libraries/config.values.php:80 templates/table/search/selection_form.twig:35
 #: templates/display/export/options_output_compression.twig:7
 #: templates/server/privileges/privileges_summary.twig:30
@@ -1659,7 +1659,7 @@ msgstr "செல்க"
 msgid "Cancel"
 msgstr "விலக்கு"
 
-#: js/messages.php:356 libraries/classes/Header.php:467
+#: js/messages.php:356 libraries/classes/Header.php:486
 #, fuzzy
 #| msgid "Change settings"
 msgid "Page-related settings"
@@ -5739,7 +5739,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:820
 #: libraries/classes/Export.php:534
-#: libraries/classes/Server/Status/Processes.php:235
+#: libraries/classes/Server/Status/Processes.php:237
 #: libraries/classes/Server/Status/Variables.php:52
 #: libraries/classes/Util.php:1165 templates/console/display.twig:99
 msgid "Refresh"
@@ -6422,12 +6422,12 @@ msgid "Previous"
 msgstr "முந்தைய"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:214
-#: libraries/classes/Server/Status/Processes.php:183
+#: libraries/classes/Server/Status/Processes.php:184
 msgid "Truncate Shown Queries"
 msgstr ""
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:218
-#: libraries/classes/Server/Status/Processes.php:185
+#: libraries/classes/Server/Status/Processes.php:187
 msgid "Show Full Queries"
 msgstr ""
 
@@ -6672,17 +6672,10 @@ msgstr ""
 "இவ்விருப்பம் PHPMyAdminஉடன் இணக்கமற்றது மேலும் சில தரவுகள் வீணாகலாம்!"
 
 #: libraries/classes/Core.php:1241
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
-"You have disabled ini_get and/or ini_set in php.ini. This option is "
-"incompatible with phpMyAdmin!"
+"The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
+"requires these functions!"
 msgstr ""
-"உங்கள் PHP அமைப்பாக்க கோப்பில்  mbstring.func_overload அமைவை இயலசெய்துள்ளீர். "
-"இவ்விருப்பம் PHPMyAdminஉடன் இணக்கமற்றது மேலும் சில தரவுகள் வீணாகலாம்!"
 
 #: libraries/classes/Core.php:1296
 msgid "GLOBALS overwrite attempt"
@@ -7116,7 +7109,7 @@ msgstr "இந்நிரைவரிசை அழிக்கப்பட்�
 
 #: libraries/classes/Display/Results.php:3560
 #: libraries/classes/Display/Results.php:4916
-#: libraries/classes/Server/Status/Processes.php:281
+#: libraries/classes/Server/Status/Processes.php:283
 msgid "Kill"
 msgstr "கொல்க"
 
@@ -7574,15 +7567,15 @@ msgstr "Git தகவல் காணவில்லை!"
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
-#: libraries/classes/Header.php:396
+#: libraries/classes/Header.php:403
 msgid "Print view"
 msgstr "அச்சுப் பார்வை"
 
-#: libraries/classes/Header.php:474
+#: libraries/classes/Header.php:493
 msgid "Click on the bar to scroll to top of page"
 msgstr ""
 
-#: libraries/classes/Header.php:785 templates/login/header.twig:11
+#: libraries/classes/Header.php:707 templates/login/header.twig:11
 msgid "Javascript must be enabled past this point!"
 msgstr ""
 
@@ -11781,12 +11774,12 @@ msgstr ""
 msgid "Progress"
 msgstr ""
 
-#: libraries/classes/Server/Status/Processes.php:232
+#: libraries/classes/Server/Status/Processes.php:234
 #: libraries/classes/Server/Status/Variables.php:49 templates/filter.twig:2
 msgid "Filters"
 msgstr "வடிகட்டிகள்"
 
-#: libraries/classes/Server/Status/Processes.php:240
+#: libraries/classes/Server/Status/Processes.php:242
 #, fuzzy
 #| msgid "not active"
 msgid "Show only active"
@@ -17021,6 +17014,18 @@ msgstr ""
 #: libraries/advisory_rules.txt:446
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "You have enabled mbstring.func_overload in your PHP configuration. This "
+#~| "option is incompatible with phpMyAdmin and might cause some data to be "
+#~| "corrupted!"
+#~ msgid ""
+#~ "You have disabled ini_get and/or ini_set in php.ini. This option is "
+#~ "incompatible with phpMyAdmin!"
+#~ msgstr ""
+#~ "உங்கள் PHP அமைப்பாக்க கோப்பில்  mbstring.func_overload அமைவை இயலசெய்துள்ளீர். "
+#~ "இவ்விருப்பம் PHPMyAdminஉடன் இணக்கமற்றது மேலும் சில தரவுகள் வீணாகலாம்!"
 
 #~ msgid "No auto-saved query"
 #~ msgstr "தானாக சேமிக்கப்பட்ட வினா இல்லை"
