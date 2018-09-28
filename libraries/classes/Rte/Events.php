@@ -495,11 +495,10 @@ class Events
         } else {
             $retval .= "        <input name='item_type' type='hidden' \n";
             $retval .= "               value='{$item['item_type']}' />\n";
-            $retval .= "        <div class='floatleft' style='width: 49%; "
-                . "text-align: center; font-weight: bold;'>\n";
+            $retval .= "        <div class='floatleft center'>\n";
             $retval .= "            {$item['item_type']}\n";
             $retval .= "        </div>\n";
-            $retval .= "        <input style='width: 49%;' type='submit'\n";
+            $retval .= "        <input type='submit'\n";
             $retval .= "               name='item_changetype'\n";
             $retval .= "               value='";
             $retval .= sprintf(__('Change to %s'), $item['item_type_toggle']);
