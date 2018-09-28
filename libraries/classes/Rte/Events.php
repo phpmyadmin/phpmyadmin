@@ -495,7 +495,7 @@ class Events
         } else {
             $retval .= "        <input name='item_type' type='hidden' \n";
             $retval .= "               value='{$item['item_type']}' />\n";
-            $retval .= "        <div class='floatleft center'>\n";
+            $retval .= "        <div class='font_weight_bold center half_width'>\n";
             $retval .= "            {$item['item_type']}\n";
             $retval .= "        </div>\n";
             $retval .= "        <input type='submit'\n";
