@@ -55,9 +55,9 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 .rte_table .routine_params_table {
     width: 100%;
 }
-.rte_table .floatleft {
+
+.rte_table .half_width {
     width: 49%;
-    font-weight: bold;
 }
 
 .isdisableremoveparam_class {
