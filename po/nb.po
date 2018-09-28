@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-05-24 23:40+0000\n"
+"PO-Revision-Date: 2018-09-29 04:36+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/nb/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -846,6 +846,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$cfg['TempDir'] (%s) er ikke tilgjengelig. phpMyAdmin kan ikke hurtiglagre "
+"maler, og vil være tregt som følge av dette."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -931,6 +933,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Du prøver å redusere antallet rader, men har allerede skrevet inn data i de "
+"radene, som vil gå tapt. Ønsker du å fortsette?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -995,6 +999,12 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Gjennom denne operasjonen, prøver MySQL å knytte dataverdier mellom "
+"sammenligninger. Hvis karaktersettene er ukompatible, kan det forekomme "
+"datatap, og det kan hende at denne <b>IKKE</b> ikke lar seg gjenopprette ved "
+"å enkelthen bytte tilbake kolonnesamlingen(e). <b>For å konvertere "
+"eksisterende data, anbefales det å bruke kolonneredigeringsfuksjonen (altså "
+"\"Endre\"-lenken) på tabellstruktursiden. </b>"
 
 #: js/messages.php:109
 msgid ""
@@ -2274,8 +2284,9 @@ msgstr ""
 "lagrer dem. Ønsker du å fortsette?"
 
 #: js/messages.php:562
+#, fuzzy
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "verdi/underspørring er tom"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -2658,32 +2669,32 @@ msgstr "Kopier tabell med prefiks"
 
 #: js/messages.php:742
 msgid "Extremely weak"
-msgstr ""
+msgstr "Ekstremt svak"
 
 #: js/messages.php:743
 msgid "Very weak"
-msgstr ""
+msgstr "Veldig svak"
 
 #: js/messages.php:744
 msgid "Weak"
-msgstr ""
+msgstr "Svak"
 
 #: js/messages.php:745
 msgid "Good"
-msgstr ""
+msgstr "God"
 
 #: js/messages.php:746
 msgid "Strong"
-msgstr ""
+msgstr "Sterk"
 
 #: js/messages.php:749
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Tidsavbrudd under venting på sikkerhetsnøkkelaktivering."
 
 #: js/messages.php:750
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Mislykket sikkerhetsnøkkelaktivering (%s)."
 
 #: js/messages.php:779
 msgctxt "Previous month"
@@ -2939,7 +2950,7 @@ msgstr "Sekund"
 
 #: js/messages.php:920
 msgid "This field is required"
-msgstr ""
+msgstr "Dette feltet er påkrevd"
 
 #: js/messages.php:921
 msgid "Please fix this field"
@@ -3045,7 +3056,7 @@ msgstr "Feil ved formattering av streng for regel \"%s\"."
 #: libraries/classes/Advisor.php:496
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Feil i lesing av fil: Filen \"%s\" finnes ikke, eller er ikke lesbar."
 
 #: libraries/classes/Advisor.php:521
 #, php-format
@@ -3417,7 +3428,7 @@ msgstr "bulgarsk"
 #: libraries/classes/Charsets.php:440
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Kinesisk"
 
 #: libraries/classes/Charsets.php:445
 #, fuzzy
@@ -3471,7 +3482,7 @@ msgstr "Dataordbok"
 #: libraries/classes/Charsets.php:471 libraries/classes/Charsets.php:582
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Tysk (telefonboksanordning)"
 
 #: libraries/classes/Charsets.php:480
 #, fuzzy
@@ -3490,7 +3501,7 @@ msgstr "Islandsk"
 #: libraries/classes/Charsets.php:491
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Klassisk latin"
 
 #: libraries/classes/Charsets.php:495
 #, fuzzy
@@ -3509,7 +3520,7 @@ msgstr "lithauisk"
 #: libraries/classes/Charsets.php:507
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Burmesisk"
 
 #: libraries/classes/Charsets.php:510
 #, fuzzy
@@ -3535,7 +3546,7 @@ msgstr "Rumensk"
 #: libraries/classes/Charsets.php:525
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr ""
+msgstr "Singalesisk"
 
 #: libraries/classes/Charsets.php:529
 #, fuzzy
@@ -3561,7 +3572,7 @@ msgstr "Spansk"
 #: libraries/classes/Charsets.php:543 libraries/classes/Charsets.php:593
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Spansk (tradisjonell)"
 
 #: libraries/classes/Charsets.php:562
 #, fuzzy
@@ -3789,6 +3800,8 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Finn enhver feil i spørringen før den kjøres. Kreves at \"CodeMirror\" er "
+"påslått."
 
 #: libraries/classes/Config/Descriptions.php:127
 #, fuzzy
@@ -3888,7 +3901,7 @@ msgstr "Bekreft DROP spørringer"
 #: libraries/classes/Config/Descriptions.php:167
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "Logger SQL-spørringer og deres køringstid, for visning i konsollen"
 
 #: libraries/classes/Config/Descriptions.php:169
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -3951,7 +3964,7 @@ msgstr "Tabellkommentarer"
 
 #: libraries/classes/Config/Descriptions.php:191
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Hvorvidt kolonnekommentarer skal vises i tabellstrukturvisning"
 
 #: libraries/classes/Config/Descriptions.php:193
 #, fuzzy
@@ -5171,7 +5184,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:817
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Grupper elementer i treet"
 
 #: libraries/classes/Config/Descriptions.php:819
 #, fuzzy
@@ -5252,7 +5265,7 @@ msgstr "Vis funksjonsfelter"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Hvorvidt funksjoner skal vises under database i navigasjonstreet"
 
 #: libraries/classes/Config/Descriptions.php:849
 #, fuzzy
@@ -5262,7 +5275,7 @@ msgstr "Vis prosesser"
 
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Hvorvidt prosedyrer skal vises under database i navigasjonstreet"
 
 #: libraries/classes/Config/Descriptions.php:853
 #, fuzzy
@@ -5309,11 +5322,11 @@ msgstr "Hvor tabell-lenkene skal vises"
 
 #: libraries/classes/Config/Descriptions.php:869
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Hvorvidt radlenker skal vises, selv om unik nøkkel mangler"
 
 #: libraries/classes/Config/Descriptions.php:871
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Vis radlenker uansett"
 
 #: libraries/classes/Config/Descriptions.php:873
 #: libraries/classes/Config/Descriptions.php:875
@@ -5421,7 +5434,7 @@ msgstr "Hvordan menyfanene vises"
 
 #: libraries/classes/Config/Descriptions.php:921
 msgid "How to display various action links"
-msgstr ""
+msgstr "Hvorvidt forskjellige handlingslenker skal vises"
 
 #: libraries/classes/Config/Descriptions.php:923
 msgid "Disallow BLOB and BINARY columns from editing."
@@ -5479,7 +5492,7 @@ msgstr "Husk tabellens sortering"
 
 #: libraries/classes/Config/Descriptions.php:949
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Forvalgt sorteringsrekkefølge for tabeller med en primærnøkkel."
 
 #: libraries/classes/Config/Descriptions.php:951
 #, fuzzy
@@ -5501,7 +5514,7 @@ msgstr "Gjenta topptekst"
 
 #: libraries/classes/Config/Descriptions.php:957
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Rutenettredigering: Utløsende handling"
 
 #: libraries/classes/Config/Descriptions.php:959
 #, fuzzy
@@ -6198,7 +6211,7 @@ msgstr "Vis opprett database skjema"
 
 #: libraries/classes/Config/Descriptions.php:1269
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
+msgstr "Vis eller skjul en kolonne som viser kommentarer for alle tabeller."
 
 #: libraries/classes/Config/Descriptions.php:1271
 #, fuzzy
@@ -6209,6 +6222,8 @@ msgstr "Tabellkommentarer"
 #: libraries/classes/Config/Descriptions.php:1273
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
+"Vis eller skjul en kolonne som viser opprettelsestidsstempel for alle "
+"tabeller."
 
 #: libraries/classes/Config/Descriptions.php:1275
 #, fuzzy
@@ -6220,6 +6235,8 @@ msgstr "Vis versjoner"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
+"Vis eller skjul en kolonne som viser tidsstempel for siste oppdatering for "
+"alle tabeller."
 
 #: libraries/classes/Config/Descriptions.php:1279
 #, fuzzy
@@ -6231,6 +6248,8 @@ msgstr "Vis masterstatus"
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
+"Vis eller skjul en kolonne som viser tidsstempel for siste sjekk for alle "
+"tabeller."
 
 #: libraries/classes/Config/Descriptions.php:1283
 #, fuzzy
@@ -6240,7 +6259,7 @@ msgstr "Vis masterstatus"
 
 #: libraries/classes/Config/Descriptions.php:1285
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr ""
+msgstr "Vis eller skjul en kolonne som viser tegnsett for alle tabeller."
 
 #: libraries/classes/Config/Descriptions.php:1287
 #, fuzzy
@@ -6375,7 +6394,7 @@ msgstr "En advarsel vises på hovedsiden dersom Suhosin er oppdaget"
 
 #: libraries/classes/Config/Descriptions.php:1342
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin-advarsel"
 
 #: libraries/classes/Config/Descriptions.php:1345
 #, fuzzy
@@ -6402,6 +6421,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Tekstområdestørrelse (kolonner) i redigeringsmodus, denne verdien vil "
+"fremheves for SQL-spørringstekstområder (*2)."
 
 #: libraries/classes/Config/Descriptions.php:1357
 #, fuzzy
@@ -6414,6 +6435,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Tekstområdestørrelse (rader) i redigeringsmodus, denne verdien vil fremheves "
+"for SQL-spørringstekstområder (*2)."
 
 #: libraries/classes/Config/Descriptions.php:1364
 #, fuzzy
@@ -6543,11 +6566,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1404
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Skru på utviklerfanen i innstillingene"
 
 #: libraries/classes/Config/Descriptions.php:1406
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr ""
+msgstr "Skrur på sjekk for senesteversjon på hoved-phpMyAdmin-siden."
 
 #: libraries/classes/Config/Descriptions.php:1408 setup/lib/Index.php:122
 #: setup/lib/Index.php:145 setup/lib/Index.php:158 setup/lib/Index.php:170
@@ -6564,8 +6587,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1417
+#, fuzzy
 msgid "Proxy url"
-msgstr ""
+msgstr "Mellomtjenernettadresse"
 
 #: libraries/classes/Config/Descriptions.php:1420
 msgid ""
