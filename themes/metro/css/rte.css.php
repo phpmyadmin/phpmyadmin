@@ -44,10 +44,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     margin-right: 6px;
 }
 
-.rte_table input[type=submit] {
-    width: 49%;
-}
-
 .rte_table .routine_params_table {
     width: 100%;
 }
