@@ -131,39 +131,6 @@ class ThemeTest extends PmaTestCase
     }
 
     /**
-     * Test for Theme::loadCss
-     *
-     * @param string $theme Path to theme files
-     *
-     * @return void
-     *
-     * @dataProvider listThemes
-     */
-    public function testLoadCss($theme)
-    {
-        $newTheme = Theme::load($theme);
-        ob_start();
-        $ret = $newTheme->loadCss();
-        $out = ob_get_contents();
-        ob_end_clean();
-        $this->assertTrue($ret);
-        $this->assertContains('.ic_b_bookmark', $out);
-    }
-
-    /**
-     * Data provider for Theme::loadCss test
-     *
-     * @return array with theme paths
-     */
-    public function listThemes()
-    {
-        return [
-            ['./themes/original'],
-            ['./themes/pmahomme/'],
-        ];
-    }
-
-    /**
      * Test for Theme::load
      *
      * @return void

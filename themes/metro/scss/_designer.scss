@@ -308,7 +308,7 @@ a.M_butt:hover {
 }
 
 #layer_menu_sizer {
-  background-image: url("themes/metro/img/designer/resize.png");
+  background-image: url("../img/designer/resize.png");
   cursor: ew-resize;
 }
 
@@ -335,7 +335,7 @@ a.trigger {
   #{$right}: 0;
   color: #fff;
   padding: 10px 40px 10px 15px;
-  background: #333 url("themes/metro/img/designer/plus.png") 85% 55% no-repeat;
+  background: #333 url("../img/designer/plus.png") 85% 55% no-repeat;
   border: 1px solid #444;
   display: block;
   z-index: 102;
@@ -343,17 +343,17 @@ a.trigger {
 
 a.trigger:hover {
   color: #080808;
-  background: #fff696 url("themes/metro/img/designer/plus.png") 85% 55% no-repeat;
+  background: #fff696 url("../img/designer/plus.png") 85% 55% no-repeat;
   border: 1px solid #999;
 }
 
 a.active.trigger {
-  background: #222 url("themes/metro/img/designer/minus.png") 85% 55% no-repeat;
+  background: #222 url("../img/designer/minus.png") 85% 55% no-repeat;
   z-index: 999;
 }
 
 a.active.trigger:hover {
-  background: #fff696 url("themes/metro/img/designer/minus.png") 85% 55% no-repeat;
+  background: #fff696 url("../img/designer/minus.png") 85% 55% no-repeat;
 }
 
 .toggle_container .block {

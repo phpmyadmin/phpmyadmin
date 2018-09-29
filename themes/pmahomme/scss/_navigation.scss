@@ -13,7 +13,7 @@
   top: 0;
   #{$left}: 0;
   height: 100vh;
-  background: url('themes/pmahomme/img/left_nav_bg.png') repeat-y right 0 $navi-background;
+  background: url('../img/left_nav_bg.png') repeat-y right 0 $navi-background;
   color: $navi-color;
   z-index: 800;
 }
@@ -106,7 +106,7 @@
 }
 
 #pma_navigation_db_select select {
-  background: url('themes/pmahomme/img/select_bg.png') repeat scroll 0 0;
+  background: url('../img/select_bg.png') repeat scroll 0 0;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   border: 1px solid #bbb;

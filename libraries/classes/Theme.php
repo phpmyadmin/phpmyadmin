@@ -358,31 +358,6 @@ class Theme
     }
 
     /**
-     * load css (send to stdout, normally the browser)
-     *
-     * @return bool
-     * @access  public
-     */
-    public function loadCss()
-    {
-        $success = true;
-
-        $file = $GLOBALS['text_dir'] === 'rtl' ? '/css/theme-rtl.css' : '/css/theme.css';
-        $path = $this->getPath() . $file;
-        $fallback = './themes/' . ThemeManager::FALLBACK_THEME . $file;
-
-        if (is_readable($path)) {
-            include $path;
-        } elseif (is_readable($fallback)) {
-            include $fallback;
-        } else {
-            $success = false;
-        }
-
-        return $success;
-    }
-
-    /**
      * Renders the preview for this theme
      *
      * @return string
