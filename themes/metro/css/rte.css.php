@@ -52,3 +52,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 .rte_table .half_width {
     width: 49%;
 }
+
+.ui_tpicker_time_input {
+    width: 100%;
+}

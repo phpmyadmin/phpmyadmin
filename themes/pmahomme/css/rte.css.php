@@ -59,3 +59,7 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 .isdisableremoveparam_class {
     color: gray;
 }
+
+.ui_tpicker_time_input {
+    width: 100%;
+}
