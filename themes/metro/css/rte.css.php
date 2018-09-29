@@ -16,6 +16,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 .rte_table {
     table-layout: fixed;
+    width: 100%;
 }
 
 .rte_table td {
