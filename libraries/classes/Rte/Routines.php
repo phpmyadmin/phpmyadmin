@@ -973,7 +973,7 @@ class Routines
         } else {
             $retval .= "<input name='item_type' type='hidden'"
                 . " value='{$routine['item_type']}' />\n"
-                . "<div class='floatleft center'>\n"
+                . "<div class='font_weight_bold center half_width'>\n"
                 . $routine['item_type'] . "\n"
                 . "</div>\n"
                 . "<input type='submit' name='routine_changetype'\n"

@@ -1136,6 +1136,10 @@ td.disabled {
     white-space: nowrap;
 }
 
+.font_weight_bold{
+    font-weight: bold;
+}
+
 /******************************************************************************/
 /* specific elements */
 
