@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-27 13:13-0300\n"
-"PO-Revision-Date: 2018-05-24 23:41+0000\n"
+"PO-Revision-Date: 2018-09-29 01:21+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -656,6 +656,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Tjeneren dine kjører med forvalgte verdier for kontrollbrukeren og passordet "
+"(controlpass), og er åpen for enhver til å ta seg inn; du bør virkelig ordne "
+"dette sikkerhetsproblemet ved å endre passordet for kontrollbrukeren \"pma\"."
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -709,6 +712,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$cfg['TempDir'] (%s) er ikke tilgjengelig. phpMyAdmin kan ikke hurtiglagre "
+"maler, og vil være tregt som følge av dette."
 
 #: js/messages.php:43
 msgid "Confirm"
@@ -794,6 +799,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Du prøver å redusere antallet rader, men har allerede skrevet inn data i de "
+"radene, som vil gå tapt. Ønsker du å fortsette?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -858,6 +865,12 @@ msgid ""
 "column(s) editing feature (the \"Change\" Link) on the table structure page. "
 "</b>"
 msgstr ""
+"Gjennom denne operasjonen, prøver MySQL å knytte dataverdier mellom "
+"sammenligninger. Hvis karaktersettene er ukompatible, kan det forekomme "
+"datatap, og det kan hende at denne <b>IKKE</b> ikke lar seg gjenopprette ved "
+"å enkelthen bytte tilbake kolonnesamlingen(e). <b>For å konvertere "
+"eksisterende data, anbefales det å bruke kolonneredigeringsfuksjonen (altså "
+"\"Endre\"-lenken) på tabellstruktursiden. </b>"
 
 #: js/messages.php:109
 msgid ""
@@ -1858,12 +1871,17 @@ msgstr "Se de eksterne verdiene"
 #: js/messages.php:424
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"Ingen tidligere auto-lagret spørring er tilgjengelig. Laster forvalgt "
+"spørring."
 
 #: js/messages.php:425
+#, fuzzy
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"Du har en tidligere lagret spørring. Klikk \"Hent auto-lagret spørring\" for "
+"å laste den inn."
 
 #: js/messages.php:426
 #, php-format
@@ -2222,8 +2240,9 @@ msgstr ""
 "lagrer dem. Ønsker du å fortsette?"
 
 #: js/messages.php:563
+#, fuzzy
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "verdi/underspørring er tom"
 
 #: js/messages.php:564 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
@@ -2605,32 +2624,32 @@ msgstr "Kopier tabell med prefiks"
 
 #: js/messages.php:743
 msgid "Extremely weak"
-msgstr ""
+msgstr "Ekstremt svak"
 
 #: js/messages.php:744
 msgid "Very weak"
-msgstr ""
+msgstr "Veldig svak"
 
 #: js/messages.php:745
 msgid "Weak"
-msgstr ""
+msgstr "Svak"
 
 #: js/messages.php:746
 msgid "Good"
-msgstr ""
+msgstr "God"
 
 #: js/messages.php:747
 msgid "Strong"
-msgstr ""
+msgstr "Sterk"
 
 #: js/messages.php:750
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "Tidsavbrudd under venting på sikkerhetsnøkkelaktivering."
 
 #: js/messages.php:751
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr ""
+msgstr "Mislykket sikkerhetsnøkkelaktivering (%s)."
 
 #: js/messages.php:780
 msgctxt "Previous month"
@@ -2886,7 +2905,7 @@ msgstr "Sekund"
 
 #: js/messages.php:921
 msgid "This field is required"
-msgstr ""
+msgstr "Dette feltet er påkrevd"
 
 #: js/messages.php:922
 msgid "Please fix this field"
@@ -2992,7 +3011,7 @@ msgstr "Feil ved formattering av streng for regel \"%s\"."
 #: libraries/classes/Advisor.php:504
 #, php-format
 msgid "Error in reading file: The file '%s' does not exist or is not readable!"
-msgstr ""
+msgstr "Feil i lesing av fil: Filen \"%s\" finnes ikke, eller er ikke lesbar."
 
 #: libraries/classes/Advisor.php:529
 #, php-format
@@ -3330,7 +3349,7 @@ msgstr "bulgarsk"
 #: libraries/classes/Charsets.php:442
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "Kinesisk"
 
 #: libraries/classes/Charsets.php:447
 #, fuzzy
@@ -3384,7 +3403,7 @@ msgstr "Dataordbok"
 #: libraries/classes/Charsets.php:473 libraries/classes/Charsets.php:584
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "Tysk (telefonboksanordning)"
 
 #: libraries/classes/Charsets.php:482
 #, fuzzy
@@ -3403,7 +3422,7 @@ msgstr "Islandsk"
 #: libraries/classes/Charsets.php:493
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "Klassisk latin"
 
 #: libraries/classes/Charsets.php:497
 #, fuzzy
@@ -3422,7 +3441,7 @@ msgstr "lithauisk"
 #: libraries/classes/Charsets.php:509
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "Burmesisk"
 
 #: libraries/classes/Charsets.php:512
 #, fuzzy
@@ -3448,7 +3467,7 @@ msgstr "Rumensk"
 #: libraries/classes/Charsets.php:527
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr ""
+msgstr "Singalesisk"
 
 #: libraries/classes/Charsets.php:531
 #, fuzzy
@@ -3474,7 +3493,7 @@ msgstr "Spansk"
 #: libraries/classes/Charsets.php:545 libraries/classes/Charsets.php:595
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "Spansk (tradisjonell)"
 
 #: libraries/classes/Charsets.php:564
 #, fuzzy
@@ -3697,6 +3716,8 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"Finn enhver feil i spørringen før den kjøres. Kreves at \"CodeMirror\" er "
+"påslått."
 
 #: libraries/classes/Config/Descriptions.php:108
 #, fuzzy
@@ -3796,7 +3817,7 @@ msgstr "Bekreft DROP spørringer"
 #: libraries/classes/Config/Descriptions.php:134
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
-msgstr ""
+msgstr "Logger SQL-spørringer og deres køringstid, for visning i konsollen"
 
 #: libraries/classes/Config/Descriptions.php:135
 #: templates/console/display.twig:11 templates/console/display.twig:64
@@ -3859,7 +3880,7 @@ msgstr "Tabellkommentarer"
 
 #: libraries/classes/Config/Descriptions.php:146
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "Hvorvidt kolonnekommentarer skal vises i tabellstrukturvisning"
 
 #: libraries/classes/Config/Descriptions.php:147
 #, fuzzy
@@ -5087,7 +5108,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:502
 msgid "Group items in the tree"
-msgstr ""
+msgstr "Grupper elementer i treet"
 
 #: libraries/classes/Config/Descriptions.php:503
 #, fuzzy
@@ -5168,7 +5189,7 @@ msgstr "Vis funksjonsfelter"
 
 #: libraries/classes/Config/Descriptions.php:517
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Hvorvidt funksjoner skal vises under database i navigasjonstreet"
 
 #: libraries/classes/Config/Descriptions.php:518
 #, fuzzy
@@ -5178,7 +5199,7 @@ msgstr "Vis prosesser"
 
 #: libraries/classes/Config/Descriptions.php:519
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Hvorvidt prosedyrer skal vises under database i navigasjonstreet"
 
 #: libraries/classes/Config/Descriptions.php:520
 #, fuzzy
@@ -5225,11 +5246,11 @@ msgstr "Hvor tabell-lenkene skal vises"
 
 #: libraries/classes/Config/Descriptions.php:528
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "Hvorvidt radlenker skal vises, selv om unik nøkkel mangler"
 
 #: libraries/classes/Config/Descriptions.php:529
 msgid "Show row links anyway"
-msgstr ""
+msgstr "Vis radlenker uansett"
 
 #: libraries/classes/Config/Descriptions.php:530
 #: libraries/classes/Config/Descriptions.php:531
@@ -5337,7 +5358,7 @@ msgstr "Hvordan menyfanene vises"
 
 #: libraries/classes/Config/Descriptions.php:559
 msgid "How to display various action links"
-msgstr ""
+msgstr "Hvorvidt forskjellige handlingslenker skal vises"
 
 #: libraries/classes/Config/Descriptions.php:560
 msgid "Disallow BLOB and BINARY columns from editing."
@@ -5395,7 +5416,7 @@ msgstr "Husk tabellens sortering"
 
 #: libraries/classes/Config/Descriptions.php:575
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "Forvalgt sorteringsrekkefølge for tabeller med en primærnøkkel."
 
 #: libraries/classes/Config/Descriptions.php:576
 #, fuzzy
@@ -5417,7 +5438,7 @@ msgstr "Gjenta topptekst"
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "Rutenettredigering: Utløsende handling"
 
 #: libraries/classes/Config/Descriptions.php:580
 #, fuzzy
@@ -6114,7 +6135,7 @@ msgstr "Vis opprett database skjema"
 
 #: libraries/classes/Config/Descriptions.php:785
 msgid "Show or hide a column displaying the comments for all tables."
-msgstr ""
+msgstr "Vis eller skjul en kolonne som viser kommentarer for alle tabeller."
 
 #: libraries/classes/Config/Descriptions.php:786
 #, fuzzy
@@ -6125,6 +6146,8 @@ msgstr "Tabellkommentarer"
 #: libraries/classes/Config/Descriptions.php:787
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
+"Vis eller skjul en kolonne som viser opprettelsestidsstempel for alle "
+"tabeller."
 
 #: libraries/classes/Config/Descriptions.php:788
 #, fuzzy
@@ -6136,6 +6159,8 @@ msgstr "Vis versjoner"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
+"Vis eller skjul en kolonne som viser tidsstempel for siste oppdatering for "
+"alle tabeller."
 
 #: libraries/classes/Config/Descriptions.php:790
 #, fuzzy
@@ -6147,6 +6172,8 @@ msgstr "Vis masterstatus"
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
+"Vis eller skjul en kolonne som viser tidsstempel for siste sjekk for alle "
+"tabeller."
 
 #: libraries/classes/Config/Descriptions.php:792
 #, fuzzy
@@ -6156,7 +6183,7 @@ msgstr "Vis masterstatus"
 
 #: libraries/classes/Config/Descriptions.php:793
 msgid "Show or hide a column displaying the charset for all tables."
-msgstr ""
+msgstr "Vis eller skjul en kolonne som viser tegnsett for alle tabeller."
 
 #: libraries/classes/Config/Descriptions.php:794
 #, fuzzy
@@ -6291,7 +6318,7 @@ msgstr "En advarsel vises på hovedsiden dersom Suhosin er oppdaget"
 
 #: libraries/classes/Config/Descriptions.php:826
 msgid "Suhosin warning"
-msgstr ""
+msgstr "Suhosin-advarsel"
 
 #: libraries/classes/Config/Descriptions.php:828
 #, fuzzy
@@ -6318,6 +6345,8 @@ msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Tekstområdestørrelse (kolonner) i redigeringsmodus, denne verdien vil "
+"fremheves for SQL-spørringstekstområder (*2)."
 
 #: libraries/classes/Config/Descriptions.php:837
 #, fuzzy
@@ -6330,6 +6359,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Tekstområdestørrelse (rader) i redigeringsmodus, denne verdien vil fremheves "
+"for SQL-spørringstekstområder (*2)."
 
 #: libraries/classes/Config/Descriptions.php:842
 #, fuzzy
@@ -6458,11 +6489,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:866
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "Skru på utviklerfanen i innstillingene"
 
 #: libraries/classes/Config/Descriptions.php:867
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr ""
+msgstr "Skrur på sjekk for senesteversjon på hoved-phpMyAdmin-siden."
 
 #: libraries/classes/Config/Descriptions.php:868 setup/lib/Index.php:124
 #: setup/lib/Index.php:147 setup/lib/Index.php:160 setup/lib/Index.php:172
@@ -6479,8 +6510,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:875
+#, fuzzy
 msgid "Proxy url"
-msgstr ""
+msgstr "Mellomtjenernettadresse"
 
 #: libraries/classes/Config/Descriptions.php:877
 msgid ""
