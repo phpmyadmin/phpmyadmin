@@ -121,7 +121,7 @@ class ThemeManager
     /**
      * Returns the singleton Response object
      *
-     * @return Response object
+     * @return ThemeManager object
      */
     public static function getInstance()
     {

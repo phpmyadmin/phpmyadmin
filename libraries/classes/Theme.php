@@ -378,31 +378,18 @@ class Theme
     {
         $success = true;
 
-        /* Variables to be used by the themes: */
-        $theme = $this;
-        if ($GLOBALS['text_dir'] === 'ltr') {
-            $right = 'right';
-            $left = 'left';
+        $file = $GLOBALS['text_dir'] === 'rtl' ? '/css/theme-rtl.css' : '/css/theme.css';
+        $path = $this->getPath() . $file;
+        $fallback = './themes/' . ThemeManager::FALLBACK_THEME . $file;
+
+        if (is_readable($path)) {
+            include $path;
+        } elseif (is_readable($fallback)) {
+            include $fallback;
         } else {
-            $right = 'left';
-            $left = 'right';
+            $success = false;
         }
 
-        foreach ($this->_cssFiles as $file) {
-            $path = $this->getPath() . "/css/$file.css.php";
-            $fallback = "./themes/"
-                . ThemeManager::FALLBACK_THEME . "/css/$file.css.php";
-
-            if (is_readable($path)) {
-                echo "\n/* FILE: " , $file , ".css.php */\n";
-                include $path;
-            } elseif (is_readable($fallback)) {
-                echo "\n/* FILE: " , $file , ".css.php */\n";
-                include $fallback;
-            } else {
-                $success = false;
-            }
-        }
         return $success;
     }
 

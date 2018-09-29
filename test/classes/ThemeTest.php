@@ -148,7 +148,6 @@ class ThemeTest extends PmaTestCase
         $out = ob_get_contents();
         ob_end_clean();
         $this->assertTrue($ret);
-        $this->assertContains('FILE: navigation.css.php', $out);
         $this->assertContains('.ic_b_bookmark', $out);
     }
 
