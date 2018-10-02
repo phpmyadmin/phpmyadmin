@@ -5,6 +5,8 @@ phpMyAdmin - ChangeLog
 - issue #14452 Remove hash param in edit query URL
 - issue #14295 Issue in Changing theme
 - issue #13267 Ensure that database names with '.' are handled properly when DisableIS is true
+- issue #14438 Invisible Icon "Show Full Queries"
+- issue #14133 CSS issue in Designer
 
 4.8.3 (2018-08-22)
 - issue #14314 Error when naming a database '0'
