@@ -780,6 +780,32 @@ function PMA_showCurrentNavigation () {
         }
     } else if ($('#navi_db_select').length && $('#navi_db_select').val()) {
         $('#navi_db_select').val('').hide().trigger('change');
+    } else if ($('#pma_navigation_tree_content > ul > li').length === 1) { // automatically expand the list if there is only 1 database
+        // find the name of the database
+        var dbItemName = "";
+
+        $('#pma_navigation_tree_content > ul > li').children('a').each(function () {
+            var name = $(this).text();
+            if (!dbItemName && name.trim()) { // if the name is not empty, it is the desired element
+                dbItemName = name;
+            }
+        });
+        
+        var $dbItem = findLoadedItem(
+            $('#pma_navigation_tree').find('> div'), dbItemName, 'database', !table
+        );
+
+        var $expander = $dbItem.children('div:first').children('a.expander');
+        // if not loaded or loaded but collapsed
+        if (! $expander.hasClass('loaded') ||
+            $expander.find('img').is('.ic_b_plus')
+        ) {
+            expandTreeNode($expander, function () {
+                handleTableOrDb(table, $dbItem);
+            });
+        } else {
+            handleTableOrDb(table, $dbItem);
+        }
     }
     PMA_showFullName($('#pma_navigation_tree'));
 
