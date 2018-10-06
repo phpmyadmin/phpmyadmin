@@ -498,10 +498,10 @@ class Plugins
                     }
                     $ret .= '>' . self::getString($val) . '</option>';
                 }
+
                 $ret .= '</select>';
                 break;
             case 'PhpMyAdmin\Properties\Options\Items\TextPropertyItem':
-            case 'PhpMyAdmin\Properties\Options\Items\NumberPropertyItem':
                 $ret .= '<li>' . "\n";
                 $ret .= '<label for="text_' . $plugin_name . '_'
                 . $propertyItem->getName() . '" class="desc">'
@@ -520,6 +520,22 @@ class Plugins
                     . ($propertyItem->getLen() != null
                     ? ' maxlength="' . $propertyItem->getLen() . '"'
                     : '')
+                    . ' />';
+                break;
+            case 'PhpMyAdmin\Properties\Options\Items\NumberPropertyItem':
+                $ret .= '<li>' . "\n";
+                $ret .= '<label for="number_' . $plugin_name . '_'
+                    . $propertyItem->getName() . '" class="desc">'
+                    . self::getString($propertyItem->getText()) . '</label>';
+                $ret .= '<input type="number" name="' . $plugin_name . '_'
+                    . $propertyItem->getName() . '"'
+                    . ' value="' . self::getDefault(
+                        $section,
+                        $plugin_name . '_' . $propertyItem->getName()
+                    ) . '"'
+                    . ' id="number_' . $plugin_name . '_'
+                    . $propertyItem->getName() . '"'
+                    . ' min="0"'
                     . ' />';
                 break;
             default:

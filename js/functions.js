@@ -1018,6 +1018,7 @@ AJAX.registerOnload('functions.js', function () {
 AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', 'input:checkbox.checkall');
 });
+
 AJAX.registerOnload('functions.js', function () {
     /**
      * Row marking in horizontal mode (use "on" so that it works also for
