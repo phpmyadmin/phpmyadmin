@@ -10,19 +10,7 @@ language: php
 services:
   - mysql
 
-php:
-  - "7.2"
-  - "7.1"
-  - "nightly"
-
 sudo: required
-
-env:
-  matrix:
-    - CI_MODE=test
-  global:
-    - TESTSUITE_USER=root
-    - TESTSUITE_URL=http://127.0.0.1:8000
 
 install:
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then source ~/virtualenv/python3.6/bin/activate ; fi
@@ -54,22 +42,33 @@ after_script:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
-matrix:
-  fast_finish: true
+stages:
+  - name: "PHP Unit tests"
+  - name: "Lint and analyse code"
+  - name: "Documentation"
+  - name: "Other tests"
+
+jobs:
   include:
-    - php: "7.1"
-      env: CI_MODE=selenium
-    - php: "7.1"
+    - stage: "Lint and analyse code"
+      name: "Lint PHP files"
+      php: "7.1"
       env: CI_MODE=lint
-    - php: "7.1"
-      env: CI_MODE=release
-    - php: "7.1"
-      env: CI_MODE=docs
-    - php: "7.1"
-      env: CI_MODE=apidocs
-    - php: "7.2"
+    - stage: "Lint and analyse code"
+      name: "Run phpstan"
+      php: "7.2"
       env: CI_MODE=phpstan
-    - os: osx
+    - stage: "Documentation"
+      name: "Build docs"
+      php: "7.1"
+      env: CI_MODE=docs
+    - stage: "Documentation"
+      name: "Build API docs"
+      php: "7.1"
+      env: CI_MODE=apidocs
+    - stage: "PHP Unit tests"
+      name: "PHP 7.2"
+      os: osx
       language: generic
       env: CI_MODE=test
       before_install:
@@ -80,11 +79,34 @@ matrix:
         - curl https://getcomposer.org/installer | php
         - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start
-  allow_failures:
-    - php: "nightly"
+    - stage: "PHP Unit tests"
+      php: "7.2"
+      name: "PHP 7.2"
       env: CI_MODE=test
-    - php: "7.2"
-      env: CI_MODE=phpstan
+    - stage: "PHP Unit tests"
+      php: "7.1"
+      name: "PHP 7.1"
+      env: CI_MODE=test
+    - stage: "PHP Unit tests"
+      php: "nightly"
+      name: "PHP nightly"
+      env: CI_MODE=test
+    - stage: "Other tests"
+      name: "Build release"
+      php: "7.1"
+      env: CI_MODE=release
+    - stage: "Other tests"
+      name: "Run selenium tests"
+      php: "7.1"
+      env:
+        - CI_MODE=selenium
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+  allow_failures:
+      - php: "nightly"
+        env: CI_MODE=test
+      - php: "7.2"
+        env: CI_MODE=phpstan
 
 cache:
   pip: true
