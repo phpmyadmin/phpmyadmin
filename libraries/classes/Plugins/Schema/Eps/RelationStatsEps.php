@@ -28,7 +28,7 @@ class RelationStatsEps extends RelationStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Eps\RelationStatsEps" constructor
      *
-     * @param object $diagram       The EPS diagram
+     * @param Eps    $diagram       The EPS diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name

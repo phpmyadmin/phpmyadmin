@@ -426,7 +426,7 @@ class Export
      * @param string       $compression the compression mode
      * @param string       $filename    the filename
      *
-     * @return object a message object (or empty string)
+     * @return array|string|bool
      */
     public function compress($dump_buffer, string $compression, string $filename)
     {

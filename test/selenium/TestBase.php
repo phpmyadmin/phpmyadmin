@@ -570,7 +570,7 @@ abstract class TestBase extends TestCase
      *
      * @return void|boolean|\mysqli_result
      *
-     * @throws Exception
+     * @throws \Exception
      */
     public function dbQuery($query)
     {

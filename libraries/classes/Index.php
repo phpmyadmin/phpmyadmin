@@ -416,7 +416,7 @@ class Index
     /**
      * Return the key block size
      *
-     * @return number
+     * @return int
      */
     public function getKeyBlockSize()
     {

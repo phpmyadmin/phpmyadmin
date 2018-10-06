@@ -755,7 +755,7 @@ class LanguageManager
     /**
      * Returns (cached) list of all available languages
      *
-     * @return array of Language objects
+     * @return Language[] array of Language objects
      */
     public function availableLanguages()
     {
@@ -791,7 +791,7 @@ class LanguageManager
      * Returns (cached) list of all available languages sorted
      * by name
      *
-     * @return array of Language objects
+     * @return Language[] array of Language objects
      */
     public function sortedLanguages()
     {
@@ -807,7 +807,7 @@ class LanguageManager
      *
      * @param string $code Language code
      *
-     * @return object|false Language object or false on failure
+     * @return Language|false Language object or false on failure
      */
     public function getLanguage($code)
     {
@@ -822,7 +822,7 @@ class LanguageManager
     /**
      * Return currently active Language object
      *
-     * @return object Language object
+     * @return Language Language object
      */
     public function getCurrentLanguage()
     {

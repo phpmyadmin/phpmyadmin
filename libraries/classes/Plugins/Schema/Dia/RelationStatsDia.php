@@ -40,7 +40,7 @@ class RelationStatsDia
     /**
      * The "PhpMyAdmin\Plugins\Schema\Dia\RelationStatsDia" constructor
      *
-     * @param object $diagram       The DIA diagram
+     * @param Dia    $diagram       The DIA diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name

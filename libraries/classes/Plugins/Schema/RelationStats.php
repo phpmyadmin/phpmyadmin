@@ -97,7 +97,7 @@ abstract class RelationStats
     /**
      * Gets arrows coordinates
      *
-     * @param string $table  The current table name
+     * @param \PhpMyAdmin\Plugins\Schema\TableStats $table The table
      * @param string $column The relation column name
      *
      * @return array Arrows coordinates

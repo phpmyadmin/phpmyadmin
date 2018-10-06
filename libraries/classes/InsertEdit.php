@@ -231,7 +231,7 @@ class InsertEdit
      * @param string $table name of the table
      * @param string $db    name of the database
      *
-     * @return array                containing $result and $rows arrays
+     * @return array containing $result and $rows arrays
      */
     private function loadFirstRow($table, $db)
     {

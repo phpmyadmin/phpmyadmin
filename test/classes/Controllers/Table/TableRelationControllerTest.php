@@ -122,7 +122,7 @@ class TableRelationControllerTest extends PmaTestCase
             'PhpMyAdmin\Controllers\Table\TableRelationController'
         );
         /**
-         * @var PhpMyAdmin\Controllers\Table\TableRelationController
+         * @var \PhpMyAdmin\Controllers\Table\TableRelationController
          */
         $ctrl = $container->get('TableRelationController');
 

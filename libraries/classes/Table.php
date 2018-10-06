@@ -2686,7 +2686,7 @@ class Table
     /**
      * Returns the real row count for a table
      *
-     * @return number
+     * @return int
      */
     public function getRealRowCountTable()
     {

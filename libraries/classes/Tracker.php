@@ -200,8 +200,10 @@ class Tracker
                 = $GLOBALS['cfg']['Server']['tracking_default_statements'];
         }
 
-        // get Export SQL instance
-        /* @var $export_sql_plugin PhpMyAdmin\Plugins\Export\ExportSql */
+        /**
+         * get Export SQL instance
+         * @var ExportSql $export_sql_plugin
+         */
         $export_sql_plugin = Plugins::getPlugin(
             "export",
             "sql",

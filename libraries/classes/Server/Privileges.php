@@ -1950,12 +1950,12 @@ class Privileges
      * @param string $username username
      * @param string $hostname hostname
      *
-     * @return string  success or error message after updating password
+     * @return Message success or error message after updating password
      */
     public function updatePassword($err_url, $username, $hostname)
     {
         // similar logic in user_password.php
-        $message = '';
+        $message = null;
 
         if (empty($_REQUEST['nopass'])
             && isset($_POST['pma_pw'])
@@ -1969,7 +1969,7 @@ class Privileges
         }
 
         // here $nopass could be == 1
-        if (empty($message)) {
+        if ($message === null) {
             $hashing_function = 'PASSWORD';
             $serverType = Util::getServerType();
             $serverVersion = $this->dbi->getVersion();

@@ -2128,8 +2128,8 @@ class Util
     /**
      * Generate the charset query part
      *
-     * @param string           $collation Collation
-     * @param boolean optional $override  force 'CHARACTER SET' keyword
+     * @param string  $collation Collation
+     * @param boolean $override  (optional) force 'CHARACTER SET' keyword
      *
      * @return string
      */
