@@ -2198,11 +2198,12 @@ class Operations
 
                 $new_name = $_REQUEST['new_name'];
                 if ($this->dbi->getLowerCaseNames() === '1') {
-                    $new_name = strtolower($new_name);
+                    $new_name = Util::backquote(strtolower($new_name));
                 }
 
+                $GLOBALS['table'] = $new_name;
                 $new = Util::backquote($_REQUEST['target_db']) . '.'
-                    . Util::backquote($new_name);
+                    . $new_name;
                 $message->addParam($new);
 
                 /* Check: Work on new table or on old table? */
