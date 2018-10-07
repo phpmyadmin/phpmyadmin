@@ -2413,7 +2413,7 @@ class InsertEdit
                 DatabaseInterface::QUERY_STORE
             );
             if ($dispresult && $this->dbi->numRows($dispresult) > 0) {
-                list($dispval) = $this->dbi->fetchRow($dispresult, 0);
+                list($dispval) = $this->dbi->fetchRow($dispresult);
             } else {
                 $dispval = '';
             }

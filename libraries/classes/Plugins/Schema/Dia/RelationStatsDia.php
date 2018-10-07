@@ -40,11 +40,11 @@ class RelationStatsDia
     /**
      * The "PhpMyAdmin\Plugins\Schema\Dia\RelationStatsDia" constructor
      *
-     * @param Dia    $diagram       The DIA diagram
-     * @param string $master_table  The master table name
-     * @param string $master_field  The relation field in the master table
-     * @param string $foreign_table The foreign table name
-     * @param string $foreign_field The relation field in the foreign table
+     * @param Dia           $diagram       The DIA diagram
+     * @param TableStatsDia $master_table  The master table name
+     * @param string        $master_field  The relation field in the master table
+     * @param TableStatsDia $foreign_table The foreign table name
+     * @param string        $foreign_field The relation field in the foreign table
      *
      * @see Relation_Stats_Dia::_getXy
      */
@@ -75,8 +75,8 @@ class RelationStatsDia
      * then determines its left and right connection
      * points.
      *
-     * @param string $table  The current table name
-     * @param string $column The relation column name
+     * @param TableStatsDia $table  The current table name
+     * @param string        $column The relation column name
      *
      * @return array Table right,left connection points and key position
      *

@@ -211,9 +211,7 @@ class FormDisplayTest extends PmaTestCase
         $attrIsValidated->setAccessible(true);
         $attrIsValidated->setValue($this->object, []);
 
-        $this->assertNull(
-            $this->object->fixErrors()
-        );
+        $this->object->fixErrors();
 
         $arr = [
             "Servers/1/test" => ['e1'],

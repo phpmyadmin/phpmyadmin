@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Tests\Selenium;
 
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\Remote\RemoteWebElement;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Firefox\FirefoxDriver;
 use Facebook\WebDriver\Firefox\FirefoxProfile;
@@ -758,11 +759,11 @@ abstract class TestBase extends TestCase
      * Wrapper around moveto method to not use it on not supported
      * browsers.
      *
-     * @param WebDriverElement $element element
+     * @param RemoteWebElement $element element
      *
      * @return void
      */
-    public function moveto(WebDriverElement $element): void
+    public function moveto(RemoteWebElement $element): void
     {
         /**
          * Not supported in Safari Webdriver, see

@@ -554,12 +554,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 'new_token',
                 $_SESSION[' PMA_token ']
             );
-            if($user_changed) {
-                $response->addJSON(
-                    'user_changed',
-                    1
-                );
-            }
+
             if (! defined('TESTSUITE')) {
                 exit;
             } else {

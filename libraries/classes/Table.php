@@ -1005,7 +1005,7 @@ class Table
             /**
              * Instance used for exporting the current structure of the table.
              *
-             * @var PhpMyAdmin\Plugins\Export\ExportSql
+             * @var ExportSql $export_sql_plugin
              */
             $export_sql_plugin = Plugins::getPlugin(
                 "export",

@@ -25,7 +25,8 @@ class PmaTestCase extends TestCase
      */
     protected $restoreInstance = null;
     /**
-     * @var Response
+     * class Response
+     * @var ReflectionProperty
      */
     protected $attrInstance = null;
 

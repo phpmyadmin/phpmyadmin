@@ -1897,7 +1897,7 @@ class Privileges
             );
             // Table 'mysql'.'user' may not exist for some previous
             // versions of MySQL - in that case consider fallback value
-            if (isset($row) && $row) {
+            if (is_array($row) && isset($row['plugin'])) {
                 $authentication_plugin = $row['plugin'];
             }
         } elseif ($mode == 'change') {
@@ -1907,7 +1907,7 @@ class Privileges
                 'SELECT `plugin` FROM `mysql`.`user` WHERE '
                 . '`User` = "' . $username . '" AND `Host` = "' . $hostname . '"'
             );
-            if (isset($row) && $row && ! empty($row['plugin'])) {
+            if (is_array($row) && isset($row['plugin'])) {
                 $authentication_plugin = $row['plugin'];
             }
         } elseif ($serverVersion >= 50702) {

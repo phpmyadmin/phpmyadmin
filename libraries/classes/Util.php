@@ -1949,7 +1949,7 @@ class Util
      *
      * @param resource       $handle               current query result
      * @param integer        $fields_cnt           number of fields
-     * @param array          $fields_meta          meta information about fields
+     * @param \stdClass[]    $fields_meta          meta information about fields
      * @param array          $row                  current row
      * @param boolean        $force_unique         generate condition only on pk
      *                                             or unique

@@ -192,7 +192,7 @@ PhpMyAdmin\Util::checkParameters(['what', 'export_type']);
 $what = Core::securePath($_POST['what']);
 
 // export class instance, not array of properties, as before
-/* @var $export_plugin ExportPlugin */
+/** @var ExportPlugin $export_plugin */
 $export_plugin = Plugins::getPlugin(
     "export",
     $what,

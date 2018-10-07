@@ -33,7 +33,7 @@ class ConfigTest extends PmaTestCase
     protected $object;
 
     /**
-     * @var object to test file permission
+     * @var Config to test file permission
      */
     protected $permTestObj;
 
@@ -719,10 +719,11 @@ class ConfigTest extends PmaTestCase
      *
      * @return void
      * @todo Test actually preferences loading
+     * @doesNotPerformAssertions
      */
     public function testLoadUserPreferences()
     {
-        $this->assertNull($this->object->loadUserPreferences());
+        $this->object->loadUserPreferences();
     }
 
     /**
