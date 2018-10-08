@@ -369,10 +369,12 @@ class Operations
                     'PROCEDURE',
                     $procedure_name
                 );
-                // collect for later display
-                $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                $this->dbi->selectDb($_REQUEST['newname']);
-                $this->dbi->query($tmp_query);
+                if ($tmp_query !== false) {
+                    // collect for later display
+                    $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+                    $this->dbi->selectDb($_REQUEST['newname']);
+                    $this->dbi->query($tmp_query);
+                }
             }
         }
 
@@ -385,10 +387,12 @@ class Operations
                     'FUNCTION',
                     $function_name
                 );
-                // collect for later display
-                $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                $this->dbi->selectDb($_REQUEST['newname']);
-                $this->dbi->query($tmp_query);
+                if ($tmp_query !== false) {
+                    // collect for later display
+                    $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+                    $this->dbi->selectDb($_REQUEST['newname']);
+                    $this->dbi->query($tmp_query);
+                }
             }
         }
     }
