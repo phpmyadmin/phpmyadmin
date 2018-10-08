@@ -353,10 +353,12 @@ class Operations
                 $tmp_query = $GLOBALS['dbi']->getDefinition(
                     $db, 'PROCEDURE', $procedure_name
                 );
-                // collect for later display
-                $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
-                $GLOBALS['dbi']->query($tmp_query);
+                if ($tmp_query !== false) {
+                    // collect for later display
+                    $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+                    $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
+                    $GLOBALS['dbi']->query($tmp_query);
+                }
             }
         }
 
@@ -367,10 +369,12 @@ class Operations
                 $tmp_query = $GLOBALS['dbi']->getDefinition(
                     $db, 'FUNCTION', $function_name
                 );
-                // collect for later display
-                $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
-                $GLOBALS['dbi']->query($tmp_query);
+                if ($tmp_query !== false) {
+                    // collect for later display
+                    $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+                    $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
+                    $GLOBALS['dbi']->query($tmp_query);
+                }
             }
         }
     }
