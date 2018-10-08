@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-27 13:13-0300\n"
-"PO-Revision-Date: 2018-09-06 02:54+0000\n"
+"PO-Revision-Date: 2018-10-08 16:32+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.2\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -6445,7 +6445,7 @@ msgstr ""
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
-msgstr ""
+msgstr "php.ini中禁用了ini_get和/或ini_set函数。 phpMyAdmin需要这些函数！"
 
 #: libraries/classes/Core.php:1296
 msgid "GLOBALS overwrite attempt"
@@ -14166,8 +14166,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "以 OpenStreetMaps 为背景"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "空间参照标识符："
@@ -14184,10 +14182,9 @@ msgstr "点："
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "点 %d"
+msgstr "点 %d:"
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
@@ -15094,18 +15091,12 @@ msgid "Secret/key:"
 msgstr "密钥："
 
 #: templates/login/header.twig:15
-#, fuzzy
-#| msgid ""
-#| "There is mismatch between HTTPS indicated on the server and client. This "
-#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
-#| "server configuration to indicate HTTPS properly."
 msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
-"服务器和客户端上指示的HTTPS之间不匹配。这可能导致phpMyAdmin无法正常工作或存在"
-"安全风险。请修复您的服务器配置以正确指示HTTPS。"
+"服务器和客户端上指示的HTTPS之间不匹配。这可能导致phpMyAdmin无法正常工作或存在安全风险。请修复您的服务器配置以正确指示HTTPS。"
 
 #: templates/server/privileges/delete_user_fieldset.twig:3
 msgid "Remove selected user accounts"
@@ -15396,7 +15387,7 @@ msgstr "帮助"
 #: templates/database/designer/main.twig:124
 #: templates/database/designer/main.twig:127
 msgid "Angular links"
-msgstr "规则连接"
+msgstr "折角连接"
 
 #: templates/database/designer/main.twig:124
 #: templates/database/designer/main.twig:127
