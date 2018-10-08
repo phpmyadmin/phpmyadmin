@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-09-06 02:54+0000\n"
+"PO-Revision-Date: 2018-10-08 16:28+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/zh_Hans/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.2\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -14088,7 +14088,7 @@ msgstr "帮助"
 #: templates/database/designer/side_menu.twig:116
 #: templates/database/designer/side_menu.twig:119
 msgid "Angular links"
-msgstr "规则连接"
+msgstr "折角连接"
 
 #: templates/database/designer/side_menu.twig:116
 #: templates/database/designer/side_menu.twig:119
