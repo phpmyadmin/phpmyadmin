@@ -777,7 +777,7 @@ function PMA_showCurrentNavigation () {
         // automatically expand the list if there is only single database
 
         // find the name of the database
-        var dbItemName = "";
+        var dbItemName = '';
 
         $('#pma_navigation_tree_content > ul > li').children('a').each(function () {
             var name = $(this).text();
@@ -794,7 +794,7 @@ function PMA_showCurrentNavigation () {
     }
     PMA_showFullName($('#pma_navigation_tree'));
 
-    function fullExpand(table, $dbItem) {
+    function fullExpand (table, $dbItem) {
         var $expander = $dbItem.children('div:first').children('a.expander');
         // if not loaded or loaded but collapsed
         if (! $expander.hasClass('loaded') ||
