@@ -519,6 +519,8 @@ class Descriptions
             'NavigationTreeShowProcedures_desc' => __('Whether to show procedures under database in the navigation tree'),
             'NavigationTreeShowEvents_name' => __('Show events in tree'),
             'NavigationTreeShowEvents_desc' => __('Whether to show events under database in the navigation tree'),
+            'NavigationTreeAutoexpandSingleDb_name' => __('Expand single database'),
+            'NavigationTreeAutoexpandSingleDb_desc' => __('Whether to expand single database in the navigation tree automatically.'),
             'NumRecentTables_desc' => __('Maximum number of recently used tables; set 0 to disable.'),
             'NumFavoriteTables_desc' => __('Maximum number of favorite tables; set 0 to disable.'),
             'NumRecentTables_name' => __('Recently used tables'),

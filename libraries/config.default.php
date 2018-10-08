@@ -1063,6 +1063,13 @@ $cfg['NavigationTreeShowEvents'] = true;
  */
 $cfg['NavigationWidth'] = 240;
 
+/**
+ * Automatically expands single database in navigation panel
+ *
+ * @global boolean $cfg['NavigationAutoexpandSingleDb']
+ */
+$cfg['NavigationTreeAutoexpandSingleDb'] = true;
+
 /*******************************************************************************
  * In the main panel, at startup...
  */
