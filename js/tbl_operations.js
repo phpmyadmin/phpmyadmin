@@ -61,8 +61,8 @@ AJAX.registerOnload('tbl_operations.js', function () {
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_commonParams.set('db', data._params.db);
-                PMA_commonParams.set('table', data._params.tbl);
-                PMA_commonActions.refreshMain(false, function () {
+                PMA_commonParams.set('table', data._params.table);
+                PMA_commonActions.refreshMain('tbl_sql.php', function () {
                     PMA_ajaxShowMessage(data.message);
                 });
                 // Refresh navigation when the table is copied
