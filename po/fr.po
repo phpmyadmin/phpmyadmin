@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-09-24 16:25+0000\n"
+"PO-Revision-Date: 2018-10-10 20:26+0000\n"
 "Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-8/fr/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.2.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -13220,17 +13220,17 @@ msgstr "Il y a des problèmes avec les index de la table « %s »"
 #: libraries/classes/SqlQueryForm.php:140
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Exécuter une ou des requêtes SQL sur le serveur  “%s”"
+msgstr "Exécuter une ou des requêtes SQL sur le serveur  « %s »"
 
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
 msgid "Run SQL query/queries on database %s"
-msgstr "Exécuter une ou des requêtes SQL sur la base « %s »&nbsp;"
+msgstr "Exécuter une ou des requêtes SQL sur la base de données « %s »"
 
 #: libraries/classes/SqlQueryForm.php:178
 #, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "Exécuter une ou des requêtes SQL sur la table « %s »&nbsp;"
+msgstr "Exécuter une ou des requêtes SQL sur la table « %s »"
 
 #: libraries/classes/SqlQueryForm.php:248 setup/frames/index.inc.php:254
 #: templates/console/display.twig:7
