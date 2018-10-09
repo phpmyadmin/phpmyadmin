@@ -53,7 +53,7 @@ class Console
     public function __construct()
     {
         $this->_isEnabled = true;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
     }
 

@@ -269,7 +269,7 @@ if ($_REQUEST['output_format'] == 'astext') {
         $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
     }
 }
-
+$tables = [];
 // Generate error url and check for needed variables
 if ($export_type == 'server') {
     $err_url = 'server_export.php' . Url::getCommon();
@@ -409,7 +409,7 @@ if ($save_on_server) {
     } // end download
 }
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 
 // Fake loop just to allow skip of remain of this code by break, I'd really
 // need exceptions here :-)

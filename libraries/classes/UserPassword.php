@@ -29,11 +29,13 @@ class UserPassword
     private $serverPrivileges;
 
     /**
-     * Constructor
+     * UserPassword constructor.
+     *
+     * @param Privileges $serverPrivileges Privileges object
      */
-    public function __construct()
+    public function __construct(Privileges $serverPrivileges)
     {
-        $this->serverPrivileges = new Privileges(new Template());
+        $this->serverPrivileges = $serverPrivileges;
     }
 
     /**

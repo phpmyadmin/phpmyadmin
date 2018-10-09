@@ -1,4 +1,8 @@
-{{ Util_getDivForSliderEffect('query_div', 'Query window'|trans, 'open') }}
+{% include 'div_for_slider_effect.twig' with {
+    'id': 'query_div',
+    'message': 'Query window'|trans,
+    'initial_sliders_state': 'open',
+} only %}
 <form action="" id="query_form">
     <input type="hidden" id="db_name" value="{{ db }}">
     <fieldset>

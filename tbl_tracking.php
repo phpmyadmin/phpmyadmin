@@ -45,6 +45,14 @@ if (Tracker::isActive()
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
 $url_params['goto'] = 'tbl_tracking.php';
 $url_params['back'] = 'tbl_tracking.php';
+$data               = [];
+$entries            = [];
+$filter_ts_from     = '';
+$filter_ts_to       = '';
+$filter_users       = [];
+$selection_schema   = false;
+$selection_data     = false;
+$selection_both     = false;
 
 // Init vars for tracking report
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
@@ -54,9 +62,6 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         $_REQUEST['version']
     );
 
-    $selection_schema = false;
-    $selection_data   = false;
-    $selection_both  = false;
 
     if (! isset($_REQUEST['logtype'])) {
         $_REQUEST['logtype'] = 'schema_and_data';
@@ -94,7 +99,7 @@ if (isset($_REQUEST['report_export'])
     $tracking->exportAsFileDownload($entries);
 }
 
-$html = '<br />';
+$html = '<br/>';
 
 /**
  * Actions
@@ -184,42 +189,14 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
 
 
 /*
- * List selectable tables
+ * Main page
  */
-$selectable_tables_sql_result = $tracking->getSqlResultForSelectableTables();
-if ($GLOBALS['dbi']->numRows($selectable_tables_sql_result) > 0) {
-    $html .= $tracking->getHtmlForSelectableTables(
-        $selectable_tables_sql_result,
-        $url_query
-    );
-}
-$html .= '<br />';
-
-/*
- * List versions of current table
- */
-$sql_result = $tracking->getListOfVersionsOfTable();
-$last_version = $tracking->getTableLastVersionNumber($sql_result);
-if ($last_version > 0) {
-    $html .= $tracking->getHtmlForTableVersionDetails(
-        $sql_result,
-        $last_version,
-        $url_params,
-        $url_query,
-        $pmaThemeImage,
-        $text_dir
-    );
-}
-
-$type = $GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])
-    ->isView() ? 'view' : 'table';
-$html .= $tracking->getHtmlForDataDefinitionAndManipulationStatements(
-    'tbl_tracking.php' . $url_query,
-    $last_version,
-    $GLOBALS['db'],
-    [$GLOBALS['table']],
-    $type
-);
+ $html .= $tracking->getHtmlForMainPage(
+     $url_query,
+     $url_params,
+     $pmaThemeImage,
+     $text_dir
+ );
 
 $html .= '<br class="clearfloat"/>';
 

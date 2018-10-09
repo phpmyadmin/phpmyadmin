@@ -306,7 +306,7 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
             <form class="group-cnt prefs-form disableAjax" name="prefs_export"
                   action="prefs_manage.php" method="post">
                 <?php echo Url::getHiddenInputs(); ?>
-                <div style="padding-bottom:0.5em">
+                <div>
                     <input type="radio" id="export_text_file" name="export_type"
                            value="text_file" checked="checked" />
                     <label for="export_text_file">

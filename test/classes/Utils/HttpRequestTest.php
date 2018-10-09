@@ -47,7 +47,7 @@ class HttpRequestTest extends PmaTestCase
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs(
-            $object !== null ? $object : $this->httpRequest,
+            $object ?? $this->httpRequest,
             $params
         );
     }

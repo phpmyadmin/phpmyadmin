@@ -64,7 +64,7 @@ if (!empty($_GET['saved'])) {
 }
 
 // warn about using session storage for settings
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
 if (! $cfgRelation['userconfigwork']) {
     $msg = __(

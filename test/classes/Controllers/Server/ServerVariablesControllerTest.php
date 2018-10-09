@@ -17,6 +17,8 @@ use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use ReflectionClass;
+use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use Williamdes\MariaDBMySQLKBS\SlimData as KBSlimData;
 
 /**
  * Tests for ServerVariablesController class
@@ -122,13 +124,16 @@ class ServerVariablesControllerTest extends PmaTestCase
         );
         $ctrl = $container->get('ServerVariablesController');
 
-        //Call the test function
-        $name_for_value_byte = "binlog_cache_size";
-        $name_for_value_not_byte = "auto_increment_increment";
-        $name_for_value_not_num = "PMA_key";
+        $nameForValueByte = "byte_variable";
+        $nameForValueNotByte = "not_a_byte_variable";
+
+        $slimData = new KBSlimData();
+        $slimData->addVariable($nameForValueByte, "byte", null);
+        $slimData->addVariable($nameForValueNotByte, "string", null);
+        KBSearch::loadTestData($slimData);
 
         //name is_numeric and the value type is byte
-        $args = [$name_for_value_byte, "3"];
+        $args = [$nameForValueByte, "3"];
         list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             '<abbr title="3">3 B</abbr>',
@@ -137,7 +142,7 @@ class ServerVariablesControllerTest extends PmaTestCase
         $this->assertEquals(true, $isHtmlFormatted);
 
         //name is_numeric and the value type is not byte
-        $args = [$name_for_value_not_byte, "3"];
+        $args = [$nameForValueNotByte, "3"];
         list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             '3',
@@ -146,7 +151,7 @@ class ServerVariablesControllerTest extends PmaTestCase
         $this->assertEquals(false, $isHtmlFormatted);
 
         //value is not a number
-        $args = [$name_for_value_not_byte, "value"];
+        $args = [$nameForValueNotByte, "value"];
         list($formattedValue, $isHtmlFormatted) = $method->invokeArgs($ctrl, $args);
         $this->assertEquals(
             'value',

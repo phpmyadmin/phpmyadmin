@@ -78,7 +78,7 @@ class DatabaseStructureController extends DatabaseController
     public function __construct($response, $dbi, $db)
     {
         parent::__construct($response, $dbi, $db);
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
         $this->replication = new Replication();
     }
 

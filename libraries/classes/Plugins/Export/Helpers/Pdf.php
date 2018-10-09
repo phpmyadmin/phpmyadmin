@@ -90,7 +90,7 @@ class Pdf extends PdfLib
             $diskcache,
             $pdfa
         );
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->transformations = new Transformations();
     }
 

@@ -156,12 +156,12 @@ class BrowseForeigners
     /**
      * Function to get html for relational field selection
      *
-     * @param string $db            current database
-     * @param string $table         current table
-     * @param string $field         field
-     * @param array  $foreignData   foreign column data
-     * @param string $fieldkey      field key
-     * @param string $current_value current columns's value
+     * @param string      $db            current database
+     * @param string      $table         current table
+     * @param string      $field         field
+     * @param array       $foreignData   foreign column data
+     * @param string|null $fieldkey      field key
+     * @param string      $current_value current columns's value
      *
      * @return string
      */
@@ -170,7 +170,7 @@ class BrowseForeigners
         string $table,
         string $field,
         array $foreignData,
-        string $fieldkey,
+        ?string $fieldkey,
         string $current_value
     ): string {
         $gotopage = $this->getHtmlForGotoPage($foreignData);
@@ -341,7 +341,7 @@ class BrowseForeigners
     /**
      * Function to get foreign limit
      *
-     * @param string $foreignShowAll foreign navigation
+     * @param string|null $foreignShowAll foreign navigation
      *
      * @return string
      */

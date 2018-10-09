@@ -122,6 +122,7 @@ class TableIndexesController extends TableController
                 'form_params' => $form_params,
                 'add_fields' => $add_fields,
                 'create_edit_table' => isset($_REQUEST['create_edit_table']),
+                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             ])
         );
     }

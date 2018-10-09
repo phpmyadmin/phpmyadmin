@@ -139,7 +139,7 @@ class DatabaseInterface
         $this->_table_cache = [];
         $this->_current_user = [];
         $this->types = new Types($this);
-        $this->relation = new Relation();
+        $this->relation = new Relation($this);
     }
 
     /**
@@ -901,7 +901,7 @@ class DatabaseInterface
                                            AS SCHEMA_DATA_FREE';
             }
             $sql .= '
-                   FROM `information_schema`.SCHEMATA s';
+                   FROM `information_schema`.SCHEMATA s ';
             if ($force_stats) {
                 $sql .= '
                     LEFT JOIN `information_schema`.TABLES t

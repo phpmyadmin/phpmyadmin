@@ -248,8 +248,8 @@ class Qbe
         $this->_db = $dbname;
         $this->_savedSearchList = $savedSearchList;
         $this->_currentSearch = $currentSearch;
-        $this->relation = new Relation();
         $this->dbi = $dbi;
+        $this->relation = new Relation($this->dbi);
         $this->template = new Template();
 
         $this->_loadCriterias();
@@ -746,6 +746,7 @@ class Qbe
             ) {
                 continue;
             }
+            $tmp_criteria = '';
             if (isset($this->_criteria[$column_index])) {
                 $tmp_criteria = $this->_criteria[$column_index];
             }
@@ -1942,18 +1943,18 @@ class Qbe
     /**
      * Get best
      *
-     * @param array $search_tables        Tables involved in the search
-     * @param array $where_clause_columns Columns with where clause
-     * @param array $unique_columns       Unique columns
-     * @param array $index_columns        Indexed columns
+     * @param array      $search_tables        Tables involved in the search
+     * @param array|null $where_clause_columns Columns with where clause
+     * @param array|null $unique_columns       Unique columns
+     * @param array|null $index_columns        Indexed columns
      *
      * @return array
      */
     private function _getLeftJoinColumnCandidatesBest(
         array $search_tables,
-        array $where_clause_columns,
-        array $unique_columns,
-        array $index_columns
+        ?array $where_clause_columns,
+        ?array $unique_columns,
+        ?array $index_columns
     ) {
         // now we want to find the best.
         if (isset($unique_columns) && count($unique_columns) > 0) {

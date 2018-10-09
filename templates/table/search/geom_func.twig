@@ -1,10 +1,10 @@
 {# Displays 'Function' column if it is present #}
 <td>
-    {% set geom_types = Util_getGISDatatypes() %}
+    {% set geom_types = get_gis_datatypes() %}
     {% if column_types[column_index] in geom_types %}
         <select class="geom_func" name="geom_func[{{ column_index }}]">
             {# get the relevant list of GIS functions #}
-            {% set funcs = Util_getGISFunctions(column_types[column_index], true, true) %}
+            {% set funcs = get_gis_functions(column_types[column_index], true, true) %}
 
             {% for func_name, func in funcs %}
                 {% set name = func['display'] is defined ? func['display'] : func_name %}

@@ -23,6 +23,8 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use Williamdes\MariaDBMySQLKBS\KBException;
 
 /**
  * Misc functions used all over the scripts.
@@ -357,12 +359,45 @@ class Util
     }
 
     /**
+     * Get a link to variable documentation
+     *
+     * @param string  $name       The variable name
+     * @param boolean $useMariaDB Use only MariaDB documentation
+     * @param string  $text       (optional) The text for the link
+     * @return string link or empty string
+     */
+    public static function linkToVarDocumentation(
+        string $name,
+        bool $useMariaDB = false,
+        string $text = null
+    ): string {
+        $html = '';
+        try {
+            $type = KBSearch::MYSQL;
+            if ($useMariaDB) {
+                $type = KBSearch::MARIADB;
+            }
+            $docLink = KBSearch::getByName($name, $type);
+            $html = Util::showMySQLDocu(
+                $name,
+                false,
+                $docLink,
+                $text
+            );
+        } catch (KBException $e) {
+            unset($e);// phpstan workaround
+        }
+        return $html;
+    }
+
+    /**
      * Displays a link to the official MySQL documentation
      *
-     * @param string $link      contains name of page/anchor that is being linked
-     * @param bool   $big_icon  whether to use big icon (like in left frame)
-     * @param string $anchor    anchor to page part
-     * @param bool   $just_open whether only the opening <a> tag should be returned
+     * @param string      $link    contains name of page/anchor that is being linked
+     * @param bool        $bigIcon whether to use big icon (like in left frame)
+     * @param string|null $url     href attribute
+     * @param string|null $text    text of link
+     * @param string      $anchor  anchor to page part
      *
      * @return string  the html link
      *
@@ -370,20 +405,29 @@ class Util
      */
     public static function showMySQLDocu(
         $link,
-        $big_icon = false,
-        $anchor = '',
-        $just_open = false
-    ) {
-        $url = self::getMySQLDocuURL($link, $anchor);
-        $open_link = '<a href="' . $url . '" target="mysql_doc">';
-        if ($just_open) {
-            return $open_link;
-        } elseif ($big_icon) {
-            return $open_link
-                . self::getImage('b_sqlhelp', __('Documentation')) . '</a>';
+        bool $bigIcon = false,
+        $url = null,
+        $text = null,
+        $anchor = ''
+    ): string {
+        if ($url === null) {
+            $url = self::getMySQLDocuURL($link, $anchor);
+        }
+        $openLink = '<a href="' . htmlspecialchars($url) . '" target="mysql_doc">';
+        $closeLink = '</a>';
+        $html = '';
+
+        if ($bigIcon) {
+            $html = $openLink .
+                    self::getImage('b_sqlhelp', __('Documentation'))
+                    . $closeLink;
+        } elseif ($text !== null) {
+            $html = $openLink . $text . $closeLink;
+        } else {
+            $html = self::showDocLink($url, 'mysql_doc');
         }
 
-        return self::showDocLink($url, 'mysql_doc');
+        return $html;
     } // end of the 'showMySQLDocu()' function
 
     /**
@@ -900,7 +944,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (strlen($a_name) > 0 && $a_name !== '*') {
+        if (strlen((string)$a_name) > 0 && $a_name !== '*') {
             return $quote . $a_name . $quote;
         }
 
@@ -1072,7 +1116,7 @@ class Util
             if (! empty($cfg['SQLQuery']['Edit'])
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $edit_link .= Url::getCommon($url_params) . '#querybox';
+                $edit_link .= Url::getCommon($url_params);
                 $edit_link = ' [&nbsp;'
                     . self::linkOrButton($edit_link, __('Edit'))
                     . '&nbsp;]';
@@ -4241,17 +4285,26 @@ class Util
     public static function getStartAndNumberOfRowsPanel($sql_query)
     {
         $template = new Template();
-        $pos = isset($_REQUEST['pos'])
-            ? $_REQUEST['pos']
-            : $_SESSION['tmpval']['pos'];
+
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = $_REQUEST['session_max_rows'];
+        } else if (isset($_SESSION['tmpval']['max_rows'])
+                    && $_SESSION['tmpval']['max_rows'] != 'all'
+        ) {
+            $rows = $_SESSION['tmpval']['max_rows'];
         } else {
-            if ($_SESSION['tmpval']['max_rows'] != 'all') {
-                $rows = $_SESSION['tmpval']['max_rows'];
-            } else {
-                $rows = $GLOBALS['cfg']['MaxRows'];
-            }
+            $rows = $GLOBALS['cfg']['MaxRows'];
+            $_SESSION['tmpval']['max_rows'] = $rows;
+        }
+
+        if(isset($_REQUEST['pos'])) {
+            $pos = $_REQUEST['pos'];
+        } else if(isset($_SESSION['tmpval']['pos'])) {
+            $pos = $_SESSION['tmpval']['pos'];
+        } else {
+            $number_of_line = intval($_REQUEST['unlim_num_rows']);
+            $pos = ((ceil($number_of_line / $rows) - 1) * $rows);
+            $_SESSION['tmpval']['pos'] = $pos;
         }
 
         return $template->render('start_and_number_of_rows_panel', [
@@ -4298,13 +4351,13 @@ class Util
      * Gets the list of tables in the current db and information about these
      * tables if possible
      *
-     * @param string $db       database name
-     * @param string $sub_part part of script name
+     * @param string      $db       database name
+     * @param string|null $sub_part part of script name
      *
      * @return array
      *
      */
-    public static function getDbInfo($db, $sub_part)
+    public static function getDbInfo($db, ?string $sub_part)
     {
         global $cfg;
 
@@ -4490,7 +4543,8 @@ class Util
      */
     public static function getTablesWhenOpen($db, $db_info_result)
     {
-        $sot_cache = $tables = [];
+        $sot_cache = [];
+        $tables = [];
 
         while ($tmp = $GLOBALS['dbi']->fetchAssoc($db_info_result)) {
             $sot_cache[$tmp['Table']] = true;
@@ -4498,7 +4552,7 @@ class Util
         $GLOBALS['dbi']->freeResult($db_info_result);
 
         // is there at least one "in use" table?
-        if (isset($sot_cache)) {
+        if (count($sot_cache) > 0) {
             $tblGroupSql = "";
             $whereAdded = false;
             if (Core::isValid($_REQUEST['tbl_group'])) {

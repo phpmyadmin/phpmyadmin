@@ -1,3 +1,3 @@
 #!/bin/sh
 set -e
-./vendor/bin/sami.php --no-interaction --verbose update ./test/sami-config.php
+$HOME/.composer/vendor/bin/sami.php --no-interaction --verbose update ./test/sami-config.php

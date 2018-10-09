@@ -70,7 +70,7 @@ class Footer
         $this->_isEnabled = true;
         $this->_scripts = new Scripts();
         $this->_isMinimal = false;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**

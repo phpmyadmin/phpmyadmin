@@ -179,7 +179,7 @@ class Events
                             htmlspecialchars($drop_item)
                         )
                         . '<br />'
-                        . __('MySQL said: ') . $this->dbi->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $result = $this->dbi->tryQuery($item_query);
                         if (! $result) {
@@ -188,7 +188,7 @@ class Events
                                 htmlspecialchars($item_query)
                             )
                             . '<br />'
-                            . __('MySQL said: ') . $this->dbi->getError(null);
+                            . __('MySQL said: ') . $this->dbi->getError();
                             // We dropped the old item, but were unable to create
                             // the new one. Try to restore the backup query
                             $result = $this->dbi->tryQuery($create_item);
@@ -219,7 +219,7 @@ class Events
                             htmlspecialchars($item_query)
                         )
                         . '<br /><br />'
-                        . __('MySQL said: ') . $this->dbi->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $message = Message::success(
                             __('Event %1$s has been created.')
@@ -457,9 +457,9 @@ class Events
         $retval .= Url::getHiddenInputs($db, $table) . "\n";
         $retval .= "<fieldset>\n";
         $retval .= "<legend>" . __('Details') . "</legend>\n";
-        $retval .= "<table class='rte_table' style='width: 100%'>\n";
+        $retval .= "<table class='rte_table'>\n";
         $retval .= "<tr>\n";
-        $retval .= "    <td style='width: 20%;'>" . __('Event name') . "</td>\n";
+        $retval .= "    <td>" . __('Event name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' \n";
         $retval .= "               value='{$item['item_name']}'\n";
         $retval .= "               maxlength='64' /></td>\n";
@@ -495,12 +495,11 @@ class Events
         } else {
             $retval .= "        <input name='item_type' type='hidden' \n";
             $retval .= "               value='{$item['item_type']}' />\n";
-            $retval .= "        <div class='floatleft' style='width: 49%; "
-                . "text-align: center; font-weight: bold;'>\n";
+            $retval .= "        <div class='font_weight_bold center half_width'>\n";
             $retval .= "            {$item['item_type']}\n";
             $retval .= "        </div>\n";
-            $retval .= "        <input style='width: 49%;' type='submit'\n";
-            $retval .= "               name='item_changetype'\n";
+            $retval .= "        <input type='submit'\n";
+            $retval .= "               name='item_changetype' class='half_width'\n";
             $retval .= "               value='";
             $retval .= sprintf(__('Change to %s'), $item['item_type_toggle']);
             $retval .= "' />\n";
@@ -518,10 +517,10 @@ class Events
         $retval .= "<tr class='recurring_event_row $isrecurring_class'>\n";
         $retval .= "    <td>" . __('Execute every') . "</td>\n";
         $retval .= "    <td>\n";
-        $retval .= "        <input style='width: 49%;' type='text'\n";
+        $retval .= "        <input class='half_width' type='text'\n";
         $retval .= "               name='item_interval_value'\n";
         $retval .= "               value='{$item['item_interval_value']}' />\n";
-        $retval .= "        <select style='width: 49%;' name='item_interval_field'>";
+        $retval .= "        <select class='half_width' name='item_interval_field'>";
         foreach ($event_interval as $key => $value) {
             $selected = "";
             if (! empty($item['item_interval_field'])

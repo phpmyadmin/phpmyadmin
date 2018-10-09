@@ -44,10 +44,6 @@ $view_security_options = [
     'INVOKER'
 ];
 
-if (empty($sql_query)) {
-    $sql_query = '';
-}
-
 // View name is a compulsory field
 if (isset($_REQUEST['view']['name'])
     && empty($_REQUEST['view']['name'])
@@ -180,6 +176,8 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     exit;
 }
 
+$sql_query = ! empty($_GET['sql_query']) ? $_GET['sql_query'] : '';
+
 // prefill values if not already filled from former submission
 $view = [
     'operation' => 'create',
@@ -205,4 +203,7 @@ echo $template->render('view_create', [
     'text_dir' => $text_dir,
     'url_params' => $url_params,
     'view' => $view,
+    'view_algorithm_options' => $view_algorithm_options,
+    'view_with_options' => $view_with_options,
+    'view_security_options' => $view_security_options,
 ]);

@@ -1,12 +1,12 @@
 {% if cfg_relation['relwork'] or is_foreign_key_supported %}
     <ul id="topmenu2">
-        {{ Util_getHtmlTab({
+        {{ get_html_tab({
             'icon': 'b_props',
             'link': 'tbl_structure.php',
             'text': 'Table structure'|trans,
             'id': 'table_strucuture_id'
         }, url_params) }}
-        {{ Util_getHtmlTab({
+        {{ get_html_tab({
             'icon': 'b_relations',
             'link': 'tbl_relation.php',
             'text': 'Relation view'|trans,
@@ -15,3 +15,8 @@
     </ul>
     <div class="clearfloat"></div>
 {% endif %}
+
+<div id="structure_content">
+    {% block content %}
+    {% endblock %}
+</div>

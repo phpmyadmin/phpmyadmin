@@ -42,7 +42,9 @@ $scripts->addFile('db_operations.js');
 
 $sql_query = '';
 
-$operations = new Operations();
+$relation = new Relation($GLOBALS['dbi']);
+$operations = new Operations($GLOBALS['dbi'], $relation);
+$relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
 
 /**
  * Rename/move or copy database
@@ -150,7 +152,7 @@ if (strlen($GLOBALS['db']) > 0
                 /**
                  * cleanup pmadb stuff for this db
                  */
-                RelationCleanup::database($GLOBALS['db']);
+                $relationCleanup->database($GLOBALS['db']);
 
                 // if someday the RENAME DATABASE reappears, do not DROP
                 $local_query = 'DROP DATABASE '
@@ -216,8 +218,6 @@ if (strlen($GLOBALS['db']) > 0
 /**
  * Settings for relations stuff
  */
-$relation = new Relation();
-
 $cfgRelation = $relation->getRelationsParam();
 
 /**
@@ -244,7 +244,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
 
 echo "\n";
 

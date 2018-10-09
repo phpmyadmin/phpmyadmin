@@ -115,7 +115,7 @@ class TableSearchController extends TableController
         $this->_columnCollations = [];
         $this->_geomColumnFlag = false;
         $this->_foreigners = [];
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
         // Loads table's information
         $this->_loadTableInfo();
         $this->_connectionCharSet = $this->dbi->fetchValue(
@@ -187,6 +187,7 @@ class TableSearchController extends TableController
      */
     public function indexAction()
     {
+        global $goto;
         switch ($this->_searchType) {
             case 'replace':
                 if (isset($_POST['find'])) {
@@ -512,6 +513,7 @@ class TableSearchController extends TableController
      */
     public function displaySelectionFormAction($dataLabel = null)
     {
+        global $goto;
         $this->url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
         if (! isset($goto)) {
             $goto = Util::getScriptNameForOption(
@@ -565,6 +567,7 @@ class TableSearchController extends TableController
                 'data_label' => $dataLabel,
                 'keys' => $keys,
                 'criteria_column_names' => $criteria_column_names,
+                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
                 'criteria_column_types' => isset($_POST['criteriaColumnTypes']) ? $_POST['criteriaColumnTypes'] : null,
                 'sql_types' => $this->dbi->types,
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),

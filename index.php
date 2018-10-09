@@ -553,6 +553,20 @@ if ($GLOBALS['cfg']['LoginCookieStore'] != 0
 }
 
 /**
+ * Warning if using the default MySQL controluser account
+ */
+if ($server != 0
+    && isset($GLOBALS['cfg']['Server']['controluser']) && $GLOBALS['cfg']['Server']['controluser'] == 'pma'
+    && isset($GLOBALS['cfg']['Server']['controlpass']) && $GLOBALS['cfg']['Server']['controlpass'] == 'pmapass'
+) {
+    trigger_error(
+        __('Your server is running with default values for the controluser and password (controlpass) and is open to intrusion; you really should fix this security weakness by changing the password for controluser \'pma\'.'),
+        E_USER_WARNING
+    );
+}
+
+
+/**
  * Check if user does not have defined blowfish secret and it is being used.
  */
 if (! empty($_SESSION['encryption_key'])) {
@@ -590,7 +604,7 @@ if (@file_exists('config')) {
     );
 }
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 
 if ($server > 0) {
     $cfgRelation = $relation->getRelationsParam();

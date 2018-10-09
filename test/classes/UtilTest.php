@@ -2115,7 +2115,7 @@ class UtilTest extends PmaTestCase
      */
     public function testLinkOrButton(array $params, $limit, $match)
     {
-        $restore = isset($GLOBALS['cfg']['LinkLengthLimit']) ? $GLOBALS['cfg']['LinkLengthLimit'] : 1000;
+        $restore = $GLOBALS['cfg']['LinkLengthLimit'] ?? 1000;
         $GLOBALS['cfg']['LinkLengthLimit'] = $limit;
         try {
             $result = call_user_func_array(
