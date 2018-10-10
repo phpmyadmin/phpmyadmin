@@ -104,19 +104,18 @@ class DbEventsTest extends TestBase
             $this->byName("item_interval_field"), 'MINUTE_SECOND'
         );
 
-        $this->byName("item_starts")->sendKeys(date('Y-m-d', strtotime('-1 day')) . ' 00:00:00');
+        $this->byName("item_starts")->click()->clear()->sendKeys(date('Y-m-d', strtotime('-1 day')) . ' 00:00:00');
 
-        $this->byName("item_ends")->sendKeys(date('Y-m-d', strtotime('+1 day')) . ' 00:00:00');
+        $this->byName("item_ends")->click()->clear()->sendKeys(date('Y-m-d', strtotime('+1 day')) . ' 00:00:00');
 
-        $ele = $this->waitForElement('name', "item_interval_value");
-        $ele->sendKeys('1');
+        $this->waitForElement('name', "item_interval_value")->click()->clear()->sendKeys('1');
 
         $proc = "UPDATE " . $this->database_name . ".`test_table` SET val=val+1";
         $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        $ele = $this->waitForElement(
+        $this->waitForElement(
             'xpath',
             "//div[@class='success' and contains(., "
             . "'Event `test_event` has been created')]"

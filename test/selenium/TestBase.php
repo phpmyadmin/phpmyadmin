@@ -22,6 +22,7 @@ use Facebook\WebDriver\WebDriverWindow;
 use Facebook\WebDriver\WebDriverSelect;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverElement;
+use Facebook\WebDriver\WebDriverPlatform;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\Remote\WebDriverCapabilityType;
 use Facebook\WebDriver\Exception\NoSuchElementException;
@@ -61,6 +62,13 @@ abstract class TestBase extends TestCase
     public $database_name;
 
     /**
+     * The session Id (Browserstack)
+     *
+     * @var string
+     */
+    protected $sessionId;
+
+    /**
      * Configures the selenium and database link.
      *
      * @return void
@@ -71,11 +79,14 @@ abstract class TestBase extends TestCase
     {
         /**
          * Needs to be implemented
-         * @ENV TESTSUITE_SELENIUM_BROWSER
          * @ENV TESTSUITE_SELENIUM_COVERAGE
          * @ENV TESTSUITE_FULL
          */
         parent::setUp();
+
+        if (! $this->hasCIConfig()) {
+            echo 'Not configured to run as CI.';
+        }
 
         if (! $this->hasTestSuiteDatabaseServer()) {
             $this->markTestSkipped('Database server is not configured.');
@@ -107,6 +118,8 @@ abstract class TestBase extends TestCase
         $this->webDriver = RemoteWebDriver::create(
             $url, $capabilities
         );
+
+        $this->sessionId = $this->webDriver->getSessionId();
 
         $this->database_name = $GLOBALS['TESTSUITE_DATABASE']
             . mb_substr(sha1((string) rand()), 0, 7);
@@ -226,7 +239,7 @@ abstract class TestBase extends TestCase
      * @param DesiredCapabilities $capabilities The capabilities object
      * @return void
      */
-    public function addCapabilities(DesiredCapabilities $capabilities):void {
+    public function addCapabilities(DesiredCapabilities $capabilities): void {
         $buildLocal = true;
         $buildId = 'Manual';
         $projectName = 'phpMyAdmin';
@@ -281,16 +294,63 @@ abstract class TestBase extends TestCase
      * @return DesiredCapabilities
      */
     public function getCapabilities(): DesiredCapabilities {
-        $capabilities = DesiredCapabilities::chrome();
-        $chromeOptions = new ChromeOptions();
-        $chromeOptions->addArguments(array(
-            '--lang=en',
-        ));
-        $capabilities->setCapability(
-            ChromeOptions::CAPABILITY, $chromeOptions
-        );
 
-        return $capabilities;
+        switch($GLOBALS['TESTSUITE_SELENIUM_BROWSER']) {
+            case 'chrome':
+            default:
+                $capabilities = DesiredCapabilities::chrome();
+                $chromeOptions = new ChromeOptions();
+                $chromeOptions->addArguments(array(
+                    '--lang=en',
+                ));
+                $capabilities->setCapability(
+                    ChromeOptions::CAPABILITY, $chromeOptions
+                );
+
+                if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
+                    $capabilities->setCapability(
+                        'os', 'Windows' // Force windows
+                    );
+                    $capabilities->setCapability(
+                        'os_version', '10' // Force windows 10
+                    );
+                    $capabilities->setCapability(
+                        'browser_version', '69.0' // Force chrome 69.0
+                    );
+                }
+
+                return $capabilities;
+            case 'safari':
+                $capabilities = DesiredCapabilities::safari();
+                if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
+                    $capabilities->setCapability(
+                        'os', 'OS X' // Force OS X
+                    );
+                    $capabilities->setCapability(
+                        'os_version', 'Sierra' // Force OS X Sierra
+                    );
+                    $capabilities->setCapability(
+                        'browser_version', '10.1' // Force Safari 10.1
+                    );
+                }
+                return $capabilities;
+            case 'edge':
+                $capabilities = DesiredCapabilities::microsoftEdge();
+                if ($this->hasCIConfig() && $this->hasBrowserstackConfig()) {
+                    $capabilities->setCapability(
+                        'os', 'Windows' // Force windows
+                    );
+                    $capabilities->setCapability(
+                        'os_version', '10' // Force windows 10
+                    );
+                    $capabilities->setCapability(
+                        'browser_version', 'insider preview' // Force Edge insider preview
+                    );
+                }
+                return $capabilities;
+
+        }
+
     }
 
     /**
@@ -367,7 +427,11 @@ abstract class TestBase extends TestCase
             $password = $GLOBALS['TESTSUITE_PASSWORD'];
         }
         $this->navigateTo('');
-        $this->waitForElementNotPresent('id', 'cfs-style');
+        /* Wait while page */
+        while ($this->webDriver->executeScript(
+            'return document.readyState !== "complete";')) {
+            usleep(5000);
+        }
 
         /* Return if already logged in */
         if ($this->isSuccessLogin()) {
@@ -947,16 +1011,10 @@ abstract class TestBase extends TestCase
      */
     public function onNotSuccessfulTest(\Throwable $e)
     {
+        $SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
         // If this is being run on Browerstack,
         // mark the test on Browerstack as failure
-        if (! empty($GLOBALS['TESTSUITE_BROWSERSTACK_USER'])
-            && ! empty($GLOBALS['TESTSUITE_BROWSERSTACK_KEY'])
-            && ! ($e instanceof SkippedTestError)
-            && ! ($e instanceof IncompleteTestError)
-            && $this->webDriver != null
-        ) {
-            $SESSION_REST_URL = 'https://api.browserstack.com/automate/sessions/';
-            $sessionId = $this->webDriver->getSessionId();
+        if ($this->hasBrowserstackConfig()) {
             $payload = json_encode(
                 [
                     'status' => 'failed',
@@ -968,7 +1026,7 @@ abstract class TestBase extends TestCase
             curl_setopt(
                 $ch,
                 CURLOPT_URL,
-                $SESSION_REST_URL . $sessionId . ".json"
+                $SESSION_REST_URL . $this->sessionId . ".json"
             );
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
@@ -991,8 +1049,30 @@ abstract class TestBase extends TestCase
             curl_close($ch);
         }
 
-        if ($this->webDriver === null) {
-            echo 'Warning: report was not sent to BROWSERSTACK' . PHP_EOL;
+        if ($this->hasBrowserstackConfig()) {
+
+            $ch = curl_init();
+            curl_setopt(
+                $ch,
+                CURLOPT_URL,
+                $SESSION_REST_URL . $this->sessionId . ".json"
+            );
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt(
+                $ch,
+                CURLOPT_USERPWD,
+                $GLOBALS['TESTSUITE_BROWSERSTACK_USER']
+                    . ":" . $GLOBALS['TESTSUITE_BROWSERSTACK_KEY']
+            );
+            $result = curl_exec($ch);
+            $proj = json_decode($result);
+            if (isset($proj->automation_session)) {
+                echo 'Test failed, get more information here: ' . $proj->automation_session->public_url . PHP_EOL;
+            }
+            if (curl_errno($ch)) {
+                echo 'Error: ' . curl_error($ch) . PHP_EOL;
+            }
+            curl_close($ch);
         }
 
         // Call parent's onNotSuccessful to handle everything else
