@@ -3,9 +3,9 @@
         {% trans 'No change' %}
     {% elseif query_data is iterable %}
         {% for query in query_data %}
-            {{ Util_formatSql(query) }}
+            {{ format_sql(query) }}
         {% endfor %}
     {% else %}
-        {{ Util_formatSql(query_data) }}
+        {{ format_sql(query_data) }}
     {% endif %}
 </div>

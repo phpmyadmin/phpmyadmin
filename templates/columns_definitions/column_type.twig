@@ -4,5 +4,5 @@
     {%- if column_meta['column_status'] is defined and not column_meta['column_status']['isEditable'] -%}
     disabled="disabled"
     {%- endif %}>
-    {{ Util_getSupportedDatatypes(true, type_upper) }}
+    {{ get_supported_datatypes(true, type_upper) }}
 </select>

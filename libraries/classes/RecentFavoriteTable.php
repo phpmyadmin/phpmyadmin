@@ -63,7 +63,7 @@ class RecentFavoriteTable
      */
     private function __construct($type)
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->_tableType = $type;
         $server_id = $GLOBALS['server'];
         if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])

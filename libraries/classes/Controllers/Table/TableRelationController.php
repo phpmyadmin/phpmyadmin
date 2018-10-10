@@ -94,7 +94,7 @@ class TableRelationController extends TableController
         $this->existrel = $existrel;
         $this->existrel_foreign = $existrel_foreign;
         $this->upd_query = $upd_query;
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
     }
 
     /**
@@ -206,6 +206,7 @@ class TableRelationController extends TableController
                 'url_params' => $GLOBALS['url_params'],
                 'databases' => $GLOBALS['dblist']->databases,
                 'dbi' => $this->dbi,
+                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
                 'foreignKeySupported' => $foreignKeySupported,
                 'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
             ])

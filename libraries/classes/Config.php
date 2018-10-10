@@ -366,7 +366,7 @@ class Config
         }
 
         // caching
-        if (isset($_SESSION['is_git_revision'])) {
+        if (isset($_SESSION['is_git_revision']) && isset($_SESSION['git_location'])) {
             if ($_SESSION['is_git_revision']) {
                 $this->set('PMA_VERSION_GIT', 1);
             }

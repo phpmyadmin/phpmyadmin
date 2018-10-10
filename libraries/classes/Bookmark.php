@@ -228,7 +228,7 @@ class Bookmark
             return $cfgBookmark;
         }
 
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
             $cfgBookmark = [

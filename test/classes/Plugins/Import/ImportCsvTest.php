@@ -120,11 +120,48 @@ class ImportCsvTest extends PmaTestCase
 
         //asset that all sql are executed
         $this->assertContains(
-            'CREATE DATABASE IF NOT EXISTS `CSV_DB` DEFAULT CHARACTER',
+            'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
             $sql_query
         );
         $this->assertContains(
-            'CREATE TABLE IF NOT EXISTS `CSV_DB`.`TBL_NAME`',
+            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`TBL_NAME`',
+            $sql_query
+        );
+
+        $this->assertEquals(
+            true,
+            $GLOBALS['finished']
+        );
+    }
+
+    /**
+     * Test for partial import/setting table and database names in doImport
+     *
+     * @return void
+     *
+     * @group medium
+     */
+    public function testDoPartialImport()
+    {
+        //$sql_query_disabled will show the import SQL detail
+        global $sql_query, $sql_query_disabled;
+        $sql_query_disabled = false;
+
+        $GLOBALS['import_file'] = 'test/test_data/db_test_partial_import.csv';
+        $_REQUEST['csv_new_tbl_name'] = 'ImportTestTable';
+        $_REQUEST['csv_new_db_name'] = 'ImportTestDb';
+        $_REQUEST['csv_partial_import'] = 5;
+
+        //Test function called
+        $this->object->doImport();
+
+        //asset that all sql are executed
+        $this->assertContains(
+            'CREATE DATABASE IF NOT EXISTS `ImportTestDb` DEFAULT CHARACTER',
+            $sql_query
+        );
+        $this->assertContains(
+            'CREATE TABLE IF NOT EXISTS `ImportTestDb`.`ImportTestTable`',
             $sql_query
         );
 
@@ -174,12 +211,12 @@ class ImportCsvTest extends PmaTestCase
 
         //asset that all sql are executed
         $this->assertContains(
-            'CREATE DATABASE IF NOT EXISTS `CSV_DB` DEFAULT CHARACTER',
+            'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
             $sql_query
         );
 
         $this->assertContains(
-            'CREATE TABLE IF NOT EXISTS `CSV_DB`.`TBL_NAME`',
+            'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`TBL_NAME`',
             $sql_query
         );
 

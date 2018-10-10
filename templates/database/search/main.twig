@@ -1,6 +1,6 @@
 <a id="db_search"></a>
 <form id="db_search_form" method="post" action="db_search.php" name="db_search" class="ajax lock-page">
-    {{ Url_getHiddenInputs(db) }}
+    {{ get_hidden_inputs(db) }}
     <fieldset>
         <legend>{% trans 'Search in database' %}</legend>
         <p>
@@ -16,7 +16,7 @@
             {# 4th parameter set to true to add line breaks #}
             {# 5th parameter set to false to avoid htmlspecialchars() escaping
             in the label since we have some HTML in some labels #}
-            {{ Util_getRadioFields(
+            {{ get_radio_fields(
                 'criteriaSearchType',
                 choices,
                 criteria_search_type,

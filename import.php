@@ -123,6 +123,7 @@ if (!isset($_SESSION['is_multi_query'])) {
 }
 
 $ajax_reload = [];
+$import_text = '';
 // Are we just executing plain query or sql file?
 // (eg. non import, but query box/window run)
 if (! empty($sql_query)) {
@@ -550,8 +551,8 @@ if (! $error) {
         $import->stop($message);
     } else {
         // Do the real import
+        $default_fk_check = PhpMyAdmin\Util::handleDisableFKCheckInit();
         try {
-            $default_fk_check = PhpMyAdmin\Util::handleDisableFKCheckInit();
             $import_plugin->doImport($sql_data);
             PhpMyAdmin\Util::handleDisableFKCheckCleanup($default_fk_check);
         } catch (Exception $e) {

@@ -160,7 +160,7 @@ class ExportTest extends TestCase
             'libraries/classes/Plugins/Export/',
             [
                 'export_type' => $export_type,
-                'single_table' => isset($single_table)
+                'single_table' => true,// isset($single_table)
             ]
         );
 

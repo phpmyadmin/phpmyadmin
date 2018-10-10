@@ -25,7 +25,7 @@ $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
 
 // Get the relation settings
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
 
 $displayExport = new Export();

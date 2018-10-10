@@ -47,7 +47,7 @@ class Designer
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation();
+        $this->relation = new Relation($this->dbi);
         $this->template = new Template();
     }
 

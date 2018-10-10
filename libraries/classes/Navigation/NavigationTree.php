@@ -700,7 +700,7 @@ class NavigationTree
             foreach ($node->children as $child) {
                 $prefix_pos = false;
                 foreach ($separators as $separator) {
-                    $sep_pos = mb_strpos($child->name, $separator);
+                    $sep_pos = mb_strpos((string)$child->name, $separator);
                     if ($sep_pos != false
                         && $sep_pos != mb_strlen($child->name)
                         && $sep_pos != 0
@@ -788,9 +788,9 @@ class NavigationTree
                     $separatorLength = strlen($separator);
                     // FIXME: this could be more efficient
                     foreach ($node->children as $child) {
-                        $keySeparatorLength = mb_strlen($key) + $separatorLength;
+                        $keySeparatorLength = mb_strlen((string)$key) + $separatorLength;
                         $name_substring = mb_substr(
-                            $child->name,
+                            (string)$child->name,
                             0,
                             $keySeparatorLength
                         );

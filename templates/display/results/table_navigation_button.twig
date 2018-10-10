@@ -1,6 +1,6 @@
 <td>
     <form action="sql.php" method="post"{{ onsubmit|raw }}>
-        {{ Url_getHiddenInputs(db, table) }}
+        {{ get_hidden_inputs(db, table) }}
         <input type="hidden" name="sql_query" value="{{ sql_query|raw }}" />
         <input type="hidden" name="pos" value="{{ pos }}" />
         <input type="hidden" name="is_browse_distinct" value="{{ is_browse_distinct }}" />

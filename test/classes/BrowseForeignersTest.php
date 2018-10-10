@@ -47,7 +47,7 @@ class BrowseForeignersTest extends TestCase
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs(
-            $object !== null ? $object : $this->browseForeigners,
+            $object ?? $this->browseForeigners,
             $params
         );
     }

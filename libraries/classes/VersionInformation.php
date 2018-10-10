@@ -183,6 +183,7 @@ class VersionInformation
     public function evaluateVersionCondition($type, $condition)
     {
         $operator = null;
+        $version = null;
         $operators = ["<=", ">=", "!=", "<>", "<", ">", "="]; // preserve order
         foreach ($operators as $oneOperator) {
             if (strpos($condition, $oneOperator) === 0) {

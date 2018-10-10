@@ -413,7 +413,7 @@ class FormDisplay
             'userprefs_comment' => Descriptions::get($systemPath, 'cmt')
         ];
         if (isset($form->default[$systemPath])) {
-            $opts['setvalue'] = $form->default[$systemPath];
+            $opts['setvalue'] = (string) $form->default[$systemPath];
         }
 
         if (isset($this->_errors[$workPath])) {
@@ -686,7 +686,8 @@ class FormDisplay
                         if (! $successfullyValidated) {
                             $this->_errors[$workPath][] = __('Incorrect value!');
                             $result = false;
-                            continue;
+                            // "continue" for the $form->fields foreach-loop
+                            continue 2;
                         }
                         break;
                     case 'string':

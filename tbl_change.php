@@ -91,7 +91,7 @@ if (! empty($disp_message)) {
 $table_columns = $insertEdit->getTableColumns($db, $table);
 
 // retrieve keys into foreign fields, if any
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $foreigners = $relation->getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form

@@ -47,7 +47,7 @@ class ServerEnginesControllerTest extends PmaTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
-        $GLOBALS['cfg']['Server'] = array('DisableIS' => false);
+        $GLOBALS['cfg']['Server'] = ['DisableIS' => false];
 
         $this->container = Container::getDefaultContainer();
         $this->container->set('PhpMyAdmin\Response', new ResponseStub());

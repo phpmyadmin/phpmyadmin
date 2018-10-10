@@ -73,7 +73,7 @@ matrix:
       env: CI_MODE=test
       before_install:
         - brew update
-        - brew install gettext php72 mariadb
+        - brew install gettext php72 mariadb yarn
         - brew link --force gettext
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
         - curl https://getcomposer.org/installer | php
@@ -87,9 +87,11 @@ matrix:
 
 cache:
   pip: true
+  yarn: true
   directories:
     - $HOME/.composer/cache/
     - $HOME/browserstack
+    - node_modules
 # Install APT packages
 #  - git > 2.5.1 needed for worktrees
 #  - mysql server does not seem to be always present on Travis Trusty environment

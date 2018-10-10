@@ -83,7 +83,7 @@ abstract class TableStats
 
         $this->offline    = $offline;
 
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->font = new Font();
 
         // checks whether the table exists

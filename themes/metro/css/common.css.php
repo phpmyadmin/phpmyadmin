@@ -168,7 +168,7 @@ body#loginform #page_content {
     margin: 0 !important;
     padding: 20px;
     margin-top: 10% !important;
-    height: 220px;
+    height: 240px;
 }
 
 body#loginform div.container
@@ -187,12 +187,13 @@ body#loginform div.container:before
     content: "a";
     float: left;
     margin-right: 20px;
-    margin-top: -10px;
+    margin-bottom: 10px;
     background-color: <?php echo $GLOBALS['cfg']['ThColor']; ?>;
     overflow: hidden;
-    height: 220px;
-    width: 230px;
+    height: 240px;
+    width: 240px;
     line-height: 1;
+    text-align: center;
 }
 
 body#loginform h1
@@ -950,9 +951,13 @@ td .icon {
     margin-<?php echo $right; ?>: .3em;
     margin-<?php echo $left; ?>: .6em;
 }
+.with-selected {
+    margin-<?php echo $left; ?>: 2em;
+}
 
 /* message boxes: error, confirmation */
 #pma_errors, #pma_demo, #pma_footer {
+    position: relative;
     padding: 20px;
 }
 
@@ -976,7 +981,7 @@ div.footnotes {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    margin: 20px 0 20px;
+    margin: 0 0 1px;
     border: 1px solid;
     background-repeat: no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
@@ -1056,6 +1061,11 @@ fieldset.confirmation legend
 
 /* end messageboxes */
 
+.column_name {
+    font-size: 80%;
+    margin: 5px 2px;
+}
+
 .new_central_col{
     width:              100%;
 }
@@ -1125,6 +1135,10 @@ td.disabled {
 
 .nowrap {
     white-space: nowrap;
+}
+
+.font_weight_bold{
+    font-weight: bold;
 }
 
 /******************************************************************************/

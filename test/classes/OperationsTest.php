@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
@@ -52,7 +53,8 @@ class OperationsTest extends TestCase
         $GLOBALS['is_reload_priv'] = false;
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $this->operations = new Operations();
+        $relation = new Relation($GLOBALS['dbi']);
+        $this->operations = new Operations($GLOBALS['dbi'], $relation);
     }
 
     /**

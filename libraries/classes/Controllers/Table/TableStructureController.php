@@ -135,7 +135,7 @@ class TableStructureController extends TableController
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
 
         $this->createAddField = new CreateAddField($dbi);
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
         $this->transformations = new Transformations();
     }
 
@@ -1323,14 +1323,6 @@ class TableStructureController extends TableController
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 
-            if (!isset($field['Default'])) {
-                if ($field['Null'] == 'YES') {
-                    $field = array_merge($field, ['Default' => '<em>NULL</em>']);
-                }
-            } else {
-                $field = array_merge($field, ['Default' => $field['Default']]);
-            }
-
             $displayed_fields[$rownum] = new \stdClass();
             $displayed_fields[$rownum]->text = $field['Field'];
             $displayed_fields[$rownum]->icon = "";
@@ -1359,6 +1351,7 @@ class TableStructureController extends TableController
                 'table' => $this->table,
             ],
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'displayIndexesHtml' => Index::getHtmlForDisplayIndexes(),
             'cfg_relation' => $this->relation->getRelationsParam(),
             'hide_structure_actions' => $hideStructureActions,
             'db' => $this->db,
@@ -1390,7 +1383,9 @@ class TableStructureController extends TableController
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
+            'partitions' => Partition::getPartitions($this->db, $this->table),
             'partition_names' => Partition::getPartitionNames($this->db, $this->table),
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'attributes' => $attributes,
             'displayed_fields' => $displayed_fields,
             'row_comments' => $row_comments,

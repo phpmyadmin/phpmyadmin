@@ -1238,8 +1238,8 @@ class Core
         if (! function_exists('ini_get') || ! function_exists('ini_set')) {
             self::fatalError(
                 __(
-                    'You have disabled ini_get and/or ini_set in php.ini. '
-                    . 'This option is incompatible with phpMyAdmin!'
+                    'The ini_get and/or ini_set functions are disabled in php.ini. '
+                    . 'phpMyAdmin requires these functions!'
                 )
             );
         }

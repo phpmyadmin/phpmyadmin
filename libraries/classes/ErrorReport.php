@@ -26,7 +26,7 @@ class ErrorReport
      *
      * @var string
      */
-    private $submissionUrl;
+    private $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 
     /**
      * @var HttpRequest
@@ -51,9 +51,19 @@ class ErrorReport
     public function __construct(HttpRequest $httpRequest)
     {
         $this->httpRequest = $httpRequest;
-        $this->submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
+    }
+
+    /**
+     * Set the URL where to submit reports to
+     *
+     * @param string $submissionUrl Submission URL
+     * @return void
+     */
+    public function setSubmissionUrl(string $submissionUrl): void
+    {
+        $this->submissionUrl = $submissionUrl;
     }
 
     /**

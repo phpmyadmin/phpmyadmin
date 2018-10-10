@@ -98,7 +98,7 @@ class Table
         $this->_dbi = $dbi;
         $this->_name = $table_name;
         $this->_db_name = $db_name;
-        $this->relation = new Relation();
+        $this->relation = new Relation($this->_dbi);
     }
 
     /**
@@ -245,8 +245,8 @@ class Table
         $result = $this->_dbi->fetchResult(
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = '" . $GLOBALS['dbi']->escapeString($db) . "'
-                AND TABLE_NAME = '" . $GLOBALS['dbi']->escapeString($table) . "'"
+            WHERE TABLE_SCHEMA = '" . $this->_dbi->escapeString((string)$db) . "'
+                AND TABLE_NAME = '" . $this->_dbi->escapeString((string)$table) . "'"
         );
         return $result ? true : false;
     }
@@ -265,8 +265,8 @@ class Table
         $result = $this->_dbi->fetchResult(
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = '" . $GLOBALS['dbi']->escapeString($this->_db_name) . "'
-                AND TABLE_NAME = '" . $GLOBALS['dbi']->escapeString($this->_name) . "'
+            WHERE TABLE_SCHEMA = '" . $this->_dbi->escapeString($this->_db_name) . "'
+                AND TABLE_NAME = '" . $this->_dbi->escapeString($this->_name) . "'
                 AND IS_UPDATABLE = 'YES'"
         );
         return $result ? true : false;
@@ -370,7 +370,7 @@ class Table
      */
     public function getComment()
     {
-        $table_comment = $this->getStatusInfo('COMMENT', false, true);
+        $table_comment = $this->getStatusInfo('TABLE_COMMENT', false, true);
         if ($table_comment === false) {
             return '';
         }
@@ -497,6 +497,8 @@ class Table
         $expression = '',
         $move_to = ''
     ) {
+        /** @var DatabaseInterface $dbi */
+        $dbi = $GLOBALS['dbi'];
         $is_timestamp = mb_strpos(
             mb_strtoupper($type),
             'TIMESTAMP'
@@ -567,13 +569,13 @@ class Table
                         } else {
                             // Invalid BOOLEAN value
                             $query .= ' DEFAULT \''
-                            . $GLOBALS['dbi']->escapeString($default_value) . '\'';
+                            . $dbi->escapeString($default_value) . '\'';
                         }
                     } elseif ($type == 'BINARY' || $type == 'VARBINARY') {
                         $query .= ' DEFAULT 0x' . $default_value;
                     } else {
                         $query .= ' DEFAULT \''
-                        . $GLOBALS['dbi']->escapeString((string) $default_value) . '\'';
+                        . $dbi->escapeString((string) $default_value) . '\'';
                     }
                     break;
             /** @noinspection PhpMissingBreakStatementInspection */
@@ -606,7 +608,7 @@ class Table
             }
         }
         if (!empty($comment)) {
-            $query .= " COMMENT '" . $GLOBALS['dbi']->escapeString($comment) . "'";
+            $query .= " COMMENT '" . $dbi->escapeString($comment) . "'";
         }
 
         // move column
@@ -647,12 +649,12 @@ class Table
             . ' FROM ' . $this->getFullName(true)
             . ' LIMIT ' . $min_records;
 
-        $res = $GLOBALS['dbi']->tryQuery(
+        $res = $this->_dbi->tryQuery(
             $check_query
         );
 
         if ($res !== false) {
-            $num_records = $GLOBALS['dbi']->numRows($res);
+            $num_records = $this->_dbi->numRows($res);
             if ($num_records >= $min_records) {
                 return true;
             }
@@ -833,7 +835,9 @@ class Table
         array $where_fields,
         array $new_fields
     ) {
-        $relation = new Relation();
+        /** @var DatabaseInterface $dbi */
+        $dbi = $GLOBALS['dbi'];
+        $relation = new Relation($dbi);
         $last_id = -1;
 
         if (!isset($GLOBALS['cfgRelation']) || !$GLOBALS['cfgRelation'][$work]) {
@@ -850,14 +854,14 @@ class Table
         $where_parts = [];
         foreach ($where_fields as $_where => $_value) {
             $where_parts[] = Util::backquote($_where) . ' = \''
-                . $GLOBALS['dbi']->escapeString($_value) . '\'';
+                . $dbi->escapeString((string)$_value) . '\'';
         }
 
         $new_parts = [];
         $new_value_parts = [];
         foreach ($new_fields as $_where => $_value) {
             $new_parts[] = Util::backquote($_where);
-            $new_value_parts[] = $GLOBALS['dbi']->escapeString($_value);
+            $new_value_parts[] = $dbi->escapeString((string)$_value);
         }
 
         $table_copy_query = '
@@ -874,11 +878,11 @@ class Table
             DatabaseInterface::QUERY_STORE
         );
 
-        while ($table_copy_row = @$GLOBALS['dbi']->fetchAssoc($table_copy_rs)) {
+        while ($table_copy_row = @$dbi->fetchAssoc($table_copy_rs)) {
             $value_parts = [];
             foreach ($table_copy_row as $_key => $_val) {
                 if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
-                    $value_parts[] = $GLOBALS['dbi']->escapeString($_val);
+                    $value_parts[] = $dbi->escapeString($_val);
                 }
             }
 
@@ -891,10 +895,10 @@ class Table
                 . implode('\', \'', $new_value_parts) . '\')';
 
             $relation->queryAsControlUser($new_table_query);
-            $last_id = $GLOBALS['dbi']->insertId();
+            $last_id = $dbi->insertId();
         } // end while
 
-        $GLOBALS['dbi']->freeResult($table_copy_rs);
+        $dbi->freeResult($table_copy_rs);
 
         return $last_id;
     } // end of 'Table::duplicateInfo()' function
@@ -902,28 +906,30 @@ class Table
     /**
      * Copies or renames table
      *
-     * @param string $source_db    source database
-     * @param string $source_table source table
-     * @param string $target_db    target database
-     * @param string $target_table target table
-     * @param string $what         what to be moved or copied (data, dataonly)
-     * @param bool   $move         whether to move
-     * @param string $mode         mode
+     * @param string      $source_db    source database
+     * @param string      $source_table source table
+     * @param string|null $target_db    target database
+     * @param string      $target_table target table
+     * @param string      $what         what to be moved or copied (data, dataonly)
+     * @param bool        $move         whether to move
+     * @param string      $mode         mode
      *
      * @return bool true if success, false otherwise
      */
     public static function moveCopy(
         $source_db,
         $source_table,
-        $target_db,
+        ?string $target_db,
         $target_table,
         $what,
         $move,
         $mode
     ) {
         global $err_url;
+        /** @var DatabaseInterface $dbi */
+        $dbi = $GLOBALS['dbi'];
 
-        $relation = new Relation();
+        $relation = new Relation($dbi);
 
         // Try moving the tables directly, using native `RENAME` statement.
         if ($move && $what == 'data') {
@@ -974,7 +980,7 @@ class Table
 
         // Selecting the database could avoid some problems with replicated
         // databases, when moving table from replicated one to not replicated one.
-        $GLOBALS['dbi']->selectDb($target_db);
+        $dbi->selectDb($target_db);
 
         /**
          * The full name of target table, quoted.
@@ -1039,7 +1045,7 @@ class Table
             // queries.
             // One of the options that alters the behaviour is `ANSI_QUOTES`.
             Context::setMode(
-                $GLOBALS['dbi']->fetchValue("SELECT @@sql_mode")
+                $dbi->fetchValue("SELECT @@sql_mode")
             );
 
             // -----------------------------------------------------------------
@@ -1071,7 +1077,7 @@ class Table
                 $drop_query = $statement->build() . ';';
 
                 // Executing it.
-                $GLOBALS['dbi']->query($drop_query);
+                $dbi->query($drop_query);
                 $GLOBALS['sql_query'] .= "\n" . $drop_query;
 
                 // If an existing table gets deleted, maintain any entries for
@@ -1103,7 +1109,7 @@ class Table
                 $sql_structure = $statement->build() . ';';
 
                 // Executing it.
-                $GLOBALS['dbi']->query($sql_structure);
+                $dbi->query($sql_structure);
                 $GLOBALS['sql_query'] .= "\n" . $sql_structure;
             }
 
@@ -1138,7 +1144,7 @@ class Table
 
                 // Executing it.
                 if ($mode == 'one_table') {
-                    $GLOBALS['dbi']->query($GLOBALS['sql_constraints_query']);
+                    $dbi->query($GLOBALS['sql_constraints_query']);
                 }
                 $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
                 if ($mode == 'one_table') {
@@ -1175,7 +1181,7 @@ class Table
 
                     // Executing it.
                     if ($mode == 'one_table' || $mode == 'db_copy') {
-                        $GLOBALS['dbi']->query($sql_index);
+                        $dbi->query($sql_index);
                     }
 
                     $GLOBALS['sql_indexes'] .= $sql_index;
@@ -1207,7 +1213,7 @@ class Table
                     $GLOBALS['sql_auto_increments'] = $statement->build() . ';';
 
                     // Executing it.
-                    $GLOBALS['dbi']->query($GLOBALS['sql_auto_increments']);
+                    $dbi->query($GLOBALS['sql_auto_increments']);
                     $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_auto_increments'];
                     unset($GLOBALS['sql_auto_increments']);
                 }
@@ -1222,7 +1228,7 @@ class Table
             && ! $_table->isView()
         ) {
             $sql_set_mode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-            $GLOBALS['dbi']->query($sql_set_mode);
+            $dbi->query($sql_set_mode);
             $GLOBALS['sql_query'] .= "\n\n" . $sql_set_mode . ';';
 
             $_old_table = new Table($source_table, $source_db);
@@ -1233,7 +1239,7 @@ class Table
                     . ') SELECT ' . implode(', ', $nonGeneratedCols)
                     . ' FROM ' . $source;
 
-                $GLOBALS['dbi']->query($sql_insert_data);
+                $dbi->query($sql_insert_data);
                 $GLOBALS['sql_query'] .= "\n\n" . $sql_insert_data . ';';
             }
         }
@@ -1244,7 +1250,7 @@ class Table
         if ($move) {
             // This could avoid some problems with replicated databases, when
             // moving table from replicated one to not replicated one
-            $GLOBALS['dbi']->selectDb($source_db);
+            $dbi->selectDb($source_db);
 
             $_source_table = new Table($source_table, $source_db);
             if ($_source_table->isView()) {
@@ -1253,7 +1259,7 @@ class Table
                 $sql_drop_query = 'DROP TABLE';
             }
             $sql_drop_query .= ' ' . $source;
-            $GLOBALS['dbi']->query($sql_drop_query);
+            $dbi->query($sql_drop_query);
 
             // Renable table in configuration storage
             $relation->renameTable(
@@ -1287,15 +1293,15 @@ class Table
                 . Util::backquote($GLOBALS['cfgRelation']['column_info'])
                 . ' WHERE '
                 . ' db_name = \''
-                . $GLOBALS['dbi']->escapeString($source_db) . '\''
+                . $dbi->escapeString($source_db) . '\''
                 . ' AND '
                 . ' table_name = \''
-                . $GLOBALS['dbi']->escapeString($source_table) . '\''
+                . $dbi->escapeString((string)$source_table) . '\''
             );
 
             // Write every comment as new copied entry. [MIME]
             while ($comments_copy_row
-                = $GLOBALS['dbi']->fetchAssoc($comments_copy_rs)) {
+                = $dbi->fetchAssoc($comments_copy_rs)) {
                 $new_comment_query = 'REPLACE INTO '
                     . Util::backquote($GLOBALS['cfgRelation']['db'])
                     . '.' . Util::backquote(
@@ -1305,20 +1311,20 @@ class Table
                     . ($GLOBALS['cfgRelation']['mimework']
                         ? ', mimetype, transformation, transformation_options'
                         : '')
-                    . ') ' . ' VALUES(' . '\'' . $GLOBALS['dbi']->escapeString($target_db)
-                    . '\',\'' . $GLOBALS['dbi']->escapeString($target_table) . '\',\''
-                    . $GLOBALS['dbi']->escapeString($comments_copy_row['column_name'])
+                    . ') ' . ' VALUES(' . '\'' . $dbi->escapeString($target_db)
+                    . '\',\'' . $dbi->escapeString($target_table) . '\',\''
+                    . $dbi->escapeString($comments_copy_row['column_name'])
                     . '\',\''
-                    . $GLOBALS['dbi']->escapeString($comments_copy_row['comment'])
+                    . $dbi->escapeString($comments_copy_row['comment'])
                     . '\''
                     . ($GLOBALS['cfgRelation']['mimework']
-                        ? ',\'' . $GLOBALS['dbi']->escapeString(
+                        ? ',\'' . $dbi->escapeString(
                             $comments_copy_row['mimetype']
                         )
-                        . '\',' . '\'' . $GLOBALS['dbi']->escapeString(
+                        . '\',' . '\'' . $dbi->escapeString(
                             $comments_copy_row['transformation']
                         )
-                        . '\',' . '\'' . $GLOBALS['dbi']->escapeString(
+                        . '\',' . '\'' . $dbi->escapeString(
                             $comments_copy_row['transformation_options']
                         )
                         . '\''
@@ -1326,7 +1332,7 @@ class Table
                     . ')';
                 $relation->queryAsControlUser($new_comment_query);
             } // end while
-            $GLOBALS['dbi']->freeResult($comments_copy_rs);
+            $dbi->freeResult($comments_copy_rs);
             unset($comments_copy_rs);
         }
 
@@ -1453,7 +1459,7 @@ class Table
      */
     public static function isValidName($table_name, $is_backquoted = false)
     {
-        if ($table_name !== rtrim($table_name)) {
+        if ($table_name !== rtrim((string)$table_name)) {
             // trailing spaces not allowed even in backquotes
             return false;
         }
@@ -1491,7 +1497,7 @@ class Table
      */
     public function rename($new_name, $new_db = null)
     {
-        if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
+        if ($this->_dbi->getLowerCaseNames() === '1') {
             $new_name = strtolower($new_name);
         }
 
@@ -1768,9 +1774,9 @@ class Table
 
         // Read from phpMyAdmin database
         $sql_query = " SELECT `prefs` FROM " . $pma_table
-            . " WHERE `username` = '" . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
-            . " AND `db_name` = '" . $GLOBALS['dbi']->escapeString($this->_db_name) . "'"
-            . " AND `table_name` = '" . $GLOBALS['dbi']->escapeString($this->_name) . "'";
+            . " WHERE `username` = '" . $this->_dbi->escapeString($GLOBALS['cfg']['Server']['user']) . "'"
+            . " AND `db_name` = '" . $this->_dbi->escapeString($this->_db_name) . "'"
+            . " AND `table_name` = '" . $this->_dbi->escapeString($this->_name) . "'";
 
         $row = $this->_dbi->fetchArray($this->relation->queryAsControlUser($sql_query));
         if (isset($row[0])) {
@@ -1791,14 +1797,14 @@ class Table
         $pma_table = Util::backquote($cfgRelation['db']) . "."
             . Util::backquote($cfgRelation['table_uiprefs']);
 
-        $secureDbName = $GLOBALS['dbi']->escapeString($this->_db_name);
+        $secureDbName = $this->_dbi->escapeString($this->_db_name);
 
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = " REPLACE INTO " . $pma_table
             . " (username, db_name, table_name, prefs) VALUES ('"
-            . $GLOBALS['dbi']->escapeString($username) . "', '" . $secureDbName
-            . "', '" . $GLOBALS['dbi']->escapeString($this->_name) . "', '"
-            . $GLOBALS['dbi']->escapeString(json_encode($this->uiprefs)) . "')";
+            . $this->_dbi->escapeString($username) . "', '" . $secureDbName
+            . "', '" . $this->_dbi->escapeString($this->_name) . "', '"
+            . $this->_dbi->escapeString(json_encode($this->uiprefs)) . "')";
 
         $success = $this->_dbi->tryQuery($sql_query, DatabaseInterface::CONNECT_CONTROL);
 
@@ -2168,7 +2174,7 @@ class Table
         if (! empty($keyBlockSizes)) {
             $sql_query .= sprintf(
                 ' KEY_BLOCK_SIZE = %s',
-                $GLOBALS['dbi']->escapeString($keyBlockSizes)
+                $this->_dbi->escapeString($keyBlockSizes)
             );
         }
 
@@ -2186,14 +2192,14 @@ class Table
 
         $parser = $index->getParser();
         if ($index->getChoice() == 'FULLTEXT' && ! empty($parser)) {
-            $sql_query .= ' WITH PARSER ' . $GLOBALS['dbi']->escapeString($parser);
+            $sql_query .= ' WITH PARSER ' . $this->_dbi->escapeString($parser);
         }
 
         $comment = $index->getComment();
         if (! empty($comment)) {
             $sql_query .= sprintf(
                 " COMMENT '%s'",
-                $GLOBALS['dbi']->escapeString($comment)
+                $this->_dbi->escapeString($comment)
             );
         }
 
@@ -2218,17 +2224,17 @@ class Table
                 . Util::backquote($GLOBALS['cfgRelation']['db'])
                 . '.' . Util::backquote($cfgRelation['table_info'])
                 . ' WHERE db_name  = \''
-                . $GLOBALS['dbi']->escapeString($this->_db_name) . '\''
+                . $this->_dbi->escapeString($this->_db_name) . '\''
                 . ' AND table_name = \''
-                . $GLOBALS['dbi']->escapeString($this->_name) . '\'';
+                . $this->_dbi->escapeString($this->_name) . '\'';
         } else {
             $upd_query = 'REPLACE INTO '
                 . Util::backquote($GLOBALS['cfgRelation']['db'])
                 . '.' . Util::backquote($cfgRelation['table_info'])
                 . '(db_name, table_name, display_field) VALUES('
-                . '\'' . $GLOBALS['dbi']->escapeString($this->_db_name) . '\','
-                . '\'' . $GLOBALS['dbi']->escapeString($this->_name) . '\','
-                . '\'' . $GLOBALS['dbi']->escapeString($display_field) . '\')';
+                . '\'' . $this->_dbi->escapeString($this->_db_name) . '\','
+                . '\'' . $this->_dbi->escapeString($this->_name) . '\','
+                . '\'' . $this->_dbi->escapeString($display_field) . '\')';
         }
 
         if ($upd_query) {
@@ -2281,12 +2287,12 @@ class Table
                         . '(master_db, master_table, master_field, foreign_db,'
                         . ' foreign_table, foreign_field)'
                         . ' values('
-                        . '\'' . $GLOBALS['dbi']->escapeString($this->_db_name) . '\', '
-                        . '\'' . $GLOBALS['dbi']->escapeString($this->_name) . '\', '
-                        . '\'' . $GLOBALS['dbi']->escapeString($master_field) . '\', '
-                        . '\'' . $GLOBALS['dbi']->escapeString($foreign_db) . '\', '
-                        . '\'' . $GLOBALS['dbi']->escapeString($foreign_table) . '\','
-                        . '\'' . $GLOBALS['dbi']->escapeString($foreign_field) . '\')';
+                        . '\'' . $this->_dbi->escapeString($this->_db_name) . '\', '
+                        . '\'' . $this->_dbi->escapeString($this->_name) . '\', '
+                        . '\'' . $this->_dbi->escapeString($master_field) . '\', '
+                        . '\'' . $this->_dbi->escapeString($foreign_db) . '\', '
+                        . '\'' . $this->_dbi->escapeString($foreign_table) . '\','
+                        . '\'' . $this->_dbi->escapeString($foreign_field) . '\')';
                 } elseif ($existrel[$master_field]['foreign_db'] != $foreign_db
                     || $existrel[$master_field]['foreign_table'] != $foreign_table
                     || $existrel[$master_field]['foreign_field'] != $foreign_field
@@ -2295,28 +2301,28 @@ class Table
                         . Util::backquote($GLOBALS['cfgRelation']['db'])
                         . '.' . Util::backquote($cfgRelation['relation'])
                         . ' SET foreign_db       = \''
-                        . $GLOBALS['dbi']->escapeString($foreign_db) . '\', '
+                        . $this->_dbi->escapeString($foreign_db) . '\', '
                         . ' foreign_table    = \''
-                        . $GLOBALS['dbi']->escapeString($foreign_table) . '\', '
+                        . $this->_dbi->escapeString($foreign_table) . '\', '
                         . ' foreign_field    = \''
-                        . $GLOBALS['dbi']->escapeString($foreign_field) . '\' '
+                        . $this->_dbi->escapeString($foreign_field) . '\' '
                         . ' WHERE master_db  = \''
-                        . $GLOBALS['dbi']->escapeString($this->_db_name) . '\''
+                        . $this->_dbi->escapeString($this->_db_name) . '\''
                         . ' AND master_table = \''
-                        . $GLOBALS['dbi']->escapeString($this->_name) . '\''
+                        . $this->_dbi->escapeString($this->_name) . '\''
                         . ' AND master_field = \''
-                        . $GLOBALS['dbi']->escapeString($master_field) . '\'';
+                        . $this->_dbi->escapeString($master_field) . '\'';
                 } // end if... else....
             } elseif (isset($existrel[$master_field])) {
                 $upd_query = 'DELETE FROM '
                     . Util::backquote($GLOBALS['cfgRelation']['db'])
                     . '.' . Util::backquote($cfgRelation['relation'])
                     . ' WHERE master_db  = \''
-                    . $GLOBALS['dbi']->escapeString($this->_db_name) . '\''
+                    . $this->_dbi->escapeString($this->_db_name) . '\''
                     . ' AND master_table = \''
-                    . $GLOBALS['dbi']->escapeString($this->_name) . '\''
+                    . $this->_dbi->escapeString($this->_name) . '\''
                     . ' AND master_field = \''
-                    . $GLOBALS['dbi']->escapeString($master_field) . '\'';
+                    . $this->_dbi->escapeString($master_field) . '\'';
             } // end if... else....
 
             if (isset($upd_query)) {
@@ -2605,7 +2611,7 @@ class Table
     {
         $serverType = Util::getServerType();
         if ($serverType == 'MySQL'
-            && $GLOBALS['dbi']->getVersion() > 50705
+            && $this->_dbi->getVersion() > 50705
             && ! $GLOBALS['cfg']['Server']['DisableIS']
         ) {
             $sql
@@ -2615,10 +2621,10 @@ class Table
                 FROM
                 `information_schema`.`COLUMNS`
                 WHERE
-                `TABLE_SCHEMA` = '" . $GLOBALS['dbi']->escapeString($this->_db_name) . "'
-                AND `TABLE_NAME` = '" . $GLOBALS['dbi']->escapeString($this->_name) . "'";
+                `TABLE_SCHEMA` = '" . $this->_dbi->escapeString($this->_db_name) . "'
+                AND `TABLE_NAME` = '" . $this->_dbi->escapeString($this->_name) . "'";
             if ($column != null) {
-                $sql .= " AND  `COLUMN_NAME` = '" . $GLOBALS['dbi']->escapeString($column)
+                $sql .= " AND  `COLUMN_NAME` = '" . $this->_dbi->escapeString($column)
                     . "'";
             }
             $columns = $this->_dbi->fetchResult($sql, 'Field', 'Expression');

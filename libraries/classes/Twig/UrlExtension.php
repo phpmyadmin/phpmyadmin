@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Twig;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
+use Twig\TwigFilter;
 
 /**
  * Class UrlExtension
@@ -28,27 +29,38 @@ class UrlExtension extends AbstractExtension
     {
         return [
             new TwigFunction(
-                'Url_getHiddenInputs',
+                'get_hidden_inputs',
                 'PhpMyAdmin\Url::getHiddenInputs',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Url_getHiddenFields',
+                'get_hidden_fields',
                 'PhpMyAdmin\Url::getHiddenFields',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Url_getCommon',
+                'get_common',
                 'PhpMyAdmin\Url::getCommon',
                 ['is_safe' => ['html']]
             ),
             new TwigFunction(
-                'Url_getCommonRaw',
+                'get_common_raw',
                 'PhpMyAdmin\Url::getCommonRaw',
                 ['is_safe' => ['html']]
             ),
-            new TwigFunction(
-                'Url_link',
+        ];
+    }
+
+    /**
+     * Returns a list of filters to add to the existing list.
+     *
+     * @return TwigFilter[]
+     */
+    public function getFilters()
+    {
+        return [
+            new TwigFilter(
+                'link',
                 'PhpMyAdmin\Core::linkURL'
             ),
         ];

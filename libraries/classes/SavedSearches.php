@@ -70,7 +70,7 @@ class SavedSearches
     public function __construct(array $config)
     {
         $this->setConfig($config);
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
