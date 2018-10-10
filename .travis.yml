@@ -28,6 +28,13 @@ install:
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then source ~/virtualenv/python3.6/bin/activate ; fi
   - ./test/ci-install-$CI_MODE
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then case "$TRAVIS_PHP_VERSION" in hhvm*) ;; *) phpenv config-add test/php-noprofile.ini ;; esac ; fi
+  - mkdir -p $HOME/bin
+  - if [[ "${TRAVIS_OS_NAME}" = "osx" ]]; then
+      curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-darwin.tgz | tar -zxvf- -C $HOME/bin;
+    else
+      curl -fsSL https://testspace-client.s3.amazonaws.com/testspace-linux.tgz | tar -zxvf- -C $HOME/bin;
+    fi
+  - testspace config url $TS_ORG.testspace.com
 
 before_script:
   - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
@@ -49,6 +56,11 @@ after_script:
   - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
   - if [ -f build/logs/phpunit.json ] ; then ./scripts/phpunit-top-tests build/logs/phpunit.json ; fi
   - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
+  - ${TRAVIS_ALLOW_FAILURE} || if [ $CI_MODE == 'test' ] || [ $CI_MODE == 'selenium' ] ; then
+      testspace [${TRAVIS_OS_NAME}/php-${TRAVIS_PHP_VERSION:-7.2}]build/logs/junit.xml{.} --link=codecov;
+    elif [ $CI_MODE == 'release' ] ; then
+      testspace [${TRAVIS_OS_NAME}/php-${TRAVIS_PHP_VERSION:-7.2}]/tmp/junit.xml{.};
+    fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

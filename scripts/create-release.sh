@@ -290,6 +290,7 @@ if [ $do_test -eq 1 ] ; then
     test_ret=$?
     if [ $do_ci -eq 1 ] ; then
         cd ../..
+        cp release/phpMyAdmin-ci/build/logs/junit.xml /tmp/junit.xml
         rm -rf $workdir
         git worktree prune
         if [ "$branch" = "ci" ] ; then
