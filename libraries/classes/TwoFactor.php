@@ -118,7 +118,7 @@ class TwoFactor
         if ($GLOBALS['cfg']['DBG']['simple2fa']) {
             $result[] = 'simple';
         }
-        if (class_exists('PragmaRX\Google2FA\Google2FA') && class_exists('BaconQrCode\Renderer\Image\Png')) {
+        if (class_exists('PragmaRX\Google2FAQRCode\Google2FA')) {
             $result[] = 'application';
         }
         if (class_exists('Samyoul\U2F\U2FServer\U2FServer')) {
@@ -135,10 +135,10 @@ class TwoFactor
     public function getMissingDeps()
     {
         $result = [];
-        if (!class_exists('PragmaRX\Google2FA\Google2FA')) {
+        if (!class_exists('PragmaRX\Google2FAQRCode\Google2FA')) {
             $result[] = [
                 'class' => \PhpMyAdmin\Plugins\TwoFactor\Application::getName(),
-                'dep' => 'pragmarx/google2fa',
+                'dep' => 'pragmarx/google2fa-qrcode',
             ];
         }
         if (!class_exists('BaconQrCode\Renderer\Image\Png')) {
