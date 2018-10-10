@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-27 13:13-0300\n"
-"PO-Revision-Date: 2018-09-16 16:22+0000\n"
+"PO-Revision-Date: 2018-10-11 02:22+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.2.1\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -7458,16 +7458,13 @@ msgid "Or"
 msgstr "או"
 
 #: libraries/classes/InsertEdit.php:1529
-#, fuzzy
 msgid "web server upload directory:"
-msgstr "שמירת שרת בתוך תיקיית %s"
+msgstr "תיקיית העלאת השירות המקוון:"
 
 #: libraries/classes/InsertEdit.php:1734
 #: templates/table/search/input_box.twig:39
-#, fuzzy
-#| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "הכנסה"
+msgstr "עריכה/הוספה"
 
 #: libraries/classes/InsertEdit.php:1801
 msgid "and then"
@@ -7658,16 +7655,12 @@ msgstr ""
 
 #: libraries/classes/Menu.php:548 libraries/classes/Util.php:4076
 #: templates/database/structure/check_all_tables.twig:32
-#, fuzzy
-#| msgid "Add/Delete Field Columns"
 msgid "Central columns"
-msgstr "הוספת/מחיקת עמודות שדה"
+msgstr "עמודות מרכזיות"
 
 #: libraries/classes/Menu.php:606
-#, fuzzy
-#| msgid "User"
 msgid "User accounts"
-msgstr "משתמש"
+msgstr "חשבונות משתמשים"
 
 #: libraries/classes/Menu.php:633 libraries/classes/Server/Status/Data.php:123
 #: libraries/classes/Util.php:4055 templates/server/sub_page_header.twig:2
