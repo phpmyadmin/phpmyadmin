@@ -1314,7 +1314,7 @@ class Table
                     . ') ' . ' VALUES(' . '\'' . $dbi->escapeString($target_db)
                     . '\',\'' . $dbi->escapeString($target_table) . '\',\''
                     . $dbi->escapeString($comments_copy_row['column_name'])
-                    . '\',\'' . $dbi->escapeString($target_table) . '\',\''
+                    . '\',\''
                     . $dbi->escapeString($comments_copy_row['comment'])
                     . '\''
                     . ($GLOBALS['cfgRelation']['mimework']
