@@ -3450,7 +3450,9 @@ AJAX.registerOnload('functions.js', function () {
             var value_array = [];
             $(this).find('.values input').each(function (index, elm) {
                 var val = elm.value.replace(/\\/g, '\\\\').replace(/'/g, '\'\'');
-                value_array.push('\'' + val + '\'');
+                if ('' !== val) {
+                    value_array.push('\'' + val + '\'');
+                }
             });
             // get the Length/Values text field where this value belongs
             var values_id = $(this).find('input[type=\'hidden\']').val();
