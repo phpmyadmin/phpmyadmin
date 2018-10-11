@@ -2201,6 +2201,8 @@ class Operations
                     $new_name = strtolower($new_name);
                 }
 
+                $GLOBALS['table'] = $new_name;
+
                 $new = Util::backquote($_REQUEST['target_db']) . '.'
                     . Util::backquote($new_name);
                 $message->addParam($new);
