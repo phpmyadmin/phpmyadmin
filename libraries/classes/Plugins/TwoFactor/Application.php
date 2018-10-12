@@ -12,7 +12,7 @@ namespace PhpMyAdmin\Plugins\TwoFactor;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use PragmaRX\Google2FA\Google2FA;
+use PragmaRX\Google2FAQRCode\Google2FA;
 
 /**
  * HOTP and TOTP based two-factor authentication

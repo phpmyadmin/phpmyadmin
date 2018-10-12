@@ -61,8 +61,8 @@
     "conflict": {
         "phpseclib/phpseclib": "2.0.8",
         "tecnickcom/tcpdf": "<6.2",
-        "pragmarx/google2fa": "<3.0.1",
-        "bacon/bacon-qr-code": "<1.0",
+        "pragmarx/google2fa-qrcode": "<1.0",
+        "bacon/bacon-qr-code": "<1.0 || >=2.0",
         "samyoul/u2f-php-server": "<1.1"
     },
     "suggest": {
@@ -75,8 +75,7 @@
         "ext-gd2": "For image transformations",
         "ext-mbstring": "For best performance",
         "tecnickcom/tcpdf": "For PDF support",
-        "pragmarx/google2fa": "For 2FA authentication",
-        "bacon/bacon-qr-code": "For 2FA authentication",
+        "pragmarx/google2fa-qrcode": "For 2FA authentication",
         "samyoul/u2f-php-server": "For FIDO U2F authentication"
     },
     "require-dev": {
@@ -85,8 +84,7 @@
         "phpunit/phpunit-selenium": "^4.1",
         "squizlabs/php_codesniffer": "^3.0",
         "tecnickcom/tcpdf": "^6.2",
-        "pragmarx/google2fa": "^3.0",
-        "bacon/bacon-qr-code": "^1.0",
+        "pragmarx/google2fa-qrcode": "^1.0",
         "samyoul/u2f-php-server": "^1.1",
         "phpmyadmin/coding-standard": "^0.3",
         "phpstan/phpstan": "^0.10.3"
