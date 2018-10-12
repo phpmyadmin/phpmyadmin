@@ -10,19 +10,7 @@ language: php
 services:
   - mysql
 
-php:
-  - "7.2"
-  - "7.1"
-  - "nightly"
-
 sudo: required
-
-env:
-  matrix:
-    - CI_MODE=test
-  global:
-    - TESTSUITE_USER=root
-    - TESTSUITE_URL=http://127.0.0.1:8000
 
 install:
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then source ~/virtualenv/python3.6/bin/activate ; fi
@@ -49,26 +37,38 @@ after_script:
   - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
   - if [ -f build/logs/phpunit.json ] ; then ./scripts/phpunit-top-tests build/logs/phpunit.json ; fi
   - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
+  - if [ "$CI_MODE" = "selenium" ] ; then ~/browserstack/BrowserStackLocal --daemon stop; fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
-matrix:
-  fast_finish: true
+stages:
+  - name: "PHP Unit tests"
+  - name: "Lint and analyse code"
+  - name: "Documentation"
+  - name: "Other tests"
+
+jobs:
   include:
-    - php: "7.1"
-      env: CI_MODE=selenium
-    - php: "7.1"
+    - stage: "Lint and analyse code"
+      name: "Lint PHP files"
+      php: "7.1"
       env: CI_MODE=lint
-    - php: "7.1"
-      env: CI_MODE=release
-    - php: "7.1"
-      env: CI_MODE=docs
-    - php: "7.1"
-      env: CI_MODE=apidocs
-    - php: "7.2"
+    - stage: "Lint and analyse code"
+      name: "Run phpstan"
+      php: "7.2"
       env: CI_MODE=phpstan
-    - os: osx
+    - stage: "Documentation"
+      name: "Build docs"
+      php: "7.1"
+      env: CI_MODE=docs
+    - stage: "Documentation"
+      name: "Build API docs"
+      php: "7.1"
+      env: CI_MODE=apidocs
+    - stage: "PHP Unit tests"
+      name: "PHP 7.2"
+      os: osx
       language: generic
       env: CI_MODE=test
       before_install:
@@ -79,11 +79,61 @@ matrix:
         - curl https://getcomposer.org/installer | php
         - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start
-  allow_failures:
-    - php: "nightly"
+    - stage: "PHP Unit tests"
+      php: "7.2"
+      name: "PHP 7.2"
       env: CI_MODE=test
-    - php: "7.2"
-      env: CI_MODE=phpstan
+    - stage: "PHP Unit tests"
+      php: "7.1"
+      name: "PHP 7.1"
+      env: CI_MODE=test
+    - stage: "PHP Unit tests"
+      php: "nightly"
+      name: "PHP nightly"
+      env: CI_MODE=test
+    - stage: "Other tests"
+      name: "Build release"
+      php: "7.1"
+      env: CI_MODE=release
+    - stage: "Other tests"
+      name: "Run selenium tests on Safari"
+      php: "7.1"
+      env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=safari
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+    - stage: "Other tests"
+      name: "Run selenium tests on Google Chrome"
+      php: "7.1"
+      env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=chrome
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+    - stage: "Other tests"
+      name: "Run selenium tests on Microsoft Edge"
+      php: "7.1"
+      env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=edge
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+  allow_failures:
+      - env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=safari
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+      - env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=edge
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+      - php: "nightly"
+        env: CI_MODE=test
+      - php: "7.2"
+        env: CI_MODE=phpstan
 
 cache:
   pip: true

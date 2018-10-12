@@ -20,13 +20,13 @@ namespace PhpMyAdmin\Tests\Selenium;
 class DbOperationsTest extends TestBase
 {
     /**
-     * setUp function that can use the selenium session (called before each test)
+     * setUp function
      *
      * @return void
      */
-    public function setUpPage()
+    public function setUp()
     {
-        parent::setUpPage();
+        parent::setUp();
         $this->login();
     }
 
@@ -39,10 +39,10 @@ class DbOperationsTest extends TestBase
 
         $this->navigateDatabase($this->database_name);
         $this->expandMore();
-
-        $this->waitForElement('byPartialLinkText', 'Operations')->click();
+        $this->maximize();
+        $this->waitForElement('partialLinkText', 'Operations')->click();
         $this->waitForElement(
-            'byXPath',
+            'xpath',
             '//legend[contains(., \'Rename database to\')]'
         );
     }
@@ -59,14 +59,14 @@ class DbOperationsTest extends TestBase
         $this->skipIfNotPMADB();
 
         $this->_getToDBOperations();
-        $this->byName("comment")->value("comment_foobar");
+        $this->byName("comment")->sendKeys("comment_foobar");
         $this->byCssSelector(
             "form#formDatabaseComment input[type='submit']"
         )->click();
 
         $this->assertNotNull(
             $this->waitForElement(
-                "byXPath",
+                'xpath',
                 "//span[@id='span_table_comment' and contains(., 'comment_foobar')]"
             )
         );
@@ -87,17 +87,17 @@ class DbOperationsTest extends TestBase
 
         $this->scrollIntoView('create_table_form_minimal');
         $this->byCssSelector("form#rename_db_form input[name=newname]")
-            ->value($new_db_name);
+            ->sendKeys($new_db_name);
 
         $this->byCssSelector("form#rename_db_form input[type='submit']")->click();
 
         $this->waitForElement(
-            "byCssSelector",
+            'cssSelector',
             "button.submitOK"
         )->click();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//a[@class='item' and contains(., 'Database: $new_db_name')]"
         );
 
@@ -127,13 +127,13 @@ class DbOperationsTest extends TestBase
 
         $new_db_name = $this->database_name . 'copy';
         $this->byCssSelector("form#copy_db_form input[name=newname]")
-            ->value($new_db_name);
+            ->sendKeys($new_db_name);
 
         $this->scrollIntoView('copy_db_form', -150);
         $this->byCssSelector("form#copy_db_form input[type='submit']")->click();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., 'Database "
             . $this->database_name
             . " has been copied to $new_db_name')]"

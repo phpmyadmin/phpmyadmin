@@ -40,16 +40,6 @@ class TableOperationsTest extends TestBase
         );
         $this->dbQuery("INSERT INTO test_table (val, val2) VALUES (22, 33)");
         $this->dbQuery("INSERT INTO test_table (val, val2) VALUES (33, 44)");
-    }
-
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
 
         $this->login();
         $this->navigateTable('test_table');
@@ -61,9 +51,10 @@ class TableOperationsTest extends TestBase
 
         $this->waitAjax();
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'Table maintenance')]"
         );
+        $this->maximize();
     }
 
     /**
@@ -75,8 +66,10 @@ class TableOperationsTest extends TestBase
      */
     public function testChangeTableOrder()
     {
-        $this->select($this->byName("order_field"))
-            ->selectOptionByLabel("val");
+        $this->selectByLabel(
+            $this->byName("order_field"),
+            'val'
+        );
 
         $this->byId("order_order_desc")->click();
         $this->byCssSelector(
@@ -86,7 +79,7 @@ class TableOperationsTest extends TestBase
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and "
             . "contains(., 'Your SQL query has been executed successfully')]"
         );
@@ -94,7 +87,7 @@ class TableOperationsTest extends TestBase
         $this->byPartialLinkText("Browse")->click();
 
         $this->waitAjax();
-        $this->waitForElement("byCssSelector", "table.table_results");
+        $this->waitForElement('cssSelector', "table.table_results");
 
         $this->assertEquals(
             "2",
@@ -112,13 +105,13 @@ class TableOperationsTest extends TestBase
     public function testMoveTable()
     {
         $this->byCssSelector("form#moveTableForm input[name='new_name']")
-            ->value("2");
+            ->sendKeys("2");
 
         $this->byCssSelector("form#moveTableForm input[type='submit']")->click();
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and "
             . "contains(., 'Table `" . $this->database_name
             . "`.`test_table` has been "
@@ -143,16 +136,17 @@ class TableOperationsTest extends TestBase
     public function testRenameTable()
     {
         $this->byCssSelector("form#tableOptionsForm input[name='new_name']")
-            ->value("2");
+            ->sendKeys("2");
 
-        $this->byName("comment")->value("foobar");
+        $this->byName("comment")->sendKeys("foobar");
 
         $this->scrollIntoView('tableOptionsForm');
+        $this->waitUntilElementIsVisible('cssSelector', 'form#tableOptionsForm', 30);
         $this->byCssSelector("form#tableOptionsForm input[type='submit']")->click();
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and "
             . "contains(., 'Table test_table has been renamed to test_table2')]"
         );
@@ -175,14 +169,14 @@ class TableOperationsTest extends TestBase
     public function testCopyTable()
     {
         $this->scrollIntoView('copyTable');
-
-        $this->byCssSelector("form#copyTable input[name='new_name']")->value("2");
+        $this->waitUntilElementIsVisible('cssSelector', 'form#copyTable', 30);
+        $this->byCssSelector("form#copyTable input[name='new_name']")->sendKeys("2");
         $this->byCssSelector("label[for='what_data']")->click();
         $this->byCssSelector("form#copyTable input[type='submit']")->click();
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and "
             . "contains(., 'Table `" . $this->database_name
             . "`.`test_table` has been "
@@ -207,13 +201,13 @@ class TableOperationsTest extends TestBase
     public function testTruncateTable()
     {
         $this->scrollToBottom();
-
+        $this->waitUntilElementIsVisible('id', 'drop_tbl_anchor', 30);
         $this->byId("truncate_tbl_anchor")->click();
         $this->byCssSelector("button.submitOK")->click();
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and "
             . "contains(., 'MySQL returned an empty result set')]"
         );
@@ -236,19 +230,19 @@ class TableOperationsTest extends TestBase
     public function testDropTable()
     {
         $this->scrollToBottom();
-
+        $this->waitUntilElementIsVisible('id', 'drop_tbl_anchor', 30);
         $this->byId("drop_tbl_anchor")->click();
         $this->byCssSelector("button.submitOK")->click();
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and "
             . "contains(., 'MySQL returned an empty result set')]"
         );
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//a[@class='tabactive' and contains(., 'Structure')]"
         );
 

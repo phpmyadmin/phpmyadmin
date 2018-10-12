@@ -45,21 +45,10 @@ class DbTriggersTest extends TestBase
         $this->dbQuery(
             "INSERT INTO `test_table2` (val) VALUES (2);"
         );
-    }
-
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
 
         $this->login();
 
         $this->navigateDatabase($this->database_name);
-        $this->expandMore();
     }
 
     /**
@@ -87,24 +76,30 @@ class DbTriggersTest extends TestBase
     public function testAddTrigger()
     {
         $this->expandMore();
-        $this->waitForElement("byPartialLinkText", "Triggers")->click();
+        $this->waitForElement('partialLinkText', "Triggers")->click();
         $this->waitAjax();
 
-        $this->waitForElement("byPartialLinkText", "Add trigger")->click();
+        $this->waitForElement('partialLinkText', "Add trigger")->click();
         $this->waitAjax();
 
-        $this->waitForElement("byClassName", "rte_form");
+        $this->waitForElement('className', "rte_form");
 
-        $this->byName("item_name")->value("test_trigger");
+        $this->byName("item_name")->sendKeys("test_trigger");
 
-        $this->select($this->byName("item_table"))
-            ->selectOptionByLabel("test_table");
+        $this->selectByLabel(
+            $this->byName("item_table"),
+            'test_table'
+        );
 
-        $this->select($this->byName("item_timing"))
-            ->selectOptionByLabel("AFTER");
+        $this->selectByLabel(
+            $this->byName("item_timing"),
+            'AFTER'
+        );
 
-        $this->select($this->byName("item_event"))
-            ->selectOptionByLabel("INSERT");
+        $this->selectByLabel(
+            $this->byName("item_event"),
+            'INSERT'
+        );
 
         $proc = "UPDATE " . $this->database_name . ".`test_table2` SET val=val+1";
         $this->typeInTextArea($proc);
@@ -112,14 +107,14 @@ class DbTriggersTest extends TestBase
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., "
             . "'Trigger `test_trigger` has been created')]"
         );
 
         $this->assertTrue(
             $this->isElementPresent(
-                'byXPath',
+                'xpath',
                 "//td[contains(., 'test_trigger')]"
             )
         );
@@ -148,24 +143,24 @@ class DbTriggersTest extends TestBase
         $this->expandMore();
 
         $this->_triggerSQL();
-        $this->waitForElement("byPartialLinkText", "Triggers")->click();
+        $this->waitForElement('partialLinkText', "Triggers")->click();
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'Triggers')]"
         );
 
         $this->byPartialLinkText("Edit")->click();
 
-        $this->waitForElement("byClassName", "rte_form");
+        $this->waitForElement('className', "rte_form");
         $proc = "UPDATE " . $this->database_name . ".`test_table2` SET val=val+10";
         $this->typeInTextArea($proc);
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., "
             . "'Trigger `test_trigger` has been modified')]"
         );
@@ -189,17 +184,17 @@ class DbTriggersTest extends TestBase
         $this->expandMore();
 
         $this->_triggerSQL();
-        $ele = $this->waitForElement("byPartialLinkText", "Triggers");
+        $ele = $this->waitForElement('partialLinkText', "Triggers");
         $ele->click();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'Triggers')]"
         );
 
         $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byCssSelector",
+            'cssSelector',
             "button.submitOK"
         )->click();
 

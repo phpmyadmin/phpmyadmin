@@ -22,16 +22,17 @@ class TableCreateTest extends TestBase
     /**
      * @return void
      */
-    public function setUpPage()
+    public function setUp()
     {
-        parent::setUpPage();
+        parent::setUp();
+        $this->maximize();
 
         $this->login();
-        $this->waitForElement('byPartialLinkText', 'Databases')->click();
+        $this->waitForElement('partialLinkText', 'Databases')->click();
         $this->waitAjax();
 
         // go to specific database page
-        $this->waitForElement("byPartialLinkText", $this->database_name)->click();
+        $this->waitForElement('partialLinkText', $this->database_name)->click();
     }
 
     /**
@@ -46,24 +47,24 @@ class TableCreateTest extends TestBase
         $this->waitAjax();
         $this->waitAjax();
 
-        $this->waitForElement('byId', 'create_table_form_minimal');
+        $this->waitForElement('id', 'create_table_form_minimal');
         $this->byCssSelector(
             "form#create_table_form_minimal input[name=table]"
-        )->value("test_table");
+        )->sendKeys("test_table");
         $this->byName("num_fields")->clear();
-        $this->byName("num_fields")->value("4");
+        $this->byName("num_fields")->sendKeys("4");
         $this->byCssSelector('input[value=Go]')->click();
 
         $this->waitAjax();
-        $this->waitForElement('byName', 'do_save_data');
+        $this->waitForElement('name', 'do_save_data');
 
-        $this->waitForElement('byId', "field_1_7")->click(); // null
-        $this->waitForElement('byId', "field_0_9")->click(); // auto increment
+        $this->waitForElement('id', "field_1_7")->click(); // null
+        $this->waitForElement('id', "field_0_9")->click(); // auto increment
 
         // Do this separately since this opens a dialog
         // Since auto-increment auto sets a PRIMARY key since no key present
         $this->waitAjax();
-        $this->waitForElement('byXPath', '//button[contains(text(), \'Go\')]')->click();
+        $this->waitForElement('xpath', '//button[contains(text(), \'Go\')]')->click();
 
         // column details
         $column_text_details = [
@@ -76,7 +77,7 @@ class TableCreateTest extends TestBase
         ];
 
         foreach ($column_text_details as $field => $val) {
-            $this->byId($field)->value($val);
+            $this->byId($field)->sendKeys($val);
         }
 
         $column_dropdown_details = [
@@ -88,26 +89,26 @@ class TableCreateTest extends TestBase
 
         foreach ($column_dropdown_details as $selector => $value) {
             $this->waitForElement(
-                'byXPath',
+                'xpath',
                 '//select[@id=\'' . $selector . '\']//option[contains(text(), \'' . $value . '\')]'
             )->click();
         }
 
-        $this->byName("field_default_value[1]")->value("def");
+        $this->byName("field_default_value[1]")->sendKeys("def");
 
         $this->scrollToBottom();
-        $ele = $this->waitForElement('byName', "do_save_data");
+        $ele = $this->waitForElement('name', "do_save_data");
         $this->moveto($ele);
         // post
         $ele->click();
         $this->waitForElement(
-            'byCssSelector',
+            'cssSelector',
             'li.last.table'
         );
 
         $this->waitAjax();
 
-        $this->waitForElement("byPartialLinkText", "test_table");
+        $this->waitForElement('partialLinkText', "test_table");
 
         $this->_tableStructureAssertions();
     }
@@ -127,15 +128,15 @@ class TableCreateTest extends TestBase
         $this->waitAjax();
 
         // go to structure page
-        $this->waitForElement('byPartialLinkText', "Structure")->click();
+        $this->waitForElement('partialLinkText', "Structure")->click();
 
-        $this->waitForElement("byId", "tablestructure");
-        $this->waitForElement('byId', 'table_strucuture_id');
+        $this->waitForElement('id', "tablestructure");
+        $this->waitForElement('id', 'table_strucuture_id');
 
         // make assertions for first row
         $this->assertContains(
             "test_id",
-            $this->byCssSelector('label[for=checkbox_row_1]')->text()
+            $this->byCssSelector('label[for=checkbox_row_1]')->getText()
         );
 
         $this->assertEquals(
@@ -169,7 +170,7 @@ class TableCreateTest extends TestBase
 
         $this->assertFalse(
             $this->isElementPresent(
-                'byCssSelector',
+                'cssSelector',
                 'table#tablestructure tbody tr:nth-child(1) "
                 . "ul.table-structure-actions li.primary a'
             )
@@ -178,7 +179,7 @@ class TableCreateTest extends TestBase
         // make assertions for second row
         $this->assertContains(
             "test_column",
-            $this->byCssSelector('label[for=checkbox_row_2]')->text()
+            $this->byCssSelector('label[for=checkbox_row_2]')->getText()
         );
 
         $this->assertEquals(
@@ -203,7 +204,7 @@ class TableCreateTest extends TestBase
 
         $this->assertFalse(
             $this->isElementPresent(
-                'byCssSelector',
+                'cssSelector',
                 'css=ul.table-structure-actions:nth-child(2) li.primary a'
             )
         );

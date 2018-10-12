@@ -44,16 +44,6 @@ class DbStructureTest extends TestBase
         $this->dbQuery(
             "INSERT INTO `test_table` (val) VALUES (2);"
         );
-    }
-
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
 
         $this->login();
         $this->navigateDatabase($this->database_name);
@@ -61,6 +51,7 @@ class DbStructureTest extends TestBase
         // Let the Database page load
         $this->waitAjax();
         $this->expandMore();
+        $this->maximize();
     }
 
     /**
@@ -75,13 +66,13 @@ class DbStructureTest extends TestBase
         $this->byXPath("(//a[contains(., 'Empty')])[1]")->click();
 
         $this->waitForElement(
-            "byCssSelector",
+            'cssSelector',
             "button.submitOK"
         )->click();
 
         $this->assertNotNull(
             $this->waitForElement(
-                "byXPath",
+                'xpath',
                 "//div[@class='success' and contains(., "
                 . "'MySQL returned an empty result')]"
             )
@@ -102,13 +93,17 @@ class DbStructureTest extends TestBase
     public function testDropMultipleTables()
     {
         $this->byCssSelector("label[for='tablesForm_checkall']")->click();
-        $this->select($this->byName("submit_mult"))
-            ->selectOptionByLabel("Drop");
-        $this->waitForElement("byId", "buttonYes")
+
+        $this->selectByLabel(
+            $this->byName("submit_mult"),
+            'Drop'
+        );
+
+        $this->waitForElement('id', "buttonYes")
             ->click();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//*[contains(., 'No tables found in database')]"
         );
 

@@ -22,11 +22,13 @@ class XssTest extends TestBase
     /**
      * @return void
      */
-    public function setUpPage()
+    public function setUp()
     {
-        parent::setUpPage();
+        parent::setUp();
+        $this->maximize();
         $this->login();
     }
+
     /**
      * Tests the SQL query tab with a null query
      *
@@ -36,13 +38,13 @@ class XssTest extends TestBase
      */
     public function testQueryTabWithNullValue()
     {
-        if (mb_strtolower($this->getBrowser()) == 'safari') {
+        if ($this->isSafari()) {
             $this->markTestSkipped('Alerts not supported on Safari browser.');
         }
-        $this->waitForElement('byPartialLinkText', "SQL")->click();
+        $this->waitForElement('partialLinkText', "SQL")->click();
         $this->waitAjax();
 
-        $this->waitForElement("byId", "queryboxf");
+        $this->waitForElement('id', "queryboxf");
         $this->byId("button_submit_query")->click();
         $this->assertEquals("Missing value in the form!", $this->alertText());
     }
