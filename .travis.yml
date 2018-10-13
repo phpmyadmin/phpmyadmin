@@ -73,11 +73,9 @@ jobs:
       env: CI_MODE=test
       before_install:
         - brew update
-        - brew install gettext php72 mariadb yarn
+        - brew install openldap libiconv php@7.2 composer mariadb yarn
         - brew link --force gettext
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
-        - curl https://getcomposer.org/installer | php
-        - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start
     - stage: "PHP Unit tests"
       php: "7.2"
