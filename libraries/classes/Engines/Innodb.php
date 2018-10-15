@@ -154,11 +154,9 @@ class Innodb extends StorageEngine
         // The following query is only possible because we know
         // that we are on MySQL 5 here (checked above)!
         // side note: I love MySQL 5 for this. :-)
-        $sql
-            = '
-             SHOW STATUS
-            WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\'
-               OR Variable_name = \'Innodb_page_size\';';
+        $sql = 'SHOW STATUS'
+            . ' WHERE Variable_name LIKE \'Innodb\\_buffer\\_pool\\_%\''
+            . ' OR Variable_name = \'Innodb_page_size\';';
         $status = $GLOBALS['dbi']->fetchResult($sql, 0, 1);
 
         $output = '<table class="data" id="table_innodb_bufferpool_usage">' . "\n"
