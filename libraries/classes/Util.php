@@ -3978,7 +3978,7 @@ class Util
                 'structure'   => __('Structure'),
                 'sql'         => __('SQL'),
                 'search'      => __('Search'),
-                'multi_table_query'         => __('Query'),
+                'query'       => __('Query'),
                 'export'      => __('Export'),
                 'import'      => __('Import'),
                 'operation'   => __('Operations'),
