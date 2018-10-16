@@ -563,7 +563,7 @@ class Header
             $captcha_url = '';
         }
         /* Prevent against ClickJacking by disabling framing */
-        if ( strtolower( $GLOBALS['cfg']['AllowThirdPartyFraming'] ) === 'sameorigin') {
+        if ( strtolower($GLOBALS['cfg']['AllowThirdPartyFraming']) === 'sameorigin') {
             header('X-Frame-Options: SAMEORIGIN');
         }
         else if ( $GLOBALS['cfg']['AllowThirdPartyFraming'] !== true ) {
