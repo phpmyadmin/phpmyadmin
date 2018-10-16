@@ -26,7 +26,6 @@ class QueryByExampleTest extends TestBase
      */
     public function setUp()
     {
-        $this->markTestSkipped('Broken, see https://github.com/phpmyadmin/phpmyadmin/issues/13621');
         parent::setUp();
 
         $this->dbQuery(
@@ -65,16 +64,19 @@ class QueryByExampleTest extends TestBase
         $this->waitForElement('byPartialLinkText', 'Query')->click();
         $this->waitAjax();
 
+        $this->waitForElement('byPartialLinkText', 'Query by example')->click();
+        $this->waitAjax();
+
         /* Select Columns to be used in the query */
         $select = $this->select(
             $this->waitForElement('byName', 'criteriaColumn[0]')
         );
-        $select->selectOptionByLabel('`test_table`.`id`');
+        $select->selectOptionByValue('`test_table`.`id`');
 
         $select = $this->select(
             $this->waitForElement('byName', 'criteriaColumn[1]')
         );
-        $select->selectOptionByLabel('`test_table`.`val`');
+        $select->selectOptionByValue('`test_table`.`val`');
 
         /* Set aliases for the columns */
         $this->waitForElement('byName', 'criteriaAlias[0]')->value('ID');
@@ -95,12 +97,12 @@ class QueryByExampleTest extends TestBase
         $select = $this->select(
             $this->waitForElement('byName', 'criteriaSortOrder[0]')
         );
-        $select->selectOptionByLabel('2');
+        $select->selectOptionByValue('2');
 
         $select = $this->select(
             $this->waitForElement('byName', 'criteriaSortOrder[1]')
         );
-        $select->selectOptionByLabel('1');
+        $select->selectOptionByValue('1');
 
         /* Set criteria conditions */
         $this->waitForElement('byName', 'criteria[0]')->value('> 1');
