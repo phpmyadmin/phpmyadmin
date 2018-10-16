@@ -564,14 +564,10 @@ class Header
         }
         /* Prevent against ClickJacking by disabling framing */
         if ( strtolower($GLOBALS['cfg']['AllowThirdPartyFraming']) === 'sameorigin') {
-            header(
-                'X-Frame-Options: SAMEORIGIN'
-            );
+            header('X-Frame-Options: SAMEORIGIN');
         }
         else if ( $GLOBALS['cfg']['AllowThirdPartyFraming'] !== true ) {
-            header(
-                'X-Frame-Options: DENY'
-            );
+            header('X-Frame-Options: DENY');
         }
         header('Referrer-Policy: no-referrer');
         header(
