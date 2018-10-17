@@ -3560,13 +3560,13 @@ AJAX.registerOnload('functions.js', function () {
         }
         var seeMore = '';
         if (list_size > maxRows) {
-            seeMore = '<fieldset class=\'tblFooters center\' style=\'font-weight:bold\'>' +
+            seeMore = '<fieldset id=\'seeMoreFieldSet\' class=\'tblFooters center\'>' +
                 '<a href=\'#\' id=\'seeMore\'>' + PMA_messages.seeMore + '</a></fieldset>';
         }
-        var central_columns_dialog = '<div style=\'max-height:400px\'>' +
+        var central_columns_dialog = '<div id=\'central_columns_dialog\'>' +
             '<fieldset>' +
             search_in +
-            '<table id=\'col_list\' style=\'width:100%\' class=\'values\'>' + fields + '</table>' +
+            '<table id=\'col_list\' class=\'values\'>' + fields + '</table>' +
             '</fieldset>' +
             seeMore +
             '</div>';

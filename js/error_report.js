@@ -122,8 +122,7 @@ var ErrorReport = {
         ErrorReport._removeErrorNotification();
 
         var $div = $(
-            '<div style="position:fixed;bottom:0;left:0;right:0;margin:0;' +
-            'z-index:1000" class="error" id="error_notification"></div>'
+            '<div class="error" id="error_notification"></div>'
         ).append(
             PMA_getImage('s_error') + PMA_messages.strErrorOccurred
         );

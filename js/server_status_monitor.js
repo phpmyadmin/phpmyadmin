@@ -1156,13 +1156,12 @@ AJAX.registerOnload('server_status_monitor.js', function () {
         var tempTooltipContentEditor = function (str, seriesIndex, pointIndex, plot) {
             var j;
             // TODO: move style to theme CSS
-            var tooltipHtml = '<div style="font-size:12px;background-color:#FFFFFF;' +
-                'opacity:0.95;filter:alpha(opacity=95);padding:5px;">';
+            var tooltipHtml = '<div id="tooltipHtml">';
             // x value i.e. time
             var timeValue = str.split(',')[0];
             var seriesValue;
             tooltipHtml += 'Time: ' + timeValue;
-            tooltipHtml += '<span style="font-weight:bold;">';
+            tooltipHtml += '<span id="span1">';
             // Add y values to the tooltip per series
             for (j in plot.series) {
                 // get y value if present
