@@ -661,6 +661,10 @@ form.login label {
     font-weight: bold;
 }
 
+.max_height_400{
+    max-height: 400px;
+}
+
 .color_gray{
     color: gray;
 }
