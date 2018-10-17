@@ -173,6 +173,7 @@ body#loginform #page_content {
 
 body#loginform div.container
 {
+    color: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
     text-align: <?php echo $left; ?>;
     width: 48em;
     margin-left: auto;
