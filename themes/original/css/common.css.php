@@ -506,6 +506,15 @@ div.error h1 {
     border-color:       #ff0000;
 }
 
+div.error.modal{
+    position:           fixed;
+    bottom:             0;
+    left:               0;
+    right:              0;
+    margin:             0;
+    z-index:            1000;
+}
+
 .confirmation {
     background-color:   #FFFFCC;
 }
