@@ -17,15 +17,10 @@
         <testsuite name="Classes">
             <directory suffix="Test.php">test/classes</directory>
         </testsuite>
-        <testsuite name="Engines">
-            <directory suffix="_test.php">test/engines</directory>
-        </testsuite>
         <testsuite name="Unit">
-            <file>test/Environment_test.php</file>
-            <directory suffix="_test.php">test/libraries/core</directory>
-            <directory suffix="_test.php">test/libraries/common</directory>
-            <directory suffix="_test.php">test/libraries/rte</directory>
-            <directory suffix="_test.php">test/libraries</directory>
+            <file>test/EnvironmentTest.php</file>
+            <directory suffix="Test.php">test/libraries/common</directory>
+            <directory suffix="Test.php">test/libraries</directory>
         </testsuite>
         <testsuite name="Selenium">
             <directory suffix="Test.php">test/selenium</directory>
@@ -35,25 +30,21 @@
     <logging>
         <log type="coverage-clover" target="build/logs/clover.xml"/>
         <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
+        <log type="json" target="build/logs/phpunit.json" />
     </logging>
 
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">.</directory>
             <exclude>
+                <!-- composer packages -->
+                <directory>vendor/</directory>
                 <!-- excluding the tests from the coverage -->
                 <directory>test/</directory>
-                <!-- we don't care about coverage of embedded libraries -->
-                <directory suffix=".inc">libraries/php-gettext</directory>
-                <directory suffix=".php">libraries/bfShapeFiles</directory>
-                <directory suffix=".php">libraries/php-gettext</directory>
-                <directory suffix=".php">libraries/phpseclib</directory>
-                <directory suffix=".php">libraries/sql-parser</directory>
-                <directory suffix=".php">libraries/tcpdf</directory>
+                <!-- excluding the twig cache from the coverage -->
+                <directory>tmp/</directory>
                 <!-- examples for users -->
                 <directory suffix=".php">examples</directory>
-                <!-- maintenance scripts -->
-                <directory suffix=".php">scripts</directory>
             </exclude>
         </whitelist>
     </filter>

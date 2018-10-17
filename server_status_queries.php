@@ -6,36 +6,38 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-use PMA\libraries\Message;
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Server\Status\Queries;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/server_status_queries.lib.php';
 require_once 'libraries/replication.inc.php';
-require_once 'libraries/replication_gui.lib.php';
 
-$serverStatusData = new ServerStatusData();
+$serverStatusData = new Data();
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
-$scripts->addFile('server_status_queries.js');
 
 // for charting
 $scripts->addFile('chart.js');
-$scripts->addFile('jqplot/jquery.jqplot.js');
-$scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
-$scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
-$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('vendor/jqplot/jquery.jqplot.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.pieRenderer.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.highlighter.js');
+$scripts->addFile('vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js');
+$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('server_status_sorter.js');
+$scripts->addFile('server_status_queries.js');
 
 // Add the html content to the response
 $response->addHTML('<div>');
 $response->addHTML($serverStatusData->getMenuHtml());
 if ($serverStatusData->dataLoaded) {
-    $response->addHTML(PMA_getHtmlForQueryStatistics($serverStatusData));
+    $response->addHTML(Queries::getHtmlForQueryStatistics($serverStatusData));
 } else {
     $response->addHTML(
         Message::error(

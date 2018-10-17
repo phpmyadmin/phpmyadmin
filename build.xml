@@ -7,7 +7,7 @@
  <property name="env.PHPUNIT_XML" value="phpunit.xml.dist"/>
  <property name="env.PHPUNIT_XML_NOCOVERAGE" value="phpunit.xml.nocoverage"/>
  <property name="env.PHPUNIT_XML_HHVM" value="phpunit.xml.hhvm"/>
- <property name="env.PHPUNIT_ARGS" value=""/>
+ <property name="env.PHPUNIT_ARGS" value="--exclude-group selenium"/>
 
  <target name="clean" description="Clean up and create artifact directories">
   <delete dir="${basedir}/build/api"/>
@@ -55,7 +55,7 @@
    <arg line="${source_comma_sep}
               xml
               codesize,design,naming,unusedcode
-              --exclude test,build,tcpdf,php-gettext,bfShapeFiles,phpseclib,recaptchalib.php,vendor,sql-parser
+              --exclude test,build,vendor,tmp
               --reportfile '${basedir}/build/logs/pmd.xml'" />
   </exec>
  </target>
@@ -64,14 +64,9 @@
   <exec executable="phpcpd">
    <arg line="--log-pmd '${basedir}/build/logs/pmd-cpd.xml'
               --exclude test
+              --exclude tmp
               --exclude build
               --exclude vendor
-              --exclude libraries/tcpdf
-              --exclude libraries/php-gettext
-              --exclude libraries/bfShapeFiles
-              --exclude libraries/phpseclib
-              --exclude libraries/plugins/auth/recaptcha/recaptchalib.php
-              --exclude libraries/sql-parser
               ${source}" />
   </exec>
  </target>
@@ -82,26 +77,21 @@
               --exclude test
               --exclude build
               --exclude vendor
-              --exclude libraries/tcpdf
-              --exclude libraries/php-gettext
-              --exclude libraries/bfShapeFiles
-              --exclude libraries/phpseclib
-              --exclude libraries/plugins/auth/recaptcha/recaptchalib.php
-              --exclude libraries/sql-parser
+              --exclude tmp
               ${source}" />
   </exec>
  </target>
 
  <target name="phpcs-config" description="PHPCS configuration tweaking">
-  <exec executable="phpcs">
+  <exec executable="${basedir}/vendor/bin/phpcs">
    <arg line="--config-set installed_paths ${basedir}/vendor/phpmyadmin/coding-standard" />
   </exec>
  </target>
 
  <target name="phpcs" description="Generate checkstyle.xml using PHP_CodeSniffer excluding third party libraries" depends="phpcs-config">
-  <exec executable="phpcs">
+  <exec executable="${basedir}/vendor/bin/phpcs">
    <arg line="
-              --ignore=*/php-gettext/*,*/vendor/*,*/tcpdf/*,*/canvg/*,*/codemirror/*,*/openlayers/*,*/jquery/*,*/jqplot/*,*/build/*,*/bfShapeFiles/*,*/phpseclib/*,*/recaptcha/*,*/sql-parser/*
+              --ignore=*/vendor/*,*/build/*,*/tmp/*
               --report=checkstyle
               --extensions=php
               --report-file='${basedir}/build/logs/checkstyle.xml'
@@ -128,7 +118,7 @@
   <apply executable="jshint" output="${basedir}/build/logs/jshint-jslint.xml"  parallel="true">
    <arg line="--config ./.jshintrc --reporter=jslint" />
    <fileset dir="${basedir}">
-    <include name="js/pmd/*.js" />
+    <include name="js/designer/*.js" />
     <include name="js/*.js" />
     <include name="setup/*.js" />
    </fileset>
@@ -139,7 +129,7 @@
   <apply executable="jshint" output="${basedir}/build/logs/jshint-checkstyle.xml"  parallel="true">
    <arg line="--config ./.jshintrc --reporter=checkstyle" />
    <fileset dir="${basedir}">
-    <include name="js/pmd/*.js" />
+    <include name="js/designer/*.js" />
     <include name="js/*.js" />
     <include name="setup/*.js" />
    </fileset>

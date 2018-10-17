@@ -5,18 +5,17 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 /**
  * Include required files
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/mysql_charsets.inc.php';
 
 /**
  * Include all other files
  */
-require_once 'libraries/check_user_privileges.lib.php';
-require_once 'libraries/rte/rte_routines.lib.php';
+require_once 'libraries/check_user_privileges.inc.php';
 
 /**
  * Do the magic

@@ -1,32 +1,36 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * tests for PMA\libraries\File class
+ * tests for File class
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
+
+use PhpMyAdmin\File;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
- * tests for PMA\libraries\File class
+ * tests for PhpMyAdmin\File class
  *
  * @package PhpMyAdmin-test
  */
-class FileTest extends PMATestCase
+class FileTest extends PmaTestCase
 {
     /**
      * Setup function for test cases
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $GLOBALS['charset_conversion'] = false;
     }
 
     /**
-     * Test for PMA\libraries\File::getCompression
+     * Test for File::getCompression
      *
      * @param string $file file string
      * @param string $mime expected mime
@@ -36,12 +40,12 @@ class FileTest extends PMATestCase
      */
     public function testMIME($file, $mime)
     {
-        $arr = new PMA\libraries\File($file);
+        $arr = new File($file);
         $this->assertEquals($mime, $arr->getCompression());
     }
 
     /**
-     * Test for PMA\libraries\File::getContent
+     * Test for File::getContent
      *
      * @param string $file file string
      *
@@ -51,8 +55,25 @@ class FileTest extends PMATestCase
     public function testBinaryContent($file)
     {
         $data = '0x' . bin2hex(file_get_contents($file));
-        $file = new PMA\libraries\File($file);
+        $file = new File($file);
         $this->assertEquals($data, $file->getContent());
+    }
+
+    /**
+     * Test for File::read
+     *
+     * @param string $file file string
+     *
+     * @return void
+     * @dataProvider compressedFiles
+     */
+    public function testReadCompressed($file)
+    {
+        $file = new File($file);
+        $file->setDecompressContent(true);
+        $file->open();
+        $this->assertEquals("TEST FILE\n", $file->read(100));
+        $file->close();
     }
 
     /**
@@ -62,10 +83,10 @@ class FileTest extends PMATestCase
      */
     public function compressedFiles()
     {
-        return array(
-            array('./test/test_data/test.gz', 'application/gzip'),
-            array('./test/test_data/test.bz2', 'application/bzip2'),
-            array('./test/test_data/test.zip', 'application/zip'),
-            );
+        return [
+            ['./test/test_data/test.gz', 'application/gzip'],
+            ['./test/test_data/test.bz2', 'application/bzip2'],
+            ['./test/test_data/test.zip', 'application/zip'],
+        ];
     }
 }

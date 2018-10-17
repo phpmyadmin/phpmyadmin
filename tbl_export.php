@@ -5,30 +5,34 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\PageSettings;
-use PMA\libraries\Response;
+declare(strict_types=1);
+
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Display\Export;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 
 /**
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/display_export.lib.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
 
 PageSettings::showGroup('Export');
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
 
 // Get the relation settings
-$cfgRelation = PMA_getRelationsParam();
+$relation = new Relation($GLOBALS['dbi']);
+$cfgRelation = $relation->getRelationsParam();
+
+$displayExport = new Export();
 
 // handling export template actions
 if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
-    PMA_handleExportTemplateActions($cfgRelation);
+    $displayExport->handleTemplateActions($cfgRelation);
     exit;
 }
 
@@ -37,7 +41,6 @@ if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
  */
 require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_export.php&amp;back=tbl_export.php';
-require_once 'libraries/tbl_info.inc.php';
 
 // Dump of a table
 
@@ -47,15 +50,14 @@ $export_page_title = __('View dump (schema) of table');
 // generate WHERE clause (if we are asked to export specific rows)
 
 if (! empty($sql_query)) {
-    $parser = new SqlParser\Parser($sql_query);
+    $parser = new PhpMyAdmin\SqlParser\Parser($sql_query);
 
     if ((!empty($parser->statements[0]))
-        && ($parser->statements[0] instanceof SqlParser\Statements\SelectStatement)
+        && ($parser->statements[0] instanceof PhpMyAdmin\SqlParser\Statements\SelectStatement)
     ) {
-
         // Finding aliases and removing them, but we keep track of them to be
         // able to replace them in select expression too.
-        $aliases = array();
+        $aliases = [];
         foreach ($parser->statements[0]->from as $from) {
             if ((!empty($from->table)) && (!empty($from->alias))) {
                 $aliases[$from->alias] = $from->table;
@@ -70,59 +72,57 @@ if (! empty($sql_query)) {
         if (count($parser->statements[0]->from) > 0
             && count($parser->statements[0]->union) === 0
         ) {
-            $replaces = array(
-                array(
-                    'FROM', 'FROM ' . SqlParser\Components\ExpressionArray::build(
+            $replaces = [
+                [
+                    'FROM', 'FROM ' . PhpMyAdmin\SqlParser\Components\ExpressionArray::build(
                         $parser->statements[0]->from
                     ),
-                ),
-            );
+                ],
+            ];
         }
 
         // Checking if the WHERE clause has to be replaced.
         if ((!empty($where_clause)) && (is_array($where_clause))) {
-            $replaces[] = array(
+            $replaces[] = [
                 'WHERE', 'WHERE (' . implode(') OR (', $where_clause) . ')'
-            );
+            ];
         }
 
         // Preparing to remove the LIMIT clause.
-        $replaces[] = array('LIMIT', '');
+        $replaces[] = ['LIMIT', ''];
 
         // Replacing the clauses.
-        $sql_query = SqlParser\Utils\Query::replaceClauses(
+        $sql_query = PhpMyAdmin\SqlParser\Utils\Query::replaceClauses(
             $parser->statements[0],
             $parser->list,
             $replaces
         );
 
         // Removing the aliases by finding the alias followed by a dot.
-        $tokens = SqlParser\Lexer::getTokens($sql_query);
+        $tokens = PhpMyAdmin\SqlParser\Lexer::getTokens($sql_query);
         foreach ($aliases as $alias => $table) {
-            $tokens = SqlParser\Utils\Tokens::replaceTokens(
+            $tokens = PhpMyAdmin\SqlParser\Utils\Tokens::replaceTokens(
                 $tokens,
-                array(
-                    array(
+                [
+                    [
                         'value_str' => $alias,
-                    ),
-                    array(
-                        'type' => SqlParser\Token::TYPE_OPERATOR,
+                    ],
+                    [
+                        'type' => PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR,
                         'value_str' => '.',
-                    )
-                ),
-                array(
-                    new SqlParser\Token($table),
-                    new SqlParser\Token('.',SqlParser\Token::TYPE_OPERATOR)
-                )
+                    ]
+                ],
+                [
+                    new PhpMyAdmin\SqlParser\Token($table),
+                    new PhpMyAdmin\SqlParser\Token('.', PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR)
+                ]
             );
         }
-        $sql_query = SqlParser\TokensList::build($tokens);
+        $sql_query = PhpMyAdmin\SqlParser\TokensList::build($tokens);
     }
 
-    echo PMA\libraries\Util::getMessage(PMA\libraries\Message::success());
+    echo PhpMyAdmin\Util::getMessage(PhpMyAdmin\Message::success());
 }
-
-require_once 'libraries/display_export.lib.php';
 
 if (! isset($sql_query)) {
     $sql_query = '';
@@ -138,8 +138,13 @@ if (! isset($multi_values)) {
 }
 $response = Response::getInstance();
 $response->addHTML(
-    PMA_getExportDisplay(
-        'table', $db, $table, $sql_query, $num_tables,
-        $unlim_num_rows, $multi_values
+    $displayExport->getDisplay(
+        'table',
+        $db,
+        $table,
+        $sql_query,
+        $num_tables,
+        $unlim_num_rows,
+        $multi_values
     )
 );

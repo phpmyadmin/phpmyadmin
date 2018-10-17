@@ -20,8 +20,7 @@
  *
  * @return bool|string
  */
-function PMA_checkIfDataTypeNumericOrDate(data_type)
-{
+function PMA_checkIfDataTypeNumericOrDate (data_type) {
     // To test for numeric data-types.
     var numeric_re = new RegExp(
         'TINYINT|SMALLINT|MEDIUMINT|INT|BIGINT|DECIMAL|FLOAT|DOUBLE|REAL',
@@ -50,11 +49,11 @@ function PMA_checkIfDataTypeNumericOrDate(data_type)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_select.js', function () {
-    $('#togglesearchformlink').unbind('click');
-    $(document).off('submit', "#tbl_search_form.ajax");
-    $('select.geom_func').unbind('change');
+    $('#togglesearchformlink').off('click');
+    $(document).off('submit', '#tbl_search_form.ajax');
+    $('select.geom_func').off('change');
     $(document).off('click', 'span.open_search_gis_editor');
-    $('body').off('click', 'select[name*="criteriaColumnOperators"]');
+    $('body').off('change', 'select[name*="criteriaColumnOperators"]'); // Fix for bug #13778, changed 'click' to 'change'
 });
 
 AJAX.registerOnload('tbl_select.js', function () {
@@ -69,10 +68,10 @@ AJAX.registerOnload('tbl_select.js', function () {
 
     $('#togglesearchformlink')
         .html(PMA_messages.strShowSearchCriteria)
-        .bind('click', function () {
+        .on('click', function () {
             var $link = $(this);
             $('#tbl_search_form').slideToggle();
-            if ($link.text() == PMA_messages.strHideSearchCriteria) {
+            if ($link.text() === PMA_messages.strHideSearchCriteria) {
                 $link.text(PMA_messages.strShowSearchCriteria);
             } else {
                 $link.text(PMA_messages.strHideSearchCriteria);
@@ -81,15 +80,22 @@ AJAX.registerOnload('tbl_select.js', function () {
             return false;
         });
 
+    var tableRows = $('#fieldset_table_qbe select');
+    $.each(tableRows, function (index, item) {
+        $(item).on('change', function () {
+            changeValueFieldType(this, index);
+        });
+    });
+
     /**
      * Ajax event handler for Table search
      */
-    $(document).on('submit', "#tbl_search_form.ajax", function (event) {
+    $(document).on('submit', '#tbl_search_form.ajax', function (event) {
         var unaryFunctions = [
             'IS NULL',
             'IS NOT NULL',
-            "= ''",
-            "!= ''"
+            '= \'\'',
+            '!= \'\''
         ];
 
         var geomUnaryFunctions = [
@@ -104,7 +110,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         event.preventDefault();
 
         // empty previous search results while we are waiting for new results
-        $("#sqlqueryresultsouter").empty();
+        $('#sqlqueryresultsouter').empty();
         var $msgbox = PMA_ajaxShowMessage(PMA_messages.strSearching, false);
 
         PMA_prepareForAjaxRequest($search_form);
@@ -112,7 +118,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         var values = {};
         $search_form.find(':input').each(function () {
             var $input = $(this);
-            if ($input.attr('type') == 'checkbox' || $input.attr('type') == 'radio') {
+            if ($input.attr('type') === 'checkbox' || $input.attr('type') === 'radio') {
                 if ($input.is(':checked')) {
                     values[this.name] = $input.val();
                 }
@@ -129,7 +135,7 @@ AJAX.registerOnload('tbl_select.js', function () {
 
             if (values['geom_func[' + a + ']'] &&
                 $.isArray(values['geom_func[' + a + ']'], geomUnaryFunctions) >= 0) {
-            	continue;
+                continue;
             }
 
             if (values['criteriaValues[' + a + ']'] === '' || values['criteriaValues[' + a + ']'] === null) {
@@ -142,7 +148,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         }
         // If all columns are selected, use a single parameter to indicate that
         if (values['columnsToDisplay[]'] !== null) {
-            if (values['columnsToDisplay[]'].length == columnCount) {
+            if (values['columnsToDisplay[]'].length === columnCount) {
                 delete values['columnsToDisplay[]'];
                 values.displayAllColumns = true;
             }
@@ -154,10 +160,10 @@ AJAX.registerOnload('tbl_select.js', function () {
             PMA_ajaxRemoveMessage($msgbox);
             if (typeof data !== 'undefined' && data.success === true) {
                 if (typeof data.sql_query !== 'undefined') { // zero rows
-                    $("#sqlqueryresultsouter").html(data.sql_query);
+                    $('#sqlqueryresultsouter').html(data.sql_query);
                 } else { // results found
-                    $("#sqlqueryresultsouter").html(data.message);
-                    $(".sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
+                    $('#sqlqueryresultsouter').html(data.message);
+                    $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
                 }
                 $('#tbl_search_form')
                     // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
@@ -171,9 +177,9 @@ AJAX.registerOnload('tbl_select.js', function () {
                     .show();
                 // needed for the display options slider in the results
                 PMA_init_slider();
-                $('html, body').animate({scrollTop: 0}, 'fast');
+                $('html, body').animate({ scrollTop: 0 }, 'fast');
             } else {
-                $("#sqlqueryresultsouter").html(data.error);
+                $('#sqlqueryresultsouter').html(data.error);
             }
             PMA_highlightSQL($('#sqlqueryresultsouter'));
         }); // end $.post()
@@ -237,7 +243,6 @@ AJAX.registerOnload('tbl_select.js', function () {
         } else {
             $editorSpan.hide();
         }
-
     });
 
     $(document).on('click', 'span.open_search_gis_editor', function (event) {
@@ -245,36 +250,35 @@ AJAX.registerOnload('tbl_select.js', function () {
 
         var $span = $(this);
         // Current value
-        var value = $span.parent('td').children("input[type='text']").val();
+        var value = $span.parent('td').children('input[type=\'text\']').val();
         // Field name
         var field = 'Parameter';
         // Column type
         var geom_func = $span.parents('tr').find('.geom_func').val();
         var type;
-        if (geom_func == 'Envelope') {
+        if (geom_func === 'Envelope') {
             type = 'polygon';
-        } else if (geom_func == 'ExteriorRing') {
+        } else if (geom_func === 'ExteriorRing') {
             type = 'linestring';
         } else {
             type = 'point';
         }
         // Names of input field and null checkbox
-        var input_name = $span.parent('td').children("input[type='text']").attr('name');
-        //Token
-        var token = $("input[name='token']").val();
+        var input_name = $span.parent('td').children('input[type=\'text\']').attr('name');
+        // Token
 
         openGISEditor();
         if (!gisEditorLoaded) {
-            loadJSAndGISEditor(value, field, type, input_name, token);
+            loadJSAndGISEditor(value, field, type, input_name);
         } else {
-            loadGISEditor(value, field, type, input_name, token);
+            loadGISEditor(value, field, type, input_name);
         }
     });
 
     /**
      * Ajax event handler for Range-Search.
      */
-    $('body').on('click', 'select[name*="criteriaColumnOperators"]', function () {
+    $('body').on('change', 'select[name*="criteriaColumnOperators"]', function () { // Fix for bug #13778, changed 'click' to 'change'
         $source_select = $(this);
         // Get the column name.
         var column_name = $(this)
@@ -292,7 +296,7 @@ AJAX.registerOnload('tbl_select.js', function () {
         // Get the operator.
         var operator = $(this).val();
 
-        if ((operator == 'BETWEEN' || operator == 'NOT BETWEEN')
+        if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN')
             && data_type
         ) {
             var $msgbox = PMA_ajaxShowMessage();
@@ -300,7 +304,7 @@ AJAX.registerOnload('tbl_select.js', function () {
                 url: 'tbl_select.php',
                 type: 'POST',
                 data: {
-                    token: $('input[name="token"]').val(),
+                    server: PMA_commonParams.get('server'),
                     ajax_request: 1,
                     db: $('input[name="db"]').val(),
                     table: $('input[name="table"]').val(),
@@ -360,10 +364,10 @@ AJAX.registerOnload('tbl_select.js', function () {
                             } else {
                                 $target_field.val(final_value);
                             }
-                            $(this).dialog("close");
+                            $(this).dialog('close');
                         };
                         button_options[PMA_messages.strCancel] = function () {
-                            $(this).dialog("close");
+                            $(this).dialog('close');
                         };
 
                         // Display dialog box.
@@ -404,4 +408,6 @@ AJAX.registerOnload('tbl_select.js', function () {
             });
         }
     });
+    var windowwidth = $(window).width();
+    $('.jsresponsive').css('max-width', (windowwidth - 69) + 'px');
 });

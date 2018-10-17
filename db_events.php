@@ -5,16 +5,12 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 /**
  * Include required files
  */
 require_once 'libraries/common.inc.php';
-
-/**
- * Include all other files
- */
-require_once 'libraries/rte/rte_events.lib.php';
 
 /**
  * Do the magic

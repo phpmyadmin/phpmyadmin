@@ -5,20 +5,32 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\CreateAddField;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Get some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/create_addfield.lib.php';
 
 // Check parameters
-PMA\libraries\Util::checkParameters(array('db'));
+Util::checkParameters(['db']);
+
+$transformations = new Transformations();
 
 /* Check if database name is empty */
-if (mb_strlen($db) == 0) {
-    PMA\libraries\Util::mysqlDie(
-        __('The database name is empty!'), '', false, 'index.php'
+if (strlen($db) === 0) {
+    Util::mysqlDie(
+        __('The database name is empty!'),
+        '',
+        false,
+        'index.php'
     );
 }
 
@@ -26,7 +38,7 @@ if (mb_strlen($db) == 0) {
  * Selects the database to work with
  */
 if (!$GLOBALS['dbi']->selectDb($db)) {
-    PMA\libraries\Util::mysqlDie(
+    Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
         false,
@@ -36,17 +48,19 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
 
 if ($GLOBALS['dbi']->getColumns($db, $table)) {
     // table exists already
-    PMA\libraries\Util::mysqlDie(
+    Util::mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         false,
-        'db_structure.php' . PMA_URL_getCommon(array('db' => $db))
+        'db_structure.php' . Url::getCommon(['db' => $db])
     );
 }
 
+$createAddField = new CreateAddField($GLOBALS['dbi']);
+
 // for libraries/tbl_columns_definition_form.inc.php
 // check number of fields to be created
-$num_fields = PMA_getNumberOfFieldsFromRequest();
+$num_fields = $createAddField->getNumberOfFieldsFromRequest();
 
 $action = 'tbl_create.php';
 
@@ -54,18 +68,16 @@ $action = 'tbl_create.php';
  * The form used to define the structure of the table has been submitted
  */
 if (isset($_REQUEST['do_save_data'])) {
-    $sql_query = PMA_getTableCreationQuery($db, $table);
+    $sql_query = $createAddField->getTableCreationQuery($db, $table);
 
     // If there is a request for SQL previewing.
     if (isset($_REQUEST['preview_sql'])) {
-        PMA_previewSQL($sql_query);
+        Core::previewSQL($sql_query);
     }
     // Executes the query
     $result = $GLOBALS['dbi']->tryQuery($sql_query);
 
     if ($result) {
-        // If comments were sent, enable relation stuff
-        include_once 'libraries/transformations.lib.php';
         // Update comment table for mime types [MIME]
         if (isset($_REQUEST['field_mimetype'])
             && is_array($_REQUEST['field_mimetype'])
@@ -73,11 +85,13 @@ if (isset($_REQUEST['do_save_data'])) {
         ) {
             foreach ($_REQUEST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (isset($_REQUEST['field_name'][$fieldindex])
-                    && mb_strlen($_REQUEST['field_name'][$fieldindex])
+                    && strlen($_REQUEST['field_name'][$fieldindex]) > 0
                 ) {
-                    PMA_setMIME(
-                        $db, $table,
-                        $_REQUEST['field_name'][$fieldindex], $mimetype,
+                    $transformations->setMime(
+                        $db,
+                        $table,
+                        $_REQUEST['field_name'][$fieldindex],
+                        $mimetype,
                         $_REQUEST['field_transformation'][$fieldindex],
                         $_REQUEST['field_transformation_options'][$fieldindex],
                         $_REQUEST['field_input_transformation'][$fieldindex],
@@ -87,7 +101,7 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
     } else {
-        $response = PMA\libraries\Response::getInstance();
+        $response = Response::getInstance();
         $response->setRequestStatus(false);
         $response->addJSON('message', $GLOBALS['dbi']->getError());
     }

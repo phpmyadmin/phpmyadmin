@@ -52,21 +52,21 @@ class ConfigOption(ObjectDescription):
         # Generic index entries
         indexentry = self.indextemplate % (name,)
         self.indexnode['entries'].append((indextype, indexentry,
-                                          targetname, targetname))
+                                          targetname, targetname, None))
         self.indexnode['entries'].append((indextype, name,
-                                          targetname, targetname))
+                                          targetname, targetname, None))
 
         # Server section
         if targetparts[0] == 'Servers' and len(targetparts) > 1:
             indexname = ', '.join(targetparts[1:])
             self.indexnode['entries'].append((indextype, 'server configuration; %s' % indexname,
-                                              targetname, targetname))
+                                              targetname, targetname, None))
             self.indexnode['entries'].append((indextype, indexname,
-                                              targetname, targetname))
+                                              targetname, targetname, None))
         else:
             indexname = ', '.join(targetparts)
             self.indexnode['entries'].append((indextype, indexname,
-                                              targetname, targetname))
+                                              targetname, targetname, None))
 
         self.env.domaindata['config']['objects'][self.objtype, name] = \
             self.env.docname, targetname
@@ -84,8 +84,8 @@ class ConfigSectionXRefRole(XRefRole):
         tgtid = 'index-%s' % env.new_serialno('index')
         indexnode = addnodes.index()
         indexnode['entries'] = [
-            ('single', varname, tgtid, varname),
-            ('single', 'configuration section; %s' % varname, tgtid, varname)
+            ('single', varname, tgtid, varname, None),
+            ('single', 'configuration section; %s' % varname, tgtid, varname, None)
         ]
         targetnode = nodes.target('', '', ids=[tgtid])
         document.note_explicit_target(targetnode)
@@ -118,7 +118,7 @@ class ConfigSection(ObjectDescription):
                 indextype = 'single'
                 indexentry = self.indextemplate % (name,)
             self.indexnode['entries'].append((indextype, indexentry,
-                                              targetname, targetname))
+                                              targetname, targetname, None))
         self.env.domaindata['config']['objects'][self.objtype, name] = \
             self.env.docname, targetname
 
@@ -135,8 +135,8 @@ class ConfigOptionXRefRole(XRefRole):
         tgtid = 'index-%s' % env.new_serialno('index')
         indexnode = addnodes.index()
         indexnode['entries'] = [
-            ('single', varname, tgtid, varname),
-            ('single', 'configuration option; %s' % varname, tgtid, varname)
+            ('single', varname, tgtid, varname, None),
+            ('single', 'configuration option; %s' % varname, tgtid, varname, None)
         ]
         targetnode = nodes.target('', '', ids=[tgtid])
         document.note_explicit_target(targetnode)
@@ -165,9 +165,12 @@ class ConfigFileDomain(Domain):
     }
 
     def clear_doc(self, docname):
+        toremove = []
         for key, (fn, _) in self.data['objects'].items():
             if fn == docname:
-                del self.data['objects'][key]
+                toremove.append(key)
+        for key in toremove:
+            del self.data['objects'][key]
 
     def resolve_xref(self, env, fromdocname, builder,
                      typ, target, node, contnode):
@@ -185,4 +188,3 @@ class ConfigFileDomain(Domain):
 
 def setup(app):
     app.add_domain(ConfigFileDomain)
-

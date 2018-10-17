@@ -5,31 +5,31 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\PageSettings;
+declare(strict_types=1);
+
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\SqlQueryForm;
 
 /**
  *
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
 
-PageSettings::showGroup('Sql_queries');
+PageSettings::showGroup('Sql');
 
 /**
  * Runs common work
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('makegrid.js');
-$scripts->addFile('jquery/jquery.uitablefilter.js');
+$scripts->addFile('vendor/jquery/jquery.uitablefilter.js');
 $scripts->addFile('sql.js');
 
 require 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
-
-require_once 'libraries/sql_query_form.lib.php';
 
 $err_url   = 'tbl_sql.php' . $err_url;
 // After a syntax error, we return to this script
@@ -37,17 +37,15 @@ $err_url   = 'tbl_sql.php' . $err_url;
 $goto = 'tbl_sql.php';
 $back = 'tbl_sql.php';
 
-/**
- * Get table information
- */
-require_once 'libraries/tbl_info.inc.php';
+$sqlQueryForm = new SqlQueryForm();
 
 /**
  * Query box, bookmark, insert data from textfile
  */
 $response->addHTML(
-    PMA_getHtmlForSqlQueryForm(
-        true, false,
+    $sqlQueryForm->getHtml(
+        true,
+        false,
         isset($_REQUEST['delimiter'])
         ? htmlspecialchars($_REQUEST['delimiter'])
         : ';'

@@ -5,32 +5,27 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
-/*
- * Include to test.
- */
-use PMA\libraries\Menu;
-use PMA\libraries\Theme;
+namespace PhpMyAdmin\Tests;
 
-require_once 'libraries/sanitizing.lib.php';
-require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/url_generating.lib.php';
-require_once 'libraries/relation.lib.php';
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Menu;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for Menu class
  *
  * @package PhpMyAdmin-test
  */
-class MenuTest extends PMATestCase
+class MenuTest extends PmaTestCase
 {
     /**
      * Configures global environment.
      *
      * @return void
      */
-    function setup()
+    protected function setUp()
     {
         if (!defined('PMA_IS_WINDOWS')) {
             define('PMA_IS_WINDOWS', false);
@@ -38,10 +33,8 @@ class MenuTest extends PMATestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
         $GLOBALS['server'] = 0;
         $GLOBALS['cfg']['Server']['verbose'] = 'verbose host';
-        $_SESSION['PMA_Theme'] = new Theme();
-        $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
-        $GLOBALS['pmaThemeImage'] = 'theme/';
-        $GLOBALS['PMA_PHP_SELF'] = PMA_getenv('PHP_SELF');
+        $GLOBALS['pmaThemePath'] = $GLOBALS['PMA_Theme']->getPath();
+        $GLOBALS['PMA_PHP_SELF'] = Core::getenv('PHP_SELF');
         $GLOBALS['server'] = 'server';
         $GLOBALS['db'] = 'pma_test';
         $GLOBALS['table'] = 'table1';
@@ -52,7 +45,7 @@ class MenuTest extends PMATestCase
      *
      * @return void
      */
-    function testServer()
+    public function testServer()
     {
         $menu = new Menu('server', '', '');
         $this->assertContains(
@@ -66,7 +59,7 @@ class MenuTest extends PMATestCase
      *
      * @return void
      */
-    function testDatabase()
+    public function testDatabase()
     {
         $menu = new Menu('server', 'pma_test', '');
         $this->assertContains(
@@ -80,7 +73,7 @@ class MenuTest extends PMATestCase
      *
      * @return void
      */
-    function testTable()
+    public function testTable()
     {
         $menu = new Menu('server', 'pma_test', 'table1');
         $this->assertContains(
@@ -94,7 +87,7 @@ class MenuTest extends PMATestCase
      *
      * @return void
      */
-    function testTableDisplay()
+    public function testTableDisplay()
     {
         $menu = new Menu('server', 'pma_test', '');
         $this->expectOutputString(
@@ -109,7 +102,7 @@ class MenuTest extends PMATestCase
      *
      * @return void
      */
-    function testSetTable()
+    public function testSetTable()
     {
         $menu = new Menu('server', 'pma_test', '');
         $menu->setTable('table1');

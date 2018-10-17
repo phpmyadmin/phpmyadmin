@@ -1,0 +1,31 @@
+<li class="{{ class }}">
+{% if type == 'text'
+    or type == 'blob'
+    or tbl_storage_engine == 'ARCHIVE'
+    or has_field %}
+    {{ titles['No' ~ action]|raw }}
+{% else %}
+    <a rel="samepage" class="ajax add_key print_ignore
+        {%- if has_link_class %}
+            add_primary_key_anchor
+        {%- elseif action == 'Index' %}
+            add_index_anchor
+        {%- elseif action == 'Unique' %}
+            add_unique_anchor
+        {%- elseif action == 'Spatial' %}
+            add_spatial_anchor
+        {%- endif %}" href="tbl_structure.php" data-post="{{ url_query|raw -}}
+        &amp;add_key=1&amp;sql_query=
+        {{- ('ALTER TABLE ' ~
+            backquote(table) ~
+            (is_primary ? (primary ? ' DROP PRIMARY KEY,')) ~
+            ' ' ~
+            syntax ~
+            '(' ~
+            backquote(row['Field']) ~
+            ');')|url_encode -}}
+            &amp;message_to_show={{ message|format(row['Field']|e)|url_encode }}">
+        {{ titles[action]|raw }}
+    </a>
+{% endif %}
+</li>

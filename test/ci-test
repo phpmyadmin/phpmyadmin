@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium

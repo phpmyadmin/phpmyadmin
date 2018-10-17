@@ -5,16 +5,19 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\PageSettings;
-use PMA\libraries\Response;
+declare(strict_types=1);
+
+use PhpMyAdmin\Config\PageSettings;
+use PhpMyAdmin\Display\Export as DisplayExport;
+use PhpMyAdmin\Export;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Util;
 
 /**
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/config/user_preferences.forms.php';
-require_once 'libraries/config/page_settings.forms.php';
-require_once 'libraries/export.lib.php';
 
 PageSettings::showGroup('Export');
 
@@ -23,7 +26,9 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('export.js');
 
-// $sub_part is used in PMA\libraries\Util::getDbInfo() to see if we are coming from
+$export = new Export();
+
+// $sub_part is used in Util::getDbInfo() to see if we are coming from
 // db_export.php, in which case we don't obey $cfg['MaxTableList']
 $sub_part  = '_export';
 require_once 'libraries/db_common.inc.php';
@@ -39,7 +44,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = PMA\libraries\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
 
 /**
  * Displays the form
@@ -48,7 +53,9 @@ $export_page_title = __('View dump (schema) of database');
 
 // exit if no tables in db found
 if ($num_tables < 1) {
-    PMA\libraries\Message::error(__('No tables found in database.'))->display();
+    $response->addHTML(
+        Message::error(__('No tables found in database.'))->getDisplay()
+    );
     exit;
 } // end if
 
@@ -83,7 +90,7 @@ if (!empty($_POST['selected_tbl']) && empty($table_select)) {
 
 // Check if the selected tables are defined in $_GET
 // (from clicking Back button on export.php)
-foreach (array('table_select', 'table_structure', 'table_data') as $one_key) {
+foreach (['table_select', 'table_structure', 'table_data'] as $one_key) {
     if (isset($_GET[$one_key])) {
         $_GET[$one_key] = urldecode($_GET[$one_key]);
         $_GET[$one_key] = explode(",", $_GET[$one_key]);
@@ -92,34 +99,38 @@ foreach (array('table_select', 'table_structure', 'table_data') as $one_key) {
 
 foreach ($tables as $each_table) {
     if (isset($_GET['table_select']) && is_array($_GET['table_select'])) {
-        $is_checked = PMA_getCheckedClause(
-            $each_table['Name'], $_GET['table_select']
+        $is_checked = $export->getCheckedClause(
+            $each_table['Name'],
+            $_GET['table_select']
         );
     } elseif (isset($table_select)) {
-        $is_checked = PMA_getCheckedClause(
-            $each_table['Name'], $table_select
+        $is_checked = $export->getCheckedClause(
+            $each_table['Name'],
+            $table_select
         );
     } else {
         $is_checked = ' checked="checked"';
     }
     if (isset($_GET['table_structure']) && is_array($_GET['table_structure'])) {
-        $structure_checked = PMA_getCheckedClause(
-            $each_table['Name'], $_GET['table_structure']
+        $structure_checked = $export->getCheckedClause(
+            $each_table['Name'],
+            $_GET['table_structure']
         );
     } else {
         $structure_checked = $is_checked;
     }
     if (isset($_GET['table_data']) && is_array($_GET['table_data'])) {
-        $data_checked = PMA_getCheckedClause(
-            $each_table['Name'], $_GET['table_data']
+        $data_checked = $export->getCheckedClause(
+            $each_table['Name'],
+            $_GET['table_data']
         );
     } else {
         $data_checked = $is_checked;
     }
     $table_html   = htmlspecialchars($each_table['Name']);
-    $multi_values .= '<tr>';
+    $multi_values .= '<tr class="marked">';
     $multi_values .= '<td><input type="checkbox" name="table_select[]"'
-        . ' value="' . $table_html . '"' . $is_checked . ' /></td>';
+        . ' value="' . $table_html . '"' . $is_checked . ' class="checkall"/></td>';
     $multi_values .= '<td class="export_table_name">'
         . str_replace(' ', '&nbsp;', $table_html) . '</td>';
     $multi_values .= '<td class="export_structure">'
@@ -134,7 +145,6 @@ foreach ($tables as $each_table) {
 $multi_values .= "\n";
 $multi_values .= '</tbody></table></div>';
 
-require_once 'libraries/display_export.lib.php';
 if (! isset($sql_query)) {
     $sql_query = '';
 }
@@ -144,13 +154,19 @@ if (! isset($num_tables)) {
 if (! isset($unlim_num_rows)) {
     $unlim_num_rows = 0;
 }
-if (! isset($multi_values)) {
+if (is_null($multi_values)) {
     $multi_values = '';
 }
 $response = Response::getInstance();
+$displayExport = new DisplayExport();
 $response->addHTML(
-    PMA_getExportDisplay(
-        'database', $db, $table, $sql_query, $num_tables,
-        $unlim_num_rows, $multi_values
+    $displayExport->getDisplay(
+        'database',
+        $db,
+        $table,
+        $sql_query,
+        $num_tables,
+        $unlim_num_rows,
+        $multi_values
     )
 );

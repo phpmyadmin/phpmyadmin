@@ -25,7 +25,7 @@ var processList = {
      *
      * @return void
      */
-    init: function() {
+    init: function () {
         processList.setRefreshLabel();
         if (processList.refreshUrl === null) {
             processList.refreshUrl = 'server_status_processes.php' +
@@ -45,12 +45,12 @@ var processList = {
      *
      * @return void
      */
-    killProcessHandler: function(event) {
+    killProcessHandler: function (event) {
         event.preventDefault();
         var url = $(this).attr('href');
         // Get row element of the process to be killed.
         var $tr = $(this).closest('tr');
-        $.getJSON(url, function(data) {
+        $.getJSON(url, function (data) {
             // Check if process was killed or not.
             if (data.hasOwnProperty('success') && data.success) {
                 // remove the row of killed process.
@@ -76,7 +76,7 @@ var processList = {
      *
      * @return void
      */
-    refresh: function(event) {
+    refresh: function (event) {
         // abort any previous pending requests
         // this is necessary, it may go into
         // multiple loops causing unnecessary
@@ -88,7 +88,7 @@ var processList = {
             var urlParams = processList.getUrlParams();
             processList.refreshRequest = $.get(processList.refreshUrl,
                 urlParams,
-                function(data) {
+                function (data) {
                     if (data.hasOwnProperty('success') && data.success) {
                         $newTable = $(data.message);
                         $('#tableprocesslist').html($newTable.html());
@@ -107,7 +107,7 @@ var processList = {
      *
      * @return void
      */
-    abortRefresh: function() {
+    abortRefresh: function () {
         if (processList.refreshRequest !== null) {
             processList.refreshRequest.abort();
             processList.refreshRequest = null;
@@ -121,11 +121,11 @@ var processList = {
      *
      * @return void
      */
-    setRefreshLabel: function() {
-        var img = 'play.png';
+    setRefreshLabel: function () {
+        var img = 'play';
         var label = PMA_messages.strStartRefresh;
         if (processList.autoRefresh) {
-            img = 'pause.png';
+            img = 'pause';
             label = PMA_messages.strStopRefresh;
             processList.refresh();
         }
@@ -139,9 +139,9 @@ var processList = {
      *
      * @return urlParams - url parameters with autoRefresh request
      */
-    getUrlParams: function() {
+    getUrlParams: function () {
         var urlParams = { 'ajax_request': true, 'refresh': true };
-        if ($('#showExecuting').is(":checked")) {
+        if ($('#showExecuting').is(':checked')) {
             urlParams.showExecuting = true;
             return urlParams;
         }
@@ -149,8 +149,7 @@ var processList = {
     }
 };
 
-AJAX.registerOnload('server_status_processes.js', function() {
-
+AJAX.registerOnload('server_status_processes.js', function () {
     processList.init();
     // Bind event handler for kill_process
     $('#tableprocesslist').on(
@@ -159,18 +158,18 @@ AJAX.registerOnload('server_status_processes.js', function() {
         processList.killProcessHandler
     );
     // Bind event handler for toggling refresh of process list
-    $('a#toggleRefresh').on('click', function(event) {
+    $('a#toggleRefresh').on('click', function (event) {
         event.preventDefault();
         processList.autoRefresh = !processList.autoRefresh;
         processList.setRefreshLabel();
     });
     // Bind event handler for change in refresh rate
-    $('#id_refreshRate').on('change', function(event) {
+    $('#id_refreshRate').on('change', function (event) {
         processList.refreshInterval = $(this).val();
         processList.refresh();
     });
     // Bind event handler for table header links
-    $('#tableprocesslist').on('click', 'thead a', function() {
+    $('#tableprocesslist').on('click', 'thead a', function () {
         processList.refreshUrl = $(this).attr('href');
     });
 });
@@ -178,7 +177,7 @@ AJAX.registerOnload('server_status_processes.js', function() {
 /**
  * Unbind all event handlers before tearing down a page
  */
-AJAX.registerTeardown('server_status_processes.js', function() {
+AJAX.registerTeardown('server_status_processes.js', function () {
     $('#tableprocesslist').off('click', 'a.kill_process');
     $('a#toggleRefresh').off('click');
     $('#id_refreshRate').off('change');

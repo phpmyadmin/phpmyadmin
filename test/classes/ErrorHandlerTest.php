@@ -4,22 +4,20 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests;
 
-use PMA\libraries\Theme;
-
-require_once 'libraries/sanitizing.lib.php';
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\Tests\PmaTestCase;
+use ReflectionClass;
 
 /**
- * Test for PMA\libraries\ErrorHandler class.
+ * Test for PhpMyAdmin\ErrorHandler class.
  *
  * @package PhpMyAdmin-test
  */
-class ErrorHandlerTest extends PMATestCase
+class ErrorHandlerTest extends PmaTestCase
 {
     /**
      * @access protected
@@ -35,11 +33,7 @@ class ErrorHandlerTest extends PMATestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA\libraries\ErrorHandler();
-
-        $GLOBALS['pmaThemeImage'] = 'image';
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
-        $_SESSION['PMA_Theme'] = new Theme();
+        $this->object = new ErrorHandler();
     }
 
     /**
@@ -60,11 +54,11 @@ class ErrorHandlerTest extends PMATestCase
      * @param string $name   method name
      * @param array  $params parameters for the invocation
      *
-     * @return the output from the protected method.
+     * @return mixed the output from the protected method.
      */
     private function _callProtectedFunction($name, $params)
     {
-        $class = new ReflectionClass('PMA\libraries\ErrorHandler');
+        $class = new ReflectionClass(ErrorHandler::class);
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs($this->object, $params);
@@ -77,24 +71,24 @@ class ErrorHandlerTest extends PMATestCase
      */
     public function providerForTestHandleError()
     {
-        return array(
-            array(
+        return [
+            [
                 E_RECOVERABLE_ERROR,
                 'Compile Error',
                 'error.txt',
                 12,
                 'Compile Error',
                 '',
-            ),
-            array(
+            ],
+            [
                 E_USER_NOTICE,
                 'User notice',
                 'error.txt',
                 12,
                 'User notice',
                 'User notice',
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -114,7 +108,12 @@ class ErrorHandlerTest extends PMATestCase
      * @dataProvider providerForTestHandleError
      */
     public function testGetDispErrorsForDisplayFalse(
-        $errno, $errstr, $errfile, $errline, $output_show, $output_hide
+        $errno,
+        $errstr,
+        $errfile,
+        $errline,
+        $output_show,
+        $output_hide
     ) {
         // TODO: Add other test cases for all combination of 'sendErrorReports'
         $GLOBALS['cfg']['SendErrorReports'] = 'never';
@@ -147,7 +146,12 @@ class ErrorHandlerTest extends PMATestCase
      * @dataProvider providerForTestHandleError
      */
     public function testGetDispErrorsForDisplayTrue(
-        $errno, $errstr, $errfile, $errline, $output_show, $output_hide
+        $errno,
+        $errstr,
+        $errfile,
+        $errline,
+        $output_show,
+        $output_hide
     ) {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
@@ -155,7 +159,6 @@ class ErrorHandlerTest extends PMATestCase
             $output_show,
             $this->object->getDispErrors()
         );
-
     }
 
     /**
@@ -166,13 +169,13 @@ class ErrorHandlerTest extends PMATestCase
     public function testCheckSavedErrors()
     {
 
-        $_SESSION['errors'] = array();
+        $_SESSION['errors'] = [];
 
         $this->_callProtectedFunction(
             'checkSavedErrors',
-            array()
+            []
         );
-        $this->assertTrue(!isset($_SESSION['errors']));
+        $this->assertArrayNotHasKey('errors', $_SESSION);
     }
 
     /**
@@ -185,7 +188,10 @@ class ErrorHandlerTest extends PMATestCase
     public function testCountErrors()
     {
         $this->object->addError(
-            'Compile Error', E_WARNING, 'error.txt', 15
+            'Compile Error',
+            E_WARNING,
+            'error.txt',
+            15
         );
         $this->assertEquals(
             1,
@@ -203,23 +209,26 @@ class ErrorHandlerTest extends PMATestCase
     public function testSliceErrors()
     {
         $this->object->addError(
-            'Compile Error', E_WARNING, 'error.txt', 15
+            'Compile Error',
+            E_WARNING,
+            'error.txt',
+            15
         );
         $this->assertEquals(
             1,
             $this->object->countErrors()
         );
         $this->assertEquals(
-            array(),
+            [],
             $this->object->sliceErrors(1)
         );
         $this->assertEquals(
             1,
             $this->object->countErrors()
         );
-        $this->assertEquals(
+        $this->assertCount(
             1,
-            count($this->object->sliceErrors(0))
+            $this->object->sliceErrors(0)
         );
         $this->assertEquals(
             0,
@@ -235,14 +244,20 @@ class ErrorHandlerTest extends PMATestCase
     public function testCountUserErrors()
     {
         $this->object->addError(
-            'Compile Error', E_WARNING, 'error.txt', 15
+            'Compile Error',
+            E_WARNING,
+            'error.txt',
+            15
         );
         $this->assertEquals(
             0,
             $this->object->countUserErrors()
         );
         $this->object->addError(
-            'Compile Error', E_USER_WARNING, 'error.txt', 15
+            'Compile Error',
+            E_USER_WARNING,
+            'error.txt',
+            15
         );
         $this->assertEquals(
             1,

@@ -5,12 +5,13 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 /**
  * Gets core libraries and defines some variables
  */
 require_once 'libraries/common.inc.php';
-$response = PMA\libraries\Response::getInstance();
+$response = PhpMyAdmin\Response::getInstance();
 $response->disable();
 $response->getHeader()->sendHttpHeaders();
 

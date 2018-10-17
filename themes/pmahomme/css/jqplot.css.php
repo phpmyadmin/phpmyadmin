@@ -7,9 +7,10 @@
  * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
  */
+declare(strict_types=1);
 
 // unplanned execution path
-if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
+if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     exit();
 }
 ?>

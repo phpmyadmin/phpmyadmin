@@ -5,9 +5,11 @@
  *
  * @package PhpMyAdmin-Setup
  */
-namespace PMA\setup\lib;
+declare(strict_types=1);
 
-use PMA\libraries\config\ConfigFile;
+namespace PhpMyAdmin\Setup;
+
+use PhpMyAdmin\Config\ConfigFile;
 
 /**
  * Config file generation class
@@ -126,7 +128,7 @@ class ConfigGenerator
      */
     private static function _exportZeroBasedArray(array $array, $crlf)
     {
-        $retv = array();
+        $retv = [];
         foreach ($array as $v) {
             $retv[] = var_export($v, true);
         }
@@ -154,7 +156,7 @@ class ConfigGenerator
      *
      * @return string
      */
-    protected static function getServerPart(ConfigFile $cf, $crlf, $servers)
+    protected static function getServerPart(ConfigFile $cf, $crlf, array $servers)
     {
         if ($cf->getServerCount() === 0) {
             return null;

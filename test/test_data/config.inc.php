@@ -4,6 +4,8 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
+
 $i = 0;
 
 /* Server: localhost [1] */
@@ -12,5 +14,4 @@ $cfg['Servers'][$i]['verbose'] = '';
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['port'] = '';
 $cfg['Servers'][$i]['socket'] = '';
-$cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['auth_type'] = 'cookie';

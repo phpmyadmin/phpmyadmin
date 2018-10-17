@@ -5,30 +5,31 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-use PMA\libraries\Message;
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Status;
+use PhpMyAdmin\Server\Status\Data;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/server_status.lib.php';
 
 /**
  * Replication library
  */
 require_once 'libraries/replication.inc.php';
-require_once 'libraries/replication_gui.lib.php';
 
 /**
  * start output
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->addHTML('<div>');
 
-$serverStatusData = new ServerStatusData();
+$serverStatusData = new Data();
 $response->addHTML($serverStatusData->getMenuHtml());
 if ($serverStatusData->dataLoaded) {
-    $response->addHTML(PMA_getHtmlForServerStatus($serverStatusData));
+    $response->addHTML(Status::getHtml($serverStatusData));
 } else {
     $response->addHTML(
         Message::error(

@@ -5,39 +5,41 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-namespace PMA;
-
-use PMA\libraries\controllers\table\TableGisVisualizationController;
-use PMA\libraries\Response;
-use PMA\libraries\Util;
+use PhpMyAdmin\Controllers\Table\TableGisVisualizationController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
+$container = Container::getDefaultContainer();
 $container->factory(
-    'PMA\libraries\controllers\table\TableGisVisualizationController'
+    'PhpMyAdmin\Controllers\Table\TableGisVisualizationController'
 );
 $container->alias(
     'TableGisVisualizationController',
-    'PMA\libraries\controllers\table\TableGisVisualizationController'
+    'PhpMyAdmin\Controllers\Table\TableGisVisualizationController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
-$dependency_definitions = array(
+$dependency_definitions = [
     "sql_query" => &$GLOBALS['sql_query'],
     "url_params" => &$GLOBALS['url_params'],
     "goto" => Util::getScriptNameForOption(
-        $GLOBALS['cfg']['DefaultTabDatabase'], 'database'
+        $GLOBALS['cfg']['DefaultTabDatabase'],
+        'database'
     ),
     "back" => 'sql.php',
-    "visualizationSettings" => array()
-);
+    "visualizationSettings" => []
+];
 
 /** @var TableGisVisualizationController $controller */
 $controller = $container->get(
-    'TableGisVisualizationController', $dependency_definitions
+    'TableGisVisualizationController',
+    $dependency_definitions
 );
 $controller->indexAction();

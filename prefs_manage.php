@@ -5,23 +5,30 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\ConfigFile;
-use PMA\libraries\config\FormDisplay;
-use PMA\libraries\Message;
-use PMA\libraries\Response;
-use PMA\libraries\Util;
+declare(strict_types=1);
+
+use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\File;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\ThemeManager;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Util;
 
 /**
  * Gets some core libraries and displays a top message if required
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/user_preferences.lib.php';
-require_once 'libraries/config/config_functions.lib.php';
-require_once 'libraries/config/messages.inc.php';
-require 'libraries/config/user_preferences.forms.php';
+
+$userPreferences = new UserPreferences();
 
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
-PMA_userprefsPageInit($cf);
+$userPreferences->pageInit($cf);
+$response = Response::getInstance();
 
 $error = '';
 if (isset($_POST['submit_export'])
@@ -29,19 +36,34 @@ if (isset($_POST['submit_export'])
     && $_POST['export_type'] == 'text_file'
 ) {
     // export to JSON file
-    PMA\libraries\Response::getInstance()->disable();
-    $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
-    PMA_downloadHeader($filename, 'application/json');
-    $settings = PMA_loadUserprefs();
+    $response->disable();
+    $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.json';
+    Core::downloadHeader($filename, 'application/json');
+    $settings = $userPreferences->load();
     echo json_encode($settings['config_data'], JSON_PRETTY_PRINT);
     exit;
-} else if (isset($_POST['submit_get_json'])) {
-    $settings = PMA_loadUserprefs();
-    $response = PMA\libraries\Response::getInstance();
+} elseif (isset($_POST['submit_export'])
+    && isset($_POST['export_type'])
+    && $_POST['export_type'] == 'php_file'
+) {
+    // export to JSON file
+    $response->disable();
+    $filename = 'phpMyAdmin-config-' . urlencode(Core::getenv('HTTP_HOST')) . '.php';
+    Core::downloadHeader($filename, 'application/php');
+    $settings = $userPreferences->load();
+    echo '/* ' . __('phpMyAdmin configuration snippet') . " */\n\n";
+    echo '/* ' . __('Paste it to your config.inc.php') . " */\n\n";
+    foreach ($settings['config_data'] as $key => $val) {
+        echo '$cfg[\'' . str_replace('/', '\'][\'', $key) . '\'] = ';
+        echo var_export($val, true) . ";\n";
+    }
+    exit;
+} elseif (isset($_POST['submit_get_json'])) {
+    $settings = $userPreferences->load();
     $response->addJSON('prefs', json_encode($settings['config_data']));
     $response->addJSON('mtime', $settings['mtime']);
     exit;
-} else if (isset($_POST['submit_import'])) {
+} elseif (isset($_POST['submit_import'])) {
     // load from JSON file
     $json = '';
     if (isset($_POST['import_type'])
@@ -50,27 +72,13 @@ if (isset($_POST['submit_export'])
         && $_FILES['import_file']['error'] == UPLOAD_ERR_OK
         && is_uploaded_file($_FILES['import_file']['tmp_name'])
     ) {
-        // read JSON from uploaded file
-        $open_basedir = @ini_get('open_basedir');
-        $file_to_unlink = '';
-        $import_file = $_FILES['import_file']['tmp_name'];
-
-        // If we are on a server with open_basedir, we must move the file
-        // before opening it. The doc explains how to create the "./tmp"
-        // directory
-        if (!empty($open_basedir)) {
-            $tmp_subdir = (PMA_IS_WINDOWS ? '.\\tmp\\' : 'tmp/');
-            if (@is_writable($tmp_subdir)) {
-                $import_file_new = tempnam($tmp_subdir, 'prefs');
-                $file_to_unlink = $import_file_new;
-                if (move_uploaded_file($import_file, $import_file_new)) {
-                    $import_file = $import_file_new;
-                }
-            }
-        }
-        $json = file_get_contents($import_file);
-        if ($file_to_unlink) {
-            unlink($file_to_unlink);
+        $import_handle = new File($_FILES['import_file']['tmp_name']);
+        $import_handle->checkUploadedFile();
+        if ($import_handle->isError()) {
+            $error = $import_handle->getError();
+        } else {
+            // read JSON from uploaded file
+            $json = $import_handle->getRawContent();
         }
     } else {
         // read from POST value (json)
@@ -83,16 +91,13 @@ if (isset($_POST['submit_export'])
     $config = json_decode($json, true);
     $return_url = isset($_POST['return_url']) ? $_POST['return_url'] : null;
     if (! is_array($config)) {
-        $error = __('Could not import configuration');
+        if (! isset($error)) {
+            $error = __('Could not import configuration');
+        }
     } else {
         // sanitize input values: treat them as though
         // they came from HTTP POST request
-        $form_display = new FormDisplay($cf);
-        foreach ($forms as $formset_id => $formset) {
-            foreach ($formset as $form_name => $form) {
-                $form_display->registerForm($formset_id . ': ' . $form_name, $form);
-            }
-        }
+        $form_display = new UserFormList($cf);
         $new_config = $cf->getFlatDefaultConfig();
         if (!empty($_POST['import_merge'])) {
             $new_config = array_merge($new_config, $cf->getConfigArray());
@@ -122,7 +127,7 @@ if (isset($_POST['submit_export'])
             echo $form_display->displayErrors();
             echo '</div>';
             echo '<form action="prefs_manage.php" method="post">';
-            echo PMA_URL_getHiddenInputs() , "\n";
+            echo Url::getHiddenInputs() , "\n";
             echo '<input type="hidden" name="json" value="'
                 , htmlspecialchars($json) , '" />';
             echo '<input type="hidden" name="fix_errors" value="1" />';
@@ -144,36 +149,27 @@ if (isset($_POST['submit_export'])
             exit;
         }
 
-        // check for ThemeDefault and fontsize
-        $params = array();
+        // check for ThemeDefault
+        $params = [];
+        $tmanager = ThemeManager::getInstance();
         if (isset($config['ThemeDefault'])
-            && $_SESSION['PMA_Theme_Manager']->theme->getId() != $config['ThemeDefault']
-            && $_SESSION['PMA_Theme_Manager']->checkTheme($config['ThemeDefault'])
+            && $tmanager->theme->getId() != $config['ThemeDefault']
+            && $tmanager->checkTheme($config['ThemeDefault'])
         ) {
-            $_SESSION['PMA_Theme_Manager']->setActiveTheme($config['ThemeDefault']);
-            $_SESSION['PMA_Theme_Manager']->setThemeCookie();
-        }
-        if (isset($config['fontsize'])
-            && $config['fontsize'] != $GLOBALS['PMA_Config']->get('fontsize')
-        ) {
-            $params['set_fontsize'] = $config['fontsize'];
+            $tmanager->setActiveTheme($config['ThemeDefault']);
+            $tmanager->setThemeCookie();
         }
         if (isset($config['lang'])
             && $config['lang'] != $GLOBALS['lang']
         ) {
             $params['lang'] = $config['lang'];
         }
-        if (isset($config['collation_connection'])
-            && $config['collation_connection'] != $GLOBALS['collation_connection']
-        ) {
-            $params['collation_connection'] = $config['collation_connection'];
-        }
 
         // save settings
-        $result = PMA_saveUserprefs($cf->getConfigArray());
+        $result = $userPreferences->save($cf->getConfigArray());
         if ($result === true) {
             if ($return_url) {
-                $query =  PMA\libraries\Util::splitURLQuery($return_url);
+                $query =  PhpMyAdmin\Util::splitURLQuery($return_url);
                 $return_url = parse_url($return_url, PHP_URL_PATH);
 
                 foreach ($query as $q) {
@@ -189,22 +185,19 @@ if (isset($_POST['submit_export'])
             }
             // reload config
             $GLOBALS['PMA_Config']->loadUserPreferences();
-            PMA_userprefsRedirect($return_url, $params);
+            $userPreferences->redirect($return_url, $params);
             exit;
         } else {
             $error = $result;
         }
     }
-} else if (isset($_POST['submit_clear'])) {
-    $result = PMA_saveUserprefs(array());
+} elseif (isset($_POST['submit_clear'])) {
+    $result = $userPreferences->save([]);
     if ($result === true) {
-        $params = array();
-        if ($GLOBALS['PMA_Config']->get('fontsize') != '82%') {
-            $GLOBALS['PMA_Config']->removeCookie('pma_fontsize');
-        }
+        $params = [];
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
-        PMA_userprefsRedirect('prefs_manage.php', $params);
+        $userPreferences->redirect('prefs_manage.php', $params);
         exit;
     } else {
         $error = $result;
@@ -227,7 +220,7 @@ if ($error) {
 ?>
 <script type="text/javascript">
 <?php
-PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
+Sanitize::printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
 ?>
 </script>
 <div id="maincontainer">
@@ -238,7 +231,7 @@ echo '<h2>' , __('Import') , '</h2>'
     , '<form class="group-cnt prefs-form disableAjax" name="prefs_import"'
     , ' action="prefs_manage.php" method="post" enctype="multipart/form-data">'
     , Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size'])
-    , PMA_URL_getHiddenInputs()
+    , Url::getHiddenInputs()
     , '<input type="hidden" name="json" value="" />'
     , '<input type="radio" id="import_text_file" name="import_type"'
     , ' value="text_file" checked="checked" />'
@@ -276,10 +269,11 @@ echo '</div>'
     , __('Go') . '" />'
     , '</form>'
     , '</div>';
-if (file_exists('setup/index.php')) {
+if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
             // show only if setup script is available, allows to disable this message
             // by simply removing setup directory
-            ?>
+            // Also do not show in config exists (and setup would refuse to work)
+    ?>
             <div class="group">
             <h2><?php echo __('More settings') ?></h2>
             <div class="group-cnt">
@@ -288,19 +282,21 @@ if (file_exists('setup/index.php')) {
                     __(
                         'You can set more settings by modifying config.inc.php, eg. '
                         . 'by using %sSetup script%s.'
-                    ), '<a href="setup/index.php" target="_blank">', '</a>'
-                ) , PMA\libraries\Util::showDocu('setup', 'setup-script');
+                    ),
+                    '<a href="setup/index.php" target="_blank">',
+                    '</a>'
+                ) , PhpMyAdmin\Util::showDocu('setup', 'setup-script');
                 ?>
             </div>
             </div>
         <?php
 }
-        ?>
+?>
     </div>
     <div id="main_pane_right">
         <div class="group">
             <h2><?php echo __('Export'); ?></h2>
-            <div class="click-hide-message group-cnt" style="display:none">
+            <div class="click-hide-message group-cnt hide">
                 <?php
                 Message::rawSuccess(
                     __('Configuration has been saved.')
@@ -309,12 +305,17 @@ if (file_exists('setup/index.php')) {
             </div>
             <form class="group-cnt prefs-form disableAjax" name="prefs_export"
                   action="prefs_manage.php" method="post">
-                <?php echo PMA_URL_getHiddenInputs(); ?>
-                <div style="padding-bottom:0.5em">
+                <?php echo Url::getHiddenInputs(); ?>
+                <div>
                     <input type="radio" id="export_text_file" name="export_type"
                            value="text_file" checked="checked" />
                     <label for="export_text_file">
                         <?php echo __('Save as file'); ?>
+                    </label><br />
+                    <input type="radio" id="export_php_file" name="export_type"
+                           value="php_file" />
+                    <label for="export_php_file">
+                        <?php echo __('Save as PHP file'); ?>
                     </label><br />
                     <input type="radio" id="export_local_storage" name="export_type"
                            value="local_storage" disabled="disabled" />
@@ -361,7 +362,7 @@ if (file_exists('setup/index.php')) {
             <form class="group-cnt prefs-form disableAjax" name="prefs_reset"
                   action="prefs_manage.php" method="post">
                 <?php
-                echo PMA_URL_getHiddenInputs() , __(
+                echo Url::getHiddenInputs() , __(
                     'You can reset all your settings and restore them to default '
                     . 'values.'
                 );

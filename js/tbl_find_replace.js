@@ -2,25 +2,24 @@
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('tbl_find_replace.js', function () {
-    $('#find_replace_form').unbind('submit');
-    $('#toggle_find').unbind('click');
+    $('#find_replace_form').off('submit');
+    $('#toggle_find').off('click');
 });
 
 /**
  * Bind events
  */
 AJAX.registerOnload('tbl_find_replace.js', function () {
-
     $('<div id="toggle_find_div"><a id="toggle_find"></a></div>')
         .insertAfter('#find_replace_form')
         .hide();
 
     $('#toggle_find')
         .html(PMA_messages.strHideFindNReplaceCriteria)
-        .click(function () {
+        .on('click', function () {
             var $link = $(this);
             $('#find_replace_form').slideToggle();
-            if ($link.text() == PMA_messages.strHideFindNReplaceCriteria) {
+            if ($link.text() === PMA_messages.strHideFindNReplaceCriteria) {
                 $link.text(PMA_messages.strShowFindNReplaceCriteria);
             } else {
                 $link.text(PMA_messages.strHideFindNReplaceCriteria);
@@ -37,10 +36,10 @@ AJAX.registerOnload('tbl_find_replace.js', function () {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success === true) {
                 $('#toggle_find_div').show();
-                $('#toggle_find').click();
-                $("#sqlqueryresultsouter").html(data.preview);
+                $('#toggle_find').trigger('click');
+                $('#sqlqueryresultsouter').html(data.preview);
             } else {
-                $("#sqlqueryresultsouter").html(data.error);
+                $('#sqlqueryresultsouter').html(data.error);
             }
         });
     });

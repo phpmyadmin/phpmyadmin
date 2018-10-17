@@ -27,9 +27,6 @@ Currently known list of external libraries:
 js/jquery
     jQuery js framework and various jQuery based libraries.
 
-libraries/php-gettext
-    php-gettext library
-libraries/tcpdf
-    tcpdf library, stripped down of not needed files
-libraries/phpseclib
-    portions of phpseclib library
+vendor/
+    The download kit includes various Composer packages as
+    dependencies.

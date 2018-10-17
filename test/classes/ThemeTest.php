@@ -5,22 +5,30 @@
  *
  * @package PhpMyAdmin-test
  */
-use PMA\libraries\Theme;
+declare(strict_types=1);
 
-require_once 'libraries/url_generating.lib.php';
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
+
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Theme;
 
 /**
  * Test class for Theme.
  *
  * @package PhpMyAdmin-test
  */
-class ThemeTest extends PMATestCase
+class ThemeTest extends PmaTestCase
 {
     /**
      * @var Theme
      */
     protected $object;
+
+    /**
+     * @var Theme backup for session theme
+     */
+    protected $backup;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -31,13 +39,13 @@ class ThemeTest extends PMATestCase
     protected function setUp()
     {
         $this->object = new Theme();
-        $_SESSION['PMA_Theme'] = $this->object;
-        $GLOBALS['PMA_Config'] = new PMA\libraries\Config();
+        $this->backup = $GLOBALS['PMA_Theme'];
+        $GLOBALS['PMA_Theme'] = $this->object;
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
         include 'themes/pmahomme/layout.inc.php';
         $GLOBALS['server'] = '99';
-        $GLOBALS['collation_connection'] = 'utf-8';
     }
 
     /**
@@ -48,6 +56,7 @@ class ThemeTest extends PMATestCase
      */
     protected function tearDown()
     {
+        $GLOBALS['PMA_Theme'] = $this->backup;
     }
 
     /**
@@ -86,7 +95,7 @@ class ThemeTest extends PMATestCase
         $this->object->setPath('./test/classes/_data/gen_version_info');
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Test Theme', $this->object->getName());
-        $this->assertEquals('2.0.3', $this->object->getVersion());
+        $this->assertEquals('5.0', $this->object->getVersion());
     }
 
     /**
@@ -97,7 +106,7 @@ class ThemeTest extends PMATestCase
     public function testLoadInfo()
     {
         $this->object->setPath('./themes/original');
-        $infofile = $this->object->getPath() . '/info.inc.php';
+        $infofile = $this->object->getPath() . '/theme.json';
         $this->assertTrue($this->object->loadInfo());
 
         $this->assertEquals(
@@ -140,6 +149,7 @@ class ThemeTest extends PMATestCase
         ob_end_clean();
         $this->assertTrue($ret);
         $this->assertContains('FILE: navigation.css.php', $out);
+        $this->assertContains('.ic_b_bookmark', $out);
     }
 
     /**
@@ -149,10 +159,10 @@ class ThemeTest extends PMATestCase
      */
     public function listThemes()
     {
-        return array(
-            array('./themes/original'),
-            array('./themes/pmahomme/'),
-        );
+        return [
+            ['./themes/original'],
+            ['./themes/pmahomme/'],
+        ];
     }
 
     /**
@@ -169,14 +179,11 @@ class ThemeTest extends PMATestCase
      * Test fir Theme::checkImgPath
      *
      * @return void
-     * @expectedException PHPUnit_Framework_Error
      */
-    public function testCheckImgPathBad()
+    public function testCheckImgPathFallback()
     {
-        $GLOBALS['cfg']['ThemePath'] = 'nowhere';
         $this->object->setPath('path/to/nowhere');
-
-        $this->assertFalse($this->object->checkImgPath());
+        $this->assertTrue($this->object->checkImgPath());
     }
 
     /**
@@ -188,35 +195,6 @@ class ThemeTest extends PMATestCase
     {
         $this->object->setPath('./themes/original');
         $this->assertTrue($this->object->checkImgPath());
-    }
-
-    /**
-     * Test for Theme::checkImgPath
-     *
-     * @return void
-     */
-    public function testCheckImgPathGlobals()
-    {
-        $this->object->setPath('/this/is/wrong/path');
-        $GLOBALS['cfg']['ThemePath'] = 'themes';
-        $this->assertTrue($this->object->checkImgPath());
-    }
-
-    /**
-     * Test for Theme::checkImgPath
-     *
-     * @return void
-     * @expectedException PHPUnit_Framework_Error
-     */
-    public function testCheckImgPathGlobalsWrongPath()
-    {
-        $prevThemePath = $GLOBALS['cfg']['ThemePath'];
-        $GLOBALS['cfg']['ThemePath'] = 'no_themes';
-
-        $this->object->setPath('/this/is/wrong/path');
-        $this->object->checkImgPath();
-
-        $GLOBALS['cfg']['ThemePath'] = $prevThemePath;
     }
 
     /**
@@ -311,49 +289,20 @@ class ThemeTest extends PMATestCase
      *
      * @return void
      */
-    public function testPrintPreview()
+    public function testGetPrintPreview()
     {
-        $this->assertEquals(
-            $this->object->getPrintPreview(),
-            '<div class="theme_preview"><h2> (0.0.0.0) </h2><p><a class="take_'
-            . 'theme" name="" href="index.php?set_theme=&amp;server=99&amp;lang=en'
-            . '&amp;collation_connection=utf-8'
-            . '&amp;token=token">No preview available.[ <strong>take it</strong> ]'
-            . '</a></p></div>'
+        $this->assertContains(
+            '<h2>' . "\n" . '         (0.0.0.0)',
+            $this->object->getPrintPreview()
         );
-    }
-
-    /**
-     * Test for getCssIEClearFilter
-     *
-     * @return void
-     */
-    public function testGetCssIEClearFilter()
-    {
-        $this->assertEquals(
-            $this->object->getCssIEClearFilter(),
-            ''
+        $this->assertContains(
+            'name="" href="index.php?set_theme=&amp;server=99&amp;lang=en">',
+            $this->object->getPrintPreview()
         );
-    }
-
-    /**
-     * Test for getFontSize
-     *
-     * @return void
-     */
-    public function testGetFontSize()
-    {
-        $this->assertEquals(
-            $this->object->getFontSize(),
-            '82%'
+        $this->assertContains(
+            'No preview available.',
+            $this->object->getPrintPreview()
         );
-
-        $GLOBALS['PMA_Config']->set('fontsize', '12px');
-        $this->assertEquals(
-            $this->object->getFontSize(),
-            '12px'
-        );
-
     }
 
     /**
@@ -379,17 +328,18 @@ class ThemeTest extends PMATestCase
     /**
      * Test for getImgPath
      *
-     * @param string $file   file name for image
-     * @param string $output expected output
+     * @param string $file     file name for image
+     * @param string $fallback fallback image
+     * @param string $output   expected output
      *
      * @return void
      *
      * @dataProvider providerForGetImgPath
      */
-    public function testGetImgPath($file, $output)
+    public function testGetImgPath($file, $fallback, $output)
     {
         $this->assertEquals(
-            $this->object->getImgPath($file),
+            $this->object->getImgPath($file, $fallback),
             $output
         );
     }
@@ -401,20 +351,27 @@ class ThemeTest extends PMATestCase
      */
     public function providerForGetImgPath()
     {
-        return array(
-            array(
+        return [
+            [
+                null,
                 null,
                 ''
-            ),
-            array(
+            ],
+            [
                 'screen.png',
+                null,
                 './themes/pmahomme/img/screen.png'
-            ),
-            array(
+            ],
+            [
                 'arrow_ltr.png',
+                null,
                 './themes/pmahomme/img/arrow_ltr.png'
-            )
-
-        );
+            ],
+            [
+                'logo_right.png',
+                'pma_logo.png',
+                './themes/pmahomme/img/pma_logo.png'
+            ],
+        ];
     }
 }

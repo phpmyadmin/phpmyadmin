@@ -8,21 +8,21 @@
  * @package    PhpMyAdmin
  * @subpackage Example
  */
+declare(strict_types=1);
 
-$i=0;
-$hosts = array (
+$i = 0;
+$hosts =  [
     "foo.example.com",
     "bar.example.com",
     "baz.example.com",
     "quux.example.com",
-);
+];
 
 foreach ($hosts as $host) {
     $i++;
     $cfg['Servers'][$i]['host']     = $host;
     $cfg['Servers'][$i]['port']     = '';
     $cfg['Servers'][$i]['socket']   = '';
-    $cfg['Servers'][$i]['connect_type']     = 'tcp';
     $cfg['Servers'][$i]['compress'] = false;
     $cfg['Servers'][$i]['controluser']      = 'pma';
     $cfg['Servers'][$i]['controlpass']      = 'pmapass';

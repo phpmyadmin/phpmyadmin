@@ -1,0 +1,17 @@
+# EditorConfig.org
+
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+[*.{js,php,twig,phtml,json,css}]
+indent_style = space
+indent_size = 4
+
+[{*.sql,package.json,.travis.yml}]
+indent_style = space
+indent_size = 2

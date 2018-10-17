@@ -28,14 +28,17 @@ web.config
 .htaccess
 # Locales
 /locale/
+# Temporary files to generate locales for Twig
+/twig-templates/
 # Backups
 *~
-# Javascript line counts
-/js/line_counts.php
 # API documentation
 /apidoc/
+/doc/linkcheck/
 # Demo server
 revision-info.php
+# PHP_CodeSniffer
+phpcs.xml
 # PHPUnit
 phpunit.xml
 /test/bootstrap.php
@@ -50,3 +53,5 @@ cache.properties
 # Composer
 composer.lock
 /vendor/
+# NPM
+/node_modules/

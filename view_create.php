@@ -7,6 +7,13 @@
  * @todo (also validate if js is disabled, after form submission?)
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 
 require_once './libraries/common.inc.php';
 
@@ -17,32 +24,31 @@ require './libraries/db_common.inc.php';
 $url_params['goto'] = 'tbl_structure.php';
 $url_params['back'] = 'view_create.php';
 
-$view_algorithm_options = array(
+$response = Response::getInstance();
+
+$template = new Template();
+
+$view_algorithm_options = [
     'UNDEFINED',
     'MERGE',
     'TEMPTABLE',
-);
+];
 
-$view_with_options = array(
+$view_with_options = [
     'CASCADED',
     'LOCAL'
-);
+];
 
-$view_security_options = array(
+$view_security_options = [
     'DEFINER',
     'INVOKER'
-);
-
-if (empty($sql_query)) {
-    $sql_query = '';
-}
+];
 
 // View name is a compulsory field
 if (isset($_REQUEST['view']['name'])
     && empty($_REQUEST['view']['name'])
 ) {
-    $message = PMA\libraries\Message::error(__('View name can not be empty'));
-    $response = PMA\libraries\Response::getInstance();
+    $message = Message::error(__('View name can not be empty!'));
     $response->addJSON(
         'message',
         $message
@@ -66,14 +72,19 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
         $sql_query = 'ALTER';
     }
 
-    if (PMA_isValid($_REQUEST['view']['algorithm'], $view_algorithm_options)) {
+    if (Core::isValid($_REQUEST['view']['algorithm'], $view_algorithm_options)) {
         $sql_query .= $sep . ' ALGORITHM = ' . $_REQUEST['view']['algorithm'];
     }
 
     if (! empty($_REQUEST['view']['definer'])) {
-        $arr = explode('@', $_REQUEST['view']['definer']);
-        $sql_query .= $sep . 'DEFINER=' . PMA\libraries\Util::backquote($arr[0]);
-        $sql_query .= '@' . PMA\libraries\Util::backquote($arr[1]) . ' ';
+        if (strpos($_REQUEST['view']['definer'], '@') === false) {
+            $sql_query .= $sep . 'DEFINER='
+                . Util::backquote($_REQUEST['view']['definer']);
+        } else {
+            $arr = explode('@', $_REQUEST['view']['definer']);
+            $sql_query .= $sep . 'DEFINER=' . Util::backquote($arr[0]);
+            $sql_query .= '@' . Util::backquote($arr[1]) . ' ';
+        }
     }
 
     if (isset($_REQUEST['view']['sql_security'])) {
@@ -84,7 +95,7 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     $sql_query .= $sep . ' VIEW '
-        . PMA\libraries\Util::backquote($_REQUEST['view']['name']);
+        . Util::backquote($_REQUEST['view']['name']);
 
     if (! empty($_REQUEST['view']['column_names'])) {
         $sql_query .= $sep . ' (' . $_REQUEST['view']['column_names'] . ')';
@@ -101,14 +112,13 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
 
     if (!$GLOBALS['dbi']->tryQuery($sql_query)) {
         if (! isset($_REQUEST['ajax_dialog'])) {
-            $message = PMA\libraries\Message::rawError($GLOBALS['dbi']->getError());
+            $message = Message::rawError($GLOBALS['dbi']->getError());
             return;
         }
 
-        $response = PMA\libraries\Response::getInstance();
         $response->addJSON(
             'message',
-            PMA\libraries\Message::error(
+            Message::error(
                 "<i>" . htmlspecialchars($sql_query) . "</i><br /><br />"
                 . $GLOBALS['dbi']->getError()
             )
@@ -118,13 +128,14 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     }
 
     // If different column names defined for VIEW
-    $view_columns = array();
+    $view_columns = [];
     if (isset($_REQUEST['view']['column_names'])) {
         $view_columns = explode(',', $_REQUEST['view']['column_names']);
     }
 
     $column_map = $GLOBALS['dbi']->getColumnMapFromSql(
-        $_REQUEST['view']['as'], $view_columns
+        $_REQUEST['view']['as'],
+        $view_columns
     );
 
     $systemDb = $GLOBALS['dbi']->getSystemDatabase();
@@ -133,30 +144,29 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     );
 
     if ($pma_transformation_data !== false) {
-
         // SQL for store new transformation details of VIEW
         $new_transformations_sql = $systemDb->getNewTransformationDataSql(
-            $pma_transformation_data, $column_map,
-            $_REQUEST['view']['name'], $GLOBALS['db']
+            $pma_transformation_data,
+            $column_map,
+            $_REQUEST['view']['name'],
+            $GLOBALS['db']
         );
 
         // Store new transformations
         if ($new_transformations_sql != '') {
             $GLOBALS['dbi']->tryQuery($new_transformations_sql);
         }
-
     }
     unset($pma_transformation_data);
 
     if (! isset($_REQUEST['ajax_dialog'])) {
-        $message = PMA\libraries\Message::success();
+        $message = Message::success();
         include 'tbl_structure.php';
     } else {
-        $response = PMA\libraries\Response::getInstance();
         $response->addJSON(
             'message',
-            PMA\libraries\Util::getMessage(
-                PMA\libraries\Message::success(),
+            Util::getMessage(
+                Message::success(),
                 $sql_query
             )
         );
@@ -166,8 +176,10 @@ if (isset($_REQUEST['createview']) || isset($_REQUEST['alterview'])) {
     exit;
 }
 
+$sql_query = ! empty($_GET['sql_query']) ? $_GET['sql_query'] : '';
+
 // prefill values if not already filled from former submission
-$view = array(
+$view = [
     'operation' => 'create',
     'or_replace' => '',
     'algorithm' => '',
@@ -177,131 +189,21 @@ $view = array(
     'column_names' => '',
     'as' => $sql_query,
     'with' => '',
-);
+];
 
-if (PMA_isValid($_REQUEST['view'], 'array')) {
+if (Core::isValid($_REQUEST['view'], 'array')) {
     $view = array_merge($view, $_REQUEST['view']);
 }
 
 $url_params['db'] = $GLOBALS['db'];
 $url_params['reload'] = 1;
 
-/**
- * Displays the page
- */
-$htmlString = '<!-- CREATE VIEW options -->'
-    . '<div id="div_view_options">'
-    . '<form method="post" action="view_create.php">'
-    . PMA_URL_getHiddenInputs($url_params)
-    . '<fieldset>'
-    . '<legend>'
-    . (isset($_REQUEST['ajax_dialog']) ?
-        __('Details') :
-        ($view['operation'] == 'create' ? __('Create view') : __('Edit view'))
-    )
-    . '</legend>'
-    . '<table class="rte_table">';
-
-if ($view['operation'] == 'create') {
-    $htmlString .= '<tr>'
-        . '<td class="nowrap"><label for="or_replace">OR REPLACE</label></td>'
-        . '<td><input type="checkbox" name="view[or_replace]" id="or_replace"';
-    if ($view['or_replace']) {
-        $htmlString .= ' checked="checked"';
-    }
-    $htmlString .= ' value="1" /></td></tr>';
-}
-
-$htmlString .= '<tr>'
-    . '<td class="nowrap"><label for="algorithm">ALGORITHM</label></td>'
-    . '<td><select name="view[algorithm]" id="algorithm">';
-foreach ($view_algorithm_options as $option) {
-    $htmlString .= '<option value="' . htmlspecialchars($option) . '"';
-    if ($view['algorithm'] === $option) {
-        $htmlString .= ' selected="selected"';
-    }
-    $htmlString .= '>' . htmlspecialchars($option) . '</option>';
-}
-$htmlString .= '</select>'
-    . '</td></tr>';
-
-$htmlString .= '<tr><td class="nowrap">' . __('Definer') . '</td>'
-    . '<td><input type="text" maxlength="100" size="50" name="view[definer]"'
-    . ' value="' . htmlspecialchars($view['definer']) . '" />'
-    . '</td></tr>';
-
-$htmlString .= '<tr><td class="nowrap">SQL SECURITY</td>'
-    . '<td><select name="view[sql_security]">'
-    . '<option value=""></option>';
-foreach ($view_security_options as $option) {
-    $htmlString .= '<option value="' . htmlspecialchars($option) . '"';
-    if ($option == $view['sql_security']) {
-        $htmlString .= ' selected="selected"';
-    }
-    $htmlString .= '>' . htmlspecialchars($option) . '</option>';
-}
-$htmlString .= '<select>'
-    . '</td></tr>';
-
-if ($view['operation'] == 'create') {
-    $htmlString .= '<tr><td class="nowrap">' . __('VIEW name') . '</td>'
-        . '<td><input type="text" size="20" name="view[name]"'
-        . ' onfocus="this.select()" maxlength="64"'
-        . ' value="' . htmlspecialchars($view['name']) . '" />'
-        . '</td></tr>';
-} else {
-    $htmlString .= '<tr><td><input type="hidden" name="view[name]"'
-        . ' value="' . htmlspecialchars($view['name']) . '" />'
-        . '</td></tr>';
-}
-
-$htmlString .= '<tr><td class="nowrap">' . __('Column names') . '</td>'
-    . '<td><input type="text" maxlength="100" size="50" name="view[column_names]"'
-    . ' onfocus="this.select()"'
-    . ' value="' . htmlspecialchars($view['column_names']) . '" />'
-    . '</td></tr>';
-
-$htmlString .= '<tr><td class="nowrap">AS</td>'
-    . '<td>'
-    . '<textarea name="view[as]" rows="15" cols="40" dir="' . $text_dir . '"';
-if ($GLOBALS['cfg']['TextareaAutoSelect'] || true) {
-    $htmlString .= ' onclick="selectContent(this, sql_box_locked, true)"';
-}
-$htmlString .= '>' . htmlspecialchars($view['as']) . '</textarea>'
-    . '</td></tr>';
-
-$htmlString .= '<tr><td class="nowrap">WITH CHECK OPTION</td>'
-    . '<td><select name="view[with]">'
-    . '<option value=""></option>';
-foreach ($view_with_options as $option) {
-    $htmlString .= '<option value="' . htmlspecialchars($option) . '"';
-    if ($option == $view['with']) {
-        $htmlString .= ' selected="selected"';
-    }
-    $htmlString .= '>' . htmlspecialchars($option) . '</option>';
-}
-$htmlString .= '<select>'
-    . '</td></tr>';
-
-$htmlString .= '</table>'
-    . '</fieldset>';
-
-if (! isset($_REQUEST['ajax_dialog'])) {
-    $htmlString .= '<fieldset class="tblFooters">'
-        . '<input type="hidden" name="'
-        . ($view['operation'] == 'create' ? 'createview' : 'alterview' )
-        . '" value="1" />'
-        . '<input type="submit" name="" value="' . __('Go') . '" />'
-        . '</fieldset>';
-} else {
-    $htmlString .= '<input type="hidden" name="'
-        . ($view['operation'] == 'create' ? 'createview' : 'alterview' )
-        . '" value="1" />'
-        . '<input type="hidden" name="ajax_dialog" value="1" />'
-        . '<input type="hidden" name="ajax_request" value="1" />';
-}
-
-$htmlString .= '</form>'
-    . '</div>';
-
-echo $htmlString;
+echo $template->render('view_create', [
+    'ajax_dialog' => isset($_REQUEST['ajax_dialog']),
+    'text_dir' => $text_dir,
+    'url_params' => $url_params,
+    'view' => $view,
+    'view_algorithm_options' => $view_algorithm_options,
+    'view_with_options' => $view_with_options,
+    'view_security_options' => $view_security_options,
+]);

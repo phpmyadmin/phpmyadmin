@@ -8,48 +8,47 @@ var ctrlKeyHistory = 0;
   *
   * @param object   event data
   */
-function onKeyDownArrowsHandler(e)
-{
+function onKeyDownArrowsHandler (e) {
     e = e || window.event;
 
     var o = (e.srcElement || e.target);
     if (!o) {
         return;
     }
-    if (o.tagName != "TEXTAREA" && o.tagName != "INPUT" && o.tagName != "SELECT") {
+    if (o.tagName !== 'TEXTAREA' && o.tagName !== 'INPUT' && o.tagName !== 'SELECT') {
         return;
     }
-    if ((e.which != 17) && (e.which != 37) && (e.which != 38) && (e.which != 39) && (e.which !=40)) {
+    if ((e.which !== 17) && (e.which !== 37) && (e.which !== 38) && (e.which !== 39) && (e.which !== 40)) {
         return;
     }
     if (!o.id) {
         return;
     }
 
-    if (e.type == "keyup") {
-        if (e.which==17) {
+    if (e.type === 'keyup') {
+        if (e.which === 17) {
             ctrlKeyHistory = 0;
         }
         return;
-    }
-    else if (e.type == "keydown") {
-        if (e.which == 17) {
+    } else if (e.type === 'keydown') {
+        if (e.which === 17) {
             ctrlKeyHistory = 1;
         }
     }
 
-    if (ctrlKeyHistory != 1) {
+    if (ctrlKeyHistory !== 1) {
         return;
     }
 
     e.preventDefault();
 
-    var pos = o.id.split("_");
-    if (pos[0] != "field" || typeof pos[2] == "undefined") {
+    var pos = o.id.split('_');
+    if (pos[0] !== 'field' || typeof pos[2] === 'undefined') {
         return;
     }
 
-    var x = pos[2], y = pos[1];
+    var x = pos[2];
+    var y = pos[1];
 
     switch (e.keyCode) {
     case 38:
@@ -72,13 +71,13 @@ function onKeyDownArrowsHandler(e)
         return;
     }
 
-    var is_firefox = navigator.userAgent.toLowerCase().indexOf("firefox/") > -1;
+    var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox/') > -1;
 
-    var id = "field_" + y + "_" + x;
+    var id = 'field_' + y + '_' + x;
 
     var nO = document.getElementById(id);
     if (! nO) {
-        id = "field_" + y + "_" + x + "_0";
+        id = 'field_' + y + '_' + x + '_0';
         nO = document.getElementById(id);
     }
 
@@ -97,33 +96,30 @@ function onKeyDownArrowsHandler(e)
         var ffcheck = 0;
         var ffversion;
         for (ffversion = 3 ; ffversion < 25 ; ffversion++) {
-            var is_firefox_v_24 = navigator.userAgent.toLowerCase().indexOf('firefox/'+ffversion) > -1;
+            var is_firefox_v_24 = navigator.userAgent.toLowerCase().indexOf('firefox/' + ffversion) > -1;
             if (is_firefox_v_24) {
                 ffcheck = 1;
                 break;
             }
         }
-        if (ffcheck == 1) {
-            if (e.which == 38 || e.which == 37) {
+        if (ffcheck === 1) {
+            if (e.which === 38 || e.which === 37) {
                 nOvalue++;
-            }
-            else if (e.which == 40 || e.which == 39) {
+            } else if (e.which === 40 || e.which === 39) {
                 nOvalue--;
             }
-            nO.selectedIndex=nOvalue;
-        }
-        else {
-            if (e.which == 38 || e.which == 37) {
+            nO.selectedIndex = nOvalue;
+        } else {
+            if (e.which === 38 || e.which === 37) {
                 lvalue++;
-            }
-            else if (e.which == 40 || e.which == 39) {
+            } else if (e.which === 40 || e.which === 39) {
                 lvalue--;
             }
-            o.selectedIndex=lvalue;
+            o.selectedIndex = lvalue;
         }
     }
 
-    if (nO.tagName != 'SELECT') {
+    if (nO.tagName !== 'SELECT') {
         nO.select();
     }
     e.returnValue = false;

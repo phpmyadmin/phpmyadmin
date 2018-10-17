@@ -12,8 +12,11 @@ web server (such as Apache, nginx, :term:`IIS`) to install phpMyAdmin's files in
 PHP
 ---
 
-* You need PHP 5.5.0 or newer, with ``session`` support, the Standard PHP Library
-  (SPL) extension, JSON support, and the ``mbstring`` extension.
+* You need PHP 7.1.0 or newer, with ``session`` support, the Standard PHP Library
+  (SPL) extension, hash, ctype, and JSON support.
+
+* The ``mbstring`` extension (see :term:`mbstring`) is strongly recommended
+  for performance reasons.
 
 * To support uploading of ZIP files, you need the PHP ``zip`` extension.
 
@@ -21,19 +24,19 @@ PHP
   ("image/jpeg: inline") with their original aspect ratio.
 
 * When using the cookie authentication (the default), the `openssl
-  <https://www.php.net/openssl>`_ extension is strongly suggested.
+  <https://secure.php.net/openssl>`_ extension is strongly suggested.
 
 * To support upload progress bars, see :ref:`faq2_9`.
 
 * To support XML and Open Document Spreadsheet importing, you need the
-  `libxml <https://www.php.net/libxml>`_ extension.
+  `libxml <https://secure.php.net/libxml>`_ extension.
 
 * To support reCAPTCHA on the login page, you need the
-  `openssl <https://www.php.net/openssl>`_ extension.
+  `openssl <https://secure.php.net/openssl>`_ extension.
 
 * To support displaying phpMyAdmin's latest version, you need to enable
   ``allow_url_open`` in your :file:`php.ini` or to have the
-  `curl <https://www.php.net/curl>`_ extension.
+  `curl <https://secure.php.net/curl>`_ extension.
 
 .. seealso:: :ref:`faq1_31`, :ref:`authentication_modes`
 

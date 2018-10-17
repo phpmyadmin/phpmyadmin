@@ -1,0 +1,14 @@
+{% set colspan = 2 %}
+{% if is_setup %}
+    {% set colspan = colspan + 1 %}
+{% endif %}
+{% if show_buttons %}
+    <tr>
+        <td colspan="{{ colspan }}" class="lastrow">
+            <input type="submit" name="submit_save" value="{% trans 'Apply' %}" class="green" />
+            <input type="button" name="submit_reset" value="{% trans 'Reset' %}" />
+        </td>
+    </tr>
+{% endif %}
+</table>
+</fieldset>

@@ -1,28 +1,28 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Tests for PMA\libraries\Tracker
+ * Tests for PhpMyAdmin\Tracker
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
-/*
- * Include to test.
- */
-use PMA\libraries\Tracker;
+namespace PhpMyAdmin\Tests;
 
-require_once 'libraries/database_interface.inc.php';
-require_once 'libraries/relation.lib.php';
-require_once 'test/PMATestCase.php';
+use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Tracker;
+use PhpMyAdmin\Util;
+use PHPUnit\Framework\Assert;
+use ReflectionClass;
 
 /**
- * Tests for PMA\libraries\Tracker
+ * Tests for PhpMyAdmin\Tracker
  *
  * @package PhpMyAdmin-test
  */
-class TrackerTest extends PMATestCase
+class TrackerTest extends PmaTestCase
 {
-
     /**
      * Setup function for test cases
      *
@@ -42,13 +42,13 @@ class TrackerTest extends PMATestCase
         $GLOBALS['cfg']['Server']['tracking_version_auto_create'] = '';
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
-        $_SESSION['relation'][$GLOBALS['server']] = array(
+        $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'tracking' => 'tracking'
-        );
+        ];
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $dbi->expects($this->any())->method('escapeString')
@@ -66,7 +66,7 @@ class TrackerTest extends PMATestCase
     {
         Tracker::enable();
         $this->assertTrue(
-            PHPUnit_Framework_Assert::readAttribute('PMA\libraries\Tracker', 'enabled')
+            Assert::readAttribute('PhpMyAdmin\Tracker', 'enabled')
         );
     }
 
@@ -78,7 +78,7 @@ class TrackerTest extends PMATestCase
      */
     public function testIsActive()
     {
-        $attr = new \ReflectionProperty('PMA\libraries\Tracker', 'enabled');
+        $attr = new \ReflectionProperty('PhpMyAdmin\Tracker', 'enabled');
         $attr->setAccessible(true);
         $attr->setValue(false);
 
@@ -88,21 +88,21 @@ class TrackerTest extends PMATestCase
 
         Tracker::enable();
 
-        $_SESSION['relation'][$GLOBALS['server']] = array(
+        $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
             'trackingwork' => false
-        );
+        ];
 
         $this->assertFalse(
             Tracker::isActive()
         );
 
-        $_SESSION['relation'][$GLOBALS['server']] = array(
+        $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
             'trackingwork' => true,
             'db' => 'pmadb',
             'tracking' => 'tracking'
-        );
+        ];
 
         $this->assertTrue(
             Tracker::isActive()
@@ -121,13 +121,13 @@ class TrackerTest extends PMATestCase
      */
     public function testGetTableName($string, $expected)
     {
-        $reflection = new \ReflectionClass('PMA\libraries\Tracker');
+        $reflection = new ReflectionClass('PhpMyAdmin\Tracker');
         $method = $reflection->getMethod("getTableName");
         $method->setAccessible(true);
 
         $this->assertEquals(
             $expected,
-            $method->invokeArgs(null, array($string))
+            $method->invokeArgs(null, [$string])
         );
     }
 
@@ -139,11 +139,11 @@ class TrackerTest extends PMATestCase
      */
     public function getTableNameData()
     {
-        return array(
-            array("`tbl`;", "tbl"),
-            array(" `pma.table` ", "table"),
-            array(" `pma.table\nfoobar` ", "table")
-        );
+        return [
+            ["`tbl`;", "tbl"],
+            [" `pma.table` ", "table"],
+            [" `pma.table\nfoobar` ", "table"]
+        ];
     }
 
     /**
@@ -154,7 +154,7 @@ class TrackerTest extends PMATestCase
      */
     public function testIsTracked()
     {
-        $attr = new \ReflectionProperty('PMA\libraries\Tracker', 'enabled');
+        $attr = new \ReflectionProperty('PhpMyAdmin\Tracker', 'enabled');
         $attr->setAccessible(true);
         $attr->setValue(false);
 
@@ -190,19 +190,13 @@ class TrackerTest extends PMATestCase
      */
     public function testGetLogComment()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
         $this->assertEquals(
             "# log $date pma_test_user\n",
             Tracker::getLogComment()
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -213,15 +207,11 @@ class TrackerTest extends PMATestCase
      */
     public function testCreateVersion()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -231,53 +221,53 @@ class TrackerTest extends PMATestCase
          * to passing $this->anything()
          */
 
-        $getColumnsResult = array(
-            array(
+        $getColumnsResult = [
+            [
                 'Field' => 'field1',
                 'Type' => 'int(11)',
                 'Key' => 'PRI'
-            ),
-            array(
+            ],
+            [
                 'Field' => 'field2',
                 'Type' => 'text',
                 'Key' => ''
-            )
-        );
+            ]
+        ];
         $dbi->expects($this->once())->method('getColumns')
             ->with('pma_test', 'pma_tbl')
             ->will($this->returnValue($getColumnsResult));
 
-        $getIndexesResult = array(
-            array(
+        $getIndexesResult = [
+            [
                 'Table' => 'pma_tbl',
                 'Field' => 'field1',
                 'Key' => 'PRIMARY'
-            )
-        );
+            ]
+        ];
         $dbi->expects($this->once())->method('getTableIndexes')
             ->with('pma_test', 'pma_tbl')
             ->will($this->returnValue($getIndexesResult));
 
-        $tableStatusArray = array(
-            array(
+        $tableStatusArray = [
+            [
                 'Name' => 'pma_tbl',
                 'Rows' => '1',
                 'Create_time' => '2013-02-22 02:04:04',
                 'Update_time' => '2013-02-22 21:46:48'
+            ]
+        ];
+        $dbi->expects($this->exactly(2))
+            ->method('tryQuery')
+            ->withConsecutive(
+                ["SHOW TABLE STATUS FROM `pma_test` WHERE Name = 'pma_tbl'"],
+                ['SHOW CREATE TABLE `pma_test`.`pma_tbl`']
             )
-        );
-        $dbi->expects($this->any())->method('tryQuery')
-            ->with($this->equalTo("SHOW CREATE TABLE `pma_test`.`pma_tbl`"))
-            ->will(
-                $this->returnValue(
-                    "CREATE TABLE `pma_test`.`pma_tbl` (
-                    `id` int(11) NOT NULL AUTO_INCREMENT,
-                    `username` text NOT NULL
-                    )"
-                )
+            ->willReturnOnConsecutiveCalls(
+                'res',
+                'res'
             );
 
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         $expectedMainQuery = "/*NOTRACK*/" .
         "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
@@ -304,38 +294,29 @@ class TrackerTest extends PMATestCase
         "\n',
         '11' )";
 
-        $GLOBALS['controllink'] = null;
-
-        $queryResults = array(
-            array(
-                "SHOW TABLE STATUS FROM `pma_test` LIKE 'pma_tbl'",
-                null,
-                1,
-                true,
-                $tableStatusArray
-            ),
-            array(
+        $queryResults = [
+            [
                 $expectedMainQuery,
-                null,
+                DatabaseInterface::CONNECT_CONTROL,
                 0,
                 false,
                 'executed'
-            )
-        );
+            ]
+        ];
 
         $dbi->expects($this->any())->method('query')
             ->will($this->returnValueMap($queryResults));
 
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
+        $dbi->expects($this->any())->method('getCompatibilities')
+            ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
         $this->assertEquals(
             'executed',
             Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true)
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -346,7 +327,7 @@ class TrackerTest extends PMATestCase
      */
     public function testDeleteTracking()
     {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -377,19 +358,15 @@ class TrackerTest extends PMATestCase
      */
     public function testCreateDatabaseVersion()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
         $GLOBALS['cfg']['Server']['tracking_add_drop_table'] = true;
         $GLOBALS['cfg']['Server']['tracking_add_drop_view'] = true;
         $GLOBALS['cfg']['Server']['user'] = "pma_test_user";
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $date = date('Y-m-d H:i:s');
+        $date = Util::date('Y-m-d H:i:s');
 
         $expectedMainQuery = "/*NOTRACK*/" .
         "\nINSERT INTO `pmadb`.`tracking` (db_name, table_name, version, date_created, date_updated," .
@@ -406,11 +383,9 @@ class TrackerTest extends PMATestCase
         "\n',
         'CREATE DATABASE,ALTER DATABASE,DROP DATABASE' )";
 
-        $GLOBALS['controllink'] = null;
-
         $dbi->expects($this->exactly(1))
             ->method('query')
-            ->with($expectedMainQuery, null, 0, false)
+            ->with($expectedMainQuery, DatabaseInterface::CONNECT_CONTROL, 0, false)
             ->will($this->returnValue("executed"));
 
         $dbi->expects($this->any())->method('escapeString')
@@ -421,8 +396,6 @@ class TrackerTest extends PMATestCase
             'executed',
             Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES')
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -440,10 +413,14 @@ class TrackerTest extends PMATestCase
      * @test
      *
      */
-    public function testChangeTracking($dbname = 'pma_db', $tablename = 'pma_tbl',
-        $version = '0.1', $new_state = '1', $type = null
+    public function testChangeTracking(
+        $dbname = 'pma_db',
+        $tablename = 'pma_tbl',
+        $version = '0.1',
+        $new_state = '1',
+        $type = null
     ) {
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -453,11 +430,9 @@ class TrackerTest extends PMATestCase
         " AND `table_name` = '" . $tablename . "' " .
         " AND `version` = '" . $version . "' ";
 
-        $GLOBALS['controllink'] = null;
-
         $dbi->expects($this->exactly(1))
             ->method('query')
-            ->with($sql_query, null, 0, false)
+            ->with($sql_query, DatabaseInterface::CONNECT_CONTROL, 0, false)
             ->will($this->returnValue("executed"));
 
         $dbi->expects($this->any())->method('escapeString')
@@ -465,8 +440,10 @@ class TrackerTest extends PMATestCase
 
         $GLOBALS['dbi'] = $dbi;
 
+        $result = null;
+
         if ($type == null) {
-            $method = new \ReflectionMethod('PMA\libraries\Tracker', '_changeTracking');
+            $method = new \ReflectionMethod('PhpMyAdmin\Tracker', '_changeTracking');
             $method->setAccessible(true);
             $result = $method->invoke(
                 null,
@@ -495,17 +472,11 @@ class TrackerTest extends PMATestCase
      */
     public function testChangeTrackingData()
     {
-        if (!setupForTestsUsingDate()) {
-            $this->markTestSkipped("Cannot override internal function date()");
-        }
-
         $this->assertFalse(
             Tracker::changeTrackingData("", "", "", "", "")
         );
 
-        $GLOBALS['controllink'] = null;
-
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -515,18 +486,18 @@ class TrackerTest extends PMATestCase
         " AND `table_name` = 'pma_table' " .
         " AND `version` = '1.0' ";
 
-        $date  = date('Y-m-d H:i:s');
+        $date  = Util::date('Y-m-d H:i:s');
 
-        $new_data = array(
-            array(
+        $new_data = [
+            [
                 'username' => 'user1',
                 'statement' => 'test_statement1'
-            ),
-            array(
+            ],
+            [
                 'username' => 'user2',
                 'statement' => 'test_statement2'
-            )
-        );
+            ]
+        ];
 
         $sql_query_2 = " UPDATE `pmadb`.`tracking`" .
         " SET `data_sql` = '# log $date user1test_statement1\n" .
@@ -538,10 +509,10 @@ class TrackerTest extends PMATestCase
         $dbi->method('query')
             ->will(
                 $this->returnValueMap(
-                    array(
-                        array($sql_query_1, null, 0, false, "executed_1"),
-                        array($sql_query_2, null, 0, false, "executed_2")
-                    )
+                    [
+                        [$sql_query_1, DatabaseInterface::CONNECT_CONTROL, 0, false, "executed_1"],
+                        [$sql_query_2, DatabaseInterface::CONNECT_CONTROL, 0, false, "executed_2"]
+                    ]
                 )
             );
 
@@ -571,8 +542,6 @@ class TrackerTest extends PMATestCase
                 $new_data
             )
         );
-
-        tearDownForTestsUsingDate();
     }
 
     /**
@@ -609,9 +578,7 @@ class TrackerTest extends PMATestCase
      */
     public function testGetTrackedData($fetchArrayReturn, $expectedArray)
     {
-        $GLOBALS['controllink'] = null;
-
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -628,11 +595,11 @@ class TrackerTest extends PMATestCase
             ->method('escapeString')
             ->will(
                 $this->returnValueMap(
-                    array(
-                        array("pma'db", "pma\'db"),
-                        array("pma'table", "pma\'table"),
-                        array("1.0", "1.0"),
-                    )
+                    [
+                        ["pma'db", "pma\'db"],
+                        ["pma'table", "pma\'table"],
+                        ["1.0", "1.0"],
+                    ]
                 )
             );
 
@@ -652,81 +619,81 @@ class TrackerTest extends PMATestCase
      */
     public function getTrackedDataProvider()
     {
-        $fetchArrayReturn = array(
-            array(
+        $fetchArrayReturn = [
+            [
                 "schema_sql" => "# log 20-03-2013 23:33:58 user1\nstat1" .
                 "# log 20-03-2013 23:39:58 user2\n",
                 "data_sql" => "# log ",
                 "schema_snapshot" => "dataschema",
                 "tracking" => "SELECT, DELETE"
-            )
-        );
+            ]
+        ];
 
-        $data = array(
-            array(
+        $data = [
+            [
                 'date_from' => '20-03-2013 23:33:58',
                 'date_to' => '20-03-2013 23:39:58',
-                'ddlog' => array(
-                                array(
+                'ddlog' => [
+                                [
                                     'date' => '20-03-2013 23:33:58',
                                     'username' => 'user1',
                                     'statement' => "\nstat1"
-                                ),
-                                array(
+                                ],
+                                [
                                     'date' => '20-03-2013 23:39:58',
                                     'username' => 'user2',
                                     'statement' => ""
-                                )
-                            ),
-                'dmlog' => array(),
+                                ]
+                            ],
+                'dmlog' => [],
                 "schema_snapshot" => "dataschema",
                 "tracking" => "SELECT, DELETE"
-            )
-        );
+            ]
+        ];
 
-        $fetchArrayReturn[1] = array(
+        $fetchArrayReturn[1] = [
             "schema_sql" => "# log 20-03-2012 23:33:58 user1\n" .
             "# log 20-03-2012 23:39:58 user2\n",
             "data_sql" => "# log 20-03-2013 23:33:58 user3\n" .
             "# log 20-03-2013 23:39:58 user4\n",
             "schema_snapshot" => "dataschema",
             "tracking" => "SELECT, DELETE"
-        );
+        ];
 
-        $data[1] = array(
+        $data[1] = [
             'date_from' => '20-03-2012 23:33:58',
             'date_to' => '20-03-2013 23:39:58',
-            'ddlog' => array(
-                            array(
+            'ddlog' => [
+                            [
                                 'date' => '20-03-2012 23:33:58',
                                 'username' => 'user1',
                                 'statement' => ""
-                            ),
-                            array(
+                            ],
+                            [
                                 'date' => '20-03-2012 23:39:58',
                                 'username' => 'user2',
                                 'statement' => ""
-                            )
-                        ),
-            'dmlog' => array(
-                            array(
+                            ]
+                        ],
+            'dmlog' => [
+                            [
                                 'date' => '20-03-2013 23:33:58',
                                 'username' => 'user3',
                                 'statement' => ""
-                            ),
-                            array(
+                            ],
+                            [
                                 'date' => '20-03-2013 23:39:58',
                                 'username' => 'user4',
                                 'statement' => ""
-                            )
-                        ),
+                            ]
+                        ],
             "schema_snapshot" => "dataschema",
             "tracking" => "SELECT, DELETE"
-        );
-        return array(
-            array($fetchArrayReturn[0], $data[0]),
-            array($fetchArrayReturn[1], $data[1])
-        );
+        ];
+        return [
+            [$fetchArrayReturn[0], $data[0]],
+            [$fetchArrayReturn[1], $data[1]]
+        ];
     }
 
     /**
@@ -744,8 +711,13 @@ class TrackerTest extends PMATestCase
      * @test
      * @dataProvider parseQueryData
      */
-    public function testParseQuery($query, $type, $identifier, $tablename,
-        $db = null, $tablename_after_rename = null
+    public function testParseQuery(
+        $query,
+        $type,
+        $identifier,
+        $tablename,
+        $db = null,
+        $tablename_after_rename = null
     ) {
         $result = Tracker::parseQuery($query);
 
@@ -786,7 +758,7 @@ class TrackerTest extends PMATestCase
      */
     public function parseQueryData()
     {
-        $query = array();
+        $query = [];
         /** TODO: Should test fail when USE is in conjunction with * identifiers?
         $query[] = array(
             " - USE db1;\n- CREATE VIEW db1.v AS SELECT * FROM t;",
@@ -796,130 +768,130 @@ class TrackerTest extends PMATestCase
             "db1"
         );
         */
-        $query[] = array(
-            "- CREATE VIEW v AS SELECT * FROM t;",
+        $query[] = [
+            "CREATE VIEW v AS SELECT * FROM t;",
             "DDL",
             "CREATE VIEW",
             "v",
-        );
-        $query[] = array(
-            "- ALTER VIEW db1.v AS SELECT col1, col2, col3, col4 FROM t",
+        ];
+        $query[] = [
+            "ALTER VIEW db1.v AS SELECT col1, col2, col3, col4 FROM t",
             "DDL",
             "ALTER VIEW",
             "v"
-        );
-        $query[] = array(
-            "- DROP VIEW db1.v;",
+        ];
+        $query[] = [
+            "DROP VIEW db1.v;",
             "DDL",
             "DROP VIEW",
             "v"
-        );
-        $query[] = array(
-            "- DROP VIEW IF EXISTS db1.v;",
+        ];
+        $query[] = [
+            "DROP VIEW IF EXISTS db1.v;",
             "DDL",
             "DROP VIEW",
             "v"
-        );
-        $query[] = array(
-            "- CREATE DATABASE db1; -",
+        ];
+        $query[] = [
+            "CREATE DATABASE db1;",
             "DDL",
             "CREATE DATABASE",
             "",
             "db1"
-        );
-        $query[] = array(
-            "- ALTER DATABASE db1; -",
+        ];
+        $query[] = [
+            "ALTER DATABASE db1;",
             "DDL",
             "ALTER DATABASE",
             ""
-        );
-        $query[] = array(
-            "- DROP DATABASE db1; -",
+        ];
+        $query[] = [
+            "DROP DATABASE db1;",
             "DDL",
             "DROP DATABASE",
             "",
             "db1"
-        );
-        $query[] = array(
-            "- CREATE TABLE db1.t1 (c1 INT);",
+        ];
+        $query[] = [
+            "CREATE TABLE db1.t1 (c1 INT);",
             "DDL",
             "CREATE TABLE",
             "t1"
-        );
-        $query[] =  array(
-            "- ALTER TABLE db1.t1 ADD c2 TEXT;",
+        ];
+        $query[] =  [
+            "ALTER TABLE db1.t1 ADD c2 TEXT;",
             "DDL",
             "ALTER TABLE",
             "t1"
-        );
-        $query[] =  array(
-            "- DROP TABLE db1.t1",
+        ];
+        $query[] =  [
+            "DROP TABLE db1.t1",
             "DDL",
             "DROP TABLE",
             "t1"
-        );
-        $query[] =  array(
-            "- DROP TABLE IF EXISTS db1.t1",
+        ];
+        $query[] =  [
+            "DROP TABLE IF EXISTS db1.t1",
             "DDL",
             "DROP TABLE",
             "t1"
-        );
-        $query[] =  array(
-            "- CREATE INDEX ind ON db1.t1 (c2(10));",
+        ];
+        $query[] =  [
+            "CREATE INDEX ind ON db1.t1 (c2(10));",
             "DDL",
             "CREATE INDEX",
             "t1"
-        );
-        $query[] =  array(
-            "- CREATE UNIQUE INDEX ind ON db1.t1 (c2(10));",
+        ];
+        $query[] =  [
+            "CREATE UNIQUE INDEX ind ON db1.t1 (c2(10));",
             "DDL",
             "CREATE INDEX",
             "t1"
-        );
-        $query[] =  array(
-            "- CREATE SPATIAL INDEX ind ON db1.t1 (c2(10));",
+        ];
+        $query[] =  [
+            "CREATE SPATIAL INDEX ind ON db1.t1 (c2(10));",
             "DDL",
             "CREATE INDEX",
             "t1"
-        );
-        $query[] =  array(
-            "- DROP INDEX ind ON db1.t1;",
+        ];
+        $query[] =  [
+            "DROP INDEX ind ON db1.t1;",
             "DDL",
             "DROP INDEX",
             "t1"
-        );
-        $query[] =  array(
-            "- RENAME TABLE db1.t1 TO db1.t2",
+        ];
+        $query[] =  [
+            "RENAME TABLE db1.t1 TO db1.t2",
             "DDL",
             "RENAME TABLE",
             "t1",
             "",
             "t2"
-        );
-        $query[] =  array(
-            "- UPDATE db1.t1 SET a = 2",
+        ];
+        $query[] =  [
+            "UPDATE db1.t1 SET a = 2",
             "DML",
             "UPDATE",
             "t1"
-        );
-        $query[] =  array(
-            "- INSERT INTO db1.t1 (a, b, c) VALUES(1, 2, 3)",
+        ];
+        $query[] =  [
+            "INSERT INTO db1.t1 (a, b, c) VALUES(1, 2, 3)",
             "DML",
             "INSERT",
             "t1"
-        );
-        $query[] =  array(
-            "- DELETE FROM db1.t1",
+        ];
+        $query[] =  [
+            "DELETE FROM db1.t1",
             "DML",
             "DELETE",
             "t1"
-        );
-        $query[] =  array(
-            "- TRUNCATE db1.t1",
+        ];
+        $query[] =  [
+            "TRUNCATE db1.t1",
             "DML",
             "TRUNCATE",
             "t1"
-        );
+        ];
 
         return $query;
     }

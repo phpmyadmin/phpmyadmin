@@ -1,56 +1,100 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA\libraries\Template class
+ * Test for PhpMyAdmin\Template class
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
+
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Tests\PmaTestCase;
+use Twig\Error\LoaderError;
 
 /**
- * Test for PMA\libraries\Template class
+ * Test for PhpMyAdmin\Template class
  *
  * @package PhpMyAdmin-test
  */
-class TemplateTest extends PMATestCase
+class TemplateTest extends PmaTestCase
 {
     /**
-     * Test for set function
+     * @var Template
+     */
+    protected $template;
+
+    /**
+     * Sets up the fixture.
      *
      * @return void
      */
-    public function testSet()
+    protected function setUp()
     {
-        $template = PMA\libraries\Template::get('test/add_data');
-        $template->set('variable1', 'value1');
-        $template->set(
-            array(
-                'variable2' => 'value2'
-            )
-        );
-        $result = $template->render();
+        $this->template = new Template();
+    }
+
+    /**
+     * Test for set function
+     *
+     * @param string $data Template name
+     *
+     * @return void
+     *
+     * @dataProvider providerTestSet
+     */
+    public function testSet($data)
+    {
+        $result = $this->template->render($data, [
+            'variable1' => 'value1',
+            'variable2' => 'value2',
+        ]);
         $this->assertContains('value1', $result);
         $this->assertContains('value2', $result);
     }
 
     /**
-     * Test for setHelper
+     * Data provider for testSet
+     *
+     * @return array
+     */
+    public function providerTestSet()
+    {
+        return [
+            ['test/add_data'],
+        ];
+    }
+
+    /**
+     * Test for render
+     *
+     * @param string $templateFile Template name
+     * @param string $key          Template variable array key
+     * @param string $value        Template variable array value
      *
      * @return void
+     *
+     * @dataProvider providerTestDynamicRender
      */
-    public function testSetHelper()
+    public function testDynamicRender($templateFile, $key, $value)
     {
-        $template = PMA\libraries\Template::get('test/set_helper');
-        $template->setHelper('hello', function ($string) {
-            return 'hello ' . $string;
-        });
-        $template->set(
-            array(
-                'variable' => 'world'
-            )
+        $this->assertEquals(
+            $value,
+            $this->template->render($templateFile, [$key => $value])
         );
-        $this->assertEquals('hello world', $template->render());
+    }
+
+    /**
+     * Data provider for testDynamicRender
+     *
+     * @return array
+     */
+    public function providerTestDynamicRender()
+    {
+        return [
+            ['test/echo', 'variable', 'value'],
+        ];
     }
 
     /**
@@ -58,28 +102,76 @@ class TemplateTest extends PMATestCase
      *
      * @return void
      */
-    public function testStaticRender()
+    public function testRenderTemplateNotFound()
     {
-        $this->assertEquals(
-            'static content',
-            PMA\libraries\Template::get('test/static')->render()
-        );
+        $this->expectException(LoaderError::class);
+        $this->template->render('template not found');
     }
 
     /**
      * Test for render
      *
+     * @param string $templateFile   Template name
+     * @param string $expectedResult Expected result
+     *
      * @return void
+     *
+     * @dataProvider providerTestRender
      */
-    public function testDynamicRender()
+    public function testRender($templateFile, $expectedResult)
     {
         $this->assertEquals(
-            'value',
-            PMA\libraries\Template::get('test/echo')->render(
-                array(
-                    'variable' => 'value'
-                )
-            )
+            $expectedResult,
+            $this->template->render($templateFile)
         );
+    }
+
+    /**
+     * Data provider for testSet
+     *
+     * @return array
+     */
+    public function providerTestRender()
+    {
+        return [
+            ['test/static', 'static content'],
+        ];
+    }
+
+    /**
+     * Test for render
+     *
+     * @param string $templateFile   Template name
+     * @param array  $renderParams   Render params
+     * @param string $expectedResult Expected result
+     *
+     * @return void
+     *
+     * @dataProvider providerTestRenderGettext
+     */
+    public function testRenderGettext($templateFile, $renderParams, $expectedResult)
+    {
+        $this->assertEquals(
+            $expectedResult,
+            $this->template->render($templateFile, $renderParams)
+        );
+    }
+
+    /**
+     * Data provider for testRenderGettext
+     *
+     * @return array
+     */
+    public function providerTestRenderGettext()
+    {
+        return [
+            ['test/gettext/gettext', [], 'Text'],
+            ['test/gettext/pgettext', [], 'Text'],
+            ['test/gettext/notes', [], 'Text'],
+            ['test/gettext/plural', ['table_count' => 1], 'One table'],
+            ['test/gettext/plural', ['table_count' => 2], '2 tables'],
+            ['test/gettext/plural_notes', ['table_count' => 1], 'One table'],
+            ['test/gettext/plural_notes', ['table_count' => 2], '2 tables'],
+        ];
     }
 }

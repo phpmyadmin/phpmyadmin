@@ -1,0 +1,34 @@
+<tr class="var-row {{ row_class }}" data-filter-row="{{ name | upper }}">
+    <td class="var-action">
+    {% if editable %}
+        <a href="#" data-variable="{{ name }}" class="editLink">{{ get_icon('b_edit', 'Edit'|trans) }}</a>
+    {% else %}
+        <span title="{% trans 'This is a read-only variable and can not be edited' %}" class="read_only_var">
+            {{ get_icon('bd_edit', 'Edit'|trans) }}
+        </span>
+    {% endif %}
+    </td>
+    <td class="var-name">
+    {% if doc_link != null %}
+        <span title="{{ name|replace({'_': ' '}) }}">
+            {{ doc_link|raw }}
+        </span>
+    {% else %}
+        {{ name|replace({'_': ' '}) }}
+    {% endif %}
+    </td>
+    <td class="var-value value{{ is_superuser ? ' editable' }}">
+    {% if is_html_formatted == false %}
+        {{ value|e|replace({',': ',&#8203;'})|raw }}
+    {% else %}
+        {{ value|raw }}
+    {% endif %}
+    </td>
+</tr>
+{% if has_session_value %}
+    <tr class="var-row {{ row_class }}" data-filter-row="{{ name|upper }}">
+        <td class="var-action"></td>
+        <td class="var-name session">({% trans 'Session value' %})</td>
+        <td class="var-value value">&nbsp;{{ session_value }}</td>
+    </tr>
+{% endif %}

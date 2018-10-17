@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -z "$TRAVIS_COMMIT_RANGE" ] ; then
+    FILES=`find . -name '*.php' -not -path './vendor/*'`
+else
+    FILES=`git diff --name-only $TRAVIS_COMMIT_RANGE -- '*.php'`
+fi
+
+for FILE in $FILES ; do
+    if [ -f $FILE ] ; then
+        php -l $FILE
+    fi
+done

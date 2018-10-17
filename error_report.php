@@ -5,17 +5,25 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
+use PhpMyAdmin\ErrorReport;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Utils\HttpRequest;
+
 require_once 'libraries/common.inc.php';
-require_once 'libraries/error_report.lib.php';
-require_once 'libraries/user_preferences.lib.php';
 
 if (!isset($_REQUEST['exception_type'])
-    ||!in_array($_REQUEST['exception_type'], array('js', 'php'))
+    || !in_array($_REQUEST['exception_type'], ['js', 'php'])
 ) {
     die('Oops, something went wrong!!');
 }
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
+
+$errorReport = new ErrorReport(new HttpRequest());
 
 if (isset($_REQUEST['send_error_report'])
     && ($_REQUEST['send_error_report'] == true
@@ -31,25 +39,24 @@ if (isset($_REQUEST['send_error_report'])
         if (isset($_SESSION['prev_error_subm_time'])
             && isset($_SESSION['error_subm_count'])
             && $_SESSION['error_subm_count'] >= 3
-            && ($_SESSION['prev_error_subm_time']-time()) <= 3000
+            && ($_SESSION['prev_error_subm_time'] - time()) <= 3000
         ) {
             $_SESSION['error_subm_count'] = 0;
             $_SESSION['prev_errors'] = '';
-             $response = PMA\libraries\Response::getInstance();
             $response->addJSON('_stopErrorReportLoop', '1');
         } else {
             $_SESSION['prev_error_subm_time'] = time();
             $_SESSION['error_subm_count'] = (
                 (isset($_SESSION['error_subm_count']))
-                    ? ($_SESSION['error_subm_count']+1)
+                    ? ($_SESSION['error_subm_count'] + 1)
                     : (0)
             );
         }
     }
-    $reportData = PMA_getReportData($_REQUEST['exception_type']);
+    $reportData = $errorReport->getData($_REQUEST['exception_type']);
     // report if and only if there were 'actual' errors.
     if (count($reportData) > 0) {
-        $server_response = PMA_sendErrorReport($reportData);
+        $server_response = $errorReport->send($reportData);
         if ($server_response === false) {
             $success = false;
         } else {
@@ -86,9 +93,9 @@ if (isset($_REQUEST['send_error_report'])
 
         /* Create message object */
         if ($success) {
-            $msg = PMA\libraries\Message::notice($msg);
+            $msg = Message::notice($msg);
         } else {
-            $msg = PMA\libraries\Message::error($msg);
+            $msg = Message::error($msg);
         }
 
         /* Add message to response */
@@ -114,14 +121,15 @@ if (isset($_REQUEST['send_error_report'])
         if (isset($_REQUEST['always_send'])
             && $_REQUEST['always_send'] === "true"
         ) {
-            PMA_persistOption("SendErrorReports", "always", "ask");
+            $userPreferences = new UserPreferences();
+            $userPreferences->persistOption("SendErrorReports", "always", "ask");
         }
     }
 } elseif (! empty($_REQUEST['get_settings'])) {
     $response->addJSON('report_setting', $GLOBALS['cfg']['SendErrorReports']);
 } else {
     if ($_REQUEST['exception_type'] == 'js') {
-        $response->addHTML(PMA_getErrorReportForm());
+        $response->addHTML($errorReport->getForm());
     } else {
         // clear previous errors & save new ones.
         $GLOBALS['error_handler']->savePreviousErrors();

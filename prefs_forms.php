@@ -5,47 +5,43 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\config\ConfigFile;
-use PMA\libraries\config\FormDisplay;
-use PMA\libraries\Response;
+declare(strict_types=1);
+
+use PhpMyAdmin\Config\ConfigFile;
+use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Url;
+use PhpMyAdmin\UserPreferences;
 
 /**
  * Gets some core libraries and displays a top message if required
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/user_preferences.lib.php';
-require_once 'libraries/config/config_functions.lib.php';
-require_once 'libraries/config/messages.inc.php';
-require 'libraries/config/user_preferences.forms.php';
+
+$userPreferences = new UserPreferences();
 
 $cf = new ConfigFile($GLOBALS['PMA_Config']->base_settings);
-PMA_userprefsPageInit($cf);
+$userPreferences->pageInit($cf);
 
 // handle form processing
 
 $form_param = isset($_GET['form']) ? $_GET['form'] : null;
-if (! isset($forms[$form_param])) {
-    $forms_keys = array_keys($forms);
-    $form_param = array_shift($forms_keys);
+$form_class = UserFormList::get($form_param);
+if (is_null($form_class)) {
+    Core::fatalError(__('Incorrect form specified!'));
 }
 
-$form_display = new FormDisplay($cf);
-foreach ($forms[$form_param] as $form_name => $form) {
-    // skip Developer form if no setting is available
-    if ($form_name == 'Developer' && !$GLOBALS['cfg']['UserprefsDeveloperTab']) {
-        continue;
-    }
-    $form_display->registerForm($form_name, $form, 1);
-}
+$form_display = new $form_class($cf, 1);
 
 if (isset($_POST['revert'])) {
     // revert erroneous fields to their default values
     $form_display->fixErrors();
     // redirect
-    $url_params = array('form' => $form_param);
-    PMA_sendHeaderLocation(
+    $url_params = ['form' => $form_param];
+    Core::sendHeaderLocation(
         './prefs_forms.php'
-        . PMA_URL_getCommon($url_params, 'text')
+        . Url::getCommonRaw($url_params)
     );
     exit;
 }
@@ -53,15 +49,15 @@ if (isset($_POST['revert'])) {
 $error = null;
 if ($form_display->process(false) && !$form_display->hasErrors()) {
     // save settings
-    $result = PMA_saveUserprefs($cf->getConfigArray());
+    $result = $userPreferences->save($cf->getConfigArray());
     if ($result === true) {
         // reload config
         $GLOBALS['PMA_Config']->loadUserPreferences();
         $tabHash = isset($_POST['tab_hash']) ? $_POST['tab_hash'] : null;
         $hash = ltrim($tabHash, '#');
-        PMA_userprefsRedirect(
+        $userPreferences->redirect(
             'prefs_forms.php',
-            array('form' => $form_param),
+            ['form' => $form_param],
             $hash
         );
         exit;

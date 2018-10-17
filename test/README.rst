@@ -41,7 +41,7 @@ TESTSUITE_SELENIUM_BROWSER
 
 With BrowserStack, set following:
 
-TESTSUITE_BROWSERSTACK_UNAME
+TESTSUITE_BROWSERSTACK_USER
     BrowserStack username.
 TESTSUITE_BROWSERSTACK_KEY
     BrowserStack access key.
@@ -53,7 +53,35 @@ For example you can use following setup in ``phpunit.xml``::
         <env name="TESTSUITE_USER" value="root"/>
         <env name="TESTSUITE_PASSWORD" value="root"/>
         <env name="TESTSUITE_DATABASE" value="test"/>
-        <env name="TESTSUITE_PHPMYADMIN_HOST" value="http://localhost/phpmyadmin/" />
+        <env name="TESTSUITE_URL" value="http://localhost/phpmyadmin/" />
         <env name="TESTSUITE_SELENIUM_HOST" value="127.0.0.1" />
         <env name="TESTSUITE_SELENIUM_PORT" value="4444" />
     </php>
+
+Using BrowserStack
+------------------
+
+We're using BrowserStack to run our tests on the Travis CI. If you are a team
+member, you can be granted access to the team account, but you can register own
+account there as well.
+
+To run tests locally, you need to install BrowserStack tool to enable local
+testing, see their website for instructions:
+
+https://www.browserstack.com/local-testing#command-line
+
+Following instructions use PHP's built in server for the testing::
+
+    # Export BrowserStack credentials in the environment:
+    export TESTSUITE_BROWSERSTACK_USER=your_username
+    export TESTSUITE_BROWSERSTACK_KEY=your_key
+
+    # Port where tests will be running
+    export TESTSUITE_PORT=9000
+    export TESTSUITE_URL=http://127.0.0.1:$TESTSUITE_PORT/
+
+    # Start PHP built in server
+    php --server 127.0.0.1:$TESTSUITE_PORT > php.log &
+
+    # Start BrowserStack Local client to forward the traffic
+    ~/browserstack/BrowserStackLocal -localIdentifier Manual "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,$TESTSUITE_PORT,0 & 

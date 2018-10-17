@@ -7,9 +7,10 @@
  * @package    PhpMyAdmin-theme
  * @subpackage PMAHomme
  */
+declare(strict_types=1);
 
 // unplanned execution path
-if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
+if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     exit();
 }
 ?>
@@ -73,8 +74,13 @@ span.cm-number {
     margin-left: 1em;
 }
 .CodeMirror-hints {
-    z-index: 200;
+    z-index: 999;
 }
 .CodeMirror-lint-tooltip {
     z-index: 200;
+    font-family: inherit;
+}
+.CodeMirror-lint-tooltip code {
+  font-family: monospace;
+  font-weight: bold;
 }

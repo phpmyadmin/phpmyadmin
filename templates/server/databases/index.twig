@@ -1,0 +1,123 @@
+{# Displays the sub-page heading #}
+{% include 'server/sub_page_header.twig' with {
+    'type': dbstats ? 'database_statistics' : 'databases'
+} only %}
+
+{# Displays For Create database #}
+{% if show_create_db %}
+    <ul>
+        <li id="li_create_database" class="no_bullets">
+            {% if is_create_db_priv %}
+                <form method="post" action="server_databases.php" id="create_database_form" class="ajax">
+                    <p><strong>
+                        <label for="text_create_db">
+                            {{ get_image('b_newdb') }}
+                            {% trans 'Create database' %}
+                        </label>
+                        {{ show_mysql_docu('CREATE_DATABASE') }}
+                    </strong></p>
+
+                    {{ get_hidden_inputs('', '', 5) }}
+                    <input type="hidden" name="reload" value="1" />
+                    {% if dbstats is not empty %}
+                        <input type="hidden" name="dbstats" value="1" />
+                    {% endif %}
+
+                    <input type="text" name="new_db" value="{{ db_to_create }}"
+                        maxlength="64" class="textfield" id="text_create_db" required
+                        placeholder="{% trans 'Database name' %}" />
+                    {{ get_collation_dropdown_box(
+                        dbi,
+                        disable_is,
+                        'db_collation',
+                        null,
+                        server_collation,
+                        true
+                    ) }}
+                    <input type="submit" value="{% trans 'Create' %}" id="buttonGo" />
+                </form>
+            {% else %}
+                {# db creation no privileges message #}
+                <p><strong>
+                    {{ get_image('b_newdb') }}
+                    {% trans 'Create database' %}
+                    {{ show_mysql_docu('CREATE_DATABASE') }}
+                </strong></p>
+
+                <span class="noPrivileges">
+                    {{ get_image(
+                        's_error',
+                        '',
+                        {'hspace': 2, 'border': 0, 'align': 'middle'}
+                    ) }}
+                    {% trans 'No Privileges' %}
+                </span>
+            {% endif %}
+        </li>
+    </ul>
+{% endif %}
+
+{% include 'filter.twig' with {'filter_value': ''} only %}
+
+{# Displays the table #}
+{% if databases is not null %}
+    <div id="tableslistcontainer">
+        {{ get_list_navigator(
+            database_count,
+            pos,
+            url_params,
+            'server_databases.php',
+            'frame_content',
+            max_db_list
+        ) }}
+        <form class="ajax" action="server_databases.php" method="post" name="dbStatsForm" id="dbStatsForm">
+            {{ get_hidden_inputs(url_params) }}
+            {% set url_params = url_params|merge({
+                'sort_by': 'SCHEMA_NAME',
+                'sort_order': sort_by == 'SCHEMA_NAME' and sort_order == 'asc' ? 'desc' : 'asc'
+            }) %}
+            <div class="responsivetable">
+                <table id="tabledatabases" class="data">
+                    <thead>
+                        <tr>
+                            {% if is_superuser or allow_user_drop_database %}
+                                <th></th>
+                            {% endif %}
+                            <th>
+                                <a href="server_databases.php{{ get_common(url_params) }}">
+                                    {% trans 'Database' %}
+                                    {{ sort_by == 'SCHEMA_NAME' ? get_image(
+                                        's_' ~ sort_order,
+                                        sort_order == 'asc' ? 'Ascending'|trans : 'Descending'|trans
+                                    ) }}
+                                </a>
+                            </th>
+                            {% for stat_name, stat in column_order if stat_name in first_database|keys %}
+                                {% set url_params = url_params|merge({
+                                    'sort_by': stat_name,
+                                    'sort_order': sort_by == stat_name and sort_order == 'desc' ? 'asc' : 'desc'
+                                }) %}
+
+                                <th{{ stat['format'] is same as('byte') ? ' colspan="2"' }}>
+                                    <a href="server_databases.php{{ get_common(url_params) }}">
+                                        {{ stat['disp_name'] }}
+                                        {{ sort_by == stat_name ? get_image(
+                                            's_' ~ sort_order,
+                                            sort_order == 'asc' ? 'Ascending'|trans : 'Descending'|trans
+                                        ) }}
+                                    </a>
+                                </th>
+                            {% endfor %}
+                            {% if master_replication %}
+                                <th>{% trans 'Master replication' %}</th>
+                            {% endif %}
+                            {% if slave_replication %}
+                                <th>{% trans 'Slave replication' %}</th>
+                            {% endif %}
+                            <th>{% trans 'Action' %}</th>
+                        </tr>
+                    </thead>
+                    {{ databases|raw }}
+{% else %}
+    <p>{% trans 'No databases' %}</p>
+{% endif %}

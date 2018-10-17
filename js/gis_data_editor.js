@@ -11,9 +11,9 @@ var gisEditorLoaded = false;
 /**
  * Closes the GIS data editor and perform necessary clean up work.
  */
-function closeGISEditor() {
-    $("#popup_background").fadeOut("fast");
-    $("#gis_editor").fadeOut("fast", function () {
+function closeGISEditor () {
+    $('#popup_background').fadeOut('fast');
+    $('#gis_editor').fadeOut('fast', function () {
         $(this).empty();
     });
 }
@@ -21,9 +21,9 @@ function closeGISEditor() {
 /**
  * Prepares the HTML received via AJAX.
  */
-function prepareJSVersion() {
+function prepareJSVersion () {
     // Change the text on the submit button
-    $("#gis_editor").find("input[name='gis_data[save]']")
+    $('#gis_editor').find('input[name=\'gis_data[save]\']')
         .val(PMA_messages.strCopy)
         .insertAfter($('#gis_data_textarea'))
         .before('<br/><br/>');
@@ -31,7 +31,7 @@ function prepareJSVersion() {
     // Add close and cancel links
     $('#gis_data_editor').prepend('<a class="close_gis_editor" href="#">' + PMA_messages.strClose + '</a>');
     $('<a class="cancel_gis_editor" href="#"> ' + PMA_messages.strCancel + '</a>')
-        .insertAfter($("input[name='gis_data[save]']"));
+        .insertAfter($('input[name=\'gis_data[save]\']'));
 
     // Remove the unnecessary text
     $('div#gis_data_output p').remove();
@@ -56,7 +56,7 @@ function prepareJSVersion() {
  * @param prefix      prefix of the name
  * @returns the HTML for a data point
  */
-function addDataPoint(pointNumber, prefix) {
+function addDataPoint (pointNumber, prefix) {
     return '<br/>' +
         PMA_sprintf(PMA_messages.strPointN, (pointNumber + 1)) + ': ' +
         '<label for="x">' + PMA_messages.strX + '</label>' +
@@ -68,7 +68,7 @@ function addDataPoint(pointNumber, prefix) {
 /**
  * Initialize the visualization in the GIS data editor.
  */
-function initGISEditorVisualization() {
+function initGISEditorVisualization () {
     // Loads either SVG or OSM visualization based on the choice
     selectVisualization();
     // Adds necessary styles to the div that coontains the openStreetMap
@@ -89,15 +89,15 @@ function initGISEditorVisualization() {
  * @param input_name name of the input field
  * @param token      token
  */
-function loadJSAndGISEditor(value, field, type, input_name, token) {
+function loadJSAndGISEditor (value, field, type, input_name) {
     var head = document.getElementsByTagName('head')[0];
     var script;
 
     // Loads a set of small JS file needed for the GIS editor
-    var smallScripts = [ 'js/jquery/jquery.svg.js',
-                     'js/jquery/jquery.mousewheel.js',
-                     'js/jquery/jquery.event.drag-2.2.js',
-                     'js/tbl_gis_visualization.js' ];
+    var smallScripts = ['js/vendor/jquery/jquery.svg.js',
+        'js/vendor/jquery/jquery.mousewheel.js',
+        'js/vendor/jquery/jquery.event.drag-2.2.js',
+        'js/tbl_gis_visualization.js'];
 
     for (var i = 0; i < smallScripts.length; i++) {
         script = document.createElement('script');
@@ -112,18 +112,18 @@ function loadJSAndGISEditor(value, field, type, input_name, token) {
     script.type = 'text/javascript';
 
     script.onreadystatechange = function () {
-        if (this.readyState == 'complete') {
-            loadGISEditor(value, field, type, input_name, token);
+        if (this.readyState === 'complete') {
+            loadGISEditor(value, field, type, input_name);
         }
     };
     script.onload = function () {
-        loadGISEditor(value, field, type, input_name, token);
+        loadGISEditor(value, field, type, input_name);
     };
-    script.onerror = function() {
-        loadGISEditor(value, field, type, input_name, token);
-    }
+    script.onerror = function () {
+        loadGISEditor(value, field, type, input_name);
+    };
 
-    script.src = 'js/openlayers/OpenLayers.js';
+    script.src = 'js/vendor/openlayers/OpenLayers.js';
     head.appendChild(script);
 
     gisEditorLoaded = true;
@@ -136,18 +136,15 @@ function loadJSAndGISEditor(value, field, type, input_name, token) {
  * @param field      field name
  * @param type       geometry type
  * @param input_name name of the input field
- * @param token      token
  */
-function loadGISEditor(value, field, type, input_name, token) {
-
-    var $gis_editor = $("#gis_editor");
+function loadGISEditor (value, field, type, input_name) {
+    var $gis_editor = $('#gis_editor');
     $.post('gis_data_editor.php', {
         'field' : field,
         'value' : value,
         'type' : type,
         'input_name' : input_name,
         'get_gis_editor' : true,
-        'token' : token,
         'ajax_request': true
     }, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
@@ -163,8 +160,7 @@ function loadGISEditor(value, field, type, input_name, token) {
 /**
  * Opens up the dialog for the GIS data editor.
  */
-function openGISEditor() {
-
+function openGISEditor () {
     // Center the popup
     var windowWidth = document.documentElement.clientWidth;
     var windowHeight = document.documentElement.clientHeight;
@@ -173,11 +169,11 @@ function openGISEditor() {
     var popupOffsetTop = windowHeight / 2 - popupHeight / 2;
     var popupOffsetLeft = windowWidth / 2 - popupWidth / 2;
 
-    var $gis_editor = $("#gis_editor");
-    var $backgrouond = $("#popup_background");
+    var $gis_editor = $('#gis_editor');
+    var $backgrouond = $('#popup_background');
 
-    $gis_editor.css({"top": popupOffsetTop, "left": popupOffsetLeft, "width": popupWidth, "height": popupHeight});
-    $backgrouond.css({"opacity" : "0.7"});
+    $gis_editor.css({ 'top': popupOffsetTop, 'left': popupOffsetLeft, 'width': popupWidth, 'height': popupHeight });
+    $backgrouond.css({ 'opacity' : '0.7' });
 
     $gis_editor.append(
         '<div id="gis_data_editor">' +
@@ -187,21 +183,22 @@ function openGISEditor() {
     );
 
     // Make it appear
-    $backgrouond.fadeIn("fast");
-    $gis_editor.fadeIn("fast");
+    $backgrouond.fadeIn('fast');
+    $gis_editor.fadeIn('fast');
 }
 
 /**
  * Prepare and insert the GIS data in Well Known Text format
  * to the input field.
  */
-function insertDataAndClose() {
+function insertDataAndClose () {
     var $form = $('form#gis_data_editor_form');
-    var input_name = $form.find("input[name='input_name']").val();
+    var input_name = $form.find('input[name=\'input_name\']').val();
 
-    $.post('gis_data_editor.php', $form.serialize() + "&generate=true&ajax_request=true", function (data) {
+    var argsep = PMA_commonParams.get('arg_separator');
+    $.post('gis_data_editor.php', $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true', function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
-            $("input[name='" + input_name + "']").val(data.result);
+            $('input[name=\'' + input_name + '\']').val(data.result);
         } else {
             PMA_ajaxShowMessage(data.error, false);
         }
@@ -213,10 +210,10 @@ function insertDataAndClose() {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('gis_data_editor.js', function () {
-    $(document).off('click', "#gis_editor input[name='gis_data[save]']");
+    $(document).off('click', '#gis_editor input[name=\'gis_data[save]\']');
     $(document).off('submit', '#gis_editor');
-    $(document).off('change', "#gis_editor input[type='text']");
-    $(document).off('change', "#gis_editor select.gis_type");
+    $(document).off('change', '#gis_editor input[type=\'text\']');
+    $(document).off('change', '#gis_editor select.gis_type');
     $(document).off('click', '#gis_editor a.close_gis_editor, #gis_editor a.cancel_gis_editor');
     $(document).off('click', '#gis_editor a.addJs.addPoint');
     $(document).off('click', '#gis_editor a.addLine.addJs');
@@ -225,14 +222,10 @@ AJAX.registerTeardown('gis_data_editor.js', function () {
 });
 
 AJAX.registerOnload('gis_data_editor.js', function () {
-
-    // Remove the class that is added due to the URL being too long.
-    $('span.open_gis_editor a').removeClass('formLinkSubmit');
-
     /**
      * Prepares and insert the GIS data to the input field on clicking 'copy'.
      */
-    $(document).on('click', "#gis_editor input[name='gis_data[save]']", function (event) {
+    $(document).on('click', '#gis_editor input[name=\'gis_data[save]\']', function (event) {
         event.preventDefault();
         insertDataAndClose();
     });
@@ -248,9 +241,10 @@ AJAX.registerOnload('gis_data_editor.js', function () {
     /**
      * Trigger asynchronous calls on data change and update the output.
      */
-    $(document).on('change', "#gis_editor input[type='text']", function () {
+    $(document).on('change', '#gis_editor input[type=\'text\']', function () {
         var $form = $('form#gis_data_editor_form');
-        $.post('gis_data_editor.php', $form.serialize() + "&generate=true&ajax_request=true", function (data) {
+        var argsep = PMA_commonParams.get('arg_separator');
+        $.post('gis_data_editor.php', $form.serialize() + argsep + 'generate=true' + argsep + 'ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 $('#gis_data_textarea').val(data.result);
                 $('#placeholder').empty().removeClass('hasSVG').html(data.visualization);
@@ -267,11 +261,12 @@ AJAX.registerOnload('gis_data_editor.js', function () {
     /**
      * Update the form on change of the GIS type.
      */
-    $(document).on('change', "#gis_editor select.gis_type", function (event) {
-        var $gis_editor = $("#gis_editor");
+    $(document).on('change', '#gis_editor select.gis_type', function (event) {
+        var $gis_editor = $('#gis_editor');
         var $form = $('form#gis_data_editor_form');
 
-        $.post('gis_data_editor.php', $form.serialize() + "&get_gis_editor=true&ajax_request=true", function (data) {
+        var argsep = PMA_commonParams.get('arg_separator');
+        $.post('gis_data_editor.php', $form.serialize() + argsep + 'get_gis_editor=true' + argsep + 'ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 $gis_editor.html(data.gis_editor);
                 initGISEditorVisualization();
@@ -298,7 +293,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         // Eg. name = gis_data[0][MULTIPOINT][add_point] => prefix = gis_data[0][MULTIPOINT]
         var prefix = name.substr(0, name.length - 11);
         // Find the number of points
-        var $noOfPointsInput = $("input[name='" + prefix + "[no_of_points]" + "']");
+        var $noOfPointsInput = $('input[name=\'' + prefix + '[no_of_points]' + '\']');
         var noOfPoints = parseInt($noOfPointsInput.val(), 10);
         // Add the new data point
         var html = addDataPoint(noOfPoints, prefix);
@@ -318,13 +313,13 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var type = prefix.slice(prefix.lastIndexOf('[') + 1, prefix.lastIndexOf(']'));
 
         // Find the number of lines
-        var $noOfLinesInput = $("input[name='" + prefix + "[no_of_lines]" + "']");
+        var $noOfLinesInput = $('input[name=\'' + prefix + '[no_of_lines]' + '\']');
         var noOfLines = parseInt($noOfLinesInput.val(), 10);
 
         // Add the new linesting of inner ring based on the type
         var html = '<br/>';
         var noOfPoints;
-        if (type == 'MULTILINESTRING') {
+        if (type === 'MULTILINESTRING') {
             html += PMA_messages.strLineString + ' ' + (noOfLines + 1) + ':';
             noOfPoints = 2;
         } else {
@@ -351,7 +346,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         // Eg. name = gis_data[0][MULTIPOLYGON][add_polygon] => prefix = gis_data[0][MULTIPOLYGON]
         var prefix = name.substr(0, name.length - 13);
         // Find the number of polygons
-        var $noOfPolygonsInput = $("input[name='" + prefix + "[no_of_polygons]" + "']");
+        var $noOfPolygonsInput = $('input[name=\'' + prefix + '[no_of_polygons]' + '\']');
         var noOfPolygons = parseInt($noOfPolygonsInput.val(), 10);
 
         // Add the new polygon
@@ -378,11 +373,11 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var $a = $(this);
         var prefix = 'gis_data[GEOMETRYCOLLECTION]';
         // Find the number of geoms
-        var $noOfGeomsInput = $("input[name='" + prefix + "[geom_count]" + "']");
+        var $noOfGeomsInput = $('input[name=\'' + prefix + '[geom_count]' + '\']');
         var noOfGeoms = parseInt($noOfGeomsInput.val(), 10);
 
         var html1 = PMA_messages.strGeometry + ' ' + (noOfGeoms + 1) + ':<br/>';
-        var $geomType = $("select[name='gis_data[" + (noOfGeoms - 1) + "][gis_type]']").clone();
+        var $geomType = $('select[name=\'gis_data[' + (noOfGeoms - 1) + '][gis_type]\']').clone();
         $geomType.attr('name', 'gis_data[' + noOfGeoms + '][gis_type]').val('POINT');
         var html2 = '<br/>' + PMA_messages.strPoint + ' :' +
             '<label for="x"> ' + PMA_messages.strX + ' </label>' +

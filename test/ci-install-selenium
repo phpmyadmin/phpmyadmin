@@ -1,0 +1,6 @@
+#!/bin/sh
+
+./test/install-browserstack
+composer install --no-interaction
+
+echo -e "<?php\n\$cfg['UploadDir'] = './test/test_data/';" > config.inc.php

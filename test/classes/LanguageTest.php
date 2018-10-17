@@ -5,20 +5,23 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
-/*
- * Include to test.
- */
+namespace PhpMyAdmin\Tests;
 
-use PMA\libraries\LanguageManager;
+use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests behaviour of PMA_Advisor class
  *
  * @package PhpMyAdmin-test
  */
-class LanguageTest extends PMATestCase
+class LanguageTest extends PmaTestCase
 {
+    /**
+     * @var LanguageManager
+     */
     private $manager;
 
     /**
@@ -26,7 +29,7 @@ class LanguageTest extends PMATestCase
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
         $loc = LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo';
         if (! is_readable($loc)) {
@@ -36,17 +39,26 @@ class LanguageTest extends PMATestCase
     }
 
     /**
+     * @return void
+     */
+    public function tearDown()
+    {
+        // Ensure we have English locale after tests
+        $this->manager->getLanguage('en')->activate();
+    }
+
+    /**
      * Test language filtering
      *
      * @return void
      */
     public function testAvailable()
     {
-        $GLOBALS['cfg']['FilterLanguages'] = 'cs';
+        $GLOBALS['cfg']['FilterLanguages'] = 'cs|en$';
 
         $langs = $this->manager->availableLocales();
 
-        $this->assertEquals(1, count($langs));
+        $this->assertCount(2, $langs);
         $this->assertContains('cs', $langs);
         $GLOBALS['cfg']['FilterLanguages'] = '';
     }
@@ -89,7 +101,7 @@ class LanguageTest extends PMATestCase
         $this->assertGreaterThan(1, count($langs));
 
         /* Ensure we have name for every language */
-        foreach($langs as $lang) {
+        foreach ($langs as $lang) {
             $this->assertNotEquals($lang->getCode(), strtolower($lang->getEnglishName()));
         }
     }
@@ -102,11 +114,11 @@ class LanguageTest extends PMATestCase
     public function testMySQLLocale()
     {
         $czech = $this->manager->getLanguage('cs');
-        $this->assertNotEquals($czech, false);
+        $this->assertNotFalse($czech);
         $this->assertEquals('cs_CZ', $czech->getMySQLLocale());
 
         $azerbaijani = $this->manager->getLanguage('az');
-        $this->assertNotEquals($azerbaijani, false);
+        $this->assertNotFalse($azerbaijani);
         $this->assertEquals('', $azerbaijani->getMySQLLocale());
     }
 
@@ -132,6 +144,8 @@ class LanguageTest extends PMATestCase
         $this->assertNotEquals(false, $lang);
         $this->assertEquals('Czech', $lang->getEnglishName());
         $this->assertEquals('Čeština', $lang->getNativeName());
+        $lang = $this->manager->getLanguage('nonexisting');
+        $this->assertEquals(false, $lang);
     }
 
     /**
@@ -152,25 +166,25 @@ class LanguageTest extends PMATestCase
      */
     public function testSelect($lang, $post, $get, $cookie, $accept, $agent, $default, $expect)
     {
-        $GLOBALS['cfg']['Lang'] = $lang;
+        $GLOBALS['PMA_Config']->set('Lang', $lang);
         $_POST['lang'] = $post;
         $_GET['lang'] = $get;
         $_COOKIE['pma_lang'] = $cookie;
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = $accept;
         $_SERVER['HTTP_USER_AGENT'] = $agent;
-        $GLOBALS['cfg']['DefaultLang'] = $default;
+        $GLOBALS['PMA_Config']->set('DefaultLang', $default);
 
         $lang = $this->manager->selectLanguage();
 
         $this->assertEquals($expect, $lang->getEnglishName());
 
-        $GLOBALS['cfg']['Lang'] = '';
+        $GLOBALS['PMA_Config']->set('Lang', '');
         $_POST['lang'] = '';
         $_GET['lang'] = '';
         $_COOKIE['pma_lang'] = '';
         $_SERVER['HTTP_ACCEPT_LANGUAGE'] = '';
         $_SERVER['HTTP_USER_AGENT'] = '';
-        $GLOBALS['cfg']['DefaultLang'] = 'en';
+        $GLOBALS['PMA_Config']->set('DefaultLang', 'en');
     }
 
     /**
@@ -180,20 +194,21 @@ class LanguageTest extends PMATestCase
      */
     public function selectDataProvider()
     {
-        return array(
-            array('cs', 'en', '', '' ,'' ,'', '', 'Czech'),
-            array('', 'cs', '', '' ,'' ,'', '', 'Czech'),
-            array('', 'cs', 'en', '' ,'' ,'', '', 'Czech'),
-            array('', '', 'cs', '' ,'' ,'', '', 'Czech'),
-            array('', '', '', '' ,'cs,en-US;q=0.7,en;q=0.3' ,'', '', 'Czech'),
-            array(
+        return [
+            ['cs', 'en', '', '' ,'' ,'', '', 'Czech'],
+            ['', 'cs', '', '' ,'' ,'', '', 'Czech'],
+            ['', 'cs', 'en', '' ,'' ,'', '', 'Czech'],
+            ['', '', 'cs', '' ,'' ,'', '', 'Czech'],
+            ['', '', '', 'cs' ,'' ,'', '', 'Czech'],
+            ['', '', '', '' ,'cs,en-US;q=0.7,en;q=0.3' ,'', '', 'Czech'],
+            [
                 '', '', '', '', '',
                 'Mozilla/5.0 (Linux; U; Android 2.2.2; tr-tr; GM FOX)',
                 '', 'Turkish'
-            ),
-            array('', '', '', '' ,'' ,'', 'cs', 'Czech'),
-            array('', '', '', '' ,'' ,'', '', 'English'),
-        );
+            ],
+            ['', '', '', '' ,'' ,'', 'cs', 'Czech'],
+            ['', '', '', '' ,'' ,'', '', 'English'],
+        ];
     }
 
     /**
@@ -228,9 +243,9 @@ class LanguageTest extends PMATestCase
      */
     public function listLocales()
     {
-        $ret = array();
+        $ret = [];
         foreach (LanguageManager::getInstance()->availableLanguages() as $language) {
-            $ret[] = array($language->getCode());
+            $ret[] = [$language->getCode()];
         }
         return $ret;
     }

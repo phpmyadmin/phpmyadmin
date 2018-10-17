@@ -3,66 +3,149 @@
 # - run lint for every PHP version
 # - run Selenium for single PHP version
 
+dist: trusty
+
 language: php
 
-php:
-  - "7.1"
-  - "7.0"
-  - "5.6"
-  - "5.5"
-  - hhvm
+services:
+  - mysql
 
-sudo: false
-
-env:
-  matrix:
-    - PHPUNIT_ARGS="--exclude-group selenium"
-  global:
-    - TESTSUITE_USER=root
-    - TESTSUITE_PASSWORD=root
-    - TESTSUITE_URL=http://127.0.0.1:8000
+sudo: required
 
 install:
-  - pip install --user codecov
-  - ./test/install-runkit
-  - ./test/install-browserstack
-  - composer install --dev --no-interaction
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then source ~/virtualenv/python3.6/bin/activate ; fi
+  - ./test/ci-install-$CI_MODE
+  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then case "$TRAVIS_PHP_VERSION" in hhvm*) ;; *) phpenv config-add test/php-noprofile.ini ;; esac ; fi
 
 before_script:
-  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] ; then phpenv config-add test/php-noprofile.ini ; fi
+  - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
+  - export TESTSUITE_BROWSERSTACK_KEY=`echo cHlDcHJTNmZwZjVlaUR2RmV6VkU= | base64 --decode`
   - export PATH=~/.composer/vendor/bin/:$PATH
-  - mysql -uroot -e "CREATE DATABASE test"
+  - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
   - mysql -uroot < sql/create_tables.sql
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
   - ./test/start-local-server
 
 script:
-  - ant clean
-  - ant locales
-  - ant lint
-  - set -e;
-    if [ $TRAVIS_PHP_VERSION == "hhvm" ] ; then
-    ant phpunit-hhvm ;
-    else
-    if [ ! -z "$SELENIUM" ] ; then
-    ant phpunit-nocoverage ;
-    else
-    ant phpunit ;
-    fi ;
-    fi
+  - ./scripts/generate-mo --quiet
+  - if [ $CI_MODE = test ] ; then ./test/ci-phplint ; fi
+  - ./test/ci-$CI_MODE
 
 after_script:
-  - if [ -f vendor/bin/coveralls ] ; then php vendor/bin/coveralls -v || true ; fi
   - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
-  - codecov
   - if [ -f php.log ] ; then cat php.log ; fi
+  - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
+  - if [ -f build/logs/phpunit.json ] ; then ./scripts/phpunit-top-tests build/logs/phpunit.json ; fi
+  - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
+  - if [ "$CI_MODE" = "selenium" ] ; then ~/browserstack/BrowserStackLocal --daemon stop; fi
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+stages:
+  - name: "PHP Unit tests"
+  - name: "Lint and analyse code"
+  - name: "Documentation"
+  - name: "Other tests"
+
+jobs:
+  include:
+    - stage: "Lint and analyse code"
+      name: "Lint PHP files"
+      php: "7.1"
+      env: CI_MODE=lint
+    - stage: "Lint and analyse code"
+      name: "Run phpstan"
+      php: "7.2"
+      env: CI_MODE=phpstan
+    - stage: "Documentation"
+      name: "Build docs"
+      php: "7.1"
+      env: CI_MODE=docs
+    - stage: "Documentation"
+      name: "Build API docs"
+      php: "7.1"
+      env: CI_MODE=apidocs
+    - stage: "PHP Unit tests"
+      name: "PHP 7.2"
+      os: osx
+      language: generic
+      env: CI_MODE=test
+      before_install:
+        - brew update
+        - brew install openldap libiconv php@7.2 composer mariadb yarn
+        - brew link --force gettext
+        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
+        - mysql.server start
+    - stage: "PHP Unit tests"
+      php: "7.2"
+      name: "PHP 7.2"
+      env: CI_MODE=test
+    - stage: "PHP Unit tests"
+      php: "7.1"
+      name: "PHP 7.1"
+      env: CI_MODE=test
+    - stage: "PHP Unit tests"
+      php: "nightly"
+      name: "PHP nightly"
+      env: CI_MODE=test
+    - stage: "Other tests"
+      name: "Build release"
+      php: "7.1"
+      env: CI_MODE=release
+    - stage: "Other tests"
+      name: "Run selenium tests on Safari"
+      php: "7.1"
+      env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=safari
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+    - stage: "Other tests"
+      name: "Run selenium tests on Google Chrome"
+      php: "7.1"
+      env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=chrome
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+    - stage: "Other tests"
+      name: "Run selenium tests on Microsoft Edge"
+      php: "7.1"
+      env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=edge
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+  allow_failures:
+      - env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=safari
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+      - env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=edge
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+      - php: "nightly"
+        env: CI_MODE=test
+      - php: "7.2"
+        env: CI_MODE=phpstan
 
 cache:
+  pip: true
+  yarn: true
   directories:
     - $HOME/.composer/cache/
     - $HOME/browserstack
-    - $HOME/runkit
-# trigger Buildtime Trend Service to parse Travis CI log
-notifications:
-  webhooks:
-    - https://buildtimetrend.herokuapp.com/travis
+    - node_modules
+# Install APT packages
+#  - git > 2.5.1 needed for worktrees
+#  - mysql server does not seem to be always present on Travis Trusty environment
+addons:
+  apt:
+    packages:
+    - git
+    - mysql-server-5.6
+    - nginx

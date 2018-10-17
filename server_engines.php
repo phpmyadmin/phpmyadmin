@@ -1,32 +1,32 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-
 /**
  * Handles server engines page.
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-namespace PMA;
-
-use PMA\libraries\controllers\server\ServerEnginesController;
-use PMA\libraries\Response;
+use PhpMyAdmin\Controllers\Server\ServerEnginesController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
+$container = Container::getDefaultContainer();
 $container->factory(
-    'PMA\libraries\controllers\server\ServerEnginesController'
+    'PhpMyAdmin\Controllers\Server\ServerEnginesController'
 );
 $container->alias(
     'ServerEnginesController',
-    'PMA\libraries\controllers\server\ServerEnginesController'
+    'PhpMyAdmin\Controllers\Server\ServerEnginesController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /** @var ServerEnginesController $controller */
 $controller = $container->get(
-    'ServerEnginesController', array()
+    'ServerEnginesController',
+    []
 );
 $controller->indexAction();

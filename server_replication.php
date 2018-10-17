@@ -5,31 +5,40 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
+use PhpMyAdmin\Message;
+use PhpMyAdmin\ReplicationGui;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Template;
 
 /**
  * include files
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-
 require_once 'libraries/replication.inc.php';
-require_once 'libraries/replication_gui.lib.php';
 
 /**
  * Does the common work
  */
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('replication.js');
+$scripts->addFile('vendor/zxcvbn.js');
+
+$template = new Template();
 
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (! $is_superuser) {
-    $html  = PMA_getHtmlForSubPageHeader('replication');
-    $html .= PMA\libraries\Message::error(__('No Privileges'))->getDisplay();
+if (! $GLOBALS['dbi']->isSuperuser()) {
+    $html = $template->render('server/sub_page_header', [
+        'type' => 'replication',
+    ]);
+    $html .= Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);
     exit;
 }
@@ -40,31 +49,35 @@ if (isset($_REQUEST['url_params']) && is_array($_REQUEST['url_params'])) {
     $GLOBALS['url_params'] = $_REQUEST['url_params'];
 }
 
+$replicationGui = new ReplicationGui();
+
 /**
  * Handling control requests
  */
-PMA_handleControlRequest();
+$replicationGui->handleControlRequest();
 
 /**
  * start output
  */
 $response->addHTML('<div id="replication">');
-$response->addHTML(PMA_getHtmlForSubPageHeader('replication'));
+$response->addHTML($template->render('server/sub_page_header', [
+    'type' => 'replication',
+]));
 
 // Display error messages
-$response->addHTML(PMA_getHtmlForErrorMessage());
+$response->addHTML($replicationGui->getHtmlForErrorMessage());
 
 if ($GLOBALS['replication_info']['master']['status']) {
-    $response->addHTML(PMA_getHtmlForMasterReplication());
+    $response->addHTML($replicationGui->getHtmlForMasterReplication());
 } elseif (! isset($_REQUEST['mr_configure'])
     && ! isset($_REQUEST['repl_clear_scr'])
 ) {
-    $response->addHTML(PMA_getHtmlForNotServerReplication());
+    $response->addHTML($replicationGui->getHtmlForNotServerReplication());
 }
 
 if (isset($_REQUEST['mr_configure'])) {
     // Render the 'Master configuration' section
-    $response->addHTML(PMA_getHtmlForMasterConfiguration());
+    $response->addHTML($replicationGui->getHtmlForMasterConfiguration());
     exit;
 }
 
@@ -73,12 +86,12 @@ $response->addHTML('</div>');
 if (! isset($_REQUEST['repl_clear_scr'])) {
     // Render the 'Slave configuration' section
     $response->addHTML(
-        PMA_getHtmlForSlaveConfiguration(
+        $replicationGui->getHtmlForSlaveConfiguration(
             $GLOBALS['replication_info']['slave']['status'],
             $server_slave_replication
         )
     );
 }
 if (isset($_REQUEST['sl_configure'])) {
-    $response->addHTML(PMA_getHtmlForReplicationChangeMaster("slave_changemaster"));
+    $response->addHTML($replicationGui->getHtmlForReplicationChangeMaster("slave_changemaster"));
 }

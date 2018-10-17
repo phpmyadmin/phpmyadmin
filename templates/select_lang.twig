@@ -1,0 +1,32 @@
+    <form method="get" action="index.php" class="disableAjax">
+    {{ get_hidden_inputs(_form_params) }}
+
+    {% if use_fieldset %}
+        <fieldset>
+            <legend lang="en" dir="ltr">{{ language_title|raw }}</legend>
+    {% else %}
+        <bdo lang="en" dir="ltr">
+            <label for="sel-lang">{{ language_title|raw }}</label>
+        </bdo>
+    {% endif %}
+
+    <select name="lang" class="autosubmit" lang="en" dir="ltr" id="sel-lang">
+
+    {% for language in available_languages %}
+        {# Is current one active ? #}
+        <option value="{{ language.getCode()|lower }}"
+            {%- if language.isActive() %}
+                selected="selected"
+            {%- endif -%}
+            >
+        {{ language.getName()|raw }}
+        </option>
+    {% endfor %}
+
+    </select>
+
+    {% if use_fieldset %}
+        </fieldset>
+    {% endif %}
+
+    </form>

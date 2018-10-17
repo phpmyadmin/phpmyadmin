@@ -13,64 +13,64 @@
  * in the select dropdown
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-/**
- * Get the TableRelationController
- */
-namespace PMA;
-
-use PMA\libraries\controllers\table\TableRelationController;
-use PMA\libraries\Response;
-use PMA\libraries\Table;
-use PMA\libraries\Util;
+use PhpMyAdmin\Controllers\Table\TableRelationController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Table;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\table\TableRelationController');
+$container = Container::getDefaultContainer();
+$container->factory('PhpMyAdmin\Controllers\Table\TableRelationController');
 $container->alias(
     'TableRelationController',
-    'PMA\libraries\controllers\table\TableRelationController'
+    'PhpMyAdmin\Controllers\Table\TableRelationController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
 $db = $container->get('db');
 $table = $container->get('table');
 $dbi = $container->get('dbi');
-$options_array = array(
+$options_array = [
     'CASCADE' => 'CASCADE',
     'SET_NULL' => 'SET NULL',
     'NO_ACTION' => 'NO ACTION',
     'RESTRICT' => 'RESTRICT',
-);
-$cfgRelation = PMA_getRelationsParam();
+];
+$relation = new Relation($GLOBALS['dbi']);
+$cfgRelation = $relation->getRelationsParam();
 $tbl_storage_engine = mb_strtoupper(
     $dbi->getTable($db, $table)->getStatusInfo('Engine')
 );
 $upd_query = new Table($table, $db, $dbi);
 
-$dependency_definitions = array(
+$dependency_definitions = [
     "options_array" => $options_array,
     "cfgRelation" => $cfgRelation,
     "tbl_storage_engine" => $tbl_storage_engine,
     "upd_query" => $upd_query
-);
+];
 if ($cfgRelation['relwork']) {
-    $dependency_definitions['existrel'] = PMA_getForeigners(
-        $db, $table, '', 'internal'
+    $dependency_definitions['existrel'] = $relation->getForeigners(
+        $db,
+        $table,
+        '',
+        'internal'
     );
 }
 if (Util::isForeignKeySupported($tbl_storage_engine)) {
-    $dependency_definitions['existrel_foreign'] = PMA_getForeigners(
-        $db, $table, '', 'foreign'
+    $dependency_definitions['existrel_foreign'] = $relation->getForeigners(
+        $db,
+        $table,
+        '',
+        'foreign'
     );
-}
-if ($cfgRelation['displaywork']) {
-    $dependency_definitions['disp'] = PMA_getDisplayField($db, $table);
-} else {
-    $dependency_definitions['disp'] = 'asas';
 }
 
 /** @var TableRelationController $controller */

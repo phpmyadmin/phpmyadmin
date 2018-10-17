@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Install deps for building documentation
+
+pip install 'Sphinx'

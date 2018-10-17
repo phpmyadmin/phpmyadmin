@@ -5,6 +5,7 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
 // rfc2616 - Section 14.21
 header('Expires: ' . gmdate(DATE_RFC1123));
@@ -16,7 +17,6 @@ header(
 if (isset($_SERVER['HTTP_USER_AGENT'])
     && stristr($_SERVER['HTTP_USER_AGENT'], 'MSIE')
 ) {
-
     /* FIXME: Why is this special case for IE needed? */
     header('Pragma: public');
 } else {

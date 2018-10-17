@@ -5,28 +5,29 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-namespace PMA;
-
-use PMA\libraries\controllers\table\TableChartController;
-use PMA\libraries\Response;
+use PhpMyAdmin\Controllers\Table\TableChartController;
+use PhpMyAdmin\Di\Container;
+use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
-$container = libraries\di\Container::getDefaultContainer();
-$container->factory('PMA\libraries\controllers\table\TableChartController');
+$container = Container::getDefaultContainer();
+$container->factory('PhpMyAdmin\Controllers\Table\TableChartController');
 $container->alias(
-    'TableChartController', 'PMA\libraries\controllers\table\TableChartController'
+    'TableChartController',
+    'PhpMyAdmin\Controllers\Table\TableChartController'
 );
-$container->set('PMA\libraries\Response', Response::getInstance());
-$container->alias('response', 'PMA\libraries\Response');
+$container->set('PhpMyAdmin\Response', Response::getInstance());
+$container->alias('response', 'PhpMyAdmin\Response');
 
 /* Define dependencies for the concerned controller */
-$dependency_definitions = array(
+$dependency_definitions = [
     "sql_query" => &$GLOBALS['sql_query'],
     "url_query" => &$GLOBALS['url_query'],
     "cfg" => &$GLOBALS['cfg']
-);
+];
 
 /** @var TableChartController $controller */
 $controller = $container->get('TableChartController', $dependency_definitions);

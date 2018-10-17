@@ -1,0 +1,65 @@
+<form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
+{{ get_hidden_inputs(db) }}
+<div class="responsivetable">
+<table id="structureTable" class="data">
+    <thead>
+        <tr>
+            <th class="print_ignore"></th>
+            <th>{{ sortable_table_header('Table'|trans, 'table') }}</th>
+            {% if replication %}
+                <th>{% trans 'Replication' %}</th>
+            {% endif %}
+
+            {% if db_is_system_schema %}
+                {% set action_colspan = 3 %}
+            {% else %}
+                {% set action_colspan = 6 %}
+            {% endif %}
+            {% if num_favorite_tables > 0 %}
+                {% set action_colspan = action_colspan + 1 %}
+            {% endif %}
+            <th colspan="{{ action_colspan }}" class="print_ignore">
+                {% trans 'Action' %}
+            </th>
+            {# larger values are more interesting so default sort order is DESC #}
+            <th>
+                {{ sortable_table_header('Rows'|trans, 'records', 'DESC') }}
+                {{ show_hint('May be approximate. Click on the number to get the exact count. See [doc@faq3-11]FAQ 3.11[/doc].'|trans|sanitize) }}
+            </th>
+            {% if not (properties_num_columns > 1) %}
+                <th>{{ sortable_table_header('Type'|trans, 'type') }}</th>
+                <th>{{ sortable_table_header('Collation'|trans, 'collation') }}</th>
+            {% endif %}
+
+            {% if is_show_stats %}
+                {# larger values are more interesting so default sort order is DESC #}
+                <th>{{ sortable_table_header('Size'|trans, 'size', 'DESC') }}</th>
+                {# larger values are more interesting so default sort order is DESC #}
+                <th>{{ sortable_table_header('Overhead'|trans, 'overhead', 'DESC') }}</th>
+            {% endif %}
+
+            {% if show_charset %}
+                <th>{{ sortable_table_header('Charset'|trans, 'charset') }}</th>
+            {% endif %}
+
+            {% if show_comment %}
+                <th>{{ sortable_table_header('Comment'|trans, 'comment') }}</th>
+            {% endif %}
+
+            {% if show_creation %}
+                {# newer values are more interesting so default sort order is DESC #}
+                <th>{{ sortable_table_header('Creation'|trans, 'creation', 'DESC') }}</th>
+            {% endif %}
+
+            {% if show_last_update %}
+                {# newer values are more interesting so default sort order is DESC #}
+                <th>{{ sortable_table_header('Last update'|trans, 'last_update', 'DESC') }}</th>
+            {% endif %}
+
+            {% if show_last_check %}
+                {# newer values are more interesting so default sort order is DESC #}
+                <th>{{ sortable_table_header('Last check'|trans, 'last_check', 'DESC') }}</th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>

@@ -5,79 +5,73 @@
  *
  * @package PhpMyAdmin
  */
-use PMA\libraries\Message;
+declare(strict_types=1);
+
+use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\Template;
+use PhpMyAdmin\Util;
 
 if (!defined('PHPMYADMIN')) {
     exit;
 }
+
+$template = new Template();
+
 // build user preferences menu
-
 $form_param = isset($_GET['form']) ? $_GET['form'] : null;
-if (! isset($forms[$form_param])) {
-    $forms_keys = array_keys($forms);
-    $form_param = array_shift($forms_keys);
-}
-$tabs_icons = array(
-    'Features'    => 'b_tblops.png',
-    'Sql_queries' => 'b_sql.png',
-    'Navi_panel'  => 'b_select.png',
-    'Main_panel'  => 'b_props.png',
-    'Import'      => 'b_import.png',
-    'Export'      => 'b_export.png');
+$tabs_icons = [
+    'Features' => 'b_tblops',
+    'Sql' => 'b_sql',
+    'Navi' => 'b_select',
+    'Main' => 'b_props',
+    'Import' => 'b_import',
+    'Export' => 'b_export'
+];
 
-$content = PMA\libraries\Util::getHtmlTab(
-    array(
-        'link' => 'prefs_manage.php',
-        'text' => __('Manage your settings')
-    )
-) . "\n";
+$content = Util::getHtmlTab([
+    'link' => 'prefs_manage.php',
+    'text' => __('Manage your settings')
+]) . "\n";
+/* Second authentication factor */
+$content .= Util::getHtmlTab([
+    'link' => 'prefs_twofactor.php',
+    'text' => __('Two-factor authentication')
+]) . "\n";
 $script_name = basename($GLOBALS['PMA_PHP_SELF']);
-foreach (array_keys($forms) as $formset) {
-    $tab = array(
+foreach (UserFormList::getAll() as $formset) {
+    $formset_class = UserFormList::get($formset);
+    $tab = [
         'link' => 'prefs_forms.php',
-        'text' => PMA_lang('Form_' . $formset),
+        'text' => $formset_class::getName(),
         'icon' => $tabs_icons[$formset],
-        'active' => ($script_name == 'prefs_forms.php' && $formset == $form_param));
-    $content .= PMA\libraries\Util::getHtmlTab($tab, array('form' => $formset))
-        . "\n";
+        'active' => ($script_name == 'prefs_forms.php' && $formset == $form_param),
+    ];
+    $content .= Util::getHtmlTab($tab, ['form' => $formset]) . "\n";
 }
-echo PMA\libraries\Template::get('list/unordered')->render(
-    array(
-        'id' => 'topmenu2',
-        'class' => 'user_prefs_tabs',
-        'content' => $content,
-    )
-);
+echo $template->render('list/unordered', [
+    'id' => 'topmenu2',
+    'class' => 'user_prefs_tabs',
+    'content' => $content,
+]);
 echo '<div class="clearfloat"></div>';
-
 
 // show "configuration saved" message and reload navigation panel if needed
 if (!empty($_GET['saved'])) {
     Message::rawSuccess(__('Configuration has been saved.'))->display();
 }
 
-/* debug code
-$arr = $cf->getConfigArray();
-$arr2 = array();
-foreach ($arr as $k => $v) {
-    $arr2[] = "<b>$k</b> " . var_export($v, true);
-}
-$arr2 = implode(', ', $arr2);
-$arr2 .= '<br />Blacklist: ' . (empty($cfg['UserprefsDisallow'])
-        ? '<i>empty</i>'
-        : implode(', ', $cfg['UserprefsDisallow']));
-$msg = Message::notice('Settings: ' . $arr2);
-$msg->display();
-//*/
-
 // warn about using session storage for settings
-$cfgRelation = PMA_getRelationsParam();
+$relation = new Relation($GLOBALS['dbi']);
+$cfgRelation = $relation->getRelationsParam();
 if (! $cfgRelation['userconfigwork']) {
     $msg = __(
         'Your preferences will be saved for current session only. Storing them '
         . 'permanently requires %sphpMyAdmin configuration storage%s.'
     );
-    $msg = PMA_sanitize(
+    $msg = Sanitize::sanitize(
         sprintf($msg, '[doc@linked-tables]', '[/doc]')
     );
     Message::notice($msg)->display();

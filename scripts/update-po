@@ -11,6 +11,10 @@ fi
 # Exit on failure
 set -e
 
+# Generate Twig template cache in clean dir
+rm -rf twig-templates/
+php ./scripts/generate-twig-cache
+
 # Update pot (template), ensure that advisor is at the end
 LOCS=`ls po/*.po | sed 's@.*/\(.*\)\.po@\1@'`
 xgettext \
@@ -22,14 +26,20 @@ xgettext \
     --add-location \
     --debug \
     --from-code=utf-8 \
-    --keyword=__ --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
+    --keyword=__ --keyword=_gettext --keyword=_pgettext:1c,2 --keyword=_ngettext:1,2 \
     --copyright-holder="phpMyAdmin devel team" \
-    `find -regex '.*\.\(php\|phtml\)$' -not -path './test/*' -not -path './po/*' -not -path './vendor/*' -not -path './release/*' | sort`
+    `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './po/*' -not -path './tmp/*' -not -path './release/*' -not -path './vendor/*' | sort`
+
+# Fixup filenames for Twig templates
+php scripts/fix-po-twig
+
+# Remote twig templates
+rm -rf twig-templates/
 
 # Generate PHP code for advisor rules
 php ./scripts/advisor2po >> po/phpmyadmin.pot
 
-ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/Config.php`
+ver=`sed -n "/PMA_VERSION', '/ s/.*PMA_VERSION', '\(.*\)'.*/\1/p" libraries/classes/Config.php`
 
 sed -i '
     s/SOME DESCRIPTIVE TITLE/phpMyAdmin translation/;

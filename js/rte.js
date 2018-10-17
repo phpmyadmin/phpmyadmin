@@ -85,8 +85,7 @@ RTE.COMMON = {
         if ($elm.val() === '') {
             if (this.syntaxHiglighter !== null) {
                 this.syntaxHiglighter.focus();
-            }
-            else {
+            } else {
                 $('textarea[name=item_definition]').last().focus();
             }
             alert(PMA_messages.strFormEmpty);
@@ -134,29 +133,29 @@ RTE.COMMON = {
             }
 
             export_anchors.each(function () {
-                $.get($(this).attr('href'), {'ajax_request': true}, function (data) {
+                $.get($(this).attr('href'), { 'ajax_request': true }, function (data) {
                     returnCount++;
                     if (data.success === true) {
-                        combined.message += "\n" + data.message + "\n";
-                        if (returnCount == count) {
+                        combined.message += '\n' + data.message + '\n';
+                        if (returnCount === count) {
                             showExport(combined);
                         }
                     } else {
                         // complain even if one export is failing
                         combined.success = false;
-                        combined.error += "\n" + data.error + "\n";
-                        if (returnCount == count) {
+                        combined.error += '\n' + data.error + '\n';
+                        if (returnCount === count) {
                             showExport(combined);
                         }
                     }
                 });
             });
         } else {
-            $.get($this.attr('href'), {'ajax_request': true}, showExport);
+            $.get($this.attr('href'), { 'ajax_request': true }, showExport);
         }
         PMA_ajaxRemoveMessage($msg);
 
-        function showExport(data) {
+        function showExport (data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 /**
@@ -165,12 +164,12 @@ RTE.COMMON = {
                  */
                 var button_options = {};
                 button_options[PMA_messages.strClose] = function () {
-                    $(this).dialog("close").remove();
+                    $(this).dialog('close').remove();
                 };
                 /**
                  * Display the dialog to the user
                  */
-                data.message = '<textarea cols="40" rows="15" style="width: 100%;">' + data.message + '</textarea>';
+                data.message = '<textarea cols="40" rows="15" class="all100">' + data.message + '</textarea>';
                 var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
                     width: 500,
                     buttons: button_options,
@@ -207,7 +206,7 @@ RTE.COMMON = {
          *           the AJAX message shown to the user
          */
         var $msg = PMA_ajaxShowMessage();
-        $.get($this.attr('href'), {'ajax_request': true}, function (data) {
+        $.get($this.attr('href'), { 'ajax_request': true }, function (data) {
             if (data.success === true) {
                 // We have successfully fetched the editor form
                 PMA_ajaxRemoveMessage($msg);
@@ -216,7 +215,7 @@ RTE.COMMON = {
                 that.buttonOptions[PMA_messages.strGo] = function () {
                     // Move the data from the codemirror editor back to the
                     // textarea, where it can be used in the form submission.
-                    if (typeof CodeMirror != 'undefined') {
+                    if (typeof CodeMirror !== 'undefined') {
                         that.syntaxHiglighter.save();
                     }
                     // Validate editor and submit request, if passed.
@@ -237,7 +236,7 @@ RTE.COMMON = {
                                 that.$ajaxDialog.dialog('close');
                                 // If we are in 'edit' mode, we must
                                 // remove the reference to the old row.
-                                if (mode === 'edit' && $edit_row !== null ) {
+                                if (mode === 'edit' && $edit_row !== null) {
                                     $edit_row.remove();
                                 }
                                 // Sometimes, like when moving a trigger from
@@ -261,11 +260,11 @@ RTE.COMMON = {
                                     var inserted = false;
                                     $('table.data').find('tr').each(function () {
                                         text = $(this)
-                                                .children('td')
-                                                .eq(0)
-                                                .find('strong')
-                                                .text()
-                                                .toUpperCase();
+                                            .children('td')
+                                            .eq(0)
+                                            .find('strong')
+                                            .text()
+                                            .toUpperCase();
                                         text = $.trim(text);
                                         if (text !== '' && text > data.name) {
                                             $(this).before(data.new_row);
@@ -290,8 +289,8 @@ RTE.COMMON = {
                                     // we were editing the only item in the list,
                                     // which we removed and will not be inserting
                                     // something else in its place.
-                                    $('table.data').hide("slow", function () {
-                                        $('#nothing2display').show("slow");
+                                    $('table.data').hide('slow', function () {
+                                        $('#nothing2display').show('slow');
                                     });
                                 }
                                 // Now we have inserted the row at the correct
@@ -316,9 +315,9 @@ RTE.COMMON = {
                                 // the "No items" message and show the list.
                                 if ($('table.data').find('tr').has('td').length > 0 &&
                                     $('#nothing2display').is(':visible')
-                                    ) {
-                                    $('#nothing2display').hide("slow", function () {
-                                        $('table.data').show("slow");
+                                ) {
+                                    $('#nothing2display').hide('slow', function () {
+                                        $('table.data').show('slow');
                                     });
                                 }
                                 PMA_reloadNavigation();
@@ -329,7 +328,7 @@ RTE.COMMON = {
                     } // end "if (that.validate())"
                 }; // end of function that handles the submission of the Editor
                 that.buttonOptions[PMA_messages.strClose] = function () {
-                    $(this).dialog("close");
+                    $(this).dialog('close');
                 };
                 /**
                  * Display the dialog to the user
@@ -343,7 +342,7 @@ RTE.COMMON = {
                     modal: true,
                     open: function () {
                         if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
-                            $('#rteDialog').dialog("option", "height", $(window).height());
+                            $('#rteDialog').dialog('option', 'height', $(window).height());
                         }
                         $(this).find('input[name=item_name]').focus();
                         $(this).find('input.datefield').each(function () {
@@ -402,7 +401,8 @@ RTE.COMMON = {
              *          the AJAX message shown to the user
              */
             var $msg = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $.post(url, {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+            var params = getJSConfirmCommonParam(this, $this.getPostData());
+            $.post(url, params, function (data) {
                 if (data.success === true) {
                     /**
                      * @var $table Object containing reference
@@ -416,13 +416,13 @@ RTE.COMMON = {
                         // the header of the table and the rows that we are
                         // about to remove, so after the removal there will be
                         // nothing to show in the table, so we hide it.
-                        $table.hide("slow", function () {
+                        $table.hide('slow', function () {
                             $(this).find('tr.even, tr.odd').remove();
                             $('.withSelected').remove();
-                            $('#nothing2display').show("slow");
+                            $('#nothing2display').show('slow');
                         });
                     } else {
-                        $curr_row.hide("slow", function () {
+                        $curr_row.hide('slow', function () {
                             $(this).remove();
                             // Now we have removed the row from the list, but maybe
                             // some row classes are wrong now. So we will itirate
@@ -476,7 +476,8 @@ RTE.COMMON = {
                  * @var $curr_row Object containing reference to the current row
                  */
                 var $curr_row = $anchor.parents('tr');
-                $.post($anchor.attr('href'), {'is_js_confirmed': 1, 'ajax_request': true}, function (data) {
+                var params = getJSConfirmCommonParam(this, $anchor.getPostData());
+                $.post($anchor.attr('href'), params, function (data) {
                     returnCount++;
                     if (data.success === true) {
                         /**
@@ -491,13 +492,13 @@ RTE.COMMON = {
                             // the header of the table and the rows that we are
                             // about to remove, so after the removal there will be
                             // nothing to show in the table, so we hide it.
-                            $table.hide("slow", function () {
+                            $table.hide('slow', function () {
                                 $(this).find('tr.even, tr.odd').remove();
                                 $('.withSelected').remove();
-                                $('#nothing2display').show("slow");
+                                $('#nothing2display').show('slow');
                             });
                         } else {
-                            $curr_row.hide("fast", function () {
+                            $curr_row.hide('fast', function () {
                                 $(this).remove();
                                 // Now we have removed the row from the list, but maybe
                                 // some row classes are wrong now. So we will itirate
@@ -518,18 +519,18 @@ RTE.COMMON = {
                                 });
                             });
                         }
-                        if (returnCount == count) {
+                        if (returnCount === count) {
                             if (success) {
                                 // Get rid of the "Loading" message
                                 PMA_ajaxRemoveMessage($msg);
-                                $('#rteListForm_checkall').prop({checked: false, indeterminate: false});
+                                $('#rteListForm_checkall').prop({ checked: false, indeterminate: false });
                             }
                             PMA_reloadNavigation();
                         }
                     } else {
                         PMA_ajaxShowMessage(data.error, false);
                         success = false;
-                        if (returnCount == count) {
+                        if (returnCount === count) {
                             PMA_reloadNavigation();
                         }
                     }
@@ -609,7 +610,7 @@ RTE.ROUTINE = {
         $('.routine_params_table tbody').sortable({
             containment: '.routine_params_table tbody',
             handle: '.dragHandle',
-            stop: function(event, ui) {
+            stop: function (event, ui) {
                 that.reindexParameters();
             },
         });
@@ -692,7 +693,7 @@ RTE.ROUTINE = {
             if ($inputtyp.length && $inputlen.length) {
                 if (($inputtyp.val() === 'ENUM' || $inputtyp.val() === 'SET' || $inputtyp.val().substr(0, 3) === 'VAR') &&
                     $inputlen.val() === ''
-                   ) {
+                ) {
                     $inputlen.focus();
                     isSuccess = false;
                     return false;
@@ -710,7 +711,7 @@ RTE.ROUTINE = {
             var $returnlen = this.$ajaxDialog.find('input[name=item_returnlength]');
             if (($returntyp.val() === 'ENUM' || $returntyp.val() === 'SET' || $returntyp.val().substr(0, 3) === 'VAR') &&
                 $returnlen.val() === ''
-                ) {
+            ) {
                 $returnlen.focus();
                 alert(PMA_messages.strFormEmpty);
                 return false;
@@ -805,7 +806,7 @@ RTE.ROUTINE = {
             $no_len.show();
             break;
         default:
-            if ($type.val() == 'ENUM' || $type.val() == 'SET') {
+            if ($type.val() === 'ENUM' || $type.val() === 'SET') {
                 $text.closest('tr').find('a:first').show();
             } else {
                 $text.closest('tr').find('a:first').hide();
@@ -822,7 +823,10 @@ RTE.ROUTINE = {
          *          the AJAX message shown to the user
          */
         var $msg = PMA_ajaxShowMessage();
-        $.post($this.attr('href'), {'ajax_request': true}, function (data) {
+        var params = {
+            'ajax_request': true
+        };
+        $.post($this.attr('href'), params, function (data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 // If 'data.dialog' is true we show a dialog with a form
@@ -851,7 +855,7 @@ RTE.ROUTINE = {
                         });
                     };
                     that.buttonOptions[PMA_messages.strClose] = function () {
-                        $(this).dialog("close");
+                        $(this).dialog('close');
                     };
                     /**
                      * Display the dialog to the user
@@ -920,11 +924,11 @@ $(function () {
     $(document).on('click', 'a.ajax.add_anchor, a.ajax.edit_anchor', function (event) {
         event.preventDefault();
         var type = $(this).attr('href').substr(0, $(this).attr('href').indexOf('?'));
-        if (type.indexOf('routine') != -1) {
+        if (type.indexOf('routine') !== -1) {
             type = 'routine';
-        } else if (type.indexOf('trigger') != -1) {
+        } else if (type.indexOf('trigger') !== -1) {
             type = 'trigger';
-        } else if (type.indexOf('event') != -1) {
+        } else if (type.indexOf('event') !== -1) {
             type = 'event';
         } else {
             type = '';
@@ -980,9 +984,9 @@ $(function () {
      */
     $(document).on('change', 'select[name=item_type]', function () {
         $(this)
-        .closest('table')
-        .find('tr.recurring_event_row, tr.onetime_event_row, tr.routine_return_row, .routine_direction_cell')
-        .toggle();
+            .closest('table')
+            .find('tr.recurring_event_row, tr.onetime_event_row, tr.routine_return_row, .routine_direction_cell')
+            .toggle();
     }); // end $(document).on()
 
     /**

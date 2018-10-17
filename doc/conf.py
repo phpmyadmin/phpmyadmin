@@ -44,14 +44,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'phpMyAdmin'
-copyright = u'2012 - 2016, The phpMyAdmin devel team'
+copyright = u'2012 - 2018, The phpMyAdmin devel team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '4.6.6'
+version = '5.0.0-dev'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -302,3 +302,15 @@ from sphinx.highlighting import lexers
 from pygments.lexers.web import PhpLexer
 
 lexers['php'] = PhpLexer(startinline=True)
+
+# Number of retries and timeout for linkcheck
+linkcheck_retries = 10
+linkcheck_timeout = 10
+linkcheck_anchors = False
+linkcheck_ignore = [
+    # Site is often down
+    r'https://software.opensuse.org/package/.*',
+    r'https://pecl.php.net/.*',
+    # 403 Client Error: Forbidden
+    r'https://authy.com/.*',
+]

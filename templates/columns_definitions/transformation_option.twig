@@ -1,0 +1,9 @@
+{% set options_key = type_prefix ~ 'transformation_options' %}
+<input id="field_{{ column_number }}_{{ ci - ci_offset }}"
+    type="text"
+    name="field_{{ options_key }}[{{ column_number }}]"
+    size="16"
+    class="textfield"
+    value="{% if column_meta['Field'] is defined and mime_map[column_meta['Field']][options_key] is defined -%}
+        {{- mime_map[column_meta['Field']][options_key] -}}
+    {%- endif %}" />

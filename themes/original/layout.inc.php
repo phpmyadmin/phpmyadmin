@@ -7,6 +7,7 @@
  * @package    PhpMyAdmin-theme
  * @subpackage Original
  */
+declare(strict_types=1);
 
 /**
  * navi frame

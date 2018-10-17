@@ -6,7 +6,7 @@ Copyright
 .. code-block:: none
 
     Copyright (C) 1998-2000 Tobias Ratschiller <tobias_at_ratschiller.com>
-    Copyright (C) 2001-2014 Marc Delisle <marc_at_infomarc.info>
+    Copyright (C) 2001-2018 Marc Delisle <marc_at_infomarc.info>
         Olivier Müller <om_at_omnis.ch>
         Robin Johnson <robbat2_at_users.sourceforge.net>
         Alexander M. Turek <me_at_derrabus.de>
@@ -34,16 +34,9 @@ Third party licenses
 phpMyAdmin includes several third party libraries which come under their
 respective licenses.
 
-jQuery's license, which is where we got the files under js/jquery/ is
+jQuery's license, which is where we got the files under js/vendor/jquery/ is
 (MIT|GPL), a copy of each license is available in this repository (GPL
-is available as LICENSE, MIT as js/jquery/MIT-LICENSE.txt).
+is available as LICENSE, MIT as js/vendor/jquery/MIT-LICENSE.txt).
 
-TCPDF which is located under libraries/tcpdf is released under GPL
-version 3 and the license is available as libraries/tcpdf/LICENSE.TXT.
-
-DejaVu fonts which are located under libraries/tcpdf/fonts/ and their
-license is documented in
-libraries/tcpdf/fonts/dejavu-fonts-ttf-2.33/LICENSE.
-
-PHP-gettext which is located under libraries/php-gettext/ is released
-under GPL version 2 license which is available in the LICENSE file.
+The download kit additionally includes several composer libraries. See their
+licensing information in the vendor/ directory.

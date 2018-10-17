@@ -5,6 +5,10 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
+use PhpMyAdmin\Url;
+
 if (! defined('PHPMYADMIN')) {
     exit;
 }
@@ -22,7 +26,7 @@ if (empty($viewing_mode)) {
 /**
  * Set parameters for links
  */
-$GLOBALS['url_query'] = PMA_URL_getCommon(array('db' => $db));
+$GLOBALS['url_query'] = Url::getCommon();
 
 /**
  * Defines the urls to return to in case of error in a sql statement
@@ -32,21 +36,10 @@ $err_url = 'index.php' . $GLOBALS['url_query'];
 /**
  * @global boolean Checks for superuser privileges
  */
-$GLOBALS['is_superuser'] = $GLOBALS['dbi']->isSuperuser();
 $GLOBALS['is_grantuser'] = $GLOBALS['dbi']->isUserType('grant');
 $GLOBALS['is_createuser'] = $GLOBALS['dbi']->isUserType('create');
 
 // now, select the mysql db
-if ($GLOBALS['is_superuser']) {
-    $GLOBALS['dbi']->selectDb('mysql', $GLOBALS['userlink']);
+if ($GLOBALS['dbi']->isSuperuser()) {
+    $GLOBALS['dbi']->selectDb('mysql');
 }
-
-PMA\libraries\Util::checkParameters(
-    array('is_superuser', 'url_query'), false
-);
-
-/**
- * shared functions for server page
- */
-require_once './libraries/server_common.lib.php';
-

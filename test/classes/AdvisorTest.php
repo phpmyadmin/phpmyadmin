@@ -5,33 +5,32 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
-/*
- * Include to test.
- */
-require_once 'libraries/url_generating.lib.php';
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
 
-use PMA\libraries\Advisor;
-use PMA\libraries\Theme;
+use PhpMyAdmin\Advisor;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Tests\PmaTestCase;
+use PhpMyAdmin\Theme;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * Tests behaviour of PMA_Advisor class
  *
  * @package PhpMyAdmin-test
  */
-class AdvisorTest extends PMATestCase
+class AdvisorTest extends PmaTestCase
 {
-
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      *
      * @return void
      */
-    public function setup()
+    protected function setUp()
     {
-        $_SESSION['PMA_Theme'] = Theme::load('./themes/pmahomme');
+        $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['server'] = 1;
     }
 
@@ -57,12 +56,12 @@ class AdvisorTest extends PMATestCase
      */
     public function escapeStrings()
     {
-        return array(
-            array('80%', '80%%'),
-            array('%s%', '%s%%'),
-            array('80% foo', '80%% foo'),
-            array('%s% foo', '%s%% foo'),
-            );
+        return [
+            ['80%', '80%%'],
+            ['%s%', '%s%%'],
+            ['80% foo', '80%% foo'],
+            ['%s% foo', '%s%% foo'],
+            ];
     }
 
     /**
@@ -72,39 +71,52 @@ class AdvisorTest extends PMATestCase
      */
     public function testParse()
     {
-        $advisor = new Advisor();
+        $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = $advisor->parseRulesFile();
-        $this->assertEquals($parseResult['errors'], array());
+        $this->assertEquals($parseResult['errors'], []);
     }
 
     /**
-     * test for ADVISOR_bytime
+     * test for Advisor::byTime
+     *
+     * @param float  $time     time
+     * @param string $expected expected result
      *
      * @return void
+     *
+     * @dataProvider advisorTimes
      */
-    public function testAdvisorBytime()
+    public function testAdvisorBytime($time, $expected)
     {
-        $result = ADVISOR_bytime(10, 2);
-        $this->assertEquals("10 per second", $result);
-
-        $result = ADVISOR_bytime(0.02, 2);
-        $this->assertEquals("1.2 per minute", $result);
-
-        $result = ADVISOR_bytime(0.003, 2);
-        $this->assertEquals("10.8 per hour", $result);
+        $result = Advisor::byTime($time, 2);
+        $this->assertEquals($expected, $result);
     }
 
     /**
-     * test for ADVISOR_timespanFormat
+     * @return array
+     */
+    public function advisorTimes()
+    {
+        return [
+            [10, "10 per second"],
+            [0.02, "1.2 per minute"],
+            [0.003, "10.8 per hour"],
+            [0.00003, "2.59 per day"],
+            [0.0000000003, "<0.01 per day"],
+        ];
+    }
+
+    /**
+     * test for Advisor::timespanFormat
      *
      * @return void
      */
     public function testAdvisorTimespanFormat()
     {
-        $result = ADVISOR_timespanFormat(1200);
+        $result = Advisor::timespanFormat(1200);
         $this->assertEquals("0 days, 0 hours, 20 minutes and 0 seconds", $result);
 
-        $result = ADVISOR_timespanFormat(100);
+        $result = Advisor::timespanFormat(100);
         $this->assertEquals("0 days, 0 hours, 1 minutes and 40 seconds", $result);
     }
 
@@ -122,17 +134,17 @@ class AdvisorTest extends PMATestCase
      */
     public function testAddRule($rule, $expected, $error)
     {
-        $advisor = new Advisor();
+        $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = $advisor->parseRulesFile();
-        $this->assertEquals($parseResult['errors'], array());
+        $this->assertEquals($parseResult['errors'], []);
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
         if (isset($runResult['errors']) || !is_null($error)) {
-            $this->assertEquals(array($error), $runResult['errors']);
+            $this->assertEquals([$error], $runResult['errors']);
         }
-        if (isset($runResult['fired']) || $expected != array()) {
-            $this->assertEquals(array($expected), $runResult['fired']);
+        if (isset($runResult['fired']) || $expected != []) {
+            $this->assertEquals([$expected], $runResult['fired']);
         }
     }
 
@@ -143,133 +155,206 @@ class AdvisorTest extends PMATestCase
      */
     public function rulesProvider()
     {
-        return array(
-            array(
-                array(
+        return [
+            [
+                [
                     'justification' => 'foo',
                     'name' => 'Basic',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend'
-                ),
-                array(
+                ],
+                [
                     'justification' => 'foo',
                     'id' => 'Basic',
                     'name' => 'Basic',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend'
-                ),
+                ],
                 null,
-            ),
-            array(
-                array(
+            ],
+            [
+                [
                     'justification' => 'foo',
                     'name' => 'Variable',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend {status_var}'
-                ),
-                array(
+                ],
+                [
                     'justification' => 'foo',
                     'id' => 'Variable',
                     'name' => 'Variable',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend <a href="server_variables.php?' .
-                    'lang=en&amp;token=token&filter=status_var">status_var</a>'
-                ),
+                    'filter=status_var&amp;lang=en">status_var</a>'
+                ],
                 null,
-            ),
-            array(
-                array(
+            ],
+            [
+                [
                     'justification' => '%s foo | value',
                     'name' => 'Format',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend'
-                ),
-                array(
+                ],
+                [
                     'justification' => '0 foo',
                     'id' => 'Format',
                     'name' => 'Format',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend'
-                ),
+                ],
                 null,
-            ),
-            array(
-                array(
+            ],
+            [
+                [
                     'justification' => '%s% foo | value',
                     'name' => 'Percent',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend'
-                ),
-                array(
+                ],
+                [
                     'justification' => '0% foo',
                     'id' => 'Percent',
                     'name' => 'Percent',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend'
-                ),
+                ],
                 null,
-            ),
-            array(
-                array(
+            ],
+            [
+                [
                     'justification' => '%s% %d foo | value, value',
                     'name' => 'Double',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend'
-                ),
-                array(
+                ],
+                [
                     'justification' => '0% 0 foo',
                     'id' => 'Double',
                     'name' => 'Double',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend'
-                ),
+                ],
                 null,
-            ),
-            array(
-                array(
+            ],
+            [
+                [
                     'justification' => '"\'foo',
                     'name' => 'Quotes',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend"\''
-                ),
-                array(
+                ],
+                [
                     'justification' => '"\'foo',
                     'id' => 'Quotes',
                     'name' => 'Quotes',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend"\''
-                ),
+                ],
                 null,
-            ),
-            array(
-                array(
+            ],
+            [
+                [
                     'justification' => 'foo | fsafdsa',
                     'name' => 'Failure',
                     'issue' => 'issue',
                     'recommendation' => 'Recommend'
-                ),
-                array(),
-                'Failed formatting string for rule \'Failure\'. PHP threw ' .
-                'following error: Use of undefined constant fsafdsa - ' .
-                'assumed \'fsafdsa\'<br />Executed code: $value = array(fsafdsa);',
-            ),
-            array(
-                array(
+                ],
+                [],
+                'Failed formatting string for rule \'Failure\'. ' .
+                'Error when evaluating: Variable "fsafdsa" is not ' .
+                'valid around position 2 for expression `[fsafdsa]`.'
+            ],
+            [
+                [
                     'justification' => 'Version string (%s) | value',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="https://example.com/">web</a>',
-                ),
-                array(
+                ],
+                [
                     'justification' => 'Version string (0)',
                     'name' => 'Distribution',
                     'issue' => 'official MySQL binaries.',
                     'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
                         'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
                     'id' => 'Distribution'
-                ),
+                ],
                 null,
-            ),
-        );
+            ],
+            [
+                [
+                    'justification' => 'Timestamp (%s) | ADVISOR_timespanFormat(1377027)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                ],
+                [
+                    'justification' => 'Timestamp (15 days, 22 hours, 30 minutes and 27 seconds)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'id' => 'Distribution'
+                ],
+                null,
+            ],
+            [
+                [
+                    'justification' => 'Memory: %s | ADVISOR_formatByteDown(1000000, 2, 2)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                ],
+                [
+                    'justification' => 'Memory: 0.95 MiB',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'id' => 'Distribution'
+                ],
+                null,
+            ],
+            [
+                [
+                    'justification' => 'Time: %s | ADVISOR_bytime(0.02, 2)',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="https://example.com/">web</a>',
+                ],
+                [
+                    'justification' => 'Time: 1.2 per minute',
+                    'name' => 'Distribution',
+                    'issue' => 'official MySQL binaries.',
+                    'recommendation' => 'See <a href="./url.php?url=https%3A%2F%2F' .
+                        'example.com%2F" target="_blank" rel="noopener noreferrer">web</a>',
+                    'id' => 'Distribution'
+                ],
+                null,
+            ],
+            [
+                [
+                    'justification' => 'Current version: %s | value',
+                    'name' => 'Minor Version',
+                    'precondition' => '! fired(\'Release Series\')',
+                    'issue' => 'Version less than 5.1.30',
+                    'recommendation' => 'You should upgrade',
+                    'formula' => 'version',
+                    'test' => "substr(value,0,2) <= '5.' && substr(value,2,1) <= 1 && substr(value,4,2) < 30",
+                ],
+                [
+                    'justification' => 'Current version: 0',
+                    'name' => 'Minor Version',
+                    'issue' => 'Version less than 5.1.30',
+                    'recommendation' => 'You should upgrade',
+                    'id' => 'Minor Version',
+                    'precondition' => '! fired(\'Release Series\')',
+                    'formula' => 'version',
+                    'test' => "substr(value,0,2) <= '5.' && substr(value,2,1) <= 1 && substr(value,4,2) < 30",
+                ],
+                null,
+            ],
+        ];
     }
 }

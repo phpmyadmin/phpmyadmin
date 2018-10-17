@@ -5,16 +5,27 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
-require_once 'test/PMATestCase.php';
+namespace PhpMyAdmin\Tests;
+
+use PhpMyAdmin\SystemDatabase;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for libraries/SystemDatabase.php
  *
  * @package PhpMyAdmin-test
  */
-class SystemDatabaseTest extends PMATestCase
+class SystemDatabaseTest extends PmaTestCase
 {
+    /**
+     * SystemDatabase instance
+     *
+     * @var SystemDatabase
+     */
+    private $sysDb;
+
     /**
      * Setup function for test cases
      *
@@ -29,7 +40,7 @@ class SystemDatabaseTest extends PMATestCase
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['Server']['pmadb'] = '';
 
-        $dbi = $this->getMockBuilder('PMA\libraries\DatabaseInterface')
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -38,7 +49,7 @@ class SystemDatabaseTest extends PMATestCase
             ->will($this->returnValue('executeResult2'));
 
         //_SESSION
-        $_SESSION['relation'][$GLOBALS['server']] = array(
+        $_SESSION['relation'][$GLOBALS['server']] = [
             'PMA_VERSION' => PMA_VERSION,
             'table_coords' => "table_name",
             'displaywork' => 'displaywork',
@@ -49,24 +60,24 @@ class SystemDatabaseTest extends PMATestCase
             'pdfwork' => 'pdfwork',
             'column_info' => 'column_info',
             'relation' => 'relation',
-        );
+        ];
 
         $dbi->expects($this->any())
             ->method('fetchAssoc')
             ->will(
                 $this->returnValue(
-                    array(
+                    [
                         'table_name' => "table_name",
                         'column_name' => "column_name",
                         'comment' => "comment",
                         'mimetype' => "mimetype",
                         'transformation' => "transformation",
                         'transformation_options' => "transformation_options",
-                    )
+                    ]
                 )
             );
 
-        $this->sysDb = new PMA\libraries\SystemDatabase($dbi);
+        $this->sysDb = new SystemDatabase($dbi);
     }
 
     /**
@@ -96,17 +107,20 @@ class SystemDatabaseTest extends PMATestCase
     public function testPMAGetNewTransformationDataSql()
     {
         $db = "PMA_db";
-        $pma_transformation_data = array();
-        $column_map = array(
-            array(
+        $pma_transformation_data = [];
+        $column_map = [
+            [
                 "table_name" => "table_name",
                 "refering_column" => "column_name"
-            )
-        );
+            ]
+        ];
         $view_name = "view_name";
 
         $ret = $this->sysDb->getNewTransformationDataSql(
-            $pma_transformation_data, $column_map, $view_name, $db
+            $pma_transformation_data,
+            $column_map,
+            $view_name,
+            $db
         );
 
         $sql = "INSERT INTO `information_schema`.`column_info` "

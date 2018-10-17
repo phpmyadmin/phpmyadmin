@@ -1,0 +1,11 @@
+<select name="{{ select_name }}"{% if id is not empty %} id="{{ id }}"{% endif -%}
+    {%- if class is not empty %} class="{{ class }}"{% endif %}>
+{% if placeholder is not empty %}
+    <option value="" disabled="disabled"
+    {%- if not selected %} selected="selected"{% endif %}>{{ placeholder }}</option>
+{% endif %}
+{% for option in result_options %}
+<option value="{{ option['value'] }}"
+    {{- option['selected'] ? ' selected="selected"' }}>{{ option['label'] }}</option>
+{% endfor %}
+</select>

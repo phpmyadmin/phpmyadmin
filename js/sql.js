@@ -16,8 +16,7 @@ var prevScrollX = 0;
  * @param string str
  * @return string the URL-decoded string
  */
-function PMA_urldecode(str)
-{
+function PMA_urldecode (str) {
     if (typeof str !== 'undefined') {
         return decodeURIComponent(str.replace(/\+/g, '%20'));
     }
@@ -29,26 +28,90 @@ function PMA_urldecode(str)
  * @param string str
  * @return string the URL-encoded string
  */
-function PMA_urlencode(str)
-{
+function PMA_urlencode (str) {
     if (typeof str !== 'undefined') {
         return encodeURIComponent(str).replace(/\%20/g, '+');
     }
 }
 
 /**
- * Saves SQL query in local storage or cooie
+ * Saves SQL query in local storage or cookie
  *
  * @param string SQL query
  * @return void
  */
-function PMA_autosaveSQL(query)
-{
+function PMA_autosaveSQL (query) {
+    if (isStorageSupported('localStorage')) {
+        window.localStorage.auto_saved_sql = query;
+    } else {
+        Cookies.set('auto_saved_sql', query);
+    }
+}
+
+/**
+ * Saves SQL query in local storage or cookie
+ *
+ * @param string database name
+ * @param string table name
+ * @param string SQL query
+ * @return void
+ */
+function PMA_showThisQuery (db, table, query) {
+    var show_this_query_object = {
+        'db': db,
+        'table': table,
+        'query': query
+    };
+    if (isStorageSupported('localStorage')) {
+        window.localStorage.show_this_query = 1;
+        window.localStorage.show_this_query_object = JSON.stringify(show_this_query_object);
+    } else {
+        Cookies.set('show_this_quey', 1);
+        Cookies.set('show_this_query_object', JSON.stringify(show_this_query_object));
+    }
+}
+
+/**
+ * Set query to codemirror if show this query is
+ * checked and query for the db and table pair exists
+ */
+function setShowThisQuery () {
+    var db = $('input[name="db"]').val();
+    var table = $('input[name="table"]').val();
+    if (isStorageSupported('localStorage')) {
+        if (window.localStorage.show_this_query_object !== undefined) {
+            var stored_db = JSON.parse(window.localStorage.show_this_query_object).db;
+            var stored_table = JSON.parse(window.localStorage.show_this_query_object).table;
+            var stored_query = JSON.parse(window.localStorage.show_this_query_object).query;
+        }
+        if (window.localStorage.show_this_query !== undefined
+            && window.localStorage.show_this_query === '1') {
+            $('input[name="show_query"]').prop('checked', true);
+            if (db === stored_db && table === stored_table) {
+                if (codemirror_editor) {
+                    codemirror_editor.setValue(stored_query);
+                } else if (document.sqlform) {
+                    document.sqlform.sql_query.value = stored_query;
+                }
+            }
+        } else {
+            $('input[name="show_query"]').prop('checked', false);
+        }
+    }
+}
+
+/**
+ * Saves SQL query with sort in local storage or cookie
+ *
+ * @param string SQL query
+ * @return void
+ */
+function PMA_autosaveSQLSort (query) {
     if (query) {
         if (isStorageSupported('localStorage')) {
-            window.localStorage.auto_saved_sql = query;
+            window.localStorage.auto_saved_sql_sort = query;
         } else {
-            $.cookie('auto_saved_sql', query);
+            Cookies.set('auto_saved_sql_sort', query);
         }
     }
 }
@@ -60,9 +123,7 @@ function PMA_autosaveSQL(query)
  * @param $table_results enclosing results table
  * @param $this_field    jQuery object that points to the current field's tr
  */
-function getFieldName($table_results, $this_field)
-{
-
+function getFieldName ($table_results, $this_field) {
     var this_field_index = $this_field.index();
     // ltr or rtl direction does not impact how the DOM was generated
     // check if the action column in the left exist
@@ -103,29 +164,29 @@ function getFieldName($table_results, $this_field)
 AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'a.delete_row.ajax');
     $(document).off('submit', '.bookmarkQueryForm');
-    $('input#bkm_label').unbind('keyup');
-    $(document).off('makegrid', ".sqlqueryresults");
-    $(document).off('stickycolumns', ".sqlqueryresults");
-    $("#togglequerybox").unbind('click');
-    $(document).off('click', "#button_submit_query");
+    $('input#bkm_label').off('keyup');
+    $(document).off('makegrid', '.sqlqueryresults');
+    $(document).off('stickycolumns', '.sqlqueryresults');
+    $('#togglequerybox').off('click');
+    $(document).off('click', '#button_submit_query');
     $(document).off('change', '#id_bookmark');
-    $("input[name=bookmark_variable]").unbind("keypress");
-    $(document).off('submit', "#sqlqueryform.ajax");
-    $(document).off('click', "input[name=navig].ajax");
-    $(document).off('submit', "form[name='displayOptionsForm'].ajax");
+    $('input[name=\'bookmark_variable\']').off('keypress');
+    $(document).off('submit', '#sqlqueryform.ajax');
+    $(document).off('click', 'input[name=navig].ajax');
+    $(document).off('submit', 'form[name=\'displayOptionsForm\'].ajax');
     $(document).off('mouseenter', 'th.column_heading.pointer');
     $(document).off('mouseleave', 'th.column_heading.pointer');
     $(document).off('click', 'th.column_heading.marker');
-    $(window).unbind('scroll');
-    $(document).off("keyup", ".filter_rows");
-    $(document).off('click', "#printView");
+    $(document).off('scroll', window);
+    $(document).off('keyup', '.filter_rows');
+    $(document).off('click', '#printView');
     if (codemirror_editor) {
         codemirror_editor.off('change');
     } else {
         $('#sqlquery').off('input propertychange');
     }
     $('body').off('click', '.navigation .showAllRows');
-    $('body').off('click','a.browse_foreign');
+    $('body').off('click', 'a.browse_foreign');
     $('body').off('click', '#simulate_dml');
     $('body').off('keyup', '#sqlqueryform');
     $('body').off('click', 'form[name="resultsForm"].ajax button[name="submit_mult"], form[name="resultsForm"].ajax input[name="submit_mult"]');
@@ -148,7 +209,9 @@ AJAX.registerTeardown('sql.js', function () {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function () {
-
+    if (codemirror_editor || document.sqlform) {
+        setShowThisQuery();
+    }
     $(function () {
         if (codemirror_editor) {
             codemirror_editor.on('change', function () {
@@ -158,6 +221,23 @@ AJAX.registerOnload('sql.js', function () {
             $('#sqlquery').on('input propertychange', function () {
                 PMA_autosaveSQL($('#sqlquery').val());
             });
+            // Save sql query with sort
+            if ($('#RememberSorting') !== undefined && $('#RememberSorting').is(':checked')) {
+                $('select[name="sql_query"]').on('change', function () {
+                    PMA_autosaveSQLSort($('select[name="sql_query"]').val());
+                });
+            } else {
+                if (isStorageSupported('localStorage') && window.localStorage.auto_saved_sql_sort !== undefined) {
+                    window.localStorage.removeItem('auto_saved_sql_sort');
+                } else {
+                    Cookies.set('auto_saved_sql_sort', '');
+                }
+            }
+            // If sql query with sort for current table is stored, change sort by key select value
+            var sortStoredQuery = (isStorageSupported('localStorage') && typeof window.localStorage.auto_saved_sql_sort !== 'undefined') ? window.localStorage.auto_saved_sql_sort : Cookies.get('auto_saved_sql_sort');
+            if (typeof sortStoredQuery !== 'undefined' && sortStoredQuery !== $('select[name="sql_query"]').val() && $('select[name="sql_query"] option[value="' + sortStoredQuery + '"]').length !== 0) {
+                $('select[name="sql_query"]').val(sortStoredQuery).trigger('change');
+            }
         }
     });
 
@@ -168,18 +248,20 @@ AJAX.registerOnload('sql.js', function () {
         var $link = $(this);
         $link.PMA_confirm(question, $link.attr('href'), function (url) {
             $msgbox = PMA_ajaxShowMessage();
-            if ($link.hasClass('formLinkSubmit')) {
-                submitFormLink($link);
-            } else {
-                $.post(url, {'ajax_request': true, 'is_js_confirmed': true}, function (data) {
-                    if (data.success) {
-                        PMA_ajaxShowMessage(data.message);
-                        $link.closest('tr').remove();
-                    } else {
-                        PMA_ajaxShowMessage(data.error, false);
-                    }
-                });
+            var argsep = PMA_commonParams.get('arg_separator');
+            var params = 'ajax_request=1' + argsep + 'is_js_confirmed=1';
+            var postData = $link.getPostData();
+            if (postData) {
+                params += argsep + postData;
             }
+            $.post(url, params, function (data) {
+                if (data.success) {
+                    PMA_ajaxShowMessage(data.message);
+                    $link.closest('tr').remove();
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            });
         });
     });
 
@@ -187,7 +269,8 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('submit', '.bookmarkQueryForm', function (e) {
         e.preventDefault();
         PMA_ajaxShowMessage();
-        $.post($(this).attr('action'), 'ajax_request=1&' + $(this).serialize(), function (data) {
+        var argsep = PMA_commonParams.get('arg_separator');
+        $.post($(this).attr('action'), 'ajax_request=1' + argsep + $(this).serialize(), function (data) {
             if (data.success) {
                 PMA_ajaxShowMessage(data.message);
             } else {
@@ -197,7 +280,7 @@ AJAX.registerOnload('sql.js', function () {
     });
 
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
-    $('input#bkm_label').keyup(function () {
+    $('input#bkm_label').on('keyup', function () {
         $('input#id_bkm_all_users, input#id_bkm_replace')
             .parent()
             .toggle($(this).val().length > 0);
@@ -206,29 +289,104 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * Attach Event Handler for 'Copy to clipbpard
      */
-    $(document).on('click', "#copyToClipBoard", function (event) {
+    $(document).on('click', '#copyToClipBoard', function (event) {
         event.preventDefault();
 
-        // Print the page
-        copyToClipboard();
-    }); //end of Copy to Clipboard action
+        var textArea = document.createElement('textarea');
+
+        //
+        // *** This styling is an extra step which is likely not required. ***
+        //
+        // Why is it here? To ensure:
+        // 1. the element is able to have focus and selection.
+        // 2. if element was to flash render it has minimal visual impact.
+        // 3. less flakyness with selection and copying which **might** occur if
+        //    the textarea element is not visible.
+        //
+        // The likelihood is the element won't even render, not even a flash,
+        // so some of these are just precautions. However in IE the element
+        // is visible whilst the popup box asking the user for permission for
+        // the web page to copy to the clipboard.
+        //
+
+        // Place in top-left corner of screen regardless of scroll position.
+        textArea.style.position = 'fixed';
+        textArea.style.top = 0;
+        textArea.style.left = 0;
+
+        // Ensure it has a small width and height. Setting to 1px / 1em
+        // doesn't work as this gives a negative w/h on some browsers.
+        textArea.style.width = '2em';
+        textArea.style.height = '2em';
+
+        // We don't need padding, reducing the size if it does flash render.
+        textArea.style.padding = 0;
+
+        // Clean up any borders.
+        textArea.style.border = 'none';
+        textArea.style.outline = 'none';
+        textArea.style.boxShadow = 'none';
+
+        // Avoid flash of white box if rendered for any reason.
+        textArea.style.background = 'transparent';
+
+        textArea.value = '';
+
+        $('#serverinfo a').each(function () {
+            textArea.value += $(this).text().split(':')[1].trim() + '/';
+        });
+        textArea.value += '\t\t' + window.location.href;
+        textArea.value += '\n';
+        $('.success').each(function () {
+            textArea.value += $(this).text() + '\n\n';
+        });
+
+        $('.sql pre').each(function () {
+            textArea.value += $(this).text() + '\n\n';
+        });
+
+        $('.table_results .column_heading a').each(function () {
+            // Don't copy ordering number text within <small> tag
+            textArea.value += $(this).clone().find('small').remove().end().text() + '\t';
+        });
+
+        textArea.value += '\n';
+        $('.table_results tbody tr').each(function () {
+            $(this).find('.data span').each(function () {
+                textArea.value += $(this).text() + '\t';
+            });
+            textArea.value += '\n';
+        });
+
+        document.body.appendChild(textArea);
+
+        textArea.select();
+
+        try {
+            document.execCommand('copy');
+        } catch (err) {
+            alert('Sorry! Unable to copy');
+        }
+
+        document.body.removeChild(textArea);
+    }); // end of Copy to Clipboard action
 
     /**
      * Attach Event Handler for 'Print' link
      */
-    $(document).on('click', "#printView", function (event) {
+    $(document).on('click', '#printView', function (event) {
         event.preventDefault();
 
         // Take to preview mode
         printPreview();
-    }); //end of 'Print' action
+    }); // end of 'Print' action
 
     /**
      * Attach the {@link makegrid} function to a custom event, which will be
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
      */
-    $(document).on('makegrid', ".sqlqueryresults", function () {
+    $(document).on('makegrid', '.sqlqueryresults', function () {
         $('.table_results').each(function () {
             PMA_makegrid(this);
         });
@@ -239,15 +397,15 @@ AJAX.registerOnload('sql.js', function () {
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
      */
-    $(document).on('stickycolumns', ".sqlqueryresults", function () {
-        $(".sticky_columns").remove();
-        $(".table_results").each(function () {
+    $(document).on('stickycolumns', '.sqlqueryresults', function () {
+        $('.sticky_columns').remove();
+        $('.table_results').each(function () {
             var $table_results = $(this);
-            //add sticky columns div
+            // add sticky columns div
             var $stick_columns = initStickyColumns($table_results);
             rearrangeStickyColumns($stick_columns, $table_results);
-            //adjust sticky columns on scroll
-            $(window).bind('scroll', function() {
+            // adjust sticky columns on scroll
+            $(document).on('scroll', window, function () {
                 handleStickyColumns($stick_columns, $table_results);
             });
         });
@@ -262,17 +420,17 @@ AJAX.registerOnload('sql.js', function () {
     // do not add this link more than once
     if (! $('#sqlqueryform').find('a').is('#togglequerybox')) {
         $('<a id="togglequerybox"></a>')
-        .html(PMA_messages.strHideQueryBox)
-        .appendTo("#sqlqueryform")
+            .html(PMA_messages.strHideQueryBox)
+            .appendTo('#sqlqueryform')
         // initially hidden because at this point, nothing else
         // appears under the link
-        .hide();
+            .hide();
 
         // Attach the toggling of the query box visibility to a click
-        $("#togglequerybox").bind('click', function () {
+        $('#togglequerybox').bind('click', function () {
             var $link = $(this);
-            $link.siblings().slideToggle("fast");
-            if ($link.text() == PMA_messages.strHideQueryBox) {
+            $link.siblings().slideToggle('fast');
+            if ($link.text() === PMA_messages.strHideQueryBox) {
                 $link.text(PMA_messages.strShowQueryBox);
                 // cheap trick to add a spacer between the menu tabs
                 // and "Show query box"; feel free to improve!
@@ -292,16 +450,36 @@ AJAX.registerOnload('sql.js', function () {
      *
      * @memberOf    jQuery
      */
-    $(document).on('click', "#button_submit_query", function (event) {
-        $(".success,.error").hide();
-        //hide already existing error or success message
-        var $form = $(this).closest("form");
+    $(document).on('click', '#button_submit_query', function (event) {
+        $('.success,.error').hide();
+        // hide already existing error or success message
+        var $form = $(this).closest('form');
         // the Go button related to query submission was clicked,
         // instead of the one related to Bookmarks, so empty the
         // id_bookmark selector to avoid misinterpretation in
         // import.php about what needs to be done
-        $form.find("select[name=id_bookmark]").val("");
+        $form.find('select[name=id_bookmark]').val('');
         // let normal event propagation happen
+        if (isStorageSupported('localStorage')) {
+            window.localStorage.removeItem('auto_saved_sql');
+        } else {
+            Cookies.set('auto_saved_sql', '');
+        }
+        var isShowQuery =  $('input[name="show_query"').is(':checked');
+        if (isShowQuery) {
+            window.localStorage.show_this_query = '1';
+            var db = $('input[name="db"]').val();
+            var table = $('input[name="table"]').val();
+            var query;
+            if (codemirror_editor) {
+                query = codemirror_editor.getValue();
+            } else {
+                query = $('#sqlquery').val();
+            }
+            PMA_showThisQuery(db, table, query);
+        } else {
+            window.localStorage.show_this_query = '0';
+        }
     });
 
     /**
@@ -309,9 +487,8 @@ AJAX.registerOnload('sql.js', function () {
      * based on the bookmarked query
      */
     $(document).on('change', '#id_bookmark', function (event) {
-
         var varCount = $(this).find('option:selected').data('varcount');
-        if (typeof varCount == 'undefined') {
+        if (typeof varCount === 'undefined') {
             varCount = 0;
         }
 
@@ -319,10 +496,10 @@ AJAX.registerOnload('sql.js', function () {
         $varDiv.empty();
         for (var i = 1; i <= varCount; i++) {
             $varDiv.append($('<label for="bookmark_variable_' + i + '">' + PMA_sprintf(PMA_messages.strBookmarkVariable, i) + '</label>'));
-            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"></input>'));
+            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"/>'));
         }
 
-        if (varCount == 0) {
+        if (varCount === 0) {
             $varDiv.parent('.formelement').hide();
         } else {
             $varDiv.parent('.formelement').show();
@@ -335,10 +512,10 @@ AJAX.registerOnload('sql.js', function () {
      *
      * @memberOf    jQuery
      */
-    $("input[name=bookmark_variable]").bind("keypress", function (event) {
+    $('input[name=bookmark_variable]').on('keypress', function (event) {
         // force the 'Enter Key' to implicitly click the #button_submit_bookmark
         var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
-        if (keycode == 13) { // keycode for enter key
+        if (keycode === 13) { // keycode for enter key
             // When you press enter in the sqlqueryform, which
             // has 2 submit buttons, the default is to run the
             // #button_submit_query, because of the tabindex
@@ -347,7 +524,7 @@ AJAX.registerOnload('sql.js', function () {
             // because when you are in the Bookmarked SQL query
             // section and hit enter, you expect it to do the
             // same action as the Go button in that section.
-            $("#button_submit_bookmark").click();
+            $('#button_submit_bookmark').trigger('click');
             return false;
         } else  {
             return true;
@@ -361,7 +538,7 @@ AJAX.registerOnload('sql.js', function () {
      * @memberOf    jQuery
      * @name        sqlqueryform_submit
      */
-    $(document).on('submit', "#sqlqueryform.ajax", function (event) {
+    $(document).on('submit', '#sqlqueryform.ajax', function (event) {
         event.preventDefault();
 
         var $form = $(this);
@@ -380,24 +557,25 @@ AJAX.registerOnload('sql.js', function () {
 
         PMA_prepareForAjaxRequest($form);
 
-        $.post($form.attr('action'), $form.serialize() + '&ajax_page_request=true', function (data) {
+        var argsep = PMA_commonParams.get('arg_separator');
+        $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_page_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 // success happens if the query returns rows or not
 
                 // show a message that stays on screen
-                if (typeof data.action_bookmark != 'undefined') {
+                if (typeof data.action_bookmark !== 'undefined') {
                     // view only
-                    if ('1' == data.action_bookmark) {
+                    if ('1' === data.action_bookmark) {
                         $('#sqlquery').text(data.sql_query);
                         // send to codemirror if possible
                         setQuery(data.sql_query);
                     }
                     // delete
-                    if ('2' == data.action_bookmark) {
-                        $("#id_bookmark option[value='" + data.id_bookmark + "']").remove();
+                    if ('2' === data.action_bookmark) {
+                        $('#id_bookmark option[value=\'' + data.id_bookmark + '\']').remove();
                         // if there are no bookmarked queries now (only the empty option),
                         // remove the bookmark section
-                        if ($('#id_bookmark option').length == 1) {
+                        if ($('#id_bookmark option').length === 1) {
                             $('#fieldsetBookmarkOptions').hide();
                             $('#fieldsetBookmarkOptionsFooter').hide();
                         }
@@ -411,9 +589,9 @@ AJAX.registerOnload('sql.js', function () {
                 if (data._menu) {
                     if (history && history.pushState) {
                         history.replaceState({
-                                menu : data._menu
-                            },
-                            null
+                            menu : data._menu
+                        },
+                        null
                         );
                         AJAX.handleMenu.replace(data._menu);
                     } else {
@@ -430,7 +608,7 @@ AJAX.registerOnload('sql.js', function () {
                     PMA_commonParams.setAll(data._params);
                 }
 
-                if (typeof data.ajax_reload != 'undefined') {
+                if (typeof data.ajax_reload !== 'undefined') {
                     if (data.ajax_reload.reload) {
                         if (data.ajax_reload.table_name) {
                             PMA_commonParams.set('table', data.ajax_reload.table_name);
@@ -439,7 +617,7 @@ AJAX.registerOnload('sql.js', function () {
                             PMA_reloadNavigation();
                         }
                     }
-                } else if (typeof data.reload != 'undefined') {
+                } else if (typeof data.reload !== 'undefined') {
                     // this happens if a USE or DROP command was typed
                     PMA_commonActions.setDb(data.db);
                     var url;
@@ -464,10 +642,10 @@ AJAX.registerOnload('sql.js', function () {
                 $('#togglequerybox').show();
                 PMA_init_slider();
 
-                if (typeof data.action_bookmark == 'undefined') {
+                if (typeof data.action_bookmark === 'undefined') {
                     if ($('#sqlqueryform input[name="retain_query_box"]').is(':checked') !== true) {
-                        if ($("#togglequerybox").siblings(":visible").length > 0) {
-                            $("#togglequerybox").trigger('click');
+                        if ($('#togglequerybox').siblings(':visible').length > 0) {
+                            $('#togglequerybox').trigger('click');
                         }
                     }
                 }
@@ -486,32 +664,33 @@ AJAX.registerOnload('sql.js', function () {
      * @memberOf    jQuery
      * @name        displayOptionsForm_submit
      */
-    $(document).on('submit', "form[name='displayOptionsForm'].ajax", function (event) {
+    $(document).on('submit', 'form[name=\'displayOptionsForm\'].ajax', function (event) {
         event.preventDefault();
 
         $form = $(this);
 
         var $msgbox = PMA_ajaxShowMessage();
-        $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function (data) {
+        var argsep = PMA_commonParams.get('arg_separator');
+        $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_request=true', function (data) {
             PMA_ajaxRemoveMessage($msgbox);
-            var $sqlqueryresults = $form.parents(".sqlqueryresults");
+            var $sqlqueryresults = $form.parents('.sqlqueryresults');
             $sqlqueryresults
-             .html(data.message)
-             .trigger('makegrid')
-             .trigger('stickycolumns');
+                .html(data.message)
+                .trigger('makegrid')
+                .trigger('stickycolumns');
             PMA_init_slider();
             PMA_highlightSQL($sqlqueryresults);
         }); // end $.post()
-    }); //end displayOptionsForm handler
+    }); // end displayOptionsForm handler
 
     // Filter row handling. --STARTS--
-    $(document).on("keyup", ".filter_rows", function () {
-        var unique_id = $(this).data("for");
-        var $target_table = $(".table_results[data-uniqueId='" + unique_id + "']");
-        var $header_cells = $target_table.find("th[data-column]");
+    $(document).on('keyup', '.filter_rows', function () {
+        var unique_id = $(this).data('for');
+        var $target_table = $('.table_results[data-uniqueId=\'' + unique_id + '\']');
+        var $header_cells = $target_table.find('th[data-column]');
         var target_columns = Array();
         // To handle colspan=4, in case of edit,copy etc options.
-        var dummy_th = ($(".edit_row_anchor").length !== 0 ?
+        var dummy_th = ($('.edit_row_anchor').length !== 0 ?
             '<th class="hide dummy_th"></th><th class="hide dummy_th"></th><th class="hide dummy_th"></th>'
             : '');
         // Selecting columns that will be considered for filtering and searching.
@@ -521,11 +700,11 @@ AJAX.registerOnload('sql.js', function () {
 
         var phrase = $(this).val();
         // Set same value to both Filter rows fields.
-        $(".filter_rows[data-for='" + unique_id + "']").not(this).val(phrase);
+        $('.filter_rows[data-for=\'' + unique_id + '\']').not(this).val(phrase);
         // Handle colspan.
-        $target_table.find("thead > tr").prepend(dummy_th);
+        $target_table.find('thead > tr').prepend(dummy_th);
         $.uiTableFilter($target_table, phrase, target_columns);
-        $target_table.find("th.dummy_th").remove();
+        $target_table.find('th.dummy_th').remove();
     });
     // Filter row handling. --ENDS--
 
@@ -542,8 +721,9 @@ AJAX.registerOnload('sql.js', function () {
             });
         }
 
-        function submitShowAllForm() {
-            var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true';
+        function submitShowAllForm () {
+            var argsep = PMA_commonParams.get('arg_separator');
+            var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true';
             PMA_ajaxShowMessage();
             AJAX.source = $form;
             $.post($form.attr('action'), submitData, AJAX.responseHandler);
@@ -580,7 +760,7 @@ AJAX.registerOnload('sql.js', function () {
             type: 'POST',
             url: $form.attr('action'),
             data: {
-                token: $form.find('input[name="token"]').val(),
+                server: PMA_commonParams.get('server'),
                 db: db_name,
                 ajax_request: '1',
                 simulate_dml: '1',
@@ -593,13 +773,13 @@ AJAX.registerOnload('sql.js', function () {
                     var dialog_content = '<div class="preview_sql">';
                     if (response.sql_data) {
                         var len = response.sql_data.length;
-                        for (var i=0; i<len; i++) {
+                        for (var i = 0; i < len; i++) {
                             dialog_content += '<strong>' + PMA_messages.strSQLQuery +
                                 '</strong>' + response.sql_data[i].sql_query +
                                 PMA_messages.strMatchedRows +
                                 ' <a href="' + response.sql_data[i].matched_rows_url +
                                 '">' + response.sql_data[i].matched_rows + '</a><br>';
-                            if (i<len-1) {
+                            if (i < len - 1) {
                                 dialog_content += '<hr>';
                             }
                         }
@@ -642,7 +822,8 @@ AJAX.registerOnload('sql.js', function () {
         e.preventDefault();
         var $button = $(this);
         var $form = $button.closest('form');
-        var submitData = $form.serialize() + '&ajax_request=true&ajax_page_request=true&submit_mult=' + $button.val();
+        var argsep = PMA_commonParams.get('arg_separator');
+        var submitData = $form.serialize() + argsep + 'ajax_request=true' + argsep + 'ajax_page_request=true' + argsep + 'submit_mult=' + $button.val();
         PMA_ajaxShowMessage();
         AJAX.source = $form;
         $.post($form.attr('action'), submitData, AJAX.responseHandler);
@@ -653,8 +834,7 @@ AJAX.registerOnload('sql.js', function () {
  * Starting from some th, change the class of all td under it.
  * If isAddClass is specified, it will be used to determine whether to add or remove the class.
  */
-function PMA_changeClassForColumn($this_th, newclass, isAddClass)
-{
+function PMA_changeClassForColumn ($this_th, newclass, isAddClass) {
     // index 0 is the th containing the big T
     var th_index = $this_th.index();
     var has_big_t = $this_th.closest('tr').children(':first').hasClass('column_action');
@@ -679,14 +859,13 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
  *
  * @param object $this_a reference to the browse foreign value link
  */
-function browseForeignDialog($this_a)
-{
+function browseForeignDialog ($this_a) {
     var formId = '#browse_foreign_form';
     var showAllId = '#foreign_showAll';
     var tableId = '#browse_foreign_table';
     var filterId = '#input_foreign_filter';
     var $dialog = null;
-    $.get($this_a.attr('href'), {'ajax_request': true}, function (data) {
+    $.get($this_a.attr('href'), { 'ajax_request': true }, function (data) {
         // Creates browse foreign value dialog
         $dialog = $('<div>').append(data.message).dialog({
             title: PMA_messages.strBrowseForeignValues,
@@ -709,7 +888,7 @@ function browseForeignDialog($this_a)
             e.preventDefault();
             var $input = $this_a.prev('input[type=text]');
             // Check if input exists or get CEdit edit_box
-            if ($input.length === 0 ) {
+            if ($input.length === 0) {
                 $input = $this_a.closest('.edit_area').prev('.edit_box');
             }
             // Set selected value as input value
@@ -723,7 +902,7 @@ function browseForeignDialog($this_a)
             e.preventDefault();
             // if filter value is not equal to old value
             // then reset page number to 1
-            if ($(filterId).val() != $(filterId).data('old')) {
+            if ($(filterId).val() !== $(filterId).data('old')) {
                 $(formId).find('select[name=pos]').val('0');
             }
             var postParams = $(this).serializeArray();
@@ -744,6 +923,12 @@ function browseForeignDialog($this_a)
             showAll = false;
         });
     });
+}
+
+function checkSavedQuery () {
+    if (isStorageSupported('localStorage') && window.localStorage.auto_saved_sql !== undefined) {
+        PMA_ajaxShowMessage(PMA_messages.strPreviousSaveQuery);
+    }
 }
 
 AJAX.registerOnload('sql.js', function () {
@@ -772,14 +957,20 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * create resizable table
      */
-    $(".sqlqueryresults").trigger('makegrid').trigger('stickycolumns');
+    $('.sqlqueryresults').trigger('makegrid').trigger('stickycolumns');
+
+    /**
+     * Check if there is any saved query
+     */
+    if (codemirror_editor || document.sqlform) {
+        checkSavedQuery();
+    }
 });
 
 /*
  * Profiling Chart
  */
-function makeProfilingChart()
-{
+function makeProfilingChart () {
     if ($('#profilingchart').length === 0 ||
         $('#profilingchart').html().length !== 0 ||
         !$.jqplot || !$.jqplot.Highlighter || !$.jqplot.PieRenderer
@@ -788,7 +979,7 @@ function makeProfilingChart()
     }
 
     var data = [];
-    $.each(jQuery.parseJSON($('#profilingChartData').html()), function (key, value) {
+    $.each(JSON.parse($('#profilingChartData').html()), function (key, value) {
         data.push([key, parseFloat(value)]);
     });
 
@@ -802,8 +993,7 @@ function makeProfilingChart()
 /*
  * initialize profiling data tables
  */
-function initProfilingTables()
-{
+function initProfilingTables () {
     if (!$.tablesorter) {
         return;
     }
@@ -836,44 +1026,48 @@ function initProfilingTables()
 /*
  * Set position, left, top, width of sticky_columns div
  */
-function setStickyColumnsPosition($sticky_columns, $table_results, position, top, left, margin_left) {
+function setStickyColumnsPosition ($sticky_columns, $table_results, position, top, left, margin_left) {
     $sticky_columns
-        .css("position", position)
-        .css("top", top)
-        .css("left", left ? left : "auto")
-        .css("margin-left", margin_left ? margin_left : "0px")
-        .css("width", $table_results.width());
+        .css('position', position)
+        .css('top', top)
+        .css('left', left ? left : 'auto')
+        .css('margin-left', margin_left ? margin_left : '0px')
+        .css('width', $table_results.width());
 }
 
 /*
  * Initialize sticky columns
  */
-function initStickyColumns($table_results) {
+function initStickyColumns ($table_results) {
     return $('<table class="sticky_columns"></table>')
-            .insertBefore($table_results)
-            .css("position", "fixed")
-            .css("z-index", "99")
-            .css("width", $table_results.width())
-            .css("margin-left", $('#page_content').css("margin-left"))
-            .css("top", $('#floating_menubar').height())
-            .css("display", "none");
+        .insertBefore($table_results)
+        .css('position', 'fixed')
+        .css('z-index', '99')
+        .css('width', $table_results.width())
+        .css('margin-left', $('#page_content').css('margin-left'))
+        .css('top', $('#floating_menubar').height())
+        .css('display', 'none');
 }
 
 /*
  * Arrange/Rearrange columns in sticky header
  */
-function rearrangeStickyColumns($sticky_columns, $table_results) {
-    var $originalHeader = $table_results.find("thead");
-    var $originalColumns = $originalHeader.find("tr:first").children();
+function rearrangeStickyColumns ($sticky_columns, $table_results) {
+    var $originalHeader = $table_results.find('thead');
+    var $originalColumns = $originalHeader.find('tr:first').children();
     var $clonedHeader = $originalHeader.clone();
+    var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+    var is_safari = navigator.userAgent.indexOf('Safari') > -1;
     // clone width per cell
-    $clonedHeader.find("tr:first").children().width(function(i,val) {
+    $clonedHeader.find('tr:first').children().each(function (i) {
         var width = $originalColumns.eq(i).width();
-        var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
-        if (! is_firefox) {
+        if (! is_firefox && ! is_safari) {
             width += 1;
         }
-        return width;
+        $(this).width(width);
+        if (is_safari) {
+            $(this).css('min-width', width).css('max-width', width);
+        }
     });
     $sticky_columns.empty().append($clonedHeader);
 }
@@ -881,7 +1075,7 @@ function rearrangeStickyColumns($sticky_columns, $table_results) {
 /*
  * Adjust sticky columns on horizontal/vertical scroll for all tables
  */
-function handleAllStickyColumns() {
+function handleAllStickyColumns () {
     $('.sticky_columns').each(function () {
         handleStickyColumns($(this), $(this).next('.table_results'));
     });
@@ -890,19 +1084,19 @@ function handleAllStickyColumns() {
 /*
  * Adjust sticky columns on horizontal/vertical scroll
  */
-function handleStickyColumns($sticky_columns, $table_results) {
+function handleStickyColumns ($sticky_columns, $table_results) {
     var currentScrollX = $(window).scrollLeft();
     var windowOffset = $(window).scrollTop();
     var tableStartOffset = $table_results.offset().top;
     var tableEndOffset = tableStartOffset + $table_results.height();
     if (windowOffset >= tableStartOffset && windowOffset <= tableEndOffset) {
-        //for horizontal scrolling
-        if(prevScrollX != currentScrollX) {
+        // for horizontal scrolling
+        if (prevScrollX !== currentScrollX) {
             prevScrollX = currentScrollX;
-            setStickyColumnsPosition($sticky_columns, $table_results, "absolute", $('#floating_menubar').height() + windowOffset - tableStartOffset);
-        //for vertical scrolling
+            setStickyColumnsPosition($sticky_columns, $table_results, 'absolute', $('#floating_menubar').height() + windowOffset - tableStartOffset);
+        // for vertical scrolling
         } else {
-            setStickyColumnsPosition($sticky_columns, $table_results, "fixed", $('#floating_menubar').height(), $("#pma_navigation").width() - currentScrollX, $('#page_content').css("margin-left"));
+            setStickyColumnsPosition($sticky_columns, $table_results, 'fixed', $('#floating_menubar').height(), $('#pma_navigation').width() - currentScrollX, $('#page_content').css('margin-left'));
         }
         $sticky_columns.show();
     } else {

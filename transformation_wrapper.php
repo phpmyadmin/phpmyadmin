@@ -5,6 +5,12 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
+
+use PhpMyAdmin\Core;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Transformations;
 
 /**
  *
@@ -15,29 +21,31 @@ define('IS_TRANSFORMATION_WRAPPER', true);
  * Gets a core script and starts output buffering work
  */
 require_once './libraries/common.inc.php';
-require_once './libraries/transformations.lib.php'; // Transformations
-$cfgRelation = PMA_getRelationsParam();
+
+$transformations = new Transformations();
+$relation = new Relation($GLOBALS['dbi']);
+$cfgRelation = $relation->getRelationsParam();
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once './libraries/db_table_exists.lib.php';
+require_once './libraries/db_table_exists.inc.php';
 
 
 /**
  * Sets globals from $_REQUEST
  */
-$request_params = array(
+$request_params = [
     'cn',
     'ct',
     'sql_query',
     'transform_key',
     'where_clause'
-);
-$size_params = array(
+];
+$size_params = [
     'newHeight',
     'newWidth',
-);
+];
 foreach ($request_params as $one_request_param) {
     if (isset($_REQUEST[$one_request_param])) {
         if (in_array($one_request_param, $size_params)) {
@@ -58,17 +66,17 @@ foreach ($request_params as $one_request_param) {
 $GLOBALS['dbi']->selectDb($db);
 if (isset($where_clause)) {
     $result = $GLOBALS['dbi']->query(
-        'SELECT * FROM ' . PMA\libraries\Util::backquote($table)
+        'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table)
         . ' WHERE ' . $where_clause . ';',
-        null,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        PhpMyAdmin\DatabaseInterface::CONNECT_USER,
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     $row = $GLOBALS['dbi']->fetchAssoc($result);
 } else {
     $result = $GLOBALS['dbi']->query(
-        'SELECT * FROM ' . PMA\libraries\Util::backquote($table) . ' LIMIT 1;',
-        null,
-        PMA\libraries\DatabaseInterface::QUERY_STORE
+        'SELECT * FROM ' . PhpMyAdmin\Util::backquote($table) . ' LIMIT 1;',
+        PhpMyAdmin\DatabaseInterface::CONNECT_USER,
+        PhpMyAdmin\DatabaseInterface::QUERY_STORE
     );
     $row = $GLOBALS['dbi']->fetchAssoc($result);
 }
@@ -81,8 +89,8 @@ if (! $row) {
 $default_ct = 'application/octet-stream';
 
 if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
-    $mime_map = PMA_getMime($db, $table);
-    $mime_options = PMA_Transformation_getOptions(
+    $mime_map = $transformations->getMime($db, $table);
+    $mime_options = $transformations->getOptions(
         isset($mime_map[$transform_key]['transformation_options'])
         ? $mime_map[$transform_key]['transformation_options'] : ''
     );
@@ -95,7 +103,7 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
 }
 
 // Only output the http headers
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $response->getHeader()->sendHttpHeaders();
 
 // [MIME]
@@ -108,7 +116,7 @@ if (isset($ct) && ! empty($ct)) {
     . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
 }
 
-PMA_downloadHeader($cn, $mime_type);
+Core::downloadHeader($cn, $mime_type);
 
 if (! isset($_REQUEST['resize'])) {
     if (stripos($mime_type, 'html') === false) {
@@ -121,42 +129,49 @@ if (! isset($_REQUEST['resize'])) {
     // it sets the resize parameter to jpeg or png
 
     $srcImage = imagecreatefromstring($row[$transform_key]);
-    $srcWidth = ImageSX($srcImage);
-    $srcHeight = ImageSY($srcImage);
+    $srcWidth = imagesx($srcImage);
+    $srcHeight = imagesy($srcImage);
 
     // Check to see if the width > height or if width < height
     // if so adjust accordingly to make sure the image
     // stays smaller than the new width and new height
 
-    $ratioWidth = $srcWidth/$_REQUEST['newWidth'];
-    $ratioHeight = $srcHeight/$_REQUEST['newHeight'];
+    $ratioWidth = $srcWidth / $_REQUEST['newWidth'];
+    $ratioHeight = $srcHeight / $_REQUEST['newHeight'];
 
     if ($ratioWidth < $ratioHeight) {
-        $destWidth = $srcWidth/$ratioHeight;
+        $destWidth = $srcWidth / $ratioHeight;
         $destHeight = $_REQUEST['newHeight'];
     } else {
         $destWidth = $_REQUEST['newWidth'];
-        $destHeight = $srcHeight/$ratioWidth;
+        $destHeight = $srcHeight / $ratioWidth;
     }
 
     if ($_REQUEST['resize']) {
-        $destImage = ImageCreateTrueColor($destWidth, $destHeight);
-    }
+        $destImage = imagecreatetruecolor($destWidth, $destHeight);
 
-    // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
-    // $destWidth, $destHeight, $srcWidth, $srcHeight);
-    // better quality but slower:
-    ImageCopyResampled(
-        $destImage, $srcImage, 0, 0, 0, 0, $destWidth,
-        $destHeight, $srcWidth, $srcHeight
-    );
-
-    if ($_REQUEST['resize'] == 'jpeg') {
-        ImageJPEG($destImage, null, 75);
+        // ImageCopyResized($destImage, $srcImage, 0, 0, 0, 0,
+        // $destWidth, $destHeight, $srcWidth, $srcHeight);
+        // better quality but slower:
+        imagecopyresampled(
+            $destImage,
+            $srcImage,
+            0,
+            0,
+            0,
+            0,
+            $destWidth,
+            $destHeight,
+            $srcWidth,
+            $srcHeight
+        );
+        if ($_REQUEST['resize'] == 'jpeg') {
+            imagejpeg($destImage, null, 75);
+        }
+        if ($_REQUEST['resize'] == 'png') {
+            imagepng($destImage);
+        }
+        imagedestroy($destImage);
     }
-    if ($_REQUEST['resize'] == 'png') {
-        ImagePNG($destImage);
-    }
-    ImageDestroy($srcImage);
-    ImageDestroy($destImage);
+    imagedestroy($srcImage);
 }

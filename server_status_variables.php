@@ -5,25 +5,26 @@
  *
  * @package PhpMyAdmin
  */
+declare(strict_types=1);
 
-use PMA\libraries\Message;
-use PMA\libraries\ServerStatusData;
+use PhpMyAdmin\Response;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Server\Status\Variables;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';
-require_once 'libraries/server_status_variables.lib.php';
 require_once 'libraries/replication.inc.php';
-require_once 'libraries/replication_gui.lib.php';
 
 /**
  * flush status variables if requested
  */
 if (isset($_REQUEST['flush'])) {
-    $_flush_commands = array(
+    $_flush_commands = [
         'STATUS',
         'TABLES',
         'QUERY CACHE',
-    );
+    ];
 
     if (in_array($_REQUEST['flush'], $_flush_commands)) {
         $GLOBALS['dbi']->query('FLUSH ' . $_REQUEST['flush'] . ';');
@@ -31,21 +32,21 @@ if (isset($_REQUEST['flush'])) {
     unset($_flush_commands);
 }
 
-$serverStatusData = new ServerStatusData();
+$serverStatusData = new Data();
 
-$response = PMA\libraries\Response::getInstance();
+$response = Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_status_variables.js');
-$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('server_status_sorter.js');
 
 $response->addHTML('<div>');
 $response->addHTML($serverStatusData->getMenuHtml());
 if ($serverStatusData->dataLoaded) {
-    $response->addHTML(PMA_getHtmlForFilter($serverStatusData));
-    $response->addHTML(PMA_getHtmlForLinkSuggestions($serverStatusData));
-    $response->addHTML(PMA_getHtmlForVariablesList($serverStatusData));
+    $response->addHTML(Variables::getHtmlForFilter($serverStatusData));
+    $response->addHTML(Variables::getHtmlForLinkSuggestions($serverStatusData));
+    $response->addHTML(Variables::getHtmlForVariablesList($serverStatusData));
 } else {
     $response->addHTML(
         Message::error(

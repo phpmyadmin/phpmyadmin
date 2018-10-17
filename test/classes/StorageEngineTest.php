@@ -4,22 +4,19 @@
  *
  * @package PhpMyAdmin-test
  */
+declare(strict_types=1);
 
-use PMA\libraries\StorageEngine;
+namespace PhpMyAdmin\Tests;
 
-require_once 'test/PMATestCase.php';
-/*
- * Include to test.
- */
-require_once 'libraries/config.default.php';
-require_once 'libraries/database_interface.inc.php';
+use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for StorageEngine.php
  *
  * @package PhpMyAdmin-test
  */
-class StorageEngineTest extends PMATestCase
+class StorageEngineTest extends PmaTestCase
 {
     /**
      * @access protected
@@ -37,7 +34,8 @@ class StorageEngineTest extends PMATestCase
     {
         $GLOBALS['server'] = 1;
         $this->object = $this->getMockForAbstractClass(
-            'PMA\libraries\StorageEngine', array('dummy')
+            'PhpMyAdmin\StorageEngine',
+            ['dummy']
         );
     }
 
@@ -62,23 +60,23 @@ class StorageEngineTest extends PMATestCase
     {
 
         $this->assertEquals(
-            array(
-                'dummy' => array(
+            [
+                'dummy' => [
                     'Engine' => 'dummy',
                     'Support' => 'YES',
                     'Comment' => 'dummy comment',
-                ),
-                'dummy2' => array(
+                ],
+                'dummy2' => [
                     'Engine' => 'dummy2',
                     'Support' => 'NO',
                     'Comment' => 'dummy2 comment',
-                ),
-                'FEDERATED' => array(
+                ],
+                'FEDERATED' => [
                     'Engine' => 'FEDERATED',
                     'Support' => 'NO',
                     'Comment' => 'Federated MySQL storage engine'
-                ),
-            ),
+                ],
+            ],
             $this->object->getStorageEngines()
         );
     }
@@ -113,7 +111,8 @@ class StorageEngineTest extends PMATestCase
     public function testGetEngine($expectedClass, $engineName)
     {
         $this->assertInstanceOf(
-            $expectedClass, StorageEngine::getEngine($engineName)
+            $expectedClass,
+            StorageEngine::getEngine($engineName)
         );
     }
 
@@ -124,21 +123,21 @@ class StorageEngineTest extends PMATestCase
      */
     public function providerGetEngine()
     {
-        return array(
-            array('PMA\libraries\StorageEngine', 'unknown engine'),
-            array('PMA\libraries\engines\Bdb', 'Bdb'),
-            array('PMA\libraries\engines\Berkeleydb', 'Berkeleydb'),
-            array('PMA\libraries\engines\Binlog', 'Binlog'),
-            array('PMA\libraries\engines\Innobase', 'Innobase'),
-            array('PMA\libraries\engines\Innodb', 'Innodb'),
-            array('PMA\libraries\engines\Memory', 'Memory'),
-            array('PMA\libraries\engines\Merge', 'Merge'),
-            array('PMA\libraries\engines\Mrg_Myisam', 'Mrg_Myisam'),
-            array('PMA\libraries\engines\Myisam', 'Myisam'),
-            array('PMA\libraries\engines\Ndbcluster', 'Ndbcluster'),
-            array('PMA\libraries\engines\Pbxt', 'Pbxt'),
-            array('PMA\libraries\engines\Performance_Schema', 'Performance_Schema'),
-        );
+        return [
+            ['PhpMyAdmin\StorageEngine', 'unknown engine'],
+            ['PhpMyAdmin\Engines\Bdb', 'Bdb'],
+            ['PhpMyAdmin\Engines\Berkeleydb', 'Berkeleydb'],
+            ['PhpMyAdmin\Engines\Binlog', 'Binlog'],
+            ['PhpMyAdmin\Engines\Innobase', 'Innobase'],
+            ['PhpMyAdmin\Engines\Innodb', 'Innodb'],
+            ['PhpMyAdmin\Engines\Memory', 'Memory'],
+            ['PhpMyAdmin\Engines\Merge', 'Merge'],
+            ['PhpMyAdmin\Engines\MrgMyisam', 'Mrg_Myisam'],
+            ['PhpMyAdmin\Engines\Myisam', 'Myisam'],
+            ['PhpMyAdmin\Engines\Ndbcluster', 'Ndbcluster'],
+            ['PhpMyAdmin\Engines\Pbxt', 'Pbxt'],
+            ['PhpMyAdmin\Engines\PerformanceSchema', 'Performance_Schema'],
+        ];
     }
 
     /**
@@ -186,7 +185,7 @@ class StorageEngineTest extends PMATestCase
     {
 
         $this->assertEquals(
-            array(),
+            [],
             $this->object->getInfoPages()
         );
     }
@@ -228,7 +227,7 @@ class StorageEngineTest extends PMATestCase
     {
 
         $this->assertEquals(
-            array(),
+            [],
             $this->object->getVariables()
         );
     }
@@ -301,10 +300,10 @@ class StorageEngineTest extends PMATestCase
     {
 
         $this->assertEquals(
-            array(
+            [
                 0 => 12,
                 1 => 'B'
-            ),
+            ],
             $this->object->resolveTypeSize(12)
         );
     }
