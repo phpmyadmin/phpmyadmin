@@ -168,7 +168,7 @@ body#loginform #page_content {
     margin: 0 !important;
     padding: 20px;
     margin-top: 10% !important;
-    height: 240px;
+    min-height: 240px;
 }
 
 body#loginform div.container
