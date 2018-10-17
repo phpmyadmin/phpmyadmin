@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-07-23 11:06+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"phpmyadmin/4-8/pt/>\n"
+"PO-Revision-Date: 2018-10-18 15:36+0000\n"
+"Last-Translator: Hugo Peixoto <hugopeixoto@capsula.pt>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
+"4-8/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.1-dev\n"
+"X-Generator: Weblate 3.2.1\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -948,6 +948,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Está a tentar reduzir o número de linhas, mas já inseriu dados nessas linhas "
+"que serão perdidas. Deseja continuar?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2300,7 +2302,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "valor/sobconsulta está vazio"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -6347,6 +6349,7 @@ msgstr "Mostrar consulta a ser navegada"
 #: libraries/classes/Config/Descriptions.php:1472
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
+"Executa a query carregando em Enter e insere uma nova linha com Shift + Enter"
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
@@ -6990,8 +6993,8 @@ msgstr "Localizar e substituir"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "O nome '%s1' é uma palavra reservada do MySQL."
+msgstr[1] "Os nomes '%s2' são palavras reservadas do MySQL."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:273
 msgid "No column selected."
@@ -7147,7 +7150,7 @@ msgstr "Erro: Relação não adicionada."
 
 #: libraries/classes/Database/Designer/Common.php:620
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "Erro: Coluna(s) com chaves em falta."
 
 #: libraries/classes/Database/Designer/Common.php:625
 msgid "Error: Relational features are disabled!"
@@ -7339,7 +7342,7 @@ msgstr "O servidor não está a responder."
 
 #: libraries/classes/DatabaseInterface.php:2142
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "Faça logout e tente novamente com outro utilizador."
 
 #: libraries/classes/DatabaseInterface.php:2148
 msgid "Please check privileges of directory containing database."
@@ -7373,7 +7376,7 @@ msgstr ""
 
 #: libraries/classes/Dbi/DbiMysqli.php:169
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "Conexão SSL imposta pelo servidor, ativando-a automaticamente."
 
 #: libraries/classes/Display/ChangePassword.php:68
 #: libraries/classes/ReplicationGui.php:867
@@ -7391,7 +7394,7 @@ msgstr "Palavra-passe:"
 
 #: libraries/classes/Display/ChangePassword.php:79
 msgid "Enter:"
-msgstr ""
+msgstr "Introduza:"
 
 #: libraries/classes/Display/ChangePassword.php:86
 #: libraries/classes/ReplicationGui.php:878
@@ -7434,12 +7437,12 @@ msgstr ""
 
 #: libraries/classes/Display/Export.php:571
 msgid "Defined aliases"
-msgstr ""
+msgstr "Aliases definidos"
 
 #: libraries/classes/Display/Export.php:627
 #: templates/display/export/options_output.twig:7
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "Renomear bases de dados/tabelas/colunas exportadas"
 
 #: libraries/classes/Display/Export.php:679
 msgid "Could not load export plugins, please check your installation!"
@@ -7696,11 +7699,11 @@ msgstr "A tabela %s foi fechada"
 
 #: libraries/classes/Engines/Innodb.php:225
 msgid "Busy pages"
-msgstr ""
+msgstr "Páginas ocupadas"
 
 #: libraries/classes/Engines/Innodb.php:237
 msgid "Latched pages"
-msgstr ""
+msgstr "Páginas bloqueadas"
 
 #: libraries/classes/Engines/Innodb.php:251
 msgid "Buffer Pool Activity"
@@ -7751,6 +7754,8 @@ msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
+"O modo de recuperação automática de tabelas MyISAM que travaram, conforme "
+"definido através da opção de inicialização do servidor --myisam-recover."
 
 #: libraries/classes/Engines/Myisam.php:43
 msgid "Maximum size for temporary sort files"
@@ -7789,7 +7794,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:70
 msgid "Sort buffer size"
-msgstr ""
+msgstr "Ordenar tamanho do buffer"
 
 #: libraries/classes/Engines/Myisam.php:72
 msgid ""
@@ -7799,17 +7804,20 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:30
 msgid "Index cache size"
-msgstr ""
+msgstr "Tamanho da cache da chave"
 
 #: libraries/classes/Engines/Pbxt.php:32
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"Esta é a quantidade de memória alocada para a cache da índice. O valor "
+"padrão é 32MB. A memória alocada aqui é usada apenas para armazenar páginas "
+"de índice em cache."
 
 #: libraries/classes/Engines/Pbxt.php:39
 msgid "Record cache size"
-msgstr ""
+msgstr "Tamanho da cache do registo"
 
 #: libraries/classes/Engines/Pbxt.php:41
 msgid ""
@@ -7820,7 +7828,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:49
 msgid "Log cache size"
-msgstr ""
+msgstr "Tamanho da cache do log"
 
 #: libraries/classes/Engines/Pbxt.php:51
 msgid ""
@@ -7850,13 +7858,15 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:75
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "Frequência do checkpoint"
 
 #: libraries/classes/Engines/Pbxt.php:77
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
+"A quantidade de dados gravados no log de transações antes de um ponto de "
+"verificação ser executado. O valor padrão é 24MB."
 
 #: libraries/classes/Engines/Pbxt.php:84
 msgid "Data log threshold"
@@ -7950,7 +7960,7 @@ msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 "O ficheiro  %s já existe no servidor, mude o nome do ficheiro ou verifique a "
-"opção de substituição (re-escrita)."
+"opção re-escrita."
 
 #: libraries/classes/Export.php:358 libraries/classes/Export.php:366
 #, php-format
