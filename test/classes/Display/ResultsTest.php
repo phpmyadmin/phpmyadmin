@@ -1526,12 +1526,12 @@ class ResultsTest extends PmaTestCase
                 [],
                 0,
                 'binary',
-                '<td class="left   hex">' . PHP_EOL
+                '<td class="left   hex">' . "\n"
                 . '    <a href="tbl_get_field.php?'
                 . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
                 . '" '
-                . 'class="disableAjax">[BLOB - 4 B]</a>' . PHP_EOL
-                . '</td>' . PHP_EOL
+                . 'class="disableAjax">[BLOB - 4 B]</a>' . "\n"
+                . '</td>' . "\n"
             ],
             [
                 'noblob',
@@ -1548,9 +1548,9 @@ class ResultsTest extends PmaTestCase
                 [],
                 0,
                 'binary',
-                '<td class="left grid_edit  transformed hex">' . PHP_EOL
-                . '    1001' . PHP_EOL
-                . '</td>' . PHP_EOL
+                '<td class="left grid_edit  transformed hex">' . "\n"
+                . '    1001' . "\n"
+                . '</td>' . "\n"
             ],
             [
                 'noblob',
@@ -1567,12 +1567,12 @@ class ResultsTest extends PmaTestCase
                 [],
                 0,
                 0,
-                '<td ' . PHP_EOL
-                . '    data-decimals="0"' . PHP_EOL
-                . '    data-type="string"' . PHP_EOL
-                . '        class="grid_edit  null">' . PHP_EOL
-                . '    <em>NULL</em>' . PHP_EOL
-                . '</td>' . PHP_EOL
+                '<td ' . "\n"
+                . '    data-decimals="0"' . "\n"
+                . '    data-type="string"' . "\n"
+                . '        class="grid_edit  null">' . "\n"
+                . '    <em>NULL</em>' . "\n"
+                . '</td>' . "\n"
             ],
             [
                 'all',

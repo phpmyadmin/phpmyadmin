@@ -13,9 +13,9 @@ services:
 sudo: required
 
 install:
-  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then source ~/virtualenv/python3.6/bin/activate ; fi
+  - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then source ~/virtualenv/python3.6/bin/activate ; fi
   - ./test/ci-install-$CI_MODE
-  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then case "$TRAVIS_PHP_VERSION" in hhvm*) ;; *) phpenv config-add test/php-noprofile.ini ;; esac ; fi
+  - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then case "$TRAVIS_PHP_VERSION" in hhvm*) ;; *) phpenv config-add test/php-noprofile.ini ;; esac ; fi
 
 before_script:
   - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
@@ -89,6 +89,18 @@ jobs:
       php: "nightly"
       name: "PHP nightly"
       env: CI_MODE=test
+    - stage: "PHP Unit tests"
+      name: "PHP 7.2"
+      os: windows
+      language: sh
+      env: CI_MODE=test
+      before_install:
+        - choco install php composer mariadb
+        - export PATH=/c/tools/php72:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.2"/bin:$PATH
+        - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
+        - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php72/php.ini ; done
+        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php72/php.ini
+        - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
     - stage: "Other tests"
       name: "Build release"
       php: "7.1"
@@ -132,6 +144,7 @@ jobs:
         env: CI_MODE=test
       - php: "7.2"
         env: CI_MODE=phpstan
+      - os: windows
 
 cache:
   pip: true

@@ -458,7 +458,7 @@ class Config
                     return;
                 }
                 // split file to lines
-                $ref_lines = explode("\n", $packed_refs);
+                $ref_lines = explode(PHP_EOL, $packed_refs);
                 foreach ($ref_lines as $line) {
                     // skip comments
                     if ($line[0] == '#') {
