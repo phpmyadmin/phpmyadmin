@@ -382,41 +382,6 @@ class UtilTest extends PmaTestCase
     }
 
     /**
-     * Test for Util::containsNonPrintableAscii
-     *
-     * @param string $str Value
-     * @param bool   $res Expected value
-     *
-     * @return void
-     *
-     * @covers \PhpMyAdmin\Util::containsNonPrintableAscii
-     * @dataProvider providerContainsNonPrintableAscii
-     */
-    public function testContainsNonPrintableAscii($str, $res)
-    {
-        $this->assertEquals(
-            $res,
-            Util::containsNonPrintableAscii($str)
-        );
-    }
-
-    /**
-     * Data provider for testContainsNonPrintableAscii
-     *
-     * @return array
-     */
-    public function providerContainsNonPrintableAscii()
-    {
-        return [
-            ["normal string", 0],
-            ["new\nline", 1],
-            ["tab\tspace", 1],
-            ["escape" . chr(27) . "char", 1],
-            ["chars%$\r\n", 1],
-        ];
-    }
-
-    /**
      * Test for Util::convertBitDefaultValue
      *
      * @param string $bit Value
