@@ -3588,9 +3588,9 @@ AJAX.registerOnload('functions.js', function () {
         var min = (list_size <= maxRows) ? list_size : maxRows;
         for (i = 0; i < min; i++) {
 
-            fields += '<tr><td><div><span style="font-weight:bold">' +
+            fields += '<tr><td><div><span class="font_weight_bold">' +
                 escapeHtml(central_column_list[db + '_' + table][i].col_name) +
-                '</span><br><span style="color:gray">' + central_column_list[db + '_' + table][i].col_type;
+                '</span><br><span class="color_gray">' + central_column_list[db + '_' + table][i].col_type;
 
             if (central_column_list[db + '_' + table][i].col_attribute !== '') {
                 fields += '(' + escapeHtml(central_column_list[db + '_' + table][i].col_attribute) + ') ';
@@ -3601,7 +3601,7 @@ AJAX.registerOnload('functions.js', function () {
             fields += escapeHtml(central_column_list[db + '_' + table][i].col_extra) + '</span>' +
                 '</div></td>';
             if (pick) {
-                fields += '<td><input class="pick" style="width:100%" type="submit" value="' +
+                fields += '<td><input class="pick all100" type="submit" value="' +
                     PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"/></td>';
             }
             fields += '</tr>';
@@ -3614,13 +3614,13 @@ AJAX.registerOnload('functions.js', function () {
         }
         var seeMore = '';
         if (list_size > maxRows) {
-            seeMore = "<fieldset class='tblFooters' style='text-align:center;font-weight:bold'>" +
+            seeMore = "<fieldset class='tblFooters' class=\"text_center font_weight_bold\">" +
                 "<a href='#' id='seeMore'>" + PMA_messages.seeMore + "</a></fieldset>";
         }
-        var central_columns_dialog = "<div style='max-height:400px'>" +
+        var central_columns_dialog = "<div class=\"max_height_400\">" +
             "<fieldset>" +
             search_in +
-            "<table id='col_list' style='width:100%' class='values'>" + fields + "</table>" +
+            "<table id='col_list' class='values all100'>" + fields + "</table>" +
             "</fieldset>" +
             seeMore +
             "</div>";
@@ -3651,9 +3651,9 @@ AJAX.registerOnload('functions.js', function () {
                     min = (list_size <= maxRows + result_pointer) ? list_size : maxRows + result_pointer;
                     for (i = result_pointer; i < min; i++) {
 
-                        fields += '<tr><td><div><span style="font-weight:bold">' +
+                        fields += '<tr><td><div><span class="font_weight_bold">' +
                             central_column_list[db + '_' + table][i].col_name +
-                            '</span><br><span style="color:gray">' +
+                            '</span><br><span class="color_gray">' +
                             central_column_list[db + '_' + table][i].col_type;
 
                         if (central_column_list[db + '_' + table][i].col_attribute !== '') {
@@ -3665,7 +3665,7 @@ AJAX.registerOnload('functions.js', function () {
                         fields += central_column_list[db + '_' + table][i].col_extra + '</span>' +
                             '</div></td>';
                         if (pick) {
-                            fields += '<td><input class="pick" style="width:100%" type="submit" value="' +
+                            fields += '<td><input class="pick all100" type="submit" value="' +
                                 PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"/></td>';
                         }
                         fields += '</tr>';
@@ -3698,7 +3698,7 @@ AJAX.registerOnload('functions.js', function () {
         while (num_new_rows--) {
             $enum_editor_dialog.find('.values')
                 .append(
-                    "<tr style='display: none;'><td>" +
+                    "<tr class=\"display_none\"><td>" +
                     "<input type='text' />" +
                     "</td><td class='drop'>" +
                     PMA_getImage('b_drop.png') +
@@ -4333,7 +4333,7 @@ function PMA_slidingMessage(msg, $obj)
         if ($('#PMA_slidingMessage').length === 0) {
             $('#page_content').prepend(
                 '<span id="PMA_slidingMessage" ' +
-                'style="display: inline-block;"></span>'
+                'class="display_inline_block"></span>'
             );
         }
         $obj = $('#PMA_slidingMessage');
