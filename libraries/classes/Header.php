@@ -184,12 +184,12 @@ class Header
         $this->_scripts->addFile('messages.php', array('l' => $GLOBALS['lang']));
         $this->_scripts->addFile('vendors~index_new.js');
         $this->_scripts->addFile('index_new.js');
-        $this->_scripts->addFile('keyhandler.js');
+        $this->_scripts->addFile('key_handler');
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
-            $this->_scripts->addFile('cross_framing_protection.js');
+            $this->_scripts->addFile('cross_framing_protection');
         }
-        $this->_scripts->addFile('rte.js');
+        $this->_scripts->addFile('rte');
         if ($GLOBALS['cfg']['SendErrorReports'] !== 'never') {
             $this->_scripts->addFile('vendor/tracekit.js');
             $this->_scripts->addFile('error_report.js');
@@ -213,7 +213,7 @@ class Header
         $this->_scripts->addFile('common.js');
 
         if($GLOBALS['cfg']['enable_drag_drop_import'] === true) {
-            $this->_scripts->addFile('drag_drop_import.js');
+            $this->_scripts->addFile('drag_drop_import');
         }
         $this->_scripts->addFile('page_settings');
         if (! $GLOBALS['PMA_Config']->get('DisableShortcutKeys')) {

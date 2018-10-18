@@ -1,7 +1,12 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/* Module Import */
+import { PMA_messages as PMA_messages } from './variables/export_variables';
+import { PMA_ajaxShowMessage } from './utils/show_ajax_messages';
+import { AJAX } from './ajax';
+
 /**
  * for server_replication.php
- *
  */
 var random_server_id = Math.floor(Math.random() * 10000000);
 var conf_prefix = 'server-id=' + random_server_id + '\nlog_bin=mysql-bin\nlog_error=mysql-bin.err\n';
@@ -29,7 +34,7 @@ function update_config () {
 /**
  * Unbind all event handlers before tearing down a page
  */
-export function teardown1 () {
+export function teardownReplication () {
     $('#db_type').off('change');
     $('#db_select').off('change');
     $('#master_status_href').off('click');
@@ -43,7 +48,7 @@ export function teardown1 () {
     $('#reset_slave').off('click');
 }
 
-export function onload1 () {
+export function onloadReplication () {
     $('#rep').text(conf_prefix);
     $('#db_type').on('change', update_config);
     $('#db_select').on('change', update_config);

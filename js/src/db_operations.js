@@ -12,6 +12,7 @@ import { escapeHtml } from './utils/Sanitise';
 import { PMA_prepareForAjaxRequest } from './functions/AjaxRequest';
 import { PMA_sprintf } from './utils/sprintf';
 import { getJSConfirmCommonParam } from './functions/Common';
+import { PMA_reloadNavigation } from './functions/navigation';
 
 /**
  * @fileoverview    function used in server privilege pages
@@ -74,7 +75,7 @@ export function onloadDbOperations () {
                     PMA_reloadNavigation(function () {
                         $('#pma_navigation_tree')
                             .find('a:not(\'.expander\')')
-                            .each(function (index) {
+                            .each(function () {
                                 var $thisAnchor = $(this);
                                 if ($thisAnchor.text() === data.newname) {
                                     // simulate a click on the new db name

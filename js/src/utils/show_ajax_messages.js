@@ -221,10 +221,98 @@ function PMA_ajaxRemoveMessage ($thisMsgbox) {
 }
 
 /**
+ * Creates a message inside an object with a sliding effect
+ *
+ * @param msg    A string containing the text to display
+ * @param $obj   a jQuery object containing the reference
+ *                 to the element where to put the message
+ *                 This is optional, if no element is
+ *                 provided, one will be created below the
+ *                 navigation links at the top of the page
+ *
+ * @return bool   True on success, false on failure
+ */
+function PMA_slidingMessage (msg, $obj) {
+    if (msg === undefined || msg.length === 0) {
+        // Don't show an empty message
+        return false;
+    }
+    if ($obj === undefined || !($obj instanceof jQuery) || $obj.length === 0) {
+        // If the second argument was not supplied,
+        // we might have to create a new DOM node.
+        if ($('#PMA_slidingMessage').length === 0) {
+            $('#page_content').prepend(
+                '<span id="PMA_slidingMessage" ' +
+                'class="pma_sliding_message"></span>'
+            );
+        }
+        $obj = $('#PMA_slidingMessage');
+    }
+    if ($obj.has('div').length > 0) {
+        // If there already is a message inside the
+        // target object, we must get rid of it
+        $obj
+            .find('div')
+            .first()
+            .fadeOut(function () {
+                $obj
+                    .children()
+                    .remove();
+                $obj
+                    .append('<div>' + msg + '</div>');
+                // highlight any sql before taking height;
+                PMA_highlightSQL($obj);
+                $obj.find('div')
+                    .first()
+                    .hide();
+                $obj
+                    .animate({
+                        height: $obj.find('div').first().height()
+                    })
+                    .find('div')
+                    .first()
+                    .fadeIn();
+            });
+    } else {
+        // Object does not already have a message
+        // inside it, so we simply slide it down
+        $obj.width('100%')
+            .html('<div>' + msg + '</div>');
+        // highlight any sql before taking height;
+        PMA_highlightSQL($obj);
+        var h = $obj
+            .find('div')
+            .first()
+            .hide()
+            .height();
+        $obj
+            .find('div')
+            .first()
+            .css('height', 0)
+            .show()
+            .animate({
+                height: h
+            }, function () {
+            // Set the height of the parent
+            // to the height of the child
+                $obj
+                    .height(
+                        $obj
+                            .find('div')
+                            .first()
+                            .height()
+                    );
+            });
+    }
+    return true;
+} // end PMA_slidingMessage()
+
+/**
  * Module export
  */
 export {
     PMA_ajaxRemoveMessage,
     PMA_ajaxShowMessage,
-    PMA_tooltip
+    PMA_tooltip,
+    PMA_slidingMessage
 };

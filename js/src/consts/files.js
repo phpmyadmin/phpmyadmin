@@ -7,7 +7,19 @@
  * @type {Object} files
  */
 const PhpToJsFileMapping = {
-    global: ['error_report', 'config', 'navigation', 'page_settings', 'shortcuts_handler', 'functions', 'indexes'],
+    global: [
+        'error_report',
+        'config',
+        'navigation',
+        'page_settings',
+        'shortcuts_handler',
+        'functions',
+        'indexes',
+        'key_handler',
+        'cross_framing_protection',
+        'drag_drop_import',
+        'rte'
+    ],
     server_privileges: ['server_privileges'],
     server_databases: ['server_databases'],
     server_status_advisor: ['server_status_advisor'],
@@ -45,7 +57,8 @@ const PhpToJsFileMapping = {
     tbl_zoom_select: ['sql', 'tbl_change'],
     tbl_find_replace: ['tbl_find_replace'],
     tbl_import: ['import'],
-    tbl_export: ['export']
+    tbl_export: ['export'],
+    normalization: ['normalization']
 };
 
 const JsFileList = [
@@ -84,7 +97,12 @@ const JsFileList = [
     'tbl_tracking',
     'tbl_change',
     'tbl_select',
-    'tbl_find_replace'
+    'tbl_find_replace',
+    'key_handler',
+    'cross_framing_protection',
+    'drag_drop_import',
+    'normalization',
+    'rte'
 ];
 
 export {
