@@ -613,6 +613,14 @@ form.login label {
     text-align: center;
 }
 
+.display_none {
+    display: none;
+}
+
+.display_inline_block {
+    display: inline-block;
+}
+
 .font_weight_bold{
     font-weight: bold;
 }
