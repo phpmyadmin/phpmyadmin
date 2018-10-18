@@ -609,6 +609,24 @@ form.login label {
     font-size: 70%;
 }
 
+.text_center{
+    text-align: center;
+}
+
+.font_weight_bold{
+    font-weight: bold;
+}
+.max_height_400{
+    max-height: 400px;
+}
+.color_gray{
+    color: gray;
+}
+
+.all100 {
+    width: 100%;
+}
+
 /******************************************************************************/
 /* specific elements */
 
