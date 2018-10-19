@@ -18,6 +18,13 @@ if (isset($_POST['sql_query'])) {
         $_REQUEST['db'],
         $pmaThemeImage
     );
+} if (isset($_GET['tables'])) {
+    $constrains = $GLOBALS['dbi']->getForeignKeyConstrains(
+        $_REQUEST['db'],
+        $_GET['tables']
+    );
+    $response = Response::getInstance();
+    $response->addJSON('foreign_key_constrains',$constrains);
 } else {
     $response = Response::getInstance();
 

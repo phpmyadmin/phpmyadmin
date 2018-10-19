@@ -72,6 +72,22 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
             return;
         }
 
+        var foreign_keys;
+        $.ajax({
+            type: 'GET',
+            async: false,
+            url: 'db_multi_table_query.php',
+            data: {
+                'db': $('#db_name').val(),
+                'tables': Object.keys(table_aliases),
+                'ajax_request': '1',
+                'token': PMA_commonParams.get('token')
+            },
+            success: function (response) {
+                foreign_keys = response.foreign_key_constrains;
+            }
+        });
+
         query = 'SELECT ';
         if (columns[0][1] === '*') {
             query += '`' + escapeBacktick(columns[0][0]) + '`.' + escapeBacktick(columns[0][1]) + '';
@@ -93,16 +109,42 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
         }
         query += '\nFROM ';
         var table_count = 0;
+        var used_tables = [];
         for (var table in table_aliases) {
             for (var i = 0; i < table_aliases[table].length; i++) {
-                if (table_count > 0) {
-                    query += ', ';
+                var joinedByKey = false;
+                foreign_keys.forEach(function (fk) {
+                    if(fk.TABLE_NAME === table && used_tables.includes(fk.REFERENCED_TABLE_NAME)
+                            || fk.REFERENCED_TABLE_NAME === table && used_tables.includes(fk.TABLE_NAME)) {
+                        joinedByKey = true;
+                        var newTable = used_tables.includes(fk.TABLE_NAME) ? fk.REFERENCED_TABLE_NAME : fk.TABLE_NAME;
+                        query += ' \n\tLEFT JOIN ' +  '`' + escapeBacktick(newTable) + '`';
+                        if (table_aliases[fk.TABLE_NAME][i] !== '') {
+                            query += ' AS `' + escapeBacktick(table_aliases[newTable][i]) + '`';
+                            query += ' ON `' + escapeBacktick(table_aliases[fk.TABLE_NAME][i]) + '`';
+                        } else {
+                            query += ' ON `' + escapeBacktick(fk.TABLE_NAME) + '`';
+                        }
+                        query += '.`' + fk.COLUMN_NAME + '`';
+                        if (table_aliases[fk.REFERENCED_TABLE_NAME][i] !== '') {
+                            query += ' = `' + escapeBacktick(table_aliases[fk.REFERENCED_TABLE_NAME][i]) + '`';
+                        } else {
+                            query += ' = `' + escapeBacktick(fk.REFERENCED_TABLE_NAME) + '`';
+                        }
+                        query += '.`' + fk.REFERENCED_COLUMN_NAME+ '`';
+                    }
+                });
+
+                if(joinedByKey === false) {
+                    if (used_tables.length > 0) {
+                        query += '\n\t, ';
+                    }
+                    query += '`' + escapeBacktick(table) + '`';
+                    if (table_aliases[table][i] !== '') {
+                        query += ' AS `' + escapeBacktick(table_aliases[table][i]) + '`';
+                    }
                 }
-                query += '`' + escapeBacktick(table) + '`';
-                if (table_aliases[table][i] !== '') {
-                    query += ' AS `' + escapeBacktick(table_aliases[table][i]) + '`';
-                }
-                table_count++;
+                used_tables.push(table);
             }
         }
 
