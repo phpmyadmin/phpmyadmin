@@ -1604,7 +1604,7 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->getActionsPanel(null, 'back', 2, 1, false);
 
         $this->assertContains(
-            '<select name="submit_type" class="control_at_footer" tabindex="6">',
+            '<select name="submit_type" class="control_at_footer" tabindex="4">',
             $result
         );
 
