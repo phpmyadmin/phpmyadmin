@@ -1615,7 +1615,7 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<input type="submit" class="control_at_footer" value="Go" '
-            . 'tabindex="9" id="buttonYes" ',
+            . 'tabindex="11" id="buttonYes" ',
             $result
         );
     }
@@ -1689,13 +1689,13 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<input type="button" class="preview_sql" value="Preview SQL" '
-            . 'tabindex="8" />',
+            . 'tabindex="7" />',
             $result
         );
 
         $this->assertContains(
             '<input type="reset" class="control_at_footer" value="Reset" '
-            . 'tabindex="7" />',
+            . 'tabindex="8" />',
             $result
         );
     }
