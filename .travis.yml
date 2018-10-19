@@ -78,6 +78,10 @@ jobs:
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
         - mysql.server start
     - stage: "PHP Unit tests"
+      php: "7.3"
+      name: "PHP 7.3"
+      env: CI_MODE=test
+    - stage: "PHP Unit tests"
       php: "7.2"
       name: "PHP 7.2"
       env: CI_MODE=test

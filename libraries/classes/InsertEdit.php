@@ -1919,12 +1919,12 @@ class InsertEdit
         )
         . '</td>'
         . '<td colspan="3" class="right vmiddle">'
-        . '<input type="submit" class="control_at_footer" value="' . __('Go') . '"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '" id="buttonYes" />'
         . '<input type="button" class="preview_sql" value="' . __('Preview SQL') . '"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value + 7) . '" />'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '" />'
         . '<input type="reset" class="control_at_footer" value="' . __('Reset') . '"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value + 8) . '" />'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value + 7) . '" />'
+        . '<input type="submit" class="control_at_footer" value="' . __('Go') . '"'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value + 8) . '" id="buttonYes" />'
         . '</td>';
     }
 
