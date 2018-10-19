@@ -2810,18 +2810,6 @@ class Util
     }
 
     /**
-     * Verifies whether the value contains a non-printable character
-     *
-     * @param string $value value
-     *
-     * @return integer
-     */
-    public static function containsNonPrintableAscii($value)
-    {
-        return preg_match('@[^[:print:]]@', $value);
-    }
-
-    /**
      * Converts a BIT type default value
      * for example, b'010' becomes 010
      *
