@@ -127,9 +127,10 @@ textarea {
 
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?> font-family: <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
-<?php } ?> padding: 0;
-    margin- <?php echo $left; ?>: 250px;
-    color: <?php echo $GLOBALS['cfg']['MainColor']; ?>;
+<?php } ?>
+    padding: 0;
+    margin-<?php echo $left; ?>: 250px;
+    color:<?php echo $GLOBALS['cfg']['MainColor']; ?>;
     background: <?php echo $GLOBALS['cfg']['MainBackground']; ?>;
     line-height: 1;
     font-size: 11px;
@@ -708,7 +709,7 @@ div.null_div {
 
 fieldset .formelement {
     float: <?php echo $left; ?>;
-    margin- <?php echo $right; ?>: 0.5em;
+    margin-<?php echo $right; ?>: 0.5em;
 }
 
 /* revert for Gecko */
@@ -879,12 +880,12 @@ td .icon {
 }
 
 .selectallarrow {
-    margin- <?php echo $right; ?>: .3em;
-    margin- <?php echo $left; ?>: .6em;
+    margin-<?php echo $right; ?>: .3em;
+    margin-<?php echo $left; ?>: .6em;
 }
 
 .with-selected {
-    margin- <?php echo $left; ?>: 2em;
+    margin-<?php echo $left; ?>: 2em;
 }
 
 /* message boxes: error, confirmation */
@@ -1136,7 +1137,7 @@ ul#topmenu2 li {
 ul#topmenu2 a {
     display: block;
     margin: 7px 0;
-    margin- <?php echo $left; ?>: 0;
+    margin-<?php echo $left; ?>: 0;
     padding: 5px 15px;
     white-space: nowrap;
     font-family: "open sans extrabold", "segoe black";
@@ -1281,7 +1282,7 @@ ul#topmenu > li.active {
 div#dataDisplay input,
 div#dataDisplay select {
     margin: 0;
-    margin- <?php echo $right; ?>: .5em;
+    margin-<?php echo $right; ?>: .5em;
 }
 
 div#dataDisplay th {
@@ -1331,7 +1332,7 @@ form.clock {
 div#tablestatistics table {
     float: <?php echo $left; ?>;
     margin-bottom: .5em;
-    margin- <?php echo $right; ?>: 1.5em;
+    margin-<?php echo $right; ?>: 1.5em;
     margin-top: .5em;
     min-width: 16em;
 }
@@ -1426,7 +1427,7 @@ div#tablestatistics table {
 
 #serverinfo img {
     margin: 0 .1em 0;
-    margin- <?php echo $left; ?>: .2em;
+    margin-<?php echo $left; ?>: .2em;
 }
 
 #textSQLDUMP {
@@ -1462,7 +1463,7 @@ div#tablestatistics table {
     width: 10em;
     max-width: 100%;
     text-align: <?php echo $right; ?>;
-    padding- <?php echo $right; ?>: .5em;
+    padding-<?php echo $right; ?>: .5em;
     line-height: 35px;
 }
 
@@ -1478,7 +1479,7 @@ div#tablestatistics table {
     display: block;
     width: 12em;
     max-width: 100%;
-    padding- <?php echo $right; ?>: .5em;
+    padding-<?php echo $right; ?>: .5em;
 }
 
 #fieldset_add_user_login input {
@@ -1562,7 +1563,7 @@ div#serverstatusquerieschart {
     float: <?php echo $left; ?>;
     width: 500px;
     height: 350px;
-    padding- <?php echo $left; ?>: 30px;
+    padding-<?php echo $left; ?>: 30px;
 }
 
 table#serverstatusqueriesdetails,
@@ -1590,7 +1591,7 @@ table#serverstatusvariables .value {
 
 table#serverstatusconnections {
     float: <?php echo $left; ?>;
-    margin- <?php echo $left; ?>: 30px;
+    margin-<?php echo $left; ?>: 30px;
 }
 
 div#serverstatus table tbody td.descr a,
@@ -1680,7 +1681,7 @@ div#queryAnalyzerDialog table.queryNums {
 }
 
 .smallIndent {
-    padding- <?php echo $left; ?>: 7px;
+    padding-<?php echo $left; ?>: 7px;
 }
 
 /* end serverstatus */
@@ -1739,7 +1740,7 @@ div#queryAnalyzerDialog table.queryNums {
 
 /* server variables editor */
 #serverVariables .editLink {
-    padding- <?php echo $right; ?>: 1em;
+    padding-<?php echo $right; ?>: 1em;
     float: <?php echo $left; ?>;
     font-family: sans-serif;
 }
@@ -1762,7 +1763,7 @@ div#queryAnalyzerDialog table.queryNums {
 #serverVariables .serverVariableEditor div {
     display: block;
     overflow: hidden;
-    padding- <?php echo $right; ?>: 1em;
+    padding-<?php echo $right; ?>: 1em;
 }
 
 #serverVariables .serverVariableEditor a {
@@ -1811,7 +1812,7 @@ div#profilingchart {
 
 .chartOption {
     float: <?php echo $left; ?>;
-    margin- <?php echo $right;?>: 40px;
+    margin-<?php echo $right;?>: 40px;
 }
 
 /* END table charting */
@@ -1841,7 +1842,7 @@ a.button {
     font-size: .88em;
     font-weight: bold;
     line-height: 35px;
-    margin- <?php echo $left; ?>: 7px;
+    margin-<?php echo $left; ?>: 7px;
     border: 1px solid #aaa;
     padding: 5px 10px;
     color: #111;
@@ -2175,7 +2176,7 @@ code.php {
     overflow: hidden;
     min-width: 160px;
     padding-top: 1em;
-    padding- <?php echo $left; ?>: 3em;
+    padding-<?php echo $left; ?>: 3em;
 }
 
 .group {
@@ -2377,7 +2378,7 @@ input[type=date].invalid_value
 .exportoptions,
 .importoptions {
     margin: 20px 30px 30px;
-    margin- <?php echo $left; ?>: 10px;
+    margin-<?php echo $left; ?>: 10px;
 }
 
 .exportoptions #buttonGo,
@@ -2394,7 +2395,7 @@ input[type=date].invalid_value
 
 .format_specific_options h3 {
     margin: 10px 0 0;
-    margin- <?php echo $left; ?>: 10px;
+    margin-<?php echo $left; ?>: 10px;
     border: 0;
 }
 
@@ -2418,7 +2419,7 @@ select#table_select {
 
 .export_sub_options {
     margin: 20px 0 0;
-    margin- <?php echo $left; ?>: 30px;
+    margin-<?php echo $left; ?>: 30px;
 }
 
 .export_sub_options h4 {
@@ -2482,7 +2483,7 @@ input#input_import_file {
 
 #fieldsForm ul.table-structure-actions li {
     float: <?php echo $left; ?>;
-    margin- <?php echo $right; ?>: 0.3em; /* same as padding of "table td" */
+    margin-<?php echo $right; ?>: 0.3em; /* same as padding of "table td" */
 }
 
 #fieldsForm ul.table-structure-actions .submenu li {
@@ -2496,7 +2497,7 @@ input#input_import_file {
 }
 
 #structure-action-links a {
-    margin- <?php echo $right; ?>: 1em;
+    margin-<?php echo $right; ?>: 1em;
 }
 
 /**
@@ -2531,7 +2532,7 @@ input#input_import_file {
 }
 
 #index_frm .add_fields input {
-    margin- <?php echo $left; ?>: 1em;
+    margin-<?php echo $left; ?>: 1em;
 }
 
 #index_frm input {
@@ -2644,7 +2645,7 @@ table#index_columns select {
 
 .config-form fieldset .inline_errors { /* field error list */
     margin: .3em .3em .3em;
-    margin- <?php echo $left; ?>: 0;
+    margin-<?php echo $left; ?>: 0;
     padding: 0;
     list-style: none;
     color: #9A0000;
@@ -2667,7 +2668,7 @@ table#index_columns select {
 
 .config-form fieldset th {
     padding: 10px;
-    padding- <?php echo $left; ?>: .5em;
+    padding-<?php echo $left; ?>: .5em;
     text-align: <?php echo $left; ?>;
     vertical-align: top;
     width: 40%;
@@ -2675,7 +2676,7 @@ table#index_columns select {
 
 .config-form fieldset .doc,
 .config-form fieldset .disabled-notice {
-    margin- <?php echo $left; ?>: 1em;
+    margin-<?php echo $left; ?>: 1em;
 }
 
 .config-form fieldset .disabled-notice {
@@ -2702,7 +2703,7 @@ table#index_columns select {
 .config-form fieldset th,
 .config-form fieldset td {
     border-bottom: 1px <?php echo $GLOBALS['cfg']['NaviColor']; ?> solid;
-    border- <?php echo $right; ?>: none;
+    border-<?php echo $right; ?>: none;
 }
 
 fieldset .group-header th {
@@ -2715,16 +2716,16 @@ fieldset .group-header + tr th {
 
 fieldset .group-field-1 th,
 fieldset .group-header-2 th {
-    padding- <?php echo $left; ?>: 1.5em;
+    padding-<?php echo $left; ?>: 1.5em;
 }
 
 fieldset .group-field-2 th,
 fieldset .group-header-3 th {
-    padding- <?php echo $left; ?>: 3em;
+    padding-<?php echo $left; ?>: 3em;
 }
 
 fieldset .group-field-3 th {
-    padding- <?php echo $left; ?>: 4.5em;
+    padding-<?php echo $left; ?>: 4.5em;
 }
 
 fieldset .disabled-field th,
@@ -2847,7 +2848,7 @@ form#tableOptionsForm .tblFooters {
 
 /* error list */
 .config-form dd {
-    margin- <?php echo $left; ?>: .5em;
+    margin-<?php echo $left; ?>: .5em;
 }
 
 .config-form dd:before {
@@ -2859,7 +2860,7 @@ form#tableOptionsForm .tblFooters {
 }
 
 .prefsmanage_opts {
-    margin- <?php echo $left; ?>: 2em;
+    margin-<?php echo $left; ?>: 2em;
 }
 
 #prefs_autoload {
@@ -2928,15 +2929,15 @@ form#tableOptionsForm .tblFooters {
 }
 
 .doubleFieldset fieldset.left {
-    margin- <?php echo $right; ?>: 1%;
+    margin-<?php echo $right; ?>: 1%;
 }
 
 .doubleFieldset fieldset.right {
-    margin- <?php echo $left; ?>: 1%;
+    margin-<?php echo $left; ?>: 1%;
 }
 
 .doubleFieldset legend {
-    margin- <?php echo $left; ?>: 1.5em;
+    margin-<?php echo $left; ?>: 1.5em;
 }
 
 .doubleFieldset div.wrap {
@@ -3017,13 +3018,13 @@ form.append_fields_form .tblFooters {
 .colborder {
     cursor: col-resize;
     height: 100%;
-    margin- <?php echo $left; ?>: -6px;
+    margin-<?php echo $left; ?>: -6px;
     position: absolute;
     width: 5px;
 }
 
 .colborder_active {
-    border- <?php echo $right; ?>: 2px solid #a44;
+    border-<?php echo $right; ?>: 2px solid #a44;
 }
 
 .pma_table td {
@@ -3063,7 +3064,7 @@ form.append_fields_form .tblFooters {
 .cPointer {
     background: url(<?php echo $theme->getImgPath('col_pointer.png');?>);
     height: 20px;
-    margin- <?php echo $left; ?>: -5px; /* must be minus half of its width */
+    margin-<?php echo $left; ?>: -5px; /* must be minus half of its width */
     margin-top: -10px;
     position: absolute;
     width: 10px;
@@ -3107,7 +3108,7 @@ form.append_fields_form .tblFooters {
     background: url(<?php echo $theme->getImgPath('col_drop.png');?>);
     cursor: pointer;
     height: 16px;
-    margin- <?php echo $left; ?>: .3em;
+    margin-<?php echo $left; ?>: .3em;
     margin-top: .3em;
     position: absolute;
     width: 16px;
@@ -3126,7 +3127,7 @@ form.append_fields_form .tblFooters {
 
 .cList .lDiv div {
     padding: .2em .5em .2em;
-    padding- <?php echo $left; ?>: .2em;
+    padding-<?php echo $left; ?>: .2em;
 }
 
 .cList .lDiv div:hover {
@@ -3254,7 +3255,7 @@ form.append_fields_form .tblFooters {
 
 .cEdit .edit_box_posting {
     background: #FFF url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
-    padding- <?php echo $right; ?>: 1.5em;
+    padding-<?php echo $right; ?>: 1.5em;
 }
 
 .cEdit .edit_area_loading {
@@ -3270,7 +3271,7 @@ form.append_fields_form .tblFooters {
 
 .saving_edited_data {
     background: url(<?php echo $theme->getImgPath('ajax_clock_small.gif');?>) no-repeat left;
-    padding- <?php echo $left; ?>: 20px;
+    padding-<?php echo $left; ?>: 20px;
 }
 
 .relationalTable select {
@@ -3396,7 +3397,7 @@ table.show_create td {
 
 #pma_console {
     position: relative;
-    margin- <?php echo $left; ?>: 250px;
+    margin-<?php echo $left; ?>: 250px;
 }
 
 #pma_console .templates {
@@ -3417,7 +3418,7 @@ table.show_create td {
 
 #pma_console .toolbar.collapsed:not(:hover) {
     display: inline-block;
-    border- <?php echo $right; ?>: solid 1px #ccc;
+    border-<?php echo $right; ?>: solid 1px #ccc;
 }
 
 #pma_console .toolbar.collapsed {
@@ -3449,7 +3450,7 @@ table.show_create td {
 
 #pma_console .toolbar .button,
 #pma_console .toolbar .text {
-    margin- <?php echo $right; ?>: .4em;
+    margin-<?php echo $right; ?>: .4em;
 }
 
 #pma_console .toolbar .button,
@@ -3658,7 +3659,7 @@ html.ie8 #pma_console .message .action_content {
     min-height: 48px;
 <?php echo $left; ?>: 100 %;
     top: 0;
-    border- <?php echo $left; ?>: solid 1px #999;
+    border-<?php echo $left; ?>: solid 1px #999;
     z-index: 300;
     transition: <?php echo $left; ?> 0.2s;
     -ms-transition: <?php echo $left; ?> 0.2s;
@@ -3680,7 +3681,7 @@ html.ie7 #pma_console .query_input {
 }
 
 #pma_bookmarks .content.add_bookmark .options {
-    margin- <?php echo $left; ?>: 1.4em;
+    margin-<?php echo $left; ?>: 1.4em;
     padding-bottom: .4em;
     margin-bottom: .4em;
     border-bottom: solid 1px #ccc;
