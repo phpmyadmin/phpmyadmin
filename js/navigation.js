@@ -569,17 +569,24 @@ $(function () {
     $(document).on('click', 'a.unhideNavItem.ajax', function (event) {
         event.preventDefault();
         var $tr = $(this).parents('tr');
+        var $tbody = $tr.parents('tbody');
+        var $hidden_table_count = $tbody.children().length;
         var $msg = PMA_ajaxShowMessage();
         $.ajax({
             type: 'POST',
             data: {
                 server: PMA_commonParams.get('server'),
             },
-            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
+            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true' + PMA_commonParams.get('arg_separator') + 'hidden_table_count=' + $hidden_table_count,
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
                 if (typeof data !== 'undefined' && data.success === true) {
                     $tr.remove();
+                    //If there are no more tables to show, display message
+                    if($hidden_table_count == 1){
+                    	var $show_msg = document.createTextNode(data.message);
+                    	$tbody.append($show_msg);
+                    }
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error);
