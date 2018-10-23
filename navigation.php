@@ -60,11 +60,7 @@ if ($cfgRelation['navwork']) {
                 $_REQUEST['dbName'],
                 (! empty($_REQUEST['tableName']) ? $_REQUEST['tableName'] : null)
             );
-            if ($_REQUEST['hidden_table_count'] == '1'){
-                echo __('No Hidden Tables Exists');
-            }
         }
-        
         exit;
     }
 
