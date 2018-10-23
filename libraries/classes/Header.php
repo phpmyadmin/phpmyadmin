@@ -563,16 +563,18 @@ class Header
             $captcha_url = '';
         }
         /* Prevent against ClickJacking by disabling framing */
-        if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
-            header(
-                'X-Frame-Options: DENY'
-            );
-        } elseif ($GLOBALS['cfg']['AllowThirdPartyFraming'] === 'sameorigin') {
+        if (strtolower($GLOBALS['cfg']['AllowThirdPartyFraming']) === 'sameorigin') {
             header(
                 'X-Frame-Options: SAMEORIGIN'
             );
+        } elseif ($GLOBALS['cfg']['AllowThirdPartyFraming'] !== true) {
+            header(
+                'X-Frame-Options: DENY'
+            );
         }
-        header('Referrer-Policy: no-referrer');
+        header(
+            'Referrer-Policy: no-referrer'
+        );
         header(
             "Content-Security-Policy: default-src 'self' "
             . $captcha_url
