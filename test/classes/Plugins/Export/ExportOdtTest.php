@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -415,20 +416,20 @@ class ExportOdtTest extends PmaTestCase
             ->getMock();
 
         $flags = [];
-        $a = new stdClass;
+        $a = new stdClass();
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = true;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->numeric = true;
         $a->type = 'real';
         $a->blob = false;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->type = "timestamp";
         $a->blob = false;
         $a->numeric = false;
@@ -742,6 +743,7 @@ class ExportOdtTest extends PmaTestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $this->object->expects($this->exactly(2))
             ->method('formatOneColumnDefinition')
@@ -848,6 +850,7 @@ class ExportOdtTest extends PmaTestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
         $GLOBALS['odt_buffer'] = '';
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [

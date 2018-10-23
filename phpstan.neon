@@ -1,0 +1,53 @@
+parameters:
+    level: 1
+    paths:
+        - %rootDir%/../../../
+    bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        - '#Function strpos invoked with 0 parameters, 2-3 required#'
+        - '#Function (get_login_credentials|uploadprogress_get_info) not found#'
+        - '#Function mysql_(connect|close) not found#'
+        - '#Instantiated class COM not found#'
+        - '#Function (escape|PMA_gradientGetColor|recode_string|apc_fetch) not found#'
+        - '#TableStructureController has an unused parameter#'
+        - '#NodeTrans::__construct\(\) does not call parent constructor#'
+        - '#GisGeomTestCase::\$object#'
+        - '#Undefined variable: \$array#'
+        - '#Undefined variable: \$(cfg|db|table|url_query|text_dir|server|pmaThemeImage|action|sql_query|lang|export_type|err_url|collation_connection|filename_template|transform_key|cn|goto|partitionDetails|token_mismatch|auth_plugin|username|hostname|display_query|where_clause)#'#Others
+        - '#Access to an undefined property PhpMyAdmin\\TwoFactor\:\:\$available#'
+        - '#Undefined variable: \$(replication_types|selected)#'#Controllers/Server/ServerDatabasesController.php
+        - '#Undefined variable: \$(dir|error_header|error_message)#'#error.inc.php
+        - '#Undefined variable: \$_PMA_RTE#'#rte/rte_main.inc.php
+        - '#Undefined variable: \$(unsaved_values|is_upload)#'#tbl_change.php
+        - '#Undefined variable: \$max_upload_size#'#tbl_import.php
+        - '#Undefined variable: \$(repobase|fullrevision|revision|repobranchbase|branch)#'#Footer.php
+        - '#Variable \$_(REQUEST|GET|POST|COOKIE|SESSION) in isset\(\) always exists and is not nullable#'#Sanitize.php
+        - '#Variable \$msg1 might not be defined#'#Twig/I18n/NodeTrans.php
+        - '#Variable \$(foreign_db|foreign_table) might not be defined#'#Relation.php, do while(false) + break
+        - '#Variable \$(sql_query|table|db|cfg|import_type|goto) might not be defined#'# Others
+        - '#Variable \$(sql_query|table|db|cfg|url_query) in isset\(\) always exists and is not nullable#'#Others
+        - '#Variable \$(last_cumulative_type) in isset\(\) always exists and is not nullable#'#Import.php
+        - '#Variable \$(routine|mode|title|message|output|nbResultsetToDisplay|item) might not be defined#'# Rte
+        - '#Variable \$time might not be defined#'#DatabaseInterface.php
+        - '#Variable \$contentPath in isset\(\) always exists and is not nullable#'#DatabaseInterface.php
+        - '#Variable \$server_info might not be defined#'#DatabaseInterface.php
+        # - '#Variable \$single_table always exists and is not nullable#'#Display/ExportTest.php
+        - '#Function mysqli_get_client_info invoked with 0 parameters, 1 required#'#libraries/classes/Dbi/DbiMysqli.php
+        - '#Variable \$default_fk_check_value might not be defined#'#libraries/mult_submits.inc.php
+        - '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'
+        - '#Variable \$(escape_class|escape_method|iconLinks|icons|where_clause|where_clause_html|condition_array|pos_next|pos_prev) might not be defined#'
+        - '#Call to sprintf contains 3 placeholders, 4 values given.#'#libraries/classes/Menu.php, a phpstan bug
+        - '#Variable \$(in_table_header|cur_temp_table_headers|cur_temp_table) might not be defined#'#Plugins/Import/ImportMediawiki.php
+    excludes_analyse:
+        - %rootDir%/../../../test/EnvironmentTest.php
+        - %rootDir%/../../../test/libraries/FilesTest.php
+        - %rootDir%/../../../test/libraries/common/GetCheckboxTest.php
+        - %rootDir%/../../../tmp/*
+        - %rootDir%/../../../vendor/*
+        - %rootDir%/../../../node_modules/*
+        - %rootDir%/../../../test/bootstrap-phpstan.php
+        - %rootDir%/../../../test/sami-config.php
+        - %rootDir%/../../../themes/*/css/*.css.php
+        - %rootDir%/../../../examples/signon-script.php
+        - %rootDir%/../../../examples/openid.php

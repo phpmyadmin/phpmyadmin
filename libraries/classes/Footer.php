@@ -70,7 +70,7 @@ class Footer
         $this->_isEnabled = true;
         $this->_scripts = new Scripts();
         $this->_isMinimal = false;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -138,7 +138,7 @@ class Footer
             // Remove recursions and iterators from $_SESSION['debug']
             self::_removeRecursion($_SESSION['debug']);
 
-            $retval = JSON_encode($_SESSION['debug']);
+            $retval = json_encode($_SESSION['debug']);
             $_SESSION['debug'] = [];
             return json_last_error() ? '\'false\'' : $retval;
         }

@@ -43,12 +43,18 @@ class Console
     private $relation;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Creates a new class instance
      */
     public function __construct()
     {
         $this->_isEnabled = true;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->template = new Template();
     }
 
     /**
@@ -82,6 +88,7 @@ class Console
      */
     public static function getBookmarkContent(): string
     {
+        $template = new Template();
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         if ($cfgBookmark) {
             $bookmarks = Bookmark::getList(
@@ -102,13 +109,10 @@ class Console
                 $welcomeMessage = __('No bookmarks');
             }
             unset($count_bookmarks, $private_message, $shared_message);
-            return Template::get('console/bookmark_content')
-                ->render(
-                    [
-                        'welcome_message'    => $welcomeMessage,
-                        'bookmarks'         => $bookmarks,
-                    ]
-                );
+            return $template->render('console/bookmark_content', [
+                'welcome_message' => $welcomeMessage,
+                'bookmarks' => $bookmarks,
+            ]);
         }
         return '';
     }
@@ -142,7 +146,7 @@ class Console
             );
             $bookmarkContent = static::getBookmarkContent();
 
-            return Template::get('console/display')->render([
+            return $this->template->render('console/display', [
                 'cfg_bookmark' => $cfgBookmark,
                 'image' => $image,
                 'sql_history' => $_sql_history,

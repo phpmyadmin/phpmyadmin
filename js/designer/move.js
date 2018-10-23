@@ -1122,7 +1122,7 @@ function Load_page (page) {
         if (page !== null) {
             param_page = argsep + 'page=' + page;
         }
-        $('<a href="db_designer.php?server=' + server + argsep + 'db=' + db + param_page + '"></a>')
+        $('<a href="db_designer.php?server=' + server + argsep + 'db=' + encodeURI(db) + param_page + '"></a>')
             .appendTo($('#page_content'))
             .trigger('click');
     } else {

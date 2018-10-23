@@ -172,7 +172,7 @@ class TypesTest extends PmaTestCase
     /**
      * data provider for testGetTypeOperators
      *
-     * @return data for testGetTypeOperators
+     * @return array data for testGetTypeOperators
      */
     public function providerForGetTypeOperators()
     {
@@ -245,7 +245,7 @@ class TypesTest extends PmaTestCase
     /**
      * Provider for testGetTypeOperatorsHtml
      *
-     * @return test data for getTypeOperatorsHtml
+     * @return array test data for getTypeOperatorsHtml
      */
     public function providerForTestGetTypeOperatorsHtml()
     {

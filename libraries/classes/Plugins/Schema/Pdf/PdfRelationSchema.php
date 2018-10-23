@@ -754,7 +754,7 @@ class PdfRelationSchema extends ExportRelationSchema
                     }
                 }
 
-                $this->diagram_row = [
+                $diagram_row = [
                     $field_name,
                     $type,
                     $attribute,
@@ -781,7 +781,7 @@ class PdfRelationSchema extends ExportRelationSchema
                 } else {
                     unset($links[6]);
                 }
-                $this->diagram->row($this->diagram_row, $links);
+                $this->diagram->row($diagram_row, $links);
             } // end foreach
             $this->diagram->SetFont($this->_ff, '', 14);
         } //end each

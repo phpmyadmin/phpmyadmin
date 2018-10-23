@@ -29,6 +29,8 @@ use PhpMyAdmin\Util;
  */
 require_once 'libraries/common.inc.php';
 
+global $url_params;
+
 // Check parameters
 Util::checkParameters(['db', 'table', 'goto']);
 
@@ -48,7 +50,7 @@ $scripts->addFile('sql.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $transformations = new Transformations();
 $insertEdit = new InsertEdit($GLOBALS['dbi']);
 
@@ -172,7 +174,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
     $multi_edit_salt
         = isset($_REQUEST['salt']['multi_edit'][$rownumber])
         ? $_REQUEST['salt']['multi_edit'][$rownumber]
-        :null;
+        : null;
     $multi_edit_columns_type
         = isset($_REQUEST['fields_type']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_type']['multi_edit'][$rownumber]

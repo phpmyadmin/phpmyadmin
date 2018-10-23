@@ -9,16 +9,17 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Operations;
 
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-PhpMyAdmin\Util::checkParameters(['db']);
+Util::checkParameters(['db']);
 
 global $cfg;
 global $db;
@@ -31,12 +32,15 @@ if ($db_is_system_schema) {
     $is_show_stats = false;
 }
 
+$relation = new Relation($GLOBALS['dbi']);
+$operations = new Operations($GLOBALS['dbi'], $relation);
+
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
 $err_url_0 = 'index.php' . Url::getCommon();
 
-$err_url = PhpMyAdmin\Util::getScriptNameForOption(
+$err_url = Util::getScriptNameForOption(
     $GLOBALS['cfg']['DefaultTabDatabase'],
     'database'
 )
@@ -89,7 +93,7 @@ if (isset($_REQUEST['submitcollation'])
 ) {
     list($db_charset) = explode('_', $_REQUEST['db_collation']);
     $sql_query        = 'ALTER DATABASE '
-        . PhpMyAdmin\Util::backquote($db)
+        . Util::backquote($db)
         . ' DEFAULT' . Util::getCharsetQueryPart($_REQUEST['db_collation']);
     $result           = $GLOBALS['dbi']->query($sql_query);
     $message          = Message::success();
@@ -100,12 +104,12 @@ if (isset($_REQUEST['submitcollation'])
     if (isset($_REQUEST['change_all_tables_collations']) &&
         $_REQUEST['change_all_tables_collations'] == 'on'
     ) {
-        list($tables, , , , , , , ,) = PhpMyAdmin\Util::getDbInfo($db, null);
+        list($tables, , , , , , , ,) = Util::getDbInfo($db, null);
         foreach ($tables as $tableName => $data) {
             $sql_query      = 'ALTER TABLE '
-            . PhpMyAdmin\Util::backquote($db)
+            . Util::backquote($db)
             . '.'
-            . PhpMyAdmin\Util::backquote($tableName)
+            . Util::backquote($tableName)
             . 'DEFAULT '
             . Util::getCharsetQueryPart($_REQUEST['db_collation']);
             $GLOBALS['dbi']->query($sql_query);
@@ -116,7 +120,6 @@ if (isset($_REQUEST['submitcollation'])
             if (isset($_REQUEST['change_all_tables_columns_collations']) &&
                 $_REQUEST['change_all_tables_columns_collations'] == 'on'
             ) {
-                $operations = new Operations();
                 $operations->changeAllColumnsCollation($db, $tableName, $_REQUEST['db_collation']);
             }
         }

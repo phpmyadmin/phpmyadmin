@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
@@ -36,12 +37,13 @@ require './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=view_operations.php&amp;back=view_operations.php';
 $url_params['goto'] = $url_params['back'] = 'view_operations.php';
 
-$operations = new Operations();
+$relation = new Relation($GLOBALS['dbi']);
+$operations = new Operations($GLOBALS['dbi'], $relation);
 
 /**
  * Updates if required
  */
-$_message = new Message;
+$_message = new Message();
 $_type = 'success';
 if (isset($_REQUEST['submitoptions'])) {
     if (isset($_REQUEST['new_name'])) {

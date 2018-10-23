@@ -51,6 +51,11 @@ class InsertEdit
     private $fileListing;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      *
      * @param DatabaseInterface $dbi DatabaseInterface instance
@@ -58,9 +63,10 @@ class InsertEdit
     public function __construct(DatabaseInterface $dbi)
     {
         $this->dbi = $dbi;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->transformations = new Transformations();
         $this->fileListing = new FileListing();
+        $this->template = new Template();
     }
 
     /**
@@ -77,7 +83,7 @@ class InsertEdit
     public function getFormParametersForInsertForm(
         $db,
         $table,
-        $where_clauses,
+        ?array $where_clauses,
         array $where_clause_array,
         $err_url
     ) {
@@ -242,16 +248,16 @@ class InsertEdit
     /**
      * Add some url parameters
      *
-     * @param array  $url_params         containing $db and $table as url parameters
-     * @param array  $where_clause_array where clauses array
-     * @param string $where_clause       where clause
+     * @param array       $url_params         containing $db and $table as url parameters
+     * @param array       $where_clause_array where clauses array
+     * @param string|null $where_clause       where clause
      *
      * @return array Add some url parameters to $url_params array and return it
      */
     public function urlParamsInEditMode(
         array $url_params,
         array $where_clause_array,
-        $where_clause
+        ?string $where_clause
     ) {
         if (isset($where_clause)) {
             foreach ($where_clause_array as $where_clause) {
@@ -980,8 +986,8 @@ class InsertEdit
              * @todo clarify the meaning of the "textfield" class and explain
              *       why character columns have the "char" class instead
              */
-            $the_class = 'char';
-            $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
+            $the_class = 'char charField';
+            $textAreaRows = max($GLOBALS['cfg']['CharTextareaRows'], 7);
             $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
             $extracted_columnspec = Util::extractColumnSpec(
                 $column['Type']
@@ -1309,28 +1315,29 @@ class InsertEdit
     /**
      * Get HTML for binary and blob column
      *
-     * @param array   $column                description of column in given table
-     * @param string  $data                  data to edit
-     * @param string  $special_chars         special characters
-     * @param integer $biggest_max_file_size biggest max file size for uploading
-     * @param string  $backup_field          hidden input field
-     * @param string  $column_name_appendix  the name attribute
-     * @param string  $onChangeClause        onchange clause for fields
-     * @param integer $tabindex              tab index
-     * @param integer $tabindex_for_value    offset for the values tabindex
-     * @param integer $idindex               id index
-     * @param string  $text_dir              text direction
-     * @param string  $special_chars_encoded replaced char if the string starts
-     *                                       with a \r\n pair (0x0d0a) add an extra \n
-     * @param string  $vkey                  [multi_edit]['row_id']
-     * @param boolean $is_upload             is upload or not
-     * @param boolean $readOnly              is column read only or not
+     * @param array       $column                description of column in given table
+     * @param string|null $data                  data to edit
+     * @param string      $special_chars         special characters
+     * @param integer     $biggest_max_file_size biggest max file size for uploading
+     * @param string      $backup_field          hidden input field
+     * @param string      $column_name_appendix  the name attribute
+     * @param string      $onChangeClause        onchange clause for fields
+     * @param integer     $tabindex              tab index
+     * @param integer     $tabindex_for_value    offset for the values tabindex
+     * @param integer     $idindex               id index
+     * @param string      $text_dir              text direction
+     * @param string      $special_chars_encoded replaced char if the string starts
+     *                                           with a \r\n pair (0x0d0a) add an
+     *                                           extra \n
+     * @param string      $vkey                  [multi_edit]['row_id']
+     * @param boolean     $is_upload             is upload or not
+     * @param boolean     $readOnly              is column read only or not
      *
      * @return string                           an html snippet
      */
     private function getBinaryAndBlobColumn(
         array $column,
-        $data,
+        ?string $data,
         $special_chars,
         $biggest_max_file_size,
         $backup_field,
@@ -1751,7 +1758,7 @@ class InsertEdit
         array $where_clause_array,
         $err_url
     ) {
-        return Template::get('table/insert/continue_insertion_form')->render([
+        return $this->template->render('table/insert/continue_insertion_form', [
             'db' => $db,
             'table' => $table,
             'where_clause_array' => $where_clause_array,
@@ -1801,7 +1808,7 @@ class InsertEdit
             )
             . '</td>'
             . '</tr>';
-        $html_output .='<tr>'
+        $html_output .= '<tr>'
             . $this->getSubmitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
             . '</tr>'
             . '</table>'
@@ -1944,7 +1951,7 @@ class InsertEdit
         }
 
         $html_output .= '<th>' . __('Null') . '</th>'
-            . '<th>' . __('Value') . '</th>'
+            . '<th class="fillPage">' . __('Value') . '</th>'
             . '</tr>'
             . '</thead>'
             . ' <tfoot>'
@@ -2394,7 +2401,7 @@ class InsertEdit
             $foreigner['foreign_table']
         );
         // Field to display from the foreign table?
-        if (isset($display_field) && strlen($display_field) > 0) {
+        if (! is_null($display_field) && strlen($display_field) > 0) {
             $dispsql = 'SELECT ' . Util::backquote($display_field)
                 . ' FROM ' . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])
@@ -2674,9 +2681,9 @@ class InsertEdit
      *
      * @param string|false $possibly_uploaded_val        uploaded file content
      * @param string       $key                          an md5 of the column name
-     * @param array        $multi_edit_columns_type      array of multi edit column types
+     * @param array|null   $multi_edit_columns_type      array of multi edit column types
      * @param string       $current_value                current column value in the form
-     * @param array        $multi_edit_auto_increment    multi edit auto increment
+     * @param array|null   $multi_edit_auto_increment    multi edit auto increment
      * @param integer      $rownumber                    index of where clause array
      * @param array        $multi_edit_columns_name      multi edit column names array
      * @param array        $multi_edit_columns_null      multi edit columns null array
@@ -2692,9 +2699,9 @@ class InsertEdit
     public function getCurrentValueForDifferentTypes(
         $possibly_uploaded_val,
         $key,
-        $multi_edit_columns_type,
+        ?array $multi_edit_columns_type,
         $current_value,
-        $multi_edit_auto_increment,
+        ?array $multi_edit_auto_increment,
         $rownumber,
         $multi_edit_columns_name,
         $multi_edit_columns_null,
@@ -3042,11 +3049,11 @@ class InsertEdit
      */
     public function getHtmlForInsertEditFormHeader($has_blob_field, $is_upload)
     {
-        $html_output ='<form id="insertForm" class="lock-page ';
+        $html_output = '<form id="insertForm" class="lock-page ';
         if ($has_blob_field && $is_upload) {
-            $html_output .='disableAjax';
+            $html_output .= 'disableAjax';
         }
-        $html_output .='" method="post" action="tbl_replace.php" name="insertForm" ';
+        $html_output .= '" method="post" action="tbl_replace.php" name="insertForm" ';
         if ($is_upload) {
             $html_output .= ' enctype="multipart/form-data"';
         }

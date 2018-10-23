@@ -1,9 +1,9 @@
 {# Get inputbox based on different column types (Foreign key, geometrical, enum) #}
-{% if foreigners and Relation_searchColumnInForeigners(foreigners, column_name) %}
+{% if foreigners and search_column_in_foreigners(foreigners, column_name) %}
     {% if foreign_data['disp_row'] is iterable %}
         <select name="criteriaValues[{{ column_index }}]"
             id="{{ column_id }}{{ column_index }}">
-            {{ Relation_foreignDropdown(
+            {{ foreign_dropdown(
                 foreign_data['disp_row'],
                 foreign_data['foreign_field'],
                 foreign_data['foreign_display'],
@@ -22,23 +22,23 @@
             {% endif %} />
         <a class="ajax browse_foreign"
             href="browse_foreigners.php
-                {{- Url_getCommon({'db': db, 'table': table}) -}}
+                {{- get_common({'db': db, 'table': table}) -}}
                 &amp;field={{ column_name|url_encode }}&amp;fieldkey=
                 {{- column_index }}&amp;fromsearch=1">
             {{ titles['Browse']|replace({"'": "\\'"})|raw }}
         </a>
     {% endif %}
-{% elseif column_type in Util_getGISDatatypes() %}
+{% elseif column_type in get_gis_datatypes() %}
     <input type="text"
         name="criteriaValues[{{ column_index }}]"
         size="40"
         class="textfield"
         id="field_{{ column_index }}" />
     {% if in_fbs %}
-        {% set edit_url = 'gis_data_editor.php' ~ Url_getCommon() %}
-        {% set edit_str = Util_getIcon('b_edit', 'Edit/Insert'|trans) %}
+        {% set edit_url = 'gis_data_editor.php' ~ get_common() %}
+        {% set edit_str = get_icon('b_edit', 'Edit/Insert'|trans) %}
         <span class="open_search_gis_editor">
-            {{ Util_linkOrButton(edit_url, edit_str, [], '_blank') }}
+            {{ link_or_button(edit_url, edit_str, [], '_blank') }}
         </span>
     {% endif %}
 {% elseif column_type starts with 'enum'

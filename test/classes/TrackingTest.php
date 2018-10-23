@@ -87,13 +87,13 @@ class TrackingTest extends TestCase
         $data = [
             [
                 "date" => "20120102",
-                "username"=> "username1",
-                "statement"=>"statement1"
+                "username" => "username1",
+                "statement" => "statement1"
             ],
             [
                 "date" => "20130102",
-                "username"=> "username2",
-                "statement"=>"statement2"
+                "username" => "username2",
+                "statement" => "statement2"
             ],
         ];
         $filter_ts_from = 0;
@@ -126,19 +126,19 @@ class TrackingTest extends TestCase
     public function testExtractTableNames()
     {
         $table_list = [
-            "hello_"=>[
-                "is_group"=>1,
-                "lovely_"=>[
-                    "is_group"=>1,
-                    "hello_lovely_world"=>[
-                        "Name"=>"hello_lovely_world"
+            "hello_" => [
+                "is_group" => 1,
+                "lovely_" => [
+                    "is_group" => 1,
+                    "hello_lovely_world" => [
+                        "Name" => "hello_lovely_world"
                     ],
-                    "hello_lovely_world2"=>[
-                        "Name"=>"hello_lovely_world2"
+                    "hello_lovely_world2" => [
+                        "Name" => "hello_lovely_world2"
                     ]
                 ],
-                "hello_world"=>[
-                    "Name"=>"hello_world"
+                "hello_world" => [
+                    "Name" => "hello_world"
                 ]
             ]
         ];
@@ -163,17 +163,84 @@ class TrackingTest extends TestCase
      * @return void
      * @test
      */
-    public function testGetHtmlForDataDefinitionAndManipulationStatements()
+    public function testGetHtmlForMain()
     {
-        $url_query = "url_query";
-        $last_version = 10;
-        $html = $this->tracking->getHtmlForDataDefinitionAndManipulationStatements(
+        $sql_result = true;
+        $last_version = 3;
+        $url_params = [];
+        $url_query = "select * from PMA";
+        $pmaThemeImage = "themePath/img";
+        $text_dir = "ltr";
+
+        // Mock dbi
+        $dbi_old = $GLOBALS['dbi'];
+        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $fetchArray = [
+            'tracking_active' => 1,
+            'version' => 1,
+            'db_name' => 'db_name',
+            'table_name' => 'table_name',
+            'date_created' => 'date_created',
+            'date_updated' => 'date_updated'
+        ];
+        // return fetchArray for selectable entries
+        for ($i = 2; $i < 6; $i++) {
+            $dbi->expects($this->at($i))
+                ->method('fetchArray')
+                ->will($this->returnValue($fetchArray));
+        }
+        $dbi->expects($this->at(6))
+            ->method('fetchArray')
+            ->will($this->returnValue(false));
+        // return fetchArray for Activate/Deactivate tracking
+        for ($i = 7; $i < 13; $i++) {
+            $dbi->expects($this->at($i))
+                ->method('fetchArray')
+                ->will($this->returnValue($fetchArray));
+        }
+        $dbi->expects($this->at(13))
+            ->method('fetchArray')
+            ->will($this->returnValue(false));
+
+        $dbi->method('numRows')
+            ->will($this->returnValue(1));
+
+        $GLOBALS['dbi'] = $dbi;
+
+        $html = $this->tracking->getHtmlForMainPage(
             $url_query,
-            $last_version,
-            $GLOBALS['db'],
-            [$GLOBALS['table']]
+            $url_params,
+            $pmaThemeImage,
+            $text_dir,
+            $last_version
         );
 
+        /*
+         * test selectables panel
+         */
+        $this->assertContains(
+            htmlspecialchars($fetchArray['db_name']) . '.' . htmlspecialchars($fetchArray['table_name']),
+            $html
+        );
+
+        /*
+         * test versions table
+         */
+         $this->assertContains(
+                "<td>date_created</td>",
+                $html
+         );
+         $this->assertContains(
+                __('Delete version'),
+                $html
+         );
+
+        /*
+         * test create panel
+         */
         $this->assertContains(
             '<div id="div_create_version">',
             $html
@@ -210,77 +277,33 @@ class TrackingTest extends TestCase
             __('Create version'),
             $html
         );
-    }
 
-    /**
-     * Tests for getHtmlForActivateDeactivateTracking() method.
-     *
-     * @return void
-     * @test
-     */
-    public function testGetHtmlForActivateDeactivateTracking()
-    {
-        $url_query = "url_query";
-        $last_version = "10";
-        $html = $this->tracking->getHtmlForActivateDeactivateTracking(
-            'activate',
+        /*
+         * test deactivate/activate panel
+         */
+        $this->assertContains(
+            'Deactivate now',
+            $html
+        );
+        $fetchArray['tracking_active'] = 0;
+        $dbi->expects($this->at(9))
+            ->method('fetchArray')
+            ->will($this->returnValue($fetchArray));
+        $GLOBALS['dbi'] = $dbi;
+        $html = $this->tracking->getHtmlForMainPage(
             $url_query,
+            $url_params,
+            $pmaThemeImage,
+            $text_dir,
             $last_version
         );
+       $this->assertContains(
+           'Activate now',
+           $html
+       );
 
-        $this->assertContains(
-            $url_query,
-            $html
-        );
-
-        $item = sprintf(
-            __('Activate tracking for %s'),
-            htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-        );
-        $this->assertContains(
-            $item,
-            $html
-        );
-
-        $this->assertContains(
-            $last_version,
-            $html
-        );
-
-        $this->assertContains(
-            __('Activate now'),
-            $html
-        );
-
-        $html = $this->tracking->getHtmlForActivateDeactivateTracking(
-            'deactivate',
-            $url_query,
-            $last_version
-        );
-
-        $this->assertContains(
-            $url_query,
-            $html
-        );
-
-        $item = sprintf(
-            __('Deactivate tracking for %s'),
-            htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-        );
-        $this->assertContains(
-            $item,
-            $html
-        );
-
-        $this->assertContains(
-            $last_version,
-            $html
-        );
-
-        $this->assertContains(
-            __('Deactivate now'),
-            $html
-        );
+        //restore DBI
+        $GLOBALS['dbi'] = $dbi_old;
     }
 
     /**
@@ -326,22 +349,22 @@ class TrackingTest extends TestCase
     {
         $columns = [
             [
-                'Field'=>'Field1',
-                'Type'=>'Type1',
-                'Collation'=>'Collation1',
-                "Null"=>'YES',
-                'Extra'=>'Extra1',
-                'Key'=>'PRI',
-                'Comment'=>'Comment1'
+                'Field' => 'Field1',
+                'Type' => 'Type1',
+                'Collation' => 'Collation1',
+                "Null" => 'YES',
+                'Extra' => 'Extra1',
+                'Key' => 'PRI',
+                'Comment' => 'Comment1'
             ],
             [
-                'Field'=>'Field2',
-                'Type'=>'Type2',
-                'Collation'=>'Collation2',
-                "Null"=>'No',
-                'Extra'=>'Extra2',
-                'Key'=>'Key2',
-                'Comment'=>'Comment2'
+                'Field' => 'Field2',
+                'Type' => 'Type2',
+                'Collation' => 'Collation2',
+                "Null" => 'No',
+                'Extra' => 'Extra2',
+                'Key' => 'Key2',
+                'Comment' => 'Comment2'
             ],
         ];
 
@@ -369,7 +392,7 @@ class TrackingTest extends TestCase
         );
 
         //column1
-        $item1= $columns[0];
+        $item1 = $columns[0];
         $this->assertContains(
             htmlspecialchars($item1['Field']),
             $html
@@ -392,7 +415,7 @@ class TrackingTest extends TestCase
         );
 
         //column2
-        $item1= $columns[1];
+        $item1 = $columns[1];
         $this->assertContains(
             htmlspecialchars($item1['Field']),
             $html
@@ -432,166 +455,6 @@ class TrackingTest extends TestCase
     }
 
     /**
-     * Tests for getHtmlForTableVersionDetails() method.
-     *
-     * @return void
-     * @test
-     */
-    public function testGetHtmlForTableVersionDetails()
-    {
-        $sql_result = true;
-        $last_version = "10";
-        $url_params = [];
-        $url_query = "select * from PMA";
-        $pmaThemeImage = "themePath/img";
-        $text_dir = "ltr";
-
-        $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $fetchArray = [
-                'tracking_active' => 1,
-                'version' => "10",
-                'db_name' => 'db_name',
-                'table_name' => 'table_name',
-                'date_created' => 'date_created',
-                'date_updated' => 'date_updated'
-        ];
-        $dbi->expects($this->at(0))
-            ->method('fetchArray')
-            ->will($this->returnValue($fetchArray));
-        $dbi->expects($this->at(1))
-            ->method('fetchArray')
-            ->will($this->returnValue($fetchArray));
-        $dbi->expects($this->at(2))
-            ->method('fetchArray')
-            ->will($this->returnValue(false));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        $ret = $this->tracking->getHtmlForTableVersionDetails(
-            $sql_result,
-            $last_version,
-            $url_params,
-            $url_query,
-            $pmaThemeImage,
-            $text_dir
-        );
-
-        $this->assertContains(
-            __('Version'),
-            $ret
-        );
-        $this->assertContains(
-            __('Created'),
-            $ret
-        );
-        $this->assertContains(
-            __('Updated'),
-            $ret
-        );
-        $this->assertContains(
-            __('Status'),
-            $ret
-        );
-        $this->assertContains(
-            __('Action'),
-            $ret
-        );
-        $this->assertContains(
-            __('Show'),
-            $ret
-        );
-        $this->assertContains(
-            $fetchArray['version'],
-            $ret
-        );
-        $this->assertContains(
-            $fetchArray['date_created'],
-            $ret
-        );
-        $this->assertContains(
-            $fetchArray['date_updated'],
-            $ret
-        );
-        $this->assertContains(
-            __('Tracking report'),
-            $ret
-        );
-        $this->assertContains(
-            __('Structure snapshot'),
-            $ret
-        );
-        $html = sprintf(
-            __('Deactivate tracking for %s'),
-            htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-        );
-        $this->assertContains(
-            $html,
-            $ret
-        );
-
-        //restore DBI
-        $GLOBALS['dbi'] = $dbi_old;
-    }
-
-    /**
-     * Tests for getHtmlForSelectableTables() method.
-     *
-     * @return void
-     * @test
-     */
-    public function testGetHtmlForSelectableTables()
-    {
-        $selectable_tables_sql_result = true;
-        $url_query = "select * from PMA";
-
-        $dbi_old = $GLOBALS['dbi'];
-        $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $fetchArray = [
-                'tracking_active' => 1,
-                'version' => "10",
-                'db_name' => 'db_name',
-                'table_name' => 'table_name',
-                'date_created' => 'date_created',
-                'date_updated' => 'date_updated'
-        ];
-        $dbi->expects($this->at(0))
-            ->method('fetchArray')
-            ->will($this->returnValue($fetchArray));
-        $dbi->expects($this->at(1))
-            ->method('fetchArray')
-            ->will($this->returnValue($fetchArray));
-        $dbi->expects($this->at(2))
-            ->method('fetchArray')
-            ->will($this->returnValue(false));
-
-        $GLOBALS['dbi'] = $dbi;
-
-        $ret = $this->tracking->getHtmlForSelectableTables(
-            $selectable_tables_sql_result,
-            $url_query
-        );
-
-        $this->assertContains(
-            htmlspecialchars($fetchArray['table_name']),
-            $ret
-        );
-        $this->assertContains(
-            htmlspecialchars($fetchArray['db_name']),
-            $ret
-        );
-
-        //restore DBI
-        $GLOBALS['dbi'] = $dbi_old;
-    }
-
-    /**
      * Tests for getHtmlForTrackingReport() method.
      *
      * @return void
@@ -606,7 +469,7 @@ class TrackingTest extends TestCase
         $_REQUEST['logtype'] = 'logtype';
         $url_query = "select * from PMA";
         $data = [
-            'tracking'=>'tracking',
+            'tracking' => 'tracking',
             'ddlog' => ['ddlog'],
             'dmlog' => ['dmlog']
         ];
@@ -708,7 +571,7 @@ class TrackingTest extends TestCase
     {
         $_REQUEST['version'] = "10";
         $data = [
-            'tracking'=>'tracking',
+            'tracking' => 'tracking',
             'dmlog' => [
                 [
                     'statement' => 'statement',
@@ -772,7 +635,7 @@ class TrackingTest extends TestCase
         $_REQUEST['version'] = "10";
 
         $data = [
-            'tracking'=>'tracking',
+            'tracking' => 'tracking',
             'ddlog' => [
                 [
                     'statement' => 'statement',
@@ -959,7 +822,7 @@ class TrackingTest extends TestCase
     {
         $_REQUEST['logtype'] = 'schema';
         $data = [
-            'tracking'=>'tracking',
+            'tracking' => 'tracking',
             'ddlog' => [
                 [
                     'statement' => 'statement1',

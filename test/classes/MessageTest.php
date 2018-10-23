@@ -21,7 +21,7 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class MessageTest extends PmaTestCase
 {
     /**
-     * @var    PhpMyAdmin\Message
+     * @var    \PhpMyAdmin\Message
      * @access protected
      */
     protected $object;
@@ -35,7 +35,7 @@ class MessageTest extends PmaTestCase
      */
     protected function setUp()
     {
-        $this->object = new Message;
+        $this->object = new Message();
     }
 
     /**

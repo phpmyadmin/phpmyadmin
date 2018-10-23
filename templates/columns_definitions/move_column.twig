@@ -9,7 +9,7 @@
     {% for mi in 0..move_columns|length - 1 %}
         <option value="{{ move_columns[mi].name }}"
             {{- current_index == mi or current_index == mi + 1 ? ' disabled="disabled"' }}>
-            {{ 'after %s'|trans|format(Util_backquote(move_columns[mi].name|e)) }}
+            {{ 'after %s'|trans|format(backquote(move_columns[mi].name|e)) }}
         </option>
     {% endfor %}
 </select>

@@ -85,7 +85,7 @@ class InsertEditTest extends TestCase
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs(
-            $object !== null ? $object : $this->insertEdit,
+            $object ?? $this->insertEdit,
             $params
         );
     }
@@ -211,7 +211,7 @@ class InsertEditTest extends TestCase
      */
     public function testShowEmptyResultMessageOrSetUniqueCondition()
     {
-        $temp = new stdClass;
+        $temp = new stdClass();
         $temp->orgname = 'orgname';
         $temp->table = 'table';
         $temp->type = 'real';
@@ -897,7 +897,7 @@ class InsertEditTest extends TestCase
     {
         $GLOBALS['cfg']['TextareaRows'] = 20;
         $GLOBALS['cfg']['TextareaCols'] = 10;
-        $GLOBALS['cfg']['CharTextareaRows'] = 5;
+        $GLOBALS['cfg']['CharTextareaRows'] = 7;
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
         $GLOBALS['cfg']['LimitChars'] = 20;
 
@@ -910,8 +910,8 @@ class InsertEditTest extends TestCase
         ]);
 
         $this->assertContains(
-            '<textarea name="fieldsb" class="char" '
-            . 'data-maxlength="10" rows="5" cols="1" dir="abc/" '
+            '<textarea name="fieldsb" class="char charField" '
+            . 'data-maxlength="10" rows="7" cols="1" dir="abc/" '
             . 'id="field_1_3" tabindex="2" data-type="CHAR">',
             $result
         );
@@ -1265,7 +1265,7 @@ class InsertEditTest extends TestCase
         $column['Type'] = 'char(255)';
         $GLOBALS['cfg']['TextareaRows'] = 20;
         $GLOBALS['cfg']['TextareaCols'] = 10;
-        $GLOBALS['cfg']['CharTextareaRows'] = 5;
+        $GLOBALS['cfg']['CharTextareaRows'] = 7;
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
         $GLOBALS['cfg']['LimitChars'] = 100;
 
@@ -1276,7 +1276,7 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             "\na\n"
-            . '<textarea name="fieldsb" class="char" data-maxlength="255" rows="5" '
+            . '<textarea name="fieldsb" class="char charField" data-maxlength="255" rows="7" '
             . 'cols="1" dir="/" id="field_1_3" c tabindex="3" data-type="HEX">'
             . '</textarea><input type="hidden" name="fields_typeb" value="hex" />'
             . '<br /><input type="file" name="fields_uploadfoo[123]" class="text'
@@ -1429,7 +1429,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['MinSizeForInputField'] = 10;
         $GLOBALS['cfg']['TextareaRows'] = 20;
         $GLOBALS['cfg']['TextareaCols'] = 10;
-        $GLOBALS['cfg']['CharTextareaRows'] = 5;
+        $GLOBALS['cfg']['CharTextareaRows'] = 7;
         $GLOBALS['cfg']['CharTextareaCols'] = 1;
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
@@ -1443,8 +1443,8 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             "a\n\na\n"
-            . '<textarea name="fieldsb" class="char" '
-            . 'data-maxlength="25" rows="5" cols="1" dir="/" '
+            . '<textarea name="fieldsb" class="char charField" '
+            . 'data-maxlength="25" rows="7" cols="1" dir="/" '
             . 'id="field_1_3" c tabindex="34" data-type="CHAR">'
             . '&lt;</textarea>',
             $result
@@ -2009,7 +2009,7 @@ class InsertEditTest extends TestCase
      */
     public function testSetSessionForEditNext()
     {
-        $temp = new stdClass;
+        $temp = new stdClass();
         $temp->orgname = 'orgname';
         $temp->table = 'table';
         $temp->type = 'real';
@@ -3369,7 +3369,7 @@ class InsertEditTest extends TestCase
             $actual
         );
         $this->assertContains(
-            '<th>Value</th>',
+            '<th class="fillPage">Value</th>',
             $actual
         );
         $this->assertContains(

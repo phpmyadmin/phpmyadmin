@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
@@ -838,7 +839,7 @@ class ExportSqlTest extends PmaTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
 
-        $dbi->expects($this->any(0))
+        $dbi->expects($this->any())
             ->method('getColumns')
             ->with('db', 'view')
             ->will(
@@ -1240,6 +1241,7 @@ class ExportSqlTest extends PmaTestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_getTableComments');
         $method->setAccessible(true);
@@ -1482,7 +1484,7 @@ class ExportSqlTest extends PmaTestCase
             ->getMock();
 
         $flags = [];
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = true;
         $a->type = 'ts';
@@ -1490,7 +1492,7 @@ class ExportSqlTest extends PmaTestCase
         $a->length = 2;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = true;
         $a->type = 'ts';
@@ -1498,7 +1500,7 @@ class ExportSqlTest extends PmaTestCase
         $a->length = 2;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = true;
         $a->numeric = false;
         $a->type = 'ts';
@@ -1506,7 +1508,7 @@ class ExportSqlTest extends PmaTestCase
         $a->length = 2;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->type = "bit";
         $a->blob = false;
         $a->numeric = false;
@@ -1514,7 +1516,7 @@ class ExportSqlTest extends PmaTestCase
         $a->length = 2;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = true;
         $a->type = 'timestamp';
@@ -1632,7 +1634,7 @@ class ExportSqlTest extends PmaTestCase
             ->getMock();
 
         $flags = [];
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = true;
         $a->type = 'real';
@@ -1643,7 +1645,7 @@ class ExportSqlTest extends PmaTestCase
         $a->primary_key = 1;
         $flags[] = $a;
 
-        $a = new stdClass;
+        $a = new stdClass();
         $a->blob = false;
         $a->numeric = true;
         $a->type = '';
@@ -1762,7 +1764,7 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['sql_views_as_tables'] = false;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
-        $oldVal = isset($GLOBALS['sql_compatibility']) ? $GLOBALS['sql_compatibility'] : '';
+        $oldVal = $GLOBALS['sql_compatibility'] ?? '';
         $GLOBALS['sql_compatibility'] = 'NONE';
         $GLOBALS['sql_backquotes'] = true;
 

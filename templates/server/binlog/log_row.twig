@@ -6,5 +6,5 @@
     <td class="right">
         {{- value['Orig_log_pos'] is defined ? value['Orig_log_pos'] : value['End_log_pos'] -}}
     </td>
-    <td>{{ Util_formatSql(value['Info'], not dontlimitchars) }}</td>
+    <td>{{ format_sql(value['Info'], not dontlimitchars) }}</td>
 </tr>

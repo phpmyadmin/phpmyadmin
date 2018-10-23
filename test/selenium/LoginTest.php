@@ -22,9 +22,9 @@ class LoginTest extends TestBase
     /**
      * @return void
      */
-    public function setUpPage()
+    public function setUp()
     {
-        parent::setUpPage();
+        parent::setUp();
         $this->logOutIfLoggedIn();
     }
     /**
@@ -37,7 +37,7 @@ class LoginTest extends TestBase
     public function testSuccessfulLogin()
     {
         $this->login();
-        $this->waitForElement("byXPath", "//*[@id=\"serverinfo\"]");
+        $this->waitForElement('xpath', "//*[@id=\"serverinfo\"]");
         $this->assertTrue($this->isSuccessLogin());
         $this->logOutIfLoggedIn();
     }
@@ -52,7 +52,7 @@ class LoginTest extends TestBase
     public function testLoginWithWrongPassword()
     {
         $this->login("Admin", "Admin");
-        $this->waitForElement("byCssSelector", "div.error");
+        $this->waitForElement('cssSelector', "div.error");
         $this->assertTrue($this->isUnsuccessLogin());
     }
 }

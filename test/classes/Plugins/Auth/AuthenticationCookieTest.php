@@ -221,7 +221,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertContains(
             '<form method="post" id="login_form" action="index.php" name="login_form" ' .
-            'class="disableAjax login hide js-show">',
+            'class="disableAjax hide login js-show">',
             $result
         );
 
@@ -302,7 +302,7 @@ class AuthenticationCookieTest extends PmaTestCase
         $GLOBALS['cfg']['CaptchaLoginPublicKey'] = 'testpubkey';
         $GLOBALS['server'] = 0;
 
-        $GLOBALS['error_handler'] = new ErrorHandler;
+        $GLOBALS['error_handler'] = new ErrorHandler();
 
         ob_start();
         $this->object->showLoginForm();
@@ -324,7 +324,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertContains(
             '<form method="post" id="login_form" action="index.php" name="login_form" ' .
-            'autocomplete="off" class="disableAjax login hide js-show">',
+            'autocomplete="off" class="disableAjax hide login js-show">',
             $result
         );
 

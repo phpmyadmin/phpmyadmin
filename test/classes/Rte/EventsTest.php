@@ -49,7 +49,7 @@ class EventsTest extends TestCase
         $GLOBALS['cfg']['ServerDefault'] = '';
         $GLOBALS['tear_down']['server'] = true;
 
-        $this->events = new Events();
+        $this->events = new Events($GLOBALS['dbi']);
     }
 
     /**

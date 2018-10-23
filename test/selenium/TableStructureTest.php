@@ -35,27 +35,17 @@ class TableStructureTest extends TestBase
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-    }
-
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
 
         $this->login();
         $this->navigateTable('test_table');
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "(//a[contains(., 'Structure')])"
         )->click();
 
         $this->waitAjax();
-        $this->waitForElement("byId", "tablestructure");
+        $this->waitForElement('id', "tablestructure");
     }
 
     /**
@@ -68,30 +58,30 @@ class TableStructureTest extends TestBase
     public function testAddColumn()
     {
         $this->waitForElement(
-            'byCssSelector',
+            'cssSelector',
             "#addColumns > input[value='Go']"
         )->click();
         $this->waitAjax();
 
-        $this->waitForElement("byClassName", "append_fields_form");
+        $this->waitForElement('className', "append_fields_form");
 
-        $this->byId("field_0_1")->value('val3');
+        $this->byId("field_0_1")->sendKeys('val3');
         $this->byCssSelector("input[name='do_save_data']")->click();
 
         $this->waitAjax();
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., "
             . "'Table test_table has been altered successfully')]"
         );
 
         $this->byPartialLinkText("Structure")->click();
         $this->waitAjax();
-        $this->waitForElement("byId", "tablestructure");
+        $this->waitForElement('id', "tablestructure");
 
         $this->assertEquals(
             "val3",
-            $this->byCssSelector('label[for=checkbox_row_4]')->text()
+            $this->byCssSelector('label[for=checkbox_row_4]')->getText()
         );
 
         $this->assertEquals(
@@ -114,15 +104,15 @@ class TableStructureTest extends TestBase
         )->click();
         $this->waitAjax();
 
-        $this->waitForElement("byClassName", "append_fields_form");
+        $this->waitForElement('className', "append_fields_form");
 
-        $this->assertEquals("val", $this->byId("field_0_1")->value());
+        $this->assertEquals("val", $this->byId("field_0_1")->getAttribute('value'));
         $this->byId("field_0_1")->clear();
-        $this->byId("field_0_1")->value('val3');
+        $this->byId("field_0_1")->sendKeys('val3');
         $this->byCssSelector("input[name='do_save_data']")->click();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., "
             . "'Table test_table has been altered successfully')]"
         );
@@ -130,11 +120,11 @@ class TableStructureTest extends TestBase
         $this->byPartialLinkText("Structure")->click();
         $this->waitAjax();
 
-        $this->waitForElement("byId", "tablestructure");
+        $this->waitForElement('id', "tablestructure");
 
         $this->assertEquals(
             "val3",
-            $this->waitForElement('byCssSelector', 'label[for=checkbox_row_2]')->text()
+            $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->getText()
         );
     }
 
@@ -147,19 +137,19 @@ class TableStructureTest extends TestBase
      */
     public function testDropColumns()
     {
-        $this->waitForElement('byCssSelector', 'label[for=checkbox_row_2]')->click();
-        $this->waitForElement('byCssSelector', 'label[for=checkbox_row_3]')->click();
+        $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->click();
+        $this->waitForElement('cssSelector', 'label[for=checkbox_row_3]')->click();
         $this->byXPath(
             "//button[@class='mult_submit' and contains(., 'Drop')]"
         )->click();
 
         $this->waitForElement(
-            "byCssSelector",
+            'cssSelector',
             "input[id='buttonYes']"
         )->click();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., "
             . "'Your SQL query has been executed successfully')]"
         );
@@ -167,7 +157,7 @@ class TableStructureTest extends TestBase
 
         $this->assertFalse(
             $this->isElementPresent(
-                'byCssSelector',
+                'cssSelector',
                 'label[for=checkbox_row_2]'
             )
         );

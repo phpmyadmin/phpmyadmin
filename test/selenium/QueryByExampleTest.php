@@ -40,17 +40,8 @@ class QueryByExampleTest extends TestBase
         $this->dbQuery(
             "INSERT INTO `test_table` (val) VALUES (2), (6), (5), (3), (4), (4), (5);"
         );
-    }
 
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
-
+        $this->maximize();
         $this->login();
     }
 
@@ -63,57 +54,60 @@ class QueryByExampleTest extends TestBase
     {
         $this->navigateDatabase($this->database_name);
 
-        $this->waitForElement('byPartialLinkText', 'Query')->click();
+        $this->waitForElement('partialLinkText', 'Query')->click();
         $this->waitAjax();
 
         /* Select Columns to be used in the query */
-        $select = $this->select(
-            $this->waitForElement('byName', 'criteriaColumn[0]')
+        $this->selectByLabel(
+            $this->waitForElement('name', 'criteriaColumn[0]'),
+            '`test_table`.`id`'
         );
-        $select->selectOptionByLabel('`test_table`.`id`');
 
-        $select = $this->select(
-            $this->waitForElement('byName', 'criteriaColumn[1]')
+        $this->selectByLabel(
+            $this->waitForElement('name', 'criteriaColumn[1]'),
+            '`test_table`.`val`'
         );
-        $select->selectOptionByLabel('`test_table`.`val`');
 
         /* Set aliases for the columns */
-        $this->waitForElement('byName', 'criteriaAlias[0]')->value('ID');
-        $this->waitForElement('byName', 'criteriaAlias[1]')->value('VAL');
+        $this->waitForElement('name', 'criteriaAlias[0]')->sendKeys('ID');
+        $this->waitForElement('name', 'criteriaAlias[1]')->sendKeys('VAL');
 
         /* Set Sort orders */
-        $select = $this->select(
-            $this->waitForElement('byName', 'criteriaSort[0]')
+        $this->selectByLabel(
+            $this->waitForElement('name', 'criteriaSort[0]'),
+            'Descending'
         );
-        $select->selectOptionByLabel('Descending');
 
-        $select = $this->select(
-            $this->waitForElement('byName', 'criteriaSort[1]')
+        $this->selectByLabel(
+            $this->waitForElement('name', 'criteriaSort[1]'),
+            'Ascending'
         );
-        $select->selectOptionByLabel('Ascending');
 
         /* Select sort order amongst columns */
-        $select = $this->select(
-            $this->waitForElement('byName', 'criteriaSortOrder[0]')
+        $this->selectByLabel(
+            $this->waitForElement('name', 'criteriaSortOrder[0]'),
+            '2'
         );
-        $select->selectOptionByLabel('2');
 
-        $select = $this->select(
-            $this->waitForElement('byName', 'criteriaSortOrder[1]')
+        $this->selectByLabel(
+            $this->waitForElement('name', 'criteriaSortOrder[1]'),
+            '1'
         );
-        $select->selectOptionByLabel('1');
 
         /* Set criteria conditions */
-        $this->waitForElement('byName', 'criteria[0]')->value('> 1');
-        $this->waitForElement('byName', 'criteria[1]')->value('< 6');
+        $this->waitForElement('name', 'criteria[0]')->sendKeys('> 1');
+        $this->waitForElement('name', 'criteria[1]')->sendKeys('< 6');
 
         /* Change operator to AND */
+        /*
+        //TODO: Needs to be re-done
         $radioElements = $this->elements(
-            $this->using('css selector')->value('input[name="criteriaAndOrColumn[0]"]')
+            $this->using('css selector')->sendKeys('input[name="criteriaAndOrColumn[0]"]')
         );
         if (count($radioElements) > 2) {
             $radioElements[1]->click();
         }
+        */
 
         $this->scrollToBottom();
 
@@ -127,7 +121,7 @@ class QueryByExampleTest extends TestBase
             . "\nFROM `test_table`"
             . "\nWHERE ((`test_table`.`id` > 1) AND (`test_table`.`val` < 6))"
             . "\nORDER BY `test_table`.`val` ASC, `test_table`.`id` DESC";
-        $actual = trim($this->waitForElement('byId', 'textSqlquery')->value());
+        $actual = trim($this->waitForElement('id', 'textSqlquery')->getAttribute('value'));
 
         /* Compare generated query */
         $this->assertEquals(
@@ -138,10 +132,10 @@ class QueryByExampleTest extends TestBase
         $this->scrollToBottom();
 
         /* Submit the query */
-        $this->waitForElement('byCssSelector', 'input[value="Submit Query"]')->click();
+        $this->waitForElement('cssSelector', 'input[value="Submit Query"]')->click();
         $this->waitAjax();
 
-        $this->waitForElement('byCssSelector', 'table.table_results');
+        $this->waitForElement('cssSelector', 'table.table_results');
 
         /* Assert Row 1 */
         $this->assertEquals(

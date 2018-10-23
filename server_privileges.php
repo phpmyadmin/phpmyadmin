@@ -10,8 +10,8 @@ declare(strict_types=1);
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
@@ -26,7 +26,7 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/check_user_privileges.inc.php';
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
 
 /**
@@ -39,7 +39,8 @@ $scripts->addFile('server_privileges.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
 $template = new Template();
-$serverPrivileges = new Privileges($template);
+$relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
+$serverPrivileges = new Privileges($template, $GLOBALS['dbi'], $relation, $relationCleanup);
 
 if ((isset($_REQUEST['viewing_mode'])
     && $_REQUEST['viewing_mode'] == 'server')
@@ -152,7 +153,7 @@ if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
 }
 if (! $GLOBALS['is_grantuser'] && !$GLOBALS['is_createuser']) {
     $response->addHTML(Message::notice(
-        __('You do not have privileges to manipulate with the users!')
+        __('You do not have the privileges to administrate the users!')
     )->getDisplay());
 }
 
@@ -187,10 +188,10 @@ list($queries, $password) = $serverPrivileges->getDataForChangeOrCopyUser();
  */
 list($ret_message, $ret_queries, $queries_for_display, $sql_query, $_add_user_error)
     = $serverPrivileges->addUser(
-        isset($dbname)? $dbname : null,
-        isset($username)? $username : null,
-        isset($hostname)? $hostname : null,
-        isset($password)? $password : null,
+        isset($dbname) ? $dbname : null,
+        isset($username) ? $username : null,
+        isset($hostname) ? $hostname : null,
+        isset($password) ? $password : null,
         $cfgRelation['menuswork']
     );
 //update the old variables
@@ -312,7 +313,7 @@ if (isset($_REQUEST['change_copy'])) {
  * Reloads the privilege tables into memory
  */
 $message_ret = $serverPrivileges->updateMessageForReload();
-if (isset($message_ret)) {
+if (! is_null($message_ret)) {
     $message = $message_ret;
     unset($message_ret);
 }
@@ -369,7 +370,7 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
         $tooltip_truename,
         $tooltip_aliasname,
         $pos
-    ) = PhpMyAdmin\Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+    ) = PhpMyAdmin\Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
 
     $content = ob_get_contents();
     ob_end_clean();
@@ -386,7 +387,7 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
  */
 $response->addHTML(
     $serverPrivileges->getHtmlForUserGroupDialog(
-        isset($username)? $username : null,
+        isset($username) ? $username : null,
         $cfgRelation['menuswork']
     )
 );

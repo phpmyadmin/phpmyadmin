@@ -50,6 +50,7 @@ class Pdf extends PdfLib
     public $Outlines = [];
     public $def_outlines;
     public $widths;
+    public $cMargin;
     private $_ff = PdfLib::PMA_PDF_FONT;
     private $_offline;
     private $_pageNumber;
@@ -85,7 +86,7 @@ class Pdf extends PdfLib
         $this->_pageNumber = $pageNumber;
         $this->_withDoc = $withDoc;
         $this->_db = $db;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -325,7 +326,7 @@ class Pdf extends PdfLib
         $il = $this->FontSize;
         $h = ($il + 1) * $nb;
         // page break if necessary
-        $this->CheckPageBreak($h);
+        $this->checkPageBreak($h);
         // draw the cells
         $data_cnt = count($data);
         for ($i = 0; $i < $data_cnt; $i++) {
@@ -361,10 +362,10 @@ class Pdf extends PdfLib
         if ($w == 0) {
             $w = $this->w - $this->rMargin - $this->x;
         }
-        $wmax = ($w-2 * $this->cMargin) * 1000 / $this->FontSize;
+        $wmax = ($w - 2 * $this->cMargin) * 1000 / $this->FontSize;
         $s = str_replace("\r", '', $txt);
         $nb = strlen($s);
-        if ($nb > 0 && $s[$nb-1] == "\n") {
+        if ($nb > 0 && $s[$nb - 1] == "\n") {
             $nb--;
         }
         $sep = -1;
@@ -385,7 +386,7 @@ class Pdf extends PdfLib
             if ($c == ' ') {
                 $sep = $i;
             }
-            $l += isset($cw[mb_ord($c)])?$cw[mb_ord($c)]:0 ;
+            $l += isset($cw[mb_ord($c)]) ? $cw[mb_ord($c)] : 0 ;
             if ($l > $wmax) {
                 if ($sep == -1) {
                     if ($i == $j) {

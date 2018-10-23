@@ -36,7 +36,7 @@ $header = $response->getHeader();
 $header->disableMenuAndConsole();
 $header->setBodyId('body_browse_foreigners');
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 
 /**
  * Displays the frame

@@ -31,7 +31,7 @@ if (isset($_REQUEST['getNaviSettings']) && $_REQUEST['getNaviSettings']) {
     exit();
 }
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
 if ($cfgRelation['navwork']) {
     if (isset($_REQUEST['hideNavItem'])) {

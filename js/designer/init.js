@@ -23,17 +23,16 @@ AJAX.registerOnload('designer/init.js', function () {
         $('#ab').accordion('refresh');
         return false;
     });
-    var tables_data = JSON.parse($('#script_tables').html());
 
-    j_tabs             = tables_data.j_tabs;
-    h_tabs             = tables_data.h_tabs;
-    contr              = JSON.parse($('#script_contr').html());
-    display_field      = JSON.parse($('#script_display_field').html());
+    j_tabs             = designer_config.scriptTables.j_tabs;
+    h_tabs             = designer_config.scriptTables.h_tabs;
+    contr              = designer_config.scriptContr;
+    display_field      = designer_config.scriptDisplayField;
 
-    server             = $('#script_server').html();
-    db                 = $('#script_db').html();
-    selected_page      = $('#script_display_page').html() === '' ? '-1' : $('#script_display_page').html();
-    designer_tables_enabled = $('#designer_tables_enabled').html() === '1';
+    server             = designer_config.server;
+    db                 = designer_config.db;
+    selected_page      = designer_config.displayPage;
+    designer_tables_enabled = designer_config.tablesEnabled;
 
     Main();
 

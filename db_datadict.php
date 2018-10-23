@@ -36,7 +36,7 @@ $response = Response::getInstance();
 $header   = $response->getHeader();
 $header->enablePrintView();
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $transformations = new Transformations();
 
 /**

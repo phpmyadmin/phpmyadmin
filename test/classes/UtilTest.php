@@ -382,41 +382,6 @@ class UtilTest extends PmaTestCase
     }
 
     /**
-     * Test for Util::containsNonPrintableAscii
-     *
-     * @param string $str Value
-     * @param bool   $res Expected value
-     *
-     * @return void
-     *
-     * @covers \PhpMyAdmin\Util::containsNonPrintableAscii
-     * @dataProvider providerContainsNonPrintableAscii
-     */
-    public function testContainsNonPrintableAscii($str, $res)
-    {
-        $this->assertEquals(
-            $res,
-            Util::containsNonPrintableAscii($str)
-        );
-    }
-
-    /**
-     * Data provider for testContainsNonPrintableAscii
-     *
-     * @return array
-     */
-    public function providerContainsNonPrintableAscii()
-    {
-        return [
-            ["normal string", 0],
-            ["new\nline", 1],
-            ["tab\tspace", 1],
-            ["escape" . chr(27) . "char", 1],
-            ["chars%$\r\n", 1],
-        ];
-    }
-
-    /**
      * Test for Util::convertBitDefaultValue
      *
      * @param string $bit Value
@@ -1380,7 +1345,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFields()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_2'=>'choice_2'];
+        $choices = ['value_1' => 'choice_1', 'value_2' => 'choice_2'];
 
         $out = "";
         foreach ($choices as $choice_value => $choice_label) {
@@ -1411,7 +1376,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsWithChecked()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_2'=>'choice_2'];
+        $choices = ['value_1' => 'choice_1', 'value_2' => 'choice_2'];
         $checked_choice = "value_2";
 
         $out = "";
@@ -1450,7 +1415,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsWithCheckedWithClass()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_2'=>'choice_2'];
+        $choices = ['value_1' => 'choice_1', 'value_2' => 'choice_2'];
         $checked_choice = "value_2";
         $class = "test_class";
 
@@ -1497,7 +1462,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsWithoutBR()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value&_&lt;2&gt;'=>'choice_2'];
+        $choices = ['value_1' => 'choice_1', 'value&_&lt;2&gt;' => 'choice_2'];
         $checked_choice = "choice_2";
 
         $out = "";
@@ -1535,7 +1500,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsEscapeLabelEscapeLabel()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;'];
+        $choices = ['value_1' => 'choice_1', 'value_&2' => 'choice&_&lt;2&gt;'];
         $checked_choice = "value_2";
 
         $out = "";
@@ -1576,7 +1541,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsEscapeLabelNotEscapeLabel()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;'];
+        $choices = ['value_1' => 'choice_1', 'value_&2' => 'choice&_&lt;2&gt;'];
         $checked_choice = "value_2";
 
         $out = "";
@@ -1617,7 +1582,7 @@ class UtilTest extends PmaTestCase
     public function testGetRadioFieldsEscapeLabelEscapeLabelWithClass()
     {
         $name = "test_display_radio";
-        $choices = ['value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;'];
+        $choices = ['value_1' => 'choice_1', 'value_&2' => 'choice&_&lt;2&gt;'];
         $checked_choice = "value_2";
         $class = "test_class";
 
@@ -2115,7 +2080,7 @@ class UtilTest extends PmaTestCase
      */
     public function testLinkOrButton(array $params, $limit, $match)
     {
-        $restore = isset($GLOBALS['cfg']['LinkLengthLimit']) ? $GLOBALS['cfg']['LinkLengthLimit'] : 1000;
+        $restore = $GLOBALS['cfg']['LinkLengthLimit'] ?? 1000;
         $GLOBALS['cfg']['LinkLengthLimit'] = $limit;
         try {
             $result = call_user_func_array(

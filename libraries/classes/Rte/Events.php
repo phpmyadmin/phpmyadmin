@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Rte;
 
+use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Rte\Export;
@@ -52,14 +53,22 @@ class Events
     private $words;
 
     /**
-     * Events constructor.
+     * @var DatabaseInterface
      */
-    public function __construct()
+    private $dbi;
+
+    /**
+     * Events constructor.
+     *
+     * @param DatabaseInterface $dbi DatabaseInterface object
+     */
+    public function __construct(DatabaseInterface $dbi)
     {
-        $this->export = new Export();
-        $this->footer = new Footer();
-        $this->general = new General();
-        $this->rteList = new RteList();
+        $this->dbi = $dbi;
+        $this->export = new Export($this->dbi);
+        $this->footer = new Footer($this->dbi);
+        $this->general = new General($this->dbi);
+        $this->rteList = new RteList($this->dbi);
         $this->words = new Words();
     }
 
@@ -125,7 +134,7 @@ class Events
         /**
          * Display a list of available events
          */
-        $items = $GLOBALS['dbi']->getEvents($db);
+        $items = $this->dbi->getEvents($db);
         echo $this->rteList->get('event', $items);
         /**
          * Display a link for adding a new event, if
@@ -155,7 +164,7 @@ class Events
                 // Execute the created query
                 if (! empty($_REQUEST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong
-                    $create_item = $GLOBALS['dbi']->getDefinition(
+                    $create_item = $this->dbi->getDefinition(
                         $db,
                         'EVENT',
                         $_REQUEST['item_original_name']
@@ -163,26 +172,26 @@ class Events
                     $drop_item = "DROP EVENT "
                         . Util::backquote($_REQUEST['item_original_name'])
                         . ";\n";
-                    $result = $GLOBALS['dbi']->tryQuery($drop_item);
+                    $result = $this->dbi->tryQuery($drop_item);
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($drop_item)
                         )
                         . '<br />'
-                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError();
                     } else {
-                        $result = $GLOBALS['dbi']->tryQuery($item_query);
+                        $result = $this->dbi->tryQuery($item_query);
                         if (! $result) {
                             $errors[] = sprintf(
                                 __('The following query has failed: "%s"'),
                                 htmlspecialchars($item_query)
                             )
                             . '<br />'
-                            . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                            . __('MySQL said: ') . $this->dbi->getError();
                             // We dropped the old item, but were unable to create
                             // the new one. Try to restore the backup query
-                            $result = $GLOBALS['dbi']->tryQuery($create_item);
+                            $result = $this->dbi->tryQuery($create_item);
                             $errors = $this->general->checkResult(
                                 $result,
                                 __(
@@ -203,14 +212,14 @@ class Events
                     }
                 } else {
                     // 'Add a new item' mode
-                    $result = $GLOBALS['dbi']->tryQuery($item_query);
+                    $result = $this->dbi->tryQuery($item_query);
                     if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($item_query)
                         )
                         . '<br /><br />'
-                        . __('MySQL said: ') . $GLOBALS['dbi']->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $message = Message::success(
                             __('Event %1$s has been created.')
@@ -242,7 +251,7 @@ class Events
             $response = Response::getInstance();
             if ($response->isAjax()) {
                 if ($message->isSuccess()) {
-                    $events = $GLOBALS['dbi']->getEvents($db, $_REQUEST['item_name']);
+                    $events = $this->dbi->getEvents($db, $_REQUEST['item_name']);
                     $event = $events[0];
                     $response->addJSON(
                         'name',
@@ -349,10 +358,10 @@ class Events
                  . "`INTERVAL_VALUE`, `INTERVAL_FIELD`, `STARTS`, `ENDS`, "
                  . "`EVENT_DEFINITION`, `ON_COMPLETION`, `DEFINER`, `EVENT_COMMENT`";
         $where   = "EVENT_SCHEMA " . Util::getCollateForIS() . "="
-                 . "'" . $GLOBALS['dbi']->escapeString($db) . "' "
-                 . "AND EVENT_NAME='" . $GLOBALS['dbi']->escapeString($name) . "'";
+                 . "'" . $this->dbi->escapeString($db) . "' "
+                 . "AND EVENT_NAME='" . $this->dbi->escapeString($name) . "'";
         $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
-        $item    = $GLOBALS['dbi']->fetchSingleRow($query);
+        $item    = $this->dbi->fetchSingleRow($query);
         if (! $item) {
             return false;
         }
@@ -448,9 +457,9 @@ class Events
         $retval .= Url::getHiddenInputs($db, $table) . "\n";
         $retval .= "<fieldset>\n";
         $retval .= "<legend>" . __('Details') . "</legend>\n";
-        $retval .= "<table class='rte_table' style='width: 100%'>\n";
+        $retval .= "<table class='rte_table'>\n";
         $retval .= "<tr>\n";
-        $retval .= "    <td style='width: 20%;'>" . __('Event name') . "</td>\n";
+        $retval .= "    <td>" . __('Event name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' \n";
         $retval .= "               value='{$item['item_name']}'\n";
         $retval .= "               maxlength='64' /></td>\n";
@@ -486,12 +495,11 @@ class Events
         } else {
             $retval .= "        <input name='item_type' type='hidden' \n";
             $retval .= "               value='{$item['item_type']}' />\n";
-            $retval .= "        <div class='floatleft' style='width: 49%; "
-                . "text-align: center; font-weight: bold;'>\n";
+            $retval .= "        <div class='font_weight_bold center half_width'>\n";
             $retval .= "            {$item['item_type']}\n";
             $retval .= "        </div>\n";
-            $retval .= "        <input style='width: 49%;' type='submit'\n";
-            $retval .= "               name='item_changetype'\n";
+            $retval .= "        <input type='submit'\n";
+            $retval .= "               name='item_changetype' class='half_width'\n";
             $retval .= "               value='";
             $retval .= sprintf(__('Change to %s'), $item['item_type_toggle']);
             $retval .= "' />\n";
@@ -509,10 +517,10 @@ class Events
         $retval .= "<tr class='recurring_event_row $isrecurring_class'>\n";
         $retval .= "    <td>" . __('Execute every') . "</td>\n";
         $retval .= "    <td>\n";
-        $retval .= "        <input style='width: 49%;' type='text'\n";
+        $retval .= "        <input class='half_width' type='text'\n";
         $retval .= "               name='item_interval_value'\n";
         $retval .= "               value='{$item['item_interval_value']}' />\n";
-        $retval .= "        <select style='width: 49%;' name='item_interval_field'>";
+        $retval .= "        <select class='half_width' name='item_interval_field'>";
         foreach ($event_interval as $key => $value) {
             $selected = "";
             if (! empty($item['item_interval_field'])
@@ -624,18 +632,18 @@ class Events
                 }
                 if (! empty($_REQUEST['item_starts'])) {
                     $query .= "STARTS '"
-                        . $GLOBALS['dbi']->escapeString($_REQUEST['item_starts'])
+                        . $this->dbi->escapeString($_REQUEST['item_starts'])
                         . "' ";
                 }
                 if (! empty($_REQUEST['item_ends'])) {
                     $query .= "ENDS '"
-                        . $GLOBALS['dbi']->escapeString($_REQUEST['item_ends'])
+                        . $this->dbi->escapeString($_REQUEST['item_ends'])
                         . "' ";
                 }
             } else {
                 if (! empty($_REQUEST['item_execute_at'])) {
                     $query .= "AT '"
-                        . $GLOBALS['dbi']->escapeString($_REQUEST['item_execute_at'])
+                        . $this->dbi->escapeString($_REQUEST['item_execute_at'])
                         . "' ";
                 } else {
                     $errors[]
@@ -659,7 +667,7 @@ class Events
             }
         }
         if (! empty($_REQUEST['item_comment'])) {
-            $query .= "COMMENT '" . $GLOBALS['dbi']->escapeString(
+            $query .= "COMMENT '" . $this->dbi->escapeString(
                 $_REQUEST['item_comment']
             ) . "' ";
         }

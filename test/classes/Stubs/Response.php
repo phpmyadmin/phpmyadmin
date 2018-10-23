@@ -203,7 +203,7 @@ class Response
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = (boolean) $isAjax;
+        $this->_isAjax = (bool) $isAjax;
     }
 
     /**

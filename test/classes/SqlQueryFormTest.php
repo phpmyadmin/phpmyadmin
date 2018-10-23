@@ -87,7 +87,7 @@ class SqlQueryFormTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $fetchResult = ["index1"=>"table1", "index2"=>"table2"];
+        $fetchResult = ["index1" => "table1", "index2" => "table2"];
         $dbi->expects($this->any())
             ->method('fetchResult')
             ->will($this->returnValue($fetchResult));

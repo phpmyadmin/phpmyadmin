@@ -58,10 +58,10 @@ class AuthenticationHttpTest extends PmaTestCase
     }
 
     /**
-     * @param mixed     $set_minimal set minimal
-     * @param mixed     $body_id     body id
-     * @param mixed     $set_title   set title
-     * @param mixed ... $headers     headers
+     * @param mixed       $set_minimal set minimal
+     * @param mixed       $body_id     body id
+     * @param mixed       $set_title   set title
+     * @param mixed[] ... $headers     headers
      *
      * @return void
      */
@@ -350,7 +350,7 @@ class AuthenticationHttpTest extends PmaTestCase
             'foo' => 'bar'
         ];
 
-        $GLOBALS['cfg']['Server']= [
+        $GLOBALS['cfg']['Server'] = [
             'host' => 'a',
             'user' => 'user2'
         ];
@@ -383,7 +383,7 @@ class AuthenticationHttpTest extends PmaTestCase
             'foo' => 'bar'
         ];
 
-        $GLOBALS['cfg']['Server']= [
+        $GLOBALS['cfg']['Server'] = [
             'host' => 'a',
             'user' => 'user2'
         ];

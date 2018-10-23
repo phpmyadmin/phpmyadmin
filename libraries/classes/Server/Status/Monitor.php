@@ -782,7 +782,7 @@ class Monitor
         if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
             $value = $GLOBALS['dbi']->escapeString($_REQUEST['varValue']);
             if (! is_numeric($value)) {
-                $value="'" . $value . "'";
+                $value = "'" . $value . "'";
             }
 
             if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])) {
@@ -845,7 +845,7 @@ class Monitor
                 . ' WHERE QUERY_ID=1 ORDER BY seq'
             );
             while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
-                $return['profiling'][]= $row;
+                $return['profiling'][] = $row;
             }
             $GLOBALS['dbi']->freeResult($result);
         }

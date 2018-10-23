@@ -34,7 +34,7 @@ class Select
         // Show as list?
         if ($not_only_options) {
             $list = $GLOBALS['cfg']['DisplayServersList'];
-            $not_only_options =! $list;
+            $not_only_options = ! $list;
         } else {
             $list = false;
         }

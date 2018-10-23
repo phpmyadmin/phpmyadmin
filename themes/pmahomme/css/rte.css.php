@@ -51,13 +51,15 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 .rte_table .routine_params_table {
     width: 100%;
 }
-.rte_table .floatleft {
-    width: 49%;
-    font-weight: bold;
-}
-.rte_table input[type=submit] {
+
+.rte_table .half_width {
     width: 49%;
 }
+
 .isdisableremoveparam_class {
     color: gray;
+}
+
+.ui_tpicker_time_input {
+    width: 100%;
 }

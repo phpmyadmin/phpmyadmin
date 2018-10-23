@@ -227,7 +227,7 @@ class FormTest extends PmaTestCase
         $keys = array_keys($result);
         $key = $keys[0];
 
-        $this->assertRegexp(
+        $this->assertRegExp(
             "/^\:group\:end\:(\d+)$/",
             $key
         );

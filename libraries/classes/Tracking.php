@@ -33,11 +33,17 @@ class Tracking
     private $sqlQueryForm;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Tracking constructor.
      */
     public function __construct()
     {
         $this->sqlQueryForm = new SqlQueryForm();
+        $this->template = new Template();
     }
 
     /**
@@ -95,7 +101,7 @@ class Tracking
         array $selected,
         $type = 'both'
     ) {
-        return Template::get('table/tracking/create_version')->render([
+        return $this->template->render('create_tracking_version', [
             'url_query' => $urlQuery,
             'last_version' => $lastVersion,
             'db' => $db,
@@ -119,7 +125,7 @@ class Tracking
         $urlQuery,
         $lastVersion
     ) {
-        return Template::get('table/tracking/activate_deactivate')->render([
+        return $this->template->render('table/tracking/activate_deactivate', [
             'action' => $action,
             'url_query' => $urlQuery,
             'last_version' => $lastVersion,
@@ -135,7 +141,7 @@ class Tracking
      */
     public function getListOfVersionsOfTable()
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         $sql_query = " SELECT * FROM " .
             Util::backquote($cfgRelation['db']) . "." .
@@ -150,132 +156,62 @@ class Tracking
     }
 
     /**
-     * Function to get html for displaying last version number
+     * Function to get html for main page parts that do not use $_REQUEST
      *
-     * @param array  $sql_result    sql result
-     * @param int    $last_version  last version
-     * @param array  $url_params    url parameters
-     * @param string $url_query     url query
+     * @param string $urlQuery      url query
+     * @param array  $urlParams     url parameters
      * @param string $pmaThemeImage path to theme's image folder
-     * @param string $text_dir      text direction
+     * @param string $textDir       text direction
+     * @param int    $lastVersion   last tracking version
      *
      * @return string
      */
-    public function getHtmlForTableVersionDetails(
-        $sql_result,
-        $last_version,
-        array $url_params,
-        $url_query,
+    public function getHtmlForMainPage(
+        $urlQuery,
+        $urlParams,
         $pmaThemeImage,
-        $text_dir
+        $textDir,
+        $lastVersion = null
     ) {
-        $tracking_active = false;
-
-        $html  = '<form method="post" action="tbl_tracking.php" name="versionsForm"'
-            . ' id="versionsForm" class="ajax">';
-        $html .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
-        $html .= '<table id="versions" class="data">';
-        $html .= '<thead>';
-        $html .= '<tr>';
-        $html .= '<th></th>';
-        $html .= '<th>' . __('Version') . '</th>';
-        $html .= '<th>' . __('Created') . '</th>';
-        $html .= '<th>' . __('Updated') . '</th>';
-        $html .= '<th>' . __('Status') . '</th>';
-        $html .= '<th>' . __('Action') . '</th>';
-        $html .= '<th>' . __('Show') . '</th>';
-        $html .= '</tr>';
-        $html .= '</thead>';
-        $html .= '<tbody>';
-
-        $GLOBALS['dbi']->dataSeek($sql_result, 0);
-        $delete = Util::getIcon('b_drop', __('Delete version'));
-        $report = Util::getIcon('b_report', __('Tracking report'));
-        $structure = Util::getIcon('b_props', __('Structure snapshot'));
-
-        while ($version = $GLOBALS['dbi']->fetchArray($sql_result)) {
-            if ($version['version'] == $last_version) {
-                if ($version['tracking_active'] == 1) {
-                    $tracking_active = true;
-                } else {
-                    $tracking_active = false;
-                }
-            }
-            $delete_link = 'tbl_tracking.php' . $url_query . '&amp;version='
-                . htmlspecialchars($version['version'])
-                . '&amp;submit_delete_version=true';
-            $checkbox_id = 'selected_versions_' . htmlspecialchars($version['version']);
-
-            $html .= '<tr>';
-            $html .= '<td class="center">';
-            $html .= '<input type="checkbox" name="selected_versions[]"'
-                . ' class="checkall" id="' . $checkbox_id . '"'
-                . ' value="' . htmlspecialchars($version['version']) . '"/>';
-            $html .= '</td>';
-            $html .= '<th class="floatright">';
-            $html .= '<label for="' . $checkbox_id . '">'
-                . htmlspecialchars($version['version']) . '</label>';
-            $html .= '</th>';
-            $html .= '<td>' . htmlspecialchars($version['date_created']) . '</td>';
-            $html .= '<td>' . htmlspecialchars($version['date_updated']) . '</td>';
-            $html .= '<td>' . $this->getVersionStatus($version) . '</td>';
-            $html .= '<td><a class="delete_version_anchor ajax"'
-                . ' href="' . $delete_link . '" >' . $delete . '</a></td>';
-            $html .= '<td><a href="tbl_tracking.php';
-            $html .= Url::getCommon(
-                $url_params + [
-                    'report' => 'true', 'version' => $version['version']
-                ]
+        $selectableTablesSqlResult = $this->getSqlResultForSelectableTables();
+        $selectableTablesEntries = array();
+        while (($entry = $GLOBALS['dbi']->fetchArray($selectableTablesSqlResult))) {
+            $entry['is_tracked'] = Tracker::isTracked(
+                $entry['db_name'],
+                $entry['table_name']
             );
-            $html .= '">' . $report . '</a>';
-            $html .= '&nbsp;&nbsp;';
-            $html .= '<a href="tbl_tracking.php';
-            $html .= Url::getCommon(
-                $url_params + [
-                    'snapshot' => 'true', 'version' => $version['version']
-                ]
-            );
-            $html .= '">' . $structure . '</a>';
-            $html .= '</td>';
-            $html .= '</tr>';
+            $selectableTablesEntries[] = $entry;
+        }
+        $selectableTablesNumRows = $GLOBALS['dbi']->numRows($selectableTablesSqlResult);
+
+        $versionSqlResult = $this->getListOfVersionsOfTable();
+        if ($lastVersion === null) {
+            $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
+        }
+        $GLOBALS['dbi']->dataSeek($versionSqlResult, 0);
+        $versions = array();
+        while ($version = $GLOBALS['dbi']->fetchArray($versionSqlResult)) {
+            $versions[] = $version;
         }
 
-        $html .= '</tbody>';
-        $html .= '</table>';
+        $type = $GLOBALS['dbi']->getTable($GLOBALS['db'], $GLOBALS['table'])
+           ->isView() ? 'view' : 'table';
 
-        $html .= Template::get('select_all')
-            ->render(
-                [
-                    'pma_theme_image' => $pmaThemeImage,
-                    'text_dir'        => $text_dir,
-                    'form_name'       => 'versionsForm',
-                ]
-            );
-        $html .= Util::getButtonOrImage(
-            'submit_mult',
-            'mult_submit',
-            __('Delete version'),
-            'b_drop',
-            'delete_version'
-        );
-
-        $html .= '</form>';
-
-        if ($tracking_active) {
-            $html .= $this->getHtmlForActivateDeactivateTracking(
-                'deactivate',
-                $url_query,
-                $last_version
-            );
-        } else {
-            $html .= $this->getHtmlForActivateDeactivateTracking(
-                'activate',
-                $url_query,
-                $last_version
-            );
-        }
-
-        return $html;
+        return $this->template->render('table/tracking/main', [
+            'url_query' => $urlQuery,
+            'url_params' => $urlParams,
+            'db' => $GLOBALS['db'],
+            'table' => $GLOBALS['table'],
+            'selectable_tables_num_rows' => $selectableTablesNumRows,
+            'selectable_tables_entries' => $selectableTablesEntries,
+            'selected_table' => isset($_REQUEST['table']) ? $_REQUEST['table'] : null,
+            'last_version' => $lastVersion,
+            'versions' => $versions,
+            'type' => $type,
+            'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
+            'pmaThemeImage' => $pmaThemeImage,
+            'text_dir' => $textDir
+        ]);
     }
 
     /**
@@ -298,7 +234,7 @@ class Tracking
      */
     public function getSqlResultForSelectableTables()
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
@@ -309,36 +245,6 @@ class Tracking
             " ORDER BY db_name, table_name";
 
         return $relation->queryAsControlUser($sql_query);
-    }
-
-    /**
-     * Function to get html for selectable table rows
-     *
-     * @param array  $selectableTablesSqlResult sql results for selectable rows
-     * @param string $urlQuery                  url query
-     *
-     * @return string
-     */
-    public function getHtmlForSelectableTables(
-        $selectableTablesSqlResult,
-        $urlQuery
-    ) {
-        $entries = [];
-        while ($entry = $GLOBALS['dbi']->fetchArray($selectableTablesSqlResult)) {
-            $entry['is_tracked'] = Tracker::isTracked(
-                $entry['db_name'],
-                $entry['table_name']
-            );
-            $entries[] = $entry;
-        }
-
-        return Template::get('table/tracking/selectable_tables')->render([
-            'url_query' => $urlQuery,
-            'db' => $GLOBALS['db'],
-            'table' => $GLOBALS['table'],
-            'entries' => $entries,
-            'selected_table' => isset($_REQUEST['table']) ? $_REQUEST['table'] : null,
-        ]);
     }
 
     /**
@@ -753,7 +659,7 @@ class Tracking
             $lineNumber++;
         }
 
-        $html = Template::get('table/tracking/report_table')->render([
+        $html = $this->template->render('table/tracking/report_table', [
             'table_id' => $tableId,
             'header_message' => $headerMessage,
             'entries' => $entries,
@@ -824,7 +730,7 @@ class Tracking
      */
     public function getHtmlForColumns(array $columns)
     {
-        return Template::get('table/tracking/structure_snapshot_columns')->render([
+        return $this->template->render('table/tracking/structure_snapshot_columns', [
             'columns' => $columns,
         ]);
     }
@@ -838,7 +744,7 @@ class Tracking
      */
     public function getHtmlForIndexes(array $indexes)
     {
-        return Template::get('table/tracking/structure_snapshot_indexes')->render([
+        return $this->template->render('table/tracking/structure_snapshot_indexes', [
             'indexes' => $indexes,
         ]);
     }
@@ -1261,30 +1167,76 @@ class Tracking
     }
 
     /**
-     * Get HTML for untracked tables
+     * Get HTML for tracked and untracked tables
      *
-     * @param string $db              current database
-     * @param array  $untrackedTables untracked tables
-     * @param string $urlQuery        url query string
-     * @param string $pmaThemeImage   path to theme's image folder
-     * @param string $textDir         text direction
+     * @param string $db            current database
+     * @param array  $requestDb     $_REQUEST['db']
+     * @param string $urlQuery      url query string
+     * @param string $pmaThemeImage path to theme's image folder
+     * @param string $textDir       text direction
      *
      * @return string HTML
      */
-    public function getHtmlForUntrackedTables(
-        $db,
-        array $untrackedTables,
-        $urlQuery,
-        $pmaThemeImage,
-        $textDir
+    public function getHtmlForDbTrackingTables(
+        string $db,
+        string $requestDb,
+        string $urlQuery,
+        string $pmaThemeImage,
+        string $textDir
     ) {
-        return Template::get('database/tracking/untracked_tables')->render([
+        $relation = new Relation($GLOBALS['dbi']);
+        $cfgRelation = $relation->getRelationsParam();
+
+        // Prepare statement to get HEAD version
+        $allTablesQuery = ' SELECT table_name, MAX(version) as version FROM ' .
+            Util::backquote($cfgRelation['db']) . '.' .
+            Util::backquote($cfgRelation['tracking']) .
+            ' WHERE db_name = \'' . $GLOBALS['dbi']->escapeString($requestDb) .
+            '\' ' .
+            ' GROUP BY table_name' .
+            ' ORDER BY table_name ASC';
+
+        $allTablesResult = $relation->queryAsControlUser($allTablesQuery);
+        $untrackedTables = $this->getUntrackedTables($db);
+
+        // If a HEAD version exists
+        $versions = [];
+        $headVersionExists = is_object($allTablesResult)
+            && $GLOBALS['dbi']->numRows($allTablesResult) > 0;
+        if ($headVersionExists) {
+            while ($oneResult = $GLOBALS['dbi']->fetchArray($allTablesResult)) {
+                list($tableName, $versionNumber) = $oneResult;
+                $tableQuery = ' SELECT * FROM ' .
+                     Util::backquote($cfgRelation['db']) . '.' .
+                     Util::backquote($cfgRelation['tracking']) .
+                     ' WHERE `db_name` = \''
+                     . $GLOBALS['dbi']->escapeString($requestDb)
+                     . '\' AND `table_name`  = \''
+                     . $GLOBALS['dbi']->escapeString($tableName)
+                     . '\' AND `version` = \'' . $versionNumber . '\'';
+
+                $tableResult = $relation->queryAsControlUser($tableQuery);
+                $versionData = $GLOBALS['dbi']->fetchArray($tableResult);
+                $versionData['status_button'] = $this->getStatusButton(
+                    $versionData,
+                    $urlQuery
+                );
+                $versions[] = $versionData;
+            }
+        }
+
+        $html = $this->template->render('database/tracking/tables', [
             'db' => $db,
-            'untracked_tables' => $untrackedTables,
+            'head_version_exists' => $headVersionExists,
+            'untracked_tables_exists' => count($untrackedTables) > 0,
+            'versions' => $versions,
             'url_query' => $urlQuery,
-            'pma_theme_image' => $pmaThemeImage,
             'text_dir' => $textDir,
+            'untracked_tables' => $untrackedTables,
+            'pma_theme_image' => $pmaThemeImage,
         ]);
+
+        return $html;
     }
 
     /**
@@ -1328,56 +1280,6 @@ class Tracking
         $table_list = Util::getTableList($db);
         $untracked_tables = $this->extractTableNames($table_list, $db);  //Use helper function to get table list recursively.
         return $untracked_tables;
-    }
-
-    /**
-     * Get tracked tables
-     *
-     * @param string $db              current database
-     * @param object $allTablesResult result set of tracked tables
-     * @param string $urlQuery        url query string
-     * @param string $pmaThemeImage   path to theme's image folder
-     * @param string $textDir         text direction
-     * @param array  $cfgRelation     configuration storage info
-     *
-     * @return string HTML
-     */
-    public function getHtmlForTrackedTables(
-        $db,
-        $allTablesResult,
-        $urlQuery,
-        $pmaThemeImage,
-        $textDir,
-        array $cfgRelation
-    ) {
-        $relation = new Relation();
-        $versions = [];
-        while ($oneResult = $GLOBALS['dbi']->fetchArray($allTablesResult)) {
-            list($tableName, $versionNumber) = $oneResult;
-            $tableQuery = ' SELECT * FROM ' .
-                 Util::backquote($cfgRelation['db']) . '.' .
-                 Util::backquote($cfgRelation['tracking']) .
-                 ' WHERE `db_name` = \''
-                 . $GLOBALS['dbi']->escapeString($_REQUEST['db'])
-                 . '\' AND `table_name`  = \''
-                 . $GLOBALS['dbi']->escapeString($tableName)
-                 . '\' AND `version` = \'' . $versionNumber . '\'';
-
-            $tableResult = $relation->queryAsControlUser($tableQuery);
-            $versionData = $GLOBALS['dbi']->fetchArray($tableResult);
-            $versionData['status_button'] = $this->getStatusButton(
-                $versionData,
-                $urlQuery
-            );
-            $versions[] = $versionData;
-        }
-        return Template::get('database/tracking/tracked_tables')->render([
-            'db' => $db,
-            'versions' => $versions,
-            'url_query' => $urlQuery,
-            'text_dir' => $textDir,
-            'pma_theme_image' => $pmaThemeImage,
-        ]);
     }
 
     /**

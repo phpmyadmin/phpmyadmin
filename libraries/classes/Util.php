@@ -23,6 +23,8 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use Williamdes\MariaDBMySQLKBS\KBException;
 
 /**
  * Misc functions used all over the scripts.
@@ -357,12 +359,45 @@ class Util
     }
 
     /**
+     * Get a link to variable documentation
+     *
+     * @param string  $name       The variable name
+     * @param boolean $useMariaDB Use only MariaDB documentation
+     * @param string  $text       (optional) The text for the link
+     * @return string link or empty string
+     */
+    public static function linkToVarDocumentation(
+        string $name,
+        bool $useMariaDB = false,
+        string $text = null
+    ): string {
+        $html = '';
+        try {
+            $type = KBSearch::MYSQL;
+            if ($useMariaDB) {
+                $type = KBSearch::MARIADB;
+            }
+            $docLink = KBSearch::getByName($name, $type);
+            $html = Util::showMySQLDocu(
+                $name,
+                false,
+                $docLink,
+                $text
+            );
+        } catch (KBException $e) {
+            unset($e);// phpstan workaround
+        }
+        return $html;
+    }
+
+    /**
      * Displays a link to the official MySQL documentation
      *
-     * @param string $link      contains name of page/anchor that is being linked
-     * @param bool   $big_icon  whether to use big icon (like in left frame)
-     * @param string $anchor    anchor to page part
-     * @param bool   $just_open whether only the opening <a> tag should be returned
+     * @param string      $link    contains name of page/anchor that is being linked
+     * @param bool        $bigIcon whether to use big icon (like in left frame)
+     * @param string|null $url     href attribute
+     * @param string|null $text    text of link
+     * @param string      $anchor  anchor to page part
      *
      * @return string  the html link
      *
@@ -370,20 +405,29 @@ class Util
      */
     public static function showMySQLDocu(
         $link,
-        $big_icon = false,
-        $anchor = '',
-        $just_open = false
-    ) {
-        $url = self::getMySQLDocuURL($link, $anchor);
-        $open_link = '<a href="' . $url . '" target="mysql_doc">';
-        if ($just_open) {
-            return $open_link;
-        } elseif ($big_icon) {
-            return $open_link
-                . self::getImage('b_sqlhelp', __('Documentation')) . '</a>';
+        bool $bigIcon = false,
+        $url = null,
+        $text = null,
+        $anchor = ''
+    ): string {
+        if ($url === null) {
+            $url = self::getMySQLDocuURL($link, $anchor);
+        }
+        $openLink = '<a href="' . htmlspecialchars($url) . '" target="mysql_doc">';
+        $closeLink = '</a>';
+        $html = '';
+
+        if ($bigIcon) {
+            $html = $openLink .
+                    self::getImage('b_sqlhelp', __('Documentation'))
+                    . $closeLink;
+        } elseif ($text !== null) {
+            $html = $openLink . $text . $closeLink;
+        } else {
+            $html = self::showDocLink($url, 'mysql_doc');
         }
 
-        return self::showDocLink($url, 'mysql_doc');
+        return $html;
     } // end of the 'showMySQLDocu()' function
 
     /**
@@ -900,7 +944,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (strlen($a_name) > 0 && $a_name !== '*') {
+        if (strlen((string)$a_name) > 0 && $a_name !== '*') {
             return $quote . $a_name . $quote;
         }
 
@@ -925,6 +969,7 @@ class Util
         $type = 'notice'
     ) {
         global $cfg;
+        $template = new Template();
         $retval = '';
 
         if (null === $sql_query) {
@@ -1071,7 +1116,7 @@ class Util
             if (! empty($cfg['SQLQuery']['Edit'])
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $edit_link .= Url::getCommon($url_params) . '#querybox';
+                $edit_link .= Url::getCommon($url_params);
                 $edit_link = ' [&nbsp;'
                     . self::linkOrButton($edit_link, __('Edit'))
                     . '&nbsp;]';
@@ -1136,16 +1181,13 @@ class Util
             // be checked, which would reexecute an INSERT, for example
             if (! empty($refresh_link) && self::profilingSupported()) {
                 $retval .= '<input type="hidden" name="profiling_form" value="1" />';
-                $retval .= Template::get('checkbox')
-                    ->render(
-                        [
-                            'html_field_name'   => 'profiling',
-                            'label'             => __('Profiling'),
-                            'checked'           => isset($_SESSION['profiling']),
-                            'onclick'           => true,
-                            'html_field_id'     => '',
-                        ]
-                    );
+                $retval .= $template->render('checkbox', [
+                    'html_field_name' => 'profiling',
+                    'label' => __('Profiling'),
+                    'checked' => isset($_SESSION['profiling']),
+                    'onclick' => true,
+                    'html_field_id' => '',
+                ]);
             }
             $retval .= '</form>';
 
@@ -1276,11 +1318,11 @@ class Util
         $li   = pow(10, $limes);
         $unit = $byteUnits[0];
 
-        for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
+        for ($d = 6, $ex = 15; $d >= 1; $d--, $ex -= 3) {
             $unitSize = $li * pow(10, $ex);
             if (isset($byteUnits[$d]) && $value >= $unitSize) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
-                $value = round($value / (pow(1024, $d) / $dh)) /$dh;
+                $value = round($value / (pow(1024, $d) / $dh)) / $dh;
                 $unit = $byteUnits[$d];
                 break 1;
             } // end if
@@ -1399,16 +1441,16 @@ class Util
          * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
          * to use, then lower the SI prefix
          */
-        $cur_digits = floor(log10($value / pow(1000, $d))+1);
+        $cur_digits = floor(log10($value / pow(1000, $d)) + 1);
         if ($digits_left > $cur_digits) {
-            $d -= floor(($digits_left - $cur_digits)/3);
+            $d -= floor(($digits_left - $cur_digits) / 3);
         }
 
         if ($d < 0 && $only_down) {
             $d = 0;
         }
 
-        $value = round($value / (pow(1000, $d) / $dh)) /$dh;
+        $value = round($value / (pow(1000, $d) / $dh)) / $dh;
         $unit = $units[$d];
 
         // number_format is not multibyte safe, str_replace is safe
@@ -1531,7 +1573,7 @@ class Util
         );
         $date = preg_replace(
             '@%[bB]@',
-            $month[(int) strftime('%m', (int) $timestamp)-1],
+            $month[(int) strftime('%m', (int) $timestamp) - 1],
             $date
         );
 
@@ -1567,6 +1609,7 @@ class Util
      */
     public static function getHtmlTab(array $tab, array $url_params = [])
     {
+        $template = new Template();
         // default values
         $defaults = [
             'text'      => '',
@@ -1651,9 +1694,8 @@ class Util
 
         $item['class'] = $tab['class'] == 'active' ? 'active' : '';
 
-        return Template::get('list/item')
-            ->render($item);
-    } // end of the 'getHtmlTab()' function
+        return $template->render('list/item', $item);
+    }
 
     /**
      * returns html-code for a tab navigation
@@ -2499,6 +2541,7 @@ class Util
         $class = '',
         $id_prefix = ''
     ) {
+        $template = new Template();
         $radio_html = '';
 
         foreach ($choices as $choice_value => $choice_label) {
@@ -2512,16 +2555,16 @@ class Util
             } else {
                 $checked = 0;
             }
-            $radio_html .= Template::get('radio_fields')->render([
-                            'class' =>  $class,
-                            'html_field_name'   =>  $html_field_name,
-                            'html_field_id' => $html_field_id,
-                            'choice_value' => $choice_value,
-                            'is_line_break' => $line_break,
-                            'choice_label'  => $choice_label,
-                            'escape_label'  => $escape_label,
-                            'checked' => $checked
-                        ]);
+            $radio_html .= $template->render('radio_fields', [
+                'class' => $class,
+                'html_field_name' => $html_field_name,
+                'html_field_id' => $html_field_id,
+                'choice_value' => $choice_value,
+                'is_line_break' => $line_break,
+                'choice_label' => $choice_label,
+                'escape_label' => $escape_label,
+                'checked' => $checked,
+            ]);
         }
 
         return $radio_html;
@@ -2552,6 +2595,7 @@ class Util
         $class = '',
         $placeholder = null
     ) {
+        $template = new Template();
         $resultOptions = [];
         $selected = false;
 
@@ -2565,14 +2609,14 @@ class Util
             }
             $resultOptions[$one_choice_value]['label'] = $one_choice_label;
         }
-        return Template::get('dropdown')->render([
-                'select_name' => $select_name,
-                'id'    => $id,
-                'class' => $class,
-                'placeholder' => $placeholder,
-                'selected'  => $selected,
-                'result_options' => $resultOptions,
-            ]);
+        return $template->render('dropdown', [
+            'select_name' => $select_name,
+            'id' => $id,
+            'class' => $class,
+            'placeholder' => $placeholder,
+            'selected' => $selected,
+            'result_options' => $resultOptions,
+        ]);
     }
 
     /**
@@ -2590,10 +2634,11 @@ class Util
      */
     public static function getDivForSliderEffect($id = '', $message = '', $overrideDefault = null)
     {
-        return Template::get('div_for_slider_effect')->render([
-            'id'                    => $id,
+        $template = new Template();
+        return $template->render('div_for_slider_effect', [
+            'id' => $id,
             'initial_sliders_state' => ($overrideDefault != null) ? $overrideDefault : $GLOBALS['cfg']['InitialSlidersState'],
-            'message'               => $message,
+            'message' => $message,
         ]);
     }
 
@@ -2611,6 +2656,7 @@ class Util
      */
     public static function toggleButton($action, $select_name, array $options, $callback)
     {
+        $template = new Template();
         // Do the logic first
         $link = "$action&amp;" . urlencode($select_name) . "=";
         $link_on = $link . urlencode($options[1]['value']);
@@ -2624,19 +2670,17 @@ class Util
             $state = 'on';
         }
 
-        return Template::get('toggle_button')->render(
-            [
-                'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-                'text_dir'        => $GLOBALS['text_dir'],
-                'link_on'         => $link_on,
-                'link_off'        => $link_off,
-                'toggle_on'       => $options[1]['label'],
-                'toggle_off'      => $options[0]['label'],
-                'callback'        => $callback,
-                'state'           => $state
-            ]
-        );
-    } // end toggleButton()
+        return $template->render('toggle_button', [
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+            'text_dir' => $GLOBALS['text_dir'],
+            'link_on' => $link_on,
+            'link_off' => $link_off,
+            'toggle_on' => $options[1]['label'],
+            'toggle_off' => $options[0]['label'],
+            'callback' => $callback,
+            'state' => $state
+        ]);
+    }
 
     /**
      * Clears cache content which needs to be refreshed on user change.
@@ -2763,18 +2807,6 @@ class Util
         }
         $printable = str_pad($printable, $length, '0', STR_PAD_LEFT);
         return $printable;
-    }
-
-    /**
-     * Verifies whether the value contains a non-printable character
-     *
-     * @param string $value value
-     *
-     * @return integer
-     */
-    public static function containsNonPrintableAscii($value)
-    {
-        return preg_match('@[^[:print:]]@', $value);
     }
 
     /**
@@ -2925,7 +2957,7 @@ class Util
      */
     public static function isForeignKeySupported($engine)
     {
-        $engine = strtoupper($engine);
+        $engine = strtoupper((string)$engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
@@ -2963,7 +2995,8 @@ class Util
     */
     public static function getFKCheckbox()
     {
-        return Template::get('fk_checkbox')->render([
+        $template = new Template();
+        return $template->render('fk_checkbox', [
             'checked' => self::isForeignKeyCheck(),
         ]);
     }
@@ -3067,8 +3100,8 @@ class Util
         $mapping = [
             'structure' =>  __('Structure'),
             'sql' => __('SQL'),
-            'search' =>__('Search'),
-            'insert' =>__('Insert'),
+            'search' => __('Search'),
+            'insert' => __('Insert'),
             'browse' => __('Browse'),
             'operations' => __('Operations'),
 
@@ -3077,8 +3110,8 @@ class Util
             // Values for $cfg['DefaultTabTable']
             'tbl_structure.php' =>  __('Structure'),
             'tbl_sql.php' => __('SQL'),
-            'tbl_select.php' =>__('Search'),
-            'tbl_change.php' =>__('Insert'),
+            'tbl_select.php' => __('Search'),
+            'tbl_change.php' => __('Insert'),
             'sql.php' => __('Browse'),
             // Values for $cfg['DefaultTabDatabase']
             'db_structure.php' => __('Structure'),
@@ -3378,7 +3411,7 @@ class Util
         $titles['NoExecute']  = self::getIcon('bd_nextpage', __('Execute'));
         // For Favorite/NoFavorite, we need icon only.
         $titles['Favorite']  = self::getIcon('b_favorite', '');
-        $titles['NoFavorite']= self::getIcon('b_no_favorite', '');
+        $titles['NoFavorite'] = self::getIcon('b_no_favorite', '');
 
         return $titles;
     }
@@ -4239,28 +4272,35 @@ class Util
      */
     public static function getStartAndNumberOfRowsPanel($sql_query)
     {
-        $pos = isset($_REQUEST['pos'])
-            ? $_REQUEST['pos']
-            : $_SESSION['tmpval']['pos'];
+        $template = new Template();
+
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = $_REQUEST['session_max_rows'];
+        } else if (isset($_SESSION['tmpval']['max_rows'])
+                    && $_SESSION['tmpval']['max_rows'] != 'all'
+        ) {
+            $rows = $_SESSION['tmpval']['max_rows'];
         } else {
-            if ($_SESSION['tmpval']['max_rows'] != 'all') {
-                $rows = $_SESSION['tmpval']['max_rows'];
-            } else {
-                $rows = $GLOBALS['cfg']['MaxRows'];
-            }
+            $rows = $GLOBALS['cfg']['MaxRows'];
+            $_SESSION['tmpval']['max_rows'] = $rows;
         }
 
-        return Template::get('start_and_number_of_rows_panel')
-            ->render(
-                [
-                    'pos' => $pos,
-                    'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),
-                    'rows' => $rows,
-                    'sql_query' => $sql_query,
-                ]
-            );
+        if(isset($_REQUEST['pos'])) {
+            $pos = $_REQUEST['pos'];
+        } else if(isset($_SESSION['tmpval']['pos'])) {
+            $pos = $_SESSION['tmpval']['pos'];
+        } else {
+            $number_of_line = intval($_REQUEST['unlim_num_rows']);
+            $pos = ((ceil($number_of_line / $rows) - 1) * $rows);
+            $_SESSION['tmpval']['pos'] = $pos;
+        }
+
+        return $template->render('start_and_number_of_rows_panel', [
+            'pos' => $pos,
+            'unlim_num_rows' => intval($_REQUEST['unlim_num_rows']),
+            'rows' => $rows,
+            'sql_query' => $sql_query,
+        ]);
     }
 
     /**
@@ -4299,13 +4339,13 @@ class Util
      * Gets the list of tables in the current db and information about these
      * tables if possible
      *
-     * @param string $db       database name
-     * @param string $sub_part part of script name
+     * @param string      $db       database name
+     * @param string|null $sub_part part of script name
      *
      * @return array
      *
      */
-    public static function getDbInfo($db, $sub_part)
+    public static function getDbInfo($db, ?string $sub_part)
     {
         global $cfg;
 
@@ -4491,7 +4531,8 @@ class Util
      */
     public static function getTablesWhenOpen($db, $db_info_result)
     {
-        $sot_cache = $tables = [];
+        $sot_cache = [];
+        $tables = [];
 
         while ($tmp = $GLOBALS['dbi']->fetchAssoc($db_info_result)) {
             $sot_cache[$tmp['Table']] = true;
@@ -4499,7 +4540,7 @@ class Util
         $GLOBALS['dbi']->freeResult($db_info_result);
 
         // is there at least one "in use" table?
-        if (isset($sot_cache)) {
+        if (count($sot_cache) > 0) {
             $tblGroupSql = "";
             $whereAdded = false;
             if (Core::isValid($_REQUEST['tbl_group'])) {

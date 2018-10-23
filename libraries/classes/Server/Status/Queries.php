@@ -46,6 +46,8 @@ class Queries
         $retval .= Util::showMySQLDocu(
             'server-status-variables',
             false,
+            null,
+            null,
             'statvar_Questions'
         );
         $retval .= '<br />';
@@ -119,7 +121,7 @@ class Queries
             $name = str_replace(['Com_', '_'], ['', ' '], $name);
             // Group together values that make out less than 2% into "Other", but only
             // if we have more than 6 fractions already
-            if ($value < $query_sum * 0.02 && count($chart_json)>6) {
+            if ($value < $query_sum * 0.02 && count($chart_json) > 6) {
                 $other_sum += $value;
             } else {
                 $chart_json[$name] = $value;

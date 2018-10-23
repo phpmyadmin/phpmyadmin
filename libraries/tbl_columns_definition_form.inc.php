@@ -30,8 +30,9 @@ Util::checkParameters(
 
 global $db, $table;
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $transformations = new Transformations();
+$template = new Template();
 
 /**
  * Initialize to avoid code execution path warnings
@@ -110,7 +111,7 @@ if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 }
 
 // this will be used on templates/columns_definitions/transformation.twig
-$mime_type= 'input_transformation';
+$mime_type = 'input_transformation';
 if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
     foreach ($available_mime[$mime_type] as $mimekey => $transform) {
         $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
@@ -157,12 +158,12 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 'Field'        => Util::getValueByKey(
                     $_REQUEST,
                     "field_name.${columnNumber}",
-                    false
+                    null
                 ),
                 'Type'         => Util::getValueByKey(
                     $_REQUEST,
                     "field_type.${columnNumber}",
-                    false
+                    null
                 ),
                 'Collation'    => Util::getValueByKey(
                     $_REQUEST,
@@ -187,7 +188,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                 'Extra'        => Util::getValueByKey(
                     $_REQUEST,
                     "field_extra.${columnNumber}",
-                    false
+                    null
                 ),
                 'Virtuality'   => Util::getValueByKey(
                     $_REQUEST,
@@ -463,7 +464,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
 } // end for
 
 include 'libraries/tbl_partition_definition.inc.php';
-$html = Template::get('columns_definitions/column_definitions_form')->render([
+$html = $template->render('columns_definitions/column_definitions_form', [
     'is_backup' => $is_backup,
     'fields_meta' => isset($fields_meta) ? $fields_meta : null,
     'mimework' => $cfgRelation['mimework'],

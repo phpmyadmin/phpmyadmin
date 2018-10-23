@@ -24,6 +24,19 @@ use PhpMyAdmin\Util;
 class NavigationHeader
 {
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
+     * NavigationHeader constructor.
+     */
+    public function __construct()
+    {
+        $this->template = new Template();
+    }
+
+    /**
      * Renders the navigation
      *
      * @return String HTML
@@ -92,7 +105,7 @@ class NavigationHeader
 
         // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
         if (!$GLOBALS['cfg']['NavigationDisplayLogo']) {
-            return Template::get('navigation/logo')->render([
+            return $this->template->render('navigation/logo', [
                 'display_logo' => false,
                 'use_logo_link' => false,
                 'logo_link' => null,
@@ -102,7 +115,7 @@ class NavigationHeader
         }
 
         if (!$GLOBALS['cfg']['NavigationLogoLink']) {
-            return Template::get('navigation/logo')->render([
+            return $this->template->render('navigation/logo', [
                 'display_logo' => true,
                 'use_logo_link' => false,
                 'logo_link' => null,
@@ -138,7 +151,7 @@ class NavigationHeader
                 }
         }
 
-        return Template::get('navigation/logo')->render([
+        return $this->template->render('navigation/logo', [
             'display_logo' => true,
             'use_logo_link' => $useLogoLink,
             'logo_link' => $logoLink,

@@ -329,6 +329,10 @@ $js_messages['strImport'] = __('Import');
 $js_messages['strImportDialogTitle'] = __('Import monitor configuration');
 $js_messages['strImportDialogMessage']
     = __('Please select the file you want to import.');
+$js_messages['strTableNameDialogMessage']
+    = __('Please enter a valid table name.');
+$js_messages['strDBNameDialogMessage']
+    = __('Please enter a valid database name.');
 $js_messages['strNoImportFile'] = __('No files available on server for import!');
 
 $js_messages['strAnalyzeQuery'] = __('Analyse query');
@@ -404,10 +408,10 @@ $js_messages['NoExportable']
 
 /* For ENUM/SET editor*/
 $js_messages['enum_editor'] = __('ENUM/SET editor');
-$js_messages['enum_columnVals'] =__('Values for column %s');
+$js_messages['enum_columnVals'] = __('Values for column %s');
 $js_messages['enum_newColumnVals'] = __('Values for a new column');
-$js_messages['enum_hint'] =__('Enter each value in a separate field.');
-$js_messages['enum_addValue'] =__('Add %d value(s)');
+$js_messages['enum_hint'] = __('Enter each value in a separate field.');
+$js_messages['enum_addValue'] = __('Add %d value(s)');
 
 /* For import.js */
 $js_messages['strImportCSV'] = __(

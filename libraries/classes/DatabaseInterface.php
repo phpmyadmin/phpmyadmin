@@ -139,7 +139,7 @@ class DatabaseInterface
         $this->_table_cache = [];
         $this->_current_user = [];
         $this->types = new Types($this);
-        $this->relation = new Relation();
+        $this->relation = new Relation($this);
     }
 
     /**
@@ -362,10 +362,10 @@ class DatabaseInterface
     /**
      * Run multi query statement and return results
      *
-     * @param string $multi_query multi query statement to execute
-     * @param mysqli $link        mysqli object
+     * @param string  $multi_query multi query statement to execute
+     * @param \mysqli $link        mysqli object
      *
-     * @return mysqli_result collection | boolean(false)
+     * @return \mysqli_result[] | boolean(false)
      */
     public function tryMultiQuery(
         string $multi_query = '',
@@ -816,7 +816,7 @@ class DatabaseInterface
         $views = [];
 
         foreach ($tables_full as $table => $tmp) {
-            $_table = $this->getTable($db, $table);
+            $_table = $this->getTable($db, (string)$table);
             if ($_table->isView()) {
                 $views[] = $table;
             }
@@ -901,7 +901,7 @@ class DatabaseInterface
                                            AS SCHEMA_DATA_FREE';
             }
             $sql .= '
-                   FROM `information_schema`.SCHEMATA s';
+                   FROM `information_schema`.SCHEMATA s ';
             if ($force_stats) {
                 $sql .= '
                     LEFT JOIN `information_schema`.TABLES t
@@ -1077,7 +1077,7 @@ class DatabaseInterface
         $column_map = [];
         $nbColumns = count($view_columns);
 
-        for ($i=0; $i < $nbFields; $i++) {
+        for ($i = 0; $i < $nbFields; $i++) {
             $map = [];
             $map['table_name'] = $meta[$i]->table;
             $map['refering_column'] = $meta[$i]->name;

@@ -52,7 +52,7 @@ class Key extends TwoFactorPlugin
     {
         $result = [];
         foreach ($this->_twofactor->config['settings']['registrations'] as $index => $data) {
-            $reg = new \StdClass;
+            $reg = new \stdClass();
             $reg->keyHandle = $data['keyHandle'];
             $reg->publicKey = $data['publicKey'];
             $reg->certificate = $data['certificate'];
@@ -120,7 +120,7 @@ class Key extends TwoFactorPlugin
         );
         $_SESSION['authenticationRequest'] = $request;
         $this->loadScripts();
-        return Template::get('login/twofactor/key')->render([
+        return $this->template->render('login/twofactor/key', [
             'request' => json_encode($request),
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
         ]);
@@ -140,7 +140,7 @@ class Key extends TwoFactorPlugin
         $_SESSION['registrationRequest'] = $registrationData['request'];
 
         $this->loadScripts();
-        return Template::get('login/twofactor/key_configure')->render([
+        return $this->template->render('login/twofactor/key_configure', [
             'request' => json_encode($registrationData['request']),
             'signatures' => json_encode($registrationData['signatures']),
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),

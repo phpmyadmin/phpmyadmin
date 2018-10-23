@@ -69,7 +69,7 @@ class PdfRelationSchemaTest extends PmaTestCase
             'column_info' => 'column_info',
             'pdf_pages' => 'pdf_pages'
         ];
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -114,7 +114,7 @@ class PdfRelationSchemaTest extends PmaTestCase
         ];
 
         //let fetchRow have more results
-        for ($index=0; $index<4; ++$index) {
+        for ($index = 0; $index < 4; ++$index) {
             $dbi->expects($this->at($index))
                 ->method('fetchRow')
                 ->will($this->returnValue($fetchRowReturn));
@@ -161,8 +161,8 @@ class PdfRelationSchemaTest extends PmaTestCase
             ->will($this->returnValue($fetchValue));
 
         $fetchResult = [
-            'column1' => ['mimetype' => 'value1', 'transformation'=> 'pdf'],
-            'column2' => ['mimetype' => 'value2', 'transformation'=> 'xml'],
+            'column1' => ['mimetype' => 'value1', 'transformation' => 'pdf'],
+            'column2' => ['mimetype' => 'value2', 'transformation' => 'xml'],
         ];
 
         $dbi->expects($this->any())->method('fetchResult')

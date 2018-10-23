@@ -204,19 +204,17 @@ class TableGisVisualizationController extends TableController
                 ]
             )
         );
-        $html = Template::get('table/gis_visualization/gis_visualization')->render(
-            [
-                'url_params' => $this->url_params,
-                'download_url' => $downloadUrl,
-                'label_candidates' => $labelCandidates,
-                'spatial_candidates' => $spatialCandidates,
-                'visualization_settings' => $this->visualizationSettings,
-                'sql_query' => $this->sql_query,
-                'visualization' => $this->visualization->toImage('svg'),
-                'draw_ol' => $this->visualization->asOl(),
-                'pma_theme_image' => $GLOBALS['pmaThemeImage']
-            ]
-        );
+        $html = $this->template->render('table/gis_visualization/gis_visualization', [
+            'url_params' => $this->url_params,
+            'download_url' => $downloadUrl,
+            'label_candidates' => $labelCandidates,
+            'spatial_candidates' => $spatialCandidates,
+            'visualization_settings' => $this->visualizationSettings,
+            'sql_query' => $this->sql_query,
+            'visualization' => $this->visualization->toImage('svg'),
+            'draw_ol' => $this->visualization->asOl(),
+            'pma_theme_image' => $GLOBALS['pmaThemeImage'],
+        ]);
 
         $this->response->addHTML($html);
     }

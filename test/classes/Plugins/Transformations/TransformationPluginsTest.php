@@ -48,7 +48,7 @@ class TransformationPluginsTest extends PmaTestCase
         // For Application Octetstream Download plugin
         global $row, $fields_meta;
         $fields_meta = [];
-        $row = ["pma"=>"aaa", "pca"=>"bbb"];
+        $row = ["pma" => "aaa", "pca" => "bbb"];
 
         // For Image_*_Inline plugin
         $GLOBALS['PMA_Config'] = new Config();
@@ -731,7 +731,7 @@ class TransformationPluginsTest extends PmaTestCase
                 new Application_Octetstream_Download(),
                 [
                     'PMA_BUFFER',
-                    ["filename", 'wrapper_link'=>'PMA_wrapper_link']
+                    ["filename", 'wrapper_link' => 'PMA_wrapper_link']
                 ],
                 '<a href="transformation_wrapper.phpPMA_wrapper_link'
                 . '&amp;ct=application/octet-stream&amp;cn=filename" '
@@ -741,7 +741,7 @@ class TransformationPluginsTest extends PmaTestCase
                 new Application_Octetstream_Download(),
                 [
                     'PMA_BUFFER',
-                    ["", 'cloumn', 'wrapper_link'=>'PMA_wrapper_link']
+                    ["", 'cloumn', 'wrapper_link' => 'PMA_wrapper_link']
                 ],
                 '<a href="transformation_wrapper.phpPMA_wrapper_link&amp;'
                 . 'ct=application/octet-stream&amp;cn=binary_file.dat" '
@@ -775,7 +775,7 @@ class TransformationPluginsTest extends PmaTestCase
                 new Image_JPEG_Link(),
                 [
                     'PMA_IMAGE_LINK',
-                    ["./image/", "200", "wrapper_link"=>"PMA_wrapper_link"]
+                    ["./image/", "200", "wrapper_link" => "PMA_wrapper_link"]
                 ],
                 '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
                 . ' href="transformation_wrapper.phpPMA_wrapper_link"'
@@ -953,7 +953,7 @@ class TransformationPluginsTest extends PmaTestCase
                 new Image_JPEG_Inline(),
                 [
                     'PMA_JPEG_Inline',
-                    ["./image/", "200", "wrapper_link"=>"PMA_wrapper_link"]
+                    ["./image/", "200", "wrapper_link" => "PMA_wrapper_link"]
                 ],
                 '<a href="transformation_wrapper.phpPMA_wrapper_link" '
                 . 'rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
@@ -964,7 +964,7 @@ class TransformationPluginsTest extends PmaTestCase
                 new Image_PNG_Inline(),
                 [
                     'PMA_PNG_Inline',
-                    ["./image/", "200", "wrapper_link"=>"PMA_wrapper_link"]
+                    ["./image/", "200", "wrapper_link" => "PMA_wrapper_link"]
                 ],
                 '<a href="transformation_wrapper.phpPMA_wrapper_link"'
                 . ' rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'

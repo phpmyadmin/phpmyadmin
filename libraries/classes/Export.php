@@ -535,10 +535,10 @@ class Export
         foreach ($_POST as $name => $value) {
             if (is_array($value)) {
                 foreach ($value as $val) {
-                    $refreshButton .= '<input type="hidden" name="' . $name . '[]" value="' . $val . '">';
+                    $refreshButton .= '<input type="hidden" name="' . urlencode((string) $name) . '[]" value="' . urlencode((string) $val) . '">';
                 }
             } else {
-                $refreshButton .= '<input type="hidden" name="' . $name . '" value="' . $value . '">';
+                $refreshButton .= '<input type="hidden" name="' . urlencode((string) $name) . '" value="' . urlencode((string) $value) . '">';
             }
         }
         $refreshButton .= '</form>';
@@ -882,7 +882,7 @@ class Export
      * @param bool         $do_comments     whether to add comments
      * @param bool         $do_mime         whether to add MIME info
      * @param bool         $do_dates        whether to add dates
-     * @param string       $allrows         whether "dump all rows" was ticked
+     * @param string|null  $allrows         whether "dump all rows" was ticked
      * @param string       $limit_to        upper limit
      * @param string       $limit_from      starting limit
      * @param string       $sql_query       query for which exporting is requested
@@ -902,7 +902,7 @@ class Export
         bool $do_comments,
         bool $do_mime,
         bool $do_dates,
-        string $allrows,
+        ?string $allrows,
         string $limit_to,
         string $limit_from,
         string $sql_query,
@@ -1185,11 +1185,11 @@ class Export
      * get all the export options and verify
      * call and include the appropriate Schema Class depending on $export_type
      *
-     * @param string $export_type format of the export
+     * @param string|null $export_type format of the export
      *
      * @return void
      */
-    public function processExportSchema(string $export_type): void
+    public function processExportSchema(?string $export_type): void
     {
         /**
          * default is PDF, otherwise validate it's only letters a-z

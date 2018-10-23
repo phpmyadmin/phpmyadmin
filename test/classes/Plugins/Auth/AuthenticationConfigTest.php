@@ -99,7 +99,7 @@ class AuthenticationConfigTest extends PmaTestCase
     public function testAuthFails()
     {
         $removeConstant = false;
-        $GLOBALS['error_handler'] = new ErrorHandler;
+        $GLOBALS['error_handler'] = new ErrorHandler();
         $GLOBALS['cfg']['Servers'] = [1];
         $GLOBALS['allowDeny_forbidden'] = false;
 

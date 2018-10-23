@@ -47,6 +47,7 @@ class ServerEnginesControllerTest extends PmaTestCase
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['cfg']['Server'] = ['DisableIS' => false];
 
         $this->container = Container::getDefaultContainer();
         $this->container->set('PhpMyAdmin\Response', new ResponseStub());
@@ -54,21 +55,18 @@ class ServerEnginesControllerTest extends PmaTestCase
     }
 
     /**
-     * Tests for _getHtmlForAllServerEngines() method
+     * Tests for indexAction() method
      *
      * @return void
      */
-    public function testGetHtmlForAllServerEngines()
+    public function testHtmlForAllServerEngines()
     {
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerEnginesController');
-        $method = $class->getMethod('_getHtmlForAllServerEngines');
-        $method->setAccessible(true);
-
-        $ctrl = new ServerEnginesController(
+        $class = new ServerEnginesController(
             $this->container->get('response'),
             $this->container->get('dbi')
         );
-        $html = $method->invoke($ctrl);
+        $class->indexAction();
+        $html = $this->container->get('response')->getHTMLResult();
 
         //validate 1: Item header
         $this->assertContains(
@@ -114,19 +112,20 @@ class ServerEnginesControllerTest extends PmaTestCase
      *
      * @return void
      */
-    public function testGetHtmlForServerEngine()
+    public function testHtmlForServerEngine()
     {
         $_REQUEST['engine'] = "Pbxt";
         $_REQUEST['page'] = "page";
+
+        $class = new ReflectionClass('PhpMyAdmin\Controllers\Server\ServerEnginesController');
+        $method = $class->getMethod('_getHtmlForShowEngine');
+        $method->setAccessible(true);
+
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();
         $GLOBALS['dbi'] = $dbi;
-
-        $class = new ReflectionClass('\PhpMyAdmin\Controllers\Server\ServerEnginesController');
-        $method = $class->getMethod('_getHtmlForServerEngine');
-        $method->setAccessible(true);
 
         $engine_plugin = StorageEngine::getEngine("Pbxt");
         $ctrl = new ServerEnginesController(

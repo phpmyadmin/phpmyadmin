@@ -28,7 +28,7 @@ class TableExtension extends AbstractExtension
     {
         return [
             new TwigFunction(
-                'Table_get',
+                'table_get',
                 'PhpMyAdmin\Table::get'
             ),
         ];

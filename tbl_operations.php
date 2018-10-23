@@ -46,7 +46,9 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 /**
  * Gets relation settings
  */
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
+$operations = new Operations($GLOBALS['dbi'], $relation);
+
 $cfgRelation = $relation->getRelationsParam();
 
 // reselect current db (needed in some cases probably due to
@@ -96,8 +98,6 @@ $pma_table = $GLOBALS['dbi']->getTable(
 );
 $reread_info = false;
 $table_alters = [];
-
-$operations = new Operations();
 
 /**
  * If the table has to be moved to some other database
@@ -274,7 +274,7 @@ if (isset($result) && empty($message_to_show)) {
     }
 
     if (! empty($warning_messages)) {
-        $_message = new Message;
+        $_message = new Message();
         $_message->addMessagesString($warning_messages);
         $_message->isError(true);
         if ($response->isAjax()) {

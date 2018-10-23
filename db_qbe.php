@@ -24,7 +24,7 @@ require_once 'libraries/common.inc.php';
 $response = Response::getInstance();
 
 // Gets the relation settings
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
 
 $savedSearchList = [];
@@ -127,7 +127,7 @@ list(
     $tooltip_truename,
     $tooltip_aliasname,
     $pos
-) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
+) = Util::getDbInfo($db, is_null($sub_part) ? '' : $sub_part);
 
 if ($message_to_display) {
     Message::error(

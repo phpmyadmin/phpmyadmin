@@ -39,7 +39,7 @@ if (isset($_REQUEST['index'])) {
         $index = $dbi->getTable($db, $table)->getIndex($_REQUEST['index']);
     }
 } else {
-    $index = new Index;
+    $index = new Index();
 }
 
 $dependency_definitions = [

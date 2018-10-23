@@ -20,6 +20,13 @@ namespace PhpMyAdmin\Tests\Selenium;
 class DbProceduresTest extends TestBase
 {
     /**
+     * The sql_mode before tests
+     *
+     * @var string
+     */
+    private $originalSqlMode = -1;
+
+    /**
      * Setup the browser environment to run the selenium test case
      *
      * @return void
@@ -27,6 +34,17 @@ class DbProceduresTest extends TestBase
     protected function setUp()
     {
         parent::setUp();
+        if($this->originalSqlMode === -1) {
+            $this->originalSqlMode = $this->dbQuery('SELECT @@GLOBAL.SQL_MODE as globalsqm;')->fetch_all(MYSQLI_ASSOC)[0]["globalsqm"];
+            $this->dbQuery(
+                "SET GLOBAL sql_mode = '" .
+                str_replace(
+                    'STRICT_TRANS_TABLES',
+                    '',
+                    $this->originalSqlMode) . "';"
+            );
+        }
+
         $this->dbQuery(
             "CREATE TABLE `test_table` ("
             . " `id` int(11) NOT NULL AUTO_INCREMENT,"
@@ -35,21 +53,24 @@ class DbProceduresTest extends TestBase
             . " PRIMARY KEY (`id`)"
             . ")"
         );
-    }
-
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
 
         $this->login();
 
         $this->navigateDatabase($this->database_name);
         $this->expandMore();
+    }
+
+    /**
+     * Restore initial state
+     *
+     * @return void
+     */
+    public function tearDown(){
+        $this->dbQuery(
+            "SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';"
+        );
+        $this->assertEquals($this->originalSqlMode, $this->dbQuery('SELECT @@GLOBAL.SQL_MODE as globalsqm;')->fetch_all(MYSQLI_ASSOC)[0]["globalsqm"]);
+        parent::tearDown();
     }
 
     /**
@@ -75,40 +96,43 @@ class DbProceduresTest extends TestBase
      */
     public function testAddProcedure()
     {
-        $this->waitForElement("byPartialLinkText", "Routines")->click();
+        $this->waitForElement('partialLinkText', "Routines")->click();
         $this->waitAjax();
 
-        $this->waitForElement("byPartialLinkText", "Add routine")->click();
+        $this->waitForElement('partialLinkText', "Add routine")->click();
 
-        $this->waitForElement("byClassName", "rte_form");
+        $this->waitForElement('className', "rte_form");
 
-        $this->byName("item_name")->value("test_procedure");
+        $this->byName("item_name")->sendKeys("test_procedure");
 
-        $this->byName("item_param_name[0]")->value("inp");
-        $this->select(
-            $this->byName("item_param_type[0]")
-        )->selectOptionByLabel("VARCHAR");
-        $this->byName("item_param_length[0]")->value("10");
+        $this->byName("item_param_name[0]")->sendKeys("inp");
+        $this->selectByLabel(
+            $this->byName("item_param_type[0]"),
+            'VARCHAR'
+        );
+        $this->byName("item_param_length[0]")->sendKeys("10");
 
         $this->byCssSelector("input[value='Add parameter']")->click();
 
-        $this->select(
-            $this->byName("item_param_dir[1]")
-        )->selectOptionByLabel("OUT");
-        $ele = $this->waitForElement("byName", "item_param_name[1]");
-        $ele->value("outp");
+        $this->selectByLabel(
+            $this->byName("item_param_dir[1]"),
+            'OUT'
+        );
+        $ele = $this->waitForElement('name', "item_param_name[1]");
+        $ele->sendKeys("outp");
 
         $proc = "SELECT char_length(inp) + count(*) FROM test_table INTO outp";
         $this->typeInTextArea($proc);
 
-        $this->select(
-            $this->byName("item_sqldataaccess")
-        )->selectOptionByLabel("READS SQL DATA");
+        $this->selectByLabel(
+            $this->byName("item_sqldataaccess"),
+            'READS SQL DATA'
+        );
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., "
             . "'Routine `test_procedure` has been created')]"
         );
@@ -131,23 +155,23 @@ class DbProceduresTest extends TestBase
     public function testEditProcedure()
     {
         $this->_procedureSQL();
-        $this->waitForElement("byPartialLinkText", "Routines")->click();
+        $this->waitForElement('partialLinkText', "Routines")->click();
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'Routines')]"
         );
 
         $this->byPartialLinkText("Edit")->click();
-        $this->waitForElement("byClassName", "rte_form");
+        $this->waitForElement('className', "rte_form");
         $this->byName("item_param_length[0]")->clear();
-        $this->byName("item_param_length[0]")->value("12");
+        $this->byName("item_param_length[0]")->sendKeys("12");
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
         $ele = $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., "
             . "'Routine `test_procedure` has been modified')]"
         );
@@ -165,17 +189,17 @@ class DbProceduresTest extends TestBase
     public function testDropProcedure()
     {
         $this->_procedureSQL();
-        $this->waitForElement("byPartialLinkText", "Routines")->click();
+        $this->waitForElement('partialLinkText', "Routines")->click();
         $this->waitAjax();
 
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//legend[contains(., 'Routines')]"
         );
 
         $this->byPartialLinkText("Drop")->click();
         $this->waitForElement(
-            "byCssSelector",
+            'cssSelector',
             "button.submitOK"
         )->click();
 
@@ -197,16 +221,17 @@ class DbProceduresTest extends TestBase
      */
     private function _executeProcedure($text, $length)
     {
-        $this->waitForElement("byPartialLinkText", "Execute")->click();
-        $this->waitForElement("byName", "params[inp]")->value($text);
+        $this->waitAjax();
+        $this->waitUntilElementIsVisible('linkText', ' Execute', 30)->click();// The space before Execute is because of &nbsp;
+        $this->waitUntilElementIsVisible('name', "params[inp]", 30)->sendKeys($text);
         $this->byCssSelector("div.ui-dialog-buttonset button:nth-child(1)")->click();
 
         $this->waitAjax();
         $this->waitForElement(
-            "byCssSelector",
+            'cssSelector',
             "span#PMA_slidingMessage table tbody"
         );
-        $head = $this->byCssSelector("span#PMA_slidingMessage table tbody")->text();
+        $head = $this->byCssSelector("span#PMA_slidingMessage table tbody")->getText();
         $this->assertEquals("outp\n$length", $head);
     }
 }

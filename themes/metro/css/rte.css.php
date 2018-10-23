@@ -16,11 +16,16 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 .rte_table {
     table-layout: fixed;
+    width: 100%;
 }
 
 .rte_table td {
     vertical-align: middle;
     padding: 0.2em;
+}
+
+.rte_table tr td:nth-child(1) {
+    width: 20%;
 }
 
 .rte_table input,
@@ -41,5 +46,13 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 
 .rte_table .routine_params_table {
+    width: 100%;
+}
+
+.rte_table .half_width {
+    width: 49%;
+}
+
+.ui_tpicker_time_input {
     width: 100%;
 }

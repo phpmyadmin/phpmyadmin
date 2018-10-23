@@ -26,7 +26,7 @@ class ErrorReport
      *
      * @var string
      */
-    private $submissionUrl;
+    private $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 
     /**
      * @var HttpRequest
@@ -39,6 +39,11 @@ class ErrorReport
     private $relation;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      *
      * @param HttpRequest $httpRequest HttpRequest instance
@@ -46,8 +51,19 @@ class ErrorReport
     public function __construct(HttpRequest $httpRequest)
     {
         $this->httpRequest = $httpRequest;
-        $this->submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->template = new Template();
+    }
+
+    /**
+     * Set the URL where to submit reports to
+     *
+     * @param string $submissionUrl Submission URL
+     * @return void
+     */
+    public function setSubmissionUrl(string $submissionUrl): void
+    {
+        $this->submissionUrl = $submissionUrl;
     }
 
     /**
@@ -134,7 +150,7 @@ class ErrorReport
             }
 
             // if there were no 'actual' errors to be submitted.
-            if ($i==0) {
+            if ($i == 0) {
                 return []; // then return empty array
             }
             $report["exception_type"] = 'php';
@@ -257,6 +273,6 @@ class ErrorReport
             $datas['hidden_fields'] = Url::getHiddenFields($reportData, '', true);
         }
 
-        return Template::get('error/report_form')->render($datas);
+        return $this->template->render('error/report_form', $datas);
     }
 }

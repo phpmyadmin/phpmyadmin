@@ -148,30 +148,6 @@ class ZipExtensionTest extends PmaTestCase
     }
 
     /**
-     * Helper function to get ZipArchive for content.
-     *
-     * @param mixed $file file
-     *
-     * @return ZipArchive
-     */
-    private function getZip($file)
-    {
-        $tmp = tempnam('./', 'zip-test');
-        $handle = fopen($tmp, 'w');
-        fwrite($handle, $file);
-        fclose($handle);
-
-        $zip = new ZipArchive;
-        $this->assertTrue(
-            $zip->open($tmp)
-        );
-
-        unlink($tmp);
-
-        return $zip;
-    }
-
-    /**
      * Test for createFile
      *
      * @return void
@@ -181,9 +157,20 @@ class ZipExtensionTest extends PmaTestCase
         $file = $this->zipExtension->createFile("Test content", "test.txt");
         $this->assertNotEmpty($file);
 
-        $zip = $this->getZip($file);
+        $tmp = tempnam('./', 'zip-test');
+        $handle = fopen($tmp, 'w');
+        fwrite($handle, $file);
+        fclose($handle);
+
+        $zip = new ZipArchive();
+        $this->assertTrue(
+            $zip->open($tmp)
+        );
 
         $this->assertEquals(0, $zip->locateName('test.txt'));
+
+        $zip->close();
+        unlink($tmp);
     }
 
     /**
@@ -214,8 +201,21 @@ class ZipExtensionTest extends PmaTestCase
             ["name1.txt", "name2.txt"]
         );
         $this->assertNotEmpty($file);
-        $zip = $this->getZip($file);
+
+        $tmp = tempnam('./', 'zip-test');
+        $handle = fopen($tmp, 'w');
+        fwrite($handle, $file);
+        fclose($handle);
+
+        $zip = new ZipArchive();
+        $this->assertTrue(
+            $zip->open($tmp)
+        );
+
         $this->assertEquals(0, $zip->locateName('name1.txt'));
         $this->assertEquals(1, $zip->locateName('name2.txt'));
+
+        $zip->close();
+        unlink($tmp);
     }
 }

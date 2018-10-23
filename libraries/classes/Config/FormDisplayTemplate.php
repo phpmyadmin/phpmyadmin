@@ -33,6 +33,11 @@ class FormDisplayTemplate
     protected $config;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * FormDisplayTemplate constructor.
      *
      * @param Config $config Config instance
@@ -40,6 +45,7 @@ class FormDisplayTemplate
     public function __construct(Config $config)
     {
         $this->config = $config;
+        $this->template = new Template();
     }
 
     /**
@@ -99,12 +105,10 @@ class FormDisplayTemplate
             ];
         }
 
-        $htmlOutput = Template::get('list/unordered')->render(
-            [
-                'class' => 'tabs responsivetable',
-                'items' => $items,
-            ]
-        );
+        $htmlOutput = $this->template->render('list/unordered', [
+            'class' => 'tabs responsivetable',
+            'items' => $items,
+        ]);
         $htmlOutput .= '<br />';
         $htmlOutput .= '<div class="tabs_contents">';
         return $htmlOutput;
@@ -130,7 +134,7 @@ class FormDisplayTemplate
 
         $attributes = array_merge(['class' => 'optbox'], $attributes);
 
-        return Template::get('config/form_display/fieldset_top')->render([
+        return $this->template->render('config/form_display/fieldset_top', [
             'attributes' => $attributes,
             'title' => $title,
             'description' => $description,
@@ -407,7 +411,7 @@ class FormDisplayTemplate
         }
         $colspan = $this->config->get('is_setup') ? 3 : 2;
 
-        return Template::get('config/form_display/group_header')->render([
+        return $this->template->render('config/form_display/group_header', [
             'group' => $this->group,
             'colspan' => $colspan,
             'header_text' => $headerText,
@@ -433,7 +437,7 @@ class FormDisplayTemplate
      */
     public function displayFieldsetBottom(bool $showButtons = true): string
     {
-        return Template::get('config/form_display/fieldset_bottom')->render([
+        return $this->template->render('config/form_display/fieldset_bottom', [
             'show_buttons' => $showButtons,
             'is_setup' => $this->config->get('is_setup'),
         ]);
@@ -446,7 +450,7 @@ class FormDisplayTemplate
      */
     public function displayTabsBottom(): string
     {
-        return Template::get('config/form_display/tabs_bottom')->render();
+        return $this->template->render('config/form_display/tabs_bottom');
     }
 
     /**
@@ -456,7 +460,7 @@ class FormDisplayTemplate
      */
     public function displayFormBottom(): string
     {
-        return Template::get('config/form_display/form_bottom')->render();
+        return $this->template->render('config/form_display/form_bottom');
     }
 
     /**
@@ -496,9 +500,9 @@ class FormDisplayTemplate
             return '';
         }
 
-        return Template::get('javascript/display')->render(
-            ['js_array' => $jsArray,]
-        );
+        return $this->template->render('javascript/display', [
+            'js_array' => $jsArray,
+        ]);
     }
 
     /**
@@ -511,7 +515,7 @@ class FormDisplayTemplate
      */
     public function displayErrors($name, array $errorList): string
     {
-        return Template::get('config/form_display/errors')->render([
+        return $this->template->render('config/form_display/errors', [
             'name' => $name,
             'error_list' => $errorList,
         ]);

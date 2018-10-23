@@ -63,7 +63,7 @@ class RecentFavoriteTable
      */
     private function __construct($type)
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->_tableType = $type;
         $server_id = $GLOBALS['server'];
         if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])
@@ -241,8 +241,8 @@ class RecentFavoriteTable
         } else {
             $html .= '<li class="warp_link">'
                   . ($this->_tableType == 'recent'
-                    ?__('There are no recent tables.')
-                    :__('There are no favorite tables.'))
+                    ? __('There are no recent tables.')
+                    : __('There are no favorite tables.'))
                   . '</li>';
         }
         return $html;

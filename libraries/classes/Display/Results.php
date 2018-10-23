@@ -198,6 +198,11 @@ class Results
     private $transformations;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor for PhpMyAdmin\Display\Results class
      *
      * @param string $db        the database name
@@ -209,8 +214,9 @@ class Results
      */
     public function __construct($db, $table, $goto, $sql_query)
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->transformations = new Transformations();
+        $this->template = new Template();
 
         $this->_setDefaultTransformations();
 
@@ -770,7 +776,7 @@ class Results
             }
         }
 
-        return Template::get('display/results/table_navigation_button')->render([
+        return $this->template->render('display/results/table_navigation_button', [
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
             'sql_query' => $html_sql_query,
@@ -1052,7 +1058,7 @@ class Results
         $showing_all,
         $html_sql_query
     ) {
-        return Template::get('display/results/show_all_checkbox')->render([
+        return $this->template->render('display/results/show_all_checkbox', [
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
@@ -1121,7 +1127,7 @@ class Results
             @((ceil(
                 $this->__get('unlim_num_rows')
                 / $_SESSION['tmpval']['max_rows']
-            )- 1) * $maxRows),
+            ) - 1) * $maxRows),
             $html_sql_query,
             false,
             $onsubmit,
@@ -1160,7 +1166,7 @@ class Results
             '500' => 500
         ];
 
-        return Template::get('display/results/additional_fields')->render([
+        return $this->template->render('display/results/additional_fields', [
             'goto' => $this->__get('goto'),
             'is_browse_distinct' => $this->__get('is_browse_distinct'),
             'sql_query' => $sqlQuery,
@@ -1276,9 +1282,9 @@ class Results
                 $display_params['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($condition_field ? ' condition"' : '')
-                    . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
+                    . '" data-column="' . htmlspecialchars((string) $fields_meta[$i]->name)
                     . '">' . '        '
-                    . htmlspecialchars($fields_meta[$i]->name)
+                    . htmlspecialchars((string) $fields_meta[$i]->name)
                     . $comments . '    </th>';
             } // end else
 
@@ -1447,9 +1453,9 @@ class Results
     /**
      * Prepare sort by key dropdown - html code segment
      *
-     * @param Index[] $indexes            the indexes of the table for sort criteria
-     * @param string  $sort_expression    the sort expression
-     * @param string  $unsorted_sql_query the unsorted sql query
+     * @param Index[]     $indexes            the indexes of the table for sort criteria
+     * @param string|null $sort_expression    the sort expression
+     * @param string      $unsorted_sql_query the unsorted sql query
      *
      * @return  string  $drop_down_html         html content
      *
@@ -1459,7 +1465,7 @@ class Results
      */
     private function _getSortByKeyDropDown(
         $indexes,
-        $sort_expression,
+        ?string $sort_expression,
         $unsorted_sql_query
     ) {
 
@@ -1737,7 +1743,7 @@ class Results
                 $_SESSION['tmpval']['geoOption'] = self::GEOMETRY_DISP_WKT;
             }
         }
-        return Template::get('display/results/options_block')->render([
+        return $this->template->render('display/results/options_block', [
             'unique_id' => $this->__get('unique_id'),
             'geo_option' => $_SESSION['tmpval']['geoOption'],
             'hide_transformation' => $_SESSION['tmpval']['hide_transformation'],
@@ -1752,6 +1758,7 @@ class Results
             'table' => $this->__get('table'),
             'sql_query' => $this->__get('sql_query'),
             'goto' => $this->__get('goto'),
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
         ]);
     }
 
@@ -1807,7 +1814,7 @@ class Results
      */
     private function _getFormForMultiRowOperations($deleteLink)
     {
-        return Template::get('display/results/multi_row_operations_form')->render([
+        return $this->template->render('display/results/multi_row_operations_form', [
             'delete_link' => $deleteLink,
             'delete_row' => self::DELETE_ROW,
             'kill_process' => self::KILL_PROCESS,
@@ -1831,7 +1838,7 @@ class Results
      */
     private function _getCommentForRow(array $commentsMap, $fieldsMeta)
     {
-        return Template::get('display/results/comment_for_row')->render([
+        return $this->template->render('display/results/comment_for_row', [
             'comments_map' => $commentsMap,
             'fields_meta' => $fieldsMeta,
             'limit_chars' => $GLOBALS['cfg']['LimitChars'],
@@ -2274,7 +2281,7 @@ class Results
     {
         if (preg_match(
             '@int|decimal|float|double|real|bit|boolean|serial@i',
-            $fields_meta->type
+            (string) $fields_meta->type
         )) {
             $th_class[] = 'right';
         }
@@ -2369,9 +2376,9 @@ class Results
         $draggable_html .= ' class="' . implode(' ', $th_class) . '"';
 
         $draggable_html .= ' data-column="'
-            . htmlspecialchars($fields_meta->name) . '">';
+            . htmlspecialchars((string) $fields_meta->name) . '">';
 
-        $draggable_html .= htmlspecialchars($fields_meta->name);
+        $draggable_html .= htmlspecialchars((string) $fields_meta->name);
 
         $draggable_html .= "\n" . $comments . '</th>';
 
@@ -2456,7 +2463,7 @@ class Results
      */
     private function _buildValueDisplay($class, $conditionField, $value)
     {
-        return Template::get('display/results/value_display')->render([
+        return $this->template->render('display/results/value_display', [
             'class' => $class,
             'condition_field' => $conditionField,
             'value' => $value,
@@ -2483,7 +2490,7 @@ class Results
     {
         $classes = $this->_addClass($class, $conditionField, $meta, '');
 
-        return Template::get('display/results/null_display')->render([
+        return $this->template->render('display/results/null_display', [
             'align' => $align,
             'meta' => $meta,
             'classes' => $classes,
@@ -2510,7 +2517,7 @@ class Results
     {
         $classes = $this->_addClass($class, $conditionField, $meta, 'nowrap');
 
-        return Template::get('display/results/empty_display')->render([
+        return $this->template->render('display/results/empty_display', [
             'align' => $align,
             'classes' => $classes,
         ]);
@@ -3148,7 +3155,7 @@ class Results
 
                 $display_params['data'][$row_no][$i]
                     = $this->_getDataCellForNumericColumns(
-                        $row[$i],
+                        (string) $row[$i],
                         $class,
                         $condition_field,
                         $meta,
@@ -3604,20 +3611,20 @@ class Results
     /**
      * Prepare placed links
      *
-     * @param string  $dir               the direction of links should place
-     * @param string  $del_url           the url for delete row
-     * @param array   $displayParts      which elements to display
-     * @param integer $row_no            the index of current row
-     * @param string  $where_clause      the where clause of the sql
-     * @param string  $where_clause_html the html encoded where clause
-     * @param array   $condition_array   array of keys (primary, unique, condition)
-     * @param string  $edit_url          the url for edit row
-     * @param string  $copy_url          the url for copy row
-     * @param string  $edit_anchor_class the class for html element for edit
-     * @param string  $edit_str          the label for edit row
-     * @param string  $copy_str          the label for copy row
-     * @param string  $del_str           the label for delete row
-     * @param string  $js_conf           text for the JS confirmation
+     * @param string      $dir               the direction of links should place
+     * @param string      $del_url           the url for delete row
+     * @param array       $displayParts      which elements to display
+     * @param integer     $row_no            the index of current row
+     * @param string      $where_clause      the where clause of the sql
+     * @param string      $where_clause_html the html encoded where clause
+     * @param array       $condition_array   array of keys (primary, unique, condition)
+     * @param string      $edit_url          the url for edit row
+     * @param string      $copy_url          the url for copy row
+     * @param string      $edit_anchor_class the class for html element for edit
+     * @param string      $edit_str          the label for edit row
+     * @param string      $copy_str          the label for copy row
+     * @param string      $del_str           the label for delete row
+     * @param string|null $js_conf           text for the JS confirmation
      *
      * @return  string                      html content
      *
@@ -3639,7 +3646,7 @@ class Results
         $edit_str,
         $copy_str,
         $del_str,
-        $js_conf
+        ?string $js_conf
     ) {
 
         if (! isset($js_conf)) {
@@ -3727,7 +3734,7 @@ class Results
     /**
      * Prepare data cell for numeric type fields
      *
-     * @param string        $column                the column's value
+     * @param string|null   $column                the column's value
      * @param string        $class                 the html class for column
      * @param boolean       $condition_field       the column should highlighted
      *                                             or not
@@ -3749,7 +3756,7 @@ class Results
      * @see     _getTableBody()
      */
     private function _getDataCellForNumericColumns(
-        $column,
+        ?string $column,
         $class,
         $condition_field,
         $meta,
@@ -3803,7 +3810,7 @@ class Results
     /**
      * Get data cell for geometry type fields
      *
-     * @param string        $column                the relevant column in data row
+     * @param string|null   $column                the relevant column in data row
      * @param string        $class                 the html class for column
      * @param object        $meta                  the meta-information about
      *                                             this field
@@ -3825,7 +3832,7 @@ class Results
      * @see     _getTableBody()
      */
     private function _getDataCellForGeometryColumns(
-        $column,
+        ?string $column,
         $class,
         $meta,
         array $map,
@@ -3949,7 +3956,7 @@ class Results
     /**
      * Get data cell for non numeric type fields
      *
-     * @param string        $column                the relevant column in data row
+     * @param string|null   $column                the relevant column in data row
      * @param string        $class                 the html class for column
      * @param object        $meta                  the meta-information about
      *                                             the field
@@ -3978,7 +3985,7 @@ class Results
      * @see     _getTableBody()
      */
     private function _getDataCellForNonNumericColumns(
-        $column,
+        ?string $column,
         $class,
         $meta,
         array $map,
@@ -4695,7 +4702,7 @@ class Results
 
         $column_for_last_row = mb_strtoupper(
             mb_substr(
-                $column_for_last_row,
+                (string) $column_for_last_row,
                 0,
                 $GLOBALS['cfg']['LimitChars']
             ) . '...'
@@ -4908,17 +4915,11 @@ class Results
         $url_query = $this->__get('url_query');
         $delete_text = ($del_link == self::DELETE_ROW) ? __('Delete') : __('Kill');
 
-        $links_html .= '<img class="selectallarrow" width="38" height="22"'
-            . ' src="' . $this->__get('pma_theme_image') . 'arrow_'
-            . $this->__get('text_dir') . '.png' . '"'
-            . ' alt="' . __('With selected:') . '" />';
-
-        $links_html .= '<input type="checkbox" '
-            . 'id="resultsForm_' . $this->__get('unique_id') . '_checkall" '
-            . 'class="checkall_box" title="' . __('Check all') . '" /> '
-            . '<label for="resultsForm_' . $this->__get('unique_id') . '_checkall">'
-            . __('Check all') . '</label> '
-            . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+        $links_html .= $this->template->render('select_all', [
+            'pma_theme_image' => $this->__get('pma_theme_image'),
+            'text_dir' => $this->__get('text_dir'),
+            'form_name' => 'resultsForm_' . $this->__get('unique_id'),
+        ]);
 
         $links_html .= Util::getButtonOrImage(
             'submit_mult',
@@ -4968,6 +4969,11 @@ class Results
         // fetch last row of the result set
         $GLOBALS['dbi']->dataSeek($dt_result, $this->__get('num_rows') - 1);
         $row = $GLOBALS['dbi']->fetchRow($dt_result);
+
+        // @see DbiMysqi::fetchRow & DatabaseInterface::fetchRow
+        if (! is_array($row)) {
+            $row = [];
+        }
 
         // $clause_is_unique is needed by getTable() to generate the proper param
         // in the multi-edit and multi-delete form
@@ -5271,7 +5277,7 @@ class Results
                         'tbl_gis_visualization.php'
                         . Url::getCommon($_url_params),
                         Util::getIcon(
-                            'b_globe.gif',
+                            'b_globe',
                             __('Visualize GIS data'),
                             true
                         )
@@ -5310,17 +5316,18 @@ class Results
      * Verifies what to do with non-printable contents (binary or BLOB)
      * in Browse mode.
      *
-     * @param string  $category              BLOB|BINARY|GEOMETRY
-     * @param string  $content               the binary content
-     * @param mixed   $transformation_plugin transformation plugin.
-     *                                       Can also be the default function:
-     *                                       Core::mimeDefaultFunction
-     * @param string  $transform_options     transformation parameters
-     * @param string  $default_function      default transformation function
-     * @param object  $meta                  the meta-information about the field
-     * @param array   $url_params            parameters that should go to the
-     *                                       download link
-     * @param boolean &$is_truncated         the result is truncated or not
+     * @param string      $category              BLOB|BINARY|GEOMETRY
+     * @param string|null $content               the binary content
+     * @param mixed       $transformation_plugin transformation plugin.
+     *                                           Can also be the
+     *                                           default function:
+     *                                           Core::mimeDefaultFunction
+     * @param string      $transform_options     transformation parameters
+     * @param string      $default_function      default transformation function
+     * @param object      $meta                  the meta-information about the field
+     * @param array       $url_params            parameters that should go to the
+     *                                           download link
+     * @param boolean     &$is_truncated         the result is truncated or not
      *
      * @return mixed  string or float
      *
@@ -5332,7 +5339,7 @@ class Results
      */
     private function _handleNonPrintableContents(
         $category,
-        $content,
+        ?string $content,
         $transformation_plugin,
         $transform_options,
         $default_function,
@@ -5547,7 +5554,7 @@ class Results
         if (isset($map[$meta->name])) {
             // Field to display from the foreign table?
             if (isset($map[$meta->name][2])
-                && strlen($map[$meta->name][2]) > 0
+                && strlen((string) $map[$meta->name][2]) > 0
             ) {
                 $dispval = $this->_getFromForeign(
                     $map,

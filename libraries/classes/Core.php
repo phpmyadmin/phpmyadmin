@@ -441,12 +441,13 @@ class Core
      * Checks given $page against given $whitelist and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
-     * @param string $page      page to check
-     * @param array  $whitelist whitelist to check page against
+     * @param string  &$page     page to check
+     * @param array   $whitelist whitelist to check page against
+     * @param boolean $include   whether the page is going to be included
      *
      * @return boolean whether $page is valid or not (in $whitelist or not)
      */
-    public static function checkPageValidity(string $page, array $whitelist = []): bool
+    public static function checkPageValidity(&$page, array $whitelist = [], $include = false): bool
     {
         if (empty($whitelist)) {
             $whitelist = self::$goto_whitelist;
@@ -457,6 +458,9 @@ class Core
 
         if (in_array($page, $whitelist)) {
             return true;
+        }
+        if ($include) {
+            return false;
         }
 
         $_page = mb_substr(
@@ -527,8 +531,8 @@ class Core
         if ($GLOBALS['PMA_Config']->get('PMA_IS_IIS') && mb_strlen($uri) > 600) {
             Response::getInstance()->disable();
 
-            echo Template::get('header_location')
-                ->render(['uri' => $uri]);
+            $template = new Template();
+            echo $template->render('header_location', ['uri' => $uri]);
 
             return;
         }
@@ -727,7 +731,7 @@ class Core
 
         // remove empty nested arrays
         for (; $depth >= 0; $depth--) {
-            if (! isset($path[$depth+1]) || count($path[$depth+1]) == 0) {
+            if (! isset($path[$depth + 1]) || count($path[$depth + 1]) == 0) {
                 unset($path[$depth][$keys[$depth]]);
             } else {
                 break;
@@ -1234,8 +1238,8 @@ class Core
         if (! function_exists('ini_get') || ! function_exists('ini_set')) {
             self::fatalError(
                 __(
-                    'You have disabled ini_get and/or ini_set in php.ini. '
-                    . 'This option is incompatible with phpMyAdmin!'
+                    'The ini_get and/or ini_set functions are disabled in php.ini. '
+                    . 'phpMyAdmin requires these functions!'
                 )
             );
         }
@@ -1266,21 +1270,19 @@ class Core
         ?string $class = null,
         ?string $a_class = null
     ): void {
-        echo Template::get('list/item')
-            ->render(
-                [
-                    'content' => $name,
-                    'id' => $listId,
-                    'class' => $class,
-                    'url' => [
-                        'href' => $url,
-                        'target' => $target,
-                        'id' => $a_id,
-                        'class' => $a_class,
-                    ],
-                    'mysql_help_page' => $mysql_help_page,
-                ]
-            );
+        $template = new Template();
+        echo $template->render('list/item', [
+            'content' => $name,
+            'id' => $listId,
+            'class' => $class,
+            'url' => [
+                'href' => $url,
+                'target' => $target,
+                'id' => $a_id,
+                'class' => $a_class,
+            ],
+            'mysql_help_page' => $mysql_help_page,
+        ]);
     }
 
     /**

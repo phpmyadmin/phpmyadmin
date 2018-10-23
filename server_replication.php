@@ -7,9 +7,9 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Message;
 use PhpMyAdmin\ReplicationGui;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\Template;
 
 /**
@@ -29,14 +29,16 @@ $scripts->addFile('server_privileges.js');
 $scripts->addFile('replication.js');
 $scripts->addFile('vendor/zxcvbn.js');
 
+$template = new Template();
+
 /**
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $GLOBALS['dbi']->isSuperuser()) {
-    $html = Template::get('server/sub_page_header')->render([
+    $html = $template->render('server/sub_page_header', [
         'type' => 'replication',
     ]);
-    $html .= PhpMyAdmin\Message::error(__('No Privileges'))->getDisplay();
+    $html .= Message::error(__('No Privileges'))->getDisplay();
     $response->addHTML($html);
     exit;
 }
@@ -58,7 +60,7 @@ $replicationGui->handleControlRequest();
  * start output
  */
 $response->addHTML('<div id="replication">');
-$response->addHTML(Template::get('server/sub_page_header')->render([
+$response->addHTML($template->render('server/sub_page_header', [
     'type' => 'replication',
 ]));
 

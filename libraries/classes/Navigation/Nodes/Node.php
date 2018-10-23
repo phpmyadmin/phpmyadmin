@@ -119,7 +119,7 @@ class Node
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
-        if (strlen($name)) {
+        if (strlen((string)$name)) {
             $this->name = $name;
             $this->real_name = $name;
         }
@@ -127,7 +127,7 @@ class Node
             $this->type = Node::CONTAINER;
         }
         $this->is_group = (bool)$is_group;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -208,7 +208,7 @@ class Node
             $parents[] = $this;
         }
         $parent = $this->parent;
-        while (isset($parent)) {
+        while (! is_null($parent)) {
             if (($parent->type != Node::CONTAINER || $containers)
                 && (!$parent->is_group || $groups)
             ) {
@@ -335,7 +335,7 @@ class Node
         $vPath = [];
         $vPath_clean = [];
         foreach ($this->parents(true, true, true) as $parent) {
-            $vPath[] = base64_encode($parent->name);
+            $vPath[] = base64_encode((string)$parent->name);
             $vPath_clean[] = $parent->name;
         }
         $vPath = implode('.', array_reverse($vPath));
@@ -490,7 +490,7 @@ class Node
             $subClauses = [];
             foreach ($prefixes as $prefix) {
                 $subClauses[] = " LOCATE('"
-                    . $GLOBALS['dbi']->escapeString($prefix) . $dbSeparator
+                    . $GLOBALS['dbi']->escapeString((string)$prefix) . $dbSeparator
                     . "', "
                     . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
             }
@@ -688,6 +688,7 @@ class Node
      */
     private function _getDatabasesToSearch($searchClause)
     {
+        $databases = [];
         if (!empty($searchClause)) {
             $databases = [
                 "%" . $GLOBALS['dbi']->escapeString($searchClause) . "%",

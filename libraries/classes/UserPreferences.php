@@ -31,11 +31,17 @@ class UserPreferences
     private $relation;
 
     /**
+     * @var Template
+     */
+    public $template;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
+        $this->template = new Template();
     }
 
     /**
@@ -105,7 +111,7 @@ class UserPreferences
      *
      * @param array $config_array configuration array
      *
-     * @return true|PhpMyAdmin\Message
+     * @return true|\PhpMyAdmin\Message
      */
     public function save(array $config_array)
     {
@@ -208,7 +214,7 @@ class UserPreferences
      * @param mixed  $value         value
      * @param mixed  $default_value default value
      *
-     * @return true|PhpMyAdmin\Message
+     * @return true|\PhpMyAdmin\Message
      */
     public function persistOption($path, $value, $default_value)
     {
@@ -269,12 +275,9 @@ class UserPreferences
         $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
         $return_url = $script_name . '?' . http_build_query($_GET, '', '&');
 
-        return Template::get('prefs_autoload')
-            ->render(
-                [
-                    'hidden_inputs' => Url::getHiddenInputs(),
-                    'return_url' => $return_url,
-                ]
-            );
+        return $this->template->render('prefs_autoload', [
+            'hidden_inputs' => Url::getHiddenInputs(),
+            'return_url' => $return_url,
+        ]);
     }
 }

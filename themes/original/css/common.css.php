@@ -139,6 +139,14 @@ textarea {
     overflow:           visible;
 }
 
+th.fillPage {
+    width: 80%;
+}
+
+textarea.charField {
+    width: 95%;
+}
+
 fieldset {
     margin-top:         1em;
     border:             <?php echo $GLOBALS['cfg']['MainColor']; ?> solid 1px;
@@ -415,9 +423,13 @@ td .icon {
     margin-<?php echo $right; ?>: 0.3em;
     margin-<?php echo $left; ?>: 0.6em;
 }
+.with-selected {
+    margin-<?php echo $left; ?>: 2em;
+}
 
 /* message boxes: error, confirmation */
 #pma_errors, #pma_demo, #pma_footer {
+    position: relative;
     padding: 0 0.5em;
 }
 
@@ -441,13 +453,13 @@ div.error {
     if ($GLOBALS['text_dir'] === 'ltr') { ?>
         background-position: 10px 50%;
         padding:            0.1em 0.1em 0.1em 42px;
-    <?php
+        <?php
     } else { ?>
         background-position: 99% 50%;
         padding:            0.1em 40px 0.1em 0.1em;
         <?php
     }
-?>
+    ?>
 }
 div.success img.icon,
 div.notice img.icon,
@@ -516,7 +528,7 @@ fieldset.confirmation legend {
         padding:            0.2em 25px 0.2em 0.2em;
         <?php
     }
-?>
+    ?>
 }
 /* end messageboxes */
 
@@ -621,6 +633,28 @@ body#loginform div.container {
     margin: 0 auto;
 }
 
+div.container.modal_form {
+    margin: 0 auto;
+    width: 30em;
+    text-align: center;
+    background: #fff;
+    z-index: 999;
+}
+
+#login_form {
+    text-align: left;
+}
+
+div#modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    z-index: 900;
+}
+
 form.login label {
     float: <?php echo $left; ?>;
     width: 10em;
@@ -633,6 +667,10 @@ form.login label {
 
 .column_attribute {
     font-size: 70%;
+}
+.column_name {
+    font-size: 80%;
+    margin: 5px 2px;
 }
 
 .cfg_dbg_demo{

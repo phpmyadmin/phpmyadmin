@@ -21,6 +21,7 @@ use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\UserPreferences;
 
 /**
  * Gets some core libraries and displays a top message if required
@@ -58,7 +59,7 @@ if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
     && ! preg_match('/^index/', $_REQUEST['target'])
     && ! in_array($_REQUEST['target'], $target_blacklist)
-    && Core::checkPageValidity($_REQUEST['target'])
+    && Core::checkPageValidity($_REQUEST['target'], [], true)
 ) {
     include $_REQUEST['target'];
     exit;
@@ -73,6 +74,12 @@ if (isset($_POST['set_theme'])) {
     $tmanager = ThemeManager::getInstance();
     $tmanager->setActiveTheme($_POST['set_theme']);
     $tmanager->setThemeCookie();
+
+    $userPreferences = new UserPreferences();
+    $prefs = $userPreferences->load();
+    $prefs["config_data"]["ThemeDefault"] = $_POST['set_theme'];
+    $userPreferences->save($prefs["config_data"]);
+
     header('Location: index.php' . Url::getCommonRaw());
     exit();
 }
@@ -546,6 +553,20 @@ if ($GLOBALS['cfg']['LoginCookieStore'] != 0
 }
 
 /**
+ * Warning if using the default MySQL controluser account
+ */
+if ($server != 0
+    && isset($GLOBALS['cfg']['Server']['controluser']) && $GLOBALS['cfg']['Server']['controluser'] == 'pma'
+    && isset($GLOBALS['cfg']['Server']['controlpass']) && $GLOBALS['cfg']['Server']['controlpass'] == 'pmapass'
+) {
+    trigger_error(
+        __('Your server is running with default values for the controluser and password (controlpass) and is open to intrusion; you really should fix this security weakness by changing the password for controluser \'pma\'.'),
+        E_USER_WARNING
+    );
+}
+
+
+/**
  * Check if user does not have defined blowfish secret and it is being used.
  */
 if (! empty($_SESSION['encryption_key'])) {
@@ -583,7 +604,7 @@ if (@file_exists('config')) {
     );
 }
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 
 if ($server > 0) {
     $cfgRelation = $relation->getRelationsParam();

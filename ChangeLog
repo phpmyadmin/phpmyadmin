@@ -8,8 +8,46 @@ phpMyAdmin - ChangeLog
 - issue #12373 Add Metro theme
 - issue #14155 Add move columns preview SQL button
 - issue #14296 Enable strict mode in PHP files
+- issue #13627 Increase field width for editing varchar fields
+- issue #12603 Show warning for users with the default values for controluser and controlpass
+- issue #14589 Fix rendering of column comments in Safari, improve display in all browsers
+- issue #14330 New features for csv import plugin
 
-4.8.2 (not yet released)
+4.8.4 (not yet released)
+- issue #14452 Remove hash param in edit query URL
+- issue #14295 Issue in Changing theme
+- issue #13267 Ensure that database names with '.' are handled properly when DisableIS is true
+- issue #14438 Invisible Icon "Show Full Queries"
+- issue #14133 CSS issue in Designer
+- issue #14447 Error while copying database (pma__column_info)
+
+4.8.3 (2018-08-22)
+- issue #14314 Error when naming a database '0'
+- issue #14333 Fix NULL as default not shown
+- issue #14229 Fixes issue with recent table list
+- issue #14045 Fix slow performance on DB structure filtering
+- issue #14327 Fix Editing server variable not showing save or cancel option
+- issue #14377 Populate options for view create and edit
+- issue #14171 2FA configuration fails if PHP doesn't have GD support
+- issue #14390 Can't unhide tables
+- issue #14382 "Visualize GIS data" icon missing
+- issue #14435 Event scheduler status toggle doesn't work
+- issue #14365 View not working on multiple servers
+- issue #14207 Partition actions in table structure do not work
+- issue #14375 Fixes ERR_BLOCKED_BY_XSS_AUDITOR on export table
+- issue #14552 Blank message shown instead of MySQL error when adding trigger and other locations
+- issue #14525 Fix PHP 7.3 warning: "continue" in "switch" is equal to "break"
+- issue #14554 Icon missing when creating a new trigger, routine, and event
+- issue #14422 Table comment not showing since 4.8.1
+- issue #14426 Drop table doesn't work when you copy tables to another database
+- issue #14581 Escaped HTML in 'Add a new server' setup
+- issue #14548 [security] HTML injection in import warning messages, see PMASA-2018-5
+
+4.8.2 (2018-06-21)
+- issue #14370 WHERE 0 causes Fatal error
+- issue #14225 Fix missing index icon
+- issue        [security] XSS vulnerability in Designer, see PMASA-2018-3
+- issue        [security] File inclusion and remote code execution vulnerability, see PMASA-2018-4
 
 4.8.1 (2018-05-24)
 - issue #12772 Fix case where the central columns attributes don't get filled in

@@ -70,14 +70,14 @@ class ImportTest extends TestCase
         $this->assertTrue($this->import->checkTimeout());
 
         //Reinit values.
-        $timestamp = time()-15;
+        $timestamp = time() - 15;
         $maximum_time = 30;
         $timeout_passed = false;
 
         $this->assertFalse($this->import->checkTimeout());
 
         //Reinit values.
-        $timestamp = time()-60;
+        $timestamp = time() - 60;
         $maximum_time = 30;
         $timeout_passed = false;
 

@@ -273,7 +273,7 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
             // show only if setup script is available, allows to disable this message
             // by simply removing setup directory
             // Also do not show in config exists (and setup would refuse to work)
-            ?>
+    ?>
             <div class="group">
             <h2><?php echo __('More settings') ?></h2>
             <div class="group-cnt">
@@ -291,7 +291,7 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
             </div>
         <?php
 }
-        ?>
+?>
     </div>
     <div id="main_pane_right">
         <div class="group">
@@ -306,7 +306,7 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
             <form class="group-cnt prefs-form disableAjax" name="prefs_export"
                   action="prefs_manage.php" method="post">
                 <?php echo Url::getHiddenInputs(); ?>
-                <div style="padding-bottom:0.5em">
+                <div>
                     <input type="radio" id="export_text_file" name="export_type"
                            value="text_file" checked="checked" />
                     <label for="export_text_file">

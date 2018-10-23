@@ -949,7 +949,8 @@ AJAX.registerOnload('functions.js', function () {
             'server' : PMA_commonParams.get('server'),
             'db' : PMA_commonParams.get('db'),
             'guid': guid,
-            'access_time':_idleSecondsCounter
+            'access_time': _idleSecondsCounter,
+            'check_timeout': 1
         };
         $.ajax({
             type: 'POST',
@@ -978,7 +979,19 @@ AJAX.registerOnload('functions.js', function () {
                     if (isStorageSupported('sessionStorage')) {
                         window.sessionStorage.clear();
                     }
-                    window.location.reload(true);
+                    // append the login form on the page, disable all the forms which were not disabled already, close all the open jqueryui modal boxes
+                    if (!$('#modalOverlay').length) {
+                        $('fieldset').not(':disabled').attr('disabled', 'disabled').addClass('disabled_for_expiration');
+                        $('body').append(data.error);
+                        $('.ui-dialog').each(function (i) {
+                            $('#' + $(this).attr('aria-describedby')).dialog('close');
+                        });
+                        $('#input_username').focus();
+                    } else {
+                        PMA_commonParams.set('token', data.new_token);
+                        $('input[name=token]').val(data.new_token);
+                    }
+                    _idleSecondsCounter = 0;
                 }
             }
         });
@@ -1005,6 +1018,7 @@ AJAX.registerOnload('functions.js', function () {
 AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', 'input:checkbox.checkall');
 });
+
 AJAX.registerOnload('functions.js', function () {
     /**
      * Row marking in horizontal mode (use "on" so that it works also for
@@ -4032,8 +4046,8 @@ var toggleButton = function ($obj) {
             addClass = 'on';
         }
 
-        var params = { 'ajax_request': true };
-        $.post(url, params, function (data) {
+        var parts = url.split('?');
+        $.post(parts[0], parts[1] + '&ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 $container
@@ -4321,6 +4335,9 @@ function PMA_slidingMessage (msg, $obj) {
  */
 AJAX.registerOnload('functions.js', function () {
     var $elm = $('#sqlquery');
+    if ($elm.siblings().filter('.CodeMirror').length > 0) {
+        return;
+    }
     if ($elm.length > 0) {
         if (typeof CodeMirror !== 'undefined') {
             codemirror_editor = PMA_getSQLEditor($elm);
@@ -4543,7 +4560,8 @@ function PMA_createViewDialog ($this) {
     var $msg = PMA_ajaxShowMessage();
     var syntaxHighlighter = null;
     var sep = PMA_commonParams.get('arg_separator');
-    $.get($this.attr('href') + sep + 'ajax_request=1' + sep + 'ajax_dialog=1', function (data) {
+    params = $this.getPostData();
+    $.get($this.attr('href') + sep + 'ajax_request=1' + sep + 'ajax_dialog=1' + sep + params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             PMA_ajaxRemoveMessage($msg);
             var buttonOptions = {};
@@ -4700,18 +4718,20 @@ $(document).on('keyup', '#filterText', function () {
     var count = 0;
     $('[data-filter-row]').each(function () {
         var $row = $(this);
-        console.log($row);
         /* Can not use data() here as it does magic conversion to int for numeric values */
         if ($row.attr('data-filter-row').indexOf(filterInput) > -1) {
             count += 1;
             $row.show();
-            $row.find('input.checkall').removeClass('row-hidden').trigger('change');
+            $row.find('input.checkall').removeClass('row-hidden');
         } else {
             $row.hide();
-            $row.find('input.checkall').addClass('row-hidden').prop('checked', false).trigger('change');
+            $row.find('input.checkall').addClass('row-hidden').prop('checked', false);
             $row.removeClass('marked');
         }
     });
+    setTimeout(function () {
+        $(checkboxes_sel).trigger('change');
+    }, 300);
     $('#filter-rows-count').html(count);
 });
 AJAX.registerOnload('functions.js', function () {

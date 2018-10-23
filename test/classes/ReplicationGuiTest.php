@@ -29,6 +29,13 @@ require_once 'libraries/replication.inc.php';
 class ReplicationGuiTest extends TestCase
 {
     /**
+     * ReplicationGui instance
+     *
+     * @var ReplicationGui
+     */
+    private $replicationGui;
+
+    /**
      * Prepares environment for the test.
      *
      * @return void
@@ -62,8 +69,8 @@ class ReplicationGuiTest extends TestCase
         //Mock DBI
 
         $slave_host = [
-            ['Server_id'=>'Server_id1', 'Host'=>'Host1'],
-            ['Server_id'=>'Server_id2', 'Host'=>'Host2'],
+            ['Server_id' => 'Server_id1', 'Host' => 'Host1'],
+            ['Server_id' => 'Server_id2', 'Host' => 'Host2'],
         ];
 
         $fetchResult = [

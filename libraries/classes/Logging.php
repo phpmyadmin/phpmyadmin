@@ -48,7 +48,7 @@ class Logging
      * @param string $user   user name
      * @param string $status status message
      *
-     * @return void
+     * @return string
      */
     public static function getLogMessage($user, $status)
     {

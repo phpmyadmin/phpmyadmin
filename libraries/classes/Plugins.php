@@ -292,6 +292,7 @@ class Plugins
                 $ret .= '<div class="export_sub_options" id="' . $plugin_name . '_'
                     . $propertyGroup->getName() . '">';
 
+                $text = null;
                 if (method_exists($propertyGroup, 'getText')) {
                     $text = $propertyGroup->getText();
                 }
@@ -320,7 +321,7 @@ class Plugins
                     // each subgroup can have a header, which may also be a form element
                     /** @var OptionsPropertyItem $subgroup_header */
                     $subgroup_header = $propertyItem->getSubgroupHeader();
-                    if (isset($subgroup_header)) {
+                    if (! is_null($subgroup_header)) {
                         $ret .= self::getOneOption(
                             $section,
                             $plugin_name,
@@ -329,7 +330,7 @@ class Plugins
                     }
 
                     $ret .= '<li class="subgroup"><ul';
-                    if (isset($subgroup_header)) {
+                    if (! is_null($subgroup_header)) {
                         $ret .= ' id="ul_' . $subgroup_header->getName() . '">';
                     } else {
                         $ret .= '>';
@@ -367,15 +368,17 @@ class Plugins
             $doc = $propertyGroup->getDoc();
             if ($doc != null) {
                 if (count($doc) == 3) {
-                    $ret .= PhpMyAdmin\Util::showMySQLDocu(
+                    $ret .= \PhpMyAdmin\Util::showMySQLDocu(
                         $doc[1],
                         false,
+                        null,
+                        null,
                         $doc[2]
                     );
                 } elseif (count($doc) == 1) {
-                    $ret .= PhpMyAdmin\Util::showDocu('faq', $doc[0]);
+                    $ret .= \PhpMyAdmin\Util::showDocu('faq', $doc[0]);
                 } else {
-                    $ret .= PhpMyAdmin\Util::showMySQLDocu(
+                    $ret .= \PhpMyAdmin\Util::showMySQLDocu(
                         $doc[1]
                     );
                 }
@@ -495,10 +498,10 @@ class Plugins
                     }
                     $ret .= '>' . self::getString($val) . '</option>';
                 }
+
                 $ret .= '</select>';
                 break;
             case 'PhpMyAdmin\Properties\Options\Items\TextPropertyItem':
-            case 'PhpMyAdmin\Properties\Options\Items\NumberPropertyItem':
                 $ret .= '<li>' . "\n";
                 $ret .= '<label for="text_' . $plugin_name . '_'
                 . $propertyItem->getName() . '" class="desc">'
@@ -517,6 +520,22 @@ class Plugins
                     . ($propertyItem->getLen() != null
                     ? ' maxlength="' . $propertyItem->getLen() . '"'
                     : '')
+                    . ' />';
+                break;
+            case 'PhpMyAdmin\Properties\Options\Items\NumberPropertyItem':
+                $ret .= '<li>' . "\n";
+                $ret .= '<label for="number_' . $plugin_name . '_'
+                    . $propertyItem->getName() . '" class="desc">'
+                    . self::getString($propertyItem->getText()) . '</label>';
+                $ret .= '<input type="number" name="' . $plugin_name . '_'
+                    . $propertyItem->getName() . '"'
+                    . ' value="' . self::getDefault(
+                        $section,
+                        $plugin_name . '_' . $propertyItem->getName()
+                    ) . '"'
+                    . ' id="number_' . $plugin_name . '_'
+                    . $propertyItem->getName() . '"'
+                    . ' min="0"'
                     . ' />';
                 break;
             default:
@@ -539,6 +558,8 @@ class Plugins
         // Options for plugins that support them
         foreach ($list as $plugin) {
             $properties = $plugin->getProperties();
+            $text = null;
+            $options = null;
             if ($properties != null) {
                 $text = $properties->getText();
                 $options = $properties->getOptions();

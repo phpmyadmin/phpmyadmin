@@ -849,6 +849,14 @@ $cfg['CaptchaLoginPublicKey'] = '';
  */
 $cfg['CaptchaLoginPrivateKey'] = '';
 
+/**
+ * Enable drag and drop import
+ * @see feature request : https://github.com/phpmyadmin/phpmyadmin/issues/13155
+ *
+ * @global bool $cfg['enable_drag_drop_import']
+ */
+$cfg['enable_drag_drop_import'] = true;
+
 /*******************************************************************************
  * Navigation panel setup
  */
@@ -1204,7 +1212,7 @@ $cfg['SaveCellsAtOnce'] = false;
  *
  * @global string $cfg['GridEditing']
  */
-$cfg['GridEditing'] ='double-click';
+$cfg['GridEditing'] = 'double-click';
 
 /**
  * Options > Relational display
@@ -2737,7 +2745,7 @@ $cfg['ShowBrowseComments'] = true;
  *
  * @global boolean $cfg['ShowPropertyComments']
  */
-$cfg['ShowPropertyComments']= true;
+$cfg['ShowPropertyComments'] = true;
 
 /**
  * repeat header names every X cells? (0 = deactivate)

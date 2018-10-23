@@ -12,9 +12,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Twig\CharsetsExtension;
 use PhpMyAdmin\Twig\CoreExtension;
 use PhpMyAdmin\Twig\I18nExtension;
-use PhpMyAdmin\Twig\IndexExtension;
 use PhpMyAdmin\Twig\MessageExtension;
-use PhpMyAdmin\Twig\PartitionExtension;
 use PhpMyAdmin\Twig\PluginsExtension;
 use PhpMyAdmin\Twig\RelationExtension;
 use PhpMyAdmin\Twig\SanitizeExtension;
@@ -70,34 +68,19 @@ class Template
             $twig->addExtension(new CharsetsExtension());
             $twig->addExtension(new CoreExtension());
             $twig->addExtension(new I18nExtension());
-            $twig->addExtension(new IndexExtension());
             $twig->addExtension(new MessageExtension());
-            $twig->addExtension(new PartitionExtension());
             $twig->addExtension(new PluginsExtension());
             $twig->addExtension(new RelationExtension());
             $twig->addExtension(new SanitizeExtension());
             $twig->addExtension(new ServerPrivilegesExtension());
             $twig->addExtension(new StorageEngineExtension());
-            $twig->addExtension(new TrackerExtension());
             $twig->addExtension(new TableExtension());
+            $twig->addExtension(new TrackerExtension());
             $twig->addExtension(new TransformationsExtension());
             $twig->addExtension(new UrlExtension());
             $twig->addExtension(new UtilExtension());
             $this::$twig = $twig;
         }
-    }
-
-    /**
-     * Template getter
-     *
-     * @param string $templateName Template path name
-     *
-     * @return \Twig_TemplateWrapper
-     */
-    public static function get(string $templateName): \Twig_TemplateWrapper
-    {
-        $template = new Template();
-        return $template->load($templateName);
     }
 
     /**

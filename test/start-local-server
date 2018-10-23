@@ -28,4 +28,4 @@ $HOME/.phpenv/versions/$PHP_VERSION/sbin/php-fpm --fpm-config $DIR/php-fpm.conf 
 nginx -c $DIR/nginx.conf
 
 # Start BrowserStack Local forwarder
-~/browserstack/BrowserStackLocal -localIdentifier "travis-$TRAVIS_JOB_NUMBER" -onlyAutomate "$TESTSUITE_BROWSERSTACK_KEY" 127.0.0.1,8000,0 & 
+~/browserstack/BrowserStackLocal --force-local --localIdentifier "travis-$TRAVIS_JOB_NUMBER" --onlyAutomate --key "$TESTSUITE_BROWSERSTACK_KEY" --daemon start
