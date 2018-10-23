@@ -437,6 +437,7 @@ abstract class TestBase extends TestCase
         if ($this->isSuccessLogin()) {
             return;
         }
+
         // Clear the input for Microsoft Edge (remebers the username)
         $this->waitForElement('id', 'input_username')->clear()->click()->sendKeys($username);
         $this->byId('input_password')->click()->sendKeys($password);

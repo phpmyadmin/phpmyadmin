@@ -460,21 +460,22 @@ class Table
     /**
      * generates column specification for ALTER or CREATE TABLE syntax
      *
-     * @param string      $name          name
-     * @param string      $type          type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $length        length ('2', '5,2', '', ...)
-     * @param string      $attribute     attribute
-     * @param string      $collation     collation
-     * @param bool|string $null          with 'NULL' or 'NOT NULL'
-     * @param string      $default_type  whether default is CURRENT_TIMESTAMP,
-     *                                   NULL, NONE, USER_DEFINED
-     * @param string      $default_value default value for USER_DEFINED
-     *                                   default type
-     * @param string      $extra         'AUTO_INCREMENT'
-     * @param string      $comment       field comment
-     * @param string      $virtuality    virtuality of the column
-     * @param string      $expression    expression for the virtual column
-     * @param string      $move_to       new position for column
+     * @param string      $name               name
+     * @param string      $type               type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string      $length             length ('2', '5,2', '', ...)
+     * @param string      $attribute          attribute
+     * @param string      $collation          collation
+     * @param bool|string $null               with 'NULL' or 'NOT NULL'
+     * @param string      $default_type       whether default is CURRENT_TIMESTAMP,
+     *                                        NULL, NONE, USER_DEFINED
+     * @param string      $default_value      default value for USER_DEFINED
+     *                                              default type
+     * @param string      $extra              'AUTO_INCREMENT'
+     * @param string      $comment            field comment
+     * @param string      $virtuality         virtuality of the column
+     * @param string      $expression         expression for the virtual column
+     * @param string      $move_to            new position for column
+     * @param array       $columns_with_index Fields having PRIMARY or UNIQUE KEY indexes
      *
      * @todo    move into class PMA_Column
      * @todo on the interface, some js to clear the default value when the
@@ -495,7 +496,8 @@ class Table
         $comment = '',
         $virtuality = '',
         $expression = '',
-        $move_to = ''
+        $move_to = '',
+        $columns_with_index = null
     ) {
         /** @var DatabaseInterface $dbi */
         $dbi = $GLOBALS['dbi'];
@@ -617,6 +619,12 @@ class Table
         } elseif ($move_to != '') {
             $query .= ' AFTER ' . Util::backquote($move_to);
         }
+        if(!$virtuality && !empty($extra)) {
+            if($columns_with_index !== null && !in_array($name, $columns_with_index)) {
+                $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
+            }
+        }
+
         return $query;
     } // end function
 
@@ -753,22 +761,23 @@ class Table
     /**
      * Generates column specification for ALTER syntax
      *
-     * @param string      $oldcol        old column name
-     * @param string      $newcol        new column name
-     * @param string      $type          type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $length        length ('2', '5,2', '', ...)
-     * @param string      $attribute     attribute
-     * @param string      $collation     collation
-     * @param bool|string $null          with 'NULL' or 'NOT NULL'
-     * @param string      $default_type  whether default is CURRENT_TIMESTAMP,
-     *                                   NULL, NONE, USER_DEFINED
-     * @param string      $default_value default value for USER_DEFINED default
-     *                                   type
-     * @param string      $extra         'AUTO_INCREMENT'
-     * @param string      $comment       field comment
-     * @param string      $virtuality    virtuality of the column
-     * @param string      $expression    expression for the virtual column
-     * @param string      $move_to       new position for column
+     * @param string      $oldcol             old column name
+     * @param string      $newcol             new column name
+     * @param string      $type               type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string      $length             length ('2', '5,2', '', ...)
+     * @param string      $attribute          attribute
+     * @param string      $collation          collation
+     * @param bool|string $null               with 'NULL' or 'NOT NULL'
+     * @param string      $default_type       whether default is CURRENT_TIMESTAMP,
+     *                                              NULL, NONE, USER_DEFINED
+     * @param string      $default_value      default value for USER_DEFINED default
+     *                                        type
+     * @param string      $extra              'AUTO_INCREMENT'
+     * @param string      $comment            field comment
+     * @param string      $virtuality         virtuality of the column
+     * @param string      $expression         expression for the virtual column
+     * @param string      $move_to            new position for column
+     * @param array       $columns_with_index Fields having PRIMARY or UNIQUE KEY indexes
      *
      * @see Table::generateFieldSpec()
      *
@@ -788,7 +797,8 @@ class Table
         $comment,
         $virtuality,
         $expression,
-        $move_to
+        $move_to,
+        $columns_with_index = null
     ) {
         return Util::backquote($oldcol) . ' '
         . self::generateFieldSpec(
@@ -804,7 +814,8 @@ class Table
             $comment,
             $virtuality,
             $expression,
-            $move_to
+            $move_to,
+            $columns_with_index
         );
     } // end function
 

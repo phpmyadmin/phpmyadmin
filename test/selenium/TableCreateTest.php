@@ -61,11 +61,6 @@ class TableCreateTest extends TestBase
         $this->waitForElement('id', "field_1_7")->click(); // null
         $this->waitForElement('id', "field_0_9")->click(); // auto increment
 
-        // Do this separately since this opens a dialog
-        // Since auto-increment auto sets a PRIMARY key since no key present
-        $this->waitAjax();
-        $this->waitForElement('xpath', '//button[contains(text(), \'Go\')]')->click();
-
         // column details
         $column_text_details = [
             "field_0_1" => "test_id",

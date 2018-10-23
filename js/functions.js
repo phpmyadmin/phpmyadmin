@@ -2999,7 +2999,7 @@ AJAX.registerOnload('functions.js', function () {
             col = col[0];
             var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
             if ($selectFieldKey.val() === 'none_' + col) {
-                $selectFieldKey.val('primary_' + col).trigger('change');
+                $selectFieldKey.val('primary_' + col).trigger('change', [false]);
             }
         }
     });
