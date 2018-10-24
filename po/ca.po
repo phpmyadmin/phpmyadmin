@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-05-31 08:35+0000\n"
+"PO-Revision-Date: 2018-10-25 16:24+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ca/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -950,6 +950,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"Esteu intentant reduir el nombre de files, però ja heu introduït dades en "
+"aquestes files, les quals es perdran. Voleu continuar?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2307,7 +2309,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "el valor/subconsulta està en blanc"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -10228,6 +10230,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"No s'ha trobat l'extensió de PHP gd. El codi QR no es pot mostrar sense "
+"l'extensió de PHP gd."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 msgid "Authentication Application (2FA)"
@@ -14571,24 +14575,20 @@ msgstr ""
 "vostre dispositiu i introduïu el codi d'autenticació que genera."
 
 #: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
-"Escanegeu el codi QR següent a l'aplicació d'autenticació en dos passos del "
+"Introduïu el codi QR següent a l'aplicació d'autenticació en dos passos del "
 "vostre dispositiu i introduïu el codi d'autenticació que genera."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "URL OTP:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Secret/clau:"
 
 #: templates/login/twofactor/application_configure.twig:21
 #: templates/login/twofactor/application.twig:2
