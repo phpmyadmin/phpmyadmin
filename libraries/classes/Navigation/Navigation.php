@@ -243,7 +243,7 @@ class Navigation
                         $html .= '<td style="width:80px"><a href="navigation.php'
                             . Url::getCommon($params) . '"'
                             . ' class="unhideNavItem ajax">'
-                            . Util::getIcon('show', __('Show'))
+                            . Util::getIcon('show', __('Unhide'))
                             . '</a></td>';
                     }
                     $html .= '</tbody></table>';
