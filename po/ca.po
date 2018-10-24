@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-27 13:13-0300\n"
-"PO-Revision-Date: 2018-08-22 03:31+0000\n"
+"PO-Revision-Date: 2018-10-24 17:03+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ca/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -6850,6 +6850,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Les funcions ini_get i/o ini_set estan inhabilitades al fitxer php.ini. "
+"phpMyAdmin requereix aquestes funcions!"
 
 #: libraries/classes/Core.php:1296
 msgid "GLOBALS overwrite attempt"
@@ -14136,10 +14138,8 @@ msgid "No Privileges"
 msgstr "Sense privilegis"
 
 #: server_privileges.php:156
-#, fuzzy
-#| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "No teniu prou privilegis per manipular amb els usuaris!"
+msgstr "No teniu els privilegis per administrar els usuaris!"
 
 #: server_privileges.php:170
 msgid ""
@@ -14779,11 +14779,8 @@ msgid "Attribute"
 msgstr "Atribut"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr ""
-"La llista central de columnes per a la base de dades actual està buida."
+msgstr "La llista central de columnes per a la base de dades actual està buida"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:416
@@ -15015,8 +15012,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Utilitza OpenStreetMaps com a capa base"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -15033,10 +15028,9 @@ msgstr "Punt:"
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Punt %d"
+msgstr "Punt %d:"
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
@@ -15949,15 +15943,11 @@ msgstr ""
 "vostre dispositiu i introduïu el codi d'autenticació que genera."
 
 #: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
-"Escanegeu el codi QR següent a l'aplicació d'autenticació en dos passos del "
+"Introduïu el codi QR següent a l'aplicació d'autenticació en dos passos del "
 "vostre dispositiu i introduïu el codi d'autenticació que genera."
 
 #: templates/login/twofactor/application_configure.twig:14
@@ -15969,20 +15959,14 @@ msgid "Secret/key:"
 msgstr "Secret/clau:"
 
 #: templates/login/header.twig:15
-#, fuzzy
-#| msgid ""
-#| "There is mismatch between HTTPS indicated on the server and client. This "
-#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
-#| "server configuration to indicate HTTPS properly."
 msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
 "Els protocols HTTPS del servidor i del client no coincideixen. Això pot fer "
-"que phpMyAdmin no funcioni o que hi hagi un risc de seguretat. Si us plau, "
-"corregiu la configuració del servidor per establir el protocol HTTPS "
-"correctament."
+"que phpMyAdmin no funcioni o que hi hagi un risc de seguretat. Corregiu la "
+"configuració del servidor per establir el protocol HTTPS correctament."
 
 #: templates/server/privileges/delete_user_fieldset.twig:3
 msgid "Remove selected user accounts"
