@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-10-26 09:50+0000\n"
+"PO-Revision-Date: 2018-10-26 09:51+0000\n"
 "Last-Translator: Natanel <natanelgemert@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -37,7 +37,7 @@ msgstr "לחץ כדי למיין"
 #: db_central_columns.php:177
 #, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "מוצגות השורות %1$s-%2$s."
+msgstr "מציג שורות %1$s-%2$s."
 
 #: db_datadict.php:61 libraries/classes/Operations.php:60
 msgid "Database comment"
@@ -145,7 +145,7 @@ msgstr "ריק"
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/database/structure/body_for_table_summary.twig:54
 msgid "Default"
-msgstr "בררת מחדל"
+msgstr "ברירת מחדל"
 
 #: db_datadict.php:122 libraries/classes/Plugins/Export/ExportHtmlword.php:400
 #: libraries/classes/Plugins/Export/ExportLatex.php:531
