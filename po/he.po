@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-10-26 10:08+0000\n"
-"Last-Translator: Natanel <natanelgemert@gmail.com>\n"
+"PO-Revision-Date: 2018-10-27 02:33+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
 "Language: he\n"
@@ -6781,11 +6781,11 @@ msgstr "לא ניתן לייצא תוספים, נא לבדוק את ההתקנה
 #: libraries/classes/Display/GitRevision.php:65
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s מהענף %2$s"
 
 #: libraries/classes/Display/GitRevision.php:67
 msgid "no branch"
-msgstr ""
+msgstr "אין ענף"
 
 #: libraries/classes/Display/GitRevision.php:73
 msgid "Git revision:"
@@ -9485,6 +9485,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:28
+#, fuzzy
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -9497,15 +9498,15 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"Linux בלבד: מפעיל תכנית חיצונית ומזין בה את המידע באמצעות קלט סטנדרטי. מחזיר "
-"פלט סטנדרטי מן התכנית. ברירת המחדל הוא פלט נקי, אשר מדפיס \"בצורה יפה\" קוד "
-"HTML. בשל סיבות אבטחה, עליך לערוך באופן ידני את הקובץ libraries/classes/"
+"לינוקס בלבד: מפעיל תכנית חיצונית ומזין בה את המידע באמצעות קלט סטנדרטי. "
+"מחזיר פלט סטנדרטי מן התכנית. בררת המחדל היא פלט נקי, אשר מדפיס \"בצורה יפה\" "
+"קוד HTML. בשל סיבות אבטחה, עליך לערוך באופן ידני את הקובץ libraries/classes/"
 "Plugins/Transformations/Output/Text_Plain_External.php ולמנות ברשימה את "
 "הכלים שברצונך להפוך לזמינים. האופציה הראשונה היא מספר התוכנה שברצונך לעשות "
 "שימוש והאפשרות השניה היא פרמטרים עבור התוכנה. האפשרות השלישית, אם ערכה הוא "
 "1, תמיר את הפלט באמצעות htmlspecialchars (ברירת המחדל היא 1). האופציה "
 "הרביעית, אם ערכה גם כן שווה ל-1, תמנע כריכת הטקסט ותוודא כי הפלט מוצג כולו "
-"בשורה אחת (ברירת המחדל היא 1)."
+"בשורה אחת (בררת המחדל היא 1)."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:28
 msgid ""
