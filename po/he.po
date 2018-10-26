@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-27 13:13-0300\n"
-"PO-Revision-Date: 2018-10-11 02:22+0000\n"
+"PO-Revision-Date: 2018-10-26 09:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.2.1\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -150,7 +150,7 @@ msgstr "בררת מחדל"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:691
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
 msgid "Links to"
-msgstr "קישורים אל"
+msgstr "מקושר אל"
 
 #: db_datadict.php:129 libraries/classes/Config/Descriptions.php:207
 #: libraries/classes/Config/Descriptions.php:222
@@ -586,7 +586,7 @@ msgstr "דף הבית phpMyAdmin הרשמי"
 
 #: index.php:457
 msgid "Contribute"
-msgstr "תורם"
+msgstr "תרומה"
 
 #: index.php:464
 msgid "Get support"
@@ -775,8 +775,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"מטרת פעולתך היא לצמצם את מספר השורות, אבל כבר הכנסת נתונים בשורות אלו והם "
-"עשויים ללכת לאיבוד. להמשיך?"
+"פעולה זו תצמצם את מספר השורות, אך כבר הוזנו נתונים בשורות אלו והמידע עשוי "
+"ללכת לאיבוד. להמשיך?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -13050,7 +13050,7 @@ msgstr ""
 
 #: libraries/classes/Util.php:3922
 msgid "SSL is not being used"
-msgstr ""
+msgstr "לא נעשה שימוש ב־SSL"
 
 #: libraries/classes/Util.php:3927
 msgid "SSL is used with disabled verification"
