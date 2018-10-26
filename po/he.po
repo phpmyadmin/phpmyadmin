@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-10-26 10:00+0000\n"
+"PO-Revision-Date: 2018-10-26 10:08+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
@@ -6776,7 +6776,7 @@ msgstr ""
 
 #: libraries/classes/Display/Export.php:679
 msgid "Could not load export plugins, please check your installation!"
-msgstr "לא ניתן לייצא תוספים, אנא בדוק את ההתקנה שלך."
+msgstr "לא ניתן לייצא תוספים, נא לבדוק את ההתקנה שלך!"
 
 #: libraries/classes/Display/GitRevision.php:65
 #, php-format
@@ -13161,11 +13161,11 @@ msgstr "סידור"
 
 #: libraries/classes/ZipExtension.php:56
 msgid "No files found inside ZIP archive!"
-msgstr ""
+msgstr "לא נמצאו קבצים בתוך ארכיון ה־ZIP!"
 
 #: libraries/classes/ZipExtension.php:84 libraries/classes/ZipExtension.php:91
 msgid "Error in ZIP archive:"
-msgstr ""
+msgstr "שגיאה בארכיון ZIP:"
 
 #: libraries/common.inc.php:196
 msgid ""
