@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-08-26 19:06+0200\n"
-"PO-Revision-Date: 2018-10-26 09:59+0000\n"
-"Last-Translator: Natanel <natanelgemert@gmail.com>\n"
+"PO-Revision-Date: 2018-10-26 10:00+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-8/he/"
 ">\n"
 "Language: he\n"
@@ -13148,7 +13148,7 @@ msgstr ""
 
 #: libraries/classes/Util.php:3845
 msgid "SSL is used"
-msgstr ""
+msgstr "נעשה שימוש ב־SSL"
 
 #: libraries/classes/Util.php:3966
 msgid "Users"
