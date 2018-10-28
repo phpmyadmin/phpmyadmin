@@ -24,7 +24,7 @@ if (isset($_POST['sql_query'])) {
         $_GET['tables']
     );
     $response = Response::getInstance();
-    $response->addJSON('foreign_key_constrains',$constrains);
+    $response->addJSON('foreignKeyConstrains',$constrains);
 } else {
     $response = Response::getInstance();
 
@@ -32,6 +32,7 @@ if (isset($_POST['sql_query'])) {
     $scripts = $header->getScripts();
     $scripts->addFile('vendor/jquery/jquery.md5.js');
     $scripts->addFile('db_multi_table_query.js');
+    $scripts->addFile('db_query_generator.js');
 
     $queryInstance = new MultiTableQuery($GLOBALS['dbi'], $db);
 

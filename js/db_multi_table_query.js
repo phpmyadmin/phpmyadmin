@@ -6,6 +6,7 @@
  * @requires    jQuery
  * @requires    jQueryUI
  * @requires    js/functions.js
+ * @requires    js/db_query_generator.js
  *
  */
 
@@ -33,171 +34,81 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
     PMA_init_slider();
     addNewColumnCallbacks();
 
-    function escapeBacktick (s) {
-        return s.replace('`', '``');
-    }
-
-    function escapeSingleQuote (s) {
-        return s.replace('\\', '\\\\').replace('\'', '\\\'');
-    }
-
     $('#update_query_button').on('click', function () {
         var columns = [];
-        var table_aliases = {};
+        var tableAliases = {};
         $('.tableNameSelect').each(function () {
             $show = $(this).siblings('.show_col').first();
             if ($(this).val() !== '' && $show.prop('checked')) {
-                var table_alias = $(this).siblings('.table_alias').first().val();
-                var column_alias = $(this).siblings('.col_alias').first().val();
+                var tableAlias = $(this).siblings('.table_alias').first().val();
+                var columnAlias = $(this).siblings('.col_alias').first().val();
 
-                if (table_alias !== '') {
-                    columns.push([table_alias, $(this).siblings('.columnNameSelect').first().val()]);
+                if (tableAlias !== '') {
+                    columns.push([tableAlias, $(this).siblings('.columnNameSelect').first().val()]);
                 } else {
                     columns.push([$(this).val(), $(this).siblings('.columnNameSelect').first().val()]);
                 }
 
-                columns[columns.length - 1].push(column_alias);
+                columns[columns.length - 1].push(columnAlias);
 
-                if ($(this).val() in table_aliases) {
-                    if (!(table_aliases[$(this).val()].includes(table_alias))) {
-                        table_aliases[$(this).val()].push(table_alias);
+                if ($(this).val() in tableAliases) {
+                    if (!(tableAliases[$(this).val()].includes(tableAlias))) {
+                        tableAliases[$(this).val()].push(tableAlias);
                     }
                 } else {
-                    table_aliases[$(this).val()] = [table_alias];
+                    tableAliases[$(this).val()] = [tableAlias];
                 }
             }
         });
-        if (Object.keys(table_aliases).length === 0) {
+        if (Object.keys(tableAliases).length === 0) {
             PMA_ajaxShowMessage('Nothing selected', false, 'error');
             return;
         }
 
-        var foreign_keys;
+        var foreignKeys;
         $.ajax({
             type: 'GET',
             async: false,
             url: 'db_multi_table_query.php',
             data: {
                 'db': $('#db_name').val(),
-                'tables': Object.keys(table_aliases),
+                'tables': Object.keys(tableAliases),
                 'ajax_request': '1',
                 'token': PMA_commonParams.get('token')
             },
             success: function (response) {
-                foreign_keys = response.foreign_key_constrains;
+                foreignKeys = response.foreignKeyConstrains;
             }
         });
 
-        query = 'SELECT ';
+        query = 'SELECT ' + '`' + escapeBacktick(columns[0][0]) + '`.';
         if (columns[0][1] === '*') {
-            query += '`' + escapeBacktick(columns[0][0]) + '`.' + escapeBacktick(columns[0][1]) + '';
+            query += '*';
         } else {
-            query += '`' + escapeBacktick(columns[0][0]) + '`.`' + escapeBacktick(columns[0][1]) + '`';
+            query += '`' + escapeBacktick(columns[0][1]) + '`';
         }
         if (columns[0][2] !== '') {
             query += ' AS ' + columns[0][2];
         }
         for (var i = 1; i < columns.length; i++) {
+            query += ', `' + escapeBacktick(columns[i][0]) + '`.';
             if (columns[i][1] === '*') {
-                query += ', `' + escapeBacktick(columns[i][0]) + '`.' + escapeBacktick(columns[i][1]) + '';
+                query += '*';
             } else {
-                query += ', `' + escapeBacktick(columns[i][0]) + '`.`' + escapeBacktick(columns[i][1]) + '`';
+                query += '`' + escapeBacktick(columns[i][1]) + '`';
             }
             if (columns[i][2] !== '') {
                 query += ' AS `' + escapeBacktick(columns[0][2]) + '`';
             }
         }
         query += '\nFROM ';
-        var table_count = 0;
-        var used_tables = [];
-        for (var table in table_aliases) {
-            for (var i = 0; i < table_aliases[table].length; i++) {
-                var joinedByKey = false;
-                foreign_keys.forEach(function (fk) {
-                    if(fk.TABLE_NAME === table && used_tables.includes(fk.REFERENCED_TABLE_NAME)
-                            || fk.REFERENCED_TABLE_NAME === table && used_tables.includes(fk.TABLE_NAME)) {
-                        joinedByKey = true;
-                        var newTable = used_tables.includes(fk.TABLE_NAME) ? fk.REFERENCED_TABLE_NAME : fk.TABLE_NAME;
-                        query += ' \n\tLEFT JOIN ' +  '`' + escapeBacktick(newTable) + '`';
-                        if (table_aliases[fk.TABLE_NAME][i] !== '') {
-                            query += ' AS `' + escapeBacktick(table_aliases[newTable][i]) + '`';
-                            query += ' ON `' + escapeBacktick(table_aliases[fk.TABLE_NAME][i]) + '`';
-                        } else {
-                            query += ' ON `' + escapeBacktick(fk.TABLE_NAME) + '`';
-                        }
-                        query += '.`' + fk.COLUMN_NAME + '`';
-                        if (table_aliases[fk.REFERENCED_TABLE_NAME][i] !== '') {
-                            query += ' = `' + escapeBacktick(table_aliases[fk.REFERENCED_TABLE_NAME][i]) + '`';
-                        } else {
-                            query += ' = `' + escapeBacktick(fk.REFERENCED_TABLE_NAME) + '`';
-                        }
-                        query += '.`' + fk.REFERENCED_COLUMN_NAME+ '`';
-                    }
-                });
 
-                if(joinedByKey === false) {
-                    if (used_tables.length > 0) {
-                        query += '\n\t, ';
-                    }
-                    query += '`' + escapeBacktick(table) + '`';
-                    if (table_aliases[table][i] !== '') {
-                        query += ' AS `' + escapeBacktick(table_aliases[table][i]) + '`';
-                    }
-                }
-                used_tables.push(table);
-            }
-        }
+        query += generateFromBlock(tableAliases, foreignKeys);
 
         $criteria_col_count = $('.criteria_col:checked').length;
         if ($criteria_col_count > 0) {
             query += '\nWHERE ';
-
-            var logical_ops = [];
-
-            var count = 0;
-
-            $('.tableNameSelect').each(function () {
-                $criteria_div = $(this).siblings('.slide-wrapper').first();
-                $use_criteria = $(this).siblings('.criteria_col').first();
-                if ($(this).val() !== '' && $use_criteria.prop('checked')) {
-                    if (count > 0) {
-                        $criteria_div.find('input.logical_op').each(function () {
-                            if ($(this).prop('checked')) {
-                                query += ' ' + $(this).val() + ' ';
-                            }
-                        });
-                    }
-                    formats_text = {
-                        '=' : ' = \'%s\'',
-                        '>' : ' > \'%s\'',
-                        '>=' : ' >= \'%s\'',
-                        '<' : ' < \'%s\'',
-                        '<=' : ' <= \'%s\'',
-                        '!=' : ' != \'%s\'',
-                        'LIKE' : ' LIKE \'%s\'',
-                        'LIKE \%...\%' : ' LIKE \'%%%s%%\'',
-                        'NOT LIKE' : ' NOT LIKE \'%s\'',
-                        'BETWEEN' : ' BETWEEN \'%s\'',
-                        'NOT BETWEEN' : ' NOT BETWEEN \'%s\'',
-                        'IS NULL' : ' \'%s\' IS NULL',
-                        'IS NOT NULL' : ' \'%s\' IS NOT NULL',
-                        'REGEXP' : ' REGEXP \'%s\'',
-                        'REGEXP ^...$' : ' REGEXP \'^%s$\'',
-                        'NOT REGEXP' : ' NOT REGEXP \'%s\''
-                    };
-                    query += '`' + escapeBacktick($(this).val()) + '`.';
-                    query += '`' + escapeBacktick($(this).siblings('.columnNameSelect').first().val()) + '`';
-                    if ($criteria_div.find('.criteria_rhs').first().val() === 'text') {
-                        // query += " '" + $criteria_div.find('.rhs_text_val').first().val() + "'";
-                        query += sprintf(formats_text[$criteria_div.find('.criteria_op').first().val()], escapeSingleQuote($criteria_div.find('.rhs_text_val').first().val()));
-                    } else {
-                        query += ' ' + $criteria_div.find('.criteria_op').first().val();
-                        query += ' `' + escapeBacktick($criteria_div.find('.tableNameSelect').first().val()) + '`.';
-                        query += '`' + escapeBacktick($criteria_div.find('.columnNameSelect').first().val()) + '`';
-                    }
-                    count++;
-                }
-            });
+            query += generateWhereBlock();
         }
 
         query += ';';

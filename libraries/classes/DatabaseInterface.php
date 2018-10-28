@@ -404,11 +404,11 @@ class DatabaseInterface
     /**
      * returns
      *
-     * @param string $database  name of database
-     * @param array $tables     list of tables to search for for relations
-     * @param int $link         mysql link resource|object
+     * @param string $database name of database
+     * @param array  $tables   list of tables to search for for relations
+     * @param int    $link     mysql link resource|object
      *
-     * @return array            array of found foreign keys
+     * @return array           array of found foreign keys
      */
     public function getForeignKeyConstrains(string $database, array $tables, $link = DatabaseInterface::CONNECT_USER): array
     {
