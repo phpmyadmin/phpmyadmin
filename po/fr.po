@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-27 13:13-0300\n"
-"PO-Revision-Date: 2018-10-10 20:26+0000\n"
-"Last-Translator: tmtisfree <tmtisfree@free.fr>\n"
+"PO-Revision-Date: 2018-10-29 15:23+0000\n"
+"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.2.1\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:206 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -8362,7 +8362,7 @@ msgstr "Se déconnecter"
 
 #: libraries/classes/Navigation/NavigationHeader.php:190
 msgid "Empty session data"
-msgstr "Données de session vides"
+msgstr "Vider les données de session"
 
 #: libraries/classes/Navigation/NavigationHeader.php:208
 msgid "phpMyAdmin documentation"
