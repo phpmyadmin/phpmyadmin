@@ -382,16 +382,20 @@ function toggle_structure_data_opts () {
     var radioFormName = pluginName + '_structure_or_data';
     var dataDiv = '#' + pluginName + '_data';
     var structureDiv = '#' + pluginName + '_structure';
+    var rowDiv = '#rows';
     var show = $('input[type=\'radio\'][name=\'' + radioFormName + '\']:checked').val();
     if (show === 'data') {
         $(dataDiv).slideDown('slow');
         $(structureDiv).slideUp('slow');
+        $(rowDiv).slideDown('slow');
     } else {
         $(structureDiv).slideDown('slow');
         if (show === 'structure') {
             $(dataDiv).slideUp('slow');
+            $(rowDiv).slideUp('slow');
         } else {
             $(dataDiv).slideDown('slow');
+            $(rowDiv).slideDown('slow');
         }
     }
 }
