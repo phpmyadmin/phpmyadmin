@@ -110,14 +110,6 @@ jobs:
       php: "7.1"
       env: CI_MODE=release
     - stage: "Other tests"
-      name: "Run selenium tests on Safari"
-      php: "7.1"
-      env:
-        - CI_MODE=selenium
-        - TESTSUITE_SELENIUM_BROWSER=safari
-        - TESTSUITE_USER=root
-        - TESTSUITE_URL=http://127.0.0.1:8000
-    - stage: "Other tests"
       name: "Run selenium tests on Google Chrome"
       php: "7.1"
       env:
@@ -125,25 +117,7 @@ jobs:
         - TESTSUITE_SELENIUM_BROWSER=chrome
         - TESTSUITE_USER=root
         - TESTSUITE_URL=http://127.0.0.1:8000
-    - stage: "Other tests"
-      name: "Run selenium tests on Microsoft Edge"
-      php: "7.1"
-      env:
-        - CI_MODE=selenium
-        - TESTSUITE_SELENIUM_BROWSER=edge
-        - TESTSUITE_USER=root
-        - TESTSUITE_URL=http://127.0.0.1:8000
   allow_failures:
-      - env:
-        - CI_MODE=selenium
-        - TESTSUITE_SELENIUM_BROWSER=safari
-        - TESTSUITE_USER=root
-        - TESTSUITE_URL=http://127.0.0.1:8000
-      - env:
-        - CI_MODE=selenium
-        - TESTSUITE_SELENIUM_BROWSER=edge
-        - TESTSUITE_USER=root
-        - TESTSUITE_URL=http://127.0.0.1:8000
       - php: "nightly"
         env: CI_MODE=test
       - php: "7.2"
