@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
-use PHPUnit_Extensions_Selenium2TestCase_Keys as Keys;
+use Facebook\WebDriver\WebDriverKeys;
 
 /**
  * TableBrowseTest class
@@ -43,16 +43,6 @@ class TableBrowseTest extends TestBase
             . " (2, 'foo', '2010-01-20 02:00:02'),"
             . " (3, 'Abcd', '2012-01-20 02:00:02')"
         );
-    }
-
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
 
         $this->login();
         $this->navigateTable('test_table');
@@ -162,39 +152,39 @@ class TableBrowseTest extends TestBase
         $this->moveto($ele);
         $this->click();
 
-        $this->waitForElement("byId", "insertForm");
+        $this->waitForElement('id', "insertForm");
 
         $this->waitAjax();
-        $this->waitForElement("byId", "insertForm");
+        $this->waitForElement('id', "insertForm");
 
         $this->assertEquals(
             "2",
-            $this->byId("field_1_3")->value()
+            $this->byId("field_1_3")->getAttribute('value')
         );
 
         $this->assertEquals(
             "foo",
-            $this->byId("field_2_3")->value()
+            $this->byId("field_2_3")->getAttribute('value')
         );
 
         $this->assertEquals(
             "2010-01-20 02:00:02",
-            $this->byId("field_3_3")->value()
+            $this->byId("field_3_3")->getAttribute('value')
         );
 
         $this->byId("field_3_3")->clear();
-        $this->byId("field_3_3")->value("2009-01-2");
+        $this->byId("field_3_3")->sendKeys("2009-01-2");
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
 
         $this->byId("field_2_3")->clear();
-        $this->byId("field_2_3")->value("foobar");
+        $this->byId("field_2_3")->sendKeys("foobar");
 
         $this->byId("buttonYes")->click();
 
         $this->waitAjax();
-        $success = $this->waitForElement("byClassName", "success");
-        $this->assertContains("1 row affected", $success->text());
+        $success = $this->waitForElement('className', "success");
+        $this->assertContains("1 row affected", $success->getText());
 
         $this->assertEquals(
             "foobar",
@@ -225,23 +215,23 @@ class TableBrowseTest extends TestBase
 
         $this->assertEquals(
             $this->waitForElement(
-                'byXPath',
+                'xpath',
                 "//div[not(contains(@style,'display: none;'))]//textarea[contains(@class, 'edit_box')]"
-            )->value(),
+            )->getAttribute('value'),
             "abcd"
         );
 
         $this->byCssSelector("textarea.edit_box")->clear();
-        $this->byCssSelector("textarea.edit_box")->value("abcde");
+        $this->byCssSelector("textarea.edit_box")->sendKeys("abcde");
 
-        $this->keys(Keys::RETURN_);
+        $this->keys(WebDriverKeys::RETURN_KEY);
 
         $this->waitAjax();
         $success = $this->waitForElement(
-            "byCssSelector",
+            'cssSelector',
             "span.ajax_notification div.success"
         );
-        $this->assertContains("1 row affected", $success->text());
+        $this->assertContains("1 row affected", $success->getText());
 
         $this->assertEquals(
             "abcde",
@@ -263,16 +253,16 @@ class TableBrowseTest extends TestBase
         );
         $this->moveto($ele);
         $this->click();
-        $this->waitForElement("byId", "insertForm");
+        $this->waitForElement('id', "insertForm");
 
         $this->assertEquals(
             "Abcd",
-            $this->byId("field_2_3")->value()
+            $this->byId("field_2_3")->getAttribute('value')
         );
 
         $this->assertEquals(
             "2012-01-20 02:00:02",
-            $this->byId("field_3_3")->value()
+            $this->byId("field_3_3")->getAttribute('value')
         );
 
         $this->byId("field_2_3")->clear();
@@ -281,13 +271,13 @@ class TableBrowseTest extends TestBase
         // shorter date to prevent error,
         // automatically gets appended with 00:00:00
         $this->keys("2012-01-2");
-        $this->byId("field_2_3")->value("ABCDEFG");
+        $this->byId("field_2_3")->sendKeys("ABCDEFG");
 
-        $this->waitForElement('byId', "buttonYes")->click();
+        $this->waitForElement('id', "buttonYes")->click();
 
         $this->waitAjax();
-        $success = $this->waitForElement("byClassName", "success");
-        $this->assertContains("1 row inserted", $success->text());
+        $success = $this->waitForElement('className', "success");
+        $this->assertContains("1 row inserted", $success->getText());
 
         $this->assertEquals(
             "ABCDEFG",
@@ -312,20 +302,22 @@ class TableBrowseTest extends TestBase
         $this->expandMore();
 
         $this->byPartialLinkText("Search")->click();
-        $this->waitForElement("byId", "tbl_search_form");
+        $this->waitForElement('id', "tbl_search_form");
 
-        $this->byId("fieldID_1")->value("abcd");
-        $select = $this->select($this->byName("criteriaColumnOperators[1]"));
-        $select->selectOptionByLabel("LIKE %...%");
+        $this->byId("fieldID_1")->sendKeys("abcd");
+        $this->selectByLabel(
+            $this->byName("criteriaColumnOperators[1]"),
+            'LIKE %...%'
+        );
 
         $this->scrollToBottom();
-        $elem = $this->waitForElement('byCssSelector', ".tblFooters input[name=submit]");
+        $elem = $this->waitForElement('cssSelector', ".tblFooters input[name=submit]");
         $this->moveto($elem);
         $elem->click();
 
         $this->waitAjax();
-        $success = $this->waitForElement("byClassName", "success");
-        $this->assertContains("Showing rows", $success->text());
+        $success = $this->waitForElement('className', "success");
+        $this->assertContains("Showing rows", $success->getText());
 
         $this->assertEquals(
             "1",
@@ -351,17 +343,17 @@ class TableBrowseTest extends TestBase
         $this->byId("id_rows_to_delete2_left")->click();
 
         $this->byCssSelector("button[value=delete]")->click();
-        $this->waitForElement("byCssSelector", "fieldset.confirmation");
+        $this->waitForElement('cssSelector', "fieldset.confirmation");
 
         $this->byId("buttonYes")->click();
 
         $this->waitAjax();
-        $success = $this->waitForElement("byClassName", "success");
-        $this->assertContains("Showing rows", $success->text());
+        $success = $this->waitForElement('className', "success");
+        $this->assertContains("Showing rows", $success->getText());
 
         $this->assertFalse(
             $this->isElementPresent(
-                "byCssSelector",
+                'cssSelector',
                 "table.table_results tbody tr:nth-child(2)"
             )
         );

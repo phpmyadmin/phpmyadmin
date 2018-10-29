@@ -115,6 +115,9 @@ class ServerDatabasesController extends Controller
             'sort_order' => $this->_sort_order,
         ];
 
+        $column_order = null;
+        $first_database = null;
+
         if ($this->_database_count > 0 && ! empty($this->_databases)) {
             $first_database = reset($this->_databases);
             // table col order

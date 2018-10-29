@@ -69,6 +69,7 @@ class Transformations
             } elseif (isset($trimmed[0]) && $trimmed[0] == "'") {
                 // '...,
                 $trimmed = ltrim($option);
+                $rtrimmed = null;
                 while (($option = array_shift($transform_options)) !== null) {
                     // ...,
                     $trimmed .= ',' . $option;
@@ -253,7 +254,7 @@ class Transformations
      */
     public function getMime($db, $table, $strict = false, $fullName = false)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         if (! $cfgRelation['mimework']) {
@@ -342,7 +343,7 @@ class Transformations
         $inputTransformOpts,
         $forcedelete = false
     ) {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         if (! $cfgRelation['mimework']) {
@@ -449,7 +450,7 @@ class Transformations
      */
     public function clear($db, $table = '', $column = '')
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
 
         if (! isset($cfgRelation['column_info'])) {

@@ -440,6 +440,8 @@ class TrackerTest extends PmaTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
+        $result = null;
+
         if ($type == null) {
             $method = new \ReflectionMethod('PhpMyAdmin\Tracker', '_changeTracking');
             $method->setAccessible(true);

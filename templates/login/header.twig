@@ -1,4 +1,7 @@
-<div class="container">
+{% if session_expired == true %}
+    <div id="modalOverlay">
+{% endif %}
+<div class="container{{ add_class }}">
 <a href="{{ 'https://www.phpmyadmin.net/'|link }}" target="_blank" rel="noopener noreferrer" class="logo">
 <img src="{{ theme.getImgPath('logo_right.png', 'pma_logo.png') }}" id="imLogo" name="imLogo" alt="phpMyAdmin" border="0" />
 </a>
@@ -9,5 +12,5 @@
 </noscript>
 
 <div class="hide" id="js-https-mismatch">
-{{ "There is mismatch between HTTPS indicated on the server and client. This can lead to non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly."|trans|error }}
+{{ "There is a mismatch between HTTPS indicated on the server and client. This can lead to a non working phpMyAdmin or a security risk. Please fix your server configuration to indicate HTTPS properly."|trans|error }}
 </div>

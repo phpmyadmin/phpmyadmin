@@ -45,6 +45,14 @@ if (Tracker::isActive()
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
 $url_params['goto'] = 'tbl_tracking.php';
 $url_params['back'] = 'tbl_tracking.php';
+$data               = [];
+$entries            = [];
+$filter_ts_from     = '';
+$filter_ts_to       = '';
+$filter_users       = [];
+$selection_schema   = false;
+$selection_data     = false;
+$selection_both     = false;
 
 // Init vars for tracking report
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
@@ -54,9 +62,6 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         $_REQUEST['version']
     );
 
-    $selection_schema = false;
-    $selection_data   = false;
-    $selection_both  = false;
 
     if (! isset($_REQUEST['logtype'])) {
         $_REQUEST['logtype'] = 'schema_and_data';

@@ -1407,7 +1407,7 @@ class ExportSql extends ExportPlugin
         // with $GLOBALS['dbi']->numRows() in mysqli
         $result = $GLOBALS['dbi']->tryQuery(
             'SHOW TABLE STATUS FROM ' . Util::backquote($db)
-            . ' WHERE Name = \'' . $GLOBALS['dbi']->escapeString($table) . '\'',
+            . ' WHERE Name = \'' . $GLOBALS['dbi']->escapeString((string)$table) . '\'',
             DatabaseInterface::CONNECT_USER,
             DatabaseInterface::QUERY_STORE
         );
@@ -2843,18 +2843,18 @@ class ExportSql extends ExportPlugin
     /**
      * Generate comment
      *
-     * @param string $crlf          Carriage return character
-     * @param string $sql_statement SQL statement
-     * @param string $comment1      Comment for dumped table
-     * @param string $comment2      Comment for current table
-     * @param string $table_alias   Table alias
-     * @param string $compat        Compatibility mode
+     * @param string      $crlf          Carriage return character
+     * @param string|null $sql_statement SQL statement
+     * @param string      $comment1      Comment for dumped table
+     * @param string      $comment2      Comment for current table
+     * @param string      $table_alias   Table alias
+     * @param string      $compat        Compatibility mode
      *
      * @return string
      */
     protected function generateComment(
         $crlf,
-        $sql_statement,
+        ?string $sql_statement,
         $comment1,
         $comment2,
         $table_alias,

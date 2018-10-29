@@ -366,7 +366,7 @@ class Config
         }
 
         // caching
-        if (isset($_SESSION['is_git_revision'])) {
+        if (isset($_SESSION['is_git_revision']) && isset($_SESSION['git_location'])) {
             if ($_SESSION['is_git_revision']) {
                 $this->set('PMA_VERSION_GIT', 1);
             }
@@ -458,7 +458,7 @@ class Config
                     return;
                 }
                 // split file to lines
-                $ref_lines = explode("\n", $packed_refs);
+                $ref_lines = explode(PHP_EOL, $packed_refs);
                 foreach ($ref_lines as $line) {
                     // skip comments
                     if ($line[0] == '#') {

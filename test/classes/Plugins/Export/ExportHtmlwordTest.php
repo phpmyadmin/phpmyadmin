@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportHtmlword;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -531,6 +532,7 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $this->object->expects($this->exactly(3))
             ->method('formatOneColumnDefinition')
@@ -627,6 +629,7 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $GLOBALS['cfgRelation']['relation'] = true;
         $_SESSION['relation'][0] = [

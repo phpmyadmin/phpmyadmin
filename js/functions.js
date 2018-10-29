@@ -949,7 +949,8 @@ AJAX.registerOnload('functions.js', function () {
             'server' : PMA_commonParams.get('server'),
             'db' : PMA_commonParams.get('db'),
             'guid': guid,
-            'access_time':_idleSecondsCounter
+            'access_time': _idleSecondsCounter,
+            'check_timeout': 1
         };
         $.ajax({
             type: 'POST',
@@ -978,7 +979,19 @@ AJAX.registerOnload('functions.js', function () {
                     if (isStorageSupported('sessionStorage')) {
                         window.sessionStorage.clear();
                     }
-                    window.location.reload(true);
+                    // append the login form on the page, disable all the forms which were not disabled already, close all the open jqueryui modal boxes
+                    if (!$('#modalOverlay').length) {
+                        $('fieldset').not(':disabled').attr('disabled', 'disabled').addClass('disabled_for_expiration');
+                        $('body').append(data.error);
+                        $('.ui-dialog').each(function (i) {
+                            $('#' + $(this).attr('aria-describedby')).dialog('close');
+                        });
+                        $('#input_username').focus();
+                    } else {
+                        PMA_commonParams.set('token', data.new_token);
+                        $('input[name=token]').val(data.new_token);
+                    }
+                    _idleSecondsCounter = 0;
                 }
             }
         });
@@ -1005,6 +1018,7 @@ AJAX.registerOnload('functions.js', function () {
 AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', 'input:checkbox.checkall');
 });
+
 AJAX.registerOnload('functions.js', function () {
     /**
      * Row marking in horizontal mode (use "on" so that it works also for
@@ -2985,7 +2999,7 @@ AJAX.registerOnload('functions.js', function () {
             col = col[0];
             var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
             if ($selectFieldKey.val() === 'none_' + col) {
-                $selectFieldKey.val('primary_' + col).trigger('change');
+                $selectFieldKey.val('primary_' + col).trigger('change', [false]);
             }
         }
     });
@@ -4321,6 +4335,9 @@ function PMA_slidingMessage (msg, $obj) {
  */
 AJAX.registerOnload('functions.js', function () {
     var $elm = $('#sqlquery');
+    if ($elm.siblings().filter('.CodeMirror').length > 0) {
+        return;
+    }
     if ($elm.length > 0) {
         if (typeof CodeMirror !== 'undefined') {
             codemirror_editor = PMA_getSQLEditor($elm);

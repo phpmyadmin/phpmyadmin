@@ -83,8 +83,10 @@
                     {% if extracted_columnspec['type'] == 'bit' %}
                         {{ row['Default']|convert_bit_default_value }}
                     {% else %}
-                        {{ row['Default']|raw }}
+                        {{ row['Default'] }}
                     {% endif %}
+                {% elseif row['Null'] == 'YES' %}
+                    <em>NULL</em>
                 {% else %}
                     <em>{% trans %}None{% context %}None for default{% endtrans %}</em>
                 {% endif %}

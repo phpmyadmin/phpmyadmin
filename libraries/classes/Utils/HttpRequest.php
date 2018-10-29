@@ -174,9 +174,9 @@ class HttpRequest
              */
             if (curl_getinfo($curlHandle, CURLINFO_SSL_VERIFYRESULT) != 0) {
                 if ($ssl == 0) {
-                    $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAINFO);
+                    return $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAINFO);
                 } elseif ($ssl == CURLOPT_CAINFO) {
-                    $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAPATH);
+                    return $this->curl($url, $method, $returnOnlyStatus, $content, $header, CURLOPT_CAPATH);
                 }
             }
             return null;

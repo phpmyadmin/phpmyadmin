@@ -83,7 +83,7 @@ class CentralColumns
         $this->charEditing = $GLOBALS['cfg']['CharEditing'];
         $this->disableIs = (bool) $GLOBALS['cfg']['Server']['DisableIS'];
 
-        $this->relation = new Relation();
+        $this->relation = new Relation($this->dbi);
         $this->template = new Template();
     }
 

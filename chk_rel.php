@@ -12,7 +12,7 @@ use PhpMyAdmin\Response;
 
 require_once 'libraries/common.inc.php';
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 
 // If request for creating the pmadb
 if (isset($_REQUEST['create_pmadb'])) {

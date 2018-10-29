@@ -135,7 +135,7 @@ class TableStructureController extends TableController
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
 
         $this->createAddField = new CreateAddField($dbi);
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
         $this->transformations = new Transformations();
     }
 
@@ -880,7 +880,11 @@ class TableStructureController extends TableController
         $field_cnt = count($_REQUEST['field_name']);
         $changes = [];
         $adjust_privileges = [];
-
+        $columns_with_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(
+                Index::PRIMARY | Index::UNIQUE
+            );
         for ($i = 0; $i < $field_cnt; $i++) {
             if (!$this->columnNeedsAlterTable($i)) {
                 continue;
@@ -900,7 +904,8 @@ class TableStructureController extends TableController
                 Util::getValueByKey($_REQUEST, "field_comments.${i}", ''),
                 Util::getValueByKey($_REQUEST, "field_virtuality.${i}", ''),
                 Util::getValueByKey($_REQUEST, "field_expression.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_move_to.${i}", '')
+                Util::getValueByKey($_REQUEST, "field_move_to.${i}", ''),
+                $columns_with_index
             );
 
             // find the remembered sort expression
@@ -1323,14 +1328,6 @@ class TableStructureController extends TableController
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 
-            if (!isset($field['Default'])) {
-                if ($field['Null'] == 'YES') {
-                    $field = array_merge($field, ['Default' => '<em>NULL</em>']);
-                }
-            } else {
-                $field = array_merge($field, ['Default' => $field['Default']]);
-            }
-
             $displayed_fields[$rownum] = new \stdClass();
             $displayed_fields[$rownum]->text = $field['Field'];
             $displayed_fields[$rownum]->icon = "";
@@ -1353,14 +1350,13 @@ class TableStructureController extends TableController
         }
 
         $engine = $this->table_obj->getStorageEngine();
-        $foreignKeySupported = Util::isForeignKeySupported($engine);
         return $this->template->render('table/structure/display_structure', [
             'url_params' => [
                 'db' => $this->db,
                 'table' => $this->table,
             ],
             'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-            'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
+            'displayIndexesHtml' => Index::getHtmlForDisplayIndexes(),
             'cfg_relation' => $this->relation->getRelationsParam(),
             'hide_structure_actions' => $hideStructureActions,
             'db' => $this->db,

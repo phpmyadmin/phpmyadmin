@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Navigation;
 
 use PhpMyAdmin\Navigation\Navigation;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
@@ -72,6 +73,7 @@ class NavigationTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
         $this->object->hideNavigationItem('itemName', 'itemType', 'db');
     }
 
@@ -96,6 +98,7 @@ class NavigationTest extends PmaTestCase
         $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
         $this->object->unhideNavigationItem('itemName', 'itemType', 'db');
     }
 
@@ -146,6 +149,7 @@ class NavigationTest extends PmaTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $html = $this->object->getItemUnhideDialog('db');
         $this->assertContains(

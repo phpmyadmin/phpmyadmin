@@ -944,7 +944,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (strlen($a_name) > 0 && $a_name !== '*') {
+        if (strlen((string)$a_name) > 0 && $a_name !== '*') {
             return $quote . $a_name . $quote;
         }
 
@@ -1116,7 +1116,7 @@ class Util
             if (! empty($cfg['SQLQuery']['Edit'])
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $edit_link .= Url::getCommon($url_params) . '#querybox';
+                $edit_link .= Url::getCommon($url_params);
                 $edit_link = ' [&nbsp;'
                     . self::linkOrButton($edit_link, __('Edit'))
                     . '&nbsp;]';
@@ -2810,18 +2810,6 @@ class Util
     }
 
     /**
-     * Verifies whether the value contains a non-printable character
-     *
-     * @param string $value value
-     *
-     * @return integer
-     */
-    public static function containsNonPrintableAscii($value)
-    {
-        return preg_match('@[^[:print:]]@', $value);
-    }
-
-    /**
      * Converts a BIT type default value
      * for example, b'010' becomes 010
      *
@@ -4285,17 +4273,26 @@ class Util
     public static function getStartAndNumberOfRowsPanel($sql_query)
     {
         $template = new Template();
-        $pos = isset($_REQUEST['pos'])
-            ? $_REQUEST['pos']
-            : $_SESSION['tmpval']['pos'];
+
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = $_REQUEST['session_max_rows'];
+        } else if (isset($_SESSION['tmpval']['max_rows'])
+                    && $_SESSION['tmpval']['max_rows'] != 'all'
+        ) {
+            $rows = $_SESSION['tmpval']['max_rows'];
         } else {
-            if ($_SESSION['tmpval']['max_rows'] != 'all') {
-                $rows = $_SESSION['tmpval']['max_rows'];
-            } else {
-                $rows = $GLOBALS['cfg']['MaxRows'];
-            }
+            $rows = $GLOBALS['cfg']['MaxRows'];
+            $_SESSION['tmpval']['max_rows'] = $rows;
+        }
+
+        if(isset($_REQUEST['pos'])) {
+            $pos = $_REQUEST['pos'];
+        } else if(isset($_SESSION['tmpval']['pos'])) {
+            $pos = $_SESSION['tmpval']['pos'];
+        } else {
+            $number_of_line = intval($_REQUEST['unlim_num_rows']);
+            $pos = ((ceil($number_of_line / $rows) - 1) * $rows);
+            $_SESSION['tmpval']['pos'] = $pos;
         }
 
         return $template->render('start_and_number_of_rows_panel', [
@@ -4342,13 +4339,13 @@ class Util
      * Gets the list of tables in the current db and information about these
      * tables if possible
      *
-     * @param string $db       database name
-     * @param string $sub_part part of script name
+     * @param string      $db       database name
+     * @param string|null $sub_part part of script name
      *
      * @return array
      *
      */
-    public static function getDbInfo($db, $sub_part)
+    public static function getDbInfo($db, ?string $sub_part)
     {
         global $cfg;
 
@@ -4534,7 +4531,8 @@ class Util
      */
     public static function getTablesWhenOpen($db, $db_info_result)
     {
-        $sot_cache = $tables = [];
+        $sot_cache = [];
+        $tables = [];
 
         while ($tmp = $GLOBALS['dbi']->fetchAssoc($db_info_result)) {
             $sot_cache[$tmp['Table']] = true;
@@ -4542,7 +4540,7 @@ class Util
         $GLOBALS['dbi']->freeResult($db_info_result);
 
         // is there at least one "in use" table?
-        if (isset($sot_cache)) {
+        if (count($sot_cache) > 0) {
             $tblGroupSql = "";
             $whereAdded = false;
             if (Core::isValid($_REQUEST['tbl_group'])) {

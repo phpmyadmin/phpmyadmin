@@ -22,6 +22,10 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
     width: 16px;
     height: 16px;
 }
+.icon_fulltext {
+    width: 50px;
+    height: 19px;
+}
 .ic_asc_order { background-image: url('<?= $theme->getImgPath('asc_order.png'); ?>'); }
 .ic_b_bookmark { background-image: url('<?= $theme->getImgPath('b_bookmark.png'); ?>'); }
 .ic_b_browse { background-image: url('<?= $theme->getImgPath('b_browse.png'); ?>'); }
@@ -185,3 +189,5 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 .ic_show { background-image: url('<?= $theme->getImgPath('show.png'); ?>'); }
 .ic_window-new { background-image: url('<?= $theme->getImgPath('window-new.png'); ?>'); }
 .ic_ajax_clock_small { background-image: url('<?= $theme->getImgPath('ajax_clock_small.gif'); ?>'); }
+.ic_s_partialtext { background-image: url('<?= $theme->getImgPath('s_partialtext.png'); ?>'); }
+.ic_s_fulltext { background-image: url('<?= $theme->getImgPath('s_fulltext.png'); ?>'); }

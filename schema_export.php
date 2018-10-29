@@ -20,7 +20,7 @@ require_once 'libraries/common.inc.php';
  * get all variables needed for exporting relational schema
  * in $cfgRelation
  */
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
 
 if (! isset($_REQUEST['export_type'])) {

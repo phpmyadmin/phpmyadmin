@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Relation;
+use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -34,7 +36,14 @@ class ChangePassword
       */
     public static function getHtml($mode, $username, $hostname)
     {
-        $serverPrivileges = new Privileges(new Template());
+        $relation = new Relation($GLOBALS['dbi']);
+        $serverPrivileges = new Privileges(
+            new Template(),
+            $GLOBALS['dbi'],
+            $relation,
+            new RelationCleanup($GLOBALS['dbi'], $relation)
+        );
+
         /**
          * autocomplete feature of IE kills the "onchange" event handler and it
          * must be replaced by the "onpropertychange" one in this case

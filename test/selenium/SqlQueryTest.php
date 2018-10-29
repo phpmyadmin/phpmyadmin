@@ -38,17 +38,6 @@ class SqlQueryTest extends TestBase
         $this->dbQuery(
             "INSERT INTO `test_table` (val) VALUES (2), (3), (4), (5);"
         );
-    }
-
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
-
         $this->login();
     }
 
@@ -59,7 +48,7 @@ class SqlQueryTest extends TestBase
      */
     public function testServerSqlQuery()
     {
-        $this->waitForElement('byPartialLinkText', 'SQL')->click();
+        $this->waitForElement('partialLinkText', 'SQL')->click();
         $this->waitAjax();
 
         $this->typeInTextArea(
@@ -69,7 +58,7 @@ class SqlQueryTest extends TestBase
         $this->byId('button_submit_query')->click();
         $this->waitAjax();
 
-        $this->waitForElement('byCssSelector', 'table.table_results');
+        $this->waitForElement('cssSelector', 'table.table_results');
         $this->assertEquals(
             1,
             $this->getCellByTableClass('table_results', 1, 1)
@@ -104,14 +93,14 @@ class SqlQueryTest extends TestBase
     {
         $this->navigateDatabase($this->database_name);
 
-        $this->waitForElement('byPartialLinkText', 'SQL')->click();
+        $this->waitForElement('partialLinkText', 'SQL')->click();
         $this->waitAjax();
 
         $this->typeInTextArea('SHOW TABLE STATUS');
         $this->byId('button_submit_query')->click();
         $this->waitAjax();
 
-        $this->waitForElement('byCssSelector', 'table.table_results');
+        $this->waitForElement('cssSelector', 'table.table_results');
         $this->assertEquals(
             'test_table',
             $this->getCellByTableClass('table_results', 1, 1)
@@ -138,14 +127,14 @@ class SqlQueryTest extends TestBase
     {
         $this->navigateTable('test_table');
 
-        $this->waitForElement('byPartialLinkText', 'SQL')->click();
+        $this->waitForElement('partialLinkText', 'SQL')->click();
         $this->waitAjax();
 
         $this->typeInTextArea('SELECT * FROM `test_table` WHERE `val` NOT IN (2, 3);');
         $this->byId('button_submit_query')->click();
         $this->waitAjax();
 
-        $this->waitForElement('byCssSelector', 'table.table_results');
+        $this->waitForElement('cssSelector', 'table.table_results');
         $this->assertEquals(
             3,
             $this->getCellByTableClass('table_results', 1, 5)
@@ -172,7 +161,7 @@ class SqlQueryTest extends TestBase
      */
     private function _testInlineEdit()
     {
-        $this->waitForElement('byCssSelector', 'a.inline_edit_sql')->click();
+        $this->waitForElement('cssSelector', 'a.inline_edit_sql')->click();
         // empty current query
         $this->typeInTextArea('', 1);
 
@@ -183,7 +172,7 @@ class SqlQueryTest extends TestBase
         $this->byId('sql_query_edit_save')->click();
         $this->waitAjax();
 
-        $this->waitForElement('byCssSelector', 'table.table_results');
+        $this->waitForElement('cssSelector', 'table.table_results');
         $this->assertEquals(
             1,
             $this->getCellByTableClass('table_results', 1, 1)
