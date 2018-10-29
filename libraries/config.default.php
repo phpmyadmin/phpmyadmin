@@ -1961,6 +1961,15 @@ $cfg['Export']['sql_if_not_exists'] = false;
 /**
  *
  *
+ *
+ * @global boolean $cfg['Export']['sql_view_current_user']
+ */
+$cfg['Export']['sql_view_current_user'] = false;
+
+
+/**
+ *
+ *
  * @global boolean $cfg['Export']['sql_procedure_function']
  */
 $cfg['Export']['sql_procedure_function'] = true;

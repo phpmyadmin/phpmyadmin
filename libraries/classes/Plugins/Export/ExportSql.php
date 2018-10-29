@@ -305,11 +305,18 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($subgroup_create_table);
 
                 // Add view option
+                $subgroup_create_view = new OptionsPropertySubgroup();
                 $leaf = new BoolPropertyItem(
                     'create_view',
                     sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>')
                 );
-                $subgroup->addProperty($leaf);
+                $subgroup_create_view->setSubgroupHeader($leaf);
+                $leaf = new BoolPropertyItem(
+                    'view_current_user',
+                    __('Exclude definition of current user')
+                );
+                $subgroup_create_view->addProperty($leaf);
+                $subgroup->addProperty($subgroup_create_view);
 
                 $leaf = new BoolPropertyItem(
                     'procedure_function',
@@ -1535,6 +1542,15 @@ class ExportSql extends ExportPlugin
                     '',
                     $create_query
                 );
+
+                // exclude definition of current user
+                if ($GLOBALS['sql_view_current_user']) {
+                    $create_query = preg_replace(
+                        '/(^|\s)DEFINER=([\S]+)/',
+                        '',
+                        $create_query
+                    );
+                }
             }
 
             // Substitute aliases in `CREATE` query.
