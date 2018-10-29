@@ -311,11 +311,19 @@ class ExportSql extends ExportPlugin
                     sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>')
                 );
                 $subgroup_create_view->setSubgroupHeader($leaf);
+
                 $leaf = new BoolPropertyItem(
                     'view_current_user',
                     __('Exclude definition of current user')
                 );
                 $subgroup_create_view->addProperty($leaf);
+
+                $leaf = new BoolPropertyItem(
+                    'or_replace_view',
+                    sprintf(__('%s view'), '<code>OR REPLACE</code>')
+                );
+                $subgroup_create_view->addProperty($leaf);
+
                 $subgroup->addProperty($subgroup_create_view);
 
                 $leaf = new BoolPropertyItem(
@@ -1469,6 +1477,14 @@ class ExportSql extends ExportPlugin
 
         $schema_create .= $new_crlf;
 
+        if (!empty($sql_drop_table)
+            && $GLOBALS['dbi']->getTable($db, $table)->isView()
+        ) {
+            $schema_create .= 'DROP VIEW IF EXISTS '
+                . Util::backquote($table_alias, $sql_backquotes) . ';'
+                . $crlf;
+        }
+
         // no need to generate a DROP VIEW here, it was done earlier
         if (!empty($sql_drop_table)
             && !$GLOBALS['dbi']->getTable($db, $table)->isView()
@@ -1548,6 +1564,15 @@ class ExportSql extends ExportPlugin
                     $create_query = preg_replace(
                         '/(^|\s)DEFINER=([\S]+)/',
                         '',
+                        $create_query
+                    );
+                }
+
+                // whether to replace existing view or not
+                if ($GLOBALS['sql_or_replace_view']) {
+                    $create_query = preg_replace(
+                        '/^CREATE/',
+                        'CREATE OR REPLACE',
                         $create_query
                     );
                 }

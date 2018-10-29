@@ -253,6 +253,7 @@ class Descriptions
                 . ' table creation)'
             ),
             'Export_sql_view_current_user' => __('Exclude definition of current user'),
+            'Export_sql_or_replace_view_name' => sprintf(__('%s view'), 'OR REPLACE'),
             'Export_sql_ignore_name' => __('Use ignore inserts'),
             'Export_sql_include_comments_name' => __('Comments'),
             'Export_sql_insert_syntax_name' => __('Syntax to use when inserting data'),
