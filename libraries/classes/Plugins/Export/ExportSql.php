@@ -311,7 +311,7 @@ class ExportSql extends ExportPlugin
                     sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>')
                 );
                 $subgroup_create_view->setSubgroupHeader($leaf);
-                 $leaf = new BoolPropertyItem(
+                $leaf = new BoolPropertyItem(
                     'view_current_user',
                     __('Exclude definition of current user')
                 );
@@ -1544,7 +1544,7 @@ class ExportSql extends ExportPlugin
                 );
 
                 // exclude definition of current user
-                if($GLOBALS['sql_view_current_user']) {
+                if ($GLOBALS['sql_view_current_user']) {
                     $create_query = preg_replace(
                         '/(^|\s)DEFINER=([\S]+)/',
                         '',

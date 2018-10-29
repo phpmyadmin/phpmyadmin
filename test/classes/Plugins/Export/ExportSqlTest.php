@@ -278,8 +278,18 @@ class ExportSqlTest extends PmaTestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
             $leaf
+        );
+
+        $this->assertCount(
+            1,
+            $leaf->getProperties()
+        );
+
+        $this->assertInstanceOf(
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            $leaf->getSubgroupHeader()
         );
 
         $leaf = array_shift($leaves);

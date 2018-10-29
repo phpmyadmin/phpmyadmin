@@ -13,6 +13,7 @@ phpMyAdmin - ChangeLog
 - issue #14589 Fix rendering of column comments in Safari, improve display in all browsers
 - issue #14330 New features for csv import plugin
 - issue #14417 Automatically add index while editing an existing row and setting auto increment
+- issue #13057 Add export option to drop user security definers from views
 
 4.8.4 (not yet released)
 - issue #14452 Remove hash param in edit query URL
