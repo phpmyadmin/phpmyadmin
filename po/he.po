@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-09-27 13:13-0300\n"
-"PO-Revision-Date: 2018-10-27 02:31+0000\n"
+"PO-Revision-Date: 2018-10-30 23:50+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -6699,17 +6699,17 @@ msgstr "אין ענף"
 
 #: libraries/classes/Display/GitRevision.php:75
 msgid "Git revision:"
-msgstr ""
+msgstr "מהדורה ב־Git:"
 
 #: libraries/classes/Display/GitRevision.php:78
 #, php-format
 msgid "committed on %1$s by %2$s"
-msgstr "הוגש ב־%1$s ע״י %2$s"
+msgstr "הוגשה ב־%1$s ע״י %2$s"
 
 #: libraries/classes/Display/GitRevision.php:88
 #, php-format
 msgid "authored on %1$s by %2$s"
-msgstr "נוצר ב־%1$s ע״י %2$s"
+msgstr "נוצרה ב־%1$s ע״י %2$s"
 
 #: libraries/classes/Display/Results.php:941
 msgid "Save edited data"
@@ -6743,11 +6743,11 @@ msgstr "סיום"
 
 #: libraries/classes/Display/Results.php:1158
 msgid "All"
-msgstr "הכל"
+msgstr "הכול"
 
 #: libraries/classes/Display/Results.php:1481
 msgid "Sort by key"
-msgstr ""
+msgstr "סידור לפי מפתח"
 
 #: libraries/classes/Display/Results.php:1788
 #: templates/display/results/options_block.twig:18
@@ -6796,7 +6796,7 @@ msgstr "השורה נמחקה."
 #: libraries/classes/Display/Results.php:4916
 #: libraries/classes/Server/Status/Processes.php:283
 msgid "Kill"
-msgstr ""
+msgstr "חיסול"
 
 #: libraries/classes/Display/Results.php:4351
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
@@ -6810,7 +6810,7 @@ msgstr "מוצגות שורות %1s‏ - %2s"
 #: libraries/classes/Display/Results.php:4801
 #, php-format
 msgid "%1$d total, %2$d in query"
-msgstr ""
+msgstr "%1$d סה״כ, %2$d בשאילתה"
 
 #: libraries/classes/Display/Results.php:4806
 #, php-format
@@ -6824,11 +6824,11 @@ msgstr "השאילתה ארכה %01.4f שניות."
 
 #: libraries/classes/Display/Results.php:5115
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "העתקה ללוח הגזירים"
 
 #: libraries/classes/Display/Results.php:5171
 msgid "Query results operations"
-msgstr ""
+msgstr "פעולות תוצאות שאילתה"
 
 #: libraries/classes/Display/Results.php:5258
 #: templates/table/chart/tbl_chart.twig:10
@@ -6837,7 +6837,7 @@ msgstr "הצגת תרשים"
 
 #: libraries/classes/Display/Results.php:5281
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "הגשה חזותית של נתוני GIS"
 
 #: libraries/classes/Display/Results.php:5466
 msgid "Link not found!"
@@ -6845,7 +6845,7 @@ msgstr "קישור לא נמצא!"
 
 #: libraries/classes/Engines/Bdb.php:30
 msgid "Version information"
-msgstr "מידע גרסאות"
+msgstr "פרטי גרסה"
 
 #: libraries/classes/Engines/Innodb.php:31
 msgid "Data home directory"
@@ -6857,7 +6857,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:38
 msgid "Data files"
-msgstr "קבצי נתונים"
+msgstr "קובצי נתונים"
 
 #: libraries/classes/Engines/Innodb.php:41
 msgid "Autoextend increment"
