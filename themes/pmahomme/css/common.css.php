@@ -990,6 +990,10 @@ form.login select {
     color: gray;
 }
 
+.color_red {
+    color: red;
+}
+
 .pma_sliding_message{
     display: inline-block;
 }

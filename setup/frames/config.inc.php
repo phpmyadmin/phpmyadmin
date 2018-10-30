@@ -32,7 +32,7 @@ echo '</textarea>';
 echo '</td>';
 echo '</tr>';
 echo '<tr>';
-echo '<td class="lastrow" style="text-align: left">';
+echo '<td class="lastrow left">';
 echo '<input type="submit" name="submit_download" value="'
     , __('Download') , '" class="green" />';
 echo '</td>';
