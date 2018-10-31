@@ -64,7 +64,7 @@ class ImportCsv extends AbstractImportCsv
             $leaf = new TextPropertyItem(
                 "new_tbl_name",
                 __(
-                    'Name of the new table(optional): '
+                    'Name of the new table (optional):'
                 )
             );
             $generalOptions->addProperty($leaf);
@@ -73,7 +73,7 @@ class ImportCsv extends AbstractImportCsv
                 $leaf = new TextPropertyItem(
                     "new_db_name",
                     __(
-                        'Name of the new database(optional): '
+                        'Name of the new database (optional):'
                     )
                 );
                 $generalOptions->addProperty($leaf);
@@ -82,7 +82,7 @@ class ImportCsv extends AbstractImportCsv
             $leaf = new NumberPropertyItem(
                 "partial_import",
                 __(
-                    'Import these many number of rows(optional): '
+                    'Import these many number of rows (optional):'
                 )
             );
             $generalOptions->addProperty($leaf);
@@ -100,7 +100,7 @@ class ImportCsv extends AbstractImportCsv
             $leaf = new NumberPropertyItem(
                 "partial_import",
                 __(
-                    'Import these many number of rows(optional): '
+                    'Import these many number of rows (optional):'
                 )
             );
             $generalOptions->addProperty($leaf);
@@ -115,7 +115,7 @@ class ImportCsv extends AbstractImportCsv
             );
             $leaf = new TextPropertyItem(
                 "columns",
-                __('Column names: ') . Util::showHint($hint)
+                __('Column names:') . ' ' . Util::showHint($hint)
             );
             $generalOptions->addProperty($leaf);
         }
