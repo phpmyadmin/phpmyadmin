@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-08-26 19:06+0200\n"
+"POT-Creation-Date: 2018-10-30 21:18-0300\n"
 "PO-Revision-Date: 2018-10-05 10:36+0000\n"
 "Last-Translator: Kirill Nikolaev <kf@exchange12rocks.org>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.2-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
@@ -483,9 +483,9 @@ msgstr "Добавить геометрию"
 #: libraries/classes/Normalization.php:216
 #: libraries/classes/Normalization.php:898 libraries/classes/Operations.php:67
 #: libraries/classes/Operations.php:132 libraries/classes/Operations.php:273
-#: libraries/classes/Operations.php:329 libraries/classes/Operations.php:816
-#: libraries/classes/Operations.php:886 libraries/classes/Operations.php:931
-#: libraries/classes/Operations.php:1336 libraries/classes/Operations.php:1650
+#: libraries/classes/Operations.php:329 libraries/classes/Operations.php:820
+#: libraries/classes/Operations.php:890 libraries/classes/Operations.php:935
+#: libraries/classes/Operations.php:1340 libraries/classes/Operations.php:1654
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:209
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:216
 #: libraries/classes/ReplicationGui.php:134
@@ -622,7 +622,7 @@ msgstr "Не удалось загрузить прогресс (ход) имп�
 msgid "Back"
 msgstr "Назад"
 
-#: index.php:149
+#: index.php:156
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -630,12 +630,12 @@ msgstr ""
 "Вы вышли из одного сервера, чтобы полностью выйти из phpMyAdmin, вам нужно "
 "выйти со всех серверов."
 
-#: index.php:193 libraries/classes/Footer.php:81
+#: index.php:200 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
 msgid "phpMyAdmin Demo Server"
 msgstr "Демо-сервер phpMyAdmin"
 
-#: index.php:197 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
+#: index.php:204 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -646,88 +646,88 @@ msgstr ""
 "пожалуйста, не изменяйте пользователей root, debian-sys-maint и pma. "
 "Дополнительная информация доступна на %s."
 
-#: index.php:207
+#: index.php:214
 msgid "General settings"
 msgstr "Основные настройки"
 
-#: index.php:236 js/messages.php:650
+#: index.php:243 js/messages.php:650
 #: libraries/classes/Display/ChangePassword.php:58
 #: libraries/classes/Display/ChangePassword.php:61
 #: libraries/classes/UserPassword.php:242
 msgid "Change password"
 msgstr "Изменить пароль"
 
-#: index.php:253 libraries/classes/Config/Descriptions.php:1488
+#: index.php:260 libraries/classes/Config/Descriptions.php:1488
 msgid "Server connection collation"
 msgstr "Сопоставление кодировки соединения"
 
-#: index.php:276
+#: index.php:283
 msgid "Appearance settings"
 msgstr "Настройки внешнего вида"
 
-#: index.php:309 prefs_manage.php:276
+#: index.php:316 prefs_manage.php:276
 msgid "More settings"
 msgstr "Дополнительные настройки"
 
-#: index.php:331
+#: index.php:338
 msgid "Database server"
 msgstr "Сервер баз данных"
 
-#: index.php:334 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
+#: index.php:341 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
 msgid "Server:"
 msgstr "Сервер:"
 
-#: index.php:338
+#: index.php:345
 msgid "Server type:"
 msgstr "Тип сервера:"
 
-#: index.php:342
+#: index.php:349
 msgid "Server connection:"
 msgstr "Соединение сервера:"
 
-#: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
+#: index.php:353 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
 #: libraries/classes/Plugins/Export/ExportXml.php:245
 msgid "Server version:"
 msgstr "Версия сервера:"
 
-#: index.php:352
+#: index.php:359
 msgid "Protocol version:"
 msgstr "Версия протокола:"
 
-#: index.php:356
+#: index.php:363
 msgid "User:"
 msgstr "Пользователь:"
 
-#: index.php:361
+#: index.php:368
 msgid "Server charset:"
 msgstr "Кодировка сервера:"
 
-#: index.php:377
+#: index.php:384
 msgid "Web server"
 msgstr "Веб-сервер"
 
-#: index.php:388
+#: index.php:395
 msgid "Database client version:"
 msgstr "Версия клиента базы данных:"
 
-#: index.php:392
+#: index.php:399
 msgid "PHP extension:"
 msgstr "PHP расширение:"
 
-#: index.php:406
+#: index.php:413
 msgid "PHP version:"
 msgstr "Версия PHP:"
 
-#: index.php:417
+#: index.php:424
 msgid "Show PHP information"
 msgstr "Показать информацию PHP"
 
-#: index.php:436
+#: index.php:443
 msgid "Version information:"
 msgstr "Информация о версии:"
 
-#: index.php:445 libraries/classes/Config/FormDisplayTemplate.php:164
+#: index.php:452 libraries/classes/Config/FormDisplayTemplate.php:164
 #: libraries/classes/Display/Export.php:350
 #: libraries/classes/Engines/Pbxt.php:167
 #: libraries/classes/Navigation/NavigationHeader.php:203
@@ -737,27 +737,27 @@ msgstr "Информация о версии:"
 msgid "Documentation"
 msgstr "Документация"
 
-#: index.php:454
+#: index.php:461
 msgid "Official Homepage"
 msgstr "Официальная страница phpMyAdmin"
 
-#: index.php:461
+#: index.php:468
 msgid "Contribute"
 msgstr "Пожертвовать"
 
-#: index.php:468
+#: index.php:475
 msgid "Get support"
 msgstr "Получить помощь"
 
-#: index.php:475
+#: index.php:482
 msgid "List of changes"
 msgstr "Список изменений"
 
-#: index.php:482 templates/server/plugins/section.twig:13
+#: index.php:489 templates/server/plugins/section.twig:13
 msgid "License"
 msgstr "Лицензия"
 
-#: index.php:502
+#: index.php:509
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -767,7 +767,7 @@ msgstr ""
 "mbstring phpMyAdmin не в состоянии производить корректное разбиение строк, "
 "что может привести к непредсказуемым результатам."
 
-#: index.php:517
+#: index.php:524
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -776,7 +776,7 @@ msgstr ""
 "этим, некоторые возможности, включая отправление ошибок и проверка версий, "
 "отключены."
 
-#: index.php:532
+#: index.php:539
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -789,7 +789,7 @@ msgstr ""
 "этой причине сессия входа может закончиться быстрее установленной в "
 "phpMyAdmin."
 
-#: index.php:551
+#: index.php:558
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -797,17 +797,17 @@ msgstr ""
 "Значение длительности хранения cookie меньше, чем определено в phpMyAdmin. "
 "По этой причине сессия входа завершится быстрее установленной в phpMyAdmin."
 
-#: index.php:566
+#: index.php:573
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "В конфигурационном файле необходимо задать парольную фразу (blowfish_secret)."
 
-#: index.php:573
+#: index.php:580
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
 "Секретная парольная фраза в конфигурации (blowfish_secret) слишком короткая."
 
-#: index.php:587
+#: index.php:594
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -820,7 +820,7 @@ msgstr ""
 "может быть скомпрометирована через свободный доступ к загрузке "
 "конфигурационного файла."
 
-#: index.php:605
+#: index.php:612
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -829,14 +829,14 @@ msgstr ""
 "Хранилище конфигурации phpMyAdmin не полностью настроено, некоторые "
 "расширенные функции были отключены. %sУзнайте причину%s. "
 
-#: index.php:612
+#: index.php:619
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Или перейдите на вкладку 'Операции' любой базы данных, чтобы настроить "
 "хранилище в ней."
 
-#: index.php:637
+#: index.php:644
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -845,7 +845,7 @@ msgstr ""
 "Сервер использует защитную систему Suhosin. Для решения возможных проблем "
 "обратитесь к %sдокументации%s."
 
-#: index.php:651
+#: index.php:658
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -1330,7 +1330,7 @@ msgstr "Пожалуйста, добавьте в серию хотя бы од�
 #: libraries/classes/Plugins/Export/ExportSql.php:2194
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
-#: libraries/classes/Server/Status/Processes.php:285
+#: libraries/classes/Server/Status/Processes.php:287
 #: libraries/config.values.php:69 templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/privileges/privileges_summary.twig:30
@@ -3220,7 +3220,7 @@ msgstr "Длина/Значения"
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:273
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:303
-#: libraries/classes/Operations.php:1073
+#: libraries/classes/Operations.php:1077
 #: templates/table/search/table_header.twig:8
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/database/structure/table_header.twig:33
@@ -4087,8 +4087,8 @@ msgid "Remember file name template"
 msgstr "Запомнить шаблон имени файла"
 
 #: libraries/classes/Config/Descriptions.php:354
-#: libraries/classes/Operations.php:241 libraries/classes/Operations.php:864
-#: libraries/classes/Operations.php:1296
+#: libraries/classes/Operations.php:241 libraries/classes/Operations.php:868
+#: libraries/classes/Operations.php:1300
 msgid "Add AUTO_INCREMENT value"
 msgstr "Добавить AUTO_INCREMENT"
 
@@ -4131,7 +4131,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:380
 #: libraries/classes/Config/Descriptions.php:382
 #: libraries/classes/Config/Descriptions.php:401
-#: libraries/classes/Operations.php:236 libraries/classes/Operations.php:1292
+#: libraries/classes/Operations.php:236 libraries/classes/Operations.php:1296
 #, php-format
 msgid "Add %s"
 msgstr "Добавить %s"
@@ -5853,7 +5853,7 @@ msgstr "Анализ SQL запроса"
 
 #: libraries/classes/Config/Descriptions.php:1333
 #: libraries/classes/Export.php:519
-#: libraries/classes/Server/Status/Processes.php:233
+#: libraries/classes/Server/Status/Processes.php:235
 #: libraries/classes/Server/Status/Variables.php:50
 #: libraries/classes/Util.php:1122 templates/console/display.twig:99
 msgid "Refresh"
@@ -6601,12 +6601,12 @@ msgid "Previous"
 msgstr "Предыдущая"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:211
-#: libraries/classes/Server/Status/Processes.php:181
+#: libraries/classes/Server/Status/Processes.php:182
 msgid "Truncate Shown Queries"
 msgstr "Сокращенное отображение запросов"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:215
-#: libraries/classes/Server/Status/Processes.php:183
+#: libraries/classes/Server/Status/Processes.php:185
 msgid "Show Full Queries"
 msgstr "Развернутое отображение запросов"
 
@@ -6773,7 +6773,7 @@ msgstr "Изменить"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1208
 #: libraries/classes/Controllers/Table/TableStructureController.php:1209
-#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1599
+#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1603
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3323
 #: libraries/classes/Util.php:3324
 #: templates/table/structure/display_structure.twig:188
@@ -7248,7 +7248,7 @@ msgstr "Полные тексты"
 
 #: libraries/classes/Display/Results.php:2117
 #: libraries/classes/Display/Results.php:2131
-#: libraries/classes/Operations.php:812
+#: libraries/classes/Operations.php:816
 #: libraries/classes/Server/Status/Processes.php:169
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71 templates/table/search/options.twig:54
@@ -7260,7 +7260,7 @@ msgstr "По убыванию"
 
 #: libraries/classes/Display/Results.php:2121
 #: libraries/classes/Display/Results.php:2127
-#: libraries/classes/Operations.php:809
+#: libraries/classes/Operations.php:813
 #: libraries/classes/Server/Status/Processes.php:172
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70 templates/table/search/options.twig:54
@@ -7277,7 +7277,7 @@ msgstr "Строка была удалена."
 
 #: libraries/classes/Display/Results.php:3428
 #: libraries/classes/Display/Results.php:4679
-#: libraries/classes/Server/Status/Processes.php:279
+#: libraries/classes/Server/Status/Processes.php:281
 msgid "Kill"
 msgstr "Завершить"
 
@@ -8267,17 +8267,17 @@ msgstr[1] "Добавлено %1$d строки."
 msgstr[2] "Добавлено %1$d строк."
 
 #: libraries/classes/MultSubmits.php:399 libraries/classes/Operations.php:195
-#: libraries/classes/Operations.php:1279 libraries/classes/Tracking.php:395
+#: libraries/classes/Operations.php:1283 libraries/classes/Tracking.php:395
 msgid "Structure only"
 msgstr "Только структура"
 
 #: libraries/classes/MultSubmits.php:401 libraries/classes/Operations.php:196
-#: libraries/classes/Operations.php:1280 libraries/classes/Tracking.php:401
+#: libraries/classes/Operations.php:1284 libraries/classes/Tracking.php:401
 msgid "Structure and data"
 msgstr "Структура и данные"
 
 #: libraries/classes/MultSubmits.php:403 libraries/classes/Operations.php:197
-#: libraries/classes/Operations.php:1281 libraries/classes/Tracking.php:398
+#: libraries/classes/Operations.php:1285 libraries/classes/Tracking.php:398
 msgid "Data only"
 msgstr "Только данные"
 
@@ -8286,13 +8286,13 @@ msgid "Add AUTO INCREMENT value"
 msgstr "Добавить AUTO INCREMENT"
 
 #: libraries/classes/MultSubmits.php:409 libraries/classes/Operations.php:245
-#: libraries/classes/Operations.php:1304
+#: libraries/classes/Operations.php:1308
 msgid "Add constraints"
 msgstr "Добавить ограничения"
 
 #: libraries/classes/MultSubmits.php:411 libraries/classes/Operations.php:126
-#: libraries/classes/Operations.php:263 libraries/classes/Operations.php:882
-#: libraries/classes/Operations.php:969 libraries/classes/Operations.php:1323
+#: libraries/classes/Operations.php:263 libraries/classes/Operations.php:886
+#: libraries/classes/Operations.php:973 libraries/classes/Operations.php:1327
 #: libraries/classes/Rte/Routines.php:1024
 #: templates/columns_definitions/table_fields_definitions.twig:36
 msgid "Adjust privileges"
@@ -8833,8 +8833,8 @@ msgid "Rename database to"
 msgstr "Переименовать базу данных в"
 
 #: libraries/classes/Operations.php:119 libraries/classes/Operations.php:257
-#: libraries/classes/Operations.php:876 libraries/classes/Operations.php:963
-#: libraries/classes/Operations.php:1317
+#: libraries/classes/Operations.php:880 libraries/classes/Operations.php:967
+#: libraries/classes/Operations.php:1321
 #: templates/columns_definitions/column_adjust_privileges.twig:15
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
@@ -8880,186 +8880,186 @@ msgstr "Изменить все сортировки столбцов"
 msgid "Change all tables columns collations"
 msgstr "Изменить все сортировки столбцов"
 
-#: libraries/classes/Operations.php:797
+#: libraries/classes/Operations.php:801
 msgid "Alter table order by"
 msgstr "Изменить сортировку таблицы"
 
-#: libraries/classes/Operations.php:805
+#: libraries/classes/Operations.php:809
 msgid "(singly)"
 msgstr "(столбец)"
 
-#: libraries/classes/Operations.php:841
+#: libraries/classes/Operations.php:845
 msgid "Move table to (database<b>.</b>table)"
 msgstr "Переместить таблицу в (таблицу базы данных <b>.</b>)"
 
-#: libraries/classes/Operations.php:946
+#: libraries/classes/Operations.php:950
 msgid "Rename table to"
 msgstr "Переименовать таблицу в"
 
-#: libraries/classes/Operations.php:986
+#: libraries/classes/Operations.php:990
 msgid "Table comments"
 msgstr "Комментарии к таблице"
 
-#: libraries/classes/Operations.php:1055
+#: libraries/classes/Operations.php:1059
 msgid "Table options"
 msgstr "Параметры таблицы"
 
-#: libraries/classes/Operations.php:1062
+#: libraries/classes/Operations.php:1066
 #: templates/server/engines/engines.twig:4
 msgid "Storage Engine"
 msgstr "Тип таблиц"
 
-#: libraries/classes/Operations.php:1091
+#: libraries/classes/Operations.php:1095
 msgid "Change all column collations"
 msgstr "Изменить все сортировки столбцов"
 
-#: libraries/classes/Operations.php:1262
+#: libraries/classes/Operations.php:1266
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "Скопировать таблицу в (таблицу базы данных<b>.</b>)"
 
-#: libraries/classes/Operations.php:1332
+#: libraries/classes/Operations.php:1336
 msgid "Switch to copied table"
 msgstr "Переключиться на скопированную таблицу"
 
-#: libraries/classes/Operations.php:1356
+#: libraries/classes/Operations.php:1360
 #: templates/database/structure/check_all_tables.twig:18
 msgid "Table maintenance"
 msgstr "Обслуживание таблицы"
 
-#: libraries/classes/Operations.php:1389
+#: libraries/classes/Operations.php:1393
 #: templates/database/structure/check_all_tables.twig:19
 msgid "Analyze table"
 msgstr "Анализ таблицы"
 
-#: libraries/classes/Operations.php:1404
+#: libraries/classes/Operations.php:1408
 #: templates/database/structure/check_all_tables.twig:20
 msgid "Check table"
 msgstr "Проверить таблицу"
 
-#: libraries/classes/Operations.php:1418
+#: libraries/classes/Operations.php:1422
 #: templates/database/structure/check_all_tables.twig:21
 msgid "Checksum table"
 msgstr "Контрольная сумма таблицы"
 
-#: libraries/classes/Operations.php:1432
+#: libraries/classes/Operations.php:1436
 msgid "Defragment table"
 msgstr "Дефрагментировать таблицу"
 
-#: libraries/classes/Operations.php:1444
+#: libraries/classes/Operations.php:1448
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "Обновлен кеш таблицы %s."
 
-#: libraries/classes/Operations.php:1450
+#: libraries/classes/Operations.php:1454
 msgid "Flush the table (FLUSH)"
 msgstr "Обновить кеш таблицы (FLUSH)"
 
-#: libraries/classes/Operations.php:1464
+#: libraries/classes/Operations.php:1468
 #: templates/table/structure/display_table_stats.twig:61
 #: templates/database/structure/check_all_tables.twig:22
 msgid "Optimize table"
 msgstr "Оптимизировать таблицу"
 
-#: libraries/classes/Operations.php:1479
+#: libraries/classes/Operations.php:1483
 #: templates/database/structure/check_all_tables.twig:23
 msgid "Repair table"
 msgstr "Восстановить таблицу"
 
-#: libraries/classes/Operations.php:1525
+#: libraries/classes/Operations.php:1529
 #: templates/database/structure/check_all_tables.twig:14
 #: view_operations.php:138
 msgid "Delete data or table"
 msgstr "Удалить данные или таблицу"
 
-#: libraries/classes/Operations.php:1533
+#: libraries/classes/Operations.php:1537
 msgid "Empty the table (TRUNCATE)"
 msgstr "Очистить таблицу (TRUNCATE)"
 
-#: libraries/classes/Operations.php:1541
+#: libraries/classes/Operations.php:1545
 msgid "Delete the table (DROP)"
 msgstr "Удалить таблицу (DROP)"
 
-#: libraries/classes/Operations.php:1582
+#: libraries/classes/Operations.php:1586
 #: templates/table/structure/display_structure.twig:179
 msgid "Analyze"
 msgstr "Анализ"
 
-#: libraries/classes/Operations.php:1583
+#: libraries/classes/Operations.php:1587
 #: templates/table/structure/display_structure.twig:179
 msgid "Check"
 msgstr "Проверка"
 
-#: libraries/classes/Operations.php:1584
+#: libraries/classes/Operations.php:1588
 #: templates/table/structure/display_structure.twig:179
 msgid "Optimize"
 msgstr "Оптимизация"
 
-#: libraries/classes/Operations.php:1585
+#: libraries/classes/Operations.php:1589
 #: templates/table/structure/display_structure.twig:179
 msgid "Rebuild"
 msgstr "Перестройка"
 
-#: libraries/classes/Operations.php:1586
+#: libraries/classes/Operations.php:1590
 #: templates/table/structure/display_structure.twig:179
 msgid "Repair"
 msgstr "Исправление"
 
-#: libraries/classes/Operations.php:1587
+#: libraries/classes/Operations.php:1591
 #: templates/table/structure/display_structure.twig:179
 msgid "Truncate"
 msgstr "Очистить"
 
-#: libraries/classes/Operations.php:1601
+#: libraries/classes/Operations.php:1605
 msgid "Coalesce"
 msgstr "Объединить"
 
-#: libraries/classes/Operations.php:1610
+#: libraries/classes/Operations.php:1614
 msgid "Partition maintenance"
 msgstr "Обслуживание разделов"
 
-#: libraries/classes/Operations.php:1627
+#: libraries/classes/Operations.php:1631
 #, php-format
 msgid "Partition %s"
 msgstr "Раздел %s"
 
-#: libraries/classes/Operations.php:1645
+#: libraries/classes/Operations.php:1649
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
 msgstr "Удалить разбиение"
 
-#: libraries/classes/Operations.php:1671
+#: libraries/classes/Operations.php:1675
 msgid "Check referential integrity:"
 msgstr "Проверить целостность данных:"
 
-#: libraries/classes/Operations.php:2057
+#: libraries/classes/Operations.php:2061
 msgid "Can't move table to same one!"
 msgstr "Не возможно переместить таблицу саму в себя!"
 
-#: libraries/classes/Operations.php:2059
+#: libraries/classes/Operations.php:2063
 msgid "Can't copy table to same one!"
 msgstr "Невозможно скопировать таблицу саму в себя!"
 
-#: libraries/classes/Operations.php:2083
+#: libraries/classes/Operations.php:2087
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Таблица %s была перемещена в %s. Привилегии обновлены."
 
-#: libraries/classes/Operations.php:2090
+#: libraries/classes/Operations.php:2094
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Таблица %s была скопирована в %s. Привилегии обновлены."
 
-#: libraries/classes/Operations.php:2099
+#: libraries/classes/Operations.php:2103
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Таблица %s была перемещена в %s."
 
-#: libraries/classes/Operations.php:2103
+#: libraries/classes/Operations.php:2107
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Таблица %s была скопирована в %s."
 
-#: libraries/classes/Operations.php:2131
+#: libraries/classes/Operations.php:2137
 msgid "The table name is empty!"
 msgstr "Не задано имя таблицы!"
 
@@ -12189,12 +12189,12 @@ msgstr "Команда"
 msgid "Progress"
 msgstr "Прогресс"
 
-#: libraries/classes/Server/Status/Processes.php:230
+#: libraries/classes/Server/Status/Processes.php:232
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
 msgid "Filters"
 msgstr "Фильтры"
 
-#: libraries/classes/Server/Status/Processes.php:238
+#: libraries/classes/Server/Status/Processes.php:240
 msgid "Show only active"
 msgstr "Выводить только активные"
 

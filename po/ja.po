@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-08-26 19:06+0200\n"
+"POT-Creation-Date: 2018-10-30 21:18-0300\n"
 "PO-Revision-Date: 2018-09-14 18:19+0000\n"
 "Last-Translator: Daigo Hamasaki <daigo.hamasaki.16@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
@@ -484,9 +484,9 @@ msgstr "幾何データを追加する"
 #: libraries/classes/Normalization.php:216
 #: libraries/classes/Normalization.php:898 libraries/classes/Operations.php:67
 #: libraries/classes/Operations.php:132 libraries/classes/Operations.php:273
-#: libraries/classes/Operations.php:329 libraries/classes/Operations.php:816
-#: libraries/classes/Operations.php:886 libraries/classes/Operations.php:931
-#: libraries/classes/Operations.php:1336 libraries/classes/Operations.php:1650
+#: libraries/classes/Operations.php:329 libraries/classes/Operations.php:820
+#: libraries/classes/Operations.php:890 libraries/classes/Operations.php:935
+#: libraries/classes/Operations.php:1340 libraries/classes/Operations.php:1654
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:209
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:216
 #: libraries/classes/ReplicationGui.php:134
@@ -622,7 +622,7 @@ msgstr "インポートの進行状況を読み込めませんでした。"
 msgid "Back"
 msgstr "戻る"
 
-#: index.php:149
+#: index.php:156
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -630,12 +630,12 @@ msgstr ""
 "あるサーバからログアウトされました。phpMyAdminから完全にログアウトするために"
 "は、全てのサーバからログアウトする必要があります。"
 
-#: index.php:193 libraries/classes/Footer.php:81
+#: index.php:200 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin デモ サーバー"
 
-#: index.php:197 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
+#: index.php:204 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -646,88 +646,88 @@ msgstr ""
 "root、debian-sys-maintとpmaは変更しないで下さい。詳しい情報は、%sを参照くださ"
 "い。"
 
-#: index.php:207
+#: index.php:214
 msgid "General settings"
 msgstr "一般設定"
 
-#: index.php:236 js/messages.php:650
+#: index.php:243 js/messages.php:650
 #: libraries/classes/Display/ChangePassword.php:58
 #: libraries/classes/Display/ChangePassword.php:61
 #: libraries/classes/UserPassword.php:242
 msgid "Change password"
 msgstr "パスワードを変更する"
 
-#: index.php:253 libraries/classes/Config/Descriptions.php:1488
+#: index.php:260 libraries/classes/Config/Descriptions.php:1488
 msgid "Server connection collation"
 msgstr "サーバ接続の照合順序"
 
-#: index.php:276
+#: index.php:283
 msgid "Appearance settings"
 msgstr "外観の設定"
 
-#: index.php:309 prefs_manage.php:276
+#: index.php:316 prefs_manage.php:276
 msgid "More settings"
 msgstr "詳細設定"
 
-#: index.php:331
+#: index.php:338
 msgid "Database server"
 msgstr "データベースサーバ"
 
-#: index.php:334 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
+#: index.php:341 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
 msgid "Server:"
 msgstr "サーバ："
 
-#: index.php:338
+#: index.php:345
 msgid "Server type:"
 msgstr "サーバの種類："
 
-#: index.php:342
+#: index.php:349
 msgid "Server connection:"
 msgstr "サーバの接続："
 
-#: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
+#: index.php:353 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
 #: libraries/classes/Plugins/Export/ExportXml.php:245
 msgid "Server version:"
 msgstr "サーバのバージョン："
 
-#: index.php:352
+#: index.php:359
 msgid "Protocol version:"
 msgstr "プロトコル バージョン:"
 
-#: index.php:356
+#: index.php:363
 msgid "User:"
 msgstr "ユーザ："
 
-#: index.php:361
+#: index.php:368
 msgid "Server charset:"
 msgstr "サーバの文字セット:"
 
-#: index.php:377
+#: index.php:384
 msgid "Web server"
 msgstr "ウェブサーバ"
 
-#: index.php:388
+#: index.php:395
 msgid "Database client version:"
 msgstr "データベースクライアントのバージョン："
 
-#: index.php:392
+#: index.php:399
 msgid "PHP extension:"
 msgstr "PHP 拡張:"
 
-#: index.php:406
+#: index.php:413
 msgid "PHP version:"
 msgstr "PHP のバージョン:"
 
-#: index.php:417
+#: index.php:424
 msgid "Show PHP information"
 msgstr "PHP情報を表示する"
 
-#: index.php:436
+#: index.php:443
 msgid "Version information:"
 msgstr "バージョン情報："
 
-#: index.php:445 libraries/classes/Config/FormDisplayTemplate.php:164
+#: index.php:452 libraries/classes/Config/FormDisplayTemplate.php:164
 #: libraries/classes/Display/Export.php:350
 #: libraries/classes/Engines/Pbxt.php:167
 #: libraries/classes/Navigation/NavigationHeader.php:203
@@ -737,27 +737,27 @@ msgstr "バージョン情報："
 msgid "Documentation"
 msgstr "ドキュメント"
 
-#: index.php:454
+#: index.php:461
 msgid "Official Homepage"
 msgstr "phpMyAdmin オフィシャルサイト"
 
-#: index.php:461
+#: index.php:468
 msgid "Contribute"
 msgstr "phpMyAdmin に協力するには"
 
-#: index.php:468
+#: index.php:475
 msgid "Get support"
 msgstr "サポート"
 
-#: index.php:475
+#: index.php:482
 msgid "List of changes"
 msgstr "更新履歴"
 
-#: index.php:482 templates/server/plugins/section.twig:13
+#: index.php:489 templates/server/plugins/section.twig:13
 msgid "License"
 msgstr "ライセンス"
 
-#: index.php:502
+#: index.php:509
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -767,7 +767,7 @@ msgstr ""
 "いるようですが、mbstring 拡張がないと phpMyAdmin は文字列を正しく分割できない"
 "ため予期しない結果になることがあります。"
 
-#: index.php:517
+#: index.php:524
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -776,7 +776,7 @@ msgstr ""
 "す。このためエラーを報告またはバージョン チェックなどいくつかの機能が無効にな"
 "ります。"
 
-#: index.php:532
+#: index.php:539
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -789,7 +789,7 @@ msgstr ""
 "のため、phpMyAdmin に設定されているよりも早くログインの期限が切れるかもしれま"
 "せん。"
 
-#: index.php:551
+#: index.php:558
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -798,18 +798,18 @@ msgstr ""
 "りも短くなっています。このため、phpMyAdmin に設定されているよりも早くログイン"
 "の期限が切れます。"
 
-#: index.php:566
+#: index.php:573
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "設定ファイルに、暗号化 (blowfish_secret) 用の非公開パスフレーズの設定を必要と"
 "するようになりました。"
 
-#: index.php:573
+#: index.php:580
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
 "設定ファイルの中に記述されているパスフレーズ（blowfish_secret）が短すぎます。"
 
-#: index.php:587
+#: index.php:594
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -821,7 +821,7 @@ msgstr ""
 "ことを強くお勧めします。削除しない場合、誰でも認証なしでサーバの設定をダウン"
 "ロードすることができるため、サーバのセキュリティが低下します。"
 
-#: index.php:605
+#: index.php:612
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -830,12 +830,12 @@ msgstr ""
 "phpMyAdmin 環境保管領域が完全に設定されていないため、いくつかの拡張機能が無効"
 "になっています。理由については%sこちら%sをご覧ください。 "
 
-#: index.php:612
+#: index.php:619
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "代わりにデータベースの操作タブを使って設定することもできます。"
 
-#: index.php:637
+#: index.php:644
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -844,7 +844,7 @@ msgstr ""
 "Suhosin が稼働しているため問題が発生する可能性があります。詳しくは%sドキュメ"
 "ント%sをご覧ください。"
 
-#: index.php:651
+#: index.php:658
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -1323,7 +1323,7 @@ msgstr "少なくとも１つの系列を追加してください!"
 #: libraries/classes/Plugins/Export/ExportSql.php:2194
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
-#: libraries/classes/Server/Status/Processes.php:285
+#: libraries/classes/Server/Status/Processes.php:287
 #: libraries/config.values.php:69 templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/privileges/privileges_summary.twig:30
@@ -3208,7 +3208,7 @@ msgstr "長さ/値"
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:273
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:303
-#: libraries/classes/Operations.php:1073
+#: libraries/classes/Operations.php:1077
 #: templates/table/search/table_header.twig:8
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/database/structure/table_header.twig:33
@@ -4174,8 +4174,8 @@ msgid "Remember file name template"
 msgstr "ファイル名のテンプレートを記憶しておく"
 
 #: libraries/classes/Config/Descriptions.php:354
-#: libraries/classes/Operations.php:241 libraries/classes/Operations.php:864
-#: libraries/classes/Operations.php:1296
+#: libraries/classes/Operations.php:241 libraries/classes/Operations.php:868
+#: libraries/classes/Operations.php:1300
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT 値を追加する"
 
@@ -4221,7 +4221,7 @@ msgstr "phpMyAdmin 環境保管領域用のテーブルが不明"
 #: libraries/classes/Config/Descriptions.php:380
 #: libraries/classes/Config/Descriptions.php:382
 #: libraries/classes/Config/Descriptions.php:401
-#: libraries/classes/Operations.php:236 libraries/classes/Operations.php:1292
+#: libraries/classes/Operations.php:236 libraries/classes/Operations.php:1296
 #, php-format
 msgid "Add %s"
 msgstr "%s を追加する"
@@ -6301,7 +6301,7 @@ msgstr "EXPLAIN で確認"
 
 #: libraries/classes/Config/Descriptions.php:1333
 #: libraries/classes/Export.php:519
-#: libraries/classes/Server/Status/Processes.php:233
+#: libraries/classes/Server/Status/Processes.php:235
 #: libraries/classes/Server/Status/Variables.php:50
 #: libraries/classes/Util.php:1122 templates/console/display.twig:99
 msgid "Refresh"
@@ -7166,12 +7166,12 @@ msgid "Previous"
 msgstr "前へ"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:211
-#: libraries/classes/Server/Status/Processes.php:181
+#: libraries/classes/Server/Status/Processes.php:182
 msgid "Truncate Shown Queries"
 msgstr "クエリの表示を切り詰める"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:215
-#: libraries/classes/Server/Status/Processes.php:183
+#: libraries/classes/Server/Status/Processes.php:185
 msgid "Show Full Queries"
 msgstr "クエリ全体を表示"
 
@@ -7349,7 +7349,7 @@ msgstr "変更"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1208
 #: libraries/classes/Controllers/Table/TableStructureController.php:1209
-#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1599
+#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1603
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3323
 #: libraries/classes/Util.php:3324
 #: templates/table/structure/display_structure.twig:188
@@ -7855,7 +7855,7 @@ msgstr "全文"
 
 #: libraries/classes/Display/Results.php:2117
 #: libraries/classes/Display/Results.php:2131
-#: libraries/classes/Operations.php:812
+#: libraries/classes/Operations.php:816
 #: libraries/classes/Server/Status/Processes.php:169
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71 templates/table/search/options.twig:54
@@ -7867,7 +7867,7 @@ msgstr "降順"
 
 #: libraries/classes/Display/Results.php:2121
 #: libraries/classes/Display/Results.php:2127
-#: libraries/classes/Operations.php:809
+#: libraries/classes/Operations.php:813
 #: libraries/classes/Server/Status/Processes.php:172
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70 templates/table/search/options.twig:54
@@ -7886,7 +7886,7 @@ msgstr "行を削除しました"
 
 #: libraries/classes/Display/Results.php:3428
 #: libraries/classes/Display/Results.php:4679
-#: libraries/classes/Server/Status/Processes.php:279
+#: libraries/classes/Server/Status/Processes.php:281
 msgid "Kill"
 msgstr "停止"
 
@@ -8888,17 +8888,17 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d 行挿入しました。"
 
 #: libraries/classes/MultSubmits.php:399 libraries/classes/Operations.php:195
-#: libraries/classes/Operations.php:1279 libraries/classes/Tracking.php:395
+#: libraries/classes/Operations.php:1283 libraries/classes/Tracking.php:395
 msgid "Structure only"
 msgstr "構造のみ"
 
 #: libraries/classes/MultSubmits.php:401 libraries/classes/Operations.php:196
-#: libraries/classes/Operations.php:1280 libraries/classes/Tracking.php:401
+#: libraries/classes/Operations.php:1284 libraries/classes/Tracking.php:401
 msgid "Structure and data"
 msgstr "構造とデータ"
 
 #: libraries/classes/MultSubmits.php:403 libraries/classes/Operations.php:197
-#: libraries/classes/Operations.php:1281 libraries/classes/Tracking.php:398
+#: libraries/classes/Operations.php:1285 libraries/classes/Tracking.php:398
 msgid "Data only"
 msgstr "データのみ"
 
@@ -8909,13 +8909,13 @@ msgid "Add AUTO INCREMENT value"
 msgstr "AUTO_INCREMENT 値を追加する"
 
 #: libraries/classes/MultSubmits.php:409 libraries/classes/Operations.php:245
-#: libraries/classes/Operations.php:1304
+#: libraries/classes/Operations.php:1308
 msgid "Add constraints"
 msgstr "制約を追加する"
 
 #: libraries/classes/MultSubmits.php:411 libraries/classes/Operations.php:126
-#: libraries/classes/Operations.php:263 libraries/classes/Operations.php:882
-#: libraries/classes/Operations.php:969 libraries/classes/Operations.php:1323
+#: libraries/classes/Operations.php:263 libraries/classes/Operations.php:886
+#: libraries/classes/Operations.php:973 libraries/classes/Operations.php:1327
 #: libraries/classes/Rte/Routines.php:1024
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #, fuzzy
@@ -9473,8 +9473,8 @@ msgid "Rename database to"
 msgstr "データベース名の変更"
 
 #: libraries/classes/Operations.php:119 libraries/classes/Operations.php:257
-#: libraries/classes/Operations.php:876 libraries/classes/Operations.php:963
-#: libraries/classes/Operations.php:1317
+#: libraries/classes/Operations.php:880 libraries/classes/Operations.php:967
+#: libraries/classes/Operations.php:1321
 #: templates/columns_definitions/column_adjust_privileges.twig:15
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
@@ -9520,192 +9520,192 @@ msgstr "テーブルのキャプション (続き)"
 msgid "Change all tables columns collations"
 msgstr ""
 
-#: libraries/classes/Operations.php:797
+#: libraries/classes/Operations.php:801
 msgid "Alter table order by"
 msgstr "テーブルの並び順"
 
-#: libraries/classes/Operations.php:805
+#: libraries/classes/Operations.php:809
 msgid "(singly)"
 msgstr "(1 回)"
 
-#: libraries/classes/Operations.php:841
+#: libraries/classes/Operations.php:845
 msgid "Move table to (database<b>.</b>table)"
 msgstr "テーブルを (データベース)<b>.</b>(テーブル) へ移動する:"
 
-#: libraries/classes/Operations.php:946
+#: libraries/classes/Operations.php:950
 msgid "Rename table to"
 msgstr "変更後のテーブル名称"
 
-#: libraries/classes/Operations.php:986
+#: libraries/classes/Operations.php:990
 msgid "Table comments"
 msgstr "テーブルのコメント"
 
-#: libraries/classes/Operations.php:1055
+#: libraries/classes/Operations.php:1059
 msgid "Table options"
 msgstr "テーブルオプション"
 
-#: libraries/classes/Operations.php:1062
+#: libraries/classes/Operations.php:1066
 #: templates/server/engines/engines.twig:4
 msgid "Storage Engine"
 msgstr "ストレージエンジン"
 
-#: libraries/classes/Operations.php:1091
+#: libraries/classes/Operations.php:1095
 msgid "Change all column collations"
 msgstr ""
 
-#: libraries/classes/Operations.php:1262
+#: libraries/classes/Operations.php:1266
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "テーブルを (データベース)<b>.</b>(テーブル) にコピーする:"
 
-#: libraries/classes/Operations.php:1332
+#: libraries/classes/Operations.php:1336
 msgid "Switch to copied table"
 msgstr "コピーしたテーブルに切り替える"
 
-#: libraries/classes/Operations.php:1356
+#: libraries/classes/Operations.php:1360
 #: templates/database/structure/check_all_tables.twig:18
 msgid "Table maintenance"
 msgstr "テーブルメンテナンス"
 
-#: libraries/classes/Operations.php:1389
+#: libraries/classes/Operations.php:1393
 #: templates/database/structure/check_all_tables.twig:19
 msgid "Analyze table"
 msgstr "テーブルを分析する"
 
-#: libraries/classes/Operations.php:1404
+#: libraries/classes/Operations.php:1408
 #: templates/database/structure/check_all_tables.twig:20
 msgid "Check table"
 msgstr "テーブルをチェックする"
 
-#: libraries/classes/Operations.php:1418
+#: libraries/classes/Operations.php:1422
 #: templates/database/structure/check_all_tables.twig:21
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
 msgstr "テーブルをチェックする"
 
-#: libraries/classes/Operations.php:1432
+#: libraries/classes/Operations.php:1436
 msgid "Defragment table"
 msgstr "テーブルのデフラグ"
 
-#: libraries/classes/Operations.php:1444
+#: libraries/classes/Operations.php:1448
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "テーブル %s をフラッシュしました。"
 
-#: libraries/classes/Operations.php:1450
+#: libraries/classes/Operations.php:1454
 msgid "Flush the table (FLUSH)"
 msgstr "テーブルをフラッシュする (FLUSH)"
 
-#: libraries/classes/Operations.php:1464
+#: libraries/classes/Operations.php:1468
 #: templates/table/structure/display_table_stats.twig:61
 #: templates/database/structure/check_all_tables.twig:22
 msgid "Optimize table"
 msgstr "テーブルを最適化する"
 
-#: libraries/classes/Operations.php:1479
+#: libraries/classes/Operations.php:1483
 #: templates/database/structure/check_all_tables.twig:23
 msgid "Repair table"
 msgstr "テーブルを修復する"
 
-#: libraries/classes/Operations.php:1525
+#: libraries/classes/Operations.php:1529
 #: templates/database/structure/check_all_tables.twig:14
 #: view_operations.php:138
 msgid "Delete data or table"
 msgstr "データまたはテーブルの削除"
 
-#: libraries/classes/Operations.php:1533
+#: libraries/classes/Operations.php:1537
 msgid "Empty the table (TRUNCATE)"
 msgstr "テーブルを空にする (TRUNCATE)"
 
-#: libraries/classes/Operations.php:1541
+#: libraries/classes/Operations.php:1545
 msgid "Delete the table (DROP)"
 msgstr "テーブルを削除する (DROP)"
 
-#: libraries/classes/Operations.php:1582
+#: libraries/classes/Operations.php:1586
 #: templates/table/structure/display_structure.twig:179
 msgid "Analyze"
 msgstr "分析"
 
-#: libraries/classes/Operations.php:1583
+#: libraries/classes/Operations.php:1587
 #: templates/table/structure/display_structure.twig:179
 msgid "Check"
 msgstr "確認"
 
-#: libraries/classes/Operations.php:1584
+#: libraries/classes/Operations.php:1588
 #: templates/table/structure/display_structure.twig:179
 msgid "Optimize"
 msgstr "最適化"
 
-#: libraries/classes/Operations.php:1585
+#: libraries/classes/Operations.php:1589
 #: templates/table/structure/display_structure.twig:179
 msgid "Rebuild"
 msgstr "再構築"
 
-#: libraries/classes/Operations.php:1586
+#: libraries/classes/Operations.php:1590
 #: templates/table/structure/display_structure.twig:179
 msgid "Repair"
 msgstr "修復"
 
-#: libraries/classes/Operations.php:1587
+#: libraries/classes/Operations.php:1591
 #: templates/table/structure/display_structure.twig:179
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:1601
+#: libraries/classes/Operations.php:1605
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "閉じる"
 
-#: libraries/classes/Operations.php:1610
+#: libraries/classes/Operations.php:1614
 msgid "Partition maintenance"
 msgstr "パーティション管理"
 
-#: libraries/classes/Operations.php:1627
+#: libraries/classes/Operations.php:1631
 #, php-format
 msgid "Partition %s"
 msgstr "パーティション %s"
 
-#: libraries/classes/Operations.php:1645
+#: libraries/classes/Operations.php:1649
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
 msgstr "パーティションを削除"
 
-#: libraries/classes/Operations.php:1671
+#: libraries/classes/Operations.php:1675
 msgid "Check referential integrity:"
 msgstr "参照整合性の確認:"
 
-#: libraries/classes/Operations.php:2057
+#: libraries/classes/Operations.php:2061
 msgid "Can't move table to same one!"
 msgstr "同じテーブルには移動できません!"
 
-#: libraries/classes/Operations.php:2059
+#: libraries/classes/Operations.php:2063
 msgid "Can't copy table to same one!"
 msgstr "同じテーブルにはコピーできません!"
 
-#: libraries/classes/Operations.php:2083
+#: libraries/classes/Operations.php:2087
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "テーブル %s を %s に移動しました。"
 
-#: libraries/classes/Operations.php:2090
+#: libraries/classes/Operations.php:2094
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "テーブル %s を %s にコピーしました。"
 
-#: libraries/classes/Operations.php:2099
+#: libraries/classes/Operations.php:2103
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "テーブル %s を %s に移動しました。"
 
-#: libraries/classes/Operations.php:2103
+#: libraries/classes/Operations.php:2107
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "テーブル %s を %s にコピーしました。"
 
-#: libraries/classes/Operations.php:2131
+#: libraries/classes/Operations.php:2137
 msgid "The table name is empty!"
 msgstr "テーブル名が空です!"
 
@@ -13039,12 +13039,12 @@ msgstr "コマンド"
 msgid "Progress"
 msgstr ""
 
-#: libraries/classes/Server/Status/Processes.php:230
+#: libraries/classes/Server/Status/Processes.php:232
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
 msgid "Filters"
 msgstr "フィルタ"
 
-#: libraries/classes/Server/Status/Processes.php:238
+#: libraries/classes/Server/Status/Processes.php:240
 #, fuzzy
 #| msgid "Show only alert values"
 msgid "Show only active"
