@@ -649,6 +649,7 @@ $(function () {
         } else {
             // If the user is different
             navTreeStateUpdate();
+            PMA_reloadNavigation();
         }
     }
 });
