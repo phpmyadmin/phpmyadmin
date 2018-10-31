@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-30 21:18-0300\n"
-"PO-Revision-Date: 2018-07-03 23:16+0000\n"
+"PO-Revision-Date: 2018-10-31 20:33+0000\n"
 "Last-Translator: Marino <mrabach@gmail.com>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "hr/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -26,18 +26,15 @@ msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Datoteka %s nije dostupna na ovom sistemu, molimo posjetite %s za više "
-"informacija."
+"Datoteka %s nije dostupna na ovom sustavu, posjetite %s za više informacija."
 
 #: db_central_columns.php:129
 msgid "The central list of columns for the current database is empty."
-msgstr "Središnji popis stupaca za trenutnu bazu podataka je prazan"
+msgstr "Središnji popis stupaca za trenutnu bazu podataka je prazan."
 
 #: db_central_columns.php:158
-#, fuzzy
-#| msgid "Click to sort"
 msgid "Click to sort."
-msgstr "Kliknite za sortiranje"
+msgstr "Kliknite za sortiranje."
 
 #: db_central_columns.php:177
 #, php-format
@@ -160,7 +157,7 @@ msgstr "Zadano"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:635
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:658
 msgid "Links to"
-msgstr "Povezano s"
+msgstr "Veze na"
 
 #: db_datadict.php:124 libraries/classes/Config/Descriptions.php:302
 #: libraries/classes/Config/Descriptions.php:332
@@ -251,14 +248,14 @@ msgstr "Da"
 
 #: db_export.php:48
 msgid "View dump (schema) of database"
-msgstr "Prikaži ispis (shemu) baze podataka"
+msgstr "Prikaži shemu (shemu) baze podataka"
 
 #: db_export.php:53 db_tracking.php:105 export.php:387
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:161
 #: libraries/classes/Database/Qbe.php:340
 #: libraries/classes/Navigation/NavigationTree.php:924
 msgid "No tables found in database."
-msgstr "U bazi podataka nisu pronađene tablice."
+msgstr "Tabele nisu pronađene u bazi podataka."
 
 #: db_export.php:68 libraries/classes/Config/Descriptions.php:490
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:332
@@ -268,7 +265,7 @@ msgstr "U bazi podataka nisu pronađene tablice."
 #: libraries/classes/Server/Status/Data.php:128
 #: templates/database/structure/show_create.twig:14
 msgid "Tables"
-msgstr "Tablice"
+msgstr "Tabele"
 
 #: db_export.php:69 libraries/classes/Config/Forms/User/ExportForm.php:49
 #: libraries/classes/Config/Forms/User/ExportForm.php:93
@@ -289,7 +286,7 @@ msgstr "Tablice"
 #: templates/database/central_columns/edit_table_header.twig:2
 #: templates/columns_definitions/table_fields_definitions.twig:4
 msgid "Structure"
-msgstr "Strukturu"
+msgstr "Struktura"
 
 #: db_export.php:70 libraries/classes/Config/Forms/User/ExportForm.php:62
 #: libraries/classes/Config/Forms/User/ExportForm.php:101
@@ -304,8 +301,6 @@ msgstr "Podaci"
 #: db_export.php:73 libraries/classes/ReplicationGui.php:391
 #: templates/database/search/selection_form.twig:32
 #: templates/display/export/select_options.twig:4
-#, fuzzy
-#| msgid "Select All"
 msgid "Select all"
 msgstr "Odaberi sve"
 
@@ -320,26 +315,22 @@ msgstr ""
 "pokušajte ponovo."
 
 #: db_operations.php:156
-#, fuzzy, php-format
-#| msgid "Database %1$s has been renamed to %2$s."
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
-msgstr "Baza podataka %1$s preimenovana je u %2$s"
+msgstr "Baza podataka %1$s preimenovana je u %2$s."
 
 #: db_operations.php:168
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
-msgstr "Baza podataka %1$s je kopirana u %2$s"
+msgstr "Baza podataka %1$s je kopirana u %2$s."
 
 #: db_operations.php:297
-#, fuzzy, php-format
-#| msgid ""
-#| "The phpMyAdmin configuration storage has been deactivated. To find out "
-#| "why click %shere%s."
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
-"Konfiguracija za pohranu phpMyAdmin-a je deaktivirana. Kako biste saznali "
-"razloge, kliknite %sovdje%s."
+"Pohrana konfiguracije za phpMyAdmin-a je deaktivirana. Kako biste saznali "
+"razloge deaktivacije, kliknite %sovdje%s."
 
 #: db_qbe.php:132
 msgid "You have to choose at least one column to display!"
@@ -358,21 +349,19 @@ msgid "Access denied!"
 msgstr "Pristup odbijen!"
 
 #: db_tracking.php:55 db_tracking.php:80
-#, fuzzy
 msgid "Tracking data deleted successfully."
-msgstr "Replikacija"
+msgstr "Podaci o praćenju su uspješno izbrisani."
 
 #: db_tracking.php:64
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
+"Verzija %1$s je stvorena za odabrane tabele, praćenje je aktivirano za njih."
 
 #: db_tracking.php:95
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No tables selected."
-msgstr "Nema odabrane baze podataka."
+msgstr "Nije odabrana nijedna tabela."
 
 #: db_tracking.php:153
 msgid "Database Log"
