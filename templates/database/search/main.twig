@@ -38,7 +38,12 @@
             <select name="criteriaTables[]" multiple>
                 {% for each_table in tables_names_only %}
                     <option value="{{ each_table }}"
-                        {{- each_table in criteria_tables ? ' selected' }}>
+                            {% if criteria_tables|length > 0 %}
+                                {{- each_table in criteria_tables ? ' selected' }}
+                            {% else %}
+                                {{- ' selected' }}
+                            {% endif %}
+                        >
                         {{ each_table }}
                     </option>
                 {% endfor %}
