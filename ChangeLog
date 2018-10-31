@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - issue #14417 Automatically add index while editing an existing row and setting auto increment
 - issue #13057 Add export option to drop user security definers from views
 - issue #14404 Drop view and or replace added to exporting view
+- issue #14594 Database "Search" selects all tables by default
 
 4.8.4 (not yet released)
 - issue #14452 Remove hash param in edit query URL
