@@ -773,13 +773,13 @@ function PMA_showCurrentNavigation () {
         }
     } else if ($('#navi_db_select').length && $('#navi_db_select').val()) {
         $('#navi_db_select').val('').hide().trigger('change');
-    } else if (autoexpand && $('#pma_navigation_tree_content > ul > li').length === 1) {
+    } else if (autoexpand && $('#pma_navigation_tree_content > ul > li.database').length === 1) {
         // automatically expand the list if there is only single database
 
         // find the name of the database
         var dbItemName = '';
 
-        $('#pma_navigation_tree_content > ul > li').children('a').each(function () {
+        $('#pma_navigation_tree_content > ul > li.database').children('a').each(function () {
             var name = $(this).text();
             if (!dbItemName && name.trim()) { // if the name is not empty, it is the desired element
                 dbItemName = name;
