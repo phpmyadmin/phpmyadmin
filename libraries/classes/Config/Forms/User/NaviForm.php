@@ -44,7 +44,8 @@ class NaviForm extends BaseForm
                 'NavigationTreeShowViews',
                 'NavigationTreeShowFunctions',
                 'NavigationTreeShowProcedures',
-                'NavigationTreeShowEvents'
+                'NavigationTreeShowEvents',
+                'NavigationTreeAutoexpandSingleDb'
             ],
             'Navi_servers' => [
                 'NavigationDisplayServers',
