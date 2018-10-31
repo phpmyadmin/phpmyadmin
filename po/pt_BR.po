@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-30 21:22-0300\n"
-"PO-Revision-Date: 2018-10-31 17:53+0000\n"
+"PO-Revision-Date: 2018-10-31 18:12+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -9691,7 +9691,7 @@ msgstr "Nome do novo banco de dados (opcional): "
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 msgid "Import these many number of rows(optional): "
-msgstr ""
+msgstr "Importar esse número de linhas (opcional): "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
