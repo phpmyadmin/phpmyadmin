@@ -265,7 +265,7 @@ class Common
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
-            return null;
+            return array();
         }
 
         $query = "
