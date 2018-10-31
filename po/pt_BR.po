@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-30 21:22-0300\n"
-"PO-Revision-Date: 2018-09-28 17:32+0000\n"
+"PO-Revision-Date: 2018-10-31 17:53+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -1552,16 +1552,12 @@ msgid "Please select the file you want to import."
 msgstr "Por favor, selecione o arquivo que deseja importar."
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Por favor, digite um número válido"
+msgstr "Por favor, digite um nome de tabela válido."
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Por favor, digite um número válido"
+msgstr "Por favor, digite um nome de banco de dados válido."
 
 #: js/messages.php:336
 msgid "No files available on server for import!"
@@ -4102,14 +4098,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:255
 #: libraries/classes/Plugins/Export/ExportSql.php:317
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Excluir definição do usuário atual"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "Valor de %s"
+msgstr "%s view"
 
 #: libraries/classes/Config/Descriptions.php:257
 msgid "Use ignore inserts"
@@ -9687,11 +9682,11 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table(optional): "
-msgstr ""
+msgstr "Nome da nova tabela (opcional): "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
 msgid "Name of the new database(optional): "
-msgstr ""
+msgstr "Nome do novo banco de dados (opcional): "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103

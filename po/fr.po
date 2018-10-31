@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-30 21:22-0300\n"
-"PO-Revision-Date: 2018-10-29 15:23+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2018-10-31 17:53+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
 "Language: fr\n"
@@ -1556,16 +1556,12 @@ msgid "Please select the file you want to import."
 msgstr "Merci de choisir le fichier à importer."
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Merci de saisir un nom de page valide"
+msgstr "Veuillez saisir un nom de table valide."
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Merci de saisir un nom de page valide"
+msgstr "Veuillez saisir un nom de base de données valide."
 
 #: js/messages.php:336
 msgid "No files available on server for import!"
@@ -4118,14 +4114,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:255
 #: libraries/classes/Plugins/Export/ExportSql.php:317
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Exclure la définition de l'utilisateur actuel"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "Valeur de %s"
+msgstr "Vue de %s"
 
 #: libraries/classes/Config/Descriptions.php:257
 msgid "Use ignore inserts"
@@ -9743,16 +9738,16 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table(optional): "
-msgstr ""
+msgstr "Nom de la nouvelle table (facultatif) : "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
 msgid "Name of the new database(optional): "
-msgstr ""
+msgstr "Nom de la nouvelle base de données (facultatif) : "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 msgid "Import these many number of rows(optional): "
-msgstr ""
+msgstr "Importer ce nombre de lignes (facultatif) : "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67

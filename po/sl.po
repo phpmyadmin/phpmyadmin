@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-30 21:22-0300\n"
-"PO-Revision-Date: 2018-09-28 17:34+0000\n"
+"PO-Revision-Date: 2018-10-31 17:53+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12,9 +12,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -1543,16 +1543,12 @@ msgid "Please select the file you want to import."
 msgstr "Prosimo, izberite datoteko, ki jo želite uvoziti."
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Prosimo, vnesite veljavno ime strani"
+msgstr "Prosimo, vnesite veljavno ime tabele."
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Prosimo, vnesite veljavno ime strani"
+msgstr "Prosimo, vnesite veljavno ime zbirke podatkov."
 
 #: js/messages.php:336
 msgid "No files available on server for import!"
@@ -4074,14 +4070,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:255
 #: libraries/classes/Plugins/Export/ExportSql.php:317
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Izključi opredelitev trenutnega uporabnika"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "Vrednost %s"
+msgstr "%s pogled"
 
 #: libraries/classes/Config/Descriptions.php:257
 msgid "Use ignore inserts"
@@ -9614,16 +9609,16 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table(optional): "
-msgstr ""
+msgstr "Ime nove tabele (izbirno): "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
 msgid "Name of the new database(optional): "
-msgstr ""
+msgstr "Ime nove zbirke podatkov (izbirno): "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 msgid "Import these many number of rows(optional): "
-msgstr ""
+msgstr "Uvozi toliko vrstic (izbirno): "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
