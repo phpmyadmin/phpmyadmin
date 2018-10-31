@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - issue #14571 "No database selected" - DROP a view
 - issue #14636 Move operation causes SELECT * FROM `undefined`
 - issue #14630 Enum '0' produces incorrect search SQL
+- issue #14223 Fix TypeError in database designer
 
 4.8.3 (2018-08-22)
 - issue #14314 Error when naming a database '0'
