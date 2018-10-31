@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-08-26 19:06+0200\n"
+"POT-Creation-Date: 2018-10-30 21:18-0300\n"
 "PO-Revision-Date: 2018-10-08 16:28+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -476,9 +476,9 @@ msgstr "添加几何体"
 #: libraries/classes/Normalization.php:216
 #: libraries/classes/Normalization.php:898 libraries/classes/Operations.php:67
 #: libraries/classes/Operations.php:132 libraries/classes/Operations.php:273
-#: libraries/classes/Operations.php:329 libraries/classes/Operations.php:816
-#: libraries/classes/Operations.php:886 libraries/classes/Operations.php:931
-#: libraries/classes/Operations.php:1336 libraries/classes/Operations.php:1650
+#: libraries/classes/Operations.php:329 libraries/classes/Operations.php:820
+#: libraries/classes/Operations.php:890 libraries/classes/Operations.php:935
+#: libraries/classes/Operations.php:1340 libraries/classes/Operations.php:1654
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:209
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:216
 #: libraries/classes/ReplicationGui.php:134
@@ -606,19 +606,19 @@ msgstr "无法加载导入进度。"
 msgid "Back"
 msgstr "返回"
 
-#: index.php:149
+#: index.php:156
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
 "您已从一台服务器退出登录，要从phpMyAdmin完全退出，您需要从所有服务器退出。"
 
-#: index.php:193 libraries/classes/Footer.php:81
+#: index.php:200 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin 演示服务器"
 
-#: index.php:197 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
+#: index.php:204 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -628,88 +628,88 @@ msgstr ""
 "您正在使用演示服务器。您可以在这里做任何事，但请不要修改 root、debian-sys-"
 "maint 和 pma 用户。详情请见 %s。"
 
-#: index.php:207
+#: index.php:214
 msgid "General settings"
 msgstr "常规设置"
 
-#: index.php:236 js/messages.php:650
+#: index.php:243 js/messages.php:650
 #: libraries/classes/Display/ChangePassword.php:58
 #: libraries/classes/Display/ChangePassword.php:61
 #: libraries/classes/UserPassword.php:242
 msgid "Change password"
 msgstr "修改密码"
 
-#: index.php:253 libraries/classes/Config/Descriptions.php:1488
+#: index.php:260 libraries/classes/Config/Descriptions.php:1488
 msgid "Server connection collation"
 msgstr "服务器连接排序规则"
 
-#: index.php:276
+#: index.php:283
 msgid "Appearance settings"
 msgstr "外观设置"
 
-#: index.php:309 prefs_manage.php:276
+#: index.php:316 prefs_manage.php:276
 msgid "More settings"
 msgstr "更多设置"
 
-#: index.php:331
+#: index.php:338
 msgid "Database server"
 msgstr "数据库服务器"
 
-#: index.php:334 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
+#: index.php:341 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
 msgid "Server:"
 msgstr "服务器："
 
-#: index.php:338
+#: index.php:345
 msgid "Server type:"
 msgstr "服务器类型："
 
-#: index.php:342
+#: index.php:349
 msgid "Server connection:"
 msgstr "服务器连接:"
 
-#: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
+#: index.php:353 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
 #: libraries/classes/Plugins/Export/ExportXml.php:245
 msgid "Server version:"
 msgstr "服务器版本："
 
-#: index.php:352
+#: index.php:359
 msgid "Protocol version:"
 msgstr "协议版本："
 
-#: index.php:356
+#: index.php:363
 msgid "User:"
 msgstr "用户："
 
-#: index.php:361
+#: index.php:368
 msgid "Server charset:"
 msgstr "服务器字符集："
 
-#: index.php:377
+#: index.php:384
 msgid "Web server"
 msgstr "网站服务器"
 
-#: index.php:388
+#: index.php:395
 msgid "Database client version:"
 msgstr "数据库客户端版本："
 
-#: index.php:392
+#: index.php:399
 msgid "PHP extension:"
 msgstr "PHP 扩展："
 
-#: index.php:406
+#: index.php:413
 msgid "PHP version:"
 msgstr "PHP 版本："
 
-#: index.php:417
+#: index.php:424
 msgid "Show PHP information"
 msgstr "显示 PHP 信息"
 
-#: index.php:436
+#: index.php:443
 msgid "Version information:"
 msgstr "版本信息："
 
-#: index.php:445 libraries/classes/Config/FormDisplayTemplate.php:164
+#: index.php:452 libraries/classes/Config/FormDisplayTemplate.php:164
 #: libraries/classes/Display/Export.php:350
 #: libraries/classes/Engines/Pbxt.php:167
 #: libraries/classes/Navigation/NavigationHeader.php:203
@@ -719,27 +719,27 @@ msgstr "版本信息："
 msgid "Documentation"
 msgstr "文档"
 
-#: index.php:454
+#: index.php:461
 msgid "Official Homepage"
 msgstr "官方主页"
 
-#: index.php:461
+#: index.php:468
 msgid "Contribute"
 msgstr "贡献"
 
-#: index.php:468
+#: index.php:475
 msgid "Get support"
 msgstr "获取支持"
 
-#: index.php:475
+#: index.php:482
 msgid "List of changes"
 msgstr "更新列表"
 
-#: index.php:482 templates/server/plugins/section.twig:13
+#: index.php:489 templates/server/plugins/section.twig:13
 msgid "License"
 msgstr "授权"
 
-#: index.php:502
+#: index.php:509
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -748,7 +748,7 @@ msgstr ""
 "没有找到 PHP 扩展 mbstring，而您现在正在使用多字节字符集。没有 mbstring 扩展"
 "的 phpMyAdmin 不能正确分割字符串并可能产生意料之外的结果。"
 
-#: index.php:517
+#: index.php:524
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -756,7 +756,7 @@ msgstr ""
 "curl 扩展未找到并且 allow_url_fopen 已禁用。因此一些功能如错误报告和版本检查"
 "已禁用。"
 
-#: index.php:532
+#: index.php:539
 msgid ""
 "Your PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -768,7 +768,7 @@ msgstr ""
 "phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期可能会比您在 "
 "phpMyAdmin 中设置的时间要更短。"
 
-#: index.php:551
+#: index.php:558
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -776,15 +776,15 @@ msgstr ""
 "phpMyAdmin 中所设置的登录 cookie 存储小于 cookie 有效期，因此您的登录过期时间"
 "将会比您在 phpMyAdmin 中设置的时间要更短。"
 
-#: index.php:566
+#: index.php:573
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr "配置文件现在需要一个短语密码。"
 
-#: index.php:573
+#: index.php:580
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr "配置文件中的密文(blowfish_secret)太短。"
 
-#: index.php:587
+#: index.php:594
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -795,26 +795,26 @@ msgstr ""
 "phpMyAdmin 安装后立即删除该文件夹。否则未经授权的用户都可以下载您的配置文件从"
 "而使服务器陷入危险。"
 
-#: index.php:605
+#: index.php:612
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
 msgstr "phpMyAdmin 高级功能尚未完全设置，部分功能未激活。%s查找原因%s。 "
 
-#: index.php:612
+#: index.php:619
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "或者也可以去某个数据库的“操作”选项卡那里进行设置。"
 
-#: index.php:637
+#: index.php:644
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "服务器上运行了 Suhosin。请查看%s文档%s了解可能发生的问题。"
 
-#: index.php:651
+#: index.php:658
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -902,7 +902,8 @@ msgstr "您已修改了一些数据但尚未保存。您真的要放弃保存并
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
-msgstr "您正在尝试减少行数，但那些行中已经输入了数据，这些数据即将丢失。你想继续吗？"
+msgstr ""
+"您正在尝试减少行数，但那些行中已经输入了数据，这些数据即将丢失。你想继续吗？"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1287,7 +1288,7 @@ msgstr "请至少添加一个数据！"
 #: libraries/classes/Plugins/Export/ExportSql.php:2194
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
-#: libraries/classes/Server/Status/Processes.php:285
+#: libraries/classes/Server/Status/Processes.php:287
 #: libraries/config.values.php:69 templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/privileges/privileges_summary.twig:30
@@ -3111,7 +3112,7 @@ msgstr "长度/值"
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:273
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:303
-#: libraries/classes/Operations.php:1073
+#: libraries/classes/Operations.php:1077
 #: templates/table/search/table_header.twig:8
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/database/structure/table_header.twig:33
@@ -3944,8 +3945,8 @@ msgid "Remember file name template"
 msgstr "记住文件名模板"
 
 #: libraries/classes/Config/Descriptions.php:354
-#: libraries/classes/Operations.php:241 libraries/classes/Operations.php:864
-#: libraries/classes/Operations.php:1296
+#: libraries/classes/Operations.php:241 libraries/classes/Operations.php:868
+#: libraries/classes/Operations.php:1300
 msgid "Add AUTO_INCREMENT value"
 msgstr "添加自增值"
 
@@ -3987,7 +3988,7 @@ msgstr "从phpMyAdmin设置存储中导出相关元数据"
 #: libraries/classes/Config/Descriptions.php:380
 #: libraries/classes/Config/Descriptions.php:382
 #: libraries/classes/Config/Descriptions.php:401
-#: libraries/classes/Operations.php:236 libraries/classes/Operations.php:1292
+#: libraries/classes/Operations.php:236 libraries/classes/Operations.php:1296
 #, php-format
 msgid "Add %s"
 msgstr "添加 %s"
@@ -5596,7 +5597,7 @@ msgstr "解析 SQL"
 
 #: libraries/classes/Config/Descriptions.php:1333
 #: libraries/classes/Export.php:519
-#: libraries/classes/Server/Status/Processes.php:233
+#: libraries/classes/Server/Status/Processes.php:235
 #: libraries/classes/Server/Status/Variables.php:50
 #: libraries/classes/Util.php:1122 templates/console/display.twig:99
 msgid "Refresh"
@@ -6284,12 +6285,12 @@ msgid "Previous"
 msgstr "上一页"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:211
-#: libraries/classes/Server/Status/Processes.php:181
+#: libraries/classes/Server/Status/Processes.php:182
 msgid "Truncate Shown Queries"
 msgstr "截断显示的查询"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:215
-#: libraries/classes/Server/Status/Processes.php:183
+#: libraries/classes/Server/Status/Processes.php:185
 msgid "Show Full Queries"
 msgstr "显示完整查询"
 
@@ -6452,7 +6453,7 @@ msgstr "修改"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1208
 #: libraries/classes/Controllers/Table/TableStructureController.php:1209
-#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1599
+#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1603
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3323
 #: libraries/classes/Util.php:3324
 #: templates/table/structure/display_structure.twig:188
@@ -6908,7 +6909,7 @@ msgstr "完整内容"
 
 #: libraries/classes/Display/Results.php:2117
 #: libraries/classes/Display/Results.php:2131
-#: libraries/classes/Operations.php:812
+#: libraries/classes/Operations.php:816
 #: libraries/classes/Server/Status/Processes.php:169
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71 templates/table/search/options.twig:54
@@ -6920,7 +6921,7 @@ msgstr "递减"
 
 #: libraries/classes/Display/Results.php:2121
 #: libraries/classes/Display/Results.php:2127
-#: libraries/classes/Operations.php:809
+#: libraries/classes/Operations.php:813
 #: libraries/classes/Server/Status/Processes.php:172
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70 templates/table/search/options.twig:54
@@ -6937,7 +6938,7 @@ msgstr "已删除该行。"
 
 #: libraries/classes/Display/Results.php:3428
 #: libraries/classes/Display/Results.php:4679
-#: libraries/classes/Server/Status/Processes.php:279
+#: libraries/classes/Server/Status/Processes.php:281
 msgid "Kill"
 msgstr "杀死"
 
@@ -7875,17 +7876,17 @@ msgid_plural "%1$d rows inserted."
 msgstr[0] "插入了 %1$d 行。"
 
 #: libraries/classes/MultSubmits.php:399 libraries/classes/Operations.php:195
-#: libraries/classes/Operations.php:1279 libraries/classes/Tracking.php:395
+#: libraries/classes/Operations.php:1283 libraries/classes/Tracking.php:395
 msgid "Structure only"
 msgstr "仅结构"
 
 #: libraries/classes/MultSubmits.php:401 libraries/classes/Operations.php:196
-#: libraries/classes/Operations.php:1280 libraries/classes/Tracking.php:401
+#: libraries/classes/Operations.php:1284 libraries/classes/Tracking.php:401
 msgid "Structure and data"
 msgstr "结构和数据"
 
 #: libraries/classes/MultSubmits.php:403 libraries/classes/Operations.php:197
-#: libraries/classes/Operations.php:1281 libraries/classes/Tracking.php:398
+#: libraries/classes/Operations.php:1285 libraries/classes/Tracking.php:398
 msgid "Data only"
 msgstr "仅数据"
 
@@ -7894,13 +7895,13 @@ msgid "Add AUTO INCREMENT value"
 msgstr "添加自增值"
 
 #: libraries/classes/MultSubmits.php:409 libraries/classes/Operations.php:245
-#: libraries/classes/Operations.php:1304
+#: libraries/classes/Operations.php:1308
 msgid "Add constraints"
 msgstr "添加约束"
 
 #: libraries/classes/MultSubmits.php:411 libraries/classes/Operations.php:126
-#: libraries/classes/Operations.php:263 libraries/classes/Operations.php:882
-#: libraries/classes/Operations.php:969 libraries/classes/Operations.php:1323
+#: libraries/classes/Operations.php:263 libraries/classes/Operations.php:886
+#: libraries/classes/Operations.php:973 libraries/classes/Operations.php:1327
 #: libraries/classes/Rte/Routines.php:1024
 #: templates/columns_definitions/table_fields_definitions.twig:36
 msgid "Adjust privileges"
@@ -8403,8 +8404,8 @@ msgid "Rename database to"
 msgstr "重命名数据库为"
 
 #: libraries/classes/Operations.php:119 libraries/classes/Operations.php:257
-#: libraries/classes/Operations.php:876 libraries/classes/Operations.php:963
-#: libraries/classes/Operations.php:1317
+#: libraries/classes/Operations.php:880 libraries/classes/Operations.php:967
+#: libraries/classes/Operations.php:1321
 #: templates/columns_definitions/column_adjust_privileges.twig:15
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
@@ -8444,186 +8445,186 @@ msgstr "更改所有表排序规则"
 msgid "Change all tables columns collations"
 msgstr "更改所有表列的排序规则"
 
-#: libraries/classes/Operations.php:797
+#: libraries/classes/Operations.php:801
 msgid "Alter table order by"
 msgstr "更改表的排序，根据"
 
-#: libraries/classes/Operations.php:805
+#: libraries/classes/Operations.php:809
 msgid "(singly)"
 msgstr "(逐一)"
 
-#: libraries/classes/Operations.php:841
+#: libraries/classes/Operations.php:845
 msgid "Move table to (database<b>.</b>table)"
 msgstr "将数据表移动到(数据库名<b>.</b>数据表名)"
 
-#: libraries/classes/Operations.php:946
+#: libraries/classes/Operations.php:950
 msgid "Rename table to"
 msgstr "将表改名为"
 
-#: libraries/classes/Operations.php:986
+#: libraries/classes/Operations.php:990
 msgid "Table comments"
 msgstr "表注释"
 
-#: libraries/classes/Operations.php:1055
+#: libraries/classes/Operations.php:1059
 msgid "Table options"
 msgstr "表选项"
 
-#: libraries/classes/Operations.php:1062
+#: libraries/classes/Operations.php:1066
 #: templates/server/engines/engines.twig:4
 msgid "Storage Engine"
 msgstr "存储引擎"
 
-#: libraries/classes/Operations.php:1091
+#: libraries/classes/Operations.php:1095
 msgid "Change all column collations"
 msgstr "更改所有列排序规则"
 
-#: libraries/classes/Operations.php:1262
+#: libraries/classes/Operations.php:1266
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "将数据表复制到(数据库名<b>.</b>数据表名)"
 
-#: libraries/classes/Operations.php:1332
+#: libraries/classes/Operations.php:1336
 msgid "Switch to copied table"
 msgstr "切换到复制的数据表"
 
-#: libraries/classes/Operations.php:1356
+#: libraries/classes/Operations.php:1360
 #: templates/database/structure/check_all_tables.twig:18
 msgid "Table maintenance"
 msgstr "表维护"
 
-#: libraries/classes/Operations.php:1389
+#: libraries/classes/Operations.php:1393
 #: templates/database/structure/check_all_tables.twig:19
 msgid "Analyze table"
 msgstr "分析表"
 
-#: libraries/classes/Operations.php:1404
+#: libraries/classes/Operations.php:1408
 #: templates/database/structure/check_all_tables.twig:20
 msgid "Check table"
 msgstr "检查表"
 
-#: libraries/classes/Operations.php:1418
+#: libraries/classes/Operations.php:1422
 #: templates/database/structure/check_all_tables.twig:21
 msgid "Checksum table"
 msgstr "校验值表"
 
-#: libraries/classes/Operations.php:1432
+#: libraries/classes/Operations.php:1436
 msgid "Defragment table"
 msgstr "整理表碎片"
 
-#: libraries/classes/Operations.php:1444
+#: libraries/classes/Operations.php:1448
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "已强制更新表 %s。"
 
-#: libraries/classes/Operations.php:1450
+#: libraries/classes/Operations.php:1454
 msgid "Flush the table (FLUSH)"
 msgstr "刷新表 (FLUSH)"
 
-#: libraries/classes/Operations.php:1464
+#: libraries/classes/Operations.php:1468
 #: templates/table/structure/display_table_stats.twig:61
 #: templates/database/structure/check_all_tables.twig:22
 msgid "Optimize table"
 msgstr "优化表"
 
-#: libraries/classes/Operations.php:1479
+#: libraries/classes/Operations.php:1483
 #: templates/database/structure/check_all_tables.twig:23
 msgid "Repair table"
 msgstr "修复表"
 
-#: libraries/classes/Operations.php:1525
+#: libraries/classes/Operations.php:1529
 #: templates/database/structure/check_all_tables.twig:14
 #: view_operations.php:138
 msgid "Delete data or table"
 msgstr "删除数据或数据表"
 
-#: libraries/classes/Operations.php:1533
+#: libraries/classes/Operations.php:1537
 msgid "Empty the table (TRUNCATE)"
 msgstr "清空数据表 (TRUNCATE)"
 
-#: libraries/classes/Operations.php:1541
+#: libraries/classes/Operations.php:1545
 msgid "Delete the table (DROP)"
 msgstr "删除数据表 (DROP)"
 
-#: libraries/classes/Operations.php:1582
+#: libraries/classes/Operations.php:1586
 #: templates/table/structure/display_structure.twig:179
 msgid "Analyze"
 msgstr "分析"
 
-#: libraries/classes/Operations.php:1583
+#: libraries/classes/Operations.php:1587
 #: templates/table/structure/display_structure.twig:179
 msgid "Check"
 msgstr "检查"
 
-#: libraries/classes/Operations.php:1584
+#: libraries/classes/Operations.php:1588
 #: templates/table/structure/display_structure.twig:179
 msgid "Optimize"
 msgstr "优化"
 
-#: libraries/classes/Operations.php:1585
+#: libraries/classes/Operations.php:1589
 #: templates/table/structure/display_structure.twig:179
 msgid "Rebuild"
 msgstr "重建"
 
-#: libraries/classes/Operations.php:1586
+#: libraries/classes/Operations.php:1590
 #: templates/table/structure/display_structure.twig:179
 msgid "Repair"
 msgstr "修复"
 
-#: libraries/classes/Operations.php:1587
+#: libraries/classes/Operations.php:1591
 #: templates/table/structure/display_structure.twig:179
 msgid "Truncate"
 msgstr "清空"
 
-#: libraries/classes/Operations.php:1601
+#: libraries/classes/Operations.php:1605
 msgid "Coalesce"
 msgstr "联合"
 
-#: libraries/classes/Operations.php:1610
+#: libraries/classes/Operations.php:1614
 msgid "Partition maintenance"
 msgstr "分区维护"
 
-#: libraries/classes/Operations.php:1627
+#: libraries/classes/Operations.php:1631
 #, php-format
 msgid "Partition %s"
 msgstr "分区 %s"
 
-#: libraries/classes/Operations.php:1645
+#: libraries/classes/Operations.php:1649
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
 msgstr "删除分区"
 
-#: libraries/classes/Operations.php:1671
+#: libraries/classes/Operations.php:1675
 msgid "Check referential integrity:"
 msgstr "检查引用完整性："
 
-#: libraries/classes/Operations.php:2057
+#: libraries/classes/Operations.php:2061
 msgid "Can't move table to same one!"
 msgstr "目标数据表不能为源数据表！"
 
-#: libraries/classes/Operations.php:2059
+#: libraries/classes/Operations.php:2063
 msgid "Can't copy table to same one!"
 msgstr "目标数据表不能为源数据表！"
 
-#: libraries/classes/Operations.php:2083
+#: libraries/classes/Operations.php:2087
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "已将数据表 %s 移动到 %s。已调整权限。"
 
-#: libraries/classes/Operations.php:2090
+#: libraries/classes/Operations.php:2094
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "已将数据表 %s 复制为 %s。已调整权限。"
 
-#: libraries/classes/Operations.php:2099
+#: libraries/classes/Operations.php:2103
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "已将数据表 %s 移动到 %s。"
 
-#: libraries/classes/Operations.php:2103
+#: libraries/classes/Operations.php:2107
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "已将数据表 %s 复制为 %s。"
 
-#: libraries/classes/Operations.php:2131
+#: libraries/classes/Operations.php:2137
 msgid "The table name is empty!"
 msgstr "表名不能为空！"
 
@@ -11604,12 +11605,12 @@ msgstr "命令"
 msgid "Progress"
 msgstr "进度"
 
-#: libraries/classes/Server/Status/Processes.php:230
+#: libraries/classes/Server/Status/Processes.php:232
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
 msgid "Filters"
 msgstr "过滤器"
 
-#: libraries/classes/Server/Status/Processes.php:238
+#: libraries/classes/Server/Status/Processes.php:240
 msgid "Show only active"
 msgstr "仅显示活跃的"
 
@@ -13758,7 +13759,9 @@ msgstr ""
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
-msgstr "请将以下密钥输入到设备上的双因素身份验证应用程序中，然后输入它生成的身份验证码。"
+msgstr ""
+"请将以下密钥输入到设备上的双因素身份验证应用程序中，然后输入它生成的身份验证"
+"码。"
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"

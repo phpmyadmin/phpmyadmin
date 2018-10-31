@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-08-26 19:06+0200\n"
+"POT-Creation-Date: 2018-10-30 21:18-0300\n"
 "PO-Revision-Date: 2017-08-31 12:01+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -503,9 +503,9 @@ msgstr "Yangi foydalanuvchi qo‘shish"
 #: libraries/classes/Normalization.php:216
 #: libraries/classes/Normalization.php:898 libraries/classes/Operations.php:67
 #: libraries/classes/Operations.php:132 libraries/classes/Operations.php:273
-#: libraries/classes/Operations.php:329 libraries/classes/Operations.php:816
-#: libraries/classes/Operations.php:886 libraries/classes/Operations.php:931
-#: libraries/classes/Operations.php:1336 libraries/classes/Operations.php:1650
+#: libraries/classes/Operations.php:329 libraries/classes/Operations.php:820
+#: libraries/classes/Operations.php:890 libraries/classes/Operations.php:935
+#: libraries/classes/Operations.php:1340 libraries/classes/Operations.php:1654
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:209
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:216
 #: libraries/classes/ReplicationGui.php:134
@@ -654,20 +654,20 @@ msgstr ""
 msgid "Back"
 msgstr "Orqaga"
 
-#: index.php:149
+#: index.php:156
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
 
-#: index.php:193 libraries/classes/Footer.php:81
+#: index.php:200 libraries/classes/Footer.php:81
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:115
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Demo Server"
 msgstr "phpMyAdmin sayti"
 
-#: index.php:197 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
+#: index.php:204 libraries/classes/Plugins/Auth/AuthenticationCookie.php:118
 #, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
@@ -675,60 +675,60 @@ msgid ""
 "at %s."
 msgstr ""
 
-#: index.php:207
+#: index.php:214
 #, fuzzy
 #| msgid "General relation features"
 msgid "General settings"
 msgstr "Aloqalarning asosiy imkoniyatlari"
 
-#: index.php:236 js/messages.php:650
+#: index.php:243 js/messages.php:650
 #: libraries/classes/Display/ChangePassword.php:58
 #: libraries/classes/Display/ChangePassword.php:61
 #: libraries/classes/UserPassword.php:242
 msgid "Change password"
 msgstr "Parolni o‘zgartirish"
 
-#: index.php:253 libraries/classes/Config/Descriptions.php:1488
+#: index.php:260 libraries/classes/Config/Descriptions.php:1488
 #, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
 msgstr "MySQL bilan ulanishni chog‘ishtirish"
 
-#: index.php:276
+#: index.php:283
 #, fuzzy
 #| msgid "Other core settings"
 msgid "Appearance settings"
 msgstr "Boshqa sozlanishlar"
 
-#: index.php:309 prefs_manage.php:276
+#: index.php:316 prefs_manage.php:276
 #, fuzzy
 #| msgid "settings"
 msgid "More settings"
 msgstr "tanlovlar"
 
-#: index.php:331
+#: index.php:338
 #, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
 msgstr "Foydalanuvchi uchun ma`lumotlar bazasi"
 
-#: index.php:334 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
+#: index.php:341 libraries/classes/Plugins/Auth/AuthenticationCookie.php:165
 msgid "Server:"
 msgstr "Server:"
 
-#: index.php:338
+#: index.php:345
 #, fuzzy
 #| msgid "Server port"
 msgid "Server type:"
 msgstr "Server porti"
 
-#: index.php:342
+#: index.php:349
 #, fuzzy
 #| msgid "Insecure connection"
 msgid "Server connection:"
 msgstr "Noxavfsiz ulanish"
 
-#: index.php:346 libraries/classes/Plugins/Export/ExportLatex.php:223
+#: index.php:353 libraries/classes/Plugins/Export/ExportLatex.php:223
 #: libraries/classes/Plugins/Export/ExportSql.php:705
 #: libraries/classes/Plugins/Export/ExportXml.php:245
 #, fuzzy
@@ -736,57 +736,57 @@ msgstr "Noxavfsiz ulanish"
 msgid "Server version:"
 msgstr "Server versiyasi"
 
-#: index.php:352
+#: index.php:359
 #, fuzzy
 #| msgid "Protocol version"
 msgid "Protocol version:"
 msgstr "Protokol versiyasi"
 
-#: index.php:356
+#: index.php:363
 #, fuzzy
 #| msgid "User"
 msgid "User:"
 msgstr "Foydalanuvchi"
 
-#: index.php:361
+#: index.php:368
 #, fuzzy
 #| msgid "Server socket"
 msgid "Server charset:"
 msgstr "Server soketi"
 
-#: index.php:377
+#: index.php:384
 msgid "Web server"
 msgstr "Veb server"
 
-#: index.php:388
+#: index.php:395
 #, fuzzy
 #| msgid "Use light version"
 msgid "Database client version:"
 msgstr "Yengil versiyadan foydalanish"
 
-#: index.php:392
+#: index.php:399
 #, fuzzy
 #| msgid "PHP extension"
 msgid "PHP extension:"
 msgstr "PHP kengaytmasi"
 
-#: index.php:406
+#: index.php:413
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP version:"
 msgstr "PHP versiyasm"
 
-#: index.php:417
+#: index.php:424
 msgid "Show PHP information"
 msgstr "PHP haqida ma`lumotni ko‘rsatish"
 
-#: index.php:436
+#: index.php:443
 #, fuzzy
 #| msgid "Version information"
 msgid "Version information:"
 msgstr "Versiya haqida ma`lumot"
 
-#: index.php:445 libraries/classes/Config/FormDisplayTemplate.php:164
+#: index.php:452 libraries/classes/Config/FormDisplayTemplate.php:164
 #: libraries/classes/Display/Export.php:350
 #: libraries/classes/Engines/Pbxt.php:167
 #: libraries/classes/Navigation/NavigationHeader.php:203
@@ -796,31 +796,31 @@ msgstr "Versiya haqida ma`lumot"
 msgid "Documentation"
 msgstr "Dokumentatsiya"
 
-#: index.php:454
+#: index.php:461
 msgid "Official Homepage"
 msgstr "phpMyAdmin rasmiy veb-sahifasi"
 
-#: index.php:461
+#: index.php:468
 #, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
 msgstr "Atributlar"
 
-#: index.php:468
+#: index.php:475
 msgid "Get support"
 msgstr ""
 
-#: index.php:475
+#: index.php:482
 #, fuzzy
 #| msgid "No change"
 msgid "List of changes"
 msgstr "O‘zgarish yo‘q"
 
-#: index.php:482 templates/server/plugins/section.twig:13
+#: index.php:489 templates/server/plugins/section.twig:13
 msgid "License"
 msgstr ""
 
-#: index.php:502
+#: index.php:509
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -831,13 +831,13 @@ msgstr ""
 "navbatida ma`lumot yo‘qolishiga olib kelishi mumkin. PHP \"mbstring\" "
 "kengaytmasini o‘rnatish qat`iy tavsiya etiladi."
 
-#: index.php:517
+#: index.php:524
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: index.php:532
+#: index.php:539
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@https://secure.php.net/manual/en/session."
@@ -857,7 +857,7 @@ msgstr ""
 "haqiqiyligi davomiyligidan kichikroq, shuning uchun login sessiyangiz "
 "phpMyAdmin dasturida konfiguratsiya qilganingizdan tezroq tugaydi."
 
-#: index.php:551
+#: index.php:558
 #, fuzzy
 #| msgid ""
 #| "r PHP parameter [a@https://secure.php.net/manual/en/session.configuration."
@@ -874,18 +874,18 @@ msgstr ""
 "haqiqiyligi davomiyligidan kichikroq, shuning uchun login sessiyangiz "
 "phpMyAdmin dasturida konfiguratsiya qilganingizdan tezroq tugaydi."
 
-#: index.php:566
+#: index.php:573
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
 msgstr ""
 "cookie-autentifikatsiya ishlatilganda, konfiguratsion fayldagi "
 "$cfg[\"blowfish_secret\"] direktivasi qiymatini o‘rnatib parol belgilash "
 "kerak."
 
-#: index.php:573
+#: index.php:580
 msgid "The secret passphrase in configuration (blowfish_secret) is too short."
 msgstr ""
 
-#: index.php:587
+#: index.php:594
 #, fuzzy
 #| msgid ""
 #| "Directory [code]config[/code], which is used by the setup script, still "
@@ -901,7 +901,7 @@ msgstr ""
 "katalogi haliyam mavjud. phpMyAdmin muvaffaqiyatli o‘rnatilgandan keyin, uni "
 "o‘chirish tavsiya etiladi."
 
-#: index.php:605
+#: index.php:612
 #, fuzzy, php-format
 #| msgid ""
 #| " additional features for working with linked tables have been ctivated. "
@@ -913,12 +913,12 @@ msgstr ""
 "Aloqador jadvallar bilan ishlash uchun qo‘shimcha imkoniyatlar mavjud emas. "
 "Sabablarini aniqlash uchun %sbu yerga%s bosing."
 
-#: index.php:612
+#: index.php:619
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: index.php:637
+#: index.php:644
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -927,7 +927,7 @@ msgstr ""
 "Server \"Suhosin\" himoya tizimadan foydalanmoqda. Yuzaga kelgan muammolar "
 "yechimi uchun \"%s\"dokumentatsiya\"%s\" ga qarang."
 
-#: index.php:651
+#: index.php:658
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -1492,7 +1492,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:2194
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:103
 #: libraries/classes/Server/Status/Monitor.php:243
-#: libraries/classes/Server/Status/Processes.php:285
+#: libraries/classes/Server/Status/Processes.php:287
 #: libraries/config.values.php:69 templates/table/search/rows_zoom.twig:20
 #: templates/database/designer/options_panel.twig:177
 #: templates/privileges/privileges_summary.twig:30
@@ -3639,7 +3639,7 @@ msgstr "Uzunlik/qiymatlar"
 #: libraries/classes/CentralColumns.php:1429 libraries/classes/Charsets.php:273
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:326
 #: libraries/classes/Index.php:725 libraries/classes/Operations.php:303
-#: libraries/classes/Operations.php:1073
+#: libraries/classes/Operations.php:1077
 #: templates/table/search/table_header.twig:8
 #: templates/table/tracking/structure_snapshot_columns.twig:8
 #: templates/database/structure/table_header.twig:33
@@ -4700,8 +4700,8 @@ msgid "Remember file name template"
 msgstr "Fayl nomi shablonini yodda saqlash"
 
 #: libraries/classes/Config/Descriptions.php:354
-#: libraries/classes/Operations.php:241 libraries/classes/Operations.php:864
-#: libraries/classes/Operations.php:1296
+#: libraries/classes/Operations.php:241 libraries/classes/Operations.php:868
+#: libraries/classes/Operations.php:1300
 msgid "Add AUTO_INCREMENT value"
 msgstr "AUTO_INCREMENT qo‘shish"
 
@@ -4752,7 +4752,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:380
 #: libraries/classes/Config/Descriptions.php:382
 #: libraries/classes/Config/Descriptions.php:401
-#: libraries/classes/Operations.php:236 libraries/classes/Operations.php:1292
+#: libraries/classes/Operations.php:236 libraries/classes/Operations.php:1296
 #, php-format
 msgid "Add %s"
 msgstr "\"%s\" qo‘shish"
@@ -6849,7 +6849,7 @@ msgstr "So‘rov tahlili"
 
 #: libraries/classes/Config/Descriptions.php:1333
 #: libraries/classes/Export.php:519
-#: libraries/classes/Server/Status/Processes.php:233
+#: libraries/classes/Server/Status/Processes.php:235
 #: libraries/classes/Server/Status/Variables.php:50
 #: libraries/classes/Util.php:1122 templates/console/display.twig:99
 msgid "Refresh"
@@ -7730,12 +7730,12 @@ msgid "Previous"
 msgstr "Orqaga"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:211
-#: libraries/classes/Server/Status/Processes.php:181
+#: libraries/classes/Server/Status/Processes.php:182
 msgid "Truncate Shown Queries"
 msgstr "So‘rovlarni qisqartirib ko‘rsatish"
 
 #: libraries/classes/Controllers/Server/ServerBinlogController.php:215
-#: libraries/classes/Server/Status/Processes.php:183
+#: libraries/classes/Server/Status/Processes.php:185
 msgid "Show Full Queries"
 msgstr "So‘rovlarning kengaytirilgan ko‘rinishi"
 
@@ -7928,7 +7928,7 @@ msgstr "O‘zgartirish"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:1208
 #: libraries/classes/Controllers/Table/TableStructureController.php:1209
-#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1599
+#: libraries/classes/Index.php:770 libraries/classes/Operations.php:1603
 #: libraries/classes/Rte/RteList.php:172 libraries/classes/Util.php:3323
 #: libraries/classes/Util.php:3324
 #: templates/table/structure/display_structure.twig:188
@@ -8482,7 +8482,7 @@ msgstr "Ma`lumotlarni kengaytirilgan holda ko‘rsatish"
 
 #: libraries/classes/Display/Results.php:2117
 #: libraries/classes/Display/Results.php:2131
-#: libraries/classes/Operations.php:812
+#: libraries/classes/Operations.php:816
 #: libraries/classes/Server/Status/Processes.php:169
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71 templates/table/search/options.twig:54
@@ -8494,7 +8494,7 @@ msgstr "Kamayish tartibida"
 
 #: libraries/classes/Display/Results.php:2121
 #: libraries/classes/Display/Results.php:2127
-#: libraries/classes/Operations.php:809
+#: libraries/classes/Operations.php:813
 #: libraries/classes/Server/Status/Processes.php:172
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70 templates/table/search/options.twig:54
@@ -8513,7 +8513,7 @@ msgstr "Yozuv o‘chirildi"
 
 #: libraries/classes/Display/Results.php:3428
 #: libraries/classes/Display/Results.php:4679
-#: libraries/classes/Server/Status/Processes.php:279
+#: libraries/classes/Server/Status/Processes.php:281
 msgid "Kill"
 msgstr "Tugatish"
 
@@ -9548,17 +9548,17 @@ msgstr[0] "%1$d ta qatorlar qo‘yildi."
 msgstr[1] "%1$d ta qatorlar qo‘yildi."
 
 #: libraries/classes/MultSubmits.php:399 libraries/classes/Operations.php:195
-#: libraries/classes/Operations.php:1279 libraries/classes/Tracking.php:395
+#: libraries/classes/Operations.php:1283 libraries/classes/Tracking.php:395
 msgid "Structure only"
 msgstr "Faqat tuzilishi"
 
 #: libraries/classes/MultSubmits.php:401 libraries/classes/Operations.php:196
-#: libraries/classes/Operations.php:1280 libraries/classes/Tracking.php:401
+#: libraries/classes/Operations.php:1284 libraries/classes/Tracking.php:401
 msgid "Structure and data"
 msgstr "Tuzilishi va ma`lumotlari"
 
 #: libraries/classes/MultSubmits.php:403 libraries/classes/Operations.php:197
-#: libraries/classes/Operations.php:1281 libraries/classes/Tracking.php:398
+#: libraries/classes/Operations.php:1285 libraries/classes/Tracking.php:398
 msgid "Data only"
 msgstr "Faqat ma`lumotlar"
 
@@ -9569,13 +9569,13 @@ msgid "Add AUTO INCREMENT value"
 msgstr "AUTO_INCREMENT qo‘shish"
 
 #: libraries/classes/MultSubmits.php:409 libraries/classes/Operations.php:245
-#: libraries/classes/Operations.php:1304
+#: libraries/classes/Operations.php:1308
 msgid "Add constraints"
 msgstr "Cheklovlar qo‘shish"
 
 #: libraries/classes/MultSubmits.php:411 libraries/classes/Operations.php:126
-#: libraries/classes/Operations.php:263 libraries/classes/Operations.php:882
-#: libraries/classes/Operations.php:969 libraries/classes/Operations.php:1323
+#: libraries/classes/Operations.php:263 libraries/classes/Operations.php:886
+#: libraries/classes/Operations.php:973 libraries/classes/Operations.php:1327
 #: libraries/classes/Rte/Routines.php:1024
 #: templates/columns_definitions/table_fields_definitions.twig:36
 #, fuzzy
@@ -10127,8 +10127,8 @@ msgid "Rename database to"
 msgstr "Ma`lumotlar bazasi nomini quyidagiga o‘zgartirish"
 
 #: libraries/classes/Operations.php:119 libraries/classes/Operations.php:257
-#: libraries/classes/Operations.php:876 libraries/classes/Operations.php:963
-#: libraries/classes/Operations.php:1317
+#: libraries/classes/Operations.php:880 libraries/classes/Operations.php:967
+#: libraries/classes/Operations.php:1321
 #: templates/columns_definitions/column_adjust_privileges.twig:15
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
@@ -10178,96 +10178,96 @@ msgstr "Jadval sarlavhasi (davomi)"
 msgid "Change all tables columns collations"
 msgstr ""
 
-#: libraries/classes/Operations.php:797
+#: libraries/classes/Operations.php:801
 msgid "Alter table order by"
 msgstr "Jadval sortirovkasini o‘zgartirish"
 
-#: libraries/classes/Operations.php:805
+#: libraries/classes/Operations.php:809
 msgid "(singly)"
 msgstr "(ustun)"
 
-#: libraries/classes/Operations.php:841
+#: libraries/classes/Operations.php:845
 msgid "Move table to (database<b>.</b>table)"
 msgstr "Jadvalni (ma`lumotlar bazasi<b>.</b>jadval) ga ko‘chirish"
 
-#: libraries/classes/Operations.php:946
+#: libraries/classes/Operations.php:950
 msgid "Rename table to"
 msgstr "Jadval nomini o‘zgartirish"
 
-#: libraries/classes/Operations.php:986
+#: libraries/classes/Operations.php:990
 msgid "Table comments"
 msgstr "Jadval izohi"
 
-#: libraries/classes/Operations.php:1055
+#: libraries/classes/Operations.php:1059
 msgid "Table options"
 msgstr "Jadval parametrlari"
 
-#: libraries/classes/Operations.php:1062
+#: libraries/classes/Operations.php:1066
 #: templates/server/engines/engines.twig:4
 msgid "Storage Engine"
 msgstr "Jadval turi"
 
-#: libraries/classes/Operations.php:1091
+#: libraries/classes/Operations.php:1095
 msgid "Change all column collations"
 msgstr ""
 
-#: libraries/classes/Operations.php:1262
+#: libraries/classes/Operations.php:1266
 msgid "Copy table to (database<b>.</b>table)"
 msgstr "Jadvaldan (ma`lumotlar ombori<b>.</b>jadval) ga nusxa ko‘chirish"
 
-#: libraries/classes/Operations.php:1332
+#: libraries/classes/Operations.php:1336
 msgid "Switch to copied table"
 msgstr "Nusxa olingan jadvalga o‘tish"
 
-#: libraries/classes/Operations.php:1356
+#: libraries/classes/Operations.php:1360
 #: templates/database/structure/check_all_tables.twig:18
 msgid "Table maintenance"
 msgstr "Jadvalga xizmat ko‘rsatish"
 
-#: libraries/classes/Operations.php:1389
+#: libraries/classes/Operations.php:1393
 #: templates/database/structure/check_all_tables.twig:19
 msgid "Analyze table"
 msgstr "Jadval tahlili"
 
-#: libraries/classes/Operations.php:1404
+#: libraries/classes/Operations.php:1408
 #: templates/database/structure/check_all_tables.twig:20
 msgid "Check table"
 msgstr "Jadvalni tekshirish"
 
-#: libraries/classes/Operations.php:1418
+#: libraries/classes/Operations.php:1422
 #: templates/database/structure/check_all_tables.twig:21
 #, fuzzy
 #| msgid "Check table"
 msgid "Checksum table"
 msgstr "Jadvalni tekshirish"
 
-#: libraries/classes/Operations.php:1432
+#: libraries/classes/Operations.php:1436
 msgid "Defragment table"
 msgstr "Jadvalni defragmentatsiyalash"
 
-#: libraries/classes/Operations.php:1444
+#: libraries/classes/Operations.php:1448
 #, php-format
 msgid "Table %s has been flushed."
 msgstr "\"%s\" jadvali keshi yangilandi."
 
-#: libraries/classes/Operations.php:1450
+#: libraries/classes/Operations.php:1454
 #, fuzzy
 #| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Jadval keshini yangilash (\"FLUSH\")"
 
-#: libraries/classes/Operations.php:1464
+#: libraries/classes/Operations.php:1468
 #: templates/table/structure/display_table_stats.twig:61
 #: templates/database/structure/check_all_tables.twig:22
 msgid "Optimize table"
 msgstr "Jadvalni optimallashtirish"
 
-#: libraries/classes/Operations.php:1479
+#: libraries/classes/Operations.php:1483
 #: templates/database/structure/check_all_tables.twig:23
 msgid "Repair table"
 msgstr "Jadvalni tiklash"
 
-#: libraries/classes/Operations.php:1525
+#: libraries/classes/Operations.php:1529
 #: templates/database/structure/check_all_tables.twig:14
 #: view_operations.php:138
 #, fuzzy
@@ -10275,101 +10275,101 @@ msgstr "Jadvalni tiklash"
 msgid "Delete data or table"
 msgstr "Ushbu jadval uchun kuzatuv ma’lumotlari o‘chirish"
 
-#: libraries/classes/Operations.php:1533
+#: libraries/classes/Operations.php:1537
 msgid "Empty the table (TRUNCATE)"
 msgstr ""
 
-#: libraries/classes/Operations.php:1541
+#: libraries/classes/Operations.php:1545
 #, fuzzy
 #| msgid "Go to database"
 msgid "Delete the table (DROP)"
 msgstr "Ushbu bazaga o‘tish"
 
-#: libraries/classes/Operations.php:1582
+#: libraries/classes/Operations.php:1586
 #: templates/table/structure/display_structure.twig:179
 msgid "Analyze"
 msgstr "Tahlil"
 
-#: libraries/classes/Operations.php:1583
+#: libraries/classes/Operations.php:1587
 #: templates/table/structure/display_structure.twig:179
 msgid "Check"
 msgstr "Tekshirish"
 
-#: libraries/classes/Operations.php:1584
+#: libraries/classes/Operations.php:1588
 #: templates/table/structure/display_structure.twig:179
 msgid "Optimize"
 msgstr "Optimizatsiya"
 
-#: libraries/classes/Operations.php:1585
+#: libraries/classes/Operations.php:1589
 #: templates/table/structure/display_structure.twig:179
 msgid "Rebuild"
 msgstr "Qayta qurish"
 
-#: libraries/classes/Operations.php:1586
+#: libraries/classes/Operations.php:1590
 #: templates/table/structure/display_structure.twig:179
 msgid "Repair"
 msgstr "Tiklash"
 
-#: libraries/classes/Operations.php:1587
+#: libraries/classes/Operations.php:1591
 #: templates/table/structure/display_structure.twig:179
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:1601
+#: libraries/classes/Operations.php:1605
 #, fuzzy
 #| msgid "Close"
 msgid "Coalesce"
 msgstr "Yopish"
 
-#: libraries/classes/Operations.php:1610
+#: libraries/classes/Operations.php:1614
 msgid "Partition maintenance"
 msgstr "bo‘laklarga xizmat ko‘rsatish"
 
-#: libraries/classes/Operations.php:1627
+#: libraries/classes/Operations.php:1631
 #, php-format
 msgid "Partition %s"
 msgstr "\"%s\" bo‘lagi"
 
-#: libraries/classes/Operations.php:1645
+#: libraries/classes/Operations.php:1649
 #: templates/table/structure/display_partitions.twig:137
 msgid "Remove partitioning"
 msgstr "Bo‘laklarni (PARTITIONS) o‘chirish"
 
-#: libraries/classes/Operations.php:1671
+#: libraries/classes/Operations.php:1675
 msgid "Check referential integrity:"
 msgstr "Ma`lumotlar yaxlitligini tekshirish:"
 
-#: libraries/classes/Operations.php:2057
+#: libraries/classes/Operations.php:2061
 msgid "Can't move table to same one!"
 msgstr "Jadvalni o‘z-o‘ziga ko‘chirib bo‘lmaydi!"
 
-#: libraries/classes/Operations.php:2059
+#: libraries/classes/Operations.php:2063
 msgid "Can't copy table to same one!"
 msgstr "Jadvalning o‘zidan o‘ziga nusxa ko‘chirish mumkin emas!"
 
-#: libraries/classes/Operations.php:2083
+#: libraries/classes/Operations.php:2087
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "\"%s\" jadvali \"%s\" ga ko‘chirildi."
 
-#: libraries/classes/Operations.php:2090
+#: libraries/classes/Operations.php:2094
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "\"%s\" jadvalidan \"%s\" ga nusxa ko‘chirildi."
 
-#: libraries/classes/Operations.php:2099
+#: libraries/classes/Operations.php:2103
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "\"%s\" jadvali \"%s\" ga ko‘chirildi."
 
-#: libraries/classes/Operations.php:2103
+#: libraries/classes/Operations.php:2107
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "\"%s\" jadvalidan \"%s\" ga nusxa ko‘chirildi."
 
-#: libraries/classes/Operations.php:2131
+#: libraries/classes/Operations.php:2137
 msgid "The table name is empty!"
 msgstr "Jadval nomi ko‘rsatilmagan!"
 
@@ -13911,13 +13911,13 @@ msgstr "Buyruq"
 msgid "Progress"
 msgstr ""
 
-#: libraries/classes/Server/Status/Processes.php:230
+#: libraries/classes/Server/Status/Processes.php:232
 #: libraries/classes/Server/Status/Variables.php:47 templates/filter.twig:2
 #, fuzzy
 msgid "Filters"
 msgstr "Filtr"
 
-#: libraries/classes/Server/Status/Processes.php:238
+#: libraries/classes/Server/Status/Processes.php:240
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show only active"
