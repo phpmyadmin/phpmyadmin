@@ -1152,7 +1152,7 @@ class TableSearchController extends TableController
         $where = '';
         if ($unaryFlag) {
             $where = $backquoted_name . ' ' . $func_type;
-        } elseif (strncasecmp($types, 'enum', 4) == 0 && ! empty($criteriaValues)) {
+        } elseif (strncasecmp($types, 'enum', 4) == 0 && (! empty($criteriaValues) || $criteriaValues[0] === '0')) {
             $where = $backquoted_name;
             $where .= $this->_getEnumWhereClause($criteriaValues, $func_type);
         } elseif ($criteriaValues != '') {
