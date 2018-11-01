@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2018-10-29 15:23+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2018-11-03 09:24+0000\n"
+"Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/4-8/fr/"
 ">\n"
 "Language: fr\n"
@@ -338,16 +338,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "ll faut choisir au moins une colonne à afficher !"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simuler la requête"
+msgstr "Requête à tables multiples"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "La requête a échoué"
+msgstr "Requête par exemple"
 
 #: db_qbe.php:168
 #, php-format
