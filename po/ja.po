@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-10-30 21:18-0300\n"
+"POT-Creation-Date: 2018-10-31 21:57-0300\n"
 "PO-Revision-Date: 2018-09-14 18:19+0000\n"
 "Last-Translator: Daigo Hamasaki <daigo.hamasaki.16@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
@@ -252,7 +252,7 @@ msgstr "データベースのダンプ (スキーマ) 表示"
 
 #: db_export.php:53 db_tracking.php:105 export.php:387
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:161
-#: libraries/classes/Database/Qbe.php:340
+#: libraries/classes/Database/Qbe.php:341
 #: libraries/classes/Navigation/NavigationTree.php:924
 msgid "No tables found in database."
 msgstr "このデータベースにはテーブルがありません。"
@@ -332,11 +332,23 @@ msgstr ""
 "phpMyAdmin 環境保管領域が無効になっています。理由については%sこちら%sをご覧く"
 "ださい。"
 
-#: db_qbe.php:132
+#: db_qbe.php:133
 msgid "You have to choose at least one column to display!"
 msgstr "最低 1 つは表示するカラムを選択してください！"
 
-#: db_qbe.php:150
+#: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Simulate query"
+msgid "Multi-table query"
+msgstr "クエリをシミュレート"
+
+#: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Query failed"
+msgid "Query by example"
+msgstr "問い合わせ失敗"
+
+#: db_qbe.php:168
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "%sビジュアル・クエリ・ビルダ%sに切り替える"
@@ -1305,7 +1317,7 @@ msgstr "問い合わせ"
 msgid "Traffic"
 msgstr "トラフィック"
 
-#: js/messages.php:213 libraries/classes/Menu.php:618
+#: js/messages.php:213 libraries/classes/Menu.php:625
 #: libraries/classes/Server/Status/Monitor.php:264
 #: libraries/classes/Util.php:3969
 msgid "Settings"
@@ -1525,7 +1537,7 @@ msgstr "解析しています…"
 msgid "Explain output"
 msgstr "EXPLAIN の結果"
 
-#: js/messages.php:290 libraries/classes/Menu.php:584
+#: js/messages.php:290 libraries/classes/Menu.php:591
 #: libraries/classes/Rte/Events.php:413 libraries/classes/Rte/RteList.php:116
 #: libraries/classes/Server/Status/Processes.php:101
 #: libraries/classes/Tracking.php:162 libraries/classes/Util.php:3965
@@ -1642,8 +1654,8 @@ msgstr ""
 "インポートした設定でのグラフの配置に失敗しました。設定をデフォルトに戻します…"
 
 #: js/messages.php:328 libraries/classes/Config/Forms/User/ImportForm.php:58
-#: libraries/classes/Menu.php:391 libraries/classes/Menu.php:493
-#: libraries/classes/Menu.php:614
+#: libraries/classes/Menu.php:391 libraries/classes/Menu.php:500
+#: libraries/classes/Menu.php:621
 #: libraries/classes/Server/Status/Monitor.php:324
 #: libraries/classes/Util.php:3968 libraries/classes/Util.php:3983
 #: libraries/classes/Util.php:4000 prefs_manage.php:228
@@ -1849,7 +1861,7 @@ msgstr "ストアドファンクションの定義には、RETURN 文を含め�
 #: js/messages.php:401 libraries/classes/Config/Forms/User/ExportForm.php:140
 #: libraries/classes/Display/Results.php:4711
 #: libraries/classes/Display/Results.php:4992 libraries/classes/Menu.php:383
-#: libraries/classes/Menu.php:484 libraries/classes/Menu.php:610
+#: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
 #: libraries/classes/Server/Privileges.php:2401
 #: libraries/classes/Server/Privileges.php:2487
@@ -3020,7 +3032,7 @@ msgstr "有効な日付または時刻を入力してください"
 msgid "Please enter a valid HEX input"
 msgstr "有効な 16 進数の値を入力してください"
 
-#: js/messages.php:982 libraries/classes/Core.php:296
+#: js/messages.php:982 libraries/classes/Core.php:297
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1496
 #: libraries/classes/Message.php:191 libraries/classes/Util.php:542
 #: view_operations.php:72
@@ -4382,7 +4394,7 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:474
-#: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:576
+#: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1274
 #: libraries/classes/Server/Privileges.php:4542 libraries/classes/Util.php:3963
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
@@ -4546,7 +4558,7 @@ msgstr ""
 "必要です。"
 
 #: libraries/classes/Config/Descriptions.php:553 libraries/classes/Menu.php:364
-#: libraries/classes/Menu.php:467 libraries/classes/Menu.php:580
+#: libraries/classes/Menu.php:467 libraries/classes/Menu.php:587
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
 #: libraries/classes/Util.php:3027 libraries/classes/Util.php:3037
 #: libraries/classes/Util.php:3043 libraries/classes/Util.php:3964
@@ -7399,17 +7411,17 @@ msgstr "全文"
 msgid "Distinct values"
 msgstr "件数集計"
 
-#: libraries/classes/Core.php:346
+#: libraries/classes/Core.php:347
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s 拡張がありません。PHP の設定をチェックしてみてください。"
 
-#: libraries/classes/Core.php:841 libraries/mult_submits.inc.php:329
+#: libraries/classes/Core.php:842 libraries/mult_submits.inc.php:329
 #: tbl_operations.php:245 tbl_replace.php:320 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "変更なし"
 
-#: libraries/classes/Core.php:1216
+#: libraries/classes/Core.php:1217
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7418,7 +7430,7 @@ msgstr ""
 "PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin はこのオ"
 "プションに対応していないため、データが破壊されることがあります!"
 
-#: libraries/classes/Core.php:1230
+#: libraries/classes/Core.php:1231
 #, fuzzy
 #| msgid ""
 #| "You have enabled mbstring.func_overload in your PHP configuration. This "
@@ -7431,11 +7443,11 @@ msgstr ""
 "PHP の設定で mbstring.func_overload が有効になっています。phpMyAdmin はこのオ"
 "プションに対応していないため、データが破壊されることがあります!"
 
-#: libraries/classes/Core.php:1281
+#: libraries/classes/Core.php:1282
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS 変数が書き換えられている可能性があります"
 
-#: libraries/classes/Core.php:1288
+#: libraries/classes/Core.php:1289
 msgid "possible exploit"
 msgstr "なんらかの攻撃をされている可能性があります"
 
@@ -7509,96 +7521,96 @@ msgstr "エラー: リレーションを追加できませんでした。"
 msgid "Internal relationship has been removed."
 msgstr "内部リレーションを追加しました"
 
-#: libraries/classes/Database/Qbe.php:455
+#: libraries/classes/Database/Qbe.php:456
 #: templates/table/search/search_and_replace.twig:6
 msgid "Column:"
 msgstr "カラム："
 
-#: libraries/classes/Database/Qbe.php:501
+#: libraries/classes/Database/Qbe.php:502
 msgid "Alias:"
 msgstr "エイリアス："
 
-#: libraries/classes/Database/Qbe.php:553
+#: libraries/classes/Database/Qbe.php:554
 msgid "Sort:"
 msgstr "ソート："
 
-#: libraries/classes/Database/Qbe.php:615
+#: libraries/classes/Database/Qbe.php:616
 msgid "Sort order:"
 msgstr "ソート順："
 
-#: libraries/classes/Database/Qbe.php:664
+#: libraries/classes/Database/Qbe.php:665
 msgid "Show:"
 msgstr "表示："
 
-#: libraries/classes/Database/Qbe.php:713
+#: libraries/classes/Database/Qbe.php:714
 msgid "Criteria:"
 msgstr "条件："
 
-#: libraries/classes/Database/Qbe.php:796
-#: libraries/classes/Database/Qbe.php:828
+#: libraries/classes/Database/Qbe.php:797
+#: libraries/classes/Database/Qbe.php:829
 msgid "Update Query"
 msgstr "クエリを更新する"
 
-#: libraries/classes/Database/Qbe.php:811
+#: libraries/classes/Database/Qbe.php:812
 msgid "Use Tables"
 msgstr "利用するテーブル"
 
-#: libraries/classes/Database/Qbe.php:849
-#: libraries/classes/Database/Qbe.php:960
+#: libraries/classes/Database/Qbe.php:850
+#: libraries/classes/Database/Qbe.php:961
 msgid "Or:"
 msgstr "または："
 
-#: libraries/classes/Database/Qbe.php:853
-#: libraries/classes/Database/Qbe.php:945
+#: libraries/classes/Database/Qbe.php:854
+#: libraries/classes/Database/Qbe.php:946
 msgid "And:"
 msgstr "および:"
 
-#: libraries/classes/Database/Qbe.php:858
+#: libraries/classes/Database/Qbe.php:859
 msgid "Ins"
 msgstr "挿入"
 
-#: libraries/classes/Database/Qbe.php:861
+#: libraries/classes/Database/Qbe.php:862
 msgid "Del"
 msgstr "削除"
 
-#: libraries/classes/Database/Qbe.php:877
+#: libraries/classes/Database/Qbe.php:878
 msgid "Modify:"
 msgstr "修正："
 
-#: libraries/classes/Database/Qbe.php:940
+#: libraries/classes/Database/Qbe.php:941
 msgid "Ins:"
 msgstr "挿入:"
 
-#: libraries/classes/Database/Qbe.php:955
+#: libraries/classes/Database/Qbe.php:956
 msgid "Del:"
 msgstr "削除:"
 
-#: libraries/classes/Database/Qbe.php:1822
+#: libraries/classes/Database/Qbe.php:1823
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "データベース <b>%s</b> のSQL:"
 
-#: libraries/classes/Database/Qbe.php:1841
+#: libraries/classes/Database/Qbe.php:1842
 msgid "Submit Query"
 msgstr "クエリを実行する"
 
-#: libraries/classes/Database/Qbe.php:1855
+#: libraries/classes/Database/Qbe.php:1856
 msgid "Saved bookmarked search:"
 msgstr "保存された条件での検索:"
 
-#: libraries/classes/Database/Qbe.php:1857
+#: libraries/classes/Database/Qbe.php:1858
 msgid "New bookmark"
 msgstr "新しいブックマーク"
 
-#: libraries/classes/Database/Qbe.php:1883
+#: libraries/classes/Database/Qbe.php:1884
 msgid "Create bookmark"
 msgstr "ブックマークの作成"
 
-#: libraries/classes/Database/Qbe.php:1886
+#: libraries/classes/Database/Qbe.php:1887
 msgid "Update bookmark"
 msgstr "ブックマークの編集"
 
-#: libraries/classes/Database/Qbe.php:1888
+#: libraries/classes/Database/Qbe.php:1889
 msgid "Delete bookmark"
 msgstr "ブックマークの削除"
 
@@ -7860,7 +7872,7 @@ msgstr "全文"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71 templates/table/search/options.twig:54
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:48
+#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 msgid "Descending"
 msgstr "降順"
@@ -7872,7 +7884,7 @@ msgstr "降順"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70 templates/table/search/options.twig:54
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:47
+#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 msgid "Ascending"
 msgstr "昇順"
@@ -8761,7 +8773,7 @@ msgstr "検索"
 msgid "Insert"
 msgstr "挿入"
 
-#: libraries/classes/Menu.php:401 libraries/classes/Menu.php:505
+#: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
 #: libraries/classes/Server/Privileges.php:2567
 #: libraries/classes/Server/Privileges.php:4430 libraries/classes/Util.php:3985
 #: libraries/classes/Util.php:4001 libraries/config.values.php:107
@@ -8771,20 +8783,20 @@ msgid "Privileges"
 msgstr "特権"
 
 #: libraries/classes/Menu.php:410 libraries/classes/Menu.php:418
-#: libraries/classes/Menu.php:497 libraries/classes/Util.php:3031
+#: libraries/classes/Menu.php:504 libraries/classes/Util.php:3031
 #: libraries/classes/Util.php:3045 libraries/classes/Util.php:3984
 #: libraries/classes/Util.php:4002 libraries/config.values.php:113
 #: view_operations.php:101
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/classes/Menu.php:423 libraries/classes/Menu.php:527
+#: libraries/classes/Menu.php:423 libraries/classes/Menu.php:534
 #: libraries/classes/Relation.php:279 libraries/classes/Util.php:3989
 #: libraries/classes/Util.php:4003
 msgid "Tracking"
 msgstr "SQL コマンドの追跡"
 
-#: libraries/classes/Menu.php:435 libraries/classes/Menu.php:521
+#: libraries/classes/Menu.php:435 libraries/classes/Menu.php:528
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:579
 #: libraries/classes/Plugins/Export/ExportOdt.php:716
@@ -8797,8 +8809,8 @@ msgstr "SQL コマンドの追跡"
 msgid "Triggers"
 msgstr "トリガ"
 
-#: libraries/classes/Menu.php:474 libraries/classes/Menu.php:481
-#: libraries/classes/Menu.php:488
+#: libraries/classes/Menu.php:474 libraries/classes/Menu.php:488
+#: libraries/classes/Menu.php:495
 msgid "Database seems to be empty!"
 msgstr "データベースが空のようです!"
 
@@ -8806,12 +8818,12 @@ msgstr "データベースが空のようです!"
 msgid "Query"
 msgstr "クエリ"
 
-#: libraries/classes/Menu.php:510 libraries/classes/Rte/Words.php:49
+#: libraries/classes/Menu.php:517 libraries/classes/Rte/Words.php:49
 #: libraries/classes/Util.php:3986
 msgid "Routines"
 msgstr "ルーチン"
 
-#: libraries/classes/Menu.php:515
+#: libraries/classes/Menu.php:522
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:965
 #: libraries/classes/Plugins/Export/ExportXml.php:106
@@ -8819,29 +8831,29 @@ msgstr "ルーチン"
 msgid "Events"
 msgstr "イベント"
 
-#: libraries/classes/Menu.php:533 libraries/classes/Util.php:3990
+#: libraries/classes/Menu.php:540 libraries/classes/Util.php:3990
 msgid "Designer"
 msgstr "デザイナ"
 
-#: libraries/classes/Menu.php:542 libraries/classes/Util.php:3991
+#: libraries/classes/Menu.php:549 libraries/classes/Util.php:3991
 #: templates/database/structure/check_all_tables.twig:32
 #, fuzzy
 #| msgid "Textarea columns"
 msgid "Central columns"
 msgstr "textarea の 1 行の文字数"
 
-#: libraries/classes/Menu.php:600
+#: libraries/classes/Menu.php:607
 #, fuzzy
 #| msgid "Users"
 msgid "User accounts"
 msgstr "ユーザグループ"
 
-#: libraries/classes/Menu.php:627 libraries/classes/Server/Status/Data.php:121
+#: libraries/classes/Menu.php:634 libraries/classes/Server/Status/Data.php:121
 #: libraries/classes/Util.php:3970 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr "バイナリログ"
 
-#: libraries/classes/Menu.php:633 libraries/classes/Server/Status/Data.php:126
+#: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
 #: libraries/classes/Util.php:3971
 #: templates/database/structure/table_header.twig:10
 #: templates/server/sub_page_header.twig:2
@@ -8849,22 +8861,22 @@ msgstr "バイナリログ"
 msgid "Replication"
 msgstr "レプリケーション"
 
-#: libraries/classes/Menu.php:638 libraries/classes/Server/Status/Data.php:193
+#: libraries/classes/Menu.php:645 libraries/classes/Server/Status/Data.php:193
 #: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3972
 #: libraries/config.values.php:106 templates/server/engines/engine.twig:12
 #: templates/server/engines/engine.twig:16
 msgid "Variables"
 msgstr "変数"
 
-#: libraries/classes/Menu.php:642 libraries/classes/Util.php:3973
+#: libraries/classes/Menu.php:649 libraries/classes/Util.php:3973
 msgid "Charsets"
 msgstr "文字セット"
 
-#: libraries/classes/Menu.php:646 libraries/classes/Util.php:3975
+#: libraries/classes/Menu.php:653 libraries/classes/Util.php:3975
 msgid "Engines"
 msgstr "エンジン"
 
-#: libraries/classes/Menu.php:650 libraries/classes/Util.php:3974
+#: libraries/classes/Menu.php:657 libraries/classes/Util.php:3974
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr "プラグイン"
@@ -8983,7 +8995,7 @@ msgstr "ビュー"
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
 #: templates/database/tracking/tracked_tables.twig:17
-#: templates/database/multi_table_query/form.twig:29
+#: templates/database/multi_table_query/form.twig:44
 msgid "Show"
 msgstr "表示"
 
@@ -14627,7 +14639,7 @@ msgid "Without PHP code"
 msgstr "PHP コードを省略"
 
 #: libraries/classes/Util.php:1098
-#: templates/database/multi_table_query/form.twig:161
+#: templates/database/multi_table_query/form.twig:176
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
@@ -14721,7 +14733,7 @@ msgid "Users"
 msgstr "ユーザ"
 
 #: libraries/classes/Util.php:4659
-#: templates/database/multi_table_query/form.twig:46
+#: templates/database/multi_table_query/form.twig:61
 msgid "Sort"
 msgstr "ソート"
 
@@ -14761,7 +14773,7 @@ msgstr "挿入"
 
 #: libraries/config.values.php:57 libraries/config.values.php:77
 #: libraries/config.values.php:89
-#: templates/database/multi_table_query/form.twig:96
+#: templates/database/multi_table_query/form.twig:111
 #, fuzzy
 #| msgid "Test"
 msgid "Text"
@@ -15525,7 +15537,7 @@ msgid "Constraint name"
 msgstr "テーブルの制約"
 
 #: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:143
+#: templates/database/multi_table_query/form.twig:158
 #, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
@@ -17150,71 +17162,71 @@ msgstr "一時テーブルがディスク上に展開される割合"
 msgid "Update"
 msgstr "クエリを更新する"
 
-#: templates/database/multi_table_query/form.twig:1
+#: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
 msgstr "クエリウィンドウ"
 
-#: templates/database/multi_table_query/form.twig:18
-#: templates/database/multi_table_query/form.twig:106
+#: templates/database/multi_table_query/form.twig:33
+#: templates/database/multi_table_query/form.twig:121
 #, fuzzy
 #| msgid "Select Tables"
 msgid "select table"
 msgstr "テーブルを選択してください"
 
-#: templates/database/multi_table_query/form.twig:25
-#: templates/database/multi_table_query/form.twig:114
+#: templates/database/multi_table_query/form.twig:40
+#: templates/database/multi_table_query/form.twig:129
 #, fuzzy
 #| msgid "Select two columns"
 msgid "select column"
 msgstr "カラムを 2 つ選択してください"
 
-#: templates/database/multi_table_query/form.twig:31
+#: templates/database/multi_table_query/form.twig:46
 #, fuzzy
 #| msgid "Tables"
 msgid "Table alias"
 msgstr "テーブル"
 
-#: templates/database/multi_table_query/form.twig:32
+#: templates/database/multi_table_query/form.twig:47
 #, fuzzy
 #| msgid "Column names"
 msgid "Column alias"
 msgstr "カラム名"
 
-#: templates/database/multi_table_query/form.twig:35
+#: templates/database/multi_table_query/form.twig:50
 #, fuzzy
 #| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
 msgstr "各点のラベルとして使われるカラム"
 
-#: templates/database/multi_table_query/form.twig:38
+#: templates/database/multi_table_query/form.twig:53
 #, fuzzy
 #| msgid "Criteria"
 msgid "criteria"
 msgstr "条件"
 
-#: templates/database/multi_table_query/form.twig:52
+#: templates/database/multi_table_query/form.twig:67
 #, fuzzy
 #| msgid "Add %s"
 msgid "Add as"
 msgstr "%s を追加する"
 
-#: templates/database/multi_table_query/form.twig:97
+#: templates/database/multi_table_query/form.twig:112
 #, fuzzy
 #| msgid "Alter column(s)"
 msgid "Another column"
 msgstr "カラムの変更"
 
-#: templates/database/multi_table_query/form.twig:125
+#: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:133
+#: templates/database/multi_table_query/form.twig:148
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove this column"
 msgstr "カラムの削除"
 
-#: templates/database/multi_table_query/form.twig:160
+#: templates/database/multi_table_query/form.twig:175
 #, fuzzy
 #| msgid "Update Query"
 msgid "Update query"
