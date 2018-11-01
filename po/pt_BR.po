@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2018-09-18 23:30+0000\n"
+"PO-Revision-Date: 2018-11-03 09:24+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/pt_BR/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -337,16 +337,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Você deve escolher pelo menos uma coluna para exibir!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simular query"
+msgstr "Consulta multi-tabela"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Falha na consulta"
+msgstr "Consulta por exemplo"
 
 #: db_qbe.php:168
 #, php-format
