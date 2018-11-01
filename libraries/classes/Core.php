@@ -37,6 +37,7 @@ class Core
         'db_export.php',
         'db_importdocsql.php',
         'db_multi_table_query.php',
+        'db_qbe.php',
         'db_structure.php',
         'db_import.php',
         'db_operations.php',

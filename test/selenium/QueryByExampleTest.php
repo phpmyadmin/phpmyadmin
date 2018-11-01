@@ -27,7 +27,6 @@ class QueryByExampleTest extends TestBase
      */
     protected function setUp()
     {
-        $this->markTestSkipped('Broken, see https://github.com/phpmyadmin/phpmyadmin/issues/13621');
         parent::setUp();
 
         $this->dbQuery(
@@ -57,13 +56,16 @@ class QueryByExampleTest extends TestBase
         $this->waitForElement('partialLinkText', 'Query')->click();
         $this->waitAjax();
 
+        $this->waitForElement('partialLinkText', 'Query by example')->click();
+        $this->waitAjax();
+
         /* Select Columns to be used in the query */
-        $this->selectByLabel(
+        $this->selectByValue(
             $this->waitForElement('name', 'criteriaColumn[0]'),
             '`test_table`.`id`'
         );
 
-        $this->selectByLabel(
+        $this->selectByValue(
             $this->waitForElement('name', 'criteriaColumn[1]'),
             '`test_table`.`val`'
         );
@@ -84,12 +86,12 @@ class QueryByExampleTest extends TestBase
         );
 
         /* Select sort order amongst columns */
-        $this->selectByLabel(
+        $this->selectByValue(
             $this->waitForElement('name', 'criteriaSortOrder[0]'),
             '2'
         );
 
-        $this->selectByLabel(
+        $this->selectByValue(
             $this->waitForElement('name', 'criteriaSortOrder[1]'),
             '1'
         );
