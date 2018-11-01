@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-08-13 08:42+0000\n"
-"Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
+"PO-Revision-Date: 2018-11-02 01:00+0000\n"
+"Last-Translator: Stefan Murariu <stefan.murariu@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -306,8 +306,8 @@ msgstr "Numele bazei de date este gol!"
 #: db_operations.php:73
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
-"Nu pot copia baza de date în același nume. Schimbă numele și încearcă din "
-"nou."
+"Nu se poate copia baza de date cu același nume. Schimbă numele și încearcă "
+"din nou."
 
 #: db_operations.php:164
 #, php-format
@@ -332,10 +332,8 @@ msgid "You have to choose at least one column to display!"
 msgstr "Trebuie să alegi cel puțin o coloană pentru afișare!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulează o interogare"
+msgstr "Interogare în mai multe tabele"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
 #, fuzzy
