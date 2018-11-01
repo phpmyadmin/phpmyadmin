@@ -130,7 +130,6 @@ class ServerDatabasesController extends Controller
             'is_create_db_priv' => $GLOBALS['is_create_db_priv'],
             'dbstats' => $this->_dbstats,
             'db_to_create' => $GLOBALS['db_to_create'],
-            'server_collation' => $this->dbi->getServerCollation(),
             'databases' => isset($databases) ? $databases : null,
             'dbi' => $this->dbi,
             'disable_is' => $GLOBALS['cfg']['Server']['DisableIS'],
