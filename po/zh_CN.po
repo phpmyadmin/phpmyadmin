@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-10-30 21:22-0300\n"
+"POT-Creation-Date: 2018-10-31 22:16-0300\n"
 "PO-Revision-Date: 2018-10-08 16:32+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -320,11 +320,23 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "phpMyAdmin 设置存储功能已停用。%s查看原因%s。"
 
-#: db_qbe.php:134
+#: db_qbe.php:136
 msgid "You have to choose at least one column to display!"
 msgstr "您最少要选择显示一列！"
 
-#: db_qbe.php:152
+#: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Simulate query"
+msgid "Multi-table query"
+msgstr "模拟查询"
+
+#: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Query failed"
+msgid "Query by example"
+msgstr "查询失败"
+
+#: db_qbe.php:171
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "切换到%s可视化查询生成器%s"
@@ -497,7 +509,7 @@ msgstr "常规设置"
 msgid "Change password"
 msgstr "修改密码"
 
-#: index.php:253 libraries/classes/Config/Descriptions.php:919
+#: index.php:253 libraries/classes/Config/Descriptions.php:921
 msgid "Server connection collation"
 msgstr "服务器连接排序规则"
 
@@ -570,7 +582,7 @@ msgstr "版本信息："
 #: index.php:441 libraries/classes/Config/FormDisplayTemplate.php:197
 #: libraries/classes/Display/Export.php:358
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Navigation/NavigationHeader.php:218
+#: libraries/classes/Navigation/NavigationHeader.php:221
 #: libraries/classes/Sanitize.php:193 libraries/classes/Util.php:318
 #: libraries/classes/Util.php:422
 #: templates/server/variables/link_template.twig:7
@@ -1137,7 +1149,7 @@ msgstr "内部查询"
 msgid "Traffic"
 msgstr "流量"
 
-#: js/messages.php:213 libraries/classes/Menu.php:624
+#: js/messages.php:213 libraries/classes/Menu.php:631
 #: libraries/classes/Server/Status/Monitor.php:266
 #: libraries/classes/Util.php:4042
 msgid "Settings"
@@ -1348,7 +1360,7 @@ msgstr "正在分析…"
 msgid "Explain output"
 msgstr "解析输出"
 
-#: js/messages.php:290 libraries/classes/Menu.php:590
+#: js/messages.php:290 libraries/classes/Menu.php:597
 #: libraries/classes/Rte/Events.php:468 libraries/classes/Rte/RteList.php:146
 #: libraries/classes/Server/Status/Processes.php:104
 #: libraries/classes/Util.php:4038 libraries/config.values.php:118
@@ -1461,8 +1473,8 @@ msgid ""
 msgstr "使用导入的设置建立图表失败。正在重设为默认设置…"
 
 #: js/messages.php:328 libraries/classes/Config/Forms/User/ImportForm.php:71
-#: libraries/classes/Menu.php:397 libraries/classes/Menu.php:499
-#: libraries/classes/Menu.php:620
+#: libraries/classes/Menu.php:397 libraries/classes/Menu.php:506
+#: libraries/classes/Menu.php:627
 #: libraries/classes/Server/Status/Monitor.php:326
 #: libraries/classes/Util.php:4041 libraries/classes/Util.php:4056
 #: libraries/classes/Util.php:4073 prefs_manage.php:230
@@ -1571,7 +1583,7 @@ msgstr "未找到参数！"
 #: templates/display/import/import.twig:191
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/gis_data_editor_form.twig:209
-#: templates/database/search/main.twig:58
+#: templates/database/search/main.twig:63
 #: templates/display/export/options_format.twig:18
 #: templates/view_create.twig:114 templates/view_create.twig:120
 #: templates/table/index_form.twig:221
@@ -1604,7 +1616,7 @@ msgstr "页面相关设置"
 msgid "Apply"
 msgstr "应用"
 
-#: js/messages.php:364 libraries/classes/Navigation/NavigationHeader.php:76
+#: js/messages.php:364 libraries/classes/Navigation/NavigationHeader.php:79
 #: libraries/classes/Server/Status/Monitor.php:132
 msgid "Loading…"
 msgstr "正在加载…"
@@ -1725,7 +1737,7 @@ msgstr "函数定义中必须包含 RETURN 语句！"
 #: js/messages.php:405 libraries/classes/Config/Forms/User/ExportForm.php:155
 #: libraries/classes/Display/Results.php:4952
 #: libraries/classes/Display/Results.php:5247 libraries/classes/Menu.php:389
-#: libraries/classes/Menu.php:490 libraries/classes/Menu.php:616
+#: libraries/classes/Menu.php:497 libraries/classes/Menu.php:623
 #: libraries/classes/Rte/RteList.php:196
 #: libraries/classes/Server/Privileges.php:2487
 #: libraries/classes/Server/Privileges.php:2574
@@ -1780,7 +1792,7 @@ msgid "Show query box"
 msgstr "显示查询框"
 
 #: js/messages.php:424 libraries/classes/CentralColumns.php:943
-#: libraries/classes/Config/Descriptions.php:820
+#: libraries/classes/Config/Descriptions.php:822
 #: libraries/classes/Display/Results.php:3465
 #: libraries/classes/Display/Results.php:4927 libraries/classes/Index.php:750
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:641
@@ -2893,7 +2905,7 @@ msgstr "请输入有效的日期或时间"
 msgid "Please enter a valid HEX input"
 msgstr "请输入一个有效的HEX值"
 
-#: js/messages.php:987 libraries/classes/Core.php:301
+#: js/messages.php:987 libraries/classes/Core.php:302
 #: libraries/classes/Import.php:117 libraries/classes/InsertEdit.php:1524
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:588
 #: view_operations.php:75
@@ -4069,7 +4081,7 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:300
-#: libraries/classes/Config/Descriptions.php:366 libraries/classes/Menu.php:582
+#: libraries/classes/Config/Descriptions.php:366 libraries/classes/Menu.php:589
 #: libraries/classes/Navigation/NavigationTree.php:1275
 #: libraries/classes/Server/Privileges.php:4648 libraries/classes/Util.php:4036
 #: libraries/config.values.php:116 templates/server/sub_page_header.twig:2
@@ -4081,7 +4093,7 @@ msgid "Databases display options."
 msgstr "数据库显示选项。"
 
 #: libraries/classes/Config/Descriptions.php:302
-#: libraries/classes/Config/Forms/User/NaviForm.php:71
+#: libraries/classes/Config/Forms/User/NaviForm.php:72
 msgid "Navigation panel"
 msgstr "导航面板"
 
@@ -4200,7 +4212,7 @@ msgid ""
 msgstr "追踪数据库的改变。需要 phpMyAdmin 高级功能。"
 
 #: libraries/classes/Config/Descriptions.php:348 libraries/classes/Menu.php:370
-#: libraries/classes/Menu.php:473 libraries/classes/Menu.php:586
+#: libraries/classes/Menu.php:473 libraries/classes/Menu.php:593
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
 #: libraries/classes/Util.php:3102 libraries/classes/Util.php:3112
 #: libraries/classes/Util.php:3118 libraries/classes/Util.php:4037
@@ -4497,7 +4509,7 @@ msgstr "SQL 最大显示长度"
 
 #: libraries/classes/Config/Descriptions.php:451
 #: libraries/classes/Config/Descriptions.php:467
-#: libraries/classes/Config/Descriptions.php:570
+#: libraries/classes/Config/Descriptions.php:572
 msgid "Users cannot set a higher value"
 msgstr "用户设置不能超过该值"
 
@@ -4725,70 +4737,82 @@ msgid "Whether to show events under database in the navigation tree"
 msgstr "在导航树中数据库下是否显示事件节点"
 
 #: libraries/classes/Config/Descriptions.php:524
+#, fuzzy
+#| msgid "Copying database"
+msgid "Expand single database"
+msgstr "正在复制数据库"
+
+#: libraries/classes/Config/Descriptions.php:525
+#, fuzzy
+#| msgid "Whether to show events under database in the navigation tree"
+msgid "Whether to expand single database in the navigation tree automatically."
+msgstr "在导航树中数据库下是否显示事件节点"
+
+#: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "最近使用的表的最大数量；设为 0 为禁用。"
 
-#: libraries/classes/Config/Descriptions.php:525
+#: libraries/classes/Config/Descriptions.php:527
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "收藏表的最大数量；设为 0 为禁用。"
 
-#: libraries/classes/Config/Descriptions.php:526
+#: libraries/classes/Config/Descriptions.php:528
 msgid "Recently used tables"
 msgstr "最近使用的表"
 
-#: libraries/classes/Config/Descriptions.php:527
+#: libraries/classes/Config/Descriptions.php:529
 #: libraries/classes/RecentFavoriteTable.php:264
 msgid "Favorite tables"
 msgstr "表收藏夹"
 
-#: libraries/classes/Config/Descriptions.php:528
+#: libraries/classes/Config/Descriptions.php:530
 msgid "These are Edit, Copy and Delete links."
 msgstr "这些是编辑、复制和删除链接。"
 
-#: libraries/classes/Config/Descriptions.php:529
+#: libraries/classes/Config/Descriptions.php:531
 msgid "Where to show the table row links"
 msgstr "表行链接显示位置"
 
-#: libraries/classes/Config/Descriptions.php:530
+#: libraries/classes/Config/Descriptions.php:532
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr "缺少唯一键时是否显示行链接。"
 
-#: libraries/classes/Config/Descriptions.php:531
+#: libraries/classes/Config/Descriptions.php:533
 msgid "Show row links anyway"
 msgstr "始终显示行链接"
 
-#: libraries/classes/Config/Descriptions.php:532
-#: libraries/classes/Config/Descriptions.php:533
+#: libraries/classes/Config/Descriptions.php:534
+#: libraries/classes/Config/Descriptions.php:535
 msgid "Disable shortcut keys"
 msgstr "禁止快捷键"
 
-#: libraries/classes/Config/Descriptions.php:534
+#: libraries/classes/Config/Descriptions.php:536
 msgid "Use natural order for sorting table and database names."
 msgstr "为表和数据库名使用自然排序。"
 
-#: libraries/classes/Config/Descriptions.php:535
+#: libraries/classes/Config/Descriptions.php:537
 msgid "Natural order"
 msgstr "自然排序"
 
-#: libraries/classes/Config/Descriptions.php:536
-#: libraries/classes/Config/Descriptions.php:558
+#: libraries/classes/Config/Descriptions.php:538
 #: libraries/classes/Config/Descriptions.php:560
+#: libraries/classes/Config/Descriptions.php:562
 msgid "Use only icons, only text or both."
 msgstr "仅使用图标、文字或都使用。"
 
-#: libraries/classes/Config/Descriptions.php:537
+#: libraries/classes/Config/Descriptions.php:539
 msgid "Table navigation bar"
 msgstr "表导航条"
 
-#: libraries/classes/Config/Descriptions.php:538
+#: libraries/classes/Config/Descriptions.php:540
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr "使用 GZip 输出缓冲以加快 HTTP 传输速度。"
 
-#: libraries/classes/Config/Descriptions.php:539
+#: libraries/classes/Config/Descriptions.php:541
 msgid "GZip output buffering"
 msgstr "GZip 输出缓冲"
 
-#: libraries/classes/Config/Descriptions.php:541
+#: libraries/classes/Config/Descriptions.php:543
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -4796,19 +4820,19 @@ msgstr ""
 "[kbd]SMART[/kbd] - 即对 TIME、DATE、DATETIME 和 TIMESTAMP 类型的字段递减排"
 "序，其它字段递增。"
 
-#: libraries/classes/Config/Descriptions.php:544
+#: libraries/classes/Config/Descriptions.php:546
 msgid "Default sorting order"
 msgstr "默认排序"
 
-#: libraries/classes/Config/Descriptions.php:545
+#: libraries/classes/Config/Descriptions.php:547
 msgid "Use persistent connections to MySQL databases."
 msgstr "在连接到 MySQL 数据库时使用持久连接。"
 
-#: libraries/classes/Config/Descriptions.php:546
+#: libraries/classes/Config/Descriptions.php:548
 msgid "Persistent connections"
 msgstr "持久连接"
 
-#: libraries/classes/Config/Descriptions.php:548
+#: libraries/classes/Config/Descriptions.php:550
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -4816,37 +4840,37 @@ msgid ""
 msgstr ""
 "禁止在缺少 phpMyAdmin 高级功能所需数据表时在数据库结构页中显示默认警告。"
 
-#: libraries/classes/Config/Descriptions.php:552
+#: libraries/classes/Config/Descriptions.php:554
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "丢失 phpMyAdmin 高级功能数据表"
 
-#: libraries/classes/Config/Descriptions.php:554
+#: libraries/classes/Config/Descriptions.php:556
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
 msgstr "禁止在字段名包含 MySQL 保留字时在数据库结构页中显示默认警告。"
 
-#: libraries/classes/Config/Descriptions.php:557
+#: libraries/classes/Config/Descriptions.php:559
 msgid "MySQL reserved word warning"
 msgstr "MySQL 保留字警告"
 
-#: libraries/classes/Config/Descriptions.php:559
+#: libraries/classes/Config/Descriptions.php:561
 msgid "How to display the menu tabs"
 msgstr "显示菜单标签的方式"
 
-#: libraries/classes/Config/Descriptions.php:561
+#: libraries/classes/Config/Descriptions.php:563
 msgid "How to display various action links"
 msgstr "显示动作链接的方式"
 
-#: libraries/classes/Config/Descriptions.php:562
+#: libraries/classes/Config/Descriptions.php:564
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "禁止编辑 BLOB 和 BINARY 类型字段。"
 
-#: libraries/classes/Config/Descriptions.php:563
+#: libraries/classes/Config/Descriptions.php:565
 msgid "Protect binary columns"
 msgstr "保护二进制字段"
 
-#: libraries/classes/Config/Descriptions.php:565
+#: libraries/classes/Config/Descriptions.php:567
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -4855,126 +4879,126 @@ msgstr ""
 "允许使用基于数据库的查询历史 (需要 phpMyAdmin  高级功能)。如果禁用，将使用 "
 "JS 程序来显示查询历史 (关闭窗口即丢失)。"
 
-#: libraries/classes/Config/Descriptions.php:569
+#: libraries/classes/Config/Descriptions.php:571
 msgid "Permanent query history"
 msgstr "持久查询历史"
 
-#: libraries/classes/Config/Descriptions.php:571
+#: libraries/classes/Config/Descriptions.php:573
 msgid "How many queries are kept in history."
 msgstr "查询历史的保存数量。"
 
-#: libraries/classes/Config/Descriptions.php:572
+#: libraries/classes/Config/Descriptions.php:574
 msgid "Query history length"
 msgstr "查询历史个数"
 
-#: libraries/classes/Config/Descriptions.php:573
+#: libraries/classes/Config/Descriptions.php:575
 msgid "Select which functions will be used for character set conversion."
 msgstr "选择进行字符集转换时使用的函数。"
 
-#: libraries/classes/Config/Descriptions.php:574
+#: libraries/classes/Config/Descriptions.php:576
 msgid "Recoding engine"
 msgstr "记录引擎"
 
-#: libraries/classes/Config/Descriptions.php:575
+#: libraries/classes/Config/Descriptions.php:577
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "当浏览表时使用上次的排序方式。"
 
-#: libraries/classes/Config/Descriptions.php:576
+#: libraries/classes/Config/Descriptions.php:578
 msgid "Remember table's sorting"
 msgstr "记录表排序"
 
-#: libraries/classes/Config/Descriptions.php:577
+#: libraries/classes/Config/Descriptions.php:579
 msgid "Default sort order for tables with a primary key."
 msgstr "默认用主键为表排序。"
 
-#: libraries/classes/Config/Descriptions.php:578
+#: libraries/classes/Config/Descriptions.php:580
 msgid "Primary key default sort order"
 msgstr "主键默认排序"
 
-#: libraries/classes/Config/Descriptions.php:579
+#: libraries/classes/Config/Descriptions.php:581
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr "每 X 单元格重复表头，要禁止此功能请设为 [kbd]0[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:580
+#: libraries/classes/Config/Descriptions.php:582
 msgid "Repeat headers"
 msgstr "重复表头"
 
-#: libraries/classes/Config/Descriptions.php:581
+#: libraries/classes/Config/Descriptions.php:583
 msgid "Grid editing: trigger action"
 msgstr "单元格编辑：触发操作"
 
-#: libraries/classes/Config/Descriptions.php:582
+#: libraries/classes/Config/Descriptions.php:584
 msgid "Relational display"
 msgstr "关联显示"
 
-#: libraries/classes/Config/Descriptions.php:583
+#: libraries/classes/Config/Descriptions.php:585
 msgid "For display Options"
 msgstr "显示选项"
 
-#: libraries/classes/Config/Descriptions.php:584
+#: libraries/classes/Config/Descriptions.php:586
 msgid "Grid editing: save all edited cells at once"
 msgstr "立刻存储所有已编辑的单元格"
 
-#: libraries/classes/Config/Descriptions.php:585
+#: libraries/classes/Config/Descriptions.php:587
 msgid "Directory where exports can be saved on server."
 msgstr "服务器上用来保存导出文件的文件夹。"
 
-#: libraries/classes/Config/Descriptions.php:586
+#: libraries/classes/Config/Descriptions.php:588
 msgid "Save directory"
 msgstr "保存文件夹"
 
-#: libraries/classes/Config/Descriptions.php:587
+#: libraries/classes/Config/Descriptions.php:589
 msgid "Leave blank if not used."
 msgstr "不使用请留空。"
 
-#: libraries/classes/Config/Descriptions.php:588
+#: libraries/classes/Config/Descriptions.php:590
 msgid "Host authorization order"
 msgstr "主机认证模式"
 
-#: libraries/classes/Config/Descriptions.php:589
+#: libraries/classes/Config/Descriptions.php:591
 msgid "Leave blank for defaults."
 msgstr "默认请留空。"
 
-#: libraries/classes/Config/Descriptions.php:590
+#: libraries/classes/Config/Descriptions.php:592
 msgid "Host authorization rules"
 msgstr "主机认证规则"
 
-#: libraries/classes/Config/Descriptions.php:591
+#: libraries/classes/Config/Descriptions.php:593
 msgid "Allow logins without a password"
 msgstr "允许空密码登录"
 
-#: libraries/classes/Config/Descriptions.php:592
+#: libraries/classes/Config/Descriptions.php:594
 msgid "Allow root login"
 msgstr "允许 root 用户登录"
 
-#: libraries/classes/Config/Descriptions.php:593
+#: libraries/classes/Config/Descriptions.php:595
 msgid "Session timezone"
 msgstr "会话时区"
 
-#: libraries/classes/Config/Descriptions.php:595
+#: libraries/classes/Config/Descriptions.php:597
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr "设置生效时区；可能会与数据库服务器不同"
 
-#: libraries/classes/Config/Descriptions.php:598
+#: libraries/classes/Config/Descriptions.php:600
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr "使用 HTTP 基本认证时显示给用户的提示信息。"
 
-#: libraries/classes/Config/Descriptions.php:599
+#: libraries/classes/Config/Descriptions.php:601
 msgid "HTTP Realm"
 msgstr "HTTP 提示信息"
 
-#: libraries/classes/Config/Descriptions.php:600
+#: libraries/classes/Config/Descriptions.php:602
 msgid "Authentication method to use."
 msgstr "要使用的认证方式。"
 
-#: libraries/classes/Config/Descriptions.php:601 setup/frames/index.inc.php:150
+#: libraries/classes/Config/Descriptions.php:603 setup/frames/index.inc.php:150
 msgid "Authentication type"
 msgstr "认证方式"
 
-#: libraries/classes/Config/Descriptions.php:603
+#: libraries/classes/Config/Descriptions.php:605
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -4982,69 +5006,69 @@ msgstr ""
 "不使用[doc@bookmarks@]书签 (外链，英文)[/doc]功能请留空，推荐: "
 "[kbd]pma__bookmark[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:606
+#: libraries/classes/Config/Descriptions.php:608
 msgid "Bookmark table"
 msgstr "书签表"
 
-#: libraries/classes/Config/Descriptions.php:608
+#: libraries/classes/Config/Descriptions.php:610
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr "留空则不使用列信息和MIME类型。推荐: [kbd]pma__column_info[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:611
+#: libraries/classes/Config/Descriptions.php:613
 msgid "Column information table"
 msgstr "列信息表"
 
-#: libraries/classes/Config/Descriptions.php:612
+#: libraries/classes/Config/Descriptions.php:614
 msgid "Compress connection to MySQL server."
 msgstr "压缩连接到 MySQL 服务器。"
 
-#: libraries/classes/Config/Descriptions.php:613
+#: libraries/classes/Config/Descriptions.php:615
 msgid "Compress connection"
 msgstr "压缩连接"
 
-#: libraries/classes/Config/Descriptions.php:614
+#: libraries/classes/Config/Descriptions.php:616
 msgid "Control user password"
 msgstr "控制用户的密码"
 
-#: libraries/classes/Config/Descriptions.php:616
+#: libraries/classes/Config/Descriptions.php:618
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "配置了有限权限的特殊MySQL用户，更多信息参见 [doc@linked-tables]文档[/doc]。"
 
-#: libraries/classes/Config/Descriptions.php:619
+#: libraries/classes/Config/Descriptions.php:621
 msgid "Control user"
 msgstr "控制用户"
 
-#: libraries/classes/Config/Descriptions.php:621
+#: libraries/classes/Config/Descriptions.php:623
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr "设置存储设置的备选主机位置，若无备选主机请留空。"
 
-#: libraries/classes/Config/Descriptions.php:624
+#: libraries/classes/Config/Descriptions.php:626
 msgid "Control host"
 msgstr "控制主机"
 
-#: libraries/classes/Config/Descriptions.php:626
+#: libraries/classes/Config/Descriptions.php:628
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr "设置存储设置的备选主机端口号，若使用默认值或没有备选主机请留空。"
 
-#: libraries/classes/Config/Descriptions.php:630
+#: libraries/classes/Config/Descriptions.php:632
 msgid "Control port"
 msgstr "控制端口"
 
-#: libraries/classes/Config/Descriptions.php:631
+#: libraries/classes/Config/Descriptions.php:633
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr "该正则表达式 (PCRE，Perl 兼容) 所匹配的数据库将被隐藏。"
 
-#: libraries/classes/Config/Descriptions.php:633
+#: libraries/classes/Config/Descriptions.php:635
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -5054,77 +5078,77 @@ msgstr ""
 "issues/8970]phpMyAdmin问题跟踪系统 (外链，英文)[/a] 和 [a@https://bugs.mysql."
 "com/19588]MySQL 缺陷 (Bugs) (外链，英文)[/a]"
 
-#: libraries/classes/Config/Descriptions.php:636
+#: libraries/classes/Config/Descriptions.php:638
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "禁止使用 INFORMATION_SCHEMA"
 
-#: libraries/classes/Config/Descriptions.php:637
+#: libraries/classes/Config/Descriptions.php:639
 msgid "Hide databases"
 msgstr "隐藏数据库"
 
-#: libraries/classes/Config/Descriptions.php:639
+#: libraries/classes/Config/Descriptions.php:641
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr "不使用 SQL 查询历史功能请留空，推荐: [kbd]pma__history[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:642
+#: libraries/classes/Config/Descriptions.php:644
 msgid "SQL query history table"
 msgstr "SQL 查询历史表"
 
-#: libraries/classes/Config/Descriptions.php:643
+#: libraries/classes/Config/Descriptions.php:645
 msgid "Hostname where MySQL server is running."
 msgstr "MySQL 服务器的主机名。"
 
-#: libraries/classes/Config/Descriptions.php:644
+#: libraries/classes/Config/Descriptions.php:646
 msgid "Server hostname"
 msgstr "服务器主机名"
 
-#: libraries/classes/Config/Descriptions.php:645
+#: libraries/classes/Config/Descriptions.php:647
 msgid "Logout URL"
 msgstr "退出地址"
 
-#: libraries/classes/Config/Descriptions.php:647
+#: libraries/classes/Config/Descriptions.php:649
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr "限制保存在数据库中的表设置数量，旧设置将被自动删除。"
 
-#: libraries/classes/Config/Descriptions.php:650
+#: libraries/classes/Config/Descriptions.php:652
 msgid "Maximal number of table preferences to store"
 msgstr "最多保存的表设置数量"
 
-#: libraries/classes/Config/Descriptions.php:651
+#: libraries/classes/Config/Descriptions.php:653
 msgid "QBE saved searches table"
 msgstr "QBE已保存的搜索表"
 
-#: libraries/classes/Config/Descriptions.php:653
+#: libraries/classes/Config/Descriptions.php:655
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr "留空为无QBE已保存的搜索表，推荐：[kbd]pma__savedsearches[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:656
+#: libraries/classes/Config/Descriptions.php:658
 msgid "Export templates table"
 msgstr "导出模板表"
 
-#: libraries/classes/Config/Descriptions.php:658
+#: libraries/classes/Config/Descriptions.php:660
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr "不使用导出模板功能请留空，推荐: [kbd]pma__export_templates[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:661
+#: libraries/classes/Config/Descriptions.php:663
 msgid "Central columns table"
 msgstr "中央框列表格"
 
-#: libraries/classes/Config/Descriptions.php:663
+#: libraries/classes/Config/Descriptions.php:665
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr "不使用中央框列功能请留空，推荐: [kbd]pma__central_columns[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:667
+#: libraries/classes/Config/Descriptions.php:669
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5133,29 +5157,29 @@ msgstr ""
 "可以使用 MySQL 通配符 (% 和 _)，若表示它们本身，请转义，例：用 [kbd]'my"
 "\\_db'[/kbd] 而不是 [kbd]'my_db'[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:671
+#: libraries/classes/Config/Descriptions.php:673
 msgid "Show only listed databases"
 msgstr "仅显示列出的数据库"
 
-#: libraries/classes/Config/Descriptions.php:672
-#: libraries/classes/Config/Descriptions.php:771
+#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:773
 msgid "Leave empty if not using config auth."
 msgstr "如果不使用 config 认证方式，请留空。"
 
-#: libraries/classes/Config/Descriptions.php:673
+#: libraries/classes/Config/Descriptions.php:675
 msgid "Password for config auth"
 msgstr "config 认证方式的密码"
 
-#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:676
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__pdf_pages[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:675
+#: libraries/classes/Config/Descriptions.php:677
 msgid "PDF schema: pages table"
 msgstr "PDF 大纲: 数据表页"
 
-#: libraries/classes/Config/Descriptions.php:677
+#: libraries/classes/Config/Descriptions.php:679
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -5164,40 +5188,40 @@ msgstr ""
 "关系、书签、PDF 功能所用的数据库。参见 [doc@linked-tables]pmadb (外链，英文)"
 "[/doc]。不使用请留空。推荐:  [kbd]phpmyadmin[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:681
+#: libraries/classes/Config/Descriptions.php:683
 #: templates/server/databases/index.twig:28
 msgid "Database name"
 msgstr "数据库名"
 
-#: libraries/classes/Config/Descriptions.php:682
+#: libraries/classes/Config/Descriptions.php:684
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr "MySQL 服务器监听的端口，留空为默认。"
 
-#: libraries/classes/Config/Descriptions.php:683
+#: libraries/classes/Config/Descriptions.php:685
 msgid "Server port"
 msgstr "服务器端口"
 
-#: libraries/classes/Config/Descriptions.php:685
+#: libraries/classes/Config/Descriptions.php:687
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr "不需要 \"持久\" 最近使用的表请留空，推荐: [kbd]pma__recent[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:688
+#: libraries/classes/Config/Descriptions.php:690
 msgid "Recently used table"
 msgstr "最近使用的表"
 
-#: libraries/classes/Config/Descriptions.php:690
+#: libraries/classes/Config/Descriptions.php:692
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr "不需要 \"持久\" 收藏的表请留空，推荐: [kbd]pma__favorite[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:693
+#: libraries/classes/Config/Descriptions.php:695
 msgid "Favorites table"
 msgstr "收藏的表"
 
-#: libraries/classes/Config/Descriptions.php:695
+#: libraries/classes/Config/Descriptions.php:697
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -5205,140 +5229,140 @@ msgstr ""
 "不使用[doc@relations@]关系链接 (外链，英文)[/doc]功能请留空，推荐: "
 "[kbd]pma__relation[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:699
+#: libraries/classes/Config/Descriptions.php:701
 msgid "Relation table"
 msgstr "关系表"
 
-#: libraries/classes/Config/Descriptions.php:701
+#: libraries/classes/Config/Descriptions.php:703
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr "参见[doc@authentication-modes]认证方式 (外链，英文)[/doc]中的例子。"
 
-#: libraries/classes/Config/Descriptions.php:704
+#: libraries/classes/Config/Descriptions.php:706
 msgid "Signon session name"
 msgstr "Signon 会话名"
 
-#: libraries/classes/Config/Descriptions.php:705
+#: libraries/classes/Config/Descriptions.php:707
 msgid "Signon URL"
 msgstr "登录地址"
 
-#: libraries/classes/Config/Descriptions.php:706
+#: libraries/classes/Config/Descriptions.php:708
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr "MySQL 服务器监听的套接字，留空为默认。"
 
-#: libraries/classes/Config/Descriptions.php:707
+#: libraries/classes/Config/Descriptions.php:709
 msgid "Server socket"
 msgstr "服务器套接字 (socket)"
 
-#: libraries/classes/Config/Descriptions.php:708
+#: libraries/classes/Config/Descriptions.php:710
 msgid "Enable SSL for connection to MySQL server."
 msgstr "使用 SSL 连接到 MySQL 服务器。"
 
-#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:711
 msgid "Use SSL"
 msgstr "使用 SSL"
 
-#: libraries/classes/Config/Descriptions.php:710
+#: libraries/classes/Config/Descriptions.php:712
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr "不使用 PDF 大纲功能请留空，推荐: [kbd]pma__table_coords[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:711
+#: libraries/classes/Config/Descriptions.php:713
 msgid "Designer and PDF schema: table coordinates"
 msgstr "设计器与PDF 大纲: 数据表并发"
 
-#: libraries/classes/Config/Descriptions.php:713
+#: libraries/classes/Config/Descriptions.php:715
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr "描述显示字段的表，不使用请留空，推荐: [kbd]pma__table_info[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:716
+#: libraries/classes/Config/Descriptions.php:718
 msgid "Display columns table"
 msgstr "显示字段表"
 
-#: libraries/classes/Config/Descriptions.php:718
+#: libraries/classes/Config/Descriptions.php:720
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
 "不需要 \"持久\" 表界面设置请留空，推荐: [kbd]pma__table_uiprefs[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:721
+#: libraries/classes/Config/Descriptions.php:723
 msgid "UI preferences table"
 msgstr "界面设置表"
 
-#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:725
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr "设置当记录数据库创建时，是否在前面加上 DROP DATABASE IF EXISTS 命令。"
 
-#: libraries/classes/Config/Descriptions.php:726
+#: libraries/classes/Config/Descriptions.php:728
 msgid "Add DROP DATABASE"
 msgstr "添加 DROP DATABASE"
 
-#: libraries/classes/Config/Descriptions.php:728
+#: libraries/classes/Config/Descriptions.php:730
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr "设置当记录数据表创建时，是否在前面加上 DROP TABLE IF EXISTS 命令。"
 
-#: libraries/classes/Config/Descriptions.php:731
+#: libraries/classes/Config/Descriptions.php:733
 #: libraries/classes/MultSubmits.php:432
 msgid "Add DROP TABLE"
 msgstr "添加 DROP TABLE"
 
-#: libraries/classes/Config/Descriptions.php:733
+#: libraries/classes/Config/Descriptions.php:735
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr "设置当记录视图创建时，是否在前面加上 DROP VIEW IF EXISTS 命令。"
 
-#: libraries/classes/Config/Descriptions.php:736
+#: libraries/classes/Config/Descriptions.php:738
 msgid "Add DROP VIEW"
 msgstr "添加 DROP VIEW"
 
-#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:739
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr "定义自动创建新版的命令列表。"
 
-#: libraries/classes/Config/Descriptions.php:738
+#: libraries/classes/Config/Descriptions.php:740
 msgid "Statements to track"
 msgstr "要追踪的命令"
 
-#: libraries/classes/Config/Descriptions.php:740
+#: libraries/classes/Config/Descriptions.php:742
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr "不使用 SQL 查询追踪功能请留空，推荐: [kbd]pma__tracking[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:743
+#: libraries/classes/Config/Descriptions.php:745
 msgid "SQL query tracking table"
 msgstr "SQL 查询追踪表"
 
-#: libraries/classes/Config/Descriptions.php:745
+#: libraries/classes/Config/Descriptions.php:747
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr "设置追踪系统是否自动为数据表和视图创建版本。"
 
-#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:750
 msgid "Automatically create versions"
 msgstr "自动创建版本"
 
-#: libraries/classes/Config/Descriptions.php:750
+#: libraries/classes/Config/Descriptions.php:752
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
 msgstr "不在数据库中保存用户偏好请留空，推荐: [kbd]pma__userconfig[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:753
+#: libraries/classes/Config/Descriptions.php:755
 msgid "User preferences storage table"
 msgstr "用户偏好表"
 
-#: libraries/classes/Config/Descriptions.php:755
+#: libraries/classes/Config/Descriptions.php:757
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -5347,11 +5371,11 @@ msgstr ""
 "启用配置菜单功能需要此表与用户组(user groups)表；缺少其中任何一个表都会造成这"
 "一功能被关闭，建议： [kbd]pma__users[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:759
+#: libraries/classes/Config/Descriptions.php:761
 msgid "Users table"
 msgstr "用户表"
 
-#: libraries/classes/Config/Descriptions.php:761
+#: libraries/classes/Config/Descriptions.php:763
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -5360,44 +5384,44 @@ msgstr ""
 "启用配置菜单功能需要此表与用户表（users）；缺少其中任何一个表都会使此功能被关"
 "闭，建议： [kbd]pma__usergroups[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:765
+#: libraries/classes/Config/Descriptions.php:767
 msgid "User groups table"
 msgstr "用户组表"
 
-#: libraries/classes/Config/Descriptions.php:767
+#: libraries/classes/Config/Descriptions.php:769
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
 "不使用显示/隐藏导航功能请置空，推荐: [kbd]pma__navigationhiding[/kbd]。"
 
-#: libraries/classes/Config/Descriptions.php:770
+#: libraries/classes/Config/Descriptions.php:772
 msgid "Hidden navigation items table"
 msgstr "隐藏的导航条目表"
 
-#: libraries/classes/Config/Descriptions.php:772
+#: libraries/classes/Config/Descriptions.php:774
 msgid "User for config auth"
 msgstr "config 认证方式的用户名"
 
-#: libraries/classes/Config/Descriptions.php:774
+#: libraries/classes/Config/Descriptions.php:776
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr "一个好记的名字。留空将显示主机名。"
 
-#: libraries/classes/Config/Descriptions.php:777
+#: libraries/classes/Config/Descriptions.php:779
 msgid "Verbose name of this server"
 msgstr "服务器名称"
 
-#: libraries/classes/Config/Descriptions.php:778
+#: libraries/classes/Config/Descriptions.php:780
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr "设置是否给用户显示一个 \"显示所有 (记录)\" 的按钮。"
 
-#: libraries/classes/Config/Descriptions.php:779
+#: libraries/classes/Config/Descriptions.php:781
 msgid "Allow to display all the rows"
 msgstr "允许显示所有行"
 
-#: libraries/classes/Config/Descriptions.php:781
+#: libraries/classes/Config/Descriptions.php:783
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -5406,83 +5430,83 @@ msgstr ""
 "注意：该选项不影响 [kbd]config[/kbd] 认证方式，因为密码以硬编码形式保存在配置"
 "文件中；也不影响直接执行同等命令。"
 
-#: libraries/classes/Config/Descriptions.php:785
+#: libraries/classes/Config/Descriptions.php:787
 msgid "Show password change form"
 msgstr "显示修改密码"
 
-#: libraries/classes/Config/Descriptions.php:786
+#: libraries/classes/Config/Descriptions.php:788
 msgid "Show create database form"
 msgstr "显示创建数据库表单"
 
-#: libraries/classes/Config/Descriptions.php:787
+#: libraries/classes/Config/Descriptions.php:789
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr "显示或隐藏所有表的备注列。"
 
-#: libraries/classes/Config/Descriptions.php:788
+#: libraries/classes/Config/Descriptions.php:790
 msgid "Show table comments"
 msgstr "显示表备注"
 
-#: libraries/classes/Config/Descriptions.php:789
+#: libraries/classes/Config/Descriptions.php:791
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr "显示或隐藏所有表的创建时间列。"
 
-#: libraries/classes/Config/Descriptions.php:790
+#: libraries/classes/Config/Descriptions.php:792
 msgid "Show creation timestamp"
 msgstr "显示创建时间"
 
-#: libraries/classes/Config/Descriptions.php:791
+#: libraries/classes/Config/Descriptions.php:793
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr "显示或隐藏所有表的最近更新时间列。"
 
-#: libraries/classes/Config/Descriptions.php:792
+#: libraries/classes/Config/Descriptions.php:794
 msgid "Show last update timestamp"
 msgstr "显示最后更新时间"
 
-#: libraries/classes/Config/Descriptions.php:793
+#: libraries/classes/Config/Descriptions.php:795
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr "显示或隐藏所有表的最近检查时间列。"
 
-#: libraries/classes/Config/Descriptions.php:794
+#: libraries/classes/Config/Descriptions.php:796
 msgid "Show last check timestamp"
 msgstr "显示最近检查时间"
 
-#: libraries/classes/Config/Descriptions.php:795
+#: libraries/classes/Config/Descriptions.php:797
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr "显示或隐藏所有表的字符集。"
 
-#: libraries/classes/Config/Descriptions.php:796
+#: libraries/classes/Config/Descriptions.php:798
 msgid "Show table charset"
 msgstr "显示表字符集"
 
-#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:800
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr "定义在编辑/插入模式中是否默认显示字段类型一列。"
 
-#: libraries/classes/Config/Descriptions.php:801
+#: libraries/classes/Config/Descriptions.php:803
 msgid "Show field types"
 msgstr "显示字段类型"
 
-#: libraries/classes/Config/Descriptions.php:802
+#: libraries/classes/Config/Descriptions.php:804
 msgid "Display the function fields in edit/insert mode."
 msgstr "在编辑/插入模式中显示函数列."
 
-#: libraries/classes/Config/Descriptions.php:803
+#: libraries/classes/Config/Descriptions.php:805
 msgid "Show function fields"
 msgstr "显示函数列"
 
-#: libraries/classes/Config/Descriptions.php:804
+#: libraries/classes/Config/Descriptions.php:806
 msgid "Whether to show hint or not."
 msgstr "是否显示提示。"
 
-#: libraries/classes/Config/Descriptions.php:805
+#: libraries/classes/Config/Descriptions.php:807
 msgid "Show hint"
 msgstr "显示提示"
 
-#: libraries/classes/Config/Descriptions.php:807
+#: libraries/classes/Config/Descriptions.php:809
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
@@ -5490,56 +5514,56 @@ msgstr ""
 "显示 [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] 输出的链"
 "接。"
 
-#: libraries/classes/Config/Descriptions.php:810
+#: libraries/classes/Config/Descriptions.php:812
 msgid "Show phpinfo() link"
 msgstr "显示 phpinfo() 链接"
 
-#: libraries/classes/Config/Descriptions.php:811
+#: libraries/classes/Config/Descriptions.php:813
 msgid "Show detailed MySQL server information"
 msgstr "显示 MySQL 服务器详细信息"
 
-#: libraries/classes/Config/Descriptions.php:812
+#: libraries/classes/Config/Descriptions.php:814
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "定义是否显示 phpMyAdmin 生成的 SQL 查询。"
 
-#: libraries/classes/Config/Descriptions.php:813
+#: libraries/classes/Config/Descriptions.php:815
 msgid "Show SQL queries"
 msgstr "显示 SQL 查询"
 
-#: libraries/classes/Config/Descriptions.php:814
+#: libraries/classes/Config/Descriptions.php:816
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr "查询框在提交后是否依然显示在屏幕上。"
 
-#: libraries/classes/Config/Descriptions.php:815
+#: libraries/classes/Config/Descriptions.php:817
 #: libraries/classes/SqlQueryForm.php:365
 msgid "Retain query box"
 msgstr "保留查询框"
 
-#: libraries/classes/Config/Descriptions.php:816
+#: libraries/classes/Config/Descriptions.php:818
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr "允许显示数据库和数据表的统计信息 (如：空间使用)。"
 
-#: libraries/classes/Config/Descriptions.php:817
+#: libraries/classes/Config/Descriptions.php:819
 msgid "Show statistics"
 msgstr "显示统计"
 
-#: libraries/classes/Config/Descriptions.php:818
+#: libraries/classes/Config/Descriptions.php:820
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr "将已锁定的数据表在数据库中显示为使用中."
 
-#: libraries/classes/Config/Descriptions.php:819
+#: libraries/classes/Config/Descriptions.php:821
 msgid "Skip locked tables"
 msgstr "跳过锁定的表"
 
-#: libraries/classes/Config/Descriptions.php:821
+#: libraries/classes/Config/Descriptions.php:823
 #: libraries/classes/Util.php:1085
 msgid "Explain SQL"
 msgstr "解析 SQL"
 
-#: libraries/classes/Config/Descriptions.php:822
+#: libraries/classes/Config/Descriptions.php:824
 #: libraries/classes/Export.php:534
 #: libraries/classes/Server/Status/Processes.php:237
 #: libraries/classes/Server/Status/Variables.php:52
@@ -5547,22 +5571,22 @@ msgstr "解析 SQL"
 msgid "Refresh"
 msgstr "刷新"
 
-#: libraries/classes/Config/Descriptions.php:823
+#: libraries/classes/Config/Descriptions.php:825
 #: libraries/classes/Util.php:1150
 msgid "Create PHP code"
 msgstr "创建 PHP 代码"
 
-#: libraries/classes/Config/Descriptions.php:825
+#: libraries/classes/Config/Descriptions.php:827
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
 msgstr "检测到 Suhosin时，不在主页显示默认的警告。"
 
-#: libraries/classes/Config/Descriptions.php:828
+#: libraries/classes/Config/Descriptions.php:830
 msgid "Suhosin warning"
 msgstr "Suhosin 警告"
 
-#: libraries/classes/Config/Descriptions.php:830
+#: libraries/classes/Config/Descriptions.php:832
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -5571,35 +5595,35 @@ msgstr ""
 "当PHP设置session.gc_maxlifetime小于“LoginCookieValidity”时，不在主页显示默认"
 "警告。"
 
-#: libraries/classes/Config/Descriptions.php:834
+#: libraries/classes/Config/Descriptions.php:836
 msgid "Login cookie validity warning"
 msgstr "登录cookie 有效期警告"
 
-#: libraries/classes/Config/Descriptions.php:836
+#: libraries/classes/Config/Descriptions.php:838
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr "编辑模式的文本区大小 (列数)，此值将用于 SQL 查询文本区 (*2)。"
 
-#: libraries/classes/Config/Descriptions.php:839
+#: libraries/classes/Config/Descriptions.php:841
 msgid "Textarea columns"
 msgstr "文本框列"
 
-#: libraries/classes/Config/Descriptions.php:841
+#: libraries/classes/Config/Descriptions.php:843
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr "编辑模式的文本区大小 (行数)，此值将用于 SQL 查询文本区 (*2) 。"
 
-#: libraries/classes/Config/Descriptions.php:844
+#: libraries/classes/Config/Descriptions.php:846
 msgid "Textarea rows"
 msgstr "文本框行"
 
-#: libraries/classes/Config/Descriptions.php:845
+#: libraries/classes/Config/Descriptions.php:847
 msgid "Title of browser window when a database is selected."
 msgstr "选中一个数据库时浏览器窗口的标题。"
 
-#: libraries/classes/Config/Descriptions.php:846 libraries/classes/Menu.php:243
+#: libraries/classes/Config/Descriptions.php:848 libraries/classes/Menu.php:243
 #: libraries/classes/MultSubmits.php:419
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:157
 #: libraries/classes/Plugins/Export/ExportOdt.php:204
@@ -5619,28 +5643,28 @@ msgstr "选中一个数据库时浏览器窗口的标题。"
 msgid "Database"
 msgstr "数据库"
 
-#: libraries/classes/Config/Descriptions.php:847
+#: libraries/classes/Config/Descriptions.php:849
 msgid "Title of browser window when nothing is selected."
 msgstr "未选择任何项目时浏览器窗口的标题。"
 
-#: libraries/classes/Config/Descriptions.php:848
+#: libraries/classes/Config/Descriptions.php:850
 msgid "Default title"
 msgstr "默认标题"
 
-#: libraries/classes/Config/Descriptions.php:849
+#: libraries/classes/Config/Descriptions.php:851
 msgid "Title of browser window when a server is selected."
 msgstr "选中一个服务器时浏览器窗口的标题。"
 
-#: libraries/classes/Config/Descriptions.php:850 libraries/classes/Menu.php:223
+#: libraries/classes/Config/Descriptions.php:852 libraries/classes/Menu.php:223
 #: libraries/classes/Server/Status/Data.php:435
 msgid "Server"
 msgstr "服务器"
 
-#: libraries/classes/Config/Descriptions.php:851
+#: libraries/classes/Config/Descriptions.php:853
 msgid "Title of browser window when a table is selected."
 msgstr "选中一张数据表时浏览器窗口的标题。"
 
-#: libraries/classes/Config/Descriptions.php:852 libraries/classes/Menu.php:282
+#: libraries/classes/Config/Descriptions.php:854 libraries/classes/Menu.php:282
 #: libraries/classes/Plugins/Export/ExportXml.php:505
 #: libraries/classes/Rte/RteList.php:132 libraries/classes/Rte/Triggers.php:399
 #: libraries/classes/Server/Privileges.php:1070
@@ -5658,7 +5682,7 @@ msgstr "选中一张数据表时浏览器窗口的标题。"
 msgid "Table"
 msgstr "表"
 
-#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Config/Descriptions.php:856
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -5669,47 +5693,47 @@ msgstr ""
 "信任从代理 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd] 发来的 "
 "HTTP_X_FORWARDED_FOR 头。"
 
-#: libraries/classes/Config/Descriptions.php:859
+#: libraries/classes/Config/Descriptions.php:861
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "可信代理IP列表"
 
-#: libraries/classes/Config/Descriptions.php:860
+#: libraries/classes/Config/Descriptions.php:862
 msgid "Directory on server where you can upload files for import."
 msgstr "服务器上用来存放导入文件的文件夹。"
 
-#: libraries/classes/Config/Descriptions.php:861
+#: libraries/classes/Config/Descriptions.php:863
 msgid "Upload directory"
 msgstr "上传文件夹"
 
-#: libraries/classes/Config/Descriptions.php:862
+#: libraries/classes/Config/Descriptions.php:864
 msgid "Allow for searching inside the entire database."
 msgstr "允许搜索整个数据库。"
 
-#: libraries/classes/Config/Descriptions.php:863
+#: libraries/classes/Config/Descriptions.php:865
 msgid "Use database search"
 msgstr "使用数据库搜索"
 
-#: libraries/classes/Config/Descriptions.php:865
+#: libraries/classes/Config/Descriptions.php:867
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr "禁用时，用户不能设置下列选项，右侧的复选框被忽略。"
 
-#: libraries/classes/Config/Descriptions.php:868
+#: libraries/classes/Config/Descriptions.php:870
 msgid "Enable the Developer tab in settings"
 msgstr "启用设置中的开发标签"
 
-#: libraries/classes/Config/Descriptions.php:869
+#: libraries/classes/Config/Descriptions.php:871
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr "允许在 phpMyAdmin 主页面中检查最新版本。"
 
-#: libraries/classes/Config/Descriptions.php:870 setup/lib/Index.php:124
+#: libraries/classes/Config/Descriptions.php:872 setup/lib/Index.php:124
 #: setup/lib/Index.php:147 setup/lib/Index.php:160 setup/lib/Index.php:172
 #: setup/lib/Index.php:180 setup/lib/Index.php:187
 msgid "Version check"
 msgstr "检查更新"
 
-#: libraries/classes/Config/Descriptions.php:872
+#: libraries/classes/Config/Descriptions.php:874
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -5719,11 +5743,11 @@ msgstr ""
 "当你的服务器无法直接连接internet时，请填写代理URL，以便接收phpMyAdmin更新信息"
 "或是提交错误报告。格式为“服务器名:端口号”。"
 
-#: libraries/classes/Config/Descriptions.php:877
+#: libraries/classes/Config/Descriptions.php:879
 msgid "Proxy url"
 msgstr "代理URL"
 
-#: libraries/classes/Config/Descriptions.php:879
+#: libraries/classes/Config/Descriptions.php:881
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -5732,112 +5756,112 @@ msgstr ""
 "连接代理服务器时使用的用户名。如果提供用户名，将使用基本认证方式连接。目前还"
 "不支持其他认证方式。"
 
-#: libraries/classes/Config/Descriptions.php:884
+#: libraries/classes/Config/Descriptions.php:886
 msgid "Proxy username"
 msgstr "代理用户名"
 
-#: libraries/classes/Config/Descriptions.php:885
+#: libraries/classes/Config/Descriptions.php:887
 msgid "The password for authenticating with the proxy."
 msgstr "代理服务的密码."
 
-#: libraries/classes/Config/Descriptions.php:886
+#: libraries/classes/Config/Descriptions.php:888
 msgid "Proxy password"
 msgstr "代理密码"
 
-#: libraries/classes/Config/Descriptions.php:888
+#: libraries/classes/Config/Descriptions.php:890
 msgid "Enable ZIP compression for import and export operations."
 msgstr "允许在导入和导出操作时使用 ZIP 压缩。"
 
-#: libraries/classes/Config/Descriptions.php:889
+#: libraries/classes/Config/Descriptions.php:891
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/classes/Config/Descriptions.php:890
+#: libraries/classes/Config/Descriptions.php:892
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr "输入您域名reCaptcha服务的公钥。"
 
-#: libraries/classes/Config/Descriptions.php:891
+#: libraries/classes/Config/Descriptions.php:893
 msgid "Public key for reCaptcha"
 msgstr "reCaptcha的公共密匙"
 
-#: libraries/classes/Config/Descriptions.php:892
+#: libraries/classes/Config/Descriptions.php:894
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr "输入您域名的reCaptcha服务私钥。"
 
-#: libraries/classes/Config/Descriptions.php:893
+#: libraries/classes/Config/Descriptions.php:895
 msgid "Private key for reCaptcha"
 msgstr "reCaptcha私有密匙"
 
-#: libraries/classes/Config/Descriptions.php:895
+#: libraries/classes/Config/Descriptions.php:897
 msgid "Choose the default action when sending error reports."
 msgstr "选择发送错误报告时的默认行为。"
 
-#: libraries/classes/Config/Descriptions.php:896
+#: libraries/classes/Config/Descriptions.php:898
 msgid "Send error reports"
 msgstr "发送错误报告"
 
-#: libraries/classes/Config/Descriptions.php:899
+#: libraries/classes/Config/Descriptions.php:901
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr "查询将在回车后执行。插入新行使用Shift-Enter。"
 
-#: libraries/classes/Config/Descriptions.php:902
+#: libraries/classes/Config/Descriptions.php:904
 msgid "Enter executes queries in console"
 msgstr "在控制台使用回车执行查询"
 
-#: libraries/classes/Config/Descriptions.php:905
+#: libraries/classes/Config/Descriptions.php:907
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr "启用零配置模式以自动安装phpMyAdmin设置表。"
 
-#: libraries/classes/Config/Descriptions.php:908
+#: libraries/classes/Config/Descriptions.php:910
 msgid "Enable Zero Configuration mode"
 msgstr "启用零配置模式"
 
-#: libraries/classes/Config/Descriptions.php:909
+#: libraries/classes/Config/Descriptions.php:911
 #: templates/console/display.twig:153
 msgid "Show query history at start"
 msgstr "在开始时显示查询历史"
 
-#: libraries/classes/Config/Descriptions.php:910
+#: libraries/classes/Config/Descriptions.php:912
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
 msgstr "总是扩展查询消息"
 
-#: libraries/classes/Config/Descriptions.php:911
+#: libraries/classes/Config/Descriptions.php:913
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
 msgstr "显示当前浏览查询"
 
-#: libraries/classes/Config/Descriptions.php:912
+#: libraries/classes/Config/Descriptions.php:914
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr "使用Enter执行查询，使用Shift + Enter插入新行"
 
-#: libraries/classes/Config/Descriptions.php:913
+#: libraries/classes/Config/Descriptions.php:915
 #: templates/console/display.twig:168
 msgid "Switch to dark theme"
 msgstr "切换到黑色主题"
 
-#: libraries/classes/Config/Descriptions.php:914
+#: libraries/classes/Config/Descriptions.php:916
 msgid "Console height"
 msgstr "控制台高度"
 
-#: libraries/classes/Config/Descriptions.php:915
+#: libraries/classes/Config/Descriptions.php:917
 msgid "Console mode"
 msgstr "控制台模式"
 
-#: libraries/classes/Config/Descriptions.php:916
+#: libraries/classes/Config/Descriptions.php:918
 #: templates/console/display.twig:64
 msgid "Group queries"
 msgstr "联合查询"
 
-#: libraries/classes/Config/Descriptions.php:917 libraries/classes/Sql.php:289
+#: libraries/classes/Config/Descriptions.php:919 libraries/classes/Sql.php:289
 msgid "Order"
 msgstr "顺序"
 
-#: libraries/classes/Config/Descriptions.php:918
+#: libraries/classes/Config/Descriptions.php:920
 msgid "Order by"
 msgstr "排序条件"
 
@@ -6446,17 +6470,17 @@ msgstr "全文搜索"
 msgid "Distinct values"
 msgstr "非重复值 (DISTINCT)"
 
-#: libraries/classes/Core.php:354
+#: libraries/classes/Core.php:355
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "缺少 %s 扩展。请检查 PHP 配置。"
 
-#: libraries/classes/Core.php:851 libraries/mult_submits.inc.php:346
+#: libraries/classes/Core.php:852 libraries/mult_submits.inc.php:346
 #: tbl_operations.php:252 tbl_replace.php:356 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "无更改"
 
-#: libraries/classes/Core.php:1227
+#: libraries/classes/Core.php:1228
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -6465,17 +6489,17 @@ msgstr ""
 "您在 PHP 设置中启用了 mbstring.func_overload。该选项和 phpMyAdmin 不兼容并可"
 "能会导致一些数据损坏！"
 
-#: libraries/classes/Core.php:1241
+#: libraries/classes/Core.php:1242
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr "php.ini中禁用了ini_get和/或ini_set函数。 phpMyAdmin需要这些函数！"
 
-#: libraries/classes/Core.php:1296
+#: libraries/classes/Core.php:1297
 msgid "GLOBALS overwrite attempt"
 msgstr "企图覆盖 GLOBALS"
 
-#: libraries/classes/Core.php:1303
+#: libraries/classes/Core.php:1304
 msgid "possible exploit"
 msgstr "检测到有利用漏洞的企图"
 
@@ -6850,7 +6874,7 @@ msgstr "完整内容"
 #: libraries/classes/Util.php:4763 libraries/classes/Util.php:4780
 #: libraries/config.values.php:82
 #: templates/table/search/selection_form.twig:154
-#: templates/database/multi_table_query/form.twig:52
+#: templates/database/multi_table_query/form.twig:67
 #: templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -6864,7 +6888,7 @@ msgstr "递减"
 #: libraries/classes/Util.php:4758 libraries/classes/Util.php:4775
 #: libraries/config.values.php:81
 #: templates/table/search/selection_form.twig:154
-#: templates/database/multi_table_query/form.twig:51
+#: templates/database/multi_table_query/form.twig:66
 #: templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -7694,7 +7718,7 @@ msgstr "搜索"
 msgid "Insert"
 msgstr "插入"
 
-#: libraries/classes/Menu.php:407 libraries/classes/Menu.php:511
+#: libraries/classes/Menu.php:407 libraries/classes/Menu.php:518
 #: libraries/classes/Server/Privileges.php:2656
 #: libraries/classes/Server/Privileges.php:4531 libraries/classes/Util.php:4058
 #: libraries/classes/Util.php:4074 libraries/config.values.php:122
@@ -7704,20 +7728,20 @@ msgid "Privileges"
 msgstr "权限"
 
 #: libraries/classes/Menu.php:416 libraries/classes/Menu.php:424
-#: libraries/classes/Menu.php:503 libraries/classes/Util.php:3106
+#: libraries/classes/Menu.php:510 libraries/classes/Util.php:3106
 #: libraries/classes/Util.php:3120 libraries/classes/Util.php:4057
 #: libraries/classes/Util.php:4075 libraries/config.values.php:132
 #: view_operations.php:106
 msgid "Operations"
 msgstr "操作"
 
-#: libraries/classes/Menu.php:429 libraries/classes/Menu.php:533
+#: libraries/classes/Menu.php:429 libraries/classes/Menu.php:540
 #: libraries/classes/Relation.php:302 libraries/classes/Util.php:4062
 #: libraries/classes/Util.php:4076
 msgid "Tracking"
 msgstr "追踪"
 
-#: libraries/classes/Menu.php:441 libraries/classes/Menu.php:527
+#: libraries/classes/Menu.php:441 libraries/classes/Menu.php:534
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:27
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:583
 #: libraries/classes/Plugins/Export/ExportOdt.php:720
@@ -7730,8 +7754,8 @@ msgstr "追踪"
 msgid "Triggers"
 msgstr "触发器"
 
-#: libraries/classes/Menu.php:480 libraries/classes/Menu.php:487
-#: libraries/classes/Menu.php:494
+#: libraries/classes/Menu.php:480 libraries/classes/Menu.php:494
+#: libraries/classes/Menu.php:501
 msgid "Database seems to be empty!"
 msgstr "数据库是空的！"
 
@@ -7739,12 +7763,12 @@ msgstr "数据库是空的！"
 msgid "Query"
 msgstr "查询"
 
-#: libraries/classes/Menu.php:516 libraries/classes/Rte/Words.php:51
+#: libraries/classes/Menu.php:523 libraries/classes/Rte/Words.php:51
 #: libraries/classes/Util.php:4059
 msgid "Routines"
 msgstr "程序"
 
-#: libraries/classes/Menu.php:521
+#: libraries/classes/Menu.php:528
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:989
 #: libraries/classes/Plugins/Export/ExportXml.php:111
@@ -7752,25 +7776,25 @@ msgstr "程序"
 msgid "Events"
 msgstr "事件"
 
-#: libraries/classes/Menu.php:539 libraries/classes/Util.php:4063
+#: libraries/classes/Menu.php:546 libraries/classes/Util.php:4063
 msgid "Designer"
 msgstr "设计器"
 
-#: libraries/classes/Menu.php:548 libraries/classes/Util.php:4064
+#: libraries/classes/Menu.php:555 libraries/classes/Util.php:4064
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "文本框列"
 
-#: libraries/classes/Menu.php:606
+#: libraries/classes/Menu.php:613
 msgid "User accounts"
 msgstr "账户"
 
-#: libraries/classes/Menu.php:633 libraries/classes/Server/Status/Data.php:123
+#: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:123
 #: libraries/classes/Util.php:4043 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr "二进制日志"
 
-#: libraries/classes/Menu.php:639 libraries/classes/Server/Status/Data.php:128
+#: libraries/classes/Menu.php:646 libraries/classes/Server/Status/Data.php:128
 #: libraries/classes/Util.php:4044
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
@@ -7778,22 +7802,22 @@ msgstr "二进制日志"
 msgid "Replication"
 msgstr "复制"
 
-#: libraries/classes/Menu.php:644 libraries/classes/Server/Status/Data.php:195
+#: libraries/classes/Menu.php:651 libraries/classes/Server/Status/Data.php:195
 #: libraries/classes/SqlQueryForm.php:439 libraries/classes/Util.php:4045
 #: libraries/config.values.php:120 templates/server/engines/show_engine.twig:12
 #: templates/server/engines/show_engine.twig:16
 msgid "Variables"
 msgstr "变量"
 
-#: libraries/classes/Menu.php:648 libraries/classes/Util.php:4046
+#: libraries/classes/Menu.php:655 libraries/classes/Util.php:4046
 msgid "Charsets"
 msgstr "字符集"
 
-#: libraries/classes/Menu.php:652 libraries/classes/Util.php:4048
+#: libraries/classes/Menu.php:659 libraries/classes/Util.php:4048
 msgid "Engines"
 msgstr "引擎"
 
-#: libraries/classes/Menu.php:656 libraries/classes/Util.php:4047
+#: libraries/classes/Menu.php:663 libraries/classes/Util.php:4047
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr "插件"
@@ -7895,32 +7919,32 @@ msgstr "视图："
 
 #: libraries/classes/Navigation/Navigation.php:246 tbl_change.php:157
 #: templates/table/tracking/main.twig:33
-#: templates/database/multi_table_query/form.twig:33
+#: templates/database/multi_table_query/form.twig:48
 #: templates/database/tracking/tables.twig:19
 msgid "Show"
 msgstr "显示"
 
-#: libraries/classes/Navigation/NavigationHeader.php:180
+#: libraries/classes/Navigation/NavigationHeader.php:183
 msgid "Home"
 msgstr "主页"
 
-#: libraries/classes/Navigation/NavigationHeader.php:188
+#: libraries/classes/Navigation/NavigationHeader.php:191
 msgid "Log out"
 msgstr "退出"
 
-#: libraries/classes/Navigation/NavigationHeader.php:190
+#: libraries/classes/Navigation/NavigationHeader.php:193
 msgid "Empty session data"
 msgstr "空会话数据"
 
-#: libraries/classes/Navigation/NavigationHeader.php:208
+#: libraries/classes/Navigation/NavigationHeader.php:211
 msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin 文档"
 
-#: libraries/classes/Navigation/NavigationHeader.php:228
+#: libraries/classes/Navigation/NavigationHeader.php:231
 msgid "Navigation panel settings"
 msgstr "导航面板设定"
 
-#: libraries/classes/Navigation/NavigationHeader.php:239
+#: libraries/classes/Navigation/NavigationHeader.php:242
 msgid "Reload navigation panel"
 msgstr "重新载入导航面板"
 
@@ -9191,16 +9215,16 @@ msgid ""
 msgstr "在导入时找到重复键时更新数据（添加ON DUPLICATE KEY UPDATE）"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
-msgid "Name of the new table(optional): "
+msgid "Name of the new table (optional):"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
-msgid "Name of the new database(optional): "
+msgid "Name of the new database (optional):"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
-msgid "Import these many number of rows(optional): "
+msgid "Import these many number of rows (optional):"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
@@ -9220,8 +9244,9 @@ msgstr ""
 "角逗号分隔且不能用引号括起。"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#: libraries/classes/Plugins/Import/ImportLdi.php:74
-msgid "Column names: "
+#, fuzzy
+#| msgid "Column names: "
+msgid "Column names:"
 msgstr "字段名: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
@@ -9251,6 +9276,10 @@ msgstr "CSV 输入的第 %d 行格式有错。"
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV 输入的第 %d 行字段数有错。"
+
+#: libraries/classes/Plugins/Import/ImportLdi.php:74
+msgid "Column names: "
+msgstr "字段名: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:112
 msgid "This plugin does not support compressed imports!"
@@ -12997,7 +13026,7 @@ msgid "Without PHP code"
 msgstr "无 PHP 代码"
 
 #: libraries/classes/Util.php:1141
-#: templates/database/multi_table_query/form.twig:165
+#: templates/database/multi_table_query/form.twig:180
 msgid "Submit query"
 msgstr "提交查询"
 
@@ -13084,7 +13113,7 @@ msgid "Users"
 msgstr "用户"
 
 #: libraries/classes/Util.php:4750
-#: templates/database/multi_table_query/form.twig:50
+#: templates/database/multi_table_query/form.twig:65
 msgid "Sort"
 msgstr "排序"
 
@@ -13122,7 +13151,7 @@ msgstr "图标"
 
 #: libraries/config.values.php:68 libraries/config.values.php:88
 #: libraries/config.values.php:100
-#: templates/database/multi_table_query/form.twig:100
+#: templates/database/multi_table_query/form.twig:115
 msgid "Text"
 msgstr "文字"
 
@@ -14182,7 +14211,7 @@ msgid "Constraint name"
 msgstr "限制名称"
 
 #: templates/table/relation/foreign_key_row.twig:86
-#: templates/database/multi_table_query/form.twig:147
+#: templates/database/multi_table_query/form.twig:162
 msgid "+ Add column"
 msgstr "+ 添加字段"
 
@@ -14509,53 +14538,53 @@ msgstr "禁用 %s 的追踪"
 msgid "Deactivate now"
 msgstr "立即禁用"
 
-#: templates/database/multi_table_query/form.twig:1
+#: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
 msgstr "查询窗口"
 
-#: templates/database/multi_table_query/form.twig:22
-#: templates/database/multi_table_query/form.twig:110
+#: templates/database/multi_table_query/form.twig:37
+#: templates/database/multi_table_query/form.twig:125
 msgid "select table"
 msgstr "选择表"
 
-#: templates/database/multi_table_query/form.twig:29
-#: templates/database/multi_table_query/form.twig:118
+#: templates/database/multi_table_query/form.twig:44
+#: templates/database/multi_table_query/form.twig:133
 msgid "select column"
 msgstr "选择字段"
 
-#: templates/database/multi_table_query/form.twig:35
+#: templates/database/multi_table_query/form.twig:50
 msgid "Table alias"
 msgstr "表别名"
 
-#: templates/database/multi_table_query/form.twig:36
+#: templates/database/multi_table_query/form.twig:51
 msgid "Column alias"
 msgstr "字段别名"
 
-#: templates/database/multi_table_query/form.twig:39
+#: templates/database/multi_table_query/form.twig:54
 msgid "Use this column in criteria"
 msgstr "在条件中使用此列"
 
-#: templates/database/multi_table_query/form.twig:42
+#: templates/database/multi_table_query/form.twig:57
 msgid "criteria"
 msgstr "条件"
 
-#: templates/database/multi_table_query/form.twig:56
+#: templates/database/multi_table_query/form.twig:71
 msgid "Add as"
 msgstr "添加为"
 
-#: templates/database/multi_table_query/form.twig:101
+#: templates/database/multi_table_query/form.twig:116
 msgid "Another column"
 msgstr "另一个字段"
 
-#: templates/database/multi_table_query/form.twig:129
+#: templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
 msgstr "以自由文本输入条件"
 
-#: templates/database/multi_table_query/form.twig:137
+#: templates/database/multi_table_query/form.twig:152
 msgid "Remove this column"
 msgstr "删除此列"
 
-#: templates/database/multi_table_query/form.twig:164
+#: templates/database/multi_table_query/form.twig:179
 msgid "Update query"
 msgstr "更新查询"
 
@@ -14571,7 +14600,7 @@ msgstr "要搜索的内容（通配符：“%”）："
 msgid "Inside tables:"
 msgstr "于下列表："
 
-#: templates/database/search/main.twig:51
+#: templates/database/search/main.twig:56
 msgid "Inside column:"
 msgstr "包含字段："
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-10-30 21:22-0300\n"
+"POT-Creation-Date: 2018-10-31 22:16-0300\n"
 "PO-Revision-Date: 2016-01-17 22:02+0000\n"
 "Last-Translator: Xosé Calvo <xosecalvo@gmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -327,11 +327,23 @@ msgstr ""
 "Desactivouse a configuración de almacenamento de phpMyAdmin. Para saber por "
 "que prema %saquí%s."
 
-#: db_qbe.php:134
+#: db_qbe.php:136
 msgid "You have to choose at least one column to display!"
 msgstr "Debe escoller cando menos unha columna para mostrar!"
 
-#: db_qbe.php:152
+#: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Simulate query"
+msgid "Multi-table query"
+msgstr "Simular a consulta"
+
+#: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Query failed"
+msgid "Query by example"
+msgstr "Fallou a consulta"
+
+#: db_qbe.php:171
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "Cambiar ao %sconstrutor visual%s"
@@ -515,7 +527,7 @@ msgstr "Configuración xeral"
 msgid "Change password"
 msgstr "Trocar o contrasinal"
 
-#: index.php:253 libraries/classes/Config/Descriptions.php:919
+#: index.php:253 libraries/classes/Config/Descriptions.php:921
 msgid "Server connection collation"
 msgstr "Ordenación alfabética (collation) da conexión do servidor"
 
@@ -590,7 +602,7 @@ msgstr "Información sobre a versión:"
 #: index.php:441 libraries/classes/Config/FormDisplayTemplate.php:197
 #: libraries/classes/Display/Export.php:358
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Navigation/NavigationHeader.php:218
+#: libraries/classes/Navigation/NavigationHeader.php:221
 #: libraries/classes/Sanitize.php:193 libraries/classes/Util.php:318
 #: libraries/classes/Util.php:422
 #: templates/server/variables/link_template.twig:7
@@ -1180,7 +1192,7 @@ msgstr "Preguntas"
 msgid "Traffic"
 msgstr "Tráfico"
 
-#: js/messages.php:213 libraries/classes/Menu.php:624
+#: js/messages.php:213 libraries/classes/Menu.php:631
 #: libraries/classes/Server/Status/Monitor.php:266
 #: libraries/classes/Util.php:4042
 msgid "Settings"
@@ -1403,7 +1415,7 @@ msgstr "A analizar…"
 msgid "Explain output"
 msgstr "Explicar a saída"
 
-#: js/messages.php:290 libraries/classes/Menu.php:590
+#: js/messages.php:290 libraries/classes/Menu.php:597
 #: libraries/classes/Rte/Events.php:468 libraries/classes/Rte/RteList.php:146
 #: libraries/classes/Server/Status/Processes.php:104
 #: libraries/classes/Util.php:4038 libraries/config.values.php:118
@@ -1527,8 +1539,8 @@ msgstr ""
 "importada. Restáurase a configuración predeterminada…"
 
 #: js/messages.php:328 libraries/classes/Config/Forms/User/ImportForm.php:71
-#: libraries/classes/Menu.php:397 libraries/classes/Menu.php:499
-#: libraries/classes/Menu.php:620
+#: libraries/classes/Menu.php:397 libraries/classes/Menu.php:506
+#: libraries/classes/Menu.php:627
 #: libraries/classes/Server/Status/Monitor.php:326
 #: libraries/classes/Util.php:4041 libraries/classes/Util.php:4056
 #: libraries/classes/Util.php:4073 prefs_manage.php:230
@@ -1637,7 +1649,7 @@ msgstr "Non se atopou ningún parámetro!"
 #: templates/display/import/import.twig:191
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/gis_data_editor_form.twig:209
-#: templates/database/search/main.twig:58
+#: templates/database/search/main.twig:63
 #: templates/display/export/options_format.twig:18
 #: templates/view_create.twig:114 templates/view_create.twig:120
 #: templates/table/index_form.twig:221
@@ -1670,7 +1682,7 @@ msgstr "Configuración relacionada coas páxinas"
 msgid "Apply"
 msgstr "Aplicar"
 
-#: js/messages.php:364 libraries/classes/Navigation/NavigationHeader.php:76
+#: js/messages.php:364 libraries/classes/Navigation/NavigationHeader.php:79
 #: libraries/classes/Server/Status/Monitor.php:132
 msgid "Loading…"
 msgstr "A cargar…"
@@ -1793,7 +1805,7 @@ msgstr "A definición dunha función gardada debe conter unha instrución RETURN
 #: js/messages.php:405 libraries/classes/Config/Forms/User/ExportForm.php:155
 #: libraries/classes/Display/Results.php:4952
 #: libraries/classes/Display/Results.php:5247 libraries/classes/Menu.php:389
-#: libraries/classes/Menu.php:490 libraries/classes/Menu.php:616
+#: libraries/classes/Menu.php:497 libraries/classes/Menu.php:623
 #: libraries/classes/Rte/RteList.php:196
 #: libraries/classes/Server/Privileges.php:2487
 #: libraries/classes/Server/Privileges.php:2574
@@ -1848,7 +1860,7 @@ msgid "Show query box"
 msgstr "Mostrar a caixa de consultas"
 
 #: js/messages.php:424 libraries/classes/CentralColumns.php:943
-#: libraries/classes/Config/Descriptions.php:820
+#: libraries/classes/Config/Descriptions.php:822
 #: libraries/classes/Display/Results.php:3465
 #: libraries/classes/Display/Results.php:4927 libraries/classes/Index.php:750
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:641
@@ -2998,7 +3010,7 @@ msgstr "Introduza unha data ou hora aceptábeis"
 msgid "Please enter a valid HEX input"
 msgstr "Introduza unha entrada hexadecimal aceptábel"
 
-#: js/messages.php:987 libraries/classes/Core.php:301
+#: js/messages.php:987 libraries/classes/Core.php:302
 #: libraries/classes/Import.php:117 libraries/classes/InsertEdit.php:1524
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:588
 #: view_operations.php:75
@@ -4362,7 +4374,7 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:300
-#: libraries/classes/Config/Descriptions.php:366 libraries/classes/Menu.php:582
+#: libraries/classes/Config/Descriptions.php:366 libraries/classes/Menu.php:589
 #: libraries/classes/Navigation/NavigationTree.php:1275
 #: libraries/classes/Server/Privileges.php:4648 libraries/classes/Util.php:4036
 #: libraries/config.values.php:116 templates/server/sub_page_header.twig:2
@@ -4374,7 +4386,7 @@ msgid "Databases display options."
 msgstr "Opcións de exhibición das bases de datos."
 
 #: libraries/classes/Config/Descriptions.php:302
-#: libraries/classes/Config/Forms/User/NaviForm.php:71
+#: libraries/classes/Config/Forms/User/NaviForm.php:72
 msgid "Navigation panel"
 msgstr "Panel de navegación"
 
@@ -4504,7 +4516,7 @@ msgstr ""
 "configuración de phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:348 libraries/classes/Menu.php:370
-#: libraries/classes/Menu.php:473 libraries/classes/Menu.php:586
+#: libraries/classes/Menu.php:473 libraries/classes/Menu.php:593
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
 #: libraries/classes/Util.php:3102 libraries/classes/Util.php:3112
 #: libraries/classes/Util.php:3118 libraries/classes/Util.php:4037
@@ -4823,7 +4835,7 @@ msgstr "Lonxitude máxima de SQL que se mostra"
 
 #: libraries/classes/Config/Descriptions.php:451
 #: libraries/classes/Config/Descriptions.php:467
-#: libraries/classes/Config/Descriptions.php:570
+#: libraries/classes/Config/Descriptions.php:572
 msgid "Users cannot set a higher value"
 msgstr "Os usuarios non poden estabelecer un valor máis alto"
 
@@ -5074,79 +5086,91 @@ msgstr "Mostrar o logotipo no panel de navegación"
 
 #: libraries/classes/Config/Descriptions.php:524
 #, fuzzy
+#| msgid "Copying database"
+msgid "Expand single database"
+msgstr "A copiar a base de datos"
+
+#: libraries/classes/Config/Descriptions.php:525
+#, fuzzy
+#| msgid "Show logo in navigation panel"
+msgid "Whether to expand single database in the navigation tree automatically."
+msgstr "Mostrar o logotipo no panel de navegación"
+
+#: libraries/classes/Config/Descriptions.php:526
+#, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr "Número máximo de táboas usadas recentemente; 0 para desactivar"
 
-#: libraries/classes/Config/Descriptions.php:525
+#: libraries/classes/Config/Descriptions.php:527
 #, fuzzy
 #| msgid "Maximum number of recently used tables; set 0 to disable"
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Número máximo de táboas usadas recentemente; 0 para desactivar"
 
-#: libraries/classes/Config/Descriptions.php:526
+#: libraries/classes/Config/Descriptions.php:528
 msgid "Recently used tables"
 msgstr "Táboas usadas recentemente"
 
-#: libraries/classes/Config/Descriptions.php:527
+#: libraries/classes/Config/Descriptions.php:529
 #: libraries/classes/RecentFavoriteTable.php:264
 msgid "Favorite tables"
 msgstr "Táboas favoritas"
 
-#: libraries/classes/Config/Descriptions.php:528
+#: libraries/classes/Config/Descriptions.php:530
 msgid "These are Edit, Copy and Delete links."
 msgstr "Estas son as ligazóns Editar, Copiar e Eliminar."
 
-#: libraries/classes/Config/Descriptions.php:529
+#: libraries/classes/Config/Descriptions.php:531
 msgid "Where to show the table row links"
 msgstr "Onde mostrar as ligazóns das fileiras das táboas"
 
-#: libraries/classes/Config/Descriptions.php:530
+#: libraries/classes/Config/Descriptions.php:532
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr "Mostrar as ligazóns das filas mesmo na ausencia de chaves únicas."
 
-#: libraries/classes/Config/Descriptions.php:531
+#: libraries/classes/Config/Descriptions.php:533
 msgid "Show row links anyway"
 msgstr "Mostrar as ligazóns das filas de calquera maneira"
 
-#: libraries/classes/Config/Descriptions.php:532
-#: libraries/classes/Config/Descriptions.php:533
+#: libraries/classes/Config/Descriptions.php:534
+#: libraries/classes/Config/Descriptions.php:535
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Disable shortcut keys"
 msgstr "Desactivar as comprobacións de chaves exteriores"
 
-#: libraries/classes/Config/Descriptions.php:534
+#: libraries/classes/Config/Descriptions.php:536
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 "Empregar a ordenación natural para ordenar os nomes das táboas e as bases de "
 "datos."
 
-#: libraries/classes/Config/Descriptions.php:535
+#: libraries/classes/Config/Descriptions.php:537
 msgid "Natural order"
 msgstr "Ordenación natural"
 
-#: libraries/classes/Config/Descriptions.php:536
-#: libraries/classes/Config/Descriptions.php:558
+#: libraries/classes/Config/Descriptions.php:538
 #: libraries/classes/Config/Descriptions.php:560
+#: libraries/classes/Config/Descriptions.php:562
 msgid "Use only icons, only text or both."
 msgstr "Empregar só iconas, só texto ou ambos os dous."
 
-#: libraries/classes/Config/Descriptions.php:537
+#: libraries/classes/Config/Descriptions.php:539
 msgid "Table navigation bar"
 msgstr "Barra de navegación das táboas"
 
-#: libraries/classes/Config/Descriptions.php:538
+#: libraries/classes/Config/Descriptions.php:540
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
 "Empregar un buffer para a saída de GZip para atinxir unha maior velocidade "
 "nas transferencias mediante HTTP."
 
-#: libraries/classes/Config/Descriptions.php:539
+#: libraries/classes/Config/Descriptions.php:541
 msgid "GZip output buffering"
 msgstr "Buffer para a saída de GZip"
 
-#: libraries/classes/Config/Descriptions.php:541
+#: libraries/classes/Config/Descriptions.php:543
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -5154,19 +5178,19 @@ msgstr ""
 "[kbd]INTELIXENTE[/kbd] - isto é, orde descendente para os campos do tipo "
 "TIME, DATE, DATETIME e TIMESTAMP e ascendente para os demais."
 
-#: libraries/classes/Config/Descriptions.php:544
+#: libraries/classes/Config/Descriptions.php:546
 msgid "Default sorting order"
 msgstr "Ordenación por omisión"
 
-#: libraries/classes/Config/Descriptions.php:545
+#: libraries/classes/Config/Descriptions.php:547
 msgid "Use persistent connections to MySQL databases."
 msgstr "Empregar conexións persistentes coas bases de datos MySQL."
 
-#: libraries/classes/Config/Descriptions.php:546
+#: libraries/classes/Config/Descriptions.php:548
 msgid "Persistent connections"
 msgstr "Conexións persistentes"
 
-#: libraries/classes/Config/Descriptions.php:548
+#: libraries/classes/Config/Descriptions.php:550
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -5176,11 +5200,11 @@ msgstr ""
 "estrutura da base de datos se non foi posíbel atopar algunha das táboas "
 "requiridas para o almacenamento da configuración do phpMyAdmin."
 
-#: libraries/classes/Config/Descriptions.php:552
+#: libraries/classes/Config/Descriptions.php:554
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Faltan as táboas de almacenamento da configuración do phpMyAdmin"
 
-#: libraries/classes/Config/Descriptions.php:554
+#: libraries/classes/Config/Descriptions.php:556
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -5188,27 +5212,27 @@ msgstr ""
 "Desactivar o aviso que por omisión se mostra na páxina da estrutura da base "
 "de datos se os nomes de columna dunha táboa son palabras reservadas do MySQL."
 
-#: libraries/classes/Config/Descriptions.php:557
+#: libraries/classes/Config/Descriptions.php:559
 msgid "MySQL reserved word warning"
 msgstr "Advertencia de palabra reservada do MySQL"
 
-#: libraries/classes/Config/Descriptions.php:559
+#: libraries/classes/Config/Descriptions.php:561
 msgid "How to display the menu tabs"
 msgstr "Como mostrar as lapelas do menú"
 
-#: libraries/classes/Config/Descriptions.php:561
+#: libraries/classes/Config/Descriptions.php:563
 msgid "How to display various action links"
 msgstr "Como mostrar diversas ligazóns de acción"
 
-#: libraries/classes/Config/Descriptions.php:562
+#: libraries/classes/Config/Descriptions.php:564
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "Impedir a edición das columnas BLOB e BINARY."
 
-#: libraries/classes/Config/Descriptions.php:563
+#: libraries/classes/Config/Descriptions.php:565
 msgid "Protect binary columns"
 msgstr "Protexer as columnas binarias"
 
-#: libraries/classes/Config/Descriptions.php:565
+#: libraries/classes/Config/Descriptions.php:567
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -5219,138 +5243,138 @@ msgstr ""
 "rutinas JS para mostrar o historial de consultas (que se perde cando se "
 "fecha a xanela)."
 
-#: libraries/classes/Config/Descriptions.php:569
+#: libraries/classes/Config/Descriptions.php:571
 msgid "Permanent query history"
 msgstr "Historial de consultas permanente"
 
-#: libraries/classes/Config/Descriptions.php:571
+#: libraries/classes/Config/Descriptions.php:573
 msgid "How many queries are kept in history."
 msgstr "Cantas consultas se gardan no historial."
 
-#: libraries/classes/Config/Descriptions.php:572
+#: libraries/classes/Config/Descriptions.php:574
 msgid "Query history length"
 msgstr "Lonxitude do historial de consultas"
 
-#: libraries/classes/Config/Descriptions.php:573
+#: libraries/classes/Config/Descriptions.php:575
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 "Escolla as funcións que desexe empregar para a conversión dos conxuntos de "
 "caracteres."
 
-#: libraries/classes/Config/Descriptions.php:574
+#: libraries/classes/Config/Descriptions.php:576
 msgid "Recoding engine"
 msgstr "Motor de recodificación"
 
-#: libraries/classes/Config/Descriptions.php:575
+#: libraries/classes/Config/Descriptions.php:577
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Ao navegar polas táboas lémbrase a ordenación de cada unha delas."
 
-#: libraries/classes/Config/Descriptions.php:576
+#: libraries/classes/Config/Descriptions.php:578
 msgid "Remember table's sorting"
 msgstr "Recordar a ordenación da táboa"
 
-#: libraries/classes/Config/Descriptions.php:577
+#: libraries/classes/Config/Descriptions.php:579
 msgid "Default sort order for tables with a primary key."
 msgstr "Orde predeterminada de ordenación das táboas con chave primaria."
 
-#: libraries/classes/Config/Descriptions.php:578
+#: libraries/classes/Config/Descriptions.php:580
 #, fuzzy
 #| msgid "Default sorting order"
 msgid "Primary key default sort order"
 msgstr "Ordenación por omisión"
 
-#: libraries/classes/Config/Descriptions.php:579
+#: libraries/classes/Config/Descriptions.php:581
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 "Repetir os cabezallos cada X celas; [kbd]0[/kbd] desactiva esta "
 "funcionalidade."
 
-#: libraries/classes/Config/Descriptions.php:580
+#: libraries/classes/Config/Descriptions.php:582
 msgid "Repeat headers"
 msgstr "Repetir os cabezallos"
 
-#: libraries/classes/Config/Descriptions.php:581
+#: libraries/classes/Config/Descriptions.php:583
 msgid "Grid editing: trigger action"
 msgstr "Edición da grella: activar acción"
 
-#: libraries/classes/Config/Descriptions.php:582
+#: libraries/classes/Config/Descriptions.php:584
 #, fuzzy
 #| msgid "Relational display column"
 msgid "Relational display"
 msgstr "Mostrar columna de relación"
 
-#: libraries/classes/Config/Descriptions.php:583
+#: libraries/classes/Config/Descriptions.php:585
 #, fuzzy
 #| msgid "Servers display options"
 msgid "For display Options"
 msgstr "Opcións de exhibición dos servidores"
 
-#: libraries/classes/Config/Descriptions.php:584
+#: libraries/classes/Config/Descriptions.php:586
 msgid "Grid editing: save all edited cells at once"
 msgstr "Edición da grella: gravar todas as celas editadas inmediatamente"
 
-#: libraries/classes/Config/Descriptions.php:585
+#: libraries/classes/Config/Descriptions.php:587
 msgid "Directory where exports can be saved on server."
 msgstr "Directorio no que se poden gravar as exportacións no servidor."
 
-#: libraries/classes/Config/Descriptions.php:586
+#: libraries/classes/Config/Descriptions.php:588
 msgid "Save directory"
 msgstr "Directorio de gardado"
 
-#: libraries/classes/Config/Descriptions.php:587
+#: libraries/classes/Config/Descriptions.php:589
 msgid "Leave blank if not used."
 msgstr "Déixeo en branco se non o vai empregar."
 
-#: libraries/classes/Config/Descriptions.php:588
+#: libraries/classes/Config/Descriptions.php:590
 msgid "Host authorization order"
 msgstr "Orde de autenticación do servidor"
 
-#: libraries/classes/Config/Descriptions.php:589
+#: libraries/classes/Config/Descriptions.php:591
 msgid "Leave blank for defaults."
 msgstr "Déixeo en branco para o predefinido."
 
-#: libraries/classes/Config/Descriptions.php:590
+#: libraries/classes/Config/Descriptions.php:592
 msgid "Host authorization rules"
 msgstr "Regras de autorización do servidor"
 
-#: libraries/classes/Config/Descriptions.php:591
+#: libraries/classes/Config/Descriptions.php:593
 msgid "Allow logins without a password"
 msgstr "Permitir rexistrarse sen contrasinal"
 
-#: libraries/classes/Config/Descriptions.php:592
+#: libraries/classes/Config/Descriptions.php:594
 msgid "Allow root login"
 msgstr "Permitir o rexistro de root"
 
-#: libraries/classes/Config/Descriptions.php:593
+#: libraries/classes/Config/Descriptions.php:595
 msgid "Session timezone"
 msgstr "Zona horaria da sesión"
 
-#: libraries/classes/Config/Descriptions.php:595
+#: libraries/classes/Config/Descriptions.php:597
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:598
+#: libraries/classes/Config/Descriptions.php:600
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 "Nome de HTTP Basic Auth Realm que mostrar cando se faga a autenticación "
 "mediante HTTP Auth."
 
-#: libraries/classes/Config/Descriptions.php:599
+#: libraries/classes/Config/Descriptions.php:601
 msgid "HTTP Realm"
 msgstr "Dominio HTTP (Realm)"
 
-#: libraries/classes/Config/Descriptions.php:600
+#: libraries/classes/Config/Descriptions.php:602
 msgid "Authentication method to use."
 msgstr "Método de autenticación que se quere empregar."
 
-#: libraries/classes/Config/Descriptions.php:601 setup/frames/index.inc.php:150
+#: libraries/classes/Config/Descriptions.php:603 setup/frames/index.inc.php:150
 msgid "Authentication type"
 msgstr "Tipo de autenticación"
 
-#: libraries/classes/Config/Descriptions.php:603
+#: libraries/classes/Config/Descriptions.php:605
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/bookmark]bookmark[/"
@@ -5362,11 +5386,11 @@ msgstr ""
 "Déixeo en branco se non quere a funcionalidade de [a@https://wiki.phpmyadmin."
 "net/pma/bookmark]bookmark[/a]  ; por omisión: [kbd]pma_bookmark[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:606
+#: libraries/classes/Config/Descriptions.php:608
 msgid "Bookmark table"
 msgstr "Táboa de marcadores"
 
-#: libraries/classes/Config/Descriptions.php:608
+#: libraries/classes/Config/Descriptions.php:610
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -5374,23 +5398,23 @@ msgstr ""
 "Déixeo en branco se non quere comentarios/tipos mime das columnas; suxírese: "
 "[kbd]pma__column_info[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:611
+#: libraries/classes/Config/Descriptions.php:613
 msgid "Column information table"
 msgstr "Táboa de información das columnas"
 
-#: libraries/classes/Config/Descriptions.php:612
+#: libraries/classes/Config/Descriptions.php:614
 msgid "Compress connection to MySQL server."
 msgstr "Comprimir a conexión ao servidor de MySQL."
 
-#: libraries/classes/Config/Descriptions.php:613
+#: libraries/classes/Config/Descriptions.php:615
 msgid "Compress connection"
 msgstr "Comprimir a conexión"
 
-#: libraries/classes/Config/Descriptions.php:614
+#: libraries/classes/Config/Descriptions.php:616
 msgid "Control user password"
 msgstr "Contrasinal do usuario de control"
 
-#: libraries/classes/Config/Descriptions.php:616
+#: libraries/classes/Config/Descriptions.php:618
 #, fuzzy
 #| msgid ""
 #| "A special MySQL user configured with limited permissions, more "
@@ -5404,11 +5428,11 @@ msgstr ""
 "información dispoñíbel no [a@https://wiki.phpmyadmin.net/pma/"
 "controluser]wiki[/a]."
 
-#: libraries/classes/Config/Descriptions.php:619
+#: libraries/classes/Config/Descriptions.php:621
 msgid "Control user"
 msgstr "Usuario de control"
 
-#: libraries/classes/Config/Descriptions.php:621
+#: libraries/classes/Config/Descriptions.php:623
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -5416,11 +5440,11 @@ msgstr ""
 "Un servidor alternativo que manteña o almacenamento da configuración; déixeo "
 "en branco para empregar o servidor xa indicado."
 
-#: libraries/classes/Config/Descriptions.php:624
+#: libraries/classes/Config/Descriptions.php:626
 msgid "Control host"
 msgstr "Servidor de control"
 
-#: libraries/classes/Config/Descriptions.php:626
+#: libraries/classes/Config/Descriptions.php:628
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -5430,16 +5454,16 @@ msgstr ""
 "da configuración; déixeo en branco para empregar o servidor por omisión, ou "
 "o porto xa definido se controlhost for o mesmo que o servidor."
 
-#: libraries/classes/Config/Descriptions.php:630
+#: libraries/classes/Config/Descriptions.php:632
 msgid "Control port"
 msgstr "Porto de control"
 
-#: libraries/classes/Config/Descriptions.php:631
+#: libraries/classes/Config/Descriptions.php:633
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr ""
 "Agochar as bases de datos que coincidan cunha expresión regular (PCRE)."
 
-#: libraries/classes/Config/Descriptions.php:633
+#: libraries/classes/Config/Descriptions.php:635
 #, fuzzy
 #| msgid ""
 #| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
@@ -5454,15 +5478,15 @@ msgstr ""
 "bugs/2606/]Seguidor de erros de PMA[/a] e en [a@https://bugs.mysql."
 "com/19588]Erros do MySQL[/a]"
 
-#: libraries/classes/Config/Descriptions.php:636
+#: libraries/classes/Config/Descriptions.php:638
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Desactivar o uso de INFORMATION_SCHEMA"
 
-#: libraries/classes/Config/Descriptions.php:637
+#: libraries/classes/Config/Descriptions.php:639
 msgid "Hide databases"
 msgstr "Agochar as bases de datos"
 
-#: libraries/classes/Config/Descriptions.php:639
+#: libraries/classes/Config/Descriptions.php:641
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -5470,23 +5494,23 @@ msgstr ""
 "Déixeo en branco se non quere un histórico das consultas SQL; por omisión: "
 "[kbd]pma__history[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:642
+#: libraries/classes/Config/Descriptions.php:644
 msgid "SQL query history table"
 msgstr "Táboa do historial de consultas SQL"
 
-#: libraries/classes/Config/Descriptions.php:643
+#: libraries/classes/Config/Descriptions.php:645
 msgid "Hostname where MySQL server is running."
 msgstr "Nome da máquina na que se executa o servidor de MySQL."
 
-#: libraries/classes/Config/Descriptions.php:644
+#: libraries/classes/Config/Descriptions.php:646
 msgid "Server hostname"
 msgstr "Nome do servidor"
 
-#: libraries/classes/Config/Descriptions.php:645
+#: libraries/classes/Config/Descriptions.php:647
 msgid "Logout URL"
 msgstr "URL de desconexión"
 
-#: libraries/classes/Config/Descriptions.php:647
+#: libraries/classes/Config/Descriptions.php:649
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -5494,17 +5518,17 @@ msgstr ""
 "Limita o número de preferencias de táboas que se almacenan na base de datos; "
 "os rexistros máis antigos elimínanse automaticamente."
 
-#: libraries/classes/Config/Descriptions.php:650
+#: libraries/classes/Config/Descriptions.php:652
 msgid "Maximal number of table preferences to store"
 msgstr "Número máximo de preferencias sobre as táboas que almacenar"
 
-#: libraries/classes/Config/Descriptions.php:651
+#: libraries/classes/Config/Descriptions.php:653
 #, fuzzy
 #| msgid "See slave status table"
 msgid "QBE saved searches table"
 msgstr "Ver a táboa de estado do escravo"
 
-#: libraries/classes/Config/Descriptions.php:653
+#: libraries/classes/Config/Descriptions.php:655
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
@@ -5512,11 +5536,11 @@ msgstr ""
 "Déixeo en branco se non quere PDF schema; por omisión: [kbd]pma__pdf_pages[/"
 "kbd]."
 
-#: libraries/classes/Config/Descriptions.php:656
+#: libraries/classes/Config/Descriptions.php:658
 msgid "Export templates table"
 msgstr "Exportar a táboa de modelos"
 
-#: libraries/classes/Config/Descriptions.php:658
+#: libraries/classes/Config/Descriptions.php:660
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -5524,11 +5548,11 @@ msgstr ""
 "Déixeo en branco se non quere PDF schema; por omisión: [kbd]pma__pdf_pages[/"
 "kbd]."
 
-#: libraries/classes/Config/Descriptions.php:661
+#: libraries/classes/Config/Descriptions.php:663
 msgid "Central columns table"
 msgstr "Táboa de columnas centrais"
 
-#: libraries/classes/Config/Descriptions.php:663
+#: libraries/classes/Config/Descriptions.php:665
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
@@ -5540,7 +5564,7 @@ msgstr ""
 "Déixeo en branco se non quere PDF schema; por omisión: "
 "[kbd]pma__table_coords[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:667
+#: libraries/classes/Config/Descriptions.php:669
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5550,31 +5574,31 @@ msgstr ""
 "empregar os caracteres en si, isto é, empregue [kbd]'my\\_db'[/kbd]' no "
 "canto de [kbd]'my_db'[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:671
+#: libraries/classes/Config/Descriptions.php:673
 msgid "Show only listed databases"
 msgstr "Mostrar só as bases de datos listadas"
 
-#: libraries/classes/Config/Descriptions.php:672
-#: libraries/classes/Config/Descriptions.php:771
+#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:773
 msgid "Leave empty if not using config auth."
 msgstr "Déixeo en branco se non vai empregar config auth."
 
-#: libraries/classes/Config/Descriptions.php:673
+#: libraries/classes/Config/Descriptions.php:675
 msgid "Password for config auth"
 msgstr "Contrasinal para config auth"
 
-#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:676
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Déixeo en branco se non quere PDF schema; por omisión: [kbd]pma__pdf_pages[/"
 "kbd]."
 
-#: libraries/classes/Config/Descriptions.php:675
+#: libraries/classes/Config/Descriptions.php:677
 msgid "PDF schema: pages table"
 msgstr "PDF schema: táboa de páxinas"
 
-#: libraries/classes/Config/Descriptions.php:677
+#: libraries/classes/Config/Descriptions.php:679
 #, fuzzy
 #| msgid ""
 #| "Database used for relations, bookmarks, and PDF features. See [a@https://"
@@ -5590,22 +5614,22 @@ msgstr ""
 "completa. Déixeo en branco se non lle interesan. Por omisión: "
 "[kbd]phpmyadmin[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:681
+#: libraries/classes/Config/Descriptions.php:683
 #: templates/server/databases/index.twig:28
 msgid "Database name"
 msgstr "Nome da base de datos"
 
-#: libraries/classes/Config/Descriptions.php:682
+#: libraries/classes/Config/Descriptions.php:684
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Porto polo que está a escoitar o servidor de MySQL server; déixeo en branco "
 "para deixar o predefinido."
 
-#: libraries/classes/Config/Descriptions.php:683
+#: libraries/classes/Config/Descriptions.php:685
 msgid "Server port"
 msgstr "Porto do servidor"
 
-#: libraries/classes/Config/Descriptions.php:685
+#: libraries/classes/Config/Descriptions.php:687
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -5613,11 +5637,11 @@ msgstr ""
 "Déixeo en branco para eliminar a «persistencia»  das táboas utilizadas "
 "recentemente entre sesións; suxírese: [kbd]pma__recent[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:688
+#: libraries/classes/Config/Descriptions.php:690
 msgid "Recently used table"
 msgstr "Táboa usada recentemente"
 
-#: libraries/classes/Config/Descriptions.php:690
+#: libraries/classes/Config/Descriptions.php:692
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -5625,11 +5649,11 @@ msgstr ""
 "Déixeo en branco para eliminar a «persistencia»  das táboas utilizadas "
 "recentemente entre sesións; suxírese: [kbd]pma__recent[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:693
+#: libraries/classes/Config/Descriptions.php:695
 msgid "Favorites table"
 msgstr "Táboa de favoritos"
 
-#: libraries/classes/Config/Descriptions.php:695
+#: libraries/classes/Config/Descriptions.php:697
 #, fuzzy
 #| msgid ""
 #| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
@@ -5641,11 +5665,11 @@ msgstr ""
 "Déixeo en branco se non quere [a@https://wiki.phpmyadmin.net/pma/"
 "relation]ligazóns de relación[/a]; suxírese: [kbd]pma__relation[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:699
+#: libraries/classes/Config/Descriptions.php:701
 msgid "Relation table"
 msgstr "Táboa de relacións"
 
-#: libraries/classes/Config/Descriptions.php:701
+#: libraries/classes/Config/Descriptions.php:703
 #, fuzzy
 #| msgid ""
 #| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
@@ -5656,33 +5680,33 @@ msgstr ""
 "Vexa os [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]tipos de "
 "autenticación[/a] se quere un exemplo."
 
-#: libraries/classes/Config/Descriptions.php:704
+#: libraries/classes/Config/Descriptions.php:706
 msgid "Signon session name"
 msgstr "Nome de sesión de rexistro de entrada"
 
-#: libraries/classes/Config/Descriptions.php:705
+#: libraries/classes/Config/Descriptions.php:707
 msgid "Signon URL"
 msgstr "URL de rexistro de entrada"
 
-#: libraries/classes/Config/Descriptions.php:706
+#: libraries/classes/Config/Descriptions.php:708
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Socket polo que está a escoitar o servidor de MySQL; déixeo en branco para "
 "deixar o predefinido."
 
-#: libraries/classes/Config/Descriptions.php:707
+#: libraries/classes/Config/Descriptions.php:709
 msgid "Server socket"
 msgstr "Socket do servidor"
 
-#: libraries/classes/Config/Descriptions.php:708
+#: libraries/classes/Config/Descriptions.php:710
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Activar a SSL para a conexión ao servidor de MySQL."
 
-#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:711
 msgid "Use SSL"
 msgstr "Empregar a SSL"
 
-#: libraries/classes/Config/Descriptions.php:710
+#: libraries/classes/Config/Descriptions.php:712
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -5690,13 +5714,13 @@ msgstr ""
 "Déixeo en branco se non quere PDF schema; por omisión: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:711
+#: libraries/classes/Config/Descriptions.php:713
 #, fuzzy
 #| msgid "PDF schema: table coordinates"
 msgid "Designer and PDF schema: table coordinates"
 msgstr "PDF schema: coordenadas de táboa"
 
-#: libraries/classes/Config/Descriptions.php:713
+#: libraries/classes/Config/Descriptions.php:715
 #, fuzzy
 #| msgid ""
 #| "Table to describe the display columns, leave blank for no support; "
@@ -5708,11 +5732,11 @@ msgstr ""
 "Táboa para describir a presentación dos campos; déixeo en branco para non o "
 "activar; suxírese: [kbd]pma__table_info[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:716
+#: libraries/classes/Config/Descriptions.php:718
 msgid "Display columns table"
 msgstr "Mostrar a táboa de columnas"
 
-#: libraries/classes/Config/Descriptions.php:718
+#: libraries/classes/Config/Descriptions.php:720
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -5720,11 +5744,11 @@ msgstr ""
 "Déixeo en branco se non desexa preferencias «persistentes» da interface das "
 "táboas entre sesións; suxírese: [kbd]pma__table_uiprefs[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:721
+#: libraries/classes/Config/Descriptions.php:723
 msgid "UI preferences table"
 msgstr "Táboa de preferencias da interface"
 
-#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:725
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -5732,11 +5756,11 @@ msgstr ""
 "Se engadir unha instrución DROP DATABASE IF EXISTS como primeira liña do "
 "rexistro cando se cree unha base de datos."
 
-#: libraries/classes/Config/Descriptions.php:726
+#: libraries/classes/Config/Descriptions.php:728
 msgid "Add DROP DATABASE"
 msgstr "Engadir DROP DATABASE"
 
-#: libraries/classes/Config/Descriptions.php:728
+#: libraries/classes/Config/Descriptions.php:730
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -5744,12 +5768,12 @@ msgstr ""
 "Se engadir unha instrución DROP TABLE IF EXISTS como primeira liña do "
 "rexistro cando se cree unha táboa."
 
-#: libraries/classes/Config/Descriptions.php:731
+#: libraries/classes/Config/Descriptions.php:733
 #: libraries/classes/MultSubmits.php:432
 msgid "Add DROP TABLE"
 msgstr "Engadir DROP TABLE"
 
-#: libraries/classes/Config/Descriptions.php:733
+#: libraries/classes/Config/Descriptions.php:735
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -5757,21 +5781,21 @@ msgstr ""
 "Se engadir unha instrución DROP VIEW IF EXISTS como primeira liña do "
 "rexistro cando se cree unha vista."
 
-#: libraries/classes/Config/Descriptions.php:736
+#: libraries/classes/Config/Descriptions.php:738
 msgid "Add DROP VIEW"
 msgstr "Engadir DROP VIEW"
 
-#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:739
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Indica a listaxe de instrucións que emprega a creación automática para as "
 "versións novas."
 
-#: libraries/classes/Config/Descriptions.php:738
+#: libraries/classes/Config/Descriptions.php:740
 msgid "Statements to track"
 msgstr "Instrucións que seguir"
 
-#: libraries/classes/Config/Descriptions.php:740
+#: libraries/classes/Config/Descriptions.php:742
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -5779,11 +5803,11 @@ msgstr ""
 "Déixeo en branco se non quere a funcionalidade de seguimento das consultas "
 "de SQL; valor suxerido: [kbd]pma_tracking[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:743
+#: libraries/classes/Config/Descriptions.php:745
 msgid "SQL query tracking table"
 msgstr "Táboa de seguimento de consultas de SQL"
 
-#: libraries/classes/Config/Descriptions.php:745
+#: libraries/classes/Config/Descriptions.php:747
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -5791,11 +5815,11 @@ msgstr ""
 "Se o mecanismo de seguimento crea automaticamente versións das táboas e as "
 "vistas."
 
-#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:750
 msgid "Automatically create versions"
 msgstr "Crear versions automaticamente"
 
-#: libraries/classes/Config/Descriptions.php:750
+#: libraries/classes/Config/Descriptions.php:752
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -5803,33 +5827,33 @@ msgstr ""
 "Déixeo en branco se non quere almacenar as preferencias na base de datos; "
 "suxerido: [kbd]pma__userconfig[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:753
+#: libraries/classes/Config/Descriptions.php:755
 msgid "User preferences storage table"
 msgstr "Empregar a táboa de almacenamento das preferencias"
 
-#: libraries/classes/Config/Descriptions.php:755
+#: libraries/classes/Config/Descriptions.php:757
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:759
+#: libraries/classes/Config/Descriptions.php:761
 msgid "Users table"
 msgstr "Táboa de usuarios"
 
-#: libraries/classes/Config/Descriptions.php:761
+#: libraries/classes/Config/Descriptions.php:763
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:765
+#: libraries/classes/Config/Descriptions.php:767
 msgid "User groups table"
 msgstr "Táboa de grupos de usuarios"
 
-#: libraries/classes/Config/Descriptions.php:767
+#: libraries/classes/Config/Descriptions.php:769
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -5837,15 +5861,15 @@ msgstr ""
 "Déixeo en branco se non quere almacenar as preferencias na base de datos; "
 "suxerido: [kbd]pma__userconfig[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:770
+#: libraries/classes/Config/Descriptions.php:772
 msgid "Hidden navigation items table"
 msgstr "Táboa de elementos de navegación agochados"
 
-#: libraries/classes/Config/Descriptions.php:772
+#: libraries/classes/Config/Descriptions.php:774
 msgid "User for config auth"
 msgstr "Usuario para config auth"
 
-#: libraries/classes/Config/Descriptions.php:774
+#: libraries/classes/Config/Descriptions.php:776
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -5853,20 +5877,20 @@ msgstr ""
 "Unha descrición lexíbel deste servidor. Déixea en branco para que no seu "
 "canto apareza o nome da máquina."
 
-#: libraries/classes/Config/Descriptions.php:777
+#: libraries/classes/Config/Descriptions.php:779
 msgid "Verbose name of this server"
 msgstr "Nome longo deste servidor"
 
-#: libraries/classes/Config/Descriptions.php:778
+#: libraries/classes/Config/Descriptions.php:780
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Se se lle desexa mostrar un botón  «mostrar todas (as filas)» ao usuario."
 
-#: libraries/classes/Config/Descriptions.php:779
+#: libraries/classes/Config/Descriptions.php:781
 msgid "Allow to display all the rows"
 msgstr "Permitir que se mostren todas as fileiras"
 
-#: libraries/classes/Config/Descriptions.php:781
+#: libraries/classes/Config/Descriptions.php:783
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -5877,59 +5901,59 @@ msgstr ""
 "configuración; isto non limita a capacidade de executar a mesma orde "
 "directamente."
 
-#: libraries/classes/Config/Descriptions.php:785
+#: libraries/classes/Config/Descriptions.php:787
 msgid "Show password change form"
 msgstr "Mostrar o formulario para mudar de contrasinal"
 
-#: libraries/classes/Config/Descriptions.php:786
+#: libraries/classes/Config/Descriptions.php:788
 msgid "Show create database form"
 msgstr "Mostrar o formulario para crear bases de datos"
 
-#: libraries/classes/Config/Descriptions.php:787
+#: libraries/classes/Config/Descriptions.php:789
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 "Mostrar ou agochar unha columna que mostre a marca temporal da creación de "
 "todas as táboas."
 
-#: libraries/classes/Config/Descriptions.php:788
+#: libraries/classes/Config/Descriptions.php:790
 msgid "Show table comments"
 msgstr "Mostrar os comentarios de táboa"
 
-#: libraries/classes/Config/Descriptions.php:789
+#: libraries/classes/Config/Descriptions.php:791
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Mostrar ou agochar unha columna que mostre a marca temporal da creación de "
 "todas as táboas."
 
-#: libraries/classes/Config/Descriptions.php:790
+#: libraries/classes/Config/Descriptions.php:792
 msgid "Show creation timestamp"
 msgstr "Mostrar marca temporal de creación"
 
-#: libraries/classes/Config/Descriptions.php:791
+#: libraries/classes/Config/Descriptions.php:793
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Mostrar ou agochar unha columna que mostre a marca temporal da última "
 "actualización de todas as táboas."
 
-#: libraries/classes/Config/Descriptions.php:792
+#: libraries/classes/Config/Descriptions.php:794
 msgid "Show last update timestamp"
 msgstr "Mostrar a última actualización da marca temporal"
 
-#: libraries/classes/Config/Descriptions.php:793
+#: libraries/classes/Config/Descriptions.php:795
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Mostrar ou agochar unha columna que mostre a marca temporal da última "
 "comprobación de todas as táboas."
 
-#: libraries/classes/Config/Descriptions.php:794
+#: libraries/classes/Config/Descriptions.php:796
 #, fuzzy
 #| msgid "Show Last check timestamp"
 msgid "Show last check timestamp"
 msgstr "Mostrar a última revisión da marca temporal"
 
-#: libraries/classes/Config/Descriptions.php:795
+#: libraries/classes/Config/Descriptions.php:797
 #, fuzzy
 #| msgid "Show or hide a column displaying the comments for all tables."
 msgid "Show or hide a column displaying the charset for all tables."
@@ -5937,13 +5961,13 @@ msgstr ""
 "Mostrar ou agochar unha columna que mostre a marca temporal da creación de "
 "todas as táboas."
 
-#: libraries/classes/Config/Descriptions.php:796
+#: libraries/classes/Config/Descriptions.php:798
 #, fuzzy
 #| msgid "Show table comments"
 msgid "Show table charset"
 msgstr "Mostrar os comentarios de táboa"
 
-#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:800
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
@@ -5951,27 +5975,27 @@ msgstr ""
 "Define se os campos tipo deben ser mostrados inicialmente no modo editar/"
 "inserir."
 
-#: libraries/classes/Config/Descriptions.php:801
+#: libraries/classes/Config/Descriptions.php:803
 msgid "Show field types"
 msgstr "Mostrar os tipos de campo"
 
-#: libraries/classes/Config/Descriptions.php:802
+#: libraries/classes/Config/Descriptions.php:804
 msgid "Display the function fields in edit/insert mode."
 msgstr "Mostrar os campos de función no modo editar/inserir."
 
-#: libraries/classes/Config/Descriptions.php:803
+#: libraries/classes/Config/Descriptions.php:805
 msgid "Show function fields"
 msgstr "Mostrar os campos de función"
 
-#: libraries/classes/Config/Descriptions.php:804
+#: libraries/classes/Config/Descriptions.php:806
 msgid "Whether to show hint or not."
 msgstr "Mostrar axudas ou non."
 
-#: libraries/classes/Config/Descriptions.php:805
+#: libraries/classes/Config/Descriptions.php:807
 msgid "Show hint"
 msgstr "Mostrar consellos"
 
-#: libraries/classes/Config/Descriptions.php:807
+#: libraries/classes/Config/Descriptions.php:809
 #, fuzzy
 #| msgid ""
 #| "Shows link to [a@https://secure.php.net/manual/function.phpinfo."
@@ -5983,63 +6007,63 @@ msgstr ""
 "Mostra unha ligazón á saída de [a@https://secure.php.net/manual/function."
 "phpinfo.php]phpinfo()[/a]."
 
-#: libraries/classes/Config/Descriptions.php:810
+#: libraries/classes/Config/Descriptions.php:812
 msgid "Show phpinfo() link"
 msgstr "Mostrar a ligazón a phpinfo()"
 
-#: libraries/classes/Config/Descriptions.php:811
+#: libraries/classes/Config/Descriptions.php:813
 msgid "Show detailed MySQL server information"
 msgstr "Mostrar información detallada do servidor de MySQL"
 
-#: libraries/classes/Config/Descriptions.php:812
+#: libraries/classes/Config/Descriptions.php:814
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr ""
 "Indica se se deben mostrar as consultas de SQL xeradas polo phpMyAdmin."
 
-#: libraries/classes/Config/Descriptions.php:813
+#: libraries/classes/Config/Descriptions.php:815
 msgid "Show SQL queries"
 msgstr "Mostrar as consultas de SQL"
 
-#: libraries/classes/Config/Descriptions.php:814
+#: libraries/classes/Config/Descriptions.php:816
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 "Indica se a caixa de consultas debe permanecer en pantalla despois da súa "
 "execución."
 
-#: libraries/classes/Config/Descriptions.php:815
+#: libraries/classes/Config/Descriptions.php:817
 #: libraries/classes/SqlQueryForm.php:365
 msgid "Retain query box"
 msgstr "Reter a caixa de consultas"
 
-#: libraries/classes/Config/Descriptions.php:816
+#: libraries/classes/Config/Descriptions.php:818
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
 "Permitir que se mostren as estatísticas das bases de datos e das táboas (p."
 "ex. o uso do espazo)."
 
-#: libraries/classes/Config/Descriptions.php:817
+#: libraries/classes/Config/Descriptions.php:819
 msgid "Show statistics"
 msgstr "Mostrar as estatísticas"
 
-#: libraries/classes/Config/Descriptions.php:818
+#: libraries/classes/Config/Descriptions.php:820
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Marcar as táboas empregadas e permitir que se mostren as bases de datos con "
 "táboas bloqueadas."
 
-#: libraries/classes/Config/Descriptions.php:819
+#: libraries/classes/Config/Descriptions.php:821
 msgid "Skip locked tables"
 msgstr "Ignorar as táboas bloqueadas"
 
-#: libraries/classes/Config/Descriptions.php:821
+#: libraries/classes/Config/Descriptions.php:823
 #: libraries/classes/Util.php:1085
 msgid "Explain SQL"
 msgstr "Explicar o SQL"
 
-#: libraries/classes/Config/Descriptions.php:822
+#: libraries/classes/Config/Descriptions.php:824
 #: libraries/classes/Export.php:534
 #: libraries/classes/Server/Status/Processes.php:237
 #: libraries/classes/Server/Status/Variables.php:52
@@ -6047,12 +6071,12 @@ msgstr "Explicar o SQL"
 msgid "Refresh"
 msgstr "Anovar"
 
-#: libraries/classes/Config/Descriptions.php:823
+#: libraries/classes/Config/Descriptions.php:825
 #: libraries/classes/Util.php:1150
 msgid "Create PHP code"
 msgstr "Crear código PHP"
 
-#: libraries/classes/Config/Descriptions.php:825
+#: libraries/classes/Config/Descriptions.php:827
 #, fuzzy
 #| msgid "A warning is displayed on the main page if Suhosin is detected."
 msgid ""
@@ -6061,11 +6085,11 @@ msgid ""
 msgstr ""
 "Na pantalla principal aparece unha advertencia se o Suhosin for detectado."
 
-#: libraries/classes/Config/Descriptions.php:828
+#: libraries/classes/Config/Descriptions.php:830
 msgid "Suhosin warning"
 msgstr "Aviso de Suhosin"
 
-#: libraries/classes/Config/Descriptions.php:830
+#: libraries/classes/Config/Descriptions.php:832
 #, fuzzy
 #| msgid ""
 #| "Disable the default warning that is displayed on the Structure page if "
@@ -6078,13 +6102,13 @@ msgstr ""
 "Desactivar o aviso que por omisión se mostra na páxina da estrutura da base "
 "de datos se os nomes de columna dunha táboa son palabras reservadas do MySQL"
 
-#: libraries/classes/Config/Descriptions.php:834
+#: libraries/classes/Config/Descriptions.php:836
 #, fuzzy
 #| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "Validez das cookies de rexistro"
 
-#: libraries/classes/Config/Descriptions.php:836
+#: libraries/classes/Config/Descriptions.php:838
 #, fuzzy
 #| msgid ""
 #| "Textarea size (columns) in edit mode, this value will be emphasized for "
@@ -6097,11 +6121,11 @@ msgstr ""
 "enfatízase nas áreas de texto das consultas de SQL (*2) e na xanela de "
 "consultas (*.1,25)"
 
-#: libraries/classes/Config/Descriptions.php:839
+#: libraries/classes/Config/Descriptions.php:841
 msgid "Textarea columns"
 msgstr "Columnas da área de texto"
 
-#: libraries/classes/Config/Descriptions.php:841
+#: libraries/classes/Config/Descriptions.php:843
 #, fuzzy
 #| msgid ""
 #| "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
@@ -6114,16 +6138,16 @@ msgstr ""
 "enfatízase nas áreas de texto das consultas de SQL (*2) e na xanela de "
 "consultas (*.1,25)"
 
-#: libraries/classes/Config/Descriptions.php:844
+#: libraries/classes/Config/Descriptions.php:846
 msgid "Textarea rows"
 msgstr "Fileiras da área de texto"
 
-#: libraries/classes/Config/Descriptions.php:845
+#: libraries/classes/Config/Descriptions.php:847
 msgid "Title of browser window when a database is selected."
 msgstr ""
 "Título da xanela do navegador cando a base de datos estea seleccionada."
 
-#: libraries/classes/Config/Descriptions.php:846 libraries/classes/Menu.php:243
+#: libraries/classes/Config/Descriptions.php:848 libraries/classes/Menu.php:243
 #: libraries/classes/MultSubmits.php:419
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:157
 #: libraries/classes/Plugins/Export/ExportOdt.php:204
@@ -6143,28 +6167,28 @@ msgstr ""
 msgid "Database"
 msgstr "Base de datos"
 
-#: libraries/classes/Config/Descriptions.php:847
+#: libraries/classes/Config/Descriptions.php:849
 msgid "Title of browser window when nothing is selected."
 msgstr "Título da xanela do navegador cando non haxa nada seleccionado."
 
-#: libraries/classes/Config/Descriptions.php:848
+#: libraries/classes/Config/Descriptions.php:850
 msgid "Default title"
 msgstr "Título por omisión"
 
-#: libraries/classes/Config/Descriptions.php:849
+#: libraries/classes/Config/Descriptions.php:851
 msgid "Title of browser window when a server is selected."
 msgstr "Título da xanela do navegador cando un servidor estea seleccionado."
 
-#: libraries/classes/Config/Descriptions.php:850 libraries/classes/Menu.php:223
+#: libraries/classes/Config/Descriptions.php:852 libraries/classes/Menu.php:223
 #: libraries/classes/Server/Status/Data.php:435
 msgid "Server"
 msgstr "Servidor"
 
-#: libraries/classes/Config/Descriptions.php:851
+#: libraries/classes/Config/Descriptions.php:853
 msgid "Title of browser window when a table is selected."
 msgstr "Título da xanela do navegador cando unha táboa estea seleccionada."
 
-#: libraries/classes/Config/Descriptions.php:852 libraries/classes/Menu.php:282
+#: libraries/classes/Config/Descriptions.php:854 libraries/classes/Menu.php:282
 #: libraries/classes/Plugins/Export/ExportXml.php:505
 #: libraries/classes/Rte/RteList.php:132 libraries/classes/Rte/Triggers.php:399
 #: libraries/classes/Server/Privileges.php:1070
@@ -6182,7 +6206,7 @@ msgstr "Título da xanela do navegador cando unha táboa estea seleccionada."
 msgid "Table"
 msgstr "Táboa"
 
-#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Config/Descriptions.php:856
 #, fuzzy
 #| msgid ""
 #| "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following "
@@ -6200,28 +6224,28 @@ msgstr ""
 "HTTP_X_FORWARDED_FOR (X-Forwarded-For) proveniente do proxy 1.2.3.4:[br]"
 "[kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:859
+#: libraries/classes/Config/Descriptions.php:861
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Lista de proxies de confianza para permiso/denegación de IP"
 
-#: libraries/classes/Config/Descriptions.php:860
+#: libraries/classes/Config/Descriptions.php:862
 msgid "Directory on server where you can upload files for import."
 msgstr ""
 "Directorio do servidor ao que se poden enviar os ficheiros que importar."
 
-#: libraries/classes/Config/Descriptions.php:861
+#: libraries/classes/Config/Descriptions.php:863
 msgid "Upload directory"
 msgstr "Directorio de envíos"
 
-#: libraries/classes/Config/Descriptions.php:862
+#: libraries/classes/Config/Descriptions.php:864
 msgid "Allow for searching inside the entire database."
 msgstr "Permitir buscar na base de datos completa."
 
-#: libraries/classes/Config/Descriptions.php:863
+#: libraries/classes/Config/Descriptions.php:865
 msgid "Use database search"
 msgstr "Empregar buscas na base de datos"
 
-#: libraries/classes/Config/Descriptions.php:865
+#: libraries/classes/Config/Descriptions.php:867
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -6229,22 +6253,22 @@ msgstr ""
 "Se está desactivado os usuarios non poden establecer ningunha das opcións "
 "que hai debaixo, independentemente da caixa da dereita."
 
-#: libraries/classes/Config/Descriptions.php:868
+#: libraries/classes/Config/Descriptions.php:870
 msgid "Enable the Developer tab in settings"
 msgstr "Activar a lapela de desenvolvemento na configuración"
 
-#: libraries/classes/Config/Descriptions.php:869
+#: libraries/classes/Config/Descriptions.php:871
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 "Activar a comprobación da última versión na páxina principal do phpMyAdmin."
 
-#: libraries/classes/Config/Descriptions.php:870 setup/lib/Index.php:124
+#: libraries/classes/Config/Descriptions.php:872 setup/lib/Index.php:124
 #: setup/lib/Index.php:147 setup/lib/Index.php:160 setup/lib/Index.php:172
 #: setup/lib/Index.php:180 setup/lib/Index.php:187
 msgid "Version check"
 msgstr "Comprobación da versión"
 
-#: libraries/classes/Config/Descriptions.php:872
+#: libraries/classes/Config/Descriptions.php:874
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6256,11 +6280,11 @@ msgstr ""
 "instalado o phpMyAdmin non ten acceso á Internet. O formato é: "
 "«nome_do_servidor:número_do_porto»."
 
-#: libraries/classes/Config/Descriptions.php:877
+#: libraries/classes/Config/Descriptions.php:879
 msgid "Proxy url"
 msgstr "URL do proxy"
 
-#: libraries/classes/Config/Descriptions.php:879
+#: libraries/classes/Config/Descriptions.php:881
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -6271,19 +6295,19 @@ msgstr ""
 "Autenticación Básica. De momento non se admite ningún outro tipo de "
 "autenticación."
 
-#: libraries/classes/Config/Descriptions.php:884
+#: libraries/classes/Config/Descriptions.php:886
 msgid "Proxy username"
 msgstr "Nome de usuario do proxy"
 
-#: libraries/classes/Config/Descriptions.php:885
+#: libraries/classes/Config/Descriptions.php:887
 msgid "The password for authenticating with the proxy."
 msgstr "O contrasinal para identificarse diante do proxy."
 
-#: libraries/classes/Config/Descriptions.php:886
+#: libraries/classes/Config/Descriptions.php:888
 msgid "Proxy password"
 msgstr "Contrasinal do proxy"
 
-#: libraries/classes/Config/Descriptions.php:888
+#: libraries/classes/Config/Descriptions.php:890
 #, fuzzy
 #| msgid ""
 #| "Enable [a@https://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
@@ -6293,37 +6317,37 @@ msgstr ""
 "Activar a compresión [a@https://gl.wikipedia.org/wiki/Gzip]gzip[/a] nas "
 "operacións de importación e exportación."
 
-#: libraries/classes/Config/Descriptions.php:889
+#: libraries/classes/Config/Descriptions.php:891
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/classes/Config/Descriptions.php:890
+#: libraries/classes/Config/Descriptions.php:892
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr ""
 "Introduza a súa chave pública para o servizo de reCaptcha do seu dominio."
 
-#: libraries/classes/Config/Descriptions.php:891
+#: libraries/classes/Config/Descriptions.php:893
 msgid "Public key for reCaptcha"
 msgstr "Chave pública do reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:892
+#: libraries/classes/Config/Descriptions.php:894
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr ""
 "Introduza a súa chave privada para o servizo de reCaptcha do seu dominio."
 
-#: libraries/classes/Config/Descriptions.php:893
+#: libraries/classes/Config/Descriptions.php:895
 msgid "Private key for reCaptcha"
 msgstr "Chave privada do reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:895
+#: libraries/classes/Config/Descriptions.php:897
 msgid "Choose the default action when sending error reports."
 msgstr "Escolla a acción predeterminada para enviar informes de fallo."
 
-#: libraries/classes/Config/Descriptions.php:896
+#: libraries/classes/Config/Descriptions.php:898
 msgid "Send error reports"
 msgstr "Enviar informes de erro"
 
-#: libraries/classes/Config/Descriptions.php:899
+#: libraries/classes/Config/Descriptions.php:901
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -6331,40 +6355,40 @@ msgstr ""
 "As consultas execútanse ao premer Intro (no canto de Ctrl+Intro). As liñas "
 "novas insírense con Maiús+Intro."
 
-#: libraries/classes/Config/Descriptions.php:902
+#: libraries/classes/Config/Descriptions.php:904
 msgid "Enter executes queries in console"
 msgstr "Intro executa consultas na consola"
 
-#: libraries/classes/Config/Descriptions.php:905
+#: libraries/classes/Config/Descriptions.php:907
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:908
+#: libraries/classes/Config/Descriptions.php:910
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Enable Zero Configuration mode"
 msgstr "Configuración do servidor"
 
-#: libraries/classes/Config/Descriptions.php:909
+#: libraries/classes/Config/Descriptions.php:911
 #: templates/console/display.twig:153
 msgid "Show query history at start"
 msgstr "Mostrar o historial de consultas no inicio"
 
-#: libraries/classes/Config/Descriptions.php:910
+#: libraries/classes/Config/Descriptions.php:912
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
 msgstr "Expandir sempre as mensaxes de consulta"
 
-#: libraries/classes/Config/Descriptions.php:911
+#: libraries/classes/Config/Descriptions.php:913
 #: templates/console/display.twig:157
 #, fuzzy
 #| msgid "Show current browsing query"
 msgid "Show current browsing query"
 msgstr "Mostrar a consulta de navegación actual"
 
-#: libraries/classes/Config/Descriptions.php:912
+#: libraries/classes/Config/Descriptions.php:914
 #, fuzzy
 #| msgid ""
 #| "Execute queries on Enter and insert new line with Shift + Enter. To make "
@@ -6374,33 +6398,33 @@ msgstr ""
 "Executar consultas con Intro e inserir un salto de liña con Maiúsculas + "
 "Intro. Para que isto sexa permanente vexa a configuración."
 
-#: libraries/classes/Config/Descriptions.php:913
+#: libraries/classes/Config/Descriptions.php:915
 #: templates/console/display.twig:168
 msgid "Switch to dark theme"
 msgstr "Usar o tema escuro"
 
-#: libraries/classes/Config/Descriptions.php:914
+#: libraries/classes/Config/Descriptions.php:916
 #, fuzzy
 #| msgid "Console"
 msgid "Console height"
 msgstr "Consola"
 
-#: libraries/classes/Config/Descriptions.php:915
+#: libraries/classes/Config/Descriptions.php:917
 #, fuzzy
 #| msgid "Console"
 msgid "Console mode"
 msgstr "Consola"
 
-#: libraries/classes/Config/Descriptions.php:916
+#: libraries/classes/Config/Descriptions.php:918
 #: templates/console/display.twig:64
 msgid "Group queries"
 msgstr "Agrupar as consultas"
 
-#: libraries/classes/Config/Descriptions.php:917 libraries/classes/Sql.php:289
+#: libraries/classes/Config/Descriptions.php:919 libraries/classes/Sql.php:289
 msgid "Order"
 msgstr "Orde"
 
-#: libraries/classes/Config/Descriptions.php:918
+#: libraries/classes/Config/Descriptions.php:920
 #, fuzzy
 #| msgid "Order by:"
 msgid "Order by"
@@ -7089,17 +7113,17 @@ msgstr "Texto completo"
 msgid "Distinct values"
 msgstr "Valores diferentes"
 
-#: libraries/classes/Core.php:354
+#: libraries/classes/Core.php:355
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Falta a extensión %s. Comprobe a configuración do PHP."
 
-#: libraries/classes/Core.php:851 libraries/mult_submits.inc.php:346
+#: libraries/classes/Core.php:852 libraries/mult_submits.inc.php:346
 #: tbl_operations.php:252 tbl_replace.php:356 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Sen cambios"
 
-#: libraries/classes/Core.php:1227
+#: libraries/classes/Core.php:1228
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -7108,17 +7132,17 @@ msgstr ""
 "Ten activada mbstring.func_overload na configuración do PHP. Esta opción é "
 "incompatíbel co phpMyAdmin e podería ocasionar danos nos datos!"
 
-#: libraries/classes/Core.php:1241
+#: libraries/classes/Core.php:1242
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Core.php:1296
+#: libraries/classes/Core.php:1297
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentouse substituír GLOBALS"
 
-#: libraries/classes/Core.php:1303
+#: libraries/classes/Core.php:1304
 msgid "possible exploit"
 msgstr "posíbel vulnerabilidade (exploit)"
 
@@ -7526,7 +7550,7 @@ msgstr "Textos completos"
 #: libraries/classes/Util.php:4763 libraries/classes/Util.php:4780
 #: libraries/config.values.php:82
 #: templates/table/search/selection_form.twig:154
-#: templates/database/multi_table_query/form.twig:52
+#: templates/database/multi_table_query/form.twig:67
 #: templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -7540,7 +7564,7 @@ msgstr "Descendente"
 #: libraries/classes/Util.php:4758 libraries/classes/Util.php:4775
 #: libraries/config.values.php:81
 #: templates/table/search/selection_form.twig:154
-#: templates/database/multi_table_query/form.twig:51
+#: templates/database/multi_table_query/form.twig:66
 #: templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -8426,7 +8450,7 @@ msgstr "Buscar"
 msgid "Insert"
 msgstr "Inserir"
 
-#: libraries/classes/Menu.php:407 libraries/classes/Menu.php:511
+#: libraries/classes/Menu.php:407 libraries/classes/Menu.php:518
 #: libraries/classes/Server/Privileges.php:2656
 #: libraries/classes/Server/Privileges.php:4531 libraries/classes/Util.php:4058
 #: libraries/classes/Util.php:4074 libraries/config.values.php:122
@@ -8436,20 +8460,20 @@ msgid "Privileges"
 msgstr "Privilexios"
 
 #: libraries/classes/Menu.php:416 libraries/classes/Menu.php:424
-#: libraries/classes/Menu.php:503 libraries/classes/Util.php:3106
+#: libraries/classes/Menu.php:510 libraries/classes/Util.php:3106
 #: libraries/classes/Util.php:3120 libraries/classes/Util.php:4057
 #: libraries/classes/Util.php:4075 libraries/config.values.php:132
 #: view_operations.php:106
 msgid "Operations"
 msgstr "Operacións"
 
-#: libraries/classes/Menu.php:429 libraries/classes/Menu.php:533
+#: libraries/classes/Menu.php:429 libraries/classes/Menu.php:540
 #: libraries/classes/Relation.php:302 libraries/classes/Util.php:4062
 #: libraries/classes/Util.php:4076
 msgid "Tracking"
 msgstr "Seguimento"
 
-#: libraries/classes/Menu.php:441 libraries/classes/Menu.php:527
+#: libraries/classes/Menu.php:441 libraries/classes/Menu.php:534
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:27
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:583
 #: libraries/classes/Plugins/Export/ExportOdt.php:720
@@ -8462,8 +8486,8 @@ msgstr "Seguimento"
 msgid "Triggers"
 msgstr "Disparadores"
 
-#: libraries/classes/Menu.php:480 libraries/classes/Menu.php:487
-#: libraries/classes/Menu.php:494
+#: libraries/classes/Menu.php:480 libraries/classes/Menu.php:494
+#: libraries/classes/Menu.php:501
 msgid "Database seems to be empty!"
 msgstr "Parece ser que a táboa está baleira!"
 
@@ -8471,12 +8495,12 @@ msgstr "Parece ser que a táboa está baleira!"
 msgid "Query"
 msgstr "Consulta"
 
-#: libraries/classes/Menu.php:516 libraries/classes/Rte/Words.php:51
+#: libraries/classes/Menu.php:523 libraries/classes/Rte/Words.php:51
 #: libraries/classes/Util.php:4059
 msgid "Routines"
 msgstr "Rutinas"
 
-#: libraries/classes/Menu.php:521
+#: libraries/classes/Menu.php:528
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:989
 #: libraries/classes/Plugins/Export/ExportXml.php:111
@@ -8484,25 +8508,25 @@ msgstr "Rutinas"
 msgid "Events"
 msgstr "Acontecementos"
 
-#: libraries/classes/Menu.php:539 libraries/classes/Util.php:4063
+#: libraries/classes/Menu.php:546 libraries/classes/Util.php:4063
 msgid "Designer"
 msgstr "Deseñador"
 
-#: libraries/classes/Menu.php:548 libraries/classes/Util.php:4064
+#: libraries/classes/Menu.php:555 libraries/classes/Util.php:4064
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Columnas centrais"
 
-#: libraries/classes/Menu.php:606
+#: libraries/classes/Menu.php:613
 msgid "User accounts"
 msgstr "Contas de usuario"
 
-#: libraries/classes/Menu.php:633 libraries/classes/Server/Status/Data.php:123
+#: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:123
 #: libraries/classes/Util.php:4043 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr "Rexistro binario"
 
-#: libraries/classes/Menu.php:639 libraries/classes/Server/Status/Data.php:128
+#: libraries/classes/Menu.php:646 libraries/classes/Server/Status/Data.php:128
 #: libraries/classes/Util.php:4044
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
@@ -8510,22 +8534,22 @@ msgstr "Rexistro binario"
 msgid "Replication"
 msgstr "Replicación"
 
-#: libraries/classes/Menu.php:644 libraries/classes/Server/Status/Data.php:195
+#: libraries/classes/Menu.php:651 libraries/classes/Server/Status/Data.php:195
 #: libraries/classes/SqlQueryForm.php:439 libraries/classes/Util.php:4045
 #: libraries/config.values.php:120 templates/server/engines/show_engine.twig:12
 #: templates/server/engines/show_engine.twig:16
 msgid "Variables"
 msgstr "Variábeis"
 
-#: libraries/classes/Menu.php:648 libraries/classes/Util.php:4046
+#: libraries/classes/Menu.php:655 libraries/classes/Util.php:4046
 msgid "Charsets"
 msgstr "Conxuntos de caracteres"
 
-#: libraries/classes/Menu.php:652 libraries/classes/Util.php:4048
+#: libraries/classes/Menu.php:659 libraries/classes/Util.php:4048
 msgid "Engines"
 msgstr "Motores"
 
-#: libraries/classes/Menu.php:656 libraries/classes/Util.php:4047
+#: libraries/classes/Menu.php:663 libraries/classes/Util.php:4047
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr "Engadidos"
@@ -8646,36 +8670,36 @@ msgstr "Vistas"
 
 #: libraries/classes/Navigation/Navigation.php:246 tbl_change.php:157
 #: templates/table/tracking/main.twig:33
-#: templates/database/multi_table_query/form.twig:33
+#: templates/database/multi_table_query/form.twig:48
 #: templates/database/tracking/tables.twig:19
 msgid "Show"
 msgstr "Mostrar"
 
-#: libraries/classes/Navigation/NavigationHeader.php:180
+#: libraries/classes/Navigation/NavigationHeader.php:183
 msgid "Home"
 msgstr "Inicio («Home»)"
 
-#: libraries/classes/Navigation/NavigationHeader.php:188
+#: libraries/classes/Navigation/NavigationHeader.php:191
 msgid "Log out"
 msgstr "Saír"
 
-#: libraries/classes/Navigation/NavigationHeader.php:190
+#: libraries/classes/Navigation/NavigationHeader.php:193
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Empty session data"
 msgstr "A extraer os datos da táboa"
 
-#: libraries/classes/Navigation/NavigationHeader.php:208
+#: libraries/classes/Navigation/NavigationHeader.php:211
 msgid "phpMyAdmin documentation"
 msgstr "Documentación do phpMyAdmin"
 
-#: libraries/classes/Navigation/NavigationHeader.php:228
+#: libraries/classes/Navigation/NavigationHeader.php:231
 #, fuzzy
 #| msgid "Navigation panel"
 msgid "Navigation panel settings"
 msgstr "Panel de navegación"
 
-#: libraries/classes/Navigation/NavigationHeader.php:239
+#: libraries/classes/Navigation/NavigationHeader.php:242
 #, fuzzy
 #| msgid "Reload navigation frame"
 msgid "Reload navigation panel"
@@ -10039,16 +10063,16 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
-msgid "Name of the new table(optional): "
+msgid "Name of the new table (optional):"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
-msgid "Name of the new database(optional): "
+msgid "Name of the new database (optional):"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
-msgid "Import these many number of rows(optional): "
+msgid "Import these many number of rows (optional):"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
@@ -10071,8 +10095,9 @@ msgstr ""
 "columnas teñen que estar separados por vírgulas e non encerrados entre aspas."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#: libraries/classes/Plugins/Import/ImportLdi.php:74
-msgid "Column names: "
+#, fuzzy
+#| msgid "Column names: "
+msgid "Column names:"
 msgstr "Nomes das columnas: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
@@ -10103,6 +10128,10 @@ msgstr "O formato de entrada de CSV non é válido na liña %d."
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "O número de columnas é incorrecto na entrada do CSV na liña %d."
+
+#: libraries/classes/Plugins/Import/ImportLdi.php:74
+msgid "Column names: "
+msgstr "Nomes das columnas: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:112
 msgid "This plugin does not support compressed imports!"
@@ -14290,7 +14319,7 @@ msgid "Without PHP code"
 msgstr "Sen código PHP"
 
 #: libraries/classes/Util.php:1141
-#: templates/database/multi_table_query/form.twig:165
+#: templates/database/multi_table_query/form.twig:180
 msgid "Submit query"
 msgstr "Enviar esta consulta"
 
@@ -14378,7 +14407,7 @@ msgid "Users"
 msgstr "Usuarios"
 
 #: libraries/classes/Util.php:4750
-#: templates/database/multi_table_query/form.twig:50
+#: templates/database/multi_table_query/form.twig:65
 msgid "Sort"
 msgstr "Ordenar"
 
@@ -14417,7 +14446,7 @@ msgstr "Iconas"
 
 #: libraries/config.values.php:68 libraries/config.values.php:88
 #: libraries/config.values.php:100
-#: templates/database/multi_table_query/form.twig:100
+#: templates/database/multi_table_query/form.twig:115
 msgid "Text"
 msgstr "Texto"
 
@@ -15622,7 +15651,7 @@ msgid "Constraint name"
 msgstr "Límite do nome"
 
 #: templates/table/relation/foreign_key_row.twig:86
-#: templates/database/multi_table_query/form.twig:147
+#: templates/database/multi_table_query/form.twig:162
 #, fuzzy
 #| msgid "Add column"
 msgid "+ Add column"
@@ -15987,71 +16016,71 @@ msgstr "Desactivar o seguimento para %s"
 msgid "Deactivate now"
 msgstr "Desactivar agora"
 
-#: templates/database/multi_table_query/form.twig:1
+#: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
 msgstr "Xanela de consultas"
 
-#: templates/database/multi_table_query/form.twig:22
-#: templates/database/multi_table_query/form.twig:110
+#: templates/database/multi_table_query/form.twig:37
+#: templates/database/multi_table_query/form.twig:125
 #, fuzzy
 #| msgid "Select table"
 msgid "select table"
 msgstr "Seleccionar táboa"
 
-#: templates/database/multi_table_query/form.twig:29
-#: templates/database/multi_table_query/form.twig:118
+#: templates/database/multi_table_query/form.twig:44
+#: templates/database/multi_table_query/form.twig:133
 #, fuzzy
 #| msgid "Select a column."
 msgid "select column"
 msgstr "Seleccionar unha columna."
 
-#: templates/database/multi_table_query/form.twig:35
+#: templates/database/multi_table_query/form.twig:50
 #, fuzzy
 #| msgid "Tables"
 msgid "Table alias"
 msgstr "Táboas"
 
-#: templates/database/multi_table_query/form.twig:36
+#: templates/database/multi_table_query/form.twig:51
 #, fuzzy
 #| msgid "Column names"
 msgid "Column alias"
 msgstr "Nomes das columnas"
 
-#: templates/database/multi_table_query/form.twig:39
+#: templates/database/multi_table_query/form.twig:54
 #, fuzzy
 #| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
 msgstr "Empregue esta columna para etiquetar cada punto"
 
-#: templates/database/multi_table_query/form.twig:42
+#: templates/database/multi_table_query/form.twig:57
 #, fuzzy
 #| msgid "Criteria:"
 msgid "criteria"
 msgstr "Criterios:"
 
-#: templates/database/multi_table_query/form.twig:56
+#: templates/database/multi_table_query/form.twig:71
 #, fuzzy
 #| msgid "Add %s"
 msgid "Add as"
 msgstr "Engadir %s"
 
-#: templates/database/multi_table_query/form.twig:101
+#: templates/database/multi_table_query/form.twig:116
 #, fuzzy
 #| msgid "Alter column(s)"
 msgid "Another column"
 msgstr "Alterar columna(s)"
 
-#: templates/database/multi_table_query/form.twig:129
+#: templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:137
+#: templates/database/multi_table_query/form.twig:152
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove this column"
 msgstr "Eliminar columna(s)"
 
-#: templates/database/multi_table_query/form.twig:164
+#: templates/database/multi_table_query/form.twig:179
 #, fuzzy
 #| msgid "Update Query"
 msgid "Update query"
@@ -16069,7 +16098,7 @@ msgstr "Palabras ou valores que buscar (ou comodín é: «%»):"
 msgid "Inside tables:"
 msgstr "Dentro das táboas:"
 
-#: templates/database/search/main.twig:51
+#: templates/database/search/main.twig:56
 msgid "Inside column:"
 msgstr "Dentro da columna:"
 

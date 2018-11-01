@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-10-30 21:22-0300\n"
+"POT-Creation-Date: 2018-10-31 22:16-0300\n"
 "PO-Revision-Date: 2018-10-24 17:03+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -326,11 +326,23 @@ msgstr ""
 "S'ha desactivat l'emmagatzematge de la configuració de phpMyAdmin. "
 "%sConsulteu el motiu%s."
 
-#: db_qbe.php:134
+#: db_qbe.php:136
 msgid "You have to choose at least one column to display!"
 msgstr "Heu de triar com a mínim una columna a visualitzar!"
 
-#: db_qbe.php:152
+#: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Simulate query"
+msgid "Multi-table query"
+msgstr "Simulació de consulta"
+
+#: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Query failed"
+msgid "Query by example"
+msgstr "La consulta ha fallat"
+
+#: db_qbe.php:171
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "Canvia al %sconstructor visual%s"
@@ -522,7 +534,7 @@ msgstr "Paràmetres generals"
 msgid "Change password"
 msgstr "Canvia la contrasenya"
 
-#: index.php:253 libraries/classes/Config/Descriptions.php:919
+#: index.php:253 libraries/classes/Config/Descriptions.php:921
 msgid "Server connection collation"
 msgstr "Col·lació de la connexió del servidor"
 
@@ -595,7 +607,7 @@ msgstr "Informació de la versió:"
 #: index.php:441 libraries/classes/Config/FormDisplayTemplate.php:197
 #: libraries/classes/Display/Export.php:358
 #: libraries/classes/Engines/Pbxt.php:169
-#: libraries/classes/Navigation/NavigationHeader.php:218
+#: libraries/classes/Navigation/NavigationHeader.php:221
 #: libraries/classes/Sanitize.php:193 libraries/classes/Util.php:318
 #: libraries/classes/Util.php:422
 #: templates/server/variables/link_template.twig:7
@@ -1194,7 +1206,7 @@ msgstr "Preguntes"
 msgid "Traffic"
 msgstr "Trànsit"
 
-#: js/messages.php:213 libraries/classes/Menu.php:624
+#: js/messages.php:213 libraries/classes/Menu.php:631
 #: libraries/classes/Server/Status/Monitor.php:266
 #: libraries/classes/Util.php:4042
 msgid "Settings"
@@ -1418,7 +1430,7 @@ msgstr "Analitzant…"
 msgid "Explain output"
 msgstr "Desenvolupa la sortida"
 
-#: js/messages.php:290 libraries/classes/Menu.php:590
+#: js/messages.php:290 libraries/classes/Menu.php:597
 #: libraries/classes/Rte/Events.php:468 libraries/classes/Rte/RteList.php:146
 #: libraries/classes/Server/Status/Processes.php:104
 #: libraries/classes/Util.php:4038 libraries/config.values.php:118
@@ -1537,8 +1549,8 @@ msgstr ""
 "importada. S'està restablint a la configuració per defecte…"
 
 #: js/messages.php:328 libraries/classes/Config/Forms/User/ImportForm.php:71
-#: libraries/classes/Menu.php:397 libraries/classes/Menu.php:499
-#: libraries/classes/Menu.php:620
+#: libraries/classes/Menu.php:397 libraries/classes/Menu.php:506
+#: libraries/classes/Menu.php:627
 #: libraries/classes/Server/Status/Monitor.php:326
 #: libraries/classes/Util.php:4041 libraries/classes/Util.php:4056
 #: libraries/classes/Util.php:4073 prefs_manage.php:230
@@ -1647,7 +1659,7 @@ msgstr "No s'han trobat paràmetres!"
 #: templates/display/import/import.twig:191
 #: templates/server/privileges/privileges_summary.twig:102
 #: templates/gis_data_editor_form.twig:209
-#: templates/database/search/main.twig:58
+#: templates/database/search/main.twig:63
 #: templates/display/export/options_format.twig:18
 #: templates/view_create.twig:114 templates/view_create.twig:120
 #: templates/table/index_form.twig:221
@@ -1680,7 +1692,7 @@ msgstr "Paràmetres relacionats amb la pàgina"
 msgid "Apply"
 msgstr "Aplica"
 
-#: js/messages.php:364 libraries/classes/Navigation/NavigationHeader.php:76
+#: js/messages.php:364 libraries/classes/Navigation/NavigationHeader.php:79
 #: libraries/classes/Server/Status/Monitor.php:132
 msgid "Loading…"
 msgstr "S'està carregant…"
@@ -1804,7 +1816,7 @@ msgstr ""
 #: js/messages.php:405 libraries/classes/Config/Forms/User/ExportForm.php:155
 #: libraries/classes/Display/Results.php:4952
 #: libraries/classes/Display/Results.php:5247 libraries/classes/Menu.php:389
-#: libraries/classes/Menu.php:490 libraries/classes/Menu.php:616
+#: libraries/classes/Menu.php:497 libraries/classes/Menu.php:623
 #: libraries/classes/Rte/RteList.php:196
 #: libraries/classes/Server/Privileges.php:2487
 #: libraries/classes/Server/Privileges.php:2574
@@ -1861,7 +1873,7 @@ msgid "Show query box"
 msgstr "Mostra el quadre de consultes"
 
 #: js/messages.php:424 libraries/classes/CentralColumns.php:943
-#: libraries/classes/Config/Descriptions.php:820
+#: libraries/classes/Config/Descriptions.php:822
 #: libraries/classes/Display/Results.php:3465
 #: libraries/classes/Display/Results.php:4927 libraries/classes/Index.php:750
 #: libraries/classes/Server/UserGroups.php:132 libraries/classes/Util.php:641
@@ -3022,7 +3034,7 @@ msgstr "Introduïu una hora o data vàlida"
 msgid "Please enter a valid HEX input"
 msgstr "Introduïu un valor HEX correcte"
 
-#: js/messages.php:987 libraries/classes/Core.php:301
+#: js/messages.php:987 libraries/classes/Core.php:302
 #: libraries/classes/Import.php:117 libraries/classes/InsertEdit.php:1524
 #: libraries/classes/Message.php:196 libraries/classes/Util.php:588
 #: view_operations.php:75
@@ -4252,7 +4264,7 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:300
-#: libraries/classes/Config/Descriptions.php:366 libraries/classes/Menu.php:582
+#: libraries/classes/Config/Descriptions.php:366 libraries/classes/Menu.php:589
 #: libraries/classes/Navigation/NavigationTree.php:1275
 #: libraries/classes/Server/Privileges.php:4648 libraries/classes/Util.php:4036
 #: libraries/config.values.php:116 templates/server/sub_page_header.twig:2
@@ -4264,7 +4276,7 @@ msgid "Databases display options."
 msgstr "Opcions de visualització de les bases de dades."
 
 #: libraries/classes/Config/Descriptions.php:302
-#: libraries/classes/Config/Forms/User/NaviForm.php:71
+#: libraries/classes/Config/Forms/User/NaviForm.php:72
 msgid "Navigation panel"
 msgstr "Tauler de navegació"
 
@@ -4391,7 +4403,7 @@ msgstr ""
 "la configuració de phpMyAdmin."
 
 #: libraries/classes/Config/Descriptions.php:348 libraries/classes/Menu.php:370
-#: libraries/classes/Menu.php:473 libraries/classes/Menu.php:586
+#: libraries/classes/Menu.php:473 libraries/classes/Menu.php:593
 #: libraries/classes/Navigation/Nodes/NodeTable.php:299
 #: libraries/classes/Util.php:3102 libraries/classes/Util.php:3112
 #: libraries/classes/Util.php:3118 libraries/classes/Util.php:4037
@@ -4708,7 +4720,7 @@ msgstr "Mida màxima de l'SQL visualitzat"
 
 #: libraries/classes/Config/Descriptions.php:451
 #: libraries/classes/Config/Descriptions.php:467
-#: libraries/classes/Config/Descriptions.php:570
+#: libraries/classes/Config/Descriptions.php:572
 msgid "Users cannot set a higher value"
 msgstr "Els usuaris no poden establir un valor més gran"
 
@@ -4956,76 +4968,89 @@ msgstr ""
 "Si es mostren els esdeveniments sota la base de dades a l'arbre de navegació"
 
 #: libraries/classes/Config/Descriptions.php:524
+#, fuzzy
+#| msgid "Copying database"
+msgid "Expand single database"
+msgstr "Còpia de base de dades"
+
+#: libraries/classes/Config/Descriptions.php:525
+#, fuzzy
+#| msgid "Whether to show events under database in the navigation tree"
+msgid "Whether to expand single database in the navigation tree automatically."
+msgstr ""
+"Si es mostren els esdeveniments sota la base de dades a l'arbre de navegació"
+
+#: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
 "Nombre màxim de taules utilitzades recentment; Establiu-ho a 0 per "
 "inhabilitar-ho."
 
-#: libraries/classes/Config/Descriptions.php:525
+#: libraries/classes/Config/Descriptions.php:527
 msgid "Maximum number of favorite tables; set 0 to disable."
 msgstr "Nombre màxim de taules preferides; Establiu-ho a 0 per inhabilitar-ho."
 
-#: libraries/classes/Config/Descriptions.php:526
+#: libraries/classes/Config/Descriptions.php:528
 msgid "Recently used tables"
 msgstr "Taules utilitzades recentment"
 
-#: libraries/classes/Config/Descriptions.php:527
+#: libraries/classes/Config/Descriptions.php:529
 #: libraries/classes/RecentFavoriteTable.php:264
 msgid "Favorite tables"
 msgstr "Taules preferides"
 
-#: libraries/classes/Config/Descriptions.php:528
+#: libraries/classes/Config/Descriptions.php:530
 msgid "These are Edit, Copy and Delete links."
 msgstr "Aquests són els enllaços Edita, Copia i Esborra."
 
-#: libraries/classes/Config/Descriptions.php:529
+#: libraries/classes/Config/Descriptions.php:531
 msgid "Where to show the table row links"
 msgstr "On es mostren els enllaços de fila de la taula"
 
-#: libraries/classes/Config/Descriptions.php:530
+#: libraries/classes/Config/Descriptions.php:532
 msgid "Whether to show row links even in the absence of a unique key."
 msgstr ""
 "Si es mostren els enllaços de fila fins i tot en absència d'una clau única."
 
-#: libraries/classes/Config/Descriptions.php:531
+#: libraries/classes/Config/Descriptions.php:533
 msgid "Show row links anyway"
 msgstr "Mostra sempre els enllaços de la fila"
 
-#: libraries/classes/Config/Descriptions.php:532
-#: libraries/classes/Config/Descriptions.php:533
+#: libraries/classes/Config/Descriptions.php:534
+#: libraries/classes/Config/Descriptions.php:535
 msgid "Disable shortcut keys"
 msgstr "Desactiva les tecles d'accés directe"
 
-#: libraries/classes/Config/Descriptions.php:534
+#: libraries/classes/Config/Descriptions.php:536
 msgid "Use natural order for sorting table and database names."
 msgstr ""
 "Utilitza l'ordre natural per ordenar els noms de taules i bases de dades."
 
-#: libraries/classes/Config/Descriptions.php:535
+#: libraries/classes/Config/Descriptions.php:537
 msgid "Natural order"
 msgstr "Ordre natural"
 
-#: libraries/classes/Config/Descriptions.php:536
-#: libraries/classes/Config/Descriptions.php:558
+#: libraries/classes/Config/Descriptions.php:538
 #: libraries/classes/Config/Descriptions.php:560
+#: libraries/classes/Config/Descriptions.php:562
 msgid "Use only icons, only text or both."
 msgstr "Utilitza només les icones, només el text o bé ambdós."
 
-#: libraries/classes/Config/Descriptions.php:537
+#: libraries/classes/Config/Descriptions.php:539
 msgid "Table navigation bar"
 msgstr "Barra de navegació de taules"
 
-#: libraries/classes/Config/Descriptions.php:538
+#: libraries/classes/Config/Descriptions.php:540
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
 "Utilitza la memòria intermèdia de la sortida de GZip per incrementar la "
 "velocitat a les transferències HTTP."
 
-#: libraries/classes/Config/Descriptions.php:539
+#: libraries/classes/Config/Descriptions.php:541
 msgid "GZip output buffering"
 msgstr "Memòria intermèdia de la sortida de GZip"
 
-#: libraries/classes/Config/Descriptions.php:541
+#: libraries/classes/Config/Descriptions.php:543
 msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
@@ -5033,19 +5058,19 @@ msgstr ""
 "[kbd]SMART[/kbd] - és a dir, ordre descendent per a les columnes de tipus "
 "TIME, DATE, DATETIME i TIMESTAMP, altrament ordre ascendent."
 
-#: libraries/classes/Config/Descriptions.php:544
+#: libraries/classes/Config/Descriptions.php:546
 msgid "Default sorting order"
 msgstr "Ordre d'ordenació predeterminat"
 
-#: libraries/classes/Config/Descriptions.php:545
+#: libraries/classes/Config/Descriptions.php:547
 msgid "Use persistent connections to MySQL databases."
 msgstr "Utilitza connexions persistents a bases de dades MySQL."
 
-#: libraries/classes/Config/Descriptions.php:546
+#: libraries/classes/Config/Descriptions.php:548
 msgid "Persistent connections"
 msgstr "Connexions persistents"
 
-#: libraries/classes/Config/Descriptions.php:548
+#: libraries/classes/Config/Descriptions.php:550
 msgid ""
 "Disable the default warning that is displayed on the database details "
 "Structure page if any of the required tables for the phpMyAdmin "
@@ -5055,11 +5080,11 @@ msgstr ""
 "l'estructura de la base de dades, si no s'han pogut trobar les taules "
 "necessàries per a l'emmagatzematge de la configuració de phpMyAdmin."
 
-#: libraries/classes/Config/Descriptions.php:552
+#: libraries/classes/Config/Descriptions.php:554
 msgid "Missing phpMyAdmin configuration storage tables"
 msgstr "Falten taules de l'emmagatzematge de la configuració de phpMyAdmin"
 
-#: libraries/classes/Config/Descriptions.php:554
+#: libraries/classes/Config/Descriptions.php:556
 msgid ""
 "Disable the default warning that is displayed on the Structure page if "
 "column names in a table are reserved MySQL words."
@@ -5067,27 +5092,27 @@ msgstr ""
 "Inhabilita l'avís predeterminat que es mostra a la pàgina de l'estructura si "
 "els noms de les columnes a la taula són paraules reservades de MySQL."
 
-#: libraries/classes/Config/Descriptions.php:557
+#: libraries/classes/Config/Descriptions.php:559
 msgid "MySQL reserved word warning"
 msgstr "Avís de paraula reservada de MySQL"
 
-#: libraries/classes/Config/Descriptions.php:559
+#: libraries/classes/Config/Descriptions.php:561
 msgid "How to display the menu tabs"
 msgstr "Com es visualitzen les pestanyes del menú"
 
-#: libraries/classes/Config/Descriptions.php:561
+#: libraries/classes/Config/Descriptions.php:563
 msgid "How to display various action links"
 msgstr "Com es visualitzen els enllaços d'accions diverses"
 
-#: libraries/classes/Config/Descriptions.php:562
+#: libraries/classes/Config/Descriptions.php:564
 msgid "Disallow BLOB and BINARY columns from editing."
 msgstr "No permet l'edició en les columnes BLOB i BINARY."
 
-#: libraries/classes/Config/Descriptions.php:563
+#: libraries/classes/Config/Descriptions.php:565
 msgid "Protect binary columns"
 msgstr "Protegeix les columnes de contingut binari"
 
-#: libraries/classes/Config/Descriptions.php:565
+#: libraries/classes/Config/Descriptions.php:567
 msgid ""
 "Enable if you want DB-based query history (requires phpMyAdmin configuration "
 "storage). If disabled, this utilizes JS-routines to display query history "
@@ -5098,109 +5123,109 @@ msgstr ""
 "s'utilitzen rutines JS per mostrar l'historial de consultes (es perd amb el "
 "tancament de la finestra)."
 
-#: libraries/classes/Config/Descriptions.php:569
+#: libraries/classes/Config/Descriptions.php:571
 msgid "Permanent query history"
 msgstr "Historial permanent de consultes"
 
-#: libraries/classes/Config/Descriptions.php:571
+#: libraries/classes/Config/Descriptions.php:573
 msgid "How many queries are kept in history."
 msgstr "Quantes consultes s'han de desar a l'historial."
 
-#: libraries/classes/Config/Descriptions.php:572
+#: libraries/classes/Config/Descriptions.php:574
 msgid "Query history length"
 msgstr "Mida de l'historial de consultes"
 
-#: libraries/classes/Config/Descriptions.php:573
+#: libraries/classes/Config/Descriptions.php:575
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
 "Seleccioneu quines funcions s'utilitzaran per a les conversions de jocs de "
 "caràcters."
 
-#: libraries/classes/Config/Descriptions.php:574
+#: libraries/classes/Config/Descriptions.php:576
 msgid "Recoding engine"
 msgstr "Motor d'enregistrament"
 
-#: libraries/classes/Config/Descriptions.php:575
+#: libraries/classes/Config/Descriptions.php:577
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr "Quan es navega per les taules, es recorda l'ordenació de cada taula."
 
-#: libraries/classes/Config/Descriptions.php:576
+#: libraries/classes/Config/Descriptions.php:578
 msgid "Remember table's sorting"
 msgstr "Recorda l'ordenació de les taules"
 
-#: libraries/classes/Config/Descriptions.php:577
+#: libraries/classes/Config/Descriptions.php:579
 msgid "Default sort order for tables with a primary key."
 msgstr ""
 "Ordre d'ordenació predeterminat per a les taules amb una clau primària."
 
-#: libraries/classes/Config/Descriptions.php:578
+#: libraries/classes/Config/Descriptions.php:580
 msgid "Primary key default sort order"
 msgstr "Ordre d'ordenació predeterminat de clau primària"
 
-#: libraries/classes/Config/Descriptions.php:579
+#: libraries/classes/Config/Descriptions.php:581
 msgid ""
 "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature."
 msgstr ""
 "Repeteix les capçaleres cada X cel·les, [kbd]0[/kbd] inhabilita aquesta "
 "funcionalitat."
 
-#: libraries/classes/Config/Descriptions.php:580
+#: libraries/classes/Config/Descriptions.php:582
 msgid "Repeat headers"
 msgstr "Repeteix les capçaleres"
 
-#: libraries/classes/Config/Descriptions.php:581
+#: libraries/classes/Config/Descriptions.php:583
 msgid "Grid editing: trigger action"
 msgstr "Edició de la graella: disparador d'acció"
 
-#: libraries/classes/Config/Descriptions.php:582
+#: libraries/classes/Config/Descriptions.php:584
 msgid "Relational display"
 msgstr "Visualització relacional"
 
-#: libraries/classes/Config/Descriptions.php:583
+#: libraries/classes/Config/Descriptions.php:585
 msgid "For display Options"
 msgstr "Per a les opcions de la visualització"
 
-#: libraries/classes/Config/Descriptions.php:584
+#: libraries/classes/Config/Descriptions.php:586
 msgid "Grid editing: save all edited cells at once"
 msgstr "Edició de la graella: desa totes les cel·les editades alhora"
 
-#: libraries/classes/Config/Descriptions.php:585
+#: libraries/classes/Config/Descriptions.php:587
 msgid "Directory where exports can be saved on server."
 msgstr "Directori on es poden desar les exportacions al servidor."
 
-#: libraries/classes/Config/Descriptions.php:586
+#: libraries/classes/Config/Descriptions.php:588
 msgid "Save directory"
 msgstr "Directori de desament"
 
-#: libraries/classes/Config/Descriptions.php:587
+#: libraries/classes/Config/Descriptions.php:589
 msgid "Leave blank if not used."
 msgstr "Deixeu-ho en blanc si no s'utilitza."
 
-#: libraries/classes/Config/Descriptions.php:588
+#: libraries/classes/Config/Descriptions.php:590
 msgid "Host authorization order"
 msgstr "Ordre d'autenticació del servidor"
 
-#: libraries/classes/Config/Descriptions.php:589
+#: libraries/classes/Config/Descriptions.php:591
 msgid "Leave blank for defaults."
 msgstr "Deixeu-ho en blanc per als valors predeterminats."
 
-#: libraries/classes/Config/Descriptions.php:590
+#: libraries/classes/Config/Descriptions.php:592
 msgid "Host authorization rules"
 msgstr "Regles d'autenticació del servidor"
 
-#: libraries/classes/Config/Descriptions.php:591
+#: libraries/classes/Config/Descriptions.php:593
 msgid "Allow logins without a password"
 msgstr "Permet connexions sense contrasenya"
 
-#: libraries/classes/Config/Descriptions.php:592
+#: libraries/classes/Config/Descriptions.php:594
 msgid "Allow root login"
 msgstr "Permet la connexió de root"
 
-#: libraries/classes/Config/Descriptions.php:593
+#: libraries/classes/Config/Descriptions.php:595
 msgid "Session timezone"
 msgstr "Zona horària de la sessió"
 
-#: libraries/classes/Config/Descriptions.php:595
+#: libraries/classes/Config/Descriptions.php:597
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
@@ -5208,25 +5233,25 @@ msgstr ""
 "Estableix la zona horària efectiva; és possible que sigui diferent de la "
 "zona horària del vostre servidor de base de dades"
 
-#: libraries/classes/Config/Descriptions.php:598
+#: libraries/classes/Config/Descriptions.php:600
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
 "Nom de l'HTTP Basic Auth Realm que s'ha de mostrar quan es realitza "
 "l'autenticació HTTP."
 
-#: libraries/classes/Config/Descriptions.php:599
+#: libraries/classes/Config/Descriptions.php:601
 msgid "HTTP Realm"
 msgstr "HTTP Realm"
 
-#: libraries/classes/Config/Descriptions.php:600
+#: libraries/classes/Config/Descriptions.php:602
 msgid "Authentication method to use."
 msgstr "Mètode d'autenticació a utilitzar."
 
-#: libraries/classes/Config/Descriptions.php:601 setup/frames/index.inc.php:150
+#: libraries/classes/Config/Descriptions.php:603 setup/frames/index.inc.php:150
 msgid "Authentication type"
 msgstr "Tipus d'autenticació"
 
-#: libraries/classes/Config/Descriptions.php:603
+#: libraries/classes/Config/Descriptions.php:605
 msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
@@ -5234,11 +5259,11 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per a les [doc@bookmarks@]consultes "
 "desades[/doc], suggerit: [kbd]pma__bookmark[/kbd]"
 
-#: libraries/classes/Config/Descriptions.php:606
+#: libraries/classes/Config/Descriptions.php:608
 msgid "Bookmark table"
 msgstr "Taula de marcadors"
 
-#: libraries/classes/Config/Descriptions.php:608
+#: libraries/classes/Config/Descriptions.php:610
 msgid ""
 "Leave blank for no column comments/mime types, suggested: "
 "[kbd]pma__column_info[/kbd]."
@@ -5246,23 +5271,23 @@ msgstr ""
 "Deixeu-ho en blanc per no utilitzar els comentaris de columna o els tipus "
 "mime, suggerit: [kbd]pma__column_info[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:611
+#: libraries/classes/Config/Descriptions.php:613
 msgid "Column information table"
 msgstr "Taula d'informació de columna"
 
-#: libraries/classes/Config/Descriptions.php:612
+#: libraries/classes/Config/Descriptions.php:614
 msgid "Compress connection to MySQL server."
 msgstr "Comprimeix la connexió al servidor MySQL."
 
-#: libraries/classes/Config/Descriptions.php:613
+#: libraries/classes/Config/Descriptions.php:615
 msgid "Compress connection"
 msgstr "Comprimeix la connexió"
 
-#: libraries/classes/Config/Descriptions.php:614
+#: libraries/classes/Config/Descriptions.php:616
 msgid "Control user password"
 msgstr "Contrasenya de l'usuari de control"
 
-#: libraries/classes/Config/Descriptions.php:616
+#: libraries/classes/Config/Descriptions.php:618
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
@@ -5270,11 +5295,11 @@ msgstr ""
 "Usuari MySQL especial configurat amb permisos restringits, més informació "
 "disponible a la [doc@linked-tables]documentació[/doc]."
 
-#: libraries/classes/Config/Descriptions.php:619
+#: libraries/classes/Config/Descriptions.php:621
 msgid "Control user"
 msgstr "Usuari de control"
 
-#: libraries/classes/Config/Descriptions.php:621
+#: libraries/classes/Config/Descriptions.php:623
 msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
@@ -5282,11 +5307,11 @@ msgstr ""
 "Un amfitrió alternatiu per mantenir l'emmagatzematge de la configuració, "
 "deixeu-ho en blanc per utilitzar l'amfitrió ja definit."
 
-#: libraries/classes/Config/Descriptions.php:624
+#: libraries/classes/Config/Descriptions.php:626
 msgid "Control host"
 msgstr "Amfitrió de control"
 
-#: libraries/classes/Config/Descriptions.php:626
+#: libraries/classes/Config/Descriptions.php:628
 msgid ""
 "An alternate port to connect to the host that holds the configuration "
 "storage; leave blank to use the default port, or the already defined port, "
@@ -5296,16 +5321,16 @@ msgstr ""
 "la configuració, deixeu-ho en blanc per utilitzar el port predeterminat, o "
 "el port ja definit, si l'amfitrió de control és el mateix."
 
-#: libraries/classes/Config/Descriptions.php:630
+#: libraries/classes/Config/Descriptions.php:632
 msgid "Control port"
 msgstr "Port de control"
 
-#: libraries/classes/Config/Descriptions.php:631
+#: libraries/classes/Config/Descriptions.php:633
 msgid "Hide databases matching regular expression (PCRE)."
 msgstr ""
 "Oculta les bases de dades que coincideixin amb una expressió regular (PCRE)."
 
-#: libraries/classes/Config/Descriptions.php:633
+#: libraries/classes/Config/Descriptions.php:635
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
@@ -5315,15 +5340,15 @@ msgstr ""
 "issues/8970]phpMyAdmin issue tracker[/a] i [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 
-#: libraries/classes/Config/Descriptions.php:636
+#: libraries/classes/Config/Descriptions.php:638
 msgid "Disable use of INFORMATION_SCHEMA"
 msgstr "Inhabilita l'ús d'INFORMATION_SCHEMA"
 
-#: libraries/classes/Config/Descriptions.php:637
+#: libraries/classes/Config/Descriptions.php:639
 msgid "Hide databases"
 msgstr "Oculta les bases de dades"
 
-#: libraries/classes/Config/Descriptions.php:639
+#: libraries/classes/Config/Descriptions.php:641
 msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
@@ -5331,23 +5356,23 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per a l'historial de consultes SQL, "
 "suggerit: [kbd]pma__history[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:642
+#: libraries/classes/Config/Descriptions.php:644
 msgid "SQL query history table"
 msgstr "Taula d'historial de consultes SQL"
 
-#: libraries/classes/Config/Descriptions.php:643
+#: libraries/classes/Config/Descriptions.php:645
 msgid "Hostname where MySQL server is running."
 msgstr "Nom d'amfitrió on el servidor MySQL està en execució."
 
-#: libraries/classes/Config/Descriptions.php:644
+#: libraries/classes/Config/Descriptions.php:646
 msgid "Server hostname"
 msgstr "Nom d'amfitrió del servidor"
 
-#: libraries/classes/Config/Descriptions.php:645
+#: libraries/classes/Config/Descriptions.php:647
 msgid "Logout URL"
 msgstr "URL de desconnexió"
 
-#: libraries/classes/Config/Descriptions.php:647
+#: libraries/classes/Config/Descriptions.php:649
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
@@ -5355,15 +5380,15 @@ msgstr ""
 "Limita el nombre de preferències de taula que s'emmagatzemen a la base de "
 "dades, els registres més antics s'eliminen automàticament."
 
-#: libraries/classes/Config/Descriptions.php:650
+#: libraries/classes/Config/Descriptions.php:652
 msgid "Maximal number of table preferences to store"
 msgstr "Màxim nombre de preferències de taules a desar"
 
-#: libraries/classes/Config/Descriptions.php:651
+#: libraries/classes/Config/Descriptions.php:653
 msgid "QBE saved searches table"
 msgstr "Taula de consultes QBE desades"
 
-#: libraries/classes/Config/Descriptions.php:653
+#: libraries/classes/Config/Descriptions.php:655
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
@@ -5371,11 +5396,11 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per a les consultes QBE desades, "
 "suggerit: [kbd]pma__savedsearches[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:656
+#: libraries/classes/Config/Descriptions.php:658
 msgid "Export templates table"
 msgstr "Exportar la taula de plantilles"
 
-#: libraries/classes/Config/Descriptions.php:658
+#: libraries/classes/Config/Descriptions.php:660
 msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
@@ -5383,11 +5408,11 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per a les plantilles d'exportació, "
 "suggerit: [kbd]pma__export_templates[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:661
+#: libraries/classes/Config/Descriptions.php:663
 msgid "Central columns table"
 msgstr "Taula de columnes centrals"
 
-#: libraries/classes/Config/Descriptions.php:663
+#: libraries/classes/Config/Descriptions.php:665
 msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
@@ -5395,7 +5420,7 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per a les columnes centrals, suggerit: "
 "[kbd]pma__central_colums[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:667
+#: libraries/classes/Config/Descriptions.php:669
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
@@ -5405,31 +5430,31 @@ msgstr ""
 "voleu utilitzar les seves instàncies literals, p. ex. utilitzeu [kbd]'my"
 "\\_db'[/kbd]  i no [kbd]'my_db'[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:671
+#: libraries/classes/Config/Descriptions.php:673
 msgid "Show only listed databases"
 msgstr "Mostra només les bases de dades de la llista"
 
-#: libraries/classes/Config/Descriptions.php:672
-#: libraries/classes/Config/Descriptions.php:771
+#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:773
 msgid "Leave empty if not using config auth."
 msgstr "Deixeu-ho en blanc si no utilitzeu l'autenticació config."
 
-#: libraries/classes/Config/Descriptions.php:673
+#: libraries/classes/Config/Descriptions.php:675
 msgid "Password for config auth"
 msgstr "Contrasenya per a l'autenticació config"
 
-#: libraries/classes/Config/Descriptions.php:674
+#: libraries/classes/Config/Descriptions.php:676
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
 "Deixeu-ho en blanc per sense suport per als esquemes PDF, suggerit: "
 "[kbd]pma__pdf_pages[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:675
+#: libraries/classes/Config/Descriptions.php:677
 msgid "PDF schema: pages table"
 msgstr "Esquema PDF: taula de pàgines"
 
-#: libraries/classes/Config/Descriptions.php:677
+#: libraries/classes/Config/Descriptions.php:679
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
@@ -5440,22 +5465,22 @@ msgstr ""
 "tenir informació més completa. Deixeu-ho en blanc per no utilitzar. "
 "Suggerit: [kbd]phpmyadmin[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:681
+#: libraries/classes/Config/Descriptions.php:683
 #: templates/server/databases/index.twig:28
 msgid "Database name"
 msgstr "Nom de la BD"
 
-#: libraries/classes/Config/Descriptions.php:682
+#: libraries/classes/Config/Descriptions.php:684
 msgid "Port on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Port on escolta el servidor MySQL, deixeu-ho en blanc per al valor "
 "predeterminat."
 
-#: libraries/classes/Config/Descriptions.php:683
+#: libraries/classes/Config/Descriptions.php:685
 msgid "Server port"
 msgstr "Port del servidor"
 
-#: libraries/classes/Config/Descriptions.php:685
+#: libraries/classes/Config/Descriptions.php:687
 msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
@@ -5463,11 +5488,11 @@ msgstr ""
 "Deixeu-ho en blanc per treure la \"persistència\" de taules utilitzades "
 "recentment entre sessions, suggerit: [kbd]pma__recent[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:688
+#: libraries/classes/Config/Descriptions.php:690
 msgid "Recently used table"
 msgstr "Taula usada recentment"
 
-#: libraries/classes/Config/Descriptions.php:690
+#: libraries/classes/Config/Descriptions.php:692
 msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
@@ -5475,11 +5500,11 @@ msgstr ""
 "Deixeu-ho en blanc per treure la \"persistència\" de taules preferides entre "
 "sessions, suggerit: [kbd]pma__favorite[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:693
+#: libraries/classes/Config/Descriptions.php:695
 msgid "Favorites table"
 msgstr "Taula preferida"
 
-#: libraries/classes/Config/Descriptions.php:695
+#: libraries/classes/Config/Descriptions.php:697
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
@@ -5487,43 +5512,43 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per als [doc@relations@]enllaços de "
 "relacions[/doc], suggerit: [kbd]pma__relation[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:699
+#: libraries/classes/Config/Descriptions.php:701
 msgid "Relation table"
 msgstr "Taula de relacions"
 
-#: libraries/classes/Config/Descriptions.php:701
+#: libraries/classes/Config/Descriptions.php:703
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
 "Vegeu el [doc@authentication-modes]tipus d'autenticació[/doc] per un exemple."
 
-#: libraries/classes/Config/Descriptions.php:704
+#: libraries/classes/Config/Descriptions.php:706
 msgid "Signon session name"
 msgstr "Nom de sessió de signon"
 
-#: libraries/classes/Config/Descriptions.php:705
+#: libraries/classes/Config/Descriptions.php:707
 msgid "Signon URL"
 msgstr "URL de signon"
 
-#: libraries/classes/Config/Descriptions.php:706
+#: libraries/classes/Config/Descriptions.php:708
 msgid "Socket on which MySQL server is listening, leave empty for default."
 msgstr ""
 "Sòcol on escolta el servidor MySQL, deixeu-ho en blanc per al valor "
 "predeterminat."
 
-#: libraries/classes/Config/Descriptions.php:707
+#: libraries/classes/Config/Descriptions.php:709
 msgid "Server socket"
 msgstr "Sòcol del servidor"
 
-#: libraries/classes/Config/Descriptions.php:708
+#: libraries/classes/Config/Descriptions.php:710
 msgid "Enable SSL for connection to MySQL server."
 msgstr "Habilita SSL per a la connexió al servidor MySQL."
 
-#: libraries/classes/Config/Descriptions.php:709
+#: libraries/classes/Config/Descriptions.php:711
 msgid "Use SSL"
 msgstr "Utilitza SSL"
 
-#: libraries/classes/Config/Descriptions.php:710
+#: libraries/classes/Config/Descriptions.php:712
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
@@ -5531,11 +5556,11 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per als esquemes PDF, suggerit: "
 "[kbd]pma__table_coords[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:711
+#: libraries/classes/Config/Descriptions.php:713
 msgid "Designer and PDF schema: table coordinates"
 msgstr "Dissenyador i esquema PDF: taula de coordinades"
 
-#: libraries/classes/Config/Descriptions.php:713
+#: libraries/classes/Config/Descriptions.php:715
 msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
@@ -5543,11 +5568,11 @@ msgstr ""
 "Taula per descriure les columnes a mostrar, deixeu-ho en blanc per sense "
 "suport; suggerit: [kbd]pma__table_info[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:716
+#: libraries/classes/Config/Descriptions.php:718
 msgid "Display columns table"
 msgstr "Taula de descripció de columnes"
 
-#: libraries/classes/Config/Descriptions.php:718
+#: libraries/classes/Config/Descriptions.php:720
 msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
@@ -5556,11 +5581,11 @@ msgstr ""
 "d'interfase de taules entre sessions, suggerit: [kbd]pma__table_uiprefs[/"
 "kbd]."
 
-#: libraries/classes/Config/Descriptions.php:721
+#: libraries/classes/Config/Descriptions.php:723
 msgid "UI preferences table"
 msgstr "Preferències d'interfase de taula"
 
-#: libraries/classes/Config/Descriptions.php:723
+#: libraries/classes/Config/Descriptions.php:725
 msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
@@ -5568,11 +5593,11 @@ msgstr ""
 "Si una sentència DROP DATABASE IF EXISTS s'afegirà com a primera línia en el "
 "registre quan es crea una base de dades."
 
-#: libraries/classes/Config/Descriptions.php:726
+#: libraries/classes/Config/Descriptions.php:728
 msgid "Add DROP DATABASE"
 msgstr "Afegeix DROP DATABASE"
 
-#: libraries/classes/Config/Descriptions.php:728
+#: libraries/classes/Config/Descriptions.php:730
 msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
@@ -5580,12 +5605,12 @@ msgstr ""
 "Si una sentència DROP TABLE IF EXISTS s'afegirà com a primera línia en el "
 "registre quan es crea una taula."
 
-#: libraries/classes/Config/Descriptions.php:731
+#: libraries/classes/Config/Descriptions.php:733
 #: libraries/classes/MultSubmits.php:432
 msgid "Add DROP TABLE"
 msgstr "Afegeix DROP TABLE"
 
-#: libraries/classes/Config/Descriptions.php:733
+#: libraries/classes/Config/Descriptions.php:735
 msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
@@ -5593,21 +5618,21 @@ msgstr ""
 "Si una sentència DROP VIEW IF EXISTS s'afegirà com a primera línia en el "
 "registre quan es crea una vista."
 
-#: libraries/classes/Config/Descriptions.php:736
+#: libraries/classes/Config/Descriptions.php:738
 msgid "Add DROP VIEW"
 msgstr "Afegeix DROP VIEW"
 
-#: libraries/classes/Config/Descriptions.php:737
+#: libraries/classes/Config/Descriptions.php:739
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 "Defineix la llista de sentències que l'autocreació utilitza per a les "
 "versions noves."
 
-#: libraries/classes/Config/Descriptions.php:738
+#: libraries/classes/Config/Descriptions.php:740
 msgid "Statements to track"
 msgstr "Sentències a seguir"
 
-#: libraries/classes/Config/Descriptions.php:740
+#: libraries/classes/Config/Descriptions.php:742
 msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
@@ -5615,11 +5640,11 @@ msgstr ""
 "Deixeu-ho en blanc per sense suport per al seguiment de consultes SQL, "
 "suggerit: [kbd]pma__tracking[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:743
+#: libraries/classes/Config/Descriptions.php:745
 msgid "SQL query tracking table"
 msgstr "Taula de seguiment de consultes SQL"
 
-#: libraries/classes/Config/Descriptions.php:745
+#: libraries/classes/Config/Descriptions.php:747
 msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
@@ -5627,11 +5652,11 @@ msgstr ""
 "SI el mecanisme de seguiment crearà versions per a taules i vistes "
 "automàticament."
 
-#: libraries/classes/Config/Descriptions.php:748
+#: libraries/classes/Config/Descriptions.php:750
 msgid "Automatically create versions"
 msgstr "Crea versions automàticament"
 
-#: libraries/classes/Config/Descriptions.php:750
+#: libraries/classes/Config/Descriptions.php:752
 msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
@@ -5639,11 +5664,11 @@ msgstr ""
 "Deixeu-ho en blanc per sense emmagatzematge de les preferències de l'usuari "
 "a la base de dades, suggerit: [kbd]pma__userconfig[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:753
+#: libraries/classes/Config/Descriptions.php:755
 msgid "User preferences storage table"
 msgstr "Taula de preferències de l'usuari"
 
-#: libraries/classes/Config/Descriptions.php:755
+#: libraries/classes/Config/Descriptions.php:757
 msgid ""
 "Both this table and the user groups table are required to enable the "
 "configurable menus feature; leaving either one of them blank will disable "
@@ -5654,11 +5679,11 @@ msgstr ""
 "desactivarà\n"
 " aquesta funcionalitat, suggerit: [kbd]pma__users[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:759
+#: libraries/classes/Config/Descriptions.php:761
 msgid "Users table"
 msgstr "Taula d'usuaris"
 
-#: libraries/classes/Config/Descriptions.php:761
+#: libraries/classes/Config/Descriptions.php:763
 msgid ""
 "Both this table and the users table are required to enable the configurable "
 "menus feature; leaving either one of them blank will disable this feature, "
@@ -5668,11 +5693,11 @@ msgstr ""
 "funcionalitat de menús configurables; deixant una d'ambdues en blanc "
 "desactivarà aquesta funcionalitat, suggerit: [kbd]pma__usergroups[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:765
+#: libraries/classes/Config/Descriptions.php:767
 msgid "User groups table"
 msgstr "Taula de grups d'usuaris"
 
-#: libraries/classes/Config/Descriptions.php:767
+#: libraries/classes/Config/Descriptions.php:769
 msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
@@ -5680,15 +5705,15 @@ msgstr ""
 "Deixeu-ho en blanc per inhabilitar la funcionalitat oculta i mostra els "
 "ítems de navegació, suggerit: [kbd]pma__navigationhiding[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:770
+#: libraries/classes/Config/Descriptions.php:772
 msgid "Hidden navigation items table"
 msgstr "Taula d'ítems de navegació amagada"
 
-#: libraries/classes/Config/Descriptions.php:772
+#: libraries/classes/Config/Descriptions.php:774
 msgid "User for config auth"
 msgstr "Usuari per a l'autenticació config"
 
-#: libraries/classes/Config/Descriptions.php:774
+#: libraries/classes/Config/Descriptions.php:776
 msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
@@ -5696,20 +5721,20 @@ msgstr ""
 "Una descripció amigable a l'usuari d'aquest servidor. Deixeu-ho en blanc per "
 "mostrar el nom d'amfitrió en lloc seu."
 
-#: libraries/classes/Config/Descriptions.php:777
+#: libraries/classes/Config/Descriptions.php:779
 msgid "Verbose name of this server"
 msgstr "Nom explicatiu d'aquest servidor"
 
-#: libraries/classes/Config/Descriptions.php:778
+#: libraries/classes/Config/Descriptions.php:780
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
 msgstr ""
 "Si a un usuari se l'hi hauria de mostrar el botó \"mostra-ho tot (files)\"."
 
-#: libraries/classes/Config/Descriptions.php:779
+#: libraries/classes/Config/Descriptions.php:781
 msgid "Allow to display all the rows"
 msgstr "Permet mostrar totes les files"
 
-#: libraries/classes/Config/Descriptions.php:781
+#: libraries/classes/Config/Descriptions.php:783
 msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
@@ -5720,67 +5745,67 @@ msgstr ""
 "de configuració; això no limita la possibilitat d'executar la mateixa ordre "
 "directament."
 
-#: libraries/classes/Config/Descriptions.php:785
+#: libraries/classes/Config/Descriptions.php:787
 msgid "Show password change form"
 msgstr "Mostra el formulari de canvi de contrasenya"
 
-#: libraries/classes/Config/Descriptions.php:786
+#: libraries/classes/Config/Descriptions.php:788
 msgid "Show create database form"
 msgstr "Mostra el formulari de creació de base de dades"
 
-#: libraries/classes/Config/Descriptions.php:787
+#: libraries/classes/Config/Descriptions.php:789
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 "Mostra o oculta una columna que visualitza els comentaris de totes les "
 "taules."
 
-#: libraries/classes/Config/Descriptions.php:788
+#: libraries/classes/Config/Descriptions.php:790
 msgid "Show table comments"
 msgstr "Mostra els comentaris de la taula"
 
-#: libraries/classes/Config/Descriptions.php:789
+#: libraries/classes/Config/Descriptions.php:791
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 "Mostra o oculta una columna que visualitza la marca de temps de creació per "
 "a totes les taules."
 
-#: libraries/classes/Config/Descriptions.php:790
+#: libraries/classes/Config/Descriptions.php:792
 msgid "Show creation timestamp"
 msgstr "Mostra la marca de temps de la creació"
 
-#: libraries/classes/Config/Descriptions.php:791
+#: libraries/classes/Config/Descriptions.php:793
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
 "Mostra o oculta una columna que visualitza la marca de temps de l'última "
 "actualització per a totes les taules."
 
-#: libraries/classes/Config/Descriptions.php:792
+#: libraries/classes/Config/Descriptions.php:794
 msgid "Show last update timestamp"
 msgstr "Mostra la marca de temps de l'última actualització"
 
-#: libraries/classes/Config/Descriptions.php:793
+#: libraries/classes/Config/Descriptions.php:795
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
 "Mostra o oculta una columna que visualitza la marca de temps de l'última "
 "comprovació per a totes les taules."
 
-#: libraries/classes/Config/Descriptions.php:794
+#: libraries/classes/Config/Descriptions.php:796
 msgid "Show last check timestamp"
 msgstr "Mostra la marca de temps de l'última comprovació"
 
-#: libraries/classes/Config/Descriptions.php:795
+#: libraries/classes/Config/Descriptions.php:797
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 "Mostra o oculta una columna que visualitza el joc de caràcters per a totes "
 "les taules."
 
-#: libraries/classes/Config/Descriptions.php:796
+#: libraries/classes/Config/Descriptions.php:798
 msgid "Show table charset"
 msgstr "Mostra el joc de caràcters de la taula"
 
-#: libraries/classes/Config/Descriptions.php:798
+#: libraries/classes/Config/Descriptions.php:800
 msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
@@ -5788,27 +5813,27 @@ msgstr ""
 "Defineix si els camps dels tipus han de visualitzar-se inicialment al mode "
 "d'edició o inserció."
 
-#: libraries/classes/Config/Descriptions.php:801
+#: libraries/classes/Config/Descriptions.php:803
 msgid "Show field types"
 msgstr "Mostra els tipus de camp"
 
-#: libraries/classes/Config/Descriptions.php:802
+#: libraries/classes/Config/Descriptions.php:804
 msgid "Display the function fields in edit/insert mode."
 msgstr "Mostra els camps de funció al mode d'edició o inserció."
 
-#: libraries/classes/Config/Descriptions.php:803
+#: libraries/classes/Config/Descriptions.php:805
 msgid "Show function fields"
 msgstr "Mostra els camps de funció"
 
-#: libraries/classes/Config/Descriptions.php:804
+#: libraries/classes/Config/Descriptions.php:806
 msgid "Whether to show hint or not."
 msgstr "Si es mostren o no els consells."
 
-#: libraries/classes/Config/Descriptions.php:805
+#: libraries/classes/Config/Descriptions.php:807
 msgid "Show hint"
 msgstr "Mostra els consells"
 
-#: libraries/classes/Config/Descriptions.php:807
+#: libraries/classes/Config/Descriptions.php:809
 msgid ""
 "Shows link to [a@https://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output."
@@ -5816,62 +5841,62 @@ msgstr ""
 "Mostra l'enllaç a la sortida de [a@https://php.net/manual/function.phpinfo."
 "php]phpinfo()[/a]."
 
-#: libraries/classes/Config/Descriptions.php:810
+#: libraries/classes/Config/Descriptions.php:812
 msgid "Show phpinfo() link"
 msgstr "Mostra l'enllaç a phpinfo()"
 
-#: libraries/classes/Config/Descriptions.php:811
+#: libraries/classes/Config/Descriptions.php:813
 msgid "Show detailed MySQL server information"
 msgstr "Mostra la informació detallada del servidor MySQL"
 
-#: libraries/classes/Config/Descriptions.php:812
+#: libraries/classes/Config/Descriptions.php:814
 msgid ""
 "Defines whether SQL queries generated by phpMyAdmin should be displayed."
 msgstr "Defineix si s'han de mostrar les consultes SQL creades per phpMyAdmin."
 
-#: libraries/classes/Config/Descriptions.php:813
+#: libraries/classes/Config/Descriptions.php:815
 msgid "Show SQL queries"
 msgstr "Mostra les consultes SQL"
 
-#: libraries/classes/Config/Descriptions.php:814
+#: libraries/classes/Config/Descriptions.php:816
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
 "Defineix si el quadre de consultes s'ha de mantenir en pantalla després de "
 "l'enviament."
 
-#: libraries/classes/Config/Descriptions.php:815
+#: libraries/classes/Config/Descriptions.php:817
 #: libraries/classes/SqlQueryForm.php:365
 msgid "Retain query box"
 msgstr "Mantén el quadre de consultes"
 
-#: libraries/classes/Config/Descriptions.php:816
+#: libraries/classes/Config/Descriptions.php:818
 msgid "Allow to display database and table statistics (eg. space usage)."
 msgstr ""
 "Permet visualitzar les estadístiques de les bases de dades i de les taules "
 "(p. ex. l'espai utilitzat)."
 
-#: libraries/classes/Config/Descriptions.php:817
+#: libraries/classes/Config/Descriptions.php:819
 msgid "Show statistics"
 msgstr "Mostra les estadístiques"
 
-#: libraries/classes/Config/Descriptions.php:818
+#: libraries/classes/Config/Descriptions.php:820
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
 "Marca les taules utilitzades i permet mostrar les bases de dades amb taules "
 "bloquejades."
 
-#: libraries/classes/Config/Descriptions.php:819
+#: libraries/classes/Config/Descriptions.php:821
 msgid "Skip locked tables"
 msgstr "Omet les taules bloquejades"
 
-#: libraries/classes/Config/Descriptions.php:821
+#: libraries/classes/Config/Descriptions.php:823
 #: libraries/classes/Util.php:1085
 msgid "Explain SQL"
 msgstr "Desenvolupa l'SQL"
 
-#: libraries/classes/Config/Descriptions.php:822
+#: libraries/classes/Config/Descriptions.php:824
 #: libraries/classes/Export.php:534
 #: libraries/classes/Server/Status/Processes.php:237
 #: libraries/classes/Server/Status/Variables.php:52
@@ -5879,12 +5904,12 @@ msgstr "Desenvolupa l'SQL"
 msgid "Refresh"
 msgstr "Refresca"
 
-#: libraries/classes/Config/Descriptions.php:823
+#: libraries/classes/Config/Descriptions.php:825
 #: libraries/classes/Util.php:1150
 msgid "Create PHP code"
 msgstr "Crea el codi PHP"
 
-#: libraries/classes/Config/Descriptions.php:825
+#: libraries/classes/Config/Descriptions.php:827
 msgid ""
 "Disable the default warning that is displayed on the main page if Suhosin is "
 "detected."
@@ -5892,11 +5917,11 @@ msgstr ""
 "Inhabilita l'avís predeterminat que es mostra a la pàgina principal si es "
 "detecta Suoshin."
 
-#: libraries/classes/Config/Descriptions.php:828
+#: libraries/classes/Config/Descriptions.php:830
 msgid "Suhosin warning"
 msgstr "Avís de Suoshin"
 
-#: libraries/classes/Config/Descriptions.php:830
+#: libraries/classes/Config/Descriptions.php:832
 msgid ""
 "Disable the default warning that is displayed on the main page if the value "
 "of the PHP setting session.gc_maxlifetime is less than the value of "
@@ -5906,11 +5931,11 @@ msgstr ""
 "valor establert de la variable de PHP session.gc_maxlifetime és menor que el "
 "de `LoginCookieValidity`."
 
-#: libraries/classes/Config/Descriptions.php:834
+#: libraries/classes/Config/Descriptions.php:836
 msgid "Login cookie validity warning"
 msgstr "Avís de validesa de la galeta d'autenticació"
 
-#: libraries/classes/Config/Descriptions.php:836
+#: libraries/classes/Config/Descriptions.php:838
 msgid ""
 "Textarea size (columns) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -5918,11 +5943,11 @@ msgstr ""
 "Mida de l'àrea de text (columnes) en mode d'edició, aquest valor "
 "s'augmentarà per a les àrees de text de les consultes SQL (*2)."
 
-#: libraries/classes/Config/Descriptions.php:839
+#: libraries/classes/Config/Descriptions.php:841
 msgid "Textarea columns"
 msgstr "Columnes de les àrees de text"
 
-#: libraries/classes/Config/Descriptions.php:841
+#: libraries/classes/Config/Descriptions.php:843
 msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
@@ -5930,16 +5955,16 @@ msgstr ""
 "Mida de l'àrea de text (files) en mode d'edició, aquest valor s'augmentarà "
 "per a les àrees de text de les consultes SQL (*2)."
 
-#: libraries/classes/Config/Descriptions.php:844
+#: libraries/classes/Config/Descriptions.php:846
 msgid "Textarea rows"
 msgstr "Files de l'àrea de text"
 
-#: libraries/classes/Config/Descriptions.php:845
+#: libraries/classes/Config/Descriptions.php:847
 msgid "Title of browser window when a database is selected."
 msgstr ""
 "Títol de la finestra del navegador quan se selecciona una base de dades."
 
-#: libraries/classes/Config/Descriptions.php:846 libraries/classes/Menu.php:243
+#: libraries/classes/Config/Descriptions.php:848 libraries/classes/Menu.php:243
 #: libraries/classes/MultSubmits.php:419
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:157
 #: libraries/classes/Plugins/Export/ExportOdt.php:204
@@ -5959,28 +5984,28 @@ msgstr ""
 msgid "Database"
 msgstr "Base de dades"
 
-#: libraries/classes/Config/Descriptions.php:847
+#: libraries/classes/Config/Descriptions.php:849
 msgid "Title of browser window when nothing is selected."
 msgstr "Títol de la finestra del navegador quan no hi ha res seleccionat."
 
-#: libraries/classes/Config/Descriptions.php:848
+#: libraries/classes/Config/Descriptions.php:850
 msgid "Default title"
 msgstr "Títol predeterminat"
 
-#: libraries/classes/Config/Descriptions.php:849
+#: libraries/classes/Config/Descriptions.php:851
 msgid "Title of browser window when a server is selected."
 msgstr "Títol de la finestra del navegador quan se selecciona un servidor."
 
-#: libraries/classes/Config/Descriptions.php:850 libraries/classes/Menu.php:223
+#: libraries/classes/Config/Descriptions.php:852 libraries/classes/Menu.php:223
 #: libraries/classes/Server/Status/Data.php:435
 msgid "Server"
 msgstr "Servidor"
 
-#: libraries/classes/Config/Descriptions.php:851
+#: libraries/classes/Config/Descriptions.php:853
 msgid "Title of browser window when a table is selected."
 msgstr "Títol de la finestra del navegador quan se selecciona una taula."
 
-#: libraries/classes/Config/Descriptions.php:852 libraries/classes/Menu.php:282
+#: libraries/classes/Config/Descriptions.php:854 libraries/classes/Menu.php:282
 #: libraries/classes/Plugins/Export/ExportXml.php:505
 #: libraries/classes/Rte/RteList.php:132 libraries/classes/Rte/Triggers.php:399
 #: libraries/classes/Server/Privileges.php:1070
@@ -5998,7 +6023,7 @@ msgstr "Títol de la finestra del navegador quan se selecciona una taula."
 msgid "Table"
 msgstr "Taula"
 
-#: libraries/classes/Config/Descriptions.php:854
+#: libraries/classes/Config/Descriptions.php:856
 msgid ""
 "Input proxies as [kbd]IP: trusted HTTP header[/kbd]. The following example "
 "specifies that phpMyAdmin should trust a HTTP_X_FORWARDED_FOR (X-Forwarded-"
@@ -6010,27 +6035,27 @@ msgstr ""
 "capçalera HTTP_X_FORWARDED_FOR (X-Forwarded-For) procedent del servidor "
 "intermediari 1.2.3.4:[br][kbd]1.2.3.4: HTTP_X_FORWARDED_FOR[/kbd]."
 
-#: libraries/classes/Config/Descriptions.php:859
+#: libraries/classes/Config/Descriptions.php:861
 msgid "List of trusted proxies for IP allow/deny"
 msgstr "Llista de servidors intermediaris de confiança per permetre/denegar IP"
 
-#: libraries/classes/Config/Descriptions.php:860
+#: libraries/classes/Config/Descriptions.php:862
 msgid "Directory on server where you can upload files for import."
 msgstr "Directori al servidor on podeu pujar els fitxers per importar."
 
-#: libraries/classes/Config/Descriptions.php:861
+#: libraries/classes/Config/Descriptions.php:863
 msgid "Upload directory"
 msgstr "Directori de pujada"
 
-#: libraries/classes/Config/Descriptions.php:862
+#: libraries/classes/Config/Descriptions.php:864
 msgid "Allow for searching inside the entire database."
 msgstr "Permet cercar dins de tota la base de dades."
 
-#: libraries/classes/Config/Descriptions.php:863
+#: libraries/classes/Config/Descriptions.php:865
 msgid "Use database search"
 msgstr "Utilitza la cerca de base de dades"
 
-#: libraries/classes/Config/Descriptions.php:865
+#: libraries/classes/Config/Descriptions.php:867
 msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
@@ -6038,22 +6063,22 @@ msgstr ""
 "Quan està inhabilitat, els usuaris no poden configurar cap de les següents "
 "opcions, independentment de la casella de selecció de la dreta."
 
-#: libraries/classes/Config/Descriptions.php:868
+#: libraries/classes/Config/Descriptions.php:870
 msgid "Enable the Developer tab in settings"
 msgstr "Habilita la pestanya «Desenvolupador» als paràmetres"
 
-#: libraries/classes/Config/Descriptions.php:869
+#: libraries/classes/Config/Descriptions.php:871
 msgid "Enables check for latest version on main phpMyAdmin page."
 msgstr ""
 "Permet comprovar la versió més recent a la pàgina principal de phpMyAdmin."
 
-#: libraries/classes/Config/Descriptions.php:870 setup/lib/Index.php:124
+#: libraries/classes/Config/Descriptions.php:872 setup/lib/Index.php:124
 #: setup/lib/Index.php:147 setup/lib/Index.php:160 setup/lib/Index.php:172
 #: setup/lib/Index.php:180 setup/lib/Index.php:187
 msgid "Version check"
 msgstr "Comprovació de la versió"
 
-#: libraries/classes/Config/Descriptions.php:872
+#: libraries/classes/Config/Descriptions.php:874
 msgid ""
 "The url of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin or when submitting error reports. You need this "
@@ -6065,11 +6090,11 @@ msgstr ""
 "informes d'error. Ho necessiteu si el servidor on phpMyAdmin està instal·lat "
 "no té accés directe a Internet. El format és: \"servidor:port\"."
 
-#: libraries/classes/Config/Descriptions.php:877
+#: libraries/classes/Config/Descriptions.php:879
 msgid "Proxy url"
 msgstr "URL del servidor intermediari"
 
-#: libraries/classes/Config/Descriptions.php:879
+#: libraries/classes/Config/Descriptions.php:881
 msgid ""
 "The username for authenticating with the proxy. By default, no "
 "authentication is performed. If a username is supplied, Basic Authentication "
@@ -6080,54 +6105,54 @@ msgstr ""
 "es farà una autenticació bàsica. Actualment no hi ha compatibilitat amb "
 "altres tipus d'autenticació."
 
-#: libraries/classes/Config/Descriptions.php:884
+#: libraries/classes/Config/Descriptions.php:886
 msgid "Proxy username"
 msgstr "Nom d'usuari del servidor intermediari"
 
-#: libraries/classes/Config/Descriptions.php:885
+#: libraries/classes/Config/Descriptions.php:887
 msgid "The password for authenticating with the proxy."
 msgstr "La contrasenya per a l'autenticació amb el servidor intermediari."
 
-#: libraries/classes/Config/Descriptions.php:886
+#: libraries/classes/Config/Descriptions.php:888
 msgid "Proxy password"
 msgstr "Contrasenya del servidor intermediari"
 
-#: libraries/classes/Config/Descriptions.php:888
+#: libraries/classes/Config/Descriptions.php:890
 msgid "Enable ZIP compression for import and export operations."
 msgstr ""
 "Habilita la compressió ZIP per a les operacions d'importació i exportació."
 
-#: libraries/classes/Config/Descriptions.php:889
+#: libraries/classes/Config/Descriptions.php:891
 msgid "ZIP"
 msgstr "ZIP"
 
-#: libraries/classes/Config/Descriptions.php:890
+#: libraries/classes/Config/Descriptions.php:892
 msgid "Enter your public key for your domain reCaptcha service."
 msgstr ""
 "Introduïu la vostra clau pública per al servei reCaptcha del vostre domini."
 
-#: libraries/classes/Config/Descriptions.php:891
+#: libraries/classes/Config/Descriptions.php:893
 msgid "Public key for reCaptcha"
 msgstr "Clau pública per a reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:892
+#: libraries/classes/Config/Descriptions.php:894
 msgid "Enter your private key for your domain reCaptcha service."
 msgstr ""
 "Introduïu la vostra clau privada per al servei reCaptcha del vostre domini."
 
-#: libraries/classes/Config/Descriptions.php:893
+#: libraries/classes/Config/Descriptions.php:895
 msgid "Private key for reCaptcha"
 msgstr "Clau privada per a reCaptcha"
 
-#: libraries/classes/Config/Descriptions.php:895
+#: libraries/classes/Config/Descriptions.php:897
 msgid "Choose the default action when sending error reports."
 msgstr "Trieu l'acció predeterminada quan s'enviïn els informes d'error."
 
-#: libraries/classes/Config/Descriptions.php:896
+#: libraries/classes/Config/Descriptions.php:898
 msgid "Send error reports"
 msgstr "Envia els informes d'error"
 
-#: libraries/classes/Config/Descriptions.php:899
+#: libraries/classes/Config/Descriptions.php:901
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
@@ -6135,11 +6160,11 @@ msgstr ""
 "Les consultes s'executen en prémer Retorn (en lloc de Ctrl+Retorn). Els "
 "salts de línia s'afegiran amb Majúscules+Retorn."
 
-#: libraries/classes/Config/Descriptions.php:902
+#: libraries/classes/Config/Descriptions.php:904
 msgid "Enter executes queries in console"
 msgstr "La tecla Retorn executa les consultes a la consola"
 
-#: libraries/classes/Config/Descriptions.php:905
+#: libraries/classes/Config/Descriptions.php:907
 msgid ""
 "Enable Zero Configuration mode which lets you setup phpMyAdmin configuration "
 "storage tables automatically."
@@ -6148,54 +6173,54 @@ msgstr ""
 "automàticament les taules de l'emmagatzematge de la configuració de "
 "phpMyAdmin."
 
-#: libraries/classes/Config/Descriptions.php:908
+#: libraries/classes/Config/Descriptions.php:910
 msgid "Enable Zero Configuration mode"
 msgstr "Habilita el mode Zero Configuration"
 
-#: libraries/classes/Config/Descriptions.php:909
+#: libraries/classes/Config/Descriptions.php:911
 #: templates/console/display.twig:153
 msgid "Show query history at start"
 msgstr "Mostra l'historial de consultes a l'inici"
 
-#: libraries/classes/Config/Descriptions.php:910
+#: libraries/classes/Config/Descriptions.php:912
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
 msgstr "Expandeix sempre els missatges de les consultes"
 
-#: libraries/classes/Config/Descriptions.php:911
+#: libraries/classes/Config/Descriptions.php:913
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
 msgstr "Mostra la consulta de navegació actual"
 
-#: libraries/classes/Config/Descriptions.php:912
+#: libraries/classes/Config/Descriptions.php:914
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
 "Executa les consultes en prémer Retorn i afegeix una línia nova en prémer "
 "Majúscules + Retorn"
 
-#: libraries/classes/Config/Descriptions.php:913
+#: libraries/classes/Config/Descriptions.php:915
 #: templates/console/display.twig:168
 msgid "Switch to dark theme"
 msgstr "Canvia al tema fosc"
 
-#: libraries/classes/Config/Descriptions.php:914
+#: libraries/classes/Config/Descriptions.php:916
 msgid "Console height"
 msgstr "Altura de la consola"
 
-#: libraries/classes/Config/Descriptions.php:915
+#: libraries/classes/Config/Descriptions.php:917
 msgid "Console mode"
 msgstr "Mode de la consola"
 
-#: libraries/classes/Config/Descriptions.php:916
+#: libraries/classes/Config/Descriptions.php:918
 #: templates/console/display.twig:64
 msgid "Group queries"
 msgstr "Agrupa les consultes"
 
-#: libraries/classes/Config/Descriptions.php:917 libraries/classes/Sql.php:289
+#: libraries/classes/Config/Descriptions.php:919 libraries/classes/Sql.php:289
 msgid "Order"
 msgstr "Ordre"
 
-#: libraries/classes/Config/Descriptions.php:918
+#: libraries/classes/Config/Descriptions.php:920
 msgid "Order by"
 msgstr "Ordena per"
 
@@ -6849,17 +6874,17 @@ msgstr "Text complet"
 msgid "Distinct values"
 msgstr "Valors diferents"
 
-#: libraries/classes/Core.php:354
+#: libraries/classes/Core.php:355
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "No es troba l'extensió %s. Comproveu la configuració de PHP."
 
-#: libraries/classes/Core.php:851 libraries/mult_submits.inc.php:346
+#: libraries/classes/Core.php:852 libraries/mult_submits.inc.php:346
 #: tbl_operations.php:252 tbl_replace.php:356 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Sense canvis"
 
-#: libraries/classes/Core.php:1227
+#: libraries/classes/Core.php:1228
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -6869,7 +6894,7 @@ msgstr ""
 "vostre PHP. Aquesta opció és incompatible amb phpMyAdmin i podria fer que "
 "algunes dades es corrompessin!"
 
-#: libraries/classes/Core.php:1241
+#: libraries/classes/Core.php:1242
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -6877,11 +6902,11 @@ msgstr ""
 "Les funcions ini_get i/o ini_set estan inhabilitades al fitxer php.ini. "
 "phpMyAdmin requereix aquestes funcions!"
 
-#: libraries/classes/Core.php:1296
+#: libraries/classes/Core.php:1297
 msgid "GLOBALS overwrite attempt"
 msgstr "intent de sobreescriure la variable GLOBALS"
 
-#: libraries/classes/Core.php:1303
+#: libraries/classes/Core.php:1304
 msgid "possible exploit"
 msgstr "possible aprofitament"
 
@@ -7269,7 +7294,7 @@ msgstr "Texts complets"
 #: libraries/classes/Util.php:4763 libraries/classes/Util.php:4780
 #: libraries/config.values.php:82
 #: templates/table/search/selection_form.twig:154
-#: templates/database/multi_table_query/form.twig:52
+#: templates/database/multi_table_query/form.twig:67
 #: templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -7283,7 +7308,7 @@ msgstr "Descendent"
 #: libraries/classes/Util.php:4758 libraries/classes/Util.php:4775
 #: libraries/config.values.php:81
 #: templates/table/search/selection_form.twig:154
-#: templates/database/multi_table_query/form.twig:51
+#: templates/database/multi_table_query/form.twig:66
 #: templates/server/databases/index.twig:91
 #: templates/server/databases/index.twig:106
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -8166,7 +8191,7 @@ msgstr "Cerca"
 msgid "Insert"
 msgstr "Insereix"
 
-#: libraries/classes/Menu.php:407 libraries/classes/Menu.php:511
+#: libraries/classes/Menu.php:407 libraries/classes/Menu.php:518
 #: libraries/classes/Server/Privileges.php:2656
 #: libraries/classes/Server/Privileges.php:4531 libraries/classes/Util.php:4058
 #: libraries/classes/Util.php:4074 libraries/config.values.php:122
@@ -8176,20 +8201,20 @@ msgid "Privileges"
 msgstr "Privilegis"
 
 #: libraries/classes/Menu.php:416 libraries/classes/Menu.php:424
-#: libraries/classes/Menu.php:503 libraries/classes/Util.php:3106
+#: libraries/classes/Menu.php:510 libraries/classes/Util.php:3106
 #: libraries/classes/Util.php:3120 libraries/classes/Util.php:4057
 #: libraries/classes/Util.php:4075 libraries/config.values.php:132
 #: view_operations.php:106
 msgid "Operations"
 msgstr "Operacions"
 
-#: libraries/classes/Menu.php:429 libraries/classes/Menu.php:533
+#: libraries/classes/Menu.php:429 libraries/classes/Menu.php:540
 #: libraries/classes/Relation.php:302 libraries/classes/Util.php:4062
 #: libraries/classes/Util.php:4076
 msgid "Tracking"
 msgstr "Seguiment"
 
-#: libraries/classes/Menu.php:441 libraries/classes/Menu.php:527
+#: libraries/classes/Menu.php:441 libraries/classes/Menu.php:534
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:27
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:583
 #: libraries/classes/Plugins/Export/ExportOdt.php:720
@@ -8202,8 +8227,8 @@ msgstr "Seguiment"
 msgid "Triggers"
 msgstr "Disparadors"
 
-#: libraries/classes/Menu.php:480 libraries/classes/Menu.php:487
-#: libraries/classes/Menu.php:494
+#: libraries/classes/Menu.php:480 libraries/classes/Menu.php:494
+#: libraries/classes/Menu.php:501
 msgid "Database seems to be empty!"
 msgstr "La base de dades sembla buida!"
 
@@ -8211,12 +8236,12 @@ msgstr "La base de dades sembla buida!"
 msgid "Query"
 msgstr "Consulta"
 
-#: libraries/classes/Menu.php:516 libraries/classes/Rte/Words.php:51
+#: libraries/classes/Menu.php:523 libraries/classes/Rte/Words.php:51
 #: libraries/classes/Util.php:4059
 msgid "Routines"
 msgstr "Rutines"
 
-#: libraries/classes/Menu.php:521
+#: libraries/classes/Menu.php:528
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:27
 #: libraries/classes/Plugins/Export/ExportSql.php:989
 #: libraries/classes/Plugins/Export/ExportXml.php:111
@@ -8224,25 +8249,25 @@ msgstr "Rutines"
 msgid "Events"
 msgstr "Esdeveniments"
 
-#: libraries/classes/Menu.php:539 libraries/classes/Util.php:4063
+#: libraries/classes/Menu.php:546 libraries/classes/Util.php:4063
 msgid "Designer"
 msgstr "Dissenyador"
 
-#: libraries/classes/Menu.php:548 libraries/classes/Util.php:4064
+#: libraries/classes/Menu.php:555 libraries/classes/Util.php:4064
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "Columnes centrals"
 
-#: libraries/classes/Menu.php:606
+#: libraries/classes/Menu.php:613
 msgid "User accounts"
 msgstr "Comptes d'usuari"
 
-#: libraries/classes/Menu.php:633 libraries/classes/Server/Status/Data.php:123
+#: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:123
 #: libraries/classes/Util.php:4043 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr "Registre binari"
 
-#: libraries/classes/Menu.php:639 libraries/classes/Server/Status/Data.php:128
+#: libraries/classes/Menu.php:646 libraries/classes/Server/Status/Data.php:128
 #: libraries/classes/Util.php:4044
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
@@ -8250,22 +8275,22 @@ msgstr "Registre binari"
 msgid "Replication"
 msgstr "Replicació"
 
-#: libraries/classes/Menu.php:644 libraries/classes/Server/Status/Data.php:195
+#: libraries/classes/Menu.php:651 libraries/classes/Server/Status/Data.php:195
 #: libraries/classes/SqlQueryForm.php:439 libraries/classes/Util.php:4045
 #: libraries/config.values.php:120 templates/server/engines/show_engine.twig:12
 #: templates/server/engines/show_engine.twig:16
 msgid "Variables"
 msgstr "Variables"
 
-#: libraries/classes/Menu.php:648 libraries/classes/Util.php:4046
+#: libraries/classes/Menu.php:655 libraries/classes/Util.php:4046
 msgid "Charsets"
 msgstr "Jocs de caràcters"
 
-#: libraries/classes/Menu.php:652 libraries/classes/Util.php:4048
+#: libraries/classes/Menu.php:659 libraries/classes/Util.php:4048
 msgid "Engines"
 msgstr "Motors"
 
-#: libraries/classes/Menu.php:656 libraries/classes/Util.php:4047
+#: libraries/classes/Menu.php:663 libraries/classes/Util.php:4047
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr "Connectors"
@@ -8370,32 +8395,32 @@ msgstr "Vistes:"
 
 #: libraries/classes/Navigation/Navigation.php:246 tbl_change.php:157
 #: templates/table/tracking/main.twig:33
-#: templates/database/multi_table_query/form.twig:33
+#: templates/database/multi_table_query/form.twig:48
 #: templates/database/tracking/tables.twig:19
 msgid "Show"
 msgstr "Mostra"
 
-#: libraries/classes/Navigation/NavigationHeader.php:180
+#: libraries/classes/Navigation/NavigationHeader.php:183
 msgid "Home"
 msgstr "Inici"
 
-#: libraries/classes/Navigation/NavigationHeader.php:188
+#: libraries/classes/Navigation/NavigationHeader.php:191
 msgid "Log out"
 msgstr "Surt"
 
-#: libraries/classes/Navigation/NavigationHeader.php:190
+#: libraries/classes/Navigation/NavigationHeader.php:193
 msgid "Empty session data"
 msgstr "Dades de sessió buides"
 
-#: libraries/classes/Navigation/NavigationHeader.php:208
+#: libraries/classes/Navigation/NavigationHeader.php:211
 msgid "phpMyAdmin documentation"
 msgstr "Documentació de phpMyAdmin"
 
-#: libraries/classes/Navigation/NavigationHeader.php:228
+#: libraries/classes/Navigation/NavigationHeader.php:231
 msgid "Navigation panel settings"
 msgstr "Paràmetres del tauler de navegació"
 
-#: libraries/classes/Navigation/NavigationHeader.php:239
+#: libraries/classes/Navigation/NavigationHeader.php:242
 msgid "Reload navigation panel"
 msgstr "Recarrega el tauler de navegació"
 
@@ -9734,16 +9759,16 @@ msgstr ""
 "importació (afegeix ON DUPLICATE KEY UPDATE)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
-msgid "Name of the new table(optional): "
+msgid "Name of the new table (optional):"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
-msgid "Name of the new database(optional): "
+msgid "Name of the new database (optional):"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
-msgid "Import these many number of rows(optional): "
+msgid "Import these many number of rows (optional):"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
@@ -9767,8 +9792,9 @@ msgstr ""
 "cometes."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#: libraries/classes/Plugins/Import/ImportLdi.php:74
-msgid "Column names: "
+#, fuzzy
+#| msgid "Column names: "
+msgid "Column names:"
 msgstr "Nom de les columnes: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
@@ -9799,6 +9825,10 @@ msgstr "Format incorrecte a l'entrada CSV a la línia %d."
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Comptador de columnes incorrecte en l'entrada CSV a la línia %d."
+
+#: libraries/classes/Plugins/Import/ImportLdi.php:74
+msgid "Column names: "
+msgstr "Nom de les columnes: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:112
 msgid "This plugin does not support compressed imports!"
@@ -13797,7 +13827,7 @@ msgid "Without PHP code"
 msgstr "Sense codi PHP"
 
 #: libraries/classes/Util.php:1141
-#: templates/database/multi_table_query/form.twig:165
+#: templates/database/multi_table_query/form.twig:180
 msgid "Submit query"
 msgstr "Envia la consulta"
 
@@ -13884,7 +13914,7 @@ msgid "Users"
 msgstr "Usuaris"
 
 #: libraries/classes/Util.php:4750
-#: templates/database/multi_table_query/form.twig:50
+#: templates/database/multi_table_query/form.twig:65
 msgid "Sort"
 msgstr "Ordena"
 
@@ -13924,7 +13954,7 @@ msgstr "Icones"
 
 #: libraries/config.values.php:68 libraries/config.values.php:88
 #: libraries/config.values.php:100
-#: templates/database/multi_table_query/form.twig:100
+#: templates/database/multi_table_query/form.twig:115
 msgid "Text"
 msgstr "Text"
 
@@ -15026,7 +15056,7 @@ msgid "Constraint name"
 msgstr "Nom de la restricció"
 
 #: templates/table/relation/foreign_key_row.twig:86
-#: templates/database/multi_table_query/form.twig:147
+#: templates/database/multi_table_query/form.twig:162
 msgid "+ Add column"
 msgstr "+ Afegeix una columna"
 
@@ -15360,53 +15390,53 @@ msgstr "Desactiva el seguiment per %s"
 msgid "Deactivate now"
 msgstr "Desactiva ara"
 
-#: templates/database/multi_table_query/form.twig:1
+#: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
 msgstr "Finestra de consultes"
 
-#: templates/database/multi_table_query/form.twig:22
-#: templates/database/multi_table_query/form.twig:110
+#: templates/database/multi_table_query/form.twig:37
+#: templates/database/multi_table_query/form.twig:125
 msgid "select table"
 msgstr "seleccioneu la taula"
 
-#: templates/database/multi_table_query/form.twig:29
-#: templates/database/multi_table_query/form.twig:118
+#: templates/database/multi_table_query/form.twig:44
+#: templates/database/multi_table_query/form.twig:133
 msgid "select column"
 msgstr "seleccioneu la columna"
 
-#: templates/database/multi_table_query/form.twig:35
+#: templates/database/multi_table_query/form.twig:50
 msgid "Table alias"
 msgstr "Àlies de la taula"
 
-#: templates/database/multi_table_query/form.twig:36
+#: templates/database/multi_table_query/form.twig:51
 msgid "Column alias"
 msgstr "Àlies de la columna"
 
-#: templates/database/multi_table_query/form.twig:39
+#: templates/database/multi_table_query/form.twig:54
 msgid "Use this column in criteria"
 msgstr "Utilitza aquesta columna al criteri"
 
-#: templates/database/multi_table_query/form.twig:42
+#: templates/database/multi_table_query/form.twig:57
 msgid "criteria"
 msgstr "criteri"
 
-#: templates/database/multi_table_query/form.twig:56
+#: templates/database/multi_table_query/form.twig:71
 msgid "Add as"
 msgstr "Afegeix com"
 
-#: templates/database/multi_table_query/form.twig:101
+#: templates/database/multi_table_query/form.twig:116
 msgid "Another column"
 msgstr "Una altra columna"
 
-#: templates/database/multi_table_query/form.twig:129
+#: templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
 msgstr "Introduïu els criteris com a text lliure"
 
-#: templates/database/multi_table_query/form.twig:137
+#: templates/database/multi_table_query/form.twig:152
 msgid "Remove this column"
 msgstr "Treu aquesta columna"
 
-#: templates/database/multi_table_query/form.twig:164
+#: templates/database/multi_table_query/form.twig:179
 msgid "Update query"
 msgstr "Actualitza la consulta"
 
@@ -15422,7 +15452,7 @@ msgstr "Paraules o valors a cercar (comodí: \"%\"):"
 msgid "Inside tables:"
 msgstr "Dins les taules:"
 
-#: templates/database/search/main.twig:51
+#: templates/database/search/main.twig:56
 msgid "Inside column:"
 msgstr "Dins la columna:"
 
