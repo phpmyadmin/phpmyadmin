@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-10-31 17:53+0000\n"
+"PO-Revision-Date: 2018-11-02 01:00+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -328,16 +328,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Görüntülemek için en az bir sütun seçmelisiniz!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Sorguyu benzeştir"
+msgstr "Çoklu tablo sorgusu"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Sorgu başarısız oldu"
+msgstr "Örnek sorgu"
 
 #: db_qbe.php:171
 #, php-format
@@ -4909,17 +4905,14 @@ msgstr ""
 "Gezinti ağacındaki veritabanı altında olayların gösterilip gösterilmeyeceği"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Veritabanı kopyalanıyor"
+msgstr "Tek bir veritabanı genişlet"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
-"Gezinti ağacındaki veritabanı altında olayların gösterilip gösterilmeyeceği"
+"Gezinti ağacındaki tek bir veritabanının otomatik olarak genişletilip "
+"genişletilmeyeceği."
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -9654,23 +9647,17 @@ msgstr ""
 "KEY UPDATE ekle)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
-#, fuzzy
-#| msgid "Name of the new table(optional): "
 msgid "Name of the new table (optional):"
-msgstr "Yeni tablo adı (isteğe bağlı): "
+msgstr "Yeni tablo adı (isteğe bağlı):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
-#, fuzzy
-#| msgid "Name of the new database(optional): "
 msgid "Name of the new database (optional):"
-msgstr "Yeni veritabanı adı (isteğe bağlı): "
+msgstr "Yeni veritabanı adı (isteğe bağlı):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
-#, fuzzy
-#| msgid "Import these many number of rows(optional): "
 msgid "Import these many number of rows (optional):"
-msgstr "Bu birçok satır sayısını içe aktar (isteğe bağlı): "
+msgstr "Bu birçok satır sayısını içe aktar (isteğe bağlı):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
@@ -9692,10 +9679,8 @@ msgstr ""
 "bölünmeli ve tırnaklarla kapanmamalıdır."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Sütun adları: "
+msgstr "Sütun adları:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173
