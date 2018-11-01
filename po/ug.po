@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-10-30 21:18-0300\n"
+"POT-Creation-Date: 2018-10-31 21:57-0300\n"
 "PO-Revision-Date: 2018-06-08 04:43+0000\n"
 "Last-Translator: ۋولقان <nureliosman@gmail.com>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/4-8/ug/"
@@ -258,7 +258,7 @@ msgstr "ساندان قالدۇقىنى كۆرسىتىش"
 
 #: db_export.php:53 db_tracking.php:105 export.php:387
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:161
-#: libraries/classes/Database/Qbe.php:340
+#: libraries/classes/Database/Qbe.php:341
 #: libraries/classes/Navigation/NavigationTree.php:924
 msgid "No tables found in database."
 msgstr "سانداندا جەدۋەل يوق."
@@ -343,11 +343,23 @@ msgstr ""
 "ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن "
 "%sبۇ يەرنى كۆرۈڭ%s."
 
-#: db_qbe.php:132
+#: db_qbe.php:133
 msgid "You have to choose at least one column to display!"
 msgstr "ئەڭ ئاز بىرقۇرنى كۆرسىتىشكە تاللىشىڭىز كېرەك!"
 
-#: db_qbe.php:150
+#: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Update Query"
+msgid "Multi-table query"
+msgstr "يېڭلاش"
+
+#: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Query"
+msgid "Query by example"
+msgstr "تەكشۈرۈش"
+
+#: db_qbe.php:168
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr ""
@@ -1395,7 +1407,7 @@ msgstr "نەشىر"
 msgid "Traffic"
 msgstr ""
 
-#: js/messages.php:213 libraries/classes/Menu.php:618
+#: js/messages.php:213 libraries/classes/Menu.php:625
 #: libraries/classes/Server/Status/Monitor.php:264
 #: libraries/classes/Util.php:3969
 #, fuzzy
@@ -1621,7 +1633,7 @@ msgstr "تەكشۈرۈشتىن ئۆزكۈزىۋاتىدۇ…"
 msgid "Explain output"
 msgstr "SQL ئىزاھى"
 
-#: js/messages.php:290 libraries/classes/Menu.php:584
+#: js/messages.php:290 libraries/classes/Menu.php:591
 #: libraries/classes/Rte/Events.php:413 libraries/classes/Rte/RteList.php:116
 #: libraries/classes/Server/Status/Processes.php:101
 #: libraries/classes/Tracking.php:162 libraries/classes/Util.php:3965
@@ -1754,8 +1766,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:328 libraries/classes/Config/Forms/User/ImportForm.php:58
-#: libraries/classes/Menu.php:391 libraries/classes/Menu.php:493
-#: libraries/classes/Menu.php:614
+#: libraries/classes/Menu.php:391 libraries/classes/Menu.php:500
+#: libraries/classes/Menu.php:621
 #: libraries/classes/Server/Status/Monitor.php:324
 #: libraries/classes/Util.php:3968 libraries/classes/Util.php:3983
 #: libraries/classes/Util.php:4000 prefs_manage.php:228
@@ -2004,7 +2016,7 @@ msgstr ""
 #: js/messages.php:401 libraries/classes/Config/Forms/User/ExportForm.php:140
 #: libraries/classes/Display/Results.php:4711
 #: libraries/classes/Display/Results.php:4992 libraries/classes/Menu.php:383
-#: libraries/classes/Menu.php:484 libraries/classes/Menu.php:610
+#: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
 #: libraries/classes/Server/Privileges.php:2401
 #: libraries/classes/Server/Privileges.php:2487
@@ -3260,7 +3272,7 @@ msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 msgid "Please enter a valid HEX input"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: js/messages.php:982 libraries/classes/Core.php:296
+#: js/messages.php:982 libraries/classes/Core.php:297
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1496
 #: libraries/classes/Message.php:191 libraries/classes/Util.php:542
 #: view_operations.php:72
@@ -4536,7 +4548,7 @@ msgid "LaTeX"
 msgstr "LaTeX"
 
 #: libraries/classes/Config/Descriptions.php:474
-#: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:576
+#: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1274
 #: libraries/classes/Server/Privileges.php:4542 libraries/classes/Util.php:3963
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
@@ -4678,7 +4690,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:553 libraries/classes/Menu.php:364
-#: libraries/classes/Menu.php:467 libraries/classes/Menu.php:580
+#: libraries/classes/Menu.php:467 libraries/classes/Menu.php:587
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
 #: libraries/classes/Util.php:3027 libraries/classes/Util.php:3037
 #: libraries/classes/Util.php:3043 libraries/classes/Util.php:3964
@@ -6994,34 +7006,34 @@ msgstr ""
 msgid "Distinct values"
 msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
 
-#: libraries/classes/Core.php:346
+#: libraries/classes/Core.php:347
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "%s كېڭەيتىلمە كەمكەن، PHP تەڭشەك ھۆججىتىنى تەكشۈرۈپ چىقىڭ."
 
-#: libraries/classes/Core.php:841 libraries/mult_submits.inc.php:329
+#: libraries/classes/Core.php:842 libraries/mult_submits.inc.php:329
 #: tbl_operations.php:245 tbl_replace.php:320 templates/preview_sql.twig:3
 msgid "No change"
 msgstr ""
 
-#: libraries/classes/Core.php:1216
+#: libraries/classes/Core.php:1217
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: libraries/classes/Core.php:1230
+#: libraries/classes/Core.php:1231
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
 msgstr ""
 
-#: libraries/classes/Core.php:1281
+#: libraries/classes/Core.php:1282
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Core.php:1288
+#: libraries/classes/Core.php:1289
 msgid "possible exploit"
 msgstr ""
 
@@ -7095,118 +7107,118 @@ msgstr "!خاتالىق:مۇناسىۋەت قۇشۇلمىغان."
 msgid "Internal relationship has been removed."
 msgstr ".ئىچكى ئۇلىنىش مۇاسىۋىتى قۇشۇلدى"
 
-#: libraries/classes/Database/Qbe.php:455
+#: libraries/classes/Database/Qbe.php:456
 #: templates/table/search/search_and_replace.twig:6
 #, fuzzy
 #| msgid "Column"
 msgid "Column:"
 msgstr "سۆزلەم"
 
-#: libraries/classes/Database/Qbe.php:501
+#: libraries/classes/Database/Qbe.php:502
 msgid "Alias:"
 msgstr ""
 
-#: libraries/classes/Database/Qbe.php:553
+#: libraries/classes/Database/Qbe.php:554
 #, fuzzy
 #| msgid "Sort"
 msgid "Sort:"
 msgstr "تۈرلەش"
 
-#: libraries/classes/Database/Qbe.php:615
+#: libraries/classes/Database/Qbe.php:616
 #, fuzzy
 #| msgid "Sort"
 msgid "Sort order:"
 msgstr "تۈرلەش"
 
-#: libraries/classes/Database/Qbe.php:664
+#: libraries/classes/Database/Qbe.php:665
 #, fuzzy
 #| msgid "Show"
 msgid "Show:"
 msgstr "كۆرسىتىش"
 
-#: libraries/classes/Database/Qbe.php:713
+#: libraries/classes/Database/Qbe.php:714
 #, fuzzy
 #| msgid "Criteria"
 msgid "Criteria:"
 msgstr "شەرت"
 
-#: libraries/classes/Database/Qbe.php:796
-#: libraries/classes/Database/Qbe.php:828
+#: libraries/classes/Database/Qbe.php:797
+#: libraries/classes/Database/Qbe.php:829
 msgid "Update Query"
 msgstr "يېڭلاش"
 
-#: libraries/classes/Database/Qbe.php:811
+#: libraries/classes/Database/Qbe.php:812
 msgid "Use Tables"
 msgstr "جەدۋەللەرنى ئىشلىتىش"
 
-#: libraries/classes/Database/Qbe.php:849
-#: libraries/classes/Database/Qbe.php:960
+#: libraries/classes/Database/Qbe.php:850
+#: libraries/classes/Database/Qbe.php:961
 #, fuzzy
 #| msgid "Or"
 msgid "Or:"
 msgstr "ياكى"
 
-#: libraries/classes/Database/Qbe.php:853
-#: libraries/classes/Database/Qbe.php:945
+#: libraries/classes/Database/Qbe.php:854
+#: libraries/classes/Database/Qbe.php:946
 msgid "And:"
 msgstr ""
 
-#: libraries/classes/Database/Qbe.php:858
+#: libraries/classes/Database/Qbe.php:859
 msgid "Ins"
 msgstr "قىستۇرۇش"
 
-#: libraries/classes/Database/Qbe.php:861
+#: libraries/classes/Database/Qbe.php:862
 msgid "Del"
 msgstr "ئۆچۈرۈش"
 
-#: libraries/classes/Database/Qbe.php:877
+#: libraries/classes/Database/Qbe.php:878
 #, fuzzy
 #| msgid "Modify"
 msgid "Modify:"
 msgstr "ئۆزگەرتىش"
 
-#: libraries/classes/Database/Qbe.php:940
+#: libraries/classes/Database/Qbe.php:941
 msgid "Ins:"
 msgstr ""
 
-#: libraries/classes/Database/Qbe.php:955
+#: libraries/classes/Database/Qbe.php:956
 msgid "Del:"
 msgstr ""
 
-#: libraries/classes/Database/Qbe.php:1822
+#: libraries/classes/Database/Qbe.php:1823
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL ئىجرا بولۋاتقان ساندان <b>%s</b>:"
 
-#: libraries/classes/Database/Qbe.php:1841
+#: libraries/classes/Database/Qbe.php:1842
 msgid "Submit Query"
 msgstr "تاپشۇرۇش"
 
-#: libraries/classes/Database/Qbe.php:1855
+#: libraries/classes/Database/Qbe.php:1856
 #, fuzzy
 #| msgid "Search"
 msgid "Saved bookmarked search:"
 msgstr "ئىزدەش"
 
-#: libraries/classes/Database/Qbe.php:1857
+#: libraries/classes/Database/Qbe.php:1858
 #, fuzzy
 #| msgid "Search"
 msgid "New bookmark"
 msgstr "ئىزدەش"
 
-#: libraries/classes/Database/Qbe.php:1883
+#: libraries/classes/Database/Qbe.php:1884
 #, fuzzy
 #| msgid "Search"
 msgid "Create bookmark"
 msgstr "ئىزدەش"
 
-#: libraries/classes/Database/Qbe.php:1886
+#: libraries/classes/Database/Qbe.php:1887
 #, fuzzy
 #| msgid "Showing bookmark"
 msgid "Update bookmark"
 msgstr "خەتكۈچنى كۆرسىتىش"
 
-#: libraries/classes/Database/Qbe.php:1888
+#: libraries/classes/Database/Qbe.php:1889
 #, fuzzy
 #| msgid "Search"
 msgid "Delete bookmark"
@@ -7474,7 +7486,7 @@ msgstr ""
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71 templates/table/search/options.twig:54
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:48
+#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 msgid "Descending"
 msgstr "كېمىيىش"
@@ -7486,7 +7498,7 @@ msgstr "كېمىيىش"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70 templates/table/search/options.twig:54
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:47
+#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 msgid "Ascending"
 msgstr "ئارتىش"
@@ -8319,7 +8331,7 @@ msgstr "ئىزدەش"
 msgid "Insert"
 msgstr "قىستۇرۇش"
 
-#: libraries/classes/Menu.php:401 libraries/classes/Menu.php:505
+#: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
 #: libraries/classes/Server/Privileges.php:2567
 #: libraries/classes/Server/Privileges.php:4430 libraries/classes/Util.php:3985
 #: libraries/classes/Util.php:4001 libraries/config.values.php:107
@@ -8329,20 +8341,20 @@ msgid "Privileges"
 msgstr "ھۇقۇقى"
 
 #: libraries/classes/Menu.php:410 libraries/classes/Menu.php:418
-#: libraries/classes/Menu.php:497 libraries/classes/Util.php:3031
+#: libraries/classes/Menu.php:504 libraries/classes/Util.php:3031
 #: libraries/classes/Util.php:3045 libraries/classes/Util.php:3984
 #: libraries/classes/Util.php:4002 libraries/config.values.php:113
 #: view_operations.php:101
 msgid "Operations"
 msgstr "ئىشلەملەر"
 
-#: libraries/classes/Menu.php:423 libraries/classes/Menu.php:527
+#: libraries/classes/Menu.php:423 libraries/classes/Menu.php:534
 #: libraries/classes/Relation.php:279 libraries/classes/Util.php:3989
 #: libraries/classes/Util.php:4003
 msgid "Tracking"
 msgstr "ئىز قۇغلاش"
 
-#: libraries/classes/Menu.php:435 libraries/classes/Menu.php:521
+#: libraries/classes/Menu.php:435 libraries/classes/Menu.php:528
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:579
 #: libraries/classes/Plugins/Export/ExportOdt.php:716
@@ -8355,8 +8367,8 @@ msgstr "ئىز قۇغلاش"
 msgid "Triggers"
 msgstr ""
 
-#: libraries/classes/Menu.php:474 libraries/classes/Menu.php:481
-#: libraries/classes/Menu.php:488
+#: libraries/classes/Menu.php:474 libraries/classes/Menu.php:488
+#: libraries/classes/Menu.php:495
 msgid "Database seems to be empty!"
 msgstr "سانلىق مەلۇمات ئامبىرى قۇرۇق!"
 
@@ -8364,12 +8376,12 @@ msgstr "سانلىق مەلۇمات ئامبىرى قۇرۇق!"
 msgid "Query"
 msgstr "تەكشۈرۈش"
 
-#: libraries/classes/Menu.php:510 libraries/classes/Rte/Words.php:49
+#: libraries/classes/Menu.php:517 libraries/classes/Rte/Words.php:49
 #: libraries/classes/Util.php:3986
 msgid "Routines"
 msgstr "دائىملىق"
 
-#: libraries/classes/Menu.php:515
+#: libraries/classes/Menu.php:522
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:965
 #: libraries/classes/Plugins/Export/ExportXml.php:106
@@ -8377,27 +8389,27 @@ msgstr "دائىملىق"
 msgid "Events"
 msgstr "ھادىسە"
 
-#: libraries/classes/Menu.php:533 libraries/classes/Util.php:3990
+#: libraries/classes/Menu.php:540 libraries/classes/Util.php:3990
 msgid "Designer"
 msgstr "لايىھەلىگۈچ"
 
-#: libraries/classes/Menu.php:542 libraries/classes/Util.php:3991
+#: libraries/classes/Menu.php:549 libraries/classes/Util.php:3991
 #: templates/database/structure/check_all_tables.twig:32
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Central columns"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
-#: libraries/classes/Menu.php:600
+#: libraries/classes/Menu.php:607
 msgid "User accounts"
 msgstr ""
 
-#: libraries/classes/Menu.php:627 libraries/classes/Server/Status/Data.php:121
+#: libraries/classes/Menu.php:634 libraries/classes/Server/Status/Data.php:121
 #: libraries/classes/Util.php:3970 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr ""
 
-#: libraries/classes/Menu.php:633 libraries/classes/Server/Status/Data.php:126
+#: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
 #: libraries/classes/Util.php:3971
 #: templates/database/structure/table_header.twig:10
 #: templates/server/sub_page_header.twig:2
@@ -8405,22 +8417,22 @@ msgstr ""
 msgid "Replication"
 msgstr "كۆچۈرۈش"
 
-#: libraries/classes/Menu.php:638 libraries/classes/Server/Status/Data.php:193
+#: libraries/classes/Menu.php:645 libraries/classes/Server/Status/Data.php:193
 #: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3972
 #: libraries/config.values.php:106 templates/server/engines/engine.twig:12
 #: templates/server/engines/engine.twig:16
 msgid "Variables"
 msgstr ""
 
-#: libraries/classes/Menu.php:642 libraries/classes/Util.php:3973
+#: libraries/classes/Menu.php:649 libraries/classes/Util.php:3973
 msgid "Charsets"
 msgstr ""
 
-#: libraries/classes/Menu.php:646 libraries/classes/Util.php:3975
+#: libraries/classes/Menu.php:653 libraries/classes/Util.php:3975
 msgid "Engines"
 msgstr ""
 
-#: libraries/classes/Menu.php:650 libraries/classes/Util.php:3974
+#: libraries/classes/Menu.php:657 libraries/classes/Util.php:3974
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr ""
@@ -8541,7 +8553,7 @@ msgstr "قاراش"
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
 #: templates/database/tracking/tracked_tables.twig:17
-#: templates/database/multi_table_query/form.twig:29
+#: templates/database/multi_table_query/form.twig:44
 msgid "Show"
 msgstr "كۆرسىتىش"
 
@@ -13846,7 +13858,7 @@ msgid "Without PHP code"
 msgstr "PHP كودى يوق"
 
 #: libraries/classes/Util.php:1098
-#: templates/database/multi_table_query/form.twig:161
+#: templates/database/multi_table_query/form.twig:176
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
@@ -13943,7 +13955,7 @@ msgid "Users"
 msgstr ""
 
 #: libraries/classes/Util.php:4659
-#: templates/database/multi_table_query/form.twig:46
+#: templates/database/multi_table_query/form.twig:61
 msgid "Sort"
 msgstr "تۈرلەش"
 
@@ -13983,7 +13995,7 @@ msgstr "قىستۇرۇش"
 
 #: libraries/config.values.php:57 libraries/config.values.php:77
 #: libraries/config.values.php:89
-#: templates/database/multi_table_query/form.twig:96
+#: templates/database/multi_table_query/form.twig:111
 #, fuzzy
 #| msgid "Next"
 msgid "Text"
@@ -14729,7 +14741,7 @@ msgid "Constraint name"
 msgstr "دائىملىق"
 
 #: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:143
+#: templates/database/multi_table_query/form.twig:158
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "+ Add column"
@@ -16353,71 +16365,71 @@ msgstr "%s جەدۋەل"
 msgid "Update"
 msgstr "يېڭلاش"
 
-#: templates/database/multi_table_query/form.twig:1
+#: templates/database/multi_table_query/form.twig:16
 #, fuzzy
 #| msgid "Query"
 msgid "Query window"
 msgstr "تەكشۈرۈش"
 
-#: templates/database/multi_table_query/form.twig:18
-#: templates/database/multi_table_query/form.twig:106
+#: templates/database/multi_table_query/form.twig:33
+#: templates/database/multi_table_query/form.twig:121
 #, fuzzy
 #| msgid "Select All"
 msgid "select table"
 msgstr "ھەممىنى تاللاش"
 
-#: templates/database/multi_table_query/form.twig:25
-#: templates/database/multi_table_query/form.twig:114
+#: templates/database/multi_table_query/form.twig:40
+#: templates/database/multi_table_query/form.twig:129
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "select column"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
-#: templates/database/multi_table_query/form.twig:31
+#: templates/database/multi_table_query/form.twig:46
 #, fuzzy
 #| msgid "Table caption"
 msgid "Table alias"
 msgstr "جەدېۋەلنىڭ تىمىسى"
 
-#: templates/database/multi_table_query/form.twig:32
+#: templates/database/multi_table_query/form.twig:47
 #, fuzzy
 #| msgid "Click to unselect"
 msgid "Column alias"
 msgstr "بىر چىكىپ بىكار قىلىڭ"
 
-#: templates/database/multi_table_query/form.twig:35
+#: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:38
+#: templates/database/multi_table_query/form.twig:53
 #, fuzzy
 #| msgid "Criteria"
 msgid "criteria"
 msgstr "شەرت"
 
-#: templates/database/multi_table_query/form.twig:52
+#: templates/database/multi_table_query/form.twig:67
 #, fuzzy
 #| msgid "Add %s"
 msgid "Add as"
 msgstr "قوشۇلغىنى %s"
 
-#: templates/database/multi_table_query/form.twig:97
+#: templates/database/multi_table_query/form.twig:112
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Another column"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
-#: templates/database/multi_table_query/form.twig:125
+#: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:133
+#: templates/database/multi_table_query/form.twig:148
 #, fuzzy
 #| msgid "Remove database"
 msgid "Remove this column"
 msgstr "ئۆزگەرتىلگەن ساندان ئىسمى"
 
-#: templates/database/multi_table_query/form.twig:160
+#: templates/database/multi_table_query/form.twig:175
 #, fuzzy
 #| msgid "Update Query"
 msgid "Update query"

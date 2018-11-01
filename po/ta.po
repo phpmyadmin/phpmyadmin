@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2018-10-30 21:18-0300\n"
+"POT-Creation-Date: 2018-10-31 21:57-0300\n"
 "PO-Revision-Date: 2018-02-15 06:43+0000\n"
 "Last-Translator: Gladson Samuel Stephen <samuels.gladson@hotmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -254,7 +254,7 @@ msgstr "தரவுத்தளத்தின் குவியலமைப�
 
 #: db_export.php:53 db_tracking.php:105 export.php:387
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:161
-#: libraries/classes/Database/Qbe.php:340
+#: libraries/classes/Database/Qbe.php:341
 #: libraries/classes/Navigation/NavigationTree.php:924
 msgid "No tables found in database."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
@@ -331,11 +331,23 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம் முடக்கப்பட்டுள்ளது. %sஏனென்று அறிக%s."
 
-#: db_qbe.php:132
+#: db_qbe.php:133
 msgid "You have to choose at least one column to display!"
 msgstr "காட்சிப்படுத்த நீங்கள் குறைந்தபட்சம் ஒரு நிரலை தேர்ந்தெடுக்க வேண்டும்!"
 
-#: db_qbe.php:150
+#: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Simulate query"
+msgid "Multi-table query"
+msgstr "வினவலை பாவித்து காண்பி"
+
+#: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
+#, fuzzy
+#| msgid "Query failed"
+msgid "Query by example"
+msgstr "வினவல் தோல்வியடைந்தது"
+
+#: db_qbe.php:168
 #, php-format
 msgid "Switch to %svisual builder%s"
 msgstr "%sகாண்முறை வரைவிக்கு%s மாறுக"
@@ -1330,7 +1342,7 @@ msgstr "வினாக்கள்"
 msgid "Traffic"
 msgstr "போக்குவரத்து"
 
-#: js/messages.php:213 libraries/classes/Menu.php:618
+#: js/messages.php:213 libraries/classes/Menu.php:625
 #: libraries/classes/Server/Status/Monitor.php:264
 #: libraries/classes/Util.php:3969
 msgid "Settings"
@@ -1547,7 +1559,7 @@ msgstr "ஆராயப்படுகிறது…"
 msgid "Explain output"
 msgstr "வெளியீட்டை விளக்குக"
 
-#: js/messages.php:290 libraries/classes/Menu.php:584
+#: js/messages.php:290 libraries/classes/Menu.php:591
 #: libraries/classes/Rte/Events.php:413 libraries/classes/Rte/RteList.php:116
 #: libraries/classes/Server/Status/Processes.php:101
 #: libraries/classes/Tracking.php:162 libraries/classes/Util.php:3965
@@ -1669,8 +1681,8 @@ msgstr ""
 "மீட்டமைக்கப்படுகிறது…"
 
 #: js/messages.php:328 libraries/classes/Config/Forms/User/ImportForm.php:58
-#: libraries/classes/Menu.php:391 libraries/classes/Menu.php:493
-#: libraries/classes/Menu.php:614
+#: libraries/classes/Menu.php:391 libraries/classes/Menu.php:500
+#: libraries/classes/Menu.php:621
 #: libraries/classes/Server/Status/Monitor.php:324
 #: libraries/classes/Util.php:3968 libraries/classes/Util.php:3983
 #: libraries/classes/Util.php:4000 prefs_manage.php:228
@@ -1904,7 +1916,7 @@ msgstr "சேமிக்கபட்ட செயல்கூற்றின�
 #: js/messages.php:401 libraries/classes/Config/Forms/User/ExportForm.php:140
 #: libraries/classes/Display/Results.php:4711
 #: libraries/classes/Display/Results.php:4992 libraries/classes/Menu.php:383
-#: libraries/classes/Menu.php:484 libraries/classes/Menu.php:610
+#: libraries/classes/Menu.php:491 libraries/classes/Menu.php:617
 #: libraries/classes/Rte/RteList.php:168
 #: libraries/classes/Server/Privileges.php:2401
 #: libraries/classes/Server/Privileges.php:2487
@@ -3113,7 +3125,7 @@ msgstr "தயவுசெய்து ஒரு சரியான பக்க
 msgid "Please enter a valid HEX input"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
-#: js/messages.php:982 libraries/classes/Core.php:296
+#: js/messages.php:982 libraries/classes/Core.php:297
 #: libraries/classes/Import.php:112 libraries/classes/InsertEdit.php:1496
 #: libraries/classes/Message.php:191 libraries/classes/Util.php:542
 #: view_operations.php:72
@@ -4356,7 +4368,7 @@ msgid "LaTeX"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:474
-#: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:576
+#: libraries/classes/Config/Descriptions.php:589 libraries/classes/Menu.php:583
 #: libraries/classes/Navigation/NavigationTree.php:1274
 #: libraries/classes/Server/Privileges.php:4542 libraries/classes/Util.php:3963
 #: libraries/config.values.php:104 templates/server/sub_page_header.twig:2
@@ -4486,7 +4498,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:553 libraries/classes/Menu.php:364
-#: libraries/classes/Menu.php:467 libraries/classes/Menu.php:580
+#: libraries/classes/Menu.php:467 libraries/classes/Menu.php:587
 #: libraries/classes/Navigation/Nodes/NodeTable.php:297
 #: libraries/classes/Util.php:3027 libraries/classes/Util.php:3037
 #: libraries/classes/Util.php:3043 libraries/classes/Util.php:3964
@@ -6739,17 +6751,17 @@ msgstr ""
 msgid "Distinct values"
 msgstr "தனித்த மதிப்புகள்"
 
-#: libraries/classes/Core.php:346
+#: libraries/classes/Core.php:347
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/classes/Core.php:841 libraries/mult_submits.inc.php:329
+#: libraries/classes/Core.php:842 libraries/mult_submits.inc.php:329
 #: tbl_operations.php:245 tbl_replace.php:320 templates/preview_sql.twig:3
 msgid "No change"
 msgstr ""
 
-#: libraries/classes/Core.php:1216
+#: libraries/classes/Core.php:1217
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -6758,7 +6770,7 @@ msgstr ""
 "உங்கள் PHP அமைப்பாக்க கோப்பில்  mbstring.func_overload அமைவை இயலசெய்துள்ளீர். "
 "இவ்விருப்பம் PHPMyAdminஉடன் இணக்கமற்றது மேலும் சில தரவுகள் வீணாகலாம்!"
 
-#: libraries/classes/Core.php:1230
+#: libraries/classes/Core.php:1231
 #, fuzzy
 #| msgid ""
 #| "You have enabled mbstring.func_overload in your PHP configuration. This "
@@ -6771,11 +6783,11 @@ msgstr ""
 "உங்கள் PHP அமைப்பாக்க கோப்பில்  mbstring.func_overload அமைவை இயலசெய்துள்ளீர். "
 "இவ்விருப்பம் PHPMyAdminஉடன் இணக்கமற்றது மேலும் சில தரவுகள் வீணாகலாம்!"
 
-#: libraries/classes/Core.php:1281
+#: libraries/classes/Core.php:1282
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Core.php:1288
+#: libraries/classes/Core.php:1289
 msgid "possible exploit"
 msgstr ""
 
@@ -6847,98 +6859,98 @@ msgstr "உள்ளமை உறவுமுறை சேர்க்கப்�
 msgid "Internal relationship has been removed."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
-#: libraries/classes/Database/Qbe.php:455
+#: libraries/classes/Database/Qbe.php:456
 #: templates/table/search/search_and_replace.twig:6
 msgid "Column:"
 msgstr "நெடுவரிசை:"
 
-#: libraries/classes/Database/Qbe.php:501
+#: libraries/classes/Database/Qbe.php:502
 msgid "Alias:"
 msgstr ""
 
-#: libraries/classes/Database/Qbe.php:553
+#: libraries/classes/Database/Qbe.php:554
 msgid "Sort:"
 msgstr "வரிசைப்படுத்து:"
 
-#: libraries/classes/Database/Qbe.php:615
+#: libraries/classes/Database/Qbe.php:616
 #, fuzzy
 #| msgid "Sort:"
 msgid "Sort order:"
 msgstr "வரிசைப்படுத்து:"
 
-#: libraries/classes/Database/Qbe.php:664
+#: libraries/classes/Database/Qbe.php:665
 msgid "Show:"
 msgstr "காண்பி:"
 
-#: libraries/classes/Database/Qbe.php:713
+#: libraries/classes/Database/Qbe.php:714
 msgid "Criteria:"
 msgstr "தேர்வளவை:"
 
-#: libraries/classes/Database/Qbe.php:796
-#: libraries/classes/Database/Qbe.php:828
+#: libraries/classes/Database/Qbe.php:797
+#: libraries/classes/Database/Qbe.php:829
 msgid "Update Query"
 msgstr "வினவலை புதுப்பி"
 
-#: libraries/classes/Database/Qbe.php:811
+#: libraries/classes/Database/Qbe.php:812
 msgid "Use Tables"
 msgstr "அட்டவணைகளை பயன்படுத்துக"
 
-#: libraries/classes/Database/Qbe.php:849
-#: libraries/classes/Database/Qbe.php:960
+#: libraries/classes/Database/Qbe.php:850
+#: libraries/classes/Database/Qbe.php:961
 msgid "Or:"
 msgstr "அல்லது:"
 
-#: libraries/classes/Database/Qbe.php:853
-#: libraries/classes/Database/Qbe.php:945
+#: libraries/classes/Database/Qbe.php:854
+#: libraries/classes/Database/Qbe.php:946
 msgid "And:"
 msgstr "மற்றும்:"
 
-#: libraries/classes/Database/Qbe.php:858
+#: libraries/classes/Database/Qbe.php:859
 msgid "Ins"
 msgstr "துணைநிரல்கள்"
 
-#: libraries/classes/Database/Qbe.php:861
+#: libraries/classes/Database/Qbe.php:862
 msgid "Del"
 msgstr "அழி"
 
-#: libraries/classes/Database/Qbe.php:877
+#: libraries/classes/Database/Qbe.php:878
 msgid "Modify:"
 msgstr "மாற்று:"
 
-#: libraries/classes/Database/Qbe.php:940
+#: libraries/classes/Database/Qbe.php:941
 msgid "Ins:"
 msgstr "செருகுக:"
 
-#: libraries/classes/Database/Qbe.php:955
+#: libraries/classes/Database/Qbe.php:956
 msgid "Del:"
 msgstr "நீக்குக:"
 
-#: libraries/classes/Database/Qbe.php:1822
+#: libraries/classes/Database/Qbe.php:1823
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr "தரவுத்தளம் <b>%s</b>ன் மீது SQL வினவல்:"
 
-#: libraries/classes/Database/Qbe.php:1841
+#: libraries/classes/Database/Qbe.php:1842
 msgid "Submit Query"
 msgstr "வினவலை சமர்ப்பி"
 
-#: libraries/classes/Database/Qbe.php:1855
+#: libraries/classes/Database/Qbe.php:1856
 msgid "Saved bookmarked search:"
 msgstr "சேமித்த புத்தகக்குறியிடப்பட்ட தேடல்:"
 
-#: libraries/classes/Database/Qbe.php:1857
+#: libraries/classes/Database/Qbe.php:1858
 msgid "New bookmark"
 msgstr "புது புத்தகக்குறி"
 
-#: libraries/classes/Database/Qbe.php:1883
+#: libraries/classes/Database/Qbe.php:1884
 msgid "Create bookmark"
 msgstr "புத்தகக்குறி இடுக"
 
-#: libraries/classes/Database/Qbe.php:1886
+#: libraries/classes/Database/Qbe.php:1887
 msgid "Update bookmark"
 msgstr "புத்தகக்குறி புதுப்பிக்க"
 
-#: libraries/classes/Database/Qbe.php:1888
+#: libraries/classes/Database/Qbe.php:1889
 msgid "Delete bookmark"
 msgstr "புத்தகக்குறியை அழிக்க"
 
@@ -7181,7 +7193,7 @@ msgstr "முழுவுரைகள்"
 #: libraries/classes/Util.php:4672 libraries/classes/Util.php:4689
 #: libraries/config.values.php:71 templates/table/search/options.twig:54
 #: templates/database/qbe/sort_select_cell.twig:7
-#: templates/database/multi_table_query/form.twig:48
+#: templates/database/multi_table_query/form.twig:63
 #: templates/server/databases/databases_header.twig:22
 msgid "Descending"
 msgstr "இறங்குவரிசை"
@@ -7193,7 +7205,7 @@ msgstr "இறங்குவரிசை"
 #: libraries/classes/Util.php:4667 libraries/classes/Util.php:4684
 #: libraries/config.values.php:70 templates/table/search/options.twig:54
 #: templates/database/qbe/sort_select_cell.twig:5
-#: templates/database/multi_table_query/form.twig:47
+#: templates/database/multi_table_query/form.twig:62
 #: templates/server/databases/databases_header.twig:22
 msgid "Ascending"
 msgstr "ஏறுவரிசை"
@@ -8003,7 +8015,7 @@ msgstr "தேடு"
 msgid "Insert"
 msgstr "செருகு"
 
-#: libraries/classes/Menu.php:401 libraries/classes/Menu.php:505
+#: libraries/classes/Menu.php:401 libraries/classes/Menu.php:512
 #: libraries/classes/Server/Privileges.php:2567
 #: libraries/classes/Server/Privileges.php:4430 libraries/classes/Util.php:3985
 #: libraries/classes/Util.php:4001 libraries/config.values.php:107
@@ -8013,20 +8025,20 @@ msgid "Privileges"
 msgstr ""
 
 #: libraries/classes/Menu.php:410 libraries/classes/Menu.php:418
-#: libraries/classes/Menu.php:497 libraries/classes/Util.php:3031
+#: libraries/classes/Menu.php:504 libraries/classes/Util.php:3031
 #: libraries/classes/Util.php:3045 libraries/classes/Util.php:3984
 #: libraries/classes/Util.php:4002 libraries/config.values.php:113
 #: view_operations.php:101
 msgid "Operations"
 msgstr "செயல்பாடுகள்"
 
-#: libraries/classes/Menu.php:423 libraries/classes/Menu.php:527
+#: libraries/classes/Menu.php:423 libraries/classes/Menu.php:534
 #: libraries/classes/Relation.php:279 libraries/classes/Util.php:3989
 #: libraries/classes/Util.php:4003
 msgid "Tracking"
 msgstr ""
 
-#: libraries/classes/Menu.php:435 libraries/classes/Menu.php:521
+#: libraries/classes/Menu.php:435 libraries/classes/Menu.php:528
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:579
 #: libraries/classes/Plugins/Export/ExportOdt.php:716
@@ -8039,8 +8051,8 @@ msgstr ""
 msgid "Triggers"
 msgstr ""
 
-#: libraries/classes/Menu.php:474 libraries/classes/Menu.php:481
-#: libraries/classes/Menu.php:488
+#: libraries/classes/Menu.php:474 libraries/classes/Menu.php:488
+#: libraries/classes/Menu.php:495
 msgid "Database seems to be empty!"
 msgstr ""
 
@@ -8048,12 +8060,12 @@ msgstr ""
 msgid "Query"
 msgstr ""
 
-#: libraries/classes/Menu.php:510 libraries/classes/Rte/Words.php:49
+#: libraries/classes/Menu.php:517 libraries/classes/Rte/Words.php:49
 #: libraries/classes/Util.php:3986
 msgid "Routines"
 msgstr ""
 
-#: libraries/classes/Menu.php:515
+#: libraries/classes/Menu.php:522
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:25
 #: libraries/classes/Plugins/Export/ExportSql.php:965
 #: libraries/classes/Plugins/Export/ExportXml.php:106
@@ -8061,27 +8073,27 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: libraries/classes/Menu.php:533 libraries/classes/Util.php:3990
+#: libraries/classes/Menu.php:540 libraries/classes/Util.php:3990
 msgid "Designer"
 msgstr ""
 
-#: libraries/classes/Menu.php:542 libraries/classes/Util.php:3991
+#: libraries/classes/Menu.php:549 libraries/classes/Util.php:3991
 #: templates/database/structure/check_all_tables.twig:32
 msgid "Central columns"
 msgstr "மைய நெடுவரிசைகள்"
 
-#: libraries/classes/Menu.php:600
+#: libraries/classes/Menu.php:607
 #, fuzzy
 #| msgid "User groups"
 msgid "User accounts"
 msgstr "பயனர் குழுக்கள்"
 
-#: libraries/classes/Menu.php:627 libraries/classes/Server/Status/Data.php:121
+#: libraries/classes/Menu.php:634 libraries/classes/Server/Status/Data.php:121
 #: libraries/classes/Util.php:3970 templates/server/sub_page_header.twig:2
 msgid "Binary log"
 msgstr ""
 
-#: libraries/classes/Menu.php:633 libraries/classes/Server/Status/Data.php:126
+#: libraries/classes/Menu.php:640 libraries/classes/Server/Status/Data.php:126
 #: libraries/classes/Util.php:3971
 #: templates/database/structure/table_header.twig:10
 #: templates/server/sub_page_header.twig:2
@@ -8089,22 +8101,22 @@ msgstr ""
 msgid "Replication"
 msgstr "படியெடுத்தல்"
 
-#: libraries/classes/Menu.php:638 libraries/classes/Server/Status/Data.php:193
+#: libraries/classes/Menu.php:645 libraries/classes/Server/Status/Data.php:193
 #: libraries/classes/SqlQueryForm.php:432 libraries/classes/Util.php:3972
 #: libraries/config.values.php:106 templates/server/engines/engine.twig:12
 #: templates/server/engines/engine.twig:16
 msgid "Variables"
 msgstr "மாறிகள்"
 
-#: libraries/classes/Menu.php:642 libraries/classes/Util.php:3973
+#: libraries/classes/Menu.php:649 libraries/classes/Util.php:3973
 msgid "Charsets"
 msgstr "எழுத்துக்கணங்கள்"
 
-#: libraries/classes/Menu.php:646 libraries/classes/Util.php:3975
+#: libraries/classes/Menu.php:653 libraries/classes/Util.php:3975
 msgid "Engines"
 msgstr "செயல்பொறிகள்"
 
-#: libraries/classes/Menu.php:650 libraries/classes/Util.php:3974
+#: libraries/classes/Menu.php:657 libraries/classes/Util.php:3974
 #: templates/server/sub_page_header.twig:2
 msgid "Plugins"
 msgstr ""
@@ -8216,7 +8228,7 @@ msgstr "விவரபார்வைகள்:"
 #: libraries/classes/Navigation/Navigation.php:236
 #: libraries/classes/Tracking.php:164 tbl_change.php:147
 #: templates/database/tracking/tracked_tables.twig:17
-#: templates/database/multi_table_query/form.twig:29
+#: templates/database/multi_table_query/form.twig:44
 msgid "Show"
 msgstr "காண்பி"
 
@@ -13227,7 +13239,7 @@ msgid "Without PHP code"
 msgstr "PHP நிரல் இல்லாமல்"
 
 #: libraries/classes/Util.php:1098
-#: templates/database/multi_table_query/form.twig:161
+#: templates/database/multi_table_query/form.twig:176
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
@@ -13319,7 +13331,7 @@ msgid "Users"
 msgstr "பயனர்கள்"
 
 #: libraries/classes/Util.php:4659
-#: templates/database/multi_table_query/form.twig:46
+#: templates/database/multi_table_query/form.twig:61
 msgid "Sort"
 msgstr "வரிசைப்படுத்து"
 
@@ -13357,7 +13369,7 @@ msgstr "முகவுருக்கள்"
 
 #: libraries/config.values.php:57 libraries/config.values.php:77
 #: libraries/config.values.php:89
-#: templates/database/multi_table_query/form.twig:96
+#: templates/database/multi_table_query/form.twig:111
 msgid "Text"
 msgstr "உரை"
 
@@ -14071,7 +14083,7 @@ msgid "Constraint name"
 msgstr "கட்டுப்பாட்டின் பெயர்"
 
 #: templates/table/relation/foreign_key_row.twig:90
-#: templates/database/multi_table_query/form.twig:143
+#: templates/database/multi_table_query/form.twig:158
 msgid "+ Add column"
 msgstr "+ நெடுவரிசையை சேர்க்க"
 
@@ -15541,69 +15553,69 @@ msgstr ""
 msgid "Update"
 msgstr "புதுப்பிக்கப்பட்டது"
 
-#: templates/database/multi_table_query/form.twig:1
+#: templates/database/multi_table_query/form.twig:16
 msgid "Query window"
 msgstr "வினவல் சாளரம்"
 
-#: templates/database/multi_table_query/form.twig:18
-#: templates/database/multi_table_query/form.twig:106
+#: templates/database/multi_table_query/form.twig:33
+#: templates/database/multi_table_query/form.twig:121
 #, fuzzy
 #| msgid "Select table"
 msgid "select table"
 msgstr "அட்டவணையை தேர்வுசெய்க"
 
-#: templates/database/multi_table_query/form.twig:25
-#: templates/database/multi_table_query/form.twig:114
+#: templates/database/multi_table_query/form.twig:40
+#: templates/database/multi_table_query/form.twig:129
 #, fuzzy
 #| msgid "Select a column."
 msgid "select column"
 msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
 
-#: templates/database/multi_table_query/form.twig:31
+#: templates/database/multi_table_query/form.twig:46
 #, fuzzy
 #| msgid "Tables"
 msgid "Table alias"
 msgstr "அட்டவணைகள்"
 
-#: templates/database/multi_table_query/form.twig:32
+#: templates/database/multi_table_query/form.twig:47
 #, fuzzy
 #| msgid "Column selector"
 msgid "Column alias"
 msgstr "நிரல்வரிசை தெரிவு"
 
-#: templates/database/multi_table_query/form.twig:35
+#: templates/database/multi_table_query/form.twig:50
 msgid "Use this column in criteria"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:38
+#: templates/database/multi_table_query/form.twig:53
 #, fuzzy
 #| msgid "Criteria:"
 msgid "criteria"
 msgstr "தேர்வளவை:"
 
-#: templates/database/multi_table_query/form.twig:52
+#: templates/database/multi_table_query/form.twig:67
 #, fuzzy
 #| msgid "Add %s"
 msgid "Add as"
 msgstr "%sஐ சேர்க்க"
 
-#: templates/database/multi_table_query/form.twig:97
+#: templates/database/multi_table_query/form.twig:112
 #, fuzzy
 #| msgid "Move column"
 msgid "Another column"
 msgstr "நிரல்வரிசையை நகர்த்து"
 
-#: templates/database/multi_table_query/form.twig:125
+#: templates/database/multi_table_query/form.twig:140
 msgid "Enter criteria as free text"
 msgstr ""
 
-#: templates/database/multi_table_query/form.twig:133
+#: templates/database/multi_table_query/form.twig:148
 #, fuzzy
 #| msgid "Remove redundant columns"
 msgid "Remove this column"
 msgstr "மிகை நிரல்வரிசைகளை நீக்கவும்"
 
-#: templates/database/multi_table_query/form.twig:160
+#: templates/database/multi_table_query/form.twig:175
 #, fuzzy
 #| msgid "Update Query"
 msgid "Update query"
