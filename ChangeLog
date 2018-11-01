@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #14636 Move operation causes SELECT * FROM `undefined`
 - issue #14630 Enum '0' produces incorrect search SQL
 - issue #14223 Fix TypeError in database designer
+- issue #13621 QBE selenium tests broken since merge of #13342
 
 4.8.3 (2018-08-22)
 - issue #14314 Error when naming a database '0'

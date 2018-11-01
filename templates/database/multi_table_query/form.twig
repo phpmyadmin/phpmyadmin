@@ -1,3 +1,18 @@
+{% include 'secondary_tabs.twig' with {
+    'url_params': {
+        'db': db
+    },
+    'sub_tabs': [
+        {
+            'link': 'db_multi_table_query.php',
+            'text': 'Multi-table query'|trans
+        },
+        {
+            'link': 'db_qbe.php',
+            'text': 'Query by example'|trans
+        }
+    ]
+} only %}
 {{ Util_getDivForSliderEffect('query_div', 'Query window'|trans, 'open') }}
 <form action="" id="query_form">
     <input type="hidden" id="db_name" value="{{ db }}">
