@@ -2997,7 +2997,7 @@ the files.
     :default: ``''``
 
     The name of the directory where :term:`SQL` files have been uploaded by
-    other means than phpMyAdmin (for example, ftp). Those files are available
+    other means than phpMyAdmin (for example, FTP). Those files are available
     under a drop-down box when you click the database or table name, then the
     Import tab.
 
