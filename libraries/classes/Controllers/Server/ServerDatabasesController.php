@@ -365,7 +365,7 @@ class ServerDatabasesController extends Controller
             'disp_name' => __('Collation'),
             'description_function' => [Charsets::class, 'getCollationDescr'],
             'format'    => 'string',
-            'footer'    => $this->dbi->getServerCollation(),
+            'footer'    => '',
         ];
         $column_order['SCHEMA_TABLES'] = [
             'disp_name' => __('Tables'),
