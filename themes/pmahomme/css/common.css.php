@@ -990,6 +990,10 @@ form.login select {
     color: gray;
 }
 
+.max_height_400 {
+    max-height: 400px;
+}
+
 .pma_sliding_message{
     display: inline-block;
 }
