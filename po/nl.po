@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2018-02-22 22:15+0000\n"
-"Last-Translator: Steven WdV <stevenwdv@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"nl/>\n"
+"PO-Revision-Date: 2018-11-03 09:24+0000\n"
+"Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/4-8/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -336,16 +336,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Er moet ten minste één weer te geven kolom worden gekozen!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Query simuleren"
+msgstr "Multitabel query"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Query mislukt"
+msgstr "Query van voorbeeld"
 
 #: db_qbe.php:168
 #, php-format
@@ -368,12 +364,12 @@ msgstr "Tracking-gegevens succesvol verwijderd."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"Versie %1$s is aangemaakt voor de geselecteerde tabellen, waarvoor tracking "
+"Versie %1$s is aangemaakt voor de geselecteerde tabellen, waarvoor traceren "
 "is ingeschakeld."
 
 #: db_tracking.php:95
 msgid "No tables selected."
-msgstr "Er zijn geen tabellen geselecteerd."
+msgstr "Geen tabellen geselecteerd."
 
 #: db_tracking.php:153
 msgid "Database Log"
@@ -955,6 +951,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"U probeert het aantal rijen te verminderen maar u hebt al gegevens opgenomen "
+"in deze rijen, welke verloren zullen gaan. Wilt u toch doorgaan?"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -2317,7 +2315,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "waarde/subQuery is leeg"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -10203,6 +10201,8 @@ msgid ""
 "The gd PHP extension was not found. The QRcode can not be displayed without "
 "the gd PHP extension."
 msgstr ""
+"De gd PHP extensie is niet aanwezig. De QRcode kan niet worden weergegeven "
+"zonder gd PHP extensie."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 msgid "Authentication Application (2FA)"
@@ -14563,24 +14563,20 @@ msgstr ""
 "apparaat en geef de gegenereerde authentificatie code in ."
 
 #: templates/login/twofactor/application_configure.twig:11
-#, fuzzy
-#| msgid ""
-#| "Please scan following QR code into the two-factor authentication app on "
-#| "your device and enter authentication code it generates."
 msgid ""
 "Please enter following secret/key into the two-factor authentication app on "
 "your device and enter authentication code it generates."
 msgstr ""
-"Scan a.u.b. de volgende QR code in de tweeweg authentificatie app op uw "
-"apparaat en geef de gegenereerde authentificatie code in ."
+"Geef a.u.b. volgende geheim/sleutel in op de tweeweg authentificatie app op "
+"uw apparaat en geef de gegenereerde authentificatie code in ."
 
 #: templates/login/twofactor/application_configure.twig:14
 msgid "OTP url:"
-msgstr ""
+msgstr "OTP link:"
 
 #: templates/login/twofactor/application_configure.twig:18
 msgid "Secret/key:"
-msgstr ""
+msgstr "Geheim/sleutel:"
 
 #: templates/login/twofactor/application_configure.twig:21
 #: templates/login/twofactor/application.twig:2
