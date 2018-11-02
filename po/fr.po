@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-10-31 17:53+0000\n"
+"PO-Revision-Date: 2018-11-02 01:00+0000\n"
 "Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "fr/>\n"
@@ -331,16 +331,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "ll faut choisir au moins une colonne à afficher !"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simuler la requête"
+msgstr "Requête à tables multiples"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "La requête a échoué"
+msgstr "Requête par exemple"
 
 #: db_qbe.php:171
 #, php-format
@@ -4965,16 +4961,14 @@ msgid "Whether to show events under database in the navigation tree"
 msgstr "Pour afficher les événements dans l'arborescence de navigation"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Copie de la base de données"
+msgstr "Expansion d'une seule base de données"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "Pour afficher les événements dans l'arborescence de navigation"
+msgstr ""
+"S'il faut développer automatiquement une base de données unique dans "
+"l'arborescence de navigation."
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -9761,23 +9755,17 @@ msgstr ""
 "l'importation (ajouter ON DUPLICATE KEY UPDATE)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
-#, fuzzy
-#| msgid "Name of the new table(optional): "
 msgid "Name of the new table (optional):"
-msgstr "Nom de la nouvelle table (facultatif) : "
+msgstr "Nom de la nouvelle table (facultatif) :"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
-#, fuzzy
-#| msgid "Name of the new database(optional): "
 msgid "Name of the new database (optional):"
-msgstr "Nom de la nouvelle base de données (facultatif) : "
+msgstr "Nom de la nouvelle base de données (facultatif) :"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
-#, fuzzy
-#| msgid "Import these many number of rows(optional): "
 msgid "Import these many number of rows (optional):"
-msgstr "Importer ce nombre de lignes (facultatif) : "
+msgstr "Importer ce nombre de lignes (facultatif) :"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
@@ -9800,10 +9788,8 @@ msgstr ""
 "de guillemets."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Nom des colonnes : "
+msgstr "Nom des colonnes :"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-10-31 17:53+0000\n"
+"PO-Revision-Date: 2018-11-02 01:00+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
@@ -330,16 +330,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Za prikaz morate izbrati morate vsaj en stolpec!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simuliraj poizvedbo"
+msgstr "Večtabelna poizvedba"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Poizvedba je spodletela"
+msgstr "Poizvedba s primerom"
 
 #: db_qbe.php:171
 #, php-format
@@ -4917,17 +4913,13 @@ msgstr ""
 "Ali naj bodo pod zbirko podatkov v navigacijskem drevesu prikazani dogodki"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Kopiranje zbirke podatkov"
+msgstr "Razširi samsko zbirko podatkov"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
-"Ali naj bodo pod zbirko podatkov v navigacijskem drevesu prikazani dogodki"
+"Ali naj samsko zbirko podatkov samodejno razširimo v navigacijskem drevesu."
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -9633,23 +9625,17 @@ msgstr ""
 "DUPLICATE KEY UPDATE)"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
-#, fuzzy
-#| msgid "Name of the new table(optional): "
 msgid "Name of the new table (optional):"
-msgstr "Ime nove tabele (izbirno): "
+msgstr "Ime nove tabele (izbirno):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
-#, fuzzy
-#| msgid "Name of the new database(optional): "
 msgid "Name of the new database (optional):"
-msgstr "Ime nove zbirke podatkov (izbirno): "
+msgstr "Ime nove zbirke podatkov (izbirno):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
-#, fuzzy
-#| msgid "Import these many number of rows(optional): "
 msgid "Import these many number of rows (optional):"
-msgstr "Uvozi toliko vrstic (izbirno): "
+msgstr "Uvozi toliko vrstic (izbirno):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
@@ -9671,10 +9657,8 @@ msgstr ""
 "ločena z vejicami in ne smejo biti obdana z narekovaji."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Imena stolpcev: "
+msgstr "Imena stolpcev:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173

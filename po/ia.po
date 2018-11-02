@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-10-31 22:21+0000\n"
+"PO-Revision-Date: 2018-11-02 01:00+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ia/>\n"
@@ -336,16 +336,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Tu debe seliger al minus un columna de monstrar!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simula query"
+msgstr "Query de Multi-tabella"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Query falleva"
+msgstr "Query per exemplo"
 
 #: db_qbe.php:171
 #, php-format
@@ -4961,16 +4957,13 @@ msgid "Whether to show events under database in the navigation tree"
 msgstr "Si monstrar eventos sub base de datos in le arbore de navigation"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Copiante base de datos"
+msgstr "Expande singule base de datos"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "Si monstrar eventos sub base de datos in le arbore de navigation"
+msgstr ""
+"Si expander singule base de datos in le arbore de navigation automaticamente."
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -9783,10 +9776,8 @@ msgstr ""
 "columna debe esser separate per virgulas e non includite in citationes."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Nomines de columna: "
+msgstr "Nomines de columna:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173
