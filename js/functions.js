@@ -4524,6 +4524,7 @@ AJAX.registerOnload('functions.js', function () {
         );
         $('body').append(form);
         form.submit();
+        sessionStorage.clear();
         return false;
     });
     /**
