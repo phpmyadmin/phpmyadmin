@@ -267,7 +267,7 @@ class ServerDatabasesControllerTest extends PmaTestCase
                         'getCollationDescr'
                     ],
                     'format'    => 'string',
-                    'footer'    => 'utf8_general_ci'
+                    'footer'    => ''
                 ],
                 'SCHEMA_TABLES' => [
                     'disp_name' => __('Tables'),
