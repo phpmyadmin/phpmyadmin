@@ -3797,7 +3797,7 @@ function indexEditorDialog (url, title, callback_success, callback_failure) {
         $(this).dialog('close');
     };
     var $msgbox = PMA_ajaxShowMessage();
-    $.get('tbl_indexes.php', url, function (data) {
+    $.post('tbl_indexes.php', url, function (data) {
         if (typeof data !== 'undefined' && data.success === false) {
             // in the case of an error, show the error message returned.
             PMA_ajaxShowMessage(data.error, false);
