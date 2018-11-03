@@ -1911,7 +1911,7 @@ class Qbe
      *
      * @return int Previous number of columns
      */
-    private function _initializeCriteriasCount()
+    private function _initializeCriteriasCount(): int
     {
         // sets column count
         $criteriaColumnCount = Core::ifSetOr(
@@ -1937,7 +1937,7 @@ class Qbe
             max($rows + $criteriaRowAdd, 0)
         );
 
-        return $criteriaColumnCount;
+        return (int) $criteriaColumnCount;
     }
 
     /**
