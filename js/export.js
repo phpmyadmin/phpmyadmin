@@ -383,15 +383,19 @@ function toggle_structure_data_opts () {
     var dataDiv = '#' + pluginName + '_data';
     var structureDiv = '#' + pluginName + '_structure';
     var show = $('input[type=\'radio\'][name=\'' + radioFormName + '\']:checked').val();
+    var rowsDiv = '#rows';
     if (show === 'data') {
         $(dataDiv).slideDown('slow');
         $(structureDiv).slideUp('slow');
+        $(rowsDiv).show();
     } else {
         $(structureDiv).slideDown('slow');
         if (show === 'structure') {
             $(dataDiv).slideUp('slow');
+            $(rowsDiv).hide();
         } else {
             $(dataDiv).slideDown('slow');
+            $(rowsDiv).show();
         }
     }
 }
@@ -932,6 +936,8 @@ AJAX.registerOnload('export.js', function () {
             });
         }
     });
+
+    
     $('#table_alias_select').on('change', function () {
         aliasToggleRow($(this));
         var params = {
