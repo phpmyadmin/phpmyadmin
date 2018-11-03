@@ -2155,6 +2155,7 @@ select.invalid_value,
 
     <?php echo $theme->getCssGradient('ffffff', 'cccccc'); ?>
     cursor: pointer;
+    float:right;
 }
 
 .format_specific_options h3 {
