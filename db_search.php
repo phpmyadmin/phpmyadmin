@@ -54,7 +54,7 @@ if (! $response->isAjax()) {
 }
 
 // Main search form has been submitted, get results
-if (isset($_REQUEST['submit_search'])) {
+if (isset($_POST['submit_search'])) {
     $response->addHTML($db_search->getSearchResults());
 }
 
