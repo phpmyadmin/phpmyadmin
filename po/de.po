@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-11-03 02:01+0000\n"
+"PO-Revision-Date: 2018-11-03 20:53+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -331,16 +331,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Bitte wählen Sie mindestens eine anzuzeigende Spalte!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Abfrage simulieren"
+msgstr "Multi-Table-Abfrage"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Abfrage fehlgeschlagen"
+msgstr "Abfrage anhand eines Beispiels"
 
 #: db_qbe.php:171
 #, php-format
@@ -1571,16 +1567,12 @@ msgid "Please select the file you want to import."
 msgstr "Bitte wählen Sie die Datei, die Sie importieren möchten."
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Bitte geben Sie einen gültigen Seitennamen ein"
+msgstr "Bitte geben Sie einen gültigen Tabellennamen ein."
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Bitte geben Sie einen gültigen Seitennamen ein"
+msgstr "Bitte geben Sie einen gültigen Datenbanknamen ein."
 
 #: js/messages.php:336
 msgid "No files available on server for import!"
@@ -4144,10 +4136,9 @@ msgstr "Definition des aktuellen Benutzers ausschließen"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "%s Wert"
+msgstr "%s Ansicht"
 
 #: libraries/classes/Config/Descriptions.php:257
 msgid "Use ignore inserts"
@@ -4982,17 +4973,14 @@ msgstr ""
 "Ob Events unterhalb der Datenbanken im Navigationsbaum angezeigt werden"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Datenbank wird kopiert"
+msgstr "Eine einzelne Datenbank erweitern"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
-"Ob Events unterhalb der Datenbanken im Navigationsbaum angezeigt werden"
+"Ob eine einzelne Datenbank im Navigationsbaum automatisch erweitert werden "
+"soll."
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -9814,10 +9802,8 @@ msgstr ""
 "Anführungsstrichen eingeschlossen sein."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Spaltennamen: "
+msgstr "Spaltennamen:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173
