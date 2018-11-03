@@ -47,10 +47,12 @@ var processList = {
      */
     killProcessHandler: function (event) {
         event.preventDefault();
-        var url = $(this).attr('href');
+        var argSep = PMA_commonParams.get('arg_separator');
+        var params = $(this).getPostData();
+        params += argSep + 'ajax_request=1' + argSep + 'server=' + PMA_commonParams.get('server');
         // Get row element of the process to be killed.
         var $tr = $(this).closest('tr');
-        $.getJSON(url, function (data) {
+        $.post($(this).attr('href'), params, function (data) {
             // Check if process was killed or not.
             if (data.hasOwnProperty('success') && data.success) {
                 // remove the row of killed process.
@@ -66,7 +68,7 @@ var processList = {
                 // Show process error message
                 PMA_ajaxShowMessage(data.error, false);
             }
-        });
+        }, 'json');
     },
 
     /**
@@ -86,7 +88,7 @@ var processList = {
         if (processList.autoRefresh) {
             var interval = parseInt(processList.refreshInterval, 10) * 1000;
             var urlParams = processList.getUrlParams();
-            processList.refreshRequest = $.get(processList.refreshUrl,
+            processList.refreshRequest = $.post(processList.refreshUrl,
                 urlParams,
                 function (data) {
                     if (data.hasOwnProperty('success') && data.success) {
