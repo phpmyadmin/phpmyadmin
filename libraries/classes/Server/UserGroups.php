@@ -110,31 +110,34 @@ class UserGroups
                 $html_output .= '<td>' . self::getAllowedTabNames($tabs, 'table') . '</td>';
 
                 $html_output .= '<td>';
-                $html_output .= '<a class="" href="server_user_groups.php'
+                $html_output .= '<a class="" href="server_user_groups.php" data-post="'
                     . Url::getCommon(
                         array(
                             'viewUsers' => 1, 'userGroup' => $groupName
-                        )
+                        ),
+                        ''
                     )
                     . '">'
                     . Util::getIcon('b_usrlist', __('View users'))
                     . '</a>';
                 $html_output .= '&nbsp;&nbsp;';
-                $html_output .= '<a class="" href="server_user_groups.php'
+                $html_output .= '<a class="" href="server_user_groups.php" data-post="'
                     . Url::getCommon(
                         array(
                             'editUserGroup' => 1, 'userGroup' => $groupName
-                        )
+                        ),
+                        ''
                     )
                     . '">'
                     . Util::getIcon('b_edit', __('Edit')) . '</a>';
                 $html_output .= '&nbsp;&nbsp;';
                 $html_output .= '<a class="deleteUserGroup ajax"'
-                    . ' href="server_user_groups.php'
+                    . ' href="server_user_groups.php" data-post="'
                     . Url::getCommon(
                         array(
                             'deleteUserGroup' => 1, 'userGroup' => $groupName
-                        )
+                        ),
+                        ''
                     )
                     . '">'
                     . Util::getIcon('b_drop', __('Delete')) . '</a>';
@@ -364,7 +367,7 @@ class UserGroups
                     $sql_query .= ", ";
                 }
                 $tabName = $tabGroupName . '_' . $tab;
-                $allowed = isset($_REQUEST[$tabName]) && $_REQUEST[$tabName] == 'Y';
+                $allowed = isset($_POST[$tabName]) && $_POST[$tabName] == 'Y';
                 $sql_query .= "('" . $GLOBALS['dbi']->escapeString($userGroup) . "', '" . $tabName . "', '"
                     . ($allowed ? "Y" : "N") . "')";
                 $first = false;
