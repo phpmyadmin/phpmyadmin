@@ -18,15 +18,15 @@ require_once 'libraries/replication.inc.php';
 /**
  * flush status variables if requested
  */
-if (isset($_REQUEST['flush'])) {
+if (isset($_POST['flush'])) {
     $_flush_commands = array(
         'STATUS',
         'TABLES',
         'QUERY CACHE',
     );
 
-    if (in_array($_REQUEST['flush'], $_flush_commands)) {
-        $GLOBALS['dbi']->query('FLUSH ' . $_REQUEST['flush'] . ';');
+    if (in_array($_POST['flush'], $_flush_commands)) {
+        $GLOBALS['dbi']->query('FLUSH ' . $_POST['flush'] . ';');
     }
     unset($_flush_commands);
 }
