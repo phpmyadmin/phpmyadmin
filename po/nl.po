@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-05-07 07:14+0000\n"
+"PO-Revision-Date: 2018-11-03 02:01+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -330,16 +330,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Er moet ten minste één weer te geven kolom worden gekozen!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Query simuleren"
+msgstr "Multitabel query"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Query mislukt"
+msgstr "Query van voorbeeld"
 
 #: db_qbe.php:171
 #, php-format
@@ -362,12 +358,12 @@ msgstr "Tracking-gegevens succesvol verwijderd."
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
-"Versie %1$s is aangemaakt voor de geselecteerde tabellen, waarvoor tracking "
+"Versie %1$s is aangemaakt voor de geselecteerde tabellen, waarvoor traceren "
 "is ingeschakeld."
 
 #: db_tracking.php:91
 msgid "No tables selected."
-msgstr "Er zijn geen tabellen geselecteerd."
+msgstr "Geen tabellen geselecteerd."
 
 #: db_tracking.php:125
 msgid "Database Log"
@@ -675,6 +671,10 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"Uw server werkt met standaard waardes voor de administrator (controluser) en "
+"wachtwoord (controlpass) en is kwetsbaar voor indringers;  u moet echt dit "
+"beveiligingsrisico verhelpen door het wachtwoord voor administrator 'pma' te "
+"wijzigen."
 
 #: index.php:576
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -1554,16 +1554,12 @@ msgid "Please select the file you want to import."
 msgstr "Selecteer het bestand dat u wil importeren."
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Gelieve een geldige paginanaam in te geven"
+msgstr "Geef aub een geldige tabelnaam in."
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Gelieve een geldige paginanaam in te geven"
+msgstr "Geef aub een geldige tabelnaam in."
 
 #: js/messages.php:336
 msgid "No files available on server for import!"
@@ -4104,14 +4100,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:255
 #: libraries/classes/Plugins/Export/ExportSql.php:317
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Sluit definitie van huidige gebruiker uit"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "%s waarde"
+msgstr "%s view"
 
 #: libraries/classes/Config/Descriptions.php:257
 msgid "Use ignore inserts"
@@ -4522,11 +4517,11 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:390
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "Schakel importeren door slepen in"
 
 #: libraries/classes/Config/Descriptions.php:391
 msgid "Uncheck the checkbox to disable drag and drop import"
-msgstr ""
+msgstr "Vink uit om importeren door slepen uit te schakelen"
 
 #: libraries/classes/Config/Descriptions.php:392
 msgid "Partial import: allow interrupt"
@@ -4937,16 +4932,13 @@ msgid "Whether to show events under database in the navigation tree"
 msgstr "Of gebeurtenissen getoond worden onder database in de navigatieboom"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Database kopiëren"
+msgstr "Enkelvoudige database uitbreiden"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "Of gebeurtenissen getoond worden onder database in de navigatieboom"
+msgstr ""
+"Of enkelvoudige database uitbreiden in de navigatieboom automatisch gebeurt."
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6853,6 +6845,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"De ini_get en/of ini_set functies zijn uitgeschakeld in php.ini. phpMyAdmin "
+"heeft deze functies nodig!"
 
 #: libraries/classes/Core.php:1297
 msgid "GLOBALS overwrite attempt"
@@ -9716,16 +9710,16 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "Naam van de nieuwe tabel (optioneel):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "Naam van de nieuwe database (optioneel):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "Importeer dit aantal rijen (optioneel):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
@@ -9748,10 +9742,8 @@ msgstr ""
 "zijn van aanhalingstekens."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Kolomnamen: "
+msgstr "Kolomnamen:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173
@@ -14165,10 +14157,8 @@ msgid "No Privileges"
 msgstr "Geen rechten"
 
 #: server_privileges.php:156
-#, fuzzy
-#| msgid "You do not have privileges to manipulate with the users!"
 msgid "You do not have the privileges to administrate the users!"
-msgstr "U heeft niet voldoende rechten om de gebruikers te wijzigen!"
+msgstr "U heeft niet voldoende rechten om de gebruikers te administreren!"
 
 #: server_privileges.php:170
 msgid ""
@@ -14809,10 +14799,8 @@ msgid "Attribute"
 msgstr "Attribuut"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "De centrale lijst met kolommen voor de huidige database is leeg."
+msgstr "De centrale lijst met kolommen voor de huidige database is leeg"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:416
@@ -15045,8 +15033,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Gebruik OpenStreetMaps als basislayer"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -15063,10 +15049,9 @@ msgstr "Punt:"
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Punt %d"
+msgstr "Punt %d:"
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
@@ -15989,18 +15974,13 @@ msgid "Secret/key:"
 msgstr "Geheim/sleutel:"
 
 #: templates/login/header.twig:15
-#, fuzzy
-#| msgid ""
-#| "There is mismatch between HTTPS indicated on the server and client. This "
-#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
-#| "server configuration to indicate HTTPS properly."
 msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
 "Er is een verschil tussen HTTPS aanduiding op de server en op de cliënt. Dit "
-"kan leiden tot een niet werkende phpAdmin of tot een beveiligingsrisico. "
+"kan leiden tot een niet werkende phpMyAdmin of tot een beveiligingsrisico. "
 "Herstel aub uw serverconfiguratie zodat HTTPS correct wordt aangeduid."
 
 #: templates/server/privileges/delete_user_fieldset.twig:3
