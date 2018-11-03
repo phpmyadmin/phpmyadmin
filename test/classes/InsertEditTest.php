@@ -62,6 +62,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['cfg']['enable_drag_drop_import'] = true;
         $GLOBALS['PMA_Config'] = new Config();
 
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -2914,7 +2915,6 @@ class InsertEditTest extends TestCase
     public function testVerifyWhetherValueCanBeTruncatedAndAppendExtraData()
     {
         $extra_data = ['isNeedToRecheck' => true];
-        $meta = new stdClass();
         $_REQUEST['where_clause'][0] = 1;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -2925,6 +2925,7 @@ class InsertEditTest extends TestCase
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
+        $meta = new stdClass();
         $meta->type = 'int';
         $dbi->expects($this->at(1))
             ->method('getFieldsMeta')
@@ -2941,7 +2942,9 @@ class InsertEditTest extends TestCase
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
+        $meta = new stdClass();
         $meta->type = 'int';
+        $meta->flags = '';
         $dbi->expects($this->at(5))
             ->method('getFieldsMeta')
             ->will($this->returnValue([$meta]));
@@ -2957,6 +2960,7 @@ class InsertEditTest extends TestCase
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
+        $meta = new stdClass();
         $meta->type = 'timestamp';
         $dbi->expects($this->at(9))
             ->method('getFieldsMeta')

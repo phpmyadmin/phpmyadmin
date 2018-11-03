@@ -778,7 +778,7 @@ class UtilTest extends PmaTestCase
     {
         $result = Util::formatByteDown($a, $b, $c);
         $result[0] = trim($result[0]);
-        $this->assertEquals($e, $result);
+        $this->assertSame($e, $result);
     }
 
     /**

@@ -1314,8 +1314,8 @@ class Util
             __('EiB')
         ];
 
-        $dh   = pow(10, $comma);
-        $li   = pow(10, $limes);
+        $dh = pow(10, $comma);
+        $li = pow(10, $limes);
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex -= 3) {
@@ -1332,7 +1332,7 @@ class Util
             // if the unit is not bytes (as represented in current language)
             // reformat with max length of 5
             // 4th parameter=true means do not reformat if value < 1
-            $return_value = self::formatNumber($value, 5, $comma, true);
+            $return_value = self::formatNumber($value, 5, $comma, true, false);
         } else {
             // do not reformat, just handle the locale
             $return_value = self::formatNumber($value, 0);
