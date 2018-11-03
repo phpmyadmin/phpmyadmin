@@ -36,8 +36,8 @@ class TableRelationControllerTest extends PmaTestCase
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         //$_SESSION
 
-        $_REQUEST['foreignDb'] = 'db';
-        $_REQUEST['foreignTable'] = 'table';
+        $_POST['foreignDb'] = 'db';
+        $_POST['foreignTable'] = 'table';
 
         $GLOBALS['dblist'] = new DataBasePMAMockForTblRelation();
         $GLOBALS['dblist']->databases = new DataBaseMockForTblRelation();
@@ -202,7 +202,7 @@ class TableRelationControllerTest extends PmaTestCase
             array('tbl_storage_engine' => 'INNODB')
         );
 
-        $_REQUEST['foreign'] = 'true';
+        $_POST['foreign'] = 'true';
         $ctrl->getDropdownValueForDbAction();
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
@@ -248,7 +248,7 @@ class TableRelationControllerTest extends PmaTestCase
             array('tbl_storage_engine' => 'INNODB',)
         );
 
-        $_REQUEST['foreign'] = 'false';
+        $_POST['foreign'] = 'false';
         $ctrl->getDropdownValueForDbAction();
         $json = $this->_response->getJSONResult();
         $this->assertEquals(
