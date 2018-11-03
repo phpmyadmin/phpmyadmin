@@ -1,7 +1,7 @@
 {
     "name": "phpmyadmin/phpmyadmin",
     "type": "project",
-    "description": "MySQL web administration tool",
+    "description": "A web interface for MySQL and MariaDB",
     "keywords": ["phpmyadmin","mysql","web"],
     "homepage": "https://www.phpmyadmin.net/",
     "support": {
