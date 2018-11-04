@@ -8,16 +8,18 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Selenium;
+namespace PhpMyAdmin\Tests\Selenium\Database;
+
+use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * DbTriggersTest class
+ * TriggersTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class DbTriggersTest extends TestBase
+class TriggersTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

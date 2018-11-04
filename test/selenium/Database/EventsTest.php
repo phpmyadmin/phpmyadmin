@@ -8,16 +8,18 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Selenium;
+namespace PhpMyAdmin\Tests\Selenium\Database;
+
+use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * DbEventsTest class
+ * EventsTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class DbEventsTest extends TestBase
+class EventsTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

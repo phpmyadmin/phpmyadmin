@@ -8,7 +8,9 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Selenium;
+namespace PhpMyAdmin\Tests\Selenium\Database;
+
+use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
  * QueryByExampleTest class
@@ -19,7 +21,6 @@ namespace PhpMyAdmin\Tests\Selenium;
  */
 class QueryByExampleTest extends TestBase
 {
-
     /**
      * Setup the browser environment to run the selenium test case
      *

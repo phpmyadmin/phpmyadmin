@@ -8,16 +8,18 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Selenium;
+namespace PhpMyAdmin\Tests\Selenium\Database;
+
+use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * DbProceduresTest class
+ * ProceduresTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class DbProceduresTest extends TestBase
+class ProceduresTest extends TestBase
 {
     /**
      * The sql_mode before tests

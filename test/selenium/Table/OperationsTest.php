@@ -8,16 +8,18 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Selenium;
+namespace PhpMyAdmin\Tests\Selenium\Table;
+
+use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * TableOperationsTest class
+ * OperationsTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class TableOperationsTest extends TestBase
+class OperationsTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

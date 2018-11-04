@@ -8,18 +8,19 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Selenium;
+namespace PhpMyAdmin\Tests\Selenium\Table;
 
 use Facebook\WebDriver\WebDriverKeys;
+use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * TableBrowseTest class
+ * BrowseTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class TableBrowseTest extends TestBase
+class BrowseTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case

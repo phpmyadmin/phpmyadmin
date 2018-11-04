@@ -8,16 +8,18 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Selenium;
+namespace PhpMyAdmin\Tests\Selenium\Table;
+
+use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * TableCreateTest class
+ * CreateTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class TableCreateTest extends TestBase
+class CreateTest extends TestBase
 {
     /**
      * @return void

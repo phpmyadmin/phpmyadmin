@@ -8,16 +8,18 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Selenium;
+namespace PhpMyAdmin\Tests\Selenium\Table;
+
+use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * TableInsertTest class
+ * InsertTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class TableInsertTest extends TestBase
+class InsertTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium t

@@ -8,16 +8,18 @@
  */
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests\Selenium;
+namespace PhpMyAdmin\Tests\Selenium\Database;
+
+use PhpMyAdmin\Tests\Selenium\TestBase;
 
 /**
- * DbStructureTest class
+ * StructureTest class
  *
  * @package    PhpMyAdmin-test
  * @subpackage Selenium
  * @group      selenium
  */
-class DbStructureTest extends TestBase
+class StructureTest extends TestBase
 {
     /**
      * Setup the browser environment to run the selenium test case
