@@ -1,3 +1,0 @@
-#!/bin/sh
-
-composer install --no-interaction

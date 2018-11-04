@@ -1,3 +1,0 @@
-#!/bin/sh
-set -e
-composer global require "sami/sami:^4.0"
