@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - issue #14594 Database "Search" selects all tables by default
 - issue #12158 Auto expand the single database
 - issue #13067 Inconsistency with submit buttons
+- issue #14683 Improper message in Show Hidden Navigation Tree Items
 
 4.8.4 (not yet released)
 - issue #14452 Remove hash param in edit query URL
