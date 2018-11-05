@@ -569,6 +569,8 @@ $(function () {
     $(document).on('click', 'a.unhideNavItem.ajax', function (event) {
         event.preventDefault();
         var $tr = $(this).parents('tr');
+        var $hidden_table_count = $tr.parents('tbody').children().length;
+        var $hide_dialog_box = $tr.closest('div.ui-dialog');
         var $msg = PMA_ajaxShowMessage();
         $.ajax({
             type: 'POST',
@@ -580,6 +582,9 @@ $(function () {
                 PMA_ajaxRemoveMessage($msg);
                 if (typeof data !== 'undefined' && data.success === true) {
                     $tr.remove();
+                    if ($hidden_table_count === 1) {
+                        $hide_dialog_box.remove();
+                    }
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error);
