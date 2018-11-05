@@ -538,7 +538,9 @@ class DbiMysqli implements DbiExtension
      */
     public function fieldFlags($result, $i)
     {
-        if ($i >= $this->numFields($result)) return false;
+        if ($i >= $this->numFields($result)) {
+            return false;
+        }
         $fieldDefinition = $result->fetch_field_direct($i);
         $type = $fieldDefinition->type;
         $charsetNumber = $fieldDefinition->charsetnr;
