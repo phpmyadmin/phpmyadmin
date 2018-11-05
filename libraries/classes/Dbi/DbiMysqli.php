@@ -498,7 +498,9 @@ class DbiMysqli implements DbiExtension
      */
     public function fieldLen($result, $i)
     {
-        if ($i >= $this->numFields($result)) return false;
+        if ($i >= $this->numFields($result)) {
+            return false;
+        }
         $fieldDefinition = $result->fetch_field_direct($i);
         if ($fieldDefinition !== false) {
             return $fieldDefinition->length;
