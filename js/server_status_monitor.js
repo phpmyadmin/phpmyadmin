@@ -1155,9 +1155,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
 
         var tempTooltipContentEditor = function (str, seriesIndex, pointIndex, plot) {
             var j;
-            // TODO: move style to theme CSS
-            var tooltipHtml = '<div style="font-size:12px;background-color:#FFFFFF;' +
-                'opacity:0.95;filter:alpha(opacity=95);padding:5px;">';
+            var tooltipHtml = '<div class="tooltipHtml">';
             // x value i.e. time
             var timeValue = str.split(',')[0];
             var seriesValue;
@@ -1236,7 +1234,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             if ($('#selection_box').length) {
                 $('#selection_box').remove();
             }
-            var selectionBox = $('<div id="selection_box" style="z-index:1000;height:205px;position:absolute;background-color:#87CEEB;opacity:0.4;filter:alpha(opacity=40);pointer-events:none;">');
+            var selectionBox = $('<div id="selection_box">');
             $(document.body).append(selectionBox);
             selectionStartX = ev.pageX;
             selectionStartY = ev.pageY;
@@ -1642,7 +1640,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                         '    <legend>' + PMA_messages.strFiltersForLogTable + '</legend>' +
                         '    <div class="formelement">' +
                         '        <label for="filterQueryText">' + PMA_messages.strFilterByWordRegexp + '</label>' +
-                        '        <input name="filterQueryText" type="text" id="filterQueryText" style="vertical-align: baseline;" />' +
+                        '        <input name="filterQueryText" type="text" id="filterQueryText"/>' +
                         '    </div>' +
                         ((logData.numRows > 250) ? ' <div class="formelement"><button name="startFilterQueryText" id="startFilterQueryText">' + PMA_messages.strFilter + '</button></div>' : '') +
                         '    <div class="formelement">' +

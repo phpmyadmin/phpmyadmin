@@ -1192,6 +1192,28 @@ div#logTable table {
     padding-left: 7px;
 }
 
+.tooltipHtml {
+    font-size: 12px;
+    background-color: #FFFFFF;
+    opacity:0.95;
+    filter:alpha(opacity=95);
+    padding:5px;
+}
+
+#selection_box {
+    z-index: 1000;
+    height: 205px;
+    position: absolute;
+    background-color: #87CEEB;
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    pointer-events: none;
+}
+
+#filterQueryText {
+    vertical-align: baseline;
+}
+
 /* end serverstatus */
 
 #sectionlinks {
