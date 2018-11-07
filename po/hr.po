@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
 "PO-Revision-Date: 2018-11-07 18:08+0000\n"
-"Last-Translator: Marino <mrabach@gmail.com>\n"
+"Last-Translator: test <ebe37302@tqosi.com>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "hr/>\n"
 "Language: hr\n"
@@ -380,16 +380,19 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Greška je detektirana i izvješće o grešci je automatski poslano prema vašim "
+"postavkama."
 
 #: error_report.php:77
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Zahvaljujemo na slanju ovog izvješća."
 
 #: error_report.php:81
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Greška je detektirana i izvješće o grešci je generirano, ali nije poslano."
 
 #: error_report.php:86
 msgid "If you experience any problems please submit a bug report manually."
