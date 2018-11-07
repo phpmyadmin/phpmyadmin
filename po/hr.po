@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-10-31 17:53+0000\n"
+"PO-Revision-Date: 2018-11-09 00:34+0000\n"
 "Last-Translator: Marino <mrabach@gmail.com>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/hr/>\n"
@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
@@ -152,7 +152,7 @@ msgstr "Zadano"
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:691
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:714
 msgid "Links to"
-msgstr "Veze na"
+msgstr "Poveznice na"
 
 #: db_datadict.php:129 libraries/classes/Config/Descriptions.php:207
 #: libraries/classes/Config/Descriptions.php:222
@@ -331,16 +331,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Morate odabrati najmanje jedan stupac za prikazivanje!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "unutar upita"
+msgstr "Multin-tabelarni upit"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query by example"
-msgstr "Pohrana upita"
+msgstr "Upit po primjeru"
 
 #: db_qbe.php:171
 #, php-format
@@ -378,24 +374,28 @@ msgid ""
 "An error has been detected and an error report has been automatically "
 "submitted based on your settings."
 msgstr ""
+"Greška je detektirana i izvješće o grešci je automatski poslano prema vašim "
+"postavkama."
 
 #: error_report.php:79
 msgid "Thank you for submitting this report."
-msgstr ""
+msgstr "Zahvaljujemo na slanju ovog izvješća."
 
 #: error_report.php:83
 msgid ""
 "An error has been detected and an error report has been generated but failed "
 "to be sent."
 msgstr ""
+"Greška je detektirana i izvješće o grešci je generirano ali nije poslano."
 
 #: error_report.php:88
 msgid "If you experience any problems please submit a bug report manually."
 msgstr ""
+"Ako imate ikakvih problema, molimo da ručno pošaljete izvješće o grešci."
 
 #: error_report.php:92
 msgid "You may want to refresh the page."
-msgstr ""
+msgstr "Možda želite osvježiti stranicu."
 
 #: export.php:292
 msgid "Bad parameters!"
@@ -15996,16 +15996,13 @@ msgid "SRID:"
 msgstr "SRID"
 
 #: templates/gis_data_editor_form.twig:52
-#, fuzzy, php-format
-#| msgid "Geometry"
+#, php-format
 msgid "Geometry %d:"
-msgstr "Geometrija"
+msgstr "Geometrija %d:"
 
 #: templates/gis_data_editor_form.twig:72
-#, fuzzy
-#| msgid "Point"
 msgid "Point:"
-msgstr "Točka"
+msgstr "Točka:"
 
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
