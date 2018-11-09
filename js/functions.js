@@ -711,11 +711,13 @@ function confirmQuery (theForm1, sqlQuery1) {
     var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
     var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
+    var do_confirm_re_4 = new RegExp('^(?=.*UPDATE\\b)^((?!WHERE).)*$', 'i');
 
     if (do_confirm_re_0.test(sqlQuery1) ||
         do_confirm_re_1.test(sqlQuery1) ||
         do_confirm_re_2.test(sqlQuery1) ||
-        do_confirm_re_3.test(sqlQuery1)) {
+        do_confirm_re_3.test(sqlQuery1) ||
+        do_confirm_re_4.test(sqlQuery1)) {
         var message;
         if (sqlQuery1.length > 100) {
             message = sqlQuery1.substr(0, 100) + '\n    ...';
