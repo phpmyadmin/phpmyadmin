@@ -20,6 +20,7 @@ phpMyAdmin - ChangeLog
 - issue #13067 Inconsistency with submit buttons
 - issue #14683 Improper message in Show Hidden Navigation Tree Items
 - issue #14695 Remove unlabeled default collation from the bottom of the database list; this information is available elsewhere
+- issue #14677 Security confirm() before running UPDATE statement without WHERE condition
 
 4.8.4 (not yet released)
 - issue #14452 Remove hash param in edit query URL
