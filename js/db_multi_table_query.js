@@ -71,6 +71,7 @@ AJAX.registerOnload('db_multi_table_query.js', function () {
             async: false,
             url: 'db_multi_table_query.php',
             data: {
+                'server': sessionStorage.server,
                 'db': $('#db_name').val(),
                 'tables': Object.keys(tableAliases),
                 'ajax_request': '1',

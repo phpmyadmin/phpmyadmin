@@ -34,8 +34,8 @@ function generateCondition (criteriaDiv, table){
     query = '`' + escapeBacktick(table.val()) + '`.';
     query += '`' + escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
-        formats_text = getFormatsText();
-        query += sprintf(formats_text[criteriaDiv.find('.criteria_op').first().val()], escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
+        formatsText = getFormatsText();
+        query += sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
     } else {
         query += ' ' + criteriaDiv.find('.criteria_op').first().val();
         query += ' `' + escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';
@@ -84,26 +84,26 @@ function generateJoin (newTable, tableAliases, fk) {
     return query;
 }
 
-function existReference(table, fk, used_tables){
-    var isReferredBy = fk.TABLE_NAME === table && used_tables.includes(fk.REFERENCED_TABLE_NAME);
-    var isReferencedBy = fk.REFERENCED_TABLE_NAME === table && used_tables.includes(fk.TABLE_NAME);
+function existReference(table, fk, usedTables){
+    var isReferredBy = fk.TABLE_NAME === table && usedTables.includes(fk.REFERENCED_TABLE_NAME);
+    var isReferencedBy = fk.REFERENCED_TABLE_NAME === table && usedTables.includes(fk.TABLE_NAME);
     return isReferredBy || isReferencedBy;
 }
 
-function tryJoinTable (table, tableAliases, used_tables, foreignKeys) {
+function tryJoinTable (table, tableAliases, usedTables, foreignKeys) {
     for (var i = 0; i < foreignKeys.length; i++) {
         var fk = foreignKeys[i];
-        if (existReference(table, fk, used_tables)) {
+        if (existReference(table, fk, usedTables)) {
             return generateJoin(table, tableAliases, fk);
         }
     }
     return '';
 }
 
-function appendTable (table, tableAliases, used_tables, foreignKeys) {
-    var query = tryJoinTable (table, tableAliases, used_tables, foreignKeys);
+function appendTable (table, tableAliases, usedTables, foreignKeys) {
+    var query = tryJoinTable (table, tableAliases, usedTables, foreignKeys);
     if (query === '') {
-        if (used_tables.length > 0) {
+        if (usedTables.length > 0) {
             query += '\n\t, ';
         }
         query += '`' + escapeBacktick(table) + '`';
@@ -111,7 +111,7 @@ function appendTable (table, tableAliases, used_tables, foreignKeys) {
             query += ' AS `' + escapeBacktick(tableAliases[table][0]) + '`';
         }
     }
-    used_tables.push(table);
+    usedTables.push(table);
     return query;
 }
 
@@ -119,7 +119,9 @@ function generateFromBlock (tableAliases, foreignKeys) {
     var usedTables = [];
     query = '';
     for (var table in tableAliases) {
-        query += appendTable(table, tableAliases, usedTables, foreignKeys);
+        if (tableAliases.hasOwnProperty(table)) {
+            query += appendTable(table, tableAliases, usedTables, foreignKeys);
+        }
     }
     return query;
 }
