@@ -24,8 +24,8 @@ if ($response->isAjax()) {
     header('Content-Type: text/html; charset=UTF-8');
 
     // real-time charting data
-    if (isset($_REQUEST['chart_data'])) {
-        switch($_REQUEST['type']) {
+    if (isset($_POST['chart_data'])) {
+        switch($_POST['type']) {
         case 'chartgrid': // Data for the monitor
             $ret = Monitor::getJsonForChartingData();
             $response->addJSON('message', $ret);
@@ -33,31 +33,31 @@ if ($response->isAjax()) {
         }
     }
 
-    if (isset($_REQUEST['log_data'])) {
+    if (isset($_POST['log_data'])) {
 
-        $start = intval($_REQUEST['time_start']);
-        $end = intval($_REQUEST['time_end']);
+        $start = intval($_POST['time_start']);
+        $end = intval($_POST['time_end']);
 
-        if ($_REQUEST['type'] == 'slow') {
+        if ($_POST['type'] == 'slow') {
             $return = Monitor::getJsonForLogDataTypeSlow($start, $end);
             $response->addJSON('message', $return);
             exit;
         }
 
-        if ($_REQUEST['type'] == 'general') {
+        if ($_POST['type'] == 'general') {
             $return = Monitor::getJsonForLogDataTypeGeneral($start, $end);
             $response->addJSON('message', $return);
             exit;
         }
     }
 
-    if (isset($_REQUEST['logging_vars'])) {
+    if (isset($_POST['logging_vars'])) {
         $loggingVars = Monitor::getJsonForLoggingVars();
         $response->addJSON('message', $loggingVars);
         exit;
     }
 
-    if (isset($_REQUEST['query_analyzer'])) {
+    if (isset($_POST['query_analyzer'])) {
         $return = Monitor::getJsonForQueryAnalyzer();
         $response->addJSON('message', $return);
         exit;
