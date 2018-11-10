@@ -1301,9 +1301,9 @@ var ResizeHandler = function () {
         var $nav_tree   = $('#pma_navigation_tree');
         var $nav_header = $('#pma_navigation_header');
         var $nav_tree_content = $('#pma_navigation_tree_content');
-				var height = ($nav.height() - $nav_header.height());
+        var height = ($nav.height() - $nav_header.height());
 
-				height = height > 50 ? height : 800; //keep min. height
+        height = height > 50 ? height : 800; // keep min. height
         $nav_tree.height(height);
         if ($nav_tree_content.length > 0) {
             $nav_tree_content.height(height - $nav_tree_content.position().top);
