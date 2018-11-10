@@ -961,7 +961,7 @@ class TableTest extends PmaTestCase
         $index = new Index();
         $error = false;
 
-        $_REQUEST['old_index'] = "PRIMARY";
+        $_POST['old_index'] = "PRIMARY";
 
         $table = new Table($table, $db);
         $sql = $table->getSqlQueryForIndexCreateOrEdit($index, $error);
@@ -1163,7 +1163,7 @@ class TableTest extends PmaTestCase
         $GLOBALS['dbi']->expects($this->any())->method('getTable')
             ->will($this->returnValue(new Table($target_table, $target_db)));
 
-        $_REQUEST['drop_if_exists'] = true;
+        $_POST['drop_if_exists'] = true;
 
         $return = Table::moveCopy(
             $source_db, $source_table, $target_db,
