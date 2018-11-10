@@ -41,10 +41,10 @@ $operations = new Operations();
  */
 $_message = new Message;
 $_type = 'success';
-if (isset($_REQUEST['submitoptions'])) {
+if (isset($_POST['submitoptions'])) {
 
-    if (isset($_REQUEST['new_name'])) {
-        if ($pma_table->rename($_REQUEST['new_name'])) {
+    if (isset($_POST['new_name'])) {
+        if ($pma_table->rename($_POST['new_name'])) {
             $_message->addText($pma_table->getLastMessage());
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
