@@ -29,9 +29,9 @@ class ServerBinlogControllerTest extends PmaTestCase
      */
     public function setUp()
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
+        //$_POST
+        $_POST['log'] = "index1";
+        $_POST['pos'] = 3;
 
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
@@ -193,7 +193,7 @@ class ServerBinlogControllerTest extends PmaTestCase
             $html
         );
         //validate 4: PMA_getNavigationRow is right
-        $urlNavigation = 'server_binlog.php?log=log&amp;dontlimitchars=1&amp;'
+        $urlNavigation = 'server_binlog.php" data-post="log=log&amp;dontlimitchars=1&amp;'
             . 'pos=3&amp;server=1&amp';
         $this->assertContains(
             $urlNavigation,
