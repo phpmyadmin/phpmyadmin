@@ -1375,6 +1375,26 @@ Server connection settings
 
     * ``xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xx[yyy-zzz]`` (partial :term:`IPv6` address range)
 
+    Examples:
+
+    .. code-block:: none
+
+        $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow bob from all');
+        // Allow only 'bob' to connect from any host
+
+        $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow mary from 192.168.100.[50-100]');
+        // Allow only 'mary' to connect from host 192.168.100.50 through 192.168.100.100
+
+        $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow % from 192.168.[5-6].10');
+        // Allow any user to connect from host 192.168.5.10 or 192.168.6.10
+
+        $cfg['Servers'][$i]['AllowDeny']['order'] = 'allow,deny';
+        $cfg['Servers'][$i]['AllowDeny']['rules'] = array('allow root from 192.168.5.50','allow % from 192.168.6.10');
+        // Allow any user to connect from 192.168.6.10, and additionally allow root to connect from 192.168.5.50
+
 .. config:option:: $cfg['Servers'][$i]['DisableIS']
 
     :type: boolean
