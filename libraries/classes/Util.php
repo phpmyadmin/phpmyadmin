@@ -2067,7 +2067,7 @@ class Util
                     }
                 } elseif ($meta->type == 'bit') {
                     $con_val = "= b'"
-                        . self::printableBitValue($row[$i], $meta->length) . "'";
+                        . self::printableBitValue((int) $row[$i], (int) $meta->length) . "'";
                 } else {
                     $con_val = '= \''
                         . $GLOBALS['dbi']->escapeString($row[$i]) . '\'';
@@ -2773,12 +2773,12 @@ class Util
      * function because in PHP, decbin() supports only 32 bits
      * on 32-bit servers
      *
-     * @param integer $value  coming from a BIT field
-     * @param integer $length length
+     * @param int $value  coming from a BIT field
+     * @param int $length length
      *
-     * @return string  the printable value
+     * @return string the printable value
      */
-    public static function printableBitValue($value, $length)
+    public static function printableBitValue(int $value, int $length): string
     {
         // if running on a 64-bit server or the length is safe for decbin()
         if (PHP_INT_SIZE == 8 || $length < 33) {

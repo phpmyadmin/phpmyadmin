@@ -2457,8 +2457,8 @@ class ExportSql extends ExportPlugin
                     // detection of 'bit' works only on mysqli extension
                     $values[] = "b'" . $GLOBALS['dbi']->escapeString(
                         Util::printableBitValue(
-                            $row[$j],
-                            $fields_meta[$j]->length
+                            (int) $row[$j],
+                            (int) $fields_meta[$j]->length
                         )
                     )
                     . "'";

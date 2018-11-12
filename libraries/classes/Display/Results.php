@@ -4049,8 +4049,8 @@ class Results
         $formatted = false;
         if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
             $column = Util::printableBitValue(
-                $column,
-                $meta->length
+                (int) $column,
+                (int) $meta->length
             );
 
             // some results of PROCEDURE ANALYSE() are reported as

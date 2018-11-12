@@ -453,8 +453,8 @@ class TableSearchController extends TableController
             foreach ($row as $col => $val) {
                 if ($fields_meta[$i]->type == 'bit') {
                     $row[$col] = Util::printableBitValue(
-                        $val,
-                        $fields_meta[$i]->length
+                        (int) $val,
+                        (int) $fields_meta[$i]->length
                     );
                 }
                 $i++;

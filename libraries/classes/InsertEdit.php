@@ -2001,8 +2001,8 @@ class InsertEdit
             $special_chars = $as_is
                 ? $current_row[$column['Field']]
                 : Util::printableBitValue(
-                    $current_row[$column['Field']],
-                    $extracted_columnspec['spec_in_brackets']
+                    (int) $current_row[$column['Field']],
+                    (int) $extracted_columnspec['spec_in_brackets']
                 );
         } elseif ((substr($column['True_Type'], 0, 9) == 'timestamp'
             || $column['True_Type'] == 'datetime'
