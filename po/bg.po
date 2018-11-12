@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2018-11-09 19:07+0000\n"
+"PO-Revision-Date: 2018-11-13 03:41+0000\n"
 "Last-Translator: Светлозар Ковачев <svetliok26@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "bg/>\n"
@@ -1786,6 +1786,8 @@ msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
 msgstr ""
+"Изглежда е загубена връзката със сървъра. Моля, проверете мрежовата връзка и "
+"състоянието на сървъра."
 
 #: js/messages.php:371
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
@@ -2303,7 +2305,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "value/subQuery е празна"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
