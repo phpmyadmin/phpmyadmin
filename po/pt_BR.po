@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2018-11-03 09:24+0000\n"
+"PO-Revision-Date: 2018-11-13 03:41+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/4-8/pt_BR/>\n"
@@ -7771,7 +7771,7 @@ msgstr "O servidor web não tem permissão para salvar o arquivo %s."
 #: libraries/classes/Export.php:400
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr "Dump foi salvo no arquivo %s."
+msgstr "O despejo foi salvo no arquivo %s."
 
 #: libraries/classes/File.php:256
 msgid "File was not an uploaded file."
@@ -9304,14 +9304,14 @@ msgstr "estrutura e dados"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:80
 #: libraries/classes/Plugins/Export/ExportXml.php:138
 msgid "Data dump options"
-msgstr "Opções de dump de dados"
+msgstr "Opções de despejo de dados"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:211
 #: libraries/classes/Plugins/Export/ExportOdt.php:273
 #: libraries/classes/Plugins/Export/ExportSql.php:2351
 #: libraries/classes/Plugins/Export/ExportTexytext.php:194
 msgid "Dumping data for table"
-msgstr "Fazendo dump de dados para tabela"
+msgstr "Despejando dados para a tabela"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:488
 #: libraries/classes/Plugins/Export/ExportOdt.php:611
@@ -9463,7 +9463,7 @@ msgstr "Título do relatório:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:228
 msgid "Dumping data"
-msgstr "Fazendo dump de dados"
+msgstr "Despejando dados"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:283
 msgid "View structure"
@@ -9562,7 +9562,7 @@ msgstr "declarações <code>INSERT IGNORE</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:390
 msgid "Function to use when dumping data:"
-msgstr "Função a usar para dump de dados:"
+msgstr "Função a ser usada para despejo de dados:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:405
 msgid "Syntax to use when inserting data:"
@@ -9607,16 +9607,16 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
-"Fazer dump de colunas binárias em notação hexadecimal <i>(por exemplo, \"abc"
-"\" seria 0x616263)</i>"
+"Despejar colunas binárias em notação hexadecimal <i>(por exemplo, \"abc\" "
+"seria 0x616263)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:459
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"Fazer dump de campos TIMESTAMP em UTC <i>(ativa o dump e recarregamento de "
-"campos TIMESTAMP entre servidores em fusos horários diferentes)</i>"
+"Despejar colunas TIMESTAMP em UTC <i>(permite que colunas TIMESTAMP sejam "
+"despejadas e recarregadas entre servidores em fusos horários diferentes)</i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:520
 msgid "It appears your database uses routines;"
@@ -13406,7 +13406,7 @@ msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
-"Você pode executar o dump criando e usando uma tabela temporária. Favor "
+"Você pode executar o despejo criando e usando uma tabela temporária. Favor "
 "certificar-se de ter os privilégios necessários."
 
 #: libraries/classes/Tracking.php:814
@@ -13415,7 +13415,7 @@ msgstr "Comente estas duas linhas se você não precisa delas."
 
 #: libraries/classes/Tracking.php:824
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr "Instruções SQL exportadas. Por favor, copie a saída ou execute-as."
+msgstr "Instruções SQL exportadas. Por favor, copie o despejo ou execute-as."
 
 #: libraries/classes/Tracking.php:872
 #, php-format
@@ -14147,7 +14147,7 @@ msgstr "Autenticação por dois fatores configurada."
 
 #: server_export.php:25
 msgid "View dump (schema) of databases"
-msgstr "Ver dump (esquema) dos bancos de dados"
+msgstr "Ver despejos (esquema) dos bancos de dados"
 
 #: server_privileges.php:144 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
@@ -14390,7 +14390,7 @@ msgstr "A tabela %s já existe!"
 
 #: tbl_export.php:45
 msgid "View dump (schema) of table"
-msgstr "Ver o dump (esquema) da tabela"
+msgstr "Ver despejo (esquema) da tabela"
 
 #: tbl_get_field.php:38
 msgid "Invalid table name"
@@ -16308,7 +16308,7 @@ msgstr "Registros:"
 
 #: templates/display/export/options_rows.twig:7
 msgid "Dump some row(s)"
-msgstr "Fazer dump de alguma(s) linha(s)"
+msgstr "Despejar alguma(s) linha(s)"
 
 #: templates/display/export/options_rows.twig:23
 msgid "Row to begin at:"
@@ -16316,7 +16316,7 @@ msgstr "Começar na linha:"
 
 #: templates/display/export/options_rows.twig:32
 msgid "Dump all rows"
-msgstr "Fazer dump de todas as linhas"
+msgstr "Despejar todas as linhas"
 
 #: templates/table/structure/row_stats_table.twig:2
 msgid "Row statistics"
