@@ -315,7 +315,7 @@ class Import
         ?array $import_run_buffer,
         string $sql,
         string $full
-    ): array {
+    ): ?array {
         if (!empty($sql) || !empty($full)) {
             $import_run_buffer = ['sql' => $sql, 'full' => $full];
             return $import_run_buffer;
