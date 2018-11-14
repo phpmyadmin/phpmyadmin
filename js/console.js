@@ -625,6 +625,7 @@ var PMA_consoleInput = {
      * @return void
      */
     _keydown: function (event) {
+        // Execute command
         if (PMA_console.config.EnterExecutes) {
             // Enter, but not in combination with Shift (which writes a new line).
             if (!event.shiftKey && event.keyCode === 13) {
@@ -635,6 +636,14 @@ var PMA_consoleInput = {
             if (event.ctrlKey && event.keyCode === 13) {
                 PMA_consoleInput.execute();
             }
+        }
+        // Clear line
+        if (event.ctrlKey && event.keyCode === 76) {
+            PMA_consoleInput.clear();
+        }
+        // Clear console
+        if (event.ctrlKey && event.keyCode === 85) {
+            PMA_consoleMessages.clear();
         }
     },
     /**
