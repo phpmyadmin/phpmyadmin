@@ -179,6 +179,7 @@ class Header
         $this->_scripts->addFile('keyhandler.js');
         $this->_scripts->addFile('vendor/jquery/jquery-ui.min.js');
         $this->_scripts->addFile('vendor/js.cookie.js');
+        $this->_scripts->addFile('vendor/jquery/jquery.double-tap.js');
         $this->_scripts->addFile('vendor/jquery/jquery.mousewheel.js');
         $this->_scripts->addFile('vendor/jquery/jquery.event.drag-2.2.js');
         $this->_scripts->addFile('vendor/jquery/jquery.validate.js');
