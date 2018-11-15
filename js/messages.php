@@ -723,6 +723,8 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     . ($GLOBALS['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
     . '" width="16" height="16" alt="ajax clock"/>'
     . '</div>';
+$js_messages['strCopyQueryButtonSuccess'] = __('Successfully copied!');
+$js_messages['strCopyQueryButtonFailure'] = __('Copying failed!');
 
 // For console
 $js_messages['strConsoleRequeryConfirm'] = __('Execute this query again?');
