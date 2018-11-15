@@ -121,7 +121,7 @@ class ThemeManager
     /**
      * Returns the singleton Response object
      *
-     * @return Response object
+     * @return ThemeManager object
      */
     public static function getInstance()
     {
@@ -383,42 +383,6 @@ class ThemeManager
     }
 
     /**
-     * returns Theme object for fall back theme
-     *
-     * @return Theme fall back theme
-     * @access public
-     */
-    public function getFallBackTheme()
-    {
-        if (isset($this->themes[self::FALLBACK_THEME])) {
-            return $this->themes[self::FALLBACK_THEME];
-        }
-
-        return false;
-    }
-
-    /**
-     * prints css data
-     *
-     * @return bool
-     * @access public
-     */
-    public function printCss()
-    {
-        if ($this->theme->loadCss()) {
-            return true;
-        }
-
-        // if loading css for this theme failed, try default theme css
-        $fallback_theme = $this->getFallBackTheme();
-        if ($fallback_theme && $fallback_theme->loadCss()) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
      * Theme initialization
      *
      * @return void
@@ -446,12 +410,5 @@ class ThemeManager
          * @global string $GLOBALS['pmaThemeImage']
          */
         $GLOBALS['pmaThemeImage']   = $GLOBALS['PMA_Theme']->getImgPath();
-
-        /**
-         * load layout file if exists
-         */
-        if (@file_exists($GLOBALS['PMA_Theme']->getLayoutFile())) {
-            include $GLOBALS['PMA_Theme']->getLayoutFile();
-        }
     }
 }

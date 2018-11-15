@@ -44,7 +44,6 @@ class ThemeTest extends PmaTestCase
         $GLOBALS['PMA_Config'] = new Config();
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['text_dir'] = 'ltr';
-        include 'themes/pmahomme/layout.inc.php';
         $GLOBALS['server'] = '99';
     }
 
@@ -132,40 +131,6 @@ class ThemeTest extends PmaTestCase
     }
 
     /**
-     * Test for Theme::loadCss
-     *
-     * @param string $theme Path to theme files
-     *
-     * @return void
-     *
-     * @dataProvider listThemes
-     */
-    public function testLoadCss($theme)
-    {
-        $newTheme = Theme::load($theme);
-        ob_start();
-        $ret = $newTheme->loadCss();
-        $out = ob_get_contents();
-        ob_end_clean();
-        $this->assertTrue($ret);
-        $this->assertContains('FILE: navigation.css.php', $out);
-        $this->assertContains('.ic_b_bookmark', $out);
-    }
-
-    /**
-     * Data provider for Theme::loadCss test
-     *
-     * @return array with theme paths
-     */
-    public function listThemes()
-    {
-        return [
-            ['./themes/original'],
-            ['./themes/pmahomme/'],
-        ];
-    }
-
-    /**
      * Test for Theme::load
      *
      * @return void
@@ -208,16 +173,6 @@ class ThemeTest extends PmaTestCase
         $this->object->setPath('./themes/original');
 
         $this->assertEquals('./themes/original', $this->object->getPath());
-    }
-
-    /**
-     * Test for Theme::loadInfo
-     *
-     * @return void
-     */
-    public function testGetLayoutFile()
-    {
-        $this->assertContains('layout.inc.php', $this->object->getLayoutFile());
     }
 
     /**
@@ -302,26 +257,6 @@ class ThemeTest extends PmaTestCase
         $this->assertContains(
             'No preview available.',
             $this->object->getPrintPreview()
-        );
-    }
-
-    /**
-     * Test for getCssGradient
-     *
-     * @return void
-     */
-    public function testgetCssGradient()
-    {
-        $this->assertEquals(
-            $this->object->getCssGradient('12345', '54321'),
-            'background-image: url(./themes/svg_gradient.php?from=12345&to=54321);'
-            . "\n" . 'background-size: 100% 100%;'
-            . "\n" . 'background: -webkit-gradient(linear, left top, left bottom, '
-            . 'from(#12345), to(#54321));'
-            . "\n" . 'background: -webkit-linear-gradient(top, #12345, #54321);'
-            . "\n" . 'background: -moz-linear-gradient(top, #12345, #54321);'
-            . "\n" . 'background: -ms-linear-gradient(top, #12345, #54321);'
-            . "\n" . 'background: -o-linear-gradient(top, #12345, #54321);'
         );
     }
 
