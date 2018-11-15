@@ -22,6 +22,7 @@ phpMyAdmin - ChangeLog
 - issue #14695 Remove unlabeled default collation from the bottom of the database list; this information is available elsewhere
 - issue #14677 Security confirm() before running UPDATE statement without WHERE condition
 - issue #13023 Show errors at the bottom of the page and add copy query button for errors in processing sql queries
+- issue #14633 Use Sass instead of PHP to compile CSS
 
 4.8.4 (not yet released)
 - issue #14452 Remove hash param in edit query URL
