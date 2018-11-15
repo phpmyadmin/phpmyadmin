@@ -18,10 +18,10 @@
         <td class="value">
             {% if stat['description_function'] is defined %}
                 <dfn title="{{ get_collation_descr(current[stat_name]) }}">
-                    {{ values[stat_name] }}
+                    {{ current[stat_name] }}
                 </dfn>
             {% else %}
-                {{ values[stat_name] }}
+                {{ current[stat_name] }}
             {% endif %}
         </td>
         {% if stat['format'] is same as('byte') %}
