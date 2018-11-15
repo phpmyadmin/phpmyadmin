@@ -2483,9 +2483,9 @@ $(function () {
         event.preventDefault();
         var res = copyToClipboard($(this).attr('data-text'));
         if (res) {
-            $(this).after('<span id=\'copyStatus\'> (Successfully copied!)</span>');
+            $(this).after('<span id=\'copyStatus\'> (' + PMA_messages.strCopyQueryButtonSuccess + ')</span>');
         } else {
-            $(this).after('<span id=\'copyStatus\'> (Coping Unsuccessful!)</span>');
+            $(this).after('<span id=\'copyStatus\'> (' + PMA_messages.strCopyQueryButtonFailure + ')</span>');
         }
         setTimeout(function () {
             $('#copyStatus').remove();
