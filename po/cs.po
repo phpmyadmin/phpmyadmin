@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2018-10-02 16:35+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-8/cs/"
-">\n"
+"PO-Revision-Date: 2018-11-18 16:07+0000\n"
+"Last-Translator: Lukáš Jelínek <devel@aiken.cz>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/4-8/cs/>"
+"\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -2291,7 +2291,7 @@ msgstr ""
 
 #: js/messages.php:562
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "hodnota/podDotaz jsou prázdné"
 
 #: js/messages.php:563 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
@@ -3860,6 +3860,7 @@ msgstr "Zobrazit komentář ke sloupci"
 #: libraries/classes/Config/Descriptions.php:191
 msgid "Whether column comments should be shown in table structure view"
 msgstr ""
+"Zda se mají při pohledu na strukturu tabulky zobrazovat komentáře ke sloupcům"
 
 #: libraries/classes/Config/Descriptions.php:193
 msgid "Hide table structure actions"
@@ -3884,6 +3885,8 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"Hodnoty pro seznam voleb pro výchozí transformace. Budou přepsány, pokud je "
+"transformace vyplněna na stránce struktury tabulky."
 
 #: libraries/classes/Config/Descriptions.php:199
 #, fuzzy
@@ -5006,7 +5009,7 @@ msgstr "Zobrazit ve stromu fuknce"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Whether to show functions under database in the navigation tree"
-msgstr ""
+msgstr "Zda v navigačním stromu zobrazovat funkce pod databází"
 
 #: libraries/classes/Config/Descriptions.php:849
 msgid "Show procedures in tree"
@@ -5014,7 +5017,7 @@ msgstr "Zobrazit ve stromu procedury"
 
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "Zda v navigačním stromě zobrazovat procedury pod databází"
 
 #: libraries/classes/Config/Descriptions.php:853
 msgid "Show events in tree"
@@ -16436,7 +16439,7 @@ msgstr ""
 #: templates/table/relation/common_form.twig:20
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
-msgstr ""
+msgstr "Budou se zobrazovat jen sloupce s indexem. Index můžete definovat níže."
 
 #: templates/table/relation/common_form.twig:24
 msgid "Foreign key constraint"
