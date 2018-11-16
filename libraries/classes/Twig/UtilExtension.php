@@ -184,6 +184,11 @@ class UtilExtension extends AbstractExtension
                 'PhpMyAdmin\Util::sortableTableHeader',
                 array('is_safe' => array('html'))
             ),
+            new TwigFunction(
+                'Util_parseEnumSetValues',
+                'PhpMyAdmin\Util::parseEnumSetValues',
+                array('is_safe' => array('html'))
+            ),
         );
     }
 }
