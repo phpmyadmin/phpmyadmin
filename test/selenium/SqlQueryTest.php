@@ -131,6 +131,7 @@ class SqlQueryTest extends TestBase
         $this->waitAjax();
 
         $this->typeInTextArea('SELECT * FROM `test_table` WHERE `val` NOT IN (2, 3);');
+        $this->scrollToBottom();
         $this->byId('button_submit_query')->click();
         $this->waitAjax();
 

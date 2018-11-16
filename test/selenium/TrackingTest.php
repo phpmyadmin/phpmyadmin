@@ -271,6 +271,7 @@ class TrackingTest extends TestBase
             ";UPDATE test_table SET val = val + 1; "
             . "DELETE FROM test_table WHERE val = 3"
         );
+        $this->scrollToBottom();
         $this->byCssSelector("input[value='Go']")->click();
         $this->waitAjax();
         $this->waitForElement('className', "success");
