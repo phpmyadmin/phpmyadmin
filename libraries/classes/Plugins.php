@@ -461,37 +461,47 @@ class Plugins
                 $ret .= '<p>' . self::getString($propertyItem->getText()) . '</p>';
                 break;
             case 'PhpMyAdmin\Properties\Options\Items\RadioPropertyItem':
+                /**
+                 * @var \PhpMyAdmin\Properties\Options\Items\RadioPropertyItem $pitem
+                 */
+                $pitem = $propertyItem;
+
                 $default = self::getDefault(
                     $section,
-                    $plugin_name . '_' . $propertyItem->getName()
+                    $plugin_name . '_' . $pitem->getName()
                 );
-                foreach ($propertyItem->getValues() as $key => $val) {
+
+                foreach ($pitem->getValues() as $key => $val) {
                     $ret .= '<li><input type="radio" name="' . $plugin_name
-                        . '_' . $propertyItem->getName() . '" value="' . $key
+                        . '_' . $pitem->getName() . '" value="' . $key
                         . '" id="radio_' . $plugin_name . '_'
-                        . $propertyItem->getName() . '_' . $key . '"';
+                        . $pitem->getName() . '_' . $key . '"';
                     if ($key == $default) {
                         $ret .= ' checked="checked"';
                     }
                     $ret .= ' />' . '<label for="radio_' . $plugin_name . '_'
-                    . $propertyItem->getName() . '_' . $key . '">'
+                    . $pitem->getName() . '_' . $key . '">'
                     . self::getString($val) . '</label></li>';
                 }
                 break;
             case 'PhpMyAdmin\Properties\Options\Items\SelectPropertyItem':
+                /**
+                 * @var \PhpMyAdmin\Properties\Options\Items\SelectPropertyItem $pitem
+                 */
+                $pitem = $propertyItem;
                 $ret .= '<li>' . "\n";
                 $ret .= '<label for="select_' . $plugin_name . '_'
-                . $propertyItem->getName() . '" class="desc">'
-                . self::getString($propertyItem->getText()) . '</label>';
+                . $pitem->getName() . '" class="desc">'
+                . self::getString($pitem->getText()) . '</label>';
                 $ret .= '<select name="' . $plugin_name . '_'
-                . $propertyItem->getName() . '"'
+                . $pitem->getName() . '"'
                 . ' id="select_' . $plugin_name . '_'
-                . $propertyItem->getName() . '">';
+                . $pitem->getName() . '">';
                 $default = self::getDefault(
                     $section,
-                    $plugin_name . '_' . $propertyItem->getName()
+                    $plugin_name . '_' . $pitem->getName()
                 );
-                foreach ($propertyItem->getValues() as $key => $val) {
+                foreach ($pitem->getValues() as $key => $val) {
                     $ret .= '<option value="' . $key . '"';
                     if ($key == $default) {
                         $ret .= ' selected="selected"';
@@ -502,23 +512,27 @@ class Plugins
                 $ret .= '</select>';
                 break;
             case 'PhpMyAdmin\Properties\Options\Items\TextPropertyItem':
+                /**
+                 * @var \PhpMyAdmin\Properties\Options\Items\TextPropertyItem $pitem
+                 */
+                $pitem = $propertyItem;
                 $ret .= '<li>' . "\n";
                 $ret .= '<label for="text_' . $plugin_name . '_'
-                . $propertyItem->getName() . '" class="desc">'
-                . self::getString($propertyItem->getText()) . '</label>';
+                . $pitem->getName() . '" class="desc">'
+                . self::getString($pitem->getText()) . '</label>';
                 $ret .= '<input type="text" name="' . $plugin_name . '_'
-                . $propertyItem->getName() . '"'
+                . $pitem->getName() . '"'
                 . ' value="' . self::getDefault(
                     $section,
-                    $plugin_name . '_' . $propertyItem->getName()
+                    $plugin_name . '_' . $pitem->getName()
                 ) . '"'
                     . ' id="text_' . $plugin_name . '_'
-                    . $propertyItem->getName() . '"'
-                    . ($propertyItem->getSize() != null
-                    ? ' size="' . $propertyItem->getSize() . '"'
+                    . $pitem->getName() . '"'
+                    . ($pitem->getSize() != null
+                    ? ' size="' . $pitem->getSize() . '"'
                     : '')
-                    . ($propertyItem->getLen() != null
-                    ? ' maxlength="' . $propertyItem->getLen() . '"'
+                    . ($pitem->getLen() != null
+                    ? ' maxlength="' . $pitem->getLen() . '"'
                     : '')
                     . ' />';
                 break;

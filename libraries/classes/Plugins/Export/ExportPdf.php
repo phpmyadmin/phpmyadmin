@@ -229,9 +229,9 @@ class ExportPdf extends ExportPlugin
             'dbAlias'      => $db_alias,
             'tableAlias'   => $table_alias,
             'aliases'      => $aliases,
+            'purpose'      => __('Dumping data')
         ];
         $pdf->setAttributes($attr);
-        $pdf->purpose = __('Dumping data');
         $pdf->mysqlReport($sql_query);
 
         return true;

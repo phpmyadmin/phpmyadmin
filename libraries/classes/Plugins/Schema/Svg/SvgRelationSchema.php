@@ -178,7 +178,7 @@ class SvgRelationSchema extends ExportRelationSchema
     /**
      * Sets X and Y minimum and maximum for a table cell
      *
-     * @param \PhpMyAdmin\Plugins\Schema\TableStats $table The table
+     * @param TableStatsSvg $table The table
      *
      * @return void
      */

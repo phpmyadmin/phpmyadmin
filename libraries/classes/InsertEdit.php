@@ -2529,8 +2529,7 @@ class InsertEdit
                         = $extra_data['transformations'][$cell_index]
                             = $transformation_plugin->applyTransformation(
                                 $curr_cell_edited_values[$column_name],
-                                $transform_options,
-                                ''
+                                $transform_options
                             );
                 }
             }   // end of loop for each transformation cell
