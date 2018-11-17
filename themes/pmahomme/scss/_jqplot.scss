@@ -1,6 +1,6 @@
 /* jqPlot */
 
-/*rules for the plot target div.  These will be cascaded down to all plot elements according to css rules*/
+// rules for the plot target div. These will be cascaded down to all plot elements according to css rules
 .jqplot-target {
   position: relative;
   color: #222222;
@@ -8,7 +8,7 @@
   font-size: 1em;
 }
 
-/*rules applied to all axes*/
+// rules applied to all axes
 .jqplot-axis {
   font-size: 0.75em;
 }
@@ -25,49 +25,76 @@
   margin-#{$right}: 10px;
 }
 
-.jqplot-y2axis, .jqplot-y3axis, .jqplot-y4axis, .jqplot-y5axis, .jqplot-y6axis, .jqplot-y7axis, .jqplot-y8axis, .jqplot-y9axis, .jqplot-yMidAxis {
+.jqplot-y2axis,
+.jqplot-y3axis,
+.jqplot-y4axis,
+.jqplot-y5axis,
+.jqplot-y6axis,
+.jqplot-y7axis,
+.jqplot-y8axis,
+.jqplot-y9axis,
+.jqplot-yMidAxis {
   margin-#{$left}: 10px;
   margin-#{$right}: 10px;
 }
 
-/*rules applied to all axis tick divs*/
-.jqplot-axis-tick, .jqplot-xaxis-tick, .jqplot-yaxis-tick, .jqplot-x2axis-tick, .jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick, .jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick, .jqplot-yMidAxis-tick {
+// rules applied to all axis tick divs
+.jqplot-axis-tick,
+.jqplot-xaxis-tick,
+.jqplot-yaxis-tick,
+.jqplot-x2axis-tick,
+.jqplot-y2axis-tick,
+.jqplot-y3axis-tick,
+.jqplot-y4axis-tick,
+.jqplot-y5axis-tick,
+.jqplot-y6axis-tick,
+.jqplot-y7axis-tick,
+.jqplot-y8axis-tick,
+.jqplot-y9axis-tick,
+.jqplot-yMidAxis-tick {
   position: absolute;
   white-space: pre;
 }
 
 .jqplot-xaxis-tick {
   top: 0;
-  /* initial position untill tick is drawn in proper place */
+  // initial position untill tick is drawn in proper place
   #{$left}: 15px;
   vertical-align: top;
 }
 
 .jqplot-x2axis-tick {
   bottom: 0;
-  /* initial position untill tick is drawn in proper place */
+  // initial position untill tick is drawn in proper place
   #{$left}: 15px;
   vertical-align: bottom;
 }
 
 .jqplot-yaxis-tick {
   #{$right}: 0px;
-  /* initial position untill tick is drawn in proper place */
+  // initial position untill tick is drawn in proper place
   top: 15px;
   text-align: $right;
+
+  .jqplot-breakTick {
+    #{$right}: -20px;
+    margin-#{$right}: 0;
+    padding: 1px 5px 1px;
+    z-index: 2;
+    font-size: 1.5em;
+  }
 }
 
-.jqplot-yaxis-tick.jqplot-breakTick {
-  #{$right}: -20px;
-  margin-#{$right}: 0;
-  padding: 1px 5px 1px;
-  z-index: 2;
-  font-size: 1.5em;
-}
-
-.jqplot-y2axis-tick, .jqplot-y3axis-tick, .jqplot-y4axis-tick, .jqplot-y5axis-tick, .jqplot-y6axis-tick, .jqplot-y7axis-tick, .jqplot-y8axis-tick, .jqplot-y9axis-tick {
+.jqplot-y2axis-tick,
+.jqplot-y3axis-tick,
+.jqplot-y4axis-tick,
+.jqplot-y5axis-tick,
+.jqplot-y6axis-tick,
+.jqplot-y7axis-tick,
+.jqplot-y8axis-tick,
+.jqplot-y9axis-tick {
   #{$left}: 0px;
-  /* initial position untill tick is drawn in proper place */
+  // initial position untill tick is drawn in proper place
   top: 15px;
   text-align: $left;
 }
@@ -91,7 +118,6 @@
 
 .jqplot-yaxis-label {
   margin-#{$right}: 10px;
-  /*    text-align: center;*/
   font-size: 11pt;
   position: absolute;
 }
@@ -101,7 +127,14 @@
   position: absolute;
 }
 
-.jqplot-y2axis-label, .jqplot-y3axis-label, .jqplot-y4axis-label, .jqplot-y5axis-label, .jqplot-y6axis-label, .jqplot-y7axis-label, .jqplot-y8axis-label, .jqplot-y9axis-label {
+.jqplot-y2axis-label,
+.jqplot-y3axis-label,
+.jqplot-y4axis-label,
+.jqplot-y5axis-label,
+.jqplot-y6axis-label,
+.jqplot-y7axis-label,
+.jqplot-y8axis-label,
+.jqplot-y9axis-label {
   font-size: 11pt;
   margin-#{$left}: 10px;
   position: absolute;
@@ -124,7 +157,8 @@ table.jqplot-table-legend {
   margin-#{$right}: 12px;
 }
 
-table.jqplot-table-legend, table.jqplot-cursor-legend {
+table.jqplot-table-legend,
+table.jqplot-cursor-legend {
   background-color: rgba(255, 255, 255, 0.6);
   border: 1px solid #cccccc;
   position: absolute;
@@ -135,7 +169,8 @@ td.jqplot-table-legend {
   vertical-align: middle;
 }
 
-td.jqplot-seriesToggle:hover, td.jqplot-seriesToggle:active {
+td.jqplot-seriesToggle:hover,
+td.jqplot-seriesToggle:active {
   cursor: pointer;
 }
 
@@ -181,7 +216,8 @@ table.jqplot-cursor-tooltip {
   padding: 1px;
 }
 
-.jqplot-highlighter-tooltip, .jqplot-canvasOverlay-tooltip {
+.jqplot-highlighter-tooltip,
+.jqplot-canvasOverlay-tooltip {
   border: 1px solid #cccccc;
   font-size: 0.75em;
   white-space: nowrap;
@@ -205,12 +241,12 @@ div.jqplot-cursor-legend-swatch {
 }
 
 .jqplot-error {
-  /*   Styles added to the plot target container when there is an error go here.*/
+  // Styles added to the plot target container when there is an error go here.
   text-align: center;
 }
 
 .jqplot-error-message {
-  /*    Styling of the custom error message div goes here.*/
+  // Styling of the custom error message div goes here.
   position: relative;
   top: 46%;
   display: inline-block;
