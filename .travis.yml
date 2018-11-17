@@ -36,7 +36,6 @@ after_success: bash <(curl -s https://codecov.io/bash)
 jobs:
   allow_failures:
     - php: nightly
-    - name: "Run phpstan"
     - os: windows
 
   include:
@@ -149,7 +148,7 @@ jobs:
         - composer install --no-interaction
         - yarn install --non-interactive
         - echo -e "<?php\n\$cfg['UploadDir'] = './test/test_data/';" > config.inc.php
-      script: ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --group selenium
+      script: ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --group selenium --verbose --debug
       addons:
         apt:
           packages:

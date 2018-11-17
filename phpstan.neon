@@ -1,21 +1,30 @@
 parameters:
-    level: 1
+    level: 2
     paths:
         - %rootDir%/../../../
     bootstrap: %rootDir%/../../../test/bootstrap-phpstan.php
-    reportUnmatchedIgnoredErrors: false
+    reportUnmatchedIgnoredErrors: true
     ignoreErrors:
         - '#Function strpos invoked with 0 parameters, 2-3 required#'
         - '#Function (get_login_credentials|uploadprogress_get_info) not found#'
         - '#Function mysql_(connect|close) not found#'
         - '#Instantiated class COM not found#'
-        - '#Function (escape|PMA_gradientGetColor|recode_string|apc_fetch) not found#'
+        - '#Function apc_fetch not found#'# Travis CI
+        - '#Binary operation #'
+        - '#Part \$k \(array|string|null\) of encapsed string cannot be cast to string#'
+        - '#Unexpected token "&", expected TOKEN_VARIABLE at offset#'
+        - '#Method PhpMyAdmin\\Plugins\\ImportPlugin\:\:doImport\(\) invoked with 1 parameter, 0 required#'# Normal
+        - '#Call to method ([a-zA-Z\(\)]+) on an unknown class COM#'
         - '#TableStructureController has an unused parameter#'
         - '#NodeTrans::__construct\(\) does not call parent constructor#'
+        - '#Call to an undefined method PHPUnit\\Framework\\MockObject\\MockBuilder#'
+        - '#Call to an undefined method PHPUnit\\Framework\\MockObject\\MockObject#'
+        - '#Access to an undefined property PHPUnit\\Framework\\MockObject\\MockObject#'
+        - '#Access to an undefined property PhpMyAdmin\\TwoFactor\:\:\$(backend|showSubmit|available|writable)#'
+        - '#Call to an undefined method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:getHiddenCount#'
         - '#GisGeomTestCase::\$object#'
         - '#Undefined variable: \$array#'
         - '#Undefined variable: \$(cfg|db|table|url_query|text_dir|server|pmaThemeImage|action|sql_query|lang|export_type|err_url|collation_connection|filename_template|transform_key|cn|goto|partitionDetails|token_mismatch|auth_plugin|username|hostname|display_query|where_clause)#'#Others
-        - '#Access to an undefined property PhpMyAdmin\\TwoFactor\:\:\$available#'
         - '#Undefined variable: \$(replication_types|selected)#'#Controllers/Server/ServerDatabasesController.php
         - '#Undefined variable: \$(dir|error_header|error_message)#'#error.inc.php
         - '#Undefined variable: \$_PMA_RTE#'#rte/rte_main.inc.php
@@ -37,7 +46,6 @@ parameters:
         - '#Variable \$default_fk_check_value might not be defined#'#libraries/mult_submits.inc.php
         - '#Variable \$http_response_header in isset\(\) always exists and is not nullable#'
         - '#Variable \$(escape_class|escape_method|iconLinks|icons|where_clause|where_clause_html|condition_array|pos_next|pos_prev) might not be defined#'
-        - '#Call to sprintf contains 3 placeholders, 4 values given.#'#libraries/classes/Menu.php, a phpstan bug
         - '#Variable \$(in_table_header|cur_temp_table_headers|cur_temp_table) might not be defined#'#Plugins/Import/ImportMediawiki.php
     excludes_analyse:
         - %rootDir%/../../../test/EnvironmentTest.php
