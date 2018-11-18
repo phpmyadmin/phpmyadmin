@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-11-12 23:52+0000\n"
+"PO-Revision-Date: 2018-11-18 04:31+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/pt_BR/>\n"
@@ -903,7 +903,7 @@ msgstr ""
 
 #: js/messages.php:113
 msgid "Save & close"
-msgstr "Salvar & fechar"
+msgstr "Salvar e fechar"
 
 #: js/messages.php:114 libraries/classes/InsertEdit.php:1926
 #: prefs_manage.php:361 prefs_manage.php:372
