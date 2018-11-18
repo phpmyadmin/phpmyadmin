@@ -123,6 +123,12 @@ by invoking:
 
     composer update --no-dev
 
+Finally, you'll need to use `Yarn`_ to install some JavaScript dependencies:
+
+.. code-block:: sh
+
+    yarn install
+
 .. _composer:
 
 Installing using Composer
@@ -1127,3 +1133,4 @@ manually or after a period of inactivity). `Issue 11898 <https://github.com/phpm
 .. _Composer tool: https://getcomposer.org/
 .. _Packagist: https://packagist.org/
 .. _Docker image: https://hub.docker.com/r/phpmyadmin/phpmyadmin/
+.. _Yarn: https://yarnpkg.com/lang/en/docs/install
