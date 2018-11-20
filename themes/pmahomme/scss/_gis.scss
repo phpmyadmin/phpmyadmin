@@ -15,22 +15,22 @@ a.close_gis_editor {
 
 #gis_data {
   min-height: 230px;
+}
 
-  &_textarea {
-    height: 6em;
+#gis_data_textarea {
+  height: 6em;
+}
+
+#gis_data_editor {
+  background: #D0DCE0;
+  padding: 15px;
+  min-height: 500px;
+
+  .choice {
+    display: none;
   }
 
-  &_editor {
-    background: #D0DCE0;
-    padding: 15px;
-    min-height: 500px;
-
-    .choice {
-      display: none;
-    }
-
-    input[type="text"] {
-      width: 75px;
-    }
+  input[type="text"] {
+    width: 75px;
   }
 }

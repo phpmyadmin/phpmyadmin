@@ -19,16 +19,20 @@
     display: inline;
   }
 
-  select#select_server,
-  select#lightm_db {
-    width: 100%;
+  select {
+    &#select_server,
+    &#lightm_db {
+      width: 100%;
+    }
   }
 
-  div.pageselector {
-    text-align: center;
-    margin: 0;
-    margin-#{$left}: 0.75em;
-    border-#{$left}: 1px solid #666;
+  div {
+    &.pageselector {
+      text-align: center;
+      margin: 0;
+      margin-#{$left}: 0.75em;
+      border-#{$left}: 1px solid #666;
+    }
   }
 
   #pmalogo,
@@ -68,7 +72,7 @@
 
   > img.throbber {
     display: none;
-    margin: .3em auto 0;
+    margin: 0.3em auto 0;
   }
 }
 
@@ -139,21 +143,7 @@
   }
 
   li {
-    &.activePointer {
-      color: $navi-pointer-color;
-      background-color: $navi-pointer-background;
-
-      .navItemControls {
-        display: inline;
-        opacity: 0.5;
-
-        &:hover {
-          display: inline;
-          opacity: 1.0;
-        }
-      }
-    }
-
+    &.activePointer,
     &.selected {
       color: $navi-pointer-color;
       background-color: $navi-pointer-background;
@@ -167,13 +157,28 @@
       display: none;
       padding-#{$left}: 4px;
     }
+
+    &.activePointer .navItemControls {
+      display: inline;
+      opacity: 0.5;
+
+      &:hover {
+        display: inline;
+        opacity: 1;
+      }
+    }
   }
 
-  li,
-  li.fast_filter {
+  li {
     white-space: nowrap;
     clear: both;
     min-height: 16px;
+
+    &.fast_filter {
+      white-space: nowrap;
+      clear: both;
+      min-height: 16px;
+    }
   }
 
   img {
@@ -184,96 +189,104 @@
     display: block;
   }
 
-  div.block {
-    position: relative;
-    width: 1.5em;
-    height: 1.5em;
-    min-width: 16px;
-    min-height: 16px;
-    float: $left;
-
-    &.double {
-      width: 2.5em;
-    }
-
-    i,
-    b {
-      width: 1.5em;
-      height: 1.7em;
-      min-width: 16px;
-      min-height: 8px;
-      position: absolute;
-      bottom: 0.7em;
-      #{$left}: 0.75em;
-      z-index: 0;
-    }
-
-    // Top and right segments for the tree element connections
-    i {
-      display: block;
-      border-#{$left}: 1px solid #666;
-      border-bottom: 1px solid #666;
+  div {
+    &.block {
       position: relative;
-      z-index: 0;
+      width: 1.5em;
+      height: 1.5em;
+      min-width: 16px;
+      min-height: 16px;
+      float: $left;
 
-      // Removes top segment
-      &.first {
-        border-#{$left}: 0;
+      &.double {
+        width: 2.5em;
+      }
+
+      i,
+      b {
+        width: 1.5em;
+        height: 1.7em;
+        min-width: 16px;
+        min-height: 8px;
+        position: absolute;
+        bottom: 0.7em;
+        #{$left}: 0.75em;
+        z-index: 0;
+      }
+
+      // Top and right segments for the tree element connections
+      i {
+        display: block;
+        border-#{$left}: 1px solid #666;
+        border-bottom: 1px solid #666;
+        position: relative;
+        z-index: 0;
+
+        // Removes top segment
+        &.first {
+          border-#{$left}: 0;
+        }
+      }
+
+      // Bottom segment for the tree element connections
+      b {
+        display: block;
+        height: 0.75em;
+        bottom: 0;
+        #{$left}: 0.75em;
+        border-#{$left}: 1px solid #666;
+      }
+
+      a,
+      u {
+        position: absolute;
+        #{$left}: 50%;
+        top: 50%;
+        z-index: 10;
+      }
+
+      a + a {
+        #{$left}: 100%;
+      }
+
+      &.double {
+        a,
+        u {
+          #{$left}: 33%;
+        }
+
+        a + a {
+          #{$left}: 85%;
+        }
+      }
+
+      img {
+        position: relative;
+        top: -0.6em;
+        #{$left}: 0;
+        margin-#{$left}: -7px;
       }
     }
 
-    // Bottom segment for the tree element connections
-    b {
-      display: block;
-      height: 0.75em;
-      bottom: 0;
-      #{$left}: 0.75em;
-      border-#{$left}: 1px solid #666;
-    }
-
-    a,
-    u {
-      position: absolute;
-      #{$left}: 50%;
-      top: 50%;
-      z-index: 10;
-    }
-
-    a + a {
-      #{$left}: 100%;
-    }
-
-    &.double a,
-    &.double u {
-      #{$left}: 33%;
-    }
-
-    &.double a + a {
-      #{$left}: 85%;
-    }
-
-    img {
-      position: relative;
-      top: -0.6em;
-      #{$left}: 0;
-      margin-#{$left}: -7px;
+    &.throbber img {
+      top: 2px;
+      #{$left}: 2px;
     }
   }
 
-  div.throbber img {
-    top: 2px;
-    #{$left}: 2px;
-  }
+  li {
+    &.last > ul {
+      background: none;
+    }
 
-  li.last > ul {
-    background: none;
-  }
-
-  li > a,
-  li > i {
-    line-height: 1.5em;
-    height: 1.5em;
-    padding-#{$left}: 0.3em;
+    > {
+      a,
+      i {
+        line-height: 1.5em;
+        height: 1.5em;
+        padding-#{$left}: 0.3em;
+      }
+    }
   }
 
   .list_container {
@@ -330,13 +343,21 @@ html.ie {
     }
 
     input {
-      padding-#{$right}: .2em;
+      padding-#{$right}: 0.2em;
     }
   }
 
-  &.ie9 li.fast_filter input,
-  &.ie8 li.fast_filter input {
-    padding-#{$right}: 1.7em;
+  &.ie9,
+  &.ie8 {
+    li.fast_filter {
+      span {
+        display: auto;
+      }
+
+      input {
+        padding-#{$right}: 1.7em;
+      }
+    }
   }
 }
 
@@ -379,7 +400,7 @@ html.ie {
   cursor: pointer;
   z-index: 800;
   text-shadow: 0 1px 0 #fff;
-  filter: dropshadow(color=#fff, offx=0, offy=1);
+  filter: dropshadow(color = #fff, offx = 0, offy = 1);
   border: 1px solid #888;
 }
 
@@ -394,12 +415,14 @@ html.ie {
     margin-#{$left}: 3px;
     padding: 2px 0;
 
-    &:hover .drop_button {
-      background: #fff;
-    }
+    &:hover {
+      .drop_button {
+        background: #fff;
+      }
 
-    &:hover ul {
-      display: block;
+      ul {
+        display: block;
+      }
     }
 
     ul {
@@ -411,7 +434,7 @@ html.ie {
       list-style: none;
       background: #fff;
       border: 1px solid #ddd;
-      border-radius: .3em;
+      border-radius: 0.3em;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       box-shadow: 0 0 5px #ccc;
@@ -438,20 +461,20 @@ html.ie {
 
     a {
       display: block;
-      padding: .2em .3em;
+      padding: 0.2em 0.3em;
 
       &.favorite_table_anchor {
         clear: $left;
         float: $left;
-        padding: .1em .3em 0;
+        padding: 0.1em 0.3em 0;
       }
     }
   }
 
   .drop_button {
-    padding: 0 .3em;
+    padding: 0 0.3em;
     border: 1px solid #ddd;
-    border-radius: .3em;
+    border-radius: 0.3em;
     background: #f2f2f2;
     cursor: pointer;
   }

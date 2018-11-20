@@ -29,9 +29,13 @@ ul.resizable-menu {
 
   li:hover {
     background: linear-gradient(#ffffff, #e5e5e5);
+
+    ul {
+      display: block;
+      background: #fff;
+    }
   }
 
-  li:hover ul,
   .submenuhover ul {
     display: block;
     background: #fff;

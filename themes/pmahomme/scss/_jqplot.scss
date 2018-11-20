@@ -76,7 +76,7 @@
   top: 15px;
   text-align: $right;
 
-  .jqplot-breakTick {
+  &.jqplot-breakTick {
     #{$right}: -20px;
     margin-#{$right}: 0;
     padding: 1px 5px 1px;
@@ -150,50 +150,61 @@
   color: #999999;
 }
 
-table.jqplot-table-legend {
-  margin-top: 12px;
-  margin-bottom: 12px;
-  margin-#{$left}: 12px;
-  margin-#{$right}: 12px;
+table {
+  &.jqplot-table-legend {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-#{$left}: 12px;
+    margin-#{$right}: 12px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #cccccc;
+    position: absolute;
+    font-size: 0.75em;
+  }
+
+  &.jqplot-cursor-legend {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #cccccc;
+    position: absolute;
+    font-size: 0.75em;
+  }
 }
 
-table.jqplot-table-legend,
-table.jqplot-cursor-legend {
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 1px solid #cccccc;
-  position: absolute;
-  font-size: 0.75em;
-}
+td {
+  &.jqplot-table-legend {
+    vertical-align: middle;
+  }
 
-td.jqplot-table-legend {
-  vertical-align: middle;
-}
-
-td.jqplot-seriesToggle:hover,
-td.jqplot-seriesToggle:active {
-  cursor: pointer;
+  &.jqplot-seriesToggle {
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+  }
 }
 
 .jqplot-table-legend .jqplot-series-hidden {
   text-decoration: line-through;
 }
 
-div.jqplot-table-legend-swatch-outline {
-  border: 1px solid #cccccc;
-  padding: 1px;
-}
+div {
+  &.jqplot-table-legend-swatch-outline {
+    border: 1px solid #cccccc;
+    padding: 1px;
+  }
 
-div.jqplot-table-legend-swatch {
-  width: 0;
-  height: 0;
-  border-top-width: 5px;
-  border-bottom-width: 5px;
-  border-left-width: 6px;
-  border-right-width: 6px;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  border-left-style: solid;
-  border-right-style: solid;
+  &.jqplot-table-legend-swatch {
+    width: 0;
+    height: 0;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 6px;
+    border-right-width: 6px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+  }
 }
 
 .jqplot-title {
@@ -208,14 +219,7 @@ table.jqplot-cursor-tooltip {
   font-size: 0.75em;
 }
 
-.jqplot-cursor-tooltip {
-  border: 1px solid #cccccc;
-  font-size: 0.75em;
-  white-space: nowrap;
-  background: rgba(208, 208, 208, 0.5);
-  padding: 1px;
-}
-
+.jqplot-cursor-tooltip,
 .jqplot-highlighter-tooltip,
 .jqplot-canvasOverlay-tooltip {
   border: 1px solid #cccccc;
@@ -252,18 +256,20 @@ div.jqplot-cursor-legend-swatch {
   display: inline-block;
 }
 
-div.jqplot-bubble-label {
-  font-size: 0.8em;
-  padding-#{$left}: 2px;
-  padding-#{$right}: 2px;
-  color: rgb(20%, 20%, 20%);
-}
+div {
+  &.jqplot-bubble-label {
+    font-size: 0.8em;
+    padding-#{$left}: 2px;
+    padding-#{$right}: 2px;
+    color: rgb(20%, 20%, 20%);
 
-div.jqplot-bubble-label.jqplot-bubble-label-highlight {
-  background: rgba(90%, 90%, 90%, 0.7);
-}
+    &.jqplot-bubble-label-highlight {
+      background: rgba(90%, 90%, 90%, 0.7);
+    }
+  }
 
-div.jqplot-noData-container {
-  text-align: center;
-  background-color: rgba(96%, 96%, 96%, 0.3);
+  &.jqplot-noData-container {
+    text-align: center;
+    background-color: rgba(96%, 96%, 96%, 0.3);
+  }
 }

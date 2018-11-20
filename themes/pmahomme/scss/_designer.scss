@@ -54,11 +54,11 @@ canvas.designer {
   border: 1px solid #aaa;
   z-index: 1;
   -moz-user-select: none;
-}
 
-.designer_tab .header {
-  background-image: url($header-img);
-  background-repeat: repeat-x;
+  .header {
+    background-image: url($header-img);
+    background-repeat: repeat-x;
+  }
 }
 
 .tab_zag {
@@ -81,20 +81,26 @@ canvas.designer {
   background: #fff;
   color: #000;
   cursor: default;
-}
 
-.tab_field:hover,
-.tab_field_3:hover {
-  background-color: #CCFFCC;
-  color: #000;
-  background-repeat: repeat-x;
-  cursor: default;
+  &:hover {
+    background-color: #ccffcc;
+    color: #000;
+    background-repeat: repeat-x;
+    cursor: default;
+  }
 }
 
 .tab_field_3 {
-  background-color: #FFE6E6; /*#DDEEFF*/
+  background-color: #ffe6e6;
   color: #000;
   cursor: default;
+
+  &:hover {
+    background-color: #ccffcc;
+    color: #000;
+    background-repeat: repeat-x;
+    cursor: default;
+  }
 }
 
 #designer_hint {
@@ -125,18 +131,18 @@ canvas.designer {
   background-color: #fff;
   background-image: url($left-panel-button-img);
   border: #ccc solid 1px;
-}
 
-.designer_Tabs:hover {
-  cursor: default;
-  color: #0055bb;
-  background: #FFEE99;
-  text-indent: 3px;
-  font-weight: bold;
-  white-space: nowrap;
-  text-decoration: none;
-  border: #9999FF solid 1px;
-  text-align: $left;
+  &:hover {
+    cursor: default;
+    color: #0055bb;
+    background: #ffee99;
+    text-indent: 3px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-decoration: none;
+    border: #9999ff solid 1px;
+    text-align: $left;
+  }
 }
 
 .owner {
@@ -221,16 +227,16 @@ canvas.designer {
   text-decoration: none;
   vertical-align: middle;
   cursor: default;
-}
 
-.L_butt2_1:hover {
-  padding: 0;
-  border: #0099CC solid 1px;
-  background: #FFEE99;
-  color: #000;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: default;
+  &:hover {
+    padding: 0;
+    border: #0099cc solid 1px;
+    background: #ffee99;
+    color: #000;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: default;
+  }
 }
 
 /* ---------------------------------------------------------------------------*/
@@ -311,28 +317,36 @@ canvas.designer {
     width: 2px;
   }
 
-  a.first {
-    margin-#{$right}: 1em;
-  }
+  a {
+    &.first {
+      margin-#{$right}: 1em;
+    }
 
-  a.last {
-    margin-#{$left}: 1em;
+    &.last {
+      margin-#{$left}: 1em;
+    }
   }
 }
 
-a.M_butt_Selected_down_IE,
-a.M_butt_Selected_down {
-  border: 1px solid #C0C0BB;
-  background-color: #99FF99;
-  color: #000;
-}
+a {
+  &.M_butt_Selected_down_IE,
+  &.M_butt_Selected_down {
+    border: 1px solid #c0c0bb;
+    background-color: #99ff99;
+    color: #000;
 
-a.M_butt_Selected_down_IE:hover,
-a.M_butt_Selected_down:hover,
-a.M_butt:hover {
-  border: 1px solid #0099CC;
-  background-color: #FFEE99;
-  color: #000;
+    &:hover {
+      border: 1px solid #0099cc;
+      background-color: #ffee99;
+      color: #000;
+    }
+  }
+
+  &.M_butt:hover {
+    border: 1px solid #0099cc;
+    background-color: #ffee99;
+    color: #000;
+  }
 }
 
 #layer_menu {
@@ -342,7 +356,7 @@ a.M_butt:hover {
   background-color: #EAEEF0;
   border: #999 solid 1px;
 
-  .left {
+  &.left {
     float: $left;
   }
 }
@@ -354,14 +368,7 @@ a.M_butt:hover {
   z-index: 100;
 }
 
-#layer_new_relation {
-  position: absolute;
-  #{$left}: 636px;
-  top: 85px;
-  z-index: 100;
-  width: 153px;
-}
-
+#layer_new_relation,
 #designer_optionse {
   position: absolute;
   #{$left}: 636px;
@@ -391,31 +398,32 @@ a.M_butt:hover {
   z-index: 102;
 }
 
-a.trigger {
-  position: fixed;
-  text-decoration: none;
-  top: 60px;
-  #{$right}: 0;
-  color: #fff;
-  padding: 10px 40px 10px 15px;
-  background: #333 url($plus-img) 85% 55% no-repeat;
-  border: 1px solid #444;
-  display: block;
-  z-index: 102;
+a {
+  &.trigger {
+    position: fixed;
+    text-decoration: none;
+    top: 60px;
+    #{$right}: 0;
+    color: #fff;
+    padding: 10px 40px 10px 15px;
+    background: #333 url($plus-img) 85% 55% no-repeat;
+    border: 1px solid #444;
+    display: block;
+    z-index: 102;
 
-  &:hover {
-    color: #080808;
-    background: #fff696 url($plus-img) 85% 55% no-repeat;
-    border: 1px solid #999;
+    &:hover {
+      color: #080808;
+      background: #fff696 url($plus-img) 85% 55% no-repeat;
+      border: 1px solid #999;
+    }
   }
-}
+  &.active.trigger {
+    background: #222 url($minus-img) 85% 55% no-repeat;
+    z-index: 999;
 
-a.active.trigger {
-  background: #222 url($minus-img) 85% 55% no-repeat;
-  z-index: 999;
-
-  &:hover {
-    background: #fff696 url($minus-img) 85% 55% no-repeat;
+    &:hover {
+      background: #fff696 url($minus-img) 85% 55% no-repeat;
+    }
   }
 }
 
@@ -427,11 +435,11 @@ a.active.trigger {
 .history_table {
   text-align: center;
   cursor: pointer;
-  background-color: #DBE4E8;
-}
+  background-color: #dbe4e8;
 
-.history_table:hover {
-  background-color: #9999CC;
+  &:hover {
+    background-color: #9999cc;
+  }
 }
 
 #ab {
@@ -463,7 +471,7 @@ a.active.trigger {
   z-index: 50;
   padding: 2px;
 
-  .right {
+  &.right {
     float: $right;
     #{$right}: 0;
   }

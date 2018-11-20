@@ -20,11 +20,13 @@
     box-sizing: border-box;
   }
 
-  input[type=button],
-  input[type=checkbox],
-  input[type=radio] {
-    width: auto;
-    margin-#{$right}: 6px;
+  input {
+    &[type=button],
+    &[type=checkbox],
+    &[type=radio] {
+      width: auto;
+      margin-#{$right}: 6px;
+    }
   }
 
   .routine_params_table {

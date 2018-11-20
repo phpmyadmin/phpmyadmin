@@ -12,16 +12,19 @@ p.enum_notice {
     font-style: italic;
   }
 
-  .values,
-  .add {
+  .values {
     width: 100%;
   }
 
-  .add td {
-    vertical-align: middle;
-    width: 50%;
-    padding: 0 0 0;
-    padding-#{$left}: 1em;
+  .add {
+    width: 100%;
+
+    td {
+      vertical-align: middle;
+      width: 50%;
+      padding: 0 0 0;
+      padding-#{$left}: 1em;
+    }
   }
 
   .values {
@@ -47,12 +50,12 @@ p.enum_notice {
     margin: 0;
     margin-#{$right}: 0.4em;
   }
+}
 
-  &_output textarea {
-    width: 100%;
-    float: $right;
-    margin: 1em 0 0 0;
-  }
+#enum_editor_output textarea {
+  width: 100%;
+  float: $right;
+  margin: 1em 0 0 0;
 }
 
 /**
