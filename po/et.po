@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-08-29 23:02+0000\n"
+"PO-Revision-Date: 2018-11-23 19:07+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/et/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -331,16 +331,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Näitamiseks pead valima vähemalt ühe veeru!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simuleeri päringut"
+msgstr "Mitmetabeli päring"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Päring nurjus"
+msgstr "Näitepõhine päring"
 
 #: db_qbe.php:171
 #, php-format
@@ -1542,16 +1538,12 @@ msgid "Please select the file you want to import."
 msgstr "Palun vali imporditav fail."
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Palun sisesta korrektne lehe nimi"
+msgstr "Palun sisesta korrektne tabeli nimi."
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Palun sisesta korrektne lehe nimi"
+msgstr "Palun sisesta korrektne andmebaasi nimi."
 
 #: js/messages.php:336
 msgid "No files available on server for import!"
@@ -4060,14 +4052,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:255
 #: libraries/classes/Plugins/Export/ExportSql.php:317
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Välista praeguse kasutaja definitsioon"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "%s väärtus"
+msgstr "Vaade %s"
 
 #: libraries/classes/Config/Descriptions.php:257
 msgid "Use ignore inserts"
@@ -4879,16 +4870,12 @@ msgid "Whether to show events under database in the navigation tree"
 msgstr "Kas kuvada sündmused andmebaasi navigeerimispuus"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Andmebaasi kopeeritakse"
+msgstr "Ava üksik andmebaas"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "Kas kuvada sündmused andmebaasi navigeerimispuus"
+msgstr "Kas avada üksik andmebaas navigeerimispuus automaatselt."
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -6742,6 +6729,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Funktsioon(id) ini_get ja/või ini_set on failis php.ini keelatud. phpMyAdmin "
+"vajab neid funktsioone!"
 
 #: libraries/classes/Core.php:1297
 msgid "GLOBALS overwrite attempt"
@@ -9560,16 +9549,16 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "Uue tabeli nimi (valikuline):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "Uue andmebaasi nimi (valikuline):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "Impordi nii palju ridu (valikuline):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
@@ -9591,10 +9580,8 @@ msgstr ""
 "eraldatud komadega ja ei tohi asetseda jutumärkide vahel."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Veeru nimed: "
+msgstr "Veergude nimed:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173
@@ -14778,8 +14765,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Kasuta OpenStreetMaps kaarti põhjana"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID:"
@@ -14796,10 +14781,9 @@ msgstr "Punkt:"
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "Punkt %d"
+msgstr "Punkt %d:"
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
@@ -15712,11 +15696,6 @@ msgid "Secret/key:"
 msgstr "Saladus/võti:"
 
 #: templates/login/header.twig:15
-#, fuzzy
-#| msgid ""
-#| "There is mismatch between HTTPS indicated on the server and client. This "
-#| "can lead to non working phpMyAdmin or a security risk. Please fix your "
-#| "server configuration to indicate HTTPS properly."
 msgid ""
 "There is a mismatch between HTTPS indicated on the server and client. This "
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
