@@ -1,7 +1,4 @@
-// GIS styles for the Metro theme
-/**
- * GIS data editor styles
- */
+// GIS data editor styles for the Metro theme
 a.close_gis_editor {
   float: $right;
 }
@@ -9,7 +6,6 @@ a.close_gis_editor {
 #gis_editor {
   display: none;
   position: fixed;
-  _position: absolute; /* hack for IE */
   z-index: 1001;
   overflow-y: auto;
   overflow-x: hidden;
@@ -24,15 +20,15 @@ a.close_gis_editor {
 }
 
 #gis_data_editor {
-  background: #D0DCE0;
+  background: #d0dce0;
   padding: 15px;
   min-height: 500px;
-}
 
-#gis_data_editor .choice {
-  display: none;
-}
+  .choice {
+    display: none;
+  }
 
-#gis_data_editor input[type="text"] {
-  width: 75px;
+  input[type="text"] {
+    width: 75px;
+  }
 }
