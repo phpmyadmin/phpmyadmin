@@ -1,8 +1,11 @@
 // Styles for CodeMirror editor for the Metro theme
 
+$textarea-cols: 40 !default;
+$textarea-rows: 15 !default;
+
 .CodeMirror {
   font-family: $font-family-fixed !important;
-  //height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 1.2); ?>em;
+  height: ceil($textarea-rows * 1.2em);
   border: 1px solid #ccc;
   direction: ltr;
 }
@@ -16,13 +19,13 @@
 }
 
 #inline_editor_outer .CodeMirror {
-  //height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 0.4); ?>em;
+  height: ceil($textarea-rows * 0.4em);
   margin-bottom: 10px;
 }
 
 .insertRowTable .CodeMirror {
-  //height: <?php echo ceil($GLOBALS['cfg']['TextareaRows'] * 0.6); ?>em;
-  //width: <?php echo ceil($GLOBALS['cfg']['TextareaCols'] * 0.6); ?>em;
+  height: ceil($textarea-rows * 0.6em);
+  width: ceil($textarea-cols * 0.6em);
 }
 
 #pma_console .CodeMirror-gutters {
@@ -30,48 +33,51 @@
   border: none;
 }
 
-span.cm-keyword, span.cm-statement-verb {
-  color: #909;
-}
+span {
+  &.cm-keyword,
+  &.cm-statement-verb {
+    color: #909;
+  }
 
-span.cm-variable {
-  color: black;
-}
+  &.cm-variable {
+    color: black;
+  }
 
-span.cm-comment {
-  color: #808000;
-}
+  &.cm-comment {
+    color: #808000;
+  }
 
-span.cm-mysql-string {
-  color: #008000;
-}
+  &.cm-mysql-string {
+    color: #008000;
+  }
 
-span.cm-operator {
-  color: fuchsia;
-}
+  &.cm-operator {
+    color: fuchsia;
+  }
 
-span.cm-mysql-word {
-  color: black;
-}
+  &.cm-mysql-word {
+    color: black;
+  }
 
-span.cm-builtin {
-  color: #f00;
-}
+  &.cm-builtin {
+    color: #f00;
+  }
 
-span.cm-variable-2 {
-  color: #f90;
-}
+  &.cm-variable-2 {
+    color: #f90;
+  }
 
-span.cm-variable-3 {
-  color: #00f;
-}
+  &.cm-variable-3 {
+    color: #00f;
+  }
 
-span.cm-separator {
-  color: fuchsia;
-}
+  &.cm-separator {
+    color: fuchsia;
+  }
 
-span.cm-number {
-  color: teal;
+  &.cm-number {
+    color: teal;
+  }
 }
 
 .autocomplete-column-name {
@@ -80,9 +86,9 @@ span.cm-number {
 
 .autocomplete-column-hint {
   display: inline-block;
-  float: right;
+  float: $right;
   color: #666;
-  margin-left: 1em;
+  margin-#{$left}: 1em;
 }
 
 .CodeMirror-hints {
