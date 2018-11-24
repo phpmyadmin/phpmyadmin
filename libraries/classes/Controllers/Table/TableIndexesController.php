@@ -24,7 +24,7 @@ use PhpMyAdmin\Util;
 class TableIndexesController extends TableController
 {
     /**
-     * @var Index $index
+     * @var Index
      */
     protected $index;
 

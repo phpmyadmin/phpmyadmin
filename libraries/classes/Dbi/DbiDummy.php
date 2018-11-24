@@ -316,7 +316,7 @@ class DbiDummy implements DbiExtension
      *
      * @param resource $link connection link
      *
-     * @return string|bool $error or false
+     * @return string|bool error or false
      */
     public function getError($link)
     {

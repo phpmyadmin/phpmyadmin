@@ -32,7 +32,7 @@ class Normalization
     private $dbi;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

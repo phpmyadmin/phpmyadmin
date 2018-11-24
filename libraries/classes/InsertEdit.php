@@ -36,7 +36,7 @@ class InsertEdit
     private $dbi;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -78,7 +78,7 @@ class InsertEdit
      * @param array      $where_clause_array array of where clauses
      * @param string     $err_url            error url
      *
-     * @return array $form_params array of insert/edit form parameters
+     * @return array array of insert/edit form parameters
      */
     public function getFormParametersForInsertForm(
         $db,
@@ -132,7 +132,7 @@ class InsertEdit
      * @param string $table              name of the table
      * @param string $db                 name of the database
      *
-     * @return array $where_clauses, $result, $rows
+     * @return array $where_clauses, $result, $rows, $found_unique_key
      */
     private function analyzeWhereClauses(
         array $where_clause_array,
@@ -179,7 +179,7 @@ class InsertEdit
      * @param string $local_query        query performed
      * @param array  $result             MySQL result handle
      *
-     * @return boolean $has_unique_condition
+     * @return boolean
      */
     private function showEmptyResultMessageOrSetUniqueCondition(
         array $rows,
@@ -586,7 +586,7 @@ class InsertEdit
      * @param array $foreigners  keys into foreign fields
      * @param array $foreignData data about the foreign keys
      *
-     * @return integer              $nullify_code
+     * @return integer
      */
     private function getNullifyCodeForNullColumn(
         array $column,
@@ -2123,7 +2123,7 @@ class InsertEdit
     /**
      * Prepares the update/insert of a row
      *
-     * @return array     $loop_array, $using_key, $is_insert, $is_insertignore
+     * @return array $loop_array, $using_key, $is_insert, $is_insertignore
      */
     public function getParamsForUpdateOrInsert()
     {
@@ -2220,7 +2220,7 @@ class InsertEdit
      * @param string $goto_include store some script for include, otherwise it is
      *                             boolean false
      *
-     * @return string               $goto_include
+     * @return string
      */
     public function getGotoInclude($goto_include)
     {
@@ -2299,8 +2299,8 @@ class InsertEdit
      * @param array $url_params url parameters array
      * @param array $query      built query from buildSqlQuery()
      *
-     * @return array            $url_params, $total_affected_rows, $last_messages
-     *                          $warning_messages, $error_messages, $return_to_sql_query
+     * @return array $url_params, $total_affected_rows, $last_messages
+     *               $warning_messages, $error_messages, $return_to_sql_query
      */
     public function executeSqlQuery(array $url_params, array $query)
     {
@@ -2367,7 +2367,7 @@ class InsertEdit
     /**
      * get the warning messages array
      *
-     * @return array  $warning_essages
+     * @return array
      */
     private function getWarningMessages()
     {
@@ -2388,7 +2388,7 @@ class InsertEdit
      *                                 table or optionally a given column in a table
      * @param string $relation_field   relation field
      *
-     * @return string $dispval display value from the foreign table
+     * @return string display value from the foreign table
      */
     public function getDisplayValueForForeignTableColumn(
         $where_comparison,
@@ -2435,7 +2435,7 @@ class InsertEdit
      * @param string $dispval              display value from the foreign table
      * @param string $relation_field_value relation field value
      *
-     * @return string $output HTML <a> tag
+     * @return string HTML <a> tag
      */
     public function getLinkForRelationalDisplayField(
         array $map,
@@ -2492,7 +2492,7 @@ class InsertEdit
      * @param array  $extra_data     extra data array
      * @param string $type           the type of transformation
      *
-     * @return array $extra_data
+     * @return array
      */
     public function transformEditedValues(
         $db,
@@ -2550,7 +2550,7 @@ class InsertEdit
      * @param array  $func_no_param           array of set of string
      * @param string $key                     an md5 of the column name
      *
-     * @return array $cur_value
+     * @return array
      */
     public function getCurrentValueAsAnArrayForMultipleEdit(
         $multi_edit_funcs,
@@ -2694,7 +2694,7 @@ class InsertEdit
      * @param string       $table                        table name
      * @param array        $multi_edit_funcs             multiple edit functions array
      *
-     * @return string $current_value  current column value in the form
+     * @return string  current column value in the form
      */
     public function getCurrentValueForDifferentTypes(
         $possibly_uploaded_val,
@@ -2937,7 +2937,7 @@ class InsertEdit
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return array $comments_map comments for columns
+     * @return array comments for columns
      */
     public function getCommentsMap($db, $table)
     {
@@ -2956,7 +2956,7 @@ class InsertEdit
      * @param string $db    current database
      * @param string $table current table
      *
-     * @return array $url_params url parameters
+     * @return array url parameters
      */
     public function getUrlParameters($db, $table)
     {

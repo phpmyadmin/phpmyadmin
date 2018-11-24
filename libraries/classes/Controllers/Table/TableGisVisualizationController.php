@@ -24,22 +24,22 @@ use PhpMyAdmin\Url;
 class TableGisVisualizationController extends TableController
 {
     /**
-     * @var array $url_params
+     * @var array
      */
     protected $url_params;
 
     /**
-     * @var string $sql_query
+     * @var string
      */
     protected $sql_query;
 
     /**
-     * @var array $visualizationSettings
+     * @var array
      */
     protected $visualizationSettings;
 
     /**
-     * @var \PhpMyAdmin\Gis\GisVisualization $visualization
+     * @var \PhpMyAdmin\Gis\GisVisualization
      */
     protected $visualization;
 

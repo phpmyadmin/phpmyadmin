@@ -34,7 +34,7 @@ class ErrorReport
     private $httpRequest;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -234,7 +234,7 @@ class ErrorReport
      *
      * @param array $stack the stack trace
      *
-     * @return array $stack the modified stack trace
+     * @return array the modified stack trace
      */
     private function translateStacktrace(array $stack): array
     {

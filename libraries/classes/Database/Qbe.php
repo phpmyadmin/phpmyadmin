@@ -217,7 +217,7 @@ class Qbe
     private $_currentSearch = null;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

@@ -30,12 +30,12 @@ use PhpMyAdmin\Util;
 class Operations
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
     /**
-     * @var DatabaseInterface $dbi
+     * @var DatabaseInterface
      */
     private $dbi;
 
@@ -56,7 +56,7 @@ class Operations
      *
      * @param string $db database name
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForDatabaseComment($db)
     {
@@ -88,7 +88,7 @@ class Operations
      *
      * @param string $db database name
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForRenameDatabase($db)
     {
@@ -153,7 +153,7 @@ class Operations
      *
      * @param string $db database name
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForDropDatabaseLink($db)
     {
@@ -197,7 +197,7 @@ class Operations
      *
      * @param string $db database name
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForCopyDatabase($db)
     {
@@ -298,7 +298,7 @@ class Operations
      * @param string $db    database name
      * @param string $table table name
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForChangeDatabaseCharset($db, $table)
     {
@@ -437,7 +437,7 @@ class Operations
      * @param ExportSql $export_sql_plugin export plugin instance
      * @param string    $db                database name
      *
-     * @return array $views
+     * @return array
      */
     public function getViewsAndCreateSqlViewStandIn(
         array $tables_full,
@@ -821,7 +821,7 @@ class Operations
      *
      * @param array $columns columns array
      *
-     * @return string $html_out
+     * @return string
      */
     public function getHtmlForOrderTheTable(array $columns)
     {
@@ -863,7 +863,7 @@ class Operations
     /**
      * Get the HTML snippet for move table
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForMoveTable()
     {
@@ -944,7 +944,7 @@ class Operations
      * @param string $page_checksum      value of page checksum
      * @param string $checksum           the checksum
      *
-     * @return string $html_output
+     * @return string
      */
     public function getTableOptionDiv(
         $pma_table,
@@ -993,7 +993,7 @@ class Operations
     /**
      * Get HTML for the rename table part of table options
      *
-     * @return string $html_output
+     * @return string
      */
     private function getHtmlForRenameTable()
     {
@@ -1032,7 +1032,7 @@ class Operations
      *
      * @param string $current_value of the table comments
      *
-     * @return string $html_output
+     * @return string
      */
     private function getHtmlForTableComments($current_value)
     {
@@ -1054,7 +1054,7 @@ class Operations
      *
      * @param string $current_value of the pack keys option
      *
-     * @return string $html_output
+     * @return string
      */
     private function getHtmlForPackKeys($current_value)
     {
@@ -1098,7 +1098,7 @@ class Operations
      * @param string $page_checksum      value of page checksum
      * @param string $checksum           the checksum
      *
-     * @return string $html_output
+     * @return string
      */
     private function getTableOptionFieldset(
         $pma_table,
@@ -1234,7 +1234,7 @@ class Operations
      * @param string $label     label value
      * @param string $val       checksum, delay_key_write, transactional, page_checksum
      *
-     * @return string $html_output
+     * @return string
      */
     private function getHtmlForTableRow($attribute, $label, $val)
     {
@@ -1253,7 +1253,7 @@ class Operations
     /**
      * Get array of possible row formats
      *
-     * @return array $possible_row_formats
+     * @return array
      */
     private function getPossibleRowFormat()
     {
@@ -1309,7 +1309,7 @@ class Operations
     /**
      * Get HTML div for copy table
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForCopytable()
     {
@@ -1415,7 +1415,7 @@ class Operations
      * @param Table $pma_table  Table object
      * @param array $url_params array of URL parameters
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForTableMaintenance($pma_table, array $url_params)
     {
@@ -1440,7 +1440,7 @@ class Operations
      * @param Table $pma_table  Table object
      * @param array $url_params Array of URL parameters
      *
-     * @return string $html_output
+     * @return string
      */
     private function getListofMaintainActionLink($pma_table, array $url_params)
     {
@@ -1562,7 +1562,7 @@ class Operations
      * @param array  $url_params     additional url parameters
      * @param string $link           contains name of page/anchor that is being linked
      *
-     * @return string $html_output
+     * @return string
      */
     private function getMaintainActionlink($action_message, array $params, array $url_params, $link)
     {
@@ -1582,7 +1582,7 @@ class Operations
      * @param array $truncate_table_url_params url parameter array for truncate table
      * @param array $dropTableUrlParams        url parameter array for drop table
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForDeleteDataOrTable(
         array $truncate_table_url_params,
@@ -1642,7 +1642,7 @@ class Operations
      * @param array $partition_names array of partition names for a specific db/table
      * @param array $url_params      url parameters
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForPartitionMaintenance(array $partition_names, array $url_params)
     {
@@ -1736,7 +1736,7 @@ class Operations
      *                          or optionally a given column in a table
      * @param array $url_params array of url parameters
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForReferentialIntegrityCheck(array $foreign, array $url_params)
     {
@@ -1832,7 +1832,7 @@ class Operations
      * @param string $transactional       value of transactional
      * @param string $tbl_collation       collation of the table
      *
-     * @return array  $table_alters
+     * @return array
      */
     public function getTableAltersArray(
         $pma_table,
@@ -1933,7 +1933,7 @@ class Operations
     /**
      * Get warning messages array
      *
-     * @return array  $warning_messages
+     * @return array
      */
     public function getWarningMessagesArray()
     {

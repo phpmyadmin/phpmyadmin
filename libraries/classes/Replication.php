@@ -147,7 +147,7 @@ class Replication
      * @param int    $port     mysql remote port
      * @param string $socket   path to unix socket
      *
-     * @return mixed $link mysql link on success
+     * @return mixed mysql link on success
      */
     public function connectToMaster(
         $user,

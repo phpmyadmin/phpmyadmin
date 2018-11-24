@@ -213,7 +213,7 @@ class Data
      * @param array $server_status    contains results of SHOW GLOBAL STATUS
      * @param array $server_variables contains results of SHOW GLOBAL VARIABLES
      *
-     * @return array $server_status
+     * @return array
      */
     private function _calculateValues(array $server_status, array $server_variables)
     {

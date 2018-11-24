@@ -188,7 +188,7 @@ class Results
     public $transformation_info;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -464,7 +464,7 @@ class Results
      *
      * @param array $displayParts the parts to display
      *
-     * @return array $displayParts the modified display parts
+     * @return array the modified display parts
      *
      * @access  private
      *
@@ -488,7 +488,7 @@ class Results
      *
      * @param array $displayParts the parts to display
      *
-     * @return array $displayParts the modified display parts
+     * @return array the modified display parts
      *
      * @access  private
      *
@@ -537,7 +537,7 @@ class Results
      *
      * @param array $displayParts the parts to display
      *
-     * @return array $displayParts the modified display parts
+     * @return array the modified display parts
      *
      * @access  private
      *
@@ -568,7 +568,7 @@ class Results
      *
      * @param array $displayParts the parts to display
      *
-     * @return array $displayParts the modified display parts
+     * @return array the modified display parts
      *
      * @access  private
      *
@@ -1078,7 +1078,7 @@ class Results
      * @param integer $pos_next       the offset for the "next" page
      * @param boolean $is_innodb      whether it's InnoDB or not
      *
-     * @return  string  $buttons_html   html content
+     * @return  string   html content
      *
      * @access  private
      *
@@ -1457,7 +1457,7 @@ class Results
      * @param string|null $sort_expression    the sort expression
      * @param string      $unsorted_sql_query the unsorted sql query
      *
-     * @return  string  $drop_down_html         html content
+     * @return  string         html content
      *
      * @access  private
      *
@@ -1622,7 +1622,7 @@ class Results
      *
      * @param array $analyzed_sql_results analyzed sql results
      *
-     * @return array $comments_map table comments
+     * @return array table comments
      *
      * @access  private
      *
@@ -1683,7 +1683,7 @@ class Results
      *
      * @param array $analyzed_sql_results analyzed sql results
      *
-     * @return  string  $data_html      html content
+     * @return  string      html content
      *
      * @access  private
      *
@@ -1806,7 +1806,7 @@ class Results
      *
      * @param string $deleteLink the delete link of current row
      *
-     * @return  string  $form_html          html content
+     * @return  string          html content
      *
      * @access  private
      *
@@ -2114,7 +2114,7 @@ class Results
      * @param string $sort_tbl                    the table name
      * @param string $name_to_use_in_sort         the sorting column name
      *
-     * @return boolean $is_in_sort                   the column sorted or not
+     * @return boolean                   the column sorted or not
      *
      * @access  private
      *
@@ -2297,7 +2297,7 @@ class Results
      * @param string  $order_link  the order link
      * @param string  $comments    the comment for the column
      *
-     * @return  string  $draggable_html     html content
+     * @return  string     html content
      *
      * @access  private
      *
@@ -2347,7 +2347,7 @@ class Results
      * @param array   $fields_meta     set of field properties
      * @param string  $comments        the comment for the column
      *
-     * @return  string  $draggable_html         html content
+     * @return  string         html content
      *
      * @access  private
      *
@@ -2610,7 +2610,7 @@ class Results
      * @param array   $analyzed_sql_results analyzed sql results
      * @param boolean $is_limited_display   with limited operations or not
      *
-     * @return string $table_body_html  html content
+     * @return string  html content
      *
      * @global array  $row                  current row data
      *
@@ -2945,7 +2945,7 @@ class Results
      * @param string               $url_sql_query        the analyzed sql query
      * @param array                $analyzed_sql_results analyzed sql results
      *
-     * @return  string $row_values_html  html content
+     * @return  string  html content
      *
      * @access  private
      *
@@ -3289,7 +3289,7 @@ class Results
      * @param array         $row       current row data
      * @param array|boolean $col_order the column order
      *
-     * @return array $row_info associative array with column nama -> value
+     * @return array associative array with column nama -> value
      */
     private function _getRowInfoForSpecialLinks(array $row, $col_order)
     {
@@ -3311,7 +3311,7 @@ class Results
      *
      * @param array $analyzed_sql_results analyzed sql results
      *
-     * @return  string  $url_sql        analyzed sql query
+     * @return  string        analyzed sql query
      *
      * @access  private
      *
@@ -3386,7 +3386,7 @@ class Results
      *
      * @param array $display_params holds various display info
      *
-     * @return  string  $header_html    html content
+     * @return  string    html content
      *
      * @access  private
      *
@@ -3681,7 +3681,7 @@ class Results
      * @param string $hide_class       the class for visibility of a column
      * @param string $field_type_class the class related to type of the field
      *
-     * @return string $class the combined classes
+     * @return string the combined classes
      *
      * @access  private
      *
@@ -3706,7 +3706,7 @@ class Results
      *
      * @param string $type the type of the column field
      *
-     * @return  string  $field_type_class   the class for the column
+     * @return  string   the class for the column
      *
      * @access  private
      *
@@ -3749,7 +3749,7 @@ class Results
      *                                             function
      * @param array         $transform_options     the transformation parameters
      *
-     * @return  string  $cell the prepared cell, html content
+     * @return  string the prepared cell, html content
      *
      * @access  private
      *
@@ -3825,7 +3825,7 @@ class Results
      * @param string        $transform_options     the transformation parameters
      * @param array         $analyzed_sql_results  the analyzed query
      *
-     * @return  string  $cell                  the prepared data cell, html content
+     * @return  string                  the prepared data cell, html content
      *
      * @access  private
      *
@@ -3978,7 +3978,7 @@ class Results
      *                                             have to be displayed
      * @param integer       $col_index             the column index
      *
-     * @return  string  $cell the prepared data cell, html content
+     * @return  string the prepared data cell, html content
      *
      * @access  private
      *
@@ -4305,7 +4305,7 @@ class Results
      * @param array   $analyzed_sql_results analyzed sql results
      * @param boolean $is_limited_display   With limited operations or not
      *
-     * @return  string   $table_html   Generated HTML content for resulted table
+     * @return  string   Generated HTML content for resulted table
      *
      * @access  public
      *
@@ -4730,7 +4730,7 @@ class Results
      * @param string  $pre_count             the string renders before row count
      * @param string  $after_count           the string renders after row count
      *
-     * @return Message $message an object of Message
+     * @return Message an object of Message
      *
      * @access  private
      *
@@ -4899,7 +4899,7 @@ class Results
      * @param array   $analyzed_sql_results analyzed sql results
      * @param string  $del_link             the display element - 'del_link'
      *
-     * @return string $links_html html content
+     * @return string html content
      *
      * @access  private
      *
@@ -5102,7 +5102,7 @@ class Results
     /**
      * Get copy to clipboard links for results operations
      *
-     * @return string $html
+     * @return string
      *
      * @access  private
      */
@@ -5124,7 +5124,7 @@ class Results
     /**
      * Get printview links for results operations
      *
-     * @return string $html
+     * @return string
      *
      * @access  private
      */
@@ -5151,7 +5151,7 @@ class Results
      * @param array   $analyzed_sql_results analyzed sql results
      * @param boolean $only_view            Whether to show only view
      *
-     * @return string $results_operations_html  html content
+     * @return string  html content
      *
      * @access  private
      *

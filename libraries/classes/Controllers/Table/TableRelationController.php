@@ -26,37 +26,37 @@ use PhpMyAdmin\Util;
 class TableRelationController extends TableController
 {
     /**
-     * @var array $options_array
+     * @var array
      */
     protected $options_array;
 
     /**
-     * @var array $cfgRelation
+     * @var array
      */
     protected $cfgRelation;
 
     /**
-     * @var array $existrel
+     * @var array
      */
     protected $existrel;
 
     /**
-     * @var string $tbl_storage_engine
+     * @var string
      */
     protected $tbl_storage_engine;
 
     /**
-     * @var array $existrel_foreign
+     * @var array
      */
     protected $existrel_foreign;
 
     /**
-     * @var Table $udp_query
+     * @var Table
      */
     protected $upd_query;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

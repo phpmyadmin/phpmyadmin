@@ -23,7 +23,7 @@ use PhpMyAdmin\Util;
 class Common
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

@@ -25,7 +25,7 @@ use PhpMyAdmin\Util;
 class Navigation
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     public $relation;
 
