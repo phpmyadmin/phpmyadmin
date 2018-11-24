@@ -4,7 +4,7 @@
 // These will be cascaded down to all plot elements according to css rules
 .jqplot-target {
   position: relative;
-  color: #222222;
+  color: #222;
   font-family: $font-family;
   font-size: 1em;
 }
@@ -143,12 +143,12 @@
 
 .jqplot-meterGauge-tick {
   font-size: 0.75em;
-  color: #999999;
+  color: #999;
 }
 
 .jqplot-meterGauge-label {
   font-size: 1em;
-  color: #999999;
+  color: #999;
 }
 
 table {
@@ -158,14 +158,14 @@ table {
     margin-#{$left}: 12px;
     margin-#{$right}: 12px;
     background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid #cccccc;
+    border: 1px solid #ccc;
     position: absolute;
     font-size: 0.75em;
   }
 
   &.jqplot-cursor-legend {
     background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid #cccccc;
+    border: 1px solid #ccc;
     position: absolute;
     font-size: 0.75em;
   }
@@ -190,7 +190,7 @@ td {
 
 div {
   &.jqplot-table-legend-swatch-outline {
-    border: 1px solid #cccccc;
+    border: 1px solid #ccc;
     padding: 1px;
   }
 
@@ -216,14 +216,14 @@ div {
 }
 
 table.jqplot-cursor-tooltip {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   font-size: 0.75em;
 }
 
 .jqplot-cursor-tooltip,
 .jqplot-highlighter-tooltip,
 .jqplot-canvasOverlay-tooltip {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   font-size: 0.75em;
   white-space: nowrap;
   background: rgba(208, 208, 208, 0.5);

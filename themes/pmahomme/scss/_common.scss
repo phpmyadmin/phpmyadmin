@@ -2,7 +2,6 @@
  * Common styles for the pmahomme theme
  */
 
-/******************************************************************************/
 /* general tags */
 html {
   font-size: 82%;
@@ -147,12 +146,12 @@ button.mult_submit {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    background-image: linear-gradient(#ffffff, #e0e0e0);
+    background-image: linear-gradient(#fff, #e0e0e0);
 
     &.active {
       border: 1px solid #666;
       box-shadow: 0 0 2px #999;
-      background: linear-gradient(#bbbbbb, #ffffff);
+      background: linear-gradient(#bbb, #fff);
     }
   }
 }
@@ -170,7 +169,7 @@ th {
   font-weight: bold;
   color: $th-color;
   background: #f3f3f3;
-  background: linear-gradient(#ffffff, #cccccc);
+  background: linear-gradient(#fff, #ccc);
 }
 
 a img {
@@ -389,7 +388,7 @@ input {
   &[type=submit]:hover,
   &[type=button]:hover {
     position: relative;
-    background: linear-gradient(#ffffff, #dddddd);
+    background: linear-gradient(#fff, #ddd);
     cursor: pointer;
   }
 }
@@ -503,7 +502,7 @@ fieldset {
   fieldset {
     margin: 0.8em;
     border: 1px solid #aaa;
-    background: #E8E8E8;
+    background: #e8e8e8;
   }
 
   legend {
@@ -580,11 +579,10 @@ select {
   margin: 6px;
 
   &[multiple] {
-    background: linear-gradient(#ffffff, #f2f2f2);
+    background: linear-gradient(#fff, #f2f2f2);
   }
 }
 
-/******************************************************************************/
 /* classes */
 .clearfloat {
   clear: both;
@@ -683,9 +681,11 @@ td.vbottom {
 
 div.tools {
   padding: 0.2em;
+
   a {
     color: #3a7ead !important;
   }
+
   margin-top: 0;
   margin-bottom: 0.5em;
   // avoid a thick line since this should be used under another fieldset
@@ -750,7 +750,7 @@ table tbody:first-of-type tr:nth-child(even),
 table tbody:first-of-type tr:nth-child(even) th,
 #table_index tbody:nth-of-type(even) tr,
 #table_index tbody:nth-of-type(even) th {
-  background: #DFDFDF;
+  background: #dfdfdf;
 }
 
 table tr {
@@ -862,7 +862,7 @@ img.lightbulb {
 }
 
 .pdflayout_table {
-  background: #D3DCE3;
+  background: #d3dce3;
   color: #000;
   overflow: hidden;
   clip: inherit;
@@ -961,7 +961,7 @@ div.success {
 }
 
 .success h1 {
-  border-color: #00FF00;
+  border-color: #0f0;
 }
 
 .notice {
@@ -992,7 +992,7 @@ div.error {
   border-color: #333;
 
   h1 {
-    border-color: #ff0000;
+    border-color: #f00;
   }
 }
 
@@ -1010,7 +1010,7 @@ div.error {
 .tblcomment {
   font-size: 70%;
   font-weight: normal;
-  color: #000099;
+  color: #009;
 }
 
 .tblHeaders {
@@ -1030,7 +1030,7 @@ div.tools,
   &:link,
   &:active,
   &:visited {
-    color: #0000FF;
+    color: #00f;
   }
 }
 
@@ -1038,7 +1038,7 @@ div.tools a {
   &:link,
   &:visited,
   &:active {
-    color: #0000FF;
+    color: #00f;
   }
 }
 
@@ -1046,19 +1046,19 @@ div.tools a {
   &:link,
   &:active,
   &:visited {
-    color: #0000FF;
+    color: #00f;
   }
 }
 
 .tblHeaders a:hover,
 div.tools a:hover,
 .tblFooters a:hover {
-  color: #FF0000;
+  color: #f00;
 }
 
 // forbidden, no privileges
 .noPrivileges {
-  color: #FF0000;
+  color: #f00;
   font-weight: bold;
 }
 
@@ -1171,7 +1171,7 @@ form.login {
 }
 
 .central_columns_navigation {
-  padding: 1.5% 0em !important;
+  padding: 1.5% 0 !important;
 }
 
 .central_columns_add_column {
@@ -1204,7 +1204,6 @@ form.login {
   display: inline-block;
 }
 
-/******************************************************************************/
 /* specific elements */
 
 #topmenu {
@@ -1253,7 +1252,7 @@ ul {
 }
 
 .menucontainer {
-  background: linear-gradient(#ffffff, #dcdcdc);
+  background: linear-gradient(#fff, #dcdcdc);
   border-top: 1px solid #aaa;
 }
 
@@ -1281,7 +1280,7 @@ ul#topmenu2 a {
 
 span {
   &.caution {
-    color: #FF0000;
+    color: #f00;
   }
 
   &.success {
@@ -1290,11 +1289,11 @@ span {
 }
 
 fieldset.caution a {
-  color: #FF0000;
+  color: #f00;
 
   &:hover {
     color: #fff;
-    background-color: #FF0000;
+    background-color: #f00;
   }
 }
 
@@ -1404,17 +1403,17 @@ table {
         display: block;
 
         &:hover {
-          background-color: #CCFFCC;
+          background-color: #cfc;
         }
       }
     }
 
     th {
-      background-color: #D3DCE3;
+      background-color: #d3dce3;
     }
 
     td.selected {
-      background-color: #FFCC99;
+      background-color: #fc9;
     }
   }
 }
@@ -1504,7 +1503,7 @@ div#tablestatistics table {
   font-style: italic;
   white-space: nowrap;
   margin-#{$left}: 10px;
-  color: #D6D6D6;
+  color: #d6d6d6;
   text-shadow: none;
 }
 
@@ -1522,8 +1521,8 @@ div#tablestatistics table {
   height: auto;
   overflow: visible;
   visibility: hidden;
-  background-color: #ffffcc;
-  color: #006600;
+  background-color: #ffc;
+  color: #060;
   border: 0.1em solid #000;
   padding: 0.5em;
 }
@@ -1650,10 +1649,12 @@ table {
   &#serverstatusvariables {
     width: 100%;
     margin-bottom: 1em;
+
     .name {
       width: 18em;
       white-space: nowrap;
     }
+
     .value {
       width: 6em;
     }
@@ -1688,7 +1689,7 @@ div {
 
 div#chartVariableSettings {
   border: 1px solid #ddd;
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
   margin-#{$left}: 10px;
 }
 
@@ -1697,8 +1698,9 @@ table#chartGrid {
     padding: 3px;
     margin: 0;
   }
+
   div.monitorChart {
-    background: #EBEBEB;
+    background: #ebebeb;
     overflow: hidden;
     border: none;
   }
@@ -1722,7 +1724,7 @@ div.tabLinks {
 .popupContent {
   display: none;
   position: absolute;
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   margin: 0;
   padding: 3px;
   background-color: #fff;
@@ -1791,7 +1793,7 @@ div {
   .var-header {
     color: $th-color;
     background: #f3f3f3;
-    background: linear-gradient(#ffffff, #cccccc);
+    background: linear-gradient(#fff, #ccc);
     font-weight: bold;
     text-align: $left;
   }
@@ -1961,7 +1963,7 @@ a.button {
   background-image: linear-gradient(#f8f8f8, #d8d8d8);
 
   &:hover {
-    background: linear-gradient(#ffffff, #dddddd);
+    background: linear-gradient(#fff, #ddd);
   }
 }
 
@@ -1993,6 +1995,7 @@ textarea {
     padding: 5px;
     font-family: inherit;
   }
+
   &#sql_query_edit {
     height: 7em;
     width: 95%;
@@ -2019,6 +2022,7 @@ div#queryboxcontainer div#bookmarkoptions {
     list-style-type: disc;
     vertical-align: middle;
   }
+
   li {
     margin-bottom: 0.3em;
   }
@@ -2035,6 +2039,7 @@ div#queryboxcontainer div#bookmarkoptions {
 }
 
 /* end main page */
+
 /* iconic view for ul items */
 
 li.no_bullets {
@@ -2120,6 +2125,7 @@ code {
     overflow: auto;
     direction: ltr;
   }
+
   &.sql {
     display: block;
     padding: 1em;
@@ -2295,13 +2301,13 @@ input {
   &[type=password].invalid_value,
   &[type=number].invalid_value,
   &[type=date].invalid_value {
-    background: #FFCCCC;
+    background: #fcc;
   }
 }
 
 select.invalid_value,
 .invalid_value {
-  background: #FFCCCC;
+  background: #fcc;
 }
 
 /**
@@ -2378,6 +2384,7 @@ select.invalid_value,
   h2 {
     word-wrap: break-word;
   }
+
   h3 {
     border-bottom: 1px #999 solid;
     font-size: 110%;
@@ -2433,7 +2440,7 @@ select.invalid_value,
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     text-shadow: 0 1px 0 #fff;
-    background: linear-gradient(#ffffff, #cccccc);
+    background: linear-gradient(#fff, #ccc);
     cursor: pointer;
     float: $right;
   }
@@ -2706,8 +2713,8 @@ table#index_columns {
     .errors {
       margin: 0 -2px 1em;
       padding: 0.5em 1.5em;
-      background: #FBEAD9;
-      border: 0 #C83838 solid;
+      background: #fbead9;
+      border: 0 #c83838 solid;
       border-width: 1px 0;
       list-style: none;
       font-family: $font-family;
@@ -2720,7 +2727,7 @@ table#index_columns {
       margin-#{$left}: 0;
       padding: 0;
       list-style: none;
-      color: #9A0000;
+      color: #9a0000;
       font-size: small;
     }
 
@@ -2732,7 +2739,7 @@ table#index_columns {
       margin-#{$left}: 1em;
       font-size: 80%;
       text-transform: uppercase;
-      color: #E00;
+      color: #e00;
       cursor: help;
     }
 
@@ -2786,42 +2793,42 @@ table#index_columns {
 
     &.custom {
       padding: 1px;
-      border: 1px #EDEC90 solid;
-      background: #FFC;
+      border: 1px #edec90 solid;
+      background: #ffc;
     }
   }
 
   // customized field
   .custom {
-    background: #FFC;
+    background: #ffc;
   }
 
   .field-error {
-    border-color: #A11 !important;
+    border-color: #a11 !important;
   }
 
   input {
     &[type=text],
     &[type=password],
     &[type=number] {
-      border: 1px #A7A6AA solid;
+      border: 1px #a7a6aa solid;
       height: auto;
 
       &:focus {
-        border: 1px #6676FF solid;
-        background: #F7FBFF;
+        border: 1px #6676ff solid;
+        background: #f7fbff;
       }
     }
   }
 
   select,
   textarea {
-    border: 1px #A7A6AA solid;
+    border: 1px #a7a6aa solid;
     height: auto;
 
     &:focus {
-      border: 1px #6676FF solid;
-      background: #F7FBFF;
+      border: 1px #6676ff solid;
+      background: #f7fbff;
     }
   }
 
@@ -2835,14 +2842,14 @@ table#index_columns {
   }
 
   .field-comment-warning {
-    color: #A00;
+    color: #a00;
   }
 
   // error list
   dd {
     margin-#{$left}: 0.5em;
 
-    &:before {
+    &::before {
       content: "\25B8  ";
     }
   }
@@ -2853,6 +2860,7 @@ fieldset {
     th {
       background: $bg-two;
     }
+
     + tr th {
       padding-top: 0.6em;
     }
@@ -3002,7 +3010,7 @@ fieldset {
   position: fixed;
   top: 55px;
   width: 100%;
-  background: #ffffff;
+  background: #fff;
 }
 
 #table_columns {
@@ -3104,7 +3112,7 @@ fieldset {
 
   th.draggable {
     &.right span {
-      margin-#{$right}: 0px;
+      margin-#{$right}: 0;
     }
 
     span {
@@ -3126,7 +3134,7 @@ fieldset {
 
 .cCpy {
   background: #333;
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
   margin: 0.1em;
   padding: 0.3em;
@@ -3143,6 +3151,7 @@ fieldset {
 .cPointer {
   $height: 20px;
   $width: 10px;
+
   height: $height;
   width: $width;
   margin-top: $height / -2;
@@ -3165,7 +3174,7 @@ fieldset {
 
   * {
     background: none !important;
-    color: #FFF !important;
+    color: #fff !important;
   }
 }
 
@@ -3194,7 +3203,7 @@ fieldset {
 }
 
 .cList {
-  background: #EEE;
+  background: #eee;
   border: solid 1px #999;
   position: absolute;
   -moz-box-shadow: 0 0.2em 0.5em #333;
@@ -3206,7 +3215,7 @@ fieldset {
     padding-#{$left}: 0.2em;
 
     &:hover {
-      background: #DDD;
+      background: #ddd;
       cursor: pointer;
     }
 
@@ -3226,7 +3235,7 @@ fieldset {
   text-align: center;
 
   &:hover {
-    background: #DDD;
+    background: #ddd;
   }
 }
 
@@ -3242,7 +3251,7 @@ fieldset {
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  background: linear-gradient(#eeeeee, #cccccc);
+  background: linear-gradient(#eee, #ccc);
 
   td {
     margin: 0;
@@ -3266,7 +3275,7 @@ fieldset {
         color: #fff;
         cursor: pointer;
         text-shadow: none;
-        background: linear-gradient(#333333, #555555);
+        background: linear-gradient(#333, #555);
       }
     }
 
@@ -3274,7 +3283,7 @@ fieldset {
       color: #fff;
       cursor: pointer;
       text-shadow: none;
-      background: linear-gradient(#333333, #555555);
+      background: linear-gradient(#333, #555);
     }
   }
 
@@ -3290,7 +3299,7 @@ fieldset {
   text-align: center;
   height: 1.4em;
   width: 1.2em;
-  text-shadow: 1px 0 #FFF;
+  text-shadow: 1px 0 #fff;
 }
 
 .cEdit {
@@ -3299,14 +3308,14 @@ fieldset {
   position: absolute;
 
   input[type=text] {
-    background: #FFF;
+    background: #fff;
     height: 100%;
     margin: 0;
     padding: 0;
   }
 
   .edit_area {
-    background: #FFF;
+    background: #fff;
     border: 1px solid #999;
     min-width: 10em;
     padding: 0.3em 0.5em;
@@ -3331,17 +3340,17 @@ fieldset {
   }
 
   .edit_box_posting {
-    background: #FFF url('../img/ajax_clock_small.gif') no-repeat $right center;
+    background: #fff url('../img/ajax_clock_small.gif') no-repeat $right center;
     padding-#{$right}: 1.5em;
   }
 
   .edit_area_loading {
-    background: #FFF url("../img/ajax_clock_small.gif") no-repeat center;
+    background: #fff url("../img/ajax_clock_small.gif") no-repeat center;
     height: 10em;
   }
 
   .goto_link {
-    background: #EEE;
+    background: #eee;
     color: #555;
     padding: 0.2em 0.3em;
   }
@@ -3408,7 +3417,7 @@ fieldset {
 
 input.btn {
   color: #333;
-  background-color: #D0DCE0;
+  background-color: #d0dce0;
 }
 
 body .ui-widget {
@@ -3416,7 +3425,7 @@ body .ui-widget {
 }
 
 .ui-dialog fieldset legend a {
-  color: #235A81;
+  color: #235a81;
 }
 
 .ui-draggable {
@@ -3453,7 +3462,7 @@ div#page_content div {
     margin-top: 1em;
 
     table.data {
-      border-top: 0.1px solid #EEEEEE;
+      border-top: 0.1px solid #eee;
     }
   }
 
@@ -3534,6 +3543,7 @@ table.show_create {
       }
     }
   }
+
   .message span {
     &.text,
     &.action {
@@ -3609,7 +3619,7 @@ table.show_create {
       }
 
       .message {
-        border-color: #373B41;
+        border-color: #373b41;
       }
 
       .CodeMirror-cursor {
@@ -3633,10 +3643,12 @@ table.show_create {
   .message {
     border-bottom: solid 1px #ccc;
     padding-bottom: 0.2em;
+
     &.expanded > .action_content {
       position: relative;
     }
-    &:before {
+
+    &::before {
       #{$left}: -0.7em;
       position: absolute;
       content: ">";
@@ -3644,7 +3656,7 @@ table.show_create {
   }
 
   .query_input {
-    &:before {
+    &::before {
       left: -0.7em;
       position: absolute;
       content: ">";
@@ -3659,29 +3671,29 @@ table.show_create {
   }
 
   .message {
-    &:hover:before {
+    &:hover::before {
       color: #7cf;
       font-weight: bold;
     }
 
-    &.expanded:before {
+    &.expanded::before {
       content: "]";
     }
 
-    &.welcome:before {
+    &.welcome::before {
       display: none;
     }
 
     &.failed {
-      &:before,
-      &.expanded:before,
-      &:hover:before {
+      &::before,
+      &.expanded::before,
+      &:hover::before {
         content: "=";
         color: #944;
       }
     }
 
-    &.pending:before {
+    &.pending::before {
       opacity: 0.3;
     }
 
@@ -3907,15 +3919,15 @@ table.show_create {
       display: none;
     }
 
-    &:after {
+    &::after {
       content: "";
       display: table;
       clear: both;
     }
   }
 
-  .trace.welcome:after,
-  .debug > .welcome:after {
+  .trace.welcome::after,
+  .debug > .welcome::after {
     content: "";
     display: table;
     clear: both;
@@ -4147,13 +4159,15 @@ span.drag_icon {
 
 meter {
   &[value="1"]::-webkit-meter-optimum-value {
-    background: linear-gradient(white 3%, #E32929 5%, transparent 10%, #E32929);
+    background: linear-gradient(white 3%, #e32929 5%, transparent 10%, #e32929);
   }
+
   &[value="2"]::-webkit-meter-optimum-value {
-    background: linear-gradient(white 3%, #FF6600 5%, transparent 10%, #FF6600);
+    background: linear-gradient(white 3%, #f60 5%, transparent 10%, #f60);
   }
+
   &[value="3"]::-webkit-meter-optimum-value {
-    background: linear-gradient(white 3%, #FFD700 5%, transparent 10%, #FFD700);
+    background: linear-gradient(white 3%, #ffd700 5%, transparent 10%, #ffd700);
   }
 }
 
@@ -4293,6 +4307,7 @@ body .ui-dialog {
 
   #table_columns {
     margin-top: 60px;
+
     .tablesorter {
       min-width: 100%;
     }

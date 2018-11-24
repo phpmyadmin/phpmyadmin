@@ -66,7 +66,7 @@ canvas.designer {
   cursor: default;
 
   &:hover {
-    background-color: #ccffcc;
+    background-color: #cfc;
     color: #000;
     background-repeat: repeat-x;
     cursor: default;
@@ -79,7 +79,7 @@ canvas.designer {
   cursor: default;
 
   &:hover {
-    background-color: #ccffcc;
+    background-color: #cfc;
     color: #000;
     background-repeat: repeat-x;
     cursor: default;
@@ -89,10 +89,10 @@ canvas.designer {
 #designer_hint {
   white-space: nowrap;
   position: absolute;
-  background-color: #99ff99;
+  background-color: #9f9;
   color: #000;
   z-index: 3;
-  border: #00cc66 solid 1px;
+  border: #0c6 solid 1px;
   display: none;
 }
 
@@ -160,7 +160,7 @@ canvas.designer {
   &:hover {
     vertical-align: top;
     color: #fff;
-    background-color: #ff9966;
+    background-color: #f96;
     cursor: default;
     padding-#{$left}: 2px;
     padding-#{$right}: 2px;
@@ -179,7 +179,7 @@ canvas.designer {
   &:hover {
     vertical-align: top;
     color: #fff;
-    background-color: #ff9966;
+    background-color: #f96;
     cursor: default;
     text-align: center;
     font-weight: bold;
@@ -203,7 +203,7 @@ canvas.designer {
   }
 }
 
-/* ---------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------- */
 .bor {
   width: 10px;
   height: 10px;
@@ -218,8 +218,8 @@ canvas.designer {
 
 .designer_header {
   background-color: #f6f6f6;
-  border-top: 20px solid #ffffff;
-  color: #333333;
+  border-top: 20px solid #fff;
+  color: #333;
   display: block;
   height: 28px;
   margin-#{$left}: -20px;
@@ -346,6 +346,7 @@ a {
       border: 1px solid #999;
     }
   }
+
   &.active.trigger {
     background: #222 url("../img/designer/minus.png") 85% 55% no-repeat;
     z-index: 999;
@@ -377,6 +378,7 @@ a {
 
 #ab {
   min-width: 300px;
+
   .ui-accordion-content {
     padding: 0;
   }
