@@ -1,6 +1,7 @@
 // Common styles for the Metro theme
 
 // CSS Reset
+/* stylelint-disable-next-line selector-list-comma-newline-after */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -9,8 +10,17 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 /* HTML5 display-role reset for older browsers */
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -25,16 +35,16 @@ q {
 }
 
 blockquote {
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: "";
     content: none;
   }
 }
 
 q {
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: "";
     content: none;
   }
@@ -51,7 +61,8 @@ table {
   font-family: 'IcoMoon';
   src: local('☺');
   src: url('../fonts/IcoMoon.eot');
-  src: url('../fonts/IcoMoon.eot?#iefix') format('embedded-opentype'),
+  src:
+    url('../fonts/IcoMoon.eot?#iefix') format('embedded-opentype'),
     url('../fonts/IcoMoon.svg#IcoMoon') format('svg'),
     url('../fonts/IcoMoon.woff') format('woff'),
     url('../fonts/IcoMoon.ttf') format('truetype');
@@ -63,7 +74,8 @@ table {
   font-family: 'Open Sans';
   src: local('☺'), local('Open Sans'), local('OpenSans');
   src: url('../fonts/opensans-regular-webfont.eot');
-  src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  src:
+    url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
     url('../fonts/opensans-regular-webfont.woff') format('woff'),
     url('../fonts/opensans-regular-webfont.ttf') format('truetype');
   font-weight: normal;
@@ -74,7 +86,8 @@ table {
   font-family: 'Open Sans Light';
   src: local('☺'), local('Open Sans Light'), local('OpenSans-Light');
   src: url('../fonts/opensans-light-webfont.eot');
-  src: url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+  src:
+    url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
     url('../fonts/opensans-light-webfont.woff') format('woff'),
     url('../fonts/opensans-light-webfont.ttf') format('truetype');
   font-weight: normal;
@@ -85,7 +98,8 @@ table {
   font-family: 'Open Sans Bold';
   src: local('☺'), local('Open Sans Bold'), local('OpenSans-Bold');
   src: url('../fonts/opensans-bold-webfont.eot');
-  src: url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  src:
+    url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
     url('../fonts/opensans-bold-webfont.woff') format('woff'),
     url('../fonts/opensans-bold-webfont.ttf') format('truetype');
   font-weight: normal;
@@ -96,7 +110,8 @@ table {
   font-family: 'Open Sans Extrabold';
   src: local('☺'), local('Open Sans Extrabold'), local('OpenSans-Extrabold');
   src: url('../fonts/opensans-extrabold-webfont.eot');
-  src: url('../fonts/opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+  src:
+    url('../fonts/opensans-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
     url('../fonts/opensans-extrabold-webfont.woff') format('woff'),
     url('../fonts/opensans-extrabold-webfont.ttf') format('truetype');
   font-weight: normal;
@@ -164,7 +179,8 @@ body#loginform {
     margin-#{$left}: auto;
     margin-#{$right}: auto;
 
-    &:before {
+    &::before {
+      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: 'IcoMoon';
       font-size: 220px;
       color: $main-background;
@@ -203,7 +219,7 @@ body#loginform {
   input {
     &.textfield {
       width: 100%;
-      border: 1px solid #ffffff;
+      border: 1px solid #fff;
       background: $navi-color;
       color: $th-color;
       box-sizing: border-box;
@@ -236,7 +252,6 @@ body#loginform {
     background: $navi-background;
     color: $navi-color;
     padding-#{$left}: 0 !important;
-    border: 1px solid $navi-background;
     font-family: $font-family;
     min-width: 100%;
 
@@ -258,7 +273,6 @@ body#loginform {
     background: none;
 
     &:first-child {
-      margin-bottom: 0;
       border-bottom: none;
       margin: 0;
     }
@@ -339,7 +353,7 @@ h2 {
 }
 
 h3 {
-  font-family: "open sans extrabold", "segoe black";
+  font-family: $font-family-extra-bold;
   text-transform: uppercase;
   font-weight: normal;
 }
@@ -411,12 +425,12 @@ dfn:hover {
 }
 
 th {
-  font-family: "open sans bold";
+  font-family: $font-family-bold;
   color: $th-color !important;
   font-weight: normal;
 
   a {
-    font-family: "open sans bold";
+    font-family: $font-family-bold;
     color: $th-color !important;
     font-weight: normal;
   }
@@ -516,7 +530,6 @@ textarea {
 
 fieldset {
   margin-top: 20px;
-  padding: 5px;
   border: 1px solid $border-color;
   padding: 20px;
   background-color: $th-background;
@@ -578,7 +591,6 @@ select {
   }
 }
 
-/******************************************************************************/
 /* classes */
 .clearfloat {
   clear: both;
@@ -698,7 +710,8 @@ div.tools {
     #{$left}: -9999px;
     position: relative;
 
-    &:before {
+    &::before {
+      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: 'IcoMoon';
       content: "";
       color: $th-color;
@@ -709,16 +722,16 @@ div.tools {
       #{$left}: 9995px;
     }
 
-    &:indeterminate:before {
+    &:indeterminate::before {
       content: "";
     }
 
-    &:checked:before {
+    &:checked::before {
       content: "";
     }
   }
 
-  .navigation input[type="checkbox"]:before {
+  .navigation input[type="checkbox"]::before {
     color: #fff;
   }
 
@@ -726,7 +739,8 @@ div.tools {
     #{$left}: -9999px;
     position: relative;
 
-    &:before {
+    &::before {
+      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: 'IcoMoon';
       content: "";
       color: $th-color;
@@ -737,13 +751,13 @@ div.tools {
       #{$left}: 9995px;
     }
 
-    &:checked:before {
+    &:checked::before {
       content: "";
     }
   }
 }
 
-tr.noclick td:first-child:before {
+tr.noclick td:first-child::before {
   content: "";
 }
 
@@ -942,7 +956,7 @@ img.lightbulb {
 /* Doc links in SQL */
 .cm-sql-doc {
   text-decoration: none;
-  border-bottom: 1px dotted #999999;
+  border-bottom: 1px dotted #999;
   color: inherit !important;
 }
 
@@ -1084,11 +1098,11 @@ fieldset.confirmation legend {
 .tblcomment {
   font-size: 70%;
   font-weight: normal;
-  color: #000099;
+  color: #009;
 }
 
 .tblHeaders {
-  font-family: "open sans bold";
+  font-family: $font-family-bold;
   color: $th-color;
   background: $th-background;
   font-weight: normal;
@@ -1108,18 +1122,18 @@ div.tools,
     &:link,
     &:active,
     &:visited {
-      color: #0000ff;
+      color: #00f;
     }
 
     &:hover {
-      color: #ff0000;
+      color: #f00;
     }
   }
 }
 
 /* forbidden, no privileges */
 .noPrivileges {
-  color: #ff0000;
+  color: #f00;
   font-weight: bold;
 }
 
@@ -1155,7 +1169,6 @@ td.disabled {
   font-weight: bold;
 }
 
-/******************************************************************************/
 /* specific elements */
 
 /* topmenu */
@@ -1225,7 +1238,7 @@ ul#topmenu2 a {
   margin-#{$left}: 0;
   padding: 5px 15px;
   white-space: nowrap;
-  font-family: "open sans extrabold", "segoe black";
+  font-family: $font-family-extra-bold;
   font-weight: normal;
   color: $navi-pointer-color;
   text-transform: uppercase;
@@ -1251,7 +1264,7 @@ fieldset.caution {
   }
 
   a {
-    font-family: 'Open Sans Bold';
+    font-family: $font-family-bold;
     text-transform: uppercase;
     color: $button-color;
     font-weight: normal;
@@ -1272,7 +1285,8 @@ fieldset.caution li,
 }
 
 fieldset.caution li {
-  &:before {
+  &::before {
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
     font-family: "IcoMoon";
     content: "";
     color: $button-color;
@@ -1286,11 +1300,13 @@ fieldset.caution li {
 
 #tbl_maintenance li {
   a {
-    font-family: "Open Sans Bold";
+    font-family: $font-family-bold;
     text-transform: uppercase;
     font-weight: normal;
   }
-  &:before {
+
+  &::before {
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
     font-family: "IcoMoon";
     content: "%";
     margin-#{$right}: 10px;
@@ -1314,7 +1330,7 @@ ul {
       padding: 5px 10px;
       height: 28px;
       line-height: 28px;
-      font-family: "open sans extrabold", "segoe black";
+      font-family: $font-family-extra-bold;
       text-transform: uppercase;
       color: #666;
       font-weight: normal;
@@ -1358,7 +1374,6 @@ ul {
     border-#{$right}: 0;
   }
 }
-/* end topmenu */
 
 /* zoom search */
 div#dataDisplay {
@@ -1388,7 +1403,7 @@ table {
         display: block;
 
         &:hover {
-          background-color: #ccffcc;
+          background-color: #cfc;
         }
       }
     }
@@ -1398,7 +1413,7 @@ table {
     }
 
     td.selected {
-      background-color: #ffcc99;
+      background-color: #fc9;
     }
   }
 }
@@ -1446,7 +1461,6 @@ div#tablestatistics table {
   font-family: $font-family;
   color: $button-color;
   background: $navi-background;
-  font-height: 1.1em;
   height: 15px;
 
   .item {
@@ -1454,9 +1468,10 @@ div#tablestatistics table {
     white-space: nowrap;
     color: $button-color;
 
-    &:before {
+    &::before {
       padding-#{$left}: 5px;
       padding-#{$right}: 5px;
+      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: "IcoMoon";
       font-size: 10px;
       color: #eee;
@@ -1519,7 +1534,7 @@ div#tablestatistics table {
 #textSQLDUMP {
   width: 95%;
   height: 95%;
-  font-family: Consolas, "Courier New", Courier, mono;
+  font-family: $font-family-fixed;
   font-size: 110%;
 }
 
@@ -1530,8 +1545,8 @@ div#tablestatistics table {
   height: auto;
   overflow: visible;
   visibility: hidden;
-  background-color: #ffffcc;
-  color: #006600;
+  background-color: #ffc;
+  color: #060;
   border: 0.1em solid #000;
   padding: 0.5em;
 }
@@ -1867,18 +1882,17 @@ div {
     }
   }
 }
-/* end server variables */
 
 p.notice {
   margin: 1.5em 0;
   border: 1px solid #000;
   background-repeat: no-repeat;
-  background: #555;
+  background-color: #555;
   color: #d4fb6a;
 
   @if $direction == rtl {
     background-position: 99% 50%;
-    padding: 25px 10px 10px 10px
+    padding: 25px 10px 10px 10px;
   } @else {
     background-position: 10px 50%;
     padding: 10px 10px 10px 25px;
@@ -2099,7 +2113,7 @@ li {
       margin: 0 !important;
     }
 
-    &:after {
+    &::after {
       content: "Scheme: #{$color-scheme}";
       margin-#{$left}: 10px;
     }
@@ -2360,13 +2374,14 @@ input {
   &[type="password"].invalid_value,
   &[type="number"].invalid_value,
   &[type="date"].invalid_value .invalid_value {
-    background: #ffcccc;
+    background: #fcc;
   }
 }
 
 /**
   *  Ajax notification styling
   */
+
 /* additional styles */
 .ajax_notification {
   top: 0;
@@ -2685,7 +2700,7 @@ table#index_columns {
         text-decoration: none;
         border: 1px solid $bg-two;
         border-bottom: 1px solid #ddd;
-        font-family: "open sans bold";
+        font-family: $font-family-bold;
         padding: 7px 10px;
         background: #f2f2f2;
         color: #555;
@@ -2984,7 +2999,7 @@ form {
   dd {
     margin-#{$left}: 0.5em;
 
-    &:before {
+    &::before {
       content: "\25B8  ";
     }
   }
@@ -3044,7 +3059,6 @@ form {
     position: absolute;
 
     td {
-      background-image: none;
       background: none;
     }
   }
@@ -3101,6 +3115,7 @@ form.append_fields_form .tblFooters {
       -webkit-box-sizing: border-box;
     }
   }
+
   select {
     width: 10em;
     box-sizing: border-box;
@@ -3216,6 +3231,7 @@ form.append_fields_form .tblFooters {
 .cPointer {
   $height: 20px;
   $width: 10px;
+
   height: $height;
   width: $width;
   margin-#{$left}: $height / -2;
@@ -3290,7 +3306,7 @@ form.append_fields_form .tblFooters {
   border-top: solid 1px #ccc;
   cursor: pointer;
   font-size: 0.9em;
-  font-family: open sans bold;
+  font-family: $font-family-bold;
   padding: 0.35em 1em;
   text-align: center;
   font-weight: normal;
@@ -3411,12 +3427,12 @@ form.append_fields_form .tblFooters {
   }
 
   .edit_box_posting {
-    background: #FFF url("../img/ajax_clock_small.gif") no-repeat right center;
+    background: #fff url("../img/ajax_clock_small.gif") no-repeat right center;
     padding-#{$right}: 1.5em;
   }
 
   .edit_area_loading {
-    background: #FFF url("../img/ajax_clock_small.gif") no-repeat center;
+    background: #fff url("../img/ajax_clock_small.gif") no-repeat center;
     height: 10em;
   }
 
@@ -3513,7 +3529,7 @@ div#page_content div {
     margin-top: 1em;
 
     table.data {
-      border-top: 0.1px solid #eeeeee;
+      border-top: 0.1px solid #eee;
     }
   }
 
@@ -3691,7 +3707,7 @@ table.show_create {
       position: relative;
     }
 
-    &:before {
+    &::before {
       #{$left}: -0.7em;
       position: absolute;
       content: ">";
@@ -3699,7 +3715,7 @@ table.show_create {
   }
 
   .query_input {
-    &:before {
+    &::before {
       #{$left}: -0.7em;
       position: absolute;
       content: ">";
@@ -3714,29 +3730,29 @@ table.show_create {
   }
 
   .message {
-    &:hover:before {
+    &:hover::before {
       color: #7cf;
       font-weight: bold;
     }
 
-    &.expanded:before {
+    &.expanded::before {
       content: "]";
     }
 
-    &.welcome:before {
+    &.welcome::before {
       display: none;
     }
 
     &.failed {
-      &:before,
-      &.expanded:before,
-      &:hover:before {
+      &::before,
+      &.expanded::before,
+      &:hover::before {
         content: "=";
         color: #944;
       }
     }
 
-    &.pending:before {
+    &.pending::before {
       opacity: 0.3;
     }
 
@@ -3958,15 +3974,15 @@ table.show_create {
       display: none;
     }
 
-    &:after {
+    &::after {
       content: "";
       display: table;
       clear: both;
     }
   }
 
-  .trace.welcome:after,
-  .debug > .welcome:after {
+  .trace.welcome::after,
+  .debug > .welcome::after {
     content: "";
     display: table;
     clear: both;
@@ -3987,7 +4003,7 @@ table.show_create {
   }
 }
 
-/* Code mirror console style*/
+/* Code mirror console style */
 
 .cm-s-pma {
   .CodeMirror-code {
@@ -4112,6 +4128,7 @@ table.show_create {
 
 .pma_drop_file_status {
   color: #235a81;
+
   span.underline:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -4163,9 +4180,11 @@ meter {
   &[value="1"]::-webkit-meter-optimum-value {
     background: linear-gradient(white 3%, #e32929 5%, transparent 10%, #e32929);
   }
+
   &[value="2"]::-webkit-meter-optimum-value {
-    background: linear-gradient(white 3%, #ff6600 5%, transparent 10%, #ff6600);
+    background: linear-gradient(white 3%, #f60 5%, transparent 10%, #f60);
   }
+
   &[value="3"]::-webkit-meter-optimum-value {
     background: linear-gradient(white 3%, #ffd700 5%, transparent 10%, #ffd700);
   }

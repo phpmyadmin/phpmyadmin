@@ -3,7 +3,7 @@
 // rules for the plot target div. These will be cascaded down to all plot elements according to css rules
 .jqplot-target {
   position: relative;
-  color: #222222;
+  color: #222;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   font-size: 1em;
 }
@@ -71,7 +71,7 @@
 }
 
 .jqplot-yaxis-tick {
-  #{$right}: 0px;
+  #{$right}: 0;
   // initial position untill tick is drawn in proper place
   top: 15px;
   text-align: $right;
@@ -93,7 +93,7 @@
 .jqplot-y7axis-tick,
 .jqplot-y8axis-tick,
 .jqplot-y9axis-tick {
-  #{$left}: 0px;
+  #{$left}: 0;
   // initial position untill tick is drawn in proper place
   top: 15px;
   text-align: $left;
@@ -142,12 +142,12 @@
 
 .jqplot-meterGauge-tick {
   font-size: 0.75em;
-  color: #999999;
+  color: #999;
 }
 
 .jqplot-meterGauge-label {
   font-size: 1em;
-  color: #999999;
+  color: #999;
 }
 
 table {
@@ -157,14 +157,14 @@ table {
     margin-#{$left}: 12px;
     margin-#{$right}: 12px;
     background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid #cccccc;
+    border: 1px solid #ccc;
     position: absolute;
     font-size: 0.75em;
   }
 
   &.jqplot-cursor-legend {
     background-color: rgba(255, 255, 255, 0.6);
-    border: 1px solid #cccccc;
+    border: 1px solid #ccc;
     position: absolute;
     font-size: 0.75em;
   }
@@ -189,7 +189,7 @@ td {
 
 div {
   &.jqplot-table-legend-swatch-outline {
-    border: 1px solid #cccccc;
+    border: 1px solid #ccc;
     padding: 1px;
   }
 
@@ -209,20 +209,20 @@ div {
 
 .jqplot-title {
   top: 0;
-  #{$left}: 0px;
+  #{$left}: 0;
   padding-bottom: 0.5em;
   font-size: 1.2em;
 }
 
 table.jqplot-cursor-tooltip {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   font-size: 0.75em;
 }
 
 .jqplot-cursor-tooltip,
 .jqplot-highlighter-tooltip,
 .jqplot-canvasOverlay-tooltip {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   font-size: 0.75em;
   white-space: nowrap;
   background: rgba(208, 208, 208, 0.5);

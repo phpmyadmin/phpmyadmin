@@ -6,7 +6,7 @@
 $navi-width: 240px;
 
 // foreground (text) color for the navi frame
-$navi-color: #000000;
+$navi-color: #000;
 
 // background for the navi frame
 $navi-background: #f3f3f3;
@@ -20,23 +20,23 @@ $navi-pointer-background: #ddd;
 // main frame
 
 // foreground (text) color for the main frame
-$main-color: #444444;
+$main-color: #444;
 
 // background for the main frame
-$main-background: #ffffff;
+$main-background: #fff;
 
 // foreground (text) color of the pointer in browse mode
-$browse-pointer-color: #000000;
+$browse-pointer-color: #000;
 
 // background of the pointer in browse mode
-$browse-pointer-background: #ccffcc;
+$browse-pointer-background: #cfc;
 
 // foreground (text) color of the marker (visually marks row by clicking on it)
 // in browse mode
-$browse-marker-color: #000000;
+$browse-marker-color: #000;
 
 // background of the marker (visually marks row by clicking on it) in browse mode
-$browse-marker-background: #ffcc99;
+$browse-marker-background: #fc9;
 
 // fonts
 
@@ -51,10 +51,10 @@ $font-family-fixed: monospace;
 // border
 $border: 0;
 // table header and footer color
-$th-background: #D3DCE3;
+$th-background: #d3dce3;
 // table header and footer background
-$th-color: #000000;
+$th-color: #000;
 // table data row background
-$bg-one: #E5E5E5;
+$bg-one: #e5e5e5;
 // table data row background, alternate
-$bg-two: #D5D5D5;
+$bg-two: #d5d5d5;

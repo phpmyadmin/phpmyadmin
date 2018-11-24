@@ -17,7 +17,7 @@ $resize-img: 'theme/pmahomme/img/designer/resize.png';
 
 /* Designer */
 .input_tab {
-  background-color: #A6C7E1;
+  background-color: #a6c7e1;
   color: #000;
 }
 
@@ -83,7 +83,7 @@ canvas.designer {
   cursor: default;
 
   &:hover {
-    background-color: #ccffcc;
+    background-color: #cfc;
     color: #000;
     background-repeat: repeat-x;
     cursor: default;
@@ -96,7 +96,7 @@ canvas.designer {
   cursor: default;
 
   &:hover {
-    background-color: #ccffcc;
+    background-color: #cfc;
     color: #000;
     background-repeat: repeat-x;
     cursor: default;
@@ -106,10 +106,10 @@ canvas.designer {
 #designer_hint {
   white-space: nowrap;
   position: absolute;
-  background-color: #99FF99;
+  background-color: #9f9;
   color: #000;
   z-index: 3;
-  border: #00CC66 solid 1px;
+  border: #0c6 solid 1px;
   display: none;
 }
 
@@ -121,7 +121,7 @@ canvas.designer {
 
 .designer_Tabs {
   cursor: default;
-  color: #0055bb;
+  color: #05b;
   white-space: nowrap;
   text-decoration: none;
   text-indent: 3px;
@@ -134,13 +134,13 @@ canvas.designer {
 
   &:hover {
     cursor: default;
-    color: #0055bb;
-    background: #ffee99;
+    color: #05b;
+    background: #fe9;
     text-indent: 3px;
     font-weight: bold;
     white-space: nowrap;
     text-decoration: none;
-    border: #9999ff solid 1px;
+    border: #99f solid 1px;
     text-align: $left;
   }
 }
@@ -183,7 +183,7 @@ canvas.designer {
   &:hover {
     vertical-align: top;
     color: #fff;
-    background-color: #FF9966;
+    background-color: #f96;
     cursor: default;
     padding-#{$left}: 2px;
     padding-#{$right}: 2px;
@@ -203,7 +203,7 @@ canvas.designer {
   &:hover {
     vertical-align: top;
     color: #fff;
-    background-color: #FF9966;
+    background-color: #f96;
     cursor: default;
     text-align: center;
     font-weight: bold;
@@ -213,7 +213,7 @@ canvas.designer {
 }
 
 .butt {
-  border: #4477aa solid 1px;
+  border: #47a solid 1px;
   font-weight: bold;
   height: 19px;
   width: 70px;
@@ -230,8 +230,8 @@ canvas.designer {
 
   &:hover {
     padding: 0;
-    border: #0099cc solid 1px;
-    background: #ffee99;
+    border: #09c solid 1px;
+    background: #fe9;
     color: #000;
     text-decoration: none;
     vertical-align: middle;
@@ -239,7 +239,7 @@ canvas.designer {
   }
 }
 
-/* ---------------------------------------------------------------------------*/
+/* --------------------------------------------------------------------------- */
 .bor {
   width: 10px;
   height: 10px;
@@ -284,7 +284,7 @@ canvas.designer {
 }
 
 .designer_header {
-  background-color: #EAEEF0;
+  background-color: #eaeef0;
   color: #000;
   text-align: center;
   font-weight: bold;
@@ -332,19 +332,19 @@ a {
   &.M_butt_Selected_down_IE,
   &.M_butt_Selected_down {
     border: 1px solid #c0c0bb;
-    background-color: #99ff99;
+    background-color: #9f9;
     color: #000;
 
     &:hover {
-      border: 1px solid #0099cc;
-      background-color: #ffee99;
+      border: 1px solid #09c;
+      background-color: #fe9;
       color: #000;
     }
   }
 
   &.M_butt:hover {
-    border: 1px solid #0099cc;
-    background-color: #ffee99;
+    border: 1px solid #09c;
+    background-color: #fe9;
     color: #000;
   }
 }
@@ -353,7 +353,7 @@ a {
   z-index: 98;
   position: relative;
   float: $right;
-  background-color: #EAEEF0;
+  background-color: #eaeef0;
   border: #999 solid 1px;
 
   &.left {
@@ -417,6 +417,7 @@ a {
       border: 1px solid #999;
     }
   }
+
   &.active.trigger {
     background: #222 url($minus-img) 85% 55% no-repeat;
     z-index: 999;
@@ -428,7 +429,7 @@ a {
 }
 
 .toggle_container .block {
-  background-color: #DBE4E8;
+  background-color: #dbe4e8;
   border-top: 1px solid #999;
 }
 
@@ -438,7 +439,7 @@ a {
   background-color: #dbe4e8;
 
   &:hover {
-    background-color: #9999cc;
+    background-color: #99c;
   }
 }
 

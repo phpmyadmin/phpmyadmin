@@ -50,6 +50,7 @@ jobs:
         - ./test/ci-phplint
         - ./vendor/bin/phpcs --exclude=PSR1.Files.SideEffects,Generic.Metrics.NestingLevel
         - ./node_modules/.bin/eslint --quiet ./js
+        - ./node_modules/.bin/stylelint "themes/**/scss/*.scss"
 
     - stage: "Lint and analyse code"
       name: "Run phpstan"
@@ -82,8 +83,9 @@ jobs:
     - stage: "PHP Unit tests"
       name: "PHP 7.2"
       os: osx
-      language: generic
       env: CI_MODE=test
+      language: node_js
+      node_js: 8
       before_install:
         - brew update
         - brew install openldap libiconv php@7.2 composer mariadb yarn

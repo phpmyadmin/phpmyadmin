@@ -62,14 +62,14 @@ h3 {
 
 a {
   text-decoration: none;
-  color: #0000ff;
+  color: #00f;
   cursor: pointer;
 
   &:link,
   &:visited,
   &:active {
     text-decoration: none;
-    color: #0000ff;
+    color: #00f;
     cursor: pointer;
   }
 }
@@ -77,26 +77,26 @@ a {
 button.mult_submit,
 .checkall_box + label {
   text-decoration: none;
-  color: #0000ff;
+  color: #00f;
   cursor: pointer;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #ff0000;
+  color: #f00;
 }
 
 button.mult_submit {
   &:hover,
   &:focus {
     text-decoration: underline;
-    color: #ff0000;
+    color: #f00;
   }
 }
 
 .checkall_box + label:hover {
   text-decoration: underline;
-  color: #ff0000;
+  color: #f00;
 }
 
 dfn {
@@ -155,7 +155,7 @@ fieldset {
 
   legend {
     font-weight: bold;
-    color: #444444;
+    color: #444;
     background-color: transparent;
   }
 }
@@ -253,10 +253,11 @@ td.vbottom {
 }
 
 div.tools {
-  border: 1px solid #000000;
+  border: 1px solid #000;
   padding: 0.2em;
   margin-top: 0;
   margin-bottom: 0.5em;
+
   /* avoid a thick line since this should be used under another fieldset */
   border-top: 0;
   text-align: $right;
@@ -267,6 +268,7 @@ div.tools {
 fieldset.tblFooters {
   margin-top: 0;
   margin-bottom: 0.5em;
+
   /* avoid a thick line since this should be used under another fieldset */
   border-top: 0;
   text-align: $right;
@@ -421,15 +423,15 @@ img.lightbulb {
 .pdflayout {
   overflow: hidden;
   clip: inherit;
-  background-color: #ffffff;
+  background-color: #fff;
   display: none;
-  border: 1px solid #000000;
+  border: 1px solid #000;
   position: relative;
 }
 
 .pdflayout_table {
   background: #d3dce3;
-  color: #000000;
+  color: #000;
   overflow: hidden;
   clip: inherit;
   z-index: 2;
@@ -438,7 +440,7 @@ img.lightbulb {
   cursor: move;
   position: absolute;
   font-size: 80%;
-  border: 1px dashed #000000;
+  border: 1px dashed #000;
 }
 
 /* Doc links in SQL */
@@ -522,19 +524,19 @@ div {
 }
 
 .success {
-  color: #000000;
+  color: #000;
   background-color: #f0fff0;
 }
 
 h1.success,
 div.success,
 .success h1 {
-  border-color: #00ff00;
+  border-color: #0f0;
 }
 
 .notice {
-  color: #000000;
-  background-color: #ffffdd;
+  color: #000;
+  background-color: #ffd;
 }
 
 h1.notice,
@@ -544,32 +546,32 @@ div.notice,
 }
 
 .error {
-  background-color: #ffffcc;
-  color: #ff0000;
+  background-color: #ffc;
+  color: #f00;
 }
 
 h1.error {
-  border-color: #ff0000;
+  border-color: #f00;
 }
 
 div.error {
-  border-color: #ff0000;
+  border-color: #f00;
 
   h1 {
-    border-color: #ff0000;
+    border-color: #f00;
   }
 }
 
 .confirmation {
-  background-color: #ffffcc;
+  background-color: #ffc;
 }
 
 fieldset.confirmation {
-  border: 0.1em solid #ff0000;
+  border: 0.1em solid #f00;
 
   legend {
-    border-#{$left}: 0.1em solid #ff0000;
-    border-#{$right}: 0.1em solid #ff0000;
+    border-#{$left}: 0.1em solid #f00;
+    border-#{$right}: 0.1em solid #f00;
     font-weight: bold;
     background-image: url("../img/s_really.png");
     background-repeat: no-repeat;
@@ -593,7 +595,7 @@ fieldset.confirmation {
 .tblcomment {
   font-size: 70%;
   font-weight: normal;
-  color: #000099;
+  color: #009;
 }
 
 .tblHeaders {
@@ -613,11 +615,11 @@ div.tools,
   &:link,
   &:active,
   &:visited {
-    color: #0000ff;
+    color: #00f;
   }
 
   &:hover {
-    color: #ff0000;
+    color: #f00;
   }
 }
 
@@ -625,11 +627,11 @@ div.tools a {
   &:link,
   &:visited,
   &:active {
-    color: #0000ff;
+    color: #00f;
   }
 
   &:hover {
-    color: #ff0000;
+    color: #f00;
   }
 }
 
@@ -637,34 +639,34 @@ div.tools a {
   &:link,
   &:active,
   &:visited {
-    color: #0000ff;
+    color: #00f;
   }
 
   &:hover {
-    color: #ff0000;
+    color: #f00;
   }
 }
 
 /* forbidden, no privilegs */
 .noPrivileges {
-  color: #ff0000;
+  color: #f00;
   font-weight: bold;
 }
 
 /* disabled text */
 
 .disabled {
-  color: #666666;
+  color: #666;
 
   a {
     &:link,
     &:active,
     &:visited {
-      color: #666666;
+      color: #666;
     }
 
     &:hover {
-      color: #666666;
+      color: #666;
       text-decoration: none;
     }
   }
@@ -672,7 +674,7 @@ div.tools a {
 
 tr.disabled td,
 td.disabled {
-  background-color: #cccccc;
+  background-color: #ccc;
 }
 
 .nowrap {
@@ -762,7 +764,7 @@ form.login label {
 }
 
 .central_columns_navigation {
-  padding: 1.5% 0em !important;
+  padding: 1.5% 0 !important;
 }
 
 .central_columns_add_column {
@@ -795,7 +797,6 @@ form.login label {
   display: inline-block;
 }
 
-/******************************************************************************/
 /* specific elements */
 
 /* topmenu */
@@ -854,7 +855,7 @@ ul {
 
 span {
   &.caution {
-    color: #ff0000;
+    color: #f00;
   }
 
   &.success {
@@ -863,11 +864,11 @@ span {
 }
 
 fieldset.caution a {
-  color: #ff0000;
+  color: #f00;
 
   &:hover {
-    color: #ffffff;
-    background-color: #ff0000;
+    color: #fff;
+    background-color: #f00;
   }
 }
 
@@ -943,7 +944,6 @@ ul {
     border-bottom: 1pt solid $main-background;
   }
 }
-/* end topmenu */
 
 /* zoom search */
 div#dataDisplay {
@@ -973,7 +973,7 @@ table {
         display: block;
 
         &:hover {
-          background-color: #ccffcc;
+          background-color: #cfc;
         }
       }
     }
@@ -983,7 +983,7 @@ table {
     }
 
     td.selected {
-      background-color: #ffcc99;
+      background-color: #fc9;
     }
   }
 }
@@ -1070,7 +1070,7 @@ div#tablestatistics table {
 #textSQLDUMP {
   width: 95%;
   height: 95%;
-  font-family: "Courier New", Courier, mono;
+  font-family: $font-family-fixed;
   font-size: 110%;
 }
 
@@ -1081,9 +1081,9 @@ div#tablestatistics table {
   height: auto;
   overflow: visible;
   visibility: hidden;
-  background-color: #ffffcc;
-  color: #006600;
-  border: 0.1em solid #000000;
+  background-color: #ffc;
+  color: #060;
+  border: 0.1em solid #000;
   padding: 0.5em;
 }
 
@@ -1397,14 +1397,11 @@ div#profilingchart {
   bottom: 24px;
 }
 
-/* end profiling */
-
 /* table charting */
 .chartOption {
   float: $left;
   margin-#{$right}: 40px;
 }
-/* end table charting */
 
 /* querybox */
 
@@ -1712,13 +1709,13 @@ input {
   &[type="password"].invalid_value,
   &[type="number"].invalid_value,
   &[type="date"].invalid_value {
-    background: #ffcccc;
+    background: #fcc;
   }
 }
 
 select.invalid_value,
 .invalid_value {
-  background: #ffcccc;
+  background: #fcc;
 }
 
 /**
@@ -1790,13 +1787,13 @@ select.invalid_value,
   }
 
   h3 {
-    border-bottom: 1px #999999 solid;
+    border-bottom: 1px #999 solid;
     font-size: 110%;
   }
 }
 
 .importoptions h3 {
-  border-bottom: 1px #999999 solid;
+  border-bottom: 1px #999 solid;
   font-size: 110%;
 }
 
@@ -2261,7 +2258,7 @@ fieldset {
   dd {
     margin-#{$left}: 0.5em;
 
-    &:before {
+    &::before {
       content: "\25B8  ";
     }
   }
@@ -2322,7 +2319,6 @@ fieldset {
 
     td,
     tr {
-      background-image: none;
       background: none !important;
     }
   }
@@ -2511,6 +2507,7 @@ fieldset {
 .cPointer {
   $height: 20px;
   $width: 10px;
+
   height: $height;
   width: $width;
   margin-top: $height / -2;
@@ -2764,7 +2761,7 @@ body .ui-widget {
 }
 
 .ui-dialog fieldset legend a {
-  color: #0000ff;
+  color: #00f;
 }
 
 .ui-draggable {
@@ -2801,7 +2798,7 @@ div#page_content div {
     margin-top: 1em;
 
     table.data {
-      border-top: 0.1px solid #eeeeee;
+      border-top: 0.1px solid #eee;
     }
   }
 
@@ -2984,7 +2981,7 @@ table.show_create {
       position: relative;
     }
 
-    &:before {
+    &::before {
       #{$left}: -0.7em;
       position: absolute;
       content: ">";
@@ -2992,7 +2989,7 @@ table.show_create {
   }
 
   .query_input {
-    &:before {
+    &::before {
       #{$left}: -0.7em;
       position: absolute;
       content: ">";
@@ -3007,29 +3004,29 @@ table.show_create {
   }
 
   .message {
-    &:hover:before {
+    &:hover::before {
       color: #7cf;
       font-weight: bold;
     }
 
-    &.expanded:before {
+    &.expanded::before {
       content: "]";
     }
 
-    &.welcome:before {
+    &.welcome::before {
       display: none;
     }
 
     &.failed {
-      &:before,
-      &.expanded:before,
-      &:hover:before {
+      &::before,
+      &.expanded::before,
+      &:hover::before {
         content: "=";
         color: #944;
       }
     }
 
-    &.pending:before {
+    &.pending::before {
       opacity: 0.3;
     }
 
@@ -3157,6 +3154,7 @@ table.show_create {
     width: 100%;
     position: absolute;
     top: 0;
+
     /* For support IE8, this layer doesn't use filter:opacity or opacity,
     js code will fade this layer opacity to 0.18(using animation) */
     background: #666;
@@ -3259,15 +3257,15 @@ table.show_create {
       display: none;
     }
 
-    &:after {
+    &::after {
       content: "";
       display: table;
       clear: both;
     }
   }
 
-  .trace.welcome:after,
-  .debug > .welcome:after {
+  .trace.welcome::after,
+  .debug > .welcome::after {
     content: "";
     display: table;
     clear: both;
@@ -3288,7 +3286,7 @@ table.show_create {
   }
 }
 
-/* Code mirror console style*/
+/* Code mirror console style */
 
 .cm-s-pma {
   .CodeMirror-code {
@@ -3497,7 +3495,7 @@ span.drag_icon {
 th {
   &.header {
     cursor: pointer;
-    color: #0000ff;
+    color: #00f;
 
     &:hover {
       text-decoration: underline;
@@ -3583,15 +3581,15 @@ body {
 
   .ui-dialog {
     padding: 0;
-    border-color: #000000;
+    border-color: #000;
 
     .ui-dialog-titlebar {
       padding: 0.3em 0.5em;
       border: none;
-      border-bottom: 1px solid #000000;
+      border-bottom: 1px solid #000;
 
       button {
-        border: 1px solid #999999;
+        border: 1px solid #999;
       }
     }
 
@@ -3601,12 +3599,12 @@ body {
 
     .ui-dialog-buttonpane {
       background: #d3dce3;
-      border-top: 1px solid #000000;
+      border-top: 1px solid #000;
 
       button {
         margin: 0.1em 0 0.1em 0.4em;
-        border: 1px solid #999999;
-        color: #000000;
+        border: 1px solid #999;
+        color: #000;
       }
     }
 
@@ -3621,6 +3619,7 @@ body {
 }
 
 /* templates/database/designer */
+
 /* side menu */
 #name-panel {
   overflow: hidden;
