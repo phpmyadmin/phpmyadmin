@@ -45,7 +45,7 @@ class Menu
     private $_table;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

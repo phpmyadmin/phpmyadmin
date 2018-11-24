@@ -94,7 +94,7 @@ class Relation
     /**
      * Returns current relation parameters
      *
-     * @return array   $cfgRelation
+     * @return array
      */
     public function getRelationsParam()
     {
@@ -1793,7 +1793,7 @@ class Relation
      * @param array       $cfgRelation Relation configuration
      * @param string      $db          database name
      *
-     * @return int $pdf_page_number
+     * @return int
      */
     public function createPage(?string $newpage, array $cfgRelation, $db)
     {
@@ -1820,7 +1820,7 @@ class Relation
      * @param string $table  name of master table.
      * @param string $column name of master table column.
      *
-     * @return array $child_references
+     * @return array
      */
     public function getChildReferences($db, $table, $column = '')
     {
@@ -1855,7 +1855,7 @@ class Relation
      * @param array|null $foreigners_full       foreiners array for the whole table.
      * @param array|null $child_references_full child references for the whole table.
      *
-     * @return array $column_status telling about references if foreign key.
+     * @return array telling about references if foreign key.
      */
     public function checkChildForeignReferences(
         $db,

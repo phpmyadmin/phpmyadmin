@@ -442,7 +442,7 @@ class ServerDatabasesController extends Controller
      * @param array  $replication_info  replication info
      * @param string $tr_class          HTMl class for the row
      *
-     * @return string $column_order, $out
+     * @return string
      */
     public function _buildHtmlForDb(
         array $current,

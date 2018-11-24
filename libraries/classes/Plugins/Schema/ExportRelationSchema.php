@@ -35,7 +35,7 @@ class ExportRelationSchema
     protected $offline;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     protected $relation;
 

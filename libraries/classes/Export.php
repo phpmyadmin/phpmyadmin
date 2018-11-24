@@ -196,7 +196,7 @@ class Export
      * @param string $back_button   the link for going Back
      * @param string $refreshButton the link for refreshing page
      *
-     * @return string $html the HTML output
+     * @return string the HTML output
      */
     public function getHtmlForDisplayedExportFooter(
         string $back_button,
@@ -226,7 +226,7 @@ class Export
     /**
      * Computes the memory limit for export
      *
-     * @return int $memory_limit the memory limit
+     * @return int the memory limit
      */
     public function getMemoryLimit(): int
     {
@@ -390,7 +390,7 @@ class Export
      * @param string   $dump_buffer   the current dump buffer
      * @param string   $save_filename the export filename
      *
-     * @return Message $message a message object (or empty string)
+     * @return Message a message object (or empty string)
      */
     public function closeFile(
         $file_handle,
@@ -426,7 +426,7 @@ class Export
      * @param string       $compression the compression mode
      * @param string       $filename    the filename
      *
-     * @return object $message a message object (or empty string)
+     * @return object a message object (or empty string)
      */
     public function compress($dump_buffer, string $compression, string $filename)
     {

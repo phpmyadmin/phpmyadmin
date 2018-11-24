@@ -58,7 +58,7 @@ class Pdf extends PdfLib
     private $_db;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

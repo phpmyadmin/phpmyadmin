@@ -735,7 +735,7 @@ class Util
      * @param string $db    the db name
      * @param array  $table the table infos
      *
-     * @return int $rowCount the possibly modified row count
+     * @return int the possibly modified row count
      *
      */
     private static function _checkRowCount($db, array $table)
@@ -2336,7 +2336,7 @@ class Util
      * @param string   $name        the name for the request parameter
      * @param string[] $classes     additional classes for the container
      *
-     * @return string $list_navigator_html the  html content
+     * @return string the  html content
      *
      * @access  public
      *
@@ -4335,7 +4335,7 @@ class Util
      *
      * @param string $type the column type
      *
-     * @return string $class_clause the HTML class clause
+     * @return string the HTML class clause
      */
     public static function getClassForType($type)
     {
@@ -4540,7 +4540,7 @@ class Util
      * @param string $db             database name
      * @param object $db_info_result result set
      *
-     * @return array $tables list of tables
+     * @return array list of tables
      *
      */
     public static function getTablesWhenOpen($db, $db_info_result)

@@ -121,7 +121,7 @@ class Header
     private $userPreferences;
 
     /**
-     * @var Template $template
+     * @var Template
      */
     private $template;
 

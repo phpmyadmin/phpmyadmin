@@ -49,7 +49,7 @@ class Pdf extends PdfLib
     private $aliases;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

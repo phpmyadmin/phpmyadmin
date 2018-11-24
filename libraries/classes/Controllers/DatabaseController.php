@@ -17,7 +17,7 @@ namespace PhpMyAdmin\Controllers;
 abstract class DatabaseController extends Controller
 {
     /**
-     * @var string $db
+     * @var string
      */
     protected $db;
 

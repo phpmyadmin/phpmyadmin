@@ -107,7 +107,7 @@ class Core
      * @param mixed $default default value
      * @param mixed $type    var type or array of values to check against $var
      *
-     * @return mixed   $var or $default
+     * @return mixed $var or $default
      *
      * @see self::isValid()
      */
@@ -412,7 +412,7 @@ class Core
      *
      * @param string|int $size size (Default = 0)
      *
-     * @return integer $size
+     * @return integer
      */
     public static function getRealSize($size = 0): int
     {

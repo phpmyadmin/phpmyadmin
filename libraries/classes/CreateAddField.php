@@ -69,7 +69,7 @@ class CreateAddField
      * @param boolean $isCreateTable true if requirement is to get the statement
      *                               for table creation
      *
-     * @return array  $definitions An array of initial sql statements
+     * @return array An array of initial sql statements
      *                             according to the request
      */
     private function buildColumnCreationStatement(
@@ -130,7 +130,7 @@ class CreateAddField
      * @param bool $isCreateTable true if requirement is to get the statement
      *                            for table creation
      *
-     * @return string $sqlSuffix suffix
+     * @return string suffix
      */
     private function setColumnCreationStatementSuffix(
         int $previousField,
@@ -241,7 +241,7 @@ class CreateAddField
      * @param boolean $isCreateTable true if requirement is to get the statement
      *                               for table creation
      *
-     * @return string $sqlPrefix prefix
+     * @return string prefix
      */
     private function getStatementPrefix(bool $isCreateTable = true): string
     {
@@ -261,7 +261,7 @@ class CreateAddField
      * @param array   $indexedColumns the columns for one type of index
      * @param string  $indexKeyword   the index keyword to use in the definition
      *
-     * @return array $index_definitions
+     * @return array
      */
     private function mergeIndexStatements(
         array $definitions,

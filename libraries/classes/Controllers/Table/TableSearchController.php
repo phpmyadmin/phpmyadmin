@@ -83,7 +83,7 @@ class TableSearchController extends TableController
     protected $url_query;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

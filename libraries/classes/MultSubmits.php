@@ -37,7 +37,7 @@ class MultSubmits
     private $relationCleanup;
 
     /**
-     * @var Operations $operations
+     * @var Operations
      */
     private $operations;
 

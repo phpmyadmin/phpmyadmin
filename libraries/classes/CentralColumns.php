@@ -928,7 +928,7 @@ class CentralColumns
      * @param string $pmaThemeImage pma theme image url
      * @param string $text_dir      url for text directory
      *
-     * @return string $html_output
+     * @return string
      */
     public function getTableFooter(string $pmaThemeImage, string $text_dir): string
     {

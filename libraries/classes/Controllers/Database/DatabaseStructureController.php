@@ -59,7 +59,7 @@ class DatabaseStructureController extends DatabaseController
     protected $_is_show_stats;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

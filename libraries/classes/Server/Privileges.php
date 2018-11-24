@@ -38,12 +38,12 @@ class Privileges
     private $relationCleanup;
 
     /**
-     * @var DatabaseInterface $dbi
+     * @var DatabaseInterface
      */
     public $dbi;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     public $relation;
 
@@ -506,7 +506,7 @@ class Privileges
      * @param string $name_for_dfn     name for dfn
      * @param string $name_for_current name for current
      *
-     * @return string $html_output html snippet
+     * @return string html snippet
      */
     public function getHtmlForColumnPrivileges(
         array $columns,
@@ -939,7 +939,7 @@ class Privileges
      * @param string $routine    the routine
      * @param string $url_dbname url encoded db name
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForRoutineSpecificPrivileges(
         $username,
@@ -1028,7 +1028,7 @@ class Privileges
      * @param array  $columns  columns array
      * @param array  $row      current privileges row
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForTableSpecificPrivileges(
         $username,
@@ -1096,7 +1096,7 @@ class Privileges
      * @param array $columns columns array
      * @param array $row     first row from result or boolean false
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForAttachedPrivilegesToTableSpecificColumn(array $columns, array $row)
     {
@@ -1147,7 +1147,7 @@ class Privileges
      *
      * @param array $row first row from result or boolean false
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForNotAttachedPrivilegesToTableSpecificColumn(array $row)
     {
@@ -1225,7 +1225,7 @@ class Privileges
      * @param string $table the table
      * @param array  $row   first row from result or boolean false
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForGlobalOrDbSpecificPrivs($db, $table, array $row)
     {
@@ -1472,7 +1472,7 @@ class Privileges
      *                              (Data, Structure, Administration)
      * @param array $row            first row from result or boolean false
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForGlobalPrivTableWithCheckboxes(
         array $privTable,
@@ -1495,7 +1495,7 @@ class Privileges
      *                                 (allowed values: 'new', 'edit', 'change_pw')
      * @param string $versions         Is MySQL version newer or older than 5.5.7
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForAuthPluginsDropdown(
         $orig_auth_plugin,
@@ -1530,7 +1530,7 @@ class Privileges
     /**
      * Gets the currently active authentication plugins
      *
-     * @return array $result  array of plugin names and descriptions
+     * @return array  array of plugin names and descriptions
      */
     public function getActiveAuthPlugins()
     {
@@ -1567,7 +1567,7 @@ class Privileges
      * @global  array      $cfg     the phpMyAdmin configuration
      * @global  resource   $user_link the database connection
      *
-     * @return string $html_output  a HTML snippet
+     * @return string  a HTML snippet
      */
     public function getHtmlForLoginInformationFields(
         $mode = 'new',
@@ -1950,7 +1950,7 @@ class Privileges
      * @param string $username username
      * @param string $hostname hostname
      *
-     * @return string $message  success or error message after updating password
+     * @return string  success or error message after updating password
      */
     public function updatePassword($err_url, $username, $hostname)
     {
@@ -2201,7 +2201,7 @@ class Privileges
     /**
      * Get a WITH clause for 'update privileges' and 'add user'
      *
-     * @return string $sql_query
+     * @return string
      */
     public function getWithClauseForAddUserAndUpdatePrivs()
     {
@@ -2368,7 +2368,7 @@ class Privileges
      * @param string $db             database name
      * @param string $index_checkbox starting index for rows to be added
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlTableBodyForSpecificDbRoutinePrivs($db, $index_checkbox)
     {
@@ -2439,7 +2439,7 @@ class Privileges
      *
      * @param string $db database name
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForSpecificDbPrivileges($db)
     {
@@ -2517,7 +2517,7 @@ class Privileges
      * @param string $db    database name
      * @param string $table table name
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForSpecificTablePrivileges($db, $table)
     {
@@ -2591,7 +2591,7 @@ class Privileges
      *
      * @param string $db the database
      *
-     * @return array $privMap the privilege map
+     * @return array the privilege map
      */
     public function getPrivMap($db)
     {
@@ -2643,7 +2643,7 @@ class Privileges
     /**
      * Get HTML snippet for privileges table head
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForPrivsTableHead()
     {
@@ -2664,7 +2664,7 @@ class Privileges
      * Get HTML error for View Users form
      * For non superusers such as grant/create users
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForViewUsersError()
     {
@@ -2679,7 +2679,7 @@ class Privileges
      * @param array  $privMap privilege map
      * @param string $db      database
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlTableBodyForSpecificDbOrTablePrivs($privMap, $db)
     {
@@ -2963,7 +2963,7 @@ class Privileges
     /**
      * Returns number of defined user groups
      *
-     * @return integer $user_group_count
+     * @return integer
      */
     public function getUserGroupCount()
     {
@@ -3026,7 +3026,7 @@ class Privileges
      * @param string $hostname  hostname
      * @param string $username  username
      *
-     * @return array $extra_data
+     * @return array
      */
     public function getExtraDataForAjaxBehavior(
         $password,
@@ -3297,7 +3297,7 @@ class Privileges
      * @param string $type     database or table
      * @param string $dbname   database name
      *
-     * @return array $db_rights database rights
+     * @return array database rights
      */
     public function getUserSpecificRights($username, $hostname, $type, $dbname = '')
     {
@@ -3435,7 +3435,7 @@ class Privileges
      * @param string $type     database, table or routine
      * @param string $dbname   database name
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForAllTableSpecificRights(
         $username,
@@ -3883,7 +3883,7 @@ class Privileges
     /**
      * Get the database rights array for Display user overview
      *
-     * @return array  $db_rights    database rights array
+     * @return array    database rights array
      */
     public function getDbRightsForUserOverview()
     {
@@ -4611,7 +4611,7 @@ class Privileges
      * @param string  $entity_name        entity (table or routine) name
      * @param string  $entity_type        optional, type of entity ('table' or 'routine')
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlHeaderForUserProperties(
         $dbname_is_wildcard,
@@ -4711,7 +4711,7 @@ class Privileges
      * @param string $pmaThemeImage a image source link
      * @param string $text_dir      text directory
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForUserOverview($pmaThemeImage, $text_dir)
     {
@@ -4888,7 +4888,7 @@ class Privileges
      * @param string  $dbname             database name
      * @param string  $tablename          table name
      *
-     * @return string $html_output
+     * @return string
      */
     public function getHtmlForUserProperties(
         $dbname_is_wildcard,
@@ -5004,7 +5004,7 @@ class Privileges
      * @param string $username            username
      * @param string $hostname            host name
      *
-     * @return array  $queries
+     * @return array
      */
     public function getTablePrivsQueriesForChangeOrCopyUser(
         $user_host_condition,
@@ -5093,7 +5093,7 @@ class Privileges
      * @param string $username username
      * @param string $hostname host name
      *
-     * @return array $queries
+     * @return array
      */
     public function getDbSpecificPrivsQueriesForChangeOrCopyUser(
         array $queries,
@@ -5139,7 +5139,7 @@ class Privileges
      * @param string  $hostname       host name
      * @param string  $dbname         database name
      *
-     * @return array  $sql_query, $message
+     * @return array, $message
      */
     public function addUserAndCreateDatabase(
         $_error,
@@ -5227,7 +5227,7 @@ class Privileges
      *
      * @param string $password password
      *
-     * @return string $hashedPassword
+     * @return string
      */
     public function getHashedPassword($password)
     {

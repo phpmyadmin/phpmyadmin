@@ -24,7 +24,7 @@ use PhpMyAdmin\Util;
 class UserPassword
 {
     /**
-     * @var Privileges $serverPrivileges
+     * @var Privileges
      */
     private $serverPrivileges;
 
@@ -170,7 +170,7 @@ class UserPassword
     /**
      * Generate the hashing function
      *
-     * @return string  $hashing_function
+     * @return string
      */
     private function changePassHashingFunction()
     {

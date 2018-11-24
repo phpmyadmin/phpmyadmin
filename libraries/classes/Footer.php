@@ -58,7 +58,7 @@ class Footer
     private $_isEnabled;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

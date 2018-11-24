@@ -37,7 +37,7 @@ use PhpMyAdmin\Util;
 class Sql
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -52,7 +52,7 @@ class Sql
     private $transformations;
 
     /**
-     * @var Operations $operations
+     * @var Operations
      */
     private $operations;
 
@@ -223,7 +223,7 @@ class Sql
      * @param string $column     current column
      * @param string $curr_value current selected value
      *
-     * @return string $dropdown html for the dropdown
+     * @return string html for the dropdown
      */
     private function getHtmlForRelationalColumnDropdown($db, $table, $column, $curr_value)
     {
@@ -270,7 +270,7 @@ class Sql
      * @param string $db                current database
      * @param array  $profiling_results array containing the profiling info
      *
-     * @return string $profiling_table html for the profiling table and chart
+     * @return string html for the profiling table and chart
      */
     private function getHtmlForProfilingChart($url_query, $db, $profiling_results)
     {
@@ -404,7 +404,7 @@ EOT;
      *
      * @param array $profiling_stats profiling stats
      *
-     * @return string $table html for the table
+     * @return string html for the table
      */
     private function getTableHtmlForProfilingSummaryByState(array $profiling_stats)
     {
@@ -449,7 +449,7 @@ EOT;
      * @param string $column     current column
      * @param string $curr_value currently selected value
      *
-     * @return string $dropdown html for the dropdown
+     * @return string html for the dropdown
      */
     private function getHtmlForEnumColumnDropdown($db, $table, $column, $curr_value)
     {
@@ -489,7 +489,7 @@ EOT;
      * @param string $column     current column
      * @param string $curr_value currently selected value
      *
-     * @return string $dropdown html for the set column
+     * @return string html for the set column
      */
     private function getHtmlForSetColumn($db, $table, $column, $curr_value)
     {
@@ -536,7 +536,7 @@ EOT;
      * @param string $table  current table
      * @param string $column current column
      *
-     * @return array $values array containing the value list for the column
+     * @return array array containing the value list for the column
      */
     private function getValuesForColumn($db, $table, $column)
     {
@@ -561,7 +561,7 @@ EOT;
      * @param array $values          set of values
      * @param array $selected_values currently selected values
      *
-     * @return string $options HTML for options list
+     * @return string HTML for options list
      */
     private function getHtmlForOptionsList(array $values, array $selected_values)
     {
@@ -588,7 +588,7 @@ EOT;
      * @param string|null $complete_query complete query
      * @param string      $bkm_user       bookmarking user
      *
-     * @return string $html
+     * @return string
      */
     public function getHtmlForBookmark(
         array $displayParts,
@@ -779,7 +779,7 @@ EOT;
      * @param Table  $pmatable      Table instance
      * @param string $request_index col_order|col_visib
      *
-     * @return boolean $retval
+     * @return boolean
      */
     private function setColumnProperty($pmatable, $request_index)
     {
@@ -965,7 +965,7 @@ EOT;
      * @param string $db    the current database
      * @param string $table the current table
      *
-     * @return string $sql_query the default $sql_query for browse page
+     * @return string the default $sql_query for browse page
      */
     public function getDefaultSqlQueryForBrowse($db, $table)
     {
@@ -1125,7 +1125,7 @@ EOT;
      * @param boolean $is_affected whether the query affected a table
      * @param mixed   $result      results of executing the query
      *
-     * @return int    $num_rows    number of rows affected or changed
+     * @return int    number of rows affected or changed
      */
     private function getNumberOfRowsAffectedOrChanged($is_affected, $result)
     {
@@ -1144,7 +1144,7 @@ EOT;
      *
      * @param string $db the database in the query
      *
-     * @return int $reload whether to reload the navigation(1) or not(0)
+     * @return int whether to reload the navigation(1) or not(0)
      */
     private function hasCurrentDbChanged($db)
     {
@@ -1165,7 +1165,7 @@ EOT;
      * @param string|null $column current column
      * @param bool        $purge  whether purge set or not
      *
-     * @return array $extra_data
+     * @return array
      */
     private function cleanupRelations($db, $table, ?string $column, $purge)
     {
@@ -1193,7 +1193,7 @@ EOT;
      * @param array  $analyzed_sql_results the analyzed query and other variables set
      *                                     after analyzing the query
      *
-     * @return int $unlim_num_rows unlimited number of rows
+     * @return int unlimited number of rows
      */
     private function countQueryResults(
         $num_rows,
@@ -1433,7 +1433,7 @@ EOT;
      * @param array  $analyzed_sql_results analyzed sql results
      * @param int    $num_rows             number of rows
      *
-     * @return string $message
+     * @return string
      */
     private function getMessageForNoRowsReturned(
         $message_to_show,
@@ -1661,7 +1661,7 @@ EOT;
      * @param string|null  $indexes_problems_html      html for displaying errors in indexes
      * @param string|null  $bookmark_support_html      html for displaying bookmark form
      *
-     * @return string $html_output
+     * @return string
      */
     private function getHtmlForSqlQueryResults(
         ?string $previous_update_query_html,
@@ -1693,7 +1693,7 @@ EOT;
      * Returns a message for successful creation of a bookmark or null if a bookmark
      * was not created
      *
-     * @return Message $bookmark_created_msg
+     * @return Message
      */
     private function getBookmarkCreatedMessage()
     {
@@ -1853,7 +1853,7 @@ EOT;
      * @param array          $sql_data     sql data
      * @param Message|string $disp_message display message
      *
-     * @return string $previous_update_query_html
+     * @return string
      */
     private function getHtmlForPreviousUpdateQuery(
         ?string $disp_query,
@@ -1883,7 +1883,7 @@ EOT;
      * @param boolean $editable   whether the results table can be editable or not
      * @param boolean $has_unique whether there is a unique key
      *
-     * @return Message $message
+     * @return Message
      */
     private function getMessageIfMissingColumnIndex($table, $db, $editable, $has_unique)
     {

@@ -105,7 +105,7 @@ class Node
     public $pos3 = 0;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     protected $relation;
 

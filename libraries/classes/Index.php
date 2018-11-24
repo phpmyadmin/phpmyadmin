@@ -644,7 +644,7 @@ class Index
     /**
      * Get HTML for display indexes
      *
-     * @return string $html_output
+     * @return string
      */
     public static function getHtmlForDisplayIndexes()
     {

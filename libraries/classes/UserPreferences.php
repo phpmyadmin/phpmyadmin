@@ -26,7 +26,7 @@ use PhpMyAdmin\Util;
 class UserPreferences
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

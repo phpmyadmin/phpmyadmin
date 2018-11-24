@@ -642,7 +642,7 @@ class ExportSql extends ExportPlugin
     /**
      * Possibly outputs CRLF
      *
-     * @return string $crlf or nothing
+     * @return string crlf or nothing
      */
     private function _possibleCRLF()
     {

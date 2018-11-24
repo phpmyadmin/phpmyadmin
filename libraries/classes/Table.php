@@ -79,7 +79,7 @@ class Table
     protected $_dbi;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

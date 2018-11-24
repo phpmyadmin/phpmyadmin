@@ -340,7 +340,7 @@ class DbiMysqli implements DbiExtension
      *
      * @param \mysqli $mysqli mysql link
      *
-     * @return string|bool $error or false
+     * @return string|bool error or false
      */
     public function getError($mysqli)
     {

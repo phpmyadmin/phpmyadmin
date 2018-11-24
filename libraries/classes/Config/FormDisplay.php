@@ -231,7 +231,7 @@ class FormDisplay
      * @param array &$js                will be updated with javascript code
      * @param bool  $showButtons        whether show submit and reset button
      *
-     * @return string $htmlOutput
+     * @return string
      */
     private function _displayForms(
         $showRestoreDefault,

@@ -33,12 +33,12 @@ abstract class ExportPlugin
     protected $properties;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     public $relation;
 
     /**
-     * @var Export $export
+     * @var Export
      */
     protected $export;
 

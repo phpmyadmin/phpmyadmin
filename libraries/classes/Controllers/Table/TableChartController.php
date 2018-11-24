@@ -26,17 +26,17 @@ use PhpMyAdmin\Util;
 class TableChartController extends TableController
 {
     /**
-     * @var string $sql_query
+     * @var string
      */
     protected $sql_query;
 
     /**
-     * @var string $url_query
+     * @var string
      */
     protected $url_query;
 
     /**
-     * @var array $cfg
+     * @var array
      */
     protected $cfg;
 

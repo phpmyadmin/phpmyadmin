@@ -42,7 +42,7 @@ abstract class TableStats
     protected $offline;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     protected $relation;
 

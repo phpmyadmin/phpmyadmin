@@ -119,7 +119,7 @@ class DatabaseInterface
     public $types;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -808,7 +808,7 @@ class DatabaseInterface
      *
      * @param string $db Database name to look in
      *
-     * @return array $views Set of VIEWs inside the database
+     * @return array Set of VIEWs inside the database
      */
     public function getVirtualTables(string $db): array
     {
@@ -840,7 +840,7 @@ class DatabaseInterface
      *
      * @todo    move into ListDatabase?
      *
-     * @return array $databases
+     * @return array
      */
     public function getDatabasesFull(
         ?string $database = null,
@@ -1376,7 +1376,7 @@ class DatabaseInterface
      * @param string $table    name of the table whose indexes are to be retrieved
      * @param mixed  $link     mysql link resource
      *
-     * @return array   $indexes
+     * @return array
      */
     public function getTableIndexes(
         string $database,
@@ -2758,7 +2758,7 @@ class DatabaseInterface
      *
      * @param integer $link link type
      *
-     * @return string|bool $error or false
+     * @return string|bool error or false
      */
     public function getError($link = DatabaseInterface::CONNECT_USER)
     {
@@ -3013,7 +3013,7 @@ class DatabaseInterface
     /**
      * returns default server collation from show variables
      *
-     * @return string  $server_collation
+     * @return string
      */
     public function getServerCollation(): string
     {
