@@ -50,6 +50,7 @@ jobs:
         - ./test/ci-phplint
         - ./vendor/bin/phpcs --exclude=PSR1.Files.SideEffects,Generic.Metrics.NestingLevel
         - ./node_modules/.bin/eslint --quiet ./js
+        - ./node_modules/.bin/stylelint "themes/**/scss/*.scss"
 
     - stage: "Lint and analyse code"
       name: "Run phpstan"
