@@ -78,7 +78,7 @@
     line-height: 100%;
 
     &:after {
-      font-family: "Open Sans Extrabold";
+      font-family: $font-family-extra-bold;
       text-transform: uppercase;
       margin-#{$left}: 5px;
       content: "phpMyAdmin";
@@ -114,6 +114,7 @@
 div#left_tableList li {
   a:first-child:before {
     color: $navi-pointer-color;
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
     font-family: "IcoMoon";
     content: "";
     margin: 10px;
@@ -394,7 +395,7 @@ li.fast_filter {
     background-color: #ffffff;
     border: 1px solid #cccccc;
     color: #666666;
-    font-family: "Open Sans", "Segoe UI";
+    font-family: $font-family;
     padding: 2px;
   }
 

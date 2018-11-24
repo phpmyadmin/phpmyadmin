@@ -142,12 +142,12 @@ button.mult_submit {
 
   a {
     border: 1px solid #aaa;
-    background: #fff;
+    background-color: #fff;
     padding: 4px 8px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    background: linear-gradient(#ffffff, #e0e0e0);
+    background-image: linear-gradient(#ffffff, #e0e0e0);
 
     &.active {
       border: 1px solid #666;
@@ -346,12 +346,12 @@ input {
     padding: 3px 7px;
     color: #111;
     text-decoration: none;
-    background: #ddd;
+    background-color: #ddd;
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     text-shadow: 0 1px 0 #fff;
-    background: linear-gradient(#f8f8f8, #d8d8d8);
+    background-image: linear-gradient(#f8f8f8, #d8d8d8);
   }
 }
 
@@ -361,12 +361,12 @@ button[type=submit]:not(.mult_submit) {
   padding: 3px 7px;
   color: #111;
   text-decoration: none;
-  background: #ddd;
+  background-color: #ddd;
   border-radius: 12px;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
   text-shadow: 0 1px 0 #fff;
-  background: linear-gradient(#f8f8f8, #d8d8d8);
+  background-image: linear-gradient(#f8f8f8, #d8d8d8);
 }
 
 input {
@@ -378,12 +378,12 @@ input {
     padding: 3px 7px;
     color: #111;
     text-decoration: none;
-    background: #ddd;
+    background-color: #ddd;
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     text-shadow: 0 1px 0 #fff;
-    background: linear-gradient(#f8f8f8, #d8d8d8);
+    background-image: linear-gradient(#f8f8f8, #d8d8d8);
   }
 
   &[type=submit]:hover,
@@ -1953,12 +1953,12 @@ a.button {
   padding: 3px 7px;
   color: #111 !important;
   text-decoration: none;
-  background: #ddd;
+  background-color: #ddd;
   white-space: nowrap;
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
-  background: linear-gradient(#f8f8f8, #d8d8d8);
+  background-image: linear-gradient(#f8f8f8, #d8d8d8);
 
   &:hover {
     background: linear-gradient(#ffffff, #dddddd);
@@ -2142,9 +2142,9 @@ div.sqlvalidate {
 }
 
 .result_query {
+  div.sqlOuter {
     background: $bg-one;
     text-align: $left;
-  div.sqlOuter {
   }
 
   .success,
@@ -2311,7 +2311,7 @@ select.invalid_value,
   // The notification needs to be shown on the top of the page
   top: 0;
   position: fixed;
-  margin-top: 0;
+  margin-top: 200px;
   margin-#{$right}: auto;
   margin-bottom: 0;
   margin-#{$left}: auto;
@@ -2328,8 +2328,7 @@ select.invalid_value,
   background-repeat: no-repeat;
   background-position: 2%;
   border: 1px solid #e2b709;
-  margin-top: 200px;
-  background: #ffe57e;
+  background-color: #ffe57e;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -2956,7 +2955,6 @@ fieldset {
 
     td,
     tr {
-      background-image: none;
       background: none !important;
     }
   }

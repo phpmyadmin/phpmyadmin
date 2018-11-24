@@ -165,6 +165,7 @@ body#loginform {
     margin-#{$right}: auto;
 
     &:before {
+      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: 'IcoMoon';
       font-size: 220px;
       color: $main-background;
@@ -236,7 +237,6 @@ body#loginform {
     background: $navi-background;
     color: $navi-color;
     padding-#{$left}: 0 !important;
-    border: 1px solid $navi-background;
     font-family: $font-family;
     min-width: 100%;
 
@@ -258,7 +258,6 @@ body#loginform {
     background: none;
 
     &:first-child {
-      margin-bottom: 0;
       border-bottom: none;
       margin: 0;
     }
@@ -339,7 +338,7 @@ h2 {
 }
 
 h3 {
-  font-family: "open sans extrabold", "segoe black";
+  font-family: $font-family-extra-bold;
   text-transform: uppercase;
   font-weight: normal;
 }
@@ -411,12 +410,12 @@ dfn:hover {
 }
 
 th {
-  font-family: "open sans bold";
+  font-family: $font-family-bold;
   color: $th-color !important;
   font-weight: normal;
 
   a {
-    font-family: "open sans bold";
+    font-family: $font-family-bold;
     color: $th-color !important;
     font-weight: normal;
   }
@@ -516,7 +515,6 @@ textarea {
 
 fieldset {
   margin-top: 20px;
-  padding: 5px;
   border: 1px solid $border-color;
   padding: 20px;
   background-color: $th-background;
@@ -699,6 +697,7 @@ div.tools {
     position: relative;
 
     &:before {
+      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: 'IcoMoon';
       content: "";
       color: $th-color;
@@ -727,6 +726,7 @@ div.tools {
     position: relative;
 
     &:before {
+      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: 'IcoMoon';
       content: "";
       color: $th-color;
@@ -1088,7 +1088,7 @@ fieldset.confirmation legend {
 }
 
 .tblHeaders {
-  font-family: "open sans bold";
+  font-family: $font-family-bold;
   color: $th-color;
   background: $th-background;
   font-weight: normal;
@@ -1225,7 +1225,7 @@ ul#topmenu2 a {
   margin-#{$left}: 0;
   padding: 5px 15px;
   white-space: nowrap;
-  font-family: "open sans extrabold", "segoe black";
+  font-family: $font-family-extra-bold;
   font-weight: normal;
   color: $navi-pointer-color;
   text-transform: uppercase;
@@ -1251,7 +1251,7 @@ fieldset.caution {
   }
 
   a {
-    font-family: 'Open Sans Bold';
+    font-family: $font-family-bold;
     text-transform: uppercase;
     color: $button-color;
     font-weight: normal;
@@ -1273,6 +1273,7 @@ fieldset.caution li,
 
 fieldset.caution li {
   &:before {
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
     font-family: "IcoMoon";
     content: "";
     color: $button-color;
@@ -1286,11 +1287,12 @@ fieldset.caution li {
 
 #tbl_maintenance li {
   a {
-    font-family: "Open Sans Bold";
+    font-family: $font-family-bold;
     text-transform: uppercase;
     font-weight: normal;
   }
   &:before {
+    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
     font-family: "IcoMoon";
     content: "%";
     margin-#{$right}: 10px;
@@ -1314,7 +1316,7 @@ ul {
       padding: 5px 10px;
       height: 28px;
       line-height: 28px;
-      font-family: "open sans extrabold", "segoe black";
+      font-family: $font-family-extra-bold;
       text-transform: uppercase;
       color: #666;
       font-weight: normal;
@@ -1446,7 +1448,6 @@ div#tablestatistics table {
   font-family: $font-family;
   color: $button-color;
   background: $navi-background;
-  font-height: 1.1em;
   height: 15px;
 
   .item {
@@ -1457,6 +1458,7 @@ div#tablestatistics table {
     &:before {
       padding-#{$left}: 5px;
       padding-#{$right}: 5px;
+      /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
       font-family: "IcoMoon";
       font-size: 10px;
       color: #eee;
@@ -1519,7 +1521,7 @@ div#tablestatistics table {
 #textSQLDUMP {
   width: 95%;
   height: 95%;
-  font-family: Consolas, "Courier New", Courier, mono;
+  font-family: $font-family-fixed;
   font-size: 110%;
 }
 
@@ -1873,7 +1875,7 @@ p.notice {
   margin: 1.5em 0;
   border: 1px solid #000;
   background-repeat: no-repeat;
-  background: #555;
+  background-color: #555;
   color: #d4fb6a;
 
   @if $direction == rtl {
@@ -2685,7 +2687,7 @@ table#index_columns {
         text-decoration: none;
         border: 1px solid $bg-two;
         border-bottom: 1px solid #ddd;
-        font-family: "open sans bold";
+        font-family: $font-family-bold;
         padding: 7px 10px;
         background: #f2f2f2;
         color: #555;
@@ -3044,7 +3046,6 @@ form {
     position: absolute;
 
     td {
-      background-image: none;
       background: none;
     }
   }
@@ -3290,7 +3291,7 @@ form.append_fields_form .tblFooters {
   border-top: solid 1px #ccc;
   cursor: pointer;
   font-size: 0.9em;
-  font-family: open sans bold;
+  font-family: $font-family-bold;
   padding: 0.35em 1em;
   text-align: center;
   font-weight: normal;

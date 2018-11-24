@@ -1070,7 +1070,7 @@ div#tablestatistics table {
 #textSQLDUMP {
   width: 95%;
   height: 95%;
-  font-family: "Courier New", Courier, mono;
+  font-family: $font-family-fixed;
   font-size: 110%;
 }
 
@@ -2322,7 +2322,6 @@ fieldset {
 
     td,
     tr {
-      background-image: none;
       background: none !important;
     }
   }
