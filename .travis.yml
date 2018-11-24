@@ -83,8 +83,8 @@ jobs:
     - stage: "PHP Unit tests"
       name: "PHP 7.2"
       os: osx
-      language: generic
       env: CI_MODE=test
+      language: node_js
       node_js: 8
       before_install:
         - brew update
