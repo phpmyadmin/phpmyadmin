@@ -92,5 +92,11 @@
         "branch-alias": {
             "dev-master": "5.0.x-dev"
         }
+    },
+    "scripts": {
+        "phpcbf": "phpcbf",
+        "phpcs": "phpcs --exclude=PSR1.Files.SideEffects,Generic.Metrics.NestingLevel",
+        "phpstan": "phpstan analyse",
+        "test": "phpunit"
     }
 }

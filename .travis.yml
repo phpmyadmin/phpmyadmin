@@ -48,9 +48,9 @@ jobs:
       after_success: skip
       script:
         - ./test/ci-phplint
-        - ./vendor/bin/phpcs --exclude=PSR1.Files.SideEffects,Generic.Metrics.NestingLevel
-        - ./node_modules/.bin/eslint --quiet ./js
-        - ./node_modules/.bin/stylelint "themes/**/scss/*.scss"
+        - composer phpcs
+        - yarn run js-lint --quiet
+        - yarn run css-lint
 
     - stage: "Lint and analyse code"
       name: "Run phpstan"
@@ -58,7 +58,7 @@ jobs:
       before_script: skip
       after_script: skip
       after_success: skip
-      script: ./vendor/bin/phpstan analyse
+      script: composer phpstan
 
     - stage: "PHP Unit tests"
       php: 7.1
