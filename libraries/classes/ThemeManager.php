@@ -119,11 +119,11 @@ class ThemeManager
     }
 
     /**
-     * Returns the singleton Response object
+     * Returns the singleton ThemeManager object
      *
-     * @return ThemeManager object
+     * @return ThemeManager The instance
      */
-    public static function getInstance()
+    public static function getInstance(): ThemeManager
     {
         if (empty(self::$_instance)) {
             self::$_instance = new ThemeManager();

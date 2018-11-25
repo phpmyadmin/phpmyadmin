@@ -36,10 +36,10 @@ use PhpMyAdmin\Relation;
 class SvgRelationSchema extends ExportRelationSchema
 {
     /**
-     * @var \PhpMyAdmin\Plugins\Schema\Dia\TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
+     * @var TableStatsDia[]|TableStatsEps[]|TableStatsPdf[]|TableStatsSvg[]
      */
     private $_tables = [];
-    /** @var RelationStatsDia[] Relations */
+    /** @var RelationStatsSvg[] Relations */
     private $_relations = [];
     private $_xMax = 0;
     private $_yMax = 0;
@@ -178,7 +178,7 @@ class SvgRelationSchema extends ExportRelationSchema
     /**
      * Sets X and Y minimum and maximum for a table cell
      *
-     * @param string $table The table name
+     * @param TableStatsSvg $table The table
      *
      * @return void
      */

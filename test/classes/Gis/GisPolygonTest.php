@@ -361,11 +361,11 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPng()
      *
-     * @param string $spatial    GIS POLYGON object
-     * @param string $label      label for the GIS POLYGON object
-     * @param string $fill_color color for the GIS POLYGON object
-     * @param array  $scale_data array containing data related to scaling
-     * @param object $image      image object
+     * @param string   $spatial    GIS POLYGON object
+     * @param string   $label      label for the GIS POLYGON object
+     * @param string   $fill_color color for the GIS POLYGON object
+     * @param array    $scale_data array containing data related to scaling
+     * @param resource $image      image object
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPng
@@ -420,7 +420,7 @@ class GisPolygonTest extends GisGeomTestCase
      * @param string $label      label for the GIS POLYGON object
      * @param string $fill_color color for the GIS POLYGON object
      * @param array  $scale_data array containing data related to scaling
-     * @param object $pdf        TCPDF instance
+     * @param TCPDF  $pdf        TCPDF instance
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPdf

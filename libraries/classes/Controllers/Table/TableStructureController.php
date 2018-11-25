@@ -596,7 +596,7 @@ class TableStructureController extends TableController
 
         $parser = new Parser($createTable);
         /**
-         * @var $stmt PhpMyAdmin\SqlParser\Statements\CreateStatement
+         * @var CreateStatement $stmt
          */
         $stmt = $parser->statements[0];
 

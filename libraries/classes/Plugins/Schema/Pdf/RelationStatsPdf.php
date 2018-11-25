@@ -29,7 +29,7 @@ class RelationStatsPdf extends RelationStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Pdf\RelationStatsPdf" constructor
      *
-     * @param object $diagram       The PDF diagram
+     * @param Pdf    $diagram       The PDF diagram
      * @param string $master_table  The master table name
      * @param string $master_field  The relation field in the master table
      * @param string $foreign_table The foreign table name

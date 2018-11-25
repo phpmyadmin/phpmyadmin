@@ -45,7 +45,7 @@ class SysInfo
     /**
      * Gets sysinfo class mathing current OS
      *
-     * @return PhpMyAdmin\SysInfoBase|mixed sysinfo class
+     * @return SysInfoBase sysinfo class
      */
     public static function get()
     {
@@ -54,7 +54,7 @@ class SysInfo
 
         if (in_array($php_os, $supported)) {
             $class_name = 'PhpMyAdmin\SysInfo' . $php_os;
-            /** @var PhpMyAdmin\SysInfoBase $ret */
+            /** @var SysInfoBase $ret */
             $ret = new $class_name();
             if ($ret->supported()) {
                 return $ret;

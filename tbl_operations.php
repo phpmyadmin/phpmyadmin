@@ -189,7 +189,7 @@ if (isset($_REQUEST['submitoptions'])) {
             . Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
-        $result        .= $GLOBALS['dbi']->query($sql_query) ? true : false;
+        $result         = $GLOBALS['dbi']->query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
         $warning_messages = $operations->getWarningMessagesArray();

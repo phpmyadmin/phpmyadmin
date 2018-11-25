@@ -281,7 +281,8 @@ class ExportPdfTest extends PmaTestCase
                 [
                     'currentDb' => 'db', 'currentTable' => 'table',
                     'dbAlias' => 'db', 'tableAlias' => 'table',
-                    'aliases' => []
+                    'aliases' => [],
+                    'purpose' => __('Dumping data')
                 ]
             );
 

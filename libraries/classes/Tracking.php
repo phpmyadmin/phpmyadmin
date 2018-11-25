@@ -1170,7 +1170,7 @@ class Tracking
      * Get HTML for tracked and untracked tables
      *
      * @param string $db            current database
-     * @param array  $requestDb     $_REQUEST['db']
+     * @param string $requestDb     $_REQUEST['db']
      * @param string $urlQuery      url query string
      * @param string $pmaThemeImage path to theme's image folder
      * @param string $textDir       text direction

@@ -1005,7 +1005,7 @@ class Table
             /**
              * Instance used for exporting the current structure of the table.
              *
-             * @var PhpMyAdmin\Plugins\Export\ExportSql
+             * @var ExportSql $export_sql_plugin
              */
             $export_sql_plugin = Plugins::getPlugin(
                 "export",
@@ -2686,7 +2686,7 @@ class Table
     /**
      * Returns the real row count for a table
      *
-     * @return number
+     * @return int
      */
     public function getRealRowCountTable()
     {

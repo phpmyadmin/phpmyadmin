@@ -24,7 +24,7 @@ $container->alias(
 $container->set('PhpMyAdmin\Response', Response::getInstance());
 $container->alias('response', 'PhpMyAdmin\Response');
 
-/** @var ServerBinlogController $controller */
+/** @var \PhpMyAdmin\Controllers\Server\ServerBinlogController $controller */
 $controller = $container->get(
     'ServerBinlogController',
     []

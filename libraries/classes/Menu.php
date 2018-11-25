@@ -670,7 +670,7 @@ class Menu
      *
      * @param string $table Current table
      *
-     * @return $this
+     * @return Menu
      */
     public function setTable($table)
     {

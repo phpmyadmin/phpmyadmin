@@ -42,8 +42,8 @@ class ExportRelationSchema
     /**
      * Constructor.
      *
-     * @param string $db      database name
-     * @param object $diagram schema diagram
+     * @param string                                       $db      database name
+     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf|null $diagram schema diagram
      */
     public function __construct($db, $diagram)
     {

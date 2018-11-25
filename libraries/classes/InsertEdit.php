@@ -231,7 +231,7 @@ class InsertEdit
      * @param string $table name of the table
      * @param string $db    name of the database
      *
-     * @return array                containing $result and $rows arrays
+     * @return array containing $result and $rows arrays
      */
     private function loadFirstRow($table, $db)
     {
@@ -2413,7 +2413,7 @@ class InsertEdit
                 DatabaseInterface::QUERY_STORE
             );
             if ($dispresult && $this->dbi->numRows($dispresult) > 0) {
-                list($dispval) = $this->dbi->fetchRow($dispresult, 0);
+                list($dispval) = $this->dbi->fetchRow($dispresult);
             } else {
                 $dispval = '';
             }
@@ -2529,8 +2529,7 @@ class InsertEdit
                         = $extra_data['transformations'][$cell_index]
                             = $transformation_plugin->applyTransformation(
                                 $curr_cell_edited_values[$column_name],
-                                $transform_options,
-                                ''
+                                $transform_options
                             );
                 }
             }   // end of loop for each transformation cell

@@ -1949,7 +1949,7 @@ class Util
      *
      * @param resource       $handle               current query result
      * @param integer        $fields_cnt           number of fields
-     * @param array          $fields_meta          meta information about fields
+     * @param \stdClass[]    $fields_meta          meta information about fields
      * @param array          $row                  current row
      * @param boolean        $force_unique         generate condition only on pk
      *                                             or unique
@@ -2128,8 +2128,8 @@ class Util
     /**
      * Generate the charset query part
      *
-     * @param string           $collation Collation
-     * @param boolean optional $override  force 'CHARACTER SET' keyword
+     * @param string  $collation Collation
+     * @param boolean $override  (optional) force 'CHARACTER SET' keyword
      *
      * @return string
      */

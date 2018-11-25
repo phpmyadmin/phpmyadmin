@@ -27,7 +27,7 @@ use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
@@ -1640,7 +1640,7 @@ class ExportSql extends ExportPlugin
             /**
              * `CREATE TABLE` statement.
              *
-             * @var SelectStatement
+             * @var CreateStatement
              */
             $statement = $parser->statements[0];
 
@@ -2714,7 +2714,7 @@ class ExportSql extends ExportPlugin
         /**
          * The statement that represents the query.
          *
-         * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $statement
+         * @var CreateStatement $statement
          */
         $statement = $parser->statements[0];
 
@@ -2766,6 +2766,7 @@ class ExportSql extends ExportPlugin
                 $flag = true;
             }
 
+            /** @var \PhpMyAdmin\SqlParser\Components\CreateDefinition $field */
             foreach ($statement->fields as $field) {
                 // Column name.
                 if (!empty($field->type)) {

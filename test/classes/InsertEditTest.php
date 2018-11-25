@@ -2375,7 +2375,7 @@ class InsertEditTest extends TestCase
 
         $dbi->expects($this->once())
             ->method('fetchRow')
-            ->with('r1', 0)
+            ->with('r1')
             ->will($this->returnValue(['2']));
 
         $GLOBALS['dbi'] = $dbi;

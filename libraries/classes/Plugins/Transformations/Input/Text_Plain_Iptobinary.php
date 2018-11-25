@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Input;
 
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
+use stdClass;
 
 /**
  * Handles the IPv4/IPv6 to binary transformation for text plain
@@ -36,15 +37,15 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param string $buffer  text to be transformed. a binary string containing
-     *                        an IP address, as returned from MySQL's INET6_ATON
-     *                        function
-     * @param array  $options transformation options
-     * @param string $meta    meta information
+     * @param string        $buffer  text to be transformed. a binary string containing
+     *                               an IP address, as returned from MySQL's INET6_ATON
+     *                               function
+     * @param array         $options transformation options
+     * @param stdClass|null $meta    meta information
      *
      * @return string IP address
      */
-    public function applyTransformation($buffer, array $options = [], $meta = '')
+    public function applyTransformation($buffer, array $options = [], ?stdClass $meta = null)
     {
         $val = @inet_pton($buffer);
         if ($val !== false) {

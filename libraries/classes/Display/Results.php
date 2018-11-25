@@ -24,6 +24,8 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use \stdClass;
+use PhpMyAdmin\Plugins\TransformationsPlugin;
 
 /**
  * Handle all the functionalities related to displaying results
@@ -389,27 +391,27 @@ class Results
     /**
      * Set properties which were not initialized at the constructor
      *
-     * @param integer $unlim_num_rows the total number of rows returned by
-     *                                the SQL query without any appended
-     *                                "LIMIT" clause programmatically
-     * @param array   $fields_meta    meta information about fields
-     * @param boolean $is_count       statement is SELECT COUNT
-     * @param integer $is_export      statement contains INTO OUTFILE
-     * @param boolean $is_func        statement contains a function like SUM()
-     * @param integer $is_analyse     statement contains PROCEDURE ANALYSE
-     * @param integer $num_rows       total no. of rows returned by SQL query
-     * @param integer $fields_cnt     total no.of fields returned by SQL query
-     * @param double  $querytime      time taken for execute the SQL query
-     * @param string  $pmaThemeImage  path for theme images directory
-     * @param string  $text_dir       text direction
-     * @param boolean $is_maint       statement contains a maintenance command
-     * @param boolean $is_explain     statement contains EXPLAIN
-     * @param boolean $is_show        statement contains SHOW
-     * @param array   $showtable      table definitions
-     * @param string  $printview      print view was requested
-     * @param string  $url_query      URL query
-     * @param boolean $editable       whether the results set is editable
-     * @param boolean $is_browse_dist whether browsing distinct values
+     * @param integer  $unlim_num_rows the total number of rows returned by
+     *                                 the SQL query without any appended
+     *                                 "LIMIT" clause programmatically
+     * @param stdClass $fields_meta    meta information about fields
+     * @param boolean  $is_count       statement is SELECT COUNT
+     * @param integer  $is_export      statement contains INTO OUTFILE
+     * @param boolean  $is_func        statement contains a function like SUM()
+     * @param integer  $is_analyse     statement contains PROCEDURE ANALYSE
+     * @param integer  $num_rows       total no. of rows returned by SQL query
+     * @param integer  $fields_cnt     total no.of fields returned by SQL query
+     * @param double   $querytime      time taken for execute the SQL query
+     * @param string   $pmaThemeImage  path for theme images directory
+     * @param string   $text_dir       text direction
+     * @param boolean  $is_maint       statement contains a maintenance command
+     * @param boolean  $is_explain     statement contains EXPLAIN
+     * @param boolean  $is_show        statement contains SHOW
+     * @param array    $showtable      table definitions
+     * @param string   $printview      print view was requested
+     * @param string   $url_query      URL query
+     * @param boolean  $editable       whether the results set is editable
+     * @param boolean  $is_browse_dist whether browsing distinct values
      *
      * @return void
      *
@@ -1848,17 +1850,17 @@ class Results
     /**
      * Prepare parameters and html for sorted table header fields
      *
-     * @param array   $fields_meta                 set of field properties
-     * @param array   $sort_expression             sort expression
-     * @param array   $sort_expression_nodirection sort expression without direction
-     * @param integer $column_index                the index of the column
-     * @param string  $unsorted_sql_query          the unsorted sql query
-     * @param integer $session_max_rows            maximum rows resulted by sql
-     * @param string  $comments                    comment for row
-     * @param array   $sort_direction              sort direction
-     * @param boolean $col_visib                   column is visible(false)
-     *                                             array                                column isn't visible(string array)
-     * @param string  $col_visib_j                 element of $col_visib array
+     * @param stdClass $fields_meta                 set of field properties
+     * @param array    $sort_expression             sort expression
+     * @param array    $sort_expression_nodirection sort expression without direction
+     * @param integer  $column_index                the index of the column
+     * @param string   $unsorted_sql_query          the unsorted sql query
+     * @param integer  $session_max_rows            maximum rows resulted by sql
+     * @param string   $comments                    comment for row
+     * @param array    $sort_direction              sort direction
+     * @param boolean  $col_visib                   column is visible(false)
+     *                                              array                                column isn't visible(string array)
+     * @param string   $col_visib_j                 element of $col_visib array
      *
      * @return  array   2 element array - $order_link, $sorted_header_html
      *
@@ -1964,15 +1966,15 @@ class Results
     /**
      * Prepare parameters and html for sorted table header fields
      *
-     * @param array   $sort_expression             sort expression
-     * @param array   $sort_expression_nodirection sort expression without direction
-     * @param string  $sort_tbl                    The name of the table to which
+     * @param array    $sort_expression             sort expression
+     * @param array    $sort_expression_nodirection sort expression without direction
+     * @param string   $sort_tbl                    The name of the table to which
      *                                             the current column belongs to
-     * @param string  $name_to_use_in_sort         The current column under
+     * @param string   $name_to_use_in_sort         The current column under
      *                                             consideration
-     * @param array   $sort_direction              sort direction
-     * @param array   $fields_meta                 set of field properties
-     * @param integer $column_index                The index number to current column
+     * @param array    $sort_direction              sort direction
+     * @param stdClass $fields_meta                 set of field properties
+     * @param integer  $column_index                The index number to current column
      *
      * @return  array   3 element array - $single_sort_order, $sort_order, $order_img
      *
@@ -2234,10 +2236,10 @@ class Results
     /**
      * Get sort order link
      *
-     * @param string $order_img       the sort order image
-     * @param array  $fields_meta     set of field properties
-     * @param string $order_url       the url for sort
-     * @param string $multi_order_url the url for sort
+     * @param string   $order_img       the sort order image
+     * @param stdClass $fields_meta     set of field properties
+     * @param string   $order_url       the url for sort
+     * @param string   $multi_order_url the url for sort
      *
      * @return  string                      the sort order link
      *
@@ -2270,8 +2272,8 @@ class Results
      * Check if the column contains numeric data. If yes, then set the
      * column header's alignment right
      *
-     * @param array $fields_meta set of field properties
-     * @param array &$th_class   array containing classes
+     * @param stdClass $fields_meta set of field properties
+     * @param array    &$th_class   array containing classes
      *
      * @return void
      *
@@ -2290,12 +2292,12 @@ class Results
     /**
      * Prepare columns to draggable effect for sortable columns
      *
-     * @param boolean $col_visib   the column is visible (false)
-     *                             array                the column is not visible (string array)
-     * @param string  $col_visib_j element of $col_visib array
-     * @param array   $fields_meta set of field properties
-     * @param string  $order_link  the order link
-     * @param string  $comments    the comment for the column
+     * @param boolean  $col_visib   the column is visible (false)
+     *                              array                the column is not visible (string array)
+     * @param string   $col_visib_j element of $col_visib array
+     * @param stdClass $fields_meta set of field properties
+     * @param string   $order_link  the order link
+     * @param string   $comments    the comment for the column
      *
      * @return  string     html content
      *
@@ -2340,12 +2342,12 @@ class Results
     /**
      * Prepare columns to draggable effect for non sortable columns
      *
-     * @param boolean $col_visib       the column is visible (false)
-     *                                 array                    the column is not visible (string array)
-     * @param string  $col_visib_j     element of $col_visib array
-     * @param boolean $condition_field whether to add CSS class condition
-     * @param array   $fields_meta     set of field properties
-     * @param string  $comments        the comment for the column
+     * @param boolean  $col_visib       the column is visible (false)
+     *                                  array                    the column is not visible (string array)
+     * @param string   $col_visib_j     element of $col_visib array
+     * @param boolean  $condition_field whether to add CSS class condition
+     * @param stdClass $fields_meta     set of field properties
+     * @param string   $comments        the comment for the column
      *
      * @return  string         html content
      *
@@ -2473,10 +2475,10 @@ class Results
     /**
      * Prepares the display for a null value
      *
-     * @param string $class          class of table cell
-     * @param bool   $conditionField whether to add CSS class condition
-     * @param object $meta           the meta-information about this field
-     * @param string $align          cell alignment
+     * @param string   $class          class of table cell
+     * @param bool     $conditionField whether to add CSS class condition
+     * @param stdClass $meta           the meta-information about this field
+     * @param string   $align          cell alignment
      *
      * @return string  the td
      *
@@ -2500,10 +2502,10 @@ class Results
     /**
      * Prepares the display for an empty value
      *
-     * @param string $class          class of table cell
-     * @param bool   $conditionField whether to add CSS class condition
-     * @param object $meta           the meta-information about this field
-     * @param string $align          cell alignment
+     * @param string   $class          class of table cell
+     * @param bool     $conditionField whether to add CSS class condition
+     * @param stdClass $meta           the meta-information about this field
+     * @param string   $align          cell alignment
      *
      * @return string  the td
      *
@@ -2526,19 +2528,19 @@ class Results
     /**
      * Adds the relevant classes.
      *
-     * @param string        $class                 class of table cell
-     * @param bool          $condition_field       whether to add CSS class
-     *                                             condition
-     * @param object        $meta                  the meta-information about the
-     *                                             field
-     * @param string        $nowrap                avoid wrapping
-     * @param bool          $is_field_truncated    is field truncated (display ...)
-     * @param object|string $transformation_plugin transformation plugin.
-     *                                             Can also be the default function:
-     *                                             Core::mimeDefaultFunction
-     * @param string        $default_function      default transformation function
+     * @param string                $class                 class of table cell
+     * @param bool                  $condition_field       whether to add CSS class
+     *                                                     condition
+     * @param stdClass              $meta                  the meta-information about the
+     *                                                     field
+     * @param string                $nowrap                avoid wrapping
+     * @param bool                  $is_field_truncated    is field truncated (display ...)
+     * @param TransformationsPlugin $transformation_plugin transformation plugin.
+     *                                                     Can also be the default function:
+     *                                                     Core::mimeDefaultFunction
+     * @param string                $default_function      default transformation function
      *
-     * @return string  the list of classes
+     * @return string the list of classes
      *
      * @access  private
      *
@@ -3734,20 +3736,20 @@ class Results
     /**
      * Prepare data cell for numeric type fields
      *
-     * @param string|null   $column                the column's value
-     * @param string        $class                 the html class for column
-     * @param boolean       $condition_field       the column should highlighted
-     *                                             or not
-     * @param object        $meta                  the meta-information about this
-     *                                             field
-     * @param array         $map                   the list of relations
-     * @param boolean       $is_field_truncated    the condition for blob data
-     *                                             replacements
-     * @param array         $analyzed_sql_results  the analyzed query
-     * @param object|string $transformation_plugin the name of transformation plugin
-     * @param string        $default_function      the default transformation
-     *                                             function
-     * @param array         $transform_options     the transformation parameters
+     * @param string|null           $column                the column's value
+     * @param string                $class                 the html class for column
+     * @param boolean               $condition_field       the column should highlighted
+     *                                                     or not
+     * @param stdClass              $meta                  the meta-information about this
+     *                                                     field
+     * @param array                 $map                   the list of relations
+     * @param boolean               $is_field_truncated    the condition for blob data
+     *                                                     replacements
+     * @param array                 $analyzed_sql_results  the analyzed query
+     * @param TransformationsPlugin $transformation_plugin the name of transformation plugin
+     * @param string                $default_function      the default transformation
+     *                                                     function
+     * @param array                 $transform_options     the transformation parameters
      *
      * @return  string the prepared cell, html content
      *
@@ -3810,24 +3812,24 @@ class Results
     /**
      * Get data cell for geometry type fields
      *
-     * @param string|null   $column                the relevant column in data row
-     * @param string        $class                 the html class for column
-     * @param object        $meta                  the meta-information about
-     *                                             this field
-     * @param array         $map                   the list of relations
-     * @param array         $_url_params           the parameters for generate url
-     * @param boolean       $condition_field       the column should highlighted
-     *                                             or not
-     * @param object|string $transformation_plugin the name of transformation
+     * @param string|null           $column                the relevant column in data row
+     * @param string                $class                 the html class for column
+     * @param stdClass              $meta                  the meta-information about
+     *                                                     this field
+     * @param array                 $map                   the list of relations
+     * @param array                 $_url_params           the parameters for generate url
+     * @param boolean               $condition_field       the column should highlighted
+     *                                                     or not
+     * @param TransformationsPlugin $transformation_plugin the name of transformation
      *                                             function
-     * @param string        $default_function      the default transformation
-     *                                             function
-     * @param string        $transform_options     the transformation parameters
-     * @param array         $analyzed_sql_results  the analyzed query
+     * @param string                $default_function      the default transformation
+     *                                                     function
+     * @param string                $transform_options     the transformation parameters
+     * @param array                 $analyzed_sql_results  the analyzed query
      *
-     * @return  string                  the prepared data cell, html content
+     * @return string the prepared data cell, html content
      *
-     * @access  private
+     * @access private
      *
      * @see     _getTableBody()
      */
@@ -3956,27 +3958,27 @@ class Results
     /**
      * Get data cell for non numeric type fields
      *
-     * @param string|null   $column                the relevant column in data row
-     * @param string        $class                 the html class for column
-     * @param object        $meta                  the meta-information about
-     *                                             the field
-     * @param array         $map                   the list of relations
-     * @param array         $_url_params           the parameters for generate
-     *                                             url
-     * @param boolean       $condition_field       the column should highlighted
-     *                                             or not
-     * @param object|string $transformation_plugin the name of transformation
-     *                                             function
-     * @param string        $default_function      the default transformation
-     *                                             function
-     * @param string        $transform_options     the transformation parameters
-     * @param boolean       $is_field_truncated    is data truncated due to
-     *                                             LimitChars
-     * @param array         $analyzed_sql_results  the analyzed query
-     * @param integer       &$dt_result            the link id associated to
-     *                                             the query which results
-     *                                             have to be displayed
-     * @param integer       $col_index             the column index
+     * @param string|null           $column                the relevant column in data row
+     * @param string                $class                 the html class for column
+     * @param stdClass              $meta                  the meta-information about
+     *                                                     the field
+     * @param array                 $map                   the list of relations
+     * @param array                 $_url_params           the parameters for generate
+     *                                                     url
+     * @param boolean               $condition_field       the column should highlighted
+     *                                                     or not
+     * @param TransformationsPlugin $transformation_plugin the name of transformation
+     *                                                     function
+     * @param string                $default_function      the default transformation
+     *                                                     function
+     * @param string                $transform_options     the transformation parameters
+     * @param boolean               $is_field_truncated    is data truncated due to
+     *                                                     LimitChars
+     * @param array                 $analyzed_sql_results  the analyzed query
+     * @param integer               &$dt_result            the link id associated to
+     *                                                     the query which results
+     *                                                     have to be displayed
+     * @param integer               $col_index             the column index
      *
      * @return  string the prepared data cell, html content
      *
@@ -5324,7 +5326,7 @@ class Results
      *                                           Core::mimeDefaultFunction
      * @param string      $transform_options     transformation parameters
      * @param string      $default_function      default transformation function
-     * @param object      $meta                  the meta-information about the field
+     * @param stdClass    $meta                  the meta-information about the field
      * @param array       $url_params            parameters that should go to the
      *                                           download link
      * @param boolean     &$is_truncated         the result is truncated or not
@@ -5433,9 +5435,9 @@ class Results
     /**
      * Retrieves the associated foreign key info for a data cell
      *
-     * @param array  $map              the list of relations
-     * @param object $meta             the meta-information about the field
-     * @param string $where_comparison data for the where clause
+     * @param array    $map              the list of relations
+     * @param stdClass $meta             the meta-information about the field
+     * @param string   $where_comparison data for the where clause
      *
      * @return string  formatted data
      *
@@ -5475,24 +5477,24 @@ class Results
      * Prepares the displayable content of a data cell in Browse mode,
      * taking into account foreign key description field and transformations
      *
-     * @param string        $class                 css classes for the td element
-     * @param bool          $condition_field       whether the column is a part of
-     *                                             the where clause
-     * @param array         $analyzed_sql_results  the analyzed query
-     * @param object        $meta                  the meta-information about the
-     *                                             field
-     * @param array         $map                   the list of relations
-     * @param string        $data                  data
-     * @param object|string $transformation_plugin transformation plugin.
-     *                                             Can also be the default function:
-     *                                             Core::mimeDefaultFunction
-     * @param string        $default_function      default function
-     * @param string        $nowrap                'nowrap' if the content should
-     *                                             not be wrapped
-     * @param string        $where_comparison      data for the where clause
-     * @param array         $transform_options     options for transformation
-     * @param bool          $is_field_truncated    whether the field is truncated
-     * @param string        $original_length       of a truncated column, or ''
+     * @param string                $class                 css classes for the td element
+     * @param bool                  $condition_field       whether the column is a part of
+     *                                                     the where clause
+     * @param array                 $analyzed_sql_results  the analyzed query
+     * @param stdClass              $meta                  the meta-information about the
+     *                                                     field
+     * @param array                 $map                   the list of relations
+     * @param string                $data                  data
+     * @param TransformationsPlugin $transformation_plugin transformation plugin.
+     *                                                     Can also be the default function:
+     *                                                     Core::mimeDefaultFunction
+     * @param string                $default_function      default function
+     * @param string                $nowrap                'nowrap' if the content should
+     *                                                     not be wrapped
+     * @param string                $where_comparison      data for the where clause
+     * @param array                 $transform_options     options for transformation
+     * @param bool                  $is_field_truncated    whether the field is truncated
+     * @param string                $original_length       of a truncated column, or ''
      *
      * @return string  formatted data
      *

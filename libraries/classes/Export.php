@@ -426,7 +426,7 @@ class Export
      * @param string       $compression the compression mode
      * @param string       $filename    the filename
      *
-     * @return object a message object (or empty string)
+     * @return array|string|bool
      */
     public function compress($dump_buffer, string $compression, string $filename)
     {
@@ -1202,7 +1202,7 @@ class Export
         $export_type = Core::securePath($export_type);
 
         // get the specific plugin
-        /* @var $export_plugin SchemaPlugin */
+        /** @var \PhpMyAdmin\Plugins\SchemaPlugin $export_plugin */
         $export_plugin = Plugins::getPlugin(
             "schema",
             $export_type,
@@ -1210,7 +1210,7 @@ class Export
         );
 
         // Check schema export type
-        if (! isset($export_plugin)) {
+        if (is_null($export_plugin) || ! is_object($export_plugin)) {
             Core::fatalError(__('Bad type!'));
         }
 

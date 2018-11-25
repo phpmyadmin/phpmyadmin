@@ -37,7 +37,7 @@ class EpsRelationSchema extends ExportRelationSchema
      */
     private $_tables = [];
 
-    /** @var RelationStatsDia[] Relations */
+    /** @var RelationStatsEps[] Relations */
     private $_relations = [];
 
     private $_tablewidth;
