@@ -11,14 +11,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Core class
  *
@@ -253,9 +245,7 @@ class Core
     public static function securePath(string $path): string
     {
         // change .. to .
-        $path = preg_replace('@\.\.*@', '.', $path);
-
-        return $path;
+        return preg_replace('@\.\.*@', '.', $path);
     } // end function
 
     /**
@@ -833,9 +823,7 @@ class Core
     {
         $buffer = htmlspecialchars($buffer);
         $buffer = str_replace('  ', ' &nbsp;', $buffer);
-        $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />' . "\n", $buffer);
-
-        return $buffer;
+        return preg_replace("@((\015\012)|(\015)|(\012))@", '<br />' . "\n", $buffer);
     }
 
     /**

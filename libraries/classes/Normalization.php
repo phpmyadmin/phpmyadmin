@@ -9,14 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Index;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Set of functions used for normalization
  *
@@ -277,14 +269,13 @@ class Normalization
                 . '<a href="#" id="addNewPrimary">'
                 . __('+ Add a new primary key column') . '</a>';
         }
-        $res = [
+        return [
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
             'hasPrimaryKey' => $hasPrimaryKey,
             'extra' => $extra
         ];
-        return $res;
     }
 
     /**
@@ -316,13 +307,12 @@ class Normalization
             . '<input type="submit" value="' . __('No redundant column')
             . '" onclick="goToFinish1NF();"'
             . '/>';
-        $res = [
+        return [
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
             'extra' => $extra
         ];
-        return $res;
     }
 
     /**
@@ -362,14 +352,13 @@ class Normalization
         foreach ($primarycols as $col) {
             $pk[] = $col->getName();
         }
-        $res = [
+        return [
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
             'extra' => $extra,
             'primary_key' => json_encode($pk)
         ];
-        return $res;
     }
 
     /**
@@ -458,14 +447,13 @@ class Normalization
             ) . '<br/>';
             $extra = '<h3>' . __('Table is already in second normal form.') . '</h3>';
         }
-        $res = [
+        return [
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
             'extra' => $extra,
             'primary_key' => $key
         ];
-        return $res;
     }
 
     /**
@@ -867,13 +855,12 @@ class Normalization
             $subText = "";
             $extra = "<h3>" . __("Table is already in Third normal form!") . "</h3>";
         }
-        $res = [
+        return [
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
             'extra' => $extra
         ];
-        return $res;
     }
 
     /**

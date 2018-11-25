@@ -51,7 +51,7 @@ class DbiMysqli implements DbiExtension
     public function connect($user, $password, array $server)
     {
         if ($server) {
-            $server['host'] = (empty($server['host']))
+            $server['host'] = empty($server['host'])
                 ? 'localhost'
                 : $server['host'];
         }

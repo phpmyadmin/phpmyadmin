@@ -9,14 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Charsets;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * PhpMyAdmin\CentralColumns class
  *
@@ -279,12 +271,12 @@ class CentralColumns
         }
         if (isset($def['Attribute'])) {
             $attribute = $def['Attribute'];
-        };
+        }
         $collation = isset($def['Collation']) ? $def['Collation'] : "";
-        $isNull = ($def['Null'] == "NO") ? '0' : '1';
+        $isNull = $def['Null'] == "NO" ? '0' : '1';
         $extra = isset($def['Extra']) ? $def['Extra'] : "";
         $default = isset($def['Default']) ? $def['Default'] : "";
-        $insQuery = 'INSERT INTO '
+        return 'INSERT INTO '
             . Util::backquote($central_list_table) . ' '
             . 'VALUES ( \'' . $this->dbi->escapeString($db) . '\' ,'
             . '\'' . $this->dbi->escapeString($column) . '\',\''
@@ -294,7 +286,6 @@ class CentralColumns
             . '\'' . $this->dbi->escapeString($isNull) . '\','
             . '\'' . implode(',', [$extra, $attribute])
             . '\',\'' . $this->dbi->escapeString($default) . '\');';
-        return $insQuery;
     }
 
     /**
@@ -962,11 +953,10 @@ class CentralColumns
      */
     private function getEditTableFooter(): string
     {
-        $html_output = '<fieldset class="tblFooters">'
+        return '<fieldset class="tblFooters">'
             . '<input type="submit" '
             . 'name="save_multi_central_column_edit" value="' . __('Save') . '" />'
             . '</fieldset>';
-        return $html_output;
     }
 
     /**
@@ -1129,12 +1119,12 @@ class CentralColumns
 
         $tn_pageNow = ($pos / $this->maxRows) + 1;
         $tn_nbTotalPage = ceil($total_rows / $this->maxRows);
-        $tn_page_selector = ($tn_nbTotalPage > 1) ? (Util::pageselector(
+        $tn_page_selector = $tn_nbTotalPage > 1 ? Util::pageselector(
             'pos',
             $this->maxRows,
             $tn_pageNow,
             $tn_nbTotalPage
-        )) : '';
+        ) : '';
         $this->dbi->selectDb($db);
         $tables = $this->dbi->getTables($db);
         $rows_list = $this->getColumnsList($db, $pos, $max_rows);

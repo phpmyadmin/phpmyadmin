@@ -9,22 +9,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\DatabaseList;
-use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Dbi\DbiMysqli;
 use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Error;
-use PhpMyAdmin\Index;
-use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\SystemDatabase;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Types;
-use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Main interface for database interactions
@@ -170,9 +159,8 @@ class DatabaseInterface
         int $options = 0,
         bool $cache_affected_rows = true
     ) {
-        $res = $this->tryQuery($query, $link, $options, $cache_affected_rows)
-            or Util::mysqlDie($this->getError($link), $query);
-        return $res;
+        return $this->tryQuery($query, $link, $options, $cache_affected_rows)
+            || Util::mysqlDie($this->getError($link), $query);
     }
 
     /**
@@ -259,7 +247,7 @@ class DatabaseInterface
                     unset($this->_table_cache[$one_database][$table]);
                 }
                 $this->_table_cache[$one_database]
-                    = $this->_table_cache[$one_database] + $tables[$one_database];
+                    += $tables[$one_database];
             } else {
                 $this->_table_cache[$one_database] = $tables[$one_database];
             }
@@ -462,7 +450,7 @@ class DatabaseInterface
      */
     private function _getSqlForTablesFull($this_databases, string $sql_where_table): string
     {
-        $sql = '
+        return '
             SELECT *,
                 `TABLE_SCHEMA`       AS `Db`,
                 `TABLE_NAME`         AS `Name`,
@@ -489,8 +477,6 @@ class DatabaseInterface
             WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS() . '
                 IN (\'' . implode("', '", $this_databases) . '\')
                 ' . $sql_where_table;
-
-        return $sql;
     }
 
     /**
@@ -597,9 +583,9 @@ class DatabaseInterface
                         function ($a, $b) {
                             $aLength = $a['Data_length'] + $a['Index_length'];
                             $bLength = $b['Data_length'] + $b['Index_length'];
-                            return ($aLength == $bLength)
+                            return $aLength == $bLength
                                 ? 0
-                                : ($aLength < $bLength) ? -1 : 1;
+                                : $aLength < $bLength ? -1 : 1;
                         }
                     );
 
@@ -1266,7 +1252,7 @@ class DatabaseInterface
     ): string {
         $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table)
-            . (($column !== null) ? "LIKE '"
+            . ($column !== null ? "LIKE '"
             . $GLOBALS['dbi']->escapeString($column) . "'" : '');
 
         return $sql;
@@ -1320,7 +1306,7 @@ class DatabaseInterface
             }
         }
 
-        return ($column != null) ? array_shift($fields) : $fields;
+        return $column != null ? array_shift($fields) : $fields;
     }
 
     /**
@@ -1929,7 +1915,7 @@ class DatabaseInterface
                 $result[] = $one_show['Name'];
             }
         }
-        return($result);
+        return $result;
     }
 
     /**
@@ -1957,7 +1943,7 @@ class DatabaseInterface
         $query = 'SHOW CREATE ' . $which . ' '
             . Util::backquote($db) . '.'
             . Util::backquote($name);
-        return($this->fetchValue($query, 0, $returned_field[$which], $link));
+        return $this->fetchValue($query, 0, $returned_field[$which], $link);
     }
 
     /**
@@ -2050,7 +2036,7 @@ class DatabaseInterface
         }
         array_multisort($name, SORT_ASC, $ret);
 
-        return($ret);
+        return $ret;
     }
 
     /**
@@ -2191,7 +2177,7 @@ class DatabaseInterface
         }
         array_multisort($name, SORT_ASC, $result);
 
-        return($result);
+        return $result;
     }
 
     /**

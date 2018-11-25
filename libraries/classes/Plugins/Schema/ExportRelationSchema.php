@@ -177,7 +177,7 @@ class ExportRelationSchema
      */
     public function setOrientation($value)
     {
-        $this->orientation = ($value == 'P') ? 'P' : 'L';
+        $this->orientation = $value == 'P' ? 'P' : 'L';
     }
 
     /**

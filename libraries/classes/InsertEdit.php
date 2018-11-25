@@ -9,17 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FileListing;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\InsertEdit class
@@ -559,7 +549,7 @@ class InsertEdit
         if ($real_null_value) {
             $html_output .= ' checked="checked"';
         }
-        $html_output .= ' id="field_' . ($idindex) . '_2" />';
+        $html_output .= ' id="field_' . $idindex . '_2" />';
 
         // nullify_code is needed by the js nullify() function
         $nullify_code = $this->getNullifyCodeForNullColumn(
@@ -867,7 +857,7 @@ class InsertEdit
             . $onChangeClause . ' '
             . ($readOnly ? 'readonly="readonly" ' : '')
             . 'tabindex="' . ($tabindex + $tabindex_for_value) . '" '
-            . 'id="field_' . ($idindex) . '_3" '
+            . 'id="field_' . $idindex . '_3" '
             . 'value="' . htmlspecialchars($data) . '" />';
 
         $html_output .= '<a class="ajax browse_foreign" href="browse_foreigners.php'
@@ -1007,7 +997,7 @@ class InsertEdit
             . ' rows="' . $textAreaRows . '"'
             . ' cols="' . $textareaCols . '"'
             . ' dir="' . $text_dir . '"'
-            . ' id="field_' . ($idindex) . '_3"'
+            . ' id="field_' . $idindex . '_3"'
             . (! empty($onChangeClause) ? ' ' . $onChangeClause : '')
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
             . ' data-type="' . $data_type . '">'
@@ -1139,7 +1129,7 @@ class InsertEdit
             . ' class="textfield"'
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
             . ($readOnly ? ' disabled' : '')
-            . ' id="field_' . ($idindex) . '_3">';
+            . ' id="field_' . $idindex . '_3">';
         $html_output .= '<option value="">&nbsp;</option>' . "\n";
 
         $selected_html = '';
@@ -1199,7 +1189,7 @@ class InsertEdit
                 . '<input type="radio" name="fields' . $column_name_appendix . '"'
                 . ' class="textfield"'
                 . ' value="' . $enum_value['html'] . '"'
-                . ' id="field_' . ($idindex) . '_3_' . $j . '"'
+                . ' id="field_' . $idindex . '_3_' . $j . '"'
                 . ' ' . $onChangeClause;
             if ($data == $enum_value['plain']
                 || ($data == ''
@@ -1264,7 +1254,7 @@ class InsertEdit
             . ' multiple="multiple"'
             . ' ' . $onChangeClause
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
-            . ' id="field_' . ($idindex) . '_3">';
+            . ' id="field_' . $idindex . '_3">';
 
         $selected_html = '';
         foreach ($column_set_values as $column_set_value) {
@@ -1494,7 +1484,7 @@ class InsertEdit
         return '<input type="' . $input_type . '"'
             . ' name="fields' . $column_name_appendix . '"'
             . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
-            . ((isset($column['is_char']) && $column['is_char'])
+            . (isset($column['is_char']) && $column['is_char']
             ? ' data-maxlength="' . $fieldsize . '"'
             : '')
             . ($readOnly ? ' readonly="readonly"' : '')
@@ -1503,7 +1493,7 @@ class InsertEdit
             . ($input_type === 'time' ? ' step="1"' : '')
             . ' class="' . $the_class . '" ' . $onChangeClause
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
-            . ' id="field_' . ($idindex) . '_3" />';
+            . ' id="field_' . $idindex . '_3" />';
     }
 
     /**
@@ -2344,7 +2334,7 @@ class InsertEdit
                     // inserted multiple rows, we had to increment this
 
                     if ($total_affected_rows > 0) {
-                        $insert_id = $insert_id + $total_affected_rows - 1;
+                        $insert_id += $total_affected_rows - 1;
                     }
                     $last_message = Message::notice(__('Inserted row id: %1$d'));
                     $last_message->addParam($insert_id);
@@ -2448,7 +2438,7 @@ class InsertEdit
         if ('K' == $_SESSION['tmpval']['relational_display']) {
             // user chose "relational key" in the display options, so
             // the title contains the display field
-            $title = (! empty($dispval))
+            $title = ! empty($dispval)
                 ? ' title="' . htmlspecialchars($dispval) . '"'
                 : '';
         } else {
@@ -2470,7 +2460,7 @@ class InsertEdit
         if ('D' == $_SESSION['tmpval']['relational_display']) {
             // user chose "relational display field" in the
             // display options, so show display field in the cell
-            $output .= (!empty($dispval)) ? htmlspecialchars($dispval) : '';
+            $output .= !empty($dispval) ? htmlspecialchars($dispval) : '';
         } else {
             // otherwise display data in the cell
             $output .= htmlspecialchars($relation_field_value);

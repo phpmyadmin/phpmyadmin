@@ -9,12 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Handles the recently used and favorite tables.
  *

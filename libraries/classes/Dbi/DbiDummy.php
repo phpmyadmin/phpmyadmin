@@ -205,9 +205,7 @@ class DbiDummy implements DbiExtension
      */
     public function fetchRow($result)
     {
-        $data = $this->fetchAny($result);
-
-        return $data;
+        return $this->fetchAny($result);
     }
 
     /**

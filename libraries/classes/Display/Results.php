@@ -673,8 +673,8 @@ class Results
         // 3. Gets the total number of rows if it is unknown
         if (isset($unlim_num_rows) && $unlim_num_rows != '') {
             $the_total = $unlim_num_rows;
-        } elseif ((($displayParts['nav_bar'] == '1')
-            || ($displayParts['sort_lnk'] == '1'))
+        } elseif (($displayParts['nav_bar'] == '1')
+            || ($displayParts['sort_lnk'] == '1')
             && (strlen($db) > 0 && strlen($table) > 0)
         ) {
             $the_total = $GLOBALS['dbi']->getTable($db, $table)->countRecords();
@@ -974,7 +974,7 @@ class Results
                     . str_replace('\'', '\\\'', __('%d is not valid row number.'))
                     . '\', '
                     . '0'
-                    . (($this->__get('unlim_num_rows') > 0)
+                    . ($this->__get('unlim_num_rows') > 0
                         ? ', ' . ($this->__get('unlim_num_rows') - 1)
                         : ''
                     )
@@ -1115,10 +1115,10 @@ class Results
 
         $maxRows = $_SESSION['tmpval']['max_rows'];
         $onsubmit = 'onsubmit="return '
-            . (($_SESSION['tmpval']['pos']
+            . ($_SESSION['tmpval']['pos']
                 + $maxRows
                 < $this->__get('unlim_num_rows')
-                && $this->__get('num_rows') >= $maxRows)
+                && $this->__get('num_rows') >= $maxRows
             ? 'true'
             : 'false') . '"';
 
@@ -1239,8 +1239,8 @@ class Results
             //  See if this column should get highlight because it's used in the
             //  where-query.
             $name = $fields_meta[$i]->name;
-            $condition_field = (isset($highlight_columns[$name])
-                || isset($highlight_columns[Util::backquote($name)]))
+            $condition_field = isset($highlight_columns[$name])
+                || isset($highlight_columns[Util::backquote($name)])
                 ? true
                 : false;
 
@@ -1569,42 +1569,42 @@ class Results
         // 1. Displays the full/partial text button (part 1)...
         $button_html .= '<thead><tr>' . "\n";
 
-        $colspan = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-            && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
+        $colspan = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+            && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)
             ? ' colspan="4"'
             : '';
 
         //     ... before the result table
-        if ((($displayParts['edit_lnk'] == self::NO_EDIT_OR_DELETE)
-            && ($displayParts['del_lnk'] == self::NO_EDIT_OR_DELETE))
+        if (($displayParts['edit_lnk'] == self::NO_EDIT_OR_DELETE)
+            && ($displayParts['del_lnk'] == self::NO_EDIT_OR_DELETE)
             && ($displayParts['text_btn'] == '1')
         ) {
             $display_params['emptypre']
-                = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
-        } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
+                = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 0;
+        } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
+            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
             && ($displayParts['text_btn'] == '1')
         ) {
             //     ... at the left column of the result table header if possible
             //     and required
 
             $display_params['emptypre']
-                = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
+                = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 0;
 
             $button_html .= '<th class="column_action print_ignore" ' . $colspan
                 . '>' . $full_or_partial_text_link . '</th>';
-        } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
+        } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
+            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
             && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
             || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
         ) {
             //     ... elseif no button, displays empty(ies) col(s) if required
 
             $display_params['emptypre']
-                = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
+                = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 0;
 
             $button_html .= '<td ' . $colspan . '></td>';
         } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE)) {
@@ -1632,7 +1632,7 @@ class Results
      */
     private function _getTableCommentsArray(array $analyzed_sql_results)
     {
-        if ((!$GLOBALS['cfg']['ShowBrowseComments'])
+        if (!$GLOBALS['cfg']['ShowBrowseComments']
             || (empty($analyzed_sql_results['statement']->from))
         ) {
             return [];
@@ -1889,9 +1889,9 @@ class Results
         // SELECT `1`.`master_field` , `2`.`master_field`
         // FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
 
-        $sort_tbl = (isset($fields_meta->table)
+        $sort_tbl = isset($fields_meta->table)
             && strlen($fields_meta->table) > 0
-            && $fields_meta->orgname == $fields_meta->name)
+            && $fields_meta->orgname == $fields_meta->name
             ? Util::backquote(
                 $fields_meta->table
             ) . '.'
@@ -2008,10 +2008,10 @@ class Results
                 = Util::backquote(
                     $current_name
                 );
-            $sort_direction[$special_index] = (preg_match(
+            $sort_direction[$special_index] = preg_match(
                 '@time|date@i',
                 $fields_meta->type
-            )) ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
+            ) ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
         }
 
         $sort_expression_nodirection = array_filter($sort_expression_nodirection);
@@ -2412,22 +2412,22 @@ class Results
 
         // Displays the needed checkboxes at the right
         // column of the result table header if possible and required...
-        if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
+        if (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
+            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
             && (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
             || ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE))
             && ($displayParts['text_btn'] == '1')
         ) {
             $display_params['emptyafter']
-                = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
+                = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
 
             $right_column_html .= "\n"
                 . '<th class="column_action print_ignore" ' . $colspan . '>'
                 . $full_or_partial_text_link
                 . '</th>';
-        } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
+        } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
+            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH)
             && (($displayParts['edit_lnk'] == self::NO_EDIT_OR_DELETE)
             && ($displayParts['del_lnk'] == self::NO_EDIT_OR_DELETE))
             && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
@@ -2436,8 +2436,8 @@ class Results
             // (unless coming from Browse mode print view)
 
             $display_params['emptyafter']
-                = (($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
+                = ($displayParts['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($displayParts['del_lnk'] != self::NO_EDIT_OR_DELETE) ? 4 : 1;
 
             $right_column_html .= "\n" . '<td class="print_ignore" ' . $colspan
                 . '></td>';
@@ -2692,7 +2692,7 @@ class Results
         $whereClauseMap = $this->__get('whereClauseMap');
         while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
             // add repeating headers
-            if ((($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0))
+            if (($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
                 && !($row_no % $_SESSION['tmpval']['repeat_cells'])
             ) {
                 $table_body_html .= $this->_getRepeatingHeaders(
@@ -2990,7 +2990,7 @@ class Results
 
             $not_null_class = $meta->not_null ? 'not_null' : '';
             $relation_class = isset($map[$meta->name]) ? 'relation' : '';
-            $hide_class = ($col_visib && ! $col_visib[$currentColumn])
+            $hide_class = $col_visib && ! $col_visib[$currentColumn]
                 ? 'hide'
                 : '';
             $grid_edit = $meta->orgtable != '' ? $grid_edit_class : '';
@@ -3011,9 +3011,9 @@ class Results
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
-            $condition_field = (isset($highlight_columns)
+            $condition_field = isset($highlight_columns)
                 && (isset($highlight_columns[$meta->name])
-                || isset($highlight_columns[Util::backquote($meta->name)])))
+                || isset($highlight_columns[Util::backquote($meta->name)]))
                 ? true
                 : false;
 
@@ -3696,10 +3696,8 @@ class Results
         $hide_class,
         $field_type_class
     ) {
-        $class = 'data ' . $grid_edit_class . ' ' . $not_null_class . ' '
+        return 'data ' . $grid_edit_class . ' ' . $not_null_class . ' '
             . $relation_class . ' ' . $hide_class . ' ' . $field_type_class;
-
-        return $class;
     } // end of the '_getClassesForColumn()' function
 
 
@@ -4107,14 +4105,14 @@ class Results
         // transform functions may enable no-wrapping:
         $function_nowrap = 'applyTransformationNoWrap';
 
-        $bool_nowrap = (($default_function != $transformation_plugin)
-            && function_exists((string) $transformation_plugin->$function_nowrap()))
+        $bool_nowrap = ($default_function != $transformation_plugin)
+            && function_exists((string) $transformation_plugin->$function_nowrap())
             ? $transformation_plugin->$function_nowrap($transform_options)
             : false;
 
         // do not wrap if date field type
-        $nowrap = (preg_match('@DATE|TIME@i', $meta->type)
-            || $bool_nowrap) ? ' nowrap' : '';
+        $nowrap = preg_match('@DATE|TIME@i', $meta->type)
+            || $bool_nowrap ? ' nowrap' : '';
 
         $where_comparison = ' = \''
             . $GLOBALS['dbi']->escapeString($column)
@@ -4912,7 +4910,7 @@ class Results
 
         $links_html = '<div class="print_ignore" >';
         $url_query = $this->__get('url_query');
-        $delete_text = ($del_link == self::DELETE_ROW) ? __('Delete') : __('Kill');
+        $delete_text = $del_link == self::DELETE_ROW ? __('Delete') : __('Kill');
 
         $links_html .= $this->template->render('select_all', [
             'pma_theme_image' => $this->__get('pma_theme_image'),
@@ -5107,7 +5105,7 @@ class Results
      */
     private function _getCopytoclipboardLinks()
     {
-        $html = Util::linkOrButton(
+        return Util::linkOrButton(
             '#',
             Util::getIcon(
                 'b_insrow',
@@ -5116,8 +5114,6 @@ class Results
             ),
             ['id' => 'copyToClipBoard']
         );
-
-        return $html;
     }
 
     /**
@@ -5129,7 +5125,7 @@ class Results
      */
     private function _getPrintviewLinks()
     {
-        $html = Util::linkOrButton(
+        return Util::linkOrButton(
             '#',
             Util::getIcon(
                 'b_print',
@@ -5139,8 +5135,6 @@ class Results
             ['id' => 'printView'],
             'print_view'
         );
-
-        return $html;
     }
 
     /**
@@ -5378,7 +5372,7 @@ class Results
         }
 
         if ($size <= 0) {
-            return($result);
+            return $result;
         }
 
         if ($default_function != $transformation_plugin) {
@@ -5387,7 +5381,7 @@ class Results
                 $transform_options,
                 $meta
             );
-            return($result);
+            return $result;
         }
 
         $result = $default_function($result, [], $meta);
@@ -5425,7 +5419,7 @@ class Results
                 . $result . '</a>';
         }
 
-        return($result);
+        return $result;
     } // end of the '_handleNonPrintableContents()' function
 
 
@@ -5541,7 +5535,7 @@ class Results
 
         if (!empty($analyzed_sql_results['statement']->expr)) {
             foreach ($analyzed_sql_results['statement']->expr as $expr) {
-                if ((empty($expr->alias)) || (empty($expr->column))) {
+                if (empty($expr->alias) || (empty($expr->column))) {
                     continue;
                 }
                 if (strcasecmp($meta->name, $expr->alias) == 0) {
@@ -5578,7 +5572,7 @@ class Results
                 if ($relational_display == self::RELATIONAL_KEY) {
                     // user chose "relational key" in the display options, so
                     // the title contains the display field
-                    $title = (! empty($dispval))
+                    $title = ! empty($dispval)
                         ? htmlspecialchars($dispval)
                         : '';
                 } else {

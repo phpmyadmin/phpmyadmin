@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-
 /**
  * PhpMyAdmin\Replication class
  *

@@ -9,12 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Index;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Util;
-
 /**
  * Set of functions for tbl_create.php and tbl_addfield.php
  *
@@ -348,9 +342,7 @@ class CreateAddField
         if (count($definitions)) {
             $sqlStatement = implode(', ', $definitions);
         }
-        $sqlStatement = preg_replace('@, $@', '', $sqlStatement);
-
-        return $sqlStatement;
+        return preg_replace('@, $@', '', $sqlStatement);
     }
 
     /**
@@ -545,7 +537,7 @@ class CreateAddField
 
         // To allow replication, we first select the db to use and then run queries
         // on this db.
-        if (!($this->dbi->selectDb($db))) {
+        if (!$this->dbi->selectDb($db)) {
             Util::mysqlDie(
                 $this->dbi->getError(),
                 'USE ' . Util::backquote($db),

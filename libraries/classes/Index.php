@@ -9,12 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\IndexColumn;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Index manipulation class
  *
@@ -520,7 +514,7 @@ class Index
                 continue;
             }
             $html_options .= '<option value="' . $each_index_choice . '"'
-                 . (($this->_choice == $each_index_choice)
+                 . ($this->_choice == $each_index_choice
                  ? ' selected="selected"'
                  : '')
                  . '>' . $each_index_choice . '</option>' . "\n";
