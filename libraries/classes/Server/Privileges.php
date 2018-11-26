@@ -782,9 +782,9 @@ class Privileges
                     'Does not require SSL-encrypted connections.'
                 ),
                 'label'       => 'REQUIRE NONE',
-                'checked'     => ((isset($row['ssl_type'])
+                'checked'     => (isset($row['ssl_type'])
                     && ($row['ssl_type'] == 'NONE'
-                        || $row['ssl_type'] == ''))
+                        || $row['ssl_type'] == '')
                     ? 'checked="checked"'
                     : ''
                 ),
@@ -1591,16 +1591,15 @@ class Privileges
             . 'title="' . __('User name') . '">' . "\n";
 
         $html_output .= '<option value="any"'
-            . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any')
+            . (isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any'
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Any user')
             . '</option>' . "\n";
 
         $html_output .= '<option value="userdefined"'
-            . ((! isset($GLOBALS['pred_username'])
+            . (! isset($GLOBALS['pred_username'])
                     || $GLOBALS['pred_username'] == 'userdefined'
-                )
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Use text field')
@@ -1619,9 +1618,8 @@ class Privileges
                    : $GLOBALS['username']
                ) . '"'
             )
-            . ((! isset($GLOBALS['pred_username'])
+            . (! isset($GLOBALS['pred_username'])
                     || $GLOBALS['pred_username'] == 'userdefined'
-                )
                 ? 'required="required"'
                 : '') . ' />' . "\n";
 
@@ -1679,26 +1677,23 @@ class Privileges
             }
         }
         $html_output .=  '<option value="any"'
-            . ((isset($GLOBALS['pred_hostname'])
+            . (isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'any'
-                )
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Any host')
             . '</option>' . "\n"
             . '<option value="localhost"'
-            . ((isset($GLOBALS['pred_hostname'])
+            . (isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'localhost'
-                )
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Local')
             . '</option>' . "\n";
         if (! empty($thishost)) {
             $html_output .= '<option value="thishost"'
-                . ((isset($GLOBALS['pred_hostname'])
+                . (isset($GLOBALS['pred_hostname'])
                         && $GLOBALS['pred_hostname'] == 'thishost'
-                    )
                     ? ' selected="selected"'
                     : '') . '>'
                 . __('This Host')
@@ -1706,18 +1701,16 @@ class Privileges
         }
         unset($thishost);
         $html_output .= '<option value="hosttable"'
-            . ((isset($GLOBALS['pred_hostname'])
+            . (isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'hosttable'
-                )
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Use Host Table')
             . '</option>' . "\n";
 
         $html_output .= '<option value="userdefined"'
-            . ((isset($GLOBALS['pred_hostname'])
+            . (isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'userdefined'
-                )
                 ? ' selected="selected"'
                 : '') . '>'
             . __('Use text field:') . '</option>' . "\n"
@@ -1729,9 +1722,8 @@ class Privileges
             // use default value of '%' to match with the default 'Any host'
             . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '%')
             . '" title="' . __('Host name') . '" '
-            . ((isset($GLOBALS['pred_hostname'])
+            . (isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'userdefined'
-                )
                 ? 'required="required"'
                 : '')
             . ' />' . "\n"
@@ -2035,7 +2027,7 @@ class Privileges
                 $sql_query        = 'SET PASSWORD FOR \''
                     . $this->dbi->escapeString($username)
                     . '\'@\'' . $this->dbi->escapeString($hostname) . '\' = '
-                    . (($_POST['pma_pw'] == '')
+                    . ($_POST['pma_pw'] == ''
                         ? '\'\''
                         : $hashing_function . '(\''
                         . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
@@ -2059,7 +2051,7 @@ class Privileges
                     . $hostname . "';";
 
                 // Update the plugin for the user
-                if (!($this->dbi->tryQuery($update_plugin_query))) {
+                if (!$this->dbi->tryQuery($update_plugin_query)) {
                     Util::mysqlDie(
                         $this->dbi->getError(),
                         $update_plugin_query,
@@ -2081,7 +2073,7 @@ class Privileges
                 $sql_query        = 'SET PASSWORD FOR \''
                     . $this->dbi->escapeString($username)
                     . '\'@\'' . $this->dbi->escapeString($hostname) . '\' = '
-                    . (($_POST['pma_pw'] == '')
+                    . ($_POST['pma_pw'] == ''
                         ? '\'\''
                         : $hashing_function . '(\''
                         . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
@@ -2089,11 +2081,11 @@ class Privileges
                 $local_query      = 'SET PASSWORD FOR \''
                     . $this->dbi->escapeString($username)
                     . '\'@\'' . $this->dbi->escapeString($hostname) . '\' = '
-                    . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function
+                    . ($_POST['pma_pw'] == '' ? '\'\'' : $hashing_function
                     . '(\'' . $this->dbi->escapeString($_POST['pma_pw']) . '\')');
             }
 
-            if (!($this->dbi->tryQuery($local_query))) {
+            if (!$this->dbi->tryQuery($local_query)) {
                 Util::mysqlDie(
                     $this->dbi->getError(),
                     $sql_query,
@@ -2238,7 +2230,7 @@ class Privileges
             $max_user_connections = max(0, $max_user_connections);
             $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
         }
-        return ((!empty($sql_query)) ? ' WITH' . $sql_query : '');
+        return (!empty($sql_query) ? ' WITH' . $sql_query : '');
     }
 
     /**
@@ -2403,10 +2395,10 @@ class Privileges
             $specific_db = '';
             $specific_table = '';
             if ($GLOBALS['is_grantuser']) {
-                $specific_db = (isset($row['Db']) && $row['Db'] != '*')
+                $specific_db = isset($row['Db']) && $row['Db'] != '*'
                     ? $row['Db'] : '';
-                $specific_table = (isset($row['Table_name'])
-                    && $row['Table_name'] != '*')
+                $specific_table = isset($row['Table_name'])
+                    && $row['Table_name'] != '*'
                     ? $row['Table_name'] : '';
                 $html_output .= $this->getUserLink(
                     'edit',
@@ -2837,10 +2829,10 @@ class Privileges
 
             // action
             $html_output .= '<td>';
-            $specific_db = (isset($current['Db']) && $current['Db'] != '*')
+            $specific_db = isset($current['Db']) && $current['Db'] != '*'
                 ? $current['Db'] : '';
-            $specific_table = (isset($current['Table_name'])
-                && $current['Table_name'] != '*')
+            $specific_table = isset($current['Table_name'])
+                && $current['Table_name'] != '*'
                 ? $current['Table_name'] : '';
             if ($GLOBALS['is_grantuser']) {
                 $html_output .= $this->getUserLink(
@@ -3078,7 +3070,7 @@ class Privileges
                 $new_user_string .= '<span style="color: #FF0000">'
                     . __('No')
                 . '</span>';
-            };
+            }
 
             $new_user_string .= '</td>' . "\n";
             $new_user_string .= '<td>'
@@ -4643,8 +4635,8 @@ class Privileges
                 . '\'</a></i>' . "\n";
 
             $html_output .= ' - ';
-            $html_output .= ($dbname_is_wildcard
-                || is_array($dbname) && count($dbname) > 1)
+            $html_output .= $dbname_is_wildcard
+                || is_array($dbname) && count($dbname) > 1
                 ? __('Databases') : __('Database');
             if (! empty($entity_name) && $entity_type === 'table') {
                 $html_output .= ' <i><a href="server_privileges.php'
@@ -4940,7 +4932,7 @@ class Privileges
         $html_output .= Url::getHiddenInputs($_params);
         $html_output .= $this->getHtmlToDisplayPrivilegesTable(
             // If $dbname is an array, pass any one db as all have same privs.
-            Core::ifSetOr($dbname, (is_array($dbname)) ? $dbname[0] : '*', 'length'),
+            Core::ifSetOr($dbname, is_array($dbname) ? $dbname[0] : '*', 'length'),
             Core::ifSetOr($tablename, '*', 'length')
         );
 

@@ -9,16 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Encoding;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-use PhpMyAdmin\ZipExtension;
 
 /**
  * PhpMyAdmin\Export class
@@ -205,7 +196,7 @@ class Export
         /**
          * Close the html tags and add the footers for on-screen export
          */
-        $html = '</textarea>'
+        return '</textarea>'
             . '    </form>'
             . '<br />'
             // bottom back button
@@ -220,7 +211,6 @@ class Export
             . '.height($body.height() - 100);' . "\n"
             . '//]]>' . "\n"
             . '</script>' . "\n";
-        return $html;
     }
 
     /**
@@ -753,7 +743,7 @@ class Export
             // if this is a view or a merge table, don't export data
             if (($whatStrucOrData == 'data' || $whatStrucOrData == 'structure_and_data')
                 && in_array($table, $table_data)
-                && ! ($is_view)
+                && ! $is_view
             ) {
                 $tableObj = new Table($table, $db);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
@@ -919,7 +909,7 @@ class Export
             && $limit_from >= 0
         ) {
             $add_query  = ' LIMIT '
-                        . (($limit_from > 0) ? $limit_from . ', ' : '')
+                        . ($limit_from > 0 ? $limit_from . ', ' : '')
                         . $limit_to;
         } else {
             $add_query  = '';
@@ -1106,8 +1096,8 @@ class Export
                         $aliases[$db_name]['tables'][$tbl_name]['columns'][$col]
                             = empty($val2) ? $val1 : $val2;
                     }
-                };
-            };
+                }
+            }
         }
         return $aliases;
     }

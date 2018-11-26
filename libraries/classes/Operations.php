@@ -9,18 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Charsets;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Engines\Innodb;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Set of functions with the operations section in phpMyAdmin
@@ -1037,7 +1027,7 @@ class Operations
     private function getHtmlForTableComments($current_value)
     {
         $commentLength = $this->dbi->getVersion() >= 50503 ? 2048 : 60;
-        $html_output = '<tr><td class="vmiddle">' . __('Table comments') . '</td>'
+        return '<tr><td class="vmiddle">' . __('Table comments') . '</td>'
             . '<td><input type="text" name="comment" '
             . 'maxlength="' . $commentLength . '"'
             . 'value="' . htmlspecialchars($current_value) . '" />'
@@ -1045,8 +1035,6 @@ class Operations
             . htmlspecialchars($current_value) . '" />'
             . '</td>'
             . '</tr>';
-
-        return $html_output;
     }
 
     /**
@@ -1244,7 +1232,7 @@ class Operations
             . '</td>'
             . '<td>'
             . '<input type="checkbox" name="' . $attribute . '" id="' . $attribute . '"'
-            . ' value="1"' . ((!empty($val) && $val == 1) ? ' checked="checked"' : '')
+            . ' value="1"' . (!empty($val) && $val == 1 ? ' checked="checked"' : '')
             . '/>'
             . '</td>'
             . '</tr>';

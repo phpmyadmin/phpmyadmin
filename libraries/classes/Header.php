@@ -9,18 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Console;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Menu;
-use PhpMyAdmin\Message;
 use PhpMyAdmin\Navigation\Navigation;
-use PhpMyAdmin\RecentFavoriteTable;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Scripts;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\Util;
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -269,7 +258,7 @@ class Header
             'logged_in' => (isset($GLOBALS['dbi']) ? $GLOBALS['dbi']->isUserType('logged') : false),
             'is_https' => $GLOBALS['PMA_Config']->isHttps(),
             'rootPath' => $GLOBALS['PMA_Config']->getRootPath(),
-            'arg_separator' => URL::getArgSeparator(),
+            'arg_separator' => Url::getArgSeparator(),
             'PMA_VERSION' => PMA_VERSION
         ];
         if (isset($GLOBALS['cfg']['Server'])

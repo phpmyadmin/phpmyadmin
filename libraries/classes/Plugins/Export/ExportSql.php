@@ -14,7 +14,6 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
@@ -24,12 +23,12 @@ use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 /**
@@ -1277,7 +1276,7 @@ class ExportSql extends ExportPlugin
         }
         $create_query .= implode(',', $tmp) . ');' . $crlf;
 
-        return ($create_query);
+        return $create_query;
     }
 
     /**
@@ -1794,7 +1793,7 @@ class ExportSql extends ExportPlugin
                         ) . $alter_footer;
                 }
 
-                if ((!empty($indexes)) || (!empty($indexes_fulltext))) {
+                if (!empty($indexes) || (!empty($indexes_fulltext))) {
                     $sql_indexes = $this->generateComment(
                         $crlf,
                         $sql_indexes,
@@ -1813,7 +1812,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 // Generating auto-increment-related query.
-                if ((! empty($auto_increment)) && ($update_indexes_increments)) {
+                if (! empty($auto_increment) && ($update_indexes_increments)) {
                     $sql_auto_increments_query = $alter_header . $crlf . '  MODIFY '
                         . implode(',' . $crlf . '  MODIFY ', $auto_increment);
                     if (isset($GLOBALS['sql_auto_increment'])
@@ -2669,15 +2668,13 @@ class ExportSql extends ExportPlugin
             '" float NOT NULL$3' . "\n",
             $create_query
         );
-        $create_query = preg_replace(
+        return preg_replace(
             '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL DEFAULT \'([^\'])/',
             '" float NOT NULL DEFAULT \'$3',
             $create_query
         );
 
         // @todo remove indexes from CREATE TABLE
-
-        return $create_query;
     }
 
     /**
@@ -2830,7 +2827,7 @@ class ExportSql extends ExportPlugin
             }
         }
 
-        if (($statement->options->has('TRIGGER'))
+        if ($statement->options->has('TRIGGER')
             || ($statement->options->has('PROCEDURE'))
             || ($statement->options->has('FUNCTION'))
             || ($statement->options->has('VIEW'))
@@ -2847,10 +2844,10 @@ class ExportSql extends ExportPlugin
 
                 // Replacing only symbols (that are not variables) and unknown
                 // identifiers.
-                if ((($token->type === Token::TYPE_SYMBOL)
-                    && (!($token->flags & Token::FLAG_SYMBOL_VARIABLE)))
-                    || ((($token->type === Token::TYPE_KEYWORD)
-                    && (!($token->flags & Token::FLAG_KEYWORD_RESERVED)))
+                if (($token->type === Token::TYPE_SYMBOL)
+                    && (!($token->flags & Token::FLAG_SYMBOL_VARIABLE))
+                    || (($token->type === Token::TYPE_KEYWORD)
+                    && (!($token->flags & Token::FLAG_KEYWORD_RESERVED))
                     || ($token->type === Token::TYPE_NONE))
                 ) {
                     $alias = $this->getAlias($aliases, $token->value);

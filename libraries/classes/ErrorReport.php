@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\HttpRequest;
 
 /**
@@ -218,14 +215,13 @@ class ErrorReport
      */
     public function send(array $report): string
     {
-        $response = $this->httpRequest->create(
+        return $this->httpRequest->create(
             $this->submissionUrl,
             "POST",
             false,
             json_encode($report),
             "Content-Type: application/json"
         );
-        return $response;
     }
 
     /**

@@ -9,16 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Set of functions used with the relation and PDF feature
@@ -1476,7 +1468,7 @@ class Relation
 
                 $f_query_main = 'SELECT ' . Util::backquote($foreign_field)
                     . (
-                        ($foreign_display == false)
+                        $foreign_display == false
                             ? ''
                             : ', ' . Util::backquote($foreign_display)
                     );
@@ -1486,17 +1478,17 @@ class Relation
                     . Util::backquote($foreign_field)
                     . ' LIKE "%' . $this->dbi->escapeString($foreign_filter) . '%"'
                     . (
-                    ($foreign_display == false)
+                    $foreign_display == false
                         ? ''
                         : ' OR ' . Util::backquote($foreign_display)
                         . ' LIKE "%' . $this->dbi->escapeString($foreign_filter)
                         . '%"'
                     );
-                $f_query_order = ($foreign_display == false) ? '' : ' ORDER BY '
+                $f_query_order = $foreign_display == false ? '' : ' ORDER BY '
                     . Util::backquote($foreign_table) . '.'
                     . Util::backquote($foreign_display);
 
-                $f_query_limit = ! empty($foreign_limit) ? ($foreign_limit) : '';
+                $f_query_limit = ! empty($foreign_limit) ?: '';
 
                 if (!empty($foreign_filter)) {
                     $the_total = $this->dbi->fetchValue(
@@ -2161,7 +2153,7 @@ class Relation
             $have_rel = false;
             $res_rel = [];
         } // end if
-        return([$res_rel, $have_rel]);
+        return [$res_rel, $have_rel];
     }
 
     /**

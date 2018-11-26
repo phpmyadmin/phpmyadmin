@@ -11,14 +11,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Operations;
-use PhpMyAdmin\RelationCleanup;
-use PhpMyAdmin\Sql;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Functions for multi submit forms
  *
@@ -230,7 +222,7 @@ class MultSubmits
                         ? 'ALTER TABLE ' . Util::backquote($table)
                         : ',')
                         . ' DROP ' . Util::backquote($selected[$i])
-                        . (($i == $selectedCount - 1) ? ';' : '');
+                        . ($i == $selectedCount - 1 ? ';' : '');
                     break;
 
                 case 'primary_fld':
@@ -241,7 +233,7 @@ class MultSubmits
                         : ' DROP PRIMARY KEY,') . ' ADD PRIMARY KEY( '
                     : ', ')
                         . Util::backquote($selected[$i])
-                        . (($i == $selectedCount - 1) ? ');' : '');
+                        . ($i == $selectedCount - 1 ? ');' : '');
                     break;
 
                 case 'index_fld':
@@ -250,7 +242,7 @@ class MultSubmits
                         . ' ADD INDEX( '
                     : ', ')
                         . Util::backquote($selected[$i])
-                        . (($i == $selectedCount - 1) ? ');' : '');
+                        . ($i == $selectedCount - 1 ? ');' : '');
                     break;
 
                 case 'unique_fld':
@@ -259,7 +251,7 @@ class MultSubmits
                         . ' ADD UNIQUE( '
                     : ', ')
                         . Util::backquote($selected[$i])
-                        . (($i == $selectedCount - 1) ? ');' : '');
+                        . ($i == $selectedCount - 1 ? ');' : '');
                     break;
 
                 case 'spatial_fld':
@@ -268,7 +260,7 @@ class MultSubmits
                         . ' ADD SPATIAL( '
                     : ', ')
                         . Util::backquote($selected[$i])
-                        . (($i == $selectedCount - 1) ? ');' : '');
+                        . ($i == $selectedCount - 1 ? ');' : '');
                     break;
 
                 case 'fulltext_fld':
@@ -277,7 +269,7 @@ class MultSubmits
                         . ' ADD FULLTEXT( '
                     : ', ')
                         . Util::backquote($selected[$i])
-                        . (($i == $selectedCount - 1) ? ');' : '');
+                        . ($i == $selectedCount - 1 ? ');' : '');
                     break;
 
                 case 'add_prefix_tbl':

@@ -279,9 +279,7 @@ class Node
         $retval = false;
         $paths = $this->getPaths();
         if (count($paths['aPath_clean']) > 3) {
-            $retval = true;
-
-            return $retval;
+            return true;
         }
 
         foreach ($this->parent->children as $child) {
