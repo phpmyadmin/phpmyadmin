@@ -383,6 +383,15 @@ function escapeJsString (unsafe) {
     }
 }
 
+
+function escapeBacktick (s) {
+    return s.replace('`', '``');
+}
+
+function escapeSingleQuote (s) {
+    return s.replace('\\', '\\\\').replace('\'', '\\\'');
+}
+
 function PMA_sprintf () {
     return sprintf.apply(this, arguments);
 }
