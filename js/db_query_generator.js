@@ -30,7 +30,7 @@ function getFormatsText () {
     };
 }
 
-function generateCondition (criteriaDiv, table){
+function generateCondition (criteriaDiv, table) {
     query = '`' + escapeBacktick(table.val()) + '`.';
     query += '`' + escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
@@ -84,7 +84,7 @@ function generateJoin (newTable, tableAliases, fk) {
     return query;
 }
 
-function existReference(table, fk, usedTables){
+function existReference (table, fk, usedTables) {
     var isReferredBy = fk.TABLE_NAME === table && usedTables.includes(fk.REFERENCED_TABLE_NAME);
     var isReferencedBy = fk.REFERENCED_TABLE_NAME === table && usedTables.includes(fk.TABLE_NAME);
     return isReferredBy || isReferencedBy;
