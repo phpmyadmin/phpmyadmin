@@ -28,7 +28,9 @@
     "stylelint-scss": "^3.4.0"
   },
   "scripts": {
-    "postinstall": "yarn run sass",
-    "sass": "sass themes/pmahomme/scss:themes/pmahomme/css themes/original/scss:themes/original/css themes/metro/scss:themes/metro/css"
+    "postinstall": "yarn run --silent css-compile --quiet --style=compressed",
+    "css-compile": "sass themes/pmahomme/scss:themes/pmahomme/css themes/original/scss:themes/original/css themes/metro/scss:themes/metro/css",
+    "css-lint": "stylelint --syntax scss \"themes/**/scss/*.scss\"",
+    "js-lint": "eslint js"
   }
 }
