@@ -1455,9 +1455,9 @@ class Results
     /**
      * Prepare sort by key dropdown - html code segment
      *
-     * @param Index[]     $indexes            the indexes of the table for sort criteria
-     * @param array|null  $sort_expression    the sort expression
-     * @param string      $unsorted_sql_query the unsorted sql query
+     * @param Index[]    $indexes            the indexes of the table for sort criteria
+     * @param array|null $sort_expression    the sort expression
+     * @param string     $unsorted_sql_query the unsorted sql query
      *
      * @return  string         html content
      *
