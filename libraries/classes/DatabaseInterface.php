@@ -159,8 +159,10 @@ class DatabaseInterface
         int $options = 0,
         bool $cache_affected_rows = true
     ) {
-        return $this->tryQuery($query, $link, $options, $cache_affected_rows)
-            || Util::mysqlDie($this->getError($link), $query);
+        $res = $this->tryQuery($query, $link, $options, $cache_affected_rows)
+           or Util::mysqlDie($this->getError($link), $query);
+
+        return $res;
     }
 
     /**
