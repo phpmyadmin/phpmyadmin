@@ -1,0 +1,49 @@
+imports:
+    - { resource: "vendor/symplify/easy-coding-standard/config/psr2.yml" }
+
+services:
+    # imported from: https://github.com/phpmyadmin/coding-standard/blob/master/PMAStandard/ruleset.xml
+    # Short array syntax must be used to define arrays
+    PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer:
+        syntax: "short"
+
+    # Files, classes and functions must have a non-empty doc comment
+    PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff: ~
+    PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FileCommentSniff: ~
+    PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff: ~
+
+    # Makes sure there is only one space before and after the concatenation operator
+    PHP_CodeSniffer\Standards\Squiz\Sniffs\Strings\ConcatenationSpacingSniff:
+        spacing: 1
+        ignoreNewlines: true
+
+parameters:
+    skip:
+        # not a new file
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FileCommentSniff.WrongStyle:
+            - 'js/messages.php'
+
+        # skip from PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff.MissingCategoryTag: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff.MissingAuthorTag: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff.MissingLicenseTag: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff.MissingLinkTag: ~
+        # skip from PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FileCommentSniff
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FileCommentSniff.MissingCategoryTag: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FileCommentSniff.MissingAuthorTag: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FileCommentSniff.MissingLicenseTag: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FileCommentSniff.MissingLinkTag: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FileCommentSniff.MissingVersion: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FileCommentSniff.Missing: ~
+
+        # many reported errors
+        PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes\ValidClassNameSniff.NotCamelCaps: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff.WrongStyle: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff.MissingParamTag: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff.ParamNameNoMatch: ~
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff.WrongStyle: ~
+
+    exclude_files:
+        - "node_modules/*"
+        - "test/sami-config.php"
+        - "*tmp/*"

@@ -90,7 +90,6 @@ class ConfigTest extends PmaTestCase
      */
     public function testCheckOutputCompression()
     {
-
         $this->object->set('OBGzip', 'auto');
 
         $this->object->set('PMA_USR_BROWSER_AGENT', 'IE');

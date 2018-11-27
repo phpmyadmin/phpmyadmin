@@ -42,8 +42,7 @@ class TableRelationControllerTest extends PmaTestCase
         $_REQUEST['foreignTable'] = 'table';
 
         $GLOBALS['dblist'] = new \stdClass();
-        $GLOBALS['dblist']->databases = new class
-        {
+        $GLOBALS['dblist']->databases = new class {
             /**
              * @param mixed $name name
              * @return bool

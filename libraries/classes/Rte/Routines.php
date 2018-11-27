@@ -170,7 +170,7 @@ class Routines
          */
         // FIXME: this must be simpler than that
         if (count($errors)
-            || ( empty($_REQUEST['editor_process_add'])
+            || (empty($_REQUEST['editor_process_add'])
             && empty($_REQUEST['editor_process_edit'])
             && (! empty($_REQUEST['add_item']) || ! empty($_REQUEST['edit_item'])
             || ! empty($_REQUEST['routine_addparameter'])

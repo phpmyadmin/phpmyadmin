@@ -98,7 +98,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // When sending login modal after session has expired, send the new token explicitly with the response to update the token in all the forms having a hidden token.
-        if($session_expired) {
+        if ($session_expired) {
             $response->setRequestStatus(false);
             $response->addJSON(
                 'new_token',
@@ -107,7 +107,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // logged_in response parameter is used to check if the login, using the modal was successful after session expiration
-        if(isset($_REQUEST['session_timedout'])) {
+        if (isset($_REQUEST['session_timedout'])) {
             $response->addJSON(
                 'logged_in',
                 0
@@ -130,7 +130,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // wrap the login form in a div which overlays the whole page.
-        if($session_expired) {
+        if ($session_expired) {
             echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'],
                 'add_class' => ' modal_form', 'session_expired' => 1]);
         } else {
@@ -181,7 +181,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '" />';
 
         // Add a hidden element session_timedout which is used to check if the user requested login after session expiration
-        if($session_expired) {
+        if ($session_expired) {
             echo '<input type="hidden" name="session_timedout" value="1" />';
         }
         echo __('Log in');
@@ -203,10 +203,11 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '" size="24" class="textfield" title="';
             echo __(
                 'You can enter hostname/IP address and port separated by space.'
-            ); echo '" />
+            );
+            echo '" />
             </div>';
         }
-            echo '<div class="item">
+        echo '<div class="item">
                 <label for="input_username">' , __('Username:') , '</label>
                 <input type="text" name="pma_username" id="input_username" '
                 , 'value="' , htmlspecialchars($default_user) , '" size="24"'
@@ -270,7 +271,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // close the wrapping div tag, if the request is after session timeout
-        if($session_expired) {
+        if ($session_expired) {
             echo $this->template->render('login/footer', ['session_expired' => 1]);
         } else {
             echo $this->template->render('login/footer', ['session_expired' => 0]);
@@ -525,7 +526,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         $redirect_url = './index.php';
 
         // any parameters to pass?
-        $url_params = array();
+        $url_params = [];
         if (strlen($GLOBALS['db']) > 0) {
             $url_params['db'] = $GLOBALS['db'];
         }
@@ -540,7 +541,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // user logged in successfully after session expiration
-        if(isset($_REQUEST['session_timedout'])) {
+        if (isset($_REQUEST['session_timedout'])) {
             $response = Response::getInstance();
             $response->addJSON(
                 'logged_in',

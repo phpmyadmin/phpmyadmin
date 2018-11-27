@@ -782,7 +782,8 @@ class Privileges
                     'Does not require SSL-encrypted connections.'
                 ),
                 'label'       => 'REQUIRE NONE',
-                'checked'     => (isset($row['ssl_type'])
+                'checked'     => (
+                    isset($row['ssl_type'])
                     && ($row['ssl_type'] == 'NONE'
                         || $row['ssl_type'] == '')
                     ? 'checked="checked"'
@@ -798,7 +799,8 @@ class Privileges
                     'Requires SSL-encrypted connections.'
                 ),
                 'label'       => 'REQUIRE SSL',
-                'checked'     => (isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY')
+                'checked'     => (
+                    isset($row['ssl_type']) && ($row['ssl_type'] == 'ANY')
                     ? 'checked="checked"'
                     : ''
                 ),
@@ -812,7 +814,8 @@ class Privileges
                     'Requires a valid X509 certificate.'
                 ),
                 'label'       => 'REQUIRE X509',
-                'checked'     => (isset($row['ssl_type']) && ($row['ssl_type'] == 'X509')
+                'checked'     => (
+                    isset($row['ssl_type']) && ($row['ssl_type'] == 'X509')
                     ? 'checked="checked"'
                     : ''
                 ),
@@ -830,7 +833,8 @@ class Privileges
             ],
             [
                 'name'        => 'ssl_cipher',
-                'value'       => (isset($row['ssl_cipher'])
+                'value'       => (
+                    isset($row['ssl_cipher'])
                     ? htmlspecialchars($row['ssl_cipher']) : ''
                 ),
                 'description' => __(
@@ -843,7 +847,8 @@ class Privileges
             ],
             [
                 'name'        => 'x509_issuer',
-                'value'       => (isset($row['x509_issuer'])
+                'value'       => (
+                    isset($row['x509_issuer'])
                     ? htmlspecialchars($row['x509_issuer']) : ''
                 ),
                 'description' => __(
@@ -856,7 +861,8 @@ class Privileges
             ],
             [
                 'name'        => 'x509_subject',
-                'value'       => (isset($row['x509_subject'])
+                'value'       => (
+                    isset($row['x509_subject'])
                     ? htmlspecialchars($row['x509_subject']) : ''
                 ),
                 'description' => __(
@@ -1186,7 +1192,8 @@ class Privileges
                     0,
                     (mb_strlen($tmp_current_grant) - 5)
                 );
-            $html_output .= (isset($GLOBALS[$privGlobalName])
+            $html_output .= (
+                isset($GLOBALS[$privGlobalName])
                     ? $GLOBALS[$privGlobalName]
                     : $GLOBALS[$privGlobalName . 'Tbl']
                 )
@@ -1200,7 +1207,8 @@ class Privileges
                 );
             $html_output .= '<label for="checkbox_' . $current_grant
                 . '"><code><dfn title="'
-                . (isset($GLOBALS[$privGlobalName1])
+                . (
+                    isset($GLOBALS[$privGlobalName1])
                     ? $GLOBALS[$privGlobalName1]
                     : $GLOBALS[$privGlobalName1 . 'Tbl']
                 )
@@ -1239,7 +1247,8 @@ class Privileges
         $privTable[2] = $this->getAdministrationPrivilegeTable($db);
 
         $html_output = '<input type="hidden" name="grant_count" value="'
-            . (count($privTable[0])
+            . (
+                count($privTable[0])
                 + count($privTable[1])
                 + count($privTable[2])
                 - (isset($row['Grant_priv']) ? 1 : 0)
@@ -1321,7 +1330,8 @@ class Privileges
         $structure_privTable = [
             ['Create',
                 'CREATE',
-                ($table == '*'
+                (
+                    $table == '*'
                     ? __('Allows creating new databases and tables.')
                     : __('Allows creating new tables.')
                 )
@@ -1333,7 +1343,8 @@ class Privileges
             ['Index', 'INDEX', __('Allows creating and dropping indexes.')],
             ['Drop',
                 'DROP',
-                ($table == '*'
+                (
+                    $table == '*'
                     ? __('Allows dropping databases and tables.')
                     : __('Allows dropping tables.')
                 )
@@ -1610,7 +1621,8 @@ class Privileges
 
         $html_output .= '<input type="text" name="username" id="pma_username" class="autofocus"'
             . ' maxlength="' . $username_length . '" title="' . __('User name') . '"'
-            . (empty($GLOBALS['username'])
+            . (
+                empty($GLOBALS['username'])
                ? ''
                : ' value="' . htmlspecialchars(
                    isset($GLOBALS['new_username'])
@@ -2944,7 +2956,7 @@ class Privileges
      */
     public function getUserGroupEditLink($username)
     {
-         return '<a class="edit_user_group_anchor ajax"'
+        return '<a class="edit_user_group_anchor ajax"'
             . ' href="server_privileges.php'
             . Url::getCommon(['username' => $username])
             . '">'
@@ -3059,7 +3071,7 @@ class Privileges
                 . '<td><label for="checkbox_sel_users_">'
                 . (empty($_REQUEST['username'])
                         ? '<span style="color: #FF0000">' . __('Any') . '</span>'
-                        : htmlspecialchars($username) ) . '</label></td>' . "\n"
+                        : htmlspecialchars($username)) . '</label></td>' . "\n"
                 . '<td>' . htmlspecialchars($hostname) . '</td>' . "\n";
 
             $new_user_string .= '<td>';
@@ -3773,7 +3785,8 @@ class Privileges
                     . '</code></td>' . "\n";
                 if ($cfgRelation['menuswork']) {
                     $html_output .= '<td class="usrGroup">' . "\n"
-                        . (isset($group_assignment[$host['User']])
+                        . (
+                            isset($group_assignment[$host['User']])
                             ? htmlspecialchars($group_assignment[$host['User']])
                             : ''
                         )

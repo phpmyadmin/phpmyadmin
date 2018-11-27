@@ -64,7 +64,6 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForDatabaseComment()
     {
-
         $this->assertRegExp(
             '/.*db_operations.php(.|[\n])*Database comment.*name="comment"([\n]|.)*/m',
             $this->operations->getHtmlForDatabaseComment("pma")
@@ -78,7 +77,6 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForRenameDatabase()
     {
-
         $_REQUEST['db_collation'] = 'db1';
         $html = $this->operations->getHtmlForRenameDatabase("pma");
         $this->assertContains('db_operations.php', $html);
@@ -95,7 +93,6 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForDropDatabaseLink()
     {
-
         $this->assertRegExp(
             '/.*DROP.DATABASE.*db_operations.php.*Drop the database.*/',
             $this->operations->getHtmlForDropDatabaseLink("pma")
@@ -123,7 +120,6 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForChangeDatabaseCharset()
     {
-
         $_REQUEST['db_collation'] = 'db1';
         $result = $this->operations->getHtmlForChangeDatabaseCharset("pma", "bookmark");
         $this->assertRegExp(
@@ -143,7 +139,6 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForOrderTheTable()
     {
-
         $this->assertRegExp(
             '/.*tbl_operations.php(.|[\n])*Alter table order by([\n]|.)*order_order.*/m',
             $this->operations->getHtmlForOrderTheTable(
@@ -198,7 +193,6 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForDeleteDataOrTable()
     {
-
         $this->assertRegExp(
             '/.*Delete data or table.*Empty the table.*Delete the table.*/m',
             $this->operations->getHtmlForDeleteDataOrTable(
@@ -215,7 +209,6 @@ class OperationsTest extends TestCase
      */
     public function testGetDeleteDataOrTablelink()
     {
-
         $this->assertRegExp(
             '/.*TRUNCATE.TABLE.foo.*id_truncate.*Truncate table.*/m',
             $this->operations->getDeleteDataOrTablelink(
@@ -250,7 +243,6 @@ class OperationsTest extends TestCase
      */
     public function testGetHtmlForReferentialIntegrityCheck()
     {
-
         $this->assertRegExp(
             '/.*Check referential integrity.*href="sql.php(.|[\n])*/m',
             $this->operations->getHtmlForReferentialIntegrityCheck(

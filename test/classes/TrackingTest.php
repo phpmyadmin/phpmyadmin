@@ -228,14 +228,14 @@ class TrackingTest extends TestCase
         /*
          * test versions table
          */
-         $this->assertContains(
-                "<td>date_created</td>",
-                $html
-         );
-         $this->assertContains(
-                __('Delete version'),
-                $html
-         );
+        $this->assertContains(
+            "<td>date_created</td>",
+            $html
+        );
+        $this->assertContains(
+            __('Delete version'),
+            $html
+        );
 
         /*
          * test create panel
@@ -296,10 +296,10 @@ class TrackingTest extends TestCase
             $text_dir,
             $last_version
         );
-       $this->assertContains(
-           'Activate now',
-           $html
-       );
+        $this->assertContains(
+            'Activate now',
+            $html
+        );
 
         //restore DBI
         $GLOBALS['dbi'] = $dbi_old;

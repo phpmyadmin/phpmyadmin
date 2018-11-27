@@ -168,4 +168,3 @@ $GLOBALS['mysql_relations'] = [
         ],
     ],
 ];
-

@@ -434,7 +434,8 @@ if (! (isset($db_is_system_schema) && $db_is_system_schema)) {
                 'reload' => '1',
                 'purge' => '1',
                 'message_to_show' => sprintf(
-                    ($tbl_is_view
+                    (
+                        $tbl_is_view
                         ? __('View %s has been dropped.')
                         : __('Table %s has been dropped.')
                     ),

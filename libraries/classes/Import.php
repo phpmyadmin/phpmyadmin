@@ -71,7 +71,7 @@ class Import
             return false;
         } elseif ($timeout_passed) {
             return true;
-            /* 5 in next row might be too much */
+        /* 5 in next row might be too much */
         } elseif ((time() - $timestamp) > ($maximum_time - 5)) {
             $timeout_passed = true;
             return true;
@@ -419,7 +419,7 @@ class Import
             // UTF-8
             if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
                 $result = mb_substr($result, 3);
-                // UTF-16 BE, LE
+            // UTF-16 BE, LE
             } elseif (strncmp($result, "\xFE\xFF", 2) == 0
                 || strncmp($result, "\xFF\xFE", 2) == 0
             ) {

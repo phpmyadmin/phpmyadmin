@@ -47,8 +47,7 @@ class TableTest extends PmaTestCase
         $relation = new Relation($GLOBALS['dbi']);
         $GLOBALS['cfgRelation'] = $relation->getRelationsParam();
         $GLOBALS['dblist'] = new \stdClass();
-        $GLOBALS['dblist']->databases = new class
-        {
+        $GLOBALS['dblist']->databases = new class {
             /**
              * @param mixed $name name
              * @return bool
@@ -1380,11 +1379,11 @@ class TableTest extends PmaTestCase
         );
     }
 
-     /**
-     * Test for getCollation
-     *
-     * @return void
-     */
+    /**
+    * Test for getCollation
+    *
+    * @return void
+    */
     public function testGetCollation()
     {
         $target_table = 'table1';

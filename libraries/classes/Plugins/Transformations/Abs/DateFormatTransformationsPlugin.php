@@ -77,10 +77,10 @@ abstract class DateFormatTransformationsPlugin extends TransformationsPlugin
         if ($meta->type == 'int') {
             $timestamp = $buffer;
 
-            // Detect TIMESTAMP(6 | 8 | 10 | 12 | 14)
-            // TIMESTAMP (2 | 4) not supported here.
-            // (Note: prior to MySQL 4.1, TIMESTAMP has a display size
-            // for example TIMESTAMP(8) means YYYYMMDD)
+        // Detect TIMESTAMP(6 | 8 | 10 | 12 | 14)
+        // TIMESTAMP (2 | 4) not supported here.
+        // (Note: prior to MySQL 4.1, TIMESTAMP has a display size
+        // for example TIMESTAMP(8) means YYYYMMDD)
         } else {
             if (preg_match('/^(\d{2}){3,7}$/', $buffer)) {
                 if (mb_strlen($buffer) == 14 || mb_strlen($buffer) == 8) {

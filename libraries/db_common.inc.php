@@ -104,7 +104,7 @@ if (isset($_REQUEST['submitcollation'])
     if (isset($_REQUEST['change_all_tables_collations']) &&
         $_REQUEST['change_all_tables_collations'] == 'on'
     ) {
-        list($tables, , , , , , , ,) = Util::getDbInfo($db, null);
+        list($tables, , , , , , , , ) = Util::getDbInfo($db, null);
         foreach ($tables as $tableName => $data) {
             $sql_query      = 'ALTER TABLE '
             . Util::backquote($db)

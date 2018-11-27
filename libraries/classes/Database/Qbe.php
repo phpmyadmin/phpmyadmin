@@ -1365,7 +1365,7 @@ class Qbe
         }
         if (count($very_good) > 0) {
             $candidate_columns = $very_good;
-            // Candidates restricted in index+where
+        // Candidates restricted in index+where
         } else {
             $candidate_columns = $still_good;
             // None of the candidates where in a where-clause

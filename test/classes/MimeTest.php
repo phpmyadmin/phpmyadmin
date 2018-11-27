@@ -30,7 +30,6 @@ class MimeTest extends TestCase
      */
     public function testDetect($test, $output)
     {
-
         $this->assertEquals(
             Mime::detect($test),
             $output

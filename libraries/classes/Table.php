@@ -469,7 +469,7 @@ class Table
      * @param string      $default_type       whether default is CURRENT_TIMESTAMP,
      *                                        NULL, NONE, USER_DEFINED
      * @param string      $default_value      default value for USER_DEFINED
-     *                                              default type
+     *                                        default type
      * @param string      $extra              'AUTO_INCREMENT'
      * @param string      $comment            field comment
      * @param string      $virtuality         virtuality of the column
@@ -588,6 +588,7 @@ class Table
                         break;
                     }
                     // else fall-through intended, no break here
+                    // no break
                 case 'CURRENT_TIMESTAMP':
                 case 'current_timestamp()':
                     $query .= ' DEFAULT ' . $default_type;
@@ -619,8 +620,8 @@ class Table
         } elseif ($move_to != '') {
             $query .= ' AFTER ' . Util::backquote($move_to);
         }
-        if(!$virtuality && !empty($extra)) {
-            if($columns_with_index !== null && !in_array($name, $columns_with_index)) {
+        if (!$virtuality && !empty($extra)) {
+            if ($columns_with_index !== null && !in_array($name, $columns_with_index)) {
                 $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
             }
         }
@@ -769,7 +770,7 @@ class Table
      * @param string      $collation          collation
      * @param bool|string $null               with 'NULL' or 'NOT NULL'
      * @param string      $default_type       whether default is CURRENT_TIMESTAMP,
-     *                                              NULL, NONE, USER_DEFINED
+     *                                        NULL, NONE, USER_DEFINED
      * @param string      $default_value      default value for USER_DEFINED default
      *                                        type
      * @param string      $extra              'AUTO_INCREMENT'

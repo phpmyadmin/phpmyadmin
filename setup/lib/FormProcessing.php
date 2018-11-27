@@ -57,8 +57,7 @@ class FormProcessing
         if ($formId === null && $page == 'servers') {
             // we've just added a new server, get its id
             $formId = $form_display->getConfigFile()->getServerCount();
-        }
-        ?>
+        } ?>
         <div class="error">
             <h4><?php echo __('Warning') ?></h4>
             <?php echo __('Submitted form contains errors') ?><br />

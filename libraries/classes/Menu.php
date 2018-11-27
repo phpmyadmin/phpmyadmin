@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-
 /**
  * Class for generating the top menu
  *
@@ -480,10 +479,10 @@ class Menu
         $tabs['query']['link'] = 'db_multi_table_query.php';
         $tabs['query']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
-            array(
+            [
                 'db_multi_table_query.php',
                 'db_qbe.php',
-            )
+            ]
         );
         if ($num_tables == 0) {
             $tabs['query']['warning'] = __('Database seems to be empty!');

@@ -167,7 +167,7 @@ foreach ($tables as $table) {
             , ' lang="en" dir="ltr">' , $type , '</td>';
 
         echo '<td>';
-        echo (($row['Null'] == 'NO') ? __('No') : __('Yes'));
+        echo $row['Null'] == 'NO' ? __('No') : __('Yes');
         echo '</td>';
         echo '<td class="nowrap">';
         if (isset($row['Default'])) {

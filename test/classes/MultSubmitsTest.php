@@ -261,7 +261,7 @@ class MultSubmitsTest extends TestCase
 
         list(
             $result, $rebuildDatabaseList, $reloadRet,
-            $runParts, $executeQueryLater,,
+            $runParts, $executeQueryLater, ,
         ) = $this->multSubmits->buildOrExecuteQuery(
             $queryType,
             $selected,
@@ -298,8 +298,7 @@ class MultSubmitsTest extends TestCase
         );
 
         $queryType = 'analyze_tbl';
-        list(
-            ,,,, $executeQueryLater,,
+        list(, , , , $executeQueryLater, ,
         ) = $this->multSubmits->buildOrExecuteQuery(
             $queryType,
             $selected,

@@ -47,7 +47,7 @@ jobs:
       after_success: skip
       script:
         - ./test/ci-phplint
-        - composer phpcs
+        - composer cs
         - yarn run js-lint --quiet
         - yarn run css-lint
 

@@ -195,8 +195,7 @@ class PrivilegesTest extends TestCase
         //pre variable have been defined
         $_REQUEST['pred_tablename'] = "PMA_pred__tablename";
         $_REQUEST['pred_dbname'] = ["PMA_pred_dbname"];
-        list(
-            ,, $dbname, $tablename, $routinename,
+        list(, , $dbname, $tablename, $routinename,
             $db_and_table, $dbname_is_wildcard
         ) = $this->serverPrivileges->getDataForDBInfo();
         $this->assertEquals(
@@ -869,7 +868,7 @@ class PrivilegesTest extends TestCase
         $_REQUEST['authentication_plugin'] = 'mysql_native_password';
 
         list(
-            $ret_message,,, $sql_query,
+            $ret_message, , , $sql_query,
             $_add_user_error
         ) = $this->serverPrivileges->addUser(
             $dbname,
@@ -917,7 +916,7 @@ class PrivilegesTest extends TestCase
         $_REQUEST['authentication_plugin'] = 'mysql_native_password';
 
         list(
-            $ret_message,,, $sql_query,
+            $ret_message, , , $sql_query,
             $_add_user_error
         ) = $this->serverPrivileges->addUser(
             $dbname,
@@ -987,7 +986,7 @@ class PrivilegesTest extends TestCase
         $_REQUEST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
-        list ($message, $sql_query)
+        list($message, $sql_query)
             = $this->serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
                 $dbname,
                 $tablename,

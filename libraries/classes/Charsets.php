@@ -329,6 +329,7 @@ class Charsets
                     case 'utf8mb4':
                         $variant = 'UCA 4.0.0';
                         // Fall through to other unicode
+                        // no break
                     case 'ucs2':
                     case 'utf8':
                     case 'utf16':

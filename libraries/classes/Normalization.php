@@ -608,17 +608,17 @@ class Normalization
                 sort($tmpTableCols);
                 if (!in_array($tmpTableCols, $columnList)) {
                     $columnList[] = $tmpTableCols;
-                        $html .= '<p><input type="text" name="'
+                    $html .= '<p><input type="text" name="'
                             . htmlspecialchars($tableName)
                             . '" value="' . htmlspecialchars($tableName) . '"/>'
                             . '( <u>' . htmlspecialchars($key) . '</u>'
                             . (count($dependents) > 0 ? ', ' : '')
                             . htmlspecialchars(implode(', ', $dependents)) . ' )';
-                        $newTables[$table][$tableName] = [
+                    $newTables[$table][$tableName] = [
                             "pk" => $key, "nonpk" => implode(', ', $dependents)
                         ];
-                        $i++;
-                        $tableName = 'table' . $i;
+                    $i++;
+                    $tableName = 'table' . $i;
                 }
             }
         }

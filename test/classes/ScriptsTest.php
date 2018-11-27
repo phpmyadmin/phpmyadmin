@@ -101,7 +101,6 @@ class ScriptsTest extends PmaTestCase
      */
     public function testGetDisplay()
     {
-
         $this->object->addFile('common.js');
 
         $this->assertRegExp(
@@ -124,7 +123,6 @@ class ScriptsTest extends PmaTestCase
      */
     public function testAddCode()
     {
-
         $this->object->addCode('alert(\'CodeAdded\');');
 
         $this->assertEquals(
@@ -137,11 +135,11 @@ $(function() {});
         );
     }
 
-     /**
-     * test for getFiles
-     *
-     * @return void
-     */
+    /**
+    * test for getFiles
+    *
+    * @return void
+    */
     public function testGetFiles()
     {
         // codemirror's onload event is blacklisted

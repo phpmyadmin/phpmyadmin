@@ -660,7 +660,7 @@ class ExportHtmlwordTest extends PmaTestCase
             $result
         );
 
-         // case 3
+        // case 3
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -778,7 +778,6 @@ class ExportHtmlwordTest extends PmaTestCase
      */
     public function testExportStructure()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();

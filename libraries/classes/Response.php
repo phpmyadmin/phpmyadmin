@@ -572,13 +572,13 @@ class Response
         }
     }
 
-   /**
-     * Generate header for 303
-     *
-     * @param string $location will set location to redirect.
-     *
-     * @return void
-     */
+    /**
+      * Generate header for 303
+      *
+      * @param string $location will set location to redirect.
+      *
+      * @return void
+      */
     public function generateHeader303($location)
     {
         $this->setHttpResponseCode(303);

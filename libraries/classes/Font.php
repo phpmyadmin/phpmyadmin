@@ -107,7 +107,8 @@ class Font
         $count = 0;
 
         foreach ($charLists as $charList) {
-            $count += ((mb_strlen($text)
+            $count += ((
+                mb_strlen($text)
                 - mb_strlen(str_replace($charList["chars"], "", $text))
                 ) * $charList["modifier"]);
         }

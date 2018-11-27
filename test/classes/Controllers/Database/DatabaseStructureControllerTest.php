@@ -119,7 +119,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
             'Index_length' => 0,
             'TABLE_NAME' => 'table'
         ];
-        list($current_table,,, $sum_size)
+        list($current_table, , , $sum_size)
             = $method->invokeArgs($ctrl, [$current_table, 10]);
 
         $this->assertEquals(
@@ -136,7 +136,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
         );
 
         $current_table['ENGINE'] = 'MYISAM';
-        list($current_table,,, $sum_size)
+        list($current_table, , , $sum_size)
             = $method->invokeArgs($ctrl, [$current_table, 10]);
 
         $this->assertEquals(
@@ -156,7 +156,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
         );
 
         $current_table['ENGINE'] = 'InnoDB';
-        list($current_table,,, $sum_size)
+        list($current_table, , , $sum_size)
             = $method->invokeArgs($ctrl, [$current_table, 10]);
         $this->assertEquals(
             true,
@@ -168,7 +168,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
         );
 
         $current_table['ENGINE'] = 'MYISAM';
-        list($current_table,,, $sum_size)
+        list($current_table, , , $sum_size)
             = $method->invokeArgs($ctrl, [$current_table, 10]);
         $this->assertEquals(
             false,
@@ -212,7 +212,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
             'Name'         => 'table',
             'Data_free'    => 300,
         ];
-        list($current_table,,,,, $overhead_size, $sum_size)
+        list($current_table, , , , , $overhead_size, $sum_size)
             = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0,]);
         $this->assertEquals(
             6,
@@ -228,7 +228,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
         );
 
         unset($current_table['Data_free']);
-        list($current_table,,,,, $overhead_size,)
+        list($current_table, , , , , $overhead_size, )
             = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0,]);
         $this->assertEquals(0, $overhead_size);
 
@@ -238,7 +238,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
             $container->get('dbi'),
             $container->get('db')
         );
-        list($current_table,,,,,, $sum_size)
+        list($current_table, , , , , , $sum_size)
             = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0]);
         $this->assertEquals(0, $sum_size);
 
@@ -248,7 +248,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
             $container->get('dbi'),
             $container->get('db')
         );
-        list($current_table,,,,,,)
+        list($current_table, , , , , , )
             = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0,]);
         $this->assertArrayNotHasKey('Row', $current_table);
     }

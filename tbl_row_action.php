@@ -18,7 +18,7 @@ require_once 'libraries/common.inc.php';
 
 if (isset($_REQUEST['submit_mult'])) {
     $submit_mult = $_REQUEST['submit_mult'];
-    // workaround for IE problem:
+// workaround for IE problem:
 } elseif (isset($_REQUEST['submit_mult_delete_x'])) {
     $submit_mult = 'row_delete';
 } elseif (isset($_REQUEST['submit_mult_change_x'])) {

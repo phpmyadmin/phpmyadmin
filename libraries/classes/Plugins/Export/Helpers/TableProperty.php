@@ -111,11 +111,11 @@ class TableProperty
         return $this->key == "PRI" || $this->key == "UNI" ? "true" : "false";
     }
 
-     /**
-     * Gets the .NET primitive type
-     *
-     * @return string type
-     */
+    /**
+    * Gets the .NET primitive type
+    *
+    * @return string type
+    */
     public function getDotNetPrimitiveType()
     {
         if (mb_strpos($this->type, "int") === 0) {

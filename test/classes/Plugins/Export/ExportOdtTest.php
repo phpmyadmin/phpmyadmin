@@ -881,11 +881,11 @@ class ExportOdtTest extends PmaTestCase
         );
     }
 
-     /**
-     * Test for PhpMyAdmin\Plugins\Export\ExportOdt::getTriggers
-     *
-     * @return void
-     */
+    /**
+    * Test for PhpMyAdmin\Plugins\Export\ExportOdt::getTriggers
+    *
+    * @return void
+    */
     public function testGetTriggers()
     {
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -949,7 +949,6 @@ class ExportOdtTest extends PmaTestCase
      */
     public function testExportStructure()
     {
-
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();

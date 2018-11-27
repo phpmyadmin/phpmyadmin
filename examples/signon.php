@@ -42,8 +42,7 @@ if (isset($_POST['user'])) {
 } else {
     /* Show simple form */
     header('Content-Type: text/html; charset=utf-8');
-    echo '<?xml version="1.0" encoding="utf-8"?>' , "\n";
-    ?>
+    echo '<?xml version="1.0" encoding="utf-8"?>' , "\n"; ?>
     <!DOCTYPE HTML>
     <html lang="en" dir="ltr">
     <head>
@@ -58,8 +57,7 @@ if (isset($_POST['user'])) {
         echo '<p class="error">';
         echo $_SESSION['PMA_single_signon_error_message'];
         echo '</p>';
-    }
-    ?>
+    } ?>
     <form action="signon.php" method="post">
     Username: <input type="text" name="user" /><br />
     Password: <input type="password" name="password" /><br />

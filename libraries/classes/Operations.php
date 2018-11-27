@@ -847,7 +847,7 @@ class Operations
             . '</form>'
             . '</div>';
 
-         return $html_output;
+        return $html_output;
     }
 
     /**

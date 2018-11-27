@@ -210,7 +210,6 @@ class ServerVariablesControllerTest extends PmaTestCase
      */
     public function testPMAGetHtmlForServerVariables()
     {
-
         $class = new ReflectionClass(
             '\PhpMyAdmin\Controllers\Server\ServerVariablesController'
         );

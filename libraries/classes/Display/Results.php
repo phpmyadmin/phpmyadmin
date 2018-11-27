@@ -438,7 +438,6 @@ class Results
         $editable,
         $is_browse_dist
     ) {
-
         $this->__set('unlim_num_rows', $unlim_num_rows);
         $this->__set('fields_meta', $fields_meta);
         $this->__set('is_count', $is_count);
@@ -868,7 +867,6 @@ class Results
         $is_innodb,
         $sort_by_key_html
     ) {
-
         $table_navigation_html = '';
 
         // here, using htmlentities() would cause problems if the query
@@ -974,7 +972,8 @@ class Results
                     . str_replace('\'', '\\\'', __('%d is not valid row number.'))
                     . '\', '
                     . '0'
-                    . ($this->__get('unlim_num_rows') > 0
+                    . (
+                        $this->__get('unlim_num_rows') > 0
                         ? ', ' . ($this->__get('unlim_num_rows') - 1)
                         : ''
                     )
@@ -1323,7 +1322,6 @@ class Results
         array $sort_direction = [],
         $is_limited_display = false
     ) {
-
         $table_headers_html = '';
         // Needed for use in isset/empty or
         // use with array indexes/safe use in foreach
@@ -1470,7 +1468,6 @@ class Results
         ?array $sort_expression,
         $unsorted_sql_query
     ) {
-
         $drop_down_html = '';
 
         $drop_down_html .= '<form action="sql.php" method="post" ' .
@@ -1484,7 +1481,7 @@ class Results
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
         $used_index = false;
-        $local_order = (is_array($sort_expression) ? implode(', ',$sort_expression) : '');
+        $local_order = (is_array($sort_expression) ? implode(', ', $sort_expression) : '');
 
         foreach ($indexes as $index) {
             $asc_sort = '`'
@@ -1562,7 +1559,6 @@ class Results
         array &$displayParts,
         $full_or_partial_text_link
     ) {
-
         $button_html = '';
         $display_params = $this->__get('display_params');
 
@@ -1775,7 +1771,6 @@ class Results
      */
     private function _getFullOrPartialTextButtonOrLink()
     {
-
         $url_params_full_text = [
             'db' => $this->__get('db'),
             'table' => $this->__get('table'),
@@ -1880,7 +1875,6 @@ class Results
         $col_visib,
         $col_visib_j
     ) {
-
         $sorted_header_html = '';
 
         // Checks if the table name is required; it's the case
@@ -1969,9 +1963,9 @@ class Results
      * @param array    $sort_expression             sort expression
      * @param array    $sort_expression_nodirection sort expression without direction
      * @param string   $sort_tbl                    The name of the table to which
-     *                                             the current column belongs to
+     *                                              the current column belongs to
      * @param string   $name_to_use_in_sort         The current column under
-     *                                             consideration
+     *                                              consideration
      * @param array    $sort_direction              sort direction
      * @param stdClass $fields_meta                 set of field properties
      * @param integer  $column_index                The index number to current column
@@ -2128,7 +2122,6 @@ class Results
         $sort_tbl,
         $name_to_use_in_sort
     ) {
-
         $index_in_expression = 0;
 
         foreach ($sort_expression_nodirection as $index => $clause) {
@@ -2312,7 +2305,6 @@ class Results
         $order_link,
         $comments
     ) {
-
         $draggable_html = '<th';
         $th_class = [];
         $th_class[] = 'draggable';
@@ -2362,7 +2354,6 @@ class Results
         $fields_meta,
         $comments
     ) {
-
         $draggable_html = '<th';
         $th_class = [];
         $th_class[] = 'draggable';
@@ -2406,7 +2397,6 @@ class Results
         $full_or_partial_text_link,
         $colspan
     ) {
-
         $right_column_html = '';
         $display_params = $this->__get('display_params');
 
@@ -2627,9 +2617,8 @@ class Results
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
-
         global $row; // mostly because of browser transformations,
-                     // to make the row-data accessible in a plugin
+        // to make the row-data accessible in a plugin
 
         $table_body_html = '';
 
@@ -3237,7 +3226,6 @@ class Results
      */
     private function _getSpecialLinkUrl($column_value, array $row_info, $field_name)
     {
-
         $linking_url_params = [];
         $link_relations = $GLOBALS['special_schema_links']
             [mb_strtolower($this->__get('db'))]
@@ -3295,7 +3283,6 @@ class Results
      */
     private function _getRowInfoForSpecialLinks(array $row, $col_order)
     {
-
         $row_info = [];
         $fields_meta = $this->__get('fields_meta');
 
@@ -3442,7 +3429,6 @@ class Results
         $clause_is_unique,
         $url_sql_query
     ) {
-
         $_url_params = [
                 'db'               => $this->__get('db'),
                 'table'            => $this->__get('table'),
@@ -3504,7 +3490,6 @@ class Results
         $del_lnk,
         array $row
     ) {
-
         $goto = $this->__get('goto');
 
         if ($del_lnk == self::DELETE_ROW) { // delete row case
@@ -3583,7 +3568,6 @@ class Results
      */
     private function _getActionLinkContent($icon, $display_text)
     {
-
         $linkContent = '';
 
         if (isset($GLOBALS['cfg']['RowActionType'])
@@ -3650,7 +3634,6 @@ class Results
         $del_str,
         ?string $js_conf
     ) {
-
         if (! isset($js_conf)) {
             $js_conf = '';
         }
@@ -3767,7 +3750,6 @@ class Results
         $default_function,
         array $transform_options
     ) {
-
         if (! isset($column) || is_null($column)) {
             $cell = $this->_buildNullDisplay(
                 'right ' . $class,
@@ -3819,7 +3801,7 @@ class Results
      * @param boolean               $condition_field       the column should highlighted
      *                                                     or not
      * @param TransformationsPlugin $transformation_plugin the name of transformation
-     *                                             function
+     *                                                     function
      * @param string                $default_function      the default transformation
      *                                                     function
      * @param string                $transform_options     the transformation parameters
@@ -4053,9 +4035,9 @@ class Results
                 (int) $meta->length
             );
 
-            // some results of PROCEDURE ANALYSE() are reported as
-            // being BINARY but they are quite readable,
-            // so don't treat them as BINARY
+        // some results of PROCEDURE ANALYSE() are reported as
+        // being BINARY but they are quite readable,
+        // so don't treat them as BINARY
         } elseif (stristr($field_flags, self::BINARY_FIELD)
             && !(isset($is_analyse) && $is_analyse)
         ) {
@@ -4154,7 +4136,6 @@ class Results
      */
     public function setConfigParamsForDisplayTable()
     {
-
         $sql_md5 = md5($this->__get('sql_query'));
         $query = [];
         if (isset($_SESSION['tmpval']['query'][$sql_md5])) {
@@ -4570,7 +4551,6 @@ class Results
      */
     private function _getOffsets()
     {
-
         if ($_SESSION['tmpval']['max_rows'] == self::ALL_ROWS) {
             $pos_next     = 0;
             $pos_prev     = 0;
@@ -4609,7 +4589,6 @@ class Results
         &$dt_result,
         $sort_expression_nodirection
     ) {
-
         $fields_meta = $this->__get('fields_meta'); // To use array indexes
 
         if (empty($sort_expression_nodirection)) {
@@ -4741,7 +4720,6 @@ class Results
         $pre_count,
         $after_count
     ) {
-
         $unlim_num_rows = $this->__get('unlim_num_rows'); // To use in isset()
 
         if (!empty($analyzed_sql_results['statement']->limit)) {
@@ -4907,7 +4885,6 @@ class Results
         array $analyzed_sql_results,
         $del_link
     ) {
-
         $links_html = '<div class="print_ignore" >';
         $url_query = $this->__get('url_query');
         $delete_text = $del_link == self::DELETE_ROW ? __('Delete') : __('Kill');
@@ -5020,7 +4997,6 @@ class Results
         $is_innodb,
         $sort_by_key_html
     ) {
-
         $navigation_html = '';
 
         if ($place == self::PLACE_BOTTOM_DIRECTION_DROPDOWN) {
@@ -5084,7 +5060,6 @@ class Results
      */
     public function getCreateViewQueryResultOp(array $analyzed_sql_results)
     {
-
         $results_operations_html = '';
         //calling to _getResultOperations with a fake $displayParts
         //and setting only_view parameter to be true to generate just view
@@ -5340,7 +5315,6 @@ class Results
         array $url_params = [],
         &$is_truncated = null
     ) {
-
         $is_truncated = false;
         $result = '[' . $category;
 
@@ -5559,7 +5533,8 @@ class Results
             } // end if... else...
 
             if (isset($printview) && ($printview == '1')) {
-                $result .= ($transformation_plugin != $default_function
+                $result .= (
+                    $transformation_plugin != $default_function
                     ? $transformation_plugin->applyTransformation(
                         $data,
                         $transform_options,
@@ -5623,7 +5598,8 @@ class Results
                 );
             }
         } else {
-            $result .= ($transformation_plugin != $default_function
+            $result .= (
+                $transformation_plugin != $default_function
                 ? $transformation_plugin->applyTransformation(
                     $data,
                     $transform_options,
@@ -5666,7 +5642,6 @@ class Results
         $id_suffix,
         $class
     ) {
-
         $ret = '';
 
         if (! empty($del_url) && $displayParts['del_lnk'] != self::KILL_PROCESS) {
@@ -5713,7 +5688,6 @@ class Results
         $where_clause,
         $where_clause_html
     ) {
-
         $ret = '';
         if (! empty($edit_url)) {
             $ret .= '<td class="' . $class . ' center print_ignore" '
@@ -5756,7 +5730,6 @@ class Results
         $where_clause_html,
         $class
     ) {
-
         $ret = '';
         if (! empty($copy_url)) {
             $ret .= '<td class="';
@@ -5798,7 +5771,6 @@ class Results
      */
     private function _getDeleteLink($del_url, $del_str, $js_conf, $class)
     {
-
         $ret = '';
         if (empty($del_url)) {
             return $ret;
@@ -5864,7 +5836,6 @@ class Results
         $del_str,
         $js_conf
     ) {
-
         $ret = '';
 
         if ($position == self::POSITION_LEFT) {

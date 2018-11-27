@@ -36,14 +36,15 @@ class ProceduresTest extends TestBase
     protected function setUp()
     {
         parent::setUp();
-        if($this->originalSqlMode === -1) {
+        if ($this->originalSqlMode === -1) {
             $this->originalSqlMode = $this->dbQuery('SELECT @@GLOBAL.SQL_MODE as globalsqm;')->fetch_all(MYSQLI_ASSOC)[0]["globalsqm"];
             $this->dbQuery(
                 "SET GLOBAL sql_mode = '" .
                 str_replace(
                     'STRICT_TRANS_TABLES',
                     '',
-                    $this->originalSqlMode) . "';"
+                    $this->originalSqlMode
+                ) . "';"
             );
         }
 
@@ -67,7 +68,8 @@ class ProceduresTest extends TestBase
      *
      * @return void
      */
-    public function tearDown(){
+    public function tearDown()
+    {
         $this->dbQuery(
             "SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';"
         );

@@ -227,7 +227,7 @@ class Plugins
                 )
             );
             $ret .= '<option';
-             // If the form is being repopulated using $_GET data, that is priority
+            // If the form is being repopulated using $_GET data, that is priority
             if (isset($_GET[$name])
                 && $plugin_name == $_GET[$name]
                 || ! isset($_GET[$name])

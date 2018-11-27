@@ -155,7 +155,7 @@ class ServerVariablesController extends Controller
             } else {
                 throw new KBException("Not a type=byte");
             }
-        } catch (KBException $e){
+        } catch (KBException $e) {
             $this->response->addJSON(
                 'message',
                 $varValue[1]
@@ -194,7 +194,7 @@ class ServerVariablesController extends Controller
             } else {
                 throw new KBException("Not a type=byte or regex not matching");
             }
-        } catch (KBException $e){
+        } catch (KBException $e) {
             $value = $this->dbi->escapeString($value);
         }
 
@@ -268,7 +268,7 @@ class ServerVariablesController extends Controller
                 } else {
                     throw new KBException("Not a type=byte or regex not matching");
                 }
-            } catch (KBException $e){
+            } catch (KBException $e) {
                 $formattedValue = Util::formatNumber($value, 0);
             }
         }

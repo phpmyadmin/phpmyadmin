@@ -67,7 +67,8 @@ class ChangePassword
         }
         $html .= '<fieldset id="fieldset_change_password">'
             . '<legend'
-            . ($is_privileges
+            . (
+                $is_privileges
                 ? ' data-submenu-label="' . __('Change password') . '"'
                 : ''
             )

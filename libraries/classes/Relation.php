@@ -826,7 +826,7 @@ class Relation
          * Emulating relations for some information_schema tables
          */
         $isInformationSchema = mb_strtolower($db) == 'information_schema';
-            $isMysql = mb_strtolower($db) == 'mysql';
+        $isMysql = mb_strtolower($db) == 'mysql';
         if (($isInformationSchema || $isMysql)
             && ($source == 'internal' || $source == 'both')
         ) {

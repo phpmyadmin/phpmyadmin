@@ -86,7 +86,8 @@
         "samyoul/u2f-php-server": "^1.1",
         "phpmyadmin/coding-standard": "^0.3",
         "phpstan/phpstan": "^0.10.3",
-        "facebook/webdriver": "^1.6"
+        "facebook/webdriver": "^1.6",
+        "symplify/easy-coding-standard": "^5.2"
     },
     "extra": {
         "branch-alias": {
@@ -97,6 +98,8 @@
         "phpcbf": "phpcbf",
         "phpcs": "phpcs --exclude=PSR1.Files.SideEffects,Generic.Metrics.NestingLevel",
         "phpstan": "phpstan analyse",
+        "cs": "vendor/bin/ecs check . ",
+        "fix-cs": "vendor/bin/ecs check . --fix",
         "test": "phpunit"
     }
 }

@@ -281,7 +281,7 @@ class Advisor
 
             if (isset($rule['precondition'])) {
                 try {
-                     $precond = $this->ruleExprEvaluate($rule['precondition']);
+                    $precond = $this->ruleExprEvaluate($rule['precondition']);
                 } catch (Exception $e) {
                     $this->storeError(
                         sprintf(

@@ -28,7 +28,8 @@ textarea {
 
 
 body {
-<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
+<?php if (! empty($GLOBALS['cfg']['FontFamily'])) {
+    ?>
     font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
     <?php
 }
@@ -64,7 +65,8 @@ body#loginform {
     margin: 0 auto;
 }
 
-<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
+<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) {
+    ?>
     textarea, tt, pre, code {
     font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
     }
@@ -355,7 +357,8 @@ table [class=value] {
 }
 
 
-<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) { ?>
+<?php if (! empty($GLOBALS['cfg']['FontFamilyFixed'])) {
+    ?>
     .value {
         font-family:        <?php echo $GLOBALS['cfg']['FontFamilyFixed']; ?>;
     }
@@ -450,11 +453,13 @@ div.error {
     background-repeat:  no-repeat;
     clear:              both;
     <?php
-    if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    if ($GLOBALS['text_dir'] === 'ltr') {
+        ?>
         background-position: 10px 50%;
         padding:            0.1em 0.1em 0.1em 42px;
         <?php
-    } else { ?>
+    } else {
+        ?>
         background-position: 99% 50%;
         padding:            0.1em 40px 0.1em 0.1em;
         <?php
@@ -519,11 +524,13 @@ fieldset.confirmation legend {
     background-image:   url(<?php echo $theme->getImgPath('s_really.png');?>);
     background-repeat:  no-repeat;
     <?php
-    if ($GLOBALS['text_dir'] === 'ltr') { ?>
+    if ($GLOBALS['text_dir'] === 'ltr') {
+        ?>
         background-position: 5px 50%;
         padding:            0.2em 0.2em 0.2em 25px;
         <?php
-    } else { ?>
+    } else {
+        ?>
         background-position: 97% 50%;
         padding:            0.2em 25px 0.2em 0.2em;
         <?php

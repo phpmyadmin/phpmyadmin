@@ -373,7 +373,7 @@ if (isset($_REQUEST['preview_sql'])) {
  * Executes the sql query and get the result, then move back to the calling
  * page
  */
-list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
+list($url_params, $total_affected_rows, $last_messages, $warning_messages,
     $error_messages, $return_to_sql_query)
         = $insertEdit->executeSqlQuery($url_params, $query);
 

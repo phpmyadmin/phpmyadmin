@@ -189,10 +189,10 @@ class InsertEdit
                     $local_query
                 )
             );
-            /**
-             * @todo not sure what should be done at this point, but we must not
-             * exit if we want the message to be displayed
-             */
+        /**
+         * @todo not sure what should be done at this point, but we must not
+         * exit if we want the message to be displayed
+         */
         } else {// end if (no row returned)
             $meta = $this->dbi->getFieldsMeta($result[$key_id]);
 
@@ -321,15 +321,15 @@ class InsertEdit
         return null;
     }
 
-     /**
-      * Analyze the table column array
-      *
-      * @param array   $column         description of column in given table
-      * @param array   $comments_map   comments for every column that has a comment
-      * @param boolean $timestamp_seen whether a timestamp has been seen
-      *
-      * @return array                   description of column in given table
-      */
+    /**
+     * Analyze the table column array
+     *
+     * @param array   $column         description of column in given table
+     * @param array   $comments_map   comments for every column that has a comment
+     * @param boolean $timestamp_seen whether a timestamp has been seen
+     *
+     * @return array                   description of column in given table
+     */
     private function analyzeTableColumnsArray(
         array $column,
         array $comments_map,
@@ -360,14 +360,14 @@ class InsertEdit
         return $column;
     }
 
-     /**
-      * Retrieve the column title
-      *
-      * @param array $column       description of column in given table
-      * @param array $comments_map comments for every column that has a comment
-      *
-      * @return string              column title
-      */
+    /**
+     * Retrieve the column title
+     *
+     * @param array $column       description of column in given table
+     * @param array $comments_map comments for every column that has a comment
+     *
+     * @return string              column title
+     */
     private function getColumnTitle(array $column, array $comments_map)
     {
         if (isset($comments_map[$column['Field']])) {
@@ -379,16 +379,16 @@ class InsertEdit
         return $column['Field_html'];
     }
 
-     /**
-      * check whether the column is of a certain type
-      * the goal is to ensure that types such as "enum('one','two','binary',..)"
-      * or "enum('one','two','varbinary',..)" are not categorized as binary
-      *
-      * @param array $column description of column in given table
-      * @param array $types  the types to verify
-      *
-      * @return boolean whether the column's type if one of the $types
-      */
+    /**
+     * check whether the column is of a certain type
+     * the goal is to ensure that types such as "enum('one','two','binary',..)"
+     * or "enum('one','two','varbinary',..)" are not categorized as binary
+     *
+     * @param array $column description of column in given table
+     * @param array $types  the types to verify
+     *
+     * @return boolean whether the column's type if one of the $types
+     */
     public function isColumn(array $column, array $types)
     {
         foreach ($types as $one_type) {
@@ -1408,7 +1408,7 @@ class InsertEdit
                 . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
                 . ' class="textfield noDragDrop" id="field_' . $idindex . '_3" size="10"'
                 . ' ' . $onChangeClause . '/>&nbsp;';
-            list($html_out,) = $this->getMaxUploadSize(
+            list($html_out, ) = $this->getMaxUploadSize(
                 $column,
                 $biggest_max_file_size
             );
@@ -2657,7 +2657,7 @@ class InsertEdit
             if (empty($multi_edit_columns_null_prev[$key])
                 || empty($multi_edit_columns_null[$key])
             ) {
-                 $query_values[]
+                $query_values[]
                      = Util::backquote($multi_edit_columns_name[$key])
                     . ' = ' . $current_value_as_an_array;
             }
@@ -2744,7 +2744,7 @@ class InsertEdit
                     $current_value = "'"
                         . $this->dbi->escapeString($current_value) . "'";
                 } else {
-                     $current_value = "''";
+                    $current_value = "''";
                 }
             } elseif ($type == 'protected') {
                 // here we are in protected mode (asked in the config)

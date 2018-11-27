@@ -77,8 +77,7 @@ if ($error) {
     $error->display();
 }
 if ($form_display->hasErrors()) {
-    // form has errors
-    ?>
+    // form has errors ?>
     <div class="error config-form">
         <b>
             <?php echo __('Cannot save settings, submitted form contains errors!') ?>

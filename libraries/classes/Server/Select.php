@@ -83,7 +83,7 @@ class Select
             if (! empty($server['only_db'])) {
                 if (! is_array($server['only_db'])) {
                     $label .= ' - ' . $server['only_db'];
-                    // try to avoid displaying a too wide selector
+                // try to avoid displaying a too wide selector
                 } elseif (count($server['only_db']) < 4) {
                     $label .= ' - ' . implode(', ', $server['only_db']);
                 }

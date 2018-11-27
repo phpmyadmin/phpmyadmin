@@ -46,7 +46,8 @@ $th = [
 ];
 ?>
 <br />
-<?php foreach ($transformation_types as $ttype) { ?>
+<?php foreach ($transformation_types as $ttype) {
+    ?>
     <a name="<?php echo $ttype; ?>"></a>
     <h2><?php echo $label[$ttype] ?></h2>
     <table width="90%">
@@ -59,15 +60,13 @@ $th = [
     <tbody>
     <?php
     foreach ($types[$ttype] as $key => $transform) {
-        $desc = $transformations->getDescription($types[$ttype . '_file'][$key]);
-        ?>
+        $desc = $transformations->getDescription($types[$ttype . '_file'][$key]); ?>
         <tr>
             <td><?php echo htmlspecialchars($transform); ?></td>
             <td><?php echo htmlspecialchars($desc); ?></td>
         </tr>
         <?php
-    }
-    ?>
+    } ?>
     </tbody>
     </table>
     <?php

@@ -63,7 +63,8 @@ if (empty($goto)) {
 if (! isset($err_url)) {
     $err_url = (! empty($back) ? $back : $goto)
         . '?' . Url::getCommon(['db' => $GLOBALS['db']])
-        . ((mb_strpos(' ' . $goto, 'db_') != 1
+        . (
+            (mb_strpos(' ' . $goto, 'db_') != 1
             && strlen($table) > 0)
             ? '&amp;table=' . urlencode($table)
             : ''

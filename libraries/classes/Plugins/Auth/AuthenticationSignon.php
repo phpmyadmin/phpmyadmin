@@ -96,7 +96,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
             include $script_name;
 
-            list ($this->user, $this->password)
+            list($this->user, $this->password)
                 = get_login_credentials($GLOBALS['cfg']['Server']['user']);
         } elseif (isset($_COOKIE[$session_name])) { /* Does session exist? */
             /* End current session */

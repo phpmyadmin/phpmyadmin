@@ -117,7 +117,7 @@ class Navigation
             . "'" . $GLOBALS['dbi']->escapeString($itemName) . "',"
             . "'" . $GLOBALS['dbi']->escapeString($itemType) . "',"
             . "'" . $GLOBALS['dbi']->escapeString($dbName) . "',"
-            . "'" . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : "" )
+            . "'" . (! empty($tableName) ? $GLOBALS['dbi']->escapeString($tableName) : "")
             . "')";
         $this->relation->queryAsControlUser($sqlQuery, false);
     }
@@ -169,7 +169,8 @@ class Navigation
             . " AND `item_name`='" . $GLOBALS['dbi']->escapeString($itemName) . "'"
             . " AND `item_type`='" . $GLOBALS['dbi']->escapeString($itemType) . "'"
             . " AND `db_name`='" . $GLOBALS['dbi']->escapeString($dbName) . "'"
-            . (! empty($tableName)
+            . (
+                ! empty($tableName)
                 ? " AND `table_name`='" . $GLOBALS['dbi']->escapeString($tableName) . "'"
                 : ""
             );

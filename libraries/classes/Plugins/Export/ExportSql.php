@@ -2526,7 +2526,7 @@ class ExportSql extends ExportPlugin
                         }
                     }
                     $query_size += mb_strlen($insert_line);
-                    // Other inserts case
+                // Other inserts case
                 } else {
                     $insert_line = $schema_insert
                         . '(' . implode(', ', $values) . ')';
