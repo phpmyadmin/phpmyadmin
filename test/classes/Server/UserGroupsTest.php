@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\UserGroups;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 

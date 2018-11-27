@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use PhpMyAdmin\Template;
 
 /**
  * Invalid two-factor authentication showing that configured choice is not available.

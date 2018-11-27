@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\SysInfo;
 use PhpMyAdmin\Util;
 

@@ -13,7 +13,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Queries;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 

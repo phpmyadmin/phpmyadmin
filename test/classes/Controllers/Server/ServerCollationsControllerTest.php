@@ -10,11 +10,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Server;
 
 use PhpMyAdmin\Controllers\Server\ServerCollationsController;
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PhpMyAdmin\Theme;
 use ReflectionClass;
 
 /**

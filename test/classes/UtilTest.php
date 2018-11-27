@@ -14,7 +14,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Util;
 
 /**

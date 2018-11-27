@@ -9,10 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Header;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Url;
-
 /**
  * Collects information about which JavaScript
  * files and objects are necessary to render

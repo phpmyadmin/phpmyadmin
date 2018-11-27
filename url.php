@@ -8,8 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Sanitize;
 
 /**
  * Gets core libraries and defines some variables

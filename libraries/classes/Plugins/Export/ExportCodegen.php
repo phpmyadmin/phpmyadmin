@@ -11,13 +11,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Export;
-use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Util;
 
 /**

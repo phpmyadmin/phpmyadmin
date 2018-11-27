@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Server;
 
 use PhpMyAdmin\Server\Select;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;
 

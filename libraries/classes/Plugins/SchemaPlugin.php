@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
-use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
+use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Plugins\SchemaPluginProperties;
 
 /**

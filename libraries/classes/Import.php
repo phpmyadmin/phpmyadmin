@@ -9,18 +9,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Encoding;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\ReplaceStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Library that provides common import functions that are used by import plugins

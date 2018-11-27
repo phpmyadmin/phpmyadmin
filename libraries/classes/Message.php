@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Util;
-
 /**
  * a single message
  *
@@ -644,7 +641,7 @@ class Message
     /**
      * wrapper for sprintf()
      *
-     * @param mixed[] $params Params
+     * @param mixed[] ...$params Params
      * @return string formatted
      */
     public static function format(...$params): string

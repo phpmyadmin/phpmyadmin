@@ -13,10 +13,10 @@ use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Relation;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Response;
 
 /**
  * Get the variables sent or posted to this script and a core script

@@ -9,11 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Util;
-use PhpMyAdmin\ZipExtension;
-
 /**
  * File wrapper class
  *

@@ -12,11 +12,11 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Plugins\ImportPlugin;
-use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 
 /**

@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests behaviour of PMA_Advisor class

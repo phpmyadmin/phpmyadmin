@@ -11,9 +11,8 @@ namespace PhpMyAdmin\Tests\Server\Status;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Server\Status\Data;
-use PhpMyAdmin\Theme;
+use PhpMyAdmin\Server\Status\Monitor;
 use PHPUnit\Framework\TestCase;
 
 /**

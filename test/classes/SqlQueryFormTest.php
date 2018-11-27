@@ -12,7 +12,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\SqlQueryForm;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;

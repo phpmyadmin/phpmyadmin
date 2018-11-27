@@ -8,9 +8,9 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
-use PhpMyAdmin\Response;
 
 require_once './libraries/common.inc.php';
 

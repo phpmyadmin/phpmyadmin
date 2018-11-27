@@ -14,7 +14,6 @@ use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use ReflectionClass;

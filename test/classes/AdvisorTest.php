@@ -11,8 +11,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Advisor;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**

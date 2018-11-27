@@ -12,7 +12,6 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Header;
-use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 
 /**

@@ -13,8 +13,6 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Server\Common;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 
 /**
  * Handles viewing storage engine details

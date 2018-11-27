@@ -10,13 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use DirectoryIterator;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Error;
-use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\ThemeManager;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\UserPreferences;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
 
 /**

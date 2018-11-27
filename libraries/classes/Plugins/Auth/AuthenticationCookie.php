@@ -18,9 +18,8 @@ use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Session;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 use phpseclib\Crypt;
 use ReCaptcha;
 

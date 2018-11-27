@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Assert;

@@ -12,7 +12,6 @@ namespace PhpMyAdmin\Tests\Navigation;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\NavigationTree;
 use PhpMyAdmin\Tests\PmaTestCase;
-use PhpMyAdmin\Theme;
 
 /*
  * we must set $GLOBALS['server'] here

@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use COM;
-use PhpMyAdmin\SysInfoBase;
 
 /**
  * Windows NT based SysInfo class

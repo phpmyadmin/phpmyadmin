@@ -10,10 +10,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
 
-use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Charsets;
+use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Server\Common;
-use PhpMyAdmin\Template;
 
 /**
  * Handles viewing character sets and collations

@@ -9,12 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Privileges;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Functions for user_password.php

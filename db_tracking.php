@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Display\CreateTable;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;

@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 

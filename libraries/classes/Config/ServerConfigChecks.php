@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\Descriptions;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index as SetupIndex;

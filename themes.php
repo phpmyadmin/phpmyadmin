@@ -8,8 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\ThemeManager;
 
 /**
  * get some globals

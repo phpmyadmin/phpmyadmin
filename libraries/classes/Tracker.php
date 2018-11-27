@@ -9,10 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
@@ -22,7 +19,6 @@ use PhpMyAdmin\SqlParser\Statements\InsertStatement;
 use PhpMyAdmin\SqlParser\Statements\RenameStatement;
 use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
-use PhpMyAdmin\Util;
 
 /**
  * This class tracks changes on databases, tables and views.

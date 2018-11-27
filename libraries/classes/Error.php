@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use Exception;
-use PhpMyAdmin\Message;
 
 /**
  * a single error

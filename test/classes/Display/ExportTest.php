@@ -12,7 +12,6 @@ namespace PhpMyAdmin\Tests\Display;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;

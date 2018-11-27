@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Display\ImportAjax;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;

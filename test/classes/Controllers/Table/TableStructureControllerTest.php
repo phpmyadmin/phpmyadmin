@@ -14,7 +14,6 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PhpMyAdmin\Theme;
 use ReflectionClass;
 
 /**

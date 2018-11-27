@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\ListAbstract;
-use PhpMyAdmin\Util;
-
 require_once './libraries/check_user_privileges.inc.php';
 
 /**

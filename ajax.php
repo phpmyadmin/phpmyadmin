@@ -7,9 +7,9 @@
  */
 declare(strict_types=1);
 
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
-use PhpMyAdmin\Core;
 
 $_GET['ajax_request'] = 'true';
 

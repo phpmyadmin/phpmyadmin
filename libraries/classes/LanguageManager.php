@@ -9,12 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Language;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Language selection manager
  *

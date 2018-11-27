@@ -11,11 +11,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\ErrorHandler;
-use PhpMyAdmin\Util;
-
 /**
  * Session class
  *

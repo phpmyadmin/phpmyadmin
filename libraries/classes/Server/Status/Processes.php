@@ -12,9 +12,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Server\Status\Data;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * PhpMyAdmin\Server\Status\Processes class

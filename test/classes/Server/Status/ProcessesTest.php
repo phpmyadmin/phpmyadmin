@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Tests\Server\Status;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Server\Status\Processes;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 

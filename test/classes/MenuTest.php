@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Menu;
-use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Test for Menu class

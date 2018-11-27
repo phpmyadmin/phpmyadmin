@@ -10,8 +10,8 @@ namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload;
-use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_RegexValidation;
 use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload;
+use PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_RegexValidation;
 use PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download;
 use PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex;
 use PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Inline;

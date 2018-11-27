@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Tests\Database\Designer;
 
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Relation;
 use PHPUnit\Framework\TestCase;
 
 /**

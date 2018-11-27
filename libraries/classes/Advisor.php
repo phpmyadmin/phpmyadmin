@@ -11,11 +11,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use Exception;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\SysInfo;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**

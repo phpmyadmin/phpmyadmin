@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Normalization;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\TestCase;

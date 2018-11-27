@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;
 
-use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 

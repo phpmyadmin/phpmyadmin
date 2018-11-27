@@ -7,9 +7,9 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Server\Status\Monitor;
-use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Status\Data;
+use PhpMyAdmin\Server\Status\Monitor;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/server_common.inc.php';

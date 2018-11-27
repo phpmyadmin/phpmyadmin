@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Tests\Display;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Display\ChangePassword;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\TestCase;
 

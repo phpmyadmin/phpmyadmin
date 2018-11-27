@@ -16,12 +16,11 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\ThemeManager;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\UserPreferences;
+use PhpMyAdmin\Util;
 
 /**
  * Gets some core libraries and displays a top message if required

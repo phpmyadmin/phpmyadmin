@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\UserPreferences;
 
 /**

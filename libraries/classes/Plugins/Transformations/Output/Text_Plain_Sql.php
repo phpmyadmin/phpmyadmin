@@ -10,8 +10,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Output;
 
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Plugins\Transformations\Abs\SQLTransformationsPlugin;
+use PhpMyAdmin\Response;
 
 /**
  * Handles the sql transformation for text plain

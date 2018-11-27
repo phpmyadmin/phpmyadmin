@@ -14,11 +14,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Bookmark;
-use PhpMyAdmin\Encoding;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * PhpMyAdmin\SqlQueryForm class
  *

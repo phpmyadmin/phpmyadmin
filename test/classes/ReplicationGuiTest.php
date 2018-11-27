@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\ReplicationGui;
-use PhpMyAdmin\Theme;
 use PHPUnit\Framework\TestCase;
 
 /*

@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Tests\PmaTestCase;
 
 /**
  * Tests for StorageEngine.php

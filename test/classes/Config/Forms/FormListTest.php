@@ -11,9 +11,6 @@ namespace PhpMyAdmin\Tests\Config\Forms;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\Forms\User\UserFormList;
-use PhpMyAdmin\Config\Forms\Page\PageFormList;
-use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Tests\PmaTestCase;
 
 /**

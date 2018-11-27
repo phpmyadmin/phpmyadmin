@@ -8,8 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Message;
-use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TwoFactor;
 
 /**
  * Gets some core libraries and displays a top message if required

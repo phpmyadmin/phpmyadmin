@@ -12,7 +12,6 @@ use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Url;
 
 /**
  * Gets some core libraries

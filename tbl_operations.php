@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Partition;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Partition;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;

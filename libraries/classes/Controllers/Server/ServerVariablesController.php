@@ -13,12 +13,10 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Server\Common;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 use Williamdes\MariaDBMySQLKBS\KBException;
+use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
 
 /**
  * Handles viewing and editing server variables

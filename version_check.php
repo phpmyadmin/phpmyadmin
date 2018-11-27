@@ -8,8 +8,8 @@
 declare(strict_types=1);
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\VersionInformation;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\VersionInformation;
 
 $_GET['ajax_request'] = 'true';
 

@@ -14,7 +14,6 @@ use PhpMyAdmin\Dbi\DbiDummy;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
 /**

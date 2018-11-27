@@ -9,13 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Replication;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Functions for the replication GUI
  *

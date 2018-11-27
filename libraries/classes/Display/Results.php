@@ -9,11 +9,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Display;
 
+use \stdClass;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
+use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
@@ -24,8 +26,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-use \stdClass;
-use PhpMyAdmin\Plugins\TransformationsPlugin;
 
 /**
  * Handle all the functionalities related to displaying results

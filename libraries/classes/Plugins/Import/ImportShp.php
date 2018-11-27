@@ -12,8 +12,6 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisMultiLineString;
-use PhpMyAdmin\Gis\GisMultiPoint;
-use PhpMyAdmin\Gis\GisPoint;
 use PhpMyAdmin\Gis\GisPolygon;
 use PhpMyAdmin\Import;
 use PhpMyAdmin\Message;

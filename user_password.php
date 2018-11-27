@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Display\ChangePassword;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\RelationCleanup;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPassword;
 

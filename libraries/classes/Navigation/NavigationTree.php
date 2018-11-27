@@ -16,8 +16,8 @@ use PhpMyAdmin\Navigation\Nodes\NodeTableContainer;
 use PhpMyAdmin\Navigation\Nodes\NodeViewContainer;
 use PhpMyAdmin\RecentFavoriteTable;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 require_once 'libraries/check_user_privileges.inc.php';
 

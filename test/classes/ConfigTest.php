@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\Tests\PmaTestCase;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\Exception;
 

@@ -8,8 +8,8 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Response;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Queries;
 

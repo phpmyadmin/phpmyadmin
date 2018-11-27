@@ -10,26 +10,18 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Selenium;
 
+use Facebook\WebDriver\Chrome\ChromeOptions;
+use Facebook\WebDriver\Exception\InvalidSelectorException;
+use Facebook\WebDriver\Exception\NoSuchElementException;
+use Facebook\WebDriver\Exception\WebDriverException;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\Remote\RemoteWebElement;
-use Facebook\WebDriver\Chrome\ChromeOptions;
-use Facebook\WebDriver\Firefox\FirefoxDriver;
-use Facebook\WebDriver\Firefox\FirefoxProfile;
-use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\SkippedTestError;
-use PHPUnit\Framework\IncompleteTestError;
-use Facebook\WebDriver\WebDriverWindow;
-use Facebook\WebDriver\WebDriverSelect;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverElement;
-use Facebook\WebDriver\WebDriverPlatform;
 use Facebook\WebDriver\WebDriverExpectedCondition;
-use Facebook\WebDriver\Remote\WebDriverCapabilityType;
-use Facebook\WebDriver\Exception\NoSuchElementException;
-use Facebook\WebDriver\Exception\InvalidSelectorException;
-use Facebook\WebDriver\Exception\WebDriverException;
-use \Date;
+use Facebook\WebDriver\WebDriverSelect;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Base class for Selenium tests.

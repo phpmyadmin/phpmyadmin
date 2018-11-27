@@ -7,11 +7,11 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Setup\ConfigGenerator;
 use PhpMyAdmin\Config\Forms\Setup\ConfigForm;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Setup\ConfigGenerator;
+use PhpMyAdmin\Url;
 
 /**
  * Core libraries.

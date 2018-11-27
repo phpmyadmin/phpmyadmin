@@ -11,8 +11,8 @@ namespace PhpMyAdmin\Setup;
 
 use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
+use PhpMyAdmin\Url;
 
 /**
  * PhpMyAdmin\Setup\FormProcessing class

@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ListDatabase;
-use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionClass;
 
 $GLOBALS['server'] = 1;

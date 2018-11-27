@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\FormDisplay;
 use PhpMyAdmin\Config\Forms\Page\PageFormList;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;

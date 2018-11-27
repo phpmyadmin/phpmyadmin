@@ -9,19 +9,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Index;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
-use PhpMyAdmin\Relation;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
-use PhpMyAdmin\Util;
 
 /**
  * Handles everything related to tables

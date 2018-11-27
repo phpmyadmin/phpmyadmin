@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Util;
-
 /**
  * Class used to manage MySQL charsets
  *

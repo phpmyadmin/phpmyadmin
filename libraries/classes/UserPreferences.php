@@ -11,12 +11,6 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Functions for displaying user preferences pages

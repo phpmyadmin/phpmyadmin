@@ -9,11 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Bookmark;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Util;
-
 /**
  * Class used to output the console
  *

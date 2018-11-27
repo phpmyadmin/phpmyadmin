@@ -13,8 +13,8 @@ use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
-use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 

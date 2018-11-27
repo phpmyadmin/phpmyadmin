@@ -11,8 +11,8 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Gets the variables sent or posted to this script and displays the header

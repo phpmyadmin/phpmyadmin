@@ -13,7 +13,6 @@ use PhpMyAdmin\Controllers\Server\ServerBinlogController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Tests\Stubs\Response as ResponseStub;
-use PhpMyAdmin\Theme;
 use PhpMyAdmin\Util;
 use ReflectionClass;
 

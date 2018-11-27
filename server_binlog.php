@@ -7,7 +7,6 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Controllers\Server\ServerCollationsController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 

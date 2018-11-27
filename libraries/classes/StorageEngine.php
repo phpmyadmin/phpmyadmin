@@ -21,7 +21,6 @@ use PhpMyAdmin\Engines\Myisam;
 use PhpMyAdmin\Engines\Ndbcluster;
 use PhpMyAdmin\Engines\Pbxt;
 use PhpMyAdmin\Engines\PerformanceSchema;
-use PhpMyAdmin\Util;
 
 /**
 * defines

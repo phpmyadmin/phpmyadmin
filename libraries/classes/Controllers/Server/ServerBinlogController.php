@@ -13,7 +13,6 @@ use PhpMyAdmin\Controllers\Controller;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Server\Common;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 

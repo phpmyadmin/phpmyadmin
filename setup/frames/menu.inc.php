@@ -7,8 +7,8 @@
  */
 declare(strict_types=1);
 
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
+use PhpMyAdmin\Url;
 
 if (!defined('PHPMYADMIN')) {
     exit;

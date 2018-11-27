@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Schema;
 
-use PhpMyAdmin\Plugins\Schema\TableStats;
-
 /**
  * Relations preferences/statistics
  *

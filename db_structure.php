@@ -10,7 +10,6 @@ declare(strict_types=1);
 use PhpMyAdmin\Controllers\Database\DatabaseStructureController;
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/db_common.inc.php';

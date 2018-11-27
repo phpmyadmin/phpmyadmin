@@ -9,17 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\SqlQueryForm;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * PhpMyAdmin\Tracking class
  *

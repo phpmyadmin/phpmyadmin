@@ -11,7 +11,6 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbi\DbiDummy;
-use PhpMyAdmin\Tests\PmaTestCase;
 use PhpMyAdmin\Util;
 
 /**

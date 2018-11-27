@@ -9,10 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
 use TCPDF;
 use TCPDF_FONTS;
 

@@ -10,8 +10,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
 use BaconQrCode\Renderer\Image\SvgImageBackEnd;
-use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
+use PhpMyAdmin\TwoFactor;
 use PragmaRX\Google2FAQRCode\Google2FA;
 
 /**
