@@ -103,6 +103,13 @@ You can find more of such options at `Wikipedia <https://en.wikipedia.org/wiki/L
 Installing from Git
 +++++++++++++++++++
 
+In order to install from Git, you'll need a few supporting applications:
+
+* `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://github.com/phpmyadmin/phpmyadmin/archive/master.zip>`_
+* `Composer <https://getcomposer.org/download/>`_
+* `Node.js <https://nodejs.org/en/download/>`_ (version 8 or higher)
+* `Yarn <https://yarnpkg.com/lang/en/docs/install>`_
+
 You can clone current phpMyAdmin source from
 ``https://github.com/phpmyadmin/phpmyadmin.git``:
 
@@ -110,7 +117,7 @@ You can clone current phpMyAdmin source from
 
     git clone https://github.com/phpmyadmin/phpmyadmin.git
 
-Additionally you need to install dependencies using the `Composer tool`_:
+Additionally you need to install dependencies using `Composer <https://getcomposer.org>`_ :
 
 .. code-block:: sh
 
@@ -1133,4 +1140,3 @@ manually or after a period of inactivity). `Issue 11898 <https://github.com/phpm
 .. _Composer tool: https://getcomposer.org/
 .. _Packagist: https://packagist.org/
 .. _Docker image: https://hub.docker.com/r/phpmyadmin/phpmyadmin/
-.. _Yarn: https://yarnpkg.com/lang/en/docs/install
