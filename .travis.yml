@@ -46,6 +46,8 @@ jobs:
       after_script: skip
       after_success: skip
       script:
+        # disable xdebug, to speedup process
+        - phpenv config-rm xdebug.ini
         - ./test/ci-phplint
         - composer cs
         - yarn run js-lint --quiet
@@ -57,7 +59,10 @@ jobs:
       before_script: skip
       after_script: skip
       after_success: skip
-      script: composer phpstan
+      script:
+        # disable xdebug, to speedup process
+        - phpenv config-rm xdebug.ini
+        - composer phpstan
 
     - stage: "PHP Unit tests"
       php: 7.1
@@ -148,7 +153,10 @@ jobs:
         - composer install --no-interaction
         - yarn install --non-interactive
         - echo -e "<?php\n\$cfg['UploadDir'] = './test/test_data/';" > config.inc.php
-      script: ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --group selenium --verbose --debug
+      script:
+        # disable xdebug, to speedup process
+        - phpenv config-rm xdebug.ini
+        - ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --group selenium --verbose --debug
       addons:
         apt:
           packages:
