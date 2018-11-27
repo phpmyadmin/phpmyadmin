@@ -2479,7 +2479,6 @@ class InsertEdit
     ) {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         if (is_file($include_file)) {
-            include_once $include_file;
             $_url_params = array(
                 'db'            => $db,
                 'table'         => $table,
@@ -2493,20 +2492,22 @@ class InsertEdit
             );
             $transform_options['wrapper_link'] = Url::getCommon($_url_params);
             $class_name = Transformations::getClassName($include_file);
-            /** @var TransformationsPlugin $transformation_plugin */
-            $transformation_plugin = new $class_name();
+            if (class_exists($class_name)) {
+                /** @var TransformationsPlugin $transformation_plugin */
+                $transformation_plugin = new $class_name();
 
-            foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
-                if (isset($curr_cell_edited_values[$column_name])) {
-                    $edited_values[$cell_index][$column_name]
-                        = $extra_data['transformations'][$cell_index]
-                            = $transformation_plugin->applyTransformation(
-                                $curr_cell_edited_values[$column_name],
-                                $transform_options,
-                                ''
-                            );
-                }
-            }   // end of loop for each transformation cell
+                foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
+                    if (isset($curr_cell_edited_values[$column_name])) {
+                        $edited_values[$cell_index][$column_name]
+                            = $extra_data['transformations'][$cell_index]
+                                = $transformation_plugin->applyTransformation(
+                                    $curr_cell_edited_values[$column_name],
+                                    $transform_options,
+                                    ''
+                                );
+                    }
+                }   // end of loop for each transformation cell
+            }
         }
         return $extra_data;
     }
@@ -3269,42 +3270,43 @@ class InsertEdit
             $file = $column_mime['input_transformation'];
             $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
             if (is_file($include_file)) {
-                include_once $include_file;
                 $class_name = Transformations::getClassName($include_file);
-                $transformation_plugin = new $class_name();
-                $transformation_options = Transformations::getOptions(
-                    $column_mime['input_transformation_options']
-                );
-                $_url_params = array(
-                    'db'            => $db,
-                    'table'         => $table,
-                    'transform_key' => $column['Field'],
-                    'where_clause'  => $where_clause
-                );
-                $transformation_options['wrapper_link']
-                    = Url::getCommon($_url_params);
-                $current_value = '';
-                if (isset($current_row[$column['Field']])) {
-                    $current_value = $current_row[$column['Field']];
-                }
-                if (method_exists($transformation_plugin, 'getInputHtml')) {
-                    $transformed_html = $transformation_plugin->getInputHtml(
-                        $column,
-                        $row_id,
-                        $column_name_appendix,
-                        $transformation_options,
-                        $current_value,
-                        $text_dir,
-                        $tabindex,
-                        $tabindex_for_value,
-                        $idindex
+                if (class_exists($class_name)) {
+                    $transformation_plugin = new $class_name();
+                    $transformation_options = Transformations::getOptions(
+                        $column_mime['input_transformation_options']
                     );
-                }
-                if (method_exists($transformation_plugin, 'getScripts')) {
-                    $GLOBALS['plugin_scripts'] = array_merge(
-                        $GLOBALS['plugin_scripts'],
-                        $transformation_plugin->getScripts()
+                    $_url_params = array(
+                        'db'            => $db,
+                        'table'         => $table,
+                        'transform_key' => $column['Field'],
+                        'where_clause'  => $where_clause
                     );
+                    $transformation_options['wrapper_link']
+                        = Url::getCommon($_url_params);
+                    $current_value = '';
+                    if (isset($current_row[$column['Field']])) {
+                        $current_value = $current_row[$column['Field']];
+                    }
+                    if (method_exists($transformation_plugin, 'getInputHtml')) {
+                        $transformed_html = $transformation_plugin->getInputHtml(
+                            $column,
+                            $row_id,
+                            $column_name_appendix,
+                            $transformation_options,
+                            $current_value,
+                            $text_dir,
+                            $tabindex,
+                            $tabindex_for_value,
+                            $idindex
+                        );
+                    }
+                    if (method_exists($transformation_plugin, 'getScripts')) {
+                        $GLOBALS['plugin_scripts'] = array_merge(
+                            $GLOBALS['plugin_scripts'],
+                            $transformation_plugin->getScripts()
+                        );
+                    }
                 }
             }
         }
