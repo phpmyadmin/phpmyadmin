@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-11-17 15:03+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2018-11-28 01:56+0000\n"
+"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
 "Language: nb\n"
@@ -326,16 +326,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Du må velge minst en kolonne for visning!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simuler spørring"
+msgstr "Flertabell spørring"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "Spørringen feilet"
+msgstr "Spørring ved eksempel"
 
 #: db_qbe.php:171
 #, php-format
@@ -1545,16 +1541,12 @@ msgid "Please select the file you want to import."
 msgstr "Vennligst velg filen du vil importere."
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Vennligst tast inn et gyldig side navn"
+msgstr "Vennligst tast inn et gyldig tabell navn."
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Vennligst tast inn et gyldig side navn"
+msgstr "Vennligst tast inn et gyldig database navn."
 
 #: js/messages.php:336
 msgid "No files available on server for import!"
@@ -1899,7 +1891,6 @@ msgstr ""
 "spørring."
 
 #: js/messages.php:429
-#, fuzzy
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
@@ -2264,16 +2255,13 @@ msgstr ""
 "lagrer dem. Ønsker du å fortsette?"
 
 #: js/messages.php:567
-#, fuzzy
 msgid "value/subQuery is empty"
 msgstr "verdi/underspørring er tom"
 
 #: js/messages.php:568 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Databasen har ingen tabeller."
+msgstr "Legg til tabeller fra andre databaser"
 
 #: js/messages.php:569
 msgid "Page name"
@@ -2623,24 +2611,24 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"Det oppstod et problem med å få tilgang til nettleserens lagring. Noen "
+"funksjoner fungerer kanskje ikke riktig for deg. Det er sannsynlig at "
+"nettleseren ikke støtter lagring eller kvotegrensen er nådd. I Firefox kan "
+"ødelagt lagring også forårsake et slikt problem, og det kan være lurt å "
+"fjerne \"Offline Nettstedsdata\". I Safari er dette problemet ofte "
+"forårsaket av \"Privat Modus Browsing\"."
 
 #: js/messages.php:741
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
-msgstr "Kopier databasen til"
+msgstr "Kopier tabeller til"
 
 #: js/messages.php:742
-#, fuzzy
-#| msgid "Apply index(s)"
 msgid "Add table prefix"
-msgstr "Utfør indeks(er)"
+msgstr "Legg til tabell prefiks"
 
 #: js/messages.php:743
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
-msgstr "Erstatt tabellprefiks"
+msgstr "Erstatt tabell med prefiks"
 
 #: js/messages.php:744 templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
@@ -3007,10 +2995,9 @@ msgid "Error"
 msgstr "Feil"
 
 #: libraries/classes/Advisor.php:257
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "Feil oppstod under oppretting av PDF:"
+msgstr "Feil ved evaluering: %s"
 
 #: libraries/classes/Advisor.php:288
 #, php-format
@@ -3106,13 +3093,12 @@ msgid "Page number:"
 msgstr "Sidenummer:"
 
 #: libraries/classes/CentralColumns.php:247
-#, fuzzy
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
-"Oppsettets lager er ikke klar for den sentrale liste over kolonner "
-"funksjonen."
+"Konfigurasjonslagringen er ikke klar for den sentrale listen over "
+"kolonnegenskaper."
 
 #: libraries/classes/CentralColumns.php:393
 #, php-format
@@ -3196,7 +3182,7 @@ msgstr "Attributter"
 #: templates/database/central_columns/main.twig:45
 #: templates/database/central_columns/main.twig:262
 msgid "A_I"
-msgstr ""
+msgstr "A_I"
 
 #: libraries/classes/Charsets.php:221
 #: templates/database/structure/table_header.twig:42
@@ -3204,171 +3190,123 @@ msgid "Charset"
 msgstr "Tegnsett"
 
 #: libraries/classes/Charsets.php:312
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
-msgstr "ukjent"
+msgstr "Ukjent"
 
 #: libraries/classes/Charsets.php:326
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation"
 msgid "Binary"
 msgstr "Binær"
 
 #: libraries/classes/Charsets.php:338 libraries/classes/Charsets.php:568
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
 
 #: libraries/classes/Charsets.php:348 libraries/classes/Charsets.php:519
-#, fuzzy
-#| msgid "West European"
 msgctxt "Collation"
 msgid "West European"
-msgstr "vesteuropeisk"
+msgstr "Vesteuropeisk"
 
 #: libraries/classes/Charsets.php:355
-#, fuzzy
-#| msgid "Central European"
 msgctxt "Collation"
 msgid "Central European"
-msgstr "sentraleuropeisk"
+msgstr "Sentral europeisk"
 
 #: libraries/classes/Charsets.php:360
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
-msgstr "russisk"
+msgstr "Russisk"
 
 #: libraries/classes/Charsets.php:365
-#, fuzzy
-#| msgid "Simplified Chinese"
 msgctxt "Collation"
 msgid "Simplified Chinese"
-msgstr "forenklet kinesisk"
+msgstr "Forenklet kinesisk"
 
 #: libraries/classes/Charsets.php:372 libraries/classes/Charsets.php:490
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
-msgstr "japansk"
+msgstr "Japansk"
 
 #: libraries/classes/Charsets.php:377
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "baltisk"
+msgstr "Baltisk"
 
 #: libraries/classes/Charsets.php:382
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "Armensk"
 
 #: libraries/classes/Charsets.php:385
-#, fuzzy
-#| msgid "Traditional Chinese"
 msgctxt "Collation"
 msgid "Traditional Chinese"
 msgstr "Tradisjonell kinesisk"
 
 #: libraries/classes/Charsets.php:388
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr "kyrillisk"
+msgstr "Kyrillisk"
 
 #: libraries/classes/Charsets.php:391
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
-msgstr "arabisk"
+msgstr "Arabisk"
 
 #: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:505
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
-msgstr "koreansk"
+msgstr "Koreansk"
 
 #: libraries/classes/Charsets.php:397
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
-msgstr "hebraisk"
+msgstr "Hebraisk"
 
 #: libraries/classes/Charsets.php:400
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "Georgisk"
 
 #: libraries/classes/Charsets.php:403
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
-msgstr "gresk"
+msgstr "Gresk"
 
 #: libraries/classes/Charsets.php:406
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "Tjekkoslovakisk"
 
 #: libraries/classes/Charsets.php:409 libraries/classes/Charsets.php:560
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
-msgstr "ukrainsk"
+msgstr "Ukrainsk"
 
 #: libraries/classes/Charsets.php:412 libraries/classes/Charsets.php:556
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
-msgstr "tyrkisk"
+msgstr "Tyrkisk"
 
 #: libraries/classes/Charsets.php:415 libraries/classes/Charsets.php:548
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
-msgstr "svensk"
+msgstr "Svensk"
 
 #: libraries/classes/Charsets.php:418 libraries/classes/Charsets.php:552
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
-msgstr "thai"
+msgstr "Thai"
 
 #: libraries/classes/Charsets.php:421
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
-msgstr "ukjent"
+msgstr "Ukjent"
 
 #: libraries/classes/Charsets.php:437
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
-msgstr "bulgarsk"
+msgstr "Bulgarsk"
 
 #: libraries/classes/Charsets.php:442
 msgctxt "Collation"
@@ -3376,53 +3314,39 @@ msgid "Chinese"
 msgstr "Kinesisk"
 
 #: libraries/classes/Charsets.php:447
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
-msgstr "kroatisk"
+msgstr "Kroatisk"
 
 #: libraries/classes/Charsets.php:451
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
-msgstr "tjekkisk"
+msgstr "Tsjekkisk"
 
 #: libraries/classes/Charsets.php:455
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
-msgstr "dansk"
+msgstr "Dansk"
 
 #: libraries/classes/Charsets.php:459
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
-msgstr "engelsk"
+msgstr "Engelsk"
 
 #: libraries/classes/Charsets.php:463
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "Esperanto"
 
 #: libraries/classes/Charsets.php:467
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
-msgstr "estisk"
+msgstr "Estisk"
 
 #: libraries/classes/Charsets.php:470 libraries/classes/Charsets.php:587
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "Dataordbok"
+msgstr "Tysk (Dataordbok)"
 
 #: libraries/classes/Charsets.php:473 libraries/classes/Charsets.php:584
 msgctxt "Collation"
@@ -3430,15 +3354,11 @@ msgid "German (phone book order)"
 msgstr "Tysk (telefonboksanordning)"
 
 #: libraries/classes/Charsets.php:482
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
-msgstr "ungarsk"
+msgstr "Ungarsk"
 
 #: libraries/classes/Charsets.php:486
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "Islandsk"
@@ -3449,18 +3369,14 @@ msgid "Classical Latin"
 msgstr "Klassisk latin"
 
 #: libraries/classes/Charsets.php:497
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "Latvisk"
 
 #: libraries/classes/Charsets.php:501
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
-msgstr "lithauisk"
+msgstr "Litauisk"
 
 #: libraries/classes/Charsets.php:509
 msgctxt "Collation"
@@ -3468,22 +3384,16 @@ msgid "Burmese"
 msgstr "Burmesisk"
 
 #: libraries/classes/Charsets.php:512
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "Persisk"
 
 #: libraries/classes/Charsets.php:516
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "Polsk"
 
 #: libraries/classes/Charsets.php:523
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "Rumensk"
@@ -3494,22 +3404,16 @@ msgid "Sinhalese"
 msgstr "Singalesisk"
 
 #: libraries/classes/Charsets.php:531
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "Slovakisk"
 
 #: libraries/classes/Charsets.php:535
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
 msgstr "Slovensk"
 
 #: libraries/classes/Charsets.php:538 libraries/classes/Charsets.php:598
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
 msgstr "Spansk"
@@ -3520,53 +3424,39 @@ msgid "Spanish (traditional)"
 msgstr "Spansk (tradisjonell)"
 
 #: libraries/classes/Charsets.php:564
-#, fuzzy
-#| msgid "Table name"
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "Tabellnavn"
+msgstr "Vietnamesisk"
 
 #: libraries/classes/Charsets.php:631
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "uavhengig av bokstavstørrelse"
 
 #: libraries/classes/Charsets.php:634
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "avhengig av bokstavstørrelse"
 
 #: libraries/classes/Charsets.php:637
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "uavhengig av bokstavstørrelse"
+msgstr "uavhengig av fremheving"
 
 #: libraries/classes/Charsets.php:640
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "avhengig av bokstavstørrelse"
+msgstr "avhengig av fremheving"
 
 #: libraries/classes/Charsets.php:644
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "flerspråkelig"
+msgstr "fler nivå"
 
 #: libraries/classes/Charsets.php:647
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
-msgstr "Binær"
+msgstr "binær"
 
 #: libraries/classes/Config.php:1115
 #, php-format
@@ -3621,19 +3511,15 @@ msgid ""
 "MySQL server is enabled by matching the IP or hostname of the MySQL server "
 "to the given regular expression."
 msgstr ""
+"Begrens MySQL-serverne som brukeren kan skrive inn når en pålogging til en "
+"vilkårlig MySQL-server aktiveres ved å matche IP eller vertsnavnet til MySQL-"
+"serveren til det gjeldende regulære uttrykket."
 
 #: libraries/classes/Config/Descriptions.php:70
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "Kan ikke logge inn til MySQL tjeneren"
+msgstr "Begrens innlogging til MySQL-serveren"
 
 #: libraries/classes/Config/Descriptions.php:72
-#, fuzzy
-#| msgid ""
-#| "Enabling this allows a page located on a different domain to call "
-#| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
-#| "strong] allowing cross-frame scripting attacks"
 msgid ""
 "Enabling this allows a page located on a different domain to call phpMyAdmin "
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
@@ -3641,7 +3527,7 @@ msgid ""
 msgstr ""
 "Å tillate dette gir sider på andre domener muligheten til å legge inn "
 "phpMyAdmin i en ramme, og er et potensielt [strong]sikkerhetshull[/strong] "
-"og muligjør cross-frame skripting"
+"og muligjør cross-frame skripting."
 
 #: libraries/classes/Config/Descriptions.php:76
 msgid "Allow third party framing"
@@ -3652,16 +3538,12 @@ msgid "Show \"Drop database\" link to normal users"
 msgstr "Vis \"Drop database\" link for normale brukere"
 
 #: libraries/classes/Config/Descriptions.php:79
-#, fuzzy
-#| msgid ""
-#| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
-#| "authentication"
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication."
 msgstr ""
-"Hemmelig passordfrase brukt for kryptering av cookies i [kbd]cookie[/kbd] "
-"autentisering"
+"Hemmelig passordfrase brukt for kryptering av informasjonskapsler i "
+"[kbd]cookie[/kbd] autentisering."
 
 #: libraries/classes/Config/Descriptions.php:82
 msgid "Blowfish secret"
@@ -3676,35 +3558,22 @@ msgid "Row marker"
 msgstr "Radframheving"
 
 #: libraries/classes/Config/Descriptions.php:85
-#, fuzzy
-#| msgid "Highlight row pointed by the mouse cursor"
 msgid "Highlight row pointed by the mouse cursor."
-msgstr "Framhev raden under musmarkøren"
+msgstr "Framhev raden under musmarkøren."
 
 #: libraries/classes/Config/Descriptions.php:86
 msgid "Highlight pointer"
 msgstr "Pekermarkering"
 
 #: libraries/classes/Config/Descriptions.php:88
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import and export operations"
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"Slå på [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a]-komprimering for "
-"import og eksportoperasjoner"
+msgstr "Slå på bzip2 komprimering for import operasjoner."
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Bzip2"
 msgstr "Bzip2"
 
 #: libraries/classes/Config/Descriptions.php:93
-#, fuzzy
-#| msgid ""
-#| "Defines which type of editing controls should be used for CHAR and "
-#| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
-#| "[kbd]textarea[/kbd] - allows newlines in columns"
 msgid ""
 "Defines which type of editing controls should be used for CHAR and VARCHAR "
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
@@ -3712,24 +3581,19 @@ msgid ""
 msgstr ""
 "Definerer hvilken type redigeringskontroll som skal brukes for CHAR og "
 "VARCHAR kolonner; [kbd]input[/kbd] - tillater begrensning av lengde, "
-"[kbd]textarea[/kbd] - tillater linjeskift i kolonner"
+"[kbd]textarea[/kbd] - tillater linjeskift i kolonner."
 
 #: libraries/classes/Config/Descriptions.php:97
 msgid "CHAR columns editing"
 msgstr "CHAR kolonneredigering"
 
 #: libraries/classes/Config/Descriptions.php:99
-#, fuzzy
-#| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
 "Bruk brukervennlig tekstbehandler for redigering av SQL-spørringer "
-"([a@https://codemirror.net/]CodeMirror[/a]) med syntaks utheving og "
-"nummererte linjer."
+"(CodeMirror) med syntaks utheving og nummererte linjer."
 
 #: libraries/classes/Config/Descriptions.php:103
 msgid "Enable CodeMirror"
@@ -3750,52 +3614,40 @@ msgid "Enable linter"
 msgstr "Aktiver SQL Validator"
 
 #: libraries/classes/Config/Descriptions.php:110
-#, fuzzy
-#| msgid ""
-#| "Defines the minimum size for input fields generated for CHAR and VARCHAR "
-#| "columns"
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
 "Definerer minimum størrelse for innskrivningfelt laget for CHAR og VARCHAR "
-"kolonner"
+"kolonner."
 
 #: libraries/classes/Config/Descriptions.php:113
 msgid "Minimum size for input field"
 msgstr "Minste størrelse for innskrivningsfelt"
 
 #: libraries/classes/Config/Descriptions.php:115
-#, fuzzy
-#| msgid ""
-#| "Defines the maximum size for input fields generated for CHAR and VARCHAR "
-#| "columns"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
 "Definerer maks størrelse for innskrivningsfelt laget for CHAR og VARCHAR "
-"kolonner"
+"kolonner."
 
 #: libraries/classes/Config/Descriptions.php:118
 msgid "Maximum size for input field"
 msgstr "Maksimum størrelse for innskrivningsfelt"
 
 #: libraries/classes/Config/Descriptions.php:119
-#, fuzzy
-#| msgid "Number of columns for CHAR/VARCHAR textareas"
 msgid "Number of columns for CHAR/VARCHAR textareas."
-msgstr "Antall kolonner i CHAR/VARCHAR tekstbokser"
+msgstr "Antall kolonner i CHAR/VARCHAR tekstbokser."
 
 #: libraries/classes/Config/Descriptions.php:120
 msgid "CHAR textarea columns"
 msgstr "CHAR textarea kolonner"
 
 #: libraries/classes/Config/Descriptions.php:121
-#, fuzzy
-#| msgid "Number of rows for CHAR/VARCHAR textareas"
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr "Antall rader i CHAR/VARCHAR tekstbokser"
+msgstr "Antall rader i CHAR/VARCHAR tekstbokser."
 
 #: libraries/classes/Config/Descriptions.php:122
 msgid "CHAR textarea rows"
@@ -3806,33 +3658,24 @@ msgid "Check config file permissions"
 msgstr "Kontroller konfigurasjonsfilrettigheter"
 
 #: libraries/classes/Config/Descriptions.php:125
-#, fuzzy
-#| msgid ""
-#| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
-#| "if you encounter problems with created gzip/bzip2 files disable this "
-#| "feature"
 msgid ""
 "Compress gzip exports on the fly without the need for much memory; if you "
 "encounter problems with created gzip files disable this feature."
 msgstr ""
-"Kopmrimer gzip/bzip2 eksporter direkte uten behov for mye minne; hvis du får "
-"problemer med opprettede gzip/bzip2 filer så slå av denne funksjonen"
+"Kopmrimer gzip eksporter direkte uten behov for mye minne; hvis du får "
+"problemer med opprettede gzip filer så slå av denne funksjonen."
 
 #: libraries/classes/Config/Descriptions.php:128
 msgid "Compress on the fly"
 msgstr "Komprimer direkte"
 
 #: libraries/classes/Config/Descriptions.php:130
-#, fuzzy
-#| msgid ""
-#| "Whether a warning (\"Are your really sure…\") should be displayed when "
-#| "you're about to lose data"
 msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
 "Om en advarsel (\"Er du helt sikker…\") skal vises når du er i ferd med å "
-"miste data"
+"miste data."
 
 #: libraries/classes/Config/Descriptions.php:133
 msgid "Confirm DROP queries"
@@ -3849,74 +3692,56 @@ msgid "Debug SQL"
 msgstr "Feilsøk SQL"
 
 #: libraries/classes/Config/Descriptions.php:136
-#, fuzzy
-#| msgid "Tab that is displayed when entering a database"
 msgid "Tab that is displayed when entering a database."
-msgstr "Fanen som vises når en database tas i bruk"
+msgstr "Fanen som vises når en database tas i bruk."
 
 #: libraries/classes/Config/Descriptions.php:137
 msgid "Default database tab"
 msgstr "Standard databasefane"
 
 #: libraries/classes/Config/Descriptions.php:138
-#, fuzzy
-#| msgid "Tab that is displayed when entering a server"
 msgid "Tab that is displayed when entering a server."
-msgstr "Fanen som vises når en tjener tas i bruk"
+msgstr "Fanen som vises når en tjener tas i bruk."
 
 #: libraries/classes/Config/Descriptions.php:139
 msgid "Default server tab"
 msgstr "Standard tjenerfane"
 
 #: libraries/classes/Config/Descriptions.php:140
-#, fuzzy
-#| msgid "Tab that is displayed when entering a table"
 msgid "Tab that is displayed when entering a table."
-msgstr "Fanen som vises når en tabell tas i bruk"
+msgstr "Fanen som vises når en tabell tas i bruk."
 
 #: libraries/classes/Config/Descriptions.php:141
 msgid "Default table tab"
 msgstr "Standard tabellfane"
 
 #: libraries/classes/Config/Descriptions.php:142
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Autocomplete of the table and column names in the SQL queries."
-msgstr "Bruk venstre anførselstegn med tabell og kolonnenavn"
+msgstr "Autofullføring av tabellen og kolonnens navn i SQL-spørringene."
 
 #: libraries/classes/Config/Descriptions.php:143
-#, fuzzy
-#| msgid "Enclose table and column names with backquotes"
 msgid "Enable autocomplete for table and column names"
-msgstr "Bruk venstre anførselstegn med tabell og kolonnenavn"
+msgstr "Aktiver autofullfør for tabell- og kolonneavn"
 
 #: libraries/classes/Config/Descriptions.php:144
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Whether the table structure actions should be hidden."
-msgstr "Foreslå tabellstruktur"
+msgstr "Hvorvidt tabellstruktursaksjonene skal være skjult."
 
 #: libraries/classes/Config/Descriptions.php:145
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
-msgstr "Tabellkommentarer"
+msgstr "Vis kolonne kommentarer"
 
 #: libraries/classes/Config/Descriptions.php:146
 msgid "Whether column comments should be shown in table structure view"
 msgstr "Hvorvidt kolonnekommentarer skal vises i tabellstrukturvisning"
 
 #: libraries/classes/Config/Descriptions.php:147
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Skjul handlinger i tabellstruktur"
+msgstr "Skjul tabell struktur handlinger"
 
 #: libraries/classes/Config/Descriptions.php:148
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "Standard sorteringsrekkefølge"
+msgstr "Standard transformasjoner for Hex"
 
 #: libraries/classes/Config/Descriptions.php:149
 #: libraries/classes/Config/Descriptions.php:151
@@ -3931,54 +3756,40 @@ msgid ""
 "Values for options list for default transformations. These will be "
 "overwritten if transformation is filled in at table structure page."
 msgstr ""
+"Verdier for valgliste for standardtransformasjoner. Disse blir overskrevet "
+"hvis transformasjonen er fylt ut på tabellstruktursiden."
 
 #: libraries/classes/Config/Descriptions.php:150
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Substring"
-msgstr "Transformasjonsvalg"
+msgstr "Standard transformasjoner for understreng"
 
 #: libraries/classes/Config/Descriptions.php:152
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "Standard sorteringsrekkefølge"
+msgstr "Standard transformasjoner for Bool2Text"
 
 #: libraries/classes/Config/Descriptions.php:154
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "Standard sorteringsrekkefølge"
+msgstr "Standard transformasjoner for ekstern"
 
 #: libraries/classes/Config/Descriptions.php:156
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "Transformasjonsvalg"
+msgstr "Standard transformasjoner for PreApPend"
 
 #: libraries/classes/Config/Descriptions.php:158
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "Standard sorteringsrekkefølge"
+msgstr "Standard transformasjoner for dato format"
 
 #: libraries/classes/Config/Descriptions.php:160
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for Inline"
-msgstr "Transformasjonsvalg"
+msgstr "Standard transformasjoner for Inline"
 
 #: libraries/classes/Config/Descriptions.php:162
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "Transformasjonsvalg"
+msgstr "Standard transformasjoner for Tekstbildelenke"
 
 #: libraries/classes/Config/Descriptions.php:164
-#, fuzzy
-#| msgid "Transformation options"
 msgid "Default transformations for TextLink"
-msgstr "Transformasjonsvalg"
+msgstr "Standard transformasjoner for Tekstlenke"
 
 #: libraries/classes/Config/Descriptions.php:167
 msgid "Show server listing as a list instead of a drop down."
@@ -4001,16 +3812,12 @@ msgid "Disable multi table maintenance"
 msgstr "Deaktiver multitabellvedlikehold"
 
 #: libraries/classes/Config/Descriptions.php:175
-#, fuzzy
-#| msgid ""
-#| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
-#| "limit)"
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
-"Antall sekunder et skript har lov til å kjøre ([kbd]0[/kbd] for ingen "
-"begrensning)"
+"Antall sekunder et skript har lov til å kjøre ([kbd]0[/kbd] uten "
+"begrensning)."
 
 #: libraries/classes/Config/Descriptions.php:178
 msgid "Maximum execution time"
@@ -4018,10 +3825,9 @@ msgstr "Maks kjøretid"
 
 #: libraries/classes/Config/Descriptions.php:180
 #: templates/display/export/options_output.twig:17
-#, fuzzy, php-format
-#| msgid "Statements"
+#, php-format
 msgid "Use %s statement"
-msgstr "Oversikt"
+msgstr "Bruk %s uttalelse"
 
 #: libraries/classes/Config/Descriptions.php:183 prefs_manage.php:313
 msgid "Save as file"
@@ -4094,18 +3900,14 @@ msgstr "Fjern CRLF tegn inne i kolonner"
 #: libraries/classes/Config/Descriptions.php:400
 #: libraries/classes/Config/Descriptions.php:412
 #: libraries/classes/Plugins/Import/ImportCsv.php:160
-#, fuzzy
-#| msgid "Columns terminated by"
 msgid "Columns terminated with"
 msgstr "Kolonner avsluttet med"
 
 #: libraries/classes/Config/Descriptions.php:193
 #: libraries/classes/Config/Descriptions.php:394
 #: libraries/classes/Plugins/Import/ImportCsv.php:195
-#, fuzzy
-#| msgid "Lines terminated by"
 msgid "Lines terminated with"
-msgstr "Linker avsluttet med"
+msgstr "Linjer avsluttet med"
 
 #: libraries/classes/Config/Descriptions.php:195
 msgid "Excel edition"
@@ -4170,8 +3972,6 @@ msgstr "MIME-type"
 #: libraries/classes/Config/Descriptions.php:213
 #: libraries/classes/Config/Descriptions.php:225
 #: libraries/classes/Config/Descriptions.php:263
-#, fuzzy
-#| msgid "Relations"
 msgid "Relationships"
 msgstr "Relasjoner"
 
@@ -4192,10 +3992,8 @@ msgid "Overwrite existing file(s)"
 msgstr "Skriv over eksisterende filer"
 
 #: libraries/classes/Config/Descriptions.php:229
-#, fuzzy
-#| msgid "horizontal (rotated headers)"
 msgid "Export as separate files"
-msgstr "horisontal (roterte overskrifter)"
+msgstr "Eksporter som separate filer"
 
 #: libraries/classes/Config/Descriptions.php:232
 msgid "Remember file name template"
@@ -4235,10 +4033,8 @@ msgid "Export views as tables"
 msgstr "Eksporter views som tabeller"
 
 #: libraries/classes/Config/Descriptions.php:240
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr "Mangler phpMyAdmin konfigurasjonslagertabeller"
+msgstr "Eksporter relatert metadata fra phpMyAdmin konfigurasjonslagring"
 
 #: libraries/classes/Config/Descriptions.php:241
 #: libraries/classes/Config/Descriptions.php:242
@@ -4261,6 +4057,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"Legg til HVIS IKKE EKSISTERER (mindre effektiv som indekser vil bli generert "
+"under tabellopprettelse)"
 
 #: libraries/classes/Config/Descriptions.php:255
 #: libraries/classes/Plugins/Export/ExportSql.php:317
@@ -4301,26 +4099,20 @@ msgid "Export time in UTC"
 msgstr "Eksport tid i UTC"
 
 #: libraries/classes/Config/Descriptions.php:272
-#, fuzzy
-#| msgid ""
-#| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
-#| "the referenced data, [kbd]id[/kbd] is the key value"
 msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
 "Sorteringsrekkefølge for elementer i en fremmednøkkel nedfallsboks; "
-"[kbd]content[/kbd] for refererte data, [kbd]id[/kbd] for nøkkelverdien"
+"[kbd]content[/kbd] for refererte data, [kbd]id[/kbd] for nøkkelverdien."
 
 #: libraries/classes/Config/Descriptions.php:275
 msgid "Foreign key dropdown order"
 msgstr "Fremmednøkkelrekkefølge"
 
 #: libraries/classes/Config/Descriptions.php:276
-#, fuzzy
-#| msgid "A dropdown will be used if fewer items are present"
 msgid "A dropdown will be used if fewer items are present."
-msgstr "En nedfallsboks vil bli brukt hvis færre elementer er tilstede"
+msgstr "En nedfallsboks vil bli brukt hvis færre elementer er tilstede."
 
 #: libraries/classes/Config/Descriptions.php:277
 msgid "Foreign key limit"
@@ -4331,10 +4123,8 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:279
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
-msgstr "Kontroll av fremmednøkler:"
+msgstr "Kontroll av fremmednøkler"
 
 #: libraries/classes/Config/Descriptions.php:280
 msgid "Browse mode"
@@ -4352,10 +4142,8 @@ msgstr "Endre visningsmodus"
 #: libraries/classes/Config/Descriptions.php:312
 #: libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Config/Descriptions.php:351
-#, fuzzy
-#| msgid "Customize default options"
 msgid "Customize default options."
-msgstr "Tilpass standardinstillinger"
+msgstr "Tilpass standardinstillinger."
 
 #: libraries/classes/Config/Descriptions.php:284
 #: libraries/classes/Config/Forms/User/ExportForm.php:87
@@ -4368,60 +4156,48 @@ msgid "Developer"
 msgstr "Utvikler"
 
 #: libraries/classes/Config/Descriptions.php:287
-#, fuzzy
-#| msgid "Settings for phpMyAdmin developers"
 msgid "Settings for phpMyAdmin developers."
-msgstr "Instillinger for phpMyAdmin utviklere"
+msgstr "Instillinger for phpMyAdmin utviklere."
 
 #: libraries/classes/Config/Descriptions.php:288
 msgid "Edit mode"
 msgstr "Redigeringsmodus"
 
 #: libraries/classes/Config/Descriptions.php:289
-#, fuzzy
-#| msgid "Customize edit mode"
 msgid "Customize edit mode."
-msgstr "Endre redigeringsmodus"
+msgstr "Endre redigeringsmodus."
 
 #: libraries/classes/Config/Descriptions.php:290
 msgid "Export defaults"
 msgstr "Eksportinnstillinger"
 
 #: libraries/classes/Config/Descriptions.php:291
-#, fuzzy
-#| msgid "Customize default export options"
 msgid "Customize default export options."
-msgstr "Endre standard eksportinnstillinger"
+msgstr "Endre standard eksportinnstillinger."
 
 #: libraries/classes/Config/Descriptions.php:292
 msgid "General"
 msgstr "Generell"
 
 #: libraries/classes/Config/Descriptions.php:293
-#, fuzzy
-#| msgid "Set some commonly used options"
 msgid "Set some commonly used options."
-msgstr "Angi noen vanlig brukte alternativer"
+msgstr "Angi noen vanlig brukte alternativer."
 
 #: libraries/classes/Config/Descriptions.php:294
 msgid "Import defaults"
 msgstr "Importinnstillinger"
 
 #: libraries/classes/Config/Descriptions.php:295
-#, fuzzy
-#| msgid "Customize default common import options"
 msgid "Customize default common import options."
-msgstr "Endre standard importinnstillinger"
+msgstr "Endre standard importinnstillinger."
 
 #: libraries/classes/Config/Descriptions.php:296
 msgid "Import / export"
 msgstr "Import / eksport"
 
 #: libraries/classes/Config/Descriptions.php:297
-#, fuzzy
-#| msgid "Set import and export directories and compression options"
 msgid "Set import and export directories and compression options."
-msgstr "Set import and eksport mapper og komprimeringsinnstillinger"
+msgstr "Set import and eksport mapper og komprimeringsinnstillinger."
 
 #: libraries/classes/Config/Descriptions.php:298
 msgid "LaTeX"
@@ -4436,10 +4212,8 @@ msgid "Databases"
 msgstr "Databaser"
 
 #: libraries/classes/Config/Descriptions.php:301
-#, fuzzy
-#| msgid "Databases display options"
 msgid "Databases display options."
-msgstr "Databasevisningsinnstillinger"
+msgstr "Databasevisningsinnstillinger."
 
 #: libraries/classes/Config/Descriptions.php:302
 #: libraries/classes/Config/Forms/User/NaviForm.php:72
@@ -4447,22 +4221,16 @@ msgid "Navigation panel"
 msgstr "Navigasjonspanel"
 
 #: libraries/classes/Config/Descriptions.php:303
-#, fuzzy
-#| msgid "Customize appearance of the navigation frame"
 msgid "Customize appearance of the navigation panel."
-msgstr "Endre utseendet til navigasjonsrammen"
+msgstr "Endre utseendet til navigasjonsrammen."
 
 #: libraries/classes/Config/Descriptions.php:304
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation tree"
 msgstr "Navigasjonspanel"
 
 #: libraries/classes/Config/Descriptions.php:305
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
-msgstr "Tilpasse navigasjonspanelet"
+msgstr "Tilpasse navigasjonspanelet."
 
 #: libraries/classes/Config/Descriptions.php:306
 #: libraries/classes/Server/Select.php:59 setup/frames/index.inc.php:130
@@ -4470,16 +4238,12 @@ msgid "Servers"
 msgstr "Tjenere"
 
 #: libraries/classes/Config/Descriptions.php:307
-#, fuzzy
-#| msgid "Servers display options"
 msgid "Servers display options."
-msgstr "Tjenervisningsinnstillinger"
+msgstr "Tjenervisningsinnstillinger."
 
 #: libraries/classes/Config/Descriptions.php:309
-#, fuzzy
-#| msgid "Tables display options"
 msgid "Tables display options."
-msgstr "Tabellvisningsinnstillinger"
+msgstr "Tabellvisningsinnstillinger."
 
 #: libraries/classes/Config/Descriptions.php:310
 #: libraries/classes/Config/Forms/User/MainForm.php:96
@@ -4495,10 +4259,8 @@ msgid "Other core settings"
 msgstr "Andre hovedinnstillinger"
 
 #: libraries/classes/Config/Descriptions.php:316
-#, fuzzy
-#| msgid "Settings that didn't fit anywhere else"
 msgid "Settings that didn't fit anywhere else."
-msgstr "Innstillinger som ikke passer andre steder"
+msgstr "Innstillinger som ikke passer andre steder."
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "Page titles"
@@ -4523,16 +4285,12 @@ msgid "Security"
 msgstr "Sikkerhet"
 
 #: libraries/classes/Config/Descriptions.php:325
-#, fuzzy
-#| msgid ""
-#| "Please note that phpMyAdmin is just a user interface and its features do "
-#| "not limit MySQL"
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
-"Merk at phpMyAdmin er bare et brukergrensesnitt og dens egenskaper begrenser "
-"ikke MySQL"
+"Merk at phpMyAdmin bare er et brukergrensesnitt og dens egenskaper begrenser "
+"ikke MySQL."
 
 #: libraries/classes/Config/Descriptions.php:328
 msgid "Basic settings"
@@ -4553,22 +4311,16 @@ msgid "Server configuration"
 msgstr "Tjenerinnstillinger"
 
 #: libraries/classes/Config/Descriptions.php:333
-#, fuzzy
-#| msgid ""
-#| "Advanced server configuration, do not change these options unless you "
-#| "know what they are for"
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for."
 msgstr ""
 "Avanserte tjenerinnstillinger, ikke endre disse hvis du ikke vet hva de er "
-"for"
+"for."
 
 #: libraries/classes/Config/Descriptions.php:336
-#, fuzzy
-#| msgid "Enter server connection parameters"
 msgid "Enter server connection parameters."
-msgstr "Legg til tjenertilkoblingsparametre"
+msgstr "Legg til tjenertilkoblingsparametre."
 
 #: libraries/classes/Config/Descriptions.php:337
 msgid "Configuration storage"
@@ -4617,10 +4369,8 @@ msgid "SQL Query box"
 msgstr "SQL spørringsboks"
 
 #: libraries/classes/Config/Descriptions.php:350
-#, fuzzy
-#| msgid "Customize links shown in SQL Query boxes"
 msgid "Customize links shown in SQL Query boxes."
-msgstr "Endre linker vist i SQL spørringsbokser"
+msgstr "Endre lenker vist i SQL spørringsbokser."
 
 #: libraries/classes/Config/Descriptions.php:352
 #: libraries/classes/Config/Forms/User/SqlForm.php:52
@@ -4628,20 +4378,16 @@ msgid "SQL queries"
 msgstr "SQL spørringer"
 
 #: libraries/classes/Config/Descriptions.php:353
-#, fuzzy
-#| msgid "SQL queries settings"
 msgid "SQL queries settings."
-msgstr "SQL søkeinnstilinger"
+msgstr "SQL søkeinnstilinger."
 
 #: libraries/classes/Config/Descriptions.php:354
 msgid "Startup"
 msgstr "Oppstart"
 
 #: libraries/classes/Config/Descriptions.php:355
-#, fuzzy
-#| msgid "Customize startup page"
 msgid "Customize startup page."
-msgstr "Endre oppstartssiden"
+msgstr "Endre oppstartssiden."
 
 #: libraries/classes/Config/Descriptions.php:356
 msgid "Database structure"
