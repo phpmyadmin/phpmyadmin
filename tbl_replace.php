@@ -224,28 +224,29 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $filename = 'libraries/classes/Plugins/Transformations/'
                 . $mime_map[$column_name]['input_transformation'];
             if (is_file($filename)) {
-                include_once $filename;
                 $classname = Transformations::getClassName($filename);
-                /** @var IOTransformationsPlugin $transformation_plugin */
-                $transformation_plugin = new $classname();
-                $transformation_options = Transformations::getOptions(
-                    $mime_map[$column_name]['input_transformation_options']
-                );
-                $current_value = $transformation_plugin->applyTransformation(
-                    $current_value, $transformation_options
-                );
-                // check if transformation was successful or not
-                // and accordingly set error messages & insert_fail
-                if (method_exists($transformation_plugin, 'isSuccess')
-                    && !$transformation_plugin->isSuccess()
-                ) {
-                    $insert_fail = true;
-                    $row_skipped = true;
-                    $insert_errors[] = sprintf(
-                        __('Row: %1$s, Column: %2$s, Error: %3$s'),
-                        $rownumber, $column_name,
-                        $transformation_plugin->getError()
+                if (class_exists($classname)) {
+                    /** @var IOTransformationsPlugin $transformation_plugin */
+                    $transformation_plugin = new $classname();
+                    $transformation_options = Transformations::getOptions(
+                        $mime_map[$column_name]['input_transformation_options']
                     );
+                    $current_value = $transformation_plugin->applyTransformation(
+                        $current_value, $transformation_options
+                    );
+                    // check if transformation was successful or not
+                    // and accordingly set error messages & insert_fail
+                    if (method_exists($transformation_plugin, 'isSuccess')
+                        && !$transformation_plugin->isSuccess()
+                    ) {
+                        $insert_fail = true;
+                        $row_skipped = true;
+                        $insert_errors[] = sprintf(
+                            __('Row: %1$s, Column: %2$s, Error: %3$s'),
+                            $rownumber, $column_name,
+                            $transformation_plugin->getError()
+                        );
+                    }
                 }
             }
         }
