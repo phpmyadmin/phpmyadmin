@@ -151,14 +151,16 @@ class Designer
         $display_page
     ) {
         $cfgRelation = $this->relation->getRelationsParam();
+        $designerConfig = new \stdClass();
+        $designerConfig->db = $_GET['db'];
+        $designerConfig->scriptTables = $script_tables;
+        $designerConfig->scriptContr = $script_contr;
+        $designerConfig->server = $GLOBALS['server'];
+        $designerConfig->scriptDisplayField = $script_display_field;
+        $designerConfig->displayPage = $display_page;
+        $designerConfig->tablesEnabled = $cfgRelation['pdfwork'];
         return Template::get('database/designer/js_fields')->render([
-            'server' => $GLOBALS['server'],
-            'db' => $_GET['db'],
-            'script_tables' => json_encode($script_tables),
-            'script_contr' => json_encode($script_contr),
-            'script_display_field' => json_encode($script_display_field),
-            'display_page' => $display_page,
-            'relation_pdfwork' => $cfgRelation['pdfwork'],
+            'designer_config' => json_encode($designerConfig)
         ]);
     }
 
