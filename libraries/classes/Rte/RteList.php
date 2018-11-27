@@ -296,7 +296,7 @@ class RteList
             $routine['type'],
             $routine['name']
         );
-        if ($definition !== false) {
+        if ($definition !== null) {
             $parser = new Parser($definition);
 
             /**

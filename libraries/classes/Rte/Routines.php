@@ -671,7 +671,7 @@ class Routines
                 $routine['SPECIFIC_NAME']
             );
 
-        if ($definition == null) {
+        if ($definition === null) {
             return false;
         }
 

@@ -359,7 +359,7 @@ class Operations
                     'PROCEDURE',
                     $procedure_name
                 );
-                if ($tmp_query !== false) {
+                if ($tmp_query !== null) {
                     // collect for later display
                     $GLOBALS['sql_query'] .= "\n" . $tmp_query;
                     $this->dbi->selectDb($_REQUEST['newname']);
@@ -377,7 +377,7 @@ class Operations
                     'FUNCTION',
                     $function_name
                 );
-                if ($tmp_query !== false) {
+                if ($tmp_query !== null) {
                     // collect for later display
                     $GLOBALS['sql_query'] .= "\n" . $tmp_query;
                     $this->dbi->selectDb($_REQUEST['newname']);
