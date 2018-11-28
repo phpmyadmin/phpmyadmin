@@ -16,9 +16,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Util;
 
-/**
- *
- */
 require_once 'libraries/common.inc.php';
 
 /**

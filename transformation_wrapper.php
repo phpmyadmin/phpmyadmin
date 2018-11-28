@@ -12,9 +12,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 
-/**
- *
- */
 define('IS_TRANSFORMATION_WRAPPER', true);
 
 /**

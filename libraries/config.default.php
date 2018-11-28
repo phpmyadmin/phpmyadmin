@@ -2894,9 +2894,6 @@ $cfg['ThemeDefault'] = 'pmahomme';
  */
 $cfg['ThemePerServer'] = false;
 
-/*******************************************************************************
- *
- */
 
 /**
  * Default query for table

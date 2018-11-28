@@ -11,9 +11,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- *
- */
 $GLOBALS['information_schema_relations'] = [
     'CHARACTER_SETS' => [
         'DEFAULT_COLLATE_NAME' => [

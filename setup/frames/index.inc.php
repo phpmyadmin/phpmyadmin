@@ -30,24 +30,18 @@ $cf = $GLOBALS['ConfigFile'];
 // message handling
 SetupIndex::messagesBegin();
 
-//
 // Check phpMyAdmin version
-//
 if (isset($_GET['version_check'])) {
     SetupIndex::versionCheck();
 }
 
-//
 // Perform various security, compatibility and consistency checks
-//
 $configChecker = new ServerConfigChecks($GLOBALS['ConfigFile']);
 $configChecker->performConfigChecks();
 
 $formDisplayTemplate = new FormDisplayTemplate($GLOBALS['PMA_Config']);
 
-//
 // Https connection warning (check done on the client side)
-//
 $text = __(
     'You are not using a secure connection; all data (including potentially '
     . 'sensitive information, like passwords) is transferred unencrypted!'
@@ -130,9 +124,7 @@ echo '<fieldset class="simple"><legend>';
 echo __('Servers');
 echo '</legend>';
 
-//
 // Display server list
-//
 echo $formDisplayTemplate->displayFormTop(
     'index.php',
     'get',
@@ -196,9 +188,7 @@ echo '</fieldset>';
 
 echo '<fieldset class="simple"><legend>' , __('Configuration file') , '</legend>';
 
-//
 // Display config file settings and load/save form
-//
 $form_display = new FormDisplay($cf);
 
 echo $formDisplayTemplate->displayFormTop('config.php');

@@ -12,9 +12,6 @@ use PhpMyAdmin\Display\Export;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 
-/**
- *
- */
 require_once 'libraries/common.inc.php';
 
 PageSettings::showGroup('Export');

@@ -10,9 +10,6 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Display\Import;
 use PhpMyAdmin\Response;
 
-/**
- *
- */
 require_once 'libraries/common.inc.php';
 
 PageSettings::showGroup('Import');

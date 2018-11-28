@@ -11,9 +11,6 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlQueryForm;
 
-/**
- *
- */
 require_once 'libraries/common.inc.php';
 
 PageSettings::showGroup('Sql');

@@ -20,9 +20,6 @@ require 'libraries/common.inc.php';
 $response = Response::getInstance();
 $response->disable();
 
-/**
- *
- */
 header('Content-type: text/plain; charset=utf-8');
 
 $filename = LICENSE_FILE;

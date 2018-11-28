@@ -64,10 +64,8 @@ class ServerConfigChecks
             $blowfishSecret
         );
 
-        //
         // $cfg['AllowArbitraryServer']
         // should be disabled
-        //
         if ($this->cfg->getValue('AllowArbitraryServer')) {
             $sAllowArbitraryServerWarn = sprintf(
                 __(
@@ -101,10 +99,8 @@ class ServerConfigChecks
             . 'your server.'
         );
 
-        //
         // $cfg['SaveDir']
         // should not be world-accessible
-        //
         if ($this->cfg->getValue('SaveDir') != '') {
             SetupIndex::messagesSet(
                 'notice',
@@ -114,10 +110,8 @@ class ServerConfigChecks
             );
         }
 
-        //
         // $cfg['TempDir']
         // should not be world-accessible
-        //
         if ($this->cfg->getValue('TempDir') != '') {
             SetupIndex::messagesSet(
                 'notice',
@@ -162,10 +156,8 @@ class ServerConfigChecks
                     $blowfishSecretSet
                 );
 
-            //
             // $cfg['Servers'][$i]['ssl']
             // should be enabled if possible
-            //
             if (!$this->cfg->getValue("Servers/$i/ssl")) {
                 $title = Descriptions::get('Servers/1/ssl') . " ($serverName)";
                 SetupIndex::messagesSet(
@@ -191,10 +183,8 @@ class ServerConfigChecks
                 '[/a]'
             ));
 
-            //
             // $cfg['Servers'][$i]['auth_type']
             // warn about full user credentials if 'auth_type' is 'config'
-            //
             if ($this->cfg->getValue("Servers/$i/auth_type") == 'config'
                 && $this->cfg->getValue("Servers/$i/user") != ''
                 && $this->cfg->getValue("Servers/$i/password") != ''
@@ -220,11 +210,9 @@ class ServerConfigChecks
                 );
             }
 
-            //
             // $cfg['Servers'][$i]['AllowRoot']
             // $cfg['Servers'][$i]['AllowNoPassword']
             // serious security flaw
-            //
             if ($this->cfg->getValue("Servers/$i/AllowRoot")
                 && $this->cfg->getValue("Servers/$i/AllowNoPassword")
             ) {
@@ -301,10 +289,8 @@ class ServerConfigChecks
      */
     protected function performConfigChecksServersZipdump()
     {
-        //
         // $cfg['ZipDump']
         // requires zip_open in import
-        //
         if ($this->cfg->getValue('ZipDump') && !$this->functionExists('zip_open')) {
             SetupIndex::messagesSet(
                 'error',
@@ -322,10 +308,8 @@ class ServerConfigChecks
             );
         }
 
-        //
         // $cfg['ZipDump']
         // requires gzcompress in export
-        //
         if ($this->cfg->getValue('ZipDump') && !$this->functionExists('gzcompress')) {
             SetupIndex::messagesSet(
                 'error',
@@ -358,10 +342,8 @@ class ServerConfigChecks
         $blowfishSecretSet,
         $blowfishSecret
     ) {
-        //
         // $cfg['blowfish_secret']
         // it's required for 'cookie' authentication
-        //
         if ($cookieAuthUsed) {
             if ($blowfishSecretSet) {
                 // 'cookie' auth used, blowfish_secret was generated
@@ -416,7 +398,6 @@ class ServerConfigChecks
      */
     protected function performConfigChecksLoginCookie()
     {
-        //
         // $cfg['LoginCookieValidity']
         // value greater than session.gc_maxlifetime will cause
         // random session invalidation after that time
@@ -442,10 +423,8 @@ class ServerConfigChecks
             );
         }
 
-        //
         // $cfg['LoginCookieValidity']
         // should be at most 1800 (30 min)
-        //
         if ($loginCookieValidity > 1800) {
             SetupIndex::messagesSet(
                 'notice',
@@ -463,11 +442,9 @@ class ServerConfigChecks
             );
         }
 
-        //
         // $cfg['LoginCookieValidity']
         // $cfg['LoginCookieStore']
         // LoginCookieValidity must be less or equal to LoginCookieStore
-        //
         if (($this->cfg->getValue('LoginCookieStore') != 0)
             && ($loginCookieValidity > $this->cfg->getValue('LoginCookieStore'))
         ) {
@@ -497,10 +474,8 @@ class ServerConfigChecks
      */
     protected function performConfigChecksServerBZipdump()
     {
-        //
         // $cfg['BZipDump']
         // requires bzip2 functions
-        //
         if ($this->cfg->getValue('BZipDump')
             && (!$this->functionExists('bzopen') || !$this->functionExists('bzcompress'))
         ) {
@@ -536,10 +511,8 @@ class ServerConfigChecks
      */
     protected function performConfigChecksServerGZipdump()
     {
-        //
         // $cfg['GZipDump']
         // requires zlib functions
-        //
         if ($this->cfg->getValue('GZipDump')
             && (!$this->functionExists('gzopen') || !$this->functionExists('gzencode'))
         ) {

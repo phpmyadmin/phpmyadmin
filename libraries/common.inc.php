@@ -105,12 +105,10 @@ Core::checkExtensions();
  */
 Core::configure();
 
-/******************************************************************************/
 /* start procedural code                       label_start_procedural         */
 
 Core::cleanupPathInfo();
 
-/******************************************************************************/
 /* parsing configuration file                  LABEL_parsing_config_file      */
 
 /**
@@ -247,7 +245,6 @@ if (Core::isValid($_POST['sql_query'])) {
 //$_REQUEST['server']; // checked later in this file
 //$_REQUEST['lang'];   // checked by LABEL_loading_language_file
 
-/******************************************************************************/
 /* loading language file                       LABEL_loading_language_file    */
 
 /**
@@ -269,7 +266,6 @@ Core::checkConfiguration();
 /* Check request for possible attacks */
 Core::checkRequest();
 
-/******************************************************************************/
 /* setup servers                                       LABEL_setup_servers    */
 
 $GLOBALS['PMA_Config']->checkServers();
@@ -287,7 +283,6 @@ $GLOBALS['url_params']['server'] = $GLOBALS['server'];
  */
 $GLOBALS['PMA_Config']->enableBc();
 
-/******************************************************************************/
 /* setup themes                                          LABEL_theme_setup    */
 
 ThemeManager::initializeTheme();

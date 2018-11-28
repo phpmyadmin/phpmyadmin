@@ -15,9 +15,6 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
-/**
- *
- */
 require_once './libraries/common.inc.php';
 
 $pma_table = new Table($GLOBALS['table'], $GLOBALS['db']);

@@ -11,9 +11,6 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 
-/**
- *
- */
 require_once 'libraries/common.inc.php';
 
 if (isset($_REQUEST['submit_mult'])) {

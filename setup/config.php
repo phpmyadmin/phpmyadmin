@@ -28,25 +28,19 @@ if (isset($_POST['eol'])) {
 }
 
 if (Core::ifSetOr($_POST['submit_clear'], '')) {
-    //
     // Clear current config and return to main page
-    //
     $GLOBALS['ConfigFile']->resetConfigData();
     // drop post data
     $response->generateHeader303('index.php' . Url::getCommonRaw());
     exit;
 } elseif (Core::ifSetOr($_POST['submit_download'], '')) {
-    //
     // Output generated config file
-    //
     Core::downloadHeader('config.inc.php', 'text/plain');
     $response->disable();
     echo ConfigGenerator::getConfigFile($GLOBALS['ConfigFile']);
     exit;
 } else {
-    //
     // Show generated config file in a <textarea>
-    //
     $response->generateHeader303('index.php' . Url::getCommonRaw(['page' => 'config']));
     exit;
 }

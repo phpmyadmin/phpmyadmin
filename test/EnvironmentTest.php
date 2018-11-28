@@ -11,9 +11,6 @@ namespace PhpMyAdmin\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-/**
- *
- */
 require_once 'config.sample.inc.php';
 
 /**
