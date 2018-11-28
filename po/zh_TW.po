@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-11-10 23:15+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauriciofauth@gmail.com>\n"
+"PO-Revision-Date: 2018-11-28 11:12+0000\n"
+"Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -301,11 +301,8 @@ msgid "The database name is empty!"
 msgstr "請填寫資料庫名稱！"
 
 #: db_operations.php:73
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "無法修改資料庫為相同名稱。改變名稱後再試"
+msgstr "無法複製為相同名稱的資料庫。改變名稱後再試。"
 
 #: db_operations.php:164
 #, php-format
@@ -328,21 +325,17 @@ msgid "You have to choose at least one column to display!"
 msgstr "您必須至少選擇一個要顯示的欄位！"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "模擬查詢"
+msgstr "多表格查詢"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "查詢失敗"
+msgstr "依範例查詢"
 
 #: db_qbe.php:171
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr "切換至 %sVisual Builder%s"
+msgstr "切換至 %svisual builder%s"
 
 #: db_search.php:33 libraries/classes/Plugins/Auth/AuthenticationConfig.php:94
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:109
@@ -481,13 +474,10 @@ msgid "Back"
 msgstr "返回"
 
 #: index.php:149
-#, fuzzy
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
-msgstr ""
-"已經中斷與資料庫的連接。\n"
-"如要完全登出phpMyAdmin，則需要中斷與其他資料庫的連接。"
+msgstr "已經登出一台伺服器；如要完全登出 phpMyAdmin，則需要登出所有伺服器。"
 
 #: index.php:193 libraries/classes/Footer.php:83
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:143
@@ -540,10 +530,8 @@ msgid "Server type:"
 msgstr "伺服器類別:"
 
 #: index.php:338
-#, fuzzy
-#| msgid "Master connection:"
 msgid "Server connection:"
-msgstr "主要(Master)伺服器連線："
+msgstr "伺服器連線："
 
 #: index.php:342 libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:729
@@ -1403,22 +1391,16 @@ msgid "Chart"
 msgstr "圖表"
 
 #: js/messages.php:297 libraries/classes/Display/Export.php:587
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "資料庫"
 
 #: js/messages.php:298 libraries/classes/Display/Export.php:599
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "資料表"
 
 #: js/messages.php:299 libraries/classes/Display/Export.php:610
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "欄位"
@@ -1504,16 +1486,12 @@ msgid "Please select the file you want to import."
 msgstr "請選擇您欲匯入的檔案。"
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "請輸入一個有效的頁面名稱"
+msgstr "請輸入有效的資料表名稱。"
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "請輸入一個有效的頁面名稱"
+msgstr "請輸入有效的資料庫名稱。"
 
 #: js/messages.php:336
 msgid "No files available on server for import!"
@@ -1673,10 +1651,8 @@ msgid "No databases selected."
 msgstr "尚未選擇任何資料庫。"
 
 #: js/messages.php:376
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
-msgstr "尚未選擇欄位。"
+msgstr "尚未選擇帳號。"
 
 #: js/messages.php:377
 msgid "Dropping column"
@@ -2205,10 +2181,8 @@ msgstr ""
 
 #: js/messages.php:568 templates/database/designer/main.twig:42
 #: templates/database/designer/main.twig:45
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "資料庫中沒有任何資料表。"
+msgstr "從其他資料庫加入資料表"
 
 #: js/messages.php:569
 msgid "Page name"
@@ -2934,10 +2908,9 @@ msgid "Error"
 msgstr "錯誤"
 
 #: libraries/classes/Advisor.php:257
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "在產生 PDF 檔案時發生錯誤:"
+msgstr "評估此項目時發生錯誤：%s"
 
 #: libraries/classes/Advisor.php:288
 #, php-format
@@ -3123,8 +3096,6 @@ msgid "Charset"
 msgstr "字元編碼"
 
 #: libraries/classes/Charsets.php:312
-#, fuzzy
-#| msgid "unknown"
 msgid "Unknown"
 msgstr "未知"
 
@@ -3134,8 +3105,6 @@ msgid "Binary"
 msgstr "二進制碼"
 
 #: libraries/classes/Charsets.php:338 libraries/classes/Charsets.php:568
-#, fuzzy
-#| msgid "Unicode"
 msgctxt "Collation"
 msgid "Unicode"
 msgstr "Unicode"
@@ -3151,8 +3120,6 @@ msgid "Central European"
 msgstr "中歐語系"
 
 #: libraries/classes/Charsets.php:360
-#, fuzzy
-#| msgid "Russian"
 msgctxt "Collation"
 msgid "Russian"
 msgstr "俄語"
@@ -3163,22 +3130,16 @@ msgid "Simplified Chinese"
 msgstr "簡體中文"
 
 #: libraries/classes/Charsets.php:372 libraries/classes/Charsets.php:490
-#, fuzzy
-#| msgid "Japanese"
 msgctxt "Collation"
 msgid "Japanese"
 msgstr "日語"
 
 #: libraries/classes/Charsets.php:377
-#, fuzzy
-#| msgid "Baltic"
 msgctxt "Collation"
 msgid "Baltic"
-msgstr "巴拉克語"
+msgstr "波羅的海語系"
 
 #: libraries/classes/Charsets.php:382
-#, fuzzy
-#| msgid "Armenian"
 msgctxt "Collation"
 msgid "Armenian"
 msgstr "亞美尼亞語"
@@ -3189,92 +3150,66 @@ msgid "Traditional Chinese"
 msgstr "繁體中文"
 
 #: libraries/classes/Charsets.php:388
-#, fuzzy
-#| msgid "Cyrillic"
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr "西里爾語"
+msgstr "西里爾語系"
 
 #: libraries/classes/Charsets.php:391
-#, fuzzy
-#| msgid "Arabic"
 msgctxt "Collation"
 msgid "Arabic"
 msgstr "阿拉伯語"
 
 #: libraries/classes/Charsets.php:394 libraries/classes/Charsets.php:505
-#, fuzzy
-#| msgid "Korean"
 msgctxt "Collation"
 msgid "Korean"
-msgstr "朝鮮語"
+msgstr "韓語"
 
 #: libraries/classes/Charsets.php:397
-#, fuzzy
-#| msgid "Hebrew"
 msgctxt "Collation"
 msgid "Hebrew"
 msgstr "希伯來語"
 
 #: libraries/classes/Charsets.php:400
-#, fuzzy
-#| msgid "Georgian"
 msgctxt "Collation"
 msgid "Georgian"
 msgstr "喬治亞語"
 
 #: libraries/classes/Charsets.php:403
-#, fuzzy
-#| msgid "Greek"
 msgctxt "Collation"
 msgid "Greek"
 msgstr "希臘語"
 
 #: libraries/classes/Charsets.php:406
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
 msgstr "捷克斯洛伐克語"
 
 #: libraries/classes/Charsets.php:409 libraries/classes/Charsets.php:560
-#, fuzzy
-#| msgid "Ukrainian"
 msgctxt "Collation"
 msgid "Ukrainian"
 msgstr "烏克蘭語"
 
 #: libraries/classes/Charsets.php:412 libraries/classes/Charsets.php:556
-#, fuzzy
-#| msgid "Turkish"
 msgctxt "Collation"
 msgid "Turkish"
 msgstr "土耳其語"
 
 #: libraries/classes/Charsets.php:415 libraries/classes/Charsets.php:548
-#, fuzzy
-#| msgid "Swedish"
 msgctxt "Collation"
 msgid "Swedish"
 msgstr "瑞典語"
 
 #: libraries/classes/Charsets.php:418 libraries/classes/Charsets.php:552
-#, fuzzy
-#| msgid "Thai"
 msgctxt "Collation"
 msgid "Thai"
 msgstr "泰語"
 
 #: libraries/classes/Charsets.php:421
-#, fuzzy
-#| msgid "unknown"
 msgctxt "Collation"
 msgid "Unknown"
 msgstr "未知"
 
 #: libraries/classes/Charsets.php:437
-#, fuzzy
-#| msgid "Bulgarian"
 msgctxt "Collation"
 msgid "Bulgarian"
 msgstr "保加利亞語"
@@ -3285,53 +3220,39 @@ msgid "Chinese"
 msgstr "中文"
 
 #: libraries/classes/Charsets.php:447
-#, fuzzy
-#| msgid "Croatian"
 msgctxt "Collation"
 msgid "Croatian"
-msgstr "克羅地亞語"
+msgstr "克羅埃西亞語"
 
 #: libraries/classes/Charsets.php:451
-#, fuzzy
-#| msgid "Czech"
 msgctxt "Collation"
 msgid "Czech"
 msgstr "捷克語"
 
 #: libraries/classes/Charsets.php:455
-#, fuzzy
-#| msgid "Danish"
 msgctxt "Collation"
 msgid "Danish"
 msgstr "丹麥語"
 
 #: libraries/classes/Charsets.php:459
-#, fuzzy
-#| msgid "English"
 msgctxt "Collation"
 msgid "English"
 msgstr "英語"
 
 #: libraries/classes/Charsets.php:463
-#, fuzzy
-#| msgid "Esperanto"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "世界語"
 
 #: libraries/classes/Charsets.php:467
-#, fuzzy
-#| msgid "Estonian"
 msgctxt "Collation"
 msgid "Estonian"
 msgstr "愛沙尼亞語"
 
 #: libraries/classes/Charsets.php:470 libraries/classes/Charsets.php:587
-#, fuzzy
-#| msgid "Data dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "資料字典"
+msgstr "德語 (字典排序)"
 
 #: libraries/classes/Charsets.php:473 libraries/classes/Charsets.php:584
 msgctxt "Collation"
@@ -3339,15 +3260,11 @@ msgid "German (phone book order)"
 msgstr ""
 
 #: libraries/classes/Charsets.php:482
-#, fuzzy
-#| msgid "Hungarian"
 msgctxt "Collation"
 msgid "Hungarian"
 msgstr "匈牙利語"
 
 #: libraries/classes/Charsets.php:486
-#, fuzzy
-#| msgid "Icelandic"
 msgctxt "Collation"
 msgid "Icelandic"
 msgstr "冰島語"
@@ -3358,74 +3275,54 @@ msgid "Classical Latin"
 msgstr ""
 
 #: libraries/classes/Charsets.php:497
-#, fuzzy
-#| msgid "Latvian"
 msgctxt "Collation"
 msgid "Latvian"
 msgstr "拉脫維亞語"
 
 #: libraries/classes/Charsets.php:501
-#, fuzzy
-#| msgid "Lithuanian"
 msgctxt "Collation"
 msgid "Lithuanian"
 msgstr "立陶宛語"
 
 #: libraries/classes/Charsets.php:509
-#, fuzzy
-#| msgid "Burmese"
 msgctxt "Collation"
 msgid "Burmese"
 msgstr "緬甸語"
 
 #: libraries/classes/Charsets.php:512
-#, fuzzy
-#| msgid "Persian"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "波斯語"
 
 #: libraries/classes/Charsets.php:516
-#, fuzzy
-#| msgid "Polish"
 msgctxt "Collation"
 msgid "Polish"
 msgstr "波蘭語"
 
 #: libraries/classes/Charsets.php:523
-#, fuzzy
-#| msgid "Romanian"
 msgctxt "Collation"
 msgid "Romanian"
 msgstr "羅馬尼亞語"
 
 #: libraries/classes/Charsets.php:527
-#, fuzzy
-#| msgid "Sinhalese"
 msgctxt "Collation"
 msgid "Sinhalese"
 msgstr "僧伽羅語"
 
 #: libraries/classes/Charsets.php:531
-#, fuzzy
-#| msgid "Slovak"
 msgctxt "Collation"
 msgid "Slovak"
 msgstr "斯洛伐克語"
 
 #: libraries/classes/Charsets.php:535
-#, fuzzy
-#| msgid "Slovenian"
 msgctxt "Collation"
 msgid "Slovenian"
-msgstr "斯洛文尼亞語"
+msgstr "斯洛維尼亞語"
 
 #: libraries/classes/Charsets.php:538 libraries/classes/Charsets.php:598
-#, fuzzy
-#| msgid "Spanish"
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr "西班牙語"
+msgstr "西班牙語 (現代)"
 
 #: libraries/classes/Charsets.php:545 libraries/classes/Charsets.php:595
 msgctxt "Collation"
@@ -3433,50 +3330,36 @@ msgid "Spanish (traditional)"
 msgstr ""
 
 #: libraries/classes/Charsets.php:564
-#, fuzzy
-#| msgid "Vietnamese"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "越南語"
 
 #: libraries/classes/Charsets.php:631
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "case-insensitive"
 msgstr "不區分大小寫"
 
 #: libraries/classes/Charsets.php:634
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "case-sensitive"
 msgstr "區分大小寫"
 
 #: libraries/classes/Charsets.php:637
-#, fuzzy
-#| msgid "case-insensitive"
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr "不區分大小寫"
+msgstr "不區分口音"
 
 #: libraries/classes/Charsets.php:640
-#, fuzzy
-#| msgid "case-sensitive"
 msgctxt "Collation variant"
 msgid "accent-sensitive"
-msgstr "區分大小寫"
+msgstr "區分口音"
 
 #: libraries/classes/Charsets.php:644
-#, fuzzy
-#| msgid "multilingual"
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr "多語言"
+msgstr "多層次"
 
 #: libraries/classes/Charsets.php:647
-#, fuzzy
-#| msgid "Binary"
 msgctxt "Collation variant"
 msgid "binary"
 msgstr "二進位"
@@ -3745,10 +3628,8 @@ msgid "Hide table structure actions"
 msgstr "隱藏資料表結構動作"
 
 #: libraries/classes/Config/Descriptions.php:148
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Hex"
-msgstr "預設排序"
+msgstr "預設十六進位轉換"
 
 #: libraries/classes/Config/Descriptions.php:149
 #: libraries/classes/Config/Descriptions.php:151
@@ -3765,52 +3646,36 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:150
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
-msgstr "輸入轉換選項"
+msgstr "預設子字串轉換"
 
 #: libraries/classes/Config/Descriptions.php:152
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for Bool2Text"
-msgstr "預設排序"
+msgstr "預設 Bool2Text 轉換"
 
 #: libraries/classes/Config/Descriptions.php:154
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for External"
-msgstr "預設排序"
+msgstr "預設外部轉換"
 
 #: libraries/classes/Config/Descriptions.php:156
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
-msgstr "輸入轉換選項"
+msgstr "預設 PreApPend 轉換"
 
 #: libraries/classes/Config/Descriptions.php:158
-#, fuzzy
-#| msgid "Default sorting order"
 msgid "Default transformations for DateFormat"
-msgstr "預設排序"
+msgstr "預設日期格式轉換"
 
 #: libraries/classes/Config/Descriptions.php:160
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
-msgstr "輸入轉換選項"
+msgstr "預設內文(Inline)轉換"
 
 #: libraries/classes/Config/Descriptions.php:162
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
-msgstr "輸入轉換選項"
+msgstr "預設文字圖像連結(TextImageLink)轉換"
 
 #: libraries/classes/Config/Descriptions.php:164
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
-msgstr "輸入轉換選項"
+msgstr "預設文字連結(TextLink)轉換"
 
 #: libraries/classes/Config/Descriptions.php:167
 msgid "Show server listing as a list instead of a drop down."
@@ -4080,10 +3945,9 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "%s 值"
+msgstr "%s 檢視"
 
 #: libraries/classes/Config/Descriptions.php:257
 msgid "Use ignore inserts"
@@ -4716,16 +4580,12 @@ msgid "Show databases navigation as tree"
 msgstr "以樹狀顯示資料庫導覽面版"
 
 #: libraries/classes/Config/Descriptions.php:477
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
-msgstr "導覽面板"
+msgstr "導覽面板寬度"
 
 #: libraries/classes/Config/Descriptions.php:478
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
-msgstr "在導覽面板中顯示圖示。"
+msgstr "設為 0 摺起導覽面板。"
 
 #: libraries/classes/Config/Descriptions.php:479
 msgid "Link with main panel by highlighting the current database or table."
@@ -4876,16 +4736,12 @@ msgid "Whether to show events under database in the navigation tree"
 msgstr "在導覽樹是否於於資料庫底下顯示事件(Event)"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "複製資料庫中"
+msgstr "展開單一資料庫"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "在導覽樹是否於於資料庫底下顯示事件(Event)"
+msgstr "是否於導覽樹自動展開單一資料庫。"
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -5210,18 +5066,13 @@ msgid "Hide databases matching regular expression (PCRE)."
 msgstr "隱藏資料庫名稱符合此正規表示法(PCRE)的項目。"
 
 #: libraries/classes/Config/Descriptions.php:635
-#, fuzzy
-#| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
 msgid ""
 "More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"詳情請參考  [a@https://sourceforge.net/p/phpmyadmin/bugs/2606/]PMA 問題追蹤系"
-"統[/a] 與 [a@https://bugs.mysql.com/19588]MySQL 問題回報[/a]"
+"詳情請參閱 [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin "
+"問題追蹤系統[/a] 與 [a@https://bugs.mysql.com/19588]MySQL 問題回報[/a]"
 
 #: libraries/classes/Config/Descriptions.php:638
 msgid "Disable use of INFORMATION_SCHEMA"
@@ -5988,14 +5839,8 @@ msgid "Show current browsing query"
 msgstr "顯示目前瀏覽的查詢"
 
 #: libraries/classes/Config/Descriptions.php:914
-#, fuzzy
-#| msgid ""
-#| "Execute queries on Enter and insert new line with Shift + Enter. To make "
-#| "this permanent, view settings."
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr ""
-"按 Enter 執行查詢或使用 Shift + Enter 輸入新的一行。要將永久使用此設定設為請"
-"檢視設定項目。"
+msgstr "按 Enter 執行查詢或使用 Shift + Enter 輸入新的一行"
 
 #: libraries/classes/Config/Descriptions.php:915
 #: templates/console/display.twig:168
@@ -6003,16 +5848,12 @@ msgid "Switch to dark theme"
 msgstr "切換為深色主題"
 
 #: libraries/classes/Config/Descriptions.php:916
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
-msgstr "主控台"
+msgstr "主控台高度"
 
 #: libraries/classes/Config/Descriptions.php:917
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
-msgstr "主控台"
+msgstr "主控台模式"
 
 #: libraries/classes/Config/Descriptions.php:918
 #: templates/console/display.twig:64
@@ -6024,10 +5865,8 @@ msgid "Order"
 msgstr "排序"
 
 #: libraries/classes/Config/Descriptions.php:920
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "排序依："
+msgstr "排序依"
 
 #: libraries/classes/Config/FormDisplay.php:107
 #: libraries/classes/Config/Validator.php:530
@@ -6156,10 +5995,8 @@ msgid "CSV using LOAD DATA"
 msgstr "CSV 使用 LOAD DATA"
 
 #: libraries/classes/Config/Forms/User/MainForm.php:41
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
-msgstr "輸入轉換"
+msgstr "預設轉換"
 
 #: libraries/classes/Config/PageSettings.php:143
 msgid "Cannot save settings, submitted configuration form contains errors!"
@@ -6192,30 +6029,17 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr "如果資料庫支援，您應該使用 SSL 連線。"
 
 #: libraries/classes/Config/ServerConfigChecks.php:185
-#, fuzzy
-#| msgid ""
-#| "If you feel this is necessary, use additional protection settings - "
-#| "%shost authentication%s settings and %strusted proxies list%s. However, "
-#| "IP-based protection may not be reliable if your IP belongs to an ISP "
-#| "where thousands of users, including you, are connected to."
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4%s. However, IP-"
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
-"如果您覺得有必要可以使用額外的保護設定 - %s主機認證%s 和 %s可信認代理主機清"
-"單%s。 但以 IP 為基礎的保護方式必須依賴可靠的 IP 位置，若 ISP 所提供的 IP 有"
-"可能與許多人共用則無法保証安全。"
+"如果覺得有必要，可以使用額外的保護設定 - %1$s主機認證%2$s 和 %3$s可信認代理主機清單%4$s。但以 IP 為基礎的保護方式必須依賴可靠的 "
+"IP 位址，若 ISP 所提供的 IP 有可能與許多人共用，則無法保證安全。"
 
 #: libraries/classes/Config/ServerConfigChecks.php:212
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -6223,10 +6047,9 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"您設定了 [kbd]config[/kbd] 認證方式，且爲了能夠自動登入而儲存了帳號和密碼，但"
-"在常用主機上不建議這樣設定。如果有人知道 phpMyAdmin 的網址，他們就能夠進入 "
-"phpMyAdmin 的管理界面。建議將%s認證方式%s設定爲 [kbd]cookie 認證[/kbd]或 "
-"[kbd]HTTP 認證[/kbd]。"
+"您設定了 [kbd]config[/kbd] 認證方式，且爲了能夠自動登入而儲存了帳號和密碼，但在常用主機上不建議這樣設定。如果有人知道 "
+"phpMyAdmin 的網址，他們就能夠進入 phpMyAdmin 的管理界面。建議將%1$s認證方式%2$s設定爲 [kbd]cookie "
+"認證[/kbd]或 [kbd]HTTP 認證[/kbd]。"
 
 #: libraries/classes/Config/ServerConfigChecks.php:239
 msgid "You allow for connecting to the server without a password."
@@ -6264,18 +6087,14 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr "短語密碼應包含字母、數字[em]和[/em]特殊字元。"
 
 #: libraries/classes/Config/ServerConfigChecks.php:434
-#, fuzzy, php-format
-#| msgid ""
-#| "%sLogin cookie validity%s greater than %ssession.gc_maxlifetime%s may "
-#| "cause random session invalidation (currently session.gc_maxlifetime is "
-#| "%d)."
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
-"如果%s登錄 cookie 有效期%s超過 %ssession.gc_maxlifetime%s 的值則可能導致連線"
-"隨機失效 (目前 session.gc_maxlifetime 值為 %d)。"
+"如果%1$s登錄 cookie 有效期%2$s超過 %3$ssession.gc_maxlifetime%4$s 的值，則可能導致連線隨機失效 (目前 "
+"session.gc_maxlifetime 值為 %5$d)。"
 
 #: libraries/classes/Config/ServerConfigChecks.php:458
 #, php-format
@@ -6296,24 +6115,18 @@ msgstr ""
 "cookie 有效期%s的值不能超過前者。"
 
 #: libraries/classes/Config/ServerConfigChecks.php:522
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr "此系統目前不支援 %sBzip2 壓縮和解壓縮%s所必須的 (%s) 函數。"
+msgstr "此系統目前未有提供 %1$sBzip2 壓縮和解壓縮%2$s所必須的 (%3$s) 函式。"
 
 #: libraries/classes/Config/ServerConfigChecks.php:554
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
-msgstr "此系統目前不支援 %sGZip 壓縮和解壓縮%s所必須的 (%s) 函數。"
+msgstr "此系統目前未有提供 %1$sGZip 壓縮和解壓縮%2$s所必須的 (%3$s) 函式。"
 
 #: libraries/classes/Config/Validator.php:216
 #: libraries/classes/Config/Validator.php:223
@@ -6590,10 +6403,9 @@ msgid "The columns have been moved successfully."
 msgstr "欄位已移動成功。"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:540
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "取得實際列數失敗。"
+msgstr "未能取得 %s 欄位的說明！"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:771
 #: libraries/classes/Controllers/Table/TableStructureController.php:1061
@@ -6694,9 +6506,8 @@ msgid "GLOBALS overwrite attempt"
 msgstr "嘗試覆寫 GLOBALS (全域變數)"
 
 #: libraries/classes/Core.php:1304
-#, fuzzy
 msgid "possible exploit"
-msgstr "$_REQUEST 數量過多（駭客？）"
+msgstr "可能被駭"
 
 #: libraries/classes/Database/Designer.php:139
 msgid "Could not load schema plugins, please check your installation!"
@@ -6844,22 +6655,16 @@ msgid "at least one of the words"
 msgstr "至少一個字句"
 
 #: libraries/classes/Database/Search.php:109
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
-msgstr "至少一個字句"
+msgstr "所有字詞"
 
 #: libraries/classes/Database/Search.php:110
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
-msgstr "完全相同"
+msgstr "與子字串完全相同"
 
 #: libraries/classes/Database/Search.php:111
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
-msgstr "完全相同"
+msgstr "與整個欄位完全相同"
 
 #: libraries/classes/Database/Search.php:112
 msgid "as regular expression"
@@ -6871,19 +6676,15 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "每個單詞用空格「 」分隔。"
 
 #: libraries/classes/DatabaseInterface.php:1529
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
-"無法於伺服器 %2$d 使用時區 %1$s。請檢查您於設定檔的 [em]$cfg['Servers'][%3$d]"
-"['SessionTimeZone'][/em] 設定。phpMyAdmin 目前使用資料庫伺服器的預設時區。"
+"無法於伺服器 \"%2$d\" 使用時區 %1$s。請檢查您於設定檔的 "
+"[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em] 設定。phpMyAdmin "
+"目前使用資料庫伺服器的預設時區。"
 
 #: libraries/classes/DatabaseInterface.php:1578
 msgid "Failed to set configured collation connection!"
@@ -8615,16 +8416,12 @@ msgid "Switch to copied database"
 msgstr "切換到複製的資料庫"
 
 #: libraries/classes/Operations.php:332
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables collations"
-msgstr "更改所有欄位編碼與排序"
+msgstr "更改所有資料表的編碼與排序"
 
 #: libraries/classes/Operations.php:338
-#, fuzzy
-#| msgid "Change all column collations"
 msgid "Change all tables columns collations"
-msgstr "更改所有欄位編碼與排序"
+msgstr "更改所有資料表欄位的編碼與排序"
 
 #: libraries/classes/Operations.php:836
 msgid "Alter table order by"
@@ -8871,10 +8668,8 @@ msgid "Server Choice:"
 msgstr "選擇伺服器："
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:352
-#, fuzzy
-#| msgid "Could not connect to the database server!"
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr "無法連線到資料庫！"
+msgstr "無法連接 reCAPTCHA 服務！"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:354
 msgid "Entered captcha is wrong, try again!"
@@ -9464,10 +9259,8 @@ msgstr ""
 "用半角逗號分隔且不能用引號括起。"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "欄位名稱: "
+msgstr "欄位名稱："
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173
@@ -9707,18 +9500,6 @@ msgstr ""
 "必須留空。"
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:30
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/plugins/transformations/output/"
-#| "Text_Plain_External.php and list the tools you want to make available. "
-#| "The first option is then the number of the program you want to use and "
-#| "the second option is the parameters for the program. The third option, if "
-#| "set to 1, will convert the output using htmlspecialchars() (Default 1). "
-#| "The fourth option, if set to 1, will prevent wrapping and ensure that the "
-#| "output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -9731,12 +9512,10 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"僅 LINUX 可用: 執行外部的應用程並透過標準輸入提供欄位資料。 並以標準輸出回傳"
-"應用程式的結果。 預設使用 Tidy，用來格式化 HTML 程式碼。 為了安全起見，您須要"
-"手動編輯檔案 libraries/plugins/transformations/output/Text_Plain_External."
-"php 並且列出您要使用的工具。 第一個選項是您欲使用的程式項次，第二個選是是該程"
-"式的參數。第三個選項若設為 1 將會使用 htmlspecialchars() 轉換輸出結果 (預設"
-"為 1)。第四個選項若設為 1 將會避免自動換行並確保輸出結果以一行顯示 (預設為 "
+"僅對 LINUX 有效：執行外部的應用程並透過標準輸入提供欄位資料。 並以標準輸出回傳應用程式的結果。 預設使用 Tidy，用來格式化 HTML 程式碼。"
+" 為了安全起見，您須要手動編輯檔案 libraries/classes/Plugins/Transformations/Output/"
+"Text_Plain_External.php 並且列出您要使用的工具。 第一個選項是您欲使用的程式項次，第二個選是是該程式的參數。第三個選項若設為 1 "
+"將會使用 htmlspecialchars() 轉換輸出結果 (預設為 1)。第四個選項若設為 1 將會避免自動換行並確保輸出結果以一行顯示 (預設為 "
 "1)。"
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:30
@@ -9875,10 +9654,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "將文字以 XML 語法醒目提示顯示。"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:141
-#, fuzzy
-#| msgid "Authentication Plugin"
 msgid "Authentication Application (2FA)"
-msgstr "認證外掛程式"
+msgstr "認證應用程式 (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:151
 msgid ""
@@ -9896,26 +9673,21 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:56
-#, fuzzy
-#| msgid "Signon authentication"
 msgid "Simple two-factor authentication"
-msgstr "Signon 認證"
+msgstr "簡易雙因素認證"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:66
 msgid "For testing purposes only!"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:81
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "硬體身份驗證失敗！"
+msgstr "雙因素認證失敗：%s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:85
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "硬體身份驗證失敗！"
+msgstr "雙因素認證失敗。"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
 msgid "No Two-Factor"
@@ -12828,10 +12600,9 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "建立外鍵 %1$s 時發生錯誤 (檢查資料類型)"
 
 #: libraries/classes/Template.php:108
-#, fuzzy, php-format
-#| msgid "Error while loading the search."
+#, php-format
 msgid "Error while working with template cache: %s"
-msgstr "載入查詢時發生錯誤。"
+msgstr "運用模版快取時發生錯誤：%s"
 
 #: libraries/classes/Theme.php:201
 #, php-format
@@ -13523,10 +13294,8 @@ msgid "Manage your settings"
 msgstr "管理您的設定"
 
 #: libraries/user_preferences.inc.php:41
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Config 認證"
+msgstr "雙因素認證"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:302
 msgid "Configuration has been saved."
@@ -13630,16 +13399,12 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr "您可以重新設定所有設定恢復爲預設值。"
 
 #: prefs_twofactor.php:32
-#, fuzzy
-#| msgid "Internal relationship has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "已移除內部關聯。"
+msgstr "已移除雙因素認證。"
 
 #: prefs_twofactor.php:42
-#, fuzzy
-#| msgid "Invalid authentication method set in configuration:"
 msgid "Two-factor authentication has been configured."
-msgstr "在設定檔中設定的認證方式無效:"
+msgstr "已設定雙因素認證。"
 
 #: server_export.php:27
 msgid "View dump (schema) of databases"
@@ -13651,10 +13416,8 @@ msgid "No Privileges"
 msgstr "無權限"
 
 #: server_privileges.php:156
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger."
 msgid "You do not have the privileges to administrate the users!"
-msgstr "您沒有建立觸發器所需的權限。"
+msgstr "沒有管理使用者的權限！"
 
 #: server_privileges.php:170
 msgid ""
@@ -14026,10 +13789,8 @@ msgstr "gzip 壓縮"
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:16
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
-msgstr "認證"
+msgstr "認證碼："
 
 #: templates/login/twofactor/application.twig:4
 msgid ""
@@ -14196,10 +13957,8 @@ msgid "Relation view"
 msgstr "關聯檢視"
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
-msgstr "認證設定。"
+msgstr "雙因素認證狀態"
 
 #: templates/prefs_twofactor.twig:9
 msgid ""
@@ -14221,29 +13980,23 @@ msgid ""
 msgstr ""
 
 #: templates/prefs_twofactor.twig:24
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
-msgstr "%s建立%s缺少的 phpMyAdmin 設定儲存空間資料表。"
+msgstr "未能提供雙因素認證；啟用 phpMyAdmin 設定儲存空間以使用。"
 
 #: templates/prefs_twofactor.twig:33
 msgid "You have enabled two factor authentication."
 msgstr ""
 
 #: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Disable two-factor authentication"
-msgstr "Config 認證"
+msgstr "停用雙因素認證"
 
 #: templates/prefs_twofactor.twig:43 templates/prefs_twofactor.twig:54
 #: templates/prefs_twofactor_configure.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Configure two-factor authentication"
-msgstr "Config 認證"
+msgstr "設定雙因素認證"
 
 #: templates/database/search/results.twig:12
 #, php-format
@@ -14280,10 +14033,8 @@ msgid "Attribute"
 msgstr "屬性"
 
 #: templates/database/central_columns/main.twig:141
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
-msgstr "目前資料庫的欄位中央清單為空的。"
+msgstr "目前資料庫的欄位中央清單為空的"
 
 #: templates/database/central_columns/main.twig:192
 #: templates/table/structure/display_structure.twig:416
@@ -14369,14 +14120,10 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "可使用已壓縮 (%s) 或未壓縮的檔案。"
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
-msgstr "壓縮檔案名稱必須以 <b>.[格式].[壓縮方式]</b> 結尾。如: <b>.sql.zip</b>"
+msgstr "壓縮檔案名稱必須以 <strong>.[格式].[壓縮方式]</strong> 結尾。如: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -14403,19 +14150,13 @@ msgid ""
 msgstr "上一個匯入逾時，隨後重新送出將會從 %d 處開始。"
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"允許中斷匯入的動作，當偵測到執行時間已接近 PHP 執行時間的限制時。<i>(若要匯入"
-"大型檔案這是很好的方法之一，不過使用這種方法會破壞指令中的交易(Transaction)動"
-"作。)</i>"
+"允許中斷匯入的動作，當偵測到執行時間已接近 PHP "
+"執行時間的限制時。<em>(若要匯入大型檔案這是很好的方法之一，不過使用這種方法會破壞指令中的交易(Transaction)動作。)</em>"
 
 #: templates/display/import/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -14518,8 +14259,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "使用 OpenStreetMaps 做為基礎圖層"
 
 #: templates/gis_data_editor_form.twig:38
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "空間參考識別碼(SRID)："
@@ -14536,10 +14275,9 @@ msgstr "點:"
 #: templates/gis_data_editor_form.twig:92
 #: templates/gis_data_editor_form.twig:133
 #: templates/gis_data_editor_form.twig:185
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "點 %d"
+msgstr "點 %d："
 
 #: templates/gis_data_editor_form.twig:112
 #, php-format
@@ -14674,10 +14412,8 @@ msgid "Save chart as image"
 msgstr "另存圖表為影像"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Enable two-factor authentication"
-msgstr "Config 認證"
+msgstr "啟用雙因素認證"
 
 #: templates/login/twofactor/key.twig:3
 msgid ""
@@ -14686,10 +14422,9 @@ msgid ""
 msgstr ""
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "切換到資料庫"
+msgstr "切換到資料庫 '%s'"
 
 #: templates/server/databases/table_row.twig:51
 #, php-format
@@ -14738,30 +14473,24 @@ msgid "Define new aliases"
 msgstr ""
 
 #: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
-msgstr "選擇資料庫"
+msgstr "選擇資料庫："
 
 #: templates/export/alias_add.twig:15
 msgid "New database name"
 msgstr "新資料庫名稱"
 
 #: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
-msgstr "選擇資料表"
+msgstr "選擇資料表："
 
 #: templates/export/alias_add.twig:29
 msgid "New table name"
 msgstr "新資料表名稱"
 
 #: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
-msgstr "選擇一個欄位。"
+msgstr "選擇欄位："
 
 #: templates/export/alias_add.twig:43
 msgid "New column name"
@@ -14776,12 +14505,10 @@ msgid "Tracking is not active."
 msgstr "追蹤已停用。"
 
 #: templates/login/twofactor/invalid.twig:2
-#, fuzzy
-#| msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
-msgstr "%s建立%s缺少的 phpMyAdmin 設定儲存空間資料表。"
+msgstr "未能提供所設定的雙因素認證，請安裝缺少的元件。"
 
 #: templates/display/export/options_output.twig:2
 #: templates/display/export/options_quick_export.twig:2
@@ -14793,10 +14520,9 @@ msgid "Save output to a file"
 msgstr "儲存爲檔案"
 
 #: templates/display/export/options_output.twig:51
-#, fuzzy, php-format
-#| msgid "Skip tables larger than"
+#, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr "略過資料表超過"
+msgstr "略過超過 %s MiB 的資料表"
 
 #: templates/server/databases/databases_footer.twig:55
 msgid ""
@@ -14852,67 +14578,47 @@ msgstr "查詢視窗"
 
 #: templates/database/multi_table_query/form.twig:37
 #: templates/database/multi_table_query/form.twig:125
-#, fuzzy
-#| msgid "Select table"
 msgid "select table"
 msgstr "選擇資料表"
 
 #: templates/database/multi_table_query/form.twig:44
 #: templates/database/multi_table_query/form.twig:133
-#, fuzzy
-#| msgid "Select a column."
 msgid "select column"
-msgstr "選擇一個欄位。"
+msgstr "選擇欄位"
 
 #: templates/database/multi_table_query/form.twig:50
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
-msgstr "資料表"
+msgstr "資料表別名"
 
 #: templates/database/multi_table_query/form.twig:51
-#, fuzzy
-#| msgid "Column names"
 msgid "Column alias"
-msgstr "欄位名稱"
+msgstr "欄位別名"
 
 #: templates/database/multi_table_query/form.twig:54
-#, fuzzy
-#| msgid "Use this column to label each point"
 msgid "Use this column in criteria"
-msgstr "選擇作為資料點標籤的欄位"
+msgstr "使用此欄位作為準則"
 
 #: templates/database/multi_table_query/form.twig:57
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
-msgstr "條件："
+msgstr "準則"
 
 #: templates/database/multi_table_query/form.twig:71
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
-msgstr "加入 %s"
+msgstr "加入為"
 
 #: templates/database/multi_table_query/form.twig:116
-#, fuzzy
-#| msgid "Alter column(s)"
 msgid "Another column"
-msgstr "修改欄位"
+msgstr "另一個欄位"
 
 #: templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:152
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
-msgstr "移除多餘欄位"
+msgstr "移除此欄位"
 
 #: templates/database/multi_table_query/form.twig:179
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "更新查詢"
 
@@ -14966,10 +14672,8 @@ msgid "Convert to Kana"
 msgstr "轉換爲假名"
 
 #: templates/export/alias_item.twig:8
-#, fuzzy
-#| msgid "Remote server"
 msgid "Remove"
-msgstr "遠程伺服器"
+msgstr "移除"
 
 #: templates/error/report_form.twig:6
 msgid ""
@@ -15113,10 +14817,8 @@ msgid "Index choice:"
 msgstr "索引選擇："
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
-msgstr "目前選項"
+msgstr "進階選項"
 
 #: templates/table/index_form.twig:52
 msgid "Key block size:"
@@ -15365,10 +15067,8 @@ msgid ""
 msgstr "您的瀏覽器中有此網域的 phpMyAdmin 設定，是否匯入到目前的連線階段?"
 
 #: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete settings "
 msgid "Delete settings"
-msgstr "刪除設定 "
+msgstr "刪除設定"
 
 #: templates/display/export/method.twig:3
 msgid "Export method:"
@@ -15452,10 +15152,8 @@ msgid "Well Known Binary"
 msgstr "易懂的二進位檔"
 
 #: templates/prefs_twofactor_confirm.twig:2
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Confirm disabling two-factor authentication"
-msgstr "Config 認證"
+msgstr "確認停用雙因素認證"
 
 #: templates/prefs_twofactor_confirm.twig:5
 msgid ""
@@ -15535,10 +15233,9 @@ msgid "Reset zoom"
 msgstr "重設縮放大小"
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Create User"
+#, php-format
 msgid "Create %s"
-msgstr "建立使用者"
+msgstr "建立 %s"
 
 #: templates/table/structure/display_structure.twig:112
 #, php-format
@@ -15711,14 +15408,10 @@ msgid "Server variables and settings"
 msgstr "伺服器變數和設定"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "儲存引擎"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "字元編碼與排序規則"
 
@@ -15826,8 +15519,6 @@ msgid "Hide/Show all"
 msgstr "全部隱藏/顯示"
 
 #: templates/database/designer/main.twig:216
-#, fuzzy
-#| msgid "Hide/Show Tables with no relationship"
 msgid "Hide/Show tables with no relationship"
 msgstr "隱藏/顯示沒有關聯的資料表"
 
@@ -15882,21 +15573,14 @@ msgid "in use"
 msgstr "使用中"
 
 #: templates/columns_definitions/table_fields_definitions.twig:17
-#, fuzzy
-#| msgid ""
-#| "If column type is \"enum\" or \"set\", please enter the values using this "
-#| "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
-#| "a single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\") or a "
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"如果欄位類型為 \"enum\" 或 \"set\"，請使用以下格式輸入值: 'a','b','c'…<br />"
-"如果您需要輸入反斜線(\"\\\")或單引號(\"'\")，請在前面加上反斜線(如 '\\\\xyz' "
-"或 'a\\'b')。"
+"如果欄位類型為 \"enum\" 或 \"set\"，請使用以下格式輸入值: 'a','b','c'…<br />如果需要輸入反斜線(\"\")或單引號("
+"\"'\")，請在前面加上反斜線(如 '\\\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -15923,20 +15607,14 @@ msgstr "瀏覽器顯示轉換選項"
 
 #: templates/columns_definitions/table_fields_definitions.twig:83
 #: templates/columns_definitions/table_fields_definitions.twig:94
-#, fuzzy
-#| msgid ""
-#| "Please enter the values for transformation options using this format: "
-#| "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
-#| "single quote (\"'\") amongst those values, precede it with a backslash "
-#| "(for example '\\\\xyz' or 'a\\'b')."
 msgid ""
 "Please enter the values for transformation options using this format: 'a', "
 "100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a single "
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
-"請使用此格式輸入轉換選項的值: 'a',100,b,'c'…<br />如果您需要在值中輸入反斜槓 "
-"(\"\\\")或單引號(\"'\")，請在前面加上反斜槓 (如 '\\\\xyz' 或 'a\\'b')。"
+"請使用此格式輸入轉換選項的值: 'a', 100, b, 'c'…<br />如果需要在值中輸入反斜槓 (\"\\\")或單引號(\"'\")，"
+"請在前面加上反斜槓 (如 '\\\\xyz' 或 'a\\'b')。"
 
 #: templates/columns_definitions/table_fields_definitions.twig:93
 msgid "Input transformation options"
@@ -15948,10 +15626,9 @@ msgstr "點此切換"
 
 #: templates/display/export/options_quick_export.twig:8
 #: templates/display/export/options_output_save_dir.twig:5
-#, fuzzy, php-format
-#| msgid "Save on server in the directory <b>%s</b>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "儲存到伺服器上的 <b>%s</b> 資料夾中"
+msgstr "儲存到伺服器的 <strong>%s</strong> 資料夾"
 
 #: templates/table/gis_visualization/gis_visualization.twig:3
 msgid "Display GIS Visualization"
@@ -15982,10 +15659,8 @@ msgid "No preview available."
 msgstr "沒有預覽圖片。"
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
-msgstr "確定"
+msgstr "使用"
 
 #: templates/database/designer/page_save_as.twig:17
 msgid "Save to selected page"
