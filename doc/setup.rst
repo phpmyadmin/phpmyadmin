@@ -106,7 +106,7 @@ Installing from Git
 In order to install from Git, you'll need a few supporting applications:
 
 * `Git <https://git-scm.com/downloads>`_ to download the source, or you can download the most recent source directly from `Github <https://github.com/phpmyadmin/phpmyadmin/archive/master.zip>`_
-* `Composer <https://getcomposer.org/download/>`_
+* `Composer <https://getcomposer.org/download/>`__
 * `Node.js <https://nodejs.org/en/download/>`_ (version 8 or higher)
 * `Yarn <https://yarnpkg.com/lang/en/docs/install>`_
 
@@ -117,7 +117,7 @@ You can clone current phpMyAdmin source from
 
     git clone https://github.com/phpmyadmin/phpmyadmin.git
 
-Additionally you need to install dependencies using `Composer <https://getcomposer.org>`_ :
+Additionally you need to install dependencies using `Composer <https://getcomposer.org>`__:
 
 .. code-block:: sh
 
