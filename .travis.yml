@@ -8,7 +8,7 @@ stages:
   - name: "Other tests"
 
 install:
-  - composer install --no-interaction
+  - composer install --no-interaction --ignore-platform-reqs # due to php-cs-fixer conflict: https://github.com/lmc-eu/steward/pull/230
   - yarn install --non-interactive
 
 before_script:
