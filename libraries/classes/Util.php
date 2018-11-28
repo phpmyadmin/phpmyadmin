@@ -1058,7 +1058,9 @@ class Util
                     . '$sql = "' . $query_base . '";' . "\n"
                     . '</pre></code>';
             } elseif ($query_too_big) {
-                $query_base = htmlspecialchars($query_base);
+                $query_base = '<code class="sql"><pre>' . "\n" .
+                    htmlspecialchars($query_base) .
+                    '</pre></code>';
             } else {
                 $query_base = self::formatSql($query_base);
             }
