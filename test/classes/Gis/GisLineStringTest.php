@@ -61,9 +61,9 @@ class GisLineStringTest extends GisGeomTestCase
                 'LINESTRING' => [
                     'no_of_points' => 2,
                     0 => ['x' => 5.02, 'y' => 8.45],
-                    1 => ['x' => 6.14, 'y' => 0.15]
-                ]
-            ]
+                    1 => ['x' => 6.14, 'y' => 0.15],
+                ],
+            ],
         ];
 
         $temp2 = $temp1;
@@ -82,29 +82,29 @@ class GisLineStringTest extends GisGeomTestCase
                 $temp1,
                 0,
                 null,
-                'LINESTRING(5.02 8.45,6.14 0.15)'
+                'LINESTRING(5.02 8.45,6.14 0.15)',
             ],
             // if a coordinate is missing, default is empty string
             [
                 $temp2,
                 0,
                 null,
-                'LINESTRING(5.02 8.45,6.14 0.15,1.56 )'
+                'LINESTRING(5.02 8.45,6.14 0.15,1.56 )',
             ],
             // if no_of_points is not valid, it is considered as 2
             [
                 $temp3,
                 0,
                 null,
-                'LINESTRING(5.02 8.45,6.14 0.15)'
+                'LINESTRING(5.02 8.45,6.14 0.15)',
             ],
             // missing coordinates are replaced with provided values (3rd parameter)
             [
                 $temp4,
                 0,
                 '0',
-                'LINESTRING(5.02 8.45,6.14 0.15,0 0)'
-            ]
+                'LINESTRING(5.02 8.45,6.14 0.15,0 0)',
+            ],
         ];
     }
 
@@ -119,8 +119,8 @@ class GisLineStringTest extends GisGeomTestCase
             'LINESTRING' => [
                 'no_of_points' => 2,
                 0 => ['x' => '5.02', 'y' => '8.45'],
-                1 => ['x' => '6.14', 'y' => '0.15']
-            ]
+                1 => ['x' => '6.14', 'y' => '0.15'],
+            ],
         ];
         $temp1 = $temp;
         $temp1['gis_type'] = 'LINESTRING';
@@ -131,16 +131,16 @@ class GisLineStringTest extends GisGeomTestCase
                 null,
                 [
                     'srid' => '124',
-                    0 => $temp
-                ]
+                    0 => $temp,
+                ],
             ],
             [
                 'LINESTRING(5.02 8.45,6.14 0.15)',
                 2,
                 [
-                    2 => $temp1
-                ]
-            ]
+                    2 => $temp1,
+                ],
+            ],
         ];
     }
 
@@ -158,9 +158,9 @@ class GisLineStringTest extends GisGeomTestCase
                     'minX' => 12,
                     'maxX' => 69,
                     'minY' => 23,
-                    'maxY' => 78
-                ]
-            ]
+                    'maxY' => 78,
+                ],
+            ],
         ];
     }
 
@@ -213,10 +213,10 @@ class GisLineStringTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
-                imagecreatetruecolor(120, 150)
-            ]
+                imagecreatetruecolor(120, 150),
+            ],
         ];
     }
 
@@ -265,10 +265,10 @@ class GisLineStringTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 new TCPDF(),
-            ]
+            ],
         ];
     }
 
@@ -316,12 +316,12 @@ class GisLineStringTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 '/^(<polyline points="0,218 72,138 114,242 26,198 4,182 46,132 " '
                 . 'name="svg" id="svg)(\d+)(" class="linestring vector" fill="none" '
-                . 'stroke="#B02EE0" stroke-width="2"\/>)$/'
-            ]
+                . 'stroke="#B02EE0" stroke-width="2"\/>)$/',
+            ],
         ];
     }
 
@@ -395,8 +395,8 @@ class GisLineStringTest extends GisGeomTestCase
                 . 'ProjectionObject()), (new OpenLayers.Geometry.Point(35,78)).'
                 . 'transform(new OpenLayers.Projection("EPSG:4326"), map.'
                 . 'getProjectionObject()))), null, {"strokeColor":"#B02EE0",'
-                . '"strokeWidth":2,"label":"Ol","fontSize":10}));'
-            ]
+                . '"strokeWidth":2,"label":"Ol","fontSize":10}));',
+            ],
         ];
     }
 }

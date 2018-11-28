@@ -1320,7 +1320,7 @@ class Util
             /* l10n: shortcuts for Petabyte */
             __('PiB'),
             /* l10n: shortcuts for Exabyte */
-            __('EiB')
+            __('EiB'),
         ];
 
         $dh = pow(10, $comma);
@@ -1423,7 +1423,7 @@ class Util
             5 => 'P',
             6 => 'E',
             7 => 'Z',
-            8 => 'Y'
+            8 => 'Y',
         ];
         /* l10n: Decimal separator */
         $decimal_sep = __('.');
@@ -1549,7 +1549,7 @@ class Util
             /* l10n: Short month name */
             __('Nov'),
             /* l10n: Short month name */
-            __('Dec')];
+            __('Dec'), ];
         $day_of_week = [
             /* l10n: Short week day name */
             _pgettext('Short week day name', 'Sun'),
@@ -1564,7 +1564,7 @@ class Util
             /* l10n: Short week day name */
             __('Fri'),
             /* l10n: Short week day name */
-            __('Sat')];
+            __('Sat'), ];
 
         if ($format == '') {
             /* l10n: See https://secure.php.net/manual/en/function.strftime.php */
@@ -2687,7 +2687,7 @@ class Util
             'toggle_on' => $options[1]['label'],
             'toggle_off' => $options[0]['label'],
             'callback' => $callback,
-            'state' => $state
+            'state' => $state,
         ]);
     }
 
@@ -2953,7 +2953,7 @@ class Util
             'zerofill' => $zerofill,
             'attribute' => $attribute,
             'can_contain_collation' => $can_contain_collation,
-            'displayed_type' => $displayed_type
+            'displayed_type' => $displayed_type,
         ];
     }
 
@@ -3250,7 +3250,7 @@ class Util
             '@TABLE@' => $vars['table'],
             '__TABLE__' => $vars['table'],
             '@PHPMYADMIN@' => $vars['phpmyadmin_version'],
-            ];
+        ];
 
         /* Optional escaping */
         if (! is_null($escape)) {
@@ -3531,7 +3531,7 @@ class Util
             'multipoint',
             'multilinestring',
             'multipolygon',
-            'geometrycollection'
+            'geometrycollection',
         ];
         if ($upper_case) {
             for ($i = 0, $nb = count($gis_data_types); $i < $nb; $i++) {
@@ -4054,7 +4054,7 @@ class Util
                 'vars'        => __('Variables'),
                 'charset'     => __('Charsets'),
                 'plugins'     => __('Plugins'),
-                'engine'      => __('Engines')
+                'engine'      => __('Engines'),
             ],
             'db'     => [
                 'structure'   => __('Structure'),
@@ -4070,7 +4070,7 @@ class Util
                 'triggers'    => __('Triggers'),
                 'tracking'    => __('Tracking'),
                 'designer'    => __('Designer'),
-                'central_columns' => __('Central columns')
+                'central_columns' => __('Central columns'),
             ],
             'table'  => [
                 'browse'      => __('Browse'),
@@ -4084,7 +4084,7 @@ class Util
                 'operation'   => __('Operations'),
                 'tracking'    => __('Tracking'),
                 'triggers'    => __('Triggers'),
-            ]
+            ],
         ];
 
         if ($level == null) {
@@ -4524,7 +4524,7 @@ class Util
             $db_is_system_schema,
             $tooltip_truename,
             $tooltip_aliasname,
-            $pos
+            $pos,
         ];
     }
 

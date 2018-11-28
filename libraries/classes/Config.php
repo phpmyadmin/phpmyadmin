@@ -703,7 +703,7 @@ class Config
                     $user2 = [
                         'name' => trim($user[1]),
                         'email' => trim($user[2]),
-                        'date' => date('Y-m-d H:i:s', (int) $user[3])];
+                        'date' => date('Y-m-d H:i:s', (int) $user[3]), ];
                     if (isset($user[4])) {
                         $user2['date'] .= $user[4];
                     }
@@ -715,11 +715,11 @@ class Config
             $author = [
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,
-                'date' => $commit_json->author->date];
+                'date' => $commit_json->author->date, ];
             $committer = [
                 'name' => $commit_json->committer->name,
                 'email' => $commit_json->committer->email,
-                'date' => $commit_json->committer->date];
+                'date' => $commit_json->committer->date, ];
             $message = trim($commit_json->message);
         } else {
             return;
@@ -1389,8 +1389,8 @@ class Config
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT'
-            ];
+            'PMA_USR_BROWSER_AGENT',
+        ];
 
         foreach ($defines as $define) {
             if (! defined($define)) {

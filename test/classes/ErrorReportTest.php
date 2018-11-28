@@ -95,7 +95,7 @@ class ErrorReportTest extends TestCase
                     'type' => $_SESSION['prev_errors'][0]->getType(),
                     'msg' => $_SESSION['prev_errors'][0]->getOnlyMessage(),
                     'stackTrace' => $_SESSION['prev_errors'][0]->getBacktrace(5),
-                    'stackhash' => $_SESSION['prev_errors'][0]->getHash()
+                    'stackhash' => $_SESSION['prev_errors'][0]->getHash(),
                 ],
                 1 => [
                     'lineNum' => $_SESSION['prev_errors'][1]->getLine(),
@@ -103,7 +103,7 @@ class ErrorReportTest extends TestCase
                     'type' => $_SESSION['prev_errors'][1]->getType(),
                     'msg' => $_SESSION['prev_errors'][1]->getOnlyMessage(),
                     'stackTrace' => $_SESSION['prev_errors'][1]->getBacktrace(5),
-                    'stackhash' => $_SESSION['prev_errors'][1]->getHash()
+                    'stackhash' => $_SESSION['prev_errors'][1]->getHash(),
                 ],
             ],
         ];

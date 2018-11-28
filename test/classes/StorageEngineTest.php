@@ -72,7 +72,7 @@ class StorageEngineTest extends PmaTestCase
                 'FEDERATED' => [
                     'Engine' => 'FEDERATED',
                     'Support' => 'NO',
-                    'Comment' => 'Federated MySQL storage engine'
+                    'Comment' => 'Federated MySQL storage engine',
                 ],
             ],
             $this->object->getStorageEngines()
@@ -291,7 +291,7 @@ class StorageEngineTest extends PmaTestCase
         $this->assertEquals(
             [
                 0 => 12,
-                1 => 'B'
+                1 => 'B',
             ],
             $this->object->resolveTypeSize(12)
         );

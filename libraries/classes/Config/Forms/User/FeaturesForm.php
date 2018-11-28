@@ -49,19 +49,19 @@ class FeaturesForm extends BaseForm
                 'CharTextareaRows',
                 'TextareaCols',
                 'TextareaRows',
-                'LongtextDoubleTextarea'
+                'LongtextDoubleTextarea',
             ],
             'Page_titles' => [
                 'TitleDefault',
                 'TitleTable',
                 'TitleDatabase',
-                'TitleServer'
+                'TitleServer',
             ],
             'Warnings' => [
                 'PmaNoRelation_DisableWarning',
                 'SuhosinDisableWarning',
                 'LoginCookieValidityDisableWarning',
-                'ReservedWordDisableWarning'
+                'ReservedWordDisableWarning',
             ],
             'Console' => [
                 'Console/Mode',
@@ -79,7 +79,7 @@ class FeaturesForm extends BaseForm
         // skip Developer form if no setting is available
         if ($GLOBALS['cfg']['UserprefsDeveloperTab']) {
             $result['Developer'] = [
-                'DBG/sql'
+                'DBG/sql',
             ];
         }
         return $result;

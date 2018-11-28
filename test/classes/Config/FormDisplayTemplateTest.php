@@ -530,7 +530,7 @@ class FormDisplayTemplateTest extends TestCase
     {
         $validators = [
             'one' => ['\\\';', '\r\n\\\'<scrIpt></\' + \'script>'],
-            'two' => []
+            'two' => [],
         ];
 
         $js = [];
@@ -542,7 +542,7 @@ class FormDisplayTemplateTest extends TestCase
                 'validateField(\'testID\', \'PMA_\\\';\', true, '
                     . '[\'\\\\r\\\\n\\\\\\\''
                     . '<scrIpt></\\\' + \\\'script>\'])',
-                'validateField(\'testID\', \'PMA_\', true)'
+                'validateField(\'testID\', \'PMA_\', true)',
             ],
             $js
         );

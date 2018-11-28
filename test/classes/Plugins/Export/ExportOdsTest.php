@@ -347,7 +347,7 @@ class ExportOdsTest extends PmaTestCase
                 $this->returnValue(
                     [
                         null, '01-01-2000', '01-01-2000', '01-01-2000 10:00:00',
-                        "01-01-2014 10:02:00", "t>s", "a&b", "<"
+                        "01-01-2014 10:02:00", "t>s", "a&b", "<",
                     ]
                 )
             );

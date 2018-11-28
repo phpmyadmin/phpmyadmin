@@ -171,7 +171,7 @@ class PageSettings
             false,
             $response->getFooter()->getSelfUrl(),
             [
-                'submit_save' => $this->_groupName
+                'submit_save' => $this->_groupName,
             ]
         );
         $retval .= '</div>';

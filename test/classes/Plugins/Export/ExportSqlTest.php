@@ -203,7 +203,7 @@ class ExportSqlTest extends PmaTestCase
         $this->assertEquals(
             [
                 'v1' => 'v1',
-                'v2' => 'v2'
+                'v2' => 'v2',
             ],
             $property->getValues()
         );
@@ -724,7 +724,7 @@ class ExportSqlTest extends PmaTestCase
                 $this->returnValueMap(
                     [
                         ['db', 'EVENT', 'f1', DatabaseInterface::CONNECT_USER, 'f1event'],
-                        ['db', 'EVENT', 'f2', DatabaseInterface::CONNECT_USER, 'f2event']
+                        ['db', 'EVENT', 'f2', DatabaseInterface::CONNECT_USER, 'f2event'],
                     ]
                 )
             );
@@ -860,8 +860,8 @@ class ExportSqlTest extends PmaTestCase
                             'Null' => 'NO',
                             'Default' => 'a',
                             'Comment' => 'cmt',
-                            'Field' => 'fname'
-                        ]
+                            'Field' => 'fname',
+                        ],
                     ]
                 )
             );
@@ -905,8 +905,8 @@ class ExportSqlTest extends PmaTestCase
                             'Collation' => 'utf-8',
                             'Null' => 'YES',
                             'Comment' => 'cmt',
-                            'Field' => 'fname'
-                        ]
+                            'Field' => 'fname',
+                        ],
                     ]
                 )
             );
@@ -1012,7 +1012,7 @@ class ExportSqlTest extends PmaTestCase
             "CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE,\n" .
             "CONSTRAINT `fk_payment_rental` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,\n" .
             "CONSTRAINT `fk_payment_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON UPDATE CASCADE\n" .
-            ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n"
+            ") ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8\n",
         ];
 
         $dbi->expects($this->exactly(1))
@@ -1020,7 +1020,7 @@ class ExportSqlTest extends PmaTestCase
             ->will(
                 $this->returnValueMap(
                     [
-                        ['res', $row]
+                        ['res', $row],
                     ]
                 )
             );
@@ -1219,7 +1219,7 @@ class ExportSqlTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
@@ -1237,15 +1237,15 @@ class ExportSqlTest extends PmaTestCase
                 [
                     'foo' => [
                         'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield'
-                    ]
+                        'foreign_field' => 'ffield',
+                    ],
                 ],
                 [
                     'fieldname' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
-                        'mimetype' => 'test<'
-                    ]
+                        'mimetype' => 'test<',
+                    ],
                 ]
             );
 
@@ -1298,7 +1298,7 @@ class ExportSqlTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        ['create' => 'bar', 'drop' => 'foo']
+                        ['create' => 'bar', 'drop' => 'foo'],
                     ]
                 )
             );
@@ -1915,13 +1915,13 @@ class ExportSqlTest extends PmaTestCase
                 'alias' => 'aliastest',
                 'tables' => [
                     'foo' => [
-                        'alias' => 'qwerty'
+                        'alias' => 'qwerty',
                     ],
                     'bar' => [
-                        'alias' => 'f'
-                    ]
-                ]
-            ]
+                        'alias' => 'f',
+                    ],
+                ],
+            ],
         ];
         $db = 'a';
         $table = null;
@@ -1960,17 +1960,17 @@ class ExportSqlTest extends PmaTestCase
                         'alias' => 'qwerty',
                         'columns' => [
                             'baz' => 'p',
-                            'pqr' => 'pphymdain'
-                        ]
+                            'pqr' => 'pphymdain',
+                        ],
                     ],
                     'bar' => [
                         'alias' => 'f',
                         'columns' => [
-                            'xy' => 'n'
-                        ]
-                    ]
-                ]
-            ]
+                            'xy' => 'n',
+                        ],
+                    ],
+                ],
+            ],
         ];
 
         $this->assertEquals(
@@ -2009,17 +2009,17 @@ class ExportSqlTest extends PmaTestCase
                         'alias' => 'bartest',
                         'columns' => [
                             'baz' => 'p',
-                            'pqr' => 'pphymdain'
-                        ]
+                            'pqr' => 'pphymdain',
+                        ],
                     ],
                     'bar' => [
                         'alias' => 'f',
                         'columns' => [
-                            'xy' => 'n'
-                        ]
-                    ]
-                ]
-            ]
+                            'xy' => 'n',
+                        ],
+                    ],
+                ],
+            ],
         ];
 
         $db = 'a';

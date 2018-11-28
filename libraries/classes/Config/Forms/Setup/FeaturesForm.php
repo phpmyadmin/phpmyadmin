@@ -31,12 +31,12 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'UploadDir',
             'SaveDir',
             'RecodingEngine' => ':group',
-                'IconvExtraParams',
-                ':group:end',
+            'IconvExtraParams',
+            ':group:end',
             'ZipDump',
             'GZipDump',
             'BZipDump',
-            'CompressOnFly'
+            'CompressOnFly',
         ];
         $result['Security'] = [
             'blowfish_secret',
@@ -49,7 +49,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'LoginCookieStore',
             'LoginCookieDeleteAll',
             'CaptchaLoginPublicKey',
-            'CaptchaLoginPrivateKey'
+            'CaptchaLoginPrivateKey',
         ];
         $result['Developer'] = [
             'UserprefsDeveloperTab',

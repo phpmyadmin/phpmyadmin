@@ -131,7 +131,7 @@ class Data
             'tc'            => __('Transaction coordinator'),
             'files'         => __('Files'),
             'ssl'           => 'SSL',
-            'other'         => __('Other')
+            'other'         => __('Other'),
         ];
     }
 
@@ -148,7 +148,7 @@ class Data
         $links['table'][__('Flush (close) all tables')] = $this->selfUrl
             . Url::getCommon(
                 [
-                    'flush' => 'TABLES'
+                    'flush' => 'TABLES',
                 ]
             );
         $links['table'][__('Show open tables')]
@@ -179,7 +179,7 @@ class Data
             = $this->selfUrl
             . Url::getCommon(
                 [
-                    'flush' => 'QUERY CACHE'
+                    'flush' => 'QUERY CACHE',
                 ]
             );
         $links['qcache']['doc'] = 'query_cache';
@@ -199,7 +199,7 @@ class Data
             . Url::getCommon(
                 [
                     'engine' => 'InnoDB',
-                    'page' => 'Status'
+                    'page' => 'Status',
                 ]
             );
         $links['innodb']['doc'] = 'innodb';
@@ -433,28 +433,28 @@ class Data
         $items = [
             [
                 'name' => __('Server'),
-                'url' => 'server_status.php'
+                'url' => 'server_status.php',
             ],
             [
                 'name' => __('Processes'),
-                'url' => 'server_status_processes.php'
+                'url' => 'server_status_processes.php',
             ],
             [
                 'name' => __('Query statistics'),
-                'url' => 'server_status_queries.php'
+                'url' => 'server_status_queries.php',
             ],
             [
                 'name' => __('All status variables'),
-                'url' => 'server_status_variables.php'
+                'url' => 'server_status_variables.php',
             ],
             [
                 'name' => __('Monitor'),
-                'url' => 'server_status_monitor.php'
+                'url' => 'server_status_monitor.php',
             ],
             [
                 'name' => __('Advisor'),
-                'url' => 'server_status_advisor.php'
-            ]
+                'url' => 'server_status_advisor.php',
+            ],
         ];
 
         $retval  = '<ul id="topmenu2">';

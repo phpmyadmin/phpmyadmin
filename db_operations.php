@@ -98,7 +98,7 @@ if (strlen($GLOBALS['db']) > 0
                 'libraries/classes/Plugins/Export/',
                 [
                     'single_table' => isset($single_table),
-                    'export_type'  => 'database'
+                    'export_type'  => 'database',
                 ]
             );
 

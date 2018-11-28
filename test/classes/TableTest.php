@@ -98,7 +98,7 @@ class TableTest extends PmaTestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                true
+                true,
             ],
             [
                 $sql_copy_data,
@@ -106,7 +106,7 @@ class TableTest extends PmaTestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                false
+                false,
             ],
             [
                 $sql_isView_false,
@@ -114,7 +114,7 @@ class TableTest extends PmaTestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                false
+                false,
             ],
             [
                 $sql_isUpdatableView_true,
@@ -122,7 +122,7 @@ class TableTest extends PmaTestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                true
+                true,
             ],
             [
                 $sql_isUpdatableView_false,
@@ -130,7 +130,7 @@ class TableTest extends PmaTestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                false
+                false,
             ],
             [
                 $sql_analyzeStructure_true,
@@ -139,8 +139,8 @@ class TableTest extends PmaTestCase
                 DatabaseInterface::CONNECT_USER,
                 0,
                 [
-                    ['COLUMN_NAME' => 'COLUMN_NAME', 'DATA_TYPE' => 'DATA_TYPE']
-                ]
+                    ['COLUMN_NAME' => 'COLUMN_NAME', 'DATA_TYPE' => 'DATA_TYPE'],
+                ],
             ],
             [
                 $getUniqueColumns_sql,
@@ -152,7 +152,7 @@ class TableTest extends PmaTestCase
                     ['index1'],
                     ['index3'],
                     ['index5'],
-                ]
+                ],
             ],
             [
                 $getUniqueColumns_sql,
@@ -166,8 +166,8 @@ class TableTest extends PmaTestCase
                     'column5',
                     'ACCESSIBLE',
                     'ADD',
-                    'ALL'
-                ]
+                    'ALL',
+                ],
             ],
             [
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
@@ -181,8 +181,8 @@ class TableTest extends PmaTestCase
                     'column5',
                     'ACCESSIBLE',
                     'ADD',
-                    'ALL'
-                ]
+                    'ALL',
+                ],
             ],
             [
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
@@ -197,7 +197,7 @@ class TableTest extends PmaTestCase
                         'Null' => 'NO',
                         'Key' => '',
                         'Default' => null,
-                        'Extra' => ''
+                        'Extra' => '',
                     ],
                     [
                         'Field' => 'COLUMN_NAME2',
@@ -205,9 +205,9 @@ class TableTest extends PmaTestCase
                         'Null' => 'YES',
                         'Key' => '',
                         'Default' => null,
-                        'Extra' => 'STORED GENERATED'
-                    ]
-                ]
+                        'Extra' => 'STORED GENERATED',
+                    ],
+                ],
             ],
         ];
 
@@ -748,7 +748,7 @@ class TableTest extends PmaTestCase
     {
         $map = [
             [['PMA', 'PMA_BookMark'], null, ['ENGINE' => "MERGE"]],
-            [['PMA', 'PMA_BookMark', 'ENGINE'], null, "MERGE"]
+            [['PMA', 'PMA_BookMark', 'ENGINE'], null, "MERGE"],
         ];
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -770,7 +770,7 @@ class TableTest extends PmaTestCase
     {
         $map = [
             [['PMA', 'PMA_BookMark'], null, ['ENGINE' => "MRG_MYISAM"]],
-            [['PMA', 'PMA_BookMark', 'ENGINE'], null, "MRG_MYISAM"]
+            [['PMA', 'PMA_BookMark', 'ENGINE'], null, "MRG_MYISAM"],
         ];
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -792,7 +792,7 @@ class TableTest extends PmaTestCase
     {
         $map = [
             [['PMA', 'PMA_BookMark'], null, ['ENGINE' => "ISDB"]],
-            [['PMA', 'PMA_BookMark', 'ENGINE'], null, "ISDB"]
+            [['PMA', 'PMA_BookMark', 'ENGINE'], null, "ISDB"],
         ];
         $GLOBALS['dbi']->expects($this->any())
             ->method('getCachedTableContent')
@@ -934,7 +934,7 @@ class TableTest extends PmaTestCase
         $expect = [
             '`PMA`.`PMA_BookMark`.`index1`',
             '`PMA`.`PMA_BookMark`.`index3`',
-            '`PMA`.`PMA_BookMark`.`index5`'
+            '`PMA`.`PMA_BookMark`.`index5`',
         ];
         $this->assertEquals(
             $expect,
@@ -1025,7 +1025,7 @@ class TableTest extends PmaTestCase
                 $field,
                 $foreignDb,
                 $foreignTable,
-                $foreignField
+                $foreignField,
             ]
         );
         $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '
@@ -1044,7 +1044,7 @@ class TableTest extends PmaTestCase
                 $field,
                 'db',
                 $foreignTable,
-                $foreignField
+                $foreignField,
             ]
         );
         $sql_excepted = 'ALTER TABLE `PMA_table` ADD  '

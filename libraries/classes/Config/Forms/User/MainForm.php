@@ -26,14 +26,14 @@ class MainForm extends BaseForm
             'Startup' => [
                 'ShowCreateDb',
                 'ShowStats',
-                'ShowServerInfo'
+                'ShowServerInfo',
             ],
             'DbStructure' => [
                 'ShowDbStructureCharset',
                 'ShowDbStructureComment',
                 'ShowDbStructureCreation',
                 'ShowDbStructureLastUpdate',
-                'ShowDbStructureLastCheck'
+                'ShowDbStructureLastCheck',
             ],
             'TableStructure' => [
                 'HideStructureActions',
@@ -48,7 +48,7 @@ class MainForm extends BaseForm
                 'DefaultTransformations/Inline',
                 'DefaultTransformations/TextImageLink',
                 'DefaultTransformations/TextLink',
-                ':group:end'
+                ':group:end',
             ],
             'Browse' => [
                 'TableNavigationLinksMode',
@@ -66,7 +66,7 @@ class MainForm extends BaseForm
                 'RowActionLinksWithoutUnique',
                 'TablePrimaryKeyOrder',
                 'RememberSorting',
-                'RelationalDisplay'
+                'RelationalDisplay',
             ],
             'Edit' => [
                 'ProtectBinary',
@@ -74,16 +74,16 @@ class MainForm extends BaseForm
                 'ShowFieldTypesInDataEditView',
                 'InsertRows',
                 'ForeignKeyDropdownOrder',
-                'ForeignKeyMaxLimit'
+                'ForeignKeyMaxLimit',
             ],
             'Tabs' => [
                 'TabsMode',
                 'DefaultTabServer',
                 'DefaultTabDatabase',
-                'DefaultTabTable'
+                'DefaultTabTable',
             ],
             'DisplayRelationalSchema' => [
-                'PDFDefaultPageSize'
+                'PDFDefaultPageSize',
             ],
         ];
     }

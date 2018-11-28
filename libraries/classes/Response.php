@@ -430,7 +430,7 @@ class Response
                     [
                         'db' => Core::ifSetOr($GLOBALS['db'], ''),
                         'table' => Core::ifSetOr($GLOBALS['table'], ''),
-                        'sql_query' => $query
+                        'sql_query' => $query,
                     ]
                 );
                 if (! empty($GLOBALS['focus_querywindow'])) {

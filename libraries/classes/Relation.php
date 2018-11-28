@@ -711,7 +711,7 @@ class Relation
         // Check whether column_info table has input transformation columns
         $new_cols = [
             "input_transformation",
-            "input_transformation_options"
+            "input_transformation_options",
         ];
         $query = 'SHOW COLUMNS FROM '
             . Util::backquote($GLOBALS['cfg']['Server']['pmadb'])

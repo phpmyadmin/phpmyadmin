@@ -95,7 +95,7 @@ class LinterTest extends PmaTestCase
             ],
             [
                 [],
-                'SELECT * FROM tbl'
+                'SELECT * FROM tbl',
             ],
             [
                 [
@@ -116,9 +116,9 @@ class LinterTest extends PmaTestCase
                         'toLine' => 0,
                         'toColumn' => 24,
                         'severity' => 'error',
-                    ]
+                    ],
                 ],
-                'CREATE TABLE tbl ( id IN'
+                'CREATE TABLE tbl ( id IN',
             ],
             [
                 [
@@ -130,10 +130,10 @@ class LinterTest extends PmaTestCase
                         'toLine' => 0,
                         'toColumn' => 0,
                         'severity' => 'warning',
-                    ]
+                    ],
                 ],
-                str_repeat(";", 10001)
-            ]
+                str_repeat(";", 10001),
+            ],
         ];
     }
 }

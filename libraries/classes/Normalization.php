@@ -150,7 +150,7 @@ class Normalization
                 'move_columns' => [],
                 'cfg_relation' => $cfgRelation,
                 'available_mime' => $availableMime,
-                'mime_map' => $mimeMap
+                'mime_map' => $mimeMap,
             ];
         }
 
@@ -274,7 +274,7 @@ class Normalization
             'headText' => $headText,
             'subText' => $subText,
             'hasPrimaryKey' => $hasPrimaryKey,
-            'extra' => $extra
+            'extra' => $extra,
         ];
     }
 
@@ -311,7 +311,7 @@ class Normalization
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
-            'extra' => $extra
+            'extra' => $extra,
         ];
     }
 
@@ -357,7 +357,7 @@ class Normalization
             'headText' => $headText,
             'subText' => $subText,
             'extra' => $extra,
-            'primary_key' => json_encode($pk)
+            'primary_key' => json_encode($pk),
         ];
     }
 
@@ -452,7 +452,7 @@ class Normalization
             'headText' => $headText,
             'subText' => $subText,
             'extra' => $extra,
-            'primary_key' => $key
+            'primary_key' => $key,
         ];
     }
 
@@ -511,7 +511,7 @@ class Normalization
         if (count((array)$partialDependencies) == 1) {
             return [
                 'legendText' => __('End of step'), 'headText' => $headText,
-                'queryError' => $error
+                'queryError' => $error,
             ];
         }
         $message = '';
@@ -560,7 +560,7 @@ class Normalization
             'legendText' => __('End of step'),
             'headText' => $headText,
             'queryError' => $error,
-            'extra' => $message
+            'extra' => $message,
         ];
     }
 
@@ -615,8 +615,8 @@ class Normalization
                             . (count($dependents) > 0 ? ', ' : '')
                             . htmlspecialchars(implode(', ', $dependents)) . ' )';
                     $newTables[$table][$tableName] = [
-                            "pk" => $key, "nonpk" => implode(', ', $dependents)
-                        ];
+                        "pk" => $key, "nonpk" => implode(', ', $dependents),
+                    ];
                     $i++;
                     $tableName = 'table' . $i;
                 }
@@ -644,7 +644,7 @@ class Normalization
         if (count((array)$newTables) == 0) {
             return [
                 'legendText' => __('End of step'), 'headText' => $headText,
-                'queryError' => $error
+                'queryError' => $error,
             ];
         }
         $message = '';
@@ -710,7 +710,7 @@ class Normalization
             'legendText' => __('End of step'),
             'headText' => $headText,
             'queryError' => $error,
-            'extra' => $message
+            'extra' => $message,
         ];
     }
 
@@ -779,7 +779,7 @@ class Normalization
             }
         }
         return [
-            'queryError' => $error, 'message' => $message
+            'queryError' => $error, 'message' => $message,
         ];
     }
 
@@ -859,7 +859,7 @@ class Normalization
             'legendText' => $legendText,
             'headText' => $headText,
             'subText' => $subText,
-            'extra' => $extra
+            'extra' => $extra,
         ];
     }
 
@@ -882,9 +882,9 @@ class Normalization
         $htmlOutput .= '<h3>' . __('Select up to what step you want to normalize')
             . '</h3>';
         $choices = [
-                '1nf' => __('First step of normalization (1NF)'),
-                '2nf'      => __('Second step of normalization (1NF+2NF)'),
-                '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')];
+            '1nf' => __('First step of normalization (1NF)'),
+            '2nf'      => __('Second step of normalization (1NF+2NF)'),
+            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'), ];
 
         $htmlOutput .= Util::getRadioFields(
             'normalizeTo',

@@ -151,7 +151,7 @@ class Footer
             'db' => $db,
             'table' => $table,
             'server' => $GLOBALS['server'],
-            'target' => $target
+            'target' => $target,
         ];
         // needed for server privileges tabs
         if (isset($_REQUEST['viewing_mode'])

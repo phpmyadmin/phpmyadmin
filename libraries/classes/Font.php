@@ -40,27 +40,27 @@ class Font
         //cksvxyzJ
         $charLists[] = [
             "chars" => ["c", "k", "s", "v", "x", "y", "z", "J"],
-            "modifier" => 0.5
+            "modifier" => 0.5,
         ];
         //abdeghnopquL023456789
         $charLists[] = [
             "chars" => [
                 "a", "b", "d", "e", "g", "h", "n", "o", "p", "q", "u", "L",
-                "0", "2", "3", "4", "5", "6", "7", "8", "9"
+                "0", "2", "3", "4", "5", "6", "7", "8", "9",
             ],
-            "modifier" => 0.56
+            "modifier" => 0.56,
         ];
         //FTZ
         $charLists[] = ["chars" => ["F", "T", "Z"], "modifier" => 0.61];
         //ABEKPSVXY
         $charLists[] = [
             "chars" => ["A", "B", "E", "K", "P", "S", "V", "X", "Y"],
-            "modifier" => 0.67
+            "modifier" => 0.67,
         ];
         //wCDHNRU
         $charLists[] = [
             "chars" => ["w", "C", "D", "H", "N", "R", "U"],
-            "modifier" => 0.73
+            "modifier" => 0.73,
         ];
         //GOQ
         $charLists[] = ["chars" => ["G", "O", "Q"], "modifier" => 0.78];

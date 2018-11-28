@@ -384,7 +384,7 @@ class ExportSql extends ExportPlugin
             $leaf->setDoc(
                 [
                     'manual_MySQL_Database_Administration',
-                    'insert_delayed'
+                    'insert_delayed',
                 ]
             );
             $subgroup->addProperty($leaf);

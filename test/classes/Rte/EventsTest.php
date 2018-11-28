@@ -110,7 +110,7 @@ class EventsTest extends TestCase
                     'item_definition'     => '',
                     'item_preserve'       => '',
                     'item_comment'        => '',
-                    'item_definer'        => ''
+                    'item_definer'        => '',
                 ],
                 [
                     'item_name'           => '',
@@ -126,8 +126,8 @@ class EventsTest extends TestCase
                     'item_definition'     => '',
                     'item_preserve'       => '',
                     'item_comment'        => '',
-                    'item_definer'        => ''
-                ]
+                    'item_definer'        => '',
+                ],
             ],
             [
                 [
@@ -143,7 +143,7 @@ class EventsTest extends TestCase
                     'item_definition'     => 'foo',
                     'item_preserve'       => 'foo',
                     'item_comment'        => 'foo',
-                    'item_definer'        => 'foo'
+                    'item_definer'        => 'foo',
                 ],
                 [
                     'item_name'           => 'foo',
@@ -159,8 +159,8 @@ class EventsTest extends TestCase
                     'item_definition'     => 'foo',
                     'item_preserve'       => 'foo',
                     'item_comment'        => 'foo',
-                    'item_definer'        => 'foo'
-                ]
+                    'item_definer'        => 'foo',
+                ],
             ],
         ];
     }
@@ -205,50 +205,50 @@ class EventsTest extends TestCase
             'item_definition'     => '',
             'item_preserve'       => '',
             'item_comment'        => '',
-            'item_definer'        => ''
+            'item_definer'        => '',
         ];
 
         return [
             [
                 $data,
-                "<input name='add_item'"
+                "<input name='add_item'",
             ],
             [
                 $data,
-                "<input type='text' name='item_name'"
+                "<input type='text' name='item_name'",
             ],
             [
                 $data,
-                "<select name='item_status'"
+                "<select name='item_status'",
             ],
             [
                 $data,
-                "<input name='item_type'"
+                "<input name='item_type'",
             ],
             [
                 $data,
-                "<input type='text' name='item_execute_at'"
+                "<input type='text' name='item_execute_at'",
             ],
             [
                 $data,
-                "<input type='text' name='item_ends'"
+                "<input type='text' name='item_ends'",
             ],
             [
                 $data,
-                "<textarea name='item_definition'"
+                "<textarea name='item_definition'",
             ],
             [
                 $data,
-                "<input type='text' name='item_definer'"
+                "<input type='text' name='item_definer'",
             ],
             [
                 $data,
-                "<input type='text' name='item_comment'"
+                "<input type='text' name='item_comment'",
             ],
             [
                 $data,
-                "<input type='submit' name='editor_process_add'"
-            ]
+                "<input type='submit' name='editor_process_add'",
+            ],
         ];
     }
 
@@ -292,50 +292,50 @@ class EventsTest extends TestCase
             'item_definition'     => 'SET @A=1;',
             'item_preserve'       => '',
             'item_comment'        => '',
-            'item_definer'        => ''
+            'item_definer'        => '',
         ];
 
         return [
             [
                 $data,
-                "<input name='edit_item'"
+                "<input name='edit_item'",
             ],
             [
                 $data,
-                "<input type='text' name='item_name'"
+                "<input type='text' name='item_name'",
             ],
             [
                 $data,
-                "<select name='item_status'"
+                "<select name='item_status'",
             ],
             [
                 $data,
-                "<input name='item_type'"
+                "<input name='item_type'",
             ],
             [
                 $data,
-                "<input type='text' name='item_execute_at'"
+                "<input type='text' name='item_execute_at'",
             ],
             [
                 $data,
-                "<input type='text' name='item_ends'"
+                "<input type='text' name='item_ends'",
             ],
             [
                 $data,
-                "<textarea name='item_definition'"
+                "<textarea name='item_definition'",
             ],
             [
                 $data,
-                "<input type='text' name='item_definer'"
+                "<input type='text' name='item_definer'",
             ],
             [
                 $data,
-                "<input type='text' name='item_comment'"
+                "<input type='text' name='item_comment'",
             ],
             [
                 $data,
-                "<input type='submit' name='editor_process_edit'"
-            ]
+                "<input type='submit' name='editor_process_edit'",
+            ],
         ];
     }
 
@@ -381,22 +381,22 @@ class EventsTest extends TestCase
             'item_definition'     => '',
             'item_preserve'       => '',
             'item_comment'        => '',
-            'item_definer'        => ''
+            'item_definer'        => '',
         ];
 
         return [
             [
                 $data,
-                "<select name='item_type'"
+                "<select name='item_type'",
             ],
             [
                 $data,
-                "<input type='hidden' name='editor_process_edit'"
+                "<input type='hidden' name='editor_process_edit'",
             ],
             [
                 $data,
-                "<input type='hidden' name='ajax_request'"
-            ]
+                "<input type='hidden' name='ajax_request'",
+            ],
         ];
     }
 
@@ -447,11 +447,11 @@ class EventsTest extends TestCase
                     'item_name'       => 's o m e e v e n t\\',
                     'item_type'       => 'ONE TIME',
                     'item_execute_at' => '2050-01-01 00:00:00',
-                    'item_definition' => 'SET @A=0;'
+                    'item_definition' => 'SET @A=0;',
                 ],
                 'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE AT \'2050-01-01 ' .
                 '00:00:00\' ON COMPLETION NOT PRESERVE DO SET @A=0;',
-                0
+                0,
             ],
             [
                 [ // full once-off event
@@ -461,11 +461,11 @@ class EventsTest extends TestCase
                     'item_execute_at' => '2050-01-01 00:00:00',
                     'item_preserve'   => 'ON',
                     'item_status'     => 'ENABLED',
-                    'item_definition' => 'SET @A=0;'
+                    'item_definition' => 'SET @A=0;',
                 ],
                 'CREATE DEFINER=`me`@`home` EVENT `evn` ON SCHEDULE AT ' .
                 '\'2050-01-01 00:00:00\' ON COMPLETION PRESERVE ENABLE DO SET @A=0;',
-                0
+                0,
             ],
             [
                 [ // simple recurring event
@@ -474,11 +474,11 @@ class EventsTest extends TestCase
                     'item_interval_value' => '365',
                     'item_interval_field' => 'DAY',
                     'item_status'         => 'DISABLED',
-                    'item_definition'     => 'SET @A=0;'
+                    'item_definition'     => 'SET @A=0;',
                 ],
                 'CREATE EVENT `rec_````evn` ON SCHEDULE EVERY 365 DAY ON ' .
                 'COMPLETION NOT PRESERVE DISABLE DO SET @A=0;',
-                0
+                0,
             ],
             [
                 [ // full recurring event
@@ -491,19 +491,19 @@ class EventsTest extends TestCase
                     'item_ends'           => '2050-01-01',
                     'item_preserve'       => 'ON',
                     'item_status'         => 'SLAVESIDE_DISABLED',
-                    'item_definition'     => 'SET @A=0;'
+                    'item_definition'     => 'SET @A=0;',
                 ],
                 'CREATE DEFINER=`evil````user><\`@`work\` EVENT `rec_evn2` ON ' .
                 'SCHEDULE EVERY 365 DAY STARTS \'1900-01-01\' ENDS \'2050-01-01\' ' .
                 'ON COMPLETION PRESERVE DISABLE ON SLAVE DO SET @A=0;',
-                0
+                0,
             ],
             // Testing failures
             [
-                [ // empty request
+                [// empty request
                 ],
                 'CREATE EVENT ON SCHEDULE ON COMPLETION NOT PRESERVE DO ',
-                3
+                3,
             ],
             [
                 [
@@ -511,11 +511,11 @@ class EventsTest extends TestCase
                     'item_definer'    => 'someuser', // invalid definer format
                     'item_type'       => 'ONE TIME',
                     'item_execute_at' => '', // no execution time
-                    'item_definition' => 'SET @A=0;'
+                    'item_definition' => 'SET @A=0;',
                 ],
                 'CREATE EVENT `s o m e e v e n t\` ON SCHEDULE ON COMPLETION NOT ' .
                 'PRESERVE DO SET @A=0;',
-                2
+                2,
             ],
             [
                 [
@@ -524,11 +524,11 @@ class EventsTest extends TestCase
                     'item_interval_value' => '', // no interval value
                     'item_interval_field' => 'DAY',
                     'item_status'         => 'DISABLED',
-                    'item_definition'     => 'SET @A=0;'
+                    'item_definition'     => 'SET @A=0;',
                 ],
                 'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT ' .
                 'PRESERVE DISABLE DO SET @A=0;',
-                1
+                1,
             ],
             [
                 [ // simple recurring event
@@ -537,11 +537,11 @@ class EventsTest extends TestCase
                     'item_interval_value' => '365',
                     'item_interval_field' => 'CENTURIES', // invalid interval field
                     'item_status'         => 'DISABLED',
-                    'item_definition'     => 'SET @A=0;'
+                    'item_definition'     => 'SET @A=0;',
                 ],
                 'CREATE EVENT `rec_````evn` ON SCHEDULE ON COMPLETION NOT ' .
                 'PRESERVE DISABLE DO SET @A=0;',
-                1
+                1,
             ],
         ];
     }

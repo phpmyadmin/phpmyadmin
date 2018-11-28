@@ -98,8 +98,8 @@ class ErrorReport
             "user_agent_string" => $_SERVER['HTTP_USER_AGENT'],
             "locale" => $_COOKIE['pma_lang'],
             "configuration_storage" =>
-                is_null($relParams['db']) ? "disabled" : "enabled",
-            "php_version" => phpversion()
+            is_null($relParams['db']) ? "disabled" : "enabled",
+            "php_version" => phpversion(),
         ];
 
         if ($exceptionType == 'js') {
@@ -141,7 +141,7 @@ class ErrorReport
                         "type" => $errorObj->getType(),
                         "msg" => $errorObj->getOnlyMessage(),
                         "stackTrace" => $errorObj->getBacktrace(5),
-                        "stackhash" => $errorObj->getHash()
+                        "stackhash" => $errorObj->getHash(),
                     ];
                 }
             }

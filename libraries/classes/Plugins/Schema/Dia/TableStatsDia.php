@@ -102,7 +102,7 @@ class TableStatsDia extends TableStats
             $listOfColors = [
                 'FF0000',
                 '000099',
-                '00FF00'
+                '00FF00',
             ];
             shuffle($listOfColors);
             $this->tableColor =  '#' . $listOfColors[0] . '';

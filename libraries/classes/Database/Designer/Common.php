@@ -209,7 +209,7 @@ class Common
                 $retval[$ti][$c_name_i][$dtn_i] = [];
                 $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = [
                     0 => $con['STN'][$i],
-                    1 => $con['SCN'][$i]
+                    1 => $con['SCN'][$i],
                 ];
             }
             $ti++;
@@ -263,7 +263,7 @@ class Common
     {
         $retval = [
             'j_tabs' => [],
-            'h_tabs' => []
+            'h_tabs' => [],
         ];
 
         for ($i = 0, $cnt = count($GLOBALS['designer']['TABLE_NAME']); $i < $cnt; $i++) {
@@ -640,7 +640,7 @@ class Common
                 return [
                     false,
                     __('Error: FOREIGN KEY relationship could not be added!')
-                    . "<br/>" . $error
+                    . "<br/>" . $error,
                 ];
             }
 
@@ -678,7 +678,7 @@ class Common
         return [
             false,
             __('Error: Internal relationship could not be added!')
-            . "<br/>" . $error
+            . "<br/>" . $error,
         ];
     }
 
@@ -722,7 +722,7 @@ class Common
                 return [
                     false,
                     __('Error: FOREIGN KEY relationship could not be removed!')
-                    . "<br/>" . $error
+                    . "<br/>" . $error,
                 ];
             }
         }
@@ -748,7 +748,7 @@ class Common
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
             return [
                 false,
-                __('Error: Internal relationship could not be removed!') . "<br/>" . $error
+                __('Error: Internal relationship could not be removed!') . "<br/>" . $error,
             ];
         }
 
@@ -769,7 +769,7 @@ class Common
         $cfgDesigner = [
             'user'  => $GLOBALS['cfg']['Server']['user'],
             'db'    => $cfgRelation['db'],
-            'table' => $cfgRelation['designer_settings']
+            'table' => $cfgRelation['designer_settings'],
         ];
 
         $success = true;

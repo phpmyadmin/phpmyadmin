@@ -867,7 +867,7 @@ class InsertEdit
                     'table' => $table,
                     'field' => $column['Field'],
                     'rownumber' => $rownumber,
-                    'data'      => $data
+                    'data'      => $data,
                 ]
             ) . '">'
             . str_replace("'", "\'", $titles['Browse']) . '</a>';
@@ -1547,7 +1547,7 @@ class InsertEdit
             'tinyblob'   =>        '256',
             'blob'       =>      '65536',
             'mediumblob' =>   '16777216',
-            'longblob'   => '4294967296' // yeah, really
+            'longblob'   => '4294967296', // yeah, really
         ];
 
         $this_field_max_size = $max_upload_size; // from PHP max
@@ -1645,7 +1645,7 @@ class InsertEdit
             );
 
             $virtual = [
-                'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+                'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED',
             ];
             if (in_array($column['Extra'], $virtual)) {
                 $html_output .= '<input type="hidden" name="virtual'
@@ -2059,7 +2059,7 @@ class InsertEdit
             $special_chars_encoded,
             $special_chars,
             $data,
-            $backup_field
+            $backup_field,
         ];
     }
 
@@ -2106,7 +2106,7 @@ class InsertEdit
         );
         return [
             $real_null_value, $data, $special_chars,
-            $backup_field, $special_chars_encoded
+            $backup_field, $special_chars_encoded,
         ];
     }
 
@@ -2277,7 +2277,7 @@ class InsertEdit
             $insert_command . 'INTO '
             . Util::backquote($GLOBALS['table'])
             . ' (' . implode(', ', $query_fields) . ') VALUES ('
-            . implode('), (', $value_sets) . ')'
+            . implode('), (', $value_sets) . ')',
         ];
         unset($insert_command, $query_fields);
         return $query;
@@ -2350,7 +2350,7 @@ class InsertEdit
             $last_messages,
             $warning_messages,
             $error_messages,
-            $return_to_sql_query
+            $return_to_sql_query,
         ];
     }
 
@@ -2452,7 +2452,7 @@ class InsertEdit
                 . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])
                 . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
-                . $where_comparison
+                . $where_comparison,
         ];
         $output = '<a href="sql.php'
             . Url::getCommon($_url_params) . '"' . $title . '>';
@@ -2501,7 +2501,7 @@ class InsertEdit
                 'db'            => $db,
                 'table'         => $table,
                 'where_clause'  => $_REQUEST['where_clause'],
-                'transform_key' => $column_name
+                'transform_key' => $column_name,
             ];
             $transform_options = $this->transformations->getOptions(
                 isset($transformation[$type . '_options'])
@@ -2916,7 +2916,7 @@ class InsertEdit
         return [
             $insert_mode, $where_clause, $where_clause_array, $where_clauses,
             $result, $rows, $found_unique_key,
-            isset($after_insert) ? $after_insert : null
+            isset($after_insert) ? $after_insert : null,
         ];
     }
 
@@ -2954,7 +2954,7 @@ class InsertEdit
          */
         $url_params = [
             'db' => $db,
-            'sql_query' => $_POST['sql_query']
+            'sql_query' => $_POST['sql_query'],
         ];
 
         if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
@@ -3295,7 +3295,7 @@ class InsertEdit
                     'db'            => $db,
                     'table'         => $table,
                     'transform_key' => $column['Field'],
-                    'where_clause'  => $where_clause
+                    'where_clause'  => $where_clause,
                 ];
                 $transformation_options['wrapper_link']
                     = Url::getCommon($_url_params);

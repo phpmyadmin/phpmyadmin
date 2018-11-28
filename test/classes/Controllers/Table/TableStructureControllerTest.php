@@ -264,7 +264,7 @@ class TableStructureControllerTest extends PmaTestCase
         $db = "PMA_db";
         $table = "PMA_table";
         $selected = [
-            "table1", "table2"
+            "table1", "table2",
         ];
         $action = 'db_delete_row';
 

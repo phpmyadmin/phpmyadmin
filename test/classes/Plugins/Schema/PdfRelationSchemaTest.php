@@ -67,7 +67,7 @@ class PdfRelationSchemaTest extends PmaTestCase
             'mimework' => 'mimework',
             'commwork' => 'commwork',
             'column_info' => 'column_info',
-            'pdf_pages' => 'pdf_pages'
+            'pdf_pages' => 'pdf_pages',
         ];
         $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();
@@ -90,12 +90,12 @@ class PdfRelationSchemaTest extends PmaTestCase
 
         $fetchArrayReturn = [
             //table name in information_schema_relations
-            'table_name' => 'CHARACTER_SETS'
+            'table_name' => 'CHARACTER_SETS',
         ];
 
         $fetchArrayReturn2 = [
             //table name in information_schema_relations
-            'table_name' => 'COLLATIONS'
+            'table_name' => 'COLLATIONS',
         ];
 
         $dbi->expects($this->at(2))
@@ -110,7 +110,7 @@ class PdfRelationSchemaTest extends PmaTestCase
 
         $fetchRowReturn = [
             'table_name',
-            'table_name'
+            'table_name',
         ];
 
         //let fetchRow have more results
@@ -126,7 +126,7 @@ class PdfRelationSchemaTest extends PmaTestCase
                 "Type" => "char(60)",
                 "Null" => "NO",
                 'Extra' => "Extra",
-            ]
+            ],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($fields_info));
@@ -140,8 +140,8 @@ class PdfRelationSchemaTest extends PmaTestCase
                 'Field' => 'field1',
                 'Key' => 'PRIMARY',
                 'Key_name' => "Key_name",
-                'Column_name' => "Column_name"
-            ]
+                'Column_name' => "Column_name",
+            ],
         ];
         $dbi->expects($this->any())->method('getTableIndexes')
             ->will($this->returnValue($getIndexesResult));

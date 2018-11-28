@@ -63,7 +63,7 @@ class NormalizationTest extends TestCase
                     [
                         "id" => ["Type" => "integer"],
                         "col1" => ["Type" => 'varchar(100)'],
-                        "col2" => ["Type" => 'DATETIME']
+                        "col2" => ["Type" => 'DATETIME'],
                     ]
                 )
             );
@@ -71,18 +71,18 @@ class NormalizationTest extends TestCase
             ->method('getColumnNames')
             ->will($this->returnValue(["id", "col1", "col2"]));
         $map = [
-          ['PMA_db', 'PMA_table1', DatabaseInterface::CONNECT_USER, []],
-          [
-            'PMA_db', 'PMA_table', DatabaseInterface::CONNECT_USER,
-            [['Key_name' => 'PRIMARY', 'Column_name' => 'id']]
-          ],
-          [
-              'PMA_db', 'PMA_table2', DatabaseInterface::CONNECT_USER,
-              [
-                ['Key_name' => 'PRIMARY', 'Column_name' => 'id'],
-                ['Key_name' => 'PRIMARY', 'Column_name' => 'col1']
-              ]
-          ],
+            ['PMA_db', 'PMA_table1', DatabaseInterface::CONNECT_USER, []],
+            [
+                'PMA_db', 'PMA_table', DatabaseInterface::CONNECT_USER,
+                [['Key_name' => 'PRIMARY', 'Column_name' => 'id']],
+            ],
+            [
+                'PMA_db', 'PMA_table2', DatabaseInterface::CONNECT_USER,
+                [
+                    ['Key_name' => 'PRIMARY', 'Column_name' => 'id'],
+                    ['Key_name' => 'PRIMARY', 'Column_name' => 'col1'],
+                ],
+            ],
         ];
         $dbi->expects($this->any())
             ->method('getTableIndexes')
@@ -364,8 +364,8 @@ class NormalizationTest extends TestCase
             [
                 'html' => '',
                 'success' => true,
-                'newTables' => []
-                ],
+                'newTables' => [],
+            ],
             $result
         );
         $tables = ["PMA_table" => ['col1', 'PMA_table']];
@@ -381,13 +381,13 @@ class NormalizationTest extends TestCase
                 'PMA_table' =>  [
                     'PMA_table' =>  [
                         'pk' => 'col1',
-                        'nonpk' => 'col2'
+                        'nonpk' => 'col2',
                     ],
                     'table2' =>  [
                         'pk' => 'id',
-                        'nonpk' => 'col4, col5'
-                    ]
-                ]
+                        'nonpk' => 'col4, col5',
+                    ],
+                ],
             ],
             $result1['newTables']
         );
@@ -507,7 +507,7 @@ class NormalizationTest extends TestCase
         $choices = [
             '1nf' => __('First step of normalization (1NF)'),
             '2nf'      => __('Second step of normalization (1NF+2NF)'),
-            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')];
+            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)'), ];
 
         $htmlTmp = Util::getRadioFields(
             'normalizeTo',

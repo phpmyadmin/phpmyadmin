@@ -79,9 +79,9 @@ class GisGeometryCollectionTest extends TestCase
                     'maxX' => 45.0,
                     'minX' => 10.0,
                     'maxY' => 45.0,
-                    'minY' => 10.0
-                ]
-            ]
+                    'minY' => 10.0,
+                ],
+            ],
         ];
     }
 
@@ -118,9 +118,9 @@ class GisGeometryCollectionTest extends TestCase
                 'LINESTRING' => [
                     'no_of_points' => 2,
                     0 => ['x' => 5.02, 'y' => 8.45],
-                    1 => ['x' => 6.14, 'y' => 0.15]
-                ]
-            ]
+                    1 => ['x' => 6.14, 'y' => 0.15],
+                ],
+            ],
         ];
 
         return [
@@ -128,8 +128,8 @@ class GisGeometryCollectionTest extends TestCase
                 $temp1,
                 0,
                 null,
-                'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))'
-            ]
+                'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))',
+            ],
         ];
     }
 
@@ -167,14 +167,14 @@ class GisGeometryCollectionTest extends TestCase
                             'no_of_points' => 2,
                             '0' => [
                                 'x' => 5.02,
-                                'y' => 8.45
+                                'y' => 8.45,
                             ],
                             '1' => [
                                 'x' => 6.14,
-                                'y' => 0.15
-                            ]
-                        ]
-                    ]
+                                'y' => 0.15,
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ];
@@ -231,10 +231,10 @@ class GisGeometryCollectionTest extends TestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
-                imagecreatetruecolor(120, 150)
-            ]
+                imagecreatetruecolor(120, 150),
+            ],
         ];
     }
 
@@ -285,10 +285,10 @@ class GisGeometryCollectionTest extends TestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 new TCPDF(),
-            ]
+            ],
         ];
     }
 
@@ -347,13 +347,13 @@ class GisGeometryCollectionTest extends TestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 '/^(<path d=" M 46, 268 L -4, 248 L 6, 208 L 66, 198 Z  M 16,'
                     . ' 228 L 46, 224 L 36, 248 Z " name="svg" id="svg)(\d+)'
                     . '(" class="polygon vector" stroke="black" stroke-width="0.5"'
-                    . ' fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8"\/>)$/'
-            ]
+                    . ' fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8"\/>)$/',
+            ],
         ];
     }
 
@@ -438,8 +438,8 @@ class GisGeometryCollectionTest extends TestCase
                 . '.Point(20,30)).transform(new OpenLayers.Projection("EPSG:43'
                 . '26"), map.getProjectionObject()))))), null, {"strokeColor":'
                 . '"#000000","strokeWidth":0.5,"fillColor":"#B02EE0","fillOpac'
-                . 'ity":0.8,"label":"Ol","fontSize":10}));'
-            ]
+                . 'ity":0.8,"label":"Ol","fontSize":10}));',
+            ],
         ];
     }
 }

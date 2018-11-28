@@ -93,7 +93,7 @@ $replaces = [
     => '\\1<b>\\2</b>',
 
     // Links target and rel
-    '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="'
+    '/a href="/' => 'a target="_blank" rel="noopener noreferrer" href="',
 
 ];
 

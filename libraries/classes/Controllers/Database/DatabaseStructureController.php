@@ -159,7 +159,7 @@ class DatabaseStructureController extends DatabaseController
             $uri = './db_structure.php' . Url::getCommonRaw([
                 'db' => $this->db,
                 'pos' => max(0, $this->_total_num_tables - $GLOBALS['cfg']['MaxTableList']),
-                'reload' => 1
+                'reload' => 1,
             ]);
             Core::sendHeaderLocation($uri);
         }
@@ -187,7 +187,7 @@ class DatabaseStructureController extends DatabaseController
         $this->response->addHTML('<div id="tableslistcontainer">');
         $_url_params = [
             'pos' => $this->_pos,
-            'db'  => $this->db];
+            'db'  => $this->db, ];
 
         // Add the sort options if they exists
         if (isset($_REQUEST['sort'])) {
@@ -235,7 +235,7 @@ class DatabaseStructureController extends DatabaseController
                 'url_query' => Url::getCommon([
                     'db' => $this->db,
                     'goto' => 'db_structure.php',
-                ])
+                ]),
             ])
         );
 
@@ -307,7 +307,7 @@ class DatabaseStructureController extends DatabaseController
         $favParams = ['db' => $this->db,
             'ajax_request' => true,
             'favorite_table' => $favorite_table,
-            (($already_favorite ? 'remove' : 'add') . '_favorite') => true
+            (($already_favorite ? 'remove' : 'add') . '_favorite') => true,
         ];
         $this->response->addJSON([
             'user' => $user,
@@ -352,7 +352,7 @@ class DatabaseStructureController extends DatabaseController
                 ->getRealRowCountTable();
             $real_row_count_all[] = [
                 'table' => $table['TABLE_NAME'],
-                'row_count' => $row_count
+                'row_count' => $row_count,
             ];
         }
 
@@ -873,7 +873,7 @@ class DatabaseStructureController extends DatabaseController
         $this->response->addJSON(
             [
                 'favorite_tables' => json_encode($favorite_tables),
-                'list' => $fav_instance->getHtmlList()
+                'list' => $fav_instance->getHtmlList(),
             ]
         );
         $server_id = $GLOBALS['server'];
@@ -1017,7 +1017,7 @@ class DatabaseStructureController extends DatabaseController
         }
 
         return [$current_table, $formatted_size, $unit, $formatted_overhead,
-            $overhead_unit, $overhead_size, $table_is_view, $sum_size
+            $overhead_unit, $overhead_size, $table_is_view, $sum_size,
         ];
     }
 
@@ -1071,7 +1071,7 @@ class DatabaseStructureController extends DatabaseController
             }
         }
         return [$current_table, $formatted_size, $unit, $formatted_overhead,
-            $overhead_unit, $overhead_size, $sum_size
+            $overhead_unit, $overhead_size, $sum_size,
         ];
     }
 

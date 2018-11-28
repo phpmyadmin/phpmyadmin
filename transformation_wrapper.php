@@ -40,7 +40,7 @@ $request_params = [
     'ct',
     'sql_query',
     'transform_key',
-    'where_clause'
+    'where_clause',
 ];
 $size_params = [
     'newHeight',

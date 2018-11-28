@@ -111,7 +111,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        $meta1, $meta2
+                        $meta1, $meta2,
                     ]
                 )
             );
@@ -120,7 +120,7 @@ class DatabaseInterfaceTest extends PmaTestCase
 
         $sql_query = "PMA_sql_query";
         $view_columns = [
-            "view_columns1", "view_columns2"
+            "view_columns1", "view_columns2",
         ];
 
         $column_map = $dbi->getColumnMapFromSql(
@@ -132,7 +132,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             [
                 'table_name' => 'meta1_table',
                 'refering_column' => 'meta1_name',
-                'real_column' => 'view_columns1'
+                'real_column' => 'view_columns1',
             ],
             $column_map[0]
         );
@@ -140,7 +140,7 @@ class DatabaseInterfaceTest extends PmaTestCase
             [
                 'table_name' => 'meta2_table',
                 'refering_column' => 'meta2_name',
-                'real_column' => 'view_columns2'
+                'real_column' => 'view_columns2',
             ],
             $column_map[1]
         );
@@ -276,7 +276,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'compress' => false,
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
-                    ]
+                    ],
                 ],
             ],
             [
@@ -292,7 +292,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'port' => 0,
                         'ssl' => false,
                         'compress' => false,
-                    ]
+                    ],
                 ],
             ],
             [
@@ -312,7 +312,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'compress' => false,
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
-                    ]
+                    ],
                 ],
             ],
             [
@@ -328,7 +328,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'port' => 0,
                         'ssl' => true,
                         'compress' => false,
-                    ]
+                    ],
                 ],
             ],
             [
@@ -349,7 +349,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'controluser' => 'u2',
                         'controlpass' => 'p2',
                         'control_ssl' => true,
-                    ]
+                    ],
                 ],
             ],
             [
@@ -365,7 +365,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                         'port' => 0,
                         'ssl' => true,
                         'compress' => false,
-                    ]
+                    ],
                 ],
             ],
         ];
@@ -531,7 +531,7 @@ class DatabaseInterfaceTest extends PmaTestCase
                 'COLUMN_NAME' => 'idtable2',
                 'REFERENCED_TABLE_NAME' => 'table1',
                 'REFERENCED_COLUMN_NAME' => 'idtable1',
-            ]
+            ],
         ], $this->_dbi->getForeignKeyConstrains('test', ['table1', 'table2']));
     }
 }

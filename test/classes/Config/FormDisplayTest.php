@@ -83,9 +83,9 @@ class FormDisplayTest extends PmaTestCase
             "Servers" => [
                 "1" => [
                     'test' => 1,
-                    1 => ':group:end'
-                ]
-            ]
+                    1 => ':group:end',
+                ],
+            ],
         ];
 
         $this->object->registerForm('pma_testform', $array, 2);
@@ -98,7 +98,7 @@ class FormDisplayTest extends PmaTestCase
         $this->assertEquals(
             [
                 "Servers/2/test" => "Servers/1/test",
-                "Servers/2/:group:end:0" => "Servers/1/:group:end:0"
+                "Servers/2/:group:end:0" => "Servers/1/:group:end:0",
             ],
             $this->readAttribute($this->object, '_systemPaths')
         );
@@ -106,7 +106,7 @@ class FormDisplayTest extends PmaTestCase
         $this->assertEquals(
             [
                 "Servers/2/test" => "Servers-2-test",
-                "Servers/2/:group:end:0" => "Servers-2-:group:end:0"
+                "Servers/2/:group:end:0" => "Servers-2-:group:end:0",
             ],
             $this->readAttribute($this->object, '_translatedPaths')
         );
@@ -172,11 +172,11 @@ class FormDisplayTest extends PmaTestCase
 
         $arr = [
             "Servers/1/test" => ['e1'],
-            "foobar" => ['e2', 'e3']
+            "foobar" => ['e2', 'e3'],
         ];
 
         $sysArr = [
-            "Servers/1/test" => "Servers/1/test2"
+            "Servers/1/test" => "Servers/1/test2",
         ];
 
         $attrSystemPaths = $reflection->getProperty('_systemPaths');
@@ -216,11 +216,11 @@ class FormDisplayTest extends PmaTestCase
         $arr = [
             "Servers/1/test" => ['e1'],
             "Servers/2/test" => ['e2', 'e3'],
-            "Servers/3/test" => []
+            "Servers/3/test" => [],
         ];
 
         $sysArr = [
-            "Servers/1/test" => "Servers/1/host"
+            "Servers/1/test" => "Servers/1/host",
         ];
 
         $attrSystemPaths = $reflection->getProperty('_systemPaths');
@@ -235,9 +235,9 @@ class FormDisplayTest extends PmaTestCase
             [
                 'Servers' => [
                     '1' => [
-                        'test' => 'localhost'
-                    ]
-                ]
+                        'test' => 'localhost',
+                    ],
+                ],
             ],
             $_SESSION['ConfigFile0']
         );

@@ -105,7 +105,7 @@ class Linter
                     'toLine' => 0,
                     'toColumn' => 0,
                     'severity' => 'warning',
-                ]
+                ],
             ];
         }
 

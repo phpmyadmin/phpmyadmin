@@ -49,7 +49,7 @@ class UserPreferencesTest extends PmaTestCase
     {
         $GLOBALS['cfg'] = [
             'Server/hide_db' => 'testval123',
-            'Server/port' => '213'
+            'Server/port' => '213',
         ];
         $GLOBALS['cfg']['AvailableCharsets'] = [];
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
@@ -60,9 +60,9 @@ class UserPreferencesTest extends PmaTestCase
             [
                 'Servers' => [
                     1 => [
-                        'hide_db' => 'testval123'
-                    ]
-                ]
+                        'hide_db' => 'testval123',
+                    ],
+                ],
             ],
             $_SESSION['ConfigFile' . $GLOBALS['server']]
         );
@@ -124,7 +124,7 @@ class UserPreferencesTest extends PmaTestCase
                 $this->returnValue(
                     [
                         'ts' => '123',
-                        'config_data' => json_encode([1, 2])
+                        'config_data' => json_encode([1, 2]),
                     ]
                 )
             );
@@ -140,7 +140,7 @@ class UserPreferencesTest extends PmaTestCase
             [
                 'config_data' => [1, 2],
                 'mtime' => 123,
-                'type' => 'db'
+                'type' => 'db',
             ],
             $result
         );
@@ -276,7 +276,7 @@ class UserPreferencesTest extends PmaTestCase
     {
         $GLOBALS['cfg']['UserprefsDisallow'] = [
             'test' => 'val',
-            'foo' => 'bar'
+            'foo' => 'bar',
         ];
         $GLOBALS['cfg']['UserprefsDeveloperTab'] = null;
         $result = $this->userPreferences->apply(
@@ -285,15 +285,15 @@ class UserPreferencesTest extends PmaTestCase
                 'ErrorHandler/display' => true,
                 'ErrorHandler/gather' => false,
                 'Servers/foobar' => '123',
-                'Server/hide_db' => true
+                'Server/hide_db' => true,
             ]
         );
 
         $this->assertEquals(
             [
                 'Server' => [
-                    'hide_db' => 1
-                ]
+                    'hide_db' => 1,
+                ],
             ],
             $result
         );

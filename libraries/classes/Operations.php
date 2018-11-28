@@ -195,7 +195,7 @@ class Operations
         $choices = [
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only')
+            'dataonly'  => __('Data only'),
         ];
 
         $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
@@ -1255,25 +1255,25 @@ class Operations
             'ARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
-                'PAGE'      => 'PAGE'
+                'PAGE'      => 'PAGE',
             ],
             'MARIA'  => [
                 'FIXED'     => 'FIXED',
                 'DYNAMIC'   => 'DYNAMIC',
-                'PAGE'      => 'PAGE'
+                'PAGE'      => 'PAGE',
             ],
             'MYISAM' => [
-                 'FIXED'    => 'FIXED',
-                 'DYNAMIC'  => 'DYNAMIC'
+                'FIXED'    => 'FIXED',
+                'DYNAMIC'  => 'DYNAMIC',
             ],
             'PBXT'   => [
-                 'FIXED'    => 'FIXED',
-                 'DYNAMIC'  => 'DYNAMIC'
+                'FIXED'    => 'FIXED',
+                'DYNAMIC'  => 'DYNAMIC',
             ],
             'INNODB' => [
-                 'COMPACT'  => 'COMPACT',
-                 'REDUNDANT' => 'REDUNDANT'
-            ]
+                'COMPACT'  => 'COMPACT',
+                'REDUNDANT' => 'REDUNDANT',
+            ],
         ];
 
         /** @var Innodb $innodbEnginePlugin */
@@ -1331,7 +1331,7 @@ class Operations
         $choices = [
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only')
+            'dataonly'  => __('Data only'),
         ];
 
         $html_output .= Util::getRadioFields(
@@ -1482,7 +1482,7 @@ class Operations
             $params = [
                 'sql_query' => 'ALTER TABLE '
                 . Util::backquote($GLOBALS['table'])
-                . ' ENGINE = InnoDB;'
+                . ' ENGINE = InnoDB;',
             ];
             $html_output .= $this->getMaintainActionlink(
                 __('Defragment table'),
@@ -1640,7 +1640,7 @@ class Operations
             'OPTIMIZE' => __('Optimize'),
             'REBUILD' => __('Rebuild'),
             'REPAIR' => __('Repair'),
-            'TRUNCATE' => __('Truncate')
+            'TRUNCATE' => __('Truncate'),
         ];
 
         $partition_method = Partition::getPartitionMethod(
@@ -1697,7 +1697,7 @@ class Operations
             [
                 'sql_query' => 'ALTER TABLE '
                 . Util::backquote($GLOBALS['table'])
-                . ' REMOVE PARTITIONING;'
+                . ' REMOVE PARTITIONING;',
             ]
         );
         $html_output .= '<div class="clearfloat" /><br />';

@@ -30,7 +30,7 @@ $container->alias('response', 'PhpMyAdmin\Response');
 /* Define dependencies for the concerned controller */
 $dependency_definitions = [
     'searchType' => 'zoom',
-    'url_query' => &$url_query
+    'url_query' => &$url_query,
 ];
 
 /** @var PhpMyAdmin\Controllers\Table\TableSearchController $controller */

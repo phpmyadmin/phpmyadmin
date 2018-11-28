@@ -100,8 +100,8 @@ class GisGeometryTest extends TestCase
                     'minX' => 12,
                     'maxX' => 69,
                     'minY' => 23,
-                    'maxY' => 78
-                ]
+                    'maxY' => 78,
+                ],
             ],
             [
                 '12 35,48 75,69 23,25 45,14 53,35 78',
@@ -109,15 +109,15 @@ class GisGeometryTest extends TestCase
                     'minX' => 2,
                     'maxX' => 29,
                     'minY' => 23,
-                    'maxY' => 128
+                    'maxY' => 128,
                 ],
                 [
                     'minX' => 2,
                     'maxX' => 69,
                     'minY' => 23,
-                    'maxY' => 128
-                ]
-            ]
+                    'maxY' => 128,
+                ],
+            ],
         ];
     }
 
@@ -294,8 +294,8 @@ class GisGeometryTest extends TestCase
                     . 'map.getProjectionObject())); '
                     . 'bound.extend(new OpenLayers.LonLat(1, 1).transform('
                     . 'new OpenLayers.Projection("EPSG:4326"), '
-                    . 'map.getProjectionObject()));'
-            ]
+                    . 'map.getProjectionObject()));',
+            ],
 
         ];
     }
@@ -339,8 +339,8 @@ class GisGeometryTest extends TestCase
                     . 'new Array('
                     . '(new OpenLayers.Geometry.Point(0,0)).transform('
                     . 'new OpenLayers.Projection("EPSG:4326"), '
-                    . 'map.getProjectionObject()))))))'
-            ]
+                    . 'map.getProjectionObject()))))))',
+            ],
         ];
     }
 }

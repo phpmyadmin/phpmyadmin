@@ -53,7 +53,7 @@ class TrackingTest extends TestCase
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'tracking' => 'tracking',
-            'trackingwork' => true
+            'trackingwork' => true,
         ];
 
         $GLOBALS['cfg']['Server']['tracking_default_statements'] = 'DELETE';
@@ -88,12 +88,12 @@ class TrackingTest extends TestCase
             [
                 "date" => "20120102",
                 "username" => "username1",
-                "statement" => "statement1"
+                "statement" => "statement1",
             ],
             [
                 "date" => "20130102",
                 "username" => "username2",
-                "statement" => "statement2"
+                "statement" => "statement2",
             ],
         ];
         $filter_ts_from = 0;
@@ -131,16 +131,16 @@ class TrackingTest extends TestCase
                 "lovely_" => [
                     "is_group" => 1,
                     "hello_lovely_world" => [
-                        "Name" => "hello_lovely_world"
+                        "Name" => "hello_lovely_world",
                     ],
                     "hello_lovely_world2" => [
-                        "Name" => "hello_lovely_world2"
-                    ]
+                        "Name" => "hello_lovely_world2",
+                    ],
                 ],
                 "hello_world" => [
-                    "Name" => "hello_world"
-                ]
-            ]
+                    "Name" => "hello_world",
+                ],
+            ],
         ];
         $untracked_tables = $this->tracking->extractTableNames($table_list, 'db', true);
         $this->assertContains(
@@ -183,7 +183,7 @@ class TrackingTest extends TestCase
             'db_name' => 'db_name',
             'table_name' => 'table_name',
             'date_created' => 'date_created',
-            'date_updated' => 'date_updated'
+            'date_updated' => 'date_updated',
         ];
         // return fetchArray for selectable entries
         for ($i = 2; $i < 6; $i++) {
@@ -354,7 +354,7 @@ class TrackingTest extends TestCase
                 "Null" => 'YES',
                 'Extra' => 'Extra1',
                 'Key' => 'PRI',
-                'Comment' => 'Comment1'
+                'Comment' => 'Comment1',
             ],
             [
                 'Field' => 'Field2',
@@ -363,7 +363,7 @@ class TrackingTest extends TestCase
                 "Null" => 'No',
                 'Extra' => 'Extra2',
                 'Key' => 'Key2',
-                'Comment' => 'Comment2'
+                'Comment' => 'Comment2',
             ],
         ];
 
@@ -470,7 +470,7 @@ class TrackingTest extends TestCase
         $data = [
             'tracking' => 'tracking',
             'ddlog' => ['ddlog'],
-            'dmlog' => ['dmlog']
+            'dmlog' => ['dmlog'],
         ];
         $url_params = [];
         $selection_schema = [];
@@ -515,7 +515,7 @@ class TrackingTest extends TestCase
         $version = '<form method="post" action="tbl_tracking.php'
             . Url::getCommon(
                 $url_params + [
-                    'report' => 'true', 'version' => $_REQUEST['version']
+                    'report' => 'true', 'version' => $_REQUEST['version'],
                 ]
             );
 
@@ -576,9 +576,9 @@ class TrackingTest extends TestCase
                     'statement' => 'statement',
                     'date' => 'date',
                     'username' => 'username',
-                ]
+                ],
             ],
-            'ddlog' => ['ddlog']
+            'ddlog' => ['ddlog'],
         ];
         $url_params = [];
         $ddlog_count = 10;
@@ -640,9 +640,9 @@ class TrackingTest extends TestCase
                     'statement' => 'statement',
                     'date' => 'date',
                     'username' => 'username',
-                ]
+                ],
             ],
-            'dmlog' => ['dmlog']
+            'dmlog' => ['dmlog'],
         ];
         $filter_users = ["*"];
         $filter_ts_to = 9999999999;
@@ -827,14 +827,14 @@ class TrackingTest extends TestCase
                     'statement' => 'statement1',
                     'date' => 'date2',
                     'username' => 'username3',
-                ]
+                ],
             ],
             'dmlog' =>  [
                 [
                     'statement' => 'statement1',
                     'date' => 'date2',
                     'username' => 'username3',
-                ]
+                ],
             ],
         ];
         $filter_users = ["*"];

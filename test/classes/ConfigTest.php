@@ -552,8 +552,8 @@ class ConfigTest extends PmaTestCase
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT'
-            ];
+            'PMA_USR_BROWSER_AGENT',
+        ];
 
         foreach ($defines as $define) {
             $this->assertTrue(defined($define));
@@ -1075,7 +1075,7 @@ class ConfigTest extends PmaTestCase
             'invalid' => [
                 ['invalid' => ['host' => '127.0.0.1']],
                 ['host' => '127.0.0.1'],
-                true
+                true,
             ],
         ];
     }
@@ -1126,12 +1126,12 @@ class ConfigTest extends PmaTestCase
             'verbose' => [
                 [1 => ['verbose' => 'Server 1', 'host' => '']],
                 'Server 1',
-                1
+                1,
             ],
             'md5' => [
                 [66 => ['verbose' => 'Server 1', 'host' => '']],
                 '753f173bd4ac8a45eae0fe9a4fbe0fc0',
-                66
+                66,
             ],
             'nonexisting_string' => [
                 [1 => []],

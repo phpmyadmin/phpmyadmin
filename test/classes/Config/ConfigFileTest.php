@@ -97,7 +97,7 @@ class ConfigFileTest extends PmaTestCase
         $default_config = [
             self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_simple_value,
             'Servers/1/host' => $default_host,
-            'Servers/2/host' => $default_host];
+            'Servers/2/host' => $default_host, ];
 
         /**
          * Case 1: set default value, key should not be persisted
@@ -177,7 +177,7 @@ class ConfigFileTest extends PmaTestCase
         $this->object->setCfgUpdateReadMapping(
             [
                 'Servers/value1' => 'Servers/1/value1',
-                'Servers/value2' => 'Servers/1/value2'
+                'Servers/value2' => 'Servers/1/value2',
             ]
         );
         $this->object->set('Servers/1/passthrough1', 1);
@@ -189,7 +189,7 @@ class ConfigFileTest extends PmaTestCase
                 1 => [
                     'passthrough1' => 1,
                     'passthrough2' => 2,
-                    'value1' => 3]]],
+                    'value1' => 3, ], ]],
             $this->object->getConfig()
         );
         $this->assertEquals(
@@ -496,9 +496,9 @@ class ConfigFileTest extends PmaTestCase
                         "auth_type" => "config",
                         "user" => "testUser",
                         "host" => "example.com",
-                        "port" => "21"
-                    ]
-                ]
+                        "port" => "21",
+                    ],
+                ],
             ]
         );
         $this->assertEquals(
@@ -516,8 +516,8 @@ class ConfigFileTest extends PmaTestCase
                         "port" => "21",
                         "socket" => "123",
                         "password" => "",
-                    ]
-                ]
+                    ],
+                ],
             ]
         );
         $this->assertEquals(
@@ -533,9 +533,9 @@ class ConfigFileTest extends PmaTestCase
                         "user" => "testUser",
                         "host" => "example.com",
                         "port" => "21",
-                        "password" => "testPass"
-                    ]
-                ]
+                        "password" => "testPass",
+                    ],
+                ],
             ]
         );
         $this->assertEquals(
@@ -587,7 +587,7 @@ class ConfigFileTest extends PmaTestCase
         $this->assertEquals(
             [
                 self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_value,
-                'Array/test' => ['x', 'y']
+                'Array/test' => ['x', 'y'],
             ],
             $this->object->getConfigArray()
         );

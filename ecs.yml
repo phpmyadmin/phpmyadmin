@@ -1,6 +1,7 @@
 imports:
     - { resource: "vendor/symplify/easy-coding-standard/config/psr2.yml" }
     - { resource: "vendor/symplify/easy-coding-standard/config/common/namespaces.yml" }
+    - { resource: "vendor/symplify/easy-coding-standard/config/common/array.yml" }
 
 services:
     # imported from: https://github.com/phpmyadmin/coding-standard/blob/master/PMAStandard/ruleset.xml

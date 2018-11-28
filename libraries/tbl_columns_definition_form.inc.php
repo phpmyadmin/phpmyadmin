@@ -54,7 +54,7 @@ $content_cells = [];
 
 /** @var string $db */
 $form_params = [
-    'db' => $db
+    'db' => $db,
 ];
 
 if ($action == 'tbl_create.php') {
@@ -64,7 +64,7 @@ if ($action == 'tbl_create.php') {
         $form_params = array_merge(
             $form_params,
             [
-            'field_where' => Util::getValueByKey($_REQUEST, 'field_where')]
+                'field_where' => Util::getValueByKey($_REQUEST, 'field_where'), ]
         );
         if (isset($_REQUEST['field_where'])) {
             $form_params['after_field'] = $_REQUEST['after_field'];
@@ -216,7 +216,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
                     'index' => 'MUL',
                     'unique' => 'UNI',
                     'fulltext' => 'FULLTEXT',
-                    'spatial' => 'SPATIAL'
+                    'spatial' => 'SPATIAL',
                 ],
                 $parts[0],
                 ''
@@ -270,7 +270,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     } elseif (isset($fields_meta[$columnNumber])) {
         $columnMeta = $fields_meta[$columnNumber];
         $virtual = [
-            'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+            'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED',
         ];
         if (in_array($columnMeta['Extra'], $virtual)) {
             $tableObj = new Table($GLOBALS['table'], $GLOBALS['db']);
@@ -459,7 +459,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
         'move_columns' => $move_columns,
         'cfg_relation' => $cfgRelation,
         'available_mime' => $available_mime,
-        'mime_map' => isset($mime_map) ? $mime_map : []
+        'mime_map' => isset($mime_map) ? $mime_map : [],
     ];
 } // end for
 
@@ -505,7 +505,7 @@ $response = Response::getInstance();
 $response->getHeader()->getScripts()->addFiles(
     [
         'vendor/jquery/jquery.uitablefilter.js',
-        'indexes.js'
+        'indexes.js',
     ]
 );
 $response->addHTML($html);

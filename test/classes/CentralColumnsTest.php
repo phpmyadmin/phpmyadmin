@@ -34,36 +34,36 @@ class CentralColumnsTest extends TestCase
             'col_name' => "id", "col_type" => 'integer',
             'col_length' => 0, 'col_isNull' => 0,
             'col_extra' => 'UNSIGNED,auto_increment',
-            'col_default' => 1, 'col_collation' => ''
+            'col_default' => 1, 'col_collation' => '',
         ],
         ['col_name' => "col1", 'col_type' => 'varchar',
             'col_length' => 100, 'col_isNull' => 1, 'col_extra' => 'BINARY',
-            'col_default' => 1, 'col_collation' => ''
+            'col_default' => 1, 'col_collation' => '',
         ],
         [
             'col_name' => "col2", 'col_type' => 'DATETIME',
             'col_length' => 0, 'col_isNull' => 1,
             'col_extra' => 'on update CURRENT_TIMESTAMP',
-            'col_default' => 'CURRENT_TIMESTAMP', 'col_collation' => ''
-        ]
+            'col_default' => 'CURRENT_TIMESTAMP', 'col_collation' => '',
+        ],
     ];
 
     private $modifiedColumnData = [
         [
             'col_name' => "id", "col_type" => 'integer',
             'col_length' => 0, 'col_isNull' => 0, 'col_extra' => 'auto_increment',
-            'col_default' => 1, 'col_collation' => '', 'col_attribute' => 'UNSIGNED'
+            'col_default' => 1, 'col_collation' => '', 'col_attribute' => 'UNSIGNED',
         ],
         ['col_name' => "col1", 'col_type' => 'varchar',
             'col_length' => 100, 'col_isNull' => 1, 'col_extra' => '',
-            'col_default' => 1, 'col_collation' => '', 'col_attribute' => 'BINARY'
+            'col_default' => 1, 'col_collation' => '', 'col_attribute' => 'BINARY',
         ],
         [
             'col_name' => "col2", 'col_type' => 'DATETIME',
             'col_length' => 0, 'col_isNull' => 1, 'col_extra' => '',
             'col_default' => 'CURRENT_TIMESTAMP', 'col_collation' => '',
-            'col_attribute' => 'on update CURRENT_TIMESTAMP'
-        ]
+            'col_attribute' => 'on update CURRENT_TIMESTAMP',
+        ],
     ];
 
     /**
@@ -92,7 +92,7 @@ class CentralColumnsTest extends TestCase
             'relwork' => 1,
             'db' => 'phpmyadmin',
             'relation' => 'relation',
-            'central_columns' => 'pma_central_columns'
+            'central_columns' => 'pma_central_columns',
         ];
 
         // mock DBI
@@ -113,7 +113,7 @@ class CentralColumnsTest extends TestCase
                     [
                         "id" => ["Type" => "integer", "Null" => "NO"],
                         "col1" => ["Type" => 'varchar(100)', "Null" => "YES"],
-                        "col2" => ["Type" => 'DATETIME', "Null" => "NO"]
+                        "col2" => ["Type" => 'DATETIME', "Null" => "NO"],
                     ]
                 )
             );
@@ -168,7 +168,7 @@ class CentralColumnsTest extends TestCase
             [
                 'user' => 'pma_user',
                 'db' => 'phpmyadmin',
-                'table' => 'pma_central_columns'
+                'table' => 'pma_central_columns',
             ],
             $this->centralColumns->getParams()
         );
@@ -345,7 +345,7 @@ class CentralColumnsTest extends TestCase
                 DatabaseInterface::CONNECT_CONTROL
             )
             ->will(
-                $this->returnValue(['id','col1'])
+                $this->returnValue(['id', 'col1'])
             );
         $this->assertEquals(
             ["id", "col1"],
@@ -433,14 +433,14 @@ class CentralColumnsTest extends TestCase
     public function testUpdateMultipleColumn()
     {
         $_POST['db'] = 'phpmyadmin';
-        $_POST['orig_col_name'] = ["col1","col2"];
-        $_POST['field_name'] = ["col1","col2"];
-        $_POST['field_default_type'] = ["",""];
-        $_POST['col_extra'] = ["",""];
-        $_POST['field_length'] = ["",""];
-        $_POST['field_attribute'] = ["",""];
-        $_POST['field_type'] = ["",""];
-        $_POST['field_collation'] = ["",""];
+        $_POST['orig_col_name'] = ["col1", "col2"];
+        $_POST['field_name'] = ["col1", "col2"];
+        $_POST['field_default_type'] = ["", ""];
+        $_POST['col_extra'] = ["", ""];
+        $_POST['field_length'] = ["", ""];
+        $_POST['field_attribute'] = ["", ""];
+        $_POST['field_type'] = ["", ""];
+        $_POST['field_collation'] = ["", ""];
         $this->assertTrue(
             $this->centralColumns->updateMultipleColumn()
         );
@@ -474,8 +474,8 @@ class CentralColumnsTest extends TestCase
             $result
         );
         $header_cells = [
-        __('Name'), __('Type'), __('Length/Values'), __('Default'),
-        __('Collation'), __('Attributes'), __('Null'), __('A_I')
+            __('Name'), __('Type'), __('Length/Values'), __('Default'),
+            __('Collation'), __('Attributes'), __('Null'), __('A_I'),
         ];
         $this->assertContains(
             $this->callProtectedMethod(

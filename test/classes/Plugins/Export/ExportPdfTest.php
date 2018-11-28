@@ -170,7 +170,7 @@ class ExportPdfTest extends PmaTestCase
             [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
+                'structure_and_data' => __('structure and data'),
             ],
             $property->getValues()
         );
@@ -282,7 +282,7 @@ class ExportPdfTest extends PmaTestCase
                     'currentDb' => 'db', 'currentTable' => 'table',
                     'dbAlias' => 'db', 'tableAlias' => 'table',
                     'aliases' => [],
-                    'purpose' => __('Dumping data')
+                    'purpose' => __('Dumping data'),
                 ]
             );
 

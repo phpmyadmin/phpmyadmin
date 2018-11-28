@@ -35,7 +35,7 @@ class UserGroupsTest extends TestCase
             'PMA_VERSION' => PMA_VERSION,
             'db' => 'pmadb',
             'users' => 'users',
-            'usergroups' => 'usergroups'
+            'usergroups' => 'usergroups',
         ];
     }
 
@@ -107,7 +107,7 @@ class UserGroupsTest extends TestCase
                     [
                         'usergroup' => 'usergroup',
                         'tab' => 'server_sql',
-                        'allowed' => 'Y'
+                        'allowed' => 'Y',
                     ]
                 )
             );
@@ -127,7 +127,7 @@ class UserGroupsTest extends TestCase
         $url_tag = '<a class="" href="server_user_groups.php'
             . Url::getCommon(
                 [
-                    'viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup')
+                    'viewUsers' => 1, 'userGroup' => htmlspecialchars('usergroup'),
                 ]
             );
         $this->assertContains(
@@ -138,7 +138,7 @@ class UserGroupsTest extends TestCase
             . Url::getCommon(
                 [
                     'editUserGroup' => 1,
-                    'userGroup' => htmlspecialchars('usergroup')
+                    'userGroup' => htmlspecialchars('usergroup'),
                 ]
             );
         $this->assertContains(
@@ -149,7 +149,7 @@ class UserGroupsTest extends TestCase
             . Url::getCommon(
                 [
                     'deleteUserGroup' => 1,
-                    'userGroup' => htmlspecialchars('usergroup')
+                    'userGroup' => htmlspecialchars('usergroup'),
                 ]
             );
         $this->assertContains(
@@ -221,7 +221,7 @@ class UserGroupsTest extends TestCase
                 [
                     'usergroup' => 'ug',
                     'tab' => 'server_sql',
-                    'allowed' => 'Y'
+                    'allowed' => 'Y',
                 ],
                 false
             );

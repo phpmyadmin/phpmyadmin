@@ -120,23 +120,23 @@ class SearchTest extends PmaTestCase
         return [
             [
                 '1',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  OR  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')"
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  OR  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')",
             ],
             [
                 '2',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  AND  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')"
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search%' OR CONVERT(`column2` USING utf8) LIKE '%search%')  AND  (CONVERT(`column1` USING utf8) LIKE '%string%' OR CONVERT(`column2` USING utf8) LIKE '%string%')",
             ],
             [
                 '3',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%' OR CONVERT(`column2` USING utf8) LIKE '%search string%')"
+                " WHERE (CONVERT(`column1` USING utf8) LIKE '%search string%' OR CONVERT(`column2` USING utf8) LIKE '%search string%')",
             ],
             [
                 '4',
-                " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string' OR CONVERT(`column2` USING utf8) LIKE 'search string')"
+                " WHERE (CONVERT(`column1` USING utf8) LIKE 'search string' OR CONVERT(`column2` USING utf8) LIKE 'search string')",
             ],
             [
                 '5',
-                " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string' OR CONVERT(`column2` USING utf8) REGEXP 'search string')"
+                " WHERE (CONVERT(`column1` USING utf8) REGEXP 'search string' OR CONVERT(`column2` USING utf8) REGEXP 'search string')",
             ],
         ];
     }
@@ -153,8 +153,8 @@ class SearchTest extends PmaTestCase
                 'select_columns' => 'SELECT *  FROM `pma`.`table1` WHERE FALSE',
                 'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` ' .
                     'WHERE FALSE',
-                'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE'
-             ],
+                'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE',
+            ],
             $this->callProtectedFunction(
                 'getSearchSqls',
                 ['table1']

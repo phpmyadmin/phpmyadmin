@@ -45,7 +45,7 @@ abstract class NodeDatabaseChild extends Node
                 'hideNavItem' => true,
                 'itemType' => $this->getItemType(),
                 'itemName' => $item,
-                'dbName' => $db
+                'dbName' => $db,
             ];
 
             $ret = '<span class="navItemControls">'

@@ -105,7 +105,7 @@ class TableChartController extends TableController
                 'vendor/jqplot/plugins/jqplot.pointLabels.js',
                 'vendor/jqplot/plugins/jqplot.pieRenderer.js',
                 'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
-                'vendor/jqplot/plugins/jqplot.highlighter.js'
+                'vendor/jqplot/plugins/jqplot.highlighter.js',
             ]
         );
 

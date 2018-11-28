@@ -44,31 +44,31 @@ class GisFactoryTest extends TestCase
         return [
             [
                 'MULTIPOLYGON',
-                'PhpMyAdmin\Gis\GisMultiPolygon'
+                'PhpMyAdmin\Gis\GisMultiPolygon',
             ],
             [
                 'POLYGON',
-                'PhpMyAdmin\Gis\GisPolygon'
+                'PhpMyAdmin\Gis\GisPolygon',
             ],
             [
                 'MULTILINESTRING',
-                'PhpMyAdmin\Gis\GisMultiLineString'
+                'PhpMyAdmin\Gis\GisMultiLineString',
             ],
             [
                 'LINESTRING',
-                'PhpMyAdmin\Gis\GisLineString'
+                'PhpMyAdmin\Gis\GisLineString',
             ],
             [
                 'MULTIPOINT',
-                'PhpMyAdmin\Gis\GisMultiPoint'
+                'PhpMyAdmin\Gis\GisMultiPoint',
             ],
             [
                 'POINT',
-                'PhpMyAdmin\Gis\GisPoint'
+                'PhpMyAdmin\Gis\GisPoint',
             ],
             [
                 'GEOMETRYCOLLECTION',
-                'PhpMyAdmin\Gis\GisGeometryCollection'
+                'PhpMyAdmin\Gis\GisGeometryCollection',
             ],
         ];
     }

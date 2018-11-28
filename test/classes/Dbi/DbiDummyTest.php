@@ -116,7 +116,7 @@ class DbiDummyTest extends TestCase
             [
                 2002, 'foobar',
                 '#2002 - foobar &mdash; The server is not responding (or the local '
-                . 'server\'s socket is not correctly configured).'
+                . 'server\'s socket is not correctly configured).',
             ],
         ];
     }

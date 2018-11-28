@@ -45,10 +45,10 @@ class DesignerTest extends TestCase
                     'PMA_VERSION' => PMA_VERSION,
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
-                    'pdfwork' => true
-                ]
+                    'pdfwork' => true,
+                ],
             ],
-            ' PMA_token ' => 'token'
+            ' PMA_token ' => 'token',
         ];
     }
 
@@ -110,7 +110,7 @@ class DesignerTest extends TestCase
         $this->assertEquals(
             [
                 '1' => 'page1',
-                '2' => 'page2'
+                '2' => 'page2',
             ],
             $result
         );

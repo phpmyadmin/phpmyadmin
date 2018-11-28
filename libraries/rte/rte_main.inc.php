@@ -56,7 +56,7 @@ if (! $response->isAjax()) {
         if (! isset($url_query)) {
             $url_query = Url::getCommon(
                 [
-                    'db' => $db, 'table' => $table
+                    'db' => $db, 'table' => $table,
                 ]
             );
         }

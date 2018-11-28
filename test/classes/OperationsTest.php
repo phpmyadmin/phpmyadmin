@@ -176,7 +176,7 @@ class OperationsTest extends TestCase
             'post',
             ['name' => 'foo', 'value' => 'bar'],
             [],
-            'doclink'
+            'doclink',
         ]);
 
         $this->assertRegExp(
@@ -249,8 +249,8 @@ class OperationsTest extends TestCase
                     [
                         'foreign_db'    => 'db1',
                         'foreign_table' => "foreign1",
-                        'foreign_field' => "foreign2"
-                    ]
+                        'foreign_field' => "foreign2",
+                    ],
                 ],
                 ["param1" => 'a', "param2" => 'b']
             )

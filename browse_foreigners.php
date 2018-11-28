@@ -19,7 +19,7 @@ require_once 'libraries/common.inc.php';
  */
 $request_params = [
     'data',
-    'field'
+    'field',
 ];
 
 foreach ($request_params as $one_request_param) {

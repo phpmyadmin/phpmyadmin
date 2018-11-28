@@ -64,7 +64,7 @@ class Tracking
                     'id'        => $id,
                     'timestamp' => $timestamp,
                     'username'  => $entry['username'],
-                    'statement' => $entry['statement']
+                    'statement' => $entry['statement'],
                 ];
             }
             $id++;
@@ -199,7 +199,7 @@ class Tracking
             'type' => $type,
             'default_statements' => $GLOBALS['cfg']['Server']['tracking_default_statements'],
             'pmaThemeImage' => $pmaThemeImage,
-            'text_dir' => $textDir
+            'text_dir' => $textDir,
         ]);
     }
 
@@ -404,7 +404,7 @@ class Tracking
         $html = '<form method="post" action="tbl_tracking.php'
             . Url::getCommon(
                 $url_params + [
-                    'report' => 'true', 'version' => $_REQUEST['version']
+                    'report' => 'true', 'version' => $_REQUEST['version'],
                 ]
             )
             . '">';
@@ -473,7 +473,7 @@ class Tracking
         $html = '<form method="post" action="tbl_tracking.php'
             . Url::getCommon(
                 $url_params + [
-                    'report' => 'true', 'version' => $_REQUEST['version']
+                    'report' => 'true', 'version' => $_REQUEST['version'],
                 ]
             )
             . '">';
@@ -1286,13 +1286,13 @@ class Tracking
             0 => [
                 'label' => __('not active'),
                 'value' => 'deactivate_now',
-                'selected' => ($state != 'active')
+                'selected' => ($state != 'active'),
             ],
             1 => [
                 'label' => __('active'),
                 'value' => 'activate_now',
-                'selected' => ($state == 'active')
-            ]
+                'selected' => ($state == 'active'),
+            ],
         ];
         $link = 'tbl_tracking.php' . $urlQuery . '&amp;table='
             . htmlspecialchars($versionData['table_name'])

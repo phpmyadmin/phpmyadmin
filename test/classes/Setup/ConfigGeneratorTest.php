@@ -37,7 +37,7 @@ class ConfigGeneratorTest extends PmaTestCase
         $cf = new ConfigFile();
         $_SESSION['ConfigFile0'] = ['a', 'b', 'c'];
         $_SESSION['ConfigFile0']['Servers'] = [
-            [1, 2, 3]
+            [1, 2, 3],
         ];
 
         $cf->setPersistKeys(["1/", 2]);
@@ -111,7 +111,7 @@ class ConfigGeneratorTest extends PmaTestCase
                 'var_name',
                 [
                     '1a' => 'foo',
-                    'b' => 'bar'
+                    'b' => 'bar',
                 ],
                 "\n"
             )
@@ -134,7 +134,7 @@ class ConfigGeneratorTest extends PmaTestCase
                 null,
                 [
                     'a' => 1,
-                    'b' => 2
+                    'b' => 2,
                 ]
             )
         );

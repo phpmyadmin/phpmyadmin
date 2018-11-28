@@ -806,7 +806,7 @@ Sanitize::printJsValue(
         __('September'),
         __('October'),
         __('November'),
-        __('December')
+        __('December'),
     ]
 );
 Sanitize::printJsValue(
@@ -835,7 +835,7 @@ Sanitize::printJsValue(
         /* l10n: Short month name */
         __('Nov'),
         /* l10n: Short month name */
-        __('Dec')
+        __('Dec'),
     ]
 );
 Sanitize::printJsValue(
@@ -847,7 +847,7 @@ Sanitize::printJsValue(
         __('Wednesday'),
         __('Thursday'),
         __('Friday'),
-        __('Saturday')
+        __('Saturday'),
     ]
 );
 Sanitize::printJsValue(
@@ -866,7 +866,7 @@ Sanitize::printJsValue(
         /* l10n: Short week day name */
         __('Fri'),
         /* l10n: Short week day name */
-        __('Sat')
+        __('Sat'),
     ]
 );
 Sanitize::printJsValue(
@@ -885,7 +885,7 @@ Sanitize::printJsValue(
         /* l10n: Minimal week day name */
         __('Fr'),
         /* l10n: Minimal week day name */
-        __('Sa')
+        __('Sa'),
     ]
 );
 /* l10n: Column header for week of the year in calendar */

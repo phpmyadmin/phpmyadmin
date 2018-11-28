@@ -131,7 +131,7 @@ class FooterTest extends PmaTestCase
         $this->_callPrivateFunction(
             '_removeRecursion',
             [
-                &$object
+                &$object,
             ]
         );
 
@@ -159,7 +159,7 @@ class FooterTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 [
-                    $this->object->getSelfUrl()
+                    $this->object->getSelfUrl(),
                 ]
             )
         );
@@ -185,7 +185,7 @@ class FooterTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 [
-                    $this->object->getSelfUrl()
+                    $this->object->getSelfUrl(),
                 ]
             )
         );

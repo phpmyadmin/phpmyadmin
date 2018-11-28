@@ -28,17 +28,17 @@ $tabs_icons = [
     'Navi' => 'b_select',
     'Main' => 'b_props',
     'Import' => 'b_import',
-    'Export' => 'b_export'
+    'Export' => 'b_export',
 ];
 
 $content = Util::getHtmlTab([
     'link' => 'prefs_manage.php',
-    'text' => __('Manage your settings')
+    'text' => __('Manage your settings'),
 ]) . "\n";
 /* Second authentication factor */
 $content .= Util::getHtmlTab([
     'link' => 'prefs_twofactor.php',
-    'text' => __('Two-factor authentication')
+    'text' => __('Two-factor authentication'),
 ]) . "\n";
 $script_name = basename($GLOBALS['PMA_PHP_SELF']);
 foreach (UserFormList::getAll() as $formset) {

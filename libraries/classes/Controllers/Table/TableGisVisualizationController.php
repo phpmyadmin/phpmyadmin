@@ -199,7 +199,7 @@ class TableGisVisualizationController extends TableController
                 [
                     'saveToFile' => true,
                     'session_max_rows' => $rows,
-                    'pos' => $pos
+                    'pos' => $pos,
                 ]
             )
         );

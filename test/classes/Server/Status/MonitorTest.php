@@ -90,7 +90,7 @@ class MonitorTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
+                $server_status,
             ],
             [
                 "SHOW GLOBAL VARIABLES",
@@ -98,7 +98,7 @@ class MonitorTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_variables
+                $server_variables,
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
@@ -107,7 +107,7 @@ class MonitorTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
+                $server_status,
             ],
         ];
 
@@ -263,7 +263,7 @@ class MonitorTest extends TestCase
 
         $result_rows = [
             ['sql_text' => 'insert sql_text', '#' => 11],
-            ['sql_text' => 'update sql_text', '#' => 10]
+            ['sql_text' => 'update sql_text', '#' => 10],
         ];
         $result_sum = ['insert' => 11, 'TOTAL' => 21, 'update' => 10];
         $this->assertEquals(

@@ -45,7 +45,7 @@ class NaviForm extends BaseForm
                 'NavigationTreeShowFunctions',
                 'NavigationTreeShowProcedures',
                 'NavigationTreeShowEvents',
-                'NavigationTreeAutoexpandSingleDb'
+                'NavigationTreeAutoexpandSingleDb',
             ],
             'Navi_servers' => [
                 'NavigationDisplayServers',
@@ -53,7 +53,7 @@ class NaviForm extends BaseForm
             ],
             'Navi_databases' => [
                 'NavigationTreeDisplayDbFilterMinimum',
-                'NavigationTreeDbSeparator'
+                'NavigationTreeDbSeparator',
             ],
             'Navi_tables' => [
                 'NavigationTreeDefaultTabTable',

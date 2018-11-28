@@ -35,7 +35,7 @@ $gis_types = [
     'MULTILINESTRING',
     'POLYGON',
     'MULTIPOLYGON',
-    'GEOMETRYCOLLECTION'
+    'GEOMETRYCOLLECTION',
 ];
 
 // Extract type from the initial call and make sure that it's a valid one.
@@ -79,7 +79,7 @@ $result = "'" . $wkt . "'," . $srid;
 $visualizationSettings = [
     'width' => 450,
     'height' => 300,
-    'spatialColumn' => 'wkt'
+    'spatialColumn' => 'wkt',
 ];
 $data = [['wkt' => $wkt_with_zero, 'srid' => $srid]];
 $visualization = GisVisualization::getByData($data, $visualizationSettings)

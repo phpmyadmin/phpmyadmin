@@ -236,7 +236,7 @@ class Navigation
                             'unhideNavItem' => true,
                             'itemType' => $t,
                             'itemName' => $hiddenItem,
-                            'dbName' => $dbName
+                            'dbName' => $dbName,
                         ];
 
                         $html .= '<tr>';

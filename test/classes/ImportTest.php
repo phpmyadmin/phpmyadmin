@@ -393,7 +393,7 @@ class ImportTest extends TestCase
         // URL to matched rows.
         $_url_params = [
             'db'        => 'PMA',
-            'sql_query' => $simulated_query
+            'sql_query' => $simulated_query,
         ];
         $matched_rows_url  = 'sql.php' . Url::getCommon($_url_params);
 
@@ -403,7 +403,7 @@ class ImportTest extends TestCase
                     $analyzed_sql_results['query']
                 ),
                 'matched_rows' => 2,
-                'matched_rows_url' => $matched_rows_url
+                'matched_rows_url' => $matched_rows_url,
             ],
             $simulated_data
         );
@@ -431,7 +431,7 @@ class ImportTest extends TestCase
             'TOKUDB',
             'XTRADB',
             'SEQUENCE',
-            'BDB'
+            'BDB',
         ];
 
         $check_query = 'SELECT `ENGINE` FROM `information_schema`.`tables` '

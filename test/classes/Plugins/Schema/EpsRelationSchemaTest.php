@@ -55,7 +55,7 @@ class EpsRelationSchemaTest extends PmaTestCase
             'db' => "information_schema",
             'table_info' => 'table_info',
             'relwork' => 'relwork',
-            'relation' => 'relation'
+            'relation' => 'relation',
         ];
         $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();
@@ -78,12 +78,12 @@ class EpsRelationSchemaTest extends PmaTestCase
 
         $fetchArrayReturn = [
             //table name in information_schema_relations
-            'table_name' => 'CHARACTER_SETS'
+            'table_name' => 'CHARACTER_SETS',
         ];
 
         $fetchArrayReturn2 = [
             //table name in information_schema_relations
-            'table_name' => 'COLLATIONS'
+            'table_name' => 'COLLATIONS',
         ];
 
         $dbi->expects($this->at(2))
@@ -102,8 +102,8 @@ class EpsRelationSchemaTest extends PmaTestCase
                 'Field' => 'field1',
                 'Key' => 'PRIMARY',
                 'Key_name' => "Key_name",
-                'Column_name' => "Column_name"
-            ]
+                'Column_name' => "Column_name",
+            ],
         ];
         $dbi->expects($this->any())->method('getTableIndexes')
             ->will($this->returnValue($getIndexesResult));

@@ -126,7 +126,7 @@ class NavigationTest extends PmaTestCase
                 $this->returnValue(
                     [
                         'item_name' => 'tableName',
-                        'item_type' => 'table'
+                        'item_type' => 'table',
                     ]
                 )
             );
@@ -136,7 +136,7 @@ class NavigationTest extends PmaTestCase
                 $this->returnValue(
                     [
                         'item_name' => 'viewName',
-                        'item_type' => 'view'
+                        'item_type' => 'view',
                     ]
                 )
             );

@@ -100,7 +100,7 @@ class TransformationsTest extends TestCase
                     'Image/JPEG' => 'Image/JPEG',
                     'Image/PNG' => 'Image/PNG',
                     'Text/Plain' => 'Text/Plain',
-                    'Text/Octetstream' => 'Text/Octetstream'
+                    'Text/Octetstream' => 'Text/Octetstream',
                 ],
                 'transformation' =>  [
                     0 => 'Application/Octetstream: Download',
@@ -122,7 +122,7 @@ class TransformationsTest extends TestCase
                     16 => 'Text/Plain: Longtoipv4',
                     17 => 'Text/Plain: PreApPend',
                     18 => 'Text/Plain: Substring',
-                    ],
+                ],
                 'transformation_file' =>  [
                     0 => 'Output/Application_Octetstream_Download.php',
                     1 => 'Output/Application_Octetstream_Hex.php',
@@ -170,7 +170,7 @@ class TransformationsTest extends TestCase
                     'Text_Plain_PreApPend.php',
                     'Text_Plain_Substring.php',
                 ],
-             ],
+            ],
             $this->transformations->getAvailableMimeTypes()
         );
     }
@@ -283,23 +283,23 @@ class TransformationsTest extends TestCase
         return [
             [
                 'text_plain_bool2text.php',
-                'Text_Plain_Bool2Text.php'
+                'Text_Plain_Bool2Text.php',
             ],
             [
                 'application_octetstream_download.php',
-                'Application_Octetstream_Download.php'
+                'Application_Octetstream_Download.php',
             ],
             [
                 'text_plain_json.php',
-                'Text_Plain_Json.php'
+                'Text_Plain_Json.php',
             ],
             [
                 'image_jpeg_link.php',
-                'Image_JPEG_Link.php'
+                'Image_JPEG_Link.php',
             ],
             [
                 'text_plain_dateformat.php',
-                'Text_Plain_Dateformat.php'
+                'Text_Plain_Dateformat.php',
             ],
         ];
     }

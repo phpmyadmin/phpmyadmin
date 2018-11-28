@@ -54,7 +54,7 @@ $dependency_definitions = [
     "options_array" => $options_array,
     "cfgRelation" => $cfgRelation,
     "tbl_storage_engine" => $tbl_storage_engine,
-    "upd_query" => $upd_query
+    "upd_query" => $upd_query,
 ];
 if ($cfgRelation['relwork']) {
     $dependency_definitions['existrel'] = $relation->getForeigners(

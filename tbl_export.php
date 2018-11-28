@@ -84,7 +84,7 @@ if (! empty($sql_query)) {
         // Checking if the WHERE clause has to be replaced.
         if ((!empty($where_clause)) && (is_array($where_clause))) {
             $replaces[] = [
-                'WHERE', 'WHERE (' . implode(') OR (', $where_clause) . ')'
+                'WHERE', 'WHERE (' . implode(') OR (', $where_clause) . ')',
             ];
         }
 
@@ -110,11 +110,11 @@ if (! empty($sql_query)) {
                     [
                         'type' => PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR,
                         'value_str' => '.',
-                    ]
+                    ],
                 ],
                 [
                     new PhpMyAdmin\SqlParser\Token($table),
-                    new PhpMyAdmin\SqlParser\Token('.', PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR)
+                    new PhpMyAdmin\SqlParser\Token('.', PhpMyAdmin\SqlParser\Token::TYPE_OPERATOR),
                 ]
             );
         }

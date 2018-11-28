@@ -66,8 +66,8 @@ class CoreTest extends PmaTestCase
             "arr" => ['val1', 'val2', 'val3'],
             "sarr" => [
                 'arr1' => [1, 2, 3],
-                [3, ['a', 'b', 'c'], 4]
-            ]
+                [3, ['a', 'b', 'c'], 4],
+            ],
         ];
 
         $this->assertEquals(
@@ -154,8 +154,8 @@ class CoreTest extends PmaTestCase
             "arr" => ['val1', 'val2', 'val3'],
             "sarr" => [
                 'arr1' => [1, 2, 3],
-                [3, ['a', 'b', 'c'], 4]
-            ]
+                [3, ['a', 'b', 'c'], 4],
+            ],
         ];
 
         Core::arrayWrite('int', $arr, 5);
@@ -208,8 +208,8 @@ class CoreTest extends PmaTestCase
             "arr" => ['val1', 'val2', 'val3'],
             "sarr" => [
                 'arr1' => [1, 2, 3],
-                [3, ['a', 'b', 'c'], 4]
-            ]
+                [3, ['a', 'b', 'c'], 4],
+            ],
         ];
 
         Core::arrayRemove('int', $arr);
@@ -333,49 +333,49 @@ class CoreTest extends PmaTestCase
                 '/phpmyadmin/index.php/; cookieinj=value/',
                 '/phpmyadmin/index.php/;%20cookieinj=value///',
                 '/; cookieinj=value/',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '/phpmyadmin/index.php/;%20cookieinj=value///',
                 '/; cookieinj=value/',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '//example.com/../phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '//example.com/../../.././phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '/page.php/malicouspathinfo?malicouspathinfo',
                 'malicouspathinfo',
-                '/page.php'
+                '/page.php',
             ],
             [
                 '/phpmyadmin/./index.php',
                 '/phpmyadmin/./index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '/phpmyadmin/index.php',
                 '/phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '/phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
         ];
     }
@@ -482,11 +482,11 @@ class CoreTest extends PmaTestCase
     {
         return [
             ['https://wiki.phpmyadmin.net',
-             './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'],
+                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net', ],
             ['https://wiki.phpmyadmin.net',
-             './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'],
+                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net', ],
             ['wiki.phpmyadmin.net', 'wiki.phpmyadmin.net'],
-            ['index.php?db=phpmyadmin', 'index.php?db=phpmyadmin']
+            ['index.php?db=phpmyadmin', 'index.php?db=phpmyadmin'],
         ];
     }
 
@@ -702,7 +702,7 @@ class CoreTest extends PmaTestCase
             [[], false, null],
             [[1, 2, 3], false, null],
             [true, false, null],
-            [false, false, null]];
+            [false, false, null], ];
     }
 
     /**
@@ -910,7 +910,7 @@ class CoreTest extends PmaTestCase
     public function testValueInArray()
     {
         $var = 'a';
-        $this->assertTrue(Core::isValid($var, ['a', 'b',]));
+        $this->assertTrue(Core::isValid($var, ['a', 'b']));
     }
 
     /**
@@ -921,7 +921,7 @@ class CoreTest extends PmaTestCase
     public function testValueNotInArray()
     {
         $var = 'c';
-        $this->assertFalse(Core::isValid($var, ['a', 'b',]));
+        $this->assertFalse(Core::isValid($var, ['a', 'b']));
     }
 
     /**
@@ -976,7 +976,7 @@ class CoreTest extends PmaTestCase
             [true, true],
             ['string', "string"],
             [[1, 2, 3.4], [1, 2, 3.4]],
-            [[1, '2', '3.4', 5, 'text'], ['1', '2', 3.4,'5']]
+            [[1, '2', '3.4', 5, 'text'], ['1', '2', 3.4, '5']],
         ];
     }
 

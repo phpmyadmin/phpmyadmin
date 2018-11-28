@@ -454,10 +454,10 @@ class NodeTest extends PmaTestCase
             ->method('fetchArray')
             ->willReturnOnConsecutiveCalls(
                 [
-                    '0' => 'db'
+                    '0' => 'db',
                 ],
                 [
-                    '0' => 'aa_db'
+                    '0' => 'aa_db',
                 ],
                 false
             );

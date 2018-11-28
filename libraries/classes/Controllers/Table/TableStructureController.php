@@ -156,7 +156,7 @@ class TableStructureController extends TableController
         $this->response->getHeader()->getScripts()->addFiles(
             [
                 'tbl_structure.js',
-                'indexes.js'
+                'indexes.js',
             ]
         );
 
@@ -434,7 +434,7 @@ class TableStructureController extends TableController
             }
 
             $virtual = [
-                'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+                'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED',
             ];
             $data['Virtuality'] = '';
             $data['Expression'] = '';
@@ -486,7 +486,7 @@ class TableStructureController extends TableController
             $this->response->addJSON(
                 'sql_data',
                 $this->template->render('preview_sql', [
-                    'query_data' => $sql_query
+                    'query_data' => $sql_query,
                 ])
             );
         } else { // move column
@@ -784,7 +784,7 @@ class TableStructureController extends TableController
         $types = [
             'change', 'drop', 'primary',
             'index', 'unique', 'spatial',
-            'fulltext', 'browse'
+            'fulltext', 'browse',
         ];
 
         foreach ($types as $type) {
@@ -873,7 +873,7 @@ class TableStructureController extends TableController
     {
         $err_url = 'tbl_structure.php' . Url::getCommon(
             [
-                'db' => $this->db, 'table' => $this->table
+                'db' => $this->db, 'table' => $this->table,
             ]
         );
         $regenerate = false;
@@ -1178,7 +1178,7 @@ class TableStructureController extends TableController
         $fields = [
             'field_attribute', 'field_collation', 'field_comments',
             'field_default_value', 'field_default_type', 'field_extra',
-            'field_length', 'field_null', 'field_type'
+            'field_length', 'field_null', 'field_type',
         ];
         foreach ($fields as $field) {
             if ($_REQUEST[$field][$i] != $_REQUEST[$field . '_orig'][$i]) {
@@ -1612,7 +1612,7 @@ class TableStructureController extends TableController
 
         return [
             $what, $query_type, $is_unset_submit_mult, $mult_btn,
-            $centralColsError
+            $centralColsError,
         ];
     }
 }

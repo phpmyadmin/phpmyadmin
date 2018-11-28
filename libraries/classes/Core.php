@@ -314,7 +314,7 @@ class Core
     {
         /* List of PHP documentation translations */
         $php_doc_languages = [
-            'pt_BR', 'zh', 'fr', 'de', 'it', 'ja', 'pl', 'ro', 'ru', 'fa', 'es', 'tr'
+            'pt_BR', 'zh', 'fr', 'de', 'it', 'ja', 'pl', 'ro', 'ru', 'fa', 'es', 'tr',
         ];
 
         $lang = 'en';
@@ -795,14 +795,14 @@ class Core
             'demo.phpmyadmin.net',
             'docs.phpmyadmin.net',
             /* mysql.com domains */
-            'dev.mysql.com','bugs.mysql.com',
+            'dev.mysql.com', 'bugs.mysql.com',
             /* mariadb domains */
             'mariadb.org', 'mariadb.com',
             /* php.net domains */
             'php.net',
             'secure.php.net',
             /* Github domains*/
-            'github.com','www.github.com',
+            'github.com', 'www.github.com',
             /* Percona domains */
             'www.percona.com',
             /* Following are doubtful ones. */

@@ -77,7 +77,7 @@ class RelationStatsPdf extends RelationStats
                 [0, 0, 1],
                 [1, 1, 0],
                 [1, 0, 1],
-                [0, 1, 1]
+                [0, 1, 1],
             ];
             list($a, $b, $c) = $case[$d];
             $e = (1 - ($j - 1) / 6);

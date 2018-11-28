@@ -173,9 +173,9 @@ class Variables
             'Qcache_lowmem_prunes' => 0,
 
             'Qcache_free_blocks' =>
-                isset($serverStatusData->status['Qcache_total_blocks'])
-                ? $serverStatusData->status['Qcache_total_blocks'] / 5
-                : 0,
+            isset($serverStatusData->status['Qcache_total_blocks'])
+            ? $serverStatusData->status['Qcache_total_blocks'] / 5
+            : 0,
             'Slow_launch_threads' => 0,
 
             // depends on Key_read_requests
@@ -191,7 +191,7 @@ class Variables
 
             // alert if more than 95% of thread cache is in use
             'Threads_cached' => isset($serverStatusData->variables['thread_cache_size'])
-                ? 0.95 * $serverStatusData->variables['thread_cache_size'] : 0
+                ? 0.95 * $serverStatusData->variables['thread_cache_size'] : 0,
 
             // higher is better
             // variable => min value
@@ -765,7 +765,7 @@ class Variables
             ),
             'Threads_running' => __(
                 'The number of threads that are not sleeping.'
-            )
+            ),
         ];
     }
 }

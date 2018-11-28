@@ -1307,7 +1307,7 @@ class Qbe
 
         return [
             'unique' => $unique_columns,
-            'index' => $index_columns
+            'index' => $index_columns,
         ];
     }
 
@@ -1496,7 +1496,7 @@ class Qbe
         } // end for
         return [
             'where_clause_tables' => $where_clause_tables,
-            'where_clause_columns' => $where_clause_columns
+            'where_clause_columns' => $where_clause_columns,
         ];
     }
 

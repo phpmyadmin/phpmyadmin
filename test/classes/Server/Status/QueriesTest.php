@@ -87,7 +87,7 @@ class QueriesTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
+                $server_status,
             ],
             [
                 "SHOW GLOBAL VARIABLES",
@@ -95,8 +95,8 @@ class QueriesTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_variables
-            ]
+                $server_variables,
+            ],
         ];
 
         $dbi->expects($this->any())->method('fetchResult')

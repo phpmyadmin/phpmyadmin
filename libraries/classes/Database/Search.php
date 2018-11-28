@@ -330,7 +330,7 @@ class Search
                 ),
             '3' => $this->searchTypes[3],
             '4' => $this->searchTypes[4],
-            '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp')
+            '5' => $this->searchTypes[5] . ' ' . Util::showMySQLDocu('Regexp'),
         ];
         return $this->template->render('database/search/main', [
             'db' => $this->db,

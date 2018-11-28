@@ -120,7 +120,7 @@ class TableRelationController extends TableController
         $this->response->getHeader()->getScripts()->addFiles(
             [
                 'tbl_relation.js',
-                'indexes.js'
+                'indexes.js',
             ]
         );
 

@@ -48,7 +48,7 @@ class ImportAjax
             //"session",
             "progress",
             "apc",
-            "noplugin"
+            "noplugin",
         ];
 
         // select available plugin

@@ -26,7 +26,7 @@ $container->alias('response', 'PhpMyAdmin\Response');
 $dependency_definitions = [
     "sql_query" => &$GLOBALS['sql_query'],
     "url_query" => &$GLOBALS['url_query'],
-    "cfg" => &$GLOBALS['cfg']
+    "cfg" => &$GLOBALS['cfg'],
 ];
 
 /** @var TableChartController $controller */

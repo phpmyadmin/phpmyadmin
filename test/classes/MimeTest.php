@@ -46,19 +46,19 @@ class MimeTest extends TestCase
         return [
             [
                 'pma',
-                'application/octet-stream'
+                'application/octet-stream',
             ],
             [
                 'GIF',
-                'image/gif'
+                'image/gif',
             ],
             [
                 "\x89PNG",
-                'image/png'
+                'image/png',
             ],
             [
                 chr(0xff) . chr(0xd8),
-                'image/jpeg'
+                'image/jpeg',
             ],
         ];
     }

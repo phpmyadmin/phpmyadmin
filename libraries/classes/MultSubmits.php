@@ -384,7 +384,7 @@ class MultSubmits
             $runParts,
             $executeQueryLater,
             $sqlQuery,
-            $sqlQueryViews
+            $sqlQueryViews,
         ];
     }
 

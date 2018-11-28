@@ -79,7 +79,7 @@ class ReplicationGuiTest extends TestCase
                 null,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $slave_host
+                $slave_host,
             ],
         ];
 
@@ -95,7 +95,7 @@ class ReplicationGuiTest extends TestCase
                 "Field" => "host",
                 "Type" => "char(60)",
                 "Null" => "NO",
-            ]
+            ],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($fields_info));

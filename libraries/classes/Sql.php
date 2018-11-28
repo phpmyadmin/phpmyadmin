@@ -221,9 +221,9 @@ class Sql
             //Handle the case when number of values
             //is more than $cfg['ForeignKeyMaxLimit']
             $_url_params = [
-                    'db' => $db,
-                    'table' => $table,
-                    'field' => $column
+                'db' => $db,
+                'table' => $table,
+                'field' => $column,
             ];
 
             $dropdown = '<span class="curr_value">'
@@ -1378,7 +1378,7 @@ EOT;
         }
 
         return [$result, $num_rows, $unlim_num_rows,
-            isset($profiling_results) ? $profiling_results : null, $extra_data
+            isset($profiling_results) ? $profiling_results : null, $extra_data,
         ];
     }
     /**
@@ -1578,7 +1578,7 @@ EOT;
                     'nav_bar'  => '0',
                     'bkm_form' => '1',
                     'text_btn' => '1',
-                    'pview_lnk' => '1'
+                    'pview_lnk' => '1',
                 ];
 
                 $html_output .= $this->getHtmlForSqlQueryResultsTable(
@@ -1775,7 +1775,7 @@ EOT;
                         'nav_bar'  => '1',
                         'bkm_form' => '1',
                         'text_btn' => '1',
-                        'pview_lnk' => '1'
+                        'pview_lnk' => '1',
                     ];
 
                     $table_html .= $displayResultsObject->getTable(
@@ -2063,7 +2063,7 @@ EOT;
             'nav_bar'  => '1',
             'bkm_form' => '1',
             'text_btn' => '0',
-            'pview_lnk' => '1'
+            'pview_lnk' => '1',
         ];
 
         if ($GLOBALS['dbi']->isSystemSchema($db) || !$editable) {
@@ -2074,7 +2074,7 @@ EOT;
                 'nav_bar'  => '1',
                 'bkm_form' => '1',
                 'text_btn' => '1',
-                'pview_lnk' => '1'
+                'pview_lnk' => '1',
             ];
         }
         if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
@@ -2085,7 +2085,7 @@ EOT;
                 'nav_bar'  => '0',
                 'bkm_form' => '0',
                 'text_btn' => '0',
-                'pview_lnk' => '0'
+                'pview_lnk' => '0',
             ];
         }
 

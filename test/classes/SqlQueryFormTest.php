@@ -94,8 +94,8 @@ class SqlQueryFormTest extends TestCase
         $getColumns = [
             [
                 "Field" => "field1",
-                "Comment" => "Comment1"
-            ]
+                "Comment" => "Comment1",
+            ],
         ];
         $dbi->expects($this->any())
             ->method('getColumns')

@@ -29,7 +29,7 @@ $container->alias('response', 'PhpMyAdmin\Response');
 
 $dependency_definitions = [
     'searchType' => 'replace',
-    'url_query' => &$url_query
+    'url_query' => &$url_query,
 ];
 
 /** @var PhpMyAdmin\Controllers\Table\TableSearchController $controller */

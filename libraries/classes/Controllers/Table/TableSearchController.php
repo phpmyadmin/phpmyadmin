@@ -358,10 +358,10 @@ class TableSearchController extends TableController
 
             $tmpData = [
                 $_POST['criteriaColumnNames'][0] =>
-                    $row[$_POST['criteriaColumnNames'][0]],
+                $row[$_POST['criteriaColumnNames'][0]],
                 $_POST['criteriaColumnNames'][1] =>
-                    $row[$_POST['criteriaColumnNames'][1]],
-                'where_clause' => $uniqueCondition[0]
+                $row[$_POST['criteriaColumnNames'][1]],
+                'where_clause' => $uniqueCondition[0],
             ];
             $tmpData[$dataLabel] = $dataLabel ? $row[$dataLabel] : '';
             $data[] = $tmpData;
@@ -373,7 +373,7 @@ class TableSearchController extends TableController
             'Browse' => Util::getIcon(
                 'b_browse',
                 __('Browse foreign values')
-            )
+            ),
         ];
         $column_names_hashes = [];
 
@@ -916,7 +916,7 @@ class TableSearchController extends TableController
             'Browse' => Util::getIcon(
                 'b_browse',
                 __('Browse foreign values')
-            )
+            ),
         ];
         //Gets column's type and collation
         $type = $this->_columnTypes[$column_index];
@@ -960,7 +960,7 @@ class TableSearchController extends TableController
             'type' => $type,
             'collation' => $collation,
             'func' => $func,
-            'value' => $value
+            'value' => $value,
         ];
     }
 

@@ -31,8 +31,8 @@ $AUTH_MAP = [
     'https://launchpad.net/~username' => [
         'user' => 'root',
         'password' => '',
-        ],
-    ];
+    ],
+];
 
 /**
  * Simple function to show HTML page with given content.

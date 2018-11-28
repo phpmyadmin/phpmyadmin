@@ -99,31 +99,31 @@ class SqlTest extends TestCase
 
         $this->assertTrue(
             $this->callProtectedMethod('isRememberSortingOrder', [
-                $this->sql->parseAndAnalyze('SELECT * FROM tbl')
+                $this->sql->parseAndAnalyze('SELECT * FROM tbl'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isRememberSortingOrder', [
-                $this->sql->parseAndAnalyze('SELECT col FROM tbl')
+                $this->sql->parseAndAnalyze('SELECT col FROM tbl'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isRememberSortingOrder', [
-                $this->sql->parseAndAnalyze('SELECT 1')
+                $this->sql->parseAndAnalyze('SELECT 1'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isRememberSortingOrder', [
-                $this->sql->parseAndAnalyze('SELECT col1, col2 FROM tbl')
+                $this->sql->parseAndAnalyze('SELECT col1, col2 FROM tbl'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isRememberSortingOrder', [
-                $this->sql->parseAndAnalyze('SELECT COUNT(*) from tbl')
+                $this->sql->parseAndAnalyze('SELECT COUNT(*) from tbl'),
             ])
         );
     }
@@ -140,13 +140,13 @@ class SqlTest extends TestCase
 
         $this->assertTrue(
             $this->callProtectedMethod('isAppendLimitClause', [
-                $this->sql->parseAndAnalyze('SELECT * FROM tbl')
+                $this->sql->parseAndAnalyze('SELECT * FROM tbl'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isAppendLimitClause', [
-                $this->sql->parseAndAnalyze('SELECT * from tbl LIMIT 0, 10')
+                $this->sql->parseAndAnalyze('SELECT * from tbl LIMIT 0, 10'),
             ])
         );
     }
@@ -192,19 +192,19 @@ class SqlTest extends TestCase
     {
         $this->assertTrue(
             $this->callProtectedMethod('isDeleteTransformationInfo', [
-                $this->sql->parseAndAnalyze('ALTER TABLE tbl DROP COLUMN col')
+                $this->sql->parseAndAnalyze('ALTER TABLE tbl DROP COLUMN col'),
             ])
         );
 
         $this->assertTrue(
             $this->callProtectedMethod('isDeleteTransformationInfo', [
-                $this->sql->parseAndAnalyze('DROP TABLE tbl')
+                $this->sql->parseAndAnalyze('DROP TABLE tbl'),
             ])
         );
 
         $this->assertFalse(
             $this->callProtectedMethod('isDeleteTransformationInfo', [
-                $this->sql->parseAndAnalyze('SELECT * from tbl')
+                $this->sql->parseAndAnalyze('SELECT * from tbl'),
             ])
         );
     }

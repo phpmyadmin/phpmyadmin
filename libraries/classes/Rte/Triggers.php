@@ -291,12 +291,12 @@ class Triggers
     {
         $retval = [];
         $indices = ['item_name',
-                         'item_table',
-                         'item_original_name',
-                         'item_action_timing',
-                         'item_event_manipulation',
-                         'item_definition',
-                         'item_definer'];
+            'item_table',
+            'item_original_name',
+            'item_action_timing',
+            'item_event_manipulation',
+            'item_definition',
+            'item_definer', ];
         foreach ($indices as $index) {
             $retval[$index] = isset($_REQUEST[$index]) ? $_REQUEST[$index] : '';
         }
@@ -357,11 +357,11 @@ class Triggers
 
         // Escape special characters
         $need_escape = [
-                           'item_original_name',
-                           'item_name',
-                           'item_definition',
-                           'item_definer'
-                       ];
+            'item_original_name',
+            'item_name',
+            'item_definition',
+            'item_definer',
+        ];
         foreach ($need_escape as $key => $index) {
             $item[$index] = htmlentities($item[$index], ENT_QUOTES, 'UTF-8');
         }

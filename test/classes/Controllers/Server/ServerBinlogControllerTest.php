@@ -137,23 +137,23 @@ class ServerBinlogControllerTest extends PmaTestCase
                 null,
                 1,
                 true,
-                ["log1" => "logd"]
+                ["log1" => "logd"],
             ],
             [
                 ["log2" => "logb"],
                 null,
                 0,
                 false,
-                'executed'
-            ]
+                'executed',
+            ],
         ];
         $value = [
-                'Info' => "index1_Info",
-                'Log_name' => "index1_Log_name",
-                'Pos' => "index1_Pos",
-                'Event_type' => "index1_Event_type",
-                'End_log_pos' => "index1_End_log_pos",
-                'Server_id' => "index1_Server_id",
+            'Info' => "index1_Info",
+            'Log_name' => "index1_Log_name",
+            'Pos' => "index1_Pos",
+            'Event_type' => "index1_Event_type",
+            'End_log_pos' => "index1_End_log_pos",
+            'Server_id' => "index1_Server_id",
         ];
         $count = 3;
 

@@ -92,7 +92,7 @@ class AdvisorTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
+                $server_status,
             ],
             [
                 "SHOW GLOBAL VARIABLES",
@@ -100,7 +100,7 @@ class AdvisorTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_variables
+                $server_variables,
             ],
             [
                 "SELECT concat('Com_', variable_name), variable_value "
@@ -109,7 +109,7 @@ class AdvisorTest extends TestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_status
+                $server_status,
             ],
         ];
 

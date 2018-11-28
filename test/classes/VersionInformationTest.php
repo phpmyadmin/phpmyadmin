@@ -131,7 +131,7 @@ class VersionInformationTest extends PmaTestCase
     public function testGetLatestCompatibleVersionWithSingleServer()
     {
         $GLOBALS['cfg']['Servers'] = [
-            []
+            [],
         ];
 
         $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
@@ -167,7 +167,7 @@ class VersionInformationTest extends PmaTestCase
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
-            []
+            [],
         ];
 
         $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')
@@ -198,7 +198,7 @@ class VersionInformationTest extends PmaTestCase
     {
         $GLOBALS['cfg']['Servers'] = [
             [],
-            []
+            [],
         ];
 
         $mockVersionInfo = $this->getMockBuilder('PhpMyAdmin\VersionInformation')

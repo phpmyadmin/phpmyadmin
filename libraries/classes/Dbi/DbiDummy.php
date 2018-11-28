@@ -708,7 +708,7 @@ class DbiDummy implements DbiExtension
                     'Default',
                 ],
                 'result'  => [
-                    ['utf8', 'utf8_general_ci','Yes'],
+                    ['utf8', 'utf8_general_ci', 'Yes'],
                     ['utf8', 'utf8_bin', ''],
                     ['latin1', 'latin1_swedish_ci', 'Yes'],
                 ],
@@ -1207,28 +1207,28 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'DELETE FROM `mysql`.`db` WHERE `host` = "" '
                     . 'AND `Db` = "" AND `User` = ""',
-                'result' => true
+                'result' => true,
             ],
             [
                 'query' => 'DELETE FROM `mysql`.`columns_priv` WHERE '
                     . '`host` = "" AND `Db` = "" AND `User` = ""',
-                'result' => true
+                'result' => true,
             ],
             [
                 'query' => 'DELETE FROM `mysql`.`tables_priv` WHERE '
                     . '`host` = "" AND `Db` = "" AND `User` = "" AND Table_name = ""',
-                'result' => true
+                'result' => true,
             ],
             [
                 'query'  => 'DELETE FROM `mysql`.`procs_priv` WHERE '
                     . '`host` = "" AND `Db` = "" AND `User` = "" AND `Routine_name` = "" '
                     . 'AND `Routine_type` = ""',
-                'result' => true
+                'result' => true,
             ],
             [
                 'query' => 'SELECT `plugin` FROM `mysql`.`user` WHERE '
                     . '`User` = "pma_username" AND `Host` = "pma_hostname" LIMIT 1',
-                'result' => []
+                'result' => [],
             ],
             [
                 'query'  => 'SELECT @@default_authentication_plugin',
@@ -1334,8 +1334,8 @@ class DbiDummy implements DbiExtension
                         '123456',
                         '42',
                         '21708991',
-                        '281474976710655',// MyISAM
-                        '2048',// MyISAM
+                        '281474976710655', // MyISAM
+                        '2048', // MyISAM
                         '2547',
                         '5',
                         '2014-06-24 17:30:00',
@@ -1352,8 +1352,8 @@ class DbiDummy implements DbiExtension
                         '123456',
                         '42',
                         '21708991',
-                        '281474976710655',// MyISAM
-                        '2048',// MyISAM
+                        '281474976710655', // MyISAM
+                        '2048', // MyISAM
                         '2547',
                         '5',
                         '2014-06-24 17:30:00',
@@ -1363,7 +1363,7 @@ class DbiDummy implements DbiExtension
                         '3844432963',
                         'row_format=REDUNDANT',
                         'Test comment for "table1" in \'pma_test\'',
-                    ]
+                    ],
                 ],
             ],
             [
@@ -1399,8 +1399,8 @@ class DbiDummy implements DbiExtension
                         '123456',
                         '42',
                         '21708991',
-                        '281474976710655',// MyISAM
-                        '2048',// MyISAM
+                        '281474976710655', // MyISAM
+                        '2048', // MyISAM
                         '2547',
                         '5',
                         '2014-06-24 17:30:00',
@@ -1410,7 +1410,7 @@ class DbiDummy implements DbiExtension
                         '3844432963',
                         'row_format=REDUNDANT',
                         'Test comment for "table1" in \'pma_test\'',
-                    ]
+                    ],
                 ],
             ],
             [
@@ -1420,7 +1420,7 @@ class DbiDummy implements DbiExtension
                         'BIN_NAME' => 'pma_test',
                         'DEFAULT_COLLATION_NAME' => 'utf8mb4_general_ci',
                         'SCHEMA_NAME' => 'pma_test',
-                    ]
+                    ],
                 ],
             ],
             [
@@ -1489,7 +1489,7 @@ class DbiDummy implements DbiExtension
                         'COLUMN_NAME' => 'idtable2',
                         'REFERENCED_TABLE_NAME' => 'table1',
                         'REFERENCED_COLUMN_NAME' => 'idtable1',
-                    ]
+                    ],
                 ],
             ],
 

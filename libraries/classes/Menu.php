@@ -269,7 +269,7 @@ class Menu
                     ),
                     Url::getCommon(
                         [
-                            'db' => $this->_db, 'table' => $this->_table
+                            'db' => $this->_db, 'table' => $this->_table,
                         ]
                     ),
                     str_replace(' ', '&nbsp;', htmlspecialchars($this->_table)),
@@ -597,7 +597,7 @@ class Menu
                 'server_status_monitor.php',
                 'server_status_queries.php',
                 'server_status_variables.php',
-                'server_status_processes.php'
+                'server_status_processes.php',
             ]
         );
 

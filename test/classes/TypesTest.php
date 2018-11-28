@@ -182,7 +182,7 @@ class TypesTest extends PmaTestCase
                 [
                     '=',
                     '!=',
-                ]
+                ],
             ],
             [
                 'CHAR',
@@ -211,9 +211,9 @@ class TypesTest extends PmaTestCase
                     [
                         '=',
                         '!=',
-                    ]
+                    ],
                 ],
-            ]
+            ],
         ];
     }
 
@@ -254,8 +254,8 @@ class TypesTest extends PmaTestCase
                 false,
                 '=',
                 '<option value="=" selected="selected">=</option>'
-                . '<option value="!=">!=</option>'
-            ]
+                . '<option value="!=">!=</option>',
+            ],
         ];
     }
 
@@ -402,7 +402,7 @@ class TypesTest extends PmaTestCase
                     'USER',
                     'UUID',
                     'VERSION',
-                ]
+                ],
             ],
             [
                 'DATE',
@@ -422,7 +422,7 @@ class TypesTest extends PmaTestCase
                     'UTC_TIME',
                     'UTC_TIMESTAMP',
                     'YEAR',
-                ]
+                ],
             ],
             [
                 'SPATIAL',
@@ -445,7 +445,7 @@ class TypesTest extends PmaTestCase
                     'MPointFromWKB',
                     'PolyFromWKB',
                     'MPolyFromWKB',
-                ]
+                ],
             ],
             [
                 'NUMBER',
@@ -501,13 +501,13 @@ class TypesTest extends PmaTestCase
                     '48' => 'WEEK',
                     '49' => 'WEEKDAY',
                     '50' => 'WEEKOFYEAR',
-                    '51' => 'YEARWEEK'
-                ]
+                    '51' => 'YEARWEEK',
+                ],
             ],
             [
                 'UNKNOWN',
-                []
-            ]
+                [],
+            ],
         ];
     }
 
@@ -710,7 +710,7 @@ class TypesTest extends PmaTestCase
                     'TINYINT',
                     'SMALLINT',
                     'MEDIUMINT',
-                'INT',
+                    'INT',
                     'BIGINT',
                     '-',
                     'DECIMAL',
@@ -731,10 +731,10 @@ class TypesTest extends PmaTestCase
                 ],
                 'String' =>  [
                     'CHAR',
-                'VARCHAR',
+                    'VARCHAR',
                     '-',
                     'TINYTEXT',
-                'TEXT',
+                    'TEXT',
                     'MEDIUMTEXT',
                     'LONGTEXT',
                     '-',
@@ -760,8 +760,8 @@ class TypesTest extends PmaTestCase
                     'GEOMETRYCOLLECTION',
                 ],
                 'JSON' => [
-                    'JSON'
-                ]
+                    'JSON',
+                ],
             ],
             $this->object->getColumns()
         );
@@ -795,24 +795,24 @@ class TypesTest extends PmaTestCase
         return [
             [
                 'SERIAL',
-                'NUMBER'
+                'NUMBER',
             ],
             [
                 'YEAR',
-                'DATE'
+                'DATE',
             ],
             [
                 'GEOMETRYCOLLECTION',
-                'SPATIAL'
+                'SPATIAL',
             ],
             [
                 'SET',
-                'CHAR'
+                'CHAR',
             ],
             [
                 'UNKNOWN',
-                ''
-            ]
+                '',
+            ],
         ];
     }
 }

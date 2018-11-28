@@ -90,7 +90,7 @@ class TriggersTest extends TestCase
                     'item_action_timing'      => '',
                     'item_event_manipulation' => '',
                     'item_definition'         => '',
-                    'item_definer'            => ''
+                    'item_definer'            => '',
                 ],
                 [
                     'item_name'               => '',
@@ -99,8 +99,8 @@ class TriggersTest extends TestCase
                     'item_action_timing'      => '',
                     'item_event_manipulation' => '',
                     'item_definition'         => '',
-                    'item_definer'            => ''
-                ]
+                    'item_definer'            => '',
+                ],
             ],
             [
                 [
@@ -110,7 +110,7 @@ class TriggersTest extends TestCase
                     'item_action_timing'      => 'foo',
                     'item_event_manipulation' => 'foo',
                     'item_definition'         => 'foo',
-                    'item_definer'            => 'foo'
+                    'item_definer'            => 'foo',
                 ],
                 [
                     'item_name'               => 'foo',
@@ -119,9 +119,9 @@ class TriggersTest extends TestCase
                     'item_action_timing'      => 'foo',
                     'item_event_manipulation' => 'foo',
                     'item_definition'         => 'foo',
-                    'item_definer'            => 'foo'
-                ]
-            ]
+                    'item_definer'            => 'foo',
+                ],
+            ],
         ];
     }
 
@@ -160,42 +160,42 @@ class TriggersTest extends TestCase
             'item_action_timing'      => '',
             'item_event_manipulation' => '',
             'item_definition'         => '',
-            'item_definer'            => ''
+            'item_definer'            => '',
         ];
 
         return [
             [
                 $data,
-                "name='add_item'"
+                "name='add_item'",
             ],
             [
                 $data,
-                "name='item_name'"
+                "name='item_name'",
             ],
             [
                 $data,
-                "name='item_table'"
+                "name='item_table'",
             ],
             [
                 $data,
-                "name='item_timing'"
+                "name='item_timing'",
             ],
             [
                 $data,
-                "name='item_event'"
+                "name='item_event'",
             ],
             [
                 $data,
-                "name='item_definition'"
+                "name='item_definition'",
             ],
             [
                 $data,
-                "name='item_definer'"
+                "name='item_definer'",
             ],
             [
                 $data,
-                "name='editor_process_add'"
-            ]
+                "name='editor_process_add'",
+            ],
         ];
     }
 
@@ -234,42 +234,42 @@ class TriggersTest extends TestCase
             'item_action_timing'      => 'BEFORE',
             'item_event_manipulation' => 'INSERT',
             'item_definition'         => 'SET @A=1;',
-            'item_definer'            => ''
+            'item_definer'            => '',
         ];
 
         return [
             [
                 $data,
-                "name='edit_item'"
+                "name='edit_item'",
             ],
             [
                 $data,
-                "name='item_name'"
+                "name='item_name'",
             ],
             [
                 $data,
-                "name='item_table'"
+                "name='item_table'",
             ],
             [
                 $data,
-                "name='item_timing'"
+                "name='item_timing'",
             ],
             [
                 $data,
-                "name='item_event'"
+                "name='item_event'",
             ],
             [
                 $data,
-                "name='item_definition'"
+                "name='item_definition'",
             ],
             [
                 $data,
-                "name='item_definer'"
+                "name='item_definer'",
             ],
             [
                 $data,
-                "name='editor_process_edit'"
-            ]
+                "name='editor_process_edit'",
+            ],
         ];
     }
 
@@ -309,18 +309,18 @@ class TriggersTest extends TestCase
             'item_action_timing'      => 'BEFORE',
             'item_event_manipulation' => 'INSERT',
             'item_definition'         => 'SET @A=1;',
-            'item_definer'            => ''
+            'item_definer'            => '',
         ];
 
         return [
             [
                 $data,
-                "name='editor_process_edit'"
+                "name='editor_process_edit'",
             ],
             [
                 $data,
-                "name='ajax_request'"
-            ]
+                "name='ajax_request'",
+            ],
         ];
     }
 
@@ -382,7 +382,7 @@ class TriggersTest extends TestCase
                 '',
                 '',
                 'CREATE TRIGGER ON  FOR EACH ROW ',
-                5
+                5,
             ],
             [
                 'root',
@@ -392,7 +392,7 @@ class TriggersTest extends TestCase
                 'table`2',
                 'SET @A=NULL',
                 'CREATE TRIGGER `trigger` BEFORE INSERT ON  FOR EACH ROW SET @A=NULL',
-                2
+                2,
             ],
             [
                 'foo`s@host',
@@ -402,7 +402,7 @@ class TriggersTest extends TestCase
                 'table3',
                 'BEGIN SET @A=1; SET @B=2; END',
                 'CREATE DEFINER=`foo``s`@`host` TRIGGER `trigger``s test` AFTER ON  FOR EACH ROW BEGIN SET @A=1; SET @B=2; END',
-                2
+                2,
             ],
             [
                 'root@localhost',
@@ -412,7 +412,7 @@ class TriggersTest extends TestCase
                 'table1',
                 'SET @A=NULL',
                 'CREATE DEFINER=`root`@`localhost` TRIGGER `trigger` BEFORE INSERT ON `table1` FOR EACH ROW SET @A=NULL',
-                0
+                0,
             ],
         ];
     }

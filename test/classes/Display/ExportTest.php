@@ -136,11 +136,11 @@ class ExportTest extends TestCase
 
         $columns_info = [
             'test_column1' => [
-                'COLUMN_NAME' => 'test_column1'
+                'COLUMN_NAME' => 'test_column1',
             ],
             'test_column2' => [
-                'COLUMN_NAME' => 'test_column2'
-            ]
+                'COLUMN_NAME' => 'test_column2',
+            ],
         ];
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -159,7 +159,7 @@ class ExportTest extends TestCase
             'libraries/classes/Plugins/Export/',
             [
                 'export_type' => $export_type,
-                'single_table' => true,// isset($single_table)
+                'single_table' => true, // isset($single_table)
             ]
         );
 
@@ -272,13 +272,13 @@ class ExportTest extends TestCase
             'test\'_db' => [
                 'test_<b>table' => [
                     'co"l1' => [
-                        'COLUMN_NAME' => 'co"l1'
+                        'COLUMN_NAME' => 'co"l1',
                     ],
                     'col<2' => [
-                        'COLUMN_NAME' => 'col<2'
-                    ]
-                ]
-            ]
+                        'COLUMN_NAME' => 'col<2',
+                    ],
+                ],
+            ],
         ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')

@@ -132,7 +132,7 @@ class TablePropertyTest extends PmaTestCase
         return [
             ["NO", "true"],
             ["", "false"],
-            ["no", "false"]
+            ["no", "false"],
         ];
     }
 
@@ -208,7 +208,7 @@ class TablePropertyTest extends PmaTestCase
             ["datetime", "DateTime"],
             ["", "unknown"],
             ["dummy", "unknown"],
-            ["INT", "unknown"]
+            ["INT", "unknown"],
         ];
     }
 
@@ -249,7 +249,7 @@ class TablePropertyTest extends PmaTestCase
             ["datetime", "DateTime"],
             ["", "Unknown"],
             ["dummy", "Unknown"],
-            ["INT", "Unknown"]
+            ["INT", "Unknown"],
         ];
     }
 

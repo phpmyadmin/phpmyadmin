@@ -36,12 +36,12 @@ $view_algorithm_options = [
 
 $view_with_options = [
     'CASCADED',
-    'LOCAL'
+    'LOCAL',
 ];
 
 $view_security_options = [
     'DEFINER',
-    'INVOKER'
+    'INVOKER',
 ];
 
 // View name is a compulsory field

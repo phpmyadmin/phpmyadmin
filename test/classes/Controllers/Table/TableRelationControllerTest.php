@@ -99,7 +99,7 @@ class TableRelationControllerTest extends PmaTestCase
     public function testGetDropdownValueForTableActionIsView()
     {
         $viewColumns = [
-            'viewCol', 'viewCol2', 'viewCol3'
+            'viewCol', 'viewCol2', 'viewCol3',
         ];
         $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
@@ -145,7 +145,7 @@ class TableRelationControllerTest extends PmaTestCase
     public function testGetDropdownValueForTableActionNotView()
     {
         $indexedColumns = [
-            'primaryTableCol'
+            'primaryTableCol',
         ];
         $tableMock = $this->getMockBuilder('PhpMyAdmin\Table')
             ->disableOriginalConstructor()
@@ -194,7 +194,7 @@ class TableRelationControllerTest extends PmaTestCase
                         static $count = 0;
                         if ($count == 0) {
                             $count++;
-                            return ['Engine' => 'InnoDB', 'Name'   => 'table',];
+                            return ['Engine' => 'InnoDB', 'Name'   => 'table'];
                         }
                         return null;
                     }
@@ -256,7 +256,7 @@ class TableRelationControllerTest extends PmaTestCase
         );
         $ctrl = $container->get(
             'TableRelationController',
-            ['tbl_storage_engine' => 'INNODB',]
+            ['tbl_storage_engine' => 'INNODB']
         );
 
         $_REQUEST['foreign'] = 'false';

@@ -56,7 +56,7 @@ if ((isset($_REQUEST['viewing_mode'])
 
 $post_patterns = [
     '/_priv$/i',
-    '/^max_/i'
+    '/^max_/i',
 ];
 
 Core::setPostAsGlobal($post_patterns);

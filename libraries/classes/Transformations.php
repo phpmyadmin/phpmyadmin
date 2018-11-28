@@ -102,7 +102,7 @@ class Transformations
         $sub_dirs = [
             'Input/' => 'input_',
             'Output/' => '',
-            '' => ''
+            '' => '',
         ];
 
         foreach ($sub_dirs as $sd => $prefix) {

@@ -760,10 +760,10 @@ class CentralColumns
                 'ci' => 0,
                 'ci_offset' => 0,
                 'column_meta' => [
-                    'Field' => $row['col_name']
+                    'Field' => $row['col_name'],
                 ],
                 'cfg_relation' => [
-                    'centralcolumnswork' => false
+                    'centralcolumnswork' => false,
                 ],
                 'max_rows' => $this->maxRows,
             ])
@@ -1005,7 +1005,7 @@ class CentralColumns
         $html = '<form id="multi_edit_central_columns">';
         $header_cells = [
             __('Name'), __('Type'), __('Length/Values'), __('Default'),
-            __('Collation'), __('Attributes'), __('Null'), __('A_I')
+            __('Collation'), __('Attributes'), __('Null'), __('A_I'),
         ];
         $html .= $this->getEditTableHeader($header_cells);
         $selected_fld_safe = [];

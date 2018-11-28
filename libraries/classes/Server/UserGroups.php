@@ -115,7 +115,7 @@ class UserGroups
                 $html_output .= '<a class="" href="server_user_groups.php'
                     . Url::getCommon(
                         [
-                            'viewUsers' => 1, 'userGroup' => $groupName
+                            'viewUsers' => 1, 'userGroup' => $groupName,
                         ]
                     )
                     . '">'
@@ -125,7 +125,7 @@ class UserGroups
                 $html_output .= '<a class="" href="server_user_groups.php'
                     . Url::getCommon(
                         [
-                            'editUserGroup' => 1, 'userGroup' => $groupName
+                            'editUserGroup' => 1, 'userGroup' => $groupName,
                         ]
                     )
                     . '">'
@@ -135,7 +135,7 @@ class UserGroups
                     . ' href="server_user_groups.php'
                     . Url::getCommon(
                         [
-                            'deleteUserGroup' => 1, 'userGroup' => $groupName
+                            'deleteUserGroup' => 1, 'userGroup' => $groupName,
                         ]
                     )
                     . '">'
@@ -256,7 +256,7 @@ class UserGroups
         $allowedTabs = [
             'server' => [],
             'db'     => [],
-            'table'  => []
+            'table'  => [],
         ];
         if ($userGroup != null) {
             $cfgRelation = $relation->getRelationsParam();

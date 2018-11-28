@@ -181,8 +181,8 @@ class InnodbTest extends PmaTestCase
         $this->assertEquals(
             [
                 'Bufferpool' => 'Buffer Pool',
-                'Status' => 'InnoDB Status'
-             ],
+                'Status' => 'InnoDB Status',
+            ],
             $this->object->getInfoPages()
         );
     }

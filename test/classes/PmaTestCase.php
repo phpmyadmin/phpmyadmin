@@ -57,7 +57,7 @@ class PmaTestCase extends TestCase
             ->setMethods([
                 'header', 'headersSent', 'disable', 'isAjax',
                 'setRequestStatus', 'addJSON', 'addHTML',
-                'getFooter', 'getHeader','httpResponseCode',
+                'getFooter', 'getHeader', 'httpResponseCode',
             ])
             ->getMock();
 

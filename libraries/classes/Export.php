@@ -485,7 +485,7 @@ class Export
         } else {
             $back_button .= 'tbl_export.php' . Url::getCommon(
                 [
-                    'db' => $db, 'table' => $table
+                    'db' => $db, 'table' => $table,
                 ]
             );
         }

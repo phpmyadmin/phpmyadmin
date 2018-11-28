@@ -107,7 +107,7 @@ class ProcessesTest extends TestCase
             "Command" => "Command1",
             "Info" => "Info1",
             "State" => "State1",
-            "Time" => "Time1"
+            "Time" => "Time1",
         ];
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
         $GLOBALS['dbi']->expects($this->any())->method('fetchAssoc')
@@ -198,7 +198,7 @@ class ProcessesTest extends TestCase
         //validate 1: $kill_process
         $url_params = [
             'kill' => $process['id'],
-            'ajax_request' => true
+            'ajax_request' => true,
         ];
         $kill_process = 'server_status_processes.php'
             . Url::getCommon($url_params);

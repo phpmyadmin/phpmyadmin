@@ -188,7 +188,7 @@ class UtilTest extends PmaTestCase
             [102400, __('KiB'), "100"],
             [10240000, __('MiB'), "10"],
             [2147483648, __('MiB'), "2,048"],
-            [21474836480, __('GiB'), "20"]
+            [21474836480, __('GiB'), "20"],
         ];
     }
 
@@ -407,9 +407,9 @@ class UtilTest extends PmaTestCase
     public function providerConvertBitDefaultValue()
     {
         return [
-            ["b'",""],
-            ["b'01'","01"],
-            ["b'010111010'","010111010"]
+            ["b'", ""],
+            ["b'01'", "01"],
+            ["b'010111010'", "010111010"],
         ];
     }
 
@@ -428,7 +428,7 @@ class UtilTest extends PmaTestCase
             ['\\\_\\\%', '\_\%'],
             ['\_\\%\_\_\%', '_%__%'],
             ['\%\_', '%_'],
-            ['\\\%\\\_', '\%\_']
+            ['\\\%\\\_', '\%\_'],
         ];
     }
 
@@ -489,7 +489,7 @@ class UtilTest extends PmaTestCase
             'Server' => [
                 'host' => 'host&',
                 'verbose' => 'verbose',
-            ]
+            ],
         ];
         $GLOBALS['db'] = 'database';
         $GLOBALS['table'] = 'table';
@@ -568,7 +568,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => ['a', 'b'],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "set('a', 'b')"
+                    'displayed_type' => "set('a', 'b')",
                 ],
             ],
             [
@@ -583,7 +583,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => ["'a", 'b'],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "set('\'a', 'b')"
+                    'displayed_type' => "set('\'a', 'b')",
                 ],
             ],
             [
@@ -598,7 +598,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => ["'a", 'b'],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "set('''a', 'b')"
+                    'displayed_type' => "set('''a', 'b')",
                 ],
             ],
             [
@@ -613,7 +613,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => ['a&b', 'b\'c\'d', 'e\\f'],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "enum('a&amp;b', 'b''c\\'d', 'e\\\\f')"
+                    'displayed_type' => "enum('a&amp;b', 'b''c\\'d', 'e\\\\f')",
                 ],
             ],
             [
@@ -628,7 +628,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => 'UNSIGNED ZEROFILL',
                     'can_contain_collation' => false,
-                    'displayed_type' => "int"
+                    'displayed_type' => "int",
                 ],
             ],
             [
@@ -643,7 +643,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => ' ',
                     'can_contain_collation' => true,
-                    'displayed_type' => "varchar(255)"
+                    'displayed_type' => "varchar(255)",
                 ],
             ],
             [
@@ -658,7 +658,7 @@ class UtilTest extends PmaTestCase
                     'enum_set_values' => [],
                     'attribute' => ' ',
                     'can_contain_collation' => false,
-                    'displayed_type' => "varbinary(255)"
+                    'displayed_type' => "varbinary(255)",
                 ],
             ],
         ];
@@ -694,7 +694,7 @@ class UtilTest extends PmaTestCase
             [100, -1],
             ["10GB", 10737418240],
             ["15MB", 15728640],
-            ["256K", 262144]
+            ["256K", 262144],
         ];
     }
 
@@ -730,7 +730,7 @@ class UtilTest extends PmaTestCase
             ['MyISAM', false],
             ['innodb', true],
             ['pBxT', true],
-            ['ndb', true]
+            ['ndb', true],
         ];
     }
 
@@ -901,7 +901,7 @@ class UtilTest extends PmaTestCase
             [20011, 2, 2, '20.01 k'],
             [123456789, 6, 0, '123,457 k'],
             [-123456789, 4, 2, '-123.46 M'],
-            [0, 6, 0, '0']
+            [0, 6, 0, '0'],
         ];
     }
 
@@ -936,7 +936,7 @@ class UtilTest extends PmaTestCase
             [1024],
             ["1024Mb"],
             [2147483648],
-            ["some_string"]
+            ["some_string"],
         ];
     }
 
@@ -1236,7 +1236,7 @@ class UtilTest extends PmaTestCase
             [102400, __('KiB'), "100"],
             [10240000, __('MiB'), "10"],
             [2147483648, __('MiB'), "2,048"],
-            [21474836480, __('GiB'), "20"]
+            [21474836480, __('GiB'), "20"],
         ];
     }
 
@@ -1646,8 +1646,8 @@ class UtilTest extends PmaTestCase
     {
         return [
             ['tbl_structure.php', __('Structure')],
-            ['tbl_sql.php', __('SQL'),],
-            ['tbl_select.php', __('Search'),],
+            ['tbl_sql.php', __('SQL')],
+            ['tbl_select.php', __('Search')],
             ['tbl_change.php', __('Insert')],
             ['sql.php', __('Browse')],
             ['db_structure.php', __('Structure')],
@@ -1691,7 +1691,7 @@ class UtilTest extends PmaTestCase
     {
         return [
             [1227455558, '', 'Nov 23, 2008 at 03:52 PM'],
-            [1227455558, '%Y-%m-%d %H:%M:%S %a', '2008-11-23 15:52:38 Sun']
+            [1227455558, '%Y-%m-%d %H:%M:%S %a', '2008-11-23 15:52:38 Sun'],
         ];
     }
 
@@ -1729,7 +1729,7 @@ class UtilTest extends PmaTestCase
     {
         return [
             [1258, '0 days, 0 hours, 20 minutes and 58 seconds'],
-            [821958, '9 days, 12 hours, 19 minutes and 18 seconds']
+            [821958, '9 days, 12 hours, 19 minutes and 18 seconds'],
         ];
     }
 
@@ -1764,9 +1764,9 @@ class UtilTest extends PmaTestCase
             [
                 20131009,
                 64,
-                '0000000000000000000000000000000000000001001100110010110011000001'
+                '0000000000000000000000000000000000000001001100110010110011000001',
             ],
-            [5, 32, '00000000000000000000000000000101']
+            [5, 32, '00000000000000000000000000000101'],
         ];
     }
 
@@ -1800,7 +1800,7 @@ class UtilTest extends PmaTestCase
             ['"test\'"', "test'"],
             ["'test''", "test'"],
             ["`test'`", "test'"],
-            ["'test'test", "'test'test"]
+            ["'test'test", "'test'test"],
         ];
     }
 
@@ -1834,7 +1834,7 @@ class UtilTest extends PmaTestCase
             ['"test\'"', "test'"],
             ["'test''", "'test''"],
             ["`test'`", "`test'`"],
-            ["'test'test", "'test'test"]
+            ["'test'test", "'test'test"],
         ];
     }
 
@@ -1871,8 +1871,8 @@ class UtilTest extends PmaTestCase
             ['te`st', '`te``st`'],
             [
                 ['test', 'te`st', '', '*'],
-                ['`test`', '`te``st`', '', '*']
-            ]
+                ['`test`', '`te``st`', '', '*'],
+            ],
         ];
     }
 
@@ -1913,8 +1913,8 @@ class UtilTest extends PmaTestCase
             ['te`st', '"te`st"'],
             [
                 ['test', 'te`st', '', '*'],
-                ['"test"', '"te`st"', '', '*']
-            ]
+                ['"test"', '"te`st"', '', '*'],
+            ],
         ];
     }
 
@@ -2012,7 +2012,7 @@ class UtilTest extends PmaTestCase
     {
         return [
             ['/var/pma_tmp/%u/', "/var/pma_tmp/root/"],
-            ['/home/%u/pma', "/home/root/pma/"]
+            ['/home/%u/pma', "/home/root/pma/"],
         ];
     }
 
@@ -2046,7 +2046,7 @@ class UtilTest extends PmaTestCase
             ['test', 'test'],
             ["\r\ntest", "\n\r\ntest"],
             ["\ntest", "\ntest"],
-            ["\n\r\ntest", "\n\r\ntest"]
+            ["\n\r\ntest", "\n\r\ntest"],
         ];
     }
 
@@ -2103,7 +2103,7 @@ class UtilTest extends PmaTestCase
             [
                 ['index.php', 'text'],
                 1000,
-                '<a href="index.php" >text</a>'
+                '<a href="index.php" >text</a>',
             ],
             [
                 ['index.php?some=parameter', 'text'],

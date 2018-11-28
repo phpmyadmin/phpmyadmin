@@ -45,7 +45,7 @@ class HttpRequest
         if (strlen($this->proxyUrl) > 0) {
             $context['http'] = [
                 'proxy' => $this->proxyUrl,
-                'request_fulluri' => true
+                'request_fulluri' => true,
             ];
             if (strlen($this->proxyUser) > 0) {
                 $auth = base64_encode(
@@ -210,7 +210,7 @@ class HttpRequest
                 'timeout' => 10,
                 'user_agent' => 'phpMyAdmin',
                 'header' => "Accept: */*",
-            ]
+            ],
         ];
         if ($header) {
             $context['http']['header'] .= "\n" . $header;

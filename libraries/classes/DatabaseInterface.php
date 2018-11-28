@@ -1977,7 +1977,7 @@ class DatabaseInterface
             'PROCEDURE' => 'Create Procedure',
             'FUNCTION'  => 'Create Function',
             'EVENT'     => 'Create Event',
-            'VIEW'      => 'Create View'
+            'VIEW'      => 'Create View',
         ];
         $query = 'SHOW CREATE ' . $which . ' '
             . Util::backquote($db) . '.'
@@ -2019,7 +2019,7 @@ class DatabaseInterface
                 . " FROM `information_schema`.`ROUTINES`"
                 . " WHERE `ROUTINE_SCHEMA` " . Util::getCollateForIS()
                 . " = '" . $GLOBALS['dbi']->escapeString($db) . "'";
-            if (Core::isValid($which, ['FUNCTION','PROCEDURE'])) {
+            if (Core::isValid($which, ['FUNCTION', 'PROCEDURE'])) {
                 $query .= " AND `ROUTINE_TYPE` = '" . $which . "'";
             }
             if (! empty($name)) {
@@ -2434,7 +2434,7 @@ class DatabaseInterface
     public function getSystemSchemas(): array
     {
         $schemas = [
-            'information_schema', 'performance_schema', 'mysql', 'sys'
+            'information_schema', 'performance_schema', 'mysql', 'sys',
         ];
         $systemSchemas = [];
         foreach ($schemas as $schema) {

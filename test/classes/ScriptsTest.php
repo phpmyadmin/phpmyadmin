@@ -85,9 +85,9 @@ class ScriptsTest extends PmaTestCase
                     [
                         [
                             'has_onload' => false,
-                            'filename' => 'common.js'
-                        ]
-                    ]
+                            'filename' => 'common.js',
+                        ],
+                    ],
                 ]
             )
         );
@@ -148,7 +148,7 @@ $(function() {});
         $this->assertEquals(
             [
                 ['name' => 'vendor/codemirror/lib/codemirror.js', 'fire' => 0],
-                ['name' => 'common.js', 'fire' => 1]
+                ['name' => 'common.js', 'fire' => 1],
             ],
             $this->object->getFiles()
         );
@@ -177,7 +177,7 @@ $(function() {});
                 'has_onload' => 1,
                 'filename' => 'common.js',
                 'params' => [],
-            ]
+            ],
         ];
         $this->object->addFile($file);
         $this->assertAttributeEquals(

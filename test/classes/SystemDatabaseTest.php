@@ -110,8 +110,8 @@ class SystemDatabaseTest extends PmaTestCase
         $column_map = [
             [
                 "table_name" => "table_name",
-                "refering_column" => "column_name"
-            ]
+                "refering_column" => "column_name",
+            ],
         ];
         $view_name = "view_name";
 

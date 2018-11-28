@@ -64,7 +64,7 @@ if (isset($_REQUEST['console_bookmark_add'])) {
             'bkm_database' => $_REQUEST['db'],
             'bkm_user'  => $cfgBookmark['user'],
             'bkm_sql_query' => $_REQUEST['bookmark_query'],
-            'bkm_label' => $_REQUEST['label']
+            'bkm_label' => $_REQUEST['label'],
         ];
         $isShared = ($_REQUEST['shared'] == 'true' ? true : false);
         $bookmark = Bookmark::createBookmark(
@@ -101,7 +101,7 @@ $post_params = [
     'message_to_show',
     'noplugin',
     'skip_queries',
-    'local_import_file'
+    'local_import_file',
 ];
 
 foreach ($post_params as $one_post_param) {
@@ -242,7 +242,7 @@ if (! in_array(
         'ods',
         'shp',
         'sql',
-        'xml'
+        'xml',
     ]
 )
 ) {
@@ -253,7 +253,7 @@ if (! in_array(
 
 $post_patterns = [
     '/^force_file_/',
-    '/^' . $format . '_/'
+    '/^' . $format . '_/',
 ];
 
 Core::setPostAsGlobal($post_patterns);

@@ -67,7 +67,7 @@ class ServerVariablesControllerTest extends PmaTestCase
 
         $server_global_variables = [
             "auto_increment_increment" => "0",
-            "auto_increment_offset" => "12"
+            "auto_increment_offset" => "12",
         ];
 
         $fetchResult = [
@@ -77,7 +77,7 @@ class ServerVariablesControllerTest extends PmaTestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_session_variable
+                $server_session_variable,
             ],
             [
                 "SHOW GLOBAL VARIABLES;",
@@ -85,8 +85,8 @@ class ServerVariablesControllerTest extends PmaTestCase
                 1,
                 DatabaseInterface::CONNECT_USER,
                 0,
-                $server_global_variables
-            ]
+                $server_global_variables,
+            ],
         ];
 
         $dbi->expects($this->any())->method('fetchResult')

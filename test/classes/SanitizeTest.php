@@ -190,7 +190,7 @@ class SanitizeTest extends TestCase
     {
         $this->assertEquals($expected, Sanitize::getJsValue($key, $value));
         $this->assertEquals('foo = 100', Sanitize::getJsValue('foo', '100', false));
-        $array = ['1','2','3'];
+        $array = ['1', '2', '3'];
         $this->assertEquals(
             "foo = [\"1\",\"2\",\"3\",];\n",
             Sanitize::getJsValue('foo', $array)
@@ -256,11 +256,11 @@ class SanitizeTest extends TestCase
             ['\r\n\\\'<scrIpt></\' + \'script>', "\r\n'<scrIpt></sCRIPT>"],
             ['\\\';[XSS]', '\';[XSS]'],
             [
-                    '</\' + \'script></head><body>[HTML]',
-                    '</SCRIPT></head><body>[HTML]'
+                '</\' + \'script></head><body>[HTML]',
+                '</SCRIPT></head><body>[HTML]',
             ],
             ['\"\\\'\\\\\\\'\"', '"\'\\\'"'],
-            ["\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\", "\\''''''''''''\\"]
+            ["\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\", "\\''''''''''''\\"],
         ];
     }
 

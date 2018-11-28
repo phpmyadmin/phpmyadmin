@@ -156,7 +156,7 @@ class Scripts
             }
             $retval[] = [
                 'name' => $file['filename'],
-                'fire' => $file['has_onload']
+                'fire' => $file['has_onload'],
             ];
         }
         return $retval;

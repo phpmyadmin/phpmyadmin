@@ -82,7 +82,7 @@ class OptionsPropertyGroupTest extends TestCase
             [
                 0 => 1,
                 1 => 2,
-                3 => 3
+                3 => 3,
             ],
             $properties->getValue($this->stub)
         );

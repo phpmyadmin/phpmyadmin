@@ -157,7 +157,7 @@ class ExportJson extends ExportPlugin
 
         $meta = [
             'type' => 'database',
-            'name' => $db_alias
+            'name' => $db_alias,
         ];
 
         return $this->export->outputHandler(
@@ -228,7 +228,7 @@ class ExportJson extends ExportPlugin
                 'type' => 'table',
                 'name' => $table_alias,
                 'database' => $db_alias,
-                'data' => "@@DATA@@"
+                'data' => "@@DATA@@",
             ]
         );
         list($header, $footer) = explode('"@@DATA@@"', $buffer);

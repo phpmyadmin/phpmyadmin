@@ -127,7 +127,7 @@ class HttpRequestTest extends PmaTestCase
             $return_only_status,
             null,
             '',
-            CURLOPT_CAPATH
+            CURLOPT_CAPATH,
         ]);
         $this->validateHttp($result, $expected);
     }
@@ -157,7 +157,7 @@ class HttpRequestTest extends PmaTestCase
             $return_only_status,
             null,
             '',
-            CURLOPT_CAINFO
+            CURLOPT_CAINFO,
         ]);
         $this->validateHttp($result, $expected);
     }
@@ -245,8 +245,8 @@ class HttpRequestTest extends PmaTestCase
             ["https://www.phpmyadmin.net/test/data", "GET", true, true],
             ["https://www.phpmyadmin.net/test/data", "POST", true, null],
             ["https://nonexisting.phpmyadmin.net/test/data", "GET", true, null],
-            ["https://www.phpmyadmin.net/test/data","GET", false, "TEST DATA"],
-            ["https://www.phpmyadmin.net/test/nothing","GET", true, false],
+            ["https://www.phpmyadmin.net/test/data", "GET", false, "TEST DATA"],
+            ["https://www.phpmyadmin.net/test/nothing", "GET", true, false],
         ];
     }
 }

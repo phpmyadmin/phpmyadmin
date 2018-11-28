@@ -77,40 +77,40 @@ class Processes
         $sortable_columns = [
             [
                 'column_name' => __('ID'),
-                'order_by_field' => 'Id'
+                'order_by_field' => 'Id',
             ],
             [
                 'column_name' => __('User'),
-                'order_by_field' => 'User'
+                'order_by_field' => 'User',
             ],
             [
                 'column_name' => __('Host'),
-                'order_by_field' => 'Host'
+                'order_by_field' => 'Host',
             ],
             [
                 'column_name' => __('Database'),
-                'order_by_field' => 'db'
+                'order_by_field' => 'db',
             ],
             [
                 'column_name' => __('Command'),
-                'order_by_field' => 'Command'
+                'order_by_field' => 'Command',
             ],
             [
                 'column_name' => __('Time'),
-                'order_by_field' => 'Time'
+                'order_by_field' => 'Time',
             ],
             [
                 'column_name' => __('Status'),
-                'order_by_field' => 'State'
+                'order_by_field' => 'State',
             ],
             [
                 'column_name' => __('Progress'),
-                'order_by_field' => 'Progress'
+                'order_by_field' => 'Progress',
             ],
             [
                 'column_name' => __('SQL query'),
-                'order_by_field' => 'Info'
-            ]
+                'order_by_field' => 'Info',
+            ],
         ];
         $sortableColCount = count($sortable_columns);
 
@@ -230,7 +230,7 @@ class Processes
             'full' => (isset($_REQUEST['full']) ? $_REQUEST['full'] : ''),
             'column_name' => (isset($_REQUEST['column_name']) ? $_REQUEST['column_name'] : ''),
             'order_by_field'
-                => (isset($_REQUEST['order_by_field']) ? $_REQUEST['order_by_field'] : ''),
+            => (isset($_REQUEST['order_by_field']) ? $_REQUEST['order_by_field'] : ''),
             'sort_order' => (isset($_REQUEST['sort_order']) ? $_REQUEST['sort_order'] : ''),
         ];
 
@@ -279,7 +279,7 @@ class Processes
 
         $url_params = [
             'kill' => $process['Id'],
-            'ajax_request' => true
+            'ajax_request' => true,
         ];
         $kill_process = 'server_status_processes.php' . Url::getCommon($url_params);
 

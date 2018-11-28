@@ -60,7 +60,7 @@ class VersionInformation
         if ($save) {
             $_SESSION['cache']['version_check'] = [
                 'response' => $response,
-                'timestamp' => time()
+                'timestamp' => time(),
             ];
         }
         return $data;

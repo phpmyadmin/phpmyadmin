@@ -414,7 +414,7 @@ class Error extends Message
             'mysqli_connect',
             'mysqli_real_connect',
             'connect',
-            '_realConnect'
+            '_realConnect',
         ];
 
         if (in_array($function, $include_functions)) {

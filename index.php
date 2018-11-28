@@ -35,7 +35,7 @@ $drops = [
     'server',
     'collation_connection',
     'db',
-    'table'
+    'table',
 ];
 foreach ($drops as $each_drop) {
     if (array_key_exists($each_drop, $_GET)) {
@@ -50,7 +50,7 @@ unset($drops, $each_drop);
  *
  */
 $target_blacklist =  [
-    'import.php', 'export.php'
+    'import.php', 'export.php',
 ];
 
 // If we have a valid target, let's load that script instead
