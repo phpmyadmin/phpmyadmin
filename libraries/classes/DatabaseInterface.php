@@ -1965,14 +1965,14 @@ class DatabaseInterface
      * @param string  $name  the procedure|function|event|view name
      * @param integer $link  link type
      *
-     * @return string the definition
+     * @return string|null the definition
      */
     public function getDefinition(
         string $db,
         string $which,
         string $name,
         $link = DatabaseInterface::CONNECT_USER
-    ): string {
+    ): ?string {
         $returned_field = [
             'PROCEDURE' => 'Create Procedure',
             'FUNCTION'  => 'Create Function',
@@ -1982,7 +1982,8 @@ class DatabaseInterface
         $query = 'SHOW CREATE ' . $which . ' '
             . Util::backquote($db) . '.'
             . Util::backquote($name);
-        return $this->fetchValue($query, 0, $returned_field[$which], $link);
+        $result = $this->fetchValue($query, 0, $returned_field[$which], $link);
+        return is_string($result) ? $result : null;
     }
 
     /**
