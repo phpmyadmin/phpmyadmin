@@ -827,22 +827,20 @@ abstract class TestBase extends TestCase
      */
     public function expandMore()
     {
-        $ele = null;
         try {
             $ele = $this->waitForElement('cssSelector', 'li.submenu > a');
+
+            $ele->click();
+            $this->waitForElement('cssSelector', 'li.submenuhover > a');
+
+            $this->waitUntilElementIsPresent(
+                'cssSelector',
+                'li.submenuhover.submenu.shown',
+                5000
+            );
         } catch (WebDriverException $e) {
             return;
         }
-
-        // Will never be 'null' here
-        $ele->click();
-        $this->waitForElement('cssSelector', 'li.submenuhover > a');
-
-        $this->waitUntilElementIsPresent(
-            'cssSelector',
-            'li.submenuhover.submenu.shown',
-            5000
-        );
     }
 
     /**
