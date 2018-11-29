@@ -32,10 +32,10 @@
                     <td width="1px">
                         <input class="scroll_tab_checkbox"
                             title="{% trans 'Hide' %}"
-                            id="check_vis_{{ table_names_url[i] }}"
+                            id="check_vis_{{ table_names_url[i]|url_encode }}"
                             style="margin:0;"
                             type="checkbox"
-                            value="{{ table_names_url[i] }}"
+                            value="{{ table_names_url[i]|url_encode }}"
                             {% if (tab_pos[table_names[i]] is defined
                                 and tab_pos[table_names[i]]['H'])
                                 or display_page == -1 -%}
@@ -43,7 +43,7 @@
                             {%- endif %} />
                     </td>
                     <td class="designer_Tabs"
-                        designer_url_table_name="{{ table_names_url[i] }}">
+                        designer_url_table_name="{{ table_names_url[i]|url_encode }}">
                         {{ table_names_out[i]|raw }}
                     </td>
                 </tr>
