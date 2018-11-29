@@ -248,14 +248,6 @@ class TrackerTest extends PmaTestCase
             ->with('pma_test', 'pma_tbl')
             ->will($this->returnValue($getIndexesResult));
 
-        $tableStatusArray = [
-            [
-                'Name' => 'pma_tbl',
-                'Rows' => '1',
-                'Create_time' => '2013-02-22 02:04:04',
-                'Update_time' => '2013-02-22 21:46:48'
-            ]
-        ];
         $dbi->expects($this->exactly(2))
             ->method('tryQuery')
             ->withConsecutive(

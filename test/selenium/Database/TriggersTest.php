@@ -108,7 +108,7 @@ class TriggersTest extends TestBase
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        $ele = $this->waitForElement(
+        $this->waitForElement(
             'xpath',
             "//div[@class='success' and contains(., "
             . "'Trigger `test_trigger` has been created')]"
@@ -161,7 +161,7 @@ class TriggersTest extends TestBase
 
         $this->byXPath("//button[contains(., 'Go')]")->click();
 
-        $ele = $this->waitForElement(
+        $this->waitForElement(
             'xpath',
             "//div[@class='success' and contains(., "
             . "'Trigger `test_trigger` has been modified')]"

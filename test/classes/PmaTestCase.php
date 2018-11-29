@@ -74,7 +74,7 @@ class PmaTestCase extends TestCase
                         $http_response_code_param = end($param);
                         $param = array_slice($param, 0, -1);
 
-                        $header_method = $mockResponse->expects($this->once())
+                        $mockResponse->expects($this->once())
                         ->method('httpResponseCode')->with($http_response_code_param);
                     }
                 }
