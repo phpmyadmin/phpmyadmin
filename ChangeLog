@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - issue #14658 Regression on multi table query functionality (foreign keys)
 - issue #14617 Fix designer errors when database is empty
 - issue #13032 Fix designer errors when database contains special chars
+- issue #14352 Fix designer javascript errors
 
 4.8.3 (2018-08-22)
 - issue #14314 Error when naming a database '0'
