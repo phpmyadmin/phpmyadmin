@@ -2032,7 +2032,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                         }
                     }
                 })
-                .dblclick(function (e) {
+                .doubletap(function (e) {
                     if ($(e.target).is('.grid_edit a')) {
                         e.preventDefault();
                     } else {
