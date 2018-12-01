@@ -24,6 +24,7 @@ phpMyAdmin - ChangeLog
 - issue #13023 Show errors at the bottom of the page and add copy query button for errors in processing sql queries
 - issue #14633 Use Sass instead of PHP to compile CSS
 - issue #14053 Fix missed padding on query results
+- issue #14765 Add initial support for Bootstrap 4
 
 4.8.5 (not yet released)
 

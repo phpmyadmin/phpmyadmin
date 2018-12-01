@@ -145,6 +145,7 @@
 #pma_navigation_tree {
   a {
     color: $navi-color;
+    padding-left: 0;
 
     &:hover {
       text-decoration: underline;
@@ -152,6 +153,8 @@
   }
 
   li {
+    margin-bottom: 0;
+
     &.activePointer,
     &.selected {
       color: $navi-pointer-color;

@@ -83,6 +83,7 @@ h2 {
 
 h3 {
   font-weight: bold;
+  font-size: 1rem;
 }
 
 a {
@@ -518,6 +519,8 @@ fieldset {
     -moz-box-shadow: 3px 3px 15px #bbb;
     -webkit-box-shadow: 3px 3px 15px #bbb;
     box-shadow: 3px 3px 15px #bbb;
+    width: initial;
+    font-size: 1rem;
   }
 }
 
@@ -1460,6 +1463,7 @@ div#tablestatistics table {
   max-width: 100%;
   max-height: 16px;
   overflow: hidden;
+  box-sizing: content-box;
 
   .item {
     white-space: nowrap;
