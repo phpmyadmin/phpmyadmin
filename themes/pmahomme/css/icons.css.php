@@ -108,6 +108,8 @@ if (! defined('PHPMYADMIN') && ! defined('TESTSUITE')) {
 .ic_b_view { background-image: url('<?= $theme->getImgPath('b_view.png'); ?>'); }
 .ic_b_view_add { background-image: url('<?= $theme->getImgPath('b_view_add.png'); ?>'); }
 .ic_b_views { background-image: url('<?= $theme->getImgPath('b_views.png'); ?>'); }
+.ic_b_left { background-image: url('<?= $theme->getImgPath('b_left.png'); ?>'); }
+.ic_b_right { background-image: url('<?= $theme->getImgPath('b_right.png'); ?>'); }
 .ic_bd_browse { background-image: url('<?= $theme->getImgPath('bd_browse.png'); ?>'); }
 .ic_bd_deltbl { background-image: url('<?= $theme->getImgPath('bd_deltbl.png'); ?>'); }
 .ic_bd_drop { background-image: url('<?= $theme->getImgPath('bd_drop.png'); ?>'); }
