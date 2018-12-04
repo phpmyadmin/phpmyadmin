@@ -986,8 +986,8 @@ class Table
             // Phase 1: Dropping existent element of the same name (if exists
             // and required).
 
-            if (isset($_REQUEST['drop_if_exists'])
-                && $_REQUEST['drop_if_exists'] == 'true'
+            if (isset($_POST['drop_if_exists'])
+                && $_POST['drop_if_exists'] == 'true'
             ) {
 
                 /**
@@ -1840,7 +1840,7 @@ class Table
                 return false;
             }
 
-            if (!isset($_REQUEST['discard_remembered_sort'])) {
+            if (!isset($_POST['discard_remembered_sort'])) {
                 // check if the column name exists in this table
                 $tmp = explode(' ', $this->uiprefs[$property]);
                 $colname = $tmp[0];
@@ -2044,13 +2044,13 @@ class Table
         );
 
         // Drops the old index
-        if (! empty($_REQUEST['old_index'])) {
-            if ($_REQUEST['old_index'] == 'PRIMARY') {
+        if (! empty($_POST['old_index'])) {
+            if ($_POST['old_index'] == 'PRIMARY') {
                 $sql_query .= ' DROP PRIMARY KEY,';
             } else {
                 $sql_query .= sprintf(
                     ' DROP INDEX %s,',
-                    Util::backquote($_REQUEST['old_index'])
+                    Util::backquote($_POST['old_index'])
                 );
             }
         } // end if
@@ -2339,9 +2339,9 @@ class Table
                         || $existrel_foreign[$master_field_md5]['ref_table_name'] != $foreign_table
                         || $existrel_foreign[$master_field_md5]['ref_index_list'] != $foreign_field
                         || $existrel_foreign[$master_field_md5]['index_list'] != $master_field
-                        || $_REQUEST['constraint_name'][$master_field_md5] != $constraint_name
-                        || ($_REQUEST['on_delete'][$master_field_md5] != $on_delete)
-                        || ($_REQUEST['on_update'][$master_field_md5] != $on_update)
+                        || $_POST['constraint_name'][$master_field_md5] != $constraint_name
+                        || ($_POST['on_delete'][$master_field_md5] != $on_delete)
+                        || ($_POST['on_update'][$master_field_md5] != $on_update)
                     ) {
                         // another foreign key is already defined for this field
                         // or an option has been changed for ON DELETE or ON UPDATE
@@ -2365,7 +2365,7 @@ class Table
                     )
                     . ';';
 
-                if (! isset($_REQUEST['preview_sql'])) {
+                if (! isset($_POST['preview_sql'])) {
                     $display_query .= $drop_query . "\n";
                     $this->_dbi->tryQuery($drop_query);
                     $tmp_error_drop = $this->_dbi->getError();
@@ -2388,12 +2388,12 @@ class Table
 
             $create_query = $this->_getSQLToCreateForeignKey(
                 $table, $master_field, $foreign_db, $foreign_table, $foreign_field,
-                $_REQUEST['constraint_name'][$master_field_md5],
-                $options_array[$_REQUEST['on_delete'][$master_field_md5]],
-                $options_array[$_REQUEST['on_update'][$master_field_md5]]
+                $_POST['constraint_name'][$master_field_md5],
+                $options_array[$_POST['on_delete'][$master_field_md5]],
+                $options_array[$_POST['on_update'][$master_field_md5]]
             );
 
-            if (! isset($_REQUEST['preview_sql'])) {
+            if (! isset($_POST['preview_sql'])) {
                 $display_query .= $create_query . "\n";
                 $this->_dbi->tryQuery($create_query);
                 $tmp_error_create = $this->_dbi->getError();
@@ -2439,7 +2439,7 @@ class Table
                     $options_array[$existrel_foreign[$master_field_md5]['on_delete']],
                     $options_array[$existrel_foreign[$master_field_md5]['on_update']]
                 );
-                if (! isset($_REQUEST['preview_sql'])) {
+                if (! isset($_POST['preview_sql'])) {
                     $display_query .= $sql_query_recreate . "\n";
                     $this->_dbi->tryQuery($sql_query_recreate);
                 } else {

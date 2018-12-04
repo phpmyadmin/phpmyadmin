@@ -212,7 +212,7 @@ class TableSearchController extends TableController
                     )
                 );
 
-            if (isset($_REQUEST['range_search'])) {
+            if (isset($_POST['range_search'])) {
                 $this->rangeSearchAction();
 
                 return;
@@ -253,8 +253,8 @@ class TableSearchController extends TableController
              *
              * @var boolean Object containing parameters for the POST request
              */
-            if (isset($_REQUEST['get_data_row'])
-                && $_REQUEST['get_data_row'] == true
+            if (isset($_POST['get_data_row'])
+                && $_POST['get_data_row'] == true
             ) {
                 $this->getDataRowAction();
 
@@ -266,8 +266,8 @@ class TableSearchController extends TableController
              *
              * @var boolean Object containing parameters for the POST request
              */
-            if (isset($_REQUEST['change_tbl_info'])
-                && $_REQUEST['change_tbl_info'] == true
+            if (isset($_POST['change_tbl_info'])
+                && $_POST['change_tbl_info'] == true
             ) {
                 $this->changeTableInfoAction();
 
@@ -390,7 +390,7 @@ class TableSearchController extends TableController
      */
     public function changeTableInfoAction()
     {
-        $field = $_REQUEST['field'];
+        $field = $_POST['field'];
         if ($field == 'pma_null') {
             $this->response->addJSON('field_type', '');
             $this->response->addJSON('field_collation', '');
@@ -400,8 +400,8 @@ class TableSearchController extends TableController
         }
         $key = array_search($field, $this->_columnNames);
         $search_index
-            = ((isset($_REQUEST['it']) && is_numeric($_REQUEST['it']))
-                ? intval($_REQUEST['it']) : 0);
+            = ((isset($_POST['it']) && is_numeric($_POST['it']))
+                ? intval($_POST['it']) : 0);
 
         $properties = $this->getColumnProperties($search_index, $key);
         $this->response->addJSON(
@@ -420,8 +420,8 @@ class TableSearchController extends TableController
     public function getDataRowAction()
     {
         $extra_data = array();
-        $row_info_query = 'SELECT * FROM `' . $_REQUEST['db'] . '`.`'
-            . $_REQUEST['table'] . '` WHERE ' .  $_REQUEST['where_clause'];
+        $row_info_query = 'SELECT * FROM `' . $_POST['db'] . '`.`'
+            . $_POST['table'] . '` WHERE ' .  $_POST['where_clause'];
         $result = $this->dbi->query(
             $row_info_query . ";",
             DatabaseInterface::CONNECT_USER,
@@ -542,7 +542,7 @@ class TableSearchController extends TableController
      */
     public function rangeSearchAction()
     {
-        $min_max = $this->getColumnMinMax($_REQUEST['column']);
+        $min_max = $this->getColumnMinMax($_POST['column']);
         $this->response->addJSON('column_data', $min_max);
     }
 

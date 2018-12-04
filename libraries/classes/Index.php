@@ -741,7 +741,7 @@ class Index
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
                 $r .= 'ajax';
-                $r .= '" href="tbl_indexes.php' . Url::getCommon($this_params)
+                $r .= '" href="tbl_indexes.php" data-post="' . Url::getCommon($this_params, '')
                    . '">' . Util::getIcon('b_edit', __('Edit')) . '</a>'
                    . '</td>' . "\n";
                 $this_params = $GLOBALS['url_params'];

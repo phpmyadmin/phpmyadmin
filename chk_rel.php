@@ -13,20 +13,20 @@ require_once 'libraries/common.inc.php';
 $relation = new Relation();
 
 // If request for creating the pmadb
-if (isset($_REQUEST['create_pmadb'])) {
+if (isset($_POST['create_pmadb'])) {
     if ($relation->createPmaDatabase()) {
         $relation->fixPmaTables('phpmyadmin');
     }
 }
 
 // If request for creating all PMA tables.
-if (isset($_REQUEST['fixall_pmadb'])) {
+if (isset($_POST['fixall_pmadb'])) {
     $relation->fixPmaTables($GLOBALS['db']);
 }
 
 $cfgRelation = $relation->getRelationsParam();
 // If request for creating missing PMA tables.
-if (isset($_REQUEST['fix_pmadb'])) {
+if (isset($_POST['fix_pmadb'])) {
     $relation->fixPmaTables($cfgRelation['db']);
 }
 

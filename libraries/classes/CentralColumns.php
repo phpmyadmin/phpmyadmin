@@ -299,7 +299,7 @@ class CentralColumns
         if (empty($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
-        $db = $_REQUEST['db'];
+        $db = $_POST['db'];
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
         $this->dbi->selectDb($db);
@@ -333,7 +333,7 @@ class CentralColumns
             }
         } else {
             if ($table === null) {
-                $table = $_REQUEST['table'];
+                $table = $_POST['table'];
             }
             foreach ($field_select as $column) {
                 $cols .= "'" . $this->dbi->escapeString($column) . "',";
@@ -406,7 +406,7 @@ class CentralColumns
         if (empty($cfgCentralColumns)) {
             return $this->configErrorMessage();
         }
-        $db = $_REQUEST['db'];
+        $db = $_POST['db'];
         $pmadb = $cfgCentralColumns['db'];
         $central_list_table = $cfgCentralColumns['table'];
         $this->dbi->selectDb($db);

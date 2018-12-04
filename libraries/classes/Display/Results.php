@@ -3939,13 +3939,13 @@ class Results
         }
 
         // as this is a form value, the type is always string so we cannot
-        // use Core::isValid($_REQUEST['session_max_rows'], 'integer')
-        if (Core::isValid($_REQUEST['session_max_rows'], 'numeric')) {
-            $query['max_rows'] = (int)$_REQUEST['session_max_rows'];
-            unset($_REQUEST['session_max_rows']);
-        } elseif ($_REQUEST['session_max_rows'] == self::ALL_ROWS) {
+        // use Core::isValid($_POST['session_max_rows'], 'integer')
+        if (Core::isValid($_POST['session_max_rows'], 'numeric')) {
+            $query['max_rows'] = (int)$_POST['session_max_rows'];
+            unset($_POST['session_max_rows']);
+        } elseif ($_POST['session_max_rows'] == self::ALL_ROWS) {
             $query['max_rows'] = self::ALL_ROWS;
-            unset($_REQUEST['session_max_rows']);
+            unset($_POST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
             $query['max_rows'] = intval($GLOBALS['cfg']['MaxRows']);
         }

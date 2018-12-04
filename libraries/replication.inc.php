@@ -19,7 +19,7 @@ $server_master_replication = $GLOBALS['dbi']->fetchResult('SHOW MASTER STATUS');
 /**
  * set selected master server
  */
-if (! empty($_REQUEST['master_connection'])) {
+if (! empty($_POST['master_connection'])) {
     /**
      * check for multi-master replication functionality
      */
@@ -30,10 +30,10 @@ if (! empty($_REQUEST['master_connection'])) {
         $GLOBALS['dbi']->query(
             "SET @@default_master_connection = '"
             . $GLOBALS['dbi']->escapeString(
-                $_REQUEST['master_connection']
+                $_POST['master_connection']
             ) . "'"
         );
-        $GLOBALS['url_params']['master_connection'] = $_REQUEST['master_connection'];
+        $GLOBALS['url_params']['master_connection'] = $_POST['master_connection'];
     }
 }
 

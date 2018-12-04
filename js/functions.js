@@ -3797,7 +3797,7 @@ function indexEditorDialog (url, title, callback_success, callback_failure) {
         $(this).dialog('close');
     };
     var $msgbox = PMA_ajaxShowMessage();
-    $.get('tbl_indexes.php', url, function (data) {
+    $.post('tbl_indexes.php', url, function (data) {
         if (typeof data !== 'undefined' && data.success === false) {
             // in the case of an error, show the error message returned.
             PMA_ajaxShowMessage(data.error, false);
@@ -4543,8 +4543,9 @@ function PMA_createViewDialog ($this) {
     var $msg = PMA_ajaxShowMessage();
     var syntaxHighlighter = null;
     var sep = PMA_commonParams.get('arg_separator');
-    params = $this.getPostData();
-    $.get($this.attr('href') + sep + 'ajax_request=1' + sep + 'ajax_dialog=1' + sep + params, function (data) {
+    var params = getJSConfirmCommonParam(this, $this.getPostData());
+    params += sep + 'ajax_dialog=1';
+    $.post($this.attr('href'), params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             PMA_ajaxRemoveMessage($msg);
             var buttonOptions = {};

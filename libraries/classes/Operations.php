@@ -75,20 +75,21 @@ class Operations
     /**
      * Get HTML output for rename database
      *
-     * @param string $db database name
+     * @param string $db           database name
+     * @param string $db_collation dataset collation
      *
      * @return string $html_output
      */
-    public function getHtmlForRenameDatabase($db)
+    public function getHtmlForRenameDatabase($db, $db_collation)
     {
         $html_output = '<div>'
             . '<form id="rename_db_form" '
             . 'class="ajax" '
             . 'method="post" action="db_operations.php" '
             . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
-        if (isset($_REQUEST['db_collation'])) {
+        if (isset($db_collation)) {
             $html_output .= '<input type="hidden" name="db_collation" '
-                . 'value="' . $_REQUEST['db_collation']
+                . 'value="' . $db_collation
                 . '" />' . "\n";
         }
         $html_output .= '<input type="hidden" name="what" value="data" />'
@@ -184,11 +185,12 @@ class Operations
     /**
      * Get HTML snippet for copy database
      *
-     * @param string $db database name
+     * @param string $db           database name
+     * @param string $db_collation dataset collation
      *
      * @return string $html_output
      */
-    public function getHtmlForCopyDatabase($db)
+    public function getHtmlForCopyDatabase($db, $db_collation)
     {
         $drop_clause = 'DROP TABLE / DROP VIEW';
         $choices = array(
@@ -205,9 +207,9 @@ class Operations
             . 'method="post" action="db_operations.php" '
             . 'onsubmit="return emptyCheckTheField(this, \'newname\')">';
 
-        if (isset($_REQUEST['db_collation'])) {
+        if (isset($db_collation)) {
             $html_output .= '<input type="hidden" name="db_collation" '
-            . 'value="' . $_REQUEST['db_collation'] . '" />' . "\n";
+            . 'value="' . $db_collation . '" />' . "\n";
         }
         $html_output .= '<input type="hidden" name="db_copy" value="true" />' . "\n"
             . Url::getHiddenInputs($db);
@@ -281,19 +283,19 @@ class Operations
     /**
      * Get HTML snippet for change database charset
      *
-     * @param string $db    database name
-     * @param string $table table name
+     * @param string $db           database name
+     * @param string $db_collation dataset collation
      *
      * @return string $html_output
      */
-    public function getHtmlForChangeDatabaseCharset($db, $table)
+    public function getHtmlForChangeDatabaseCharset($db, $db_collation)
     {
         $html_output = '<div>'
             . '<form id="change_db_charset_form" ';
         $html_output .= 'class="ajax" ';
         $html_output .= 'method="post" action="db_operations.php">';
 
-        $html_output .= Url::getHiddenInputs($db, $table);
+        $html_output .= Url::getHiddenInputs($db);
 
         $html_output .= '<fieldset>' . "\n"
            . '    <legend>';
@@ -308,7 +310,7 @@ class Operations
                 $GLOBALS['cfg']['Server']['DisableIS'],
                 'db_collation',
                 'select_db_collation',
-                isset($_REQUEST['db_collation']) ? $_REQUEST['db_collation'] : '',
+                isset($db_collation) ? $db_collation : '',
                 false
             )
             . '<br />'
@@ -356,7 +358,7 @@ class Operations
                 if ($tmp_query !== false) {
                     // collect for later display
                     $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                    $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
+                    $GLOBALS['dbi']->selectDb($_POST['newname']);
                     $GLOBALS['dbi']->query($tmp_query);
                 }
             }
@@ -372,7 +374,7 @@ class Operations
                 if ($tmp_query !== false) {
                     // collect for later display
                     $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                    $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
+                    $GLOBALS['dbi']->selectDb($_POST['newname']);
                     $GLOBALS['dbi']->query($tmp_query);
                 }
             }
@@ -387,10 +389,10 @@ class Operations
     public function createDbBeforeCopy()
     {
         $local_query = 'CREATE DATABASE IF NOT EXISTS '
-            . Util::backquote($_REQUEST['newname']);
-        if (isset($_REQUEST['db_collation'])) {
+            . Util::backquote($_POST['newname']);
+        if (isset($_POST['db_collation'])) {
             $local_query .= ' DEFAULT'
-                . Util::getCharsetQueryPart($_REQUEST['db_collation']);
+                . Util::getCharsetQueryPart($_POST['db_collation']);
         }
         $local_query .= ';';
         $GLOBALS['sql_query'] .= $local_query;
@@ -432,12 +434,12 @@ class Operations
             if ($GLOBALS['dbi']->getTable($db, $each_table)->isView()) {
 
                 // If view exists, and 'add drop view' is selected: Drop it!
-                if ($_REQUEST['what'] != 'nocopy'
-                    && isset($_REQUEST['drop_if_exists'])
-                    && $_REQUEST['drop_if_exists'] == 'true'
+                if ($_POST['what'] != 'nocopy'
+                    && isset($_POST['drop_if_exists'])
+                    && $_POST['drop_if_exists'] == 'true'
                 ) {
                     $drop_query = 'DROP VIEW IF EXISTS '
-                        . Util::backquote($_REQUEST['newname']) . '.'
+                        . Util::backquote($_POST['newname']) . '.'
                         . Util::backquote($each_table);
                     $GLOBALS['dbi']->query($drop_query);
 
@@ -449,7 +451,7 @@ class Operations
                 $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
                     $db, $each_table, "\n"
                 );
-                $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
+                $GLOBALS['dbi']->selectDb($_POST['newname']);
                 $GLOBALS['dbi']->query($sql_view_standin);
                 $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
             }
@@ -476,7 +478,7 @@ class Operations
             }
 
             // value of $what for this table only
-            $this_what = $_REQUEST['what'];
+            $this_what = $_POST['what'];
 
             // do not copy the data from a Merge table
             // note: on the calling FORM, 'data' means 'structure and data'
@@ -496,7 +498,7 @@ class Operations
                 $triggers = $GLOBALS['dbi']->getTriggers($db, $each_table, '');
 
                 if (! Table::moveCopy(
-                    $db, $each_table, $_REQUEST['newname'], $each_table,
+                    $db, $each_table, $_POST['newname'], $each_table,
                     (isset($this_what) ? $this_what : 'data'),
                     $move, 'db_copy'
                 )) {
@@ -505,7 +507,7 @@ class Operations
                 }
                 // apply the triggers to the destination db+table
                 if ($triggers) {
-                    $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
+                    $GLOBALS['dbi']->selectDb($_POST['newname']);
                     foreach ($triggers as $trigger) {
                         $GLOBALS['dbi']->query($trigger['create']);
                         $GLOBALS['sql_query'] .= "\n" . $trigger['create'] . ';';
@@ -513,7 +515,7 @@ class Operations
                 }
 
                 // this does not apply to a rename operation
-                if (isset($_REQUEST['add_constraints'])
+                if (isset($_POST['add_constraints'])
                     && ! empty($GLOBALS['sql_constraints_query'])
                 ) {
                     $sqlContraints[] = $GLOBALS['sql_constraints_query'];
@@ -547,7 +549,7 @@ class Operations
                 $tmp_query = $GLOBALS['dbi']->getDefinition($db, 'EVENT', $event_name);
                 // collect for later display
                 $GLOBALS['sql_query'] .= "\n" . $tmp_query;
-                $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
+                $GLOBALS['dbi']->selectDb($_POST['newname']);
                 $GLOBALS['dbi']->query($tmp_query);
             }
         }
@@ -566,26 +568,26 @@ class Operations
     {
         // temporarily force to add DROP IF EXIST to CREATE VIEW query,
         // to remove stand-in VIEW that was created earlier
-        // ( $_REQUEST['drop_if_exists'] is used in moveCopy() )
-        if (isset($_REQUEST['drop_if_exists'])) {
-            $temp_drop_if_exists = $_REQUEST['drop_if_exists'];
+        // ( $_POST['drop_if_exists'] is used in moveCopy() )
+        if (isset($_POST['drop_if_exists'])) {
+            $temp_drop_if_exists = $_POST['drop_if_exists'];
         }
 
-        $_REQUEST['drop_if_exists'] = 'true';
+        $_POST['drop_if_exists'] = 'true';
         foreach ($views as $view) {
             $copying_succeeded = Table::moveCopy(
-                $db, $view, $_REQUEST['newname'], $view, 'structure', $move, 'db_copy'
+                $db, $view, $_POST['newname'], $view, 'structure', $move, 'db_copy'
             );
             if (! $copying_succeeded) {
                 $GLOBALS['_error'] = true;
                 break;
             }
         }
-        unset($_REQUEST['drop_if_exists']);
+        unset($_POST['drop_if_exists']);
 
         if (isset($temp_drop_if_exists)) {
             // restore previous value
-            $_REQUEST['drop_if_exists'] = $temp_drop_if_exists;
+            $_POST['drop_if_exists'] = $temp_drop_if_exists;
         }
     }
 
@@ -753,7 +755,7 @@ class Operations
      */
     public function createAllAccumulatedConstraints(array $sqlConstratints)
     {
-        $GLOBALS['dbi']->selectDb($_REQUEST['newname']);
+        $GLOBALS['dbi']->selectDb($_POST['newname']);
         foreach ($sqlConstratints as $one_query) {
             $GLOBALS['dbi']->query($one_query);
             // and prepare to display them
@@ -771,10 +773,10 @@ class Operations
      */
     public function duplicateBookmarks($_error, $db)
     {
-        if (! $_error && $db != $_REQUEST['newname']) {
+        if (! $_error && $db != $_POST['newname']) {
             $get_fields = array('user', 'label', 'query');
             $where_fields = array('dbase' => $db);
-            $new_fields = array('dbase' => $_REQUEST['newname']);
+            $new_fields = array('dbase' => $_POST['newname']);
             Table::duplicateInfo(
                 'bookmarkwork', 'bookmark', $get_fields,
                 $where_fields, $new_fields
@@ -1735,9 +1737,9 @@ class Operations
         $sql_query = 'ALTER TABLE '
             . Util::backquote($GLOBALS['table'])
             . ' ORDER BY '
-            . Util::backquote(urldecode($_REQUEST['order_field']));
-        if (isset($_REQUEST['order_order'])
-            && $_REQUEST['order_order'] === 'desc'
+            . Util::backquote(urldecode($_POST['order_field']));
+        if (isset($_POST['order_order'])
+            && $_POST['order_order'] === 'desc'
         ) {
             $sql_query .= ' DESC';
         } else {
@@ -1772,11 +1774,11 @@ class Operations
 
         $table_alters = array();
 
-        if (isset($_REQUEST['comment'])
-            && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']
+        if (isset($_POST['comment'])
+            && urldecode($_POST['prev_comment']) !== $_POST['comment']
         ) {
             $table_alters[] = 'COMMENT = \''
-                . $GLOBALS['dbi']->escapeString($_REQUEST['comment']) . '\'';
+                . $GLOBALS['dbi']->escapeString($_POST['comment']) . '\'';
         }
 
         if (! empty($newTblStorageEngine)
@@ -1784,62 +1786,62 @@ class Operations
         ) {
             $table_alters[] = 'ENGINE = ' . $newTblStorageEngine;
         }
-        if (! empty($_REQUEST['tbl_collation'])
-            && $_REQUEST['tbl_collation'] !== $tbl_collation
+        if (! empty($_POST['tbl_collation'])
+            && $_POST['tbl_collation'] !== $tbl_collation
         ) {
             $table_alters[] = 'DEFAULT '
-                . Util::getCharsetQueryPart($_REQUEST['tbl_collation']);
+                . Util::getCharsetQueryPart($_POST['tbl_collation']);
         }
 
         if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'ISAM'))
-            && isset($_REQUEST['new_pack_keys'])
-            && $_REQUEST['new_pack_keys'] != (string)$pack_keys
+            && isset($_POST['new_pack_keys'])
+            && $_POST['new_pack_keys'] != (string)$pack_keys
         ) {
-            $table_alters[] = 'pack_keys = ' . $_REQUEST['new_pack_keys'];
+            $table_alters[] = 'pack_keys = ' . $_POST['new_pack_keys'];
         }
 
-        $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
+        $_POST['new_checksum'] = empty($_POST['new_checksum']) ? '0' : '1';
         if ($pma_table->isEngine(array('MYISAM', 'ARIA'))
-            && $_REQUEST['new_checksum'] !== $checksum
+            && $_POST['new_checksum'] !== $checksum
         ) {
-            $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
+            $table_alters[] = 'checksum = ' . $_POST['new_checksum'];
         }
 
-        $_REQUEST['new_transactional']
-            = empty($_REQUEST['new_transactional']) ? '0' : '1';
+        $_POST['new_transactional']
+            = empty($_POST['new_transactional']) ? '0' : '1';
         if ($pma_table->isEngine('ARIA')
-            && $_REQUEST['new_transactional'] !== $transactional
+            && $_POST['new_transactional'] !== $transactional
         ) {
-            $table_alters[] = 'TRANSACTIONAL = ' . $_REQUEST['new_transactional'];
+            $table_alters[] = 'TRANSACTIONAL = ' . $_POST['new_transactional'];
         }
 
-        $_REQUEST['new_page_checksum']
-            = empty($_REQUEST['new_page_checksum']) ? '0' : '1';
+        $_POST['new_page_checksum']
+            = empty($_POST['new_page_checksum']) ? '0' : '1';
         if ($pma_table->isEngine('ARIA')
-            && $_REQUEST['new_page_checksum'] !== $page_checksum
+            && $_POST['new_page_checksum'] !== $page_checksum
         ) {
-            $table_alters[] = 'PAGE_CHECKSUM = ' . $_REQUEST['new_page_checksum'];
+            $table_alters[] = 'PAGE_CHECKSUM = ' . $_POST['new_page_checksum'];
         }
 
-        $_REQUEST['new_delay_key_write']
-            = empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
+        $_POST['new_delay_key_write']
+            = empty($_POST['new_delay_key_write']) ? '0' : '1';
         if ($pma_table->isEngine(array('MYISAM', 'ARIA'))
-            && $_REQUEST['new_delay_key_write'] !== $delay_key_write
+            && $_POST['new_delay_key_write'] !== $delay_key_write
         ) {
-            $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
+            $table_alters[] = 'delay_key_write = ' . $_POST['new_delay_key_write'];
         }
 
         if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
-            && ! empty($_REQUEST['new_auto_increment'])
+            && ! empty($_POST['new_auto_increment'])
             && (! isset($auto_increment)
-            || $_REQUEST['new_auto_increment'] !== $auto_increment)
+            || $_POST['new_auto_increment'] !== $auto_increment)
         ) {
             $table_alters[] = 'auto_increment = '
-                . $GLOBALS['dbi']->escapeString($_REQUEST['new_auto_increment']);
+                . $GLOBALS['dbi']->escapeString($_POST['new_auto_increment']);
         }
 
-        if (! empty($_REQUEST['new_row_format'])) {
-            $newRowFormat = $_REQUEST['new_row_format'];
+        if (! empty($_POST['new_row_format'])) {
+            $newRowFormat = $_POST['new_row_format'];
             $newRowFormatLower = mb_strtolower($newRowFormat);
             if ($pma_table->isEngine(array('MYISAM', 'ARIA', 'INNODB', 'PBXT'))
                 && (strlen($row_format) === 0
@@ -1868,8 +1870,8 @@ class Operations
             // should not be reported with a Level of Error, so here
             // I just ignore it. But there are other 1478 messages
             // that it's better to show.
-            if (! (isset($_REQUEST['new_tbl_storage_engine'])
-                && $_REQUEST['new_tbl_storage_engine'] == 'MyISAM'
+            if (! (isset($_POST['new_tbl_storage_engine'])
+                && $_POST['new_tbl_storage_engine'] == 'MyISAM'
                 && $warning['Code'] == '1478'
                 && $warning['Level'] == 'Error')
             ) {
@@ -1890,13 +1892,13 @@ class Operations
     {
         $sql_query = 'ALTER TABLE '
             . Util::backquote($GLOBALS['table']) . ' '
-            . $_REQUEST['partition_operation']
+            . $_POST['partition_operation']
             . ' PARTITION ';
 
-        if ($_REQUEST['partition_operation'] == 'COALESCE') {
-            $sql_query .= count($_REQUEST['partition_name']);
+        if ($_POST['partition_operation'] == 'COALESCE') {
+            $sql_query .= count($_POST['partition_name']);
         } else {
-            $sql_query .= implode(', ', $_REQUEST['partition_name']) . ';';
+            $sql_query .= implode(', ', $_POST['partition_name']) . ';';
         }
 
         $result = $GLOBALS['dbi']->query($sql_query);
@@ -2045,43 +2047,43 @@ class Operations
         $GLOBALS['dbi']->selectDb($db);
 
         /**
-         * $_REQUEST['target_db'] could be empty in case we came from an input field
+         * $_POST['target_db'] could be empty in case we came from an input field
          * (when there are many databases, no drop-down)
          */
-        if (empty($_REQUEST['target_db'])) {
-            $_REQUEST['target_db'] = $db;
+        if (empty($_POST['target_db'])) {
+            $_POST['target_db'] = $db;
         }
 
         /**
          * A target table name has been sent to this script -> do the work
          */
-        if (Core::isValid($_REQUEST['new_name'])) {
-            if ($db == $_REQUEST['target_db'] && $table == $_REQUEST['new_name']) {
-                if (isset($_REQUEST['submit_move'])) {
+        if (Core::isValid($_POST['new_name'])) {
+            if ($db == $_POST['target_db'] && $table == $_POST['new_name']) {
+                if (isset($_POST['submit_move'])) {
                     $message = Message::error(__('Can\'t move table to same one!'));
                 } else {
                     $message = Message::error(__('Can\'t copy table to same one!'));
                 }
             } else {
                 Table::moveCopy(
-                    $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name'],
-                    $_REQUEST['what'], isset($_REQUEST['submit_move']), 'one_table'
+                    $db, $table, $_POST['target_db'], $_POST['new_name'],
+                    $_POST['what'], isset($_POST['submit_move']), 'one_table'
                 );
 
-                if (isset($_REQUEST['adjust_privileges'])
-                    && ! empty($_REQUEST['adjust_privileges'])
+                if (isset($_POST['adjust_privileges'])
+                    && ! empty($_POST['adjust_privileges'])
                 ) {
-                    if (isset($_REQUEST['submit_move'])) {
+                    if (isset($_POST['submit_move'])) {
                         $this->adjustPrivilegesRenameOrMoveTable(
-                            $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name']
+                            $db, $table, $_POST['target_db'], $_POST['new_name']
                         );
                     } else {
                         $this->adjustPrivilegesCopyTable(
-                            $db, $table, $_REQUEST['target_db'], $_REQUEST['new_name']
+                            $db, $table, $_POST['target_db'], $_POST['new_name']
                         );
                     }
 
-                    if (isset($_REQUEST['submit_move'])) {
+                    if (isset($_POST['submit_move'])) {
                         $message = Message::success(
                             __(
                                 'Table %s has been moved to %s. Privileges have been '
@@ -2098,7 +2100,7 @@ class Operations
                     }
 
                 } else {
-                    if (isset($_REQUEST['submit_move'])) {
+                    if (isset($_POST['submit_move'])) {
                         $message = Message::success(
                             __('Table %s has been moved to %s.')
                         );
@@ -2113,20 +2115,20 @@ class Operations
                     . Util::backquote($table);
                 $message->addParam($old);
 
-                $new_name = $_REQUEST['new_name'];
+                $new_name = $_POST['new_name'];
                 if ($GLOBALS['dbi']->getLowerCaseNames() === '1') {
                     $new_name = strtolower($new_name);
                 }
 
                 $GLOBALS['table'] = $new_name;
 
-                $new = Util::backquote($_REQUEST['target_db']) . '.'
+                $new = Util::backquote($_POST['target_db']) . '.'
                     . Util::backquote($new_name);
                 $message->addParam($new);
 
                 /* Check: Work on new table or on old table? */
-                if (isset($_REQUEST['submit_move'])
-                    || Core::isValid($_REQUEST['switch_to_new'])
+                if (isset($_POST['submit_move'])
+                    || Core::isValid($_POST['switch_to_new'])
                 ) {
                 }
             }

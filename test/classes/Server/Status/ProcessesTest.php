@@ -133,10 +133,10 @@ class ProcessesTest extends TestCase
             $html
         );
 
-        $_REQUEST['full'] = true;
-        $_REQUEST['sort_order'] = 'ASC';
-        $_REQUEST['order_by_field'] = 'db';
-        $_REQUEST['column_name'] = 'Database';
+        $_POST['full'] = true;
+        $_POST['sort_order'] = 'ASC';
+        $_POST['order_by_field'] = 'db';
+        $_POST['column_name'] = 'Database';
         $html = Processes::getHtmlForServerProcesslist();
 
         $this->assertContains(
@@ -152,9 +152,9 @@ class ProcessesTest extends TestCase
             $html
         );
 
-        $_REQUEST['sort_order'] = 'DESC';
-        $_REQUEST['order_by_field'] = 'Host';
-        $_REQUEST['column_name'] = 'Host';
+        $_POST['sort_order'] = 'DESC';
+        $_POST['order_by_field'] = 'Host';
+        $_POST['column_name'] = 'Host';
         $html = Processes::getHtmlForServerProcesslist();
 
         $this->assertContains(
@@ -187,20 +187,16 @@ class ProcessesTest extends TestCase
         );
         $show_full_sql = true;
 
-        $_REQUEST['sort_order'] = "desc";
-        $_REQUEST['order_by_field'] = "process";
+        $_POST['sort_order'] = "desc";
+        $_POST['order_by_field'] = "process";
         $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] = 12;
 
         //Call the test function
         $html = Processes::getHtmlForServerProcessItem($process, $show_full_sql);
 
         //validate 1: $kill_process
-        $url_params = array(
-            'kill' => $process['id'],
-            'ajax_request' => true
-        );
-        $kill_process = 'server_status_processes.php'
-            . Url::getCommon($url_params);
+        $kill_process = 'href="server_status_processes.php" data-post="'
+            . Url::getCommon(['kill' => $process['id']], '') . '"';
         $this->assertContains(
             $kill_process,
             $html

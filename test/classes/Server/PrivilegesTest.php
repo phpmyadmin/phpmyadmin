@@ -38,7 +38,7 @@ class PrivilegesTest extends TestCase
         //$_REQUEST
         $_REQUEST['log'] = "index1";
         $_REQUEST['pos'] = 3;
-        $_REQUEST['initial'] = null;
+        $_GET['initial'] = null;
 
         //$GLOBALS
         $GLOBALS['lang'] = 'en';
@@ -173,8 +173,8 @@ class PrivilegesTest extends TestCase
         );
 
         //pre variable have been defined
-        $_REQUEST['pred_tablename'] = "PMA_pred__tablename";
-        $_REQUEST['pred_dbname'] = array("PMA_pred_dbname");
+        $_POST['pred_tablename'] = "PMA_pred__tablename";
+        $_POST['pred_dbname'] = array("PMA_pred_dbname");
         list(
             ,, $dbname, $tablename, $routinename,
             $db_and_table, $dbname_is_wildcard
@@ -507,7 +507,7 @@ class PrivilegesTest extends TestCase
     {
         $username = "pma_username";
         $is_menuswork = true;
-        $_REQUEST['edit_user_group_dialog'] = "edit_user_group_dialog";
+        $_GET['edit_user_group_dialog'] = "edit_user_group_dialog";
 
         /* Assertion 1 */
         //Privileges::getHtmlForUserGroupDialog
@@ -746,7 +746,7 @@ class PrivilegesTest extends TestCase
      */
     public function testPMAGetDataForChangeOrCopyUser()
     {
-        //$_REQUEST['change_copy'] not set
+        //$_POST['change_copy'] not set
         list($queries, $password) = Privileges::getDataForChangeOrCopyUser();
         $this->assertEquals(
             null,
@@ -757,10 +757,10 @@ class PrivilegesTest extends TestCase
             $queries
         );
 
-        //$_REQUEST['change_copy'] is set
-        $_REQUEST['change_copy'] = true;
-        $_REQUEST['old_username'] = 'PMA_old_username';
-        $_REQUEST['old_hostname'] = 'PMA_old_hostname';
+        //$_POST['change_copy'] is set
+        $_POST['change_copy'] = true;
+        $_POST['old_username'] = 'PMA_old_username';
+        $_POST['old_hostname'] = 'PMA_old_hostname';
         list($queries, $password) = Privileges::getDataForChangeOrCopyUser();
         $this->assertEquals(
             'pma_password',
@@ -770,7 +770,7 @@ class PrivilegesTest extends TestCase
             array(),
             $queries
         );
-        unset($_REQUEST['change_copy']);
+        unset($_POST['change_copy']);
     }
 
 
@@ -824,13 +824,13 @@ class PrivilegesTest extends TestCase
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $_REQUEST['adduser_submit'] = true;
+        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_POST['pred_password'] = 'keep';
-        $_REQUEST['createdb-3'] = true;
-        $_REQUEST['userGroup'] = "username";
-        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
+        $_POST['createdb-3'] = true;
+        $_POST['userGroup'] = "username";
+        $_POST['authentication_plugin'] = 'mysql_native_password';
 
         list(
             $ret_message,,, $sql_query,
@@ -871,13 +871,13 @@ class PrivilegesTest extends TestCase
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'pma_hostname';
-        $_REQUEST['adduser_submit'] = true;
+        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
         $_POST['pred_password'] = 'keep';
-        $_REQUEST['createdb-3'] = true;
-        $_REQUEST['userGroup'] = "username";
-        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
+        $_POST['createdb-3'] = true;
+        $_POST['userGroup'] = "username";
+        $_POST['authentication_plugin'] = 'mysql_native_password';
 
         list(
             $ret_message,,, $sql_query,
@@ -918,7 +918,7 @@ class PrivilegesTest extends TestCase
         $hostname = 'pma_hostname';
         $err_url = "error.php";
         $_POST['pma_pw'] = 'pma_pw';
-        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
+        $_POST['authentication_plugin'] = 'mysql_native_password';
 
         $message = Privileges::updatePassword(
             $err_url, $username, $hostname
@@ -942,10 +942,10 @@ class PrivilegesTest extends TestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = 'pma_tablename';
-        $_REQUEST['adduser_submit'] = true;
+        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
-        $_REQUEST['createdb-3'] = true;
+        $_POST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
         list ($message, $sql_query)
@@ -977,10 +977,10 @@ class PrivilegesTest extends TestCase
         $username = 'pma_username';
         $hostname = 'pma_hostname';
         $tablename = 'pma_tablename';
-        $_REQUEST['adduser_submit'] = true;
+        $_POST['adduser_submit'] = true;
         $_POST['pred_username'] = 'any';
         $_POST['pred_hostname'] = 'localhost';
-        $_REQUEST['createdb-3'] = true;
+        $_POST['createdb-3'] = true;
         $_POST['Grant_priv'] = 'Y';
         $_POST['max_questions'] = 1000;
         list($sql_query, $message) = Privileges::updatePrivileges(
@@ -1152,7 +1152,7 @@ class PrivilegesTest extends TestCase
         $hostname = "PMA_hostname";
         $password = "pma_password";
         $_POST['pred_password'] = 'keep';
-        $_REQUEST['authentication_plugin'] = 'mysql_native_password';
+        $_POST['authentication_plugin'] = 'mysql_native_password';
         $dbname = "PMA_db";
 
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
@@ -1745,7 +1745,8 @@ class PrivilegesTest extends TestCase
                 'tablename' => $tablename,
                 'routinename' => '',
                 'revokeall' => 1,
-            )
+            ),
+            ''
         );
         $this->assertContains(
             $url_html,
@@ -1788,10 +1789,11 @@ class PrivilegesTest extends TestCase
         $username = "pma_username";
         $hostname = "pma_hostname";
         $GLOBALS['dbname'] = "pma_dbname";
-        $_REQUEST['adduser_submit'] = "adduser_submit";
-        $_REQUEST['change_copy'] = "change_copy";
-        $_REQUEST['validate_username'] = "validate_username";
-        $_REQUEST['username'] = "username";
+        $_POST['adduser_submit'] = "adduser_submit";
+        $_POST['username'] = "username";
+        $_POST['change_copy'] = "change_copy";
+        $_GET['validate_username'] = "validate_username";
+        $_GET['username'] = "username";
         $_POST['update_privs'] = "update_privs";
 
         //Privileges::getExtraDataForAjaxBehavior
@@ -2158,9 +2160,9 @@ class PrivilegesTest extends TestCase
      */
     public function testPMAGetDataForDeleteUsers()
     {
-        $_REQUEST['change_copy'] = "change_copy";
-        $_REQUEST['old_hostname'] = "old_hostname";
-        $_REQUEST['old_username'] = "old_username";
+        $_POST['change_copy'] = "change_copy";
+        $_POST['old_hostname'] = "old_hostname";
+        $_POST['old_username'] = "old_username";
         $_SESSION['relation'][1] = array(
             'PMA_VERSION' => PMA_VERSION,
             'bookmarkwork' => false,
@@ -2607,7 +2609,7 @@ class PrivilegesTest extends TestCase
         );
 
         // Test case 2 : all successful queries
-        $_REQUEST['mode'] = 3;
+        $_POST['mode'] = 3;
         $queries = array('foo');
         $actual = Privileges::deleteUser($queries);
         $this->assertArrayHasKey(0, $actual);
@@ -2622,7 +2624,7 @@ class PrivilegesTest extends TestCase
         );
 
         // Test case 3 : failing queries
-        $_REQUEST['mode'] = 1;
+        $_POST['mode'] = 1;
         $queries = array('bar');
         $actual = Privileges::deleteUser($queries);
         $this->assertArrayHasKey(0, $actual);

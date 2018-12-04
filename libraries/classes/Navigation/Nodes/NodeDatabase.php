@@ -677,8 +677,8 @@ class NodeDatabase extends Node
                     'dbName' => $this->real_name,
                 );
                 $ret = '<span class="dbItemControls">'
-                    . '<a href="navigation.php'
-                    . Url::getCommon($params) . '"'
+                    . '<a href="navigation.php" data-post="'
+                    . Url::getCommon($params, '') . '"'
                     . ' class="showUnhide ajax">'
                     . Util::getImage(
                         'show',

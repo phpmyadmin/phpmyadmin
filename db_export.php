@@ -56,8 +56,8 @@ if ($num_tables < 1) {
 } // end if
 
 $multi_values  = '<div class="export_table_list_container">';
-if (isset($_GET['structure_or_data_forced'])) {
-    $force_val = htmlspecialchars($_GET['structure_or_data_forced']);
+if (isset($_POST['structure_or_data_forced'])) {
+    $force_val = htmlspecialchars($_POST['structure_or_data_forced']);
 } else {
     $force_val = 0;
 }
@@ -84,19 +84,19 @@ if (!empty($_POST['selected_tbl']) && empty($table_select)) {
     $table_select = $_POST['selected_tbl'];
 }
 
-// Check if the selected tables are defined in $_GET
+// Check if the selected tables are defined in $_POST
 // (from clicking Back button on export.php)
 foreach (array('table_select', 'table_structure', 'table_data') as $one_key) {
-    if (isset($_GET[$one_key])) {
-        $_GET[$one_key] = urldecode($_GET[$one_key]);
-        $_GET[$one_key] = explode(",", $_GET[$one_key]);
+    if (isset($_POST[$one_key])) {
+        $_POST[$one_key] = urldecode($_POST[$one_key]);
+        $_POST[$one_key] = explode(",", $_POST[$one_key]);
     }
 }
 
 foreach ($tables as $each_table) {
-    if (isset($_GET['table_select']) && is_array($_GET['table_select'])) {
+    if (isset($_POST['table_select']) && is_array($_POST['table_select'])) {
         $is_checked = Export::getCheckedClause(
-            $each_table['Name'], $_GET['table_select']
+            $each_table['Name'], $_POST['table_select']
         );
     } elseif (isset($table_select)) {
         $is_checked = Export::getCheckedClause(
@@ -105,16 +105,16 @@ foreach ($tables as $each_table) {
     } else {
         $is_checked = ' checked="checked"';
     }
-    if (isset($_GET['table_structure']) && is_array($_GET['table_structure'])) {
+    if (isset($_POST['table_structure']) && is_array($_POST['table_structure'])) {
         $structure_checked = Export::getCheckedClause(
-            $each_table['Name'], $_GET['table_structure']
+            $each_table['Name'], $_POST['table_structure']
         );
     } else {
         $structure_checked = $is_checked;
     }
-    if (isset($_GET['table_data']) && is_array($_GET['table_data'])) {
+    if (isset($_POST['table_data']) && is_array($_POST['table_data'])) {
         $data_checked = Export::getCheckedClause(
-            $each_table['Name'], $_GET['table_data']
+            $each_table['Name'], $_POST['table_data']
         );
     } else {
         $data_checked = $is_checked;

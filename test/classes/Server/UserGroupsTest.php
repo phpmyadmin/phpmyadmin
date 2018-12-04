@@ -124,33 +124,36 @@ class UserGroupsTest extends TestCase
             '<td>usergroup</td>',
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php'
+        $url_tag = '<a class="" href="server_user_groups.php" data-post="'
             . Url::getCommon(
                 array(
                     'viewUsers'=>1, 'userGroup'=>htmlspecialchars('usergroup')
-                )
+                ),
+                ''
             );
         $this->assertContains(
             $url_tag,
             $html
         );
-        $url_tag = '<a class="" href="server_user_groups.php'
+        $url_tag = '<a class="" href="server_user_groups.php" data-post="'
             . Url::getCommon(
                 array(
                     'editUserGroup'=>1,
                     'userGroup'=>htmlspecialchars('usergroup')
-                )
+                ),
+                ''
             );
         $this->assertContains(
             $url_tag,
             $html
         );
-        $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php'
+        $url_tag = '<a class="deleteUserGroup ajax" href="server_user_groups.php" data-post="'
             . Url::getCommon(
                 array(
                     'deleteUserGroup'=> 1,
                     'userGroup'=>htmlspecialchars('usergroup')
-                )
+                ),
+                ""
             );
         $this->assertContains(
             $url_tag,

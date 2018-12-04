@@ -379,7 +379,7 @@ class Monitor
      */
     public static function getJsonForChartingData()
     {
-        $ret = json_decode($_REQUEST['requiredData'], true);
+        $ret = json_decode($_POST['requiredData'], true);
         $statusVars = array();
         $serverVars = array();
         $sysinfo = $cpuload = $memory = 0;
@@ -633,7 +633,7 @@ class Monitor
     public static function getJsonForLogDataTypeGeneral($start, $end)
     {
         $limitTypes = '';
-        if (isset($_REQUEST['limitTypes']) && $_REQUEST['limitTypes']) {
+        if (isset($_POST['limitTypes']) && $_POST['limitTypes']) {
             $limitTypes
                 = 'AND argument REGEXP \'^(INSERT|SELECT|UPDATE|DELETE)\' ';
         }
@@ -652,8 +652,8 @@ class Monitor
         $insertTables = array();
         $insertTablesFirst = -1;
         $i = 0;
-        $removeVars = isset($_REQUEST['removeVariables'])
-            && $_REQUEST['removeVariables'];
+        $removeVars = isset($_POST['removeVariables'])
+            && $_POST['removeVariables'];
 
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             preg_match('/^(\w+)\s/', $row['argument'], $match);
@@ -753,15 +753,15 @@ class Monitor
      */
     public static function getJsonForLoggingVars()
     {
-        if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
-            $value = $GLOBALS['dbi']->escapeString($_REQUEST['varValue']);
+        if (isset($_POST['varName']) && isset($_POST['varValue'])) {
+            $value = $GLOBALS['dbi']->escapeString($_POST['varValue']);
             if (! is_numeric($value)) {
                 $value="'" . $value . "'";
             }
 
-            if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])) {
+            if (! preg_match("/[^a-zA-Z0-9_]+/", $_POST['varName'])) {
                 $GLOBALS['dbi']->query(
-                    'SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value
+                    'SET GLOBAL ' . $_POST['varName'] . ' = ' . $value
                 );
             }
 
@@ -785,8 +785,8 @@ class Monitor
     {
         $return = array();
 
-        if (strlen($_REQUEST['database']) > 0) {
-            $GLOBALS['dbi']->selectDb($_REQUEST['database']);
+        if (strlen($_POST['database']) > 0) {
+            $GLOBALS['dbi']->selectDb($_POST['database']);
         }
 
         if ($profiling = Util::profilingSupported()) {
@@ -797,7 +797,7 @@ class Monitor
         $query = preg_replace(
             '/^(\s*SELECT)/i',
             '\\1 SQL_NO_CACHE',
-            $_REQUEST['query']
+            $_POST['query']
         );
 
         $GLOBALS['dbi']->tryQuery($query);
