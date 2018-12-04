@@ -2893,28 +2893,29 @@ class Results
 
                     if (@file_exists($include_file)) {
 
-                        include_once $include_file;
                         $class_name = Transformations::getClassName($include_file);
-                        // todo add $plugin_manager
-                        $plugin_manager = null;
-                        $transformation_plugin = new $class_name(
-                            $plugin_manager
-                        );
+                        if (class_exists($class_name)) {
+                            // todo add $plugin_manager
+                            $plugin_manager = null;
+                            $transformation_plugin = new $class_name(
+                                $plugin_manager
+                            );
 
-                        $transform_options = Transformations::getOptions(
-                            isset(
-                                $mime_map[$orgFullColName]
+                            $transform_options = Transformations::getOptions(
+                                isset(
+                                    $mime_map[$orgFullColName]
+                                    ['transformation_options']
+                                )
+                                ? $mime_map[$orgFullColName]
                                 ['transformation_options']
-                            )
-                            ? $mime_map[$orgFullColName]
-                            ['transformation_options']
-                            : ''
-                        );
+                                : ''
+                            );
 
-                        $meta->mimetype = str_replace(
-                            '_', '/',
-                            $mime_map[$orgFullColName]['mimetype']
-                        );
+                            $meta->mimetype = str_replace(
+                                '_', '/',
+                                $mime_map[$orgFullColName]['mimetype']
+                            );
+                        }
 
                     } // end if file_exists
                 } // end if transformation is set
