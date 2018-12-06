@@ -252,6 +252,8 @@ class Descriptions
                 'Add IF NOT EXISTS (less efficient as indexes will be generated during'
                 . ' table creation)'
             ),
+            'Export_sql_view_current_user' => __('Exclude definition of current user'),
+            'Export_sql_or_replace_view_name' => sprintf(__('%s view'), 'OR REPLACE'),
             'Export_sql_ignore_name' => __('Use ignore inserts'),
             'Export_sql_include_comments_name' => __('Comments'),
             'Export_sql_insert_syntax_name' => __('Syntax to use when inserting data'),
@@ -519,6 +521,8 @@ class Descriptions
             'NavigationTreeShowProcedures_desc' => __('Whether to show procedures under database in the navigation tree'),
             'NavigationTreeShowEvents_name' => __('Show events in tree'),
             'NavigationTreeShowEvents_desc' => __('Whether to show events under database in the navigation tree'),
+            'NavigationTreeAutoexpandSingleDb_name' => __('Expand single database'),
+            'NavigationTreeAutoexpandSingleDb_desc' => __('Whether to expand single database in the navigation tree automatically.'),
             'NumRecentTables_desc' => __('Maximum number of recently used tables; set 0 to disable.'),
             'NumFavoriteTables_desc' => __('Maximum number of favorite tables; set 0 to disable.'),
             'NumRecentTables_name' => __('Recently used tables'),

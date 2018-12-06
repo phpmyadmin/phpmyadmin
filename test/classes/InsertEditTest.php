@@ -62,6 +62,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable2'] = '';
         $GLOBALS['cfg']['Confirm'] = true;
         $GLOBALS['cfg']['LoginCookieValidity'] = 1440;
+        $GLOBALS['cfg']['enable_drag_drop_import'] = true;
         $GLOBALS['PMA_Config'] = new Config();
 
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
@@ -1615,7 +1616,7 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<input type="submit" class="control_at_footer" value="Go" '
-            . 'tabindex="9" id="buttonYes" ',
+            . 'tabindex="11" id="buttonYes" ',
             $result
         );
     }
@@ -1683,19 +1684,19 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<input type="submit" class="control_at_footer" value="Go" '
-            . 'tabindex="7" id="buttonYes" />',
+            . 'tabindex="9" id="buttonYes" />',
             $result
         );
 
         $this->assertContains(
             '<input type="button" class="preview_sql" value="Preview SQL" '
-            . 'tabindex="8" />',
+            . 'tabindex="7" />',
             $result
         );
 
         $this->assertContains(
             '<input type="reset" class="control_at_footer" value="Reset" '
-            . 'tabindex="9" />',
+            . 'tabindex="8" />',
             $result
         );
     }
@@ -2374,7 +2375,7 @@ class InsertEditTest extends TestCase
 
         $dbi->expects($this->once())
             ->method('fetchRow')
-            ->with('r1', 0)
+            ->with('r1')
             ->will($this->returnValue(['2']));
 
         $GLOBALS['dbi'] = $dbi;
@@ -2914,7 +2915,6 @@ class InsertEditTest extends TestCase
     public function testVerifyWhetherValueCanBeTruncatedAndAppendExtraData()
     {
         $extra_data = ['isNeedToRecheck' => true];
-        $meta = new stdClass();
         $_REQUEST['where_clause'][0] = 1;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -2925,6 +2925,7 @@ class InsertEditTest extends TestCase
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
+        $meta = new stdClass();
         $meta->type = 'int';
         $dbi->expects($this->at(1))
             ->method('getFieldsMeta')
@@ -2941,7 +2942,9 @@ class InsertEditTest extends TestCase
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
+        $meta = new stdClass();
         $meta->type = 'int';
+        $meta->flags = '';
         $dbi->expects($this->at(5))
             ->method('getFieldsMeta')
             ->will($this->returnValue([$meta]));
@@ -2957,6 +2960,7 @@ class InsertEditTest extends TestCase
             ->method('tryQuery')
             ->with('SELECT `table`.`a` FROM `db`.`table` WHERE 1');
 
+        $meta = new stdClass();
         $meta->type = 'timestamp';
         $dbi->expects($this->at(9))
             ->method('getFieldsMeta')

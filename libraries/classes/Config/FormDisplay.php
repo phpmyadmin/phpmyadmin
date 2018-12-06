@@ -16,12 +16,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\Descriptions;
-use PhpMyAdmin\Config\Form;
-use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
-use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
@@ -231,7 +226,7 @@ class FormDisplay
      * @param array &$js                will be updated with javascript code
      * @param bool  $showButtons        whether show submit and reset button
      *
-     * @return string $htmlOutput
+     * @return string
      */
     private function _displayForms(
         $showRestoreDefault,

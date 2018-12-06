@@ -13,6 +13,7 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
@@ -22,9 +23,10 @@ use PhpMyAdmin\Util;
 require_once 'libraries/common.inc.php';
 
 $response = Response::getInstance();
+$relation = new Relation($GLOBALS['dbi']);
+$template = new Template();
 
 // Gets the relation settings
-$relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
 
 $savedSearchList = [];
@@ -139,6 +141,23 @@ unset($message_to_display);
 
 // create new qbe search instance
 $db_qbe = new Qbe($GLOBALS['dbi'], $GLOBALS['db'], $savedSearchList, $savedSearch);
+
+$secondaryTabs = [
+    'multi' => [
+        'link' => 'db_multi_table_query.php',
+        'text' => __('Multi-table query'),
+    ],
+    'qbe' => [
+        'link' => 'db_qbe.php',
+        'text' => __('Query by example'),
+    ],
+];
+$response->addHTML(
+    $template->render('secondary_tabs', [
+        'url_params' => $url_params,
+        'sub_tabs' => $secondaryTabs,
+    ])
+);
 
 $url = 'db_designer.php' . Url::getCommon(
     array_merge(

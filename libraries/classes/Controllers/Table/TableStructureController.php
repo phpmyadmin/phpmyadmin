@@ -76,7 +76,7 @@ class TableStructureController extends TableController
     private $createAddField;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -511,7 +511,7 @@ class TableStructureController extends TableController
      * @param array  $selected the selected columns
      * @param string $action   target script to call
      *
-     * @return boolean $regenerate true if error occurred
+     * @return boolean true if error occurred
      *
      */
     protected function displayHtmlForColumnChange($selected, $action)
@@ -596,7 +596,7 @@ class TableStructureController extends TableController
 
         $parser = new Parser($createTable);
         /**
-         * @var $stmt PhpMyAdmin\SqlParser\Statements\CreateStatement
+         * @var CreateStatement $stmt
          */
         $stmt = $parser->statements[0];
 
@@ -866,7 +866,7 @@ class TableStructureController extends TableController
     /**
      * Update the table's structure based on $_REQUEST
      *
-     * @return boolean $regenerate              true if error occurred
+     * @return boolean              true if error occurred
      *
      */
     protected function updateColumns()
@@ -880,7 +880,11 @@ class TableStructureController extends TableController
         $field_cnt = count($_REQUEST['field_name']);
         $changes = [];
         $adjust_privileges = [];
-
+        $columns_with_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(
+                Index::PRIMARY | Index::UNIQUE
+            );
         for ($i = 0; $i < $field_cnt; $i++) {
             if (!$this->columnNeedsAlterTable($i)) {
                 continue;
@@ -900,7 +904,8 @@ class TableStructureController extends TableController
                 Util::getValueByKey($_REQUEST, "field_comments.${i}", ''),
                 Util::getValueByKey($_REQUEST, "field_virtuality.${i}", ''),
                 Util::getValueByKey($_REQUEST, "field_expression.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_move_to.${i}", '')
+                Util::getValueByKey($_REQUEST, "field_move_to.${i}", ''),
+                $columns_with_index
             );
 
             // find the remembered sort expression
@@ -1105,7 +1110,7 @@ class TableStructureController extends TableController
      * @param array $adjust_privileges assoc array of old col names mapped to new
      *                                 cols
      *
-     * @return boolean $changed  boolean whether at least one column privileges
+     * @return boolean  boolean whether at least one column privileges
      * adjusted
      */
     protected function adjustColumnPrivileges(array $adjust_privileges)
@@ -1151,7 +1156,7 @@ class TableStructureController extends TableController
      *
      * @param integer $i column index in the request
      *
-     * @return boolean $alterTableNeeded true if we need to generate ALTER TABLE
+     * @return boolean true if we need to generate ALTER TABLE
      *
      */
     protected function columnNeedsAlterTable($i)
@@ -1395,7 +1400,7 @@ class TableStructureController extends TableController
     /**
      * Get HTML snippet for display table statistics
      *
-     * @return string $html_output
+     * @return string
      */
     protected function getTableStats()
     {

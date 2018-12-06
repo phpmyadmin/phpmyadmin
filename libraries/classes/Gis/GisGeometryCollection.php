@@ -404,6 +404,9 @@ class GisGeometryCollection extends GisGeometry
                 continue;
             }
             $type = mb_substr($sub_part, 0, $type_pos);
+            /**
+             * @var GisMultiPolygon|GisPolygon|GisMultiPoint|GisPoint|GisMultiLineString|GisLineString $gis_obj
+             */
             $gis_obj = GisFactory::factory($type);
             if (!$gis_obj) {
                 continue;

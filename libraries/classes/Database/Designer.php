@@ -30,7 +30,7 @@ class Designer
     private $dbi;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

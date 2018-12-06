@@ -537,7 +537,9 @@ if (! $error && isset($_POST['skip'])) {
 $sql_data = ['valid_sql' => [], 'valid_queries' => 0];
 
 if (! $error) {
-    /* @var $import_plugin ImportPlugin */
+    /**
+     * @var ImportPlugin $import_plugin
+     */
     $import_plugin = Plugins::getPlugin(
         "import",
         $format,

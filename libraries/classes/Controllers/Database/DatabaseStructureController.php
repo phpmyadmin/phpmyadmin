@@ -23,8 +23,8 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\Util;
 
 /**
  * Handles database structure logic
@@ -59,7 +59,7 @@ class DatabaseStructureController extends DatabaseController
     protected $_is_show_stats;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -520,8 +520,8 @@ class DatabaseStructureController extends DatabaseController
                 }
             }
 
-            $truename = (!empty($tooltip_truename)
-                    && isset($tooltip_truename[$current_table['TABLE_NAME']]))
+            $truename = !empty($tooltip_truename)
+                    && isset($tooltip_truename[$current_table['TABLE_NAME']])
                 ? $tooltip_truename[$current_table['TABLE_NAME']]
                 : $current_table['TABLE_NAME'];
 
@@ -549,14 +549,14 @@ class DatabaseStructureController extends DatabaseController
             if (!$this->_db_is_system_schema) {
                 $drop_query = sprintf(
                     'DROP %s %s',
-                    ($table_is_view || $current_table['ENGINE'] == null) ? 'VIEW'
+                    $table_is_view || $current_table['ENGINE'] == null ? 'VIEW'
                     : 'TABLE',
                     Util::backquote(
                         $current_table['TABLE_NAME']
                     )
                 );
                 $drop_message = sprintf(
-                    (($table_is_view || $current_table['ENGINE'] == null)
+                    ($table_is_view || $current_table['ENGINE'] == null
                         ? __('View %s has been dropped.')
                         : __('Table %s has been dropped.')),
                     str_replace(
@@ -1056,7 +1056,7 @@ class DatabaseStructureController extends DatabaseController
             list($formatted_size, $unit) = Util::formatByteDown(
                 $tblsize,
                 3,
-                ($tblsize > 0) ? 1 : 0
+                $tblsize > 0 ? 1 : 0
             );
             if (isset($current_table['Data_free'])
                 && $current_table['Data_free'] > 0
@@ -1065,7 +1065,7 @@ class DatabaseStructureController extends DatabaseController
                     = Util::formatByteDown(
                         $current_table['Data_free'],
                         3,
-                        (($current_table['Data_free'] > 0) ? 1 : 0)
+                        ($current_table['Data_free'] > 0 ? 1 : 0)
                     );
                 $overhead_size += $current_table['Data_free'];
             }
@@ -1108,7 +1108,7 @@ class DatabaseStructureController extends DatabaseController
             list($formatted_size, $unit) = Util::formatByteDown(
                 $tblsize,
                 3,
-                (($tblsize > 0) ? 1 : 0)
+                ($tblsize > 0 ? 1 : 0)
             );
         }
 

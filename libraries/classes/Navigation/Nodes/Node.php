@@ -105,7 +105,7 @@ class Node
     public $pos3 = 0;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     protected $relation;
 
@@ -279,9 +279,7 @@ class Node
         $retval = false;
         $paths = $this->getPaths();
         if (count($paths['aPath_clean']) > 3) {
-            $retval = true;
-
-            return $retval;
+            return true;
         }
 
         foreach ($this->parent->children as $child) {
@@ -481,7 +479,7 @@ class Node
                         break;
                     }
                 }
-                $prefixes = array_slice(array_keys($prefixMap), $pos);
+                $prefixes = array_slice(array_keys($prefixMap), (int) $pos);
             }
 
             $query = "SHOW DATABASES ";
@@ -490,7 +488,7 @@ class Node
             $subClauses = [];
             foreach ($prefixes as $prefix) {
                 $subClauses[] = " LOCATE('"
-                    . $GLOBALS['dbi']->escapeString((string)$prefix) . $dbSeparator
+                    . $GLOBALS['dbi']->escapeString((string) $prefix) . $dbSeparator
                     . "', "
                     . "CONCAT(`Database`, '" . $dbSeparator . "')) = 1 ";
             }

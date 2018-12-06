@@ -23,7 +23,7 @@ use PhpMyAdmin\Util;
 class Common
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -288,7 +288,7 @@ class Common
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
-            return null;
+            return array();
         }
 
         $query = "
@@ -301,14 +301,13 @@ class Common
                 . "." . Util::backquote($cfgRelation['table_coords']) . "
             WHERE pdf_page_number = " . intval($pg);
 
-        $tab_pos = $this->dbi->fetchResult(
+        return $this->dbi->fetchResult(
             $query,
             'name',
             null,
             DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
-        return $tab_pos;
     }
 
     /**
@@ -316,7 +315,7 @@ class Common
      *
      * @param int $pg pdf page id
      *
-     * @return string table name
+     * @return string|null table name
      */
     public function getPageName($pg)
     {
@@ -336,7 +335,7 @@ class Common
             DatabaseInterface::CONNECT_CONTROL,
             DatabaseInterface::QUERY_STORE
         );
-        return count($page_name) ? $page_name[0] : null;
+        return ( is_array($page_name) && isset($page_name[0]) ) ? $page_name[0] : null;
     }
 
     /**
@@ -388,7 +387,7 @@ class Common
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
-            return null;
+            return -1;
         }
 
         $query = "SELECT `page_nr`"
@@ -405,7 +404,7 @@ class Common
             DatabaseInterface::QUERY_STORE
         );
 
-        if (! is_null($default_page_no) && count($default_page_no)) {
+        if (is_array($default_page_no) && isset($default_page_no[0])) {
             return intval($default_page_no[0]);
         }
         return -1;
@@ -423,7 +422,7 @@ class Common
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if (! $cfgRelation['pdfwork']) {
-            return null;
+            return -1;
         }
 
         $page_no = -1;
@@ -444,7 +443,7 @@ class Common
                 DatabaseInterface::CONNECT_CONTROL,
                 DatabaseInterface::QUERY_STORE
             );
-            if (isset($min_page_no[0]) && count($min_page_no[0])) {
+            if (is_array($min_page_no) && isset($min_page_no[0])) {
                 $page_no = $min_page_no[0];
             }
         }
@@ -463,12 +462,11 @@ class Common
     {
         $cfgRelation = $this->relation->getRelationsParam();
         if ($cfgRelation['pdfwork']) {
-            $pageNumber = $this->relation->createPage(
+            return $this->relation->createPage(
                 $pageName,
                 $cfgRelation,
                 $db
             );
-            return $pageNumber;
         }
         return null;
     }

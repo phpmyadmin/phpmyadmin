@@ -458,7 +458,7 @@ class Config
                     return;
                 }
                 // split file to lines
-                $ref_lines = explode("\n", $packed_refs);
+                $ref_lines = explode(PHP_EOL, $packed_refs);
                 foreach ($ref_lines as $line) {
                     // skip comments
                     if ($line[0] == '#') {
@@ -718,7 +718,7 @@ class Config
                 }
             } while ($dataline != '');
             $message = trim(implode(' ', $commit));
-        } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer)) {
+        } elseif (isset($commit_json) && isset($commit_json->author) && isset($commit_json->committer) && isset($commit_json->message)) {
             $author = [
                 'name' => $commit_json->author->name,
                 'email' => $commit_json->author->email,

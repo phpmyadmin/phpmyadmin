@@ -113,7 +113,7 @@ class PageSettings
                 // reload page
                 $response = Response::getInstance();
                 Core::sendHeaderLocation(
-                    $response->getFooter()->getSelfUrl('unencoded')
+                    $response->getFooter()->getSelfUrl()
                 );
                 exit();
             } else {

@@ -107,18 +107,4 @@ class ThemeManagerTest extends PmaTestCase
         $this->assertContains('pmahomme', $preview);
         $this->assertContains('set_theme=pmahomme', $preview);
     }
-
-    /**
-     * Test for getFallBackTheme
-     *
-     * @return void
-     */
-    public function testGetFallBackTheme()
-    {
-        $tm = new ThemeManager();
-        $this->assertInstanceOf(
-            'PhpMyAdmin\Theme',
-            $tm->getFallBackTheme()
-        );
-    }
 }

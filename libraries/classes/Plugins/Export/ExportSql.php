@@ -14,7 +14,6 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
@@ -24,12 +23,12 @@ use PhpMyAdmin\Properties\Options\Items\NumberPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\RadioPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\SelectPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\TextPropertyItem;
+use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
 /**
@@ -305,11 +304,26 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($subgroup_create_table);
 
                 // Add view option
+                $subgroup_create_view = new OptionsPropertySubgroup();
                 $leaf = new BoolPropertyItem(
                     'create_view',
                     sprintf(__('Add %s statement'), '<code>CREATE VIEW</code>')
                 );
-                $subgroup->addProperty($leaf);
+                $subgroup_create_view->setSubgroupHeader($leaf);
+
+                $leaf = new BoolPropertyItem(
+                    'view_current_user',
+                    __('Exclude definition of current user')
+                );
+                $subgroup_create_view->addProperty($leaf);
+
+                $leaf = new BoolPropertyItem(
+                    'or_replace_view',
+                    sprintf(__('%s view'), '<code>OR REPLACE</code>')
+                );
+                $subgroup_create_view->addProperty($leaf);
+
+                $subgroup->addProperty($subgroup_create_view);
 
                 $leaf = new BoolPropertyItem(
                     'procedure_function',
@@ -627,7 +641,7 @@ class ExportSql extends ExportPlugin
     /**
      * Possibly outputs CRLF
      *
-     * @return string $crlf or nothing
+     * @return string crlf or nothing
      */
     private function _possibleCRLF()
     {
@@ -1262,7 +1276,7 @@ class ExportSql extends ExportPlugin
         }
         $create_query .= implode(',', $tmp) . ');' . $crlf;
 
-        return ($create_query);
+        return $create_query;
     }
 
     /**
@@ -1462,6 +1476,14 @@ class ExportSql extends ExportPlugin
 
         $schema_create .= $new_crlf;
 
+        if (!empty($sql_drop_table)
+            && $GLOBALS['dbi']->getTable($db, $table)->isView()
+        ) {
+            $schema_create .= 'DROP VIEW IF EXISTS '
+                . Util::backquote($table_alias, $sql_backquotes) . ';'
+                . $crlf;
+        }
+
         // no need to generate a DROP VIEW here, it was done earlier
         if (!empty($sql_drop_table)
             && !$GLOBALS['dbi']->getTable($db, $table)->isView()
@@ -1535,6 +1557,24 @@ class ExportSql extends ExportPlugin
                     '',
                     $create_query
                 );
+
+                // exclude definition of current user
+                if ($GLOBALS['sql_view_current_user']) {
+                    $create_query = preg_replace(
+                        '/(^|\s)DEFINER=([\S]+)/',
+                        '',
+                        $create_query
+                    );
+                }
+
+                // whether to replace existing view or not
+                if ($GLOBALS['sql_or_replace_view']) {
+                    $create_query = preg_replace(
+                        '/^CREATE/',
+                        'CREATE OR REPLACE',
+                        $create_query
+                    );
+                }
             }
 
             // Substitute aliases in `CREATE` query.
@@ -1599,7 +1639,7 @@ class ExportSql extends ExportPlugin
             /**
              * `CREATE TABLE` statement.
              *
-             * @var SelectStatement
+             * @var CreateStatement
              */
             $statement = $parser->statements[0];
 
@@ -1753,7 +1793,7 @@ class ExportSql extends ExportPlugin
                         ) . $alter_footer;
                 }
 
-                if ((!empty($indexes)) || (!empty($indexes_fulltext))) {
+                if (!empty($indexes) || (!empty($indexes_fulltext))) {
                     $sql_indexes = $this->generateComment(
                         $crlf,
                         $sql_indexes,
@@ -1772,7 +1812,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 // Generating auto-increment-related query.
-                if ((! empty($auto_increment)) && ($update_indexes_increments)) {
+                if (! empty($auto_increment) && ($update_indexes_increments)) {
                     $sql_auto_increments_query = $alter_header . $crlf . '  MODIFY '
                         . implode(',' . $crlf . '  MODIFY ', $auto_increment);
                     if (isset($GLOBALS['sql_auto_increment'])
@@ -2416,8 +2456,8 @@ class ExportSql extends ExportPlugin
                     // detection of 'bit' works only on mysqli extension
                     $values[] = "b'" . $GLOBALS['dbi']->escapeString(
                         Util::printableBitValue(
-                            $row[$j],
-                            $fields_meta[$j]->length
+                            (int) $row[$j],
+                            (int) $fields_meta[$j]->length
                         )
                     )
                     . "'";
@@ -2628,15 +2668,13 @@ class ExportSql extends ExportPlugin
             '" float NOT NULL$3' . "\n",
             $create_query
         );
-        $create_query = preg_replace(
+        return preg_replace(
             '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL DEFAULT \'([^\'])/',
             '" float NOT NULL DEFAULT \'$3',
             $create_query
         );
 
         // @todo remove indexes from CREATE TABLE
-
-        return $create_query;
     }
 
     /**
@@ -2673,7 +2711,7 @@ class ExportSql extends ExportPlugin
         /**
          * The statement that represents the query.
          *
-         * @var \PhpMyAdmin\SqlParser\Statements\CreateStatement $statement
+         * @var CreateStatement $statement
          */
         $statement = $parser->statements[0];
 
@@ -2725,6 +2763,7 @@ class ExportSql extends ExportPlugin
                 $flag = true;
             }
 
+            /** @var \PhpMyAdmin\SqlParser\Components\CreateDefinition $field */
             foreach ($statement->fields as $field) {
                 // Column name.
                 if (!empty($field->type)) {
@@ -2788,7 +2827,7 @@ class ExportSql extends ExportPlugin
             }
         }
 
-        if (($statement->options->has('TRIGGER'))
+        if ($statement->options->has('TRIGGER')
             || ($statement->options->has('PROCEDURE'))
             || ($statement->options->has('FUNCTION'))
             || ($statement->options->has('VIEW'))
@@ -2805,10 +2844,10 @@ class ExportSql extends ExportPlugin
 
                 // Replacing only symbols (that are not variables) and unknown
                 // identifiers.
-                if ((($token->type === Token::TYPE_SYMBOL)
-                    && (!($token->flags & Token::FLAG_SYMBOL_VARIABLE)))
-                    || ((($token->type === Token::TYPE_KEYWORD)
-                    && (!($token->flags & Token::FLAG_KEYWORD_RESERVED)))
+                if (($token->type === Token::TYPE_SYMBOL)
+                    && (!($token->flags & Token::FLAG_SYMBOL_VARIABLE))
+                    || (($token->type === Token::TYPE_KEYWORD)
+                    && (!($token->flags & Token::FLAG_KEYWORD_RESERVED))
                     || ($token->type === Token::TYPE_NONE))
                 ) {
                     $alias = $this->getAlias($aliases, $token->value);

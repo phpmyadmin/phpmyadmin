@@ -654,6 +654,7 @@ AJAX.registerOnload('sql.js', function () {
                 $sqlqueryresultsouter
                     .show()
                     .html(data.error);
+                $('html, body').animate({ scrollTop: $(document).height() }, 200);
             }
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.post()

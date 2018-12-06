@@ -9,22 +9,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
 use PhpMyAdmin\Database\DatabaseList;
-use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Dbi\DbiDummy;
+use PhpMyAdmin\Dbi\DbiExtension;
 use PhpMyAdmin\Dbi\DbiMysqli;
 use PhpMyAdmin\Di\Container;
-use PhpMyAdmin\Error;
-use PhpMyAdmin\Index;
-use PhpMyAdmin\LanguageManager;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\SystemDatabase;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Types;
-use PhpMyAdmin\Tracker;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 /**
  * Main interface for database interactions
@@ -119,7 +108,7 @@ class DatabaseInterface
     public $types;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -171,7 +160,8 @@ class DatabaseInterface
         bool $cache_affected_rows = true
     ) {
         $res = $this->tryQuery($query, $link, $options, $cache_affected_rows)
-            or Util::mysqlDie($this->getError($link), $query);
+           or Util::mysqlDie($this->getError($link), $query);
+
         return $res;
     }
 
@@ -259,7 +249,7 @@ class DatabaseInterface
                     unset($this->_table_cache[$one_database][$table]);
                 }
                 $this->_table_cache[$one_database]
-                    = $this->_table_cache[$one_database] + $tables[$one_database];
+                    += $tables[$one_database];
             } else {
                 $this->_table_cache[$one_database] = $tables[$one_database];
             }
@@ -400,6 +390,43 @@ class DatabaseInterface
         return $tables;
     }
 
+
+    /**
+     * returns
+     *
+     * @param string $database name of database
+     * @param array  $tables   list of tables to search for for relations
+     * @param int    $link     mysql link resource|object
+     *
+     * @return array           array of found foreign keys
+     */
+    public function getForeignKeyConstrains(string $database, array $tables, $link = DatabaseInterface::CONNECT_USER): array
+    {
+        $tablesListForQuery = '';
+        foreach($tables as $table){
+            $tablesListForQuery .= "'" . $this->escapeString($table) . "',";
+        }
+        $tablesListForQuery = rtrim($tablesListForQuery, ',');
+
+        $foreignKeyConstrains = $this->fetchResult(
+            "SELECT"
+                    . " TABLE_NAME,"
+                    . " COLUMN_NAME,"
+                    . " REFERENCED_TABLE_NAME,"
+                    . " REFERENCED_COLUMN_NAME"
+                . " FROM information_schema.key_column_usage"
+                . " WHERE referenced_table_name IS NOT NULL"
+                    . " AND TABLE_SCHEMA = '" . $this->escapeString($database) . "'"
+                    . " AND TABLE_NAME IN (" . $tablesListForQuery . ")"
+                    . " AND REFERENCED_TABLE_NAME IN (" . $tablesListForQuery . ");",
+            null,
+            null,
+            $link,
+            self::QUERY_STORE
+        );
+        return $foreignKeyConstrains;
+    }
+
     /**
      * returns a segment of the SQL WHERE clause regarding table name and type
      *
@@ -462,7 +489,7 @@ class DatabaseInterface
      */
     private function _getSqlForTablesFull($this_databases, string $sql_where_table): string
     {
-        $sql = '
+        return '
             SELECT *,
                 `TABLE_SCHEMA`       AS `Db`,
                 `TABLE_NAME`         AS `Name`,
@@ -489,8 +516,6 @@ class DatabaseInterface
             WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS() . '
                 IN (\'' . implode("', '", $this_databases) . '\')
                 ' . $sql_where_table;
-
-        return $sql;
     }
 
     /**
@@ -597,9 +622,9 @@ class DatabaseInterface
                         function ($a, $b) {
                             $aLength = $a['Data_length'] + $a['Index_length'];
                             $bLength = $b['Data_length'] + $b['Index_length'];
-                            return ($aLength == $bLength)
+                            return $aLength == $bLength
                                 ? 0
-                                : ($aLength < $bLength) ? -1 : 1;
+                                : $aLength < $bLength ? -1 : 1;
                         }
                     );
 
@@ -808,7 +833,7 @@ class DatabaseInterface
      *
      * @param string $db Database name to look in
      *
-     * @return array $views Set of VIEWs inside the database
+     * @return array Set of VIEWs inside the database
      */
     public function getVirtualTables(string $db): array
     {
@@ -840,7 +865,7 @@ class DatabaseInterface
      *
      * @todo    move into ListDatabase?
      *
-     * @return array $databases
+     * @return array
      */
     public function getDatabasesFull(
         ?string $database = null,
@@ -1266,7 +1291,7 @@ class DatabaseInterface
     ): string {
         $sql = 'SHOW ' . ($full ? 'FULL' : '') . ' COLUMNS FROM '
             . Util::backquote($database) . '.' . Util::backquote($table)
-            . (($column !== null) ? "LIKE '"
+            . ($column !== null ? "LIKE '"
             . $GLOBALS['dbi']->escapeString($column) . "'" : '');
 
         return $sql;
@@ -1320,7 +1345,7 @@ class DatabaseInterface
             }
         }
 
-        return ($column != null) ? array_shift($fields) : $fields;
+        return $column != null ? array_shift($fields) : $fields;
     }
 
     /**
@@ -1376,7 +1401,7 @@ class DatabaseInterface
      * @param string $table    name of the table whose indexes are to be retrieved
      * @param mixed  $link     mysql link resource
      *
-     * @return array   $indexes
+     * @return array
      */
     public function getTableIndexes(
         string $database,
@@ -1929,7 +1954,7 @@ class DatabaseInterface
                 $result[] = $one_show['Name'];
             }
         }
-        return($result);
+        return $result;
     }
 
     /**
@@ -1940,14 +1965,14 @@ class DatabaseInterface
      * @param string  $name  the procedure|function|event|view name
      * @param integer $link  link type
      *
-     * @return string the definition
+     * @return string|null the definition
      */
     public function getDefinition(
         string $db,
         string $which,
         string $name,
         $link = DatabaseInterface::CONNECT_USER
-    ): string {
+    ): ?string {
         $returned_field = [
             'PROCEDURE' => 'Create Procedure',
             'FUNCTION'  => 'Create Function',
@@ -1957,7 +1982,8 @@ class DatabaseInterface
         $query = 'SHOW CREATE ' . $which . ' '
             . Util::backquote($db) . '.'
             . Util::backquote($name);
-        return($this->fetchValue($query, 0, $returned_field[$which], $link));
+        $result = $this->fetchValue($query, 0, $returned_field[$which], $link);
+        return is_string($result) ? $result : null;
     }
 
     /**
@@ -2050,7 +2076,7 @@ class DatabaseInterface
         }
         array_multisort($name, SORT_ASC, $ret);
 
-        return($ret);
+        return $ret;
     }
 
     /**
@@ -2191,7 +2217,7 @@ class DatabaseInterface
         }
         array_multisort($name, SORT_ASC, $result);
 
-        return($result);
+        return $result;
     }
 
     /**
@@ -2758,7 +2784,7 @@ class DatabaseInterface
      *
      * @param integer $link link type
      *
-     * @return string|bool $error or false
+     * @return string|bool error or false
      */
     public function getError($link = DatabaseInterface::CONNECT_USER)
     {
@@ -3013,7 +3039,7 @@ class DatabaseInterface
     /**
      * returns default server collation from show variables
      *
-     * @return string  $server_collation
+     * @return string
      */
     public function getServerCollation(): string
     {

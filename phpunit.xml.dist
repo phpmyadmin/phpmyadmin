@@ -5,14 +5,6 @@
          colors="true"
          verbose="true">
 
-    <selenium>
-        <browser name="Firefox on localhost"
-                 browser="firefox"
-                 host="127.0.0.1"
-                 port="4444"
-                 timeout="30000"/>
-    </selenium>
-
     <testsuites>
         <testsuite name="Classes">
             <directory suffix="Test.php">test/classes</directory>
@@ -28,8 +20,8 @@
     </testsuites>
 
     <logging>
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
-        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="false"/>
+        <log type="coverage-clover" target="build/logs/clover.xml" />
+        <log type="junit" target="build/logs/junit.xml" />
         <log type="json" target="build/logs/phpunit.json" />
     </logging>
 

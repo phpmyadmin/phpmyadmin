@@ -9,16 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Encoding;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-use PhpMyAdmin\ZipExtension;
 
 /**
  * PhpMyAdmin\Export class
@@ -196,7 +187,7 @@ class Export
      * @param string $back_button   the link for going Back
      * @param string $refreshButton the link for refreshing page
      *
-     * @return string $html the HTML output
+     * @return string the HTML output
      */
     public function getHtmlForDisplayedExportFooter(
         string $back_button,
@@ -205,7 +196,7 @@ class Export
         /**
          * Close the html tags and add the footers for on-screen export
          */
-        $html = '</textarea>'
+        return '</textarea>'
             . '    </form>'
             . '<br />'
             // bottom back button
@@ -220,13 +211,12 @@ class Export
             . '.height($body.height() - 100);' . "\n"
             . '//]]>' . "\n"
             . '</script>' . "\n";
-        return $html;
     }
 
     /**
      * Computes the memory limit for export
      *
-     * @return int $memory_limit the memory limit
+     * @return int the memory limit
      */
     public function getMemoryLimit(): int
     {
@@ -390,7 +380,7 @@ class Export
      * @param string   $dump_buffer   the current dump buffer
      * @param string   $save_filename the export filename
      *
-     * @return Message $message a message object (or empty string)
+     * @return Message a message object (or empty string)
      */
     public function closeFile(
         $file_handle,
@@ -426,7 +416,7 @@ class Export
      * @param string       $compression the compression mode
      * @param string       $filename    the filename
      *
-     * @return object $message a message object (or empty string)
+     * @return array|string|bool
      */
     public function compress($dump_buffer, string $compression, string $filename)
     {
@@ -753,7 +743,7 @@ class Export
             // if this is a view or a merge table, don't export data
             if (($whatStrucOrData == 'data' || $whatStrucOrData == 'structure_and_data')
                 && in_array($table, $table_data)
-                && ! ($is_view)
+                && ! $is_view
             ) {
                 $tableObj = new Table($table, $db);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns(true);
@@ -919,7 +909,7 @@ class Export
             && $limit_from >= 0
         ) {
             $add_query  = ' LIMIT '
-                        . (($limit_from > 0) ? $limit_from . ', ' : '')
+                        . ($limit_from > 0 ? $limit_from . ', ' : '')
                         . $limit_to;
         } else {
             $add_query  = '';
@@ -1106,8 +1096,8 @@ class Export
                         $aliases[$db_name]['tables'][$tbl_name]['columns'][$col]
                             = empty($val2) ? $val1 : $val2;
                     }
-                };
-            };
+                }
+            }
         }
         return $aliases;
     }
@@ -1202,7 +1192,7 @@ class Export
         $export_type = Core::securePath($export_type);
 
         // get the specific plugin
-        /* @var $export_plugin SchemaPlugin */
+        /** @var \PhpMyAdmin\Plugins\SchemaPlugin $export_plugin */
         $export_plugin = Plugins::getPlugin(
             "schema",
             $export_type,
@@ -1210,7 +1200,7 @@ class Export
         );
 
         // Check schema export type
-        if (! isset($export_plugin)) {
+        if (is_null($export_plugin) || ! is_object($export_plugin)) {
             Core::fatalError(__('Bad type!'));
         }
 

@@ -9,10 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * PhpMyAdmin\BrowseForeigners class
  *
@@ -66,7 +62,7 @@ class BrowseForeigners
      * @param integer $indexByDescription index by description
      * @param string  $current_value      current value on the edit form
      *
-     * @return array $html the generated html
+     * @return array the generated html
      */
     private function getHtmlForOneKey(
         int $horizontal_count,

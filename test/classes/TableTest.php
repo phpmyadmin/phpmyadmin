@@ -55,7 +55,7 @@ class TableTest extends PmaTestCase
              */
             public function exists($name)
             {
-                return true;
+                return $name === $name;// unused $name hack
             }
         };
 

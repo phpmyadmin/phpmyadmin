@@ -154,7 +154,7 @@ class ConfigGenerator
      * @param string     $crlf    Carriage return char
      * @param array      $servers Servers list
      *
-     * @return string
+     * @return string|null
      */
     protected static function getServerPart(ConfigFile $cf, $crlf, array $servers)
     {

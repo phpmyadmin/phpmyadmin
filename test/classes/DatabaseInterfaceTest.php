@@ -517,4 +517,22 @@ class DatabaseInterfaceTest extends PmaTestCase
         $dbi->setCollation('utf8_czech_ci');
         $dbi->setCollation('utf8mb4_bin_ci');
     }
+
+    /**
+     * Tests for DBI::getForeignKeyConstrains() method.
+     *
+     * @return void
+     * @test
+     */
+    public function testGetForeignKeyConstrains()
+    {
+        $this->assertEquals([
+            [
+                'TABLE_NAME' => 'table2',
+                'COLUMN_NAME' => 'idtable2',
+                'REFERENCED_TABLE_NAME' => 'table1',
+                'REFERENCED_COLUMN_NAME' => 'idtable1',
+            ]
+        ], $this->_dbi->getForeignKeyConstrains('test',['table1', 'table2']));
+    }
 }

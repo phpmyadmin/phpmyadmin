@@ -41,6 +41,7 @@ $test_defaults = [
     'TESTSUITE_USER' => 'root',
     'TESTSUITE_PASSWORD' => '',
     'TESTSUITE_DATABASE' => 'test',
+    'TESTSUITE_PORT' => 3306,
     'TESTSUITE_URL' => 'http://localhost/phpmyadmin/',
     'TESTSUITE_SELENIUM_HOST' => '',
     'TESTSUITE_SELENIUM_PORT' => '4444',

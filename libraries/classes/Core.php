@@ -11,14 +11,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Core class
  *
@@ -37,6 +29,7 @@ class Core
         'db_export.php',
         'db_importdocsql.php',
         'db_multi_table_query.php',
+        'db_qbe.php',
         'db_structure.php',
         'db_import.php',
         'db_operations.php',
@@ -106,7 +99,7 @@ class Core
      * @param mixed $default default value
      * @param mixed $type    var type or array of values to check against $var
      *
-     * @return mixed   $var or $default
+     * @return mixed $var or $default
      *
      * @see self::isValid()
      */
@@ -252,9 +245,7 @@ class Core
     public static function securePath(string $path): string
     {
         // change .. to .
-        $path = preg_replace('@\.\.*@', '.', $path);
-
-        return $path;
+        return preg_replace('@\.\.*@', '.', $path);
     } // end function
 
     /**
@@ -411,7 +402,7 @@ class Core
      *
      * @param string|int $size size (Default = 0)
      *
-     * @return integer $size
+     * @return integer
      */
     public static function getRealSize($size = 0): int
     {
@@ -832,9 +823,7 @@ class Core
     {
         $buffer = htmlspecialchars($buffer);
         $buffer = str_replace('  ', ' &nbsp;', $buffer);
-        $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />' . "\n", $buffer);
-
-        return $buffer;
+        return preg_replace("@((\015\012)|(\015)|(\012))@", '<br />' . "\n", $buffer);
     }
 
     /**

@@ -278,8 +278,18 @@ class ExportSqlTest extends PmaTestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
             $leaf
+        );
+
+        $this->assertCount(
+            2,
+            $leaf->getProperties()
+        );
+
+        $this->assertInstanceOf(
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            $leaf->getSubgroupHeader()
         );
 
         $leaf = array_shift($leaves);
@@ -1015,7 +1025,7 @@ class ExportSqlTest extends PmaTestCase
                     ]
                 )
             );
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(2))
             ->method('getTable')
             ->will($this->returnValue(new Table('table', 'db', $dbi)));
         $dbi->expects($this->any())->method('escapeString')
@@ -1170,7 +1180,7 @@ class ExportSqlTest extends PmaTestCase
             ->method('getError')
             ->will($this->returnValue('error occurred'));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(2))
             ->method('getTable')
             ->will($this->returnValue(new Table('table', 'db', $dbi)));
         $dbi->expects($this->any())

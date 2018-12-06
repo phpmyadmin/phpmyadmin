@@ -149,7 +149,7 @@ class Advisor
      * @param string|int $variable Variable to set
      * @param mixed      $value    Value to set
      *
-     * @return $this
+     * @return Advisor
      */
     public function setVariable($variable, $value): self
     {

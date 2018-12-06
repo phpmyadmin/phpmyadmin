@@ -1,4 +1,0 @@
-#!/bin/sh
-
-composer install --no-interaction
-yarn install --non-interactive

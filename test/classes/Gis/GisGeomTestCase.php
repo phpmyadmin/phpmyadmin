@@ -64,7 +64,7 @@ abstract class GisGeomTestCase extends TestCase
     /**
      * Tests whether content is a valid image.
      *
-     * @param object $object Image
+     * @param resource $object Image
      *
      * @return void
      */

@@ -516,8 +516,8 @@ class Message
     /**
      * Real implementation of adding message
      *
-     * @param mixed  $message   to be added
-     * @param string $separator to use between this and previous string/message
+     * @param Message $message   to be added
+     * @param string  $separator to use between this and previous string/message
      *
      * @return void
      */

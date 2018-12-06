@@ -1192,7 +1192,6 @@ class PrivilegesTest extends TestCase
      */
     public function testGetSqlQueriesForDisplayAndAddUser()
     {
-        $restoreMySQLVersion = "PMANORESTORE";
 
         $GLOBALS['dbi']->expects($this->any())->method('getVersion')
             ->will($this->returnValue(50706));
@@ -2004,7 +2003,6 @@ class PrivilegesTest extends TestCase
     public function testGetUserGroupForUser()
     {
         $username = "pma_username";
-        $hostname = "pma_hostname";
         $GLOBALS['cfgRelation']['menuswork'] = true;
 
         $dbi_old = $GLOBALS['dbi'];

@@ -1063,6 +1063,13 @@ $cfg['NavigationTreeShowEvents'] = true;
  */
 $cfg['NavigationWidth'] = 240;
 
+/**
+ * Automatically expands single database in navigation panel
+ *
+ * @global boolean $cfg['NavigationAutoexpandSingleDb']
+ */
+$cfg['NavigationTreeAutoexpandSingleDb'] = true;
+
 /*******************************************************************************
  * In the main panel, at startup...
  */
@@ -1957,6 +1964,16 @@ $cfg['Export']['sql_drop_table'] = false;
  * @global boolean $cfg['Export']['sql_if_not_exists']
  */
 $cfg['Export']['sql_if_not_exists'] = false;
+
+/**
+ * @global boolean $cfg['Export']['sql_view_current_user']
+ */
+$cfg['Export']['sql_view_current_user'] = false;
+
+/**
+ * @global boolean $cfg['Export']['sql_or_replace']
+ */
+$cfg['Export']['sql_or_replace_view'] = false;
 
 /**
  *

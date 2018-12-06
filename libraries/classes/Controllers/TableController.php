@@ -17,12 +17,12 @@ namespace PhpMyAdmin\Controllers;
 abstract class TableController extends Controller
 {
     /**
-     * @var string $db
+     * @var string
      */
     protected $db;
 
     /**
-     * @var string $table
+     * @var string
      */
     protected $table;
 

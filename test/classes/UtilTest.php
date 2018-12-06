@@ -382,41 +382,6 @@ class UtilTest extends PmaTestCase
     }
 
     /**
-     * Test for Util::containsNonPrintableAscii
-     *
-     * @param string $str Value
-     * @param bool   $res Expected value
-     *
-     * @return void
-     *
-     * @covers \PhpMyAdmin\Util::containsNonPrintableAscii
-     * @dataProvider providerContainsNonPrintableAscii
-     */
-    public function testContainsNonPrintableAscii($str, $res)
-    {
-        $this->assertEquals(
-            $res,
-            Util::containsNonPrintableAscii($str)
-        );
-    }
-
-    /**
-     * Data provider for testContainsNonPrintableAscii
-     *
-     * @return array
-     */
-    public function providerContainsNonPrintableAscii()
-    {
-        return [
-            ["normal string", 0],
-            ["new\nline", 1],
-            ["tab\tspace", 1],
-            ["escape" . chr(27) . "char", 1],
-            ["chars%$\r\n", 1],
-        ];
-    }
-
-    /**
      * Test for Util::convertBitDefaultValue
      *
      * @param string $bit Value
@@ -813,7 +778,7 @@ class UtilTest extends PmaTestCase
     {
         $result = Util::formatByteDown($a, $b, $c);
         $result[0] = trim($result[0]);
-        $this->assertEquals($e, $result);
+        $this->assertSame($e, $result);
     }
 
     /**
@@ -1798,11 +1763,11 @@ class UtilTest extends PmaTestCase
     {
         return [
             [
-                '20131009',
+                20131009,
                 64,
                 '0000000000000000000000000000000000000001001100110010110011000001'
             ],
-            ['5', 32, '00000000000000000000000000000101']
+            [5, 32, '00000000000000000000000000000101']
         ];
     }
 

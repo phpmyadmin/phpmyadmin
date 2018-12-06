@@ -9,15 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Config;
-use PhpMyAdmin\Core;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Sanitize;
-use PhpMyAdmin\Scripts;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 use Traversable;
 
 /**
@@ -58,7 +49,7 @@ class Footer
     private $_isEnabled;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

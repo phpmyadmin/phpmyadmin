@@ -9,11 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Response;
-use PhpMyAdmin\Util;
-
 /**
  * Saved searches managing
  *
@@ -58,7 +53,7 @@ class SavedSearches
     private $_criterias = null;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 

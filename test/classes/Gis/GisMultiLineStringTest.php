@@ -229,11 +229,11 @@ class GisMultiLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPng() method
      *
-     * @param string $spatial    GIS MULTILINESTRING object
-     * @param string $label      label for the GIS MULTILINESTRING object
-     * @param string $line_color color for the GIS MULTILINESTRING object
-     * @param array  $scale_data array containing data related to scaling
-     * @param object $image      image object
+     * @param string   $spatial    GIS MULTILINESTRING object
+     * @param string   $label      label for the GIS MULTILINESTRING object
+     * @param string   $line_color color for the GIS MULTILINESTRING object
+     * @param array    $scale_data array containing data related to scaling
+     * @param resource $image      image object
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPng
@@ -289,7 +289,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      * @param string $label      label for the GIS MULTILINESTRING object
      * @param string $line_color color for the GIS MULTILINESTRING object
      * @param array  $scale_data array containing data related to scaling
-     * @param object $pdf        TCPDF instance
+     * @param TCPDF  $pdf        TCPDF instance
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPdf

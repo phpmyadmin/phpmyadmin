@@ -13,7 +13,6 @@ use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Sql;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -83,7 +82,7 @@ class TableSearchController extends TableController
     protected $url_query;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -364,7 +363,7 @@ class TableSearchController extends TableController
                     $row[$_POST['criteriaColumnNames'][1]],
                 'where_clause' => $uniqueCondition[0]
             ];
-            $tmpData[$dataLabel] = ($dataLabel) ? $row[$dataLabel] : '';
+            $tmpData[$dataLabel] = $dataLabel ? $row[$dataLabel] : '';
             $data[] = $tmpData;
         }
         unset($tmpData);
@@ -418,7 +417,7 @@ class TableSearchController extends TableController
         }
         $key = array_search($field, $this->_columnNames);
         $search_index
-            = ((isset($_REQUEST['it']) && is_numeric($_REQUEST['it']))
+            = (isset($_REQUEST['it']) && is_numeric($_REQUEST['it'])
                 ? intval($_REQUEST['it']) : 0);
 
         $properties = $this->getColumnProperties($search_index, $key);
@@ -453,8 +452,8 @@ class TableSearchController extends TableController
             foreach ($row as $col => $val) {
                 if ($fields_meta[$i]->type == 'bit') {
                     $row[$col] = Util::printableBitValue(
-                        $val,
-                        $fields_meta[$i]->length
+                        (int) $val,
+                        (int) $fields_meta[$i]->length
                     );
                 }
                 $i++;
@@ -571,7 +570,7 @@ class TableSearchController extends TableController
                 'criteria_column_types' => isset($_POST['criteriaColumnTypes']) ? $_POST['criteriaColumnTypes'] : null,
                 'sql_types' => $this->dbi->types,
                 'max_rows' => intval($GLOBALS['cfg']['MaxRows']),
-                'max_plot_limit' => ((! empty($_POST['maxPlotLimit']))
+                'max_plot_limit' => (! empty($_POST['maxPlotLimit'])
                     ? intval($_POST['maxPlotLimit'])
                     : intval($GLOBALS['cfg']['maxRowPlotLimit'])),
             ])
@@ -825,9 +824,7 @@ class TableSearchController extends TableController
             . 'FROM ' . Util::backquote($this->db) . '.'
             . Util::backquote($this->table);
 
-        $result = $this->dbi->fetchSingleRow($sql_query);
-
-        return $result;
+        return $this->dbi->fetchSingleRow($sql_query);
     }
 
     /**
@@ -869,7 +866,7 @@ class TableSearchController extends TableController
         $sql_query = 'SELECT ';
 
         // If only distinct values are needed
-        $is_distinct = (isset($_POST['distinct'])) ? 'true' : 'false';
+        $is_distinct = isset($_POST['distinct']) ? 'true' : 'false';
         if ($is_distinct == 'true') {
             $sql_query .= 'DISTINCT ';
         }
@@ -1084,14 +1081,12 @@ class TableSearchController extends TableController
 
         // If the function takes multiple parameters
         if (strpos($func_type, "IS NULL") !== false || strpos($func_type, "IS NOT NULL") !== false) {
-            $where = Util::backquote($names) . " " . $func_type;
-            return $where;
+            return Util::backquote($names) . " " . $func_type;
         } elseif ($geom_funcs[$geom_func]['params'] > 1) {
             // create gis data from the criteria input
             $gis_data = Util::createGISData($criteriaValues);
-            $where = $geom_func . '(' . Util::backquote($names)
+            return $geom_func . '(' . Util::backquote($names)
                 . ', ' . $gis_data . ')';
-            return $where;
         }
 
         // New output type is the output type of the function being applied
@@ -1152,7 +1147,7 @@ class TableSearchController extends TableController
         $where = '';
         if ($unaryFlag) {
             $where = $backquoted_name . ' ' . $func_type;
-        } elseif (strncasecmp($types, 'enum', 4) == 0 && ! empty($criteriaValues)) {
+        } elseif (strncasecmp($types, 'enum', 4) == 0 && (! empty($criteriaValues) || $criteriaValues[0] === '0')) {
             $where = $backquoted_name;
             $where .= $this->_getEnumWhereClause($criteriaValues, $func_type);
         } elseif ($criteriaValues != '') {

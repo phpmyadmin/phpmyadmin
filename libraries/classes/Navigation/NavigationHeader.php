@@ -58,6 +58,9 @@ class NavigationHeader
         if ($GLOBALS['cfg']['NavigationTreePointerEnable']) {
             $class .= ' highlight';
         }
+        if ($GLOBALS['cfg']['NavigationTreeAutoexpandSingleDb']) {
+            $class .= ' autoexpand';
+        }
         $class .= '"';
         $buffer = '<div id="pma_navigation">';
         $buffer .= '<div id="pma_navigation_resizer"></div>';

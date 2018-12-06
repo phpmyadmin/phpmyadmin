@@ -61,8 +61,8 @@ AJAX.registerOnload('tbl_operations.js', function () {
         $.post($form.attr('action'), $form.serialize() + argsep + 'submit_move=1', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_commonParams.set('db', data._params.db);
-                PMA_commonParams.set('table', data._params.tbl);
-                PMA_commonActions.refreshMain(false, function () {
+                PMA_commonParams.set('table', data._params.table);
+                PMA_commonActions.refreshMain('tbl_sql.php', function () {
                     PMA_ajaxShowMessage(data.message);
                 });
                 // Refresh navigation when the table is copied
@@ -254,6 +254,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
 
     $(document).on('click', '#drop_view_anchor.ajax', function (event) {
         event.preventDefault();
+        var $link = $(this);
         /**
          * @var question    String containing the question to be asked for confirmation
          */
@@ -265,10 +266,7 @@ AJAX.registerOnload('tbl_operations.js', function () {
 
         $(this).PMA_confirm(question, $(this).attr('href'), function (url) {
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            var params = {
-                'is_js_confirmed': '1',
-                'ajax_request': true
-            };
+            var params = getJSConfirmCommonParam(this, $link.getPostData());
             $.post(url, params, function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_ajaxRemoveMessage($msgbox);

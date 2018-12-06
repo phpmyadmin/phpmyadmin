@@ -165,7 +165,6 @@ class TrackingTest extends TestCase
      */
     public function testGetHtmlForMain()
     {
-        $sql_result = true;
         $last_version = 3;
         $url_params = [];
         $url_query = "select * from PMA";

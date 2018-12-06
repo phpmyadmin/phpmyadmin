@@ -1,0 +1,47 @@
+ul.resizable-menu {
+  a,
+  span {
+    display: block;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  .submenu {
+    display: none;
+    position: relative;
+  }
+
+  .shown {
+    display: inline-block;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    list-style-type: none;
+    display: none;
+    border: 1px #ddd solid;
+    z-index: 2;
+    #{$right}: 0;
+  }
+
+  li:hover {
+    background: linear-gradient(#fff, #e5e5e5);
+
+    ul {
+      display: block;
+      background: #fff;
+    }
+  }
+
+  .submenuhover ul {
+    display: block;
+    background: #fff;
+  }
+
+  ul li {
+    width: 100%;
+  }
+}

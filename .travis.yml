@@ -1,38 +1,19 @@
-# The Travis setup:
-# - run testsuite for every PHP version
-# - run lint for every PHP version
-# - run Selenium for single PHP version
-
+language: php
 dist: trusty
 
-language: php
-
-services:
-  - mysql
-
-php:
-  - "7.2"
-  - "7.1"
-  - "nightly"
-
-sudo: required
-
-env:
-  matrix:
-    - CI_MODE=test
-  global:
-    - TESTSUITE_USER=root
-    - TESTSUITE_URL=http://127.0.0.1:8000
+stages:
+  - name: "Lint and analyse code"
+  - name: "PHP Unit tests"
+  - name: "Documentation"
+  - name: "Other tests"
 
 install:
-  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then source ~/virtualenv/python3.6/bin/activate ; fi
-  - ./test/ci-install-$CI_MODE
-  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then case "$TRAVIS_PHP_VERSION" in hhvm*) ;; *) phpenv config-add test/php-noprofile.ini ;; esac ; fi
+  - composer install --no-interaction
+  - yarn install --non-interactive
 
 before_script:
   - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
   - export TESTSUITE_BROWSERSTACK_KEY=`echo cHlDcHJTNmZwZjVlaUR2RmV6VkU= | base64 --decode`
-  - export PATH=~/.composer/vendor/bin/:$PATH
   - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
   - mysql -uroot < sql/create_tables.sql
   - mysql -uroot -e "SET PASSWORD = PASSWORD('$TESTSUITE_PASSWORD')"
@@ -40,8 +21,7 @@ before_script:
 
 script:
   - ./scripts/generate-mo --quiet
-  - if [ $CI_MODE = test ] ; then ./test/ci-phplint ; fi
-  - ./test/ci-$CI_MODE
+  - ./vendor/bin/phpunit --configuration phpunit.xml.dist --exclude-group selenium
 
 after_script:
   - if [ -f vendor/bin/codacycoverage ] ; then php vendor/bin/codacycoverage clover || true ; fi
@@ -49,41 +29,130 @@ after_script:
   - if [ -f nginx-error.log ] ; then cat nginx-error.log ; fi
   - if [ -f build/logs/phpunit.json ] ; then ./scripts/phpunit-top-tests build/logs/phpunit.json ; fi
   - if [ -f config.inc.php ] ; then rm -rf config.inc.php; fi
+  - if [ "$CI_MODE" = "selenium" ] ; then ~/browserstack/BrowserStackLocal --daemon stop; fi
 
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+after_success: bash <(curl -s https://codecov.io/bash)
 
-matrix:
-  fast_finish: true
+jobs:
+  allow_failures:
+    - php: nightly
+    - os: windows
+
   include:
-    - php: "7.1"
-      env: CI_MODE=selenium
-    - php: "7.1"
-      env: CI_MODE=lint
-    - php: "7.1"
-      env: CI_MODE=release
-    - php: "7.1"
-      env: CI_MODE=docs
-    - php: "7.1"
-      env: CI_MODE=apidocs
-    - php: "7.2"
-      env: CI_MODE=phpstan
-    - os: osx
-      language: generic
+    - stage: "Lint and analyse code"
+      name: "Lint files"
+      php: 7.1
+      before_script: skip
+      after_script: skip
+      after_success: skip
+      script:
+        - ./test/ci-phplint
+        - composer phpcs
+        - yarn run js-lint --quiet
+        - yarn run css-lint
+
+    - stage: "Lint and analyse code"
+      name: "Run phpstan"
+      php: 7.1
+      before_script: skip
+      after_script: skip
+      after_success: skip
+      script: composer phpstan
+
+    - stage: "PHP Unit tests"
+      php: 7.1
+      name: "PHP 7.1"
       env: CI_MODE=test
+
+    - stage: "PHP Unit tests"
+      php: 7.2
+      name: "PHP 7.2"
+      env: CI_MODE=test
+
+    - stage: "PHP Unit tests"
+      php: 7.3
+      name: "PHP 7.3"
+      env: CI_MODE=test
+
+    - stage: "PHP Unit tests"
+      php: nightly
+      name: "PHP nightly"
+      env: CI_MODE=test
+
+    - stage: "PHP Unit tests"
+      name: "PHP 7.2"
+      os: osx
+      env: CI_MODE=test
+      language: node_js
+      node_js: 8
       before_install:
         - brew update
-        - brew install gettext php72 mariadb yarn
+        - brew install openldap libiconv php@7.2 composer mariadb yarn
         - brew link --force gettext
         - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
-        - curl https://getcomposer.org/installer | php
-        - ln -s "`pwd`/composer.phar" /usr/local/bin/composer
         - mysql.server start
-  allow_failures:
-    - php: "nightly"
+
+    - stage: "PHP Unit tests"
+      name: "PHP 7.2"
+      os: windows
+      language: sh
       env: CI_MODE=test
-    - php: "7.2"
-      env: CI_MODE=phpstan
+      before_install:
+        - choco install php composer mariadb
+        - export PATH=/c/tools/php72:/c/ProgramData/ComposerSetup/bin:/c/"Program Files"/"MariaDB 10.2"/bin:$PATH
+        - PHP_EXTENSIONS="mysqli curl bz2 gd2 pdo_mysql"
+        - for php_ext in $PHP_EXTENSIONS ; do sed -i -e "s/^;extension=${php_ext}/extension=${php_ext}/" /c/tools/php72/php.ini ; done
+        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /c/tools/php72/php.ini
+        - find . -type f -name "*.php" -print0 | xargs -0 sed -i ':a;N;$!ba;s/\r//g'
+
+    - stage: "Documentation"
+      name: "Build docs"
+      before_script: skip
+      after_script: skip
+      after_success: skip
+      install:
+        - source ~/virtualenv/python3.6/bin/activate
+        - pip install 'Sphinx'
+      script: ./test/ci-docs
+
+    - stage: "Documentation"
+      name: "Build API docs"
+      php: 7.1
+      before_script: skip
+      after_script: skip
+      after_success: skip
+      install: composer global require "sami/sami:^4.0"
+      script: $HOME/.composer/vendor/bin/sami.php --no-interaction update ./test/sami-config.php
+
+    - stage: "Other tests"
+      name: "Build release"
+      php: 7.1
+      before_script: skip
+      after_script: skip
+      after_success: skip
+      install:
+        - source ~/virtualenv/python3.6/bin/activate
+        - pip install 'Sphinx'
+      script: ./scripts/create-release.sh --ci
+
+    - stage: "Other tests"
+      name: "Run selenium tests on Google Chrome"
+      php: 7.1
+      env:
+        - CI_MODE=selenium
+        - TESTSUITE_SELENIUM_BROWSER=chrome
+        - TESTSUITE_USER=root
+        - TESTSUITE_URL=http://127.0.0.1:8000
+      install:
+        - ./test/install-browserstack
+        - composer install --no-interaction
+        - yarn install --non-interactive
+        - echo -e "<?php\n\$cfg['UploadDir'] = './test/test_data/';" > config.inc.php
+      script: ./vendor/bin/phpunit --configuration phpunit.xml.nocoverage --group selenium --verbose --debug
+      addons:
+        apt:
+          packages:
+            - nginx
 
 cache:
   pip: true
@@ -92,12 +161,3 @@ cache:
     - $HOME/.composer/cache/
     - $HOME/browserstack
     - node_modules
-# Install APT packages
-#  - git > 2.5.1 needed for worktrees
-#  - mysql server does not seem to be always present on Travis Trusty environment
-addons:
-  apt:
-    packages:
-    - git
-    - mysql-server-5.6
-    - nginx

@@ -174,7 +174,7 @@ PHP. Please note that ``post_max_size`` needs to be larger than
 big or your hosting provider is unwilling to change the settings:
 
 * Look at the :config:option:`$cfg['UploadDir']` feature. This allows one to upload a file to the server
-  via scp, ftp, or your favorite file transfer method. PhpMyAdmin is
+  via scp, FTP, or your favorite file transfer method. PhpMyAdmin is
   then able to import the files from the temporary directory. More
   information is available in the :ref:`config`  of this document.
 * Using a utility (such as `BigDump
