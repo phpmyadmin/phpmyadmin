@@ -80,7 +80,7 @@ class Logging
         }
         $message = self::getLogMessage($user, $status);
         if ($log_file == 'syslog') {
-            if (function_exists('syslog') && $status != 'ok') {
+            if (function_exists('syslog')) {
                 @openlog('phpMyAdmin', LOG_NDELAY | LOG_PID, LOG_AUTHPRIV);
                 @syslog(LOG_WARNING, $message);
                 closelog();

@@ -392,6 +392,43 @@ class DatabaseInterface
         return $tables;
     }
 
+
+    /**
+     * returns
+     *
+     * @param string $database name of database
+     * @param array  $tables   list of tables to search for for relations
+     * @param int    $link     mysql link resource|object
+     *
+     * @return array           array of found foreign keys
+     */
+    public function getForeignKeyConstrains($database, array $tables, $link = DatabaseInterface::CONNECT_USER)
+    {
+        $tablesListForQuery = '';
+        foreach($tables as $table){
+            $tablesListForQuery .= "'" . $this->escapeString($table) . "',";
+        }
+        $tablesListForQuery = rtrim($tablesListForQuery, ',');
+
+        $foreignKeyConstrains = $this->fetchResult(
+            "SELECT"
+                    . " TABLE_NAME,"
+                    . " COLUMN_NAME,"
+                    . " REFERENCED_TABLE_NAME,"
+                    . " REFERENCED_COLUMN_NAME"
+                . " FROM information_schema.key_column_usage"
+                . " WHERE referenced_table_name IS NOT NULL"
+                    . " AND TABLE_SCHEMA = '" . $this->escapeString($database) . "'"
+                    . " AND TABLE_NAME IN (" . $tablesListForQuery . ")"
+                    . " AND REFERENCED_TABLE_NAME IN (" . $tablesListForQuery . ");",
+            null,
+            null,
+            $link,
+            self::QUERY_STORE
+        );
+        return $foreignKeyConstrains;
+    }
+
     /**
      * returns a segment of the SQL WHERE clause regarding table name and type
      *

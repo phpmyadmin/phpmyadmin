@@ -1344,8 +1344,8 @@ class Results
     /**
      * Prepare unsorted sql query and sort by key drop down
      *
-     * @param array  $analyzed_sql_results analyzed sql results
-     * @param string $sort_expression      sort expression
+     * @param array      $analyzed_sql_results analyzed sql results
+     * @param array|null $sort_expression      sort expression
      *
      * @return  array   two element array - $unsorted_sql_query, $drop_down_html
      *
@@ -1354,7 +1354,7 @@ class Results
      * @see     _getTableHeaders()
      */
     private function _getUnsortedSqlAndSortByKeyDropDown(
-        array $analyzed_sql_results, $sort_expression
+        array $analyzed_sql_results, array $sort_expression
     ) {
         $drop_down_html = '';
 
@@ -1389,9 +1389,9 @@ class Results
     /**
      * Prepare sort by key dropdown - html code segment
      *
-     * @param Index[] $indexes            the indexes of the table for sort criteria
-     * @param string  $sort_expression    the sort expression
-     * @param string  $unsorted_sql_query the unsorted sql query
+     * @param Index[]    $indexes            the indexes of the table for sort criteria
+     * @param array|null $sort_expression    the sort expression
+     * @param string     $unsorted_sql_query the unsorted sql query
      *
      * @return  string  $drop_down_html         html content
      *
@@ -1400,7 +1400,7 @@ class Results
      * @see     _getTableHeaders()
      */
     private function _getSortByKeyDropDown(
-        $indexes, $sort_expression, $unsorted_sql_query
+        $indexes, array $sort_expression, $unsorted_sql_query
     ) {
 
         $drop_down_html = '';
@@ -1415,7 +1415,7 @@ class Results
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
         $used_index = false;
-        $local_order = (isset($sort_expression) ? $sort_expression : '');
+        $local_order = (is_array($sort_expression) ? implode(', ',$sort_expression) : '');
 
         foreach ($indexes as $index) {
 
@@ -4213,13 +4213,10 @@ class Results
         // can the result be sorted?
         if ($displayParts['sort_lnk'] == '1' && ! is_null($analyzed_sql_results['statement'])) {
 
-            // At this point, $sort_expression is an array but we only verify
-            // the first element in case we could find that the table is
-            // sorted by one of the choices listed in the
-            // "Sort by key" drop-down
+            // At this point, $sort_expression is an array
             list($unsorted_sql_query, $sort_by_key_html)
                 = $this->_getUnsortedSqlAndSortByKeyDropDown(
-                    $analyzed_sql_results, $sort_expression[0]
+                    $analyzed_sql_results, $sort_expression
                 );
 
         } else {

@@ -4,3 +4,7 @@
 !/svg_gradient.php
 !/original/
 !/pmahomme/
+
+**/*.css
+**/*.css.map
+!**/printview.css
