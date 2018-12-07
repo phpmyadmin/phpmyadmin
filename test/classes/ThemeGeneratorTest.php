@@ -48,6 +48,7 @@ class ThemeGeneratorTest extends PmaTestCase
         $_POST['Hyperlink_Text'] = '#ffffff';
         $_POST['Group_Background'] = '#ffffff';
         $_POST['font'] = 'Arial';
+        $GLOBALS['cfg']['ThemeGenerator'] = true;
         $this->theme = new ThemeGenerator();
         $this->output = $this->theme->createFileStructure($_POST);
         return $_POST;
@@ -60,13 +61,15 @@ class ThemeGeneratorTest extends PmaTestCase
      */
     public function testColorPicker()
     {
-        $output = $this->theme->colorPicker();
-        $this->assertContains('<div id="container">' , $output);
-        $this->assertContains('<div id="palette" class="block">' , $output);
-        $this->assertContains('<div id="color-palette"></div>' , $output);
-        $this->assertContains('<div id="picker" class="block">' , $output);
-        $this->assertContains('<div class="ui-color-picker" data-topic="picker" data-mode="HSB"></div>' , $output);
-        $this->assertContains('<div id="picker-samples" sample-id="master">' , $output);
+        if ($GLOBALS['cfg']['ThemeGenerator']) {
+            $output = $this->theme->colorPicker();
+            $this->assertContains('<div id="container">' , $output);
+            $this->assertContains('<div id="palette" class="block">' , $output);
+            $this->assertContains('<div id="color-palette"></div>' , $output);
+            $this->assertContains('<div id="picker" class="block">' , $output);
+            $this->assertContains('<div class="ui-color-picker" data-topic="picker" data-mode="HSB"></div>' , $output);
+            $this->assertContains('<div id="picker-samples" sample-id="master">' , $output);
+        }
     }
 
     /**
@@ -76,10 +79,12 @@ class ThemeGeneratorTest extends PmaTestCase
      */
     public function testForm()
     {
-        $output = $this->theme->form();
-        $this->assertContains('<form action="theme_generator.php" method="post" id="save">' , $output);
-        $this->assertContains('<select name="type" id="theme">' , $output);
-        $this->assertContains('<input type="text" name="theme_name" required></input>' , $output);
+        if ($GLOBALS['cfg']['ThemeGenerator']) {
+            $output = $this->theme->form();
+            $this->assertContains('<form action="theme_generator.php" method="post" id="save">' , $output);
+            $this->assertContains('<select name="type" id="theme">' , $output);
+            $this->assertContains('<input type="text" name="theme_name" required></input>' , $output);
+        }
     }
 
     /**
