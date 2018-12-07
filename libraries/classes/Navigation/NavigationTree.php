@@ -764,7 +764,7 @@ class NavigationTree
                 }
 
                 $groups[$key] = new Node(
-                    $key,
+                    htmlspecialchars($key),
                     Node::CONTAINER,
                     true
                 );
