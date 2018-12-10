@@ -111,6 +111,12 @@ class MultiTableQuery
      */
     public static function displayResults($sqlQuery, $db, $pmaThemeImage)
     {
+        if(empty($sqlQuery)) 
+        {
+            Message::error('Please enter the sql query first.');
+            exit;
+        }
+
         list(
             $analyzedSqlResults,
             $db,
