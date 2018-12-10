@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-4.8.4 (not yet released)
+4.8.4 (2018-12-11)
 - issue #14452 Remove hash param in edit query URL
 - issue #14295 Issue in Changing theme
 - issue #13267 Ensure that database names with '.' are handled properly when DisableIS is true
@@ -20,6 +20,9 @@ phpMyAdmin - ChangeLog
 - issue #13032 Fix designer errors when database contains special chars
 - issue #14352 Fix designer javascript errors
 - issue #14764 Fix left/right icons hidden
+- issue        [security] Local file inclusion flaw in the Transformation feature (PMASA-2018-6)
+- issue        [security] Multiple CSRF/XSRF vulnerabilities (PMASA-2018-7)
+- issue        [security] XSS vulnerability in the navigation tree (PMASA-2018-8)
 
 4.8.3 (2018-08-22)
 - issue #14314 Error when naming a database '0'
