@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+4.8.5 (not yet released)
+
 4.8.4 (2018-12-11)
 - issue #14452 Remove hash param in edit query URL
 - issue #14295 Issue in Changing theme
