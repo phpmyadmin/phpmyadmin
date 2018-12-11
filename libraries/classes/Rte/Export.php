@@ -130,7 +130,7 @@ class Export
                         $_GET['item_type'],
                         $_GET['item_name']
                     );
-                if (! $rtn_definition) {
+                if ($rtn_definition === null) {
                     $export_data = false;
                 } else {
                     $export_data = "DELIMITER $$\n"

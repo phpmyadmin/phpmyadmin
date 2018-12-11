@@ -23,6 +23,8 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use Williamdes\MariaDBMySQLKBS\Search as KBSearch;
+use Williamdes\MariaDBMySQLKBS\KBException;
 
 /**
  * Misc functions used all over the scripts.
@@ -296,6 +298,20 @@ class Util
     } // end of the "formatSql()" function
 
     /**
+     * Displays a button to copy content to clipboard
+     *
+     * @param string $text Text to copy to clipboard
+     *
+     * @return string  the html link
+     *
+     * @access  public
+     */
+    public static function showCopyToClipboard($text) {
+        $open_link = '  <a href="#" class="copyQueryBtn" data-text="' . $text . '">' . __('Copy') . '</a>';
+        return $open_link;
+    } // end of the 'showCopyToClipboard()' function
+
+    /**
      * Displays a link to the documentation as an icon
      *
      * @param string  $link   documentation link
@@ -357,12 +373,45 @@ class Util
     }
 
     /**
+     * Get a link to variable documentation
+     *
+     * @param string  $name       The variable name
+     * @param boolean $useMariaDB Use only MariaDB documentation
+     * @param string  $text       (optional) The text for the link
+     * @return string link or empty string
+     */
+    public static function linkToVarDocumentation(
+        string $name,
+        bool $useMariaDB = false,
+        string $text = null
+    ): string {
+        $html = '';
+        try {
+            $type = KBSearch::MYSQL;
+            if ($useMariaDB) {
+                $type = KBSearch::MARIADB;
+            }
+            $docLink = KBSearch::getByName($name, $type);
+            $html = Util::showMySQLDocu(
+                $name,
+                false,
+                $docLink,
+                $text
+            );
+        } catch (KBException $e) {
+            unset($e);// phpstan workaround
+        }
+        return $html;
+    }
+
+    /**
      * Displays a link to the official MySQL documentation
      *
-     * @param string $link      contains name of page/anchor that is being linked
-     * @param bool   $big_icon  whether to use big icon (like in left frame)
-     * @param string $anchor    anchor to page part
-     * @param bool   $just_open whether only the opening <a> tag should be returned
+     * @param string      $link    contains name of page/anchor that is being linked
+     * @param bool        $bigIcon whether to use big icon (like in left frame)
+     * @param string|null $url     href attribute
+     * @param string|null $text    text of link
+     * @param string      $anchor  anchor to page part
      *
      * @return string  the html link
      *
@@ -370,20 +419,29 @@ class Util
      */
     public static function showMySQLDocu(
         $link,
-        $big_icon = false,
-        $anchor = '',
-        $just_open = false
-    ) {
-        $url = self::getMySQLDocuURL($link, $anchor);
-        $open_link = '<a href="' . $url . '" target="mysql_doc">';
-        if ($just_open) {
-            return $open_link;
-        } elseif ($big_icon) {
-            return $open_link
-                . self::getImage('b_sqlhelp', __('Documentation')) . '</a>';
+        bool $bigIcon = false,
+        $url = null,
+        $text = null,
+        $anchor = ''
+    ): string {
+        if ($url === null) {
+            $url = self::getMySQLDocuURL($link, $anchor);
+        }
+        $openLink = '<a href="' . htmlspecialchars($url) . '" target="mysql_doc">';
+        $closeLink = '</a>';
+        $html = '';
+
+        if ($bigIcon) {
+            $html = $openLink .
+                    self::getImage('b_sqlhelp', __('Documentation'))
+                    . $closeLink;
+        } elseif ($text !== null) {
+            $html = $openLink . $text . $closeLink;
+        } else {
+            $html = self::showDocLink($url, 'mysql_doc');
         }
 
-        return self::showDocLink($url, 'mysql_doc');
+        return $html;
     } // end of the 'showMySQLDocu()' function
 
     /**
@@ -565,7 +623,7 @@ class Util
             }
 
             // Display the SQL query and link to MySQL documentation.
-            $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . "\n";
+            $error_msg .= '<p><strong>' . __('SQL query:') . '</strong>' . self::showCopyToClipboard($sql_query) . "\n";
             $formattedSqlToLower = mb_strtolower($formatted_sql);
 
             // TODO: Show documentation for all statement types.
@@ -677,7 +735,7 @@ class Util
      * @param string $db    the db name
      * @param array  $table the table infos
      *
-     * @return int $rowCount the possibly modified row count
+     * @return int the possibly modified row count
      *
      */
     private static function _checkRowCount($db, array $table)
@@ -900,7 +958,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (strlen($a_name) > 0 && $a_name !== '*') {
+        if (strlen((string)$a_name) > 0 && $a_name !== '*') {
             return $quote . $a_name . $quote;
         }
 
@@ -1000,7 +1058,9 @@ class Util
                     . '$sql = "' . $query_base . '";' . "\n"
                     . '</pre></code>';
             } elseif ($query_too_big) {
-                $query_base = htmlspecialchars($query_base);
+                $query_base = '<code class="sql"><pre>' . "\n" .
+                    htmlspecialchars($query_base) .
+                    '</pre></code>';
             } else {
                 $query_base = self::formatSql($query_base);
             }
@@ -1072,7 +1132,7 @@ class Util
             if (! empty($cfg['SQLQuery']['Edit'])
                 && empty($GLOBALS['show_as_php'])
             ) {
-                $edit_link .= Url::getCommon($url_params) . '#querybox';
+                $edit_link .= Url::getCommon($url_params);
                 $edit_link = ' [&nbsp;'
                     . self::linkOrButton($edit_link, __('Edit'))
                     . '&nbsp;]';
@@ -1270,8 +1330,8 @@ class Util
             __('EiB')
         ];
 
-        $dh   = pow(10, $comma);
-        $li   = pow(10, $limes);
+        $dh = pow(10, $comma);
+        $li = pow(10, $limes);
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex -= 3) {
@@ -1288,7 +1348,7 @@ class Util
             // if the unit is not bytes (as represented in current language)
             // reformat with max length of 5
             // 4th parameter=true means do not reformat if value < 1
-            $return_value = self::formatNumber($value, 5, $comma, true);
+            $return_value = self::formatNumber($value, 5, $comma, true, false);
         } else {
             // do not reformat, just handle the locale
             $return_value = self::formatNumber($value, 0);
@@ -1891,7 +1951,7 @@ class Util
      *
      * @param resource       $handle               current query result
      * @param integer        $fields_cnt           number of fields
-     * @param array          $fields_meta          meta information about fields
+     * @param \stdClass[]    $fields_meta          meta information about fields
      * @param array          $row                  current row
      * @param boolean        $force_unique         generate condition only on pk
      *                                             or unique
@@ -2023,7 +2083,7 @@ class Util
                     }
                 } elseif ($meta->type == 'bit') {
                     $con_val = "= b'"
-                        . self::printableBitValue($row[$i], $meta->length) . "'";
+                        . self::printableBitValue((int) $row[$i], (int) $meta->length) . "'";
                 } else {
                     $con_val = '= \''
                         . $GLOBALS['dbi']->escapeString($row[$i]) . '\'';
@@ -2070,8 +2130,8 @@ class Util
     /**
      * Generate the charset query part
      *
-     * @param string           $collation Collation
-     * @param boolean optional $override  force 'CHARACTER SET' keyword
+     * @param string  $collation Collation
+     * @param boolean $override  (optional) force 'CHARACTER SET' keyword
      *
      * @return string
      */
@@ -2278,7 +2338,7 @@ class Util
      * @param string   $name        the name for the request parameter
      * @param string[] $classes     additional classes for the container
      *
-     * @return string $list_navigator_html the  html content
+     * @return string the  html content
      *
      * @access  public
      *
@@ -2729,12 +2789,12 @@ class Util
      * function because in PHP, decbin() supports only 32 bits
      * on 32-bit servers
      *
-     * @param integer $value  coming from a BIT field
-     * @param integer $length length
+     * @param int $value  coming from a BIT field
+     * @param int $length length
      *
-     * @return string  the printable value
+     * @return string the printable value
      */
-    public static function printableBitValue($value, $length)
+    public static function printableBitValue(int $value, int $length): string
     {
         // if running on a 64-bit server or the length is safe for decbin()
         if (PHP_INT_SIZE == 8 || $length < 33) {
@@ -2763,18 +2823,6 @@ class Util
         }
         $printable = str_pad($printable, $length, '0', STR_PAD_LEFT);
         return $printable;
-    }
-
-    /**
-     * Verifies whether the value contains a non-printable character
-     *
-     * @param string $value value
-     *
-     * @return integer
-     */
-    public static function containsNonPrintableAscii($value)
-    {
-        return preg_match('@[^[:print:]]@', $value);
     }
 
     /**
@@ -4019,7 +4067,7 @@ class Util
                 'structure'   => __('Structure'),
                 'sql'         => __('SQL'),
                 'search'      => __('Search'),
-                'multi_table_query'         => __('Query'),
+                'query'       => __('Query'),
                 'export'      => __('Export'),
                 'import'      => __('Import'),
                 'operation'   => __('Operations'),
@@ -4241,17 +4289,26 @@ class Util
     public static function getStartAndNumberOfRowsPanel($sql_query)
     {
         $template = new Template();
-        $pos = isset($_REQUEST['pos'])
-            ? $_REQUEST['pos']
-            : $_SESSION['tmpval']['pos'];
+
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = $_REQUEST['session_max_rows'];
+        } else if (isset($_SESSION['tmpval']['max_rows'])
+                    && $_SESSION['tmpval']['max_rows'] != 'all'
+        ) {
+            $rows = $_SESSION['tmpval']['max_rows'];
         } else {
-            if ($_SESSION['tmpval']['max_rows'] != 'all') {
-                $rows = $_SESSION['tmpval']['max_rows'];
-            } else {
-                $rows = $GLOBALS['cfg']['MaxRows'];
-            }
+            $rows = $GLOBALS['cfg']['MaxRows'];
+            $_SESSION['tmpval']['max_rows'] = $rows;
+        }
+
+        if(isset($_REQUEST['pos'])) {
+            $pos = $_REQUEST['pos'];
+        } else if(isset($_SESSION['tmpval']['pos'])) {
+            $pos = $_SESSION['tmpval']['pos'];
+        } else {
+            $number_of_line = intval($_REQUEST['unlim_num_rows']);
+            $pos = ((ceil($number_of_line / $rows) - 1) * $rows);
+            $_SESSION['tmpval']['pos'] = $pos;
         }
 
         return $template->render('start_and_number_of_rows_panel', [
@@ -4280,7 +4337,7 @@ class Util
      *
      * @param string $type the column type
      *
-     * @return string $class_clause the HTML class clause
+     * @return string the HTML class clause
      */
     public static function getClassForType($type)
     {
@@ -4298,13 +4355,13 @@ class Util
      * Gets the list of tables in the current db and information about these
      * tables if possible
      *
-     * @param string $db       database name
-     * @param string $sub_part part of script name
+     * @param string      $db       database name
+     * @param string|null $sub_part part of script name
      *
      * @return array
      *
      */
-    public static function getDbInfo($db, $sub_part)
+    public static function getDbInfo($db, ?string $sub_part)
     {
         global $cfg;
 
@@ -4485,12 +4542,13 @@ class Util
      * @param string $db             database name
      * @param object $db_info_result result set
      *
-     * @return array $tables list of tables
+     * @return array list of tables
      *
      */
     public static function getTablesWhenOpen($db, $db_info_result)
     {
-        $sot_cache = $tables = [];
+        $sot_cache = [];
+        $tables = [];
 
         while ($tmp = $GLOBALS['dbi']->fetchAssoc($db_info_result)) {
             $sot_cache[$tmp['Table']] = true;
@@ -4498,7 +4556,7 @@ class Util
         $GLOBALS['dbi']->freeResult($db_info_result);
 
         // is there at least one "in use" table?
-        if (isset($sot_cache)) {
+        if (count($sot_cache) > 0) {
             $tblGroupSql = "";
             $whereAdded = false;
             if (Core::isValid($_REQUEST['tbl_group'])) {

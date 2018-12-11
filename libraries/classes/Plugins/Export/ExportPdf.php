@@ -229,9 +229,9 @@ class ExportPdf extends ExportPlugin
             'dbAlias'      => $db_alias,
             'tableAlias'   => $table_alias,
             'aliases'      => $aliases,
+            'purpose'      => __('Dumping data')
         ];
         $pdf->setAttributes($attr);
-        $pdf->purpose = __('Dumping data');
         $pdf->mysqlReport($sql_query);
 
         return true;
@@ -275,6 +275,7 @@ class ExportPdf extends ExportPlugin
     ) {
         $db_alias = $db;
         $table_alias = $table;
+        $purpose = null;
         $this->initAlias($aliases, $db_alias, $table_alias);
         $pdf = $this->_getPdf();
         // getting purpose to show at top

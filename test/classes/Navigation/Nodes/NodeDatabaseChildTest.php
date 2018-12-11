@@ -21,7 +21,8 @@ use PhpMyAdmin\Tests\PmaTestCase;
 class NodeDatabaseChildTest extends PmaTestCase
 {
     /**
-     * @var NodeDatabaseChild
+     * Mock of NodeDatabaseChild
+     * @var \PHPUnit\Framework\MockObject\MockObject
      */
     protected $object;
 

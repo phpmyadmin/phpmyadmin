@@ -329,6 +329,10 @@ $js_messages['strImport'] = __('Import');
 $js_messages['strImportDialogTitle'] = __('Import monitor configuration');
 $js_messages['strImportDialogMessage']
     = __('Please select the file you want to import.');
+$js_messages['strTableNameDialogMessage']
+    = __('Please enter a valid table name.');
+$js_messages['strDBNameDialogMessage']
+    = __('Please enter a valid database name.');
 $js_messages['strNoImportFile'] = __('No files available on server for import!');
 
 $js_messages['strAnalyzeQuery'] = __('Analyse query');
@@ -719,6 +723,8 @@ $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     . ($GLOBALS['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
     . '" width="16" height="16" alt="ajax clock"/>'
     . '</div>';
+$js_messages['strCopyQueryButtonSuccess'] = __('Successfully copied!');
+$js_messages['strCopyQueryButtonFailure'] = __('Copying failed!');
 
 // For console
 $js_messages['strConsoleRequeryConfirm'] = __('Execute this query again?');

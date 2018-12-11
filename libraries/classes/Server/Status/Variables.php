@@ -244,11 +244,7 @@ class Variables
             // Fields containing % are calculated,
             // they can not be described in MySQL documentation
             if (mb_strpos($name, '%') === false) {
-                $retval .= Util::showMySQLDocu(
-                    'server-status-variables',
-                    false,
-                    'statvar_' . $name
-                );
+                $retval .= Util::linkToVarDocumentation($name, $GLOBALS['dbi']->isMariaDB());
             }
             $retval .= '</th>';
 

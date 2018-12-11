@@ -15,7 +15,6 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -26,37 +25,37 @@ use PhpMyAdmin\Util;
 class TableRelationController extends TableController
 {
     /**
-     * @var array $options_array
+     * @var array
      */
     protected $options_array;
 
     /**
-     * @var array $cfgRelation
+     * @var array
      */
     protected $cfgRelation;
 
     /**
-     * @var array $existrel
+     * @var array
      */
     protected $existrel;
 
     /**
-     * @var string $tbl_storage_engine
+     * @var string
      */
     protected $tbl_storage_engine;
 
     /**
-     * @var array $existrel_foreign
+     * @var array
      */
     protected $existrel_foreign;
 
     /**
-     * @var Table $udp_query
+     * @var Table
      */
     protected $upd_query;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -94,7 +93,7 @@ class TableRelationController extends TableController
         $this->existrel = $existrel;
         $this->existrel_foreign = $existrel_foreign;
         $this->upd_query = $upd_query;
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
     }
 
     /**
@@ -163,21 +162,6 @@ class TableRelationController extends TableController
             );
         }
 
-        // display secondary level tabs if necessary
-        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
-
-        $this->response->addHTML(
-            $this->template->render('table/secondary_tabs', [
-                'url_params' => [
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table'],
-                ],
-                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                'cfg_relation' => $this->relation->getRelationsParam(),
-            ])
-        );
-        $this->response->addHTML('<div id="structure_content">');
-
         /**
          * Dialog
          */
@@ -202,8 +186,11 @@ class TableRelationController extends TableController
         }
 
         // common form
+        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
+        $foreignKeySupported = Util::isForeignKeySupported($this->tbl_storage_engine);
         $this->response->addHTML(
             $this->template->render('table/relation/common_form', [
+                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
                 'db' => $this->db,
                 'table' => $this->table,
                 'cfg_relation' => $this->cfgRelation,
@@ -218,13 +205,11 @@ class TableRelationController extends TableController
                 'url_params' => $GLOBALS['url_params'],
                 'databases' => $GLOBALS['dblist']->databases,
                 'dbi' => $this->dbi,
+                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
+                'foreignKeySupported' => $foreignKeySupported,
+                'displayIndexesHtml' => $foreignKeySupported ? Index::getHtmlForDisplayIndexes() : null,
             ])
         );
-
-        if (Util::isForeignKeySupported($this->tbl_storage_engine)) {
-            $this->response->addHTML(Index::getHtmlForDisplayIndexes());
-        }
-        $this->response->addHTML('</div>');
     }
 
     /**

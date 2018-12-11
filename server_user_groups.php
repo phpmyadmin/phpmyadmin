@@ -14,7 +14,7 @@ use PhpMyAdmin\Server\Users;
 
 require_once 'libraries/common.inc.php';
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 $relation->getRelationsParam();
 if (! $GLOBALS['cfgRelation']['menuswork']) {
     exit;

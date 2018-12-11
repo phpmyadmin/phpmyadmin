@@ -383,6 +383,15 @@ function escapeJsString (unsafe) {
     }
 }
 
+
+function escapeBacktick (s) {
+    return s.replace('`', '``');
+}
+
+function escapeSingleQuote (s) {
+    return s.replace('\\', '\\\\').replace('\'', '\\\'');
+}
+
 function PMA_sprintf () {
     return sprintf.apply(this, arguments);
 }
@@ -711,11 +720,13 @@ function confirmQuery (theForm1, sqlQuery1) {
     var do_confirm_re_1 = new RegExp('^\\s*ALTER\\s+TABLE\\s+((`[^`]+`)|([A-Za-z0-9_$]+))\\s+DROP\\s', 'i');
     var do_confirm_re_2 = new RegExp('^\\s*DELETE\\s+FROM\\s', 'i');
     var do_confirm_re_3 = new RegExp('^\\s*TRUNCATE\\s', 'i');
+    var do_confirm_re_4 = new RegExp('^(?=.*UPDATE\\b)^((?!WHERE).)*$', 'i');
 
     if (do_confirm_re_0.test(sqlQuery1) ||
         do_confirm_re_1.test(sqlQuery1) ||
         do_confirm_re_2.test(sqlQuery1) ||
-        do_confirm_re_3.test(sqlQuery1)) {
+        do_confirm_re_3.test(sqlQuery1) ||
+        do_confirm_re_4.test(sqlQuery1)) {
         var message;
         if (sqlQuery1.length > 100) {
             message = sqlQuery1.substr(0, 100) + '\n    ...';
@@ -949,7 +960,8 @@ AJAX.registerOnload('functions.js', function () {
             'server' : PMA_commonParams.get('server'),
             'db' : PMA_commonParams.get('db'),
             'guid': guid,
-            'access_time':_idleSecondsCounter
+            'access_time': _idleSecondsCounter,
+            'check_timeout': 1
         };
         $.ajax({
             type: 'POST',
@@ -978,7 +990,19 @@ AJAX.registerOnload('functions.js', function () {
                     if (isStorageSupported('sessionStorage')) {
                         window.sessionStorage.clear();
                     }
-                    window.location.reload(true);
+                    // append the login form on the page, disable all the forms which were not disabled already, close all the open jqueryui modal boxes
+                    if (!$('#modalOverlay').length) {
+                        $('fieldset').not(':disabled').attr('disabled', 'disabled').addClass('disabled_for_expiration');
+                        $('body').append(data.error);
+                        $('.ui-dialog').each(function (i) {
+                            $('#' + $(this).attr('aria-describedby')).dialog('close');
+                        });
+                        $('#input_username').focus();
+                    } else {
+                        PMA_commonParams.set('token', data.new_token);
+                        $('input[name=token]').val(data.new_token);
+                    }
+                    _idleSecondsCounter = 0;
                 }
             }
         });
@@ -1005,6 +1029,7 @@ AJAX.registerOnload('functions.js', function () {
 AJAX.registerTeardown('functions.js', function () {
     $(document).off('click', 'input:checkbox.checkall');
 });
+
 AJAX.registerOnload('functions.js', function () {
     /**
      * Row marking in horizontal mode (use "on" so that it works also for
@@ -2440,6 +2465,41 @@ $(function () {
             $(this).parents('span.ajax_notification').tooltip('enable');
         }
     });
+
+    /**
+     * Copy text to clipboard
+     *
+     * @param text to copy to clipboard
+     *
+     * @returns bool true|false
+     */
+    function copyToClipboard (text) {
+        var $temp = $('<input>');
+        $temp.css({ 'position': 'fixed', 'width': '2em', 'border': 0, 'top': 0, 'left': 0, 'padding': 0, 'background': 'transparent' });
+        $('body').append($temp);
+        $temp.val(text).select();
+        try {
+            var res = document.execCommand('copy');
+            $temp.remove();
+            return res;
+        } catch (e) {
+            $temp.remove();
+            return false;
+        }
+    }
+
+    $(document).on('click', 'a.copyQueryBtn', function (event) {
+        event.preventDefault();
+        var res = copyToClipboard($(this).attr('data-text'));
+        if (res) {
+            $(this).after('<span id=\'copyStatus\'> (' + PMA_messages.strCopyQueryButtonSuccess + ')</span>');
+        } else {
+            $(this).after('<span id=\'copyStatus\'> (' + PMA_messages.strCopyQueryButtonFailure + ')</span>');
+        }
+        setTimeout(function () {
+            $('#copyStatus').remove();
+        }, 2000);
+    });
 });
 
 /**
@@ -2985,7 +3045,7 @@ AJAX.registerOnload('functions.js', function () {
             col = col[0];
             var $selectFieldKey = $('select[name="field_key[' + col + ']"]');
             if ($selectFieldKey.val() === 'none_' + col) {
-                $selectFieldKey.val('primary_' + col).trigger('change');
+                $selectFieldKey.val('primary_' + col).trigger('change', [false]);
             }
         }
     });
@@ -3546,13 +3606,13 @@ AJAX.registerOnload('functions.js', function () {
         }
         var seeMore = '';
         if (list_size > maxRows) {
-            seeMore = '<fieldset class=\'tblFooters center\' style=\'font-weight:bold\'>' +
+            seeMore = '<fieldset class=\'tblFooters center font_weight_bold\'>' +
                 '<a href=\'#\' id=\'seeMore\'>' + PMA_messages.seeMore + '</a></fieldset>';
         }
-        var central_columns_dialog = '<div style=\'max-height:400px\'>' +
+        var central_columns_dialog = '<div class=\'max_height_400\'>' +
             '<fieldset>' +
             search_in +
-            '<table id=\'col_list\' style=\'width:100%\' class=\'values\'>' + fields + '</table>' +
+            '<table id=\'col_list\' class=\'values all100\'>' + fields + '</table>' +
             '</fieldset>' +
             seeMore +
             '</div>';
@@ -4032,8 +4092,8 @@ var toggleButton = function ($obj) {
             addClass = 'on';
         }
 
-        var params = { 'ajax_request': true };
-        $.post(url, params, function (data) {
+        var parts = url.split('?');
+        $.post(parts[0], parts[1] + '&ajax_request=true', function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 $container
@@ -4321,6 +4381,9 @@ function PMA_slidingMessage (msg, $obj) {
  */
 AJAX.registerOnload('functions.js', function () {
     var $elm = $('#sqlquery');
+    if ($elm.siblings().filter('.CodeMirror').length > 0) {
+        return;
+    }
     if ($elm.length > 0) {
         if (typeof CodeMirror !== 'undefined') {
             codemirror_editor = PMA_getSQLEditor($elm);
@@ -4507,6 +4570,7 @@ AJAX.registerOnload('functions.js', function () {
         );
         $('body').append(form);
         form.submit();
+        sessionStorage.clear();
         return false;
     });
     /**
@@ -4543,7 +4607,8 @@ function PMA_createViewDialog ($this) {
     var $msg = PMA_ajaxShowMessage();
     var syntaxHighlighter = null;
     var sep = PMA_commonParams.get('arg_separator');
-    $.get($this.attr('href') + sep + 'ajax_request=1' + sep + 'ajax_dialog=1', function (data) {
+    params = $this.getPostData();
+    $.get($this.attr('href') + sep + 'ajax_request=1' + sep + 'ajax_dialog=1' + sep + params, function (data) {
         if (typeof data !== 'undefined' && data.success === true) {
             PMA_ajaxRemoveMessage($msg);
             var buttonOptions = {};

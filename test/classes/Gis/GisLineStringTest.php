@@ -168,11 +168,11 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPng() method
      *
-     * @param string $spatial    GIS LINESTRING object
-     * @param string $label      label for the GIS LINESTRING object
-     * @param string $line_color color for the GIS LINESTRING object
-     * @param array  $scale_data array containing data related to scaling
-     * @param object $image      image object
+     * @param string   $spatial    GIS LINESTRING object
+     * @param string   $label      label for the GIS LINESTRING object
+     * @param string   $line_color color for the GIS LINESTRING object
+     * @param array    $scale_data array containing data related to scaling
+     * @param resource $image      image object
      *
      * @dataProvider providerForPrepareRowAsPng
      * @return void
@@ -228,7 +228,7 @@ class GisLineStringTest extends GisGeomTestCase
      * @param string $label      label for the GIS LINESTRING object
      * @param string $line_color color for the GIS LINESTRING object
      * @param array  $scale_data array containing data related to scaling
-     * @param object $pdf        TCPDF instance
+     * @param TCPDF  $pdf        TCPDF instance
      *
      * @dataProvider providerForPrepareRowAsPdf
      * @return void

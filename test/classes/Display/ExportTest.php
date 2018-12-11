@@ -132,7 +132,7 @@ class ExportTest extends TestCase
         $multi_values_str = "multi_values_str";
         $num_tables_str = "10";
         $unlim_num_rows_str = "unlim_num_rows_str";
-        $single_table = "single_table";
+        //$single_table = "single_table";
         $GLOBALS['dbi']->cacheTableContent([$db, $table, 'ENGINE'], 'MERGE');
 
         $columns_info = [
@@ -160,7 +160,7 @@ class ExportTest extends TestCase
             'libraries/classes/Plugins/Export/',
             [
                 'export_type' => $export_type,
-                'single_table' => isset($single_table)
+                'single_table' => true,// isset($single_table)
             ]
         );
 

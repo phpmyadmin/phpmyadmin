@@ -72,7 +72,7 @@ class Tracker
          * from Relation::getRelationsParam
          */
         self::$enabled = false;
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         /* Restore original state */
         self::$enabled = true;
@@ -82,7 +82,7 @@ class Tracker
 
         $pma_table = self::_getTrackingTable();
 
-        return isset($pma_table);
+        return ! is_null($pma_table);
     }
 
     /**
@@ -137,7 +137,7 @@ class Tracker
          * from Relation::getRelationsParam
          */
         self::$enabled = false;
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         /* Restore original state */
         self::$enabled = true;
@@ -193,15 +193,17 @@ class Tracker
     ) {
         global $sql_backquotes, $export_type;
 
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
 
         if ($tracking_set == '') {
             $tracking_set
                 = $GLOBALS['cfg']['Server']['tracking_default_statements'];
         }
 
-        // get Export SQL instance
-        /* @var $export_sql_plugin PhpMyAdmin\Plugins\Export\ExportSql */
+        /**
+         * get Export SQL instance
+         * @var ExportSql $export_sql_plugin
+         */
         $export_sql_plugin = Plugins::getPlugin(
             "export",
             "sql",
@@ -303,7 +305,7 @@ class Tracker
      */
     public static function deleteTracking($dbname, $tablename, $version = '')
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
 
         $sql_query = "/*NOTRACK*/\n"
             . "DELETE FROM " . self::_getTrackingTable()
@@ -339,7 +341,7 @@ class Tracker
         $query,
         $tracking_set = 'CREATE DATABASE,ALTER DATABASE,DROP DATABASE'
     ) {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
 
         $date = Util::date('Y-m-d H:i:s');
 
@@ -407,7 +409,7 @@ class Tracker
         $version,
         $new_state
     ) {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
 
         $sql_query = " UPDATE " . self::_getTrackingTable() .
         " SET `tracking_active` = '" . $new_state . "' " .
@@ -440,7 +442,7 @@ class Tracker
         $type,
         $new_data
     ) {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
 
         if ($type == 'DDL') {
             $save_to = 'schema_sql';
@@ -520,7 +522,7 @@ class Tracker
      */
     public static function getVersion($dbname, $tablename, $statement = null)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
 
         $sql_query = " SELECT MAX(version) FROM " . self::_getTrackingTable() .
         " WHERE `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname) . "' " .
@@ -551,7 +553,7 @@ class Tracker
      */
     public static function getTrackedData($dbname, $tablename, $version)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
 
         $sql_query = " SELECT * FROM " . self::_getTrackingTable() .
             " WHERE `db_name` = '" . $GLOBALS['dbi']->escapeString($dbname) . "' ";
@@ -806,7 +808,7 @@ class Tracker
      */
     public static function handleQuery($query)
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
 
         // If query is marked as untouchable, leave
         if (mb_strstr($query, "/*NOTRACK*/")) {
@@ -925,7 +927,7 @@ class Tracker
      */
     private static function _getTrackingTable()
     {
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         return Util::backquote($cfgRelation['db'])
             . '.' . Util::backquote($cfgRelation['tracking']);

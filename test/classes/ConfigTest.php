@@ -33,7 +33,7 @@ class ConfigTest extends PmaTestCase
     protected $object;
 
     /**
-     * @var object to test file permission
+     * @var Config to test file permission
      */
     protected $permTestObj;
 
@@ -719,10 +719,11 @@ class ConfigTest extends PmaTestCase
      *
      * @return void
      * @todo Test actually preferences loading
+     * @doesNotPerformAssertions
      */
     public function testLoadUserPreferences()
     {
-        $this->assertNull($this->object->loadUserPreferences());
+        $this->object->loadUserPreferences();
     }
 
     /**
@@ -785,15 +786,13 @@ class ConfigTest extends PmaTestCase
 
         //load file permissions for the current permissions file
         $perms = @fileperms($this->permTestObj->getSource());
-        //testing for permissions
-        $this->assertFalse(!($perms === false) && ($perms & 2));
 
-        //if the above assertion is false then applying further assertions
         if (!($perms === false) && ($perms & 2)) {
-            $this->assertNotSame(0, $this->permTestObj->get('PMA_IS_WINDOWS'));
+            $this->assertTrue((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
+        } else {
+            $this->assertFalse((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
         }
     }
-
 
     /**
      * Test for setting cookies

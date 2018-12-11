@@ -9,9 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\HttpRequest;
 
 /**
@@ -26,7 +23,7 @@ class ErrorReport
      *
      * @var string
      */
-    private $submissionUrl;
+    private $submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
 
     /**
      * @var HttpRequest
@@ -34,7 +31,7 @@ class ErrorReport
     private $httpRequest;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -51,9 +48,19 @@ class ErrorReport
     public function __construct(HttpRequest $httpRequest)
     {
         $this->httpRequest = $httpRequest;
-        $this->submissionUrl = 'https://reports.phpmyadmin.net/incidents/create';
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
+    }
+
+    /**
+     * Set the URL where to submit reports to
+     *
+     * @param string $submissionUrl Submission URL
+     * @return void
+     */
+    public function setSubmissionUrl(string $submissionUrl): void
+    {
+        $this->submissionUrl = $submissionUrl;
     }
 
     /**
@@ -208,14 +215,13 @@ class ErrorReport
      */
     public function send(array $report): string
     {
-        $response = $this->httpRequest->create(
+        return $this->httpRequest->create(
             $this->submissionUrl,
             "POST",
             false,
             json_encode($report),
             "Content-Type: application/json"
         );
-        return $response;
     }
 
     /**
@@ -224,7 +230,7 @@ class ErrorReport
      *
      * @param array $stack the stack trace
      *
-     * @return array $stack the modified stack trace
+     * @return array the modified stack trace
      */
     private function translateStacktrace(array $stack): array
     {

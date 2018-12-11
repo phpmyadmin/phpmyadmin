@@ -46,7 +46,9 @@ $url_params['goto'] = $url_params['back'] = 'tbl_operations.php';
 /**
  * Gets relation settings
  */
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
+$operations = new Operations($GLOBALS['dbi'], $relation);
+
 $cfgRelation = $relation->getRelationsParam();
 
 // reselect current db (needed in some cases probably due to
@@ -96,8 +98,6 @@ $pma_table = $GLOBALS['dbi']->getTable(
 );
 $reread_info = false;
 $table_alters = [];
-
-$operations = new Operations();
 
 /**
  * If the table has to be moved to some other database
@@ -189,7 +189,7 @@ if (isset($_REQUEST['submitoptions'])) {
             . Util::backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
-        $result        .= $GLOBALS['dbi']->query($sql_query) ? true : false;
+        $result         = $GLOBALS['dbi']->query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
         $warning_messages = $operations->getWarningMessagesArray();

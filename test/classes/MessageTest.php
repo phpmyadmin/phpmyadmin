@@ -617,7 +617,7 @@ class MessageTest extends PmaTestCase
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForAffectedRows($rows);
-        echo $this->object->addMessage($msg);
+        $this->object->addMessage($msg);
         $this->expectOutputString($output);
         $this->object->display();
     }
@@ -662,7 +662,7 @@ class MessageTest extends PmaTestCase
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForInsertedRows($rows);
-        echo $this->object->addMessage($msg);
+        $this->object->addMessage($msg);
         $this->expectOutputString($output);
         $this->object->display();
     }
@@ -707,7 +707,7 @@ class MessageTest extends PmaTestCase
     {
         $this->object = new Message();
         $msg = $this->object->getMessageForDeletedRows($rows);
-        echo $this->object->addMessage($msg);
+        $this->object->addMessage($msg);
         $this->expectOutputString($output);
         $this->object->display();
     }

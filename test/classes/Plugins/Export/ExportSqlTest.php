@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
@@ -277,8 +278,18 @@ class ExportSqlTest extends PmaTestCase
 
         $leaf = array_shift($leaves);
         $this->assertInstanceOf(
-            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            'PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup',
             $leaf
+        );
+
+        $this->assertCount(
+            2,
+            $leaf->getProperties()
+        );
+
+        $this->assertInstanceOf(
+            'PhpMyAdmin\Properties\Options\Items\BoolPropertyItem',
+            $leaf->getSubgroupHeader()
         );
 
         $leaf = array_shift($leaves);
@@ -1014,7 +1025,7 @@ class ExportSqlTest extends PmaTestCase
                     ]
                 )
             );
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(2))
             ->method('getTable')
             ->will($this->returnValue(new Table('table', 'db', $dbi)));
         $dbi->expects($this->any())->method('escapeString')
@@ -1169,7 +1180,7 @@ class ExportSqlTest extends PmaTestCase
             ->method('getError')
             ->will($this->returnValue('error occurred'));
 
-        $dbi->expects($this->once())
+        $dbi->expects($this->exactly(2))
             ->method('getTable')
             ->will($this->returnValue(new Table('table', 'db', $dbi)));
         $dbi->expects($this->any())
@@ -1240,6 +1251,7 @@ class ExportSqlTest extends PmaTestCase
             );
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $method = new ReflectionMethod('PhpMyAdmin\Plugins\Export\ExportSql', '_getTableComments');
         $method->setAccessible(true);
@@ -1762,7 +1774,7 @@ class ExportSqlTest extends PmaTestCase
         $GLOBALS['sql_views_as_tables'] = false;
         $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['crlf'] = "\n";
-        $oldVal = isset($GLOBALS['sql_compatibility']) ? $GLOBALS['sql_compatibility'] : '';
+        $oldVal = $GLOBALS['sql_compatibility'] ?? '';
         $GLOBALS['sql_compatibility'] = 'NONE';
         $GLOBALS['sql_backquotes'] = true;
 

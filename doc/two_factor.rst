@@ -15,7 +15,7 @@ manually; the typical way of doing so is with the command:
 
 .. code-block:: sh
 
-    composer require pragmarx/google2fa bacon/bacon-qr-code
+    composer require pragmarx/google2fa-qrcode
 
 Or when using a hardware security key with FIDO U2F:
 
@@ -52,7 +52,7 @@ There are several manufacturers of these tokens, for example:
 
 * `youbico FIDO U2F Security Key <https://www.yubico.com/solutions/fido-u2f/>`_
 * `HyperFIDO <https://www.hypersecu.com/products/hyperfido>`_
-* `TREZOR Bitcoin wallet <https://shop.trezor.io?a=572b241135e1>`_ can `act as an U2F token <http://doc.satoshilabs.com/trezor-user/u2f.html>`_
+* `TREZOR Bitcoin wallet <https://shop.trezor.io?a=572b241135e1>`_ can `act as an U2F token <https://doc.satoshilabs.com/trezor-user/u2f.html>`_
 
 .. _simple2fa:
 

@@ -58,7 +58,7 @@ class Pdf extends PdfLib
     private $_db;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -86,7 +86,7 @@ class Pdf extends PdfLib
         $this->_pageNumber = $pageNumber;
         $this->_withDoc = $withDoc;
         $this->_db = $db;
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -156,8 +156,8 @@ class Pdf extends PdfLib
         $fill = 0,
         $link = ''
     ) {
-        $h = $h / $this->scale;
-        $w = $w / $this->scale;
+        $h /= $this->scale;
+        $w /= $this->scale;
         $this->Cell($w, $h, $txt, $border, $ln, $align, $fill, $link);
     }
 
@@ -226,7 +226,7 @@ class Pdf extends PdfLib
     public function setFontSizeScale($size)
     {
         // Set font size in points
-        $size = $size / $this->scale;
+        $size /= $this->scale;
         $this->SetFontSize($size);
     }
 
@@ -241,7 +241,7 @@ class Pdf extends PdfLib
      */
     public function setLineWidthScale($width)
     {
-        $width = $width / $this->scale;
+        $width /= $this->scale;
         $this->SetLineWidth($width);
     }
 

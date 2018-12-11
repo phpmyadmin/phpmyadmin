@@ -273,11 +273,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsPng() method
      *
-     * @param string $spatial    GIS MULTIPOLYGON object
-     * @param string $label      label for the GIS MULTIPOLYGON object
-     * @param string $fill_color color for the GIS MULTIPOLYGON object
-     * @param array  $scale_data array containing data related to scaling
-     * @param object $image      image object
+     * @param string   $spatial    GIS MULTIPOLYGON object
+     * @param string   $label      label for the GIS MULTIPOLYGON object
+     * @param string   $fill_color color for the GIS MULTIPOLYGON object
+     * @param array    $scale_data array containing data related to scaling
+     * @param resource $image      image object
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPng
@@ -334,7 +334,7 @@ class GisMultiPolygonTest extends GisGeomTestCase
      * @param string $label      label for the GIS MULTIPOLYGON object
      * @param string $fill_color color for the GIS MULTIPOLYGON object
      * @param array  $scale_data array containing data related to scaling
-     * @param object $pdf        TCPDF instance
+     * @param TCPDF  $pdf        TCPDF instance
      *
      * @return void
      * @dataProvider providerForPrepareRowAsPdf

@@ -1,0 +1,45 @@
+// Styles for management of Routines, Triggers and Events for the Metro theme
+.rte_table {
+  table-layout: fixed;
+  width: 100%;
+
+  td {
+    vertical-align: middle;
+    padding: 0.2em;
+  }
+
+  tr td:nth-child(1) {
+    width: 20%;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+  input {
+    &[type="checkbox"],
+    &[type="radio"] {
+      width: auto;
+      margin-#{$right}: 6px;
+    }
+  }
+
+  .routine_params_table {
+    width: 100%;
+  }
+
+  .half_width {
+    width: 49%;
+  }
+}
+
+.ui_tpicker_time_input {
+  width: 100%;
+}

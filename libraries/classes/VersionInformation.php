@@ -11,6 +11,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\HttpRequest;
+use \stdClass;
 
 /**
  * Responsible for retrieving version information and notifiying about latest version
@@ -23,9 +24,9 @@ class VersionInformation
     /**
      * Returns information with latest version from phpmyadmin.net
      *
-     * @return object JSON decoded object with the data
+     * @return stdClass|null JSON decoded object with the data
      */
-    public function getLatestVersion()
+    public function getLatestVersion(): ?stdClass
     {
         if (!$GLOBALS['cfg']['VersionCheck']) {
             return null;
@@ -183,6 +184,7 @@ class VersionInformation
     public function evaluateVersionCondition($type, $condition)
     {
         $operator = null;
+        $version = null;
         $operators = ["<=", ">=", "!=", "<>", "<", ">", "="]; // preserve order
         foreach ($operators as $oneOperator) {
             if (strpos($condition, $oneOperator) === 0) {

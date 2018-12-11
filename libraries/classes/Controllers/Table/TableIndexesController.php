@@ -13,7 +13,6 @@ use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -24,7 +23,7 @@ use PhpMyAdmin\Util;
 class TableIndexesController extends TableController
 {
     /**
-     * @var Index $index
+     * @var Index
      */
     protected $index;
 
@@ -90,7 +89,7 @@ class TableIndexesController extends TableController
         if (isset($_REQUEST['create_edit_table'])) {
             $fields = json_decode($_REQUEST['columns'], true);
             $index_params = [
-                'Non_unique' => ($_REQUEST['index']['Index_choice'] == 'UNIQUE')
+                'Non_unique' => $_REQUEST['index']['Index_choice'] == 'UNIQUE'
                     ? '0' : '1',
             ];
             $this->index->set($index_params);
@@ -122,6 +121,7 @@ class TableIndexesController extends TableController
                 'form_params' => $form_params,
                 'add_fields' => $add_fields,
                 'create_edit_table' => isset($_REQUEST['create_edit_table']),
+                'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             ])
         );
     }

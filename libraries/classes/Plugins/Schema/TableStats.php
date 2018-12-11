@@ -42,7 +42,7 @@ abstract class TableStats
     protected $offline;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     protected $relation;
 
@@ -54,15 +54,15 @@ abstract class TableStats
     /**
      * Constructor
      *
-     * @param object  $diagram        schema diagram
-     * @param string  $db             current db name
-     * @param integer $pageNumber     current page number (from the
-     *                                $cfg['Servers'][$i]['table_coords'] table)
-     * @param string  $tableName      table name
-     * @param boolean $showKeys       whether to display keys or not
-     * @param boolean $tableDimension whether to display table position or not
-     * @param boolean $offline        whether the coordinates are sent
-     *                                from the browser
+     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf $diagram        schema diagram
+     * @param string                                  $db             current db name
+     * @param integer                                 $pageNumber     current page number (from the
+     *                                                                $cfg['Servers'][$i]['table_coords'] table)
+     * @param string                                  $tableName      table name
+     * @param boolean                                 $showKeys       whether to display keys or not
+     * @param boolean                                 $tableDimension whether to display table position or not
+     * @param boolean                                 $offline        whether the coordinates are sent
+     *                                                                from the browser
      */
     public function __construct(
         $diagram,
@@ -83,7 +83,7 @@ abstract class TableStats
 
         $this->offline    = $offline;
 
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->font = new Font();
 
         // checks whether the table exists

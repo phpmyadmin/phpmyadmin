@@ -569,6 +569,8 @@ $(function () {
     $(document).on('click', 'a.unhideNavItem.ajax', function (event) {
         event.preventDefault();
         var $tr = $(this).parents('tr');
+        var $hidden_table_count = $tr.parents('tbody').children().length;
+        var $hide_dialog_box = $tr.closest('div.ui-dialog');
         var $msg = PMA_ajaxShowMessage();
         $.ajax({
             type: 'POST',
@@ -580,6 +582,9 @@ $(function () {
                 PMA_ajaxRemoveMessage($msg);
                 if (typeof data !== 'undefined' && data.success === true) {
                     $tr.remove();
+                    if ($hidden_table_count === 1) {
+                        $hide_dialog_box.remove();
+                    }
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error);
@@ -649,6 +654,7 @@ $(function () {
         } else {
             // If the user is different
             navTreeStateUpdate();
+            PMA_reloadNavigation();
         }
     }
 });
@@ -740,6 +746,9 @@ function scrollToView ($element, $forceToTop) {
 function PMA_showCurrentNavigation () {
     var db = PMA_commonParams.get('db');
     var table = PMA_commonParams.get('table');
+
+    var autoexpand = $('#pma_navigation_tree').hasClass('autoexpand');
+
     $('#pma_navigation_tree')
         .find('li.selected')
         .removeClass('selected');
@@ -766,22 +775,44 @@ function PMA_showCurrentNavigation () {
                 handleTableOrDb(table, $('#pma_navigation_tree_content'));
             }
         } else if ($dbItem) {
-            var $expander = $dbItem.children('div:first').children('a.expander');
-            // if not loaded or loaded but collapsed
-            if (! $expander.hasClass('loaded') ||
-                $expander.find('img').is('.ic_b_plus')
-            ) {
-                expandTreeNode($expander, function () {
-                    handleTableOrDb(table, $dbItem);
-                });
-            } else {
-                handleTableOrDb(table, $dbItem);
-            }
+            fullExpand(table, $dbItem);
         }
     } else if ($('#navi_db_select').length && $('#navi_db_select').val()) {
         $('#navi_db_select').val('').hide().trigger('change');
+    } else if (autoexpand && $('#pma_navigation_tree_content > ul > li.database').length === 1) {
+        // automatically expand the list if there is only single database
+
+        // find the name of the database
+        var dbItemName = '';
+
+        $('#pma_navigation_tree_content > ul > li.database').children('a').each(function () {
+            var name = $(this).text();
+            if (!dbItemName && name.trim()) { // if the name is not empty, it is the desired element
+                dbItemName = name;
+            }
+        });
+
+        var $dbItem = findLoadedItem(
+            $('#pma_navigation_tree').find('> div'), dbItemName, 'database', !table
+        );
+
+        fullExpand(table, $dbItem);
     }
     PMA_showFullName($('#pma_navigation_tree'));
+
+    function fullExpand (table, $dbItem) {
+        var $expander = $dbItem.children('div:first').children('a.expander');
+        // if not loaded or loaded but collapsed
+        if (! $expander.hasClass('loaded') ||
+            $expander.find('img').is('.ic_b_plus')
+        ) {
+            expandTreeNode($expander, function () {
+                handleTableOrDb(table, $dbItem);
+            });
+        } else {
+            handleTableOrDb(table, $dbItem);
+        }
+    }
 
     function handleTableOrDb (table, $dbItem) {
         if (table) {
@@ -1270,9 +1301,12 @@ var ResizeHandler = function () {
         var $nav_tree   = $('#pma_navigation_tree');
         var $nav_header = $('#pma_navigation_header');
         var $nav_tree_content = $('#pma_navigation_tree_content');
-        $nav_tree.height($nav.height() - $nav_header.height());
+        var height = ($nav.height() - $nav_header.height());
+
+        height = height > 50 ? height : 800; // keep min. height
+        $nav_tree.height(height);
         if ($nav_tree_content.length > 0) {
-            $nav_tree_content.height($nav_tree.height() - $nav_tree_content.position().top);
+            $nav_tree_content.height(height - $nav_tree_content.position().top);
         } else {
             // TODO: in fast filter search response there is no #pma_navigation_tree_content, needs to be added in php
             $nav_tree.css({

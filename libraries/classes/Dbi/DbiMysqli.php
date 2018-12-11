@@ -51,7 +51,7 @@ class DbiMysqli implements DbiExtension
     public function connect($user, $password, array $server)
     {
         if ($server) {
-            $server['host'] = (empty($server['host']))
+            $server['host'] = empty($server['host'])
                 ? 'localhost'
                 : $server['host'];
         }
@@ -340,7 +340,7 @@ class DbiMysqli implements DbiExtension
      *
      * @param \mysqli $mysqli mysql link
      *
-     * @return string|bool $error or false
+     * @return string|bool error or false
      */
     public function getError($mysqli)
     {
@@ -498,6 +498,7 @@ class DbiMysqli implements DbiExtension
      */
     public function fieldLen($result, $i)
     {
+        /** @var \stdClass $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
         if ($fieldDefinition !== false) {
             return $fieldDefinition->length;
@@ -515,6 +516,7 @@ class DbiMysqli implements DbiExtension
      */
     public function fieldName($result, $i)
     {
+        /** @var \stdClass $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
         if ($fieldDefinition !== false) {
             return $fieldDefinition->name;
@@ -532,30 +534,35 @@ class DbiMysqli implements DbiExtension
      */
     public function fieldFlags($result, $i)
     {
+        /** @var \stdClass $fieldDefinition */
         $fieldDefinition = $result->fetch_field_direct($i);
-        $type = $fieldDefinition->type;
-        $charsetNumber = $fieldDefinition->charsetnr;
-        $fieldDefinitionFlags = $fieldDefinition->flags;
-        $flags = [];
-        foreach (self::$pma_mysqli_flag_names as $flag => $name) {
-            if ($fieldDefinitionFlags & $flag) {
-                $flags[] = $name;
+        if ($fieldDefinition !== false) {
+            $type = $fieldDefinition->type;
+            $charsetNumber = $fieldDefinition->charsetnr;
+            $fieldDefinitionFlags = $fieldDefinition->flags;
+            $flags = [];
+            foreach (self::$pma_mysqli_flag_names as $flag => $name) {
+                if ($fieldDefinitionFlags & $flag) {
+                    $flags[] = $name;
+                }
             }
+            // See https://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
+            // to determine if a string is binary, we should not use MYSQLI_BINARY_FLAG
+            // but instead the charsetnr member of the MYSQL_FIELD
+            // structure. Watch out: some types like DATE returns 63 in charsetnr
+            // so we have to check also the type.
+            // Unfortunately there is no equivalent in the mysql extension.
+            if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB
+                || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB
+                || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING)
+                && 63 == $charsetNumber
+            ) {
+                $flags[] = 'binary';
+            }
+            return implode(' ', $flags);
+        } else {
+            return '';
         }
-        // See https://dev.mysql.com/doc/refman/6.0/en/c-api-datatypes.html:
-        // to determine if a string is binary, we should not use MYSQLI_BINARY_FLAG
-        // but instead the charsetnr member of the MYSQL_FIELD
-        // structure. Watch out: some types like DATE returns 63 in charsetnr
-        // so we have to check also the type.
-        // Unfortunately there is no equivalent in the mysql extension.
-        if (($type == MYSQLI_TYPE_TINY_BLOB || $type == MYSQLI_TYPE_BLOB
-            || $type == MYSQLI_TYPE_MEDIUM_BLOB || $type == MYSQLI_TYPE_LONG_BLOB
-            || $type == MYSQLI_TYPE_VAR_STRING || $type == MYSQLI_TYPE_STRING)
-            && 63 == $charsetNumber
-        ) {
-            $flags[] = 'binary';
-        }
-        return implode(' ', $flags);
     }
 
     /**

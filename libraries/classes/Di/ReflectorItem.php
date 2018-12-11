@@ -20,7 +20,10 @@ abstract class ReflectorItem implements Item
     /** @var Container */
     private $_container;
 
-    /** @var \Reflector */
+    /**
+     * A \Reflector
+     * @var \ReflectionClass|\ReflectionMethod|\ReflectionFunction
+     */
     private $_reflector;
 
     /**
@@ -74,7 +77,7 @@ abstract class ReflectorItem implements Item
      * @param \ReflectionParameter[] $required Arguments
      * @param array                  $params   Parameters
      *
-*@return array
+     * @return array
      */
     private function _resolveArgs($required, array $params = [])
     {

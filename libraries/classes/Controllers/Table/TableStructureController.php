@@ -76,7 +76,7 @@ class TableStructureController extends TableController
     private $createAddField;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -135,7 +135,7 @@ class TableStructureController extends TableController
         $this->table_obj = $this->dbi->getTable($this->db, $this->table);
 
         $this->createAddField = new CreateAddField($dbi);
-        $this->relation = new Relation();
+        $this->relation = new Relation($dbi);
         $this->transformations = new Transformations();
     }
 
@@ -288,20 +288,6 @@ class TableStructureController extends TableController
             }
         }
 
-        // display secondary level tabs if necessary
-        $engine = $this->table_obj->getStorageEngine();
-        $this->response->addHTML(
-            $this->template->render('table/secondary_tabs', [
-                'url_params' => [
-                    'db' => $this->db,
-                    'table' => $this->table,
-                ],
-                'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
-                'cfg_relation' => $this->relation->getRelationsParam(),
-            ])
-        );
-        $this->response->addHTML('<div id="structure_content">');
-
         /**
          * Modifications have been submitted -> updates the table
          */
@@ -397,8 +383,6 @@ class TableStructureController extends TableController
                 $columns_with_index
             )
         );
-
-        $this->response->addHTML('</div>');
     }
 
     /**
@@ -527,7 +511,7 @@ class TableStructureController extends TableController
      * @param array  $selected the selected columns
      * @param string $action   target script to call
      *
-     * @return boolean $regenerate true if error occurred
+     * @return boolean true if error occurred
      *
      */
     protected function displayHtmlForColumnChange($selected, $action)
@@ -612,7 +596,7 @@ class TableStructureController extends TableController
 
         $parser = new Parser($createTable);
         /**
-         * @var $stmt PhpMyAdmin\SqlParser\Statements\CreateStatement
+         * @var CreateStatement $stmt
          */
         $stmt = $parser->statements[0];
 
@@ -693,7 +677,7 @@ class TableStructureController extends TableController
             } else {
                 $p = $stmt->partitions[$i];
                 $type = $p->type;
-                $expr = trim($p->expr, '()');
+                $expr = trim((string) $p->expr, '()');
                 if ($expr == 'MAXVALUE') {
                     $type .= ' MAXVALUE';
                     $expr = '';
@@ -703,9 +687,9 @@ class TableStructureController extends TableController
                     'value_type' => $type,
                     'value' => $expr,
                     'engine' => $p->options->has('ENGINE', true),
-                    'comment' => trim($p->options->has('COMMENT', true), "'"),
-                    'data_directory' => trim($p->options->has('DATA DIRECTORY', true), "'"),
-                    'index_directory' => trim($p->options->has('INDEX_DIRECTORY', true), "'"),
+                    'comment' => trim((string) $p->options->has('COMMENT', true), "'"),
+                    'data_directory' => trim((string) $p->options->has('DATA DIRECTORY', true), "'"),
+                    'index_directory' => trim((string) $p->options->has('INDEX_DIRECTORY', true), "'"),
                     'max_rows' => $p->options->has('MAX_ROWS', true),
                     'min_rows' => $p->options->has('MIN_ROWS', true),
                     'tablespace' => $p->options->has('TABLESPACE', true),
@@ -882,7 +866,7 @@ class TableStructureController extends TableController
     /**
      * Update the table's structure based on $_REQUEST
      *
-     * @return boolean $regenerate              true if error occurred
+     * @return boolean              true if error occurred
      *
      */
     protected function updateColumns()
@@ -896,7 +880,11 @@ class TableStructureController extends TableController
         $field_cnt = count($_REQUEST['field_name']);
         $changes = [];
         $adjust_privileges = [];
-
+        $columns_with_index = $this->dbi
+            ->getTable($this->db, $this->table)
+            ->getColumnsWithIndex(
+                Index::PRIMARY | Index::UNIQUE
+            );
         for ($i = 0; $i < $field_cnt; $i++) {
             if (!$this->columnNeedsAlterTable($i)) {
                 continue;
@@ -916,7 +904,8 @@ class TableStructureController extends TableController
                 Util::getValueByKey($_REQUEST, "field_comments.${i}", ''),
                 Util::getValueByKey($_REQUEST, "field_virtuality.${i}", ''),
                 Util::getValueByKey($_REQUEST, "field_expression.${i}", ''),
-                Util::getValueByKey($_REQUEST, "field_move_to.${i}", '')
+                Util::getValueByKey($_REQUEST, "field_move_to.${i}", ''),
+                $columns_with_index
             );
 
             // find the remembered sort expression
@@ -1121,7 +1110,7 @@ class TableStructureController extends TableController
      * @param array $adjust_privileges assoc array of old col names mapped to new
      *                                 cols
      *
-     * @return boolean $changed  boolean whether at least one column privileges
+     * @return boolean  boolean whether at least one column privileges
      * adjusted
      */
     protected function adjustColumnPrivileges(array $adjust_privileges)
@@ -1167,7 +1156,7 @@ class TableStructureController extends TableController
      *
      * @param integer $i column index in the request
      *
-     * @return boolean $alterTableNeeded true if we need to generate ALTER TABLE
+     * @return boolean true if we need to generate ALTER TABLE
      *
      */
     protected function columnNeedsAlterTable($i)
@@ -1339,14 +1328,6 @@ class TableStructureController extends TableController
                 $attributes[$rownum] = 'on update CURRENT_TIMESTAMP';
             }
 
-            if (!isset($field['Default'])) {
-                if ($field['Null'] == 'YES') {
-                    $field = array_merge($field, ['Default' => '<em>NULL</em>']);
-                }
-            } else {
-                $field = array_merge($field, ['Default' => $field['Default']]);
-            }
-
             $displayed_fields[$rownum] = new \stdClass();
             $displayed_fields[$rownum]->text = $field['Field'];
             $displayed_fields[$rownum]->icon = "";
@@ -1368,7 +1349,15 @@ class TableStructureController extends TableController
             }
         }
 
+        $engine = $this->table_obj->getStorageEngine();
         return $this->template->render('table/structure/display_structure', [
+            'url_params' => [
+                'db' => $this->db,
+                'table' => $this->table,
+            ],
+            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'displayIndexesHtml' => Index::getHtmlForDisplayIndexes(),
+            'cfg_relation' => $this->relation->getRelationsParam(),
             'hide_structure_actions' => $hideStructureActions,
             'db' => $this->db,
             'table' => $this->table,
@@ -1399,7 +1388,9 @@ class TableStructureController extends TableController
             'text_dir' => $GLOBALS['text_dir'],
             'is_active' => Tracker::isActive(),
             'have_partitioning' => Partition::havePartitioning(),
+            'partitions' => Partition::getPartitions($this->db, $this->table),
             'partition_names' => Partition::getPartitionNames($this->db, $this->table),
+            'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             'attributes' => $attributes,
             'displayed_fields' => $displayed_fields,
             'row_comments' => $row_comments,
@@ -1409,7 +1400,7 @@ class TableStructureController extends TableController
     /**
      * Get HTML snippet for display table statistics
      *
-     * @return string $html_output
+     * @return string
      */
     protected function getTableStats()
     {
@@ -1488,7 +1479,14 @@ class TableStructureController extends TableController
             $avg_size = $avg_unit = '';
         }
 
+        $engine = $this->dbi->getTable($this->db, $this->table)->getStorageEngine();
         return $this->template->render('table/structure/display_table_stats', [
+            'url_params' => [
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table'],
+            ],
+            'is_foreign_key_supported' => Util::isForeignKeySupported($engine),
+            'cfg_relation' => $this->relation->getRelationsParam(),
             'showtable' => $this->_showtable,
             'table_info_num_rows' => $this->_table_info_num_rows,
             'tbl_is_view' => $this->_tbl_is_view,

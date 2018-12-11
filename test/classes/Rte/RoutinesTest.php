@@ -1116,7 +1116,7 @@ class RoutinesTest extends TestCase
         $errors = [];
         $this->routines->setGlobals();
 
-        $old_dbi = isset($GLOBALS['dbi']) ? $GLOBALS['dbi'] : null;
+        $old_dbi = $GLOBALS['dbi'] ?? null;
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
             ->getMock();

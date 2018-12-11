@@ -172,7 +172,7 @@ class Bookmark
     /**
      * Returns the number of variables in a bookmark
      *
-     * @return number number of variables
+     * @return int number of variables
      */
     public function getVariableCount(): int
     {
@@ -228,7 +228,7 @@ class Bookmark
             return $cfgBookmark;
         }
 
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $cfgRelation = $relation->getRelationsParam();
         if ($cfgRelation['bookmarkwork']) {
             $cfgBookmark = [
@@ -377,7 +377,7 @@ class Bookmark
             $query .= ")";
         }
         $query .= " AND " . Util::backquote($id_field)
-            . " = " . $dbi->escapeString($id) . " LIMIT 1";
+            . " = " . $dbi->escapeString((string) $id) . " LIMIT 1";
 
         $result = $dbi->fetchSingleRow($query, 'ASSOC', DatabaseInterface::CONNECT_CONTROL);
         if (! empty($result)) {

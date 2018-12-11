@@ -9,12 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Index;
-use PhpMyAdmin\Table;
-use PhpMyAdmin\Util;
-
 /**
  * Set of functions for tbl_create.php and tbl_addfield.php
  *
@@ -69,7 +63,7 @@ class CreateAddField
      * @param boolean $isCreateTable true if requirement is to get the statement
      *                               for table creation
      *
-     * @return array  $definitions An array of initial sql statements
+     * @return array An array of initial sql statements
      *                             according to the request
      */
     private function buildColumnCreationStatement(
@@ -130,7 +124,7 @@ class CreateAddField
      * @param bool $isCreateTable true if requirement is to get the statement
      *                            for table creation
      *
-     * @return string $sqlSuffix suffix
+     * @return string suffix
      */
     private function setColumnCreationStatementSuffix(
         int $previousField,
@@ -241,7 +235,7 @@ class CreateAddField
      * @param boolean $isCreateTable true if requirement is to get the statement
      *                               for table creation
      *
-     * @return string $sqlPrefix prefix
+     * @return string prefix
      */
     private function getStatementPrefix(bool $isCreateTable = true): string
     {
@@ -261,7 +255,7 @@ class CreateAddField
      * @param array   $indexedColumns the columns for one type of index
      * @param string  $indexKeyword   the index keyword to use in the definition
      *
-     * @return array $index_definitions
+     * @return array
      */
     private function mergeIndexStatements(
         array $definitions,
@@ -348,9 +342,7 @@ class CreateAddField
         if (count($definitions)) {
             $sqlStatement = implode(', ', $definitions);
         }
-        $sqlStatement = preg_replace('@, $@', '', $sqlStatement);
-
-        return $sqlStatement;
+        return preg_replace('@, $@', '', $sqlStatement);
     }
 
     /**
@@ -545,7 +537,7 @@ class CreateAddField
 
         // To allow replication, we first select the db to use and then run queries
         // on this db.
-        if (!($this->dbi->selectDb($db))) {
+        if (!$this->dbi->selectDb($db)) {
             Util::mysqlDie(
                 $this->dbi->getError(),
                 'USE ' . Util::backquote($db),

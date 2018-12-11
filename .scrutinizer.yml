@@ -12,10 +12,11 @@ build:
         test:
             environment:
                 php: 7.1
+                node: 8
             dependencies:
                 before:
                     - composer install
-                    - composer require tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
+                    - composer require tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server
                     - ./vendor/bin/phpcs --config-set installed_paths `pwd`/vendor/phpmyadmin/coding-standard
             tests:
                 override:

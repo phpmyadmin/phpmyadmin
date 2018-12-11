@@ -137,7 +137,9 @@ $post_params = [
         'sql_create_table',
         'sql_create_view',
         'sql_create_trigger',
+        'sql_view_current_user',
         'sql_if_not_exists',
+        'sql_or_replace_view',
         'sql_auto_increment',
         'sql_backquotes',
         'sql_truncate',
@@ -190,7 +192,7 @@ PhpMyAdmin\Util::checkParameters(['what', 'export_type']);
 $what = Core::securePath($_POST['what']);
 
 // export class instance, not array of properties, as before
-/* @var $export_plugin ExportPlugin */
+/** @var ExportPlugin $export_plugin */
 $export_plugin = Plugins::getPlugin(
     "export",
     $what,
@@ -268,7 +270,7 @@ if ($_REQUEST['output_format'] == 'astext') {
         $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
     }
 }
-
+$tables = [];
 // Generate error url and check for needed variables
 if ($export_type == 'server') {
     $err_url = 'server_export.php' . Url::getCommon();
@@ -408,7 +410,7 @@ if ($save_on_server) {
     } // end download
 }
 
-$relation = new Relation();
+$relation = new Relation($GLOBALS['dbi']);
 
 // Fake loop just to allow skip of remain of this code by break, I'd really
 // need exceptions here :-)

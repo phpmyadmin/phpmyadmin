@@ -21,8 +21,7 @@ class GisFactory
      *
      * @param string $type type of the geometric object
      *
-     * @return GisGeometry the singleton instance of geometric class
-     *                          of the given type
+     * @return GisMultiPolygon|GisPolygon|GisMultiPoint|GisPoint|GisMultiLineString|GisLineString|GisGeometryCollection|false the singleton instance of geometric class of the given type
      *
      * @access public
      * @static

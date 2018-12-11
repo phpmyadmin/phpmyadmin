@@ -19,7 +19,6 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 /**
@@ -30,7 +29,7 @@ use PhpMyAdmin\Util;
 class Export
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -44,7 +43,7 @@ class Export
      */
     public function __construct()
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->template = new Template();
     }
 
@@ -653,7 +652,7 @@ class Export
      * @param int    $unlimNumRows unlimited number of rows
      * @param string $multiValues  selector options
      *
-     * @return string $html
+     * @return string
      */
     public function getDisplay(
         $exportType,

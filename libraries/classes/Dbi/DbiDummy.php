@@ -205,9 +205,7 @@ class DbiDummy implements DbiExtension
      */
     public function fetchRow($result)
     {
-        $data = $this->fetchAny($result);
-
-        return $data;
+        return $this->fetchAny($result);
     }
 
     /**
@@ -316,7 +314,7 @@ class DbiDummy implements DbiExtension
      *
      * @param resource $link connection link
      *
-     * @return string|bool $error or false
+     * @return string|bool error or false
      */
     public function getError($link)
     {
@@ -1268,6 +1266,164 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
+                'query'  => "SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,"
+                . " `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`,"
+                . " `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`,"
+                . " `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`,"
+                . " `DATA_LENGTH` AS `Data_length`, `MAX_DATA_LENGTH` AS `Max_data_length`,"
+                . " `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`,"
+                . " `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`,"
+                . " `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`,"
+                . " `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`,"
+                . " `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment`"
+                . " FROM `information_schema`.`TABLES` t WHERE `TABLE_SCHEMA` IN ('table1')"
+                . " AND t.`TABLE_NAME` = 'pma_test' ORDER BY Name ASC",
+                'columns' => [
+                    'TABLE_CATALOG',
+                    'TABLE_SCHEMA',
+                    'TABLE_NAME',
+                    'TABLE_TYPE',
+                    'ENGINE',
+                    'VERSION',
+                    'ROW_FORMAT',
+                    'TABLE_ROWS',
+                    'AVG_ROW_LENGTH',
+                    'DATA_LENGTH',
+                    'MAX_DATA_LENGTH',
+                    'INDEX_LENGTH',
+                    'DATA_FREE',
+                    'AUTO_INCREMENT',
+                    'CREATE_TIME',
+                    'UPDATE_TIME',
+                    'CHECK_TIME',
+                    'TABLE_COLLATION',
+                    'CHECKSUM',
+                    'CREATE_OPTIONS',
+                    'TABLE_COMMENT',
+                    'Db',
+                    'Name',
+                    'TABLE_TYPE',
+                    'Engine',
+                    'Type',
+                    'Version',
+                    'Row_format',
+                    'Rows',
+                    'Avg_row_length',
+                    'Data_length',
+                    'Max_data_length',
+                    'Index_length',
+                    'Data_free',
+                    'Auto_increment',
+                    'Create_time',
+                    'Update_time',
+                    'Check_time',
+                    'Collation',
+                    'Checksum',
+                    'Create_options',
+                    'Comment',
+                ],
+                'result' => [
+                    [
+                        'ref',
+                        'pma_test',
+                        'table1',
+                        'BASE TABLE',
+                        'DBIdummy',
+                        '11',
+                        'Redundant',
+                        '123456',
+                        '42',
+                        '21708991',
+                        '281474976710655',// MyISAM
+                        '2048',// MyISAM
+                        '2547',
+                        '5',
+                        '2014-06-24 17:30:00',
+                        '2018-06-25 18:35:12',
+                        '2015-04-24 19:30:59',
+                        'utf8mb4_general_ci',
+                        '3844432963',
+                        'row_format=REDUNDANT',
+                        'Test comment for "table1" in \'pma_test\'',
+                        'table1',
+                        'DBIdummy',
+                        '11',
+                        'Redundant',
+                        '123456',
+                        '42',
+                        '21708991',
+                        '281474976710655',// MyISAM
+                        '2048',// MyISAM
+                        '2547',
+                        '5',
+                        '2014-06-24 17:30:00',
+                        '2018-06-25 18:35:12',
+                        '2015-04-24 19:30:59',
+                        'utf8mb4_general_ci',
+                        '3844432963',
+                        'row_format=REDUNDANT',
+                        'Test comment for "table1" in \'pma_test\'',
+                    ]
+                ],
+            ],
+            [
+                'query'  => "SHOW TABLE STATUS FROM `table1` WHERE `Name` LIKE 'pma\_test%'",
+                'columns' => [
+                    'Name',
+                    'TABLE_TYPE',
+                    'Engine',
+                    'Type',
+                    'Version',
+                    'Row_format',
+                    'Rows',
+                    'Avg_row_length',
+                    'Data_length',
+                    'Max_data_length',
+                    'Index_length',
+                    'Data_free',
+                    'Auto_increment',
+                    'Create_time',
+                    'Update_time',
+                    'Check_time',
+                    'Collation',
+                    'Checksum',
+                    'Create_options',
+                    'Comment',
+                ],
+                'result' => [
+                    [
+                        'table1',
+                        'DBIdummy',
+                        '11',
+                        'Redundant',
+                        '123456',
+                        '42',
+                        '21708991',
+                        '281474976710655',// MyISAM
+                        '2048',// MyISAM
+                        '2547',
+                        '5',
+                        '2014-06-24 17:30:00',
+                        '2018-06-25 18:35:12',
+                        '2015-04-24 19:30:59',
+                        'utf8mb4_general_ci',
+                        '3844432963',
+                        'row_format=REDUNDANT',
+                        'Test comment for "table1" in \'pma_test\'',
+                    ]
+                ],
+            ],
+            [
+                'query'  => "SELECT *, CAST(BIN_NAME AS CHAR CHARACTER SET utf8) AS SCHEMA_NAME FROM (SELECT BINARY s.SCHEMA_NAME AS BIN_NAME, s.DEFAULT_COLLATION_NAME FROM `information_schema`.SCHEMATA s WHERE `SCHEMA_NAME` LIKE 'pma_test' GROUP BY BINARY s.SCHEMA_NAME, s.DEFAULT_COLLATION_NAME ORDER BY BINARY `SCHEMA_NAME` ASC) a",
+                'result' => [
+                    [
+                        'BIN_NAME' => 'pma_test',
+                        'DEFAULT_COLLATION_NAME' => 'utf8mb4_general_ci',
+                        'SCHEMA_NAME' => 'pma_test',
+                    ]
+                ],
+            ],
+            [
                 'query'  => "SELECT @@have_partitioning;",
                 'result' => [],
             ],
@@ -1325,6 +1481,18 @@ class DbiDummy implements DbiExtension
                 'query' => "SELECT *, `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`, `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment` FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'information_schema' AND `TABLE_NAME` = 'PMA'",
                 'result' => [],
             ],
+            [
+                'query' => "SELECT TABLE_NAME, COLUMN_NAME, REFERENCED_TABLE_NAME, REFERENCED_COLUMN_NAME FROM information_schema.key_column_usage WHERE referenced_table_name IS NOT NULL AND TABLE_SCHEMA = 'test' AND TABLE_NAME IN ('table1','table2') AND REFERENCED_TABLE_NAME IN ('table1','table2');",
+                'result' => [
+                    [
+                        'TABLE_NAME' => 'table2',
+                        'COLUMN_NAME' => 'idtable2',
+                        'REFERENCED_TABLE_NAME' => 'table1',
+                        'REFERENCED_COLUMN_NAME' => 'idtable1',
+                    ]
+                ],
+            ],
+
         ];
         /**
          * Current database.

@@ -35,15 +35,15 @@ class ExportRelationSchema
     protected $offline;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     protected $relation;
 
     /**
      * Constructor.
      *
-     * @param string $db      database name
-     * @param object $diagram schema diagram
+     * @param string                                       $db      database name
+     * @param Pdf\Pdf|Svg\Svg|Eps\Eps|Dia\Dia|Pdf\Pdf|null $diagram schema diagram
      */
     public function __construct($db, $diagram)
     {
@@ -51,7 +51,7 @@ class ExportRelationSchema
         $this->diagram = $diagram;
         $this->setPageNumber($_REQUEST['page_number']);
         $this->setOffline(isset($_REQUEST['offline_export']));
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -177,7 +177,7 @@ class ExportRelationSchema
      */
     public function setOrientation($value)
     {
-        $this->orientation = ($value == 'P') ? 'P' : 'L';
+        $this->orientation = $value == 'P' ? 'P' : 'L';
     }
 
     /**

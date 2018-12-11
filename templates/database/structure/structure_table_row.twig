@@ -14,8 +14,8 @@
     </th>
     {% if server_slave_status %}
         <td class="center">
-            {{ ignored ? Util_getImage('s_cancel', 'Not replicated'|trans) }}
-            {{ do ? Util_getImage('s_success', 'Replicated'|trans) }}
+            {{ ignored ? get_image('s_cancel', 'Not replicated'|trans) }}
+            {{ do ? get_image('s_success', 'Replicated'|trans) }}
         </td>
     {% endif %}
 
@@ -81,14 +81,14 @@
     {% if current_table['TABLE_ROWS'] is defined
         and (current_table['ENGINE'] != null or table_is_view) %}
         {# Get the row count #}
-        {% set row_count = Util_formatNumber(current_table['TABLE_ROWS'], 0) %}
+        {% set row_count = format_number(current_table['TABLE_ROWS'], 0) %}
 
         {# Content to be appended into 'tbl_rows' cell.
         If row count is approximate, display it as an anchor to get real count. #}
         <td class="value tbl_rows"
             data-table="{{ current_table['TABLE_NAME'] }}">
             {% if approx_rows %}
-                <a href="db_structure.php{{ Url_getCommon({
+                <a href="db_structure.php{{ get_common({
                     'ajax_request': true,
                     'db': db,
                     'table': current_table['TABLE_NAME'],

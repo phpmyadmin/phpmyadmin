@@ -150,7 +150,7 @@ class Triggers
                             htmlspecialchars($drop_item)
                         )
                         . '<br />'
-                        . __('MySQL said: ') . $this->dbi->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $result = $this->dbi->tryQuery($item_query);
                         if (! $result) {
@@ -159,7 +159,7 @@ class Triggers
                                 htmlspecialchars($item_query)
                             )
                             . '<br />'
-                            . __('MySQL said: ') . $this->dbi->getError(null);
+                            . __('MySQL said: ') . $this->dbi->getError();
                             // We dropped the old item, but were unable to create the
                             // new one. Try to restore the backup query.
                             $result = $this->dbi->tryQuery($create_item);
@@ -191,7 +191,7 @@ class Triggers
                             htmlspecialchars($item_query)
                         )
                         . '<br /><br />'
-                        . __('MySQL said: ') . $this->dbi->getError(null);
+                        . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $message = Message::success(
                             __('Trigger %1$s has been created.')
@@ -389,9 +389,9 @@ class Triggers
         $retval .= Url::getHiddenInputs($db, $table) . "\n";
         $retval .= "<fieldset>\n";
         $retval .= "<legend>" . __('Details') . "</legend>\n";
-        $retval .= "<table class='rte_table' style='width: 100%'>\n";
+        $retval .= "<table class='rte_table'>\n";
         $retval .= "<tr>\n";
-        $retval .= "    <td style='width: 20%;'>" . __('Trigger name') . "</td>\n";
+        $retval .= "    <td>" . __('Trigger name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' maxlength='64'\n";
         $retval .= "               value='{$item['item_name']}' /></td>\n";
         $retval .= "</tr>\n";

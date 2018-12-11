@@ -57,7 +57,7 @@ class EpsRelationSchemaTest extends PmaTestCase
             'relwork' => 'relwork',
             'relation' => 'relation'
         ];
-        $relation = new Relation();
+        $relation = new Relation($GLOBALS['dbi']);
         $relation->getRelationsParam();
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')

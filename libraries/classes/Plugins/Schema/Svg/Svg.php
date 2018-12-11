@@ -207,18 +207,18 @@ class Svg extends XMLWriter
      * and other elements who have x,y co-ordinates are drawn.
      * specify their width and height and can give styles too.
      *
-     * @param string     $name   RelationStatsSvg element name
-     * @param int        $x      The x attr defines the left position of the element
-     *                           (e.g. x="0" places the element 0 pixels from the
-     *                           left of the browser window)
-     * @param integer    $y      The y attribute defines the top position of the
-     *                           element (e.g. y="0" places the element 0 pixels
-     *                           from the top of the browser window)
-     * @param int|string $width  The width attribute defines the width the element
-     * @param int|string $height The height attribute defines the height the element
-     * @param string     $text   The text attribute defines the text the element
-     * @param string     $styles The style attribute defines the style the element
-     *                           styles can be defined like CSS styles
+     * @param string      $name   RelationStatsSvg element name
+     * @param int         $x      The x attr defines the left position of the element
+     *                            (e.g. x="0" places the element 0 pixels from the
+     *                            left of the browser window)
+     * @param integer     $y      The y attribute defines the top position of the
+     *                            element (e.g. y="0" places the element 0 pixels
+     *                            from the top of the browser window)
+     * @param int|string  $width  The width attribute defines the width the element
+     * @param int|string  $height The height attribute defines the height the element
+     * @param string|null $text   The text attribute defines the text the element
+     * @param string      $styles The style attribute defines the style the element
+     *                            styles can be defined like CSS styles
      *
      * @return void
      *
@@ -231,7 +231,7 @@ class Svg extends XMLWriter
         $y,
         $width = '',
         $height = '',
-        $text = '',
+        ?string $text = '',
         $styles = ''
     ) {
         $this->startElement($name);

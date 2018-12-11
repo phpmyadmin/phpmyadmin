@@ -25,16 +25,16 @@ use PhpMyAdmin\Util;
 class Navigation
 {
     /**
-     * @var Relation $relation
+     * @var Relation
      */
-    private $relation;
+    public $relation;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
     }
 
     /**
@@ -83,7 +83,7 @@ class Navigation
             }
             $retval .= '</div>'; //pma_navi_settings_container
             $retval .= '</div>'; // pma_navigation_content
-            if($GLOBALS['cfg']['enable_drag_drop_import'] === true) { //load drag drop handler only if configuration setting is set to true
+            if ($GLOBALS['cfg']['enable_drag_drop_import'] === true) { //load drag drop handler only if configuration setting is set to true
                 $retval .= $this->_getDropHandler();
             }
             $retval .= '</div>'; // pma_navigation
@@ -243,7 +243,7 @@ class Navigation
                         $html .= '<td style="width:80px"><a href="navigation.php'
                             . Url::getCommon($params) . '"'
                             . ' class="unhideNavItem ajax">'
-                            . Util::getIcon('show', __('Show'))
+                            . Util::getIcon('show', __('Unhide'))
                             . '</a></td>';
                     }
                     $html .= '</tbody></table>';

@@ -9,14 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\Charsets;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * PhpMyAdmin\CentralColumns class
  *
@@ -83,7 +75,7 @@ class CentralColumns
         $this->charEditing = $GLOBALS['cfg']['CharEditing'];
         $this->disableIs = (bool) $GLOBALS['cfg']['Server']['DisableIS'];
 
-        $this->relation = new Relation();
+        $this->relation = new Relation($this->dbi);
         $this->template = new Template();
     }
 
@@ -279,12 +271,12 @@ class CentralColumns
         }
         if (isset($def['Attribute'])) {
             $attribute = $def['Attribute'];
-        };
+        }
         $collation = isset($def['Collation']) ? $def['Collation'] : "";
-        $isNull = ($def['Null'] == "NO") ? '0' : '1';
+        $isNull = $def['Null'] == "NO" ? '0' : '1';
         $extra = isset($def['Extra']) ? $def['Extra'] : "";
         $default = isset($def['Default']) ? $def['Default'] : "";
-        $insQuery = 'INSERT INTO '
+        return 'INSERT INTO '
             . Util::backquote($central_list_table) . ' '
             . 'VALUES ( \'' . $this->dbi->escapeString($db) . '\' ,'
             . '\'' . $this->dbi->escapeString($column) . '\',\''
@@ -294,7 +286,6 @@ class CentralColumns
             . '\'' . $this->dbi->escapeString($isNull) . '\','
             . '\'' . implode(',', [$extra, $attribute])
             . '\',\'' . $this->dbi->escapeString($default) . '\');';
-        return $insQuery;
     }
 
     /**
@@ -928,7 +919,7 @@ class CentralColumns
      * @param string $pmaThemeImage pma theme image url
      * @param string $text_dir      url for text directory
      *
-     * @return string $html_output
+     * @return string
      */
     public function getTableFooter(string $pmaThemeImage, string $text_dir): string
     {
@@ -962,11 +953,10 @@ class CentralColumns
      */
     private function getEditTableFooter(): string
     {
-        $html_output = '<fieldset class="tblFooters">'
+        return '<fieldset class="tblFooters">'
             . '<input type="submit" '
             . 'name="save_multi_central_column_edit" value="' . __('Save') . '" />'
             . '</fieldset>';
-        return $html_output;
     }
 
     /**
@@ -1048,14 +1038,14 @@ class CentralColumns
      * @param int    $from starting offset of first result
      * @param int    $num  maximum number of results to return
      *
-     * @return array list of $num columns present in central columns list
+     * @return int count of $num columns present in central columns list
      * starting at offset $from for the given database
      */
     public function getColumnsCount(string $db, int $from = 0, int $num = 25): int
     {
         $cfgCentralColumns = $this->getParams();
         if (empty($cfgCentralColumns)) {
-            return [];
+            return 0;
         }
         $pmadb = $cfgCentralColumns['db'];
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
@@ -1076,6 +1066,33 @@ class CentralColumns
         }
 
         return -1;
+    }
+
+    /**
+     * build dropdown select html to select column in selected table,
+     * include only columns which are not already in central list
+     *
+     * @param string $db           current database to which selected table belongs
+     * @param string $selected_tbl selected table
+     *
+     * @return string html to select column
+     */
+    public function getHtmlForColumnDropdown($db, $selected_tbl)
+    {
+        $existing_cols = $this->getFromTable($db, $selected_tbl);
+        $this->dbi->selectDb($db);
+        $columns = (array) $this->dbi->getColumnNames(
+            $db, $selected_tbl
+        );
+        $selectColHtml = "";
+        foreach ($columns as $column) {
+            if (!in_array($column, $existing_cols)) {
+                $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
+                    . htmlspecialchars($column)
+                    . '</option>';
+            }
+        }
+        return $selectColHtml;
     }
 
     /**
@@ -1102,12 +1119,12 @@ class CentralColumns
 
         $tn_pageNow = ($pos / $this->maxRows) + 1;
         $tn_nbTotalPage = ceil($total_rows / $this->maxRows);
-        $tn_page_selector = ($tn_nbTotalPage > 1) ? (Util::pageselector(
+        $tn_page_selector = $tn_nbTotalPage > 1 ? Util::pageselector(
             'pos',
             $this->maxRows,
             $tn_pageNow,
             $tn_nbTotalPage
-        )) : '';
+        ) : '';
         $this->dbi->selectDb($db);
         $tables = $this->dbi->getTables($db);
         $rows_list = $this->getColumnsList($db, $pos, $max_rows);

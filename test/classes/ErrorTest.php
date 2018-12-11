@@ -98,8 +98,11 @@ class ErrorTest extends PmaTestCase
     public function filePathProvider()
     {
         return [
-            ['./ChangeLog', './ChangeLog'],
-            [__FILE__, './test/classes/ErrorTest.php'],
+            ['./ChangeLog', '.' . DIRECTORY_SEPARATOR . 'ChangeLog'],
+            [
+                __FILE__,
+                '.' . DIRECTORY_SEPARATOR . 'test' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'ErrorTest.php'
+            ],
             ['./NONEXISTING', 'NONEXISTING'],
         ];
     }

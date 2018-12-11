@@ -13,7 +13,6 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Relation;
-use PhpMyAdmin\SavedSearches;
 use PhpMyAdmin\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -217,7 +216,7 @@ class Qbe
     private $_currentSearch = null;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -248,8 +247,8 @@ class Qbe
         $this->_db = $dbname;
         $this->_savedSearchList = $savedSearchList;
         $this->_currentSearch = $currentSearch;
-        $this->relation = new Relation();
         $this->dbi = $dbi;
+        $this->relation = new Relation($this->dbi);
         $this->template = new Template();
 
         $this->_loadCriterias();
@@ -746,6 +745,7 @@ class Qbe
             ) {
                 continue;
             }
+            $tmp_criteria = '';
             if (isset($this->_criteria[$column_index])) {
                 $tmp_criteria = $this->_criteria[$column_index];
             }
@@ -824,12 +824,12 @@ class Qbe
         $numTableListOptions = 0;
         foreach ($this->_criteriaTables as $key => $val) {
             $options .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
-                . (str_replace(' ', '&nbsp;', htmlspecialchars($key))) . '</option>';
+                . str_replace(' ', '&nbsp;', htmlspecialchars($key)) . '</option>';
             $numTableListOptions++;
         }
         $html_output .= '<select name="TableList[]"'
             . ' multiple="multiple" id="listTable"'
-            . ' size="' . (($numTableListOptions > 30) ? '15' : '7') . '">';
+            . ' size="' . ($numTableListOptions > 30 ? '15' : '7') . '">';
         $html_output .= $options;
         $html_output .= '</select>';
         $html_output .= '</fieldset>';
@@ -1393,8 +1393,7 @@ class Qbe
         if (count($where_clause_tables) == 1) {
             // If there is exactly one column that has a decent where-clause
             // we will just use this
-            $master = key($where_clause_tables);
-            return $master;
+            return key($where_clause_tables);
         }
 
         // Now let's find out which of the tables has an index
@@ -1839,7 +1838,7 @@ class Qbe
         $html_output .= '</legend>';
         $text_dir = 'ltr';
         $html_output .= '<textarea cols="80" name="sql_query" id="textSqlquery"'
-            . ' rows="' . ((count($this->_criteriaTables) > 30) ? '15' : '7') . '"'
+            . ' rows="' . (count($this->_criteriaTables) > 30 ? '15' : '7') . '"'
             . ' dir="' . $text_dir . '">';
 
         if (empty($this->_formColumns)) {
@@ -1910,7 +1909,7 @@ class Qbe
      *
      * @return int Previous number of columns
      */
-    private function _initializeCriteriasCount()
+    private function _initializeCriteriasCount(): int
     {
         // sets column count
         $criteriaColumnCount = Core::ifSetOr(
@@ -1936,24 +1935,24 @@ class Qbe
             max($rows + $criteriaRowAdd, 0)
         );
 
-        return $criteriaColumnCount;
+        return (int) $criteriaColumnCount;
     }
 
     /**
      * Get best
      *
-     * @param array $search_tables        Tables involved in the search
-     * @param array $where_clause_columns Columns with where clause
-     * @param array $unique_columns       Unique columns
-     * @param array $index_columns        Indexed columns
+     * @param array      $search_tables        Tables involved in the search
+     * @param array|null $where_clause_columns Columns with where clause
+     * @param array|null $unique_columns       Unique columns
+     * @param array|null $index_columns        Indexed columns
      *
      * @return array
      */
     private function _getLeftJoinColumnCandidatesBest(
         array $search_tables,
-        array $where_clause_columns,
-        array $unique_columns,
-        array $index_columns
+        ?array $where_clause_columns,
+        ?array $unique_columns,
+        ?array $index_columns
     ) {
         // now we want to find the best.
         if (isset($unique_columns) && count($unique_columns) > 0) {

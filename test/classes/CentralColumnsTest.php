@@ -152,7 +152,7 @@ class CentralColumnsTest extends TestCase
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method->invokeArgs(
-            $object !== null ? $object : $this->centralColumns,
+            $object ?? $this->centralColumns,
             $params
         );
     }
@@ -712,6 +712,26 @@ class CentralColumnsTest extends TestCase
         $this->assertContains("With selected:", $result);
         $this->assertContains(
             '<button class="mult_submit change_central_columns"',
+            $result
+        );
+    }
+
+    /**
+     * Test for getHtmlForColumnDropdown
+     *
+     * @return void
+     */
+    public function testGetHtmlForColumnDropdown()
+    {
+        $db = 'PMA_db';
+        $selected_tbl = 'PMA_table';
+        $result = $this->centralColumns->getHtmlForColumnDropdown(
+            $db,
+            $selected_tbl
+        );
+        $this->assertEquals(
+            '<option value="id">id</option><option value="col1">col1</option>'
+            . '<option value="col2">col2</option>',
             $result
         );
     }

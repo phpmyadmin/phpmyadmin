@@ -44,16 +44,6 @@ class TrackingTest extends TestBase
         $this->dbQuery(
             "INSERT INTO `test_table` (val) VALUES (2), (3);"
         );
-    }
-
-    /**
-     * setUp function that can use the selenium session (called before each test)
-     *
-     * @return void
-     */
-    public function setUpPage()
-    {
-        parent::setUpPage();
 
         $this->login();
         $this->skipIfNotPMADB();
@@ -61,16 +51,16 @@ class TrackingTest extends TestBase
         $this->navigateDatabase($this->database_name);
         $this->expandMore();
 
-        $this->waitForElement('byPartialLinkText', "Tracking")->click();
+        $this->waitForElement('partialLinkText', "Tracking")->click();
         $this->waitAjax();
 
-        $this->waitForElement("byPartialLinkText", "Track table");
+        $this->waitForElement('partialLinkText', "Track table");
         $this->byXPath("(//a[contains(., 'Track table')])[1]")->click();
 
         $this->waitAjax();
-        $this->waitForElement("byName", "delete")->click();
+        $this->waitForElement('name', "delete")->click();
         $this->byCssSelector("input[value='Create version']")->click();
-        $this->waitForElement("byId", "versions");
+        $this->waitForElement('id', "versions");
     }
 
     /**
@@ -86,7 +76,7 @@ class TrackingTest extends TestBase
 
         $this->byPartialLinkText("Tracking report")->click();
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//h3[contains(., 'Tracking report')]"
         );
 
@@ -107,18 +97,21 @@ class TrackingTest extends TestBase
 
         $this->assertNotContains(
             "DELETE FROM test_table WHERE val = 3",
-            $this->byId("dml_versions")->text()
+            $this->byId("dml_versions")->getText()
         );
 
         // only structure
-        $this->select($this->byName("logtype"))
-            ->selectOptionByLabel("Structure only");
+        $this->selectByLabel(
+            $this->byName("logtype"),
+            'Structure only'
+        );
+
         $this->byCssSelector("input[value='Go']")->click();
 
         $this->waitAjax();
 
         $this->assertFalse(
-            $this->isElementPresent("byId", "dml_versions")
+            $this->isElementPresent('id', "dml_versions")
         );
 
         $this->assertContains(
@@ -132,14 +125,17 @@ class TrackingTest extends TestBase
         );
 
         // only data
-        $this->select($this->waitForElement('byName', "logtype"))
-            ->selectOptionByLabel("Data only");
+        $this->selectByLabel(
+            $this->waitForElement('name', "logtype"),
+            'Data only'
+        );
+
         $this->byCssSelector("input[value='Go']")->click();
 
         $this->waitAjax();
 
         $this->assertFalse(
-            $this->isElementPresent("byId", "ddl_versions")
+            $this->isElementPresent('id', "ddl_versions")
         );
 
         $this->assertContains(
@@ -149,7 +145,7 @@ class TrackingTest extends TestBase
 
         $this->assertNotContains(
             "DELETE FROM test_table WHERE val = 3",
-            $this->byId("dml_versions")->text()
+            $this->byId("dml_versions")->getText()
         );
     }
 
@@ -164,12 +160,12 @@ class TrackingTest extends TestBase
     {
         $this->byCssSelector("input[value='Deactivate now']")->click();
         $this->waitForElement(
-            "byCssSelector",
+            'cssSelector',
             "input[value='Activate now']"
         );
         $this->_executeSqlAndReturnToTableTracking();
         $this->assertFalse(
-            $this->isElementPresent("byId", "dml_versions")
+            $this->isElementPresent('id', "dml_versions")
         );
     }
 
@@ -188,23 +184,23 @@ class TrackingTest extends TestBase
         $this->byPartialLinkText("Tracking")->click();
 
         $this->waitAjax();
-        $this->waitForElement("byId", "versions");
+        $this->waitForElement('id', "versions");
 
         $ele = $this->waitForElement(
-            'byCssSelector',
+            'cssSelector',
             'table#versions tbody tr:nth-child(1) td:nth-child(7)'
         );
         $this->moveto($ele);
         $this->click();
 
         $this->waitForElement(
-            "byCssSelector",
+            'cssSelector',
             "button.submitOK"
         )->click();
 
         $this->waitAjax();
         $this->waitForElement(
-            "byXPath",
+            'xpath',
             "//div[@class='success' and contains(., "
             . "'Tracking data deleted successfully.')]"
         );
@@ -214,16 +210,16 @@ class TrackingTest extends TestBase
         $this->assertContains(
             'test_table',
             $this->waitForElement(
-                'byCssSelector',
+                'cssSelector',
                 'table#noversions tbody tr:nth-child(1) th:nth-child(2)'
-            )->text()
+            )->getText()
         );
         $this->assertContains(
             'test_table_2',
             $this->waitForElement(
-                'byCssSelector',
+                'cssSelector',
                 'table#noversions tbody tr:nth-child(2) th:nth-child(2)'
-            )->text()
+            )->getText()
         );
     }
 
@@ -237,7 +233,7 @@ class TrackingTest extends TestBase
     public function testStructureSnapshot()
     {
         $this->byPartialLinkText("Structure snapshot")->click();
-        $this->waitForElement("byId", "tablestructure");
+        $this->waitForElement('id', "tablestructure");
 
         $this->assertContains(
             "id",
@@ -270,18 +266,19 @@ class TrackingTest extends TestBase
         $this->byPartialLinkText("SQL")->click();
         $this->waitAjax();
 
-        $this->waitForElement("byId", "queryfieldscontainer");
+        $this->waitForElement('id', "queryfieldscontainer");
         $this->typeInTextArea(
             ";UPDATE test_table SET val = val + 1; "
             . "DELETE FROM test_table WHERE val = 3"
         );
+        $this->scrollToBottom();
         $this->byCssSelector("input[value='Go']")->click();
         $this->waitAjax();
-        $this->waitForElement("byClassName", "success");
+        $this->waitForElement('className', "success");
 
         $this->expandMore();
         $this->byPartialLinkText("Tracking")->click();
         $this->waitAjax();
-        $this->waitForElement("byId", "versions");
+        $this->waitForElement('id', "versions");
     }
 }

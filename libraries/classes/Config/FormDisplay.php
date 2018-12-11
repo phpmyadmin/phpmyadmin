@@ -16,12 +16,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Config;
 
-use PhpMyAdmin\Config\ConfigFile;
-use PhpMyAdmin\Config\Descriptions;
-use PhpMyAdmin\Config\Form;
-use PhpMyAdmin\Config\FormDisplayTemplate;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
-use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
@@ -231,7 +226,7 @@ class FormDisplay
      * @param array &$js                will be updated with javascript code
      * @param bool  $showButtons        whether show submit and reset button
      *
-     * @return string $htmlOutput
+     * @return string
      */
     private function _displayForms(
         $showRestoreDefault,
@@ -413,7 +408,7 @@ class FormDisplay
             'userprefs_comment' => Descriptions::get($systemPath, 'cmt')
         ];
         if (isset($form->default[$systemPath])) {
-            $opts['setvalue'] = $form->default[$systemPath];
+            $opts['setvalue'] = (string) $form->default[$systemPath];
         }
 
         if (isset($this->_errors[$workPath])) {
@@ -686,7 +681,8 @@ class FormDisplay
                         if (! $successfullyValidated) {
                             $this->_errors[$workPath][] = __('Incorrect value!');
                             $result = false;
-                            continue;
+                            // "continue" for the $form->fields foreach-loop
+                            continue 2;
                         }
                         break;
                     case 'string':

@@ -516,8 +516,8 @@ class Message
     /**
      * Real implementation of adding message
      *
-     * @param mixed  $message   to be added
-     * @param string $separator to use between this and previous string/message
+     * @param Message $message   to be added
+     * @param string  $separator to use between this and previous string/message
      *
      * @return void
      */
@@ -644,7 +644,7 @@ class Message
     /**
      * wrapper for sprintf()
      *
-     * @param mixed ... $params Params
+     * @param mixed[] ... $params Params
      * @return string formatted
      */
     public static function format(...$params): string

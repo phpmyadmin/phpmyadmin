@@ -9,10 +9,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
+use BaconQrCode\Renderer\Image\SvgImageBackEnd;
 use PhpMyAdmin\TwoFactor;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
-use PragmaRX\Google2FA\Google2FA;
+use PragmaRX\Google2FAQRCode\Google2FA;
 
 /**
  * HOTP and TOTP based two-factor authentication
@@ -38,7 +38,11 @@ class Application extends TwoFactorPlugin
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
-        $this->_google2fa = new Google2FA();
+        if (extension_loaded('imagick')) {
+            $this->_google2fa = new Google2FA();
+        } else {
+            $this->_google2fa = new Google2FA(new SvgImageBackEnd());
+        }
         $this->_google2fa->setWindow(8);
         if (!isset($this->_twofactor->config['settings']['secret'])) {
             $this->_twofactor->config['settings']['secret'] = '';
@@ -96,30 +100,16 @@ class Application extends TwoFactorPlugin
     public function setup()
     {
         $secret = $this->_twofactor->config['settings']['secret'];
-        $renderArray = ['secret' => $secret];
-        if (extension_loaded('gd')) {
-            $inlineUrl = $this->_google2fa->getQRCodeInline(
-                'phpMyAdmin (' . $this->getAppId(false) . ')',
-                $this->_twofactor->user,
-                $secret
-            );
-            $renderArray['image'] = $inlineUrl;
-        } else {
-            $inlineUrl = $this->_google2fa->getQRCodeUrl(
-                'phpMyAdmin (' . $this->getAppId(false) . ')',
-                $this->_twofactor->user,
-                $secret
-            );
-            trigger_error(
-                __(
-                    'The gd PHP extension was not found.'
-                    . ' The QRcode can not be displayed without the gd PHP extension.'
-                ),
-                E_USER_WARNING
-            );
-            $renderArray['url'] = $inlineUrl;
-        }
-        return $this->template->render('login/twofactor/application_configure', $renderArray);
+        $inlineUrl = $this->_google2fa->getQRCodeInline(
+            'phpMyAdmin (' . $this->getAppId(false) . ')',
+            $this->_twofactor->user,
+            $secret
+        );
+        return $this->template->render('login/twofactor/application_configure', [
+            'image' => $inlineUrl,
+            'secret' => $secret,
+            'has_imagick' => extension_loaded('imagick'),
+        ]);
     }
 
     /**

@@ -33,12 +33,12 @@ abstract class ExportPlugin
     protected $properties;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
-    protected $relation;
+    public $relation;
 
     /**
-     * @var Export $export
+     * @var Export
      */
     protected $export;
 
@@ -52,7 +52,7 @@ abstract class ExportPlugin
      */
     public function __construct()
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->export = new Export();
         $this->transformations = new Transformations();
     }
@@ -137,7 +137,6 @@ abstract class ExportPlugin
      */
     public function exportRoutines($db, array $aliases = [])
     {
-        ;
     }
 
     /**
@@ -149,7 +148,6 @@ abstract class ExportPlugin
      */
     public function exportEvents($db)
     {
-        ;
     }
 
     /**
@@ -187,7 +185,6 @@ abstract class ExportPlugin
         $dates = false,
         array $aliases = []
     ) {
-        ;
     }
 
     /**
@@ -204,7 +201,6 @@ abstract class ExportPlugin
         $tables,
         array $metadataTypes
     ) {
-        ;
     }
 
     /**
@@ -219,7 +215,6 @@ abstract class ExportPlugin
      */
     public function getTableDefStandIn($db, $view, $crlf, $aliases = [])
     {
-        ;
     }
 
     /**
@@ -232,7 +227,6 @@ abstract class ExportPlugin
      */
     protected function getTriggers($db, $table)
     {
-        ;
     }
 
     /**
@@ -242,7 +236,6 @@ abstract class ExportPlugin
      */
     protected function initSpecificVariables()
     {
-        ;
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

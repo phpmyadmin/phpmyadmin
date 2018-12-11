@@ -49,7 +49,7 @@ class Pdf extends PdfLib
     private $aliases;
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -90,7 +90,7 @@ class Pdf extends PdfLib
             $diskcache,
             $pdfa
         );
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->transformations = new Transformations();
     }
 
@@ -168,18 +168,17 @@ class Pdf extends PdfLib
             foreach ($this->tablewidths as $width) {
                 $fullwidth += $width;
             }
-            $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 5);
+            $this->SetY($this->tMargin - ($this->FontSizePt / $this->k) * 5);
             $this->cellFontSize = $this->FontSizePt;
             $this->SetFont(
                 PdfLib::PMA_PDF_FONT,
                 '',
                 ($this->titleFontSize
-                    ? $this->titleFontSize
-                    : $this->FontSizePt)
+                    ?: $this->FontSizePt)
             );
             $this->Cell(0, $this->FontSizePt, $this->titleText, 0, 1, 'C');
             $this->SetFont(PdfLib::PMA_PDF_FONT, '', $this->cellFontSize);
-            $this->SetY(($this->tMargin) - ($this->FontSizePt / $this->k) * 2.5);
+            $this->SetY($this->tMargin - ($this->FontSizePt / $this->k) * 2.5);
             $this->Cell(
                 0,
                 $this->FontSizePt,
@@ -190,25 +189,25 @@ class Pdf extends PdfLib
                 1,
                 'L'
             );
-            $l = ($this->lMargin);
+            $l = $this->lMargin;
             foreach ($this->colTitles as $col => $txt) {
-                $this->SetXY($l, ($this->tMargin));
+                $this->SetXY($l, $this->tMargin);
                 $this->MultiCell(
                     $this->tablewidths[$col],
                     $this->FontSizePt,
                     $txt
                 );
                 $l += $this->tablewidths[$col];
-                $maxY = ($maxY < $this->GetY()) ? $this->GetY() : $maxY;
+                $maxY = $maxY < $this->GetY() ? $this->GetY() : $maxY;
             }
             $this->SetXY($this->lMargin, $this->tMargin);
             $this->SetFillColor(200, 200, 200);
-            $l = ($this->lMargin);
+            $l = $this->lMargin;
             foreach ($this->colTitles as $col => $txt) {
                 $this->SetXY($l, $this->tMargin);
                 $this->Cell(
                     $this->tablewidths[$col],
-                    $maxY - ($this->tMargin),
+                    $maxY - $this->tMargin,
                     '',
                     1,
                     0,
@@ -307,8 +306,8 @@ class Pdf extends PdfLib
         for ($i = $startpage; $i <= $maxpage; $i++) {
             $this->page = $i;
             $l = $this->lMargin;
-            $t = ($i == $startpage) ? $startheight : $this->tMargin;
-            $lh = ($i == $maxpage) ? $h : $this->h - $this->bMargin;
+            $t = $i == $startpage ? $startheight : $this->tMargin;
+            $lh = $i == $maxpage ? $h : $this->h - $this->bMargin;
             $this->Line($l, $t, $l, $lh);
             foreach ($this->tablewidths as $width) {
                 $l += $width;
@@ -464,8 +463,8 @@ class Pdf extends PdfLib
         for ($i = $startpage; $i <= $maxpage; $i++) {
             $this->page = $i;
             $l = $this->lMargin;
-            $t = ($i == $startpage) ? $startheight : $this->tMargin;
-            $lh = ($i == $maxpage) ? $h : $this->h - $this->bMargin;
+            $t = $i == $startpage ? $startheight : $this->tMargin;
+            $lh = $i == $maxpage ? $h : $this->h - $this->bMargin;
             $this->Line($l, $t, $l, $lh);
             foreach ($this->tablewidths as $width) {
                 $l += $width;
@@ -634,7 +633,7 @@ class Pdf extends PdfLib
             }
             $data [] = $column['Field'];
             $data [] = $type;
-            $data [] = ($column['Null'] == '' || $column['Null'] == 'NO')
+            $data [] = $column['Null'] == '' || $column['Null'] == 'NO'
                 ? 'No'
                 : 'Yes';
             $data [] = isset($column['Default']) ? $column['Default'] : '';
@@ -705,8 +704,8 @@ class Pdf extends PdfLib
         for ($i = $startpage; $i <= $maxpage; $i++) {
             $this->page = $i;
             $l = $this->lMargin;
-            $t = ($i == $startpage) ? $startheight : $this->tMargin;
-            $lh = ($i == $maxpage) ? $h : $this->h - $this->bMargin;
+            $t = $i == $startpage ? $startheight : $this->tMargin;
+            $lh = $i == $maxpage ? $h : $this->h - $this->bMargin;
             $this->Line($l, $t, $l, $lh);
             foreach ($this->tablewidths as $width) {
                 $l += $width;

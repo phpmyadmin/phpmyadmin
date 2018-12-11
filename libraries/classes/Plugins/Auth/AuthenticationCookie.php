@@ -86,12 +86,32 @@ class AuthenticationCookie extends AuthenticationPlugin
         global $conn_error;
 
         $response = Response::getInstance();
-        if ($response->loginPage()) {
+
+        // When sending login modal after session has expired, send the new token explicitly with the response to update the token in all the forms having a hidden token.
+        $session_expired = isset($_REQUEST['check_timeout']) || isset($_REQUEST['session_timedout']);
+        if (!$session_expired && $response->loginPage()) {
             if (defined('TESTSUITE')) {
                 return true;
             } else {
                 exit;
             }
+        }
+
+        // When sending login modal after session has expired, send the new token explicitly with the response to update the token in all the forms having a hidden token.
+        if($session_expired) {
+            $response->setRequestStatus(false);
+            $response->addJSON(
+                'new_token',
+                $_SESSION[' PMA_token ']
+            );
+        }
+
+        // logged_in response parameter is used to check if the login, using the modal was successful after session expiration
+        if(isset($_REQUEST['session_timedout'])) {
+            $response->addJSON(
+                'logged_in',
+                0
+            );
         }
 
         // No recall if blowfish secret is not configured as it would produce
@@ -109,7 +129,14 @@ class AuthenticationCookie extends AuthenticationPlugin
             $autocomplete   = ' autocomplete="off"';
         }
 
-        echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme']]);
+        // wrap the login form in a div which overlays the whole page.
+        if($session_expired) {
+            echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'],
+                'add_class' => ' modal_form', 'session_expired' => 1]);
+        } else {
+            echo $this->template->render('login/header', ['theme' => $GLOBALS['PMA_Theme'],
+                'add_class' => '', 'session_expired' => 0]);
+        }
 
         if ($GLOBALS['cfg']['DBG']['demo']) {
             echo '<fieldset>';
@@ -148,10 +175,15 @@ class AuthenticationCookie extends AuthenticationPlugin
     <br />
     <!-- Login form -->
     <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
-            ' class="disableAjax login hide js-show">
+            ' class="' . ($session_expired ? "" : "disableAjax hide ") . 'login js-show">
         <fieldset>
         <legend>';
         echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '" />';
+
+        // Add a hidden element session_timedout which is used to check if the user requested login after session expiration
+        if($session_expired) {
+            echo '<input type="hidden" name="session_timedout" value="1" />';
+        }
         echo __('Log in');
         echo Util::showDocu('index');
         echo '</legend>';
@@ -236,8 +268,16 @@ class AuthenticationCookie extends AuthenticationPlugin
             $GLOBALS['error_handler']->dispErrors();
             echo '</div>';
         }
-        echo $this->template->render('login/footer');
+
+        // close the wrapping div tag, if the request is after session timeout
+        if($session_expired) {
+            echo $this->template->render('login/footer', ['session_expired' => 1]);
+        } else {
+            echo $this->template->render('login/footer', ['session_expired' => 0]);
+        }
+
         echo Config::renderFooter();
+
         if (! defined('TESTSUITE')) {
             exit;
         } else {
@@ -472,6 +512,7 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Name and password cookies need to be refreshed each time
         // Duration = one month for username
+
         $this->storeUsernameCookie($this->user);
 
         // Duration = as configured
@@ -480,27 +521,49 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (! isset($_POST['change_pw'])) {
             $this->storePasswordCookie($this->password);
         }
+        // URL where to go:
+        $redirect_url = './index.php';
 
+        // any parameters to pass?
+        $url_params = array();
+        if (strlen($GLOBALS['db']) > 0) {
+            $url_params['db'] = $GLOBALS['db'];
+        }
+        if (strlen($GLOBALS['table']) > 0) {
+            $url_params['table'] = $GLOBALS['table'];
+        }
+        // any target to pass?
+        if (! empty($GLOBALS['target'])
+            && $GLOBALS['target'] != 'index.php'
+        ) {
+            $url_params['target'] = $GLOBALS['target'];
+        }
+
+        // user logged in successfully after session expiration
+        if(isset($_REQUEST['session_timedout'])) {
+            $response = Response::getInstance();
+            $response->addJSON(
+                'logged_in',
+                1
+            );
+            $response->addJSON(
+                'success',
+                1
+            );
+            $response->addJSON(
+                'new_token',
+                $_SESSION[' PMA_token ']
+            );
+
+            if (! defined('TESTSUITE')) {
+                exit;
+            } else {
+                return false;
+            }
+        }
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
         if (! $GLOBALS['from_cookie']) {
-            // URL where to go:
-            $redirect_url = './index.php';
-
-            // any parameters to pass?
-            $url_params = [];
-            if (strlen($GLOBALS['db']) > 0) {
-                $url_params['db'] = $GLOBALS['db'];
-            }
-            if (strlen($GLOBALS['table']) > 0) {
-                $url_params['table'] = $GLOBALS['table'];
-            }
-            // any target to pass?
-            if (! empty($GLOBALS['target'])
-                && $GLOBALS['target'] != 'index.php'
-            ) {
-                $url_params['target'] = $GLOBALS['target'];
-            }
 
             /**
              * Clear user cache.

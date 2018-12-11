@@ -11,6 +11,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Plugins\Export\ExportTexytext;
+use PhpMyAdmin\Relation;
 use PhpMyAdmin\Tests\PmaTestCase;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -428,6 +429,7 @@ class ExportTexytextTest extends PmaTestCase
             ->will($this->returnValue([$columns]));
 
         $GLOBALS['dbi'] = $dbi;
+        $this->object->relation = new Relation($dbi);
 
         $this->object->expects($this->exactly(1))
             ->method('formatOneColumnDefinition')

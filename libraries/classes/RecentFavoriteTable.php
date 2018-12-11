@@ -9,12 +9,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Message;
-use PhpMyAdmin\Relation;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
-
 /**
  * Handles the recently used and favorite tables.
  *
@@ -50,7 +44,7 @@ class RecentFavoriteTable
     private static $_instances = [];
 
     /**
-     * @var Relation $relation
+     * @var Relation
      */
     private $relation;
 
@@ -63,7 +57,7 @@ class RecentFavoriteTable
      */
     private function __construct($type)
     {
-        $this->relation = new Relation();
+        $this->relation = new Relation($GLOBALS['dbi']);
         $this->_tableType = $type;
         $server_id = $GLOBALS['server'];
         if (! isset($_SESSION['tmpval'][$this->_tableType . '_tables'][$server_id])

@@ -13,9 +13,9 @@ use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\SqlParser\Components\Limit;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\Table;
-use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 /**
@@ -26,17 +26,17 @@ use PhpMyAdmin\Util;
 class TableChartController extends TableController
 {
     /**
-     * @var string $sql_query
+     * @var string
      */
     protected $sql_query;
 
     /**
-     * @var string $url_query
+     * @var string
      */
     protected $url_query;
 
     /**
-     * @var array $cfg
+     * @var array
      */
     protected $cfg;
 
@@ -209,6 +209,9 @@ class TableChartController extends TableController
         }
 
         $parser = new Parser($this->sql_query);
+        /**
+         * @var SelectStatement $statement
+         */
         $statement = $parser->statements[0];
         if (empty($statement->limit)) {
             $statement->limit = new Limit(

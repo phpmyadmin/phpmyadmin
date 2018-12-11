@@ -115,16 +115,21 @@ class ImportLdiTest extends PmaTestCase
      */
     public function testGetPropertiesAutoLdi()
     {
-        $this->dbi->expects($this->any())->method('tryQuery')
+        /**
+         * The \PhpMyAdmin\DatabaseInterface mocked object
+         * @var \PHPUnit\Framework\MockObject\MockObject $dbi
+         */
+        $dbi = $this->dbi;
+        $dbi->expects($this->any())->method('tryQuery')
             ->will($this->returnValue(true));
-        $this->dbi->expects($this->any())->method('numRows')
+        $dbi->expects($this->any())->method('numRows')
             ->will($this->returnValue(10));
 
         $fetchRowResult = ["ON"];
-        $this->dbi->expects($this->any())->method('fetchRow')
+        $dbi->expects($this->any())->method('fetchRow')
             ->will($this->returnValue($fetchRowResult));
 
-        $GLOBALS['dbi'] = $this->dbi;
+        $GLOBALS['dbi'] = $dbi;
 
         $GLOBALS['cfg']['Import']['ldi_local_option'] = 'auto';
         $this->object = new ImportLdi();
@@ -155,10 +160,14 @@ class ImportLdiTest extends PmaTestCase
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
-
-        $this->dbi->expects($this->any())->method('escapeString')
+        /**
+         * The \PhpMyAdmin\DatabaseInterface mocked object
+         * @var \PHPUnit\Framework\MockObject\MockObject $dbi
+         */
+        $dbi = $this->dbi;
+        $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
-        $GLOBALS['dbi'] = $this->dbi;
+        $GLOBALS['dbi'] = $dbi;
 
         //Test function called
         $this->object->doImport();
@@ -218,10 +227,14 @@ class ImportLdiTest extends PmaTestCase
         //$sql_query_disabled will show the import SQL detail
         global $sql_query, $sql_query_disabled;
         $sql_query_disabled = false;
-
-        $this->dbi->expects($this->any())->method('escapeString')
+        /**
+         * The \PhpMyAdmin\DatabaseInterface mocked object
+         * @var \PHPUnit\Framework\MockObject\MockObject $dbi
+         */
+        $dbi = $this->dbi;
+        $dbi->expects($this->any())->method('escapeString')
             ->will($this->returnArgument(0));
-        $GLOBALS['dbi'] = $this->dbi;
+        $GLOBALS['dbi'] = $dbi;
 
         $ldi_local_option = true;
         $ldi_replace = true;

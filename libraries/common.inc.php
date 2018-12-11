@@ -292,6 +292,8 @@ $GLOBALS['PMA_Config']->enableBc();
 
 ThemeManager::initializeTheme();
 
+$GLOBALS['dbi'] = null;
+
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * save some settings in cookies
@@ -302,7 +304,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     ThemeManager::getInstance()->setThemeCookie();
 
     if (! empty($cfg['Server'])) {
-
         /**
          * Loads the proper database interface for this server
          */

@@ -24,16 +24,18 @@ use PhpMyAdmin\Util;
 class UserPassword
 {
     /**
-     * @var Privileges $serverPrivileges
+     * @var Privileges
      */
     private $serverPrivileges;
 
     /**
-     * Constructor
+     * UserPassword constructor.
+     *
+     * @param Privileges $serverPrivileges Privileges object
      */
-    public function __construct()
+    public function __construct(Privileges $serverPrivileges)
     {
-        $this->serverPrivileges = new Privileges(new Template());
+        $this->serverPrivileges = $serverPrivileges;
     }
 
     /**
@@ -168,7 +170,7 @@ class UserPassword
     /**
      * Generate the hashing function
      *
-     * @return string  $hashing_function
+     * @return string
      */
     private function changePassHashingFunction()
     {
