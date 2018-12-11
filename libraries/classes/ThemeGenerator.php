@@ -23,6 +23,8 @@ use PhpMyAdmin\ThemeGenerator\Navigation;
  */
 class ThemeGenerator
 {
+    protected $template;
+
     /**
      * Constructor
      */

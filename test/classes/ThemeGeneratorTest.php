@@ -19,7 +19,8 @@ use PhpMyAdmin\Tests\PmaTestCase;
  */
 class ThemeGeneratorTest extends PmaTestCase
 {
-    var $ouput;
+    var $output;
+    protected $theme;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
