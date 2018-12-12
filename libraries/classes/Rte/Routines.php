@@ -160,7 +160,7 @@ class Routines
      */
     public function handleEditor()
     {
-        global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $errors;
+        global $db, $errors;
 
         $errors = $this->handleRequestCreateOrEdit($errors, $db);
         $response = Response::getInstance();
@@ -525,7 +525,7 @@ class Routines
      */
     public function getDataFromRequest()
     {
-        global $_REQUEST, $param_directions, $param_sqldataaccess;
+        global $param_directions, $param_sqldataaccess;
 
         $retval = [];
         $indices = ['item_name',
@@ -1149,7 +1149,7 @@ class Routines
      */
     public function getQueryFromRequest()
     {
-        global $_REQUEST, $errors, $param_sqldataaccess, $param_directions, $dbi;
+        global $errors, $param_sqldataaccess, $param_directions, $dbi;
 
         $_POST['item_type'] = isset($_POST['item_type'])
             ? $_POST['item_type'] : '';
@@ -1369,7 +1369,7 @@ class Routines
      */
     public function handleExecute()
     {
-        global $_GET, $_POST, $_REQUEST, $GLOBALS, $db;
+        global $db;
 
         $response = Response::getInstance();
 

@@ -71,8 +71,6 @@ class RoutinesTest extends TestCase
      */
     public function testGetDataFromRequest($in, $out)
     {
-        global $_POST;
-
         unset($_POST); unset($_REQUEST);
         foreach ($in as $key => $value) {
             if ($value !== '') {
@@ -1110,7 +1108,7 @@ class RoutinesTest extends TestCase
      */
     public function testGetQueryFromRequest($request, $query, $num_err)
     {
-        global $_POST, $errors, $cfg;
+        global $errors, $cfg;
 
         $cfg['ShowFunctionFields'] = false;
 

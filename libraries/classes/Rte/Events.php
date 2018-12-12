@@ -151,7 +151,7 @@ class Events
      */
     public function handleEditor()
     {
-        global $_REQUEST, $_POST, $errors, $db;
+        global $errors, $db;
 
         if (! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
@@ -596,7 +596,7 @@ class Events
      */
     public function getQueryFromRequest()
     {
-        global $_REQUEST, $errors, $event_status, $event_type, $event_interval;
+        global $errors, $event_status, $event_type, $event_interval;
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {

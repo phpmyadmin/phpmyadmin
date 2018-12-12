@@ -127,7 +127,7 @@ class Triggers
      */
     public function handleEditor()
     {
-        global $_REQUEST, $_POST, $errors, $db, $table;
+        global $errors, $db, $table;
 
         if (! empty($_POST['editor_process_add'])
             || ! empty($_POST['editor_process_edit'])
@@ -318,7 +318,7 @@ class Triggers
      */
     public function getDataFromName($name)
     {
-        global $db, $table, $_REQUEST;
+        global $db, $table;
 
         $temp = [];
         $items = $this->dbi->getTriggers($db, $table, '');
@@ -477,7 +477,7 @@ class Triggers
      */
     public function getQueryFromRequest()
     {
-        global $_REQUEST, $db, $errors, $action_timings, $event_manipulations;
+        global $db, $errors, $action_timings, $event_manipulations;
 
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {

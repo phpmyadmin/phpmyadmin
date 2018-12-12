@@ -77,8 +77,6 @@ class EventsTest extends TestCase
      */
     public function testGetDataFromRequestEmpty($in, $out)
     {
-        global $_POST;
-
         unset($_POST);
         foreach ($in as $key => $value) {
             if ($value !== '') {
@@ -413,7 +411,7 @@ class EventsTest extends TestCase
      */
     public function testGetQueryFromRequest($request, $query, $num_err)
     {
-        global $_POST, $errors;
+        global $errors;
 
         $errors = [];
         $this->events->setGlobals();
