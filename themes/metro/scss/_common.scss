@@ -356,6 +356,7 @@ h3 {
   font-family: $font-family-extra-bold;
   text-transform: uppercase;
   font-weight: normal;
+  font-size: 1rem;
 }
 
 a {
@@ -544,6 +545,8 @@ fieldset {
 
 legend {
   padding: 0 5px;
+  width: initial;
+  font-size: 1rem;
 }
 
 .some-margin {
@@ -1462,6 +1465,7 @@ div#tablestatistics table {
   color: $button-color;
   background: $navi-background;
   height: 15px;
+  box-sizing: content-box;
 
   .item {
     font-family: $font-family;

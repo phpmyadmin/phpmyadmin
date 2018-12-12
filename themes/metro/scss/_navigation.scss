@@ -76,6 +76,7 @@
     cursor: default;
     height: 15px;
     line-height: 100%;
+    box-sizing: content-box;
 
     &::after {
       font-family: $font-family-extra-bold;
@@ -108,6 +109,10 @@
     padding-bottom: 1em;
     text-align: center;
     background-color: $border-color;
+
+    a {
+      box-sizing: content-box;
+    }
   }
 }
 
@@ -232,6 +237,7 @@ img {
 #pma_navigation_tree {
   a {
     color: $navi-color;
+    padding-left: 0;
 
     &:hover {
       text-decoration: none;
@@ -240,6 +246,8 @@ img {
   }
 
   li {
+    margin-bottom: 0;
+
     &.activePointer,
     &.selected {
       color: $th-color;

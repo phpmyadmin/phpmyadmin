@@ -58,6 +58,7 @@ h2 {
 
 h3 {
   font-weight: bold;
+  font-size: 1rem;
 }
 
 a {
@@ -157,6 +158,8 @@ fieldset {
     font-weight: bold;
     color: #444;
     background-color: transparent;
+    width: initial;
+    font-size: 1rem;
   }
 }
 
@@ -1022,6 +1025,7 @@ div#tablestatistics table {
   padding-bottom: 0.5em;
   width: 10000px;
   overflow: hidden;
+  box-sizing: content-box;
 
   .item {
     white-space: nowrap;
