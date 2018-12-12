@@ -78,16 +78,16 @@ class UserPassword
         $error = false;
         $message = Message::success(__('The profile has been updated.'));
 
-        if (($_REQUEST['nopass'] != '1')) {
-            if (strlen($_REQUEST['pma_pw']) === 0 || strlen($_REQUEST['pma_pw2']) === 0) {
+        if (($_POST['nopass'] != '1')) {
+            if (strlen($_POST['pma_pw']) === 0 || strlen($_POST['pma_pw2']) === 0) {
                 $message = Message::error(__('The password is empty!'));
                 $error = true;
-            } elseif ($_REQUEST['pma_pw'] !== $_REQUEST['pma_pw2']) {
+            } elseif ($_POST['pma_pw'] !== $_POST['pma_pw2']) {
                 $message = Message::error(
                     __('The passwords aren\'t the same!')
                 );
                 $error = true;
-            } elseif (strlen($_REQUEST['pma_pw']) > 256) {
+            } elseif (strlen($_POST['pma_pw']) > 256) {
                 $message = Message::error(__('Password is too long!'));
                 $error = true;
             }
@@ -115,10 +115,10 @@ class UserPassword
         $serverType = Util::getServerType();
         $serverVersion = $GLOBALS['dbi']->getVersion();
 
-        if (isset($_REQUEST['authentication_plugin'])
-            && ! empty($_REQUEST['authentication_plugin'])
+        if (isset($_POST['authentication_plugin'])
+            && ! empty($_POST['authentication_plugin'])
         ) {
-            $orig_auth_plugin = $_REQUEST['authentication_plugin'];
+            $orig_auth_plugin = $_POST['authentication_plugin'];
         } else {
             $orig_auth_plugin = $this->serverPrivileges->getCurrentAuthenticationPlugin(
                 'change',
@@ -175,7 +175,7 @@ class UserPassword
     private function changePassHashingFunction()
     {
         if (Core::isValid(
-            $_REQUEST['authentication_plugin'],
+            $_POST['authentication_plugin'],
             'identical',
             'mysql_old_password'
         )) {

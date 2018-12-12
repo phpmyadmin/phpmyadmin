@@ -60,15 +60,15 @@ class ServerBinlogController extends Controller
         include_once 'libraries/server_common.inc.php';
 
         $url_params = [];
-        if (! isset($_REQUEST['log'])
-            || ! array_key_exists($_REQUEST['log'], $this->binary_logs)
+        if (! isset($_POST['log'])
+            || ! array_key_exists($_POST['log'], $this->binary_logs)
         ) {
-            $_REQUEST['log'] = '';
+            $_POST['log'] = '';
         } else {
-            $url_params['log'] = $_REQUEST['log'];
+            $url_params['log'] = $_POST['log'];
         }
 
-        if (!empty($_REQUEST['dontlimitchars'])) {
+        if (!empty($_POST['dontlimitchars'])) {
             $url_params['dontlimitchars'] = 1;
         }
 
@@ -93,7 +93,7 @@ class ServerBinlogController extends Controller
         return $this->template->render('server/binlog/log_selector', [
             'url_params' => $url_params,
             'binary_logs' => $this->binary_logs,
-            'log' => $_REQUEST['log'],
+            'log' => $_POST['log'],
         ]);
     }
 
@@ -109,16 +109,16 @@ class ServerBinlogController extends Controller
         /**
          * Need to find the real end of rows?
          */
-        if (! isset($_REQUEST['pos'])) {
+        if (! isset($_POST['pos'])) {
             $pos = 0;
         } else {
             /* We need this to be a integer */
-            $pos = (int) $_REQUEST['pos'];
+            $pos = (int) $_POST['pos'];
         }
 
         $sql_query = 'SHOW BINLOG EVENTS';
-        if (! empty($_REQUEST['log'])) {
-            $sql_query .= ' IN \'' . $_REQUEST['log'] . '\'';
+        if (! empty($_POST['log'])) {
+            $sql_query .= ' IN \'' . $_POST['log'] . '\'';
         }
         $sql_query .= ' LIMIT ' . $pos . ', ' . intval($GLOBALS['cfg']['MaxRows']);
 
@@ -137,7 +137,7 @@ class ServerBinlogController extends Controller
             $num_rows = 0;
         }
 
-        if (empty($_REQUEST['dontlimitchars'])) {
+        if (empty($_POST['dontlimitchars'])) {
             $dontlimitchars = false;
         } else {
             $dontlimitchars = true;
@@ -195,8 +195,8 @@ class ServerBinlogController extends Controller
                 $this_url_params['pos'] = $pos - $GLOBALS['cfg']['MaxRows'];
             }
 
-            $html .= '<a href="server_binlog.php'
-                . Url::getCommon($this_url_params) . '"';
+            $html .= '<a href="server_binlog.php" data-post="'
+                . Url::getCommon($this_url_params, '') . '"';
             if (Util::showIcons('TableNavigationLinksMode')) {
                 $html .= ' title="' . _pgettext('Previous page', 'Previous') . '">';
             } else {
@@ -218,7 +218,7 @@ class ServerBinlogController extends Controller
             $tempTitle = __('Show Full Queries');
             $tempImgMode = 'full';
         }
-        $html .= '<a href="server_binlog.php' . Url::getCommon($this_url_params)
+        $html .= '<a href="server_binlog.php" data-post="' . Url::getCommon($this_url_params, '')
             . '" title="' . $tempTitle . '">'
             . '<img src="' . $GLOBALS['pmaThemeImage'] . 's_' . $tempImgMode
             . 'text.png" alt="' . $tempTitle . '" /></a>';
@@ -228,8 +228,8 @@ class ServerBinlogController extends Controller
         if ($num_rows >= $GLOBALS['cfg']['MaxRows']) {
             $this_url_params = $url_params;
             $this_url_params['pos'] = $pos + $GLOBALS['cfg']['MaxRows'];
-            $html .= ' - <a href="server_binlog.php'
-                . Url::getCommon($this_url_params)
+            $html .= ' - <a href="server_binlog.php" data-post="'
+                . Url::getCommon($this_url_params, '')
                 . '"';
             if (Util::showIcons('TableNavigationLinksMode')) {
                 $html .= ' title="' . _pgettext('Next page', 'Next') . '">';

@@ -686,7 +686,7 @@ AJAX.registerOnload('server_status_monitor.js', function () {
                 $.extend(vars, getvars);
             }
 
-            $.get('server_status_monitor.php' + PMA_commonParams.get('common_query'), vars,
+            $.post('server_status_monitor.php' + PMA_commonParams.get('common_query'), vars,
                 function (data) {
                     var logVars;
                     if (typeof data !== 'undefined' && data.success === true) {
@@ -1591,9 +1591,10 @@ AJAX.registerOnload('server_status_monitor.js', function () {
             buttons: dlgBtns
         });
 
-
-        logRequest = $.get('server_status_monitor.php' + PMA_commonParams.get('common_query'),
-            {   ajax_request: true,
+        logRequest = $.post(
+            'server_status_monitor.php' + PMA_commonParams.get('common_query'),
+            {
+                ajax_request: true,
                 log_data: 1,
                 type: opts.src,
                 time_start: Math.round(opts.start / 1000),

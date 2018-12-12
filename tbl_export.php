@@ -31,7 +31,7 @@ $cfgRelation = $relation->getRelationsParam();
 $displayExport = new Export();
 
 // handling export template actions
-if (isset($_REQUEST['templateAction']) && $cfgRelation['exporttemplateswork']) {
+if (isset($_POST['templateAction']) && $cfgRelation['exporttemplateswork']) {
     $displayExport->handleTemplateActions($cfgRelation);
     exit;
 }

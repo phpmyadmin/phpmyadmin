@@ -32,12 +32,12 @@ require_once 'libraries/common.inc.php';
 
 $import = new Import();
 
-if (isset($_REQUEST['show_as_php'])) {
-    $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
+if (isset($_POST['show_as_php'])) {
+    $GLOBALS['show_as_php'] = $_POST['show_as_php'];
 }
 
 // If there is a request to 'Simulate DML'.
-if (isset($_REQUEST['simulate_dml'])) {
+if (isset($_POST['simulate_dml'])) {
     $import->handleSimulateDmlRequest();
     exit;
 }
@@ -47,7 +47,7 @@ $response = Response::getInstance();
 $sql = new Sql();
 
 // If it's a refresh console bookmarks request
-if (isset($_REQUEST['console_bookmark_refresh'])) {
+if (isset($_GET['console_bookmark_refresh'])) {
     $response->addJSON(
         'console_message_bookmark',
         PhpMyAdmin\Console::getBookmarkContent()
@@ -55,18 +55,18 @@ if (isset($_REQUEST['console_bookmark_refresh'])) {
     exit;
 }
 // If it's a console bookmark add request
-if (isset($_REQUEST['console_bookmark_add'])) {
-    if (isset($_REQUEST['label']) && isset($_REQUEST['db'])
-        && isset($_REQUEST['bookmark_query']) && isset($_REQUEST['shared'])
+if (isset($_POST['console_bookmark_add'])) {
+    if (isset($_POST['label']) && isset($_POST['db'])
+        && isset($_POST['bookmark_query']) && isset($_POST['shared'])
     ) {
         $cfgBookmark = Bookmark::getParams($GLOBALS['cfg']['Server']['user']);
         $bookmarkFields = [
-            'bkm_database' => $_REQUEST['db'],
+            'bkm_database' => $_POST['db'],
             'bkm_user'  => $cfgBookmark['user'],
-            'bkm_sql_query' => $_REQUEST['bookmark_query'],
-            'bkm_label' => $_REQUEST['label']
+            'bkm_sql_query' => $_POST['bookmark_query'],
+            'bkm_label' => $_POST['label']
         ];
-        $isShared = ($_REQUEST['shared'] == 'true' ? true : false);
+        $isShared = ($_POST['shared'] == 'true' ? true : false);
         $bookmark = Bookmark::createBookmark(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['user'],
@@ -128,11 +128,11 @@ $import_text = '';
 // (eg. non import, but query box/window run)
 if (! empty($sql_query)) {
     // apply values for parameters
-    if (! empty($_REQUEST['parameterized'])
-        && ! empty($_REQUEST['parameters'])
-        && is_array($_REQUEST['parameters'])
+    if (! empty($_POST['parameterized'])
+        && ! empty($_POST['parameters'])
+        && is_array($_POST['parameters'])
     ) {
-        $parameters = $_REQUEST['parameters'];
+        $parameters = $_POST['parameters'];
         foreach ($parameters as $parameter => $replacement) {
             $quoted = preg_quote($parameter, '/');
             // making sure that :param does not apply values to :param1
@@ -157,7 +157,7 @@ if (! empty($sql_query)) {
     $_SESSION['sql_from_query_box'] = true;
 
     // If there is a request to ROLLBACK when finished.
-    if (isset($_REQUEST['rollback_query'])) {
+    if (isset($_POST['rollback_query'])) {
         $import->handleRollbackRequest($import_text);
     }
 
@@ -195,7 +195,7 @@ if (! empty($sql_query)) {
     $import_type = 'queryfile';
     $format = 'sql';
     unset($sql_file);
-} elseif (! empty($_REQUEST['id_bookmark'])) {
+} elseif (! empty($_POST['id_bookmark'])) {
     // run bookmark
     $import_type = 'query';
     $format = 'sql';
@@ -309,7 +309,7 @@ if (! empty($cfg['MemoryLimit'])) {
 }
 
 $timestamp = time();
-if (isset($_REQUEST['allow_interrupt'])) {
+if (isset($_POST['allow_interrupt'])) {
     $maximum_time = ini_get('max_execution_time');
 } else {
     $maximum_time = 0;
@@ -335,9 +335,9 @@ $result = false;
 $msg = 'Sorry an unexpected error happened!';
 
 // Bookmark Support: get a query back from bookmark if required
-if (! empty($_REQUEST['id_bookmark'])) {
-    $id_bookmark = (int)$_REQUEST['id_bookmark'];
-    switch ($_REQUEST['action_bookmark']) {
+if (! empty($_POST['id_bookmark'])) {
+    $id_bookmark = (int)$_POST['id_bookmark'];
+    switch ($_POST['action_bookmark']) {
         case 0: // bookmarked query that have to be run
             $bookmark = Bookmark::get(
                 $GLOBALS['dbi'],
@@ -345,12 +345,12 @@ if (! empty($_REQUEST['id_bookmark'])) {
                 $db,
                 $id_bookmark,
                 'id',
-                isset($_REQUEST['action_bookmark_all'])
+                isset($_POST['action_bookmark_all'])
             );
 
-            if (! empty($_REQUEST['bookmark_variable'])) {
+            if (! empty($_POST['bookmark_variable'])) {
                 $import_text = $bookmark->applyVariables(
-                    $_REQUEST['bookmark_variable']
+                    $_POST['bookmark_variable']
                 );
             } else {
                 $import_text = $bookmark->getQuery();
@@ -387,7 +387,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
                 $response->setRequestStatus($message->isSuccess());
                 $response->addJSON('message', $message);
                 $response->addJSON('sql_query', $import_text);
-                $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
+                $response->addJSON('action_bookmark', $_POST['action_bookmark']);
                 exit;
             } else {
                 $run_query = false;
@@ -408,7 +408,7 @@ if (! empty($_REQUEST['id_bookmark'])) {
                     );
                     $response->setRequestStatus($message->isSuccess());
                     $response->addJSON('message', $message);
-                    $response->addJSON('action_bookmark', $_REQUEST['action_bookmark']);
+                    $response->addJSON('action_bookmark', $_POST['action_bookmark']);
                     $response->addJSON('id_bookmark', $id_bookmark);
                     exit;
                 } else {
@@ -580,11 +580,11 @@ if ($reset_charset) {
 }
 
 // Show correct message
-if (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 2) {
+if (! empty($id_bookmark) && $_POST['action_bookmark'] == 2) {
     $message = PhpMyAdmin\Message::success(__('The bookmark has been deleted.'));
     $display_query = $import_text;
     $error = false; // unset error marker, it was used just to skip processing
-} elseif (! empty($id_bookmark) && $_REQUEST['action_bookmark'] == 1) {
+} elseif (! empty($id_bookmark) && $_POST['action_bookmark'] == 1) {
     $message = PhpMyAdmin\Message::notice(__('Showing bookmark'));
 } elseif ($bookmark_created) {
     $special_message = '[br]' . sprintf(
@@ -790,6 +790,6 @@ if ($go_sql) {
 }
 
 // If there is request for ROLLBACK in the end.
-if (isset($_REQUEST['rollback_query'])) {
+if (isset($_POST['rollback_query'])) {
     $GLOBALS['dbi']->query('ROLLBACK');
 }

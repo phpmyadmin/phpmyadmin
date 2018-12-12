@@ -68,7 +68,7 @@ class BrowseForeignersTest extends TestCase
             $this->browseForeigners->getForeignLimit(null)
         );
 
-        $_REQUEST['pos'] = 10;
+        $_POST['pos'] = 10;
 
         $this->assertEquals(
             'LIMIT 10, 25 ',
@@ -109,7 +109,7 @@ class BrowseForeignersTest extends TestCase
             )
         );
 
-        $_REQUEST['pos'] = 15;
+        $_POST['pos'] = 15;
         $foreignData = [];
         $foreignData['disp_row'] = [];
         $foreignData['the_total'] = 5;
@@ -198,8 +198,8 @@ class BrowseForeignersTest extends TestCase
         $foreignData['disp_row'] = '';
         $fieldkey = 'bar';
         $current_value = '';
-        $_REQUEST['rownumber'] = 1;
-        $_REQUEST['foreign_filter'] = '5';
+        $_POST['rownumber'] = 1;
+        $_POST['foreign_filter'] = '5';
         $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
             $db,
             $table,

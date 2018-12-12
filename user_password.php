@@ -52,11 +52,11 @@ if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
  * If the "change password" form has been submitted, checks for valid values
  * and submit the query or logout
  */
-if (isset($_REQUEST['nopass'])) {
-    if ($_REQUEST['nopass'] == '1') {
+if (isset($_POST['nopass'])) {
+    if ($_POST['nopass'] == '1') {
         $password = '';
     } else {
-        $password = $_REQUEST['pma_pw'];
+        $password = $_POST['pma_pw'];
     }
     $change_password_message = $userPassword->setChangePasswordMsg();
     $msg = $change_password_message['msg'];

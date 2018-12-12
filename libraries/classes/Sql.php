@@ -241,10 +241,10 @@ class Sql
             ];
 
             $dropdown = '<span class="curr_value">'
-                . htmlspecialchars($_REQUEST['curr_value'])
+                . htmlspecialchars($_POST['curr_value'])
                 . '</span>'
-                . '<a href="browse_foreigners.php'
-                . Url::getCommon($_url_params) . '"'
+                . '<a href="browse_foreigners.php" data-post="'
+                . Url::getCommon($_url_params, '') . '"'
                 . 'class="ajax browse_foreign" ' . '>'
                 . __('Browse foreign values')
                 . '</a>';
@@ -496,9 +496,9 @@ EOT;
         $values = $this->getValuesForColumn($db, $table, $column);
         $dropdown = '';
         $full_values =
-            isset($_REQUEST['get_full_values']) ? $_REQUEST['get_full_values'] : false;
+            isset($_POST['get_full_values']) ? $_POST['get_full_values'] : false;
         $where_clause =
-            isset($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : null;
+            isset($_POST['where_clause']) ? $_POST['where_clause'] : null;
 
         // If the $curr_value was truncated, we should
         // fetch the correct full values from the table
@@ -783,7 +783,7 @@ EOT;
      */
     private function setColumnProperty($pmatable, $request_index)
     {
-        $property_value = array_map('intval', explode(',', $_REQUEST[$request_index]));
+        $property_value = array_map('intval', explode(',', $_POST[$request_index]));
         switch ($request_index) {
             case 'col_order':
                 $property_to_set = Table::PROP_COLUMN_ORDER;
@@ -797,7 +797,7 @@ EOT;
         $retval = $pmatable->setUiProp(
             $property_to_set,
             $property_value,
-            $_REQUEST['table_create_time']
+            $_POST['table_create_time']
         );
         if (gettype($retval) != 'boolean') {
             $response = Response::getInstance();
@@ -823,12 +823,12 @@ EOT;
         $retval = false;
 
         // set column order
-        if (isset($_REQUEST['col_order'])) {
+        if (isset($_POST['col_order'])) {
             $retval = $this->setColumnProperty($pmatable, 'col_order');
         }
 
         // set column visibility
-        if ($retval === true && isset($_REQUEST['col_visib'])) {
+        if ($retval === true && isset($_POST['col_visib'])) {
             $retval = $this->setColumnProperty($pmatable, 'col_visib');
         }
 
@@ -905,14 +905,14 @@ EOT;
      */
     public function getRelationalValues($db, $table)
     {
-        $column = $_REQUEST['column'];
+        $column = $_POST['column'];
         if ($_SESSION['tmpval']['relational_display'] == 'D'
-            && isset($_REQUEST['relation_key_or_display_column'])
-            && $_REQUEST['relation_key_or_display_column']
+            && isset($_POST['relation_key_or_display_column'])
+            && $_POST['relation_key_or_display_column']
         ) {
-            $curr_value = $_REQUEST['relation_key_or_display_column'];
+            $curr_value = $_POST['relation_key_or_display_column'];
         } else {
-            $curr_value = $_REQUEST['curr_value'];
+            $curr_value = $_POST['curr_value'];
         }
         $dropdown = $this->getHtmlForRelationalColumnDropdown(
             $db,
@@ -936,8 +936,8 @@ EOT;
      */
     public function getEnumOrSetValues($db, $table, $columnType)
     {
-        $column = $_REQUEST['column'];
-        $curr_value = $_REQUEST['curr_value'];
+        $column = $_POST['column'];
+        $curr_value = $_POST['curr_value'];
         $response = Response::getInstance();
         if ($columnType == "enum") {
             $dropdown = $this->getHtmlForEnumColumnDropdown(
@@ -1374,11 +1374,11 @@ EOT;
             $this->cleanupRelations(
                 isset($db) ? $db : '',
                 isset($table) ? $table : '',
-                isset($_REQUEST['dropped_column']) ? $_REQUEST['dropped_column'] : null,
-                isset($_REQUEST['purge']) ? $_REQUEST['purge'] : null
+                isset($_POST['dropped_column']) ? $_POST['dropped_column'] : null,
+                isset($_POST['purge']) ? $_POST['purge'] : null
             );
 
-            if (isset($_REQUEST['dropped_column'])
+            if (isset($_POST['dropped_column'])
                 && strlen($db) > 0
                 && strlen($table) > 0
             ) {
@@ -1496,7 +1496,7 @@ EOT;
         }
 
         // In case of ROLLBACK, notify the user.
-        if (isset($_REQUEST['rollback_query'])) {
+        if (isset($_POST['rollback_query'])) {
             $message->addText(__('[ROLLBACK occurred.]'));
         }
 
@@ -1740,9 +1740,9 @@ EOT;
         array $analyzed_sql_results,
         $is_limited_display = false
     ) {
-        $printview = isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1' ? '1' : null;
+        $printview = isset($_POST['printview']) && $_POST['printview'] == '1' ? '1' : null;
         $table_html = '';
-        $browse_dist = ! empty($_REQUEST['is_browse_distinct']);
+        $browse_dist = ! empty($_POST['is_browse_distinct']);
 
         if ($analyzed_sql_results['is_procedure']) {
             do {
@@ -2009,7 +2009,7 @@ EOT;
         global $showtable, $url_query;
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
-        if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
+        if (isset($_POST['grid_edit']) && $_POST['grid_edit'] == true) {
             $this->sendResponseForGridEdit($result);
             // script has exited at this point
         }
@@ -2090,7 +2090,7 @@ EOT;
                 'pview_lnk' => '1'
             ];
         }
-        if (isset($_REQUEST['printview']) && $_REQUEST['printview'] == '1') {
+        if (isset($_POST['printview']) && $_POST['printview'] == '1') {
             $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
@@ -2102,7 +2102,7 @@ EOT;
             ];
         }
 
-        if (isset($_REQUEST['table_maintenance'])) {
+        if (isset($_POST['table_maintenance'])) {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
             $table_maintenance_html = '';
@@ -2132,7 +2132,7 @@ EOT;
             }
         }
 
-        if (!isset($_REQUEST['printview']) || $_REQUEST['printview'] != '1') {
+        if (!isset($_POST['printview']) || $_POST['printview'] != '1') {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
             unset($GLOBALS['message']);
@@ -2357,7 +2357,7 @@ EOT;
         if (! empty($analyzed_sql_results)
             && $this->isRememberSortingOrder($analyzed_sql_results)
             && empty($analyzed_sql_results['union'])
-            && ! isset($_REQUEST['sort_by_key'])
+            && ! isset($_POST['sort_by_key'])
         ) {
             if (! isset($_SESSION['sql_from_query_box'])) {
                 $this->handleSortOrder($db, $table, $analyzed_sql_results, $sql_query);

@@ -77,12 +77,12 @@ class EventsTest extends TestCase
      */
     public function testGetDataFromRequestEmpty($in, $out)
     {
-        global $_REQUEST;
+        global $_POST;
 
-        unset($_REQUEST);
+        unset($_POST);
         foreach ($in as $key => $value) {
             if ($value !== '') {
-                $_REQUEST[$key] = $value;
+                $_POST[$key] = $value;
             }
         }
         $this->assertEquals($out, $this->events->getDataFromRequest());
@@ -413,13 +413,13 @@ class EventsTest extends TestCase
      */
     public function testGetQueryFromRequest($request, $query, $num_err)
     {
-        global $_REQUEST, $errors;
+        global $_POST, $errors;
 
         $errors = [];
         $this->events->setGlobals();
 
-        unset($_REQUEST);
-        $_REQUEST = $request;
+        unset($_POST);
+        $_POST = $request;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()

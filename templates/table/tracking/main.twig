@@ -56,23 +56,27 @@
                             <td>{% trans 'not active' %}</td>
                         {% endif %}
                         <td>
-                            <a class="delete_version_anchor ajax" href="tbl_tracking.php{{- url_query|raw -}}&version=
-                                {{- version['version']|escape -}}&submit_delete_version=true">
+                            <a class="delete_version_anchor ajax" href="tbl_tracking.php" data-post="
+                                {{- get_common(url_params|merge({
+                                    'version': version['version'],
+                                    'submit_delete_version': true
+                                }), '') }}">
                                 {{ get_icon('b_drop', 'Delete version'|trans) }}
                             </a>
                         </td>
                         <td>
-                            <a href="tbl_tracking.php
-                                {{- get_common(
-                                    url_params|merge({'report': 'true', 'version': version['version']})
-                                ) -}}">
+                            <a href="tbl_tracking.php" data-post="
+                                {{- get_common(url_params|merge({
+                                    'version': version['version'],
+                                    'report': 'true'
+                                }), '') }}">
                                 {{ get_icon('b_report', 'Tracking report'|trans) }}
                             </a>
-                            &nbsp;&nbsp;
-                            <a href="tbl_tracking.php
-                                {{- get_common(
-                                    url_params|merge({'snapshot': 'true', 'version': version['version']})
-                                ) -}}">
+                            <a href="tbl_tracking.php" data-post="
+                                {{- get_common(url_params|merge({
+                                    'version': version['version'],
+                                    'snapshot': 'true'
+                                }), '') }}">
                                 {{ get_icon('b_props', 'Structure snapshot'|trans) }}
                             </a>
                         </td>

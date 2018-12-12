@@ -32,23 +32,23 @@ class Variables
     public static function getHtmlForFilter(Data $serverStatusData)
     {
         $filterAlert = '';
-        if (! empty($_REQUEST['filterAlert'])) {
+        if (! empty($_POST['filterAlert'])) {
             $filterAlert = ' checked="checked"';
         }
         $filterText = '';
-        if (! empty($_REQUEST['filterText'])) {
-            $filterText = htmlspecialchars($_REQUEST['filterText']);
+        if (! empty($_POST['filterText'])) {
+            $filterText = htmlspecialchars($_POST['filterText']);
         }
         $dontFormat = '';
-        if (! empty($_REQUEST['dontFormat'])) {
+        if (! empty($_POST['dontFormat'])) {
             $dontFormat = ' checked="checked"';
         }
 
         $retval  = '';
         $retval .= '<fieldset id="tableFilter">';
         $retval .= '<legend>' . __('Filters') . '</legend>';
-        $retval .= '<form action="server_status_variables.php'
-            . Url::getCommon() . '">';
+        $retval .= '<form action="server_status_variables.php" method="post">';
+        $retval .= Url::getHiddenInputs();
         $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
         $retval .= '<div class="formelement">';
         $retval .= '<label for="filterText">' . __('Containing the word:') . '</label>';
@@ -68,8 +68,8 @@ class Variables
 
         foreach ($serverStatusData->sections as $section_id => $section_name) {
             if (isset($serverStatusData->sectionUsed[$section_id])) {
-                if (! empty($_REQUEST['filterCategory'])
-                    && $_REQUEST['filterCategory'] == $section_id
+                if (! empty($_POST['filterCategory'])
+                    && $_POST['filterCategory'] == $section_id
                 ) {
                     $selected = ' selected="selected"';
                 } else {
@@ -115,7 +115,8 @@ class Variables
                 if ('doc' == $link_name) {
                     $retval .= Util::showMySQLDocu($link_url);
                 } else {
-                    $retval .= '<a href="' . $link_url . '">' . $link_name . '</a>';
+                    $retval .= '<a href="' . $link_url['url'] . '" data-post="' . $link_url['params'] . '">'
+                        . $link_name . '</a>';
                 }
                 $i++;
             }
@@ -307,7 +308,8 @@ class Variables
                     if ('doc' == $link_name) {
                         $retval .= Util::showMySQLDocu($link_url);
                     } else {
-                        $retval .= ' <a href="' . $link_url . '">' . $link_name . '</a>';
+                        $retval .= ' <a href="' . $link_url['url'] . '" data-post="' . $link_url['params'] . '">'
+                            . $link_name . '</a>';
                     }
                 }
                 unset($link_url, $link_name);

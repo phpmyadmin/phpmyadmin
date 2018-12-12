@@ -42,8 +42,8 @@ $template = new Template();
 $relationCleanup = new RelationCleanup($GLOBALS['dbi'], $relation);
 $serverPrivileges = new Privileges($template, $GLOBALS['dbi'], $relation, $relationCleanup);
 
-if ((isset($_REQUEST['viewing_mode'])
-    && $_REQUEST['viewing_mode'] == 'server')
+if ((isset($_GET['viewing_mode'])
+    && $_GET['viewing_mode'] == 'server')
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     $response->addHTML('<div>');
@@ -161,8 +161,8 @@ if (! $GLOBALS['is_grantuser'] && !$GLOBALS['is_createuser']) {
  * Checks if the user is using "Change Login Information / Copy User" dialog
  * only to update the password
  */
-if (isset($_REQUEST['change_copy']) && $username == $_REQUEST['old_username']
-    && $hostname == $_REQUEST['old_hostname']
+if (isset($_POST['change_copy']) && $username == $_POST['old_username']
+    && $hostname == $_POST['old_hostname']
 ) {
     $response->addHTML(
         Message::error(
@@ -207,7 +207,7 @@ if (isset($ret_message)) {
 /**
  * Changes / copies a user, part III
  */
-if (isset($_REQUEST['change_copy'])) {
+if (isset($_POST['change_copy'])) {
     $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
         $queries,
         $username,
@@ -254,17 +254,17 @@ if (! empty($_POST['update_privs'])) {
 /**
  * Assign users to user groups
  */
-if (! empty($_REQUEST['changeUserGroup']) && $cfgRelation['menuswork']
+if (! empty($_POST['changeUserGroup']) && $cfgRelation['menuswork']
     && $GLOBALS['dbi']->isSuperuser() && $GLOBALS['is_createuser']
 ) {
-    $serverPrivileges->setUserGroup($username, $_REQUEST['userGroup']);
+    $serverPrivileges->setUserGroup($username, $_POST['userGroup']);
     $message = Message::success();
 }
 
 /**
  * Revokes Privileges
  */
-if (isset($_REQUEST['revokeall'])) {
+if (isset($_POST['revokeall'])) {
     list ($message, $sql_query) = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
         (isset($dbname) ? $dbname : ''),
         (isset($tablename)
@@ -279,7 +279,7 @@ if (isset($_REQUEST['revokeall'])) {
 /**
  * Updates the password
  */
-if (isset($_REQUEST['change_pw'])) {
+if (isset($_POST['change_pw'])) {
     $message = $serverPrivileges->updatePassword(
         $err_url,
         $username,
@@ -291,11 +291,11 @@ if (isset($_REQUEST['change_pw'])) {
  * Deletes users
  *   (Changes / copies a user, part IV)
  */
-if (isset($_REQUEST['delete'])
-    || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
+if (isset($_POST['delete'])
+    || (isset($_POST['change_copy']) && $_POST['mode'] < 4)
 ) {
     $queries = $serverPrivileges->getDataForDeleteUsers($queries);
-    if (empty($_REQUEST['change_copy'])) {
+    if (empty($_POST['change_copy'])) {
         list($sql_query, $message) = $serverPrivileges->deleteUser($queries);
     }
 }
@@ -303,7 +303,7 @@ if (isset($_REQUEST['delete'])
 /**
  * Changes / copies a user, part V
  */
-if (isset($_REQUEST['change_copy'])) {
+if (isset($_POST['change_copy'])) {
     $queries = $serverPrivileges->getDataForQueries($queries, $queries_for_display);
     $message = Message::success();
     $sql_query = join("\n", $queries);
@@ -324,14 +324,13 @@ if (! is_null($message_ret)) {
  */
 if ($response->isAjax()
     && empty($_REQUEST['ajax_page_request'])
-    && ! isset($_REQUEST['export'])
-    && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export')
-    && ((! isset($_REQUEST['initial']) || $_REQUEST['initial'] === null
-    || $_REQUEST['initial'] === '')
-    || (isset($_REQUEST['delete']) && $_REQUEST['delete'] === __('Go')))
-    && ! isset($_REQUEST['showall'])
-    && ! isset($_REQUEST['edit_user_group_dialog'])
-    && ! isset($_REQUEST['db_specific'])
+    && ! isset($_GET['export'])
+    && (! isset($_POST['submit_mult']) || $_POST['submit_mult'] != 'export')
+    && ((! isset($_GET['initial']) || $_GET['initial'] === null
+    || $_GET['initial'] === '')
+    || (isset($_POST['delete']) && $_POST['delete'] === __('Go')))
+    && ! isset($_GET['showall'])
+    && ! isset($_GET['edit_user_group_dialog'])
 ) {
     $extra_data = $serverPrivileges->getExtraDataForAjaxBehavior(
         (isset($password) ? $password : ''),
@@ -351,8 +350,8 @@ if ($response->isAjax()
 /**
  * Displays the links
  */
-if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
-    $GLOBALS['db'] = $_REQUEST['db'] = $_REQUEST['checkprivsdb'];
+if (isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'db') {
+    $GLOBALS['db'] = $_REQUEST['db'] = $_GET['checkprivsdb'];
 
     $url_query .= '&amp;goto=db_operations.php';
 
@@ -393,8 +392,8 @@ $response->addHTML(
 );
 
 // export user definition
-if (isset($_REQUEST['export'])
-    || (isset($_REQUEST['submit_mult']) && $_REQUEST['submit_mult'] == 'export')
+if (isset($_GET['export'])
+    || (isset($_POST['submit_mult']) && $_POST['submit_mult'] == 'export')
 ) {
     list($title, $export) = $serverPrivileges->getListForExportUserDefinition(
         isset($username) ? $username : null,
@@ -412,24 +411,24 @@ if (isset($_REQUEST['export'])
     }
 }
 
-if (isset($_REQUEST['adduser'])) {
+if (isset($_GET['adduser'])) {
     // Add user
     $response->addHTML(
         $serverPrivileges->getHtmlForAddUser((isset($dbname) ? $dbname : ''))
     );
-} elseif (isset($_REQUEST['checkprivsdb'])) {
-    if (isset($_REQUEST['checkprivstable'])) {
+} elseif (isset($_GET['checkprivsdb'])) {
+    if (isset($_GET['checkprivstable'])) {
         // check the privileges for a particular table.
         $response->addHTML(
             $serverPrivileges->getHtmlForSpecificTablePrivileges(
-                $_REQUEST['checkprivsdb'],
-                $_REQUEST['checkprivstable']
+                $_GET['checkprivsdb'],
+                $_GET['checkprivstable']
             )
         );
     } else {
         // check the privileges for a particular database.
         $response->addHTML(
-            $serverPrivileges->getHtmlForSpecificDbPrivileges($_REQUEST['checkprivsdb'])
+            $serverPrivileges->getHtmlForSpecificDbPrivileges($_GET['checkprivsdb'])
         );
     }
 } else {
@@ -478,7 +477,7 @@ if (isset($_REQUEST['adduser'])) {
     }
 }
 
-if ((isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'server')
+if ((isset($_GET['viewing_mode']) && $_GET['viewing_mode'] == 'server')
     && $GLOBALS['cfgRelation']['menuswork']
 ) {
     $response->addHTML('</div>');

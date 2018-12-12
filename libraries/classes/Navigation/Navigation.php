@@ -53,8 +53,8 @@ class Navigation
         }
         $tree = new NavigationTree();
         if (! $response->isAjax()
-            || ! empty($_REQUEST['full'])
-            || ! empty($_REQUEST['reload'])
+            || ! empty($_POST['full'])
+            || ! empty($_POST['reload'])
         ) {
             if ($GLOBALS['cfg']['ShowDatabasesNavigationAsTree']) {
                 // provide database tree in navigation
@@ -240,8 +240,8 @@ class Navigation
 
                         $html .= '<tr>';
                         $html .= '<td>' . htmlspecialchars($hiddenItem) . '</td>';
-                        $html .= '<td style="width:80px"><a href="navigation.php'
-                            . Url::getCommon($params) . '"'
+                        $html .= '<td style="width:80px"><a href="navigation.php" data-post="'
+                            . Url::getCommon($params, '') . '"'
                             . ' class="unhideNavItem ajax">'
                             . Util::getIcon('show', __('Unhide'))
                             . '</a></td>';

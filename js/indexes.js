@@ -697,10 +697,7 @@ AJAX.registerOnload('indexes.js', function () {
             title = PMA_messages.strAddIndex;
         } else {
             // Edit index
-            url = $(this).find('a').attr('href');
-            if (url.substring(0, 16) === 'tbl_indexes.php?') {
-                url = url.substring(16, url.length);
-            }
+            url = $(this).find('a').getPostData();
             title = PMA_messages.strEditIndex;
         }
         url += PMA_commonParams.get('arg_separator') + 'ajax_request=true';

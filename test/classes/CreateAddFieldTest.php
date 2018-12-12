@@ -46,7 +46,7 @@ class CreateAddFieldTest extends TestCase
      */
     public function testGetPartitionsDefinition($expected, $request)
     {
-        $_REQUEST = $request;
+        $_POST = $request;
         $actual = $this->createAddField->getPartitionsDefinition();
         $this->assertEquals($expected, $actual);
     }
@@ -82,7 +82,7 @@ class CreateAddFieldTest extends TestCase
      */
     public function testGetTableCreationQuery($expected, $db, $table, $request)
     {
-        $_REQUEST = $request;
+        $_POST = $request;
         $actual = $this->createAddField->getTableCreationQuery($db, $table);
         $this->assertEquals($expected, $actual);
     }
@@ -118,7 +118,7 @@ class CreateAddFieldTest extends TestCase
      */
     public function testGetNumberOfFieldsFromRequest($expected, $request)
     {
-        $_REQUEST = $request;
+        $_POST = $request;
         $actual = $this->createAddField->getNumberOfFieldsFromRequest();
         $this->assertEquals($expected, $actual);
     }

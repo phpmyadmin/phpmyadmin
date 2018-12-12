@@ -3032,29 +3032,30 @@ class Results
                     $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
 
                     if (@file_exists($include_file)) {
-                        include_once $include_file;
                         $class_name = $this->transformations->getClassName($include_file);
-                        // todo add $plugin_manager
-                        $plugin_manager = null;
-                        $transformation_plugin = new $class_name(
-                            $plugin_manager
-                        );
+                        if (class_exists($class_name)) {
+                            // todo add $plugin_manager
+                            $plugin_manager = null;
+                            $transformation_plugin = new $class_name(
+                                $plugin_manager
+                            );
 
-                        $transform_options = $this->transformations->getOptions(
-                            isset(
-                                $mime_map[$orgFullColName]
+                            $transform_options = $this->transformations->getOptions(
+                                isset(
+                                    $mime_map[$orgFullColName]
+                                    ['transformation_options']
+                                )
+                                ? $mime_map[$orgFullColName]
                                 ['transformation_options']
-                            )
-                            ? $mime_map[$orgFullColName]
-                            ['transformation_options']
-                            : ''
-                        );
+                                : ''
+                            );
 
-                        $meta->mimetype = str_replace(
-                            '_',
-                            '/',
-                            $mime_map[$orgFullColName]['mimetype']
-                        );
+                            $meta->mimetype = str_replace(
+                                '_',
+                                '/',
+                                $mime_map[$orgFullColName]['mimetype']
+                            );
+                        }
                     } // end if file_exists
                 } // end if transformation is set
             } // end if mime/transformation works.
@@ -4168,13 +4169,13 @@ class Results
         }
 
         // as this is a form value, the type is always string so we cannot
-        // use Core::isValid($_REQUEST['session_max_rows'], 'integer')
-        if (Core::isValid($_REQUEST['session_max_rows'], 'numeric')) {
-            $query['max_rows'] = (int)$_REQUEST['session_max_rows'];
-            unset($_REQUEST['session_max_rows']);
-        } elseif ($_REQUEST['session_max_rows'] == self::ALL_ROWS) {
+        // use Core::isValid($_POST['session_max_rows'], 'integer')
+        if (Core::isValid($_POST['session_max_rows'], 'numeric')) {
+            $query['max_rows'] = (int)$_POST['session_max_rows'];
+            unset($_POST['session_max_rows']);
+        } elseif ($_POST['session_max_rows'] == self::ALL_ROWS) {
             $query['max_rows'] = self::ALL_ROWS;
-            unset($_REQUEST['session_max_rows']);
+            unset($_POST['session_max_rows']);
         } elseif (empty($query['max_rows'])) {
             $query['max_rows'] = intval($GLOBALS['cfg']['MaxRows']);
         }

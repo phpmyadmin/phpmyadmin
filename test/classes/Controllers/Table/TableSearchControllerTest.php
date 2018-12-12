@@ -390,9 +390,9 @@ class TableSearchControllerTest extends PmaTestCase
         );
         $ctrl = $container->get('TableSearchController');
 
-        $_REQUEST['db'] = 'PMA';
-        $_REQUEST['table'] = 'PMA_BookMark';
-        $_REQUEST['where_clause'] = '`col1` = 1';
+        $_POST['db'] = 'PMA';
+        $_POST['table'] = 'PMA_BookMark';
+        $_POST['where_clause'] = '`col1` = 1';
         $expected = [
             'col1' => 1,
             'col2' => 2

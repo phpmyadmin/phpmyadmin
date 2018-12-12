@@ -866,7 +866,10 @@ function browseForeignDialog ($this_a) {
     var tableId = '#browse_foreign_table';
     var filterId = '#input_foreign_filter';
     var $dialog = null;
-    $.get($this_a.attr('href'), { 'ajax_request': true }, function (data) {
+    var argSep = PMA_commonParams.get('arg_separator');
+    var params = $this_a.getPostData();
+    params += argSep + 'ajax_request=true';
+    $.post($this_a.attr('href'), params, function (data) {
         // Creates browse foreign value dialog
         $dialog = $('<div>').append(data.message).dialog({
             title: PMA_messages.strBrowseForeignValues,

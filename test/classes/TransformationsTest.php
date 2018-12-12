@@ -304,4 +304,64 @@ class TransformationsTest extends TestCase
             ],
         ];
     }
+
+    /**
+     * Test for getDescription
+     *
+     * @param string $file                transformation file
+     * @param string $expectedDescription expected description
+     *
+     * @return void
+     *
+     * @dataProvider providerGetDescription
+     */
+    public function testGetDescription($file, $expectedDescription)
+    {
+        $this->assertEquals(
+            $expectedDescription,
+            $this->transformations->getDescription($file)
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function providerGetDescription()
+    {
+        return [
+            ['../../../../test', ''],
+            ['Input/Text_Plain_SqlEditor', 'Syntax highlighted CodeMirror editor for SQL.'],
+            ['Output/Text_Plain_Sql', 'Formats text as SQL query with syntax highlighting.']
+        ];
+    }
+
+    /**
+     * Test for getName
+     *
+     * @param string $file         transformation file
+     * @param string $expectedName expected name
+     *
+     * @return void
+     *
+     * @dataProvider providerGetName
+     */
+    public function testGetName($file, $expectedName)
+    {
+        $this->assertEquals(
+            $expectedName,
+            $this->transformations->getName($file)
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function providerGetName()
+    {
+        return [
+            ['../../../../test', ''],
+            ['Input/Text_Plain_SqlEditor', 'SQL'],
+            ['Output/Text_Plain_Sql', 'SQL']
+        ];
+    }
 }

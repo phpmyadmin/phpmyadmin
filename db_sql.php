@@ -44,8 +44,8 @@ $response->addHTML(
     $sqlQueryForm->getHtml(
         true,
         false,
-        isset($_REQUEST['delimiter'])
-        ? htmlspecialchars($_REQUEST['delimiter'])
+        isset($_POST['delimiter'])
+        ? htmlspecialchars($_POST['delimiter'])
         : ';'
     )
 );

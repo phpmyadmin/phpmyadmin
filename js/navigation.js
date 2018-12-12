@@ -519,12 +519,13 @@ $(function () {
     /** Hide navigation tree item */
     $(document).on('click', 'a.hideNavItem.ajax', function (event) {
         event.preventDefault();
+        var argSep = PMA_commonParams.get('arg_separator');
+        var params = $(this).getPostData();
+        params += argSep + 'ajax_request=true' + argSep + 'server=' + PMA_commonParams.get('server');
         $.ajax({
             type: 'POST',
-            data: {
-                server: PMA_commonParams.get('server'),
-            },
-            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
+            data: params,
+            url: $(this).attr('href'),
             success: function (data) {
                 if (typeof data !== 'undefined' && data.success === true) {
                     PMA_reloadNavigation();
@@ -539,7 +540,10 @@ $(function () {
     $(document).on('click', 'a.showUnhide.ajax', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
-        $.get($(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=1', function (data) {
+        var argSep = PMA_commonParams.get('arg_separator');
+        var params = $(this).getPostData();
+        params += argSep + 'ajax_request=true';
+        $.post($(this).attr('href'), params, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
                 var buttonOptions = {};
@@ -572,12 +576,13 @@ $(function () {
         var $hidden_table_count = $tr.parents('tbody').children().length;
         var $hide_dialog_box = $tr.closest('div.ui-dialog');
         var $msg = PMA_ajaxShowMessage();
+        var argSep = PMA_commonParams.get('arg_separator');
+        var params = $(this).getPostData();
+        params += argSep + 'ajax_request=true' + argSep + 'server=' + PMA_commonParams.get('server');
         $.ajax({
             type: 'POST',
-            data: {
-                server: PMA_commonParams.get('server'),
-            },
-            url: $(this).attr('href') + PMA_commonParams.get('arg_separator') + 'ajax_request=true',
+            data: params,
+            url: $(this).attr('href'),
             success: function (data) {
                 PMA_ajaxRemoveMessage($msg);
                 if (typeof data !== 'undefined' && data.success === true) {

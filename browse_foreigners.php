@@ -15,7 +15,7 @@ use PhpMyAdmin\Util;
 require_once 'libraries/common.inc.php';
 
 /**
- * Sets globals from $_REQUEST
+ * Sets globals from $_POST
  */
 $request_params = [
     'data',
@@ -23,8 +23,8 @@ $request_params = [
 ];
 
 foreach ($request_params as $one_request_param) {
-    if (isset($_REQUEST[$one_request_param])) {
-        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+    if (isset($_POST[$one_request_param])) {
+        $GLOBALS[$one_request_param] = $_POST[$one_request_param];
     }
 }
 
@@ -50,15 +50,15 @@ $browseForeigners = new BrowseForeigners(
     $GLOBALS['pmaThemeImage']
 );
 $foreign_limit = $browseForeigners->getForeignLimit(
-    isset($_REQUEST['foreign_showAll']) ? $_REQUEST['foreign_showAll'] : null
+    isset($_POST['foreign_showAll']) ? $_POST['foreign_showAll'] : null
 );
 
 $foreignData = $relation->getForeignData(
     $foreigners,
-    $_REQUEST['field'],
+    $_POST['field'],
     true,
-    isset($_REQUEST['foreign_filter'])
-    ? $_REQUEST['foreign_filter']
+    isset($_POST['foreign_filter'])
+    ? $_POST['foreign_filter']
     : '',
     isset($foreign_limit) ? $foreign_limit : null,
     true // for getting value in $foreignData['the_total']
@@ -68,7 +68,7 @@ $foreignData = $relation->getForeignData(
 $html = $browseForeigners->getHtmlForRelationalFieldSelection(
     $db,
     $table,
-    $_REQUEST['field'],
+    $_POST['field'],
     $foreignData,
     isset($fieldkey) ? $fieldkey : '',
     isset($data) ? $data : ''

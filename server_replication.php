@@ -43,10 +43,10 @@ if (! $GLOBALS['dbi']->isSuperuser()) {
     exit;
 }
 
-// change $GLOBALS['url_params'] with $_REQUEST['url_params']
+// change $GLOBALS['url_params'] with $_POST['url_params']
 // only if it is an array
-if (isset($_REQUEST['url_params']) && is_array($_REQUEST['url_params'])) {
-    $GLOBALS['url_params'] = $_REQUEST['url_params'];
+if (isset($_POST['url_params']) && is_array($_POST['url_params'])) {
+    $GLOBALS['url_params'] = $_POST['url_params'];
 }
 
 $replicationGui = new ReplicationGui();
@@ -69,13 +69,13 @@ $response->addHTML($replicationGui->getHtmlForErrorMessage());
 
 if ($GLOBALS['replication_info']['master']['status']) {
     $response->addHTML($replicationGui->getHtmlForMasterReplication());
-} elseif (! isset($_REQUEST['mr_configure'])
-    && ! isset($_REQUEST['repl_clear_scr'])
+} elseif (! isset($_POST['mr_configure'])
+    && ! isset($_POST['repl_clear_scr'])
 ) {
     $response->addHTML($replicationGui->getHtmlForNotServerReplication());
 }
 
-if (isset($_REQUEST['mr_configure'])) {
+if (isset($_POST['mr_configure'])) {
     // Render the 'Master configuration' section
     $response->addHTML($replicationGui->getHtmlForMasterConfiguration());
     exit;
@@ -83,7 +83,7 @@ if (isset($_REQUEST['mr_configure'])) {
 
 $response->addHTML('</div>');
 
-if (! isset($_REQUEST['repl_clear_scr'])) {
+if (! isset($_POST['repl_clear_scr'])) {
     // Render the 'Slave configuration' section
     $response->addHTML(
         $replicationGui->getHtmlForSlaveConfiguration(
@@ -92,6 +92,6 @@ if (! isset($_REQUEST['repl_clear_scr'])) {
         )
     );
 }
-if (isset($_REQUEST['sl_configure'])) {
+if (isset($_POST['sl_configure'])) {
     $response->addHTML($replicationGui->getHtmlForReplicationChangeMaster("slave_changemaster"));
 }

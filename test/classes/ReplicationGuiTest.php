@@ -42,10 +42,8 @@ class ReplicationGuiTest extends TestCase
      */
     protected function setUp()
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
-        $_REQUEST['mr_adduser'] = "mr_adduser";
+        //$_POST
+        $_POST['mr_adduser'] = "mr_adduser";
 
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;

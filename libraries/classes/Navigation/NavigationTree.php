@@ -95,8 +95,10 @@ class NavigationTree
     public function __construct()
     {
         // Save the position at which we are in the database list
-        if (isset($_REQUEST['pos'])) {
-            $this->_pos = (int)$_REQUEST['pos'];
+        if (isset($_POST['pos'])) {
+            $this->_pos = (int) $_POST['pos'];
+        } elseif (isset($_GET['pos'])) {
+            $this->_pos = (int) $_GET['pos'];
         }
         if (!isset($this->_pos)) {
             $this->_pos = $this->_getNavigationDbPos();
@@ -111,19 +113,19 @@ class NavigationTree
                 $this->_pos3_value[0] = $_REQUEST['pos3_value'];
             }
         } else {
-            if (isset($_REQUEST['n0_aPath'])) {
+            if (isset($_POST['n0_aPath'])) {
                 $count = 0;
-                while (isset($_REQUEST['n' . $count . '_aPath'])) {
+                while (isset($_POST['n' . $count . '_aPath'])) {
                     $this->_aPath[$count] = $this->_parsePath(
-                        $_REQUEST['n' . $count . '_aPath']
+                        $_POST['n' . $count . '_aPath']
                     );
                     $index = 'n' . $count . '_pos2_';
-                    $this->_pos2_name[$count] = $_REQUEST[$index . 'name'];
-                    $this->_pos2_value[$count] = $_REQUEST[$index . 'value'];
+                    $this->_pos2_name[$count] = $_POST[$index . 'name'];
+                    $this->_pos2_value[$count] = $_POST[$index . 'value'];
                     $index = 'n' . $count . '_pos3_';
-                    if (isset($_REQUEST[$index])) {
-                        $this->_pos3_name[$count] = $_REQUEST[$index . 'name'];
-                        $this->_pos3_value[$count] = $_REQUEST[$index . 'value'];
+                    if (isset($_POST[$index])) {
+                        $this->_pos3_name[$count] = $_POST[$index . 'name'];
+                        $this->_pos3_value[$count] = $_POST[$index . 'value'];
                     }
                     $count++;
                 }
@@ -132,11 +134,11 @@ class NavigationTree
         if (isset($_REQUEST['vPath'])) {
             $this->_vPath[0] = $this->_parsePath($_REQUEST['vPath']);
         } else {
-            if (isset($_REQUEST['n0_vPath'])) {
+            if (isset($_POST['n0_vPath'])) {
                 $count = 0;
-                while (isset($_REQUEST['n' . $count . '_vPath'])) {
+                while (isset($_POST['n' . $count . '_vPath'])) {
                     $this->_vPath[$count] = $this->_parsePath(
-                        $_REQUEST['n' . $count . '_vPath']
+                        $_POST['n' . $count . '_vPath']
                     );
                     $count++;
                 }
@@ -763,7 +765,7 @@ class NavigationTree
                 }
 
                 $groups[$key] = new Node(
-                    $key,
+                    htmlspecialchars($key),
                     Node::CONTAINER,
                     true
                 );

@@ -186,12 +186,12 @@ class BrowseForeigners
             . '<input type="hidden" name="fieldkey" value="'
             . (isset($fieldkey) ? htmlspecialchars($fieldkey) : '') . '" />';
 
-        if (isset($_REQUEST['rownumber'])) {
+        if (isset($_POST['rownumber'])) {
             $output .= '<input type="hidden" name="rownumber" value="'
-                . htmlspecialchars((string) $_REQUEST['rownumber']) . '" />';
+                . htmlspecialchars((string) $_POST['rownumber']) . '" />';
         }
-        $filter_value = (isset($_REQUEST['foreign_filter'])
-            ? htmlspecialchars($_REQUEST['foreign_filter'])
+        $filter_value = (isset($_POST['foreign_filter'])
+            ? htmlspecialchars($_POST['foreign_filter'])
             : '');
         $output .= '<span class="formelement">'
             . '<label for="input_foreign_filter">' . __('Search:') . '</label>'
@@ -308,7 +308,7 @@ class BrowseForeigners
     private function getHtmlForGotoPage(?array $foreignData): string
     {
         $gotopage = '';
-        isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
+        isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
         if (!is_array($foreignData['disp_row'])) {
             return $gotopage;
         }
@@ -346,7 +346,7 @@ class BrowseForeigners
         if (isset($foreignShowAll) && $foreignShowAll == __('Show all')) {
             return null;
         }
-        isset($_REQUEST['pos']) ? $pos = $_REQUEST['pos'] : $pos = 0;
+        isset($_POST['pos']) ? $pos = $_POST['pos'] : $pos = 0;
         return 'LIMIT ' . $pos . ', ' . $this->maxRows . ' ';
     }
 }

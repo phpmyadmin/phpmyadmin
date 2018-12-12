@@ -18,14 +18,14 @@ require_once 'libraries/common.inc.php';
 
 $template = new Template();
 
-if (! isset($_REQUEST['field'])) {
+if (! isset($_POST['field'])) {
     Util::checkParameters(['field']);
 }
 
 // Get data if any posted
 $gis_data = [];
-if (Core::isValid($_REQUEST['gis_data'], 'array')) {
-    $gis_data = $_REQUEST['gis_data'];
+if (Core::isValid($_POST['gis_data'], 'array')) {
+    $gis_data = $_POST['gis_data'];
 }
 
 $gis_types = [
@@ -41,15 +41,15 @@ $gis_types = [
 // Extract type from the initial call and make sure that it's a valid one.
 // Extract from field's values if available, if not use the column type passed.
 if (! isset($gis_data['gis_type'])) {
-    if (isset($_REQUEST['type']) && $_REQUEST['type'] != '') {
-        $gis_data['gis_type'] = mb_strtoupper($_REQUEST['type']);
+    if (isset($_POST['type']) && $_POST['type'] != '') {
+        $gis_data['gis_type'] = mb_strtoupper($_POST['type']);
     }
-    if (isset($_REQUEST['value']) && trim($_REQUEST['value']) != '') {
-        $start = (substr($_REQUEST['value'], 0, 1) == "'") ? 1 : 0;
+    if (isset($_POST['value']) && trim($_POST['value']) != '') {
+        $start = (substr($_POST['value'], 0, 1) == "'") ? 1 : 0;
         $gis_data['gis_type'] = mb_substr(
-            $_REQUEST['value'],
+            $_POST['value'],
             $start,
-            mb_strpos($_REQUEST['value'], "(") - $start
+            mb_strpos($_POST['value'], "(") - $start
         );
     }
     if ((! isset($gis_data['gis_type']))
@@ -62,10 +62,10 @@ $geom_type = $gis_data['gis_type'];
 
 // Generate parameters from value passed.
 $gis_obj = GisFactory::factory($geom_type);
-if (isset($_REQUEST['value'])) {
+if (isset($_POST['value'])) {
     $gis_data = array_merge(
         $gis_data,
-        $gis_obj->generateParams($_REQUEST['value'])
+        $gis_obj->generateParams($_POST['value'])
     );
 }
 
@@ -89,7 +89,7 @@ $open_layers = GisVisualization::getByData($data, $visualizationSettings)
     ->asOl();
 
 // If the call is to update the WKT and visualization make an AJAX response
-if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
+if (isset($_POST['generate']) && $_POST['generate'] == true) {
     $extra_data = [
         'result'        => $result,
         'visualization' => $visualization,
@@ -111,8 +111,8 @@ if ($geom_type == 'GEOMETRYCOLLECTION') {
 
 $templateOutput = $template->render('gis_data_editor_form', [
     'pma_theme_image' => $GLOBALS['pmaThemeImage'],
-    'field' => $_REQUEST['field'],
-    'input_name' => $_REQUEST['input_name'],
+    'field' => $_POST['field'],
+    'input_name' => $_POST['input_name'],
     'srid' => $srid,
     'visualization' => $visualization,
     'open_layers' => $open_layers,

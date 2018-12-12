@@ -271,7 +271,7 @@ class Qbe
         }
 
         $criterias = $this->_currentSearch->getCriterias();
-        $_REQUEST = $criterias + $_REQUEST;
+        $_POST = $criterias + $_POST;
 
         return $this;
     }
@@ -296,34 +296,34 @@ class Qbe
         $criteriaColumnCount = $this->_initializeCriteriasCount();
 
         $this->_criteriaColumnInsert = Core::ifSetOr(
-            $_REQUEST['criteriaColumnInsert'],
+            $_POST['criteriaColumnInsert'],
             null,
             'array'
         );
         $this->_criteriaColumnDelete = Core::ifSetOr(
-            $_REQUEST['criteriaColumnDelete'],
+            $_POST['criteriaColumnDelete'],
             null,
             'array'
         );
 
-        $this->_prev_criteria = isset($_REQUEST['prev_criteria'])
-            ? $_REQUEST['prev_criteria']
+        $this->_prev_criteria = isset($_POST['prev_criteria'])
+            ? $_POST['prev_criteria']
             : [];
-        $this->_criteria = isset($_REQUEST['criteria'])
-            ? $_REQUEST['criteria']
+        $this->_criteria = isset($_POST['criteria'])
+            ? $_POST['criteria']
             : array_fill(0, $criteriaColumnCount, '');
 
-        $this->_criteriaRowInsert = isset($_REQUEST['criteriaRowInsert'])
-            ? $_REQUEST['criteriaRowInsert']
+        $this->_criteriaRowInsert = isset($_POST['criteriaRowInsert'])
+            ? $_POST['criteriaRowInsert']
             : array_fill(0, $criteriaColumnCount, '');
-        $this->_criteriaRowDelete = isset($_REQUEST['criteriaRowDelete'])
-            ? $_REQUEST['criteriaRowDelete']
+        $this->_criteriaRowDelete = isset($_POST['criteriaRowDelete'])
+            ? $_POST['criteriaRowDelete']
             : array_fill(0, $criteriaColumnCount, '');
-        $this->_criteriaAndOrRow = isset($_REQUEST['criteriaAndOrRow'])
-            ? $_REQUEST['criteriaAndOrRow']
+        $this->_criteriaAndOrRow = isset($_POST['criteriaAndOrRow'])
+            ? $_POST['criteriaAndOrRow']
             : array_fill(0, $criteriaColumnCount, '');
-        $this->_criteriaAndOrColumn = isset($_REQUEST['criteriaAndOrColumn'])
-            ? $_REQUEST['criteriaAndOrColumn']
+        $this->_criteriaAndOrColumn = isset($_POST['criteriaAndOrColumn'])
+            ? $_POST['criteriaAndOrColumn']
             : array_fill(0, $criteriaColumnCount, '');
         // sets minimum width
         $this->_form_column_width = 12;
@@ -343,8 +343,8 @@ class Qbe
     private function _setCriteriaTablesAndColumns()
     {
         // The tables list sent by a previously submitted form
-        if (Core::isValid($_REQUEST['TableList'], 'array')) {
-            foreach ($_REQUEST['TableList'] as $each_table) {
+        if (Core::isValid($_POST['TableList'], 'array')) {
+            foreach ($_POST['TableList'] as $each_table) {
                 $this->_criteriaTables[$each_table] = ' selected="selected"';
             }
         } // end if
@@ -363,7 +363,7 @@ class Qbe
             $columns = $this->dbi->getColumns($this->_db, $table);
 
             if (empty($this->_criteriaTables[$table])
-                && ! empty($_REQUEST['TableList'])
+                && ! empty($_POST['TableList'])
             ) {
                 $this->_criteriaTables[$table] = '';
             } else {
@@ -490,10 +490,10 @@ class Qbe
                 continue;
             }
             $selected = '';
-            if (isset($_REQUEST['criteriaColumn'][$column_index])) {
-                $selected = $_REQUEST['criteriaColumn'][$column_index];
+            if (isset($_POST['criteriaColumn'][$column_index])) {
+                $selected = $_POST['criteriaColumn'][$column_index];
                 $this->_formColumns[$new_column_count]
-                    = $_REQUEST['criteriaColumn'][$column_index];
+                    = $_POST['criteriaColumn'][$column_index];
             }
             $html_output .= $this->_showColumnSelectCell(
                 $new_column_count,
@@ -539,10 +539,10 @@ class Qbe
             }
 
             $tmp_alias = '';
-            if (! empty($_REQUEST['criteriaAlias'][$colInd])) {
+            if (! empty($_POST['criteriaAlias'][$colInd])) {
                 $tmp_alias
                     = $this->_formAliases[$new_column_count]
-                        = $_REQUEST['criteriaAlias'][$colInd];
+                        = $_POST['criteriaAlias'][$colInd];
             }// end if
 
             $html_output .= '<td class="center">';
@@ -586,21 +586,21 @@ class Qbe
             }
             // If they have chosen all fields using the * selector,
             // then sorting is not available, Fix for Bug #570698
-            if (isset($_REQUEST['criteriaSort'][$colInd])
-                && isset($_REQUEST['criteriaColumn'][$colInd])
-                && mb_substr($_REQUEST['criteriaColumn'][$colInd], -2) == '.*'
+            if (isset($_POST['criteriaSort'][$colInd])
+                && isset($_POST['criteriaColumn'][$colInd])
+                && mb_substr($_POST['criteriaColumn'][$colInd], -2) == '.*'
             ) {
-                $_REQUEST['criteriaSort'][$colInd] = '';
+                $_POST['criteriaSort'][$colInd] = '';
             } //end if
 
             $selected = '';
-            if (isset($_REQUEST['criteriaSort'][$colInd])) {
+            if (isset($_POST['criteriaSort'][$colInd])) {
                 $this->_formSorts[$new_column_count]
-                    = $_REQUEST['criteriaSort'][$colInd];
+                    = $_POST['criteriaSort'][$colInd];
 
-                if ($_REQUEST['criteriaSort'][$colInd] == 'ASC') {
+                if ($_POST['criteriaSort'][$colInd] == 'ASC') {
                     $selected = 'ASC';
-                } elseif ($_REQUEST['criteriaSort'][$colInd] == 'DESC') {
+                } elseif ($_POST['criteriaSort'][$colInd] == 'DESC') {
                     $selected = 'DESC';
                 }
             } else {
@@ -650,10 +650,10 @@ class Qbe
             }
 
             $sortOrder = null;
-            if (! empty($_REQUEST['criteriaSortOrder'][$colInd])) {
+            if (! empty($_POST['criteriaSortOrder'][$colInd])) {
                 $sortOrder
                     = $this->_formSortOrders[$new_column_count]
-                        = $_REQUEST['criteriaSortOrder'][$colInd];
+                        = $_POST['criteriaSortOrder'][$colInd];
             }
 
             $html_output .= $this->_getSortOrderSelectCell(
@@ -695,10 +695,10 @@ class Qbe
             ) {
                 continue;
             }
-            if (isset($_REQUEST['criteriaShow'][$column_index])) {
+            if (isset($_POST['criteriaShow'][$column_index])) {
                 $checked_options = ' checked="checked"';
                 $this->_formShows[$new_column_count]
-                    = $_REQUEST['criteriaShow'][$column_index];
+                    = $_POST['criteriaShow'][$column_index];
             } else {
                 $checked_options = '';
             }
@@ -1014,8 +1014,8 @@ class Qbe
                 continue;
             }
             $or = 'Or' . $new_row_index;
-            if (! empty($_REQUEST[$or]) && isset($_REQUEST[$or][$column_index])) {
-                $tmp_or = $_REQUEST[$or][$column_index];
+            if (! empty($_POST[$or]) && isset($_POST[$or][$column_index])) {
+                $tmp_or = $_POST[$or][$column_index];
             } else {
                 $tmp_or     = '';
             }
@@ -1176,7 +1176,7 @@ class Qbe
             $column_index < $this->_criteria_column_count;
             $column_index++) {
                 if (! empty($this->_formColumns[$column_index])
-                    && ! empty($_REQUEST['Or' . $row_index][$column_index])
+                    && ! empty($_POST['Or' . $row_index][$column_index])
                     && $column_index
                 ) {
                     $qry_orwhere .= ' '
@@ -1186,11 +1186,11 @@ class Qbe
                         . ' ';
                 }
                 if (! empty($this->_formColumns[$column_index])
-                    && ! empty($_REQUEST['Or' . $row_index][$column_index])
+                    && ! empty($_POST['Or' . $row_index][$column_index])
                 ) {
                     $qry_orwhere .= '(' . $this->_formColumns[$column_index]
                         . ' '
-                        . $_REQUEST['Or' . $row_index][$column_index]
+                        . $_POST['Or' . $row_index][$column_index]
                         . ')';
                     $last_orwhere = $column_index;
                     $criteria_cnt++;
@@ -1913,12 +1913,12 @@ class Qbe
     {
         // sets column count
         $criteriaColumnCount = Core::ifSetOr(
-            $_REQUEST['criteriaColumnCount'],
+            $_POST['criteriaColumnCount'],
             3,
             'numeric'
         );
         $criteriaColumnAdd = Core::ifSetOr(
-            $_REQUEST['criteriaColumnAdd'],
+            $_POST['criteriaColumnAdd'],
             0,
             'numeric'
         );
@@ -1928,8 +1928,8 @@ class Qbe
         );
 
         // sets row count
-        $rows = Core::ifSetOr($_REQUEST['rows'], 0, 'numeric');
-        $criteriaRowAdd = Core::ifSetOr($_REQUEST['criteriaRowAdd'], 0, 'numeric');
+        $rows = Core::ifSetOr($_POST['rows'], 0, 'numeric');
+        $criteriaRowAdd = Core::ifSetOr($_POST['criteriaRowAdd'], 0, 'numeric');
         $this->_criteria_row_count = min(
             100,
             max($rows + $criteriaRowAdd, 0)

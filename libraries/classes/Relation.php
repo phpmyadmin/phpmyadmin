@@ -2095,7 +2095,7 @@ class Relation
     {
         $retval = '';
 
-        $url_query = Url::getCommon(['db' => $GLOBALS['db']]);
+        $url_query = Url::getCommon(['db' => $GLOBALS['db']], '');
         if ($allTables) {
             if ($createDb) {
                 $url_query .= '&amp;goto=db_operations.php&amp;create_pmadb=1';
@@ -2120,7 +2120,7 @@ class Relation
                 __('%sCreate%s missing phpMyAdmin configuration storage tables.')
             );
         }
-        $message->addParamHtml('<a href="./chk_rel.php' . $url_query . '">');
+        $message->addParamHtml('<a href="./chk_rel.php" data-post="' . $url_query . '">');
         $message->addParamHtml('</a>');
 
         $retval .= $message->getDisplay();

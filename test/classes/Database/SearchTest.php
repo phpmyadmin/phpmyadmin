@@ -98,8 +98,8 @@ class SearchTest extends PmaTestCase
      */
     public function testGetWhereClause($type, $expected)
     {
-        $_REQUEST['criteriaSearchType'] = $type;
-        $_REQUEST['criteriaSearchString'] = 'search string';
+        $_POST['criteriaSearchType'] = $type;
+        $_POST['criteriaSearchString'] = 'search string';
 
         $this->object = new Search($GLOBALS['dbi'], 'pma_test');
         $this->assertEquals(

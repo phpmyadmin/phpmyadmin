@@ -60,13 +60,14 @@ AJAX.registerOnload('server_databases.js', function () {
         $(this).PMA_confirm(
             question,
             $form.prop('action') + '?' + $(this).serialize() +
-                argsep + 'drop_selected_dbs=1' + argsep + 'is_js_confirmed=1' + argsep + 'ajax_request=true',
+                argsep + 'drop_selected_dbs=1',
             function (url) {
                 PMA_ajaxShowMessage(PMA_messages.strProcessingRequest, false);
 
-                var params = getJSConfirmCommonParam(this);
+                var parts = url.split('?');
+                var params = getJSConfirmCommonParam(this, parts[1]);
 
-                $.post(url, params, function (data) {
+                $.post(parts[0], params, function (data) {
                     if (typeof data !== 'undefined' && data.success === true) {
                         PMA_ajaxShowMessage(data.message);
 

@@ -146,14 +146,14 @@ class ErrorReportTest extends TestCase
      */
     public function testGetForm(): void
     {
-        $_REQUEST['exception'] = [];
+        $_POST['exception'] = [];
 
         $form = $this->errorReport->getForm();
         $this->assertContains('<pre class="report-data">[]</pre>', $form);
 
-        $_REQUEST['exception'] = ['stack' => [], 'url' => 'http://localhost/index.php'];
-        $_REQUEST['microhistory'] = '';
-        $_REQUEST['description'] = 'description';
+        $_POST['exception'] = ['stack' => [], 'url' => 'http://localhost/index.php'];
+        $_POST['microhistory'] = '';
+        $_POST['description'] = 'description';
 
         $report = [
             'pma_version' => PMA_VERSION,
@@ -168,8 +168,8 @@ class ErrorReportTest extends TestCase
             'exception_type' => 'js',
             'exception' => ['stack' => [], 'uri' => 'index.php?'],
             'script_name' => 'index.php',
-            'microhistory' => $_REQUEST['microhistory'],
-            'steps' => $_REQUEST['description'],
+            'microhistory' => $_POST['microhistory'],
+            'steps' => $_POST['description'],
         ];
         $expectedData = json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 

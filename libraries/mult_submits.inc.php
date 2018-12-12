@@ -38,8 +38,8 @@ $request_params = [
 ];
 
 foreach ($request_params as $one_request_param) {
-    if (isset($_REQUEST[$one_request_param])) {
-        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
+    if (isset($_POST[$one_request_param])) {
+        $GLOBALS[$one_request_param] = $_POST[$one_request_param];
     }
 }
 $response = Response::getInstance();
@@ -57,16 +57,16 @@ $template = new Template();
  */
 if (! empty($submit_mult)
     && $submit_mult != __('With selected:')
-    && (! empty($_REQUEST['selected_dbs'])
+    && (! empty($_POST['selected_dbs'])
     || ! empty($_POST['selected_tbl'])
     || ! empty($selected_fld)
-    || ! empty($_REQUEST['rows_to_delete']))
+    || ! empty($_POST['rows_to_delete']))
 ) {
     define('PMA_SUBMIT_MULT', 1);
-    if (! empty($_REQUEST['selected_dbs'])) {
+    if (! empty($_POST['selected_dbs'])) {
         // coming from server database view - do something with
         // selected databases
-        $selected   = $_REQUEST['selected_dbs'];
+        $selected   = $_POST['selected_dbs'];
         $query_type = 'drop_db';
     } elseif (! empty($_POST['selected_tbl'])) {
         // coming from database structure view - do something with

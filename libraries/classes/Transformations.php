@@ -183,16 +183,17 @@ class Transformations
      *
      * @param string $file transformation file
      *
-     * @return String the description of the transformation
+     * @return string the description of the transformation
      */
     public function getDescription($file)
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-        /* @var $class_name PhpMyAdmin\Plugins\TransformationsInterface */
+        /* @var $class_name \PhpMyAdmin\Plugins\TransformationsInterface */
         $class_name = $this->getClassName($include_file);
-        // include and instantiate the class
-        include_once $include_file;
-        return $class_name::getInfo();
+        if (class_exists($class_name)) {
+            return $class_name::getInfo();
+        }
+        return '';
     }
 
     /**
@@ -200,16 +201,17 @@ class Transformations
      *
      * @param string $file transformation file
      *
-     * @return String the name of the transformation
+     * @return string the name of the transformation
      */
     public function getName($file)
     {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
-        /* @var $class_name PhpMyAdmin\Plugins\TransformationsInterface */
+        /* @var $class_name \PhpMyAdmin\Plugins\TransformationsInterface */
         $class_name = $this->getClassName($include_file);
-        // include and instantiate the class
-        include_once $include_file;
-        return $class_name::getName();
+        if (class_exists($class_name)) {
+            return $class_name::getName();
+        }
+        return '';
     }
 
     /**

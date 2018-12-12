@@ -113,7 +113,7 @@ class TableIndexesControllerTest extends PmaTestCase
         );
 
         // Preview SQL
-        $_REQUEST['preview_sql'] = true;
+        $_POST['preview_sql'] = true;
         $ctrl->doSaveDataAction();
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('sql_data', $jsonArray);
@@ -125,7 +125,7 @@ class TableIndexesControllerTest extends PmaTestCase
         // Alter success
         $response->clear();
         Response::getInstance()->setAjax(true);
-        unset($_REQUEST['preview_sql']);
+        unset($_POST['preview_sql']);
         $ctrl->doSaveDataAction();
         $jsonArray = $response->getJSONResult();
         $this->assertArrayHasKey('index_table', $jsonArray);
@@ -171,8 +171,8 @@ class TableIndexesControllerTest extends PmaTestCase
             $index
         );
 
-        $_REQUEST['create_index'] = true;
-        $_REQUEST['added_fields'] = 3;
+        $_POST['create_index'] = true;
+        $_POST['added_fields'] = 3;
         $ctrl->displayFormAction();
         $html = $response->getHTMLResult();
 

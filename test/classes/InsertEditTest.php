@@ -99,7 +99,7 @@ class InsertEditTest extends TestCase
     public function testGetFormParametersForInsertForm()
     {
         $where_clause = ['foo' => 'bar ', '1' => ' test'];
-        $_REQUEST['clause_is_unique'] = false;
+        $_POST['clause_is_unique'] = false;
         $_POST['sql_query'] = 'SELECT a';
         $GLOBALS['goto'] = 'index.php';
 
@@ -329,7 +329,7 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, false);
 
         $this->assertEquals(
-            ' : <a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
+            ' : <a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
             . 'DataEditView=1&amp;goto=sql.php&amp;lang=en">'
             . 'Function</a>',
             $result
@@ -339,7 +339,7 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->showTypeOrFunction('function', $url_params, true);
 
         $this->assertEquals(
-            '<th><a href="tbl_change.php?ShowFunctionFields=0&amp;ShowFieldTypesIn'
+            '<th><a href="tbl_change.php" data-post="ShowFunctionFields=0&amp;ShowFieldTypesIn'
             . 'DataEditView=1&amp;goto=sql.php&amp;lang=en" title='
             . '"Hide">Function</a></th>',
             $result
@@ -349,7 +349,7 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, false);
 
         $this->assertEquals(
-            ' : <a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
+            ' : <a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
             . 'DataEditView=1&amp;goto=sql.php&amp;lang=en">'
             . 'Type</a>',
             $result
@@ -359,7 +359,7 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->showTypeOrFunction('type', $url_params, true);
 
         $this->assertEquals(
-            '<th><a href="tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesIn'
+            '<th><a href="tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesIn'
             . 'DataEditView=0&amp;goto=sql.php&amp;lang=en" title='
             . '"Hide">Type</a></th>',
             $result
@@ -805,7 +805,7 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<a class="ajax browse_foreign" href="browse_'
-            . 'foreigners.php?db=db&amp;table=tbl&amp;field=f&amp;rownumber=8'
+            . 'foreigners.php" data-post="db=db&amp;table=tbl&amp;field=f&amp;rownumber=8'
             . '&amp;data=abc&amp;server=1&amp;lang=en">',
             $result
         );
@@ -1547,7 +1547,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['InsertRows'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['goto'] = "index.php";
-        $_REQUEST['where_clause'] = true;
+        $_POST['where_clause'] = true;
         $_POST['sql_query'] = "SELECT 1";
 
         $result = $this->insertEdit->getContinueInsertionForm(
@@ -1718,12 +1718,12 @@ class InsertEditTest extends TestCase
         ]);
 
         $this->assertContains(
-            'tbl_change.php?ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
+            'tbl_change.php" data-post="ShowFunctionFields=1&amp;ShowFieldTypesInDataEditView=0',
             $result
         );
 
         $this->assertContains(
-            'tbl_change.php?ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1',
+            'tbl_change.php" data-post="ShowFunctionFields=0&amp;ShowFieldTypesInDataEditView=1',
             $result
         );
     }
@@ -1738,7 +1738,7 @@ class InsertEditTest extends TestCase
         $column = $current_row = $extracted_columnspec = [];
         $column['Field'] = 'f';
         $current_row['f'] = null;
-        $_REQUEST['default_action'] = 'insert';
+        $_POST['default_action'] = 'insert';
         $column['Key'] = 'PRI';
         $column['Extra'] = 'fooauto_increment';
 
@@ -1758,7 +1758,7 @@ class InsertEditTest extends TestCase
         );
 
         // Case 2 (bit)
-        unset($_REQUEST['default_action']);
+        unset($_POST['default_action']);
 
         $current_row['f'] = "123";
         $extracted_columnspec['spec_in_brackets'] = 20;
@@ -1924,8 +1924,8 @@ class InsertEditTest extends TestCase
      */
     public function testGetParamsForUpdateOrInsert()
     {
-        $_REQUEST['where_clause'] = 'LIMIT 1';
-        $_REQUEST['submit_type'] = 'showinsert';
+        $_POST['where_clause'] = 'LIMIT 1';
+        $_POST['submit_type'] = 'showinsert';
 
         $result = $this->insertEdit->getParamsForUpdateOrInsert();
 
@@ -1940,8 +1940,8 @@ class InsertEditTest extends TestCase
         );
 
         // case 2 (else)
-        unset($_REQUEST['where_clause']);
-        $_REQUEST['fields']['multi_edit'] = ['a' => 'b', 'c' => 'd'];
+        unset($_POST['where_clause']);
+        $_POST['fields']['multi_edit'] = ['a' => 'b', 'c' => 'd'];
         $result = $this->insertEdit->getParamsForUpdateOrInsert();
 
         $this->assertEquals(
@@ -1962,7 +1962,7 @@ class InsertEditTest extends TestCase
      */
     public function testIsInsertRow()
     {
-        $_REQUEST['insert_rows'] = 5;
+        $_POST['insert_rows'] = 5;
         $GLOBALS['cfg']['InsertRows'] = 2;
 
         $scriptsMock = $this->getMockBuilder('PhpMyAdmin\Scripts')
@@ -2084,7 +2084,7 @@ class InsertEditTest extends TestCase
             $GLOBALS['table']
         );
 
-        $_REQUEST['after_insert'] = 'new_insert';
+        $_POST['after_insert'] = 'new_insert';
         $this->assertEquals(
             'tbl_change.php',
             $this->insertEdit->getGotoInclude('index')
@@ -2104,7 +2104,7 @@ class InsertEditTest extends TestCase
             $this->insertEdit->getErrorUrl([])
         );
 
-        $_REQUEST['err_url'] = 'localhost';
+        $_POST['err_url'] = 'localhost';
         $this->assertEquals(
             'localhost',
             $this->insertEdit->getErrorUrl([])
@@ -2144,7 +2144,7 @@ class InsertEditTest extends TestCase
         $query = ['SELECT 1', 'SELECT 2'];
         $GLOBALS['sql_query'] = 'SELECT';
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = false;
-        $_REQUEST['submit_type'] = '';
+        $_POST['submit_type'] = '';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -2231,7 +2231,7 @@ class InsertEditTest extends TestCase
         $query = ['SELECT 1', 'SELECT 2'];
         $GLOBALS['sql_query'] = 'SELECT';
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = true;
-        $_REQUEST['submit_type'] = '';
+        $_POST['submit_type'] = '';
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -2432,7 +2432,7 @@ class InsertEditTest extends TestCase
         ];
         $GLOBALS['cfg']['DefaultTransformations']['PreApPend'] = ['', ''];
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $_REQUEST['where_clause'] = 1;
+        $_POST['where_clause'] = 1;
         $transformation = [
             'transformation_options' => "'','option ,, quoted',abd"
         ];
@@ -2744,7 +2744,7 @@ class InsertEditTest extends TestCase
         );
 
         // case 4
-        $_REQUEST['fields']['multi_edit'][0][0] = [];
+        $_POST['fields']['multi_edit'][0][0] = [];
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
             false,
             '0',
@@ -2860,7 +2860,7 @@ class InsertEditTest extends TestCase
         );
 
         // case 8
-        $_REQUEST['fields']['multi_edit'][0][0] = [];
+        $_POST['fields']['multi_edit'][0][0] = [];
         $result = $this->insertEdit->getCurrentValueForDifferentTypes(
             false,
             '0',
@@ -2915,7 +2915,8 @@ class InsertEditTest extends TestCase
     public function testVerifyWhetherValueCanBeTruncatedAndAppendExtraData()
     {
         $extra_data = ['isNeedToRecheck' => true];
-        $_REQUEST['where_clause'][0] = 1;
+        $meta = new stdClass();
+        $_POST['where_clause'][0] = 1;
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -3052,14 +3053,14 @@ class InsertEditTest extends TestCase
             ->getMock();
 
         $GLOBALS['dbi'] = $dbi;
-        $_REQUEST['where_clause'] = '1';
+        $_POST['where_clause'] = '1';
         $_SESSION['edit_next'] = '1';
-        $_REQUEST['ShowFunctionFields'] = true;
-        $_REQUEST['ShowFieldTypesInDataEditView'] = true;
-        $_REQUEST['after_insert'] = 'edit_next';
+        $_POST['ShowFunctionFields'] = true;
+        $_POST['ShowFieldTypesInDataEditView'] = true;
+        $_POST['after_insert'] = 'edit_next';
         $GLOBALS['cfg']['InsertRows'] = 2;
         $GLOBALS['cfg']['ShowSQL'] = false;
-        $_REQUEST['default_action'] = 'insert';
+        $_POST['default_action'] = 'insert';
 
         $responseMock = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()
@@ -3090,9 +3091,9 @@ class InsertEditTest extends TestCase
         );
 
         // case 2
-        unset($_REQUEST['where_clause']);
+        unset($_POST['where_clause']);
         unset($_SESSION['edit_next']);
-        $_REQUEST['default_action'] = '';
+        $_POST['default_action'] = '';
 
         $result = $this->insertEdit->determineInsertOrEdit(null, 'db', 'table');
 

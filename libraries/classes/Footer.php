@@ -154,28 +154,28 @@ class Footer
             'target' => $target
         ];
         // needed for server privileges tabs
-        if (isset($_REQUEST['viewing_mode'])
-            && in_array($_REQUEST['viewing_mode'], ['server', 'db', 'table'])
+        if (isset($_GET['viewing_mode'])
+            && in_array($_GET['viewing_mode'], ['server', 'db', 'table'])
         ) {
-            $params['viewing_mode'] = $_REQUEST['viewing_mode'];
+            $params['viewing_mode'] = $_GET['viewing_mode'];
         }
         /*
          * @todo    coming from server_privileges.php, here $db is not set,
          *          add the following condition below when that is fixed
-         *          && $_REQUEST['checkprivsdb'] == $db
+         *          && $_GET['checkprivsdb'] == $db
          */
-        if (isset($_REQUEST['checkprivsdb'])
+        if (isset($_GET['checkprivsdb'])
         ) {
-            $params['checkprivsdb'] = $_REQUEST['checkprivsdb'];
+            $params['checkprivsdb'] = $_GET['checkprivsdb'];
         }
         /*
          * @todo    coming from server_privileges.php, here $table is not set,
          *          add the following condition below when that is fixed
          *          && $_REQUEST['checkprivstable'] == $table
          */
-        if (isset($_REQUEST['checkprivstable'])
+        if (isset($_GET['checkprivstable'])
         ) {
-            $params['checkprivstable'] = $_REQUEST['checkprivstable'];
+            $params['checkprivstable'] = $_GET['checkprivstable'];
         }
         if (isset($_REQUEST['single_table'])
             && in_array($_REQUEST['single_table'], [true, false])

@@ -78,7 +78,7 @@ class Privileges
     public function getHtmlForUserGroupDialog($username, $is_menuswork)
     {
         $html = '';
-        if (! empty($_REQUEST['edit_user_group_dialog']) && $is_menuswork) {
+        if (! empty($_GET['edit_user_group_dialog']) && $is_menuswork) {
             $dialog = $this->getHtmlToChooseUserGroup($username);
             $response = Response::getInstance();
             if ($response->isAjax()) {
@@ -1949,7 +1949,7 @@ class Privileges
         // similar logic in user_password.php
         $message = null;
 
-        if (empty($_REQUEST['nopass'])
+        if (empty($_POST['nopass'])
             && isset($_POST['pma_pw'])
             && isset($_POST['pma_pw2'])
         ) {
@@ -1966,8 +1966,8 @@ class Privileges
             $serverType = Util::getServerType();
             $serverVersion = $this->dbi->getVersion();
             $authentication_plugin
-                = (isset($_REQUEST['authentication_plugin'])
-                ? $_REQUEST['authentication_plugin']
+                = (isset($_POST['authentication_plugin'])
+                ? $_POST['authentication_plugin']
                 : $this->getCurrentAuthenticationPlugin(
                     'change',
                     $username,
@@ -2234,7 +2234,7 @@ class Privileges
     }
 
     /**
-     * Get HTML for addUsersForm, This function call if isset($_REQUEST['adduser'])
+     * Get HTML for addUsersForm, This function call if isset($_GET['adduser'])
      *
      * @param string $dbname database name
      *
@@ -2915,9 +2915,13 @@ class Privileges
                 break;
         }
 
-        $html .= ' href="server_privileges.php'
-            . Url::getCommon($params)
-            . '">';
+        $html .= ' href="server_privileges.php';
+        if ($linktype == 'revoke') {
+            $html .= '" data-post="' . Url::getCommon($params, '');
+        } else {
+            $html .= Url::getCommon($params);
+        }
+        $html .= '">';
 
         switch ($linktype) {
             case 'edit':
@@ -3045,7 +3049,7 @@ class Privileges
             $extra_data['sql_query'] = Util::getMessage(null, $sql_query);
         }
 
-        if (isset($_REQUEST['change_copy'])) {
+        if (isset($_POST['change_copy'])) {
             /**
              * generate html on the fly for the new user that was just created.
              */
@@ -3057,7 +3061,7 @@ class Privileges
                 . '&amp;#27;' . htmlspecialchars($hostname) . '" />'
                 . '</td>' . "\n"
                 . '<td><label for="checkbox_sel_users_">'
-                . (empty($_REQUEST['username'])
+                . (empty($_POST['username'])
                         ? '<span style="color: #FF0000">' . __('Any') . '</span>'
                         : htmlspecialchars($username) ) . '</label></td>' . "\n"
                 . '<td>' . htmlspecialchars($hostname) . '</td>' . "\n";
@@ -3146,9 +3150,9 @@ class Privileges
             $extra_data['new_privileges'] = $new_privileges;
         }
 
-        if (isset($_REQUEST['validate_username'])) {
+        if (isset($_GET['validate_username'])) {
             $sql_query = "SELECT * FROM `mysql`.`user` WHERE `User` = '"
-                . $_REQUEST['username'] . "';";
+                . $_GET['username'] . "';";
             $res = $this->dbi->query($sql_query);
             $row = $this->dbi->fetchRow($res);
             if (empty($row)) {
@@ -3868,7 +3872,7 @@ class Privileges
 
         return $this->template->render('server/privileges/initials_row', [
             'array_initials' => $array_initials,
-            'initial' => isset($_REQUEST['initial']) ? $_REQUEST['initial'] : null,
+            'initial' => isset($_GET['initial']) ? $_GET['initial'] : null,
         ]);
     }
 
@@ -3936,7 +3940,7 @@ class Privileges
         if (empty($queries)) {
             $message = Message::error(__('No users selected for deleting!'));
         } else {
-            if ($_REQUEST['mode'] == 3) {
+            if ($_POST['mode'] == 3) {
                 $queries[] = '# ' . __('Reloading the privileges') . ' …';
                 $queries[] = 'FLUSH PRIVILEGES;';
             }
@@ -4047,11 +4051,11 @@ class Privileges
         $queries = null;
         $password = null;
 
-        if (isset($_REQUEST['change_copy'])) {
+        if (isset($_POST['change_copy'])) {
             $user_host_condition = ' WHERE `User` = '
-                . "'" . $this->dbi->escapeString($_REQUEST['old_username']) . "'"
+                . "'" . $this->dbi->escapeString($_POST['old_username']) . "'"
                 . ' AND `Host` = '
-                . "'" . $this->dbi->escapeString($_REQUEST['old_hostname']) . "';";
+                . "'" . $this->dbi->escapeString($_POST['old_hostname']) . "';";
             $row = $this->dbi->fetchSingleRow(
                 'SELECT * FROM `mysql`.`user` ' . $user_host_condition
             );
@@ -4060,7 +4064,7 @@ class Privileges
                 $response->addHTML(
                     Message::notice(__('No user found.'))->getDisplay()
                 );
-                unset($_REQUEST['change_copy']);
+                unset($_POST['change_copy']);
             } else {
                 foreach ($row as $key => $value) {
                     $GLOBALS[$key] = $value;
@@ -4117,12 +4121,12 @@ class Privileges
      */
     public function getDataForDeleteUsers($queries)
     {
-        if (isset($_REQUEST['change_copy'])) {
+        if (isset($_POST['change_copy'])) {
             $selected_usr = [
-                $_REQUEST['old_username'] . '&amp;#27;' . $_REQUEST['old_hostname']
+                $_POST['old_username'] . '&amp;#27;' . $_POST['old_hostname']
             ];
         } else {
-            $selected_usr = $_REQUEST['selected_usr'];
+            $selected_usr = $_POST['selected_usr'];
             $queries = [];
         }
 
@@ -4144,7 +4148,7 @@ class Privileges
                 . '\'@\'' . $this->dbi->escapeString($this_host) . '\';';
             $this->relationCleanup->user($this_user);
 
-            if (isset($_REQUEST['drop_users_db'])) {
+            if (isset($_POST['drop_users_db'])) {
                 $queries[] = 'DROP DATABASE IF EXISTS '
                     . Util::backquote($this_user) . ';';
                 $GLOBALS['reload'] = true;
@@ -4161,7 +4165,7 @@ class Privileges
     public function updateMessageForReload()
     {
         $message = null;
-        if (isset($_REQUEST['flush_privileges'])) {
+        if (isset($_GET['flush_privileges'])) {
             $sql_query = 'FLUSH PRIVILEGES;';
             $this->dbi->query($sql_query);
             $message = Message::success(
@@ -4169,7 +4173,7 @@ class Privileges
             );
         }
 
-        if (isset($_REQUEST['validate_username'])) {
+        if (isset($_GET['validate_username'])) {
             $message = Message::success();
         }
 
@@ -4226,7 +4230,7 @@ class Privileges
         $queries_for_display = null;
         $sql_query = null;
 
-        if (!isset($_REQUEST['adduser_submit']) && !isset($_REQUEST['change_copy'])) {
+        if (!isset($_POST['adduser_submit']) && !isset($_POST['change_copy'])) {
             return [
                 $message, $queries, $queries_for_display, $sql_query, $_add_user_error
             ];
@@ -4261,7 +4265,7 @@ class Privileges
         if ($this->dbi->fetchValue($sql) == 1) {
             $message = Message::error(__('The user %s already exists!'));
             $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
-            $_REQUEST['adduser'] = true;
+            $_GET['adduser'] = true;
             $_add_user_error = true;
 
             return [
@@ -4282,7 +4286,7 @@ class Privileges
             (isset($password) ? $password : '')
         );
 
-        if (empty($_REQUEST['change_copy'])) {
+        if (empty($_POST['change_copy'])) {
             $_error = false;
 
             if (! is_null($create_user_real)) {
@@ -4290,10 +4294,10 @@ class Privileges
                     $_error = true;
                 }
                 if (isset($password_set_real) && !empty($password_set_real)
-                    && isset($_REQUEST['authentication_plugin'])
+                    && isset($_POST['authentication_plugin'])
                 ) {
                     $this->setProperPasswordHashing(
-                        $_REQUEST['authentication_plugin']
+                        $_POST['authentication_plugin']
                     );
                     if ($this->dbi->tryQuery($password_set_real)) {
                         $sql_query .= $password_set_show;
@@ -4310,8 +4314,8 @@ class Privileges
                 $hostname,
                 $dbname
             );
-            if (!empty($_REQUEST['userGroup']) && $is_menuwork) {
-                $this->setUserGroup($GLOBALS['username'], $_REQUEST['userGroup']);
+            if (!empty($_POST['userGroup']) && $is_menuwork) {
+                $this->setUserGroup($GLOBALS['username'], $_POST['userGroup']);
             }
 
             return [
@@ -4325,8 +4329,8 @@ class Privileges
 
         // Copy the user group while copying a user
         $old_usergroup =
-            isset($_REQUEST['old_usergroup']) ? $_REQUEST['old_usergroup'] : null;
-        $this->setUserGroup($_REQUEST['username'], $old_usergroup);
+            isset($_POST['old_usergroup']) ? $_POST['old_usergroup'] : null;
+        $this->setUserGroup($_POST['username'], $old_usergroup);
 
         if (is_null($create_user_real)) {
             $queries[] = $create_user_real;
@@ -4334,10 +4338,10 @@ class Privileges
         $queries[] = $real_sql_query;
 
         if (isset($password_set_real) && ! empty($password_set_real)
-            && isset($_REQUEST['authentication_plugin'])
+            && isset($_POST['authentication_plugin'])
         ) {
             $this->setProperPasswordHashing(
-                $_REQUEST['authentication_plugin']
+                $_POST['authentication_plugin']
             );
 
             $queries[] = $password_set_real;
@@ -4406,25 +4410,25 @@ class Privileges
         /**
          * Checks if a dropdown box has been used for selecting a database / table
          */
-        if (Core::isValid($_REQUEST['pred_tablename'])) {
-            $tablename = $_REQUEST['pred_tablename'];
+        if (Core::isValid($_POST['pred_tablename'])) {
+            $tablename = $_POST['pred_tablename'];
         } elseif (Core::isValid($_REQUEST['tablename'])) {
             $tablename = $_REQUEST['tablename'];
         } else {
             unset($tablename);
         }
 
-        if (Core::isValid($_REQUEST['pred_routinename'])) {
-            $routinename = $_REQUEST['pred_routinename'];
+        if (Core::isValid($_POST['pred_routinename'])) {
+            $routinename = $_POST['pred_routinename'];
         } elseif (Core::isValid($_REQUEST['routinename'])) {
             $routinename = $_REQUEST['routinename'];
         } else {
             unset($routinename);
         }
 
-        if (isset($_REQUEST['pred_dbname'])) {
+        if (isset($_POST['pred_dbname'])) {
             $is_valid_pred_dbname = true;
-            foreach ($_REQUEST['pred_dbname'] as $key => $db_name) {
+            foreach ($_POST['pred_dbname'] as $key => $db_name) {
                 if (! Core::isValid($db_name)) {
                     $is_valid_pred_dbname = false;
                     break;
@@ -4449,7 +4453,7 @@ class Privileges
         }
 
         if (isset($is_valid_pred_dbname) && $is_valid_pred_dbname) {
-            $dbname = $_REQUEST['pred_dbname'];
+            $dbname = $_POST['pred_dbname'];
             // If dbname contains only one database.
             if (count($dbname) == 1) {
                 $dbname = $dbname[0];
@@ -4518,14 +4522,14 @@ class Privileges
     {
         $export = '<textarea class="export" cols="60" rows="15">';
 
-        if (isset($_REQUEST['selected_usr'])) {
+        if (isset($_POST['selected_usr'])) {
             // export privileges for selected users
             $title = __('Privileges');
 
             //For removing duplicate entries of users
-            $_REQUEST['selected_usr'] = array_unique($_REQUEST['selected_usr']);
+            $_POST['selected_usr'] = array_unique($_POST['selected_usr']);
 
-            foreach ($_REQUEST['selected_usr'] as $export_user) {
+            foreach ($_POST['selected_usr'] as $export_user) {
                 $export_username = mb_substr(
                     $export_user,
                     0,
@@ -4727,8 +4731,8 @@ class Privileges
             " IF(`" . $password_column . "` = _latin1 '', 'N', 'Y') AS 'Password'" .
             ' FROM `mysql`.`user`';
 
-        $sql_query .= (isset($_REQUEST['initial'])
-            ? $this->rangeOfUsers($_REQUEST['initial'])
+        $sql_query .= (isset($_GET['initial'])
+            ? $this->rangeOfUsers($_GET['initial'])
             : '');
 
         $sql_query .= ' ORDER BY `User` ASC, `Host` ASC;';
@@ -4808,8 +4812,8 @@ class Privileges
             * Display the user overview
             * (if less than 50 users, display them immediately)
             */
-            if (isset($_REQUEST['initial'])
-                || isset($_REQUEST['showall'])
+            if (isset($_GET['initial'])
+                || isset($_GET['showall'])
                 || $this->dbi->numRows($res) < 50
             ) {
                 $html_output .= $this->getUsersOverview(
@@ -5015,9 +5019,9 @@ class Privileges
                 'SELECT `Column_name`, `Column_priv`'
                 . ' FROM `mysql`.`columns_priv`'
                 . ' WHERE `User`'
-                . ' = \'' . $this->dbi->escapeString($_REQUEST['old_username']) . "'"
+                . ' = \'' . $this->dbi->escapeString($_POST['old_username']) . "'"
                 . ' AND `Host`'
-                . ' = \'' . $this->dbi->escapeString($_REQUEST['old_username']) . '\''
+                . ' = \'' . $this->dbi->escapeString($_POST['old_username']) . '\''
                 . ' AND `Db`'
                 . ' = \'' . $this->dbi->escapeString($row['Db']) . "'"
                 . ' AND `Table_name`'
@@ -5093,9 +5097,9 @@ class Privileges
         $hostname
     ) {
         $user_host_condition = ' WHERE `User`'
-            . ' = \'' . $this->dbi->escapeString($_REQUEST['old_username']) . "'"
+            . ' = \'' . $this->dbi->escapeString($_POST['old_username']) . "'"
             . ' AND `Host`'
-            . ' = \'' . $this->dbi->escapeString($_REQUEST['old_hostname']) . '\';';
+            . ' = \'' . $this->dbi->escapeString($_POST['old_hostname']) . '\';';
 
         $res = $this->dbi->query(
             'SELECT * FROM `mysql`.`db`' . $user_host_condition
@@ -5144,14 +5148,14 @@ class Privileges
         if ($_error || (!empty($real_sql_query)
             && !$this->dbi->tryQuery($real_sql_query))
         ) {
-            $_REQUEST['createdb-1'] = $_REQUEST['createdb-2']
-                = $_REQUEST['createdb-3'] = null;
+            $_POST['createdb-1'] = $_POST['createdb-2']
+                = $_POST['createdb-3'] = null;
             $message = Message::rawError($this->dbi->getError());
         } else {
             $message = Message::success(__('You have added a new user.'));
         }
 
-        if (isset($_REQUEST['createdb-1'])) {
+        if (isset($_POST['createdb-1'])) {
             // Create database with same name and grant all privileges
             $q = 'CREATE DATABASE IF NOT EXISTS '
                 . Util::backquote(
@@ -5182,7 +5186,7 @@ class Privileges
             }
         }
 
-        if (isset($_REQUEST['createdb-2'])) {
+        if (isset($_POST['createdb-2'])) {
             // Grant all privileges on wildcard name (username\_%)
             $q = 'GRANT ALL PRIVILEGES ON '
                 . Util::backquote(
@@ -5198,7 +5202,7 @@ class Privileges
             }
         }
 
-        if (isset($_REQUEST['createdb-3'])) {
+        if (isset($_POST['createdb-3'])) {
             // Grant all privileges on the specified database to the new user
             $q = 'GRANT ALL PRIVILEGES ON '
             . Util::backquote(
@@ -5296,21 +5300,21 @@ class Privileges
         // is supported by MySQL 5.5.7+
         if (($serverType == 'MySQL' || $serverType == 'Percona Server')
             && $serverVersion >= 50507
-            && isset($_REQUEST['authentication_plugin'])
+            && isset($_POST['authentication_plugin'])
         ) {
             $create_user_stmt .= ' IDENTIFIED WITH '
-                . $_REQUEST['authentication_plugin'];
+                . $_POST['authentication_plugin'];
         }
 
         // 'IDENTIFIED VIA auth_plugin'
         // is supported by MariaDB 5.2+
         if ($serverType == 'MariaDB'
             && $serverVersion >= 50200
-            && isset($_REQUEST['authentication_plugin'])
+            && isset($_POST['authentication_plugin'])
             && ! $isMariaDBPwdPluginActive
         ) {
             $create_user_stmt .= ' IDENTIFIED VIA '
-                . $_REQUEST['authentication_plugin'];
+                . $_POST['authentication_plugin'];
         }
 
         $create_user_real = $create_user_stmt;
@@ -5333,9 +5337,9 @@ class Privileges
         $real_sql_query = $sql_query = $sql_query_stmt;
 
         // Set the proper hashing method
-        if (isset($_REQUEST['authentication_plugin'])) {
+        if (isset($_POST['authentication_plugin'])) {
             $this->setProperPasswordHashing(
-                $_REQUEST['authentication_plugin']
+                $_POST['authentication_plugin']
             );
         }
 

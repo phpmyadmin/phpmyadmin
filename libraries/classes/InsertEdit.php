@@ -89,8 +89,8 @@ class InsertEdit
                 $_form_params['where_clause[' . $key_id . ']'] = trim($where_clause);
             }
         }
-        if (isset($_REQUEST['clause_is_unique'])) {
-            $_form_params['clause_is_unique'] = $_REQUEST['clause_is_unique'];
+        if (isset($_POST['clause_is_unique'])) {
+            $_form_params['clause_is_unique'] = $_POST['clause_is_unique'];
         }
         return $_form_params;
     }
@@ -290,13 +290,13 @@ class InsertEdit
         $this_url_params = array_merge($url_params, $params);
 
         if (! $is_show) {
-            return ' : <a href="tbl_change.php'
-                . Url::getCommon($this_url_params) . '">'
+            return ' : <a href="tbl_change.php" data-post="'
+                . Url::getCommon($this_url_params, '') . '">'
                 . $this->showTypeOrFunctionLabel($which)
                 . '</a>';
         }
-        return '<th><a href="tbl_change.php'
-            . Url::getCommon($this_url_params)
+        return '<th><a href="tbl_change.php" data-post="'
+            . Url::getCommon($this_url_params, '')
             . '" title="' . __('Hide') . '">'
             . $this->showTypeOrFunctionLabel($which)
             . '</a></th>';
@@ -860,7 +860,7 @@ class InsertEdit
             . 'id="field_' . $idindex . '_3" '
             . 'value="' . htmlspecialchars($data) . '" />';
 
-        $html_output .= '<a class="ajax browse_foreign" href="browse_foreigners.php'
+        $html_output .= '<a class="ajax browse_foreign" href="browse_foreigners.php" data-post="'
             . Url::getCommon(
                 [
                     'db' => $db,
@@ -868,7 +868,8 @@ class InsertEdit
                     'field' => $column['Field'],
                     'rownumber' => $rownumber,
                     'data'      => $data
-                ]
+                ],
+                ''
             ) . '">'
             . str_replace("'", "\'", $titles['Browse']) . '</a>';
         return $html_output;
@@ -1137,7 +1138,7 @@ class InsertEdit
             $html_output .= '<option value="' . $enum_value['html'] . '"';
             if ($data == $enum_value['plain']
                 || ($data == ''
-                && (! isset($_REQUEST['where_clause']) || $column['Null'] != 'YES')
+                && (! isset($_POST['where_clause']) || $column['Null'] != 'YES')
                 && isset($column['Default'])
                 && $enum_value['plain'] == $column['Default'])
             ) {
@@ -1193,7 +1194,7 @@ class InsertEdit
                 . ' ' . $onChangeClause;
             if ($data == $enum_value['plain']
                 || ($data == ''
-                && (! isset($_REQUEST['where_clause']) || $column['Null'] != 'YES')
+                && (! isset($_POST['where_clause']) || $column['Null'] != 'YES')
                 && isset($column['Default'])
                 && $enum_value['plain'] == $column['Default'])
             ) {
@@ -1755,7 +1756,7 @@ class InsertEdit
             'err_url' => $err_url,
             'goto' => $GLOBALS['goto'],
             'sql_query' => isset($_POST['sql_query']) ? $_POST['sql_query'] : null,
-            'has_where_clause' => isset($_REQUEST['where_clause']),
+            'has_where_clause' => isset($_POST['where_clause']),
             'insert_rows_default' => $GLOBALS['cfg']['InsertRows'],
         ]);
     }
@@ -2037,8 +2038,8 @@ class InsertEdit
 
         //when copying row, it is useful to empty auto-increment column
         // to prevent duplicate key error
-        if (isset($_REQUEST['default_action'])
-            && $_REQUEST['default_action'] === 'insert'
+        if (isset($_POST['default_action'])
+            && $_POST['default_action'] === 'insert'
         ) {
             if ($column['Key'] === 'PRI'
                 && mb_strpos($column['Extra'], 'auto_increment') !== false
@@ -2117,29 +2118,29 @@ class InsertEdit
      */
     public function getParamsForUpdateOrInsert()
     {
-        if (isset($_REQUEST['where_clause'])) {
+        if (isset($_POST['where_clause'])) {
             // we were editing something => use the WHERE clause
-            $loop_array = is_array($_REQUEST['where_clause'])
-                ? $_REQUEST['where_clause']
-                : [$_REQUEST['where_clause']];
+            $loop_array = is_array($_POST['where_clause'])
+                ? $_POST['where_clause']
+                : [$_POST['where_clause']];
             $using_key  = true;
-            $is_insert  = isset($_REQUEST['submit_type'])
-                          && ($_REQUEST['submit_type'] == 'insert'
-                          || $_REQUEST['submit_type'] == 'showinsert'
-                          || $_REQUEST['submit_type'] == 'insertignore');
+            $is_insert  = isset($_POST['submit_type'])
+                          && ($_POST['submit_type'] == 'insert'
+                          || $_POST['submit_type'] == 'showinsert'
+                          || $_POST['submit_type'] == 'insertignore');
         } else {
             // new row => use indexes
             $loop_array = [];
-            if (! empty($_REQUEST['fields'])) {
-                foreach ($_REQUEST['fields']['multi_edit'] as $key => $dummy) {
+            if (! empty($_POST['fields'])) {
+                foreach ($_POST['fields']['multi_edit'] as $key => $dummy) {
                     $loop_array[] = $key;
                 }
             }
             $using_key  = false;
             $is_insert  = true;
         }
-        $is_insertignore  = isset($_REQUEST['submit_type'])
-            && $_REQUEST['submit_type'] == 'insertignore';
+        $is_insertignore  = isset($_POST['submit_type'])
+            && $_POST['submit_type'] == 'insertignore';
         return [$loop_array, $using_key, $is_insert, $is_insertignore];
     }
 
@@ -2151,11 +2152,11 @@ class InsertEdit
      */
     public function isInsertRow()
     {
-        if (isset($_REQUEST['insert_rows'])
-            && is_numeric($_REQUEST['insert_rows'])
-            && $_REQUEST['insert_rows'] != $GLOBALS['cfg']['InsertRows']
+        if (isset($_POST['insert_rows'])
+            && is_numeric($_POST['insert_rows'])
+            && $_POST['insert_rows'] != $GLOBALS['cfg']['InsertRows']
         ) {
-            $GLOBALS['cfg']['InsertRows'] = $_REQUEST['insert_rows'];
+            $GLOBALS['cfg']['InsertRows'] = $_POST['insert_rows'];
             $response = Response::getInstance();
             $header = $response->getHeader();
             $scripts = $header->getScripts();
@@ -2215,8 +2216,8 @@ class InsertEdit
     public function getGotoInclude($goto_include)
     {
         $valid_options = ['new_insert', 'same_insert', 'edit_next'];
-        if (isset($_REQUEST['after_insert'])
-            && in_array($_REQUEST['after_insert'], $valid_options)
+        if (isset($_POST['after_insert'])
+            && in_array($_POST['after_insert'], $valid_options)
         ) {
             $goto_include = 'tbl_change.php';
         } elseif (! empty($GLOBALS['goto'])) {
@@ -2250,8 +2251,8 @@ class InsertEdit
      */
     public function getErrorUrl(array $url_params)
     {
-        if (isset($_REQUEST['err_url'])) {
-            return $_REQUEST['err_url'];
+        if (isset($_POST['err_url'])) {
+            return $_POST['err_url'];
         }
 
         return 'tbl_change.php' . Url::getCommon($url_params);
@@ -2260,7 +2261,7 @@ class InsertEdit
     /**
      * Builds the sql query
      *
-     * @param boolean $is_insertignore $_REQUEST['submit_type'] == 'insertignore'
+     * @param boolean $is_insertignore $_POST['submit_type'] == 'insertignore'
      * @param array   $query_fields    column names array
      * @param array   $value_sets      array of query values
      *
@@ -2310,7 +2311,7 @@ class InsertEdit
         $error_messages = [];
 
         foreach ($query as $single_query) {
-            if ($_REQUEST['submit_type'] == 'showinsert') {
+            if ($_POST['submit_type'] == 'showinsert') {
                 $last_messages[] = Message::notice(__('Showing SQL query'));
                 continue;
             }
@@ -2496,11 +2497,10 @@ class InsertEdit
     ) {
         $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
         if (is_file($include_file)) {
-            include_once $include_file;
             $_url_params = [
                 'db'            => $db,
                 'table'         => $table,
-                'where_clause'  => $_REQUEST['where_clause'],
+                'where_clause'  => $_POST['where_clause'],
                 'transform_key' => $column_name
             ];
             $transform_options = $this->transformations->getOptions(
@@ -2510,19 +2510,21 @@ class InsertEdit
             );
             $transform_options['wrapper_link'] = Url::getCommon($_url_params);
             $class_name = $this->transformations->getClassName($include_file);
-            /** @var TransformationsPlugin $transformation_plugin */
-            $transformation_plugin = new $class_name();
+            if (class_exists($class_name)) {
+                /** @var TransformationsPlugin $transformation_plugin */
+                $transformation_plugin = new $class_name();
 
-            foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
-                if (isset($curr_cell_edited_values[$column_name])) {
-                    $edited_values[$cell_index][$column_name]
-                        = $extra_data['transformations'][$cell_index]
-                            = $transformation_plugin->applyTransformation(
-                                $curr_cell_edited_values[$column_name],
-                                $transform_options
-                            );
-                }
-            }   // end of loop for each transformation cell
+                foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
+                    if (isset($curr_cell_edited_values[$column_name])) {
+                        $edited_values[$cell_index][$column_name]
+                            = $extra_data['transformations'][$cell_index]
+                                = $transformation_plugin->applyTransformation(
+                                    $curr_cell_edited_values[$column_name],
+                                    $transform_options
+                                );
+                    }
+                }   // end of loop for each transformation cell
+            }
         }
         return $extra_data;
     }
@@ -2736,10 +2738,10 @@ class InsertEdit
                     $current_value = "''";
                 }
             } elseif ($type == 'set') {
-                if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
+                if (! empty($_POST['fields']['multi_edit'][$rownumber][$key])) {
                     $current_value = implode(
                         ',',
-                        $_REQUEST['fields']['multi_edit'][$rownumber][$key]
+                        $_POST['fields']['multi_edit'][$rownumber][$key]
                     );
                     $current_value = "'"
                         . $this->dbi->escapeString($current_value) . "'";
@@ -2820,7 +2822,7 @@ class InsertEdit
             . Util::backquote($column_name)
             . ' FROM ' . Util::backquote($db) . '.'
             . Util::backquote($table)
-            . ' WHERE ' . $_REQUEST['where_clause'][0];
+            . ' WHERE ' . $_POST['where_clause'][0];
 
         $result = $this->dbi->tryQuery($sql_for_real_value);
         $fields_meta = $this->dbi->getFieldsMeta($result);
@@ -2866,23 +2868,23 @@ class InsertEdit
      */
     public function determineInsertOrEdit($where_clause, $db, $table)
     {
-        if (isset($_REQUEST['where_clause'])) {
-            $where_clause = $_REQUEST['where_clause'];
+        if (isset($_POST['where_clause'])) {
+            $where_clause = $_POST['where_clause'];
         }
         if (isset($_SESSION['edit_next'])) {
             $where_clause = $_SESSION['edit_next'];
             unset($_SESSION['edit_next']);
             $after_insert = 'edit_next';
         }
-        if (isset($_REQUEST['ShowFunctionFields'])) {
-            $GLOBALS['cfg']['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
+        if (isset($_POST['ShowFunctionFields'])) {
+            $GLOBALS['cfg']['ShowFunctionFields'] = $_POST['ShowFunctionFields'];
         }
-        if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
+        if (isset($_POST['ShowFieldTypesInDataEditView'])) {
             $GLOBALS['cfg']['ShowFieldTypesInDataEditView']
-                = $_REQUEST['ShowFieldTypesInDataEditView'];
+                = $_POST['ShowFieldTypesInDataEditView'];
         }
-        if (isset($_REQUEST['after_insert'])) {
-            $after_insert = $_REQUEST['after_insert'];
+        if (isset($_POST['after_insert'])) {
+            $after_insert = $_POST['after_insert'];
         }
 
         if (isset($where_clause)) {
@@ -2907,8 +2909,8 @@ class InsertEdit
 
         // Copying a row - fetched data will be inserted as a new row,
         // therefore the where clause is needless.
-        if (isset($_REQUEST['default_action'])
-            && $_REQUEST['default_action'] === 'insert'
+        if (isset($_POST['default_action'])
+            && $_POST['default_action'] === 'insert'
         ) {
             $where_clause = $where_clauses = null;
         }
@@ -3285,42 +3287,43 @@ class InsertEdit
             $file = $column_mime['input_transformation'];
             $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
             if (is_file($include_file)) {
-                include_once $include_file;
                 $class_name = $this->transformations->getClassName($include_file);
-                $transformation_plugin = new $class_name();
-                $transformation_options = $this->transformations->getOptions(
-                    $column_mime['input_transformation_options']
-                );
-                $_url_params = [
-                    'db'            => $db,
-                    'table'         => $table,
-                    'transform_key' => $column['Field'],
-                    'where_clause'  => $where_clause
-                ];
-                $transformation_options['wrapper_link']
-                    = Url::getCommon($_url_params);
-                $current_value = '';
-                if (isset($current_row[$column['Field']])) {
-                    $current_value = $current_row[$column['Field']];
-                }
-                if (method_exists($transformation_plugin, 'getInputHtml')) {
-                    $transformed_html = $transformation_plugin->getInputHtml(
-                        $column,
-                        $row_id,
-                        $column_name_appendix,
-                        $transformation_options,
-                        $current_value,
-                        $text_dir,
-                        $tabindex,
-                        $tabindex_for_value,
-                        $idindex
+                if (class_exists($class_name)) {
+                    $transformation_plugin = new $class_name();
+                    $transformation_options = $this->transformations->getOptions(
+                        $column_mime['input_transformation_options']
                     );
-                }
-                if (method_exists($transformation_plugin, 'getScripts')) {
-                    $GLOBALS['plugin_scripts'] = array_merge(
-                        $GLOBALS['plugin_scripts'],
-                        $transformation_plugin->getScripts()
-                    );
+                    $_url_params = [
+                        'db'            => $db,
+                        'table'         => $table,
+                        'transform_key' => $column['Field'],
+                        'where_clause'  => $where_clause
+                    ];
+                    $transformation_options['wrapper_link']
+                        = Url::getCommon($_url_params);
+                    $current_value = '';
+                    if (isset($current_row[$column['Field']])) {
+                        $current_value = $current_row[$column['Field']];
+                    }
+                    if (method_exists($transformation_plugin, 'getInputHtml')) {
+                        $transformed_html = $transformation_plugin->getInputHtml(
+                            $column,
+                            $row_id,
+                            $column_name_appendix,
+                            $transformation_options,
+                            $current_value,
+                            $text_dir,
+                            $tabindex,
+                            $tabindex_for_value,
+                            $idindex
+                        );
+                    }
+                    if (method_exists($transformation_plugin, 'getScripts')) {
+                        $GLOBALS['plugin_scripts'] = array_merge(
+                            $GLOBALS['plugin_scripts'],
+                            $transformation_plugin->getScripts()
+                        );
+                    }
                 }
             }
         }

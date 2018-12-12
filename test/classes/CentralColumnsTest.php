@@ -231,8 +231,8 @@ class CentralColumnsTest extends TestCase
      */
     public function testSyncUniqueColumns()
     {
-        $_REQUEST['db'] = 'PMA_db';
-        $_REQUEST['table'] = 'PMA_table';
+        $_POST['db'] = 'PMA_db';
+        $_POST['table'] = 'PMA_table';
 
         $this->assertTrue(
             $this->centralColumns->syncUniqueColumns(
@@ -248,8 +248,8 @@ class CentralColumnsTest extends TestCase
      */
     public function testDeleteColumnsFromList()
     {
-        $_REQUEST['db'] = 'PMA_db';
-        $_REQUEST['table'] = 'PMA_table';
+        $_POST['db'] = 'PMA_db';
+        $_POST['table'] = 'PMA_table';
 
         // when column exists in the central column list
         $GLOBALS['dbi']->expects($this->at(4))

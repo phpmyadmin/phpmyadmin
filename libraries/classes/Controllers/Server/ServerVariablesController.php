@@ -48,16 +48,16 @@ class ServerVariablesController extends Controller
     {
         $response = Response::getInstance();
         if ($response->isAjax()
-            && isset($_REQUEST['type'])
-            && $_REQUEST['type'] === 'getval'
+            && isset($_GET['type'])
+            && $_GET['type'] === 'getval'
         ) {
             $this->getValueAction();
             return;
         }
 
         if ($response->isAjax()
-            && isset($_REQUEST['type'])
-            && $_REQUEST['type'] === 'setval'
+            && isset($_POST['type'])
+            && $_POST['type'] === 'setval'
         ) {
             $this->setValueAction();
             return;
@@ -138,12 +138,12 @@ class ServerVariablesController extends Controller
         // when server is running in ANSI_QUOTES sql_mode
         $varValue = $this->dbi->fetchSingleRow(
             'SHOW GLOBAL VARIABLES WHERE Variable_name=\''
-            . $this->dbi->escapeString($_REQUEST['varName']) . '\';',
+            . $this->dbi->escapeString($_GET['varName']) . '\';',
             'NUM'
         );
 
         try {
-            $type = KBSearch::getVariableType($_REQUEST['varName']);
+            $type = KBSearch::getVariableType($_GET['varName']);
             if ($type === 'byte') {
                 $this->response->addJSON(
                     'message',
@@ -170,10 +170,10 @@ class ServerVariablesController extends Controller
      */
     public function setValueAction()
     {
-        $value = $_REQUEST['varValue'];
+        $value = $_POST['varValue'];
         $matches = [];
         try {
-            $type = KBSearch::getVariableType($_REQUEST['varName']);
+            $type = KBSearch::getVariableType($_POST['varName']);
             if ($type === 'byte' && preg_match(
                 '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
                 $value,
@@ -202,20 +202,20 @@ class ServerVariablesController extends Controller
             $value = "'" . $value . "'";
         }
 
-        if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])
+        if (! preg_match("/[^a-zA-Z0-9_]+/", $_POST['varName'])
             && $this->dbi->query(
-                'SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value
+                'SET GLOBAL ' . $_POST['varName'] . ' = ' . $value
             )
         ) {
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . $this->dbi->escapeString($_REQUEST['varName'])
+                . $this->dbi->escapeString($_POST['varName'])
                 . '";',
                 'NUM'
             );
             list($formattedValue, $isHtmlFormatted) = $this->_formatVariable(
-                $_REQUEST['varName'],
+                $_POST['varName'],
                 $varValue[1]
             );
 

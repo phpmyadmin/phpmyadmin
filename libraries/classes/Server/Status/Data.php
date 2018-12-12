@@ -145,43 +145,44 @@ class Data
         $links = [];
         // variable or section name => (name => url)
 
-        $links['table'][__('Flush (close) all tables')] = $this->selfUrl
-            . Url::getCommon(
-                [
-                    'flush' => 'TABLES'
-                ]
-            );
-        $links['table'][__('Show open tables')]
-            = 'sql.php' . Url::getCommon(
-                [
-                    'sql_query' => 'SHOW OPEN TABLES',
-                    'goto' => $this->selfUrl,
-                ]
-            );
+        $links['table'][__('Flush (close) all tables')] = [
+            'url' => $this->selfUrl,
+            'params' => Url::getCommon(['flush' => 'TABLES'], ''),
+        ];
+        $links['table'][__('Show open tables')] = [
+            'url' => 'sql.php',
+            'params' => Url::getCommon([
+                'sql_query' => 'SHOW OPEN TABLES',
+                'goto' => $this->selfUrl,
+            ], ''),
+        ];
 
         if ($GLOBALS['replication_info']['master']['status']) {
-            $links['repl'][__('Show slave hosts')]
-                = 'sql.php' . Url::getCommon(
-                    [
-                        'sql_query' => 'SHOW SLAVE HOSTS',
-                        'goto' => $this->selfUrl,
-                    ]
-                );
-            $links['repl'][__('Show master status')] = '#replication_master';
+            $links['repl'][__('Show slave hosts')] = [
+                'url' => 'sql.php',
+                'params' => Url::getCommon([
+                    'sql_query' => 'SHOW SLAVE HOSTS',
+                    'goto' => $this->selfUrl,
+                ], ''),
+            ];
+            $links['repl'][__('Show master status')] = [
+                'url' => '#replication_master',
+                'params' => '',
+            ];
         }
         if ($GLOBALS['replication_info']['slave']['status']) {
-            $links['repl'][__('Show slave status')] = '#replication_slave';
+            $links['repl'][__('Show slave status')] = [
+                'url' => '#replication_slave',
+                'params' => '',
+            ];
         }
 
         $links['repl']['doc'] = 'replication';
 
-        $links['qcache'][__('Flush query cache')]
-            = $this->selfUrl
-            . Url::getCommon(
-                [
-                    'flush' => 'QUERY CACHE'
-                ]
-            );
+        $links['qcache'][__('Flush query cache')] = [
+            'url' => $this->selfUrl,
+            'params' => Url::getCommon(['flush' => 'QUERY CACHE'], ''),
+        ];
         $links['qcache']['doc'] = 'query_cache';
 
         $links['threads']['doc'] = 'mysql_threads';
@@ -192,16 +193,17 @@ class Data
 
         $links['Slow_queries']['doc'] = 'slow_query_log';
 
-        $links['innodb'][__('Variables')]
-            = 'server_engines.php?' . Url::getCommon(['engine' => 'InnoDB']);
-        $links['innodb'][__('InnoDB Status')]
-            = 'server_engines.php'
-            . Url::getCommon(
-                [
-                    'engine' => 'InnoDB',
-                    'page' => 'Status'
-                ]
-            );
+        $links['innodb'][__('Variables')] = [
+            'url' => 'server_engines.php',
+            'params' => Url::getCommon(['engine' => 'InnoDB'], ''),
+        ];
+        $links['innodb'][__('InnoDB Status')] = [
+            'url' => 'server_engines.php',
+            'params' => Url::getCommon([
+                'engine' => 'InnoDB',
+                'page' => 'Status',
+            ], ''),
+        ];
         $links['innodb']['doc'] = 'innodb';
 
         return($links);

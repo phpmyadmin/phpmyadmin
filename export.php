@@ -232,39 +232,39 @@ $filename = '';
 $separate_files = '';
 
 // Is it a quick or custom export?
-if (isset($_REQUEST['quick_or_custom'])
-    && $_REQUEST['quick_or_custom'] == 'quick'
+if (isset($_POST['quick_or_custom'])
+    && $_POST['quick_or_custom'] == 'quick'
 ) {
     $quick_export = true;
 } else {
     $quick_export = false;
 }
 
-if ($_REQUEST['output_format'] == 'astext') {
+if ($_POST['output_format'] == 'astext') {
     $asfile = false;
 } else {
     $asfile = true;
-    if (isset($_REQUEST['as_separate_files'])
-        && ! empty($_REQUEST['as_separate_files'])
+    if (isset($_POST['as_separate_files'])
+        && ! empty($_POST['as_separate_files'])
     ) {
-        if (isset($_REQUEST['compression'])
-            && ! empty($_REQUEST['compression'])
-            && $_REQUEST['compression'] == 'zip'
+        if (isset($_POST['compression'])
+            && ! empty($_POST['compression'])
+            && $_POST['compression'] == 'zip'
         ) {
-            $separate_files = $_REQUEST['as_separate_files'];
+            $separate_files = $_POST['as_separate_files'];
         }
     }
-    if (in_array($_REQUEST['compression'], $compression_methods)) {
-        $compression = $_REQUEST['compression'];
+    if (in_array($_POST['compression'], $compression_methods)) {
+        $compression = $_POST['compression'];
         $buffer_needed = true;
     }
-    if (($quick_export && ! empty($_REQUEST['quick_export_onserver']))
-        || (! $quick_export && ! empty($_REQUEST['onserver']))
+    if (($quick_export && ! empty($_POST['quick_export_onserver']))
+        || (! $quick_export && ! empty($_POST['onserver']))
     ) {
         if ($quick_export) {
-            $onserver = $_REQUEST['quick_export_onserver'];
+            $onserver = $_POST['quick_export_onserver'];
         } else {
-            $onserver = $_REQUEST['onserver'];
+            $onserver = $_POST['onserver'];
         }
         // Will we save dump on server?
         $save_on_server = ! empty($cfg['SaveDir']) && $onserver;
@@ -302,9 +302,9 @@ if ((!empty($parser->statements[0]))
 ) {
     $aliases = \PhpMyAdmin\SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
 }
-if (!empty($_REQUEST['aliases'])) {
-    $aliases = $export->mergeAliases($aliases, $_REQUEST['aliases']);
-    $_SESSION['tmpval']['aliases'] = $_REQUEST['aliases'];
+if (!empty($_POST['aliases'])) {
+    $aliases = $export->mergeAliases($aliases, $_POST['aliases']);
+    $_SESSION['tmpval']['aliases'] = $_POST['aliases'];
 }
 
 /**
@@ -466,7 +466,7 @@ do {
         if (!isset($table_data) || !is_array($table_data)) {
             $table_data = [];
         }
-        if (!empty($_REQUEST['structure_or_data_forced'])) {
+        if (!empty($_POST['structure_or_data_forced'])) {
             $table_structure = $tables;
             $table_data = $tables;
         }

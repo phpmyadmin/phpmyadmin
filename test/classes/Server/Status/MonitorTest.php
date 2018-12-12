@@ -40,10 +40,6 @@ class MonitorTest extends TestCase
      */
     protected function setUp()
     {
-        //$_REQUEST
-        $_REQUEST['log'] = "index1";
-        $_REQUEST['pos'] = 3;
-
         //$GLOBALS
         $GLOBALS['cfg']['MaxRows'] = 10;
         $GLOBALS['cfg']['ServerDefault'] = "server";
@@ -288,7 +284,7 @@ class MonitorTest extends TestCase
      */
     public function testPMAGetJsonForLogDataTypeGeneral()
     {
-        $_REQUEST['limitTypes'] = true;
+        $_POST['limitTypes'] = true;
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -348,7 +344,7 @@ class MonitorTest extends TestCase
      */
     public function testPMAGetJsonForLoggingVars()
     {
-        $_REQUEST['varName'] = "varName";
+        $_POST['varName'] = "varName";
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -383,8 +379,8 @@ class MonitorTest extends TestCase
      */
     public function testPMAGetJsonForQueryAnalyzer()
     {
-        $_REQUEST['database'] = "database";
-        $_REQUEST['query'] = 'query';
+        $_POST['database'] = "database";
+        $_POST['query'] = 'query';
         $GLOBALS['server'] = 'server';
         $GLOBALS['cached_affected_rows'] = 'cached_affected_rows';
         $_SESSION['cache']['server_server']['profiling_supported'] = true;

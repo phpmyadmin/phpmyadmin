@@ -55,7 +55,7 @@ class TableIndexesController extends TableController
      */
     public function indexAction()
     {
-        if (isset($_REQUEST['do_save_data'])) {
+        if (isset($_POST['do_save_data'])) {
             $this->doSaveDataAction();
             return;
         } // end builds the new index
@@ -72,24 +72,24 @@ class TableIndexesController extends TableController
     {
         $this->dbi->selectDb($GLOBALS['db']);
         $add_fields = 0;
-        if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
+        if (isset($_POST['index']) && is_array($_POST['index'])) {
             // coming already from form
-            if (isset($_REQUEST['index']['columns']['names'])) {
-                $add_fields = count($_REQUEST['index']['columns']['names'])
+            if (isset($_POST['index']['columns']['names'])) {
+                $add_fields = count($_POST['index']['columns']['names'])
                     - $this->index->getColumnCount();
             }
-            if (isset($_REQUEST['add_fields'])) {
-                $add_fields += $_REQUEST['added_fields'];
+            if (isset($_POST['add_fields'])) {
+                $add_fields += $_POST['added_fields'];
             }
-        } elseif (isset($_REQUEST['create_index'])) {
-            $add_fields = $_REQUEST['added_fields'];
+        } elseif (isset($_POST['create_index'])) {
+            $add_fields = $_POST['added_fields'];
         } // end preparing form values
 
         // Get fields and stores their name/type
-        if (isset($_REQUEST['create_edit_table'])) {
-            $fields = json_decode($_REQUEST['columns'], true);
+        if (isset($_POST['create_edit_table'])) {
+            $fields = json_decode($_POST['columns'], true);
             $index_params = [
-                'Non_unique' => $_REQUEST['index']['Index_choice'] == 'UNIQUE'
+                'Non_unique' => $_POST['index']['Index_choice'] == 'UNIQUE'
                     ? '0' : '1',
             ];
             $this->index->set($index_params);
@@ -104,12 +104,12 @@ class TableIndexesController extends TableController
             'table' => $this->table,
         ];
 
-        if (isset($_REQUEST['create_index'])) {
+        if (isset($_POST['create_index'])) {
             $form_params['create_index'] = 1;
-        } elseif (isset($_REQUEST['old_index'])) {
-            $form_params['old_index'] = $_REQUEST['old_index'];
-        } elseif (isset($_REQUEST['index'])) {
-            $form_params['old_index'] = $_REQUEST['index'];
+        } elseif (isset($_POST['old_index'])) {
+            $form_params['old_index'] = $_POST['old_index'];
+        } elseif (isset($_POST['index'])) {
+            $form_params['old_index'] = $_POST['index'];
         }
 
         $this->response->getHeader()->getScripts()->addFile('indexes.js');
@@ -120,7 +120,7 @@ class TableIndexesController extends TableController
                 'index' => $this->index,
                 'form_params' => $form_params,
                 'add_fields' => $add_fields,
-                'create_edit_table' => isset($_REQUEST['create_edit_table']),
+                'create_edit_table' => isset($_POST['create_edit_table']),
                 'default_sliders_state' => $GLOBALS['cfg']['InitialSlidersState'],
             ])
         );
@@ -141,7 +141,7 @@ class TableIndexesController extends TableController
             ->getSqlQueryForIndexCreateOrEdit($this->index, $error);
 
         // If there is a request for SQL previewing.
-        if (isset($_REQUEST['preview_sql'])) {
+        if (isset($_POST['preview_sql'])) {
             $this->response->addJSON(
                 'sql_data',
                 $this->template->render('preview_sql', ['query_data' => $sql_query])

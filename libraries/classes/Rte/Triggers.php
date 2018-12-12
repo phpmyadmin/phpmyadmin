@@ -129,8 +129,8 @@ class Triggers
     {
         global $_REQUEST, $_POST, $errors, $db, $table;
 
-        if (! empty($_REQUEST['editor_process_add'])
-            || ! empty($_REQUEST['editor_process_edit'])
+        if (! empty($_POST['editor_process_add'])
+            || ! empty($_POST['editor_process_edit'])
         ) {
             $sql_query = '';
 
@@ -138,9 +138,9 @@ class Triggers
 
             if (! count($errors)) { // set by PhpMyAdmin\Rte\Routines::getQueryFromRequest()
                 // Execute the created query
-                if (! empty($_REQUEST['editor_process_edit'])) {
+                if (! empty($_POST['editor_process_edit'])) {
                     // Backup the old trigger, in case something goes wrong
-                    $trigger = $this->getDataFromName($_REQUEST['item_original_name']);
+                    $trigger = $this->getDataFromName($_POST['item_original_name']);
                     $create_item = $trigger['create'];
                     $drop_item = $trigger['drop'] . ';';
                     $result = $this->dbi->tryQuery($drop_item);
@@ -177,7 +177,7 @@ class Triggers
                                 __('Trigger %1$s has been modified.')
                             );
                             $message->addParam(
-                                Util::backquote($_REQUEST['item_name'])
+                                Util::backquote($_POST['item_name'])
                             );
                             $sql_query = $drop_item . $item_query;
                         }
@@ -197,7 +197,7 @@ class Triggers
                             __('Trigger %1$s has been created.')
                         );
                         $message->addParam(
-                            Util::backquote($_REQUEST['item_name'])
+                            Util::backquote($_POST['item_name'])
                         );
                         $sql_query = $item_query;
                     }
@@ -226,7 +226,7 @@ class Triggers
                     $items = $this->dbi->getTriggers($db, $table, '');
                     $trigger = false;
                     foreach ($items as $value) {
-                        if ($value['name'] == $_REQUEST['item_name']) {
+                        if ($value['name'] == $_POST['item_name']) {
                             $trigger = $value;
                         }
                     }
@@ -240,7 +240,7 @@ class Triggers
                             'name',
                             htmlspecialchars(
                                 mb_strtoupper(
-                                    $_REQUEST['item_name']
+                                    $_POST['item_name']
                                 )
                             )
                         );
@@ -259,8 +259,8 @@ class Triggers
          * Display a form used to add/edit a trigger, if necessary
          */
         if (count($errors)
-            || (empty($_REQUEST['editor_process_add'])
-            && empty($_REQUEST['editor_process_edit'])
+            || (empty($_POST['editor_process_add'])
+            && empty($_POST['editor_process_edit'])
             && (! empty($_REQUEST['add_item'])
             || ! empty($_REQUEST['edit_item']))) // FIXME: this must be simpler than that
         ) {
@@ -272,7 +272,7 @@ class Triggers
             } elseif (! empty($_REQUEST['edit_item'])) {
                 $title = __("Edit trigger");
                 if (! empty($_REQUEST['item_name'])
-                    && empty($_REQUEST['editor_process_edit'])
+                    && empty($_POST['editor_process_edit'])
                 ) {
                     $item = $this->getDataFromName($_REQUEST['item_name']);
                     if ($item !== false) {
@@ -303,7 +303,7 @@ class Triggers
                          'item_definition',
                          'item_definer'];
         foreach ($indices as $index) {
-            $retval[$index] = isset($_REQUEST[$index]) ? $_REQUEST[$index] : '';
+            $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
         }
         return $retval;
     }
@@ -480,10 +480,10 @@ class Triggers
         global $_REQUEST, $db, $errors, $action_timings, $event_manipulations;
 
         $query = 'CREATE ';
-        if (! empty($_REQUEST['item_definer'])) {
-            if (mb_strpos($_REQUEST['item_definer'], '@') !== false
+        if (! empty($_POST['item_definer'])) {
+            if (mb_strpos($_POST['item_definer'], '@') !== false
             ) {
-                $arr = explode('@', $_REQUEST['item_definer']);
+                $arr = explode('@', $_POST['item_definer']);
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
             } else {
@@ -491,36 +491,36 @@ class Triggers
             }
         }
         $query .= 'TRIGGER ';
-        if (! empty($_REQUEST['item_name'])) {
-            $query .= Util::backquote($_REQUEST['item_name']) . ' ';
+        if (! empty($_POST['item_name'])) {
+            $query .= Util::backquote($_POST['item_name']) . ' ';
         } else {
             $errors[] = __('You must provide a trigger name!');
         }
-        if (! empty($_REQUEST['item_timing'])
-            && in_array($_REQUEST['item_timing'], $action_timings)
+        if (! empty($_POST['item_timing'])
+            && in_array($_POST['item_timing'], $action_timings)
         ) {
-            $query .= $_REQUEST['item_timing'] . ' ';
+            $query .= $_POST['item_timing'] . ' ';
         } else {
             $errors[] = __('You must provide a valid timing for the trigger!');
         }
-        if (! empty($_REQUEST['item_event'])
-            && in_array($_REQUEST['item_event'], $event_manipulations)
+        if (! empty($_POST['item_event'])
+            && in_array($_POST['item_event'], $event_manipulations)
         ) {
-            $query .= $_REQUEST['item_event'] . ' ';
+            $query .= $_POST['item_event'] . ' ';
         } else {
             $errors[] = __('You must provide a valid event for the trigger!');
         }
         $query .= 'ON ';
-        if (! empty($_REQUEST['item_table'])
-            && in_array($_REQUEST['item_table'], $this->dbi->getTables($db))
+        if (! empty($_POST['item_table'])
+            && in_array($_POST['item_table'], $this->dbi->getTables($db))
         ) {
-            $query .= Util::backquote($_REQUEST['item_table']);
+            $query .= Util::backquote($_POST['item_table']);
         } else {
             $errors[] = __('You must provide a valid table name!');
         }
         $query .= ' FOR EACH ROW ';
-        if (! empty($_REQUEST['item_definition'])) {
-            $query .= $_REQUEST['item_definition'];
+        if (! empty($_POST['item_definition'])) {
+            $query .= $_POST['item_definition'];
         } else {
             $errors[] = __('You must provide a trigger definition.');
         }
