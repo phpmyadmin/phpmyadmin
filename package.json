@@ -16,6 +16,7 @@
     "jquery-validation": "1.17.0",
     "jquery.event.drag": "2.2.2",
     "js-cookie": "2.2.0",
+    "popper.js": "^1.14.6",
     "sass": "^1.15.0",
     "tracekit": "0.4.5",
     "updated-jqplot": "1.0.9",
