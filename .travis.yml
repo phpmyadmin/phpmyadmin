@@ -37,6 +37,7 @@ jobs:
   allow_failures:
     - php: nightly
     - os: windows
+    - os: osx
 
   include:
     - stage: "Lint and analyse code"
