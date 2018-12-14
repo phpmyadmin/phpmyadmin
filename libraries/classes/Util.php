@@ -307,7 +307,8 @@ class Util
      * @access  public
      */
     public static function showCopyToClipboard($text) {
-        $open_link = '  <a href="#" class="copyQueryBtn" data-text="' . $text . '">' . __('Copy') . '</a>';
+        $open_link = '  <a href="#" class="copyQueryBtn" data-text="'
+            . htmlspecialchars($text) . '">' . __('Copy') . '</a>';
         return $open_link;
     } // end of the 'showCopyToClipboard()' function
 
