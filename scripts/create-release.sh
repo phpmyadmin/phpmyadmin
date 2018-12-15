@@ -235,11 +235,20 @@ if [ ! -d libraries/tcpdf ] ; then
     echo "* Running composer"
     composer config platform.php "$PHP_REQ"
     composer update --no-dev
+
+    # Parse the required versions from composer.json
+    PACKAGES_VERSIONS=''
     if [ "$branch" = "QA_4_8" ] ; then
-        composer require --update-no-dev tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server
+        PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa bacon/bacon-qr-code samyoul/u2f-php-server"
     else
-        composer require --update-no-dev tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server
+        PACKAGE_LIST="tecnickcom/tcpdf pragmarx/google2fa-qrcode samyoul/u2f-php-server"
     fi
+    for PACKAGES in $PACKAGE_LIST
+    do
+        PACKAGES_VERSIONS="$PACKAGES_VERSIONS $PACKAGES:`awk "/require-dev/ {printline = 1; print; next } printline" composer.json | grep "$PACKAGES" | awk -F [\\"] '{print $4}'`"
+    done
+    composer require --update-no-dev $PACKAGES_VERSIONS
+
     mv composer.json.backup composer.json
     echo "* Cleanup of composer packages"
     rm -rf \
