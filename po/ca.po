@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2018-10-25 16:24+0000\n"
-"Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
+"PO-Revision-Date: 2018-12-17 20:35+0000\n"
+"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ca/>\n"
 "Language: ca\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -338,16 +338,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "Heu de triar com a mínim una columna a visualitzar!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "Simulació de consulta"
+msgstr "Consulta multi-taula"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "La consulta ha fallat"
+msgstr "Consulta amb exemple"
 
 #: db_qbe.php:168
 #, php-format
@@ -962,7 +958,7 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Esteu intentant reduir el nombre de files, però ja heu introduït dades en "
+"Esteu intentant reduïr el nombre de files, però ja heu introduït dades en "
 "aquestes files, les quals es perdran. Voleu continuar?"
 
 #: js/messages.php:75
