@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-12-16 22:07+0000\n"
+"PO-Revision-Date: 2018-12-17 12:21+0000\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ca/>\n"
@@ -335,10 +335,8 @@ msgid "Multi-table query"
 msgstr "Consulta multi-taula"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "La consulta ha fallat"
+msgstr "Consulta amb exemple"
 
 #: db_qbe.php:171
 #, php-format
@@ -826,7 +824,7 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"Esteu intentant reduir el nombre de files, però ja heu introduït dades en "
+"Esteu intentant reduïr el nombre de files, però ja heu introduït dades en "
 "aquestes files, les quals es perdran. Voleu continuar?"
 
 #: js/messages.php:75
@@ -1565,16 +1563,12 @@ msgid "Please select the file you want to import."
 msgstr "Seleccioneu el fitxer que voleu importar."
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "Introduïu un nom de pàgina vàlid"
+msgstr "Introduïu un nom de taula vàlid."
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "Introduïu un nom de pàgina vàlid"
+msgstr "Introduïu un nom de base de dades vàlid."
 
 #: js/messages.php:336
 msgid "No files available on server for import!"
@@ -4118,14 +4112,13 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:255
 #: libraries/classes/Plugins/Export/ExportSql.php:317
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "Exclou la definició de l'usuari actual"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "Valor %s"
+msgstr "vista %s"
 
 #: libraries/classes/Config/Descriptions.php:257
 msgid "Use ignore inserts"
@@ -4966,17 +4959,14 @@ msgstr ""
 "Si es mostren els esdeveniments sota la base de dades a l'arbre de navegació"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "Còpia de base de dades"
+msgstr "Expandeix una base de dades individual"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
 msgstr ""
-"Si es mostren els esdeveniments sota la base de dades a l'arbre de navegació"
+"Si s'expandeixen les bases de dades individuals a l'arbre de navegació "
+"automàticament."
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -9758,16 +9748,16 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "Nom de la nova taula (opcional):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "Nom de la nova base de dades (opcional):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "Importeu aquesta quantitat de files (opcional):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
@@ -9790,10 +9780,8 @@ msgstr ""
 "cometes."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "Nom de les columnes: "
+msgstr "Nom de les columnes:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173
