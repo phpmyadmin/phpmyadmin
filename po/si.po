@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2017-12-31 18:48+0000\n"
-"Last-Translator: Supun Tharinda <supunedirisuriya2002@gmail.com>\n"
+"PO-Revision-Date: 2018-12-18 22:09+0000\n"
+"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/si/>\n"
 "Language: si\n"
@@ -13,21 +13,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
 msgid "Bad type!"
 msgstr "වැරදි වර්ගය!"
 
 #: changelog.php:40 license.php:36
-#, fuzzy, php-format
-#| msgid ""
-#| "The %s file is not available on this system, please visit www.phpmyadmin."
-#| "net for more information."
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
-msgstr "%s ගොනුව මෙම පද්ධතියේ නොමැත. වැඩි විස්තර සඳහා www.phpmyadmin.net වෙත යන්න."
+msgstr "%s ගොනුව මෙම පද්ධතියේ නොමැත. වැඩි විස්තර සඳහා %s වෙත යන්න."
 
 #: db_central_columns.php:146
 #, php-format
@@ -328,16 +325,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "පෙන්වීම සඳහා අවම වශයෙන් එක් තීරයක්වත් තෝරාගත යුතුයි!"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "in query"
 msgid "Multi-table query"
-msgstr "විමසුම තුල"
+msgstr "බහු වගු විමසුම"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query cache"
 msgid "Query by example"
-msgstr "විමසුම් කෑෂ්"
+msgstr "උදාහරණ මගින් විමසුම"
 
 #: db_qbe.php:171
 #, php-format
@@ -352,10 +345,8 @@ msgid "Access denied!"
 msgstr "පිවිසුම වලක්වා ඇත!"
 
 #: db_tracking.php:58 db_tracking.php:78
-#, fuzzy
-#| msgid "Replication status"
 msgid "Tracking data deleted successfully."
-msgstr "අනුරූ කරණයේ තත්වය"
+msgstr "අනුරූ කරණ දත්ත ඉවත් කරන ලදි."
 
 #: db_tracking.php:65
 #, php-format
@@ -406,7 +397,7 @@ msgstr "සාර්ථක විය"
 
 #: import.php:81 js/messages.php:622
 msgid "Failed"
-msgstr ""
+msgstr "අසාර්ථකයි"
 
 #: import.php:85
 msgid "Incomplete params"
@@ -545,10 +536,8 @@ msgid "Server type:"
 msgstr "සේවාදායකයේ වර්ගය:"
 
 #: index.php:338
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
-msgstr "අනාරක්ෂිත සම්බන්ධතාවය"
+msgstr "සේවාදායකයේ සම්බන්ධතාවය:"
 
 #: index.php:342 libraries/classes/Plugins/Export/ExportLatex.php:228
 #: libraries/classes/Plugins/Export/ExportSql.php:729
@@ -620,7 +609,7 @@ msgstr "වෙනස්කම් ලැයිස්තුව"
 
 #: index.php:478 templates/server/plugins/main.twig:22
 msgid "License"
-msgstr ""
+msgstr "බලපත්‍රය"
 
 #: index.php:498
 msgid ""
@@ -655,8 +644,9 @@ msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
-"ලොගින් කුකියේ වලංගු කාලය phpMyAdmin හි සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ "
-"හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
+"ඇතුල් වීමේ කුකියේ වලංගු කාලය phpMyAdmin හි සිටුවා ඇති කුකී වලංගු කාලය ට වඩා "
+"අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් "
+"ඉකුත් විය හැක."
 
 #: index.php:563
 msgid ""
@@ -1203,7 +1193,7 @@ msgstr "ප්‍රශ්න"
 
 #: js/messages.php:212 libraries/classes/Server/Status.php:154
 msgid "Traffic"
-msgstr "තදබදය"
+msgstr "දත්ත හුවමාරුව"
 
 #: js/messages.php:213 libraries/classes/Menu.php:631
 #: libraries/classes/Server/Status/Monitor.php:266
@@ -3740,7 +3730,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
-msgstr "MySQL සේවාදායකයට ලොග්වීමට ඉඩ දෙන්න"
+msgstr "MySQL සේවාදායකයට ඇතුල් වීමට ඉඩ දෙන්න"
 
 #: libraries/classes/Config/Descriptions.php:66
 msgid ""
@@ -3750,10 +3740,8 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:70
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "MySQL සේවාදායකයට ලොග් විය නොහැක"
+msgstr "MySQL සේවාදායකයට ඇතුල් වීම වලකන්න"
 
 #: libraries/classes/Config/Descriptions.php:72
 msgid ""
@@ -4894,11 +4882,11 @@ msgstr "ඇතුල් වීමේ කුකිය රඳවාගන්න"
 
 #: libraries/classes/Config/Descriptions.php:445
 msgid "Define how long (in seconds) a login cookie is valid."
-msgstr "ලොගින් කුකියේ වලංගු කාලය (තත්පර වලින්) සඳහන් කරන්න."
+msgstr "ඇතුල් වීමේ කුකියේ වලංගු කාලය (තත්පර වලින්) සඳහන් කරන්න."
 
 #: libraries/classes/Config/Descriptions.php:446
 msgid "Login cookie validity"
-msgstr "ලොගින් කුකියේ වලංගුතාවය"
+msgstr "ඇතුල් වීමේ කුකියේ වලංගුතාවය"
 
 #: libraries/classes/Config/Descriptions.php:447
 msgid "Double size of textarea for LONGTEXT columns."
@@ -6285,10 +6273,8 @@ msgstr ""
 "පිටුවේ පෙන්වන පෙරනිමි අනතුරු ඇඟවීම අක්‍රීය කරන්න"
 
 #: libraries/classes/Config/Descriptions.php:836
-#, fuzzy
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
-msgstr "ලොගින් කුකියේ වලංගුතාවය"
+msgstr "ඇතුල් වීමේ කුකියේ වලංගුතාවය"
 
 #: libraries/classes/Config/Descriptions.php:838
 #, fuzzy
@@ -7603,7 +7589,7 @@ msgstr ""
 #: libraries/classes/Display/Export.php:635
 #: templates/display/export/options_output.twig:7
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "අපනයනිත දත්තගබඩා/වගු/තීර වල නම් වෙනස් කරන්න"
 
 #: libraries/classes/Display/Export.php:687
 msgid "Could not load export plugins, please check your installation!"
@@ -10342,8 +10328,6 @@ msgstr "කොටු සැලැස්ම පෙන්වන්න"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:95
 #: templates/database/structure/print_view_data_dictionary_link.twig:6
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "දත්ත කෝෂය"
 
@@ -11916,10 +11900,8 @@ msgstr "දත්තගබඩා විශේෂිත වරප්‍රසා�
 #: templates/database/structure/check_all_tables.twig:4
 #: templates/select_all.twig:4 templates/select_all.twig:5
 #: templates/server/privileges/global_priv_table.twig:5
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
-msgstr "සියල්ල කතිර කොටුගත කරන්න"
+msgstr "සියල්ල තෝරාගන්න"
 
 #: libraries/classes/Server/Privileges.php:1326 server_privileges.php:74
 msgid "Allows creating new tables."
@@ -11956,7 +11938,7 @@ msgstr "Signon සත්‍යාපනය"
 #: libraries/classes/Server/Privileges.php:1583
 #: libraries/classes/Server/Privileges.php:3211
 msgid "Login Information"
-msgstr "ලොගින තොරතුරු"
+msgstr "ඇතුල් වීමේ තොරතුරු"
 
 #: libraries/classes/Server/Privileges.php:1606
 #: libraries/classes/Server/Privileges.php:1764
@@ -11987,10 +11969,8 @@ msgid "Do not change the password"
 msgstr "මුරපදය වෙනස් නොකරන්න"
 
 #: libraries/classes/Server/Privileges.php:1804
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Plugin"
-msgstr "සත්‍යාපනය"
+msgstr "සත්‍යාපන පේණුව"
 
 #: libraries/classes/Server/Privileges.php:1813
 #, fuzzy
@@ -12113,7 +12093,7 @@ msgstr "… භාවිතා කරන්නන්ගේ වගුවෙන්
 
 #: libraries/classes/Server/Privileges.php:3212
 msgid "Change login information / Copy user account"
-msgstr "ලොගින් තොරතුරු වෙනස් කරන්න / භාවිත ගිණුම පිටපත් කරන්න"
+msgstr "ඇතුල් වීමේ තොරතුරු වෙනස් කරන්න / භාවිත ගිණුම පිටපත් කරන්න"
 
 #: libraries/classes/Server/Privileges.php:3218
 msgid "Create a new user account with the same privileges and …"
@@ -12639,16 +12619,12 @@ msgid "Reset to default"
 msgstr "පෙරනිමි අගයන් පිහිටුවන්න"
 
 #: libraries/classes/Server/Status/Processes.php:35
-#, fuzzy
-#| msgid ""
-#| "Note: Enabling the database statistics here might cause heavy traffic "
-#| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"සටහන: සංඛ්‍යාලේඛන සක්‍රීය කිරීම මගින් වෙබ් සේවාදායකය සහ MySQL සේවාදායකය අතර විශාල දත්ත "
-"හුවමාරුවක් ඇති විය හැකිය."
+"සටහන: ස්වයංක්‍රීය යාවත්කාලීන කිරීම මගින් වෙබ් සේවාදායකය සහ MySQL සේවාදායකය "
+"අතර විශාල දත්ත හුවමාරුවක් ඇති විය හැකිය."
 
 #: libraries/classes/Server/Status/Processes.php:80
 msgid "ID"
@@ -13509,7 +13485,7 @@ msgstr "මෙම විමසුම මෙහි නැවත පෙන්ව�
 
 #: libraries/classes/SqlQueryForm.php:372
 msgid "Rollback when finished"
-msgstr ""
+msgstr "විමසුම අවසානයේ ආපසු හරවන්න"
 
 #: libraries/classes/SqlQueryForm.php:417
 msgid "shared"
@@ -15279,8 +15255,6 @@ msgid "Importing into the table \"%s\""
 msgstr "\"%s\" වගුව තුළට ආනයනය කිරීම"
 
 #: templates/display/import/import.twig:50
-#, fuzzy
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "ආනයනය සඳහා වූ ගොනුව:"
 
@@ -15290,15 +15264,12 @@ msgid "File may be compressed (%s) or uncompressed."
 msgstr "ගොනුව, හකුළුවා ඇති (උදා: %s) හෝ හකුළුවා නැති එකක් විය හැක."
 
 #: templates/display/import/import.twig:58
-#, fuzzy
-#| msgid ""
-#| "A compressed file's name must end in <b>.[format].[compression]</b>. "
-#| "Example: <b>.sql.zip</b>"
 msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
-"හැකිළූ ගොනුවක නම <b>.[ආකෘතිය].[හැකිළීම]</b> ලෙස අවසන් විය යුතුයි. උදා: <b>.sql.zip</b>"
+"හැකිළූ ගොනුවක නම <strong>.[ආකෘතිය].[හැකිළීම]</strong> ලෙස අවසන් විය යුතුයි. "
+"උදා: <strong>.sql.zip</strong>"
 
 #: templates/display/import/import.twig:69
 #: templates/display/import/import.twig:84
@@ -15315,8 +15286,6 @@ msgid "Character set of the file:"
 msgstr "ගොනුවේ අක්ෂර කට්ටලය:"
 
 #: templates/display/import/import.twig:124
-#, fuzzy
-#| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "අර්ධ ආනයනය:"
 
@@ -15329,30 +15298,22 @@ msgstr ""
 "ඇරඹෙනු ඇත."
 
 #: templates/display/import/import.twig:137
-#, fuzzy
-#| msgid ""
-#| "Allow the interruption of an import in case the script detects it is "
-#| "close to the PHP timeout limit. <i>(This might be a good way to import "
-#| "large files, however it can break transactions.)</i>"
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
-"කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. <i>(විශාල ගොනු "
-"ආනයනයට මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම සිදුවිය හැක.)</i>"
+"කාල සීමාව අවසානයට ආසන්න බව දැණුනු විට අනයනනයට බාධා කිරීම සිදුකරන්න. <em>(විශා"
+"ල ගොනු ආනයනයට මෙය හොඳ ක්‍රමයක් වන නමුත් මෙමඟින් transactions බිඳීම සිදුවිය "
+"හැක.)</em>"
 
 #: templates/display/import/import.twig:144
-#, fuzzy
-#| msgid "Number of rows to skip, starting from the first row:"
 msgid "Skip this number of queries (for SQL) starting from the first one:"
-msgstr "පළමු පේළියේ සිට අත්හළ යුතු පේළි ගණන:"
+msgstr "පළමු විමසුමේ සිට අත්හළ යුතු විමසුම් ගණන:"
 
 #: templates/display/import/import.twig:161
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
-msgstr "විකල්ප"
+msgstr "අනෙකුත් විකල්ප:"
 
 #: templates/display/import/import.twig:174
 #: templates/display/export/options_format.twig:2
@@ -15764,8 +15725,6 @@ msgstr ""
 
 #: templates/server/databases/databases_footer.twig:58
 #: templates/server/databases/databases_footer.twig:61
-#, fuzzy
-#| msgid "Enable Statistics"
 msgid "Enable statistics"
 msgstr "සංඛ්‍යා ලේඛන සක්‍රිය කරන්න"
 
@@ -16007,10 +15966,8 @@ msgid "No databases"
 msgstr "දත්තගබඩා නොමැත"
 
 #: templates/display/export/options_output_separate_files.twig:7
-#, fuzzy
-#| msgid "Exporting rows from \"%s\" table"
 msgid "Export databases as separate files"
-msgstr "\"%s\" වගුවෙන් පේළි අපනයනය කිරීම"
+msgstr "දත්තගබඩා වෙන වෙනම ගොනු ලෙස අපනයනය කරන්න"
 
 #: templates/display/export/options_output_separate_files.twig:9
 #, fuzzy
