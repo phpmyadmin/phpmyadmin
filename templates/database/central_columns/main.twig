@@ -273,7 +273,7 @@
                             <input type="hidden" name="edit_save" value="save">
                             <td class="nowrap">
                                 <input type="checkbox" class="checkall" name="selected_fld[]"
-                                value="{{ row['col_name'] | raw }}" id="{{ 'checkbox_row_' ~ row_num }}"/>
+                                value="{{ row['col_name'] }}" id="{{ 'checkbox_row_' ~ row_num }}"/>
                             </td>
                             <td id="{{ 'edit_' ~ row_num }}" class="edit center">
                                 <a href="#"> {{ get_icon('b_edit', 'Edit' | trans) | raw }}</a>
@@ -286,8 +286,8 @@
                                 <input type="submit" data-rownum="{{ row_num }}" class="edit_save_form" value="Save">
                             </td>
                             <td name="col_name" class="nowrap">
-                                <span>{{ row['col_name'] | raw }}</span>
-                                <input name="orig_col_name" type="hidden" value="{{ row['col_name'] | raw }}">
+                                <span>{{ row['col_name'] }}</span>
+                                <input name="orig_col_name" type="hidden" value="{{ row['col_name'] }}">
                                 {% include 'columns_definitions/column_name.twig' with {
                                     'column_number': row_num,
                                     'ci': 0,
@@ -302,7 +302,7 @@
                                 } only %}
                             </td>
                             <td name = "col_type" class="nowrap">
-                                <span>{{ row['col_type'] | raw }}</span>
+                                <span>{{ row['col_type'] }}</span>
                                 {% include 'columns_definitions/column_type.twig' with {
                                     'column_number': row_num,
                                     'ci': 1,
@@ -312,7 +312,7 @@
                                 } only %}
                             </td>
                             <td class="nowrap" name="col_length">
-                                <span>{{ (row['col_length']?(row['col_length'] | raw):'') }}</span>
+                                <span>{{ (row['col_length']?(row['col_length']):'') }}</span>
                                 {% include 'columns_definitions/column_length.twig' with {
                                     'column_number': row_num,
                                     'ci': 2,
@@ -337,7 +337,7 @@
                                 } only %}
                             </td>
                             <td name="collation" class="nowrap">
-                                <span>{{ row['col_collation'] | raw }}</span>
+                                <span>{{ row['col_collation'] }}</span>
                                 {{ get_collation_dropdown_box(
                                     dbi,
                                     disableIs,
@@ -347,7 +347,7 @@
                                     ) | raw }}
                             </td>
                             <td class="nowrap" name="col_attribute">
-                                <span>{{ row['col_attribute']?(row['col_attribute'] | raw):"" }}</span>
+                                <span>{{ row['col_attribute']?(row['col_attribute']):"" }}</span>
                                 {% include 'columns_definitions/column_attribute.twig' with {
                                     'column_number': row_num,
                                     'ci': 5,
@@ -370,7 +370,7 @@
                                 } only %}
                             </td>
                             <td class="nowrap" name="col_extra">
-                                <span>{{ row['col_extra'] | raw }}</span>
+                                <span>{{ row['col_extra'] }}</span>
                                 {% include 'columns_definitions/column_extra.twig' with {
                                     'column_number': row_num,
                                     'ci': 7,
