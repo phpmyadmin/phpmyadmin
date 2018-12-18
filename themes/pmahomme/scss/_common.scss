@@ -327,136 +327,6 @@ input {
     -webkit-box-shadow: 0 1px 3px #aaa;
     -moz-box-shadow: 0 1px 3px #aaa;
   }
-
-  &[type=submit],
-  &[type=button] {
-    font-weight: bold !important;
-  }
-}
-
-button[type=submit]:not(.mult_submit) {
-  font-weight: bold !important;
-}
-
-input {
-  &[type=submit],
-  &[type=button] {
-    margin: 6px 14px;
-    border: 1px solid #aaa;
-    padding: 3px 7px;
-    color: #111;
-    text-decoration: none;
-    background-color: #ddd;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    text-shadow: 0 1px 0 #fff;
-    background-image: linear-gradient(#f8f8f8, #d8d8d8);
-  }
-}
-
-button[type=submit]:not(.mult_submit) {
-  margin: 6px 14px;
-  border: 1px solid #aaa;
-  padding: 3px 7px;
-  color: #111;
-  text-decoration: none;
-  background-color: #ddd;
-  border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  text-shadow: 0 1px 0 #fff;
-  background-image: linear-gradient(#f8f8f8, #d8d8d8);
-}
-
-input {
-  &[type=reset],
-  &[name=submit_reset],
-  &.button {
-    margin: 6px 14px;
-    border: 1px solid #aaa;
-    padding: 3px 7px;
-    color: #111;
-    text-decoration: none;
-    background-color: #ddd;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    text-shadow: 0 1px 0 #fff;
-    background-image: linear-gradient(#f8f8f8, #d8d8d8);
-  }
-
-  &[type=submit]:hover,
-  &[type=button]:hover {
-    position: relative;
-    background: linear-gradient(#fff, #ddd);
-    cursor: pointer;
-  }
-}
-
-button[type=submit]:not(.mult_submit):hover {
-  position: relative;
-  background: linear-gradient(#fff, #ddd);
-  cursor: pointer;
-}
-
-input {
-  &[type=reset]:hover,
-  &[name=submit_reset]:hover,
-  &.button:hover {
-    position: relative;
-    background: linear-gradient(#fff, #ddd);
-    cursor: pointer;
-  }
-
-  &[type=submit]:active,
-  &[type=button]:active {
-    position: relative;
-    background: linear-gradient(#eee, #ddd);
-    box-shadow: 0 1px 6px -2px #333 inset;
-    text-shadow: none;
-  }
-}
-
-button[type=submit]:not(.mult_submit):active {
-  position: relative;
-  background: linear-gradient(#eee, #ddd);
-  box-shadow: 0 1px 6px -2px #333 inset;
-  text-shadow: none;
-}
-
-input {
-  &[type=reset]:active,
-  &[name=submit_reset]:active,
-  &.button:active {
-    position: relative;
-    background: linear-gradient(#eee, #ddd);
-    box-shadow: 0 1px 6px -2px #333 inset;
-    text-shadow: none;
-  }
-
-  &[type=submit]:disabled,
-  &[type=button]:disabled {
-    background: #ccc;
-    color: #666;
-    text-shadow: none;
-  }
-}
-
-button[type=submit]:not(.mult_submit):disabled {
-  background: #ccc;
-  color: #666;
-  text-shadow: none;
-}
-
-input {
-  &[type=reset]:disabled,
-  &[name=submit_reset]:disabled,
-  &.button:disabled {
-    background: #ccc;
-    color: #666;
-    text-shadow: none;
-  }
 }
 
 textarea {
@@ -476,8 +346,7 @@ th.fillPage {
   width: 80%;
 }
 
-fieldset,
-.preview_sql {
+fieldset {
   margin-top: 1em;
   border-radius: 4px 4px 0 0;
   -moz-border-radius: 4px 4px 0 0;
@@ -1989,6 +1858,13 @@ div {
   }
 }
 
+#sqlquerycontainer,
+#sqlquerycontainerfull {
+  .btn {
+    margin: 5px;
+  }
+}
+
 textarea {
   &#sqlquery {
     width: 100%;
@@ -2434,18 +2310,6 @@ select.invalid_value,
   margin-#{$left}: 10px;
 
   #buttonGo {
-    font-weight: bold;
-    margin-#{$left}: 14px;
-    border: 1px solid #aaa;
-    padding: 5px 12px;
-    color: #111;
-    text-decoration: none;
-    border-radius: 12px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    text-shadow: 0 1px 0 #fff;
-    background: linear-gradient(#fff, #ccc);
-    cursor: pointer;
     float: $right;
   }
 }
@@ -3291,6 +3155,16 @@ fieldset {
     }
   }
 
+  .btn-link {
+    color: $main-color;
+
+    &:hover {
+      color: #fff;
+      background-image: linear-gradient(#333, #555);
+      text-decoration: none;
+    }
+  }
+
   select {
     margin: 0 0.8em;
   }
@@ -3417,11 +3291,6 @@ fieldset {
       margin: 0 65px 10px 10px;
     }
   }
-}
-
-input.btn {
-  color: #333;
-  background-color: #d0dce0;
 }
 
 body .ui-widget {
@@ -4238,6 +4107,23 @@ body .ui-dialog {
 // side menu
 #name-panel {
   overflow: hidden;
+}
+
+// Bootstrap
+
+.btn-primary {
+  font-weight: $font-weight-bold;
+}
+
+.btn-primary,
+.btn-secondary {
+  border-color: #aaa;
+  text-shadow: 0 1px 0 #fff;
+  background-image: linear-gradient(#f8f8f8, #d8d8d8);
+
+  &:hover {
+    background-image: linear-gradient(#fff, #ddd);
+  }
 }
 
 @media only screen and (max-width: 768px) {

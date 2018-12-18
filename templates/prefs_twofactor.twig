@@ -34,7 +34,7 @@
 <p>{{ backend_description }}</p>
 <form method="POST" action="prefs_twofactor.php">
 {{ get_hidden_inputs() }}
-<input type="submit" name="2fa_remove" value="{% trans "Disable two-factor authentication" %}">
+<input class="btn btn-secondary" type="submit" name="2fa_remove" value="{% trans "Disable two-factor authentication" %}">
 </form>
 </div>
 </div>
@@ -51,7 +51,7 @@
 <p>{{ backend["description"] }}</p>
 </label>
 {% endfor %}
-<input type="submit" value="{% trans "Configure two-factor authentication" %}">
+<input class="btn btn-secondary" type="submit" value="{% trans "Configure two-factor authentication" %}">
 </form>
 </div>
 </div>

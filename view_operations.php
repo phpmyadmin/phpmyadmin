@@ -117,7 +117,7 @@ $url_params['back'] = 'view_operations.php';
 </fieldset>
 <fieldset class="tblFooters">
         <input type="hidden" name="submitoptions" value="1">
-        <input type="submit" value="<?php echo __('Go'); ?>">
+        <input class="btn btn-primary" type="submit" value="<?php echo __('Go'); ?>">
 </fieldset>
 </form>
 </div>

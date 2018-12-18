@@ -65,7 +65,7 @@ class Operations
             . 'value="' . htmlspecialchars($this->relation->getDbComment($db)) . '">'
             . '</fieldset>';
         $html_output .= '<fieldset class="tblFooters">'
-            . '<input type="submit" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -131,7 +131,7 @@ class Operations
         $html_output .= ''
             . '</fieldset>'
             . '<fieldset class="tblFooters">'
-            . '<input id="rename_db_input" type="submit" value="' . __('Go') . '">'
+            . '<input id="rename_db_input" class="btn btn-primary" type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -276,7 +276,7 @@ class Operations
             . __('Switch to copied database') . '</label>'
             . '</fieldset>';
         $html_output .= '<fieldset class="tblFooters">'
-            . '<input type="submit" name="submit_copy" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" name="submit_copy" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -331,7 +331,7 @@ class Operations
             . '</label></span>'
             . '</fieldset>'
             . '<fieldset class="tblFooters">'
-            . '<input type="submit" name="submitcollation"'
+            . '<input class="btn btn-primary" type="submit" name="submitcollation"'
             . ' value="' . __('Go') . '">' . "\n"
             . '</fieldset>' . "\n"
             . '</form></div>' . "\n";
@@ -844,7 +844,7 @@ class Operations
             . '</fieldset>'
             . '<fieldset class="tblFooters">'
             . '<input type="hidden" name="submitorderby" value="1">'
-            . '<input type="submit" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -914,7 +914,7 @@ class Operations
             . '</label><br>';
 
         $html_output .= '</fieldset><fieldset class="tblFooters">'
-            . '<input type="submit" name="submit_move" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" name="submit_move" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -974,7 +974,7 @@ class Operations
 
         $html_output .= '<fieldset class="tblFooters">'
             . '<input type="hidden" name="submitoptions" value="1">'
-            . '<input type="submit" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -1391,7 +1391,7 @@ class Operations
             . '</fieldset>';
 
         $html_output .= '<fieldset class="tblFooters">'
-            . '<input type="submit" name="submit_copy" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" name="submit_copy" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -1711,7 +1711,7 @@ class Operations
         $html_output .= '</fieldset>'
             . '<fieldset class="tblFooters">'
             . '<input type="hidden" name="submit_partition" value="1">'
-            . '<input type="submit" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';

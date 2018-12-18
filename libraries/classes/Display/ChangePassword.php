@@ -173,7 +173,7 @@ class ChangePassword
         $html .= '</fieldset>'
             . '<fieldset id="fieldset_change_password_footer" class="tblFooters">'
             . '<input type="hidden" name="change_pw" value="1">'
-            . '<input type="submit" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>';
         return $html;

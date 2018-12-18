@@ -141,9 +141,9 @@ if (isset($_POST['submit_export'])
             echo '<p>';
             echo __('Do you want to import remaining settings?');
             echo '</p>';
-            echo '<input type="submit" name="submit_import" value="'
+            echo '<input class="btn btn-secondary" type="submit" name="submit_import" value="'
                 , __('Yes') , '">';
-            echo '<input type="submit" name="submit_ignore" value="'
+            echo '<input class="btn btn-secondary" type="submit" name="submit_ignore" value="'
                 , __('No') , '">';
             echo '</form>';
             exit;
@@ -265,7 +265,7 @@ echo '</div>'
     , '<label for="import_merge">'
     , __('Merge with current configuration') . '</label>'
     , '<br><br>'
-    , '<input type="submit" name="submit_import" value="'
+    , '<input class="btn btn-primary" type="submit" name="submit_import" value="'
     , __('Go') . '">'
     , '</form>'
     , '</div>';
@@ -351,7 +351,7 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
                 </div>
                 <br>
                 <?php
-                echo '<input type="submit" name="submit_export" value="' , __(
+                echo '<input class="btn btn-primary" type="submit" name="submit_export" value="' , __(
                     'Go'
                 ) , '">';
                 ?>
@@ -368,7 +368,7 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
                 );
                 ?>
                 <br><br>
-                <input type="submit" name="submit_clear"
+                <input class="btn btn-secondary" type="submit" name="submit_clear"
                        value="<?php echo __('Reset'); ?>">
             </form>
         </div>

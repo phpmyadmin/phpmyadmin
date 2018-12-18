@@ -940,13 +940,13 @@ class Results
 
         $table_navigation_html .= '<td>'
             . '<div class="save_edited hide">'
-            . '<input type="submit" value="' . __('Save edited data') . '">'
+            . '<input class="btn btn-link" type="submit" value="' . __('Save edited data') . '">'
             . '<div class="navigation_separator">|</div>'
             . '</div>'
             . '</td>'
             . '<td>'
             . '<div class="restore_column hide">'
-            . '<input type="submit" value="' . __('Restore column order') . '">'
+            . '<input class="btn btn-link" type="submit" value="' . __('Restore column order') . '">'
             . '<div class="navigation_separator">|</div>'
             . '</div>'
             . '</td>';

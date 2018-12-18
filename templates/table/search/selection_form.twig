@@ -217,7 +217,7 @@
 
 {# Displays selection form's footer elements #}
     <fieldset class="tblFooters">
-        <input type="submit"
+        <input class="btn btn-primary" type="submit"
             name="{{ search_type == 'zoom' ? 'zoom_submit' : 'submit' }}"
             {{ search_type == 'zoom' ? 'id="inputFormSubmitId"' }}
             value="{% trans 'Go' %}">

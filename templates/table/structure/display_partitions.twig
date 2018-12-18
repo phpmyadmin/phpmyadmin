@@ -132,13 +132,13 @@
             {{ get_hidden_inputs(db, table) }}
             <input type="hidden" name="edit_partitioning" value="true">
             {% if partitions is empty %}
-                <input type="submit" name="edit_partitioning" value="{% trans 'Partition table' %}">
+                <input class="btn btn-secondary" type="submit" name="edit_partitioning" value="{% trans 'Partition table' %}">
             {% else %}
                 {{ link_or_button(remove_url, 'Remove partitioning'|trans, {
                     'class': 'button ajax',
                     'id': 'remove_partitioning'
                 }) }}
-                <input type="submit" name="edit_partitioning" value="{% trans 'Edit partitioning' %}">
+                <input class="btn btn-secondary" type="submit" name="edit_partitioning" value="{% trans 'Edit partitioning' %}">
             {% endif %}
         </form>
     </fieldset>

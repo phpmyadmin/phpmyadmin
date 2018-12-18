@@ -199,7 +199,7 @@ class BrowseForeigners
             . 'id="input_foreign_filter" '
             . 'value="' . $filter_value . '" data-old="' . $filter_value . '" '
             . '>'
-            . '<input type="submit" name="submit_foreign_filter" value="'
+            . '<input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="'
             . __('Go') . '">'
             . '</span>'
             . '<span class="formelement">' . $gotopage . '</span>'

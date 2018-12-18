@@ -705,10 +705,10 @@ $js_messages['phpErrorsFound'] = '<div class="error">'
     . '<div>'
     . '<input id="pma_ignore_errors_popup" type="submit" value="'
     . __('Ignore')
-    . '" class="floatright message_errors_found">'
+    . '" class="btn btn-secondary floatright message_errors_found">'
     . '<input id="pma_ignore_all_errors_popup" type="submit" value="'
     . __('Ignore All')
-    . '" class="floatright message_errors_found">'
+    . '" class="btn btn-secondary floatright message_errors_found">'
     . '</div></div>';
 
 $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'

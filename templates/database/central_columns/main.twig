@@ -128,7 +128,7 @@
                             } only %}
                         </td>
                         <td>
-                            <input id="add_column_save" type="submit" value="Save">
+                            <input id="add_column_save" class="btn btn-primary" type="submit" value="Save">
                         </td>
                     </tr>
                 </tbody>
@@ -150,7 +150,7 @@
                         {{ get_hidden_inputs(db) }}
                         <input type="hidden" name="pos" value="{{ pos - max_rows }}">
                         <input type="hidden" name="total_rows" value="{{ total_rows }}">
-                        <input type="submit" name="navig" class="ajax" value="&lt">
+                        <input class="btn btn-secondary ajax" type="submit" name="navig" value="&lt">
                     </form>
                 </td>
             {% endif %}
@@ -169,7 +169,7 @@
                         {{ get_hidden_inputs(db) }}
                         <input type="hidden" name="pos" value="{{ pos + max_rows }}">
                         <input type="hidden" name="total_rows" value="{{ total_rows }}">
-                        <input type="submit" name="navig" class="ajax" value="&gt">
+                        <input class="btn btn-secondary ajax" type="submit" name="navig" value="&gt">
                     </form>
                 </td>
             {% endif %}
@@ -207,7 +207,7 @@
                 <select name="column-select" id="column-select">
                     <option value="" selected="selected">{% trans 'Select a column.' %}</option>
                 </select>
-                <input type="submit" value="{% trans 'Add' %}"></input>
+                <input class="btn btn-primary" type="submit" value="{% trans 'Add' %}">
             </form>
         </td>
         <td class="navigation_separator largescreenonly"></td>
@@ -280,10 +280,10 @@
                             </td>
                             <td class="del_row" data-rownum = "{{ row_num }}">
                                 <a hrf="#">{{ get_icon('b_drop', 'Delete' | trans) }}</a>
-                                <input type="submit" data-rownum = "{{ row_num }}" class="edit_cancel_form" value="Cancel">
+                                <input type="submit" data-rownum = "{{ row_num }}" class="btn btn-secondary edit_cancel_form" value="Cancel">
                             </td>
                             <td id="{{ 'save_' ~ row_num  }}" class="hide">
-                                <input type="submit" data-rownum="{{ row_num }}" class="edit_save_form" value="Save">
+                                <input type="submit" data-rownum="{{ row_num }}" class="btn btn-primary edit_save_form" value="Save">
                             </td>
                             <td name="col_name" class="nowrap">
                                 <span>{{ row['col_name'] }}</span>

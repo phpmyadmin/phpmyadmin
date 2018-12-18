@@ -212,8 +212,8 @@
     {% endif %}
 
     <fieldset class="tblFooters">
-        <input type="button" class="preview_sql" value="{% trans 'Preview SQL' %}">
-        <input type="submit" value="{% trans 'Save' %}">
+        <input class="btn btn-secondary preview_sql" type="button" value="{% trans 'Preview SQL' %}">
+        <input class="btn btn-primary" type="submit" value="{% trans 'Save' %}">
     </fieldset>
 </form>
 {% if foreignKeySupported %}

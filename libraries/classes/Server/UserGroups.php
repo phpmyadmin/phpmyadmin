@@ -307,7 +307,7 @@ class UserGroups
 
         $html_output .= '<fieldset id="fieldset_user_group_rights_footer"'
             . ' class="tblFooters">';
-        $html_output .= '<input type="submit" value="' . __('Go') . '">';
+        $html_output .= '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
         $html_output .= '</fieldset>';
 
         return $html_output;

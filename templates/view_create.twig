@@ -86,7 +86,7 @@
                 <td class="nowrap">AS</td>
                 <td>
                     <textarea name="view[as]" rows="15" cols="40" dir="{{ text_dir }}" onclick="selectContent(this, sql_box_locked, true)">{{ view['as'] }}</textarea><br>
-                    <input type="button" value="Format" id="format" class="button sqlbutton">
+                    <input type="button" value="Format" id="format" class="btn btn-secondary button sqlbutton">
                     <span id="querymessage"></span>
                 </td>
             </tr>
@@ -111,13 +111,13 @@
     {% if ajax_dialog %}
         <fieldset class="tblFooters">
             <input type="hidden" name="{{ (view['operation'] == 'create') ? 'createview' : 'alterview' }}" value="1">
-            <input type="submit" name="" value="{% trans 'Go' %}">
+            <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
         </fieldset>
     {% else %}
         <input type="hidden" name="{{ (view['operation'] == 'create') ? 'createview' : 'alterview' }}" value="1">
         <input type="hidden" name="ajax_dialog" value="1">
         <input type="hidden" name="ajax_request" value="1">
-        <input type="submit" name="" value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
     {% endif %}
 
     </form>

@@ -2172,11 +2172,11 @@ class Util
             $value = $text;
         }
         if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
-            return ' <input type="submit" name="' . $button_name . '"'
+            return ' <input class="btn btn-link" type="submit" name="' . $button_name . '"'
                 . ' value="' . htmlspecialchars($value) . '"'
                 . ' title="' . htmlspecialchars($text) . '">' . "\n";
         }
-        return '<button class="' . $button_class . '" type="submit"'
+        return '<button class="btn btn-link ' . $button_class . '" type="submit"'
             . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
             . '" title="' . htmlspecialchars($text) . '">' . "\n"
             . self::getIcon($image, $text)
@@ -3948,7 +3948,7 @@ class Util
     public static function getButton()
     {
         return '<p class="print_ignore">'
-            . '<input type="button" class="button" id="print" value="'
+            . '<input type="button" class="btn btn-secondary button" id="print" value="'
             . __('Print') . '">'
             . '</p>';
     }

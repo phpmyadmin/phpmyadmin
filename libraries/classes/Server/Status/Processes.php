@@ -234,7 +234,7 @@ class Processes
         $retval .= '<legend>' . __('Filters') . '</legend>';
         $retval .= '<form action="server_status_processes.php" method="post">';
         $retval .= Url::getHiddenInputs($url_params);
-        $retval .= '<input type="submit" value="' . __('Refresh') . '">';
+        $retval .= '<input class="btn btn-secondary" type="submit" value="' . __('Refresh') . '">';
         $retval .= '<div class="formelement">';
         $retval .= '<input' . $showExecuting . ' type="checkbox" name="showExecuting"'
             . ' id="showExecuting" class="autosubmit">';

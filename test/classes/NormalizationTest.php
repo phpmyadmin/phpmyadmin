@@ -235,7 +235,7 @@ class NormalizationTest extends TestCase
             $result['extra']
         );
         $this->assertContains(
-            '<input type="submit" id="removeRedundant"',
+            '<input class="btn btn-secondary" type="submit" id="removeRedundant"',
             $result['extra']
         );
     }
@@ -262,7 +262,7 @@ class NormalizationTest extends TestCase
             $result['extra']
         );
         $this->assertContains(
-            '<input type="submit" id="moveRepeatingGroup"',
+            '<input class="btn btn-secondary" type="submit" id="moveRepeatingGroup"',
             $result['extra']
         );
         $this->assertEquals(json_encode(['id']), $result['primary_key']);

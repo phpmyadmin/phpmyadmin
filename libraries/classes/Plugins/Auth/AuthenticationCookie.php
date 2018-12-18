@@ -239,11 +239,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
-            echo '<input value="' , __('Go') , '" type="submit" id="input_go">';
+            echo '<input class="btn btn-primary" value="' , __('Go') , '" type="submit" id="input_go">';
         } else {
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
             , $GLOBALS['lang'] , '" async defer></script>';
-            echo '<input class="g-recaptcha" data-sitekey="'
+            echo '<input class="btn btn-primary g-recaptcha" data-sitekey="'
             , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
                 . ' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go">';
         }

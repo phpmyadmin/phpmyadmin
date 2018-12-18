@@ -159,7 +159,7 @@
         {% endfor %}
 
         <fieldset style="display:inline">
-            <input type="button" value="{% trans '+ Add column' %}" id="add_column_button">
+            <input class="btn btn-secondary" type="button" value="{% trans '+ Add column' %}" id="add_column_button">
         </fieldset>
 
         <fieldset>
@@ -176,8 +176,8 @@
     </fieldset>
 
     <fieldset class="tblFooters">
-        <input type="button" id="update_query_button" value="{% trans 'Update query' %}">
-        <input type="button" id="submit_query" value="{% trans 'Submit query' %}">
+        <input class="btn btn-secondary" type="button" id="update_query_button" value="{% trans 'Update query' %}">
+        <input class="btn btn-primary" type="button" id="submit_query" value="{% trans 'Submit query' %}">
     </fieldset>
 </form>
 </div>{# Slider div #}

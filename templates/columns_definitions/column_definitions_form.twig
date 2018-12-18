@@ -38,7 +38,7 @@
                             min="1"
                             onfocus="this.select()">
                         {% trans 'column(s)' %}
-                        <input type="button"
+                        <input class="btn btn-secondary" type="button"
                             name="submit_num_fields"
                             value="{% trans 'Go' %}">
                     </td>
@@ -141,10 +141,9 @@
         </div>
     {% endif %}
     <fieldset class="tblFooters">
-        <input type="button"
-            class="preview_sql"
+        <input class="btn btn-secondary preview_sql" type="button"
             value="{% trans 'Preview SQL' %}">
-        <input type="submit"
+        <input class="btn btn-primary" type="submit"
             name="do_save_data"
             value="{% trans 'Save' %}">
     </fieldset>

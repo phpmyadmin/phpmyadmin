@@ -802,7 +802,7 @@ class Qbe
         $html_output .= $this->_getFootersOptions("row");
         $html_output .= $this->_getFootersOptions("column");
         $html_output .= '<div class="floatleft">';
-        $html_output .= '<input type="submit" name="modify"'
+        $html_output .= '<input class="btn btn-secondary" type="submit" name="modify"'
             . ' value="' . __('Update Query') . '">';
         $html_output .= '</div>';
         $html_output .= '</fieldset>';
@@ -834,7 +834,7 @@ class Qbe
         $html_output .= '</select>';
         $html_output .= '</fieldset>';
         $html_output .= '<fieldset class="tblFooters">';
-        $html_output .= '<input type="submit" name="modify" value="'
+        $html_output .= '<input class="btn btn-secondary" type="submit" name="modify" value="'
             . __('Update Query') . '">';
         $html_output .= '</fieldset>';
         $html_output .= '</div>';
@@ -1851,7 +1851,7 @@ class Qbe
         // displays form's footers
         $html_output .= '<fieldset class="tblFooters">';
         $html_output .= '<input type="hidden" name="submit_sql" value="1">';
-        $html_output .= '<input type="submit" value="' . __('Submit Query') . '">';
+        $html_output .= '<input class="btn btn-primary" type="submit" value="' . __('Submit Query') . '">';
         $html_output .= '</fieldset>';
         $html_output .= '</div>';
         $html_output .= '</form>';
@@ -1892,12 +1892,12 @@ class Qbe
         $html_output .= '<input type="text" name="searchName" id="searchName" '
             . 'value="' . htmlspecialchars((string)$currentSearchName) . '">';
         $html_output .= '<input type="hidden" name="action" id="action" value="">';
-        $html_output .= '<input type="submit" name="saveSearch" id="saveSearch" '
+        $html_output .= '<input class="btn btn-secondary" type="submit" name="saveSearch" id="saveSearch" '
             . 'value="' . __('Create bookmark') . '">';
         if (null !== $currentSearchId) {
-            $html_output .= '<input type="submit" name="updateSearch" '
+            $html_output .= '<input class="btn btn-secondary" type="submit" name="updateSearch" '
                 . 'id="updateSearch" value="' . __('Update bookmark') . '">';
-            $html_output .= '<input type="submit" name="deleteSearch" '
+            $html_output .= '<input class="btn btn-secondary" type="submit" name="deleteSearch" '
                 . 'id="deleteSearch" value="' . __('Delete bookmark') . '">';
         }
 

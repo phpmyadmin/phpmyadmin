@@ -618,7 +618,7 @@ function displayPasswordGenerateButton () {
     var pwdCell = $('<td></td>').appendTo(generatePwdRow);
     var pwdButton = $('<input>')
         .attr({ type: 'button', id: 'button_generate_password', value: PMA_messages.strGenerate })
-        .addClass('button')
+        .addClass('btn btn-secondary button')
         .on('click', function () {
             suggestPassword(this.form);
         });
@@ -1884,8 +1884,8 @@ AJAX.registerOnload('functions.js', function () {
 
         var new_content = '<textarea name="sql_query_edit" id="sql_query_edit">' + escapeHtml(sql_query) + '</textarea>\n';
         new_content    += getForeignKeyCheckboxLoader();
-        new_content    += '<input type="submit" id="sql_query_edit_save" class="button btnSave" value="' + PMA_messages.strGo + '">\n';
-        new_content    += '<input type="button" id="sql_query_edit_discard" class="button btnDiscard" value="' + PMA_messages.strCancel + '">\n';
+        new_content    += '<input type="submit" id="sql_query_edit_save" class="btn btn-secondary button btnSave" value="' + PMA_messages.strGo + '">\n';
+        new_content    += '<input type="button" id="sql_query_edit_discard" class="btn btn-secondary button btnDiscard" value="' + PMA_messages.strCancel + '">\n';
         var $editor_area = $('div#inline_editor');
         if ($editor_area.length === 0) {
             $editor_area = $('<div id="inline_editor_outer"></div>');
@@ -3593,7 +3593,7 @@ AJAX.registerOnload('functions.js', function () {
             fields += escapeHtml(central_column_list[db + '_' + table][i].col_extra) + '</span>' +
                 '</div></td>';
             if (pick) {
-                fields += '<td><input class="pick all100" type="submit" value="' +
+                fields += '<td><input class="btn btn-secondary pick all100" type="submit" value="' +
                     PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"></td>';
             }
             fields += '</tr>';
@@ -3656,7 +3656,7 @@ AJAX.registerOnload('functions.js', function () {
                         fields += central_column_list[db + '_' + table][i].col_extra + '</span>' +
                             '</div></td>';
                         if (pick) {
-                            fields += '<td><input class="pick all100" type="submit" value="' +
+                            fields += '<td><input class="btn btn-secondary pick all100" type="submit" value="' +
                                 PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"></td>';
                         }
                         fields += '</tr>';

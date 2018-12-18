@@ -369,7 +369,7 @@ class ErrorHandler
             ]);
             $retval .= '<input type="submit" value="'
                     . __('Report')
-                    . '" id="pma_report_errors" class="floatright">'
+                    . '" id="pma_report_errors" class="btn btn-primary floatright">'
                     . '<input type="checkbox" name="always_send"'
                     . ' id="always_send_checkbox" value="true">'
                     . '<label for="always_send_checkbox">'
@@ -380,11 +380,11 @@ class ErrorHandler
                 // add ignore buttons
                 $retval .= '<input type="submit" value="'
                         . __('Ignore')
-                        . '" id="pma_ignore_errors_bottom" class="floatright">';
+                        . '" id="pma_ignore_errors_bottom" class="btn btn-secondary floatright">';
             }
             $retval .= '<input type="submit" value="'
                     . __('Ignore All')
-                    . '" id="pma_ignore_all_errors_bottom" class="floatright">';
+                    . '" id="pma_ignore_all_errors_bottom" class="btn btn-secondary floatright">';
             $retval .= '</form>';
         }
         return $retval;

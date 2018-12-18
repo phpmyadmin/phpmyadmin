@@ -1910,11 +1910,11 @@ class InsertEdit
         )
         . '</td>'
         . '<td colspan="3" class="right vmiddle">'
-        . '<input type="button" class="preview_sql" value="' . __('Preview SQL') . '"'
+        . '<input type="button" class="btn btn-secondary preview_sql" value="' . __('Preview SQL') . '"'
         . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '">'
-        . '<input type="reset" class="control_at_footer" value="' . __('Reset') . '"'
+        . '<input type="reset" class="btn btn-secondary control_at_footer" value="' . __('Reset') . '"'
         . ' tabindex="' . ($tabindex + $tabindex_for_value + 7) . '">'
-        . '<input type="submit" class="control_at_footer" value="' . __('Go') . '"'
+        . '<input type="submit" class="btn btn-primary control_at_footer" value="' . __('Go') . '"'
         . ' tabindex="' . ($tabindex + $tabindex_for_value + 8) . '" id="buttonYes">'
         . '</td>';
     }
@@ -1948,7 +1948,7 @@ class InsertEdit
             . ' <tfoot>'
             . '<tr>'
             . '<th colspan="5" class="tblFooters right">'
-            . '<input type="submit" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">'
             . '</th>'
             . '</tr>'
             . '</tfoot>';
