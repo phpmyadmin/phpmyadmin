@@ -3,6 +3,10 @@ phpMyAdmin - ChangeLog
 
 4.8.5 (not yet released)
 
+4.8.4.1 (not yet released)
+- issue #14794 Not responding to click, frozen interface, plugin Text_Plain_Sql error
+- issue #14786 Table level Operations functions missing
+
 4.8.4 (2018-12-11)
 - issue #14452 Remove hash param in edit query URL
 - issue #14295 Issue in Changing theme
