@@ -64,7 +64,7 @@ echo '<form id="select_lang" method="post">';
 echo Url::getHiddenInputs();
 echo '<bdo lang="en" dir="ltr"><label for="lang">';
 echo __('Language') , (__('Language') != 'Language' ? ' - Language' : '');
-echo '</label></bdo><br />';
+echo '</label></bdo><br>';
 echo '<select id="lang" name="lang" class="autosubmit" lang="en" dir="ltr">';
 
 // create language list
@@ -184,7 +184,7 @@ if ($cf->getServerCount() > 0) {
 echo '<table width="100%">';
 echo '<tr>';
 echo '<td class="lastrow left">';
-echo '<input type="submit" name="submit" value="' , __('New server') , '" />';
+echo '<input type="submit" name="submit" value="' , __('New server') , '">';
 echo '</td>';
 echo '</tr>';
 echo '</table>';
@@ -271,11 +271,11 @@ echo $formDisplayTemplate->displayInput(
 
 echo '<tr>';
 echo '<td colspan="2" class="lastrow left">';
-echo '<input type="submit" name="submit_display" value="' , __('Display') , '" />';
-echo '<input type="submit" name="submit_download" value="' , __('Download') , '" />';
+echo '<input type="submit" name="submit_display" value="' , __('Display') , '">';
+echo '<input type="submit" name="submit_download" value="' , __('Download') , '">';
 echo '&nbsp; &nbsp;';
 echo '<input type="submit" name="submit_clear" value="' , __('Clear')
-    , '" class="red" />';
+    , '" class="red">';
 echo '</td>';
 echo '</tr>';
 echo '</table>';

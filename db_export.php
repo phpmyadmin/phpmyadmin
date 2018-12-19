@@ -76,8 +76,8 @@ $multi_values .= '<table class="export_table_select">'
     . '<td></td>'
     . '<td class="export_table_name all">' . __('Select all') . '</td>'
     . '<td class="export_structure all">'
-    . '<input type="checkbox" id="table_structure_all" /></td>'
-    . '<td class="export_data all"><input type="checkbox" id="table_data_all" />'
+    . '<input type="checkbox" id="table_structure_all"></td>'
+    . '<td class="export_data all"><input type="checkbox" id="table_data_all">'
     . '</td>'
     . '</tr></thead>'
     . '<tbody>';
@@ -130,15 +130,15 @@ foreach ($tables as $each_table) {
     $table_html   = htmlspecialchars($each_table['Name']);
     $multi_values .= '<tr class="marked">';
     $multi_values .= '<td><input type="checkbox" name="table_select[]"'
-        . ' value="' . $table_html . '"' . $is_checked . ' class="checkall"/></td>';
+        . ' value="' . $table_html . '"' . $is_checked . ' class="checkall"></td>';
     $multi_values .= '<td class="export_table_name">'
         . str_replace(' ', '&nbsp;', $table_html) . '</td>';
     $multi_values .= '<td class="export_structure">'
         . '<input type="checkbox" name="table_structure[]"'
-        . ' value="' . $table_html . '"' . $structure_checked . ' /></td>';
+        . ' value="' . $table_html . '"' . $structure_checked . '></td>';
     $multi_values .= '<td class="export_data">'
         . '<input type="checkbox" name="table_data[]"'
-        . ' value="' . $table_html . '"' . $data_checked . ' /></td>';
+        . ' value="' . $table_html . '"' . $data_checked . '></td>';
     $multi_values .= '</tr>';
 } // end for
 

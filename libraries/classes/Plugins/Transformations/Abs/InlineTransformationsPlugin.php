@@ -54,11 +54,11 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
                 . $options['wrapper_link'] . '&amp;resize=jpeg&amp;newWidth='
                 . intval($options[0]) . '&amp;newHeight='
                 . intval($options[1])
-                . '" alt="[' . htmlspecialchars($buffer) . ']" border="0" /></a>';
+                . '" alt="[' . htmlspecialchars($buffer) . ']" border="0"></a>';
         } else {
             return '<img src="transformation_wrapper.php'
                 . $options['wrapper_link']
-                . '" alt="[' . htmlspecialchars($buffer) . ']" width="320" height="240" />';
+                . '" alt="[' . htmlspecialchars($buffer) . ']" width="320" height="240">';
         }
     }
 

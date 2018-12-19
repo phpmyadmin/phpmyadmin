@@ -1,7 +1,7 @@
 <iframe id="import_upload_iframe" name="import_upload_iframe" width="1" height="1" class="hide"></iframe>
 <div id="import_form_status" class="hide"></div>
 <div id="importmain">
-    <img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" class="hide" />
+    <img src="{{ pma_theme_image }}ajax_clock_small.gif" width="16" height="16" alt="ajax clock" class="hide">
 
     <script type="text/javascript">
         //<![CDATA[
@@ -23,7 +23,7 @@
             target="import_upload_iframe"
         {%- endif %}>
 
-        <input type="hidden" name="{{ id_key }}" value="{{ upload_id }}" />
+        <input type="hidden" name="{{ id_key }}" value="{{ upload_id }}">
         {% if import_type == 'server' %}
             {{ get_hidden_inputs('', '', 1) }}
         {% elseif import_type == 'database' %}
@@ -31,7 +31,7 @@
         {% else %}
             {{ get_hidden_inputs(db, table, 1) }}
         {% endif %}
-        <input type="hidden" name="import_type" value="{{ import_type }}" />
+        <input type="hidden" name="import_type" value="{{ import_type }}">
 
         <div class="exportoptions" id="header">
             <h2>
@@ -64,7 +64,7 @@
                 {% if is_upload and upload_dir is not empty %}
                     <ul>
                         <li>
-                            <input type="radio" name="file_location" id="radio_import_file" required="required" />
+                            <input type="radio" name="file_location" id="radio_import_file" required="required">
                             {{ get_browse_upload_file_block(max_upload_size) }}
                             {% trans 'You may also drag and drop a file on any page.' %}
                         </li>
@@ -72,7 +72,7 @@
                             <input type="radio" name="file_location" id="radio_local_import_file"
                                 {%- if timeout_passed_global is not empty and local_import_file is not empty %}
                                     checked="checked"
-                                {%- endif %} />
+                                {%- endif %}>
                             {{ get_select_upload_file_block(
                                 import_list,
                                 upload_dir
@@ -125,14 +125,14 @@
 
             {% if timeout_passed is defined and timeout_passed %}
                 <div class="formelementrow">
-                    <input type="hidden" name="skip" value="{{ offset }}" />
+                    <input type="hidden" name="skip" value="{{ offset }}">
                     {{ 'Previous import timed out, after resubmitting will continue from position %d.'|trans|format(offset) }}
                 </div>
             {% endif %}
 
             <div class="formelementrow">
                 <input type="checkbox" name="allow_interrupt" value="yes" id="checkbox_allow_interrupt"
-                    {{ checkbox_check('Import', 'allow_interrupt') }} />
+                    {{ checkbox_check('Import', 'allow_interrupt') }}>
                 <label for="checkbox_allow_interrupt">
                     {% trans 'Allow the interruption of an import in case the script detects it is close to the PHP timeout limit. <em>(This might be a good way to import large files, however it can break transactions.)</em>' %}
                 </label>
@@ -145,7 +145,7 @@
                     </label>
                     <input type="number" name="skip_queries" value="
                         {{- get_default_plugin('Import', 'skip_queries') -}}
-                        " id="text_skip_queries" min="0" />
+                        " id="text_skip_queries" min="0">
                 </div>
             {% else %}
                 {# If timeout has passed,
@@ -153,7 +153,7 @@
                    entering a value here that would interfere with "skip" #}
                 <input type="hidden" name="skip_queries" value="
                     {{- get_default_plugin('Import', 'skip_queries') -}}
-                    " id="text_skip_queries" />
+                    " id="text_skip_queries">
             {% endif %}
         </div>
 
@@ -188,7 +188,7 @@
         {% endif %}
 
         <div class="importoptions" id="submit">
-            <input type="submit" value="{% trans 'Go' %}" id="buttonGo" />
+            <input type="submit" value="{% trans 'Go' %}" id="buttonGo">
         </div>
     </form>
 </div>

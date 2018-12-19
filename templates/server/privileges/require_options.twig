@@ -10,8 +10,7 @@
                     <input type="radio" name="ssl_type"
                         id="{{ require_option['name'] }}_{{ require_option['value'] }}"
                         title="{{ require_option['description'] }}"
-                        value="{{ require_option['value'] }}" {{ require_option['checked']|raw -}}
-                    />
+                        value="{{ require_option['value'] }}" {{ require_option['checked']|raw }}>
                     <label for="{{ require_option['name'] }}_{{ require_option['value'] }}">
                         <code>{{ require_option['label'] }}</code>
                     </label>
@@ -24,8 +23,7 @@
                         size="80" title="{{ require_option['description'] }}"
                         {%- if require_option['disabled'] %}
                             disabled
-                        {%- endif -%}
-                    />
+                        {%- endif %}>
                 {% endif %}
             </div>
         {% endfor %}

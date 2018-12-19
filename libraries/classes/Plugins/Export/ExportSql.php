@@ -431,21 +431,21 @@ class ExportSql extends ExportPlugin
                 [
                     'complete' => __(
                         'include column names in every <code>INSERT</code> statement'
-                        . ' <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
+                        . ' <br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
                         . ' tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>'
                     ),
                     'extended' => __(
                         'insert multiple rows in every <code>INSERT</code> statement'
-                        . '<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
+                        . '<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
                         . ' tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>'
                     ),
                     'both'     => __(
-                        'both of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
+                        'both of the above<br> &nbsp; &nbsp; &nbsp; Example:'
                         . ' <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES'
                         . ' (1,2,3), (4,5,6), (7,8,9)</code>'
                     ),
                     'none'     => __(
-                        'neither of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
+                        'neither of the above<br> &nbsp; &nbsp; &nbsp; Example:'
                         . ' <code>INSERT INTO tbl_name VALUES (1,2,3)</code>'
                     ),
                 ]

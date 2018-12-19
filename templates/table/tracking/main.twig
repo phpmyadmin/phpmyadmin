@@ -17,7 +17,7 @@
         <input type="hidden" name="show_versions_submit" value="1">
     </form>
 {% endif %}
-<br/>
+<br>
 {% if last_version > 0 %}
     <form method="post" action="tbl_tracking.php" name="versionsForm" id="versionsForm" class="ajax">
         {{ get_hidden_inputs(db, table) }}
@@ -39,7 +39,7 @@
                         <td class="center">
                             <input type="checkbox" name="selected_versions[]"
                                 class="checkall" id="selected_versions_{{- version['version']|escape }}"
-                                value="{{- version['version']|escape }}"/>
+                                value="{{- version['version']|escape }}">
                         </td>
                         <td class="floatright">
                             <label for="selected_versions_{{- version['version']|escape }}">
@@ -115,9 +115,9 @@
 
                     {{ legend|format(db ~ '.' ~ table) }}
                 </legend>
-                <input type="hidden" name="version" value="{{ last_version }}" />
-                <input type="hidden" name="toggle_activation" value="{{ value }}" />
-                <input type="submit" value="{{ button }}" />
+                <input type="hidden" name="version" value="{{ last_version }}">
+                <input type="hidden" name="toggle_activation" value="{{ value }}">
+                <input type="submit" value="{{ button }}">
             </fieldset>
         </form>
     </div>

@@ -119,7 +119,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
         $response->addJSON(
             'message',
             Message::error(
-                "<i>" . htmlspecialchars($sql_query) . "</i><br /><br />"
+                "<i>" . htmlspecialchars($sql_query) . "</i><br><br>"
                 . $GLOBALS['dbi']->getError()
             )
         );

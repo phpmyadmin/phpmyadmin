@@ -96,11 +96,11 @@ class Url
      * echo Url::getHiddenFields($values);
      *
      * // produces:
-     * <input type="hidden" name="aaa" Value="aaa" />
-     * <input type="hidden" name="bbb[0]" Value="bbb_0" />
-     * <input type="hidden" name="bbb[1]" Value="bbb_1" />
-     * <input type="hidden" name="ccc[a]" Value="ccc_a" />
-     * <input type="hidden" name="ccc[b]" Value="ccc_b" />
+     * <input type="hidden" name="aaa" Value="aaa">
+     * <input type="hidden" name="bbb[0]" Value="bbb_0">
+     * <input type="hidden" name="bbb[1]" Value="bbb_1">
+     * <input type="hidden" name="ccc[a]" Value="ccc_a">
+     * <input type="hidden" name="ccc[b]" Value="ccc_b">
      * </code>
      *
      * @param array  $values   hidden values
@@ -130,7 +130,7 @@ class Url
                 // Url::getHiddenInputs() is sometimes called
                 // from a JS document.write()
                 $fields .= '<input type="hidden" name="' . htmlspecialchars((string) $name)
-                    . '" value="' . htmlspecialchars((string) $value) . '" />';
+                    . '" value="' . htmlspecialchars((string) $value) . '">';
             }
         }
 

@@ -550,7 +550,7 @@ $(function () {
                 buttonOptions[PMA_messages.strClose] = function () {
                     $(this).dialog('close');
                 };
-                $('<div/>')
+                $('<div></div>')
                     .attr('id', 'unhideNavItemDialog')
                     .append(data.message)
                     .dialog({

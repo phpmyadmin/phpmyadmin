@@ -99,7 +99,7 @@ class MultSubmitsTest extends TestCase
         );
         //from_prefix
         $this->assertContains(
-            '<input type="text" name="from_prefix" id="initialPrefix" />',
+            '<input type="text" name="from_prefix" id="initialPrefix">',
             $html
         );
     }
@@ -372,7 +372,7 @@ class MultSubmitsTest extends TestCase
 
         //validate 1: $fullQuery
         $this->assertContains(
-            "DROP DATABASE `table1`;<br />DROP DATABASE `table2`;",
+            "DROP DATABASE `table1`;<br>DROP DATABASE `table2`;",
             $fullQuery
         );
 

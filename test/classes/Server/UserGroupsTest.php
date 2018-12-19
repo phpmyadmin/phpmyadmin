@@ -253,12 +253,12 @@ class UserGroupsTest extends TestCase
         );
         $this->assertContains(
             '<input type="checkbox" class="checkall" checked="checked"'
-            . ' name="server_sql" value="Y" />',
+            . ' name="server_sql" value="Y">',
             $html
         );
         $this->assertContains(
             '<input type="checkbox" class="checkall"'
-            . ' name="server_databases" value="Y" />',
+            . ' name="server_databases" value="Y">',
             $html
         );
     }

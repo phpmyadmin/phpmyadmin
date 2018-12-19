@@ -18,14 +18,14 @@
                     </strong></p>
 
                     {{ get_hidden_inputs('', '', 5) }}
-                    <input type="hidden" name="reload" value="1" />
+                    <input type="hidden" name="reload" value="1">
                     {% if dbstats is not empty %}
-                        <input type="hidden" name="dbstats" value="1" />
+                        <input type="hidden" name="dbstats" value="1">
                     {% endif %}
 
                     <input type="text" name="new_db" value="{{ db_to_create }}"
                         maxlength="64" class="textfield" id="text_create_db" required
-                        placeholder="{% trans 'Database name' %}" />
+                        placeholder="{% trans 'Database name' %}">
                     {{ get_collation_dropdown_box(
                         dbi,
                         disable_is,
@@ -34,7 +34,7 @@
                         server_collation,
                         true
                     ) }}
-                    <input type="submit" value="{% trans 'Create' %}" id="buttonGo" />
+                    <input type="submit" value="{% trans 'Create' %}" id="buttonGo">
                 </form>
             {% else %}
                 {# db creation no privileges message #}

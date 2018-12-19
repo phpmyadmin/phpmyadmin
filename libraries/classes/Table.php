@@ -1827,7 +1827,7 @@ class Table
                 Message::rawError(
                     $this->_dbi->getError(DatabaseInterface::CONNECT_CONTROL)
                 ),
-                '<br /><br />'
+                '<br><br>'
             );
             return $message;
         }
@@ -1862,7 +1862,7 @@ class Table
                     Message::rawError(
                         $this->_dbi->getError(DatabaseInterface::CONNECT_CONTROL)
                     ),
-                    '<br /><br />'
+                    '<br><br>'
                 );
                 return $message;
             }

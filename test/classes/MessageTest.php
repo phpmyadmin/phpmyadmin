@@ -394,7 +394,7 @@ class MessageTest extends PmaTestCase
             ],
             [
                 '[kbd]test[/kbd][br][sup]test[/sup]',
-                '<kbd>test</kbd><br /><sup>test</sup>'
+                '<kbd>test</kbd><br><sup>test</sup>'
             ],
             [
                 '[a@https://example.com/@Documentation]link[/a]',
@@ -542,7 +542,7 @@ class MessageTest extends PmaTestCase
         $this->object->setMessage('Test Message');
 
         $this->expectOutputString(
-            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> '
+            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> '
             . 'Test Message</div>'
         );
         $this->object->display();
@@ -559,7 +559,7 @@ class MessageTest extends PmaTestCase
     {
         $this->object->setMessage('Test Message');
         $this->assertEquals(
-            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice" /> '
+            '<div class="notice"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> '
             . 'Test Message</div>',
             $this->object->getDisplay()
         );
@@ -588,17 +588,17 @@ class MessageTest extends PmaTestCase
             [
                 1,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  1 row affected.</div>'
+                . 'class="icon ic_s_notice">  1 row affected.</div>'
             ],
             [
                 2,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  2 rows affected.</div>'
+                . 'class="icon ic_s_notice">  2 rows affected.</div>'
             ],
             [
                 10000,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  10000 rows affected.</div>'
+                . 'class="icon ic_s_notice">  10000 rows affected.</div>'
             ]
         ];
     }
@@ -633,17 +633,17 @@ class MessageTest extends PmaTestCase
             [
                 1,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  1 row inserted.</div>'
+                . 'class="icon ic_s_notice">  1 row inserted.</div>'
             ],
             [
                 2,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  2 rows inserted.</div>'
+                . 'class="icon ic_s_notice">  2 rows inserted.</div>'
             ],
             [
                 100000,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  100000 rows inserted.</div>'
+                . 'class="icon ic_s_notice">  100000 rows inserted.</div>'
             ]
         ];
     }
@@ -678,17 +678,17 @@ class MessageTest extends PmaTestCase
             [
                 1,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  1 row deleted.</div>'
+                . 'class="icon ic_s_notice">  1 row deleted.</div>'
             ],
             [
                 2,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  2 rows deleted.</div>'
+                . 'class="icon ic_s_notice">  2 rows deleted.</div>'
             ],
             [
                 500000,
                 '<div class="notice"><img src="themes/dot.gif" title="" alt="" '
-                . 'class="icon ic_s_notice" />  500000 rows deleted.</div>'
+                . 'class="icon ic_s_notice">  500000 rows deleted.</div>'
             ]
         ];
     }

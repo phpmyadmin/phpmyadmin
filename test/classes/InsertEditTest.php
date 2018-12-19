@@ -682,25 +682,25 @@ class InsertEditTest extends TestCase
         ]);
 
         $this->assertContains(
-            '<input type="hidden" name="fields_null_preva" value="on" />',
+            '<input type="hidden" name="fields_null_preva" value="on">',
             $result
         );
 
         $this->assertContains(
             '<input type="checkbox" class="checkbox_null" tabindex="2" '
-            . 'name="fields_nulla" checked="checked" id="field_1_2" ',
+            . 'name="fields_nulla" checked="checked" id="field_1_2"',
             $result
         );
 
         $this->assertContains(
             '<input type="hidden" class="nullify_code" name="nullify_codea" '
-            . 'value="2" ',
+            . 'value="2"',
             $result
         );
 
         $this->assertContains(
             '<input type="hidden" class="hashed_field" name="hashed_fielda" '
-            . 'value="foobar" />',
+            . 'value="foobar">',
             $result
         );
 
@@ -940,7 +940,7 @@ class InsertEditTest extends TestCase
         ]);
 
         $this->assertContains(
-            '<input type="hidden" name="fields_typeb" value="enum" />',
+            '<input type="hidden" name="fields_typeb" value="enum">',
             $result
         );
 
@@ -1076,7 +1076,7 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<input type="radio" name="fieldsa" class="textfield" value="foo" '
-            . 'id="field_1_3_0" b checked="checked" tabindex="2" />',
+            . 'id="field_1_3_0" b checked="checked" tabindex="2">',
             $result
         );
 
@@ -1087,7 +1087,7 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<input type="radio" name="fieldsa" class="textfield" value="bar" '
-            . 'id="field_1_3_1" b tabindex="2" />',
+            . 'id="field_1_3_1" b tabindex="2">',
             $result
         );
 
@@ -1113,7 +1113,7 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<input type="radio" name="fieldsa" class="textfield" value="foo" '
-            . 'id="field_1_3_0" b checked="checked" tabindex="2" />',
+            . 'id="field_1_3_0" b checked="checked" tabindex="2">',
             $result
         );
     }
@@ -1142,7 +1142,7 @@ class InsertEditTest extends TestCase
         $this->assertContains("a\n", $result);
 
         $this->assertContains(
-            '<input type="hidden" name="fields_typeb" value="set" />',
+            '<input type="hidden" name="fields_typeb" value="set">',
             $result
         );
 
@@ -1220,10 +1220,10 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             'Binary - do not edit (5 B)<input type="hidden" '
-            . 'name="fieldsb" value="" /><input type="hidden" '
-            . 'name="fields_typeb" value="protected" />'
-            . '<br /><input type="file" name="fields_uploadfoo[123]" class="text'
-            . 'field noDragDrop" id="field_1_3" size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
+            . 'name="fieldsb" value=""><input type="hidden" '
+            . 'name="fields_typeb" value="protected">'
+            . '<br><input type="file" name="fields_uploadfoo[123]" class="text'
+            . 'field noDragDrop" id="field_1_3" size="10" c>&nbsp;(Max: 64KiB)' . "\n",
             $result
         );
 
@@ -1238,8 +1238,8 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             'Binary - do not edit (4 B)<input type="hidden" '
-            . 'name="fieldsb" value="" /><input type="hidden" '
-            . 'name="fields_typeb" value="protected" />',
+            . 'name="fieldsb" value=""><input type="hidden" '
+            . 'name="fields_typeb" value="protected">',
             $result
         );
 
@@ -1254,8 +1254,8 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             'Binary - do not edit (4 B)<input type="hidden" '
-            . 'name="fieldsb" value="" /><input type="hidden" '
-            . 'name="fields_typeb" value="protected" />',
+            . 'name="fieldsb" value=""><input type="hidden" '
+            . 'name="fields_typeb" value="protected">',
             $result
         );
 
@@ -1279,9 +1279,9 @@ class InsertEditTest extends TestCase
             "\na\n"
             . '<textarea name="fieldsb" class="char charField" data-maxlength="255" rows="7" '
             . 'cols="1" dir="/" id="field_1_3" c tabindex="3" data-type="HEX">'
-            . '</textarea><input type="hidden" name="fields_typeb" value="hex" />'
-            . '<br /><input type="file" name="fields_uploadfoo[123]" class="text'
-            . 'field noDragDrop" id="field_1_3" size="10" c/>&nbsp;(Max: 64KiB)' . "\n",
+            . '</textarea><input type="hidden" name="fields_typeb" value="hex">'
+            . '<br><input type="file" name="fields_uploadfoo[123]" class="text'
+            . 'field noDragDrop" id="field_1_3" size="10" c>&nbsp;(Max: 64KiB)' . "\n",
             $result
         );
 
@@ -1305,7 +1305,7 @@ class InsertEditTest extends TestCase
             . '<textarea name="fieldsb" class="" rows="20" cols="10" dir="/" '
             . 'id="field_1_3" c tabindex="3" data-type="HEX">'
             . '</textarea><input type="hidden" '
-            . 'name="fields_typeb" value="hex" />',
+            . 'name="fields_typeb" value="hex">',
             $result
         );
 
@@ -1329,8 +1329,8 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             "\na\n"
             . '<input type="text" name="fieldsb" value="" size="10" data-type='
-            . '"HEX" class="textfield" c tabindex="3" id="field_1_3" />'
-            . '<input type="hidden" name="fields_typeb" value="hex" />',
+            . '"HEX" class="textfield" c tabindex="3" id="field_1_3">'
+            . '<input type="hidden" name="fields_typeb" value="hex">',
             $result
         );
     }
@@ -1352,7 +1352,7 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datefield" c tabindex="25" id="field_0_3" />',
+            . ' class="textfield datefield" c tabindex="25" id="field_0_3">',
             $result
         );
 
@@ -1364,7 +1364,7 @@ class InsertEditTest extends TestCase
         ]);
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datetimefield" c tabindex="25" id="field_0_3" />',
+            . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">',
             $result
         );
 
@@ -1376,7 +1376,7 @@ class InsertEditTest extends TestCase
         ]);
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
-            . ' class="textfield datetimefield" c tabindex="25" id="field_0_3" />',
+            . ' class="textfield datetimefield" c tabindex="25" id="field_0_3">',
             $result
         );
     }
@@ -1465,8 +1465,8 @@ class InsertEditTest extends TestCase
             "a\n"
             . '<input type="text" name="fieldsb" value="&lt;" size="20" data-type="'
             . 'DATE" class="textfield datetimefield" c tabindex="34" id="field_1_3"'
-            . ' /><input type="hidden" name="auto_incrementb" value="1" />'
-            . '<input type="hidden" name="fields_typeb" value="timestamp" />',
+            . '><input type="hidden" name="auto_incrementb" value="1">'
+            . '<input type="hidden" name="fields_typeb" value="timestamp">',
             $result
         );
 
@@ -1478,7 +1478,7 @@ class InsertEditTest extends TestCase
         ]);
 
         $this->assertContains(
-            '<input type="hidden" name="fields_typeb" value="datetime" />',
+            '<input type="hidden" name="fields_typeb" value="datetime">',
             $result
         );
     }
@@ -1530,7 +1530,7 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['LinkLengthLimit'] = 2;
         $this->assertContains(
             '<a href="#" target="_blank"><span class="nowrap"><img src="themes/dot.'
-            . 'gif" title="Edit/Insert" alt="Edit/Insert" class="icon ic_b_edit" />'
+            . 'gif" title="Edit/Insert" alt="Edit/Insert" class="icon ic_b_edit">'
             . '</span></a>',
             $this->callProtectedMethod('getHtmlForGisDataTypes')
         );
@@ -1564,12 +1564,12 @@ class InsertEditTest extends TestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="db" value="db" />',
+            '<input type="hidden" name="db" value="db">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="table" value="tbl" />',
+            '<input type="hidden" name="table" value="tbl">',
             $result
         );
 
@@ -1616,7 +1616,7 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<input type="submit" class="control_at_footer" value="Go" '
-            . 'tabindex="11" id="buttonYes" ',
+            . 'tabindex="11" id="buttonYes"',
             $result
         );
     }
@@ -1684,19 +1684,19 @@ class InsertEditTest extends TestCase
 
         $this->assertContains(
             '<input type="submit" class="control_at_footer" value="Go" '
-            . 'tabindex="9" id="buttonYes" />',
+            . 'tabindex="9" id="buttonYes">',
             $result
         );
 
         $this->assertContains(
             '<input type="button" class="preview_sql" value="Preview SQL" '
-            . 'tabindex="7" />',
+            . 'tabindex="7">',
             $result
         );
 
         $this->assertContains(
             '<input type="reset" class="control_at_footer" value="Reset" '
-            . 'tabindex="8" />',
+            . 'tabindex="8">',
             $result
         );
     }
@@ -1752,7 +1752,7 @@ class InsertEditTest extends TestCase
                 null,
                 null,
                 null,
-                '<input type="hidden" name="fields_preva" value="" />'
+                '<input type="hidden" name="fields_preva" value="">'
             ],
             $result
         );
@@ -1774,7 +1774,7 @@ class InsertEditTest extends TestCase
                 "",
                 "00000000000001111011",
                 null,
-                '<input type="hidden" name="fields_preva" value="123" />'
+                '<input type="hidden" name="fields_preva" value="123">'
             ],
             $result
         );
@@ -1790,7 +1790,7 @@ class InsertEditTest extends TestCase
                 "",
                 "abcd",
                 null,
-                '<input type="hidden" name="fields_preva" value="abcd" />'
+                '<input type="hidden" name="fields_preva" value="abcd">'
             ],
             $result
         );
@@ -1818,7 +1818,7 @@ class InsertEditTest extends TestCase
                 "",
                 "'',",
                 null,
-                '<input type="hidden" name="fields_preva" value="\'\'," />'
+                '<input type="hidden" name="fields_preva" value="\'\',">'
             ],
             $result
         );
@@ -1843,7 +1843,7 @@ class InsertEditTest extends TestCase
                 "3131303031",
                 "3131303031",
                 "3131303031",
-                '<input type="hidden" name="fields_preva" value="3131303031" />'
+                '<input type="hidden" name="fields_preva" value="3131303031">'
             ],
             $result
         );
@@ -1862,7 +1862,7 @@ class InsertEditTest extends TestCase
                 "313130303100",
                 "313130303100",
                 "313130303100",
-                '<input type="hidden" name="fields_preva" value="313130303100" />'
+                '<input type="hidden" name="fields_preva" value="313130303100">'
             ],
             $result
         );
@@ -3188,8 +3188,8 @@ class InsertEditTest extends TestCase
     public function testGetHtmlForIgnoreOption()
     {
         $expected = '<input type="checkbox" %sname="insert_ignore_1"'
-            . ' id="insert_ignore_1" /><label for="insert_ignore_1">'
-            . 'Ignore</label><br />' . "\n";
+            . ' id="insert_ignore_1"><label for="insert_ignore_1">'
+            . 'Ignore</label><br>' . "\n";
         $checked = 'checked="checked" ';
         $this->assertEquals(
             sprintf($expected, $checked),
@@ -3258,7 +3258,7 @@ class InsertEditTest extends TestCase
         );
         $this->assertContains(
             '<img src="" width="150" height="100" '
-            . 'alt="Image preview here"/>',
+            . 'alt="Image preview here">',
             $actual
         );
         $this->assertContains(
@@ -3266,7 +3266,7 @@ class InsertEditTest extends TestCase
             . 'name="fields_upload[d89e2ddb530bb8953b290ab0793aecb0]" '
             . 'accept="image/*" '
             . 'class="image-upload"'
-            . '/>',
+            . '>',
             $actual
         );
 

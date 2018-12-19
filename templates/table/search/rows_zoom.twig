@@ -65,10 +65,10 @@
                 id="types_{{ i }}"
                 {%- if criteria_column_types[i] is defined %}
                     value="{{ criteria_column_types[i] }}"
-                {%- endif %} />
+                {%- endif %}>
             <input type="hidden"
                 name="criteriaColumnCollations[{{ i }}]"
-                id="collations_{{ i }}" />
+                id="collations_{{ i }}">
         </td>
     </tr>
 {% endfor %}

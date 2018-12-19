@@ -1,7 +1,7 @@
 <form class="submenu-item" action="server_privileges.php" id="{{ form_id }}" method="post">
     {{ get_hidden_inputs() }}
-    <input type="hidden" name="username" value="{{ username }}" />
-    <input type="hidden" name="hostname" value="{{ hostname }}" />
+    <input type="hidden" name="username" value="{{ username }}">
+    <input type="hidden" name="hostname" value="{{ hostname }}">
 
     <fieldset>
         <legend data-submenu-label="{{ sub_menu_label }}">
@@ -63,10 +63,10 @@
                 </select>
             {% endif -%}
 
-            <input type="text" id="text_dbname" name="dbname" />
+            <input type="text" id="text_dbname" name="dbname">
             {{ show_hint("Wildcards % and _ should be escaped with a \\ to use them literally."|trans) }}
         {% elseif type == 'table' %}
-            <input type="hidden" name="dbname" value="{{ database }}"/>
+            <input type="hidden" name="dbname" value="{{ database }}">
 
             <label for="text_tablename">{% trans 'Add privileges on the following table:' %}</label>
 
@@ -79,9 +79,9 @@
                 </select>
             {% endif -%}
 
-            <input type="text" id="text_tablename" name="tablename" />
+            <input type="text" id="text_tablename" name="tablename">
         {% else %}
-            <input type="hidden" name="dbname" value="{{ database }}"/>
+            <input type="hidden" name="dbname" value="{{ database }}">
 
             <label for="text_routinename">{% trans 'Add privileges on the following routine:' %}</label>
 
@@ -94,11 +94,11 @@
                 </select>
             {% endif -%}
 
-            <input type="text" id="text_routinename" name="routinename" />
+            <input type="text" id="text_routinename" name="routinename">
         {% endif %}
     </fieldset>
 
     <fieldset class="tblFooters">
-        <input type="submit" value="{% trans 'Go' %}" />
+        <input type="submit" value="{% trans 'Go' %}">
     </fieldset>
 </form>

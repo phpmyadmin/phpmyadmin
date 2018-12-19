@@ -151,7 +151,7 @@ var PMA_commonActions = {
             url = url.substring(0, url.indexOf('?'));
         }
         url += PMA_commonParams.getUrlQuery();
-        $('<a />', { href: url })
+        $('<a></a>', { href: url })
             .appendTo('body')
             .trigger('click')
             .remove();

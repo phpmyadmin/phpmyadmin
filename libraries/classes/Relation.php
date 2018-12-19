@@ -131,7 +131,7 @@ class Relation
             $retval .= __('Configuration of pmadb…') . ' '
                  . $messages['error']
                  . Util::showDocu('setup', 'linked-tables')
-                 . '<br />' . "\n"
+                 . '<br>' . "\n"
                  . __('General relation features')
                  . ' <font color="green">' . __('Disabled')
                  . '</font>' . "\n";
@@ -152,7 +152,7 @@ class Relation
                 && $this->arePmadbTablesDefined()
             ) {
                 $retval .= $this->getHtmlFixPmaTables(false);
-                $retval .= '<br />';
+                $retval .= '<br>';
             }
 
             $retval .= $this->getDiagMessageForParameter(

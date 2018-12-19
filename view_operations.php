@@ -101,7 +101,7 @@ $url_params['back'] = 'view_operations.php';
 <div>
 <form method="post" action="view_operations.php">
 <?php echo Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
-<input type="hidden" name="reload" value="1" />
+<input type="hidden" name="reload" value="1">
 <fieldset>
     <legend><?php echo __('Operations'); ?></legend>
 
@@ -110,14 +110,14 @@ $url_params['back'] = 'view_operations.php';
     <tr><td><?php echo __('Rename view to'); ?></td>
         <td><input type="text" name="new_name" onfocus="this.select()"
                 value="<?php echo htmlspecialchars($GLOBALS['table']); ?>"
-                required />
+                required>
         </td>
     </tr>
     </table>
 </fieldset>
 <fieldset class="tblFooters">
-        <input type="hidden" name="submitoptions" value="1" />
-        <input type="submit" value="<?php echo __('Go'); ?>" />
+        <input type="hidden" name="submitoptions" value="1">
+        <input type="submit" value="<?php echo __('Go'); ?>">
 </fieldset>
 </form>
 </div>

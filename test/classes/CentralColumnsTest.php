@@ -599,7 +599,7 @@ class CentralColumnsTest extends TestCase
         $this->assertContains(
             '<input type="submit" name="navig"'
             . ' class="ajax" '
-            . 'value="&lt" />',
+            . 'value="&lt">',
             $result
         );
         $this->assertContains(

@@ -227,7 +227,7 @@ class Navigation
                 if ((empty($itemType) || $itemType == $t)
                     && isset($hidden[$t])
                 ) {
-                    $html .= (! $first ? '<br/>' : '')
+                    $html .= (! $first ? '<br>' : '')
                         . '<strong>' . $lable . '</strong>';
                     $html .= '<table width="100%"><tbody>';
                     foreach ($hidden[$t] as $hiddenItem) {

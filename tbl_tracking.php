@@ -99,7 +99,7 @@ if (isset($_POST['report_export'])
     $tracking->exportAsFileDownload($entries);
 }
 
-$html = '<br/>';
+$html = '<br>';
 
 /**
  * Actions
@@ -197,6 +197,6 @@ if (isset($_POST['report']) || isset($_POST['report_export'])) {
      $text_dir
  );
 
-$html .= '<br class="clearfloat"/>';
+$html .= '<br class="clearfloat">';
 
 $response->addHTML($html);

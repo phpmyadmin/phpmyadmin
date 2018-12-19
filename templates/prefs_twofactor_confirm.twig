@@ -5,8 +5,8 @@
 {{ "By disabling two factor authentication you will be again able to login using password only."|trans|notice }}
 {{ get_hidden_inputs() }}
 {{ form|raw }}
-<input type="hidden" name="2fa_remove" value="1" />
-<input type="submit" value="{% trans "Disable two-factor authentication" %}" />
+<input type="hidden" name="2fa_remove" value="1">
+<input type="submit" value="{% trans "Disable two-factor authentication" %}">
 </form>
 </div>
 </div>

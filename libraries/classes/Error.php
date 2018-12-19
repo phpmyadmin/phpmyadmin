@@ -324,8 +324,8 @@ class Error extends Message
     {
         return self::formatBacktrace(
             $this->getBacktrace(),
-            "<br />\n",
-            "<br />\n"
+            "<br>\n",
+            "<br>\n"
         );
     }
 
@@ -448,14 +448,14 @@ class Error extends Message
         if (! $this->isUserError()) {
             $retval .= '<strong>' . $this->getType() . '</strong>';
             $retval .= ' in ' . $this->getFile() . '#' . $this->getLine();
-            $retval .= "<br />\n";
+            $retval .= "<br>\n";
         }
         $retval .= $this->getMessage();
         if (! $this->isUserError()) {
-            $retval .= "<br />\n";
-            $retval .= "<br />\n";
-            $retval .= "<strong>Backtrace</strong><br />\n";
-            $retval .= "<br />\n";
+            $retval .= "<br>\n";
+            $retval .= "<br>\n";
+            $retval .= "<strong>Backtrace</strong><br>\n";
+            $retval .= "<br>\n";
             $retval .= $this->getBacktraceDisplay();
         }
         $retval .= '</div>';

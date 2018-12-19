@@ -93,9 +93,9 @@ class Normalization
             ) {
                 if ($listType == 'checkbox') {
                     $selectColHtml .= '<input type="checkbox" value="'
-                        . htmlspecialchars($column) . '"/>'
+                        . htmlspecialchars($column) . '">'
                         . htmlspecialchars($column) . ' [ '
-                        . htmlspecialchars($def['Type']) . ' ]</br>';
+                        . htmlspecialchars($def['Type']) . ' ]<br>';
                 } else {
                     $selectColHtml .= '<option value="' . htmlspecialchars($column) . ''
                     . '">' . htmlspecialchars($column)
@@ -197,7 +197,7 @@ class Normalization
                 . ' one column? '
                 . 'For example: address can be split into street, city, country and zip.'
             )
-            . "</br>(<a class='central_columns_dialog' data-maxrows='25' "
+            . "<br>(<a class='central_columns_dialog' data-maxrows='25' "
             . "data-pick=false href='#'> "
             . __(
                 'Show me the central list of columns that are not already in this table'
@@ -220,7 +220,7 @@ class Normalization
             . "</select>"
             . "<span>" . __('split into ')
             . "</span><input id='numField' type='number' value='2'>"
-            . "<input type='submit' id='splitGo' value='" . __('Go') . "'/></div>"
+            . "<input type='submit' id='splitGo' value='" . __('Go') . "'></div>"
             . "<div id='newCols'></div>"
             . "</fieldset><fieldset class='tblFooters'>"
             . "</fieldset>"
@@ -250,7 +250,7 @@ class Normalization
             $hasPrimaryKey = "1";
         } else {
             $headText = __(
-                "There is no primary key; please add one.<br/>"
+                "There is no primary key; please add one.<br>"
                 . "Hint: A primary key is a column "
                 . "(or combination of columns) that uniquely identify all rows."
             );
@@ -265,7 +265,7 @@ class Normalization
             $extra = __(
                 "If it's not possible to make existing "
                 . "column combinations as primary key"
-            ) . "<br/>"
+            ) . "<br>"
                 . '<a href="#" id="addNewPrimary">'
                 . __('+ Add a new primary key column') . '</a>';
         }
@@ -301,12 +301,12 @@ class Normalization
             "Check the columns which are redundant and click on remove. "
             . "If no redundant column, click on 'No redundant column'"
         );
-        $extra = $this->getHtmlForColumnsList($db, $table, 'all', "checkbox") . "</br>"
+        $extra = $this->getHtmlForColumnsList($db, $table, 'all', "checkbox") . "<br>"
             . '<input type="submit" id="removeRedundant" value="'
-            . __('Remove selected') . '"/>'
+            . __('Remove selected') . '">'
             . '<input type="submit" value="' . __('No redundant column')
             . '" onclick="goToFinish1NF();"'
-            . '/>';
+            . '>';
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -340,12 +340,12 @@ class Normalization
             "Check the columns which form a repeating group. "
             . "If no such group, click on 'No repeating group'"
         );
-        $extra = $this->getHtmlForColumnsList($db, $table, 'all', "checkbox") . "</br>"
+        $extra = $this->getHtmlForColumnsList($db, $table, 'all', "checkbox") . "<br>"
             . '<input type="submit" id="moveRepeatingGroup" value="'
-            . __('Done') . '"/>'
+            . __('Done') . '">'
             . '<input type="submit" value="' . __('No repeating group')
             . '" onclick="goToStep4();"'
-            . '/>';
+            . '>';
         $primary = Index::getPrimary($table, $db);
         $primarycols = $primary->getColumns();
         $pk = [];
@@ -399,7 +399,7 @@ class Normalization
                         . 'is composed of all the columns in the table.'
                     ),
                     htmlspecialchars($key)
-                ) . '<br/>';
+                ) . '<br>';
                 $extra = '<h3>' . __('Table is already in second normal form.')
                     . '</h3>';
             } else {
@@ -409,11 +409,11 @@ class Normalization
                         . 'so we need to find the partial dependencies.'
                     ),
                     htmlspecialchars($key)
-                ) . '<br/>' . __(
+                ) . '<br>' . __(
                     'Please answer the following question(s) '
                     . 'carefully to obtain a correct normalization.'
                 )
-                    . '<br/><a href="#" id="showPossiblePd">' . __(
+                    . '<br><a href="#" id="showPossiblePd">' . __(
                         '+ Show me the possible partial dependencies '
                         . 'based on data in the table'
                     ) . '</a>';
@@ -433,7 +433,7 @@ class Normalization
                         ) . "</b><br>";
                         $extra .= '<form id="pk_' . $cnt . '" data-colname="'
                             . htmlspecialchars($column) . '" class="smallIndent">'
-                            . $selectPkForm . '</form><br/><br/>';
+                            . $selectPkForm . '</form><br><br>';
                     }
                 }
             }
@@ -444,7 +444,7 @@ class Normalization
                     . ' ( %1$s ) has just one column.'
                 ),
                 htmlspecialchars($key)
-            ) . '<br/>';
+            ) . '<br>';
             $extra = '<h3>' . __('Table is already in second normal form.') . '</h3>';
         }
         return [
@@ -478,7 +478,7 @@ class Normalization
         $i = 1;
         foreach ($partialDependencies as $key => $dependents) {
             $html .= '<p><input type="text" name="' . htmlspecialchars($key)
-                . '" value="' . htmlspecialchars($tableName) . '"/>'
+                . '" value="' . htmlspecialchars($tableName) . '">'
                 . '( <u>' . htmlspecialchars($key) . '</u>'
                 . (count($dependents) > 0 ? ', ' : '')
                 . htmlspecialchars(implode(', ', $dependents)) . ' )';
@@ -550,7 +550,7 @@ class Normalization
                     Message::rawError(
                         $this->dbi->getError()
                     ),
-                    '<br /><br />'
+                    '<br><br>'
                 );
                 $error = true;
                 break;
@@ -610,7 +610,7 @@ class Normalization
                     $columnList[] = $tmpTableCols;
                         $html .= '<p><input type="text" name="'
                             . htmlspecialchars($tableName)
-                            . '" value="' . htmlspecialchars($tableName) . '"/>'
+                            . '" value="' . htmlspecialchars($tableName) . '">'
                             . '( <u>' . htmlspecialchars($key) . '</u>'
                             . (count($dependents) > 0 ? ', ' : '')
                             . htmlspecialchars(implode(', ', $dependents)) . ' )';
@@ -700,7 +700,7 @@ class Normalization
                     Message::rawError(
                         $this->dbi->getError()
                     ),
-                    '<br /><br />'
+                    '<br><br>'
                 );
                 $error = true;
                 break;
@@ -772,7 +772,7 @@ class Normalization
                     Message::rawError(
                         $this->dbi->getError()
                     ),
-                    '<br /><br />'
+                    '<br><br>'
                 );
                 $error = true;
                 break;
@@ -803,7 +803,7 @@ class Normalization
             'For each column below, '
             . 'please select the <b>minimal set</b> of columns among given set '
             . 'whose values combined together are sufficient'
-            . ' to determine the value of the column.<br />'
+            . ' to determine the value of the column.<br>'
             . 'Note: A column may have no transitive dependency, '
             . 'in that case you don\'t have to select any.'
         );
@@ -843,7 +843,7 @@ class Normalization
                         . htmlspecialchars($column) . '" data-tablename="'
                         . htmlspecialchars($table) . '" class="smallIndent">'
                         . $selectTdForm
-                        . '</form><br/><br/>';
+                        . '</form><br><br>';
                 }
             }
         }
@@ -897,7 +897,7 @@ class Normalization
                 'Hint: Please follow the procedure carefully in order '
                 . 'to obtain correct normalization'
             ) . "</span>"
-            . '<input type="submit" name="submit_normalize" value="' . __('Go') . '" />'
+            . '<input type="submit" name="submit_normalize" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -966,7 +966,7 @@ class Normalization
             . '<div class="dependencies_box">';
         foreach ($dependencyList as $dependon => $colList) {
             $html .= '<span class="displayblock">'
-                . '<input type="button" class="pickPd" value="' . __('Pick') . '"/>'
+                . '<input type="button" class="pickPd" value="' . __('Pick') . '">'
                 . '<span class="determinants">'
                 . htmlspecialchars(str_replace('`', '', $dependon)) . '</span> -> '
                 . '<span class="dependents">'

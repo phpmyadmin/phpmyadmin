@@ -351,8 +351,8 @@ class ResultsTest extends PmaTestCase
                 '<td class="klass" class="center print_ignore"><input type'
                 . '="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name='
                 . '"rows_to_delete[0]" class="multi_checkbox checkall" value="%60'
-                . 'new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_'
-                . 'array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    '
+                . 'new%60.%60id%60+%3D+1"><input type="hidden" class="condition_'
+                . 'array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}">    '
                 . '</td>'
             ]
         ];
@@ -412,7 +412,7 @@ class ResultsTest extends PmaTestCase
                 . 'action=update',
                 'klass edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt='
-                . '"Edit" class="icon ic_b_edit" /> Edit</span>',
+                . '"Edit" class="icon ic_b_edit"> Edit</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
                 '<td class="klass edit_row_anchor center print_ignore"  >'
@@ -422,9 +422,9 @@ class ResultsTest extends PmaTestCase
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
                 . 'default_action=update"'
                 . '><span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>'
+                . 'alt="Edit" class="icon ic_b_edit"> Edit</span></a>'
                 . '<input type="hidden" class="where_clause" value ="%60customer'
-                . '%60.%60id%60+%3D+1" /></span></td>'
+                . '%60.%60id%60+%3D+1"></span></td>'
             ]
         ];
     }
@@ -479,7 +479,7 @@ class ResultsTest extends PmaTestCase
                 . 'SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_'
                 . 'action=insert',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt'
-                . '="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                . '="Copy" class="icon ic_b_insrow"> Copy</span>',
                 '`customer`.`id` = 1',
                 '%60customer%60.%60id%60+%3D+1',
                 'klass',
@@ -490,9 +490,9 @@ class ResultsTest extends PmaTestCase
                 . 'sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;'
                 . 'default_action=insert"'
                 . '><span class="nowrap"><img src="themes/dot.gif" title="Copy" '
-                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>'
+                . 'alt="Copy" class="icon ic_b_insrow"> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60customer%60'
-                . '.%60id%60+%3D+1" /></span></td>'
+                . '.%60id%60+%3D+1"></span></td>'
             ]
         ];
     }
@@ -549,7 +549,7 @@ class ResultsTest extends PmaTestCase
                 . '%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen'
                 . '%2Bdeleted%26goto%3Dtbl_structure.php',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
-                . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                . 'alt="Delete" class="icon ic_b_drop"> Delete</span>',
                 'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
                 'klass',
                 '<td class="klass center print_ignore"  >'
@@ -560,7 +560,7 @@ class ResultsTest extends PmaTestCase
                 . 'FROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2B'
                 . 'been%2Bdeleted%26goto%3Dtbl_structure.php" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
-                . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
+                . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop"> '
                 . 'Delete</span></a>'
                 . '<div class="hide">DELETE FROM `Data`.`customer` WHERE '
                 . '`customer`.`id` = 1</div></td>'
@@ -641,35 +641,35 @@ class ResultsTest extends PmaTestCase
                 . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                . 'alt="Edit" class="icon ic_b_edit"> Edit</span>',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Copy" '
-                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                . 'alt="Copy" class="icon ic_b_insrow"> Copy</span>',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
-                . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                . 'alt="Delete" class="icon ic_b_drop"> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_delete0_'
                 . 'left" name="rows_to_delete[0]" class="multi_checkbox checkall" '
-                . 'value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class='
+                . 'value="%60new%60.%60id%60+%3D+1"><input type="hidden" class='
                 . '"condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;'
-                . '}" />    </td><td class="edit_row_anchor center print_ignore"  ><span class='
+                . '}">    </td><td class="edit_row_anchor center print_ignore"  ><span class='
                 . '"nowrap">'
                 . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_'
                 . 'clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;'
                 . 'sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default'
                 . '_action=update">'
                 . '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span></a>'
+                . 'alt="Edit" class="icon ic_b_edit"> Edit</span></a>'
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
-                . 'id%60+%3D+1" /></span></td><td class="center print_ignore"  ><span class'
+                . 'id%60+%3D+1"></span></td><td class="center print_ignore"  ><span class'
                 . '="nowrap">'
                 . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
                 . 'insert"><span class'
                 . '="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
-                . 'class="icon ic_b_insrow" /> Copy</span></a>'
+                . 'class="icon ic_b_insrow"> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
-                . '%60+%3D+1" /></span></td><td class="center print_ignore"  >'
+                . '%60+%3D+1"></span></td><td class="center print_ignore"  >'
                 . '<a href="sql.php" data-post="db=data&amp;table=new&amp;sql_query=DELETE+'
                 . 'FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;'
                 . 'message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3F'
@@ -677,7 +677,7 @@ class ResultsTest extends PmaTestCase
                 . '%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2B'
                 . 'deleted%26goto%3Dtbl_structure.php" '
                 . 'class="delete_row requireConfirm"><span class="nowrap"><img src="themes/dot.'
-                . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> '
+                . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop"> '
                 . 'Delete</span></a>'
                 . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1'
                 . '</div></td>'
@@ -713,11 +713,11 @@ class ResultsTest extends PmaTestCase
                 . 'FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                . 'alt="Edit" class="icon ic_b_edit"> Edit</span>',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Copy" '
-                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                . 'alt="Copy" class="icon ic_b_insrow"> Copy</span>',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
-                . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                . 'alt="Delete" class="icon ic_b_drop"> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 '<td class="center print_ignore"  >'
                 . '<a href="sql.php" data-post="db=data&amp;table=new&amp;sql_query=DELETE+'
@@ -727,7 +727,7 @@ class ResultsTest extends PmaTestCase
                 . '60new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted'
                 . '%26goto%3Dtbl_structure.php" class="delete'
                 . '_row requireConfirm"><span class="nowrap"><img src="themes/dot.gif" title='
-                . '"Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>'
+                . '"Delete" alt="Delete" class="icon ic_b_drop"> Delete</span></a>'
                 . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.'
                 . '`id` = 1</div></td><td class="center print_ignore"  ><span class="nowrap">'
                 . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_'
@@ -735,22 +735,22 @@ class ResultsTest extends PmaTestCase
                 . 'query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_'
                 . 'action=insert"><span '
                 . 'class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" '
-                . 'class="icon ic_b_insrow" /> Copy</span></a>'
+                . 'class="icon ic_b_insrow"> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60new%60.%60id'
-                . '%60+%3D+1" /></span></td><td class="edit_row_anchor center print_ignore"  >'
+                . '%60+%3D+1"></span></td><td class="edit_row_anchor center print_ignore"  >'
                 . '<span class="nowrap">'
                 . '<a href="tbl_change.php" data-post="db=data&amp;table=new&amp;where_clause'
                 . '=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query='
                 . 'SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action='
                 . 'update"><span class='
                 . '"nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class'
-                . '="icon ic_b_edit" /> Edit</span></a>'
+                . '="icon ic_b_edit"> Edit</span></a>'
                 . '<input type="hidden" class="where_clause" value ="%60new%60.%60'
-                . 'id%60+%3D+1" /></span></td><td  class="center print_ignore"><input type='
+                . 'id%60+%3D+1"></span></td><td  class="center print_ignore"><input type='
                 . '"checkbox" id="id_rows_to_delete0_right" name="rows_to_delete'
                 . '[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60'
-                . '+%3D+1"  /><input type="hidden" class="condition_array" value="'
-                . '{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
+                . '+%3D+1"><input type="hidden" class="condition_array" value="'
+                . '{&quot;`new`.`id`&quot;:&quot;= 1&quot;}">    </td>'
             ],
             [
                 DisplayResults::POSITION_NONE,
@@ -783,17 +783,17 @@ class ResultsTest extends PmaTestCase
                 . '%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                . 'alt="Edit" class="icon ic_b_edit"> Edit</span>',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Copy" '
-                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                . 'alt="Copy" class="icon ic_b_insrow"> Copy</span>',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
-                . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                . 'alt="Delete" class="icon ic_b_drop"> Delete</span>',
                 'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
                 '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_'
                 . 'delete0_left" name="rows_to_delete[0]" class="multi_checkbox '
-                . 'checkall" value="%60new%60.%60id%60+%3D+1"  /><input type='
+                . 'checkall" value="%60new%60.%60id%60+%3D+1"><input type='
                 . '"hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:'
-                . '&quot;= 1&quot;}" />    </td>'
+                . '&quot;= 1&quot;}">    </td>'
             ],
         ];
     }
@@ -892,17 +892,17 @@ class ResultsTest extends PmaTestCase
                 . '%60new%60&amp;goto=sql.php&amp;default_action=insert',
                 'edit_row_anchor',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Edit" '
-                . 'alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                . 'alt="Edit" class="icon ic_b_edit"> Edit</span>',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Copy" '
-                . 'alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                . 'alt="Copy" class="icon ic_b_insrow"> Copy</span>',
                 '<span class="nowrap"><img src="themes/dot.gif" title="Delete" '
-                . 'alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                . 'alt="Delete" class="icon ic_b_drop"> Delete</span>',
                 null,
                 '<td  class="center print_ignore"><input type="checkbox" id="id_rows_to_'
                 . 'delete0_left" name="rows_to_delete[0]" class="multi_checkbox '
-                . 'checkall" value="%60new%60.%60id%60+%3D+1"  /><input type='
+                . 'checkall" value="%60new%60.%60id%60+%3D+1"><input type='
                 . '"hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:'
-                . '&quot;= 1&quot;}" />    </td>'
+                . '&quot;= 1&quot;}">    </td>'
             ]
         ];
     }
@@ -1180,17 +1180,17 @@ class ResultsTest extends PmaTestCase
                 'SELECT * FROM `user`',
                 "\n"
                 . '<td><form action="sql.php" method="post">'
-                . '<input type="hidden" name="db" value="mysql" />'
-                . '<input type="hidden" name="table" value="user" />'
-                . '<input type="hidden" name="lang" value="en" />'
-                . '<input type="hidden" name="token" value="token" />'
-                . '<input type="hidden" name="sql_query" value="SELECT * FROM `user`" />'
-                . '<input type="hidden" name="pos" value="0" />'
-                . '<input type="hidden" name="is_browse_distinct" value="" />'
-                . '<input type="hidden" name="session_max_rows" value="all" />'
-                . '<input type="hidden" name="goto" value="tbl_structure.php" />'
+                . '<input type="hidden" name="db" value="mysql">'
+                . '<input type="hidden" name="table" value="user">'
+                . '<input type="hidden" name="lang" value="en">'
+                . '<input type="hidden" name="token" value="token">'
+                . '<input type="hidden" name="sql_query" value="SELECT * FROM `user`">'
+                . '<input type="hidden" name="pos" value="0">'
+                . '<input type="hidden" name="is_browse_distinct" value="">'
+                . '<input type="hidden" name="session_max_rows" value="all">'
+                . '<input type="hidden" name="goto" value="tbl_structure.php">'
                 . '<input type="checkbox" name="navig" id="showAll_0"'
-                . ' class="showAllRows" value="all" />'
+                . ' class="showAllRows" value="all">'
                 . '<label for="showAll_0">Show all</label></form></td>'
             ]
         ];

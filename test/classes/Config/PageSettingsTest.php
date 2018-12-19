@@ -68,7 +68,7 @@ class PageSettingsTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="submit_save" value="Browse" />',
+            '<input type="hidden" name="submit_save" value="Browse">',
             $html
         );
 
@@ -96,7 +96,7 @@ class PageSettingsTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="submit_save" value="Navi" />',
+            '<input type="hidden" name="submit_save" value="Navi">',
             $html
         );
     }

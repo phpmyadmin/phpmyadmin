@@ -75,14 +75,14 @@ AJAX.registerOnload('server_variables.js', function () {
             varName: varName
         }, function (data) {
             if (typeof data !== 'undefined' && data.success === true) {
-                var $links = $('<div />')
+                var $links = $('<div></div>')
                     .append($myCancelLink)
                     .append('&nbsp;&nbsp;&nbsp;')
                     .append($mySaveLink);
-                var $editor = $('<div />', { 'class': 'serverVariableEditor' })
+                var $editor = $('<div></div>', { 'class': 'serverVariableEditor' })
                     .append(
-                        $('<div/>').append(
-                            $('<input />', { type: 'text' }).val(data.message)
+                        $('<div></div>').append(
+                            $('<input>', { type: 'text' }).val(data.message)
                         )
                     );
                     // Save and replace content

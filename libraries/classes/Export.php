@@ -198,7 +198,7 @@ class Export
          */
         return '</textarea>'
             . '    </form>'
-            . '<br />'
+            . '<br>'
             // bottom back button
             . $back_button
             . $refreshButton
@@ -517,7 +517,7 @@ class Export
             }
         }
         $back_button .= '&amp;repopulate=1">' . __('Back') . '</a> ]</p>';
-        $html .= '<br />';
+        $html .= '<br>';
         $html .= $back_button;
         $refreshButton = '<form id="export_refresh_form" method="POST" action="export.php" class="disableAjax">';
         $refreshButton .= '[ <a class="disableAjax" onclick="$(this).parent().submit()">' . __('Refresh') . '</a> ]';
@@ -532,7 +532,7 @@ class Export
         }
         $refreshButton .= '</form>';
         $html .= $refreshButton
-            . '<br />'
+            . '<br>'
             . '<form name="nofunction">'
             . '<textarea name="sqldump" cols="50" rows="30" '
             . 'id="textSQLDUMP" wrap="OFF">';

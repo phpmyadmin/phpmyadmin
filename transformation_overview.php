@@ -28,9 +28,9 @@ $types = $transformations->getAvailableMimeTypes();
 <?php
 foreach ($types['mimetype'] as $key => $mimetype) {
     if (isset($types['empty_mimetype'][$mimetype])) {
-        echo '<i>' , htmlspecialchars($mimetype) , '</i><br />';
+        echo '<i>' , htmlspecialchars($mimetype) , '</i><br>';
     } else {
-        echo htmlspecialchars($mimetype) , '<br />';
+        echo htmlspecialchars($mimetype) , '<br>';
     }
 }
 $transformation_types = [
@@ -45,7 +45,7 @@ $th = [
     'input_transformation' => __('Input transformation')
 ];
 ?>
-<br />
+<br>
 <?php foreach ($transformation_types as $ttype) { ?>
     <a name="<?php echo $ttype; ?>"></a>
     <h2><?php echo $label[$ttype] ?></h2>

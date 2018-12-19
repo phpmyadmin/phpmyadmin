@@ -185,7 +185,7 @@ class FooterTest extends PmaTestCase
             . '" title="Open new phpMyAdmin window" '
             . 'target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Open new '
             . 'phpMyAdmin window" alt="Open new phpMyAdmin window" '
-            . 'class="icon ic_window-new" /></a></div>',
+            . 'class="icon ic_window-new"></a></div>',
             $this->_callPrivateFunction(
                 '_getSelfLink',
                 [

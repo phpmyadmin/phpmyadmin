@@ -94,7 +94,7 @@ $js_messages['strChangeColumnCollation'] = __(
     . 'collation and refer to the tips at '
 )
     . '<a href="%s" target="garbled_data_wiki">' . __('Garbled Data') . '</a>.'
-    . '<br/><br/>'
+    . '<br><br>'
     . __('Are you sure you wish to change the collation and convert the data?');
 $js_messages['strChangeAllColumnCollationsWarning'] = __(
     'Through this operation, MySQL attempts to map the data values between '
@@ -104,7 +104,7 @@ $js_messages['strChangeAllColumnCollationsWarning'] = __(
     . 'column(s) editing feature (the "Change" Link) on the table structure page. '
     . '</b>'
 )
-. '<br/><br/>'
+. '<br><br>'
 . __(
     'Are you sure you wish to change all the column collations and convert the data?'
 );
@@ -440,7 +440,7 @@ $js_messages['strEmptyCentralList'] = __(
 $js_messages['seeMore'] = __('See more');
 $js_messages['confirmTitle'] = __('Are you sure?');
 $js_messages['makeConsistentMessage'] = __(
-    'This action may change some of the columns definition.<br/>Are you sure you '
+    'This action may change some of the columns definition.<br>Are you sure you '
     . 'want to continue?'
 );
 $js_messages['strContinue'] = __('Continue');
@@ -595,13 +595,13 @@ $js_messages['strColOrderHint'] = __('Drag to reorder.');
 $js_messages['strSortHint'] = __('Click to sort results by this column.');
 $js_messages['strMultiSortHint'] = __(
     'Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.'
-    . '<br />- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column '
+    . '<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column '
     . 'from ORDER BY clause'
 );
 $js_messages['strColMarkHint'] = __('Click to mark/unmark.');
 $js_messages['strColNameCopyHint'] = __('Double-click to copy column name.');
 $js_messages['strColVisibHint'] = __(
-    'Click the drop-down arrow<br />to toggle column\'s visibility.'
+    'Click the drop-down arrow<br>to toggle column\'s visibility.'
 );
 $js_messages['strShowAllCol'] = __('Show all');
 $js_messages['strAlertNonUnique'] = __(
@@ -633,12 +633,12 @@ $js_messages['back'] = __('Back');
 switch ($GLOBALS['cfg']['GridEditing']) {
     case 'double-click':
         $js_messages['strGridEditFeatureHint'] = __(
-            'You can also edit most values<br />by double-clicking directly on them.'
+            'You can also edit most values<br>by double-clicking directly on them.'
         );
         break;
     case 'click':
         $js_messages['strGridEditFeatureHint'] = __(
-            'You can also edit most values<br />by clicking directly on them.'
+            'You can also edit most values<br>by clicking directly on them.'
         );
         break;
     default:
@@ -700,7 +700,7 @@ $js_messages['strTooManyInputs'] = __(
 
 $js_messages['phpErrorsFound'] = '<div class="error">'
     . __('Some errors have been detected on the server!')
-    . '<br/>'
+    . '<br>'
     . __('Please look at the bottom of this window.')
     . '<div>'
     . '<input id="pma_ignore_errors_popup" type="submit" value="'
@@ -713,15 +713,15 @@ $js_messages['phpErrorsFound'] = '<div class="error">'
 
 $js_messages['phpErrorsBeingSubmitted'] = '<div class="error">'
     . __('Some errors have been detected on the server!')
-    . '<br/>'
+    . '<br>'
     . __(
         'As per your settings, they are being submitted currently, please be '
         . 'patient.'
     )
-    . '<br/>'
+    . '<br>'
     . '<img src="'
     . ($GLOBALS['PMA_Theme']->getImgPath('ajax_clock_small.gif'))
-    . '" width="16" height="16" alt="ajax clock"/>'
+    . '" width="16" height="16" alt="ajax clock">'
     . '</div>';
 $js_messages['strCopyQueryButtonSuccess'] = __('Successfully copied!');
 $js_messages['strCopyQueryButtonFailure'] = __('Copying failed!');

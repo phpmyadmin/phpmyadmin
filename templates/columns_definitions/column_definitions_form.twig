@@ -26,7 +26,7 @@
                         size="40"
                         maxlength="64"
                         value="{{ table is defined ? table }}"
-                        class="textfield" autofocus required />
+                        class="textfield" autofocus required>
                     </td>
                     <td>
                         {% trans 'Add' %}
@@ -36,11 +36,11 @@
                             size="2"
                             value="1"
                             min="1"
-                            onfocus="this.select()" />
+                            onfocus="this.select()">
                         {% trans 'column(s)' %}
                         <input type="button"
                             name="submit_num_fields"
-                            value="{% trans 'Go' %}" />
+                            value="{% trans 'Go' %}">
                     </td>
                 </tr>
             </table>
@@ -90,7 +90,7 @@
                         size="40"
                         maxlength="60"
                         value="{{ comment is defined ? comment }}"
-                        class="textfield" />
+                        class="textfield">
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
@@ -119,7 +119,7 @@
                         value="{{ connection is defined ? connection }}"
                         placeholder="scheme://user_name[:password]@host_name[:port_num]/db_name/tbl_name"
                         class="textfield"
-                        required="required" />
+                        required="required">
                 </td>
             </tr>
             {% if have_partitioning %}
@@ -143,10 +143,10 @@
     <fieldset class="tblFooters">
         <input type="button"
             class="preview_sql"
-            value="{% trans 'Preview SQL' %}" />
+            value="{% trans 'Preview SQL' %}">
         <input type="submit"
             name="do_save_data"
-            value="{% trans 'Save' %}" />
+            value="{% trans 'Save' %}">
     </fieldset>
     <div id="properties_message"></div>
 </form>

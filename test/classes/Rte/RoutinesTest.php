@@ -957,7 +957,7 @@ class RoutinesTest extends TestCase
             ],
             [
                 $data,
-                "<input class='datefield' type='text' name='params[foo]' />"
+                "<input class='datefield' type='text' name='params[foo]'>"
             ],
             [
                 $data,

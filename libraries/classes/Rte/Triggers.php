@@ -149,7 +149,7 @@ class Triggers
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($drop_item)
                         )
-                        . '<br />'
+                        . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $result = $this->dbi->tryQuery($item_query);
@@ -158,7 +158,7 @@ class Triggers
                                 __('The following query has failed: "%s"'),
                                 htmlspecialchars($item_query)
                             )
-                            . '<br />'
+                            . '<br>'
                             . __('MySQL said: ') . $this->dbi->getError();
                             // We dropped the old item, but were unable to create the
                             // new one. Try to restore the backup query.
@@ -190,7 +190,7 @@ class Triggers
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($item_query)
                         )
-                        . '<br /><br />'
+                        . '<br><br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $message = Message::success(
@@ -373,7 +373,7 @@ class Triggers
         $original_data = '';
         if ($mode == 'edit') {
             $original_data = "<input name='item_original_name' "
-                           . "type='hidden' value='{$item['item_original_name']}'/>\n";
+                           . "type='hidden' value='{$item['item_original_name']}'>\n";
         }
         $query  = "SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ";
         $query .= "WHERE `TABLE_SCHEMA`='" . $this->dbi->escapeString($db) . "' ";
@@ -384,7 +384,7 @@ class Triggers
         $retval  = "";
         $retval .= "<!-- START " . $modeToUpper . " TRIGGER FORM -->\n\n";
         $retval .= "<form class='rte_form' action='db_triggers.php' method='post'>\n";
-        $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
+        $retval .= "<input name='{$mode}_item' type='hidden' value='1'>\n";
         $retval .= $original_data;
         $retval .= Url::getHiddenInputs($db, $table) . "\n";
         $retval .= "<fieldset>\n";
@@ -393,7 +393,7 @@ class Triggers
         $retval .= "<tr>\n";
         $retval .= "    <td>" . __('Trigger name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' maxlength='64'\n";
-        $retval .= "               value='{$item['item_name']}' /></td>\n";
+        $retval .= "               value='{$item['item_name']}'></td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr>\n";
         $retval .= "    <td>" . __('Table') . "</td>\n";
@@ -450,18 +450,18 @@ class Triggers
         $retval .= "<tr>\n";
         $retval .= "    <td>" . __('Definer') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_definer'\n";
-        $retval .= "               value='{$item['item_definer']}' /></td>\n";
+        $retval .= "               value='{$item['item_definer']}'></td>\n";
         $retval .= "</tr>\n";
         $retval .= "</table>\n";
         $retval .= "</fieldset>\n";
         if ($response->isAjax()) {
             $retval .= "<input type='hidden' name='editor_process_{$mode}'\n";
-            $retval .= "       value='true' />\n";
-            $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";
+            $retval .= "       value='true'>\n";
+            $retval .= "<input type='hidden' name='ajax_request' value='true'>\n";
         } else {
             $retval .= "<fieldset class='tblFooters'>\n";
             $retval .= "    <input type='submit' name='editor_process_{$mode}'\n";
-            $retval .= "           value='" . __('Go') . "' />\n";
+            $retval .= "           value='" . __('Go') . "'>\n";
             $retval .= "</fieldset>\n";
         }
         $retval .= "</form>\n\n";

@@ -288,7 +288,7 @@ class Core
                 ]
             );
         } else {
-            $error_message = strtr($error_message, ['<br />' => '[br]']);
+            $error_message = strtr($error_message, ['<br>' => '[br]']);
             $error_header = __('Error');
             $lang = isset($GLOBALS['lang']) ? $GLOBALS['lang'] : 'en';
             $dir = isset($GLOBALS['text_dir']) ? $GLOBALS['text_dir'] : 'ltr';
@@ -823,7 +823,7 @@ class Core
     {
         $buffer = htmlspecialchars($buffer);
         $buffer = str_replace('  ', ' &nbsp;', $buffer);
-        return preg_replace("@((\015\012)|(\015)|(\012))@", '<br />' . "\n", $buffer);
+        return preg_replace("@((\015\012)|(\015)|(\012))@", '<br>' . "\n", $buffer);
     }
 
     /**

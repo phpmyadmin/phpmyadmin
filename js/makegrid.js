@@ -433,11 +433,11 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     g.showMarkHint = true;
                 }
                 if (g.showSortHint && g.sortHint) {
-                    text += text.length > 0 ? '<br />' : '';
+                    text += text.length > 0 ? '<br>' : '';
                     text += '- ' + g.sortHint;
                 }
                 if (g.showMultiSortHint && g.strMultiSortHint) {
-                    text += text.length > 0 ? '<br />' : '';
+                    text += text.length > 0 ? '<br>' : '';
                     text += '- ' + g.strMultiSortHint;
                 }
                 if (g.showMarkHint &&
@@ -446,11 +446,11 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     g.showReorderHint &&
                     g.reorderHint
                 ) {
-                    text += text.length > 0 ? '<br />' : '';
+                    text += text.length > 0 ? '<br>' : '';
                     text += '- ' + g.reorderHint;
-                    text += text.length > 0 ? '<br />' : '';
+                    text += text.length > 0 ? '<br>' : '';
                     text += '- ' + g.markHint;
-                    text += text.length > 0 ? '<br />' : '';
+                    text += text.length > 0 ? '<br>' : '';
                     text += '- ' + g.copyHint;
                 }
             }
@@ -1603,12 +1603,12 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                 })
                 .dblclick(function (e) {
                     e.preventDefault();
-                    $('<div/>')
+                    $('<div></div>')
                         .prop('title', PMA_messages.strColNameCopyTitle)
                         .addClass('modal-copy')
                         .text(PMA_messages.strColNameCopyText)
                         .append(
-                            $('<input/>')
+                            $('<input>')
                                 .prop('readonly', true)
                                 .val($(this).data('column'))
                         )
@@ -1714,7 +1714,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
                     var currHeader = $firstRowCols[i];
                     var listElmt = document.createElement('div');
                     $(listElmt).text($(currHeader).text())
-                        .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '/>');
+                        .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '>');
                     $listDiv.append(listElmt);
                     // add event on click
                     $(listElmt).on('click', tempClick);
@@ -1959,12 +1959,12 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
             // adjust g.cEditStd
             g.cEditStd.className = 'cEdit';
-            $(g.cEditStd).html('<input class="edit_box" rows="1" /><div class="edit_area" />');
+            $(g.cEditStd).html('<input class="edit_box" rows="1"><div class="edit_area"></div>');
             $(g.cEditStd).hide();
 
             // adjust g.cEdit
             g.cEditTextarea.className = 'cEdit';
-            $(g.cEditTextarea).html('<textarea class="edit_box" rows="1" ></textarea><div class="edit_area" />');
+            $(g.cEditTextarea).html('<textarea class="edit_box" rows="1"></textarea><div class="edit_area"></div>');
             $(g.cEditTextarea).hide();
 
             // assign cell editing hint
@@ -2121,7 +2121,7 @@ function PMA_makegrid (t, enableResize, enableReorder, enableVisib, enableGridEd
 
     // wrap remaining cells, except actions cell, with span
     $(t).find('th, td:not(:has(span))')
-        .wrapInner('<span />');
+        .wrapInner('<span></span>');
 
     // create grid elements
     g.gDiv = document.createElement('div');     // create global div

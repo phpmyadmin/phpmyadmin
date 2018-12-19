@@ -156,7 +156,6 @@ class TableStatsEps extends TableStats
      */
     public function tableDraw($showColor)
     {
-        //echo $this->tableName.'<br />';
         $this->diagram->rect(
             $this->x,
             $this->y + 12,

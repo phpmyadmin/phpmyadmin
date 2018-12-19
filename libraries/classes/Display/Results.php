@@ -940,13 +940,13 @@ class Results
 
         $table_navigation_html .= '<td>'
             . '<div class="save_edited hide">'
-            . '<input type="submit" value="' . __('Save edited data') . '" />'
+            . '<input type="submit" value="' . __('Save edited data') . '">'
             . '<div class="navigation_separator">|</div>'
             . '</div>'
             . '</td>'
             . '<td>'
             . '<div class="restore_column hide">'
-            . '<input type="submit" value="' . __('Restore column order') . '" />'
+            . '<input type="submit" value="' . __('Restore column order') . '">'
             . '<div class="navigation_separator">|</div>'
             . '</div>'
             . '</td>';
@@ -998,7 +998,7 @@ class Results
             . '<span>' . __('Filter rows') . ':</span>'
             . '<input type="text" class="filter_rows"'
             . ' placeholder="' . __('Search this table') . '"'
-            . ' data-for="' . $this->__get('unique_id') . '" />'
+            . ' data-for="' . $this->__get('unique_id') . '">'
             . '</td>';
 
         $table_navigation_html .= '<td class="largescreenonly">' . $sort_by_key_html . '</td>';
@@ -1106,7 +1106,7 @@ class Results
             && $this->__get('unlim_num_rows') > $GLOBALS['cfg']['MaxExactCount']
         ) {
             $input_for_real_end = '<input id="real_end_input" type="hidden" '
-                . 'name="find_real_end" value="1" />';
+                . 'name="find_real_end" value="1">';
             // no backquote around this message
             $onclick = '';
         } else {
@@ -1332,7 +1332,7 @@ class Results
 
         // Output data needed for grid editing
         $table_headers_html .= '<input class="save_cells_at_once" type="hidden"'
-            . ' value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
+            . ' value="' . $GLOBALS['cfg']['SaveCellsAtOnce'] . '">'
             . '<div class="common_hidden_inputs">'
             . Url::getHiddenInputs(
                 $this->__get('db'),
@@ -1706,12 +1706,12 @@ class Results
 
         if ($col_order) {
             $data_html .= '<input class="col_order" type="hidden" value="'
-                . implode(',', $col_order) . '" />';
+                . implode(',', $col_order) . '">';
         }
 
         if ($col_visib) {
             $data_html .= '<input class="col_visib" type="hidden" value="'
-                . implode(',', $col_visib) . '" />';
+                . implode(',', $col_visib) . '">';
         }
 
         // generate table create time
@@ -1722,7 +1722,7 @@ class Results
                     $this->__get('db'),
                     $this->__get('table')
                 )->getStatusInfo('Create_time')
-                . '" />';
+                . '">';
         }
 
         return $data_html;
@@ -1796,7 +1796,7 @@ class Results
         }
 
         $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
-                     . $tmp_txt . '" title="' . $tmp_txt . '" />';
+                     . $tmp_txt . '" title="' . $tmp_txt . '">';
         $tmp_url = 'sql.php' . Url::getCommon($url_params_full_text);
 
         return Util::linkOrButton($tmp_url, $tmp_image);
@@ -2259,7 +2259,7 @@ class Results
 
         $order_link_content = htmlspecialchars($fields_meta->name);
         $inner_link_content = $order_link_content . $order_img
-            . '<input type="hidden" value="' . $multi_order_url . '" />';
+            . '<input type="hidden" value="' . $multi_order_url . '">';
 
         return Util::linkOrButton(
             $order_url,
@@ -4545,7 +4545,7 @@ class Results
                 $sort_by_key_html
             );
         } elseif (! isset($printview) || ($printview != '1')) {
-            $table_html .= "\n" . '<br /><br />' . "\n";
+            $table_html .= "\n" . '<br><br>' . "\n";
         }
 
         // 6. ----- Prepare "Query results operations"
@@ -4956,12 +4956,12 @@ class Results
         $links_html .= "</div>\n";
 
         $links_html .= '<input type="hidden" name="sql_query"'
-            . ' value="' . htmlspecialchars($this->__get('sql_query')) . '" />'
+            . ' value="' . htmlspecialchars($this->__get('sql_query')) . '">'
             . "\n";
 
         if (! empty($url_query)) {
             $links_html .= '<input type="hidden" name="url_query"'
-                . ' value="' . $url_query . '" />' . "\n";
+                . ' value="' . $url_query . '">' . "\n";
         }
 
         // fetch last row of the result set
@@ -4991,7 +4991,7 @@ class Results
         $GLOBALS['dbi']->dataSeek($dt_result, 0);
 
         $links_html .= '<input type="hidden" name="clause_is_unique"'
-            . ' value="' . $clause_is_unique . '" />' . "\n";
+            . ' value="' . $clause_is_unique . '">' . "\n";
 
         $links_html .= '</form>' . "\n";
 
@@ -5025,7 +5025,7 @@ class Results
         $navigation_html = '';
 
         if ($place == self::PLACE_BOTTOM_DIRECTION_DROPDOWN) {
-            $navigation_html .= '<br />' . "\n";
+            $navigation_html .= '<br>' . "\n";
         }
 
         $navigation_html .= $this->_getTableNavigation(
@@ -5185,7 +5185,7 @@ class Results
             );
 
             if ($header_shown) {
-                $results_operations_html .= '</fieldset><br />';
+                $results_operations_html .= '</fieldset><br>';
             }
             return $results_operations_html;
         }
@@ -5299,7 +5299,7 @@ class Results
         );
 
         if ($header_shown) {
-            $results_operations_html .= '</fieldset><br />';
+            $results_operations_html .= '</fieldset><br>';
         }
 
         return $results_operations_html;
@@ -5667,7 +5667,6 @@ class Results
         $id_suffix,
         $class
     ) {
-
         $ret = '';
 
         if (! empty($del_url) && $displayParts['del_lnk'] != self::KILL_PROCESS) {
@@ -5681,16 +5680,14 @@ class Results
                 . $row_no . $id_suffix
                 . '" name="rows_to_delete[' . $row_no . ']"'
                 . ' class="multi_checkbox checkall"'
-                . ' value="' . $where_clause_html . '" '
-                . ' />'
+                . ' value="' . $where_clause_html . '">'
                 . '<input type="hidden" class="condition_array" value="'
-                . htmlspecialchars(json_encode($condition_array)) . '" />'
+                . htmlspecialchars(json_encode($condition_array)) . '">'
                 . '    </td>';
         }
 
         return $ret;
     } // end of the '_getCheckboxForMultiRowSubmissions()' function
-
 
     /**
      * Prepares an Edit link
@@ -5726,7 +5723,7 @@ class Results
              */
             if (! empty($where_clause)) {
                 $ret .= '<input type="hidden" class="where_clause" value ="'
-                    . $where_clause_html . '" />';
+                    . $where_clause_html . '">';
             }
             $ret .= '</span></td>';
         }
@@ -5774,7 +5771,7 @@ class Results
              */
             if (! empty($where_clause)) {
                 $ret .= '<input type="hidden" class="where_clause" value="'
-                    . $where_clause_html . '" />';
+                    . $where_clause_html . '">';
             }
             $ret .= '</span></td>';
         }

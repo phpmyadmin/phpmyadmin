@@ -450,7 +450,7 @@ function PMA_verifyColumnsProperties () {
  */
 function PMA_prepareForAjaxRequest ($form) {
     if (! $form.find('input:hidden').is('#ajax_request_hidden')) {
-        $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" />');
+        $form.append('<input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true">');
     }
 }
 
@@ -613,26 +613,26 @@ function PMA_display_git_revision () {
  */
 
 function displayPasswordGenerateButton () {
-    var generatePwdRow = $('<tr />').addClass('vmiddle');
-    var titleCell = $('<td />').html(PMA_messages.strGeneratePassword).appendTo(generatePwdRow);
-    var pwdCell = $('<td />').appendTo(generatePwdRow);
-    var pwdButton = $('<input />')
+    var generatePwdRow = $('<tr></tr>').addClass('vmiddle');
+    var titleCell = $('<td></td>').html(PMA_messages.strGeneratePassword).appendTo(generatePwdRow);
+    var pwdCell = $('<td></td>').appendTo(generatePwdRow);
+    var pwdButton = $('<input>')
         .attr({ type: 'button', id: 'button_generate_password', value: PMA_messages.strGenerate })
         .addClass('button')
         .on('click', function () {
             suggestPassword(this.form);
         });
-    var pwdTextbox = $('<input />')
+    var pwdTextbox = $('<input>')
         .attr({ type: 'text', name: 'generated_pw', id: 'generated_pw' });
     pwdCell.append(pwdButton).append(pwdTextbox);
 
     $('#tr_element_before_generate_password').parent().append(generatePwdRow);
 
-    var generatePwdDiv = $('<div />').addClass('item');
-    var titleLabel = $('<label />').attr({ for: 'button_generate_password' })
+    var generatePwdDiv = $('<div></div>').addClass('item');
+    var titleLabel = $('<label></label>').attr({ for: 'button_generate_password' })
         .html(PMA_messages.strGeneratePassword + ':')
         .appendTo(generatePwdDiv);
-    var optionsSpan = $('<span/>').addClass('options')
+    var optionsSpan = $('<span></span>').addClass('options')
         .appendTo(generatePwdDiv);
     pwdButton.clone(true).appendTo(optionsSpan);
     pwdTextbox.clone(true).appendTo(generatePwdDiv);
@@ -1162,7 +1162,7 @@ function PMA_handleSimulateQueryButton () {
                 .before('<input type="button" id="simulate_dml"' +
                 'tabindex="199" value="' +
                 PMA_messages.strSimulateDML +
-                '" />');
+                '">');
         }
     } else {
         if ($simulateDml.length) {
@@ -1318,7 +1318,7 @@ function updateQueryParameters () {
             return;
         }
 
-        var $temp = $('<div />');
+        var $temp = $('<div></div>');
         $temp.append($('#parametersDiv').children());
         $('#parametersDiv').empty();
 
@@ -1326,9 +1326,9 @@ function updateQueryParameters () {
             var paramName = parameter.substring(1);
             var $param = $temp.find('#paramSpan_' + paramName);
             if (! $param.length) {
-                $param = $('<span class="parameter" id="paramSpan_' + paramName + '" />');
-                $('<label for="param_' + paramName + '" />').text(parameter).appendTo($param);
-                $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '" />').appendTo($param);
+                $param = $('<span class="parameter" id="paramSpan_' + paramName + '"></span>');
+                $('<label for="param_' + paramName + '"></label>').text(parameter).appendTo($param);
+                $('<input type="text" name="parameters[' + parameter + ']" id="param_' + paramName + '">').appendTo($param);
             }
             $('#parametersDiv').append($param);
         });
@@ -1809,9 +1809,9 @@ function loadForeignKeyCheckbox () {
         'get_default_fk_check_value': true
     };
     $.get('sql.php', params, function (data) {
-        var html = '<input type="hidden" name="fk_checks" value="0" />' +
+        var html = '<input type="hidden" name="fk_checks" value="0">' +
             '<input type="checkbox" name="fk_checks" id="fk_checks"' +
-            (data.default_fk_check_value ? ' checked="checked"' : '') + ' />' +
+            (data.default_fk_check_value ? ' checked="checked"' : '') + '>' +
             '<label for="fk_checks">' + PMA_messages.strForeignKeyCheck + '</label>';
         $('.load-default-fk-check-value').replaceWith(html);
     });
@@ -1884,8 +1884,8 @@ AJAX.registerOnload('functions.js', function () {
 
         var new_content = '<textarea name="sql_query_edit" id="sql_query_edit">' + escapeHtml(sql_query) + '</textarea>\n';
         new_content    += getForeignKeyCheckboxLoader();
-        new_content    += '<input type="submit" id="sql_query_edit_save" class="button btnSave" value="' + PMA_messages.strGo + '"/>\n';
-        new_content    += '<input type="button" id="sql_query_edit_discard" class="button btnDiscard" value="' + PMA_messages.strCancel + '"/>\n';
+        new_content    += '<input type="submit" id="sql_query_edit_save" class="button btnSave" value="' + PMA_messages.strGo + '">\n';
+        new_content    += '<input type="button" id="sql_query_edit_discard" class="button btnDiscard" value="' + PMA_messages.strCancel + '">\n';
         var $editor_area = $('div#inline_editor');
         if ($editor_area.length === 0) {
             $editor_area = $('<div id="inline_editor_outer"></div>');
@@ -1913,10 +1913,10 @@ AJAX.registerOnload('functions.js', function () {
         var $form = $('a.inline_edit_sql').prev('form');
         var $fake_form = $('<form>', { action: 'import.php', method: 'post' })
             .append($form.find('input[name=server], input[name=db], input[name=table], input[name=token]').clone())
-            .append($('<input/>', { type: 'hidden', name: 'show_query', value: 1 }))
-            .append($('<input/>', { type: 'hidden', name: 'is_js_confirmed', value: 0 }))
-            .append($('<input/>', { type: 'hidden', name: 'sql_query', value: sql_query }))
-            .append($('<input/>', { type: 'hidden', name: 'fk_checks', value: fk_check ? 1 : 0 }));
+            .append($('<input>', { type: 'hidden', name: 'show_query', value: 1 }))
+            .append($('<input>', { type: 'hidden', name: 'is_js_confirmed', value: 0 }))
+            .append($('<input>', { type: 'hidden', name: 'sql_query', value: sql_query }))
+            .append($('<input>', { type: 'hidden', name: 'fk_checks', value: fk_check ? 1 : 0 }));
         if (! checkSqlQuery($fake_form[0])) {
             return false;
         }
@@ -2388,7 +2388,7 @@ function PMA_previewSQL ($form) {
         success: function (response) {
             PMA_ajaxRemoveMessage($msgbox);
             if (response.success) {
-                var $dialog_content = $('<div/>')
+                var $dialog_content = $('<div></div>')
                     .append(response.sql_data);
                 var button_options = {};
                 button_options[PMA_messages.strClose] = function () {
@@ -2803,7 +2803,7 @@ jQuery.fn.PMA_confirm = function (question, url, callbackFn, openCallback) {
         }
     ];
 
-    $('<div/>', { 'id': 'confirm_dialog', 'title': PMA_messages.strConfirm })
+    $('<div></div>', { 'id': 'confirm_dialog', 'title': PMA_messages.strConfirm })
         .prepend(question)
         .dialog({
             buttons: button_options,
@@ -3198,7 +3198,7 @@ AJAX.registerOnload('functions.js', function () {
             var this_value = $(this).val();
 
             var $msgbox = PMA_ajaxShowMessage(PMA_messages.strProcessingRequest);
-            $the_form.append('<input type="hidden" name="ajax_request" value="true" />');
+            $the_form.append('<input type="hidden" name="ajax_request" value="true">');
 
             $.post($the_form.attr('action'), $the_form.serialize() + PMA_commonParams.get('arg_separator') + 'change_pw=' + this_value, function (data) {
                 if (typeof data === 'undefined' || data.success !== true) {
@@ -3415,7 +3415,7 @@ AJAX.registerOnload('functions.js', function () {
             .find('input')
             .val();
         // Escape html entities
-        inputstring = $('<div/>')
+        inputstring = $('<div></div>')
             .text(inputstring)
             .html();
         // Parse the values, escaping quotes and
@@ -3458,7 +3458,7 @@ AJAX.registerOnload('functions.js', function () {
         var drop_icon = PMA_getImage('b_drop');
         for (i = 0; i < values.length; i++) {
             fields += '<tr><td>' +
-                   '<input type=\'text\' value=\'' + values[i] + '\'/>' +
+                   '<input type=\'text\' value=\'' + values[i] + '\'>' +
                    '</td><td class=\'drop\'>' +
                    drop_icon +
                    '</td></tr>';
@@ -3478,11 +3478,11 @@ AJAX.registerOnload('functions.js', function () {
                     '</td><td>' +
                     '<form><div><input type=\'submit\' class=\'add_value\' value=\'' +
                     PMA_sprintf(PMA_messages.enum_addValue, 1) +
-                    '\'/></div></form>' +
+                    '\'></div></form>' +
                     '</td></tr></table>' +
                     '<input type=\'hidden\' value=\'' + // So we know which column's data is being edited
                     $(this).closest('td').find('input').attr('id') +
-                    '\' />' +
+                    '\'>' +
                     '</fieldset>' +
                     '</div>';
         /**
@@ -3594,7 +3594,7 @@ AJAX.registerOnload('functions.js', function () {
                 '</div></td>';
             if (pick) {
                 fields += '<td><input class="pick all100" type="submit" value="' +
-                    PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"/></td>';
+                    PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"></td>';
             }
             fields += '</tr>';
         }
@@ -3657,7 +3657,7 @@ AJAX.registerOnload('functions.js', function () {
                             '</div></td>';
                         if (pick) {
                             fields += '<td><input class="pick all100" type="submit" value="' +
-                                PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"/></td>';
+                                PMA_messages.pickColumn + '" onclick="autoPopulate(\'' + colid + '\',' + i + ')"></td>';
                         }
                         fields += '</tr>';
                     }
@@ -3690,7 +3690,7 @@ AJAX.registerOnload('functions.js', function () {
             $enum_editor_dialog.find('.values')
                 .append(
                     '<tr class=\'hide\'><td>' +
-                    '<input type=\'text\' />' +
+                    '<input type=\'text\'>' +
                     '</td><td class=\'drop\'>' +
                     PMA_getImage('b_drop') +
                     '</td></tr>'
@@ -4230,7 +4230,7 @@ AJAX.registerOnload('functions.js', function () {
 function submitFormLink ($link) {
     if ($link.attr('href').indexOf('=') !== -1) {
         var data = $link.attr('href').substr($link.attr('href').indexOf('#') + 1).split('=', 2);
-        $link.parents('form').append('<input type="hidden" name="' + data[0] + '" value="' + data[1] + '"/>');
+        $link.parents('form').append('<input type="hidden" name="' + data[0] + '" value="' + data[1] + '">');
     }
     $link.parents('form').submit();
 }
@@ -4516,14 +4516,14 @@ function printPreview () {
  * Create print and back buttons in preview page
  */
 function createPrintAndBackButtons () {
-    var back_button = $('<input/>',{
+    var back_button = $('<input>',{
         type: 'button',
         value: PMA_messages.back,
         id: 'back_button_print_view'
     });
     back_button.on('click', removePrintAndBackButton);
     back_button.appendTo('#page_content');
-    var print_button = $('<input/>',{
+    var print_button = $('<input>',{
         type: 'button',
         value: PMA_messages.print,
         id: 'print_button_print_view'
@@ -4565,7 +4565,7 @@ AJAX.registerOnload('functions.js', function () {
     $('.logout').on('click', function () {
         var form = $(
             '<form method="POST" action="' + $(this).attr('href') + '" class="disableAjax">' +
-            '<input type="hidden" name="token" value="' + escapeHtml(PMA_commonParams.get('token')) + '"/>' +
+            '<input type="hidden" name="token" value="' + escapeHtml(PMA_commonParams.get('token')) + '">' +
             '</form>'
         );
         $('body').append(form);
@@ -4632,7 +4632,7 @@ function PMA_createViewDialog ($this) {
             buttonOptions[PMA_messages.strClose] = function () {
                 $(this).dialog('close');
             };
-            var $dialog = $('<div/>').attr('id', 'createViewDialog').append(data.message).dialog({
+            var $dialog = $('<div></div>').attr('id', 'createViewDialog').append(data.message).dialog({
                 width: 600,
                 minWidth: 400,
                 modal: true,

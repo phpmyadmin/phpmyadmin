@@ -120,7 +120,7 @@ class ReplicationGui
             . 'replicate a majority of the databases) or you can choose to ignore '
             . 'all databases by default and allow only certain databases to be '
             . 'replicated. Please select the mode:'
-        ) . '<br /><br />';
+        ) . '<br><br>';
 
         $html .= '<select name="db_type" id="db_type">';
         $html .= '<option value="all">' . __('Replicate all databases; Ignore:');
@@ -128,14 +128,14 @@ class ReplicationGui
         $html .= '<option value="ign">' . __('Ignore all databases; Replicate:');
         $html .= '</option>';
         $html .= '</select>';
-        $html .= '<br /><br />';
-        $html .= __('Please select databases:') . '<br />';
+        $html .= '<br><br>';
+        $html .= __('Please select databases:') . '<br>';
         $html .= $this->getHtmlForReplicationDbMultibox();
-        $html .= '<br /><br />';
+        $html .= '<br><br>';
         $html .= __(
             'Now, add the following lines at the end of [mysqld] section'
             . ' in your my.cnf and please restart the MySQL server afterwards.'
-        ) . '<br />';
+        ) . '<br>';
         $html .= '<pre id="rep"></pre>';
         $html .= __(
             'Once you restarted MySQL server, please click on Go button. '
@@ -146,7 +146,7 @@ class ReplicationGui
         $html .= '<fieldset class="tblFooters">';
         $html .= ' <form method="post" action="server_replication.php" >';
         $html .= Url::getHiddenInputs('', '');
-        $html .= '  <input type="submit" value="' . __('Go') . '" id="goButton" />';
+        $html .= '  <input type="submit" value="' . __('Go') . '" id="goButton">';
         $html .= ' </form>';
         $html .= '</fieldset>';
 
@@ -186,9 +186,9 @@ class ReplicationGui
                     . '</option>';
             }
             $html .= '</select>';
-            $html .= ' <input type="submit" value="' . __('Go') . '" id="goButton" />';
+            $html .= ' <input type="submit" value="' . __('Go') . '" id="goButton">';
             $html .= '</form>';
-            $html .= '<br /><br />';
+            $html .= '<br><br>';
         }
         if ($server_slave_status) {
             $html .= '<div id="slave_configuration_gui">';
@@ -255,7 +255,7 @@ class ReplicationGui
                 'Server is configured as slave in a replication process. Would you ' .
                 'like to:'
             );
-            $html .= '<br />';
+            $html .= '<br>';
             $html .= '<ul>';
             $html .= ' <li><a href="#slave_status_href" id="slave_status_href">';
             $html .= __('See slave status table') . '</a>';
@@ -342,11 +342,11 @@ class ReplicationGui
         $html .= sprintf(
             __('Skip next %s errors.'),
             '<input type="text" name="sr_skip_errors_count" value="1" '
-            . 'class = "repl_gui_skip_err_cnt" />'
+            . 'class = "repl_gui_skip_err_cnt">'
         );
         $html .= '              <input type="submit" name="sr_slave_skip_error" ';
-        $html .= 'value="' . __('Go') . '" />';
-        $html .= '      <input type="hidden" name="sr_take_action" value="1" />';
+        $html .= 'value="' . __('Go') . '">';
+        $html .= '      <input type="hidden" name="sr_take_action" value="1">';
         $html .= '    </form></li>';
         $html .= '  </ul>';
         $html .= ' </div>';
@@ -398,7 +398,7 @@ class ReplicationGui
             $multi_values .= $current_db . '</option>';
         } // end while
 
-        $multi_values .= '</select><br />';
+        $multi_values .= '</select><br>';
         $multi_values .= '<a href="#" id="db_select_href">' . __('Select all') . '</a>';
         $multi_values .= '&nbsp;/&nbsp;';
         $multi_values .= '<a href="#" id="db_reset_href">' . __('Unselect all') . '</a>';
@@ -428,7 +428,7 @@ class ReplicationGui
             'Make sure you have a unique server-id in your configuration file (my.cnf). '
             . 'If not, please add the following line into [mysqld] section:'
         );
-        $html .= '<br />';
+        $html .= '<br>';
         $html .= '<pre>server-id=' . time() . '</pre>';
 
         $html .= $this->getHtmlForAddUserInputDiv(
@@ -480,10 +480,10 @@ class ReplicationGui
 
         $html .= ' </fieldset>';
         $html .= ' <fieldset id="fieldset_user_privtable_footer" class="tblFooters">';
-        $html .= '    <input type="hidden" name="sr_take_action" value="true" />';
-        $html .= '     <input type="hidden" name="' . $submitname . '" value="1" />';
+        $html .= '    <input type="hidden" name="sr_take_action" value="true">';
+        $html .= '     <input type="hidden" name="' . $submitname . '" value="1">';
         $html .= '     <input type="submit" id="confslave_submit" value="';
-        $html .= __('Go') . '" />';
+        $html .= __('Go') . '">';
         $html .= ' </fieldset>';
         $html .= '</form>';
 
@@ -508,7 +508,7 @@ class ReplicationGui
         foreach ($input_array as $key => $value) {
             $html .= ' ' . $key . '="' . $value . '" ';
         }
-        $html .= ' />';
+        $html .= '>';
         $html .= '  </div>';
         return $html;
     }
@@ -557,7 +557,7 @@ class ReplicationGui
                 $html .= __('Slave status') . '</h4>';
             }
         } else {
-            $html .= '<br />';
+            $html .= '<br>';
         }
 
         $html .= '   <table id="server' . $type . 'replicationsummary" class="data"> ';
@@ -610,7 +610,7 @@ class ReplicationGui
 
         $html .= '   </tbody>';
         $html .= ' </table>';
-        $html .= ' <br />';
+        $html .= ' <br>';
         $html .= '</div>';
 
         return $html;
@@ -630,7 +630,7 @@ class ReplicationGui
         // Fetch data
         $data = $GLOBALS['dbi']->fetchResult('SHOW SLAVE HOSTS', null, null);
 
-        $html .= '  <br />';
+        $html .= '  <br>';
         $html .= '  <div id="replication_slaves_section" style="';
         $html .=  ($hidden ? 'display: none;' : '') . '"> ';
         $html .= '    <table class="data">';
@@ -651,14 +651,14 @@ class ReplicationGui
 
         $html .= '    </tbody>';
         $html .= '    </table>';
-        $html .= '    <br />';
+        $html .= '    <br>';
         $html .= Message::notice(
             __(
                 'Only slaves started with the '
                 . '--report-host=host_name option are visible in this list.'
             )
         )->getDisplay();
-        $html .= '    <br />';
+        $html .= '    <br>';
         $html .= '  </div>';
 
         return $html;
@@ -791,15 +791,15 @@ class ReplicationGui
      */
     public function getHtmlForAddUserLoginForm($username_length)
     {
-        $html = '<input type="hidden" name="grant_count" value="25" />'
-            . '<input type="hidden" name="createdb" id="createdb_0" value="0" />'
+        $html = '<input type="hidden" name="grant_count" value="25">'
+            . '<input type="hidden" name="createdb" id="createdb_0" value="0">'
             . '<input id="checkbox_Repl_slave_priv" type="hidden"'
             . ' title="Needed for the replication slaves." '
-            . 'value="Y" name="Repl_slave_priv"/>'
+            . 'value="Y" name="Repl_slave_priv">'
             . '<input id="checkbox_Repl_client_priv" type="hidden" '
             . 'title="Needed for the replication slaves."'
-            . ' value="Y" name="Repl_client_priv"/> '
-            . '<input type="hidden" name="sr_take_action" value="true" />'
+            . ' value="Y" name="Repl_client_priv"> '
+            . '<input type="hidden" name="sr_take_action" value="true">'
             . '<div class="item">'
             . '<label for="select_pred_username">'
             . '    ' . __('User name:')
@@ -824,7 +824,7 @@ class ReplicationGui
             . (isset($GLOBALS['new_username'])
                 ? $GLOBALS['new_username']
                 : htmlspecialchars($_POST['username'])) . '"')
-            . ' />'
+            . '>'
             . '</div>';
 
         return $html;
@@ -855,7 +855,7 @@ class ReplicationGui
             . $hostname_length . '" value="'
             . (isset($_POST['hostname']) ? htmlspecialchars($_POST['hostname']) : '')
             . '" title="' . __('Host')
-            . '" />'
+            . '">'
             . Util::showHint(
                 __(
                     'When Host table is used, this field is ignored '
@@ -881,7 +881,7 @@ class ReplicationGui
             . '    </select>'
             . '</span>'
             . '<input type="password" id="text_pma_pw" name="pma_pw" title="'
-            . __('Password') . '" />'
+            . __('Password') . '">'
             . '</div>'
             . '<div class="item">'
             . '<label for="text_pma_pw2">'
@@ -889,7 +889,7 @@ class ReplicationGui
             . '</label>'
             . '<span class="options">&nbsp;</span>'
             . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="'
-            . __('Re-type') . '" />'
+            . __('Re-type') . '">'
             . '</div>'
             . '<div class="item">'
             . '<label for="button_generate_password">'
@@ -898,14 +898,14 @@ class ReplicationGui
             . '<span class="options">'
             . '    <input type="button" class="button" '
             . 'id="button_generate_password" value="' . __('Generate')
-            . '" onclick="suggestPassword(this.form)" />'
+            . '" onclick="suggestPassword(this.form)">'
             . '</span>'
-            . '<input type="text" name="generated_pw" id="generated_pw" />'
+            . '<input type="text" name="generated_pw" id="generated_pw">'
             . '</div>'
             . '</fieldset>';
         $html .= '<fieldset id="fieldset_user_privtable_footer" class="tblFooters">'
-            . '    <input type="hidden" name="adduser_submit" value="1" />'
-            . '    <input type="submit" id="adduser_submit" value="' . __('Go') . '" />'
+            . '    <input type="hidden" name="adduser_submit" value="1">'
+            . '    <input type="submit" id="adduser_submit" value="' . __('Go') . '">'
             . '</fieldset>';
         return $html;
     }

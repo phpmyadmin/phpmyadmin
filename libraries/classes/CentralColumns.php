@@ -488,7 +488,7 @@ class CentralColumns
 
         if (!$this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not remove columns!'));
-            $message->addHtml('<br />' . htmlspecialchars($cols) . '<br />');
+            $message->addHtml('<br>' . htmlspecialchars($cols) . '<br>');
             $message->addMessage(
                 Message::rawError(
                     $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
@@ -563,7 +563,7 @@ class CentralColumns
                 } else {
                     $message->addText(
                         $this->dbi->getError(),
-                        '<br />'
+                        '<br>'
                     );
                 }
             }
@@ -955,7 +955,7 @@ class CentralColumns
     {
         return '<fieldset class="tblFooters">'
             . '<input type="submit" '
-            . 'name="save_multi_central_column_edit" value="' . __('Save') . '" />'
+            . 'name="save_multi_central_column_edit" value="' . __('Save') . '">'
             . '</fieldset>';
     }
 

@@ -50,17 +50,17 @@ class Queries
             null,
             'statvar_Questions'
         );
-        $retval .= '<br />';
+        $retval .= '<br>';
         $retval .= '<span>';
         $retval .= '&oslash; ' . __('per hour:') . ' ';
         $retval .= Util::formatNumber($total_queries * $hour_factor, 0);
-        $retval .= '<br />';
+        $retval .= '<br>';
         $retval .= '&oslash; ' . __('per minute:') . ' ';
         $retval .= Util::formatNumber(
             $total_queries * 60 / $serverStatusData->status['Uptime'],
             0
         );
-        $retval .= '<br />';
+        $retval .= '<br>';
         if ($total_queries / $serverStatusData->status['Uptime'] >= 1) {
             $retval .= '&oslash; ' . __('per second:') . ' ';
             $retval .= Util::formatNumber(
@@ -96,8 +96,8 @@ class Queries
 
         $retval = '<table id="serverstatusqueriesdetails" '
             . 'class="width100 data sortable noclick">';
-        $retval .= '<col class="namecol" />';
-        $retval .= '<col class="valuecol" span="3" />';
+        $retval .= '<col class="namecol">';
+        $retval .= '<col class="valuecol" span="3">';
         $retval .= '<thead>';
         $retval .= '<tr><th>' . __('Statements') . '</th>';
         $retval .= '<th>';

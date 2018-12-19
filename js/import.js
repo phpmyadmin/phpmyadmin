@@ -59,9 +59,9 @@ AJAX.registerOnload('import.js', function () {
     $(document).on('submit', '#import_file_form', function (event) {
         var radioLocalImport = $('#radio_local_import_file');
         var radioImport = $('#radio_import_file');
-        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strImportDialogMessage + '</div>';
-        var wrongTblNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" />' + PMA_messages.strTableNameDialogMessage + '</div>';
-        var wrongDBNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" />' + PMA_messages.strDBNameDialogMessage + '</div>';
+        var fileMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + PMA_messages.strImportDialogMessage + '</div>';
+        var wrongTblNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + PMA_messages.strTableNameDialogMessage + '</div>';
+        var wrongDBNameMsg = '<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error">' + PMA_messages.strDBNameDialogMessage + '</div>';
 
         if (radioLocalImport.length !== 0) {
             // remote upload.
@@ -74,7 +74,7 @@ AJAX.registerOnload('import.js', function () {
 
             if (radioLocalImport.is(':checked')) {
                 if ($('#select_local_import_file').length === 0) {
-                    PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ' + PMA_messages.strNoImportFile + ' </div>', false);
+                    PMA_ajaxShowMessage('<div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> ' + PMA_messages.strNoImportFile + ' </div>', false);
                     return false;
                 }
 

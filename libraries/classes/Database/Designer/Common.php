@@ -640,7 +640,7 @@ class Common
                 return [
                     false,
                     __('Error: FOREIGN KEY relationship could not be added!')
-                    . "<br/>" . $error
+                    . "<br>" . $error
                 ];
             }
 
@@ -678,7 +678,7 @@ class Common
         return [
             false,
             __('Error: Internal relationship could not be added!')
-            . "<br/>" . $error
+            . "<br>" . $error
         ];
     }
 
@@ -722,7 +722,7 @@ class Common
                 return [
                     false,
                     __('Error: FOREIGN KEY relationship could not be removed!')
-                    . "<br/>" . $error
+                    . "<br>" . $error
                 ];
             }
         }
@@ -748,7 +748,7 @@ class Common
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
             return [
                 false,
-                __('Error: Internal relationship could not be removed!') . "<br/>" . $error
+                __('Error: Internal relationship could not be removed!') . "<br>" . $error
             ];
         }
 

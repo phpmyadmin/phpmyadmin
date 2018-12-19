@@ -237,7 +237,7 @@ class RteList
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($routine['name']) . '" />';
+            . ' value="' . htmlspecialchars($routine['name']) . '">';
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= "                <span class='drop_sql hide'>"
@@ -383,7 +383,7 @@ class RteList
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($trigger['name']) . '" />';
+            . ' value="' . htmlspecialchars($trigger['name']) . '">';
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= "                <span class='drop_sql hide'>"
@@ -464,7 +464,7 @@ class RteList
         $retval .= "            <td>\n";
         $retval .= '                <input type="checkbox"'
             . ' class="checkall" name="item_name[]"'
-            . ' value="' . htmlspecialchars($event['name']) . '" />';
+            . ' value="' . htmlspecialchars($event['name']) . '">';
         $retval .= "            </td>\n";
         $retval .= "            <td>\n";
         $retval .= "                <span class='drop_sql hide'>"

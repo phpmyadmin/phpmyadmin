@@ -178,7 +178,7 @@ class Events
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($drop_item)
                         )
-                        . '<br />'
+                        . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $result = $this->dbi->tryQuery($item_query);
@@ -187,7 +187,7 @@ class Events
                                 __('The following query has failed: "%s"'),
                                 htmlspecialchars($item_query)
                             )
-                            . '<br />'
+                            . '<br>'
                             . __('MySQL said: ') . $this->dbi->getError();
                             // We dropped the old item, but were unable to create
                             // the new one. Try to restore the backup query
@@ -218,7 +218,7 @@ class Events
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($item_query)
                         )
-                        . '<br /><br />'
+                        . '<br><br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
                         $message = Message::success(
@@ -429,7 +429,7 @@ class Events
         $original_data = '';
         if ($mode == 'edit') {
             $original_data = "<input name='item_original_name' "
-                           . "type='hidden' value='{$item['item_original_name']}'/>\n";
+                           . "type='hidden' value='{$item['item_original_name']}'>\n";
         }
         // Handle some logic first
         if ($operation == 'change') {
@@ -452,7 +452,7 @@ class Events
         $retval  = "";
         $retval .= "<!-- START " . $modeToUpper . " EVENT FORM -->\n\n";
         $retval .= "<form class='rte_form' action='db_events.php' method='post'>\n";
-        $retval .= "<input name='{$mode}_item' type='hidden' value='1' />\n";
+        $retval .= "<input name='{$mode}_item' type='hidden' value='1'>\n";
         $retval .= $original_data;
         $retval .= Url::getHiddenInputs($db, $table) . "\n";
         $retval .= "<fieldset>\n";
@@ -462,7 +462,7 @@ class Events
         $retval .= "    <td>" . __('Event name') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_name' \n";
         $retval .= "               value='{$item['item_name']}'\n";
-        $retval .= "               maxlength='64' /></td>\n";
+        $retval .= "               maxlength='64'></td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr>\n";
         $retval .= "    <td>" . __('Status') . "</td>\n";
@@ -494,7 +494,7 @@ class Events
             $retval .= "        </select>\n";
         } else {
             $retval .= "        <input name='item_type' type='hidden' \n";
-            $retval .= "               value='{$item['item_type']}' />\n";
+            $retval .= "               value='{$item['item_type']}'>\n";
             $retval .= "        <div class='font_weight_bold center half_width'>\n";
             $retval .= "            {$item['item_type']}\n";
             $retval .= "        </div>\n";
@@ -502,7 +502,7 @@ class Events
             $retval .= "               name='item_changetype' class='half_width'\n";
             $retval .= "               value='";
             $retval .= sprintf(__('Change to %s'), $item['item_type_toggle']);
-            $retval .= "' />\n";
+            $retval .= "'>\n";
         }
         $retval .= "    </td>\n";
         $retval .= "</tr>\n";
@@ -511,7 +511,7 @@ class Events
         $retval .= "    <td class='nowrap'>\n";
         $retval .= "        <input type='text' name='item_execute_at'\n";
         $retval .= "               value='{$item['item_execute_at']}'\n";
-        $retval .= "               class='datetimefield' />\n";
+        $retval .= "               class='datetimefield'>\n";
         $retval .= "    </td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr class='recurring_event_row $isrecurring_class'>\n";
@@ -519,7 +519,7 @@ class Events
         $retval .= "    <td>\n";
         $retval .= "        <input class='half_width' type='text'\n";
         $retval .= "               name='item_interval_value'\n";
-        $retval .= "               value='{$item['item_interval_value']}' />\n";
+        $retval .= "               value='{$item['item_interval_value']}'>\n";
         $retval .= "        <select class='half_width' name='item_interval_field'>";
         foreach ($event_interval as $key => $value) {
             $selected = "";
@@ -539,7 +539,7 @@ class Events
         $retval .= "    <td class='nowrap'>\n";
         $retval .= "        <input type='text'\n name='item_starts'\n";
         $retval .= "               value='{$item['item_starts']}'\n";
-        $retval .= "               class='datetimefield' />\n";
+        $retval .= "               class='datetimefield'>\n";
         $retval .= "    </td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr class='recurring_event_row$isrecurring_class'>\n";
@@ -547,7 +547,7 @@ class Events
         $retval .= "    <td class='nowrap'>\n";
         $retval .= "        <input type='text' name='item_ends'\n";
         $retval .= "               value='{$item['item_ends']}'\n";
-        $retval .= "               class='datetimefield' />\n";
+        $retval .= "               class='datetimefield'>\n";
         $retval .= "    </td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr>\n";
@@ -559,28 +559,28 @@ class Events
         $retval .= "<tr>\n";
         $retval .= "    <td>" . __('On completion preserve') . "</td>\n";
         $retval .= "    <td><input type='checkbox'\n";
-        $retval .= "             name='item_preserve'{$item['item_preserve']} /></td>\n";
+        $retval .= "             name='item_preserve'{$item['item_preserve']}></td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr>\n";
         $retval .= "    <td>" . __('Definer') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_definer'\n";
-        $retval .= "               value='{$item['item_definer']}' /></td>\n";
+        $retval .= "               value='{$item['item_definer']}'></td>\n";
         $retval .= "</tr>\n";
         $retval .= "<tr>\n";
         $retval .= "    <td>" . __('Comment') . "</td>\n";
         $retval .= "    <td><input type='text' name='item_comment' maxlength='64'\n";
-        $retval .= "               value='{$item['item_comment']}' /></td>\n";
+        $retval .= "               value='{$item['item_comment']}'></td>\n";
         $retval .= "</tr>\n";
         $retval .= "</table>\n";
         $retval .= "</fieldset>\n";
         if ($response->isAjax()) {
             $retval .= "<input type='hidden' name='editor_process_{$mode}'\n";
-            $retval .= "       value='true' />\n";
-            $retval .= "<input type='hidden' name='ajax_request' value='true' />\n";
+            $retval .= "       value='true'>\n";
+            $retval .= "<input type='hidden' name='ajax_request' value='true'>\n";
         } else {
             $retval .= "<fieldset class='tblFooters'>\n";
             $retval .= "    <input type='submit' name='editor_process_{$mode}'\n";
-            $retval .= "           value='" . __('Go') . "' />\n";
+            $retval .= "           value='" . __('Go') . "'>\n";
             $retval .= "</fieldset>\n";
         }
         $retval .= "</form>\n\n";

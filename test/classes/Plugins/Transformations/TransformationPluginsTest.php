@@ -109,8 +109,8 @@ class TransformationPluginsTest extends PmaTestCase
                 new Image_JPEG_Upload(),
                 'getInputHtml',
                 '<img src="" width="150" height="100" '
-                . 'alt="Image preview here"/><br/><input type="file" '
-                . 'name="fields_uploadtest" accept="image/*" class="image-upload"/>',
+                . 'alt="Image preview here"><br><input type="file" '
+                . 'name="fields_uploadtest" accept="image/*" class="image-upload">',
                 [
                     [],
                     0,
@@ -127,12 +127,12 @@ class TransformationPluginsTest extends PmaTestCase
                 new Image_JPEG_Upload(),
                 'getInputHtml',
                 '<input type="hidden" name="fields_prev2ndtest" '
-                . 'value="736f6d657468696e67"/><input type="hidden" '
-                . 'name="fields2ndtest" value="736f6d657468696e67"/>'
+                . 'value="736f6d657468696e67"><input type="hidden" '
+                . 'name="fields2ndtest" value="736f6d657468696e67">'
                 . '<img src="transformation_wrapper.php?table=a" width="100" '
-                . 'height="100" alt="Image preview here"/><br/><input type="file" '
+                . 'height="100" alt="Image preview here"><br><input type="file" '
                 . 'name="fields_upload2ndtest" accept="image/*" '
-                . 'class="image-upload"/>',
+                . 'class="image-upload">',
                 [
                     [],
                     0,
@@ -177,7 +177,7 @@ class TransformationPluginsTest extends PmaTestCase
             [
                 new Text_Plain_FileUpload(),
                 'getInputHtml',
-                '<input type="file" name="fields_uploadtest"/>',
+                '<input type="file" name="fields_uploadtest">',
                 [
                     [],
                     0,
@@ -194,9 +194,9 @@ class TransformationPluginsTest extends PmaTestCase
                 new Text_Plain_FileUpload(),
                 'getInputHtml',
                 '<input type="hidden" name="fields_prev2ndtest" '
-                . 'value="something"/><input type="hidden" name="fields2ndtest" '
-                . 'value="something"/><input type="file" '
-                . 'name="fields_upload2ndtest"/>',
+                . 'value="something"><input type="hidden" name="fields2ndtest" '
+                . 'value="something"><input type="file" '
+                . 'name="fields_upload2ndtest">',
                 [
                     [],
                     0,
@@ -861,7 +861,7 @@ class TransformationPluginsTest extends PmaTestCase
                 ],
                 '<a href="http://image/PMA_IMAGE" rel="noopener noreferrer" target="_blank">'
                 . '<img src="http://image/PMA_IMAGE" border="0" width="200" '
-                . 'height="50" />PMA_IMAGE</a>'
+                . 'height="50">PMA_IMAGE</a>'
             ],
             [
                 new Text_Plain_Imagelink(),
@@ -958,7 +958,7 @@ class TransformationPluginsTest extends PmaTestCase
                 '<a href="transformation_wrapper.phpPMA_wrapper_link" '
                 . 'rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
                 . 'PMA_wrapper_link&amp;resize=jpeg&amp;newWidth=0&amp;'
-                . 'newHeight=200" alt="[PMA_JPEG_Inline]" border="0" /></a>'
+                . 'newHeight=200" alt="[PMA_JPEG_Inline]" border="0"></a>'
             ];
             $result[] = [
                 new Image_PNG_Inline(),
@@ -970,7 +970,7 @@ class TransformationPluginsTest extends PmaTestCase
                 . ' rel="noopener noreferrer" target="_blank"><img src="transformation_wrapper.php'
                 . 'PMA_wrapper_link&amp;'
                 . 'resize=jpeg&amp;newWidth=0&amp;newHeight=200" '
-                . 'alt="[PMA_PNG_Inline]" border="0" /></a>'
+                . 'alt="[PMA_PNG_Inline]" border="0"></a>'
             ];
         }
         return $result;

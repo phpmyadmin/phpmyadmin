@@ -278,8 +278,8 @@ class Tracking
             . '</a>]</h3>';
 
         $html .= '<small>' . __('Tracking statements') . ' '
-            . htmlspecialchars($data['tracking']) . '</small><br/>';
-        $html .= '<br/>';
+            . htmlspecialchars($data['tracking']) . '</small><br>';
+        $html .= '<br>';
 
         list($str1, $str2, $str3, $str4, $str5) = $this->getHtmlForElementsOfTrackingReport(
             $selection_schema,
@@ -333,7 +333,7 @@ class Tracking
             $str5
         );
 
-        $html .= "<br/><br/><hr/><br/>\n";
+        $html .= "<br><br><hr><br>\n";
 
         return $html;
     }
@@ -364,13 +364,13 @@ class Tracking
             . __('Structure and data') . '</option>'
             . '</select>';
         $str2 = '<input type="text" name="date_from" value="'
-            . htmlspecialchars($_POST['date_from']) . '" size="19" />';
+            . htmlspecialchars($_POST['date_from']) . '" size="19">';
         $str3 = '<input type="text" name="date_to" value="'
-            . htmlspecialchars($_POST['date_to']) . '" size="19" />';
+            . htmlspecialchars($_POST['date_to']) . '" size="19">';
         $str4 = '<input type="text" name="users" value="'
-            . htmlspecialchars($_POST['users']) . '" />';
-        $str5 = '<input type="hidden" name="list_report" value="1" />'
-            . '<input type="submit" value="' . __('Go') . '" />';
+            . htmlspecialchars($_POST['users']) . '">';
+        $str5 = '<input type="hidden" name="list_report" value="1">'
+            . '<input type="submit" value="' . __('Go') . '">';
         return [$str1, $str2, $str3, $str4, $str5];
     }
 
@@ -515,10 +515,10 @@ class Tracking
             )
             . '\')">' . __('SQL execution') . '</option>' . '</select>';
 
-        $str_export2 = '<input type="submit" value="' . __('Go') . '" />';
+        $str_export2 = '<input type="submit" value="' . __('Go') . '">';
 
-        $html .= "<br/>" . sprintf(__('Export as %s'), $str_export1)
-            . $str_export2 . "<br/>";
+        $html .= "<br>" . sprintf(__('Export as %s'), $str_export1)
+            . $str_export2 . "<br>";
         $html .= '</form>';
         return $html;
     }
@@ -705,7 +705,7 @@ class Tracking
         if (count($indexes) > 0) {
             $html .= $this->getHtmlForIndexes($indexes);
         } // endif
-        $html .= '<br /><hr /><br />';
+        $html .= '<br><hr><br>';
 
         return $html;
     }

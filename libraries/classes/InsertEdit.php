@@ -541,7 +541,7 @@ class InsertEdit
         if ($real_null_value && !$column['first_timestamp']) {
             $html_output .= ' value="on"';
         }
-        $html_output .= ' />' . "\n";
+        $html_output .= '>' . "\n";
 
         $html_output .= '<input type="checkbox" class="checkbox_null" tabindex="'
             . ($tabindex + $tabindex_for_null) . '"'
@@ -549,7 +549,7 @@ class InsertEdit
         if ($real_null_value) {
             $html_output .= ' checked="checked"';
         }
-        $html_output .= ' id="field_' . $idindex . '_2" />';
+        $html_output .= ' id="field_' . $idindex . '_2">';
 
         // nullify_code is needed by the js nullify() function
         $nullify_code = $this->getNullifyCodeForNullColumn(
@@ -559,11 +559,11 @@ class InsertEdit
         );
         // to be able to generate calls to nullify() in jQuery
         $html_output .= '<input type="hidden" class="nullify_code" name="nullify_code'
-            . $column_name_appendix . '" value="' . $nullify_code . '" />';
+            . $column_name_appendix . '" value="' . $nullify_code . '">';
         $html_output .= '<input type="hidden" class="hashed_field" name="hashed_field'
-            . $column_name_appendix . '" value="' . $column['Field_md5'] . '" />';
+            . $column_name_appendix . '" value="' . $column['Field_md5'] . '">';
         $html_output .= '<input type="hidden" class="multi_edit" name="multi_edit'
-            . $column_name_appendix . '" value="' . Sanitize::escapeJsString($vkey) . '" />';
+            . $column_name_appendix . '" value="' . Sanitize::escapeJsString($vkey) . '">';
         $html_output .= '</td>' . "\n";
 
         return $html_output;
@@ -738,7 +738,7 @@ class InsertEdit
             if (mb_strlen($special_chars) > 32000) {
                 $html_output .= "</td>\n";
                 $html_output .= '<td>' . __(
-                    'Because of its length,<br /> this column might not be editable.'
+                    'Because of its length,<br> this column might not be editable.'
                 );
             }
         } elseif ($column['pma_type'] == 'enum') {
@@ -850,7 +850,7 @@ class InsertEdit
         $html_output .= $backup_field . "\n";
 
         $html_output .= '<input type="hidden" name="fields_type'
-            . $column_name_appendix . '" value="foreign" />';
+            . $column_name_appendix . '" value="foreign">';
 
         $html_output .= '<input type="text" name="fields' . $column_name_appendix . '" '
             . 'class="textfield" '
@@ -858,7 +858,7 @@ class InsertEdit
             . ($readOnly ? 'readonly="readonly" ' : '')
             . 'tabindex="' . ($tabindex + $tabindex_for_value) . '" '
             . 'id="field_' . $idindex . '_3" '
-            . 'value="' . htmlspecialchars($data) . '" />';
+            . 'value="' . htmlspecialchars($data) . '">';
 
         $html_output .= '<a class="ajax browse_foreign" href="browse_foreigners.php" data-post="'
             . Url::getCommon(
@@ -908,9 +908,9 @@ class InsertEdit
         $html_output .= '<input type="hidden"'
             . ' name="fields_type' . $column_name_appendix . '"';
         if ($column['is_binary']) {
-            $html_output .= ' value="hex" />';
+            $html_output .= ' value="hex">';
         } else {
-            $html_output .= ' value="foreign" />';
+            $html_output .= ' value="foreign">';
         }
 
         $html_output .= '<select name="fields' . $column_name_appendix . '"'
@@ -1047,7 +1047,7 @@ class InsertEdit
         }
         $column_enum_values = $column['values'];
         $html_output .= '<input type="hidden" name="fields_type'
-            . $column_name_appendix . '" value="enum" />';
+            . $column_name_appendix . '" value="enum">';
         $html_output .= "\n" . '            ' . $backup_field . "\n";
         if (mb_strlen($column['Type']) > 20) {
             $html_output .= $this->getDropDownDependingOnLength(
@@ -1202,7 +1202,7 @@ class InsertEdit
             } elseif ($readOnly) {
                 $html_output .= ' disabled';
             }
-            $html_output .= ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
+            $html_output .= ' tabindex="' . ($tabindex + $tabindex_for_value) . '">';
             $html_output .= '<label for="field_' . $idindex . '_3_' . $j . '">'
                 . $enum_value['html'] . '</label>' . "\n";
             $j++;
@@ -1247,7 +1247,7 @@ class InsertEdit
         $vset = array_flip(explode(',', $data));
         $html_output = $backup_field . "\n";
         $html_output .= '<input type="hidden" name="fields_type'
-            . $column_name_appendix . '" value="set" />';
+            . $column_name_appendix . '" value="set">';
         $html_output .= '<select name="fields' . $column_name_appendix . '[]' . '"'
             . ' class="textfield"'
             . ($readOnly ? ' disabled' : '')
@@ -1346,7 +1346,7 @@ class InsertEdit
         $html_output = '';
         // Add field type : Protected or Hexadecimal
         $fields_type_html = '<input type="hidden" name="fields_type'
-            . $column_name_appendix . '" value="%s" />';
+            . $column_name_appendix . '" value="%s">';
         // Default value : hex
         $fields_type_val = 'hex';
         if (($GLOBALS['cfg']['ProtectBinary'] === 'blob' && $column['is_blob'])
@@ -1365,7 +1365,7 @@ class InsertEdit
             }
             $fields_type_val = 'protected';
             $html_output .= '<input type="hidden" name="fields'
-                . $column_name_appendix . '" value="" />';
+                . $column_name_appendix . '" value="">';
         } elseif ($column['is_blob']
             || ($column['len'] > $GLOBALS['cfg']['LimitChars'])
         ) {
@@ -1404,11 +1404,11 @@ class InsertEdit
             // We don't want to prevent users from using
             // browser's default drag-drop feature on some page(s),
             // so we add noDragDrop class to the input
-            $html_output .= '<br />'
+            $html_output .= '<br>'
                 . '<input type="file"'
                 . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
                 . ' class="textfield noDragDrop" id="field_' . $idindex . '_3" size="10"'
-                . ' ' . $onChangeClause . '/>&nbsp;';
+                . ' ' . $onChangeClause . '>&nbsp;';
             list($html_out,) = $this->getMaxUploadSize(
                 $column,
                 $biggest_max_file_size
@@ -1494,7 +1494,7 @@ class InsertEdit
             . ($input_type === 'time' ? ' step="1"' : '')
             . ' class="' . $the_class . '" ' . $onChangeClause
             . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
-            . ' id="field_' . $idindex . '_3" />';
+            . ' id="field_' . $idindex . '_3">';
     }
 
     /**
@@ -1512,12 +1512,12 @@ class InsertEdit
         );
 
         if ($files === false) {
-            return '<span style="color:red">' . __('Error') . '</span><br />' . "\n"
+            return '<span style="color:red">' . __('Error') . '</span><br>' . "\n"
                 . __('The directory you set for upload work cannot be reached.') . "\n";
         } elseif (!empty($files)) {
-            return "<br />\n"
+            return "<br>\n"
                 . '<i>' . __('Or') . '</i>' . ' '
-                . __('web server upload directory:') . '<br />' . "\n"
+                . __('web server upload directory:') . '<br>' . "\n"
                 . '<select size="1" name="fields_uploadlocal'
                 . $vkey . '[' . $column['Field_md5'] . ']">' . "\n"
                 . '<option value="" selected="selected"></option>' . "\n"
@@ -1650,23 +1650,23 @@ class InsertEdit
             ];
             if (in_array($column['Extra'], $virtual)) {
                 $html_output .= '<input type="hidden" name="virtual'
-                    . $column_name_appendix . '" value="1" />';
+                    . $column_name_appendix . '" value="1">';
             }
             if ($column['Extra'] == 'auto_increment') {
                 $html_output .= '<input type="hidden" name="auto_increment'
-                    . $column_name_appendix . '" value="1" />';
+                    . $column_name_appendix . '" value="1">';
             }
             if (substr($column['pma_type'], 0, 9) == 'timestamp') {
                 $html_output .= '<input type="hidden" name="fields_type'
-                    . $column_name_appendix . '" value="timestamp" />';
+                    . $column_name_appendix . '" value="timestamp">';
             }
             if (substr($column['pma_type'], 0, 8) == 'datetime') {
                 $html_output .= '<input type="hidden" name="fields_type'
-                    . $column_name_appendix . '" value="datetime" />';
+                    . $column_name_appendix . '" value="datetime">';
             }
             if ($column['True_Type'] == 'bit') {
                 $html_output .= '<input type="hidden" name="fields_type'
-                    . $column_name_appendix . '" value="bit" />';
+                    . $column_name_appendix . '" value="bit">';
             }
             if ($column['pma_type'] == 'date'
                 || $column['pma_type'] == 'datetime'
@@ -1911,11 +1911,11 @@ class InsertEdit
         . '</td>'
         . '<td colspan="3" class="right vmiddle">'
         . '<input type="button" class="preview_sql" value="' . __('Preview SQL') . '"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '" />'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value + 6) . '">'
         . '<input type="reset" class="control_at_footer" value="' . __('Reset') . '"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value + 7) . '" />'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value + 7) . '">'
         . '<input type="submit" class="control_at_footer" value="' . __('Go') . '"'
-        . ' tabindex="' . ($tabindex + $tabindex_for_value + 8) . '" id="buttonYes" />'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value + 8) . '" id="buttonYes">'
         . '</td>';
     }
 
@@ -1948,7 +1948,7 @@ class InsertEdit
             . ' <tfoot>'
             . '<tr>'
             . '<th colspan="5" class="tblFooters right">'
-            . '<input type="submit" value="' . __('Go') . '" />'
+            . '<input type="submit" value="' . __('Go') . '">'
             . '</th>'
             . '</tr>'
             . '</tfoot>';
@@ -2053,7 +2053,7 @@ class InsertEdit
         // it's better to set a fields_prev in this situation
         $backup_field = '<input type="hidden" name="fields_prev'
             . $column_name_appendix . '" value="'
-            . htmlspecialchars($current_row[$column['Field']]) . '" />';
+            . htmlspecialchars($current_row[$column['Field']]) . '">';
 
         return [
             $real_null_value,
@@ -2975,7 +2975,7 @@ class InsertEdit
     {
         return '<div id="gis_editor"></div>'
             . '<div id="popup_background"></div>'
-            . '<br />';
+            . '<br>';
     }
 
     /**
@@ -2991,10 +2991,10 @@ class InsertEdit
         return '<input type="checkbox"'
                 . ($checked ? ' checked="checked"' : '')
                 . ' name="insert_ignore_' . $row_id . '"'
-                . ' id="insert_ignore_' . $row_id . '" />'
+                . ' id="insert_ignore_' . $row_id . '">'
                 . '<label for="insert_ignore_' . $row_id . '">'
                 . __('Ignore')
-                . '</label><br />' . "\n";
+                . '</label><br>' . "\n";
     }
 
     /**
@@ -3012,7 +3012,7 @@ class InsertEdit
             . 'class="center">'
             . $column['Field_title']
             . '<input type="hidden" name="fields_name' . $column_name_appendix
-            . '" value="' . $column['Field_html'] . '"/>'
+            . '" value="' . $column['Field_html'] . '">'
             . '</td>';
     }
 
@@ -3468,7 +3468,7 @@ class InsertEdit
         } // end for
         $o_rows++;
         $html_output .= '  </tbody>'
-            . '</table></div><br />'
+            . '</table></div><br>'
             . '<div class="clearfloat"></div>';
 
         return $html_output;

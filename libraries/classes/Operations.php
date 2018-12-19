@@ -62,10 +62,10 @@ class Operations
         $html_output .= '</legend>';
         $html_output .= '<input type="text" name="comment" '
             . 'class="textfield"'
-            . 'value="' . htmlspecialchars($this->relation->getDbComment($db)) . '" />'
+            . 'value="' . htmlspecialchars($this->relation->getDbComment($db)) . '">'
             . '</fieldset>';
         $html_output .= '<fieldset class="tblFooters">'
-            . '<input type="submit" value="' . __('Go') . '" />'
+            . '<input type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -91,10 +91,10 @@ class Operations
         if (!is_null($db_collation)) {
             $html_output .= '<input type="hidden" name="db_collation" '
                 . 'value="' . $db_collation
-                . '" />' . "\n";
+                . '">' . "\n";
         }
-        $html_output .= '<input type="hidden" name="what" value="data" />'
-            . '<input type="hidden" name="db_rename" value="true" />'
+        $html_output .= '<input type="hidden" name="what" value="data">'
+            . '<input type="hidden" name="db_rename" value="true">'
             . Url::getHiddenInputs($db)
             . '<fieldset>'
             . '<legend>';
@@ -106,32 +106,32 @@ class Operations
             . '</legend>';
 
         $html_output .= '<input id="new_db_name" type="text" name="newname" '
-            . 'maxlength="64" class="textfield" required="required"/>';
-        $html_output .= '<br />';
+            . 'maxlength="64" class="textfield" required="required">';
+        $html_output .= '<br>';
 
         if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
             && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
             && $GLOBALS['is_reload_priv']
         ) {
             $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" checked="checked" />';
+                . 'value="1" id="checkbox_adjust_privileges" checked="checked">';
         } else {
             $html_output .= '<input type="checkbox" name="adjust_privileges" '
                 . 'value="1" id="checkbox_adjust_privileges" title="' . __(
                     'You don\'t have sufficient privileges to perform this '
                     . 'operation; Please refer to the documentation for more details'
                 )
-                . '" disabled/>';
+                . '" disabled>';
         }
 
         $html_output .= '<label for="checkbox_adjust_privileges">'
                 . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
-                . '</label><br />';
+                . '</label><br>';
 
         $html_output .= ''
             . '</fieldset>'
             . '<fieldset class="tblFooters">'
-            . '<input id="rename_db_input" type="submit" value="' . __('Go') . '" />'
+            . '<input id="rename_db_input" type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -210,9 +210,9 @@ class Operations
 
         if (!is_null($db_collation)) {
             $html_output .= '<input type="hidden" name="db_collation" '
-            . 'value="' . $db_collation . '" />' . "\n";
+            . 'value="' . $db_collation . '">' . "\n";
         }
-        $html_output .= '<input type="hidden" name="db_copy" value="true" />' . "\n"
+        $html_output .= '<input type="hidden" name="db_copy" value="true">' . "\n"
             . Url::getHiddenInputs($db);
         $html_output .= '<fieldset>'
             . '<legend>';
@@ -223,60 +223,60 @@ class Operations
         $html_output .= __('Copy database to')
             . '</legend>'
             . '<input type="text" maxlength="64" name="newname" '
-            . 'class="textfield" required="required" /><br />'
+            . 'class="textfield" required="required"><br>'
             . Util::getRadioFields(
                 'what',
                 $choices,
                 'data',
                 true
             );
-        $html_output .= '<br />';
+        $html_output .= '<br>';
         $html_output .= '<input type="checkbox" name="create_database_before_copying" '
             . 'value="1" id="checkbox_create_database_before_copying"'
-            . 'checked="checked" />';
+            . 'checked="checked">';
         $html_output .= '<label for="checkbox_create_database_before_copying">'
-            . __('CREATE DATABASE before copying') . '</label><br />';
+            . __('CREATE DATABASE before copying') . '</label><br>';
         $html_output .= '<input type="checkbox" name="drop_if_exists" value="true"'
-            . 'id="checkbox_drop" />';
+            . 'id="checkbox_drop">';
         $html_output .= '<label for="checkbox_drop">'
             . sprintf(__('Add %s'), $drop_clause)
-            . '</label><br />';
+            . '</label><br>';
         $html_output .= '<input type="checkbox" name="sql_auto_increment" value="1" '
-            . 'checked="checked" id="checkbox_auto_increment" />';
+            . 'checked="checked" id="checkbox_auto_increment">';
         $html_output .= '<label for="checkbox_auto_increment">'
-            . __('Add AUTO_INCREMENT value') . '</label><br />';
+            . __('Add AUTO_INCREMENT value') . '</label><br>';
         $html_output .= '<input type="checkbox" name="add_constraints" value="1"'
-            . 'id="checkbox_constraints" checked="checked"/>';
+            . 'id="checkbox_constraints" checked="checked">';
         $html_output .= '<label for="checkbox_constraints">'
-            . __('Add constraints') . '</label><br />';
-        $html_output .= '<br />';
+            . __('Add constraints') . '</label><br>';
+        $html_output .= '<br>';
 
         if ($GLOBALS['db_priv'] && $GLOBALS['table_priv']
             && $GLOBALS['col_priv'] && $GLOBALS['proc_priv']
             && $GLOBALS['is_reload_priv']
         ) {
             $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_privileges" checked="checked" />';
+                . 'value="1" id="checkbox_privileges" checked="checked">';
         } else {
             $html_output .= '<input type="checkbox" name="adjust_privileges" '
                 . 'value="1" id="checkbox_privileges" title="' . __(
                     'You don\'t have sufficient privileges to perform this '
                     . 'operation; Please refer to the documentation for more details'
                 )
-                . '" disabled/>';
+                . '" disabled>';
         }
         $html_output .= '<label for="checkbox_privileges">'
             . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
-            . '</label><br />';
+            . '</label><br>';
 
         $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
             . 'id="checkbox_switch"'
-            . ($pma_switch_to_new ? ' checked="checked"' : '') . '/>';
+            . ($pma_switch_to_new ? ' checked="checked"' : '') . '>';
         $html_output .= '<label for="checkbox_switch">'
             . __('Switch to copied database') . '</label>'
             . '</fieldset>';
         $html_output .= '<fieldset class="tblFooters">'
-            . '<input type="submit" name="submit_copy" value="' . __('Go') . '" />'
+            . '<input type="submit" name="submit_copy" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -317,22 +317,22 @@ class Operations
                 !is_null($db_collation) ? $db_collation : '',
                 false
             )
-            . '<br />'
+            . '<br>'
             . '<input type="checkbox" name="change_all_tables_collations"'
-            . 'id="checkbox_change_all_tables_collations" />'
+            . 'id="checkbox_change_all_tables_collations">'
             . '<label for="checkbox_change_all_tables_collations">'
             . __('Change all tables collations')
             . '</label>'
-            . '<br />'
+            . '<br>'
             . '<span id="span_change_all_tables_columns_collations"><input type="checkbox" name="change_all_tables_columns_collations"'
-            . 'id="checkbox_change_all_tables_columns_collations" />'
+            . 'id="checkbox_change_all_tables_columns_collations">'
             . '<label for="checkbox_change_all_tables_columns_collations">'
             . __('Change all tables columns collations')
             . '</label></span>'
             . '</fieldset>'
             . '<fieldset class="tblFooters">'
             . '<input type="submit" name="submitcollation"'
-            . ' value="' . __('Go') . '" />' . "\n"
+            . ' value="' . __('Go') . '">' . "\n"
             . '</fieldset>' . "\n"
             . '</form></div>' . "\n";
 
@@ -834,17 +834,17 @@ class Operations
                 . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
         }
         $html_output .= '</select> ' . __('(singly)') . ' '
-            . '<br />'
+            . '<br>'
             . '<input id="order_order_asc" name="order_order"'
-            . ' type="radio" value="asc" checked="checked" />'
+            . ' type="radio" value="asc" checked="checked">'
             . '<label for="order_order_asc">' . __('Ascending') . '</label>'
             . '<input id="order_order_desc" name="order_order"'
-            . ' type="radio" value="desc" />'
+            . ' type="radio" value="desc">'
             . '<label for="order_order_desc">' . __('Descending') . '</label>'
             . '</fieldset>'
             . '<fieldset class="tblFooters">'
-            . '<input type="hidden" name="submitorderby" value="1" />'
-            . '<input type="submit" value="' . __('Go') . '" />'
+            . '<input type="hidden" name="submitorderby" value="1">'
+            . '<input type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -865,8 +865,8 @@ class Operations
             . ' onsubmit="return emptyCheckTheField(this, \'new_name\')">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
 
-        $html_output .= '<input type="hidden" name="reload" value="1" />'
-            . '<input type="hidden" name="what" value="data" />'
+        $html_output .= '<input type="hidden" name="reload" value="1">'
+            . '<input type="hidden" name="what" value="data">'
             . '<fieldset id="fieldset_table_rename">';
 
         $html_output .= '<legend>' . __('Move table to (database<b>.</b>table)')
@@ -875,7 +875,7 @@ class Operations
         if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
             $html_output .= '<input type="text" maxlength="100" '
                 . 'name="target_db" value="' . htmlspecialchars($GLOBALS['db'])
-                . '"/>';
+                . '">';
         } else {
             $html_output .= '<select class="halfWidth" name="target_db">'
                 . $GLOBALS['dblist']->databases->getHtmlOptions(true, false)
@@ -884,37 +884,37 @@ class Operations
         $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
         $html_output .= '<input class="halfWidth" type="text" name="new_name"'
             . ' maxlength="64" required="required" '
-            . 'value="' . htmlspecialchars($GLOBALS['table']) . '" /><br />';
+            . 'value="' . htmlspecialchars($GLOBALS['table']) . '"><br>';
 
         // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
         // next value but users can decide if they want it or not for the operation
 
         $html_output .= '<input type="checkbox" name="sql_auto_increment" '
-            . 'value="1" id="checkbox_auto_increment_mv" checked="checked" />'
+            . 'value="1" id="checkbox_auto_increment_mv" checked="checked">'
             . '<label for="checkbox_auto_increment_mv">'
             . __('Add AUTO_INCREMENT value')
-            . '</label><br />';
+            . '</label><br>';
 
         if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
             && $GLOBALS['is_reload_priv']
         ) {
             $html_output .= '<input type="checkbox" name="adjust_privileges" '
                 . 'value="1" id="checkbox_privileges_tables_move" '
-                . 'checked="checked" />';
+                . 'checked="checked">';
         } else {
             $html_output .= '<input type="checkbox" name="adjust_privileges" '
                 . 'value="1" id="checkbox_privileges_tables_move" title="' . __(
                     'You don\'t have sufficient privileges to perform this '
                     . 'operation; Please refer to the documentation for more details'
                 )
-                . '" disabled/>';
+                . '" disabled>';
         }
         $html_output .= '<label for="checkbox_privileges_tables_move">'
             . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
-            . '</label><br />';
+            . '</label><br>';
 
         $html_output .= '</fieldset><fieldset class="tblFooters">'
-            . '<input type="submit" name="submit_move" value="' . __('Go') . '" />'
+            . '<input type="submit" name="submit_move" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -957,7 +957,7 @@ class Operations
             $GLOBALS['db'],
             $GLOBALS['table']
         );
-        $html_output .= '<input type="hidden" name="reload" value="1" />';
+        $html_output .= '<input type="hidden" name="reload" value="1">';
 
         $html_output .= $this->getTableOptionFieldset(
             $pma_table,
@@ -973,8 +973,8 @@ class Operations
         );
 
         $html_output .= '<fieldset class="tblFooters">'
-            . '<input type="hidden" name="submitoptions" value="1" />'
-            . '<input type="submit" value="' . __('Go') . '" />'
+            . '<input type="hidden" name="submitoptions" value="1">'
+            . '<input type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -993,7 +993,7 @@ class Operations
             . '<td>'
             . '<input type="text" name="new_name" maxlength="64" '
             . 'value="' . htmlspecialchars($GLOBALS['table'])
-            . '" required="required" />'
+            . '" required="required">'
             . '</td></tr>'
             . '<tr><td></td><td>';
 
@@ -1002,14 +1002,14 @@ class Operations
         ) {
             $html_output .= '<input type="checkbox" name="adjust_privileges" '
                 . 'value="1" id="checkbox_privileges_table_options" '
-                . 'checked="checked" />';
+                . 'checked="checked">';
         } else {
             $html_output .= '<input type="checkbox" name="adjust_privileges" '
                 . 'value="1" id="checkbox_privileges_table_options" title="' . __(
                     'You don\'t have sufficient privileges to perform this '
                     . 'operation; Please refer to the documentation for more details'
                 )
-                . '" disabled/>';
+                . '" disabled>';
         }
         $html_output .= '<label for="checkbox_privileges_table_options">'
             . __('Adjust privileges') . '&nbsp;'
@@ -1032,9 +1032,9 @@ class Operations
         return '<tr><td class="vmiddle">' . __('Table comments') . '</td>'
             . '<td><input type="text" name="comment" '
             . 'maxlength="' . $commentLength . '"'
-            . 'value="' . htmlspecialchars($current_value) . '" />'
+            . 'value="' . htmlspecialchars($current_value) . '">'
             . '<input type="hidden" name="prev_comment" value="'
-            . htmlspecialchars($current_value) . '" />'
+            . htmlspecialchars($current_value) . '">'
             . '</td>'
             . '</tr>';
     }
@@ -1139,7 +1139,7 @@ class Operations
         // Change all Column collations
         $html_output .= '<tr><td></td><td>'
             . '<input type="checkbox" name="change_all_collations" value="1" '
-            . 'id="checkbox_change_all_collations" />'
+            . 'id="checkbox_change_all_collations">'
             . '<label for="checkbox_change_all_collations">'
             . __('Change all column collations')
             . '</label>'
@@ -1184,7 +1184,7 @@ class Operations
                 . '<label for="auto_increment_opt">AUTO_INCREMENT</label></td>'
                 . '<td><input type="number" name="new_auto_increment" '
                 . 'id="auto_increment_opt"'
-                . 'value="' . $auto_increment . '" /></td>'
+                . 'value="' . $auto_increment . '"></td>'
                 . '</tr> ';
         } // end if (MYISAM|INNODB)
 
@@ -1235,7 +1235,7 @@ class Operations
             . '<td>'
             . '<input type="checkbox" name="' . $attribute . '" id="' . $attribute . '"'
             . ' value="1"' . (!empty($val) && $val == 1 ? ' checked="checked"' : '')
-            . '/>'
+            . '>'
             . '</td>'
             . '</tr>';
     }
@@ -1310,7 +1310,7 @@ class Operations
             . ' class="ajax" '
             . 'onsubmit="return emptyCheckTheField(this, \'new_name\')">'
             . Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table'])
-            . '<input type="hidden" name="reload" value="1" />';
+            . '<input type="hidden" name="reload" value="1">';
 
         $html_output .= '<fieldset>';
         $html_output .= '<legend>'
@@ -1319,7 +1319,7 @@ class Operations
         if (count($GLOBALS['dblist']->databases) > $GLOBALS['cfg']['MaxDbList']) {
             $html_output .= '<input class="halfWidth" type="text" maxlength="100" '
                 . 'name="target_db" '
-                . 'value="' . htmlspecialchars($GLOBALS['db']) . '"/>';
+                . 'value="' . htmlspecialchars($GLOBALS['db']) . '">';
         } else {
             $html_output .= '<select class="halfWidth" name="target_db">'
                 . $GLOBALS['dblist']->databases->getHtmlOptions(true, false)
@@ -1328,7 +1328,7 @@ class Operations
         $html_output .= '&nbsp;<strong>.</strong>&nbsp;';
         $html_output .= '<input class="halfWidth" type="text" required="required" '
             . 'name="new_name" maxlength="64" '
-            . 'value="' . htmlspecialchars($GLOBALS['table']) . '"/><br />';
+            . 'value="' . htmlspecialchars($GLOBALS['table']) . '"><br>';
 
         $choices = [
             'structure' => __('Structure only'),
@@ -1342,56 +1342,56 @@ class Operations
             'data',
             true
         );
-        $html_output .= '<br />';
+        $html_output .= '<br>';
 
         $html_output .= '<input type="checkbox" name="drop_if_exists" '
-            . 'value="true" id="checkbox_drop" />'
+            . 'value="true" id="checkbox_drop">'
             . '<label for="checkbox_drop">'
-            . sprintf(__('Add %s'), 'DROP TABLE') . '</label><br />'
+            . sprintf(__('Add %s'), 'DROP TABLE') . '</label><br>'
             . '<input type="checkbox" name="sql_auto_increment" '
-            . 'value="1" id="checkbox_auto_increment_cp" />'
+            . 'value="1" id="checkbox_auto_increment_cp">'
             . '<label for="checkbox_auto_increment_cp">'
-            . __('Add AUTO_INCREMENT value') . '</label><br />';
+            . __('Add AUTO_INCREMENT value') . '</label><br>';
 
         // display "Add constraints" choice only if there are
         // foreign keys
         if ($this->relation->getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign')) {
             $html_output .= '<input type="checkbox" name="add_constraints" '
-                . 'value="1" id="checkbox_constraints" checked="checked"/>';
+                . 'value="1" id="checkbox_constraints" checked="checked">';
             $html_output .= '<label for="checkbox_constraints">'
-                . __('Add constraints') . '</label><br />';
+                . __('Add constraints') . '</label><br>';
         } // endif
 
-        $html_output .= '<br />';
+        $html_output .= '<br>';
 
         if ($GLOBALS['table_priv'] && $GLOBALS['col_priv']
             && $GLOBALS['is_reload_priv']
         ) {
             $html_output .= '<input type="checkbox" name="adjust_privileges" '
-                . 'value="1" id="checkbox_adjust_privileges" checked="checked" />';
+                . 'value="1" id="checkbox_adjust_privileges" checked="checked">';
         } else {
             $html_output .= '<input type="checkbox" name="adjust_privileges" '
                 . 'value="1" id="checkbox_adjust_privileges" title="' . __(
                     'You don\'t have sufficient privileges to perform this '
                     . 'operation; Please refer to the documentation for more details'
                 )
-                . '" disabled/>';
+                . '" disabled>';
         }
         $html_output .= '<label for="checkbox_adjust_privileges">'
             . __('Adjust privileges') . Util::showDocu('faq', 'faq6-39')
-            . '</label><br />';
+            . '</label><br>';
 
         $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
         $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
             . 'id="checkbox_switch"'
-            . ($pma_switch_to_new ? ' checked="checked"' : '') . '/>';
+            . ($pma_switch_to_new ? ' checked="checked"' : '') . '>';
         $html_output .= '<label for="checkbox_switch">'
             . __('Switch to copied table') . '</label>'
             . '</fieldset>';
 
         $html_output .= '<fieldset class="tblFooters">'
-            . '<input type="submit" name="submit_copy" value="' . __('Go') . '" />'
+            . '<input type="submit" name="submit_copy" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -1685,7 +1685,7 @@ class Operations
         $html_select .= '</select>' . "\n";
         $html_output .= sprintf(__('Partition %s'), $html_select);
 
-        $html_output .= '<div class="clearfloat" />';
+        $html_output .= '<div class="clearfloat">';
         $html_output .= Util::getRadioFields(
             'partition_operation',
             $choices,
@@ -1702,7 +1702,7 @@ class Operations
                 . ' REMOVE PARTITIONING;'
             ]
         );
-        $html_output .= '<div class="clearfloat" /><br />';
+        $html_output .= '<div class="clearfloat"><br>';
 
         $html_output .= '<a href="sql.php'
             . Url::getCommon($this_url_params) . '">'
@@ -1711,7 +1711,7 @@ class Operations
         $html_output .= '</fieldset>'
             . '<fieldset class="tblFooters">'
             . '<input type="hidden" name="submit_partition" value="1">'
-            . '<input type="submit" value="' . __('Go') . '" />'
+            . '<input type="submit" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';

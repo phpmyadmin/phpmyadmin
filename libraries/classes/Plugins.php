@@ -258,7 +258,7 @@ class Plugins
             } else {
                 $hidden .= 'false';
             }
-            $hidden .= '" />' . "\n";
+            $hidden .= '">' . "\n";
         }
         $ret .= '</select>' . "\n" . $hidden;
 
@@ -439,7 +439,7 @@ class Plugins
                         . '\').checked)) '
                         . 'return false; else return true;"';
                 }
-                $ret .= ' />';
+                $ret .= '>';
                 $ret .= '<label for="checkbox_' . $plugin_name . '_'
                 . $propertyItem->getName() . '">'
                 . self::getString($propertyItem->getText()) . '</label>';
@@ -454,7 +454,7 @@ class Plugins
                     $section,
                     $plugin_name . '_' . $propertyItem->getName()
                 )
-                    . '"' . ' /></li>';
+                    . '"' . '></li>';
                 break;
             case 'PhpMyAdmin\Properties\Options\Items\MessageOnlyPropertyItem':
                 $ret .= '<li>' . "\n";
@@ -479,7 +479,7 @@ class Plugins
                     if ($key == $default) {
                         $ret .= ' checked="checked"';
                     }
-                    $ret .= ' />' . '<label for="radio_' . $plugin_name . '_'
+                    $ret .= '>' . '<label for="radio_' . $plugin_name . '_'
                     . $pitem->getName() . '_' . $key . '">'
                     . self::getString($val) . '</label></li>';
                 }
@@ -534,7 +534,7 @@ class Plugins
                     . ($pitem->getLen() != null
                     ? ' maxlength="' . $pitem->getLen() . '"'
                     : '')
-                    . ' />';
+                    . '>';
                 break;
             case 'PhpMyAdmin\Properties\Options\Items\NumberPropertyItem':
                 $ret .= '<li>' . "\n";
@@ -550,7 +550,7 @@ class Plugins
                     . ' id="number_' . $plugin_name . '_'
                     . $propertyItem->getName() . '"'
                     . ' min="0"'
-                    . ' />';
+                    . '>';
                 break;
             default:
                 break;

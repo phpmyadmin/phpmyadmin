@@ -348,7 +348,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
         } else {
             PMA_ajaxShowMessage(
                 '<div class="error"><img src="themes/dot.gif" title="" alt=""' +
-                ' class="icon ic_s_error" /> ' + PMA_messages.strMissingColumn +
+                ' class="icon ic_s_error"> ' + PMA_messages.strMissingColumn +
                 ' </div>', false
             );
 
@@ -383,7 +383,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
                 if ($('#addIndex').length > 0) {
                     $('#addIndex').remove();
                 }
-                var $div = $('<div/>');
+                var $div = $('<div></div>');
                 $div
                     .append(data.message)
                     .dialog({
@@ -412,7 +412,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
                         }
                     });
             } else {
-                var $div = $('<div/>');
+                var $div = $('<div></div>');
                 $div
                     .append(data.message);
                 $div.css({ 'display' : 'none' });
@@ -435,7 +435,7 @@ function PMA_showAddIndexDialog (source_array, array_index, target_columns, col_
                 } else {
                     PMA_ajaxShowMessage(
                         '<div class="error"><img src="themes/dot.gif" title="" alt=""' +
-                        ' class="icon ic_s_error" /> ' + PMA_messages.strMissingColumn +
+                        ' class="icon ic_s_error"> ' + PMA_messages.strMissingColumn +
                         ' </div>', false
                     );
 
@@ -486,7 +486,7 @@ function PMA_indexTypeSelectionDialog (source_array, index_choice, col_index) {
             ) {
                 PMA_ajaxShowMessage(
                     '<div class="error"><img src="themes/dot.gif" title=""' +
-                    ' alt="" class="icon ic_s_error" /> ' +
+                    ' alt="" class="icon ic_s_error"> ' +
                     PMA_messages.strFormEmpty +
                     ' </div>',
                     false
@@ -520,7 +520,7 @@ function PMA_indexTypeSelectionDialog (source_array, index_choice, col_index) {
         }
         $(this).remove();
     };
-    var $dialog = $('<div/>').append($dialog_content).dialog({
+    var $dialog = $('<div></div>').append($dialog_content).dialog({
         minWidth: 525,
         minHeight: 200,
         modal: true,

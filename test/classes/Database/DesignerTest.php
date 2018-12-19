@@ -131,7 +131,7 @@ class DesignerTest extends TestCase
 
         $result = $this->designer->getHtmlForEditOrDeletePages($db, $operation);
         $this->assertContains(
-            '<input type="hidden" name="operation" value="' . $operation . '" />',
+            '<input type="hidden" name="operation" value="' . $operation . '">',
             $result
         );
         $this->assertContains(
@@ -159,7 +159,7 @@ class DesignerTest extends TestCase
 
         $result = $this->designer->getHtmlForPageSaveAs($db);
         $this->assertContains(
-            '<input type="hidden" name="operation" value="savePage" />',
+            '<input type="hidden" name="operation" value="savePage">',
             $result
         );
         $this->assertContains(
@@ -174,15 +174,15 @@ class DesignerTest extends TestCase
 
         $this->assertContains(
             '<input type="radio" name="save_page" id="save_page_same" value="same"'
-            . ' checked="checked" />',
+            . ' checked="checked">',
             $result
         );
         $this->assertContains(
-            '<input type="radio" name="save_page" id="save_page_new" value="new" />',
+            '<input type="radio" name="save_page" id="save_page_new" value="new">',
             $result
         );
         $this->assertContains(
-            '<input type="text" name="selected_value" id="selected_value" />',
+            '<input type="text" name="selected_value" id="selected_value">',
             $result
         );
     }
@@ -208,7 +208,7 @@ class DesignerTest extends TestCase
 
         // hidden field
         $this->assertContains(
-            '<input type="hidden" name="page_number" value="' . $page . '" />',
+            '<input type="hidden" name="page_number" value="' . $page . '">',
             $result
         );
 

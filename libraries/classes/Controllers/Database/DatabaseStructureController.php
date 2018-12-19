@@ -223,7 +223,7 @@ class DatabaseStructureController extends DatabaseController
             )
         );
 
-        $this->response->addHTML('</div><hr />');
+        $this->response->addHTML('</div><hr>');
 
         /**
          * Work on the database
@@ -530,7 +530,7 @@ class DatabaseStructureController extends DatabaseController
             $row_count++;
             if ($table_is_view) {
                 $hidden_fields[] = '<input type="hidden" name="views[]" value="'
-                    . htmlspecialchars($current_table['TABLE_NAME']) . '" />';
+                    . htmlspecialchars($current_table['TABLE_NAME']) . '">';
             }
 
             /*

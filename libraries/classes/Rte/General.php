@@ -60,9 +60,9 @@ class General
         // and now even the backup query does not execute!
         // This should not happen, but we better handle
         // this just in case.
-        $errors[] = $error . '<br />'
+        $errors[] = $error . '<br>'
             . __('The backed up query was:')
-            . "\"" . htmlspecialchars($createStatement) . "\"" . '<br />'
+            . "\"" . htmlspecialchars($createStatement) . "\"" . '<br>'
             . __('MySQL said: ') . $this->dbi->getError();
 
         return $errors;

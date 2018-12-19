@@ -774,12 +774,12 @@ function Save3 (callback) {
         };
 
         var $form = $('<form action="db_designer.php" method="post" name="save_page" id="save_page" class="ajax"></form>')
-            .append('<input type="hidden" name="server" value="' + server + '" />')
-            .append('<input type="hidden" name="db" value="' + db + '" />')
-            .append('<input type="hidden" name="operation" value="savePage" />')
-            .append('<input type="hidden" name="save_page" value="new" />')
+            .append('<input type="hidden" name="server" value="' + server + '">')
+            .append('<input type="hidden" name="db" value="' + db + '">')
+            .append('<input type="hidden" name="operation" value="savePage">')
+            .append('<input type="hidden" name="save_page" value="new">')
             .append('<label for="selected_value">' + PMA_messages.strPageName +
-                '</label>:<input type="text" name="selected_value" />');
+                '</label>:<input type="text" name="selected_value">');
         $form.on('submit', function (e) {
             e.preventDefault();
             submitSaveDialogAndClose(callback);
@@ -1083,11 +1083,11 @@ function Export_pages () {
 
             var $form = $(data.message);
             if (!designer_tables_enabled) {
-                $form.append('<input type="hidden" name="offline_export" value="true" />');
+                $form.append('<input type="hidden" name="offline_export" value="true">');
             }
             $.each(Get_url_pos(true).substring(1).split(argsep), function () {
                 var pair = this.split('=');
-                var input = $('<input type="hidden" />');
+                var input = $('<input type="hidden">');
                 input.attr('name', pair[0]);
                 input.attr('value', pair[1]);
                 $form.append(input);

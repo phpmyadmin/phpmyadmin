@@ -371,16 +371,16 @@ AJAX.registerOnload('tbl_select.js', function () {
                         };
 
                         // Display dialog box.
-                        $('<div/>').append(
+                        $('<div></div>').append(
                             '<fieldset>' +
                             '<legend>' + operator + '</legend>' +
                             '<label for="min_value">' + PMA_messages.strMinValue +
                             '</label>' +
-                            '<input type="text" id="min_value" />' + '<br>' +
+                            '<input type="text" id="min_value">' + '<br>' +
                             '<span class="small_font">' + min + '</span>' + '<br>' +
                             '<label for="max_value">' + PMA_messages.strMaxValue +
                             '</label>' +
-                            '<input type="text" id="max_value" />' + '<br>' +
+                            '<input type="text" id="max_value">' + '<br>' +
                             '<span class="small_font">' + max + '</span>' +
                             '</fieldset>'
                         ).dialog({

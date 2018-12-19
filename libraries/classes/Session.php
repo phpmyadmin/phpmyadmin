@@ -100,8 +100,8 @@ class Session
             . 'webserver log file and configure your PHP '
             . 'installation properly. Also ensure that cookies are enabled '
             . 'in your browser.'
-            . '<br /><br />'
-            . implode('<br /><br />', $messages)
+            . '<br><br>'
+            . implode('<br><br>', $messages)
         );
     }
 

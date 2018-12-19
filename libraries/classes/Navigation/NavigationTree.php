@@ -1367,7 +1367,7 @@ class NavigationTree
             $retval .= ' name="searchClause" accesskey="q"';
             $retval .= " placeholder='"
                 . __("Type to filter these, Enter to search all");
-            $retval .= "' />";
+            $retval .= "'>";
             $retval .= '<span title="' . __('Clear fast filter') . '">X</span>';
             $retval .= "</form>";
             $retval .= "</li>";
@@ -1398,7 +1398,7 @@ class NavigationTree
             $retval .= "<input class='searchClause' type='text'";
             $retval .= " name='searchClause2'";
             $retval .= " placeholder='"
-                . __("Type to filter these, Enter to search all") . "' />";
+                . __("Type to filter these, Enter to search all") . "'>";
             $retval .= "<span title='" . __('Clear fast filter') . "'>X</span>";
             $retval .= "</form>";
             $retval .= "</li>";
