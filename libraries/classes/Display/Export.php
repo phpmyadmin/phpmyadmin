@@ -669,6 +669,11 @@ class Export
             $GLOBALS['single_table'] = $_POST['single_table'];
         }
 
+        // Export a single table
+        if (isset($_GET['single_table'])) {
+            $GLOBALS['single_table'] = $_GET['single_table'];
+        }
+
         /* Scan for plugins */
         /* @var $exportList ExportPlugin[] */
         $exportList = Plugins::getPlugins(
