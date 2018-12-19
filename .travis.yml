@@ -78,9 +78,10 @@ matrix:
       env: CI_MODE=test
       before_install:
         - brew update
-        - brew install openldap libiconv php@7.2 composer mariadb
+        - brew install openldap libiconv php@7.3 composer mariadb
+        - brew link --force php
         - brew link --force gettext
-        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.2/php.ini
+        - sed -i -e 's/^memory_limit = .*/memory_limit = -1/' /usr/local/etc/php/7.3/php.ini
         - mysql.server start
 
   allow_failures:
