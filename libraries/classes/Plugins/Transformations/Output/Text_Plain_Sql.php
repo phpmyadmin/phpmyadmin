@@ -32,7 +32,7 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
             $scripts->addFile('vendor/codemirror/lib/codemirror.js');
             $scripts->addFile('vendor/codemirror/mode/sql/sql.js');
             $scripts->addFile('vendor/codemirror/addon/runmode/runmode.js');
-            $scripts->addFile('function.js');
+            $scripts->addFile('functions.js');
         }
     }
 
