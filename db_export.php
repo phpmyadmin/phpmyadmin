@@ -88,15 +88,6 @@ if (!empty($_POST['selected_tbl']) && empty($table_select)) {
     $table_select = $_POST['selected_tbl'];
 }
 
-// Check if the selected tables are defined in $_POST
-// (from clicking Back button on export.php)
-foreach (['table_select', 'table_structure', 'table_data'] as $one_key) {
-    if (isset($_POST[$one_key])) {
-        $_POST[$one_key] = urldecode($_POST[$one_key]);
-        $_POST[$one_key] = explode(",", $_POST[$one_key]);
-    }
-}
-
 foreach ($tables as $each_table) {
     if (isset($_POST['table_select']) && is_array($_POST['table_select'])) {
         $is_checked = $export->getCheckedClause(

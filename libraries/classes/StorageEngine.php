@@ -192,7 +192,7 @@ class StorageEngine
      */
     public static function getEngine($engine)
     {
-        switch (strtolower($engine)) {
+        switch (mb_strtolower($engine)) {
             case 'bdb':
                 return new Bdb($engine);
             case 'berkeleydb':
