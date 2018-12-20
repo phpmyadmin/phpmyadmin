@@ -86,6 +86,7 @@ matrix:
   allow_failures:
     - php: "nightly"
       env: CI_MODE=test
+    - os: osx
 
 cache:
   pip: true
