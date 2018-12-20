@@ -9,6 +9,7 @@ phpMyAdmin - ChangeLog
 - issue #14786 Table level Operations functions missing
 - issue #14791 PHP warning, db_export.php#L91 urldecode()
 - issue #14775 Export to SQL format not available for tables
+- issue #13788 Exporting a view structure based on another view with a sub-query throws no database selected error
 
 4.8.4 (2018-12-11)
 - issue #14452 Remove hash param in edit query URL
