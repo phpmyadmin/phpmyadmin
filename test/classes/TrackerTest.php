@@ -254,13 +254,15 @@ class TrackerTest extends PmaTestCase
                 'Update_time' => '2013-02-22 21:46:48'
             )
         );
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(3))
             ->method('tryQuery')
             ->withConsecutive(
                 array("SHOW TABLE STATUS FROM `pma_test` WHERE Name = 'pma_tbl'"),
+                array('USE `pma_test`'),
                 array('SHOW CREATE TABLE `pma_test`.`pma_tbl`')
             )
             ->willReturnOnConsecutiveCalls(
+                'res',
                 'res',
                 'res'
             );
