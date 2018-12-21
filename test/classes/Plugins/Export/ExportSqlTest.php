@@ -965,13 +965,15 @@ class ExportSqlTest extends PmaTestCase
             ->with('res')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(3))
             ->method('tryQuery')
             ->withConsecutive(
                 array("SHOW TABLE STATUS FROM `db` WHERE Name = 'table'"),
+                array('USE `db`'),
                 array('SHOW CREATE TABLE `db`.`table`')
             )
             ->willReturnOnConsecutiveCalls(
+                'res',
                 'res',
                 'res'
             );
@@ -1139,13 +1141,15 @@ class ExportSqlTest extends PmaTestCase
             ->with('res')
             ->will($this->returnValue($tmpres));
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(3))
             ->method('tryQuery')
             ->withConsecutive(
                 array("SHOW TABLE STATUS FROM `db` WHERE Name = 'table'"),
+                array('USE `db`'),
                 array('SHOW CREATE TABLE `db`.`table`')
             )
             ->willReturnOnConsecutiveCalls(
+                'res',
                 'res',
                 'res'
             );
