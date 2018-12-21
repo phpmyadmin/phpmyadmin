@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2018-09-14 18:19+0000\n"
-"Last-Translator: Daigo Hamasaki <daigo.hamasaki.16@gmail.com>\n"
+"PO-Revision-Date: 2018-12-21 03:28+0000\n"
+"Last-Translator: F4LL <yuutavx0319@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
 "Language: ja\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:203 libraries/classes/Export.php:1101
 msgid "Bad type!"
@@ -946,7 +946,7 @@ msgstr "保存していない編集がありますが、このページを離れ
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
-msgstr ""
+msgstr "行数を減らそうとしていますが、すでに失われている行にデータを入力しています。 続行しますか？"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
