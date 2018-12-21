@@ -5,6 +5,7 @@ phpMyAdmin - ChangeLog
 - issue        Developer debug data was saved to the PHP error log
 - issue #14217 Fix issue when adding user on MySQL 8.0.11
 - issue #13788 Exporting a view structure based on another view with a sub-query throws no database selected error
+- issue #14635 Fix PHP error in GitRevision, error in processing request, error code 200
 
 4.8.4.1 (not yet released)
 - issue #14794 Not responding to click, frozen interface, plugin Text_Plain_Sql error
