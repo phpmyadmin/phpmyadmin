@@ -463,7 +463,7 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     ];
 } // end for
 
-include 'libraries/tbl_partition_definition.inc.php';
+include ROOT_PATH . 'libraries/tbl_partition_definition.inc.php';
 $html = $template->render('columns_definitions/column_definitions_form', [
     'is_backup' => $is_backup,
     'fields_meta' => isset($fields_meta) ? $fields_meta : null,

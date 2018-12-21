@@ -11,10 +11,14 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  *
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 if (isset($_POST['submit_mult'])) {
     $submit_mult = $_POST['submit_mult'];
@@ -92,7 +96,7 @@ if (!empty($submit_mult)) {
                 }
             }
             $active_page = 'tbl_change.php';
-            include 'tbl_change.php';
+            include ROOT_PATH . 'tbl_change.php';
             break;
 
         case 'row_export':
@@ -112,7 +116,7 @@ if (!empty($submit_mult)) {
                 }
             }
             $active_page = 'tbl_export.php';
-            include 'tbl_export.php';
+            include ROOT_PATH . 'tbl_export.php';
             break;
 
         case 'row_delete':
@@ -126,7 +130,7 @@ if (!empty($submit_mult)) {
                     $original_url_query = $url_query;
                 }
             }
-            include 'libraries/mult_submits.inc.php';
+            include ROOT_PATH . 'libraries/mult_submits.inc.php';
             $_url_params = $GLOBALS['url_params'];
             $_url_params['goto'] = 'tbl_sql.php';
             $url_query = Url::getCommon($_url_params);

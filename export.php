@@ -18,10 +18,14 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Get the variables sent or posted to this script and a core script
  */
-include_once 'libraries/common.inc.php';
+include_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -398,7 +402,7 @@ if ($save_on_server) {
                     __('No tables found in database.')
                 );
                 $active_page = 'db_export.php';
-                include 'db_export.php';
+                include ROOT_PATH . 'db_export.php';
                 exit();
             }
         }

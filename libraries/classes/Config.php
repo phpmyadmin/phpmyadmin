@@ -34,7 +34,7 @@ class Config
     /**
      * @var string  default config source
      */
-    public $default_source = './libraries/config.default.php';
+    public $default_source = ROOT_PATH . 'libraries/config.default.php';
 
     /**
      * @var array   default configuration settings

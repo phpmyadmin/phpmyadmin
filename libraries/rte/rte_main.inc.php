@@ -28,10 +28,10 @@ if (! $response->isAjax()) {
      * Displays the header and tabs
      */
     if (! empty($table) && in_array($table, $GLOBALS['dbi']->getTables($db))) {
-        include_once './libraries/tbl_common.inc.php';
+        include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
     } else {
         $table = '';
-        include_once './libraries/db_common.inc.php';
+        include_once ROOT_PATH . 'libraries/db_common.inc.php';
 
         list(
             $tables,

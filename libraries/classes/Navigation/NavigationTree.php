@@ -19,7 +19,7 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 
-require_once 'libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 /**
  * Displays a collapsible of database objects in the navigation frame

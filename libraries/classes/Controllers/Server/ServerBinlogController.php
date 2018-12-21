@@ -57,7 +57,7 @@ class ServerBinlogController extends Controller
         /**
          * Does the common work
          */
-        include_once 'libraries/server_common.inc.php';
+        include_once ROOT_PATH . 'libraries/server_common.inc.php';
 
         $url_params = [];
         if (! isset($_POST['log'])

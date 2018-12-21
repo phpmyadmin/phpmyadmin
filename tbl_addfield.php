@@ -14,10 +14,14 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Get some core libraries
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();
@@ -126,12 +130,12 @@ if ($abort == false) {
     /**
      * Gets tables information
      */
-    include_once 'libraries/tbl_common.inc.php';
+    include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 
     $active_page = 'tbl_structure.php';
     /**
      * Display the form
      */
     $action = 'tbl_addfield.php';
-    include_once 'libraries/tbl_columns_definition_form.inc.php';
+    include_once ROOT_PATH . 'libraries/tbl_columns_definition_form.inc.php';
 }

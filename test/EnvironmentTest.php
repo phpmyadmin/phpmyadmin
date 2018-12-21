@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 /**
  *
  */
-require_once 'config.sample.inc.php';
+require_once ROOT_PATH . 'config.sample.inc.php';
 
 /**
  * Environment tests

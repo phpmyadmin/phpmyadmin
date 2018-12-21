@@ -14,17 +14,21 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Url;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets the variables sent or posted to this script and displays the header
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 PageSettings::showGroup('Edit');
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once 'libraries/db_table_exists.inc.php';
+require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 
 $insertEdit = new InsertEdit($GLOBALS['dbi']);
 

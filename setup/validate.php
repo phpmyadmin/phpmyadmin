@@ -10,10 +10,14 @@ declare(strict_types=1);
 use PhpMyAdmin\Config\Validator;
 use PhpMyAdmin\Core;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Core libraries.
  */
-require './lib/common.inc.php';
+require ROOT_PATH . 'setup/lib/common.inc.php';
 
 $validators = [];
 

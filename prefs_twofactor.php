@@ -11,12 +11,16 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
-require 'libraries/user_preferences.inc.php';
+require ROOT_PATH . 'libraries/user_preferences.inc.php';
 
 $template = new Template();
 $two_factor = new TwoFactor($GLOBALS['cfg']['Server']['user']);

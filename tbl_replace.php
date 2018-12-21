@@ -24,10 +24,14 @@ use PhpMyAdmin\Table;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 global $url_params;
 
@@ -360,7 +364,7 @@ if ($is_insert && count($value_sets) > 0) {
         $goto_include = 'tbl_change.php';
     }
     $active_page = $goto_include;
-    include '' . Core::securePath($goto_include);
+    include ROOT_PATH . Core::securePath($goto_include);
     exit;
 }
 unset($multi_edit_columns, $is_insertignore);
@@ -535,5 +539,5 @@ if (isset($_POST['after_insert']) && 'new_insert' == $_POST['after_insert']) {
 /**
  * Load target page.
  */
-require '' . Core::securePath($goto_include);
+require ROOT_PATH . Core::securePath($goto_include);
 exit;

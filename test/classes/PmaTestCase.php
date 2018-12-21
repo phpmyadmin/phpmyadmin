@@ -37,7 +37,7 @@ class PmaTestCase extends TestCase
      */
     public static function setUpBeforeClass()
     {
-        require 'libraries/config.default.php';
+        require ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['cfg'] = $cfg;
     }
 

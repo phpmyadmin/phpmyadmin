@@ -14,10 +14,14 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $userPreferences = new UserPreferences();
 
@@ -72,7 +76,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('config.js');
 
-require 'libraries/user_preferences.inc.php';
+require ROOT_PATH . 'libraries/user_preferences.inc.php';
 if ($error) {
     $error->display();
 }

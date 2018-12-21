@@ -352,7 +352,7 @@ class ConfigFileTest extends PmaTestCase
         );
 
         $cfg = [];
-        include './libraries/config.default.php';
+        include ROOT_PATH . 'libraries/config.default.php';
         // verify that $cfg read from config.default.php is valid
         $this->assertGreaterThanOrEqual(100, count($cfg));
         $this->assertGreaterThanOrEqual(count($cfg), count($flat_default_config));
@@ -403,7 +403,7 @@ class ConfigFileTest extends PmaTestCase
      */
     public function testGetDbEntry()
     {
-        $cfg_db = include './libraries/config.values.php';
+        $cfg_db = include ROOT_PATH . 'libraries/config.values.php';
         // verify that $cfg_db read from config.values.php is valid
         $this->assertGreaterThanOrEqual(20, count($cfg_db));
 

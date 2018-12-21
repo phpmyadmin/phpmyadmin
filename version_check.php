@@ -11,9 +11,13 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\VersionInformation;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 $_GET['ajax_request'] = 'true';
 
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // Disabling standard response.
 Response::getInstance()->disable();

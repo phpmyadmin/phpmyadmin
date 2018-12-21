@@ -71,7 +71,7 @@ define('PHPMYADMIN', true);
 /**
  * Load vendor configuration.
  */
-require_once './libraries/vendor_config.php';
+require_once ROOT_PATH . 'libraries/vendor_config.php';
 
 /**
  * Activate autoloader

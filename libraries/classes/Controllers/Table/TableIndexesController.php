@@ -166,7 +166,7 @@ class TableIndexesController extends TableController
                     )
                 );
             } else {
-                include 'tbl_structure.php';
+                include ROOT_PATH . 'tbl_structure.php';
             }
         } else {
             $this->response->setRequestStatus(false);

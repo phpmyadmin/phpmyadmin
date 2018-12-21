@@ -30,7 +30,7 @@ namespace PhpMyAdmin\Display;
 
 use PhpMyAdmin\Template;
 
-require_once './libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 /**
  * PhpMyAdmin\Display\CreateTable class

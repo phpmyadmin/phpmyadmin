@@ -52,5 +52,5 @@ $err_url = PhpMyAdmin\Util::getScriptNameForOption(
  * Skip test if we are exporting as we can't tell whether a table name is an alias (which would fail the test).
  */
 if (basename($_SERVER['PHP_SELF']) != 'tbl_export.php') {
-    require_once './libraries/db_table_exists.inc.php';
+    require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 }

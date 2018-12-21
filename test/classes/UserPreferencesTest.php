@@ -34,7 +34,7 @@ class UserPreferencesTest extends PmaTestCase
     protected function setUp()
     {
         global $cfg;
-        include 'libraries/config.default.php';
+        include ROOT_PATH . 'libraries/config.default.php';
         $GLOBALS['server'] = 0;
         $GLOBALS['PMA_PHP_SELF'] = '/phpmyadmin/';
 

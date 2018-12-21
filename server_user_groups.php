@@ -12,7 +12,11 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Server\UserGroups;
 use PhpMyAdmin\Server\Users;
 
-require_once 'libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $relation = new Relation($GLOBALS['dbi']);
 $relation->getRelationsParam();

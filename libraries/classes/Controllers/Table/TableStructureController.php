@@ -151,7 +151,7 @@ class TableStructureController extends TableController
         /**
          * Function implementations for this script
          */
-        include_once 'libraries/check_user_privileges.inc.php';
+        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
         $this->response->getHeader()->getScripts()->addFiles(
             [
@@ -270,7 +270,7 @@ class TableStructureController extends TableController
                         $GLOBALS['mult_btn'] = $mult_btn_ret;
                         global $mult_btn;
                     }
-                    include 'libraries/mult_submits.inc.php';
+                    include ROOT_PATH . 'libraries/mult_submits.inc.php';
                     /**
                      * if $submit_mult == 'change', execution will have stopped
                      * at this point
@@ -322,7 +322,7 @@ class TableStructureController extends TableController
             $sql_query = $GLOBALS['sql_query'];
             $cfg = $GLOBALS['cfg'];
             $pmaThemeImage = $GLOBALS['pmaThemeImage'];
-            include 'sql.php';
+            include ROOT_PATH . 'sql.php';
             $GLOBALS['reload'] = true;
         }
 
@@ -339,7 +339,7 @@ class TableStructureController extends TableController
         $db = &$this->db;
         $table = &$this->table;
         $url_params = [];
-        include_once 'libraries/tbl_common.inc.php';
+        include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
         $this->_db_is_system_schema = $db_is_system_schema;
         $this->_url_query = Url::getCommonRaw([
             'db' => $db,
@@ -556,8 +556,8 @@ class TableStructureController extends TableController
         /**
          * Form for changing properties.
          */
-        include_once 'libraries/check_user_privileges.inc.php';
-        include 'libraries/tbl_columns_definition_form.inc.php';
+        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
+        include ROOT_PATH . 'libraries/tbl_columns_definition_form.inc.php';
     }
 
     /**
@@ -572,7 +572,7 @@ class TableStructureController extends TableController
             $partitionDetails = $this->_extractPartitionDetails();
         }
 
-        include 'libraries/tbl_partition_definition.inc.php';
+        include ROOT_PATH . 'libraries/tbl_partition_definition.inc.php';
         $this->response->addHTML(
             $this->template->render('table/structure/partition_definition_form', [
                 'db' => $this->db,

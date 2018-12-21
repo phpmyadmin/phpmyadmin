@@ -14,10 +14,14 @@ use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Get some core libraries
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // Check parameters
 Util::checkParameters(['db']);
@@ -114,4 +118,4 @@ $GLOBAL['table'] = '';
 /**
  * Displays the form used to define the structure of the table
  */
-require 'libraries/tbl_columns_definition_form.inc.php';
+require ROOT_PATH . 'libraries/tbl_columns_definition_form.inc.php';

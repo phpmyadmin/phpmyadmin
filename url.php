@@ -11,11 +11,15 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets core libraries and defines some variables
  */
 define('PMA_MINIMUM_COMMON', true);
-require_once './libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // Only output the http headers
 $response = Response::getInstance();

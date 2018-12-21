@@ -40,7 +40,7 @@ class FilesTest extends TestCase
             'ServerDefault' => 1,
         ];
         $GLOBALS['cfg'] = $cfg;
-        require $name;
+        require ROOT_PATH . $name;
         $buffer->stop();
         $out = $buffer->getContents();
         $this->assertContains($expected, $out);

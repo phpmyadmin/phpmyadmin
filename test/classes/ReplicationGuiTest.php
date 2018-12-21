@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 /*
 * Include to test.
 */
-require_once 'libraries/replication.inc.php';
+require_once ROOT_PATH . 'libraries/replication.inc.php';
 
 /**
  * PhpMyAdmin\Tests\ReplicationGuiTest class

@@ -17,10 +17,14 @@ use PhpMyAdmin\Response;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UserPassword;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $response = Response::getInstance();
 $header   = $response->getHeader();

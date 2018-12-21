@@ -87,10 +87,10 @@ class ConfigFile
     {
         // load default config values
         $cfg = &$this->_defaultCfg;
-        include './libraries/config.default.php';
+        include ROOT_PATH . 'libraries/config.default.php';
 
         // load additional config information
-        $this->_cfgDb = include './libraries/config.values.php';
+        $this->_cfgDb = include ROOT_PATH . 'libraries/config.values.php';
 
         // apply default values overrides
         if (count($this->_cfgDb['_overrides'])) {

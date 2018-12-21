@@ -329,7 +329,6 @@ EOT;
             $profiling_table .= "</div>";
             $profiling_table .= "<div class='clearfloat'></div>";
 
-            //require_once 'libraries/chart.lib.php';
             $profiling_table .= '<div id="profilingChartData" class="hide">';
             $profiling_table .= json_encode($chart_json);
             $profiling_table .= '</div>';
