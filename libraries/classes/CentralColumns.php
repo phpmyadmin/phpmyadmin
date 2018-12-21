@@ -954,7 +954,7 @@ class CentralColumns
     private function getEditTableFooter(): string
     {
         return '<fieldset class="tblFooters">'
-            . '<input type="submit" '
+            . '<input class="btn btn-primary" type="submit" '
             . 'name="save_multi_central_column_edit" value="' . __('Save') . '">'
             . '</fieldset>';
     }

@@ -758,7 +758,7 @@ class Privileges
             $html_output .= '<fieldset id="fieldset_user_privtable_footer" '
                 . 'class="tblFooters">' . "\n"
                 . '<input type="hidden" name="update_privs" value="1">' . "\n"
-                . '<input type="submit" value="' . __('Go') . '">' . "\n"
+                . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">' . "\n"
                 . '</fieldset>' . "\n";
         }
         return $html_output;
@@ -2293,7 +2293,7 @@ class Privileges
         $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
             . "\n"
             . '<input type="hidden" name="adduser_submit" value="1">' . "\n"
-            . '<input type="submit" id="adduser_submit" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" id="adduser_submit" value="' . __('Go') . '">'
             . "\n"
             . '</fieldset>' . "\n"
             . '</form>' . "\n";
@@ -3227,7 +3227,7 @@ class Privileges
         $html_output .= '<fieldset id="fieldset_change_copy_user_footer" '
             . 'class="tblFooters">' . "\n"
             . '<input type="hidden" name="change_copy" value="1">' . "\n"
-            . '<input type="submit" value="' . __('Go') . '">' . "\n"
+            . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">' . "\n"
             . '</fieldset>' . "\n"
             . '</form>' . "\n";
 

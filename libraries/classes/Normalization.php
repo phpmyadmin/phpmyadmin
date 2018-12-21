@@ -302,11 +302,10 @@ class Normalization
             . "If no redundant column, click on 'No redundant column'"
         );
         $extra = $this->getHtmlForColumnsList($db, $table, 'all', "checkbox") . "<br>"
-            . '<input type="submit" id="removeRedundant" value="'
+            . '<input class="btn btn-secondary" type="submit" id="removeRedundant" value="'
             . __('Remove selected') . '">'
-            . '<input type="submit" value="' . __('No redundant column')
-            . '" onclick="goToFinish1NF();"'
-            . '>';
+            . '<input class="btn btn-secondary" type="submit" value="' . __('No redundant column')
+            . '" onclick="goToFinish1NF();">';
         return [
             'legendText' => $legendText,
             'headText' => $headText,
@@ -341,11 +340,10 @@ class Normalization
             . "If no such group, click on 'No repeating group'"
         );
         $extra = $this->getHtmlForColumnsList($db, $table, 'all', "checkbox") . "<br>"
-            . '<input type="submit" id="moveRepeatingGroup" value="'
+            . '<input class="btn btn-secondary" type="submit" id="moveRepeatingGroup" value="'
             . __('Done') . '">'
-            . '<input type="submit" value="' . __('No repeating group')
-            . '" onclick="goToStep4();"'
-            . '>';
+            . '<input class="btn btn-secondary" type="submit" value="' . __('No repeating group')
+            . '" onclick="goToStep4();">';
         $primary = Index::getPrimary($table, $db);
         $primarycols = $primary->getColumns();
         $pk = [];
@@ -897,7 +895,7 @@ class Normalization
                 'Hint: Please follow the procedure carefully in order '
                 . 'to obtain correct normalization'
             ) . "</span>"
-            . '<input type="submit" name="submit_normalize" value="' . __('Go') . '">'
+            . '<input class="btn btn-primary" type="submit" name="submit_normalize" value="' . __('Go') . '">'
             . '</fieldset>'
             . '</form>'
             . '</div>';
@@ -966,7 +964,7 @@ class Normalization
             . '<div class="dependencies_box">';
         foreach ($dependencyList as $dependon => $colList) {
             $html .= '<span class="displayblock">'
-                . '<input type="button" class="pickPd" value="' . __('Pick') . '">'
+                . '<input type="button" class="btn btn-secondary pickPd" value="' . __('Pick') . '">'
                 . '<span class="determinants">'
                 . htmlspecialchars(str_replace('`', '', $dependon)) . '</span> -> '
                 . '<span class="dependents">'

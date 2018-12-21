@@ -146,7 +146,7 @@ class ReplicationGui
         $html .= '<fieldset class="tblFooters">';
         $html .= ' <form method="post" action="server_replication.php" >';
         $html .= Url::getHiddenInputs('', '');
-        $html .= '  <input type="submit" value="' . __('Go') . '" id="goButton">';
+        $html .= '  <input id="goButton" class="btn btn-primary" type="submit" value="' . __('Go') . '">';
         $html .= ' </form>';
         $html .= '</fieldset>';
 
@@ -186,7 +186,7 @@ class ReplicationGui
                     . '</option>';
             }
             $html .= '</select>';
-            $html .= ' <input type="submit" value="' . __('Go') . '" id="goButton">';
+            $html .= ' <input class="btn btn-primary" type="submit" value="' . __('Go') . '" id="goButton">';
             $html .= '</form>';
             $html .= '<br><br>';
         }
@@ -344,7 +344,7 @@ class ReplicationGui
             '<input type="text" name="sr_skip_errors_count" value="1" '
             . 'class = "repl_gui_skip_err_cnt">'
         );
-        $html .= '              <input type="submit" name="sr_slave_skip_error" ';
+        $html .= '              <input class="btn btn-primary" type="submit" name="sr_slave_skip_error" ';
         $html .= 'value="' . __('Go') . '">';
         $html .= '      <input type="hidden" name="sr_take_action" value="1">';
         $html .= '    </form></li>';
@@ -482,7 +482,7 @@ class ReplicationGui
         $html .= ' <fieldset id="fieldset_user_privtable_footer" class="tblFooters">';
         $html .= '    <input type="hidden" name="sr_take_action" value="true">';
         $html .= '     <input type="hidden" name="' . $submitname . '" value="1">';
-        $html .= '     <input type="submit" id="confslave_submit" value="';
+        $html .= '     <input class="btn btn-primary" type="submit" id="confslave_submit" value="';
         $html .= __('Go') . '">';
         $html .= ' </fieldset>';
         $html .= '</form>';
@@ -896,7 +896,7 @@ class ReplicationGui
             . '    ' . __('Generate password:')
             . '</label>'
             . '<span class="options">'
-            . '    <input type="button" class="button" '
+            . '    <input type="button" class="btn btn-secondary button" '
             . 'id="button_generate_password" value="' . __('Generate')
             . '" onclick="suggestPassword(this.form)">'
             . '</span>'
@@ -905,7 +905,7 @@ class ReplicationGui
             . '</fieldset>';
         $html .= '<fieldset id="fieldset_user_privtable_footer" class="tblFooters">'
             . '    <input type="hidden" name="adduser_submit" value="1">'
-            . '    <input type="submit" id="adduser_submit" value="' . __('Go') . '">'
+            . '    <input class="btn btn-primary" type="submit" id="adduser_submit" value="' . __('Go') . '">'
             . '</fieldset>';
         return $html;
     }

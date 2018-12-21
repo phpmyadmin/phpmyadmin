@@ -2,6 +2,6 @@
     {{ get_hidden_inputs() }}
     {{ form|raw }}
     {% if show_submit %}
-        <input type="submit" value="{% trans "Verify" %}">
+        <input class="btn btn-primary" type="submit" value="{% trans "Verify" %}">
     {% endif %}
 </form>

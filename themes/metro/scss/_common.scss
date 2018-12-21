@@ -1,60 +1,5 @@
 // Common styles for the Metro theme
 
-// CSS Reset
-/* stylelint-disable-next-line selector-list-comma-newline-after */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-family: sans-serif;
-}
-
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote {
-  &::before,
-  &::after {
-    content: "";
-    content: none;
-  }
-}
-
-q {
-  &::before,
-  &::after {
-    content: "";
-    content: none;
-  }
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 /* fonts */
 
 @font-face {
@@ -478,31 +423,6 @@ input {
     &:focus {
       border: 1px solid $navi-hover-background;
       color: $main-color;
-    }
-  }
-
-  &[type="submit"],
-  &[type="reset"],
-  &[type="button"] {
-    margin-#{$left}: 14px;
-    border: 1px solid $button-background;
-    padding: 4px;
-    color: $button-color;
-    text-decoration: none;
-    background-color: $button-background;
-    font-family: $font-family;
-
-    &:hover {
-      position: relative;
-      cursor: pointer;
-      background-color: $button-hover;
-      border: 1px solid $button-hover;
-    }
-
-    &:active {
-      position: relative;
-      background-color: #333;
-      border: 1px solid #333;
     }
   }
 }
@@ -3499,11 +3419,6 @@ form.append_fields_form .tblFooters {
       margin: 0 65px 10px 10px;
     }
   }
-}
-
-input.btn {
-  color: #333;
-  background-color: #d0dce0;
 }
 
 body .ui-widget {

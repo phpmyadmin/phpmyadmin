@@ -95,7 +95,7 @@
                         <label for="y">{% trans 'Y' %}</label>
                         <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ i }}][y]" value="{{ gis_data[a][type][i]['y'] }}">
                     {% endfor %}
-                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_point]" class="add addPoint" value="{% trans 'Add a point' %}">
+                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_point]" class="btn btn-secondary add addPoint" value="{% trans 'Add a point' %}">
                 {% elseif type == 'MULTILINESTRING' or type == 'POLYGON' %}
                     {% set no_of_lines = gis_data[a][type]['no_of_lines'] ?? 1 %}
                     {% if no_of_lines < 1 %}
@@ -136,10 +136,10 @@
                             <label for="y">{% trans 'Y' %}</label>
                             <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ i }}][{{ j }}][y]" value="{{ gis_data[a][type][i][j]['y'] }}">
                         {% endfor %}
-                        <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ i }}][add_point]" class="add addPoint" value="{% trans 'Add a point' %}">
+                        <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ i }}][add_point]" class="btn btn-secondary add addPoint" value="{% trans 'Add a point' %}">
                     {% endfor %}
                     <br>
-                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_line]" class="add addLine" value="
+                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_line]" class="btn btn-secondary add addLine" value="
                         {{- type == 'MULTILINESTRING' ? 'Add a linestring'|trans : 'Add an inner ring'|trans }}">
                 {% elseif type == 'MULTIPOLYGON' %}
                     {% set no_of_polygons = gis_data[a][type]['no_of_polygons'] ?? 1 %}
@@ -188,25 +188,25 @@
                                 <label for="y">{% trans 'Y' %}</label>
                                 <input type="text" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][{{ j }}][y]" value="{{ gis_data[a][type][k][i][j]['y'] }}">
                             {% endfor %}
-                            <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][add_point]" class="add addPoint" value="{% trans 'Add a point' %}">
+                            <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ k }}][{{ i }}][add_point]" class="btn btn-secondary add addPoint" value="{% trans 'Add a point' %}">
                         {% endfor %}
                         <br>
-                        <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ k }}][add_line]" class="add addLine" value="{% trans 'Add an inner ring' %}">
+                        <input type="submit" name="gis_data[{{ a }}][{{ type }}][{{ k }}][add_line]" class="btn btn-secondary add addLine" value="{% trans 'Add an inner ring' %}">
                         <br>
                     {% endfor %}
                     <br>
-                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_polygon]" class="add addPolygon" value="{% trans 'Add a polygon' %}">
+                    <input type="submit" name="gis_data[{{ a }}][{{ type }}][add_polygon]" class="btn btn-secondary add addPolygon" value="{% trans 'Add a polygon' %}">
                 {% endif %}
             {% endfor %}
             {% if geom_type == 'GEOMETRYCOLLECTION' %}
                 <br><br>
-                <input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="add addGeom" value="{% trans 'Add geometry' %}">
+                <input type="submit" name="gis_data[GEOMETRYCOLLECTION][add_geom]" class="btn btn-secondary add addGeom" value="{% trans 'Add geometry' %}">
             {% endif %}
         </div>
         {# End of data section #}
 
         <br>
-        <input type="submit" name="gis_data[save]" value="{% trans 'Go' %}">
+        <input class="btn btn-primary" type="submit" name="gis_data[save]" value="{% trans 'Go' %}">
 
         <div id="gis_data_output">
             <h3>{% trans 'Output' %}</h3>

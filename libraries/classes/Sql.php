@@ -651,7 +651,7 @@ EOT;
             $html .= '</fieldset>';
             $html .= '<fieldset class="tblFooters">';
             $html .= '<input type="hidden" name="store_bkm" value="1">';
-            $html .= '<input type="submit"'
+            $html .= '<input class="btn btn-secondary" type="submit"'
                 . ' value="' . __('Bookmark this SQL query') . '">';
             $html .= '</fieldset>';
             $html .= '</form>';

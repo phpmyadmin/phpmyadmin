@@ -255,7 +255,7 @@ class BrowseForeignersTest extends TestCase
         );
 
         $this->assertContains(
-            '<input type="submit" name="submit_foreign_filter" value="Go">',
+            '<input class="btn btn-primary" type="submit" name="submit_foreign_filter" value="Go">',
             $result
         );
 

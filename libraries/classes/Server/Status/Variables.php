@@ -49,7 +49,7 @@ class Variables
         $retval .= '<legend>' . __('Filters') . '</legend>';
         $retval .= '<form action="server_status_variables.php" method="post">';
         $retval .= Url::getHiddenInputs();
-        $retval .= '<input type="submit" value="' . __('Refresh') . '">';
+        $retval .= '<input class="btn btn-secondary" type="submit" value="' . __('Refresh') . '">';
         $retval .= '<div class="formelement">';
         $retval .= '<label for="filterText">' . __('Containing the word:') . '</label>';
         $retval .= '<input name="filterText" type="text" id="filterText" '

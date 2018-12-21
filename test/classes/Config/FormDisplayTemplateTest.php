@@ -468,12 +468,12 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertContains(
-            '<input type="submit" name="submit_save" value="Apply"',
+            '<input class="btn btn-primary green" type="submit" name="submit_save" value="Apply"',
             $result
         );
 
         $this->assertContains(
-            '<input type="button" name="submit_reset" value="Reset">',
+            '<input class="btn btn-secondary" type="button" name="submit_reset" value="Reset">',
             $result
         );
 

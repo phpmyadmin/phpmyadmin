@@ -244,24 +244,24 @@ class SqlQueryForm
         // select all, single select, insert, update and delete
         if (! empty($columns_list)) {
             $html .= '<input type="button" value="SELECT *" id="selectall"'
-                . ' class="button sqlbutton">';
+                . ' class="btn btn-secondary button sqlbutton">';
             $html .= '<input type="button" value="SELECT" id="select"'
-                . ' class="button sqlbutton">';
+                . ' class="btn btn-secondary button sqlbutton">';
             $html .= '<input type="button" value="INSERT" id="insert"'
-                . ' class="button sqlbutton">';
+                . ' class="btn btn-secondary button sqlbutton">';
             $html .= '<input type="button" value="UPDATE" id="update"'
-                . ' class="button sqlbutton">';
+                . ' class="btn btn-secondary button sqlbutton">';
             $html .= '<input type="button" value="DELETE" id="delete"'
-                . ' class="button sqlbutton">';
+                . ' class="btn btn-secondary button sqlbutton">';
         }
         $html .= '<input type="button" value="' . __('Clear') . '" id="clear"'
-            . ' class="button sqlbutton">';
+            . ' class="btn btn-secondary button sqlbutton">';
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
             $html .= '<input type="button" value="' . __('Format') . '" id="format"'
-                . ' class="button sqlbutton">';
+                . ' class="btn btn-secondary button sqlbutton">';
         }
         $html .= '<input type="button" value="' . __('Get auto-saved query')
-            . '" id="saved" class="button sqlbutton">';
+            . '" id="saved" class="btn btn-secondary button sqlbutton">';
 
         // parameter binding
         $html .= '<div>';
@@ -294,11 +294,11 @@ class SqlQueryForm
             $html .= '</select>'
                 . '<div id="tablefieldinsertbuttoncontainer">';
             if (Util::showIcons('ActionLinksMode')) {
-                $html .= '<input type="button" class="button" name="insert"'
+                $html .= '<input type="button" class="btn btn-secondary button" name="insert"'
                     . ' value="&lt;&lt;" onclick="insertValueQuery()"'
                     . ' title="' . __('Insert') . '">';
             } else {
-                $html .= '<input type="button" class="button" name="insert"'
+                $html .= '<input type="button" class="btn btn-secondary button" name="insert"'
                     . ' value="' . __('Insert') . '"'
                     . ' onclick="insertValueQuery()">';
             }
@@ -378,7 +378,7 @@ class SqlQueryForm
         $html .= Util::getFKCheckbox();
         $html .= '</div>';
 
-        $html .= '<input type="submit" id="button_submit_query" name="SQL"';
+        $html .= '<input class="btn btn-primary" type="submit" id="button_submit_query" name="SQL"';
 
         $html .= ' tabindex="200" value="' . __('Go') . '">' . "\n";
         $html .= '<div class="clearfloat"></div>' . "\n";
@@ -443,7 +443,7 @@ class SqlQueryForm
         $html .= '</fieldset>' . "\n";
 
         $html .= '<fieldset id="fieldsetBookmarkOptionsFooter" class="tblFooters">';
-        $html .= '<input type="submit" name="SQL" id="button_submit_bookmark" value="'
+        $html .= '<input class="btn btn-primary" type="submit" name="SQL" id="button_submit_bookmark" value="'
             . __('Go') . '">';
         $html .= '<div class="clearfloat"></div>' . "\n";
         $html .= '</fieldset>' . "\n";

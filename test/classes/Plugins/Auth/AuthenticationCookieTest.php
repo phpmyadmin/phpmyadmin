@@ -340,7 +340,7 @@ class AuthenticationCookieTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<input class="g-recaptcha" data-sitekey="testpubkey"'
+            '<input class="btn btn-primary g-recaptcha" data-sitekey="testpubkey"'
             . ' data-callback="recaptchaCallback" value="Go" type="submit" id="input_go">',
             $result
         );

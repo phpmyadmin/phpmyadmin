@@ -527,9 +527,9 @@ class MultSubmits
             $html .= Util::getFKCheckbox();
             $html .= '</div>';
         }
-        $html .= '<input id="buttonYes" type="submit" name="mult_btn" value="'
+        $html .= '<input id="buttonYes" class="btn btn-secondary" type="submit" name="mult_btn" value="'
             . __('Yes') . '">';
-        $html .= '<input id="buttonNo" type="submit" name="mult_btn" value="'
+        $html .= '<input id="buttonNo" class="btn btn-secondary" type="submit" name="mult_btn" value="'
             . __('No') . '">';
         $html .= '</fieldset>';
         $html .= '</form>';

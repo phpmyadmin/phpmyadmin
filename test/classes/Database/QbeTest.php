@@ -255,7 +255,7 @@ class QbeTest extends PmaTestCase
             )
         );
         $this->assertContains(
-            '<input type="submit" name="modify" value="Update Query">',
+            '<input class="btn btn-secondary" type="submit" name="modify" value="Update Query">',
             $this->_callProtectedFunction(
                 '_getTableFooters',
                 []

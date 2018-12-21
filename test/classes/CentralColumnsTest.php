@@ -597,9 +597,7 @@ class CentralColumnsTest extends TestCase
             $result
         );
         $this->assertContains(
-            '<input type="submit" name="navig"'
-            . ' class="ajax" '
-            . 'value="&lt">',
+            '<input class="btn btn-secondary ajax" type="submit" name="navig" value="&lt">',
             $result
         );
         $this->assertContains(
@@ -711,7 +709,7 @@ class CentralColumnsTest extends TestCase
         );
         $this->assertContains("With selected:", $result);
         $this->assertContains(
-            '<button class="mult_submit change_central_columns"',
+            '<button class="btn btn-link mult_submit change_central_columns"',
             $result
         );
     }

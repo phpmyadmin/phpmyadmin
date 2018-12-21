@@ -6,7 +6,7 @@
             <h4>{% trans 'New template:' %}</h4>
             <input type="text" name="templateName" id="templateName"
                 maxlength="64" placeholder="{% trans 'Template name' %}" required>
-            <input type="submit" name="createTemplate" id="createTemplate"
+            <input class="btn btn-secondary" type="submit" name="createTemplate" id="createTemplate"
                 value="{% trans 'Create' %}">
         </form>
     </div>
@@ -18,8 +18,8 @@
             <select name="template" id="template" required>
                 {{ options|raw }}
             </select>
-            <input type="submit" name="updateTemplate" id="updateTemplate" value="{% trans 'Update' %}">
-            <input type="submit" name="deleteTemplate" id="deleteTemplate" value="{% trans 'Delete' %}">
+            <input class="btn btn-secondary" type="submit" name="updateTemplate" id="updateTemplate" value="{% trans 'Update' %}">
+            <input class="btn btn-secondary" type="submit" name="deleteTemplate" id="deleteTemplate" value="{% trans 'Delete' %}">
         </form>
     </div>
 

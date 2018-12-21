@@ -659,7 +659,7 @@ class Index
             . 'min="1" required="required">'
         );
         $html_output .= '<input type="hidden" name="create_index" value="1">'
-            . '<input class="add_index ajax"'
+            . '<input class="btn btn-primary add_index ajax"'
             . ' type="submit" value="' . __('Go') . '">';
 
         $html_output .= '</form>'
