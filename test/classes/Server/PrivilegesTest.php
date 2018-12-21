@@ -1155,8 +1155,16 @@ class PrivilegesTest extends TestCase
         $_POST['authentication_plugin'] = 'mysql_native_password';
         $dbname = "PMA_db";
 
-        list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
-            = Privileges::getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
+        list(
+            $create_user_real,
+            $create_user_show,
+            $real_sql_query,
+            $sql_query,
+            ,
+            ,
+            $alter_real_sql_query,
+            $alter_sql_query
+        ) = Privileges::getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
 
         //validate 1: $create_user_real
         $this->assertEquals(
@@ -1184,9 +1192,19 @@ class PrivilegesTest extends TestCase
             $sql_query
         );
 
+        $this->assertSame(
+            '',
+            $alter_real_sql_query
+        );
+
+        $this->assertSame(
+            '',
+            $alter_sql_query
+        );
+
         //Test for addUserAndCreateDatabase
         list($sql_query, $message) = Privileges::addUserAndCreateDatabase(
-            false, $real_sql_query, $sql_query, $username, $hostname, $dbname
+            false, $real_sql_query, $sql_query, $username, $hostname, $dbname, $alter_real_sql_query, $alter_sql_query
         );
 
         //validate 5: $sql_query
