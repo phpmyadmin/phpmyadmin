@@ -58,7 +58,7 @@ class Select
             $retval .= '<select name="server" id="select_server" class="autosubmit">';
             $retval .= '<option value="">(' . __('Servers') . ') ...</option>' . "\n";
         } elseif ($list) {
-            $retval .= __('Current server:') . '<br />';
+            $retval .= __('Current server:') . '<br>';
             $retval .= '<ul id="list_server">';
         }
 

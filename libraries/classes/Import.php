@@ -1226,10 +1226,10 @@ class Import
         $db_url = 'db_structure.php' . Url::getCommon($params);
         $db_ops_url = 'db_operations.php' . Url::getCommon($params);
 
-        $message = '<br /><br />';
+        $message = '<br><br>';
         $message .= '<strong>' . __(
             'The following structures have either been created or altered. Here you can:'
-        ) . '</strong><br />';
+        ) . '</strong><br>';
         $message .= '<ul><li>' . __(
             "View a structure's contents by clicking on its name."
         ) . '</li>';
@@ -1239,7 +1239,7 @@ class Import
         $message .= '<li>' . __('Edit structure by following the "Structure" link.')
             . '</li>';
         $message .= sprintf(
-            '<br /><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">'
+            '<br><li><a href="%s" title="%s">%s</a> (<a href="%s" title="%s">'
             . __('Options') . '</a>)</li>',
             $db_url,
             sprintf(

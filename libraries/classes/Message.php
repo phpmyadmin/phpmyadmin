@@ -471,7 +471,7 @@ class Message
      *
      * usage
      * <code>
-     * $message->addParamHtml('<img src="img" />');
+     * $message->addParamHtml('<img src="img">');
      * </code>
      *
      * @param string $param parameter to add

@@ -93,13 +93,13 @@ class AuthenticationConfig extends AuthenticationPlugin
         $header->setBodyId('loginform');
         $header->setTitle(__('Access denied!'));
         $header->disableMenuAndConsole();
-        echo '<br /><br />
+        echo '<br><br>
     <center>
         <h1>';
         echo sprintf(__('Welcome to %s'), ' phpMyAdmin ');
         echo '</h1>
     </center>
-    <br />
+    <br>
     <table cellpadding="0" cellspacing="3" class= "auth_config_tbl" width="80%">
         <tr>
             <td>';

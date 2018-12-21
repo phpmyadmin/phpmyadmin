@@ -1983,7 +1983,7 @@ class PrivilegesTest extends TestCase
 
         $this->assertContains(
             '<input type="hidden" name="old_usergroup" value="'
-                . $expected_userGroup . '" />',
+                . $expected_userGroup . '">',
             $html
         );
 
@@ -2459,11 +2459,11 @@ class PrivilegesTest extends TestCase
         // Test case 1
         $actual = $this->serverPrivileges->getHtmlForAllTableSpecificRights('pma', 'host', 'table', 'pmadb');
         $this->assertContains(
-            '<input type="hidden" name="username" value="pma" />',
+            '<input type="hidden" name="username" value="pma">',
             $actual
         );
         $this->assertContains(
-            '<input type="hidden" name="hostname" value="host" />',
+            '<input type="hidden" name="hostname" value="host">',
             $actual
         );
         $this->assertContains(

@@ -757,8 +757,8 @@ class Privileges
         if ($submit) {
             $html_output .= '<fieldset id="fieldset_user_privtable_footer" '
                 . 'class="tblFooters">' . "\n"
-                . '<input type="hidden" name="update_privs" value="1" />' . "\n"
-                . '<input type="submit" value="' . __('Go') . '" />' . "\n"
+                . '<input type="hidden" name="update_privs" value="1">' . "\n"
+                . '<input type="submit" value="' . __('Go') . '">' . "\n"
                 . '</fieldset>' . "\n";
         }
         return $html_output;
@@ -1063,9 +1063,9 @@ class Privileges
         unset($res, $row1, $current);
 
         $html_output = '<input type="hidden" name="grant_count" '
-            . 'value="' . count($row) . '" />' . "\n"
+            . 'value="' . count($row) . '">' . "\n"
             . '<input type="hidden" name="column_count" '
-            . 'value="' . count($columns) . '" />' . "\n"
+            . 'value="' . count($columns) . '">' . "\n"
             . '<fieldset id="fieldset_user_priv">' . "\n"
             . '<legend data-submenu-label="' . __('Table') . '">' . __('Table-specific privileges')
             . '</legend>'
@@ -1190,7 +1190,7 @@ class Privileges
                     ? $GLOBALS[$privGlobalName]
                     : $GLOBALS[$privGlobalName . 'Tbl']
                 )
-                . '"/>' . "\n";
+                . '">' . "\n";
 
             $privGlobalName1 = 'strPrivDesc'
                 . mb_substr(
@@ -1244,7 +1244,7 @@ class Privileges
                 + count($privTable[2])
                 - (isset($row['Grant_priv']) ? 1 : 0)
             )
-            . '" />';
+            . '">';
         if ($db == '*') {
             $legend     = __('Global privileges');
             $menu_label = __('Global');
@@ -1258,7 +1258,7 @@ class Privileges
         $html_output .= '<fieldset id="fieldset_user_global_rights">'
             . '<legend data-submenu-label="' . $menu_label . '">' . $legend
             . '<input type="checkbox" id="addUsersForm_checkall" '
-            . 'class="checkall_box" title="' . __('Check all') . '" /> '
+            . 'class="checkall_box" title="' . __('Check all') . '"> '
             . '<label for="addUsersForm_checkall">' . __('Check all') . '</label> '
             . '</legend>'
             . '<p><small><i>'
@@ -1621,7 +1621,7 @@ class Privileges
             . (! isset($GLOBALS['pred_username'])
                     || $GLOBALS['pred_username'] == 'userdefined'
                 ? 'required="required"'
-                : '') . ' />' . "\n";
+                : '') . '>' . "\n";
 
         $html_output .= '<div id="user_exists_warning"'
             . ' name="user_exists_warning" class="hide">'
@@ -1726,7 +1726,7 @@ class Privileges
                     && $GLOBALS['pred_hostname'] == 'userdefined'
                 ? 'required="required"'
                 : '')
-            . ' />' . "\n"
+            . '>' . "\n"
             . Util::showHint(
                 __(
                     'When Host table is used, this field is ignored '
@@ -1760,7 +1760,7 @@ class Privileges
             . '<input type="password" id="text_pma_pw" name="pma_pw" '
             . 'title="' . __('Password') . '" '
             . (isset($GLOBALS['username']) ? '' : 'required="required"')
-            . '/>' . "\n"
+            . '>' . "\n"
             . '<span>Strength:</span> '
             . '<meter max="4" id="password_strength_meter" name="pw_meter"></meter> '
             . '<span id="password_strength" name="pw_strength"></span>' . "\n"
@@ -1775,7 +1775,7 @@ class Privileges
             . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
             . 'title="' . __('Re-type') . '" '
             . (isset($GLOBALS['username']) ? '' : 'required="required"')
-            . '/>' . "\n"
+            . '>' . "\n"
             . '</div>' . "\n"
             . '<div class="item" id="authentication_plugin_div">'
             . '<label for="select_authentication_plugin" >';
@@ -2261,7 +2261,7 @@ class Privileges
             'onclick' => false,
             'html_field_id' => 'createdb-1',
         ]);
-        $html_output .= '<br />' . "\n";
+        $html_output .= '<br>' . "\n";
         $html_output .= $this->template->render('checkbox', [
             'html_field_name' => 'createdb-2',
             'label' => __('Grant all privileges on wildcard name (username\\_%).'),
@@ -2269,7 +2269,7 @@ class Privileges
             'onclick' => false,
             'html_field_id' => 'createdb-2',
         ]);
-        $html_output .= '<br />' . "\n";
+        $html_output .= '<br>' . "\n";
 
         if (! empty($dbname)) {
             $html_output .= $this->template->render('checkbox', [
@@ -2280,8 +2280,8 @@ class Privileges
                 'html_field_id' => 'createdb-3',
             ]);
             $html_output .= '<input type="hidden" name="dbname" value="'
-                . htmlspecialchars($dbname) . '" />' . "\n";
-            $html_output .= '<br />' . "\n";
+                . htmlspecialchars($dbname) . '">' . "\n";
+            $html_output .= '<br>' . "\n";
         }
 
         $html_output .= '</fieldset>' . "\n";
@@ -2290,8 +2290,8 @@ class Privileges
         }
         $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">'
             . "\n"
-            . '<input type="hidden" name="adduser_submit" value="1" />' . "\n"
-            . '<input type="submit" id="adduser_submit" value="' . __('Go') . '" />'
+            . '<input type="hidden" name="adduser_submit" value="1">' . "\n"
+            . '<input type="submit" id="adduser_submit" value="' . __('Go') . '">'
             . "\n"
             . '</fieldset>' . "\n"
             . '</form>' . "\n";
@@ -2376,7 +2376,7 @@ class Privileges
             $html_output .= '<input type="checkbox" class="checkall" '
                 . 'name="selected_usr[]" '
                 . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
-                . 'value="' . $value . '" /></td>';
+                . 'value="' . $value . '"></td>';
 
             $html_output .= '<td>' . htmlspecialchars($row['User'])
                 . '</td>'
@@ -2701,7 +2701,7 @@ class Privileges
                 $html_output .= '<input type="checkbox" class="checkall" '
                     . 'name="selected_usr[]" '
                     . 'id="checkbox_sel_users_' . ($index_checkbox++) . '" '
-                    . 'value="' . $value . '" /></td>' . "\n";
+                    . 'value="' . $value . '"></td>' . "\n";
 
                 // user
                 $html_output .= '<td';
@@ -3058,7 +3058,7 @@ class Privileges
                 . 'id="checkbox_sel_users_"'
                 . 'value="'
                 . htmlspecialchars($username)
-                . '&amp;#27;' . htmlspecialchars($hostname) . '" />'
+                . '&amp;#27;' . htmlspecialchars($hostname) . '">'
                 . '</td>' . "\n"
                 . '<td><label for="checkbox_sel_users_">'
                 . (empty($_POST['username'])
@@ -3193,14 +3193,14 @@ class Privileges
             . 'method="post" class="copyUserForm submenu-item">' . "\n"
             . Url::getHiddenInputs('', '')
             . '<input type="hidden" name="old_username" '
-            . 'value="' . htmlspecialchars($username) . '" />' . "\n"
+            . 'value="' . htmlspecialchars($username) . '">' . "\n"
             . '<input type="hidden" name="old_hostname" '
-            . 'value="' . htmlspecialchars($hostname) . '" />' . "\n";
+            . 'value="' . htmlspecialchars($hostname) . '">' . "\n";
 
         $usergroup = $this->getUserGroupForUser($username);
         if ($usergroup !== null) {
             $html_output .= '<input type="hidden" name="old_usergroup" '
-            . 'value="' . htmlspecialchars($usergroup) . '" />' . "\n";
+            . 'value="' . htmlspecialchars($usergroup) . '">' . "\n";
         }
 
         $html_output .= '<fieldset id="fieldset_change_copy_user">' . "\n"
@@ -3224,8 +3224,8 @@ class Privileges
 
         $html_output .= '<fieldset id="fieldset_change_copy_user_footer" '
             . 'class="tblFooters">' . "\n"
-            . '<input type="hidden" name="change_copy" value="1" />' . "\n"
-            . '<input type="submit" value="' . __('Go') . '" />' . "\n"
+            . '<input type="hidden" name="change_copy" value="1">' . "\n"
+            . '<input type="submit" value="' . __('Go') . '">' . "\n"
             . '</fieldset>' . "\n"
             . '</form>' . "\n";
 
@@ -3670,7 +3670,7 @@ class Privileges
             'export'
         );
         $html_output .= '<input type="hidden" name="initial" '
-            . 'value="' . (isset($_GET['initial']) ? htmlspecialchars($_GET['initial']) : '') . '" />';
+            . 'value="' . (isset($_GET['initial']) ? htmlspecialchars($_GET['initial']) : '') . '">';
         $html_output .= '</div>'
             . '<div class="clearfloat"></div>';
 
@@ -3722,7 +3722,7 @@ class Privileges
                     . $index_checkbox . '" value="'
                     . htmlspecialchars($host['User'] . '&amp;#27;' . $host['Host'])
                     . '"'
-                    . ' /></td>' . "\n";
+                    . '></td>' . "\n";
 
                 $html_output .= '<td><label '
                     . 'for="checkbox_sel_users_' . $index_checkbox . '">'
@@ -4771,7 +4771,7 @@ class Privileges
                 // This message is hardcoded because I will replace it by
                 // a automatic repair feature soon.
                 $raw = 'Your privilege table structure seems to be older than'
-                    . ' this MySQL version!<br />'
+                    . ' this MySQL version!<br>'
                     . 'Please run the <code>mysql_upgrade</code> command'
                     . ' that should be included in your MySQL server distribution'
                     . ' to solve this problem!';

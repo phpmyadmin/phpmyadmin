@@ -172,17 +172,17 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</div>';
         }
         echo '
-    <br />
+    <br>
     <!-- Login form -->
     <form method="post" id="login_form" action="index.php" name="login_form"' , $autocomplete ,
             ' class="' . ($session_expired ? "" : "disableAjax hide ") . 'login js-show">
         <fieldset>
         <legend>';
-        echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '" />';
+        echo '<input type="hidden" name="set_session" value="', htmlspecialchars(session_id()), '">';
 
         // Add a hidden element session_timedout which is used to check if the user requested login after session expiration
         if($session_expired) {
-            echo '<input type="hidden" name="session_timedout" value="1" />';
+            echo '<input type="hidden" name="session_timedout" value="1">';
         }
         echo __('Log in');
         echo Util::showDocu('index');
@@ -203,19 +203,19 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '" size="24" class="textfield" title="';
             echo __(
                 'You can enter hostname/IP address and port separated by space.'
-            ); echo '" />
+            ); echo '">
             </div>';
         }
             echo '<div class="item">
                 <label for="input_username">' , __('Username:') , '</label>
                 <input type="text" name="pma_username" id="input_username" '
                 , 'value="' , htmlspecialchars($default_user) , '" size="24"'
-                , ' class="textfield"/>
+                , ' class="textfield">
             </div>
             <div class="item">
                 <label for="input_password">' , __('Password:') , '</label>
                 <input type="password" name="pma_password" id="input_password"'
-                , ' value="" size="24" class="textfield" />
+                , ' value="" size="24" class="textfield">
             </div>';
         if (count($GLOBALS['cfg']['Servers']) > 1) {
             echo '<div class="item">
@@ -230,7 +230,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '</select></div>';
         } else {
             echo '    <input type="hidden" name="server" value="'
-                , $GLOBALS['server'] , '" />';
+                , $GLOBALS['server'] , '">';
         } // end if (server choice)
 
         echo '</fieldset><fieldset class="tblFooters">';
@@ -239,13 +239,13 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (empty($GLOBALS['cfg']['CaptchaLoginPrivateKey'])
             && empty($GLOBALS['cfg']['CaptchaLoginPublicKey'])
         ) {
-            echo '<input value="' , __('Go') , '" type="submit" id="input_go" />';
+            echo '<input value="' , __('Go') , '" type="submit" id="input_go">';
         } else {
             echo '<script src="https://www.google.com/recaptcha/api.js?hl='
             , $GLOBALS['lang'] , '" async defer></script>';
             echo '<input class="g-recaptcha" data-sitekey="'
             , htmlspecialchars($GLOBALS['cfg']['CaptchaLoginPublicKey']),'"'
-                . ' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go" />';
+                . ' data-callback="recaptchaCallback" value="' , __('Go') , '" type="submit" id="input_go">';
         }
         $_form_params = [];
         if (! empty($GLOBALS['target'])) {

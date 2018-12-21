@@ -130,15 +130,15 @@
     <fieldset class="tblFooters print_ignore">
         <form action="tbl_structure.php" method="post">
             {{ get_hidden_inputs(db, table) }}
-            <input type="hidden" name="edit_partitioning" value="true" />
+            <input type="hidden" name="edit_partitioning" value="true">
             {% if partitions is empty %}
-                <input type="submit" name="edit_partitioning" value="{% trans 'Partition table' %}" />
+                <input type="submit" name="edit_partitioning" value="{% trans 'Partition table' %}">
             {% else %}
                 {{ link_or_button(remove_url, 'Remove partitioning'|trans, {
                     'class': 'button ajax',
                     'id': 'remove_partitioning'
                 }) }}
-                <input type="submit" name="edit_partitioning" value="{% trans 'Edit partitioning' %}" />
+                <input type="submit" name="edit_partitioning" value="{% trans 'Edit partitioning' %}">
             {% endif %}
         </form>
     </fieldset>

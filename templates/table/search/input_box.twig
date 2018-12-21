@@ -19,7 +19,7 @@
             class="textfield"
             {% if criteria_values[column_index] is defined %}
                 value="{{ criteria_values[column_index] }}"
-            {% endif %} />
+            {% endif %}>
         <a class="ajax browse_foreign" href="browse_foreigners.php" data-post="
             {{- get_common({'db': db, 'table': table}, '') -}}
             &amp;field={{ column_name|url_encode }}&amp;fieldkey=
@@ -32,7 +32,7 @@
         name="criteriaValues[{{ column_index }}]"
         size="40"
         class="textfield"
-        id="field_{{ column_index }}" />
+        id="field_{{ column_index }}">
     {% if in_fbs %}
         {% set edit_url = 'gis_data_editor.php' ~ get_common() %}
         {% set edit_str = get_icon('b_edit', 'Edit/Insert'|trans) %}
@@ -93,5 +93,5 @@
         id="{{ column_id }}{{ column_index }}"
         {% if criteria_values[column_index] is defined %}
            value="{{ criteria_values[column_index] }}"
-        {%- endif %} />
+        {%- endif %}>
 {% endif %}

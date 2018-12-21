@@ -222,17 +222,17 @@ class BrowseForeignersTest extends TestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="field" value="foo" />',
+            '<input type="hidden" name="field" value="foo">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="fieldkey" value="bar" />',
+            '<input type="hidden" name="fieldkey" value="bar">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="rownumber" value="1" />',
+            '<input type="hidden" name="rownumber" value="1">',
             $result
         );
 
@@ -250,12 +250,12 @@ class BrowseForeignersTest extends TestCase
             '<input type="text" name="foreign_filter" '
             . 'id="input_foreign_filter" '
             . 'value="5" data-old="5" '
-            . '/>',
+            . '>',
             $result
         );
 
         $this->assertContains(
-            '<input type="submit" name="submit_foreign_filter" value="Go" />',
+            '<input type="submit" name="submit_foreign_filter" value="Go">',
             $result
         );
 

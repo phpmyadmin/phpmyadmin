@@ -79,17 +79,17 @@ abstract class ImageUploadTransformationsPlugin extends IOTransformationsPlugin
         $src = '';
         if (!empty($value)) {
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
-                . '" value="' . bin2hex($value) . '"/>';
+                . '" value="' . bin2hex($value) . '">';
             $html .= '<input type="hidden" name="fields' . $column_name_appendix
-                . '" value="' . bin2hex($value) . '"/>';
+                . '" value="' . bin2hex($value) . '">';
             $src = 'transformation_wrapper.php' . $options['wrapper_link'];
         }
         $html .= '<img src="' . $src . '" width="'
             . (isset($options[0]) ? intval($options[0]) : '100') . '" height="'
             . (isset($options[1]) ? intval($options[1]) : '100') . '" alt="'
-            . __('Image preview here') . '"/>';
-        $html .= '<br/><input type="file" name="fields_upload'
-            . $column_name_appendix . '" accept="image/*" class="image-upload"/>';
+            . __('Image preview here') . '">';
+        $html .= '<br><input type="file" name="fields_upload'
+            . $column_name_appendix . '" accept="image/*" class="image-upload">';
 
         return $html;
     }

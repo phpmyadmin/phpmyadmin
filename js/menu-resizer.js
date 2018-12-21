@@ -45,16 +45,16 @@
         });
 
         // create submenu container
-        var link = $('<a />', { href: '#', 'class': 'tab nowrap' })
+        var link = $('<a></a>', { href: '#', 'class': 'tab nowrap' })
             .text(PMA_messages.strMore)
             .on('click', false); // same as event.preventDefault()
         var img = $container.find('li img');
         if (img.length) {
             $(PMA_getImage('b_more').toString()).prependTo(link);
         }
-        var $submenu = $('<li />', { 'class': 'submenu' })
+        var $submenu = $('<li></li>', { 'class': 'submenu' })
             .append(link)
-            .append($('<ul />'))
+            .append($('<ul></ul>'))
             .on('mouseenter', function () {
                 if ($(this).find('ul .tabactive').length === 0) {
                     $(this)

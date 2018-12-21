@@ -58,7 +58,7 @@ if (getcwd() == dirname(__FILE__)) {
  */
 if (version_compare(PHP_VERSION, '7.1.0', 'lt')) {
     die(
-        'PHP 7.1+ is required. <br /> Currently installed version is: '
+        'PHP 7.1+ is required. <br> Currently installed version is: '
         . phpversion()
     );
 }
@@ -78,7 +78,7 @@ require_once './libraries/vendor_config.php';
  */
 if (! @is_readable(AUTOLOAD_FILE)) {
     die(
-        'File <tt>' . AUTOLOAD_FILE . '</tt> missing or not readable. <br />'
+        'File <tt>' . AUTOLOAD_FILE . '</tt> missing or not readable. <br>'
         . 'Most likely you did not run Composer to '
         . '<a href="https://docs.phpmyadmin.net/en/latest/setup.html#installing-from-git">install library files</a>.'
     );

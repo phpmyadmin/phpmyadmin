@@ -129,22 +129,22 @@ if (isset($_POST['submit_export'])
             echo '<form action="prefs_manage.php" method="post">';
             echo Url::getHiddenInputs() , "\n";
             echo '<input type="hidden" name="json" value="'
-                , htmlspecialchars($json) , '" />';
-            echo '<input type="hidden" name="fix_errors" value="1" />';
+                , htmlspecialchars($json) , '">';
+            echo '<input type="hidden" name="fix_errors" value="1">';
             if (! empty($_POST['import_merge'])) {
-                echo '<input type="hidden" name="import_merge" value="1" />';
+                echo '<input type="hidden" name="import_merge" value="1">';
             }
             if ($return_url) {
                 echo '<input type="hidden" name="return_url" value="'
-                    , htmlspecialchars($return_url) , '" />';
+                    , htmlspecialchars($return_url) , '">';
             }
             echo '<p>';
             echo __('Do you want to import remaining settings?');
             echo '</p>';
             echo '<input type="submit" name="submit_import" value="'
-                , __('Yes') , '" />';
+                , __('Yes') , '">';
             echo '<input type="submit" name="submit_ignore" value="'
-                , __('No') , '" />';
+                , __('No') , '">';
             echo '</form>';
             exit;
         }
@@ -232,22 +232,22 @@ echo '<h2>' , __('Import') , '</h2>'
     , ' action="prefs_manage.php" method="post" enctype="multipart/form-data">'
     , Util::generateHiddenMaxFileSize($GLOBALS['max_upload_size'])
     , Url::getHiddenInputs()
-    , '<input type="hidden" name="json" value="" />'
+    , '<input type="hidden" name="json" value="">'
     , '<input type="radio" id="import_text_file" name="import_type"'
-    , ' value="text_file" checked="checked" />'
+    , ' value="text_file" checked="checked">'
     , '<label for="import_text_file">' . __('Import from file') . '</label>'
     , '<div id="opts_import_text_file" class="prefsmanage_opts">'
     , '<label for="input_import_file">' , __('Browse your computer:') , '</label>'
-    , '<input type="file" name="import_file" id="input_import_file" />'
+    , '<input type="file" name="import_file" id="input_import_file">'
     , '</div>'
     , '<input type="radio" id="import_local_storage" name="import_type"'
-    , ' value="local_storage" disabled="disabled" />'
+    , ' value="local_storage" disabled="disabled">'
     , '<label for="import_local_storage">'
     , __('Import from browser\'s storage') , '</label>'
     , '<div id="opts_import_local_storage" class="prefsmanage_opts disabled">'
     , '<div class="localStorage-supported">'
     , __('Settings will be imported from your browser\'s local storage.')
-    , '<br />'
+    , '<br>'
     , '<div class="localStorage-exists">'
     , __('Saved on: @DATE@')
     , '</div>'
@@ -261,12 +261,12 @@ Message::notice(
 )->display();
 echo '</div>'
     , '</div>'
-    , '<input type="checkbox" id="import_merge" name="import_merge" />'
+    , '<input type="checkbox" id="import_merge" name="import_merge">'
     , '<label for="import_merge">'
     , __('Merge with current configuration') . '</label>'
-    , '<br /><br />'
+    , '<br><br>'
     , '<input type="submit" name="submit_import" value="'
-    , __('Go') . '" />'
+    , __('Go') . '">'
     , '</form>'
     , '</div>';
 if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
@@ -308,17 +308,17 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
                 <?php echo Url::getHiddenInputs(); ?>
                 <div>
                     <input type="radio" id="export_text_file" name="export_type"
-                           value="text_file" checked="checked" />
+                           value="text_file" checked="checked">
                     <label for="export_text_file">
                         <?php echo __('Save as file'); ?>
-                    </label><br />
+                    </label><br>
                     <input type="radio" id="export_php_file" name="export_type"
-                           value="php_file" />
+                           value="php_file">
                     <label for="export_php_file">
                         <?php echo __('Save as PHP file'); ?>
-                    </label><br />
+                    </label><br>
                     <input type="radio" id="export_local_storage" name="export_type"
-                           value="local_storage" disabled="disabled" />
+                           value="local_storage" disabled="disabled">
                     <label for="export_local_storage">
                         <?php echo __('Save to browser\'s storage'); ?></label>
                 </div>
@@ -349,11 +349,11 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
                         ?>
                     </div>
                 </div>
-                <br />
+                <br>
                 <?php
                 echo '<input type="submit" name="submit_export" value="' , __(
                     'Go'
-                ) , '" />';
+                ) , '">';
                 ?>
             </form>
         </div>
@@ -367,13 +367,13 @@ if (@file_exists('setup/index.php') && ! @file_exists(CONFIG_FILE)) {
                     . 'values.'
                 );
                 ?>
-                <br /><br />
+                <br><br>
                 <input type="submit" name="submit_clear"
-                       value="<?php echo __('Reset'); ?>"/>
+                       value="<?php echo __('Reset'); ?>">
             </form>
         </div>
     </div>
-    <br class="clearfloat" />
+    <br class="clearfloat">
 </div>
 
 <?php

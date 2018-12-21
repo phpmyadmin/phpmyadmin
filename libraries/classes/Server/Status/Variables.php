@@ -49,15 +49,15 @@ class Variables
         $retval .= '<legend>' . __('Filters') . '</legend>';
         $retval .= '<form action="server_status_variables.php" method="post">';
         $retval .= Url::getHiddenInputs();
-        $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
+        $retval .= '<input type="submit" value="' . __('Refresh') . '">';
         $retval .= '<div class="formelement">';
         $retval .= '<label for="filterText">' . __('Containing the word:') . '</label>';
         $retval .= '<input name="filterText" type="text" id="filterText" '
-            . 'value="' . $filterText . '" />';
+            . 'value="' . $filterText . '">';
         $retval .= '</div>';
         $retval .= '<div class="formelement">';
         $retval .= '<input' . $filterAlert . ' type="checkbox" '
-            . 'name="filterAlert" id="filterAlert" />';
+            . 'name="filterAlert" id="filterAlert">';
         $retval .= '<label for="filterAlert">';
         $retval .= __('Show only alert values');
         $retval .= '</label>';
@@ -83,7 +83,7 @@ class Variables
         $retval .= '</div>';
         $retval .= '<div class="formelement">';
         $retval .= '<input' . $dontFormat . ' type="checkbox" '
-            . 'name="dontFormat" id="dontFormat" />';
+            . 'name="dontFormat" id="dontFormat">';
         $retval .= '<label for="dontFormat">';
         $retval .= __('Show unformatted values');
         $retval .= '</label>';
@@ -222,9 +222,9 @@ class Variables
     {
         $retval = '<div class="responsivetable">';
         $retval  .= '<table class="data noclick" id="serverstatusvariables">';
-        $retval .= '<col class="namecol" />';
-        $retval .= '<col class="valuecol" />';
-        $retval .= '<col class="descrcol" />';
+        $retval .= '<col class="namecol">';
+        $retval .= '<col class="valuecol">';
+        $retval .= '<col class="descrcol">';
         $retval .= '<thead>';
         $retval .= '<tr>';
         $retval .= '<th>' . __('Variable') . '</th>';

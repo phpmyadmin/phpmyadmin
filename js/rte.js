@@ -391,7 +391,7 @@ RTE.COMMON = {
         /**
          * @var question String containing the question to be asked for confirmation
          */
-        var question = $('<div/>').text(
+        var question = $('<div></div>').text(
             $curr_row.children('td').children('.drop_sql').html()
         );
         // We ask for confirmation first here, before submitting the ajax request

@@ -376,7 +376,7 @@ var AJAX = {
             msg = data._errSubmitMsg;
         }
         if (data._errors) {
-            $('<div/>', { id : 'pma_errors', class : 'clearfloat' })
+            $('<div></div>', { id : 'pma_errors', class : 'clearfloat' })
                 .insertAfter('#selflink')
                 .append(data._errors);
             // bind for php error reporting forms (bottom)
@@ -571,7 +571,7 @@ var AJAX = {
                     msg = data._errSubmitMsg;
                 }
                 if (data._errors) {
-                    $('<div/>', { id : 'pma_errors', class : 'clearfloat' })
+                    $('<div></div>', { id : 'pma_errors', class : 'clearfloat' })
                         .insertAfter('#selflink')
                         .append(data._errors);
                     // bind for php error reporting forms (bottom)
@@ -615,7 +615,7 @@ var AJAX = {
         } else {
             PMA_ajaxRemoveMessage(AJAX.$msgbox);
             $('div.error, div.success, div#ajaxError').remove();
-            $ajaxError = $('<div/>');
+            $ajaxError = $('<div></div>');
             $ajaxError.attr({ 'id': 'ajaxError' });
             $('#page_content').append($ajaxError);
             $ajaxError.html(data.error);
@@ -813,7 +813,7 @@ AJAX.registerOnload('functions.js', function () {
         if (typeof buttonName === 'undefined') {
             return;
         }
-        $(this).closest('form').append($('<input/>', {
+        $(this).closest('form').append($('<input>', {
             'type' : 'hidden',
             'name' : buttonName,
             'value': $(this).val()

@@ -12,7 +12,7 @@
  **  Display Help/Info
  **/
 function displayHelp () {
-    $('<div />')
+    $('<div></div>')
         .append(PMA_messages.strDisplayHelp)
         .appendTo('#page_content')
         .dialog({

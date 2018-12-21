@@ -263,7 +263,7 @@ class UserPreferencesTest extends PmaTestCase
         $result = $this->userPreferences->save([1]);
 
         $this->assertEquals(
-            'Could not save configuration<br /><br />err1',
+            'Could not save configuration<br><br>err1',
             $result->getMessage()
         );
     }
@@ -412,17 +412,17 @@ class UserPreferencesTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="json" value="" />',
+            '<input type="hidden" name="json" value="">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="submit_import" value="1" />',
+            '<input type="hidden" name="submit_import" value="1">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="return_url" value="phpunit?" />',
+            '<input type="hidden" name="return_url" value="phpunit?">',
             $result
         );
     }

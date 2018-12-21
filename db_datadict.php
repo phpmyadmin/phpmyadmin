@@ -62,7 +62,7 @@ if ($cfgRelation['commwork']) {
      */
     if ($comment) {
         echo '<p>' , __('Database comment')
-            , '<br /><i>' , htmlspecialchars($comment) , '</i></p>';
+            , '<br><i>' , htmlspecialchars($comment) , '</i></p>';
     } // end if
 }
 
@@ -111,7 +111,7 @@ foreach ($tables as $table) {
      */
     if (!empty($show_comment)) {
         echo __('Table comments:') , ' ';
-        echo htmlspecialchars($show_comment) , '<br /><br />';
+        echo htmlspecialchars($show_comment) , '<br><br>';
     }
 
     /**

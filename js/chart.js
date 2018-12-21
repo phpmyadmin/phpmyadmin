@@ -58,7 +58,7 @@ Chart.prototype = {
 };
 
 /**
- * Abstract representation of charts that operates on DataTable where,<br />
+ * Abstract representation of charts that operates on DataTable where,<br>
  * <ul>
  * <li>First column provides index to the data.</li>
  * <li>Each subsequent columns are of type

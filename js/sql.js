@@ -435,7 +435,7 @@ AJAX.registerOnload('sql.js', function () {
                 // cheap trick to add a spacer between the menu tabs
                 // and "Show query box"; feel free to improve!
                 $('#togglequerybox_spacer').remove();
-                $link.before('<br id="togglequerybox_spacer" />');
+                $link.before('<br id="togglequerybox_spacer">');
             } else {
                 $link.text(PMA_messages.strHideQueryBox);
             }
@@ -496,7 +496,7 @@ AJAX.registerOnload('sql.js', function () {
         $varDiv.empty();
         for (var i = 1; i <= varCount; i++) {
             $varDiv.append($('<label for="bookmark_variable_' + i + '">' + PMA_sprintf(PMA_messages.strBookmarkVariable, i) + '</label>'));
-            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '"/>'));
+            $varDiv.append($('<input type="text" size="10" name="bookmark_variable[' + i + ']" id="bookmark_variable_' + i + '">'));
         }
 
         if (varCount === 0) {
@@ -793,7 +793,7 @@ AJAX.registerOnload('sql.js', function () {
                     button_options[PMA_messages.strClose] = function () {
                         $(this).dialog('close');
                     };
-                    var $response_dialog = $('<div />').append($dialog_content).dialog({
+                    var $response_dialog = $('<div></div>').append($dialog_content).dialog({
                         minWidth: 540,
                         maxHeight: 400,
                         modal: true,

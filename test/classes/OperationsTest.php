@@ -164,7 +164,7 @@ class OperationsTest extends TestCase
         $result = $method->invokeArgs($this->operations, ['name', 'lable', 'value']);
 
         $this->assertEquals(
-            '<tr><td class="vmiddle"><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name" value="1"/></td></tr>',
+            '<tr><td class="vmiddle"><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name" value="1"></td></tr>',
             $result
         );
     }

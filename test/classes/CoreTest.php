@@ -560,10 +560,10 @@ class CoreTest extends PmaTestCase
         $testUri_js = Sanitize::escapeJsString($testUri);
 
         $header = "<html>\n<head>\n    <title>- - -</title>
-    <meta http-equiv=\"expires\" content=\"0\" />"
-            . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\" />"
-            . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\" />"
-            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\" />"
+    <meta http-equiv=\"expires\" content=\"0\">"
+            . "\n    <meta http-equiv=\"Pragma\" content=\"no-cache\">"
+            . "\n    <meta http-equiv=\"Cache-Control\" content=\"no-cache\">"
+            . "\n    <meta http-equiv=\"Refresh\" content=\"0;url=" . $testUri_html . "\">"
             . "\n    <script type=\"text/javascript\">\n        //<![CDATA[
         setTimeout(function() { window.location = decodeURI('" . $testUri_js . "'); }, 2000);
         //]]>\n    </script>\n</head>

@@ -27,13 +27,13 @@
             {# Displays hidden fields #}
             <input type="hidden"
                 name="criteriaColumnNames[{{ column_index }}]"
-                value="{{ column_names[column_index] }}" />
+                value="{{ column_names[column_index] }}">
             <input type="hidden"
                 name="criteriaColumnTypes[{{ column_index }}]"
-                value="{{ column_types[column_index] }}" />
+                value="{{ column_types[column_index] }}">
             <input type="hidden"
                 name="criteriaColumnCollations[{{ column_index }}]"
-                value="{{ column_collations[column_index] }}" />
+                value="{{ column_collations[column_index] }}">
         </td>
     </tr>
 {% endfor %}

@@ -182,7 +182,7 @@ class Sanitize
             '[/code]'   => '</code>',
             '[kbd]'     => '<kbd>',
             '[/kbd]'    => '</kbd>',
-            '[br]'      => '<br />',
+            '[br]'      => '<br>',
             '[/a]'      => '</a>',
             '[/doc]'      => '</a>',
             '[sup]'     => '<sup>',

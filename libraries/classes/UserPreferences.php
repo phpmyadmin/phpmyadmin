@@ -170,7 +170,7 @@ class UserPreferences
                 Message::rawError(
                     $GLOBALS['dbi']->getError(DatabaseInterface::CONNECT_CONTROL)
                 ),
-                '<br /><br />'
+                '<br><br>'
             );
             return $message;
         }

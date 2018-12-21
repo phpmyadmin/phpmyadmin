@@ -768,7 +768,7 @@ class TableStructureController extends TableController
             $this->response->addJSON(
                 'message',
                 Message::rawError(
-                    __('Query error') . ':<br />' . $this->dbi->getError()
+                    __('Query error') . ':<br>' . $this->dbi->getError()
                 )
             );
         }
@@ -1058,7 +1058,7 @@ class TableStructureController extends TableController
                 $this->response->addJSON(
                     'message',
                     Message::rawError(
-                        __('Query error') . ':<br />' . $orig_error
+                        __('Query error') . ':<br>' . $orig_error
                     )
                 );
                 $regenerate = true;

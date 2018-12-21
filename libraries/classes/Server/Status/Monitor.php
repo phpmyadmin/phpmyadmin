@@ -44,7 +44,7 @@ class Monitor
 
         $retval .= '<table class="clearfloat tdblock" id="chartGrid"></table>';
         $retval .= '<div id="logTable">';
-        $retval .= '<br/>';
+        $retval .= '<br>';
         $retval .= '</div>';
 
         $retval .= '<script type="text/javascript">';
@@ -75,17 +75,17 @@ class Monitor
         $retval .= __('Log statistics') . '" class="hide">';
         $retval .= '<p>' . __('Selected time range:');
         $retval .= '<input type="text" name="dateStart"'
-            . ' class="datetimefield" value="" /> - ';
-        $retval .= '<input type="text" name="dateEnd" class="datetimefield" value="" />';
+            . ' class="datetimefield" value=""> - ';
+        $retval .= '<input type="text" name="dateEnd" class="datetimefield" value="">';
         $retval .= '</p>';
         $retval .= '<input type="checkbox" id="limitTypes"'
-            . ' value="1" checked="checked" />';
+            . ' value="1" checked="checked">';
         $retval .= '<label for="limitTypes">';
         $retval .= __('Only retrieve SELECT,INSERT,UPDATE and DELETE Statements');
         $retval .= '</label>';
-        $retval .= '<br/>';
+        $retval .= '<br>';
         $retval .= '<input type="checkbox" id="removeVariables"'
-            . ' value="1" checked="checked" />';
+            . ' value="1" checked="checked">';
         $retval .= '<label for="removeVariables">';
         $retval .= __('Remove variable data in INSERT statements for better grouping');
         $retval .= '</label>';
@@ -129,7 +129,7 @@ class Monitor
         $retval .= '<p></p>';
         $retval .= '<img class="ajaxIcon" src="';
         $retval .= $GLOBALS['pmaThemeImage'] . 'ajax_clock_small.gif"';
-        $retval .= ' alt="' . __('Loading…') . '" />';
+        $retval .= ' alt="' . __('Loading…') . '">';
         $retval .= '<div class="ajaxContent"></div>';
         $retval .= '<div class="monitorUse hide">';
         $retval .= '<p></p>';
@@ -154,7 +154,7 @@ class Monitor
         $retval .= Util::getImage('s_attention');
         $retval .= '<strong>';
         $retval .= __('Please note:');
-        $retval .= '</strong><br />';
+        $retval .= '</strong><br>';
         $retval .= __(
             'Enabling the general_log may increase the server load by'
             . ' 5-15%. Also be aware that generating statistics from the logs is a'
@@ -180,18 +180,18 @@ class Monitor
             . __('Add chart') . '" class="hide">';
         $retval .= '<div id="tabGridVariables">';
         $retval .= '<p><input type="text" name="chartTitle" value="'
-            . __('Chart Title') . '" /></p>';
+            . __('Chart Title') . '"></p>';
         $retval .= '<input type="radio" name="chartType"'
-            . ' value="preset" id="chartPreset" />';
+            . ' value="preset" id="chartPreset">';
         $retval .= '<label for="chartPreset">' . __('Preset chart') . '</label>';
-        $retval .= '<select name="presetCharts"></select><br/>';
+        $retval .= '<select name="presetCharts"></select><br>';
         $retval .= '<input type="radio" name="chartType" value="variable" '
-            . 'id="chartStatusVar" checked="checked" />';
+            . 'id="chartStatusVar" checked="checked">';
         $retval .= '<label for="chartStatusVar">';
         $retval .= __('Status variable(s)');
-        $retval .= '</label><br/>';
+        $retval .= '</label><br>';
         $retval .= '<div id="chartVariableSettings">';
-        $retval .= '<label for="chartSeries">' . __('Select series:') . '</label><br />';
+        $retval .= '<label for="chartSeries">' . __('Select series:') . '</label><br>';
         $retval .= '<select id="chartSeries" name="varChartList" size="1">';
         $retval .= '<option>' . __('Commonly monitored') . '</option>';
         $retval .= '<option>Processes</option>';
@@ -207,31 +207,31 @@ class Monitor
         $retval .= '<option>Open_tables</option>';
         $retval .= '<option>Select_full_join</option>';
         $retval .= '<option>Slow_queries</option>';
-        $retval .= '</select><br />';
+        $retval .= '</select><br>';
         $retval .= '<label for="variableInput">';
         $retval .= __('or type variable name:');
         $retval .= ' </label>';
-        $retval .= '<input type="text" name="variableInput" id="variableInput" />';
+        $retval .= '<input type="text" name="variableInput" id="variableInput">';
         $retval .= '<p></p>';
         $retval .= '<input type="checkbox" name="differentialValue"'
-            . ' id="differentialValue" value="differential" checked="checked" />';
+            . ' id="differentialValue" value="differential" checked="checked">';
         $retval .= '<label for="differentialValue">';
         $retval .= __('Display as differential value');
-        $retval .= '</label><br />';
+        $retval .= '</label><br>';
         $retval .= '<input type="checkbox" id="useDivisor"'
-            . ' name="useDivisor" value="1" />';
+            . ' name="useDivisor" value="1">';
         $retval .= '<label for="useDivisor">' . __('Apply a divisor') . '</label>';
         $retval .= '<span class="divisorInput hide">';
-        $retval .= '<input type="text" name="valueDivisor" size="4" value="1" />';
+        $retval .= '<input type="text" name="valueDivisor" size="4" value="1">';
         $retval .= '(<a href="#kibDivisor">' . __('KiB') . '</a>, ';
         $retval .= '<a href="#mibDivisor">' . __('MiB') . '</a>)';
-        $retval .= '</span><br />';
-        $retval .= '<input type="checkbox" id="useUnit" name="useUnit" value="1" />';
+        $retval .= '</span><br>';
+        $retval .= '<input type="checkbox" id="useUnit" name="useUnit" value="1">';
         $retval .= '<label for="useUnit">';
         $retval .= __('Append unit to data values');
         $retval .= '</label>';
         $retval .= '<span class="unitInput hide">';
-        $retval .= '<input type="text" name="valueUnit" size="4" value="" />';
+        $retval .= '<input type="text" name="valueUnit" size="4" value="">';
         $retval .= '</span>';
         $retval .= '<p>';
         $retval .= '<a href="#submitAddSeries"><b>' . __('Add this series') . '</b></a>';
@@ -240,7 +240,7 @@ class Monitor
         $retval .= '</span>';
         $retval .= '</p>';
         $retval .= __('Series in chart:');
-        $retval .= '<br/>';
+        $retval .= '<br>';
         $retval .= '<span id="seriesPreview">';
         $retval .= '<i>' . __('None') . '</i>';
         $retval .= '</span>';
@@ -293,17 +293,17 @@ class Monitor
         $retval .= '</a>';
         $retval .= '<div class="clearfloat paddingtop"></div>';
         $retval .= '<div class="floatleft">';
-        $retval .= __('Refresh rate') . '<br />';
+        $retval .= __('Refresh rate') . '<br>';
         $retval .= Data::getHtmlForRefreshList(
             'gridChartRefresh',
             5,
             [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200]
         );
-        $retval .= '<br />';
+        $retval .= '<br>';
         $retval .= '</div>';
         $retval .= '<div class="floatleft">';
         $retval .= __('Chart columns');
-        $retval .= '<br />';
+        $retval .= '<br>';
         $retval .= '<select name="chartColumns">';
         $retval .= '<option>1</option>';
         $retval .= '<option>2</option>';
@@ -321,7 +321,7 @@ class Monitor
                 . 'You may want to export it if you have a complicated set up.'
             )
         );
-        $retval .= '<br/>';
+        $retval .= '<br>';
         $retval .= '<a class="ajax" href="#importMonitorConfig">';
         $retval .= __('Import');
         $retval .= '</a>';
@@ -352,7 +352,7 @@ class Monitor
         /**
          * Define some data needed on the client side
          */
-        $input = '<input type="hidden" name="%s" value="%s" />';
+        $input = '<input type="hidden" name="%s" value="%s">';
         $form  = '<form id="js_data" class="hide">';
         $form .= sprintf($input, 'server_time', microtime(true) * 1000);
         $form .= sprintf($input, 'server_os', SysInfo::getOs());
@@ -766,7 +766,7 @@ class Monitor
     public function getSuspensionPoints($lastChar)
     {
         if ($lastChar != '.') {
-            return '<br/>...';
+            return '<br>...';
         }
 
         return null;

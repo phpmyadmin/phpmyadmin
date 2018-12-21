@@ -93,7 +93,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
                 }
             }
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
-                . '" value="' . htmlspecialchars($val) . '"/>';
+                . '" value="' . htmlspecialchars($val) . '">';
         }
         $class = 'transform_IPToBin';
         $html .= '<input type="text" name="fields' . $column_name_appendix . '"'
@@ -102,7 +102,7 @@ class Text_Plain_Iptobinary extends IOTransformationsPlugin
             . ' dir="' . $text_dir . '"'
             . ' class="' . $class . '"'
             . ' id="field_' . ($idindex) . '_3"'
-            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
+            . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">';
 
         return $html;
     }

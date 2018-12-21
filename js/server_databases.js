@@ -43,7 +43,7 @@ AJAX.registerOnload('server_databases.js', function () {
         });
         if (! selected_dbs.length) {
             PMA_ajaxShowMessage(
-                $('<div class="notice" />').text(
+                $('<div class="notice"></div>').text(
                     PMA_messages.strNoDatabasesSelected
                 ),
                 2000
@@ -54,7 +54,7 @@ AJAX.registerOnload('server_databases.js', function () {
          * @var question    String containing the question to be asked for confirmation
          */
         var question = PMA_messages.strDropDatabaseStrongWarning + ' ' +
-            PMA_sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br />'));
+            PMA_sprintf(PMA_messages.strDoYouReally, selected_dbs.join('<br>'));
 
         var argsep = PMA_commonParams.get('arg_separator');
         $(this).PMA_confirm(

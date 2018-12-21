@@ -390,14 +390,14 @@ if ($is_insert && (count($value_sets) > 0 || $row_skipped)) {
 }
 if ($row_skipped) {
     $goto_include = 'tbl_change.php';
-    $message->addMessagesString($insert_errors, '<br />');
+    $message->addMessagesString($insert_errors, '<br>');
     $message->isError(true);
 }
 
-$message->addMessages($last_messages, '<br />');
+$message->addMessages($last_messages, '<br>');
 
 if (! empty($warning_messages)) {
-    $message->addMessagesString($warning_messages, '<br />');
+    $message->addMessagesString($warning_messages, '<br>');
     $message->isError(true);
 }
 if (! empty($error_messages)) {

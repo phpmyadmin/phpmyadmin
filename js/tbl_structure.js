@@ -363,13 +363,13 @@ AJAX.registerOnload('tbl_structure.js', function () {
 
         $('#tablestructure').find('tbody tr').each(function () {
             var col_name = $(this).find('input:checkbox').eq(0).val();
-            var hidden_input = $('<input/>')
+            var hidden_input = $('<input>')
                 .prop({
                     name: 'move_columns[]',
                     type: 'hidden'
                 })
                 .val(col_name);
-            columns[columns.length] = $('<li/>')
+            columns[columns.length] = $('<li></li>')
                 .addClass('placeholderDrag')
                 .text(col_name)
                 .append(hidden_input);

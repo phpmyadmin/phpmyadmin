@@ -59,22 +59,22 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="tab_hash" value="" />',
+            '<input type="hidden" name="tab_hash" value="">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="lang" value="en" />',
+            '<input type="hidden" name="lang" value="en">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="token" value="token" />',
+            '<input type="hidden" name="token" value="token">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="0" value="1" />',
+            '<input type="hidden" name="0" value="1">',
             $result
         );
     }
@@ -194,7 +194,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertContains(
             '<img src="themes/dot.gif" title="Documentation" ' .
-            'alt="Documentation" class="icon ic_b_help" /',
+            'alt="Documentation" class="icon ic_b_help"',
             $result
         );
 
@@ -210,7 +210,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertContains(
             '<input type="text" class="all85" name="test/path" id="test/path" ' .
-            'class="custom field-error" value="val" />',
+            'class="custom field-error" value="val">',
             $result
         );
 
@@ -258,7 +258,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertContains(
             '<input type="checkbox" name="test/path" id="test/path" ' .
-            'checked="checked" />',
+            'checked="checked">',
             $result
         );
 
@@ -295,7 +295,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertContains(
             '<input type="text" size="25" name="test/path" id="test/path" ' .
-            'value="val" />',
+            'value="val">',
             $result
         );
 
@@ -312,7 +312,7 @@ class FormDisplayTemplateTest extends TestCase
 
         $this->assertContains(
             '<input type="number" name="test/path" ' .
-            'id="test/path" value="val" />',
+            'id="test/path" value="val">',
             $result
         );
 
@@ -473,7 +473,7 @@ class FormDisplayTemplateTest extends TestCase
         );
 
         $this->assertContains(
-            '<input type="button" name="submit_reset" value="Reset" />',
+            '<input type="button" name="submit_reset" value="Reset">',
             $result
         );
 

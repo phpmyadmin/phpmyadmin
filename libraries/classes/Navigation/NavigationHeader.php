@@ -98,7 +98,7 @@ class NavigationHeader
     {
         $logo = 'phpMyAdmin';
         if (isset($GLOBALS['pmaThemeImage'])) {
-            $imgTag = '<img src="%s%s" ' . 'alt="' . $logo . '" id="imgpmalogo" />';
+            $imgTag = '<img src="%s%s" ' . 'alt="' . $logo . '" id="imgpmalogo">';
             if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
                 $logo = sprintf($imgTag, $GLOBALS['pmaThemeImage'], 'logo_left.png');
             } elseif (@file_exists($GLOBALS['pmaThemeImage'] . 'pma_logo2.png')) {

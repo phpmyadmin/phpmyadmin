@@ -168,10 +168,10 @@ class UtilTest extends PmaTestCase
             . '</label>'
             . '<div id="upload_form_status" class="hide"></div>'
             . '<div id="upload_form_status_info" class="hide"></div>'
-            . '<input type="file" name="import_file" id="input_import_file" />'
+            . '<input type="file" name="import_file" id="input_import_file">'
             . "(" . __('Max: ') . $res . $unit . ")" . "\n"
             . '<input type="hidden" name="MAX_FILE_SIZE" value="'
-            . $size . '" />' . "\n"
+            . $size . '">' . "\n"
         );
     }
 
@@ -920,7 +920,7 @@ class UtilTest extends PmaTestCase
     {
         $this->assertEquals(
             Util::generateHiddenMaxFileSize($size),
-            '<input type="hidden" name="MAX_FILE_SIZE" value="' . $size . '" />'
+            '<input type="hidden" name="MAX_FILE_SIZE" value="' . $size . '">'
         );
     }
 
@@ -1270,7 +1270,7 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg']['ActionLinksMode'] = 'icons';
 
         $this->assertEquals(
-            '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
+            '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment"></span>',
             Util::getIcon('b_comment')
         );
     }
@@ -1290,7 +1290,7 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
-            . '" class="icon ic_b_comment" /></span>',
+            . '" class="icon ic_b_comment"></span>',
             Util::getIcon('b_comment', $alternate_text)
         );
     }
@@ -1312,7 +1312,7 @@ class UtilTest extends PmaTestCase
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="'
             . $alternate_text . '" alt="' . $alternate_text
-            . '" class="icon ic_b_comment" />&nbsp;' . $alternate_text . '</span>',
+            . '" class="icon ic_b_comment">&nbsp;' . $alternate_text . '</span>',
             Util::getIcon('b_comment', $alternate_text, true, false)
         );
     }
@@ -1352,11 +1352,11 @@ class UtilTest extends PmaTestCase
             $html_field_id = $name . '_' . $choice_value;
             $out .= '<input type="radio" name="' . $name . '" id="' . $html_field_id
                 . '" value="' . htmlspecialchars($choice_value) . '"';
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">' . $choice_label
                 . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
         }
 
@@ -1387,11 +1387,11 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">' . $choice_label
                 . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
         }
 
@@ -1429,11 +1429,11 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">' . $choice_label
                 . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
             $out .= '</div>';
             $out .= "\n";
@@ -1473,7 +1473,7 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">' . $choice_label
                 . '</label>';
             $out .= "\n";
@@ -1511,11 +1511,11 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">'
                 . htmlspecialchars($choice_label) . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
         }
 
@@ -1552,11 +1552,11 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">' . $choice_label
                 . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
         }
 
@@ -1596,11 +1596,11 @@ class UtilTest extends PmaTestCase
             if ($choice_value == $checked_choice) {
                 $out .= ' checked="checked"';
             }
-            $out .= ' />' . "\n";
+            $out .= '>' . "\n";
             $out .= '<label for="' . $html_field_id . '">'
                 . htmlspecialchars($choice_label) . '</label>';
             $out .= "\n";
-            $out .= '<br />';
+            $out .= '<br>';
             $out .= "\n";
             $out .= '</div>';
             $out .= "\n";
@@ -1956,7 +1956,7 @@ class UtilTest extends PmaTestCase
         $GLOBALS['cfg']['ServerDefault'] = 1;
 
         $this->assertEquals(
-            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fpage.html%23anchor" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help" /></a>',
+            '<a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fpage.html%23anchor" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>',
             Util::showDocu('page', 'anchor')
         );
     }
@@ -1978,7 +1978,7 @@ class UtilTest extends PmaTestCase
         $expected = '<a href="./url.php?url=https%3A%2F%2Fsecure.php.net%2Fmanual%2F' . $lang
             . '%2F' . $target . '" target="documentation">'
             . '<img src="themes/dot.gif" title="' . __('Documentation') . '" alt="'
-            . __('Documentation') . '" class="icon ic_b_help" /></a>';
+            . __('Documentation') . '" class="icon ic_b_help"></a>';
 
         $this->assertEquals(
             $expected,

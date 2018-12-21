@@ -233,13 +233,13 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertContains(
             '<input type="text" name="pma_username" id="input_username" ' .
-            'value="pmauser" size="24" class="textfield"/>',
+            'value="pmauser" size="24" class="textfield">',
             $result
         );
 
         $this->assertContains(
             '<input type="password" name="pma_password" id="input_password" ' .
-            'value="" size="24" class="textfield" />',
+            'value="" size="24" class="textfield">',
             $result
         );
 
@@ -251,17 +251,17 @@ class AuthenticationCookieTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="target" value="testTarget" />',
+            '<input type="hidden" name="target" value="testTarget">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="db" value="testDb" />',
+            '<input type="hidden" name="db" value="testDb">',
             $result
         );
 
         $this->assertContains(
-            '<input type="hidden" name="table" value="testTable" />',
+            '<input type="hidden" name="table" value="testTable">',
             $result
         );
     }
@@ -329,7 +329,7 @@ class AuthenticationCookieTest extends PmaTestCase
         );
 
         $this->assertContains(
-            '<input type="hidden" name="server" value="0" />',
+            '<input type="hidden" name="server" value="0">',
             $result
         );
 
@@ -341,7 +341,7 @@ class AuthenticationCookieTest extends PmaTestCase
 
         $this->assertContains(
             '<input class="g-recaptcha" data-sitekey="testpubkey"'
-            . ' data-callback="recaptchaCallback" value="Go" type="submit" id="input_go" />',
+            . ' data-callback="recaptchaCallback" value="Go" type="submit" id="input_go">',
             $result
         );
     }

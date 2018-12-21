@@ -79,12 +79,12 @@ abstract class TextFileUploadTransformationsPlugin extends IOTransformationsPlug
         $html = '';
         if (!empty($value)) {
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
-                . '" value="' . htmlspecialchars($value) . '"/>';
+                . '" value="' . htmlspecialchars($value) . '">';
             $html .= '<input type="hidden" name="fields' . $column_name_appendix
-                . '" value="' . htmlspecialchars($value) . '"/>';
+                . '" value="' . htmlspecialchars($value) . '">';
         }
         $html .= '<input type="file" name="fields_upload'
-            . $column_name_appendix . '"/>';
+            . $column_name_appendix . '">';
 
         return $html;
     }

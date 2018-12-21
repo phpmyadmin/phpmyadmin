@@ -275,7 +275,7 @@ class ImportMediawiki extends ImportPlugin
                     // If it's none of the above, then the current line has a bad
                     // format
                     $message = Message::error(
-                        __('Invalid format of mediawiki input on line: <br />%s.')
+                        __('Invalid format of mediawiki input on line: <br>%s.')
                     );
                     $message->addParam($cur_buffer_line);
                     $error = true;

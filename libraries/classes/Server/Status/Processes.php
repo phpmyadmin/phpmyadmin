@@ -169,10 +169,10 @@ class Processes
                 }
                 $retval .= '<img class="icon ic_s_desc soimg" alt="'
                     . __('Descending') . '" title="" src="themes/dot.gif" '
-                    . 'style="display: ' . $desc_display_style . '" />';
+                    . 'style="display: ' . $desc_display_style . '">';
                 $retval .= '<img class="icon ic_s_asc soimg hide" alt="'
                     . __('Ascending') . '" title="" src="themes/dot.gif" '
-                    . 'style="display: ' . $asc_display_style . '" />';
+                    . 'style="display: ' . $asc_display_style . '">';
             }
 
             $retval .= '</a>';
@@ -234,10 +234,10 @@ class Processes
         $retval .= '<legend>' . __('Filters') . '</legend>';
         $retval .= '<form action="server_status_processes.php" method="post">';
         $retval .= Url::getHiddenInputs($url_params);
-        $retval .= '<input type="submit" value="' . __('Refresh') . '" />';
+        $retval .= '<input type="submit" value="' . __('Refresh') . '">';
         $retval .= '<div class="formelement">';
         $retval .= '<input' . $showExecuting . ' type="checkbox" name="showExecuting"'
-            . ' id="showExecuting" class="autosubmit"/>';
+            . ' id="showExecuting" class="autosubmit">';
         $retval .= '<label for="showExecuting">';
         $retval .= __('Show only active');
         $retval .= '</label>';

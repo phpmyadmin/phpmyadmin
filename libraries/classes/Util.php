@@ -156,7 +156,7 @@ class Util
         }
 
         // generate the IMG tag
-        $template = '<img src="themes/dot.gif" title="%s" alt="%s"%s />';
+        $template = '<img src="themes/dot.gif" title="%s" alt="%s"%s>';
         $retval = sprintf($template, $title, $alt, $attr_str);
 
         return $retval;
@@ -192,7 +192,7 @@ class Util
     public static function generateHiddenMaxFileSize($max_size)
     {
         return '<input type="hidden" name="MAX_FILE_SIZE" value="'
-            . $max_size . '" />';
+            . $max_size . '">';
     }
 
     /**
@@ -692,7 +692,7 @@ class Util
             // Replace line breaks
             $server_msg = nl2br($server_msg);
 
-            $error_msg .= '<code>' . $server_msg . '</code><br/>';
+            $error_msg .= '<code>' . $server_msg . '</code><br>';
         }
 
         $error_msg .= '</div>';
@@ -1048,7 +1048,7 @@ class Util
             /* SQL-Parser-Analyzer */
 
             if (! empty($GLOBALS['show_as_php'])) {
-                $new_line = '\\n"<br />' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
+                $new_line = '\\n"<br>' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
                 $query_base = htmlspecialchars(addslashes($query_base));
                 $query_base = preg_replace(
                     '/((\015\012)|(\015)|(\012))/',
@@ -1192,12 +1192,12 @@ class Util
             $retval .= '<form action="sql.php" method="post">';
             $retval .= Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']);
             $retval .= '<input type="hidden" name="sql_query" value="'
-                . htmlspecialchars($sql_query) . '" />';
+                . htmlspecialchars($sql_query) . '">';
 
             // avoid displaying a Profiling checkbox that could
             // be checked, which would reexecute an INSERT, for example
             if (! empty($refresh_link) && self::profilingSupported()) {
-                $retval .= '<input type="hidden" name="profiling_form" value="1" />';
+                $retval .= '<input type="hidden" name="profiling_form" value="1">';
                 $retval .= $template->render('checkbox', [
                     'html_field_name' => 'profiling',
                     'label' => __('Profiling'),
@@ -2174,7 +2174,7 @@ class Util
         if ($GLOBALS['cfg']['ActionLinksMode'] == 'text') {
             return ' <input type="submit" name="' . $button_name . '"'
                 . ' value="' . htmlspecialchars($value) . '"'
-                . ' title="' . htmlspecialchars($text) . '" />' . "\n";
+                . ' title="' . htmlspecialchars($text) . '">' . "\n";
         }
         return '<button class="' . $button_class . '" type="submit"'
             . ' name="' . $button_name . '" value="' . htmlspecialchars($value)
@@ -3330,7 +3330,7 @@ class Util
         $block_html .= __("Browse your computer:") . '</label>'
             . '<div id="upload_form_status" class="hide"></div>'
             . '<div id="upload_form_status_info" class="hide"></div>'
-            . '<input type="file" name="import_file" id="input_import_file" />'
+            . '<input type="file" name="import_file" id="input_import_file">'
             . self::getFormattedMaximumUploadSize($max_upload_size) . "\n"
             // some browsers should respect this :)
             . self::generateHiddenMaxFileSize($max_upload_size) . "\n";
@@ -3949,7 +3949,7 @@ class Util
     {
         return '<p class="print_ignore">'
             . '<input type="button" class="button" id="print" value="'
-            . __('Print') . '" />'
+            . __('Print') . '">'
             . '</p>';
     }
 
@@ -4209,7 +4209,7 @@ class Util
         }
         $retval .= '</a>';
         if ($showText) {
-            $retval .= '<br />';
+            $retval .= '<br>';
         }
         return $retval;
     }

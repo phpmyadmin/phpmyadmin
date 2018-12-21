@@ -112,7 +112,7 @@ class NormalizationTest extends TestCase
             $this->normalization->getHtmlForColumnsList($table, $db)
         );
         $this->assertEquals(
-            '<input type="checkbox" value="col1"/>col1 [ varchar(100) ]</br>',
+            '<input type="checkbox" value="col1">col1 [ varchar(100) ]<br>',
             $this->normalization->getHtmlForColumnsList($table, $db, 'String', 'checkbox')
         );
     }

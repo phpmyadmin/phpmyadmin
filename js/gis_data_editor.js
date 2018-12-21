@@ -26,7 +26,7 @@ function prepareJSVersion () {
     $('#gis_editor').find('input[name=\'gis_data[save]\']')
         .val(PMA_messages.strCopy)
         .insertAfter($('#gis_data_textarea'))
-        .before('<br/><br/>');
+        .before('<br><br>');
 
     // Add close and cancel links
     $('#gis_data_editor').prepend('<a class="close_gis_editor" href="#">' + PMA_messages.strClose + '</a>');
@@ -57,12 +57,12 @@ function prepareJSVersion () {
  * @returns the HTML for a data point
  */
 function addDataPoint (pointNumber, prefix) {
-    return '<br/>' +
+    return '<br>' +
         PMA_sprintf(PMA_messages.strPointN, (pointNumber + 1)) + ': ' +
         '<label for="x">' + PMA_messages.strX + '</label>' +
-        '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value=""/>' +
+        '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value="">' +
         '<label for="y">' + PMA_messages.strY + '</label>' +
-        '<input type="text" name="' + prefix + '[' + pointNumber + '][y]" value=""/>';
+        '<input type="text" name="' + prefix + '[' + pointNumber + '][y]" value="">';
 }
 
 /**
@@ -178,7 +178,7 @@ function openGISEditor () {
     $gis_editor.append(
         '<div id="gis_data_editor">' +
         '<img class="ajaxIcon" id="loadingMonitorIcon" src="' +
-        pmaThemeImage + 'ajax_clock_small.gif" alt=""/>' +
+        pmaThemeImage + 'ajax_clock_small.gif" alt="">' +
         '</div>'
     );
 
@@ -317,7 +317,7 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var noOfLines = parseInt($noOfLinesInput.val(), 10);
 
         // Add the new linesting of inner ring based on the type
-        var html = '<br/>';
+        var html = '<br>';
         var noOfPoints;
         if (type === 'MULTILINESTRING') {
             html += PMA_messages.strLineString + ' ' + (noOfLines + 1) + ':';
@@ -326,12 +326,12 @@ AJAX.registerOnload('gis_data_editor.js', function () {
             html += PMA_messages.strInnerRing + ' ' + noOfLines + ':';
             noOfPoints = 4;
         }
-        html += '<input type="hidden" name="' + prefix + '[' + noOfLines + '][no_of_points]" value="' + noOfPoints + '"/>';
+        html += '<input type="hidden" name="' + prefix + '[' + noOfLines + '][no_of_points]" value="' + noOfPoints + '">';
         for (var i = 0; i < noOfPoints; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfLines + ']'));
         }
         html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]" href="#">+ ' +
-            PMA_messages.strAddPoint + '</a><br/>';
+            PMA_messages.strAddPoint + '</a><br>';
 
         $a.before(html);
         $noOfLinesInput.val(noOfLines + 1);
@@ -350,17 +350,17 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var noOfPolygons = parseInt($noOfPolygonsInput.val(), 10);
 
         // Add the new polygon
-        var html = PMA_messages.strPolygon + ' ' + (noOfPolygons + 1) + ':<br/>';
-        html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1"/>' +
-            '<br/>' + PMA_messages.strOuterRing + ':' +
-            '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][0][no_of_points]" value="4"/>';
+        var html = PMA_messages.strPolygon + ' ' + (noOfPolygons + 1) + ':<br>';
+        html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1">' +
+            '<br>' + PMA_messages.strOuterRing + ':' +
+            '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][0][no_of_points]" value="4">';
         for (var i = 0; i < 4; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
         }
         html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]" href="#">+ ' +
-            PMA_messages.strAddPoint + '</a><br/>' +
+            PMA_messages.strAddPoint + '</a><br>' +
             '<a class="addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]" href="#">+ ' +
-            PMA_messages.strAddInnerRing + '</a><br/><br/>';
+            PMA_messages.strAddInnerRing + '</a><br><br>';
 
         $a.before(html);
         $noOfPolygonsInput.val(noOfPolygons + 1);
@@ -376,15 +376,15 @@ AJAX.registerOnload('gis_data_editor.js', function () {
         var $noOfGeomsInput = $('input[name=\'' + prefix + '[geom_count]' + '\']');
         var noOfGeoms = parseInt($noOfGeomsInput.val(), 10);
 
-        var html1 = PMA_messages.strGeometry + ' ' + (noOfGeoms + 1) + ':<br/>';
+        var html1 = PMA_messages.strGeometry + ' ' + (noOfGeoms + 1) + ':<br>';
         var $geomType = $('select[name=\'gis_data[' + (noOfGeoms - 1) + '][gis_type]\']').clone();
         $geomType.attr('name', 'gis_data[' + noOfGeoms + '][gis_type]').val('POINT');
-        var html2 = '<br/>' + PMA_messages.strPoint + ' :' +
+        var html2 = '<br>' + PMA_messages.strPoint + ' :' +
             '<label for="x"> ' + PMA_messages.strX + ' </label>' +
-            '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][x]" value=""/>' +
+            '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][x]" value="">' +
             '<label for="y"> ' + PMA_messages.strY + ' </label>' +
-            '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][y]" value=""/>' +
-            '<br/><br/>';
+            '<input type="text" name="gis_data[' + noOfGeoms + '][POINT][y]" value="">' +
+            '<br><br>';
 
         $a.before(html1);
         $geomType.insertBefore($a);

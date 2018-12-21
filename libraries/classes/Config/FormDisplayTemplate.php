@@ -72,13 +72,13 @@ class FormDisplayTemplate
         }
         $htmlOutput = '<form method="' . $method . '" action="'
             . htmlspecialchars($action) . '" class="config-form disableAjax">';
-        $htmlOutput .= '<input type="hidden" name="tab_hash" value="" />';
+        $htmlOutput .= '<input type="hidden" name="tab_hash" value="">';
         // we do validation on page refresh when browser remembers field values,
         // add a field with known value which will be used for checks
         if (! $hasCheckPageRefresh) {
             $hasCheckPageRefresh = true;
             $htmlOutput .= '<input type="hidden" name="check_page_refresh" '
-                . ' id="check_page_refresh" value="" />' . "\n";
+                . ' id="check_page_refresh" value="">' . "\n";
         }
         $htmlOutput .= Url::getHiddenInputs('', '', 0, 'server') . "\n";
         $htmlOutput .= Url::getHiddenFields((array)$hiddenFields, '', true);
@@ -109,7 +109,7 @@ class FormDisplayTemplate
             'class' => 'tabs responsivetable',
             'items' => $items,
         ]);
-        $htmlOutput .= '<br />';
+        $htmlOutput .= '<br>';
         $htmlOutput .= '<div class="tabs_contents">';
         return $htmlOutput;
     }
@@ -208,7 +208,7 @@ class FormDisplayTemplate
                         $title = ' title="' . $v[1] . '"';
                     }
                     $icons[$k] = sprintf(
-                        '<img alt="%s" src="%s"%s />',
+                        '<img alt="%s" src="%s"%s>',
                         $v[1],
                         "../themes/pmahomme/img/{$v[0]}.png",
                         $title
@@ -279,11 +279,11 @@ class FormDisplayTemplate
         switch ($type) {
             case 'text':
                 $htmlOutput .= '<input type="text" class="all85" ' . $nameId . $fieldClass
-                . ' value="' . htmlspecialchars($value) . '" />';
+                . ' value="' . htmlspecialchars($value) . '">';
                 break;
             case 'password':
                 $htmlOutput .= '<input type="password" class="all85" ' . $nameId . $fieldClass
-                . ' value="' . htmlspecialchars($value) . '" />';
+                . ' value="' . htmlspecialchars($value) . '">';
                 break;
             case 'short_text':
                 // As seen in the reporting server (#15042) we sometimes receive
@@ -292,16 +292,16 @@ class FormDisplayTemplate
                 if (! is_array($value)) {
                     $htmlOutput .= '<input type="text" size="25" ' . $nameId
                     . $fieldClass . ' value="' . htmlspecialchars($value)
-                    . '" />';
+                    . '">';
                 }
                 break;
             case 'number_text':
                 $htmlOutput .= '<input type="number" ' . $nameId . $fieldClass
-                . ' value="' . htmlspecialchars((string) $value) . '" />';
+                . ' value="' . htmlspecialchars((string) $value) . '">';
                 break;
             case 'checkbox':
                 $htmlOutput .= '<span' . $fieldClass . '><input type="checkbox" ' . $nameId
-                  . ($value ? ' checked="checked"' : '') . ' /></span>';
+                  . ($value ? ' checked="checked"' : '') . '></span>';
                 break;
             case 'select':
                 $htmlOutput .= '<select class="all85" ' . $nameId . $fieldClass . '>';
@@ -387,7 +387,7 @@ class FormDisplayTemplate
             if ($opts['userprefs_allow']) {
                 $htmlOutput .= 'checked="checked"';
             };
-            $htmlOutput .= '/>';
+            $htmlOutput .= '>';
             $htmlOutput .= '</td>';
         } elseif ($isSetupScript) {
             $htmlOutput .= '<td>&nbsp;</td>';

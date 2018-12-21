@@ -5,7 +5,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <input type="hidden" name="operation" value="savePage" />
+                        <input type="hidden" name="operation" value="savePage">
                         {% include 'database/designer/page_selector.twig' with {
                             'pdfwork': pdfwork,
                             'pages': pages
@@ -28,7 +28,7 @@
                 <tr>
                     <td>
                         <label for="selected_value">{% trans 'New page name' %}</label>
-                        <input type="text" name="selected_value" id="selected_value" />
+                        <input type="text" name="selected_value" id="selected_value">
                     </td>
                 </tr>
             </tbody>

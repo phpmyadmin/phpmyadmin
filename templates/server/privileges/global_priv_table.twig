@@ -2,7 +2,7 @@
     <fieldset>
         <legend>
             <input type="checkbox" class="sub_checkall_box" id="checkall_{{ priv_table_names[key] }}_priv"
-                title="{% trans 'Check all' %}" />
+                title="{% trans 'Check all' %}">
             <label for="checkall_{{ priv_table_names[key] }}_priv">{{ priv_table_names[key] }}</label>
         </legend>
         {% for priv in table %}
@@ -10,7 +10,7 @@
             {% set formatted_priv = format_privilege(priv, true) %}
             <div class="item">
                 <input type="checkbox" class="checkall" name="{{ priv[0] }}_priv" id="checkbox_{{ priv[0] }}_priv"
-                    value="Y" title="{{ priv[2] }}" {{ checked }} />
+                    value="Y" title="{{ priv[2] }}" {{ checked }}>
                 <label for="checkbox_{{ priv[0] }}_priv">
                     <code>
                         {{ formatted_priv|raw }}

@@ -73,7 +73,7 @@ class GitRevision
         $author = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR');
         Core::printListItem(
             __('Git revision:') . ' '
-            . $branch . ',<br /> '
+            . $branch . ',<br> '
             . sprintf(
                 __('committed on %1$s by %2$s'),
                 Util::localisedDate(strtotime($committer['date'])),
@@ -83,7 +83,7 @@ class GitRevision
                 . htmlspecialchars($committer['name']) . '</a>'
             )
             . ($author != $committer
-                ? ', <br />'
+                ? ', <br>'
                 . sprintf(
                     __('authored on %1$s by %2$s'),
                     Util::localisedDate(strtotime($author['date'])),

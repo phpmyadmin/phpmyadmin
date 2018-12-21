@@ -404,7 +404,7 @@ class ServerConfigChecks
                         'error',
                         'blowfish_warnings' . count($blowfishWarnings),
                         Descriptions::get('blowfish_secret'),
-                        implode('<br />', $blowfishWarnings)
+                        implode('<br>', $blowfishWarnings)
                     );
                 }
             }

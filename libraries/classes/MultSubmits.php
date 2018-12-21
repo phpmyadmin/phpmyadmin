@@ -414,22 +414,22 @@ class MultSubmits
             . '</select>';
         $html .= '<br><br>';
         $html .= '<strong><label>' . __('Options') . ':</label></strong><br>';
-        $html .= '<input type="radio" id ="what_structure" value="structure" name="what"/>';
+        $html .= '<input type="radio" id ="what_structure" value="structure" name="what">';
         $html .= '<label for="what_structure">' . __('Structure only') . '</label><br>';
-        $html .= '<input type="radio" id ="what_data" value="data" name="what" checked="checked"/>';
+        $html .= '<input type="radio" id ="what_data" value="data" name="what" checked="checked">';
         $html .= '<label for="what_data">' . __('Structure and data') . '</label><br>';
-        $html .= '<input type="radio" id ="what_dataonly" value="dataonly" name="what"/>';
+        $html .= '<input type="radio" id ="what_dataonly" value="dataonly" name="what">';
         $html .= '<label for="what_dataonly">' . __('Data only') . '</label><br><br>';
-        $html .= '<input type="checkbox" id="checkbox_drop" value="true" name="drop_if_exists"/>';
+        $html .= '<input type="checkbox" id="checkbox_drop" value="true" name="drop_if_exists">';
         $html .= '<label for="checkbox_drop">' . __('Add DROP TABLE') . '</label><br>';
-        $html .= '<input type="checkbox" id="checkbox_auto_increment_cp" value="1" name="sql_auto_increment"/>';
+        $html .= '<input type="checkbox" id="checkbox_auto_increment_cp" value="1" name="sql_auto_increment">';
         $html .= '<label for="checkbox_auto_increment_cp">' . __('Add AUTO INCREMENT value') . '</label><br>';
-        $html .= '<input type="checkbox" id="checkbox_constraints" value="1" name="sql_auto_increment" checked="checked"/>';
+        $html .= '<input type="checkbox" id="checkbox_constraints" value="1" name="sql_auto_increment" checked="checked">';
         $html .= '<label for="checkbox_constraints">' . __('Add constraints') . '</label><br><br>';
-        $html .= '<input name="adjust_privileges" value="1" id="checkbox_adjust_privileges" checked="checked" type="checkbox"/>';
+        $html .= '<input name="adjust_privileges" value="1" id="checkbox_adjust_privileges" checked="checked" type="checkbox">';
         $html .= '<label for="checkbox_adjust_privileges">' . __('Adjust privileges') . '<a href="./doc/html/faq.html#faq6-39" target="documentation"><img src="themes/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a></label>';
         $html .= '</fieldset>';
-        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
+        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '">';
         $html .= '</form>';
         return $html;
     }
@@ -451,18 +451,18 @@ class MultSubmits
         $html .= '<tr>';
         $html .= '<td>' . __('From') . '</td>';
         $html .= '<td>';
-        $html .= '<input type="text" name="from_prefix" id="initialPrefix" />';
+        $html .= '<input type="text" name="from_prefix" id="initialPrefix">';
         $html .= '</td>';
         $html .= '</tr>';
         $html .= '<tr>';
         $html .= '<td>' . __('To') . '</td>';
         $html .= '<td>';
-        $html .= '<input type="text" name="to_prefix" id="newPrefix" />';
+        $html .= '<input type="text" name="to_prefix" id="newPrefix">';
         $html .= '</td>';
         $html .= '</tr>';
         $html .= '</table>';
         $html .= '</fieldset>';
-        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
+        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '">';
         $html .= '</form>';
 
         return $html;
@@ -485,13 +485,13 @@ class MultSubmits
         $html .= '<tr>';
         $html .= '<td>' . __('Add prefix') . '</td>';
         $html .= '<td>';
-        $html .= '<input type="text" name="add_prefix" id="txtPrefix" />';
+        $html .= '<input type="text" name="add_prefix" id="txtPrefix">';
         $html .= '</td>';
         $html .= '</tr>';
         $html .= '<tr>';
         $html .= '</table>';
         $html .= '</fieldset>';
-        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '" />';
+        $html .= '<input type="hidden" name="mult_btn" value="' . __('Yes') . '">';
         $html .= '</form>';
 
         return $html;
@@ -528,9 +528,9 @@ class MultSubmits
             $html .= '</div>';
         }
         $html .= '<input id="buttonYes" type="submit" name="mult_btn" value="'
-            . __('Yes') . '" />';
+            . __('Yes') . '">';
         $html .= '<input id="buttonNo" type="submit" name="mult_btn" value="'
-            . __('No') . '" />';
+            . __('No') . '">';
         $html .= '</fieldset>';
         $html .= '</form>';
 
@@ -569,12 +569,12 @@ class MultSubmits
                     // We don't need the clause because the calling panel permits
                     // this feature only when there is a unique index.
                     . ' WHERE ' . htmlspecialchars($selectedValue)
-                    . ';<br />';
+                    . ';<br>';
                     break;
                 case 'drop_db':
                     $fullQuery .= 'DROP DATABASE '
                     . Util::backquote(htmlspecialchars($selectedValue))
-                    . ';<br />';
+                    . ';<br>';
                     $reload = true;
                     break;
 
@@ -592,25 +592,25 @@ class MultSubmits
                 case 'empty_tbl':
                     $fullQuery .= 'TRUNCATE ';
                     $fullQuery .= Util::backquote(htmlspecialchars($selectedValue))
-                            . ';<br />';
+                            . ';<br>';
                     break;
 
                 case 'primary_fld':
                     if ($fullQuery == '') {
                         $fullQuery .= 'ALTER TABLE '
                         . Util::backquote(htmlspecialchars($table))
-                        . '<br />&nbsp;&nbsp;DROP PRIMARY KEY,'
-                        . '<br />&nbsp;&nbsp; ADD PRIMARY KEY('
-                        . '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
+                        . '<br>&nbsp;&nbsp;DROP PRIMARY KEY,'
+                        . '<br>&nbsp;&nbsp; ADD PRIMARY KEY('
+                        . '<br>&nbsp;&nbsp;&nbsp;&nbsp; '
                         . Util::backquote(htmlspecialchars($selectedValue))
                         . ',';
                     } else {
-                        $fullQuery .= '<br />&nbsp;&nbsp;&nbsp;&nbsp; '
+                        $fullQuery .= '<br>&nbsp;&nbsp;&nbsp;&nbsp; '
                         . Util::backquote(htmlspecialchars($selectedValue))
                         . ',';
                     }
                     if ($i == $selectedCount - 1) {
-                        $fullQuery = preg_replace('@,$@', ');<br />', $fullQuery);
+                        $fullQuery = preg_replace('@,$@', ');<br>', $fullQuery);
                     }
                     break;
 
@@ -619,11 +619,11 @@ class MultSubmits
                         $fullQuery .= 'ALTER TABLE '
                         . Util::backquote(htmlspecialchars($table));
                     }
-                    $fullQuery .= '<br />&nbsp;&nbsp;DROP '
+                    $fullQuery .= '<br>&nbsp;&nbsp;DROP '
                     . Util::backquote(htmlspecialchars($selectedValue))
                     . ',';
                     if ($i == $selectedCount - 1) {
-                        $fullQuery = preg_replace('@,$@', ';<br />', $fullQuery);
+                        $fullQuery = preg_replace('@,$@', ';<br>', $fullQuery);
                     }
                     break;
             } // end switch
@@ -632,10 +632,10 @@ class MultSubmits
 
         if ($what == 'drop_tbl') {
             if (!empty($fullQuery)) {
-                $fullQuery .= ';<br />' . "\n";
+                $fullQuery .= ';<br>' . "\n";
             }
             if (!empty($fullQueryViews)) {
-                $fullQuery .= $fullQueryViews . ';<br />' . "\n";
+                $fullQuery .= $fullQueryViews . ';<br>' . "\n";
             }
             unset($fullQueryViews);
         }

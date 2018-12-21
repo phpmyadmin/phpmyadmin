@@ -619,16 +619,16 @@ EOT;
                 . ' class="bookmarkQueryForm print_ignore">';
             $html .= Url::getHiddenInputs();
             $html .= '<input type="hidden" name="db"'
-                . ' value="' . htmlspecialchars($db) . '" />';
-            $html .= '<input type="hidden" name="goto" value="' . $goto . '" />';
+                . ' value="' . htmlspecialchars($db) . '">';
+            $html .= '<input type="hidden" name="goto" value="' . $goto . '">';
             $html .= '<input type="hidden" name="bkm_fields[bkm_database]"'
-                . ' value="' . htmlspecialchars($db) . '" />';
+                . ' value="' . htmlspecialchars($db) . '">';
             $html .= '<input type="hidden" name="bkm_fields[bkm_user]"'
-                . ' value="' . $bkm_user . '" />';
+                . ' value="' . $bkm_user . '">';
             $html .= '<input type="hidden" name="bkm_fields[bkm_sql_query]"'
                 . ' value="'
                 . htmlspecialchars($bkm_sql_query)
-                . '" />';
+                . '">';
             $html .= '<fieldset>';
             $html .= '<legend>';
             $html .= Util::getIcon(
@@ -639,20 +639,20 @@ EOT;
             $html .= '</legend>';
             $html .= '<div class="formelement">';
             $html .= '<label>' . __('Label:');
-            $html .= '<input type="text" name="bkm_fields[bkm_label]" value="" />' .
+            $html .= '<input type="text" name="bkm_fields[bkm_label]" value="">' .
                 '</label>';
             $html .= '</div>';
             $html .= '<div class="formelement">';
             $html .= '<label>' .
-                '<input type="checkbox" name="bkm_all_users" value="true" />';
+                '<input type="checkbox" name="bkm_all_users" value="true">';
             $html .=  __('Let every user access this bookmark') . '</label>';
             $html .= '</div>';
             $html .= '<div class="clearfloat"></div>';
             $html .= '</fieldset>';
             $html .= '<fieldset class="tblFooters">';
-            $html .= '<input type="hidden" name="store_bkm" value="1" />';
+            $html .= '<input type="hidden" name="store_bkm" value="1">';
             $html .= '<input type="submit"'
-                . ' value="' . __('Bookmark this SQL query') . '" />';
+                . ' value="' . __('Bookmark this SQL query') . '">';
             $html .= '</fieldset>';
             $html .= '</form>';
         } else {

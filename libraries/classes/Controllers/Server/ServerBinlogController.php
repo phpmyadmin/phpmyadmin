@@ -221,7 +221,7 @@ class ServerBinlogController extends Controller
         $html .= '<a href="server_binlog.php" data-post="' . Url::getCommon($this_url_params, '')
             . '" title="' . $tempTitle . '">'
             . '<img src="' . $GLOBALS['pmaThemeImage'] . 's_' . $tempImgMode
-            . 'text.png" alt="' . $tempTitle . '" /></a>';
+            . 'text.png" alt="' . $tempTitle . '"></a>';
 
         // we do not now how much rows are in the binlog
         // so we can just force 'NEXT' button

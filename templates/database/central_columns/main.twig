@@ -128,7 +128,7 @@
                             } only %}
                         </td>
                         <td>
-                            <input id="add_column_save" type="submit" value="Save"/>
+                            <input id="add_column_save" type="submit" value="Save">
                         </td>
                     </tr>
                 </tbody>
@@ -148,9 +148,9 @@
                 <td>
                     <form action="db_central_columns.php" method="post">
                         {{ get_hidden_inputs(db) }}
-                        <input type="hidden" name="pos" value="{{ pos - max_rows }}" />
-                        <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
-                        <input type="submit" name="navig" class="ajax" value="&lt" />
+                        <input type="hidden" name="pos" value="{{ pos - max_rows }}">
+                        <input type="hidden" name="total_rows" value="{{ total_rows }}">
+                        <input type="submit" name="navig" class="ajax" value="&lt">
                     </form>
                 </td>
             {% endif %}
@@ -158,7 +158,7 @@
                 <td>
                     <form action="db_central_columns.php" method="post">
                         {{ get_hidden_inputs(db) }}
-                        <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
+                        <input type="hidden" name="total_rows" value="{{ total_rows }}">
                         {{ tn_page_selector | raw }}
                     </form>
                 </td>
@@ -167,9 +167,9 @@
                 <td>
                     <form action="db_central_columns.php" method="post">
                         {{ get_hidden_inputs(db) }}
-                        <input type="hidden" name="pos" value="{{ pos + max_rows }}"/>
-                        <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
-                        <input type="submit" name="navig" class="ajax" value="&gt" />
+                        <input type="hidden" name="pos" value="{{ pos + max_rows }}">
+                        <input type="hidden" name="total_rows" value="{{ total_rows }}">
+                        <input type="submit" name="navig" class="ajax" value="&gt">
                     </form>
                 </td>
             {% endif %}
@@ -193,8 +193,8 @@
             <form id="add_column" action="db_central_columns.php" method="post">
                 {{ get_hidden_inputs(db) | raw }}
                 <input type="hidden" name="add_column" value="add">
-                <input type="hidden" name="pos" value="{{ pos }}" />
-                <input type="hidden" name="total_rows" value="{{ total_rows }}"/>
+                <input type="hidden" name="pos" value="{{ pos }}">
+                <input type="hidden" name="total_rows" value="{{ total_rows }}">
                 {# getHtmlForTableDropdown #}
                 <select name="table-select" id="table-select">
                     <option value="" disabled="disabled" selected="selected">
@@ -273,7 +273,7 @@
                             <input type="hidden" name="edit_save" value="save">
                             <td class="nowrap">
                                 <input type="checkbox" class="checkall" name="selected_fld[]"
-                                value="{{ row['col_name'] }}" id="{{ 'checkbox_row_' ~ row_num }}"/>
+                                value="{{ row['col_name'] }}" id="{{ 'checkbox_row_' ~ row_num }}">
                             </td>
                             <td id="{{ 'edit_' ~ row_num }}" class="edit center">
                                 <a href="#"> {{ get_icon('b_edit', 'Edit' | trans) | raw }}</a>

@@ -212,15 +212,15 @@ class EncodingTest extends TestCase
             $actual
         );
         $this->assertContains(
-            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc" />',
+            '<input type="radio" name="knjenc" value="EUC-JP" id="kj-euc">',
             $actual
         );
         $this->assertContains(
-            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis" />',
+            '<input type="radio" name="knjenc" value="SJIS" id="kj-sjis">',
             $actual
         );
         $this->assertContains(
-            '<input type="checkbox" name="xkana" value="kana" id="kj-kana" />',
+            '<input type="checkbox" name="xkana" value="kana" id="kj-kana">',
             $actual
         );
     }
