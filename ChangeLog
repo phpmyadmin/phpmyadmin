@@ -3,6 +3,7 @@ phpMyAdmin - ChangeLog
 
 4.8.5 (not yet released)
 - issue        Developer debug data was saved to the PHP error log
+- issue #14217 Fix issue when adding user on MySQL 8.0.11
 
 4.8.4.1 (not yet released)
 - issue #14794 Not responding to click, frozen interface, plugin Text_Plain_Sql error
