@@ -272,12 +272,10 @@ class TableBrowseTest extends TestBase
         );
 
         $this->byId("field_2_3")->clear();
-        $this->byId("field_3_3")->clear();
-
-        // shorter date to prevent error,
-        // automatically gets appended with 00:00:00
-        $this->keys("2012-01-2");
         $this->byId("field_2_3")->value("ABCDEFG");
+
+        $this->byId("field_3_3")->clear();
+        $this->byId("field_3_3")->value("2012-01-02");
 
         $this->waitForElement('byId', "buttonYes")->click();
 
