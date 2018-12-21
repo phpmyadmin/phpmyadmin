@@ -243,7 +243,6 @@ class ConfigTest extends PmaTestCase
         ];
     }
 
-
     /**
      * test for CheckGd2
      *
@@ -331,7 +330,6 @@ class ConfigTest extends PmaTestCase
         unset($_SERVER['SERVER_SOFTWARE']);
     }
 
-
     /**
      * return server names
      *
@@ -350,7 +348,6 @@ class ConfigTest extends PmaTestCase
             ],
         ];
     }
-
 
     /**
      * test for CheckWebServerOs
@@ -844,9 +841,16 @@ class ConfigTest extends PmaTestCase
     public function testIsGitRevision()
     {
         $git_location = '';
+
         $this->assertTrue(
             $this->object->isGitRevision($git_location)
         );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         $this->assertEquals('.git', $git_location);
     }
 
@@ -883,6 +887,11 @@ class ConfigTest extends PmaTestCase
             $this->object->isGitRevision()
         );
 
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
@@ -892,13 +901,23 @@ class ConfigTest extends PmaTestCase
             $this->object->isGitRevision()
         );
 
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
-        file_put_contents('.git/config', '');
+        file_put_contents('.git/config','');
 
         $this->assertTrue(
             $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
         );
 
         unlink('.git/config');
@@ -924,9 +943,14 @@ class ConfigTest extends PmaTestCase
         mkdir($test_dir);
         chdir($test_dir);
 
-        file_put_contents('.git', 'gitdir: ./.customgitdir');
+        file_put_contents('.git','gitdir: ./.customgitdir');
         $this->assertFalse(
             $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
         );
 
         unset($_SESSION['git_location']);
@@ -938,13 +962,23 @@ class ConfigTest extends PmaTestCase
             $this->object->isGitRevision()
         );
 
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
-        file_put_contents('.git', 'random data here');
+        file_put_contents('.git','random data here');
 
         $this->assertFalse(
             $this->object->isGitRevision()
+        );
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
         );
 
         unlink('.git');
@@ -955,11 +989,11 @@ class ConfigTest extends PmaTestCase
     }
 
     /**
-     * Test for checkGitRevision
+     * Test for checkGitRevision packs folder
      *
      * @return void
      */
-    public function testCheckGitRevision()
+    public function testCheckGitRevisionPacksFolder()
     {
         $cwd = getcwd();
         $test_dir = "gittestdir";
@@ -971,26 +1005,31 @@ class ConfigTest extends PmaTestCase
         chdir($test_dir);
 
         mkdir('.git');
-        file_put_contents('.git/config', '');
+        file_put_contents('.git/config','');
 
         $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            '0',
+            $this->object->get('PMA_VERSION_GIT')
+        );
 
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
+
+        file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents(
-            '.git/packed-refs',
-            '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
-            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
-            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
-            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
+        file_put_contents('.git/packed-refs',
+        '# pack-refs with: peeled fully-peeled sorted'.PHP_EOL.
+        'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10'.PHP_EOL.
+        '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98'.PHP_EOL.
+        '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master'.PHP_EOL
         );
         mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
         $this->object->checkGitRevision();
@@ -1014,6 +1053,135 @@ class ConfigTest extends PmaTestCase
     }
 
     /**
+     * Test for checkGitRevision packs folder
+     *
+     * @return void
+     */
+    public function testCheckGitRevisionRefFile()
+    {
+        $cwd = getcwd();
+        $test_dir = "gittestdir";
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir($test_dir);
+        chdir($test_dir);
+
+        mkdir('.git');
+        file_put_contents('.git/config','');
+
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            '0',
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+
+        file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
+        mkdir('.git/refs/remotes/origin', 0777, true);
+        file_put_contents('.git/refs/remotes/origin/master','c1f2ff2eb0c3fda741f859913fd589379f4e4a8f');
+        mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            0,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        unlink('.git/refs/remotes/origin/master');
+        rmdir('.git/refs/remotes/origin');
+        rmdir('.git/refs/remotes');
+        rmdir('.git/refs');
+        rmdir(".git/objects/pack");
+        rmdir(".git/objects");
+        unlink('.git/HEAD');
+        unlink('.git/config');
+        rmdir('.git');
+
+        chdir($cwd);
+        rmdir($test_dir);
+    }
+
+    /**
+     * Test for checkGitRevision with packs as file
+     *
+     * @return void
+     */
+    public function testCheckGitRevisionPacksFile()
+    {
+        $cwd = getcwd();
+        $test_dir = "gittestdir";
+
+        unset($_SESSION['git_location']);
+        unset($_SESSION['is_git_revision']);
+
+        mkdir($test_dir);
+        chdir($test_dir);
+
+        mkdir('.git');
+        file_put_contents('.git/config','');
+
+        $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            '0',
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+
+        file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
+        $this->object->checkGitRevision();
+        $this->assertEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+
+        file_put_contents('.git/packed-refs',
+            '# pack-refs with: peeled fully-peeled sorted'.PHP_EOL.
+            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10'.PHP_EOL.
+            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98'.PHP_EOL.
+            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master'.PHP_EOL
+        );
+        mkdir('.git/objects/info', 0777 ,true);
+        file_put_contents('.git/objects/info/packs',
+            'P pack-faea49765800da462c70bea555848cc8c7a1c28d.pack'. PHP_EOL .
+            '  pack-.pack'. PHP_EOL .
+            PHP_EOL .
+            'P pack-420568bae521465fd11863bff155a2b2831023.pack'. PHP_EOL .
+            PHP_EOL
+        );
+
+        $this->object->checkGitRevision();
+
+        $this->assertNotEmpty(
+            $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+        $this->assertNotEmpty(
+            $this->object->get('PMA_VERSION_GIT_BRANCH')
+        );
+
+        unlink(".git/objects/info/packs");
+        rmdir(".git/objects/info");
+        rmdir(".git/objects");
+        unlink('.git/packed-refs');
+        unlink('.git/HEAD');
+        unlink('.git/config');
+        rmdir('.git');
+
+        chdir($cwd);
+        rmdir($test_dir);
+    }
+
+    /**
      * Test for checkGitRevision
      *
      * @return void
@@ -1022,8 +1190,70 @@ class ConfigTest extends PmaTestCase
     {
         $this->object->set('ShowGitRevision', false);
         $this->object->checkGitRevision();
+
+        $this->assertEquals(
+            null,
+            $this->object->get('PMA_VERSION_GIT')
+        );
+
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
+        );
+    }
+
+    /**
+     * Test for git infos in session
+     *
+     * @return void
+     */
+    public function testSessionCacheGitFolder()
+    {
+        $_SESSION['git_location'] = 'customdir/.git';
+        $_SESSION['is_git_revision'] = true;
+        $gitFolder = '';
+        $this->assertTrue($this->object->isGitRevision($gitFolder));
+
+        $this->assertEquals(
+            $gitFolder,
+            'customdir/.git'
+        );
+    }
+
+    /**
+     * Test that git folder is not looked up if cached value is false
+     *
+     * @return void
+     */
+    public function testSessionCacheGitFolderNotRevisionNull()
+    {
+        $_SESSION['is_git_revision'] = false;
+        $_SESSION['git_location'] = null;
+        $gitFolder = 'defaultvaluebyref';
+        $this->assertFalse($this->object->isGitRevision($gitFolder));
+
+        // Assert that the value is replaced by cached one
+        $this->assertEquals(
+            $gitFolder,
+            null
+        );
+    }
+
+    /**
+     * Test that git folder is not looked up if cached value is false
+     *
+     * @return void
+     */
+    public function testSessionCacheGitFolderNotRevisionString()
+    {
+        $_SESSION['is_git_revision'] = false;
+        $_SESSION['git_location'] = 'randomdir/.git';
+        $gitFolder = 'defaultvaluebyref';
+        $this->assertFalse($this->object->isGitRevision($gitFolder));
+
+        // Assert that the value is replaced by cached one
+        $this->assertEquals(
+            $gitFolder,
+            'randomdir/.git'
         );
     }
 

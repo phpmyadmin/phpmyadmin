@@ -248,13 +248,15 @@ class TrackerTest extends PmaTestCase
             ->with('pma_test', 'pma_tbl')
             ->will($this->returnValue($getIndexesResult));
 
-        $dbi->expects($this->exactly(2))
+        $dbi->expects($this->exactly(3))
             ->method('tryQuery')
             ->withConsecutive(
                 ["SHOW TABLE STATUS FROM `pma_test` WHERE Name = 'pma_tbl'"],
+                ['USE `pma_test`'],
                 ['SHOW CREATE TABLE `pma_test`.`pma_tbl`']
             )
             ->willReturnOnConsecutiveCalls(
+                'res',
                 'res',
                 'res'
             );
