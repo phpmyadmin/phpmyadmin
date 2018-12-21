@@ -1018,7 +1018,6 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-
         file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
         $this->assertEmpty(
@@ -1026,10 +1025,10 @@ class ConfigTest extends PmaTestCase
         );
 
         file_put_contents('.git/packed-refs',
-        '# pack-refs with: peeled fully-peeled sorted'.PHP_EOL.
-        'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10'.PHP_EOL.
-        '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98'.PHP_EOL.
-        '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master'.PHP_EOL
+        '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
+        'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
+        '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
+        '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
         );
         mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
         $this->object->checkGitRevision();
@@ -1081,7 +1080,6 @@ class ConfigTest extends PmaTestCase
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
-
 
         file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         mkdir('.git/refs/remotes/origin', 0777, true);
@@ -1138,7 +1136,6 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-
         file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
         $this->assertEmpty(
@@ -1146,17 +1143,17 @@ class ConfigTest extends PmaTestCase
         );
 
         file_put_contents('.git/packed-refs',
-            '# pack-refs with: peeled fully-peeled sorted'.PHP_EOL.
-            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10'.PHP_EOL.
-            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98'.PHP_EOL.
-            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master'.PHP_EOL
+            '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
+            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
+            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
+            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
         );
         mkdir('.git/objects/info', 0777 ,true);
         file_put_contents('.git/objects/info/packs',
-            'P pack-faea49765800da462c70bea555848cc8c7a1c28d.pack'. PHP_EOL .
-            '  pack-.pack'. PHP_EOL .
+            'P pack-faea49765800da462c70bea555848cc8c7a1c28d.pack' . PHP_EOL .
+            '  pack-.pack' . PHP_EOL .
             PHP_EOL .
-            'P pack-420568bae521465fd11863bff155a2b2831023.pack'. PHP_EOL .
+            'P pack-420568bae521465fd11863bff155a2b2831023.pack' . PHP_EOL .
             PHP_EOL
         );
 
