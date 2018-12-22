@@ -8,6 +8,10 @@
  */
 declare(strict_types=1);
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 use PhpMyAdmin\CentralColumns;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Message;
@@ -17,7 +21,7 @@ use PhpMyAdmin\Url;
 /**
  * Gets some core libraries
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $centralColumns = new CentralColumns($GLOBALS['dbi']);
 

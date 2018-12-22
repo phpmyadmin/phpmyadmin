@@ -10,10 +10,14 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Core libraries.
  */
-require './lib/common.inc.php';
+require ROOT_PATH . 'setup/lib/common.inc.php';
 
 if (@file_exists(CONFIG_FILE) && ! $cfg['DBG']['demo']) {
     Core::fatalError(__('Configuration already exists, setup is disabled!'));
@@ -24,7 +28,7 @@ $page = preg_replace('/[^a-z]/', '', $page);
 if ($page === '') {
     $page = 'index';
 }
-if (!@file_exists("./setup/frames/$page.inc.php")) {
+if (!@file_exists(ROOT_PATH . "setup/frames/$page.inc.php")) {
     // it will happen only when entering URL by hand, we don't care for these cases
     Core::fatalError(__('Wrong GET file attribute value'));
 }
@@ -56,12 +60,12 @@ Core::noCacheHeader();
 <h1><span class="blue">php</span><span class="orange">MyAdmin</span>  setup</h1>
 <div id="menu">
 <?php
-require './setup/frames/menu.inc.php';
+require ROOT_PATH . 'setup/frames/menu.inc.php';
 ?>
 </div>
 <div id="page">
 <?php
-require "./setup/frames/$page.inc.php";
+require ROOT_PATH . "setup/frames/$page.inc.php";
 ?>
 </div>
 </body>

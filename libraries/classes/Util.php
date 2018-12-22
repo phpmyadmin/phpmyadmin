@@ -464,12 +464,8 @@ class Util
         /* Check if we have built local documentation, however
          * provide consistent URL for testsuite
          */
-        if (! defined('TESTSUITE') && @file_exists('doc/html/index.html')) {
-            if ($GLOBALS['PMA_Config']->get('is_setup')) {
-                return '../doc/html/' . $url;
-            }
-
-            return './doc/html/' . $url;
+        if (! defined('TESTSUITE') && @file_exists(ROOT_PATH . 'doc/html/index.html')) {
+            return ROOT_PATH . 'doc/html/' . $url;
         }
 
         return Core::linkURL('https://docs.phpmyadmin.net/en/latest/' . $url);

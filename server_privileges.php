@@ -16,15 +16,19 @@ use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Server\Users;
 use PhpMyAdmin\Template;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * include common file
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
  * functions implementation for this script
  */
-require_once 'libraries/check_user_privileges.inc.php';
+require_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
 $relation = new Relation($GLOBALS['dbi']);
 $cfgRelation = $relation->getRelationsParam();
@@ -61,7 +65,7 @@ $post_patterns = [
 
 Core::setPostAsGlobal($post_patterns);
 
-require 'libraries/server_common.inc.php';
+require ROOT_PATH . 'libraries/server_common.inc.php';
 
 /**
  * Messages are built using the message name

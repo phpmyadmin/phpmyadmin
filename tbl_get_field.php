@@ -11,10 +11,14 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Mime;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Common functions.
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 // we don't want the usual PhpMyAdmin\Response-generated HTML above the column's
 // data

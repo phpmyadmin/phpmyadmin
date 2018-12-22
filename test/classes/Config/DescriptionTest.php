@@ -99,7 +99,7 @@ class DescriptionTest extends PmaTestCase
         ];
 
         $cfg = [];
-        include './libraries/config.default.php';
+        include ROOT_PATH . 'libraries/config.default.php';
         foreach ($cfg as $key => $value) {
             $this->assertGet($key);
             if ($key == 'Servers') {

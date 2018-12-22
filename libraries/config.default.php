@@ -2987,7 +2987,7 @@ $cfg['SaveDir'] = '';
 if (defined('TEMP_DIR')) {
     $cfg['TempDir'] = TEMP_DIR;
 } else {
-    $cfg['TempDir'] = './tmp/';
+    $cfg['TempDir'] = ROOT_PATH . 'tmp/';
 }
 
 

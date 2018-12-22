@@ -33,7 +33,7 @@ class ServerEnginesController extends Controller
         /**
          * Does the common work
          */
-        require 'libraries/server_common.inc.php';
+        require ROOT_PATH . 'libraries/server_common.inc.php';
 
         /**
          * Displays the sub-page heading

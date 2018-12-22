@@ -7,6 +7,10 @@
  */
 declare(strict_types=1);
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
 if (!defined('TESTSUITE')) {
     chdir('..');
 
@@ -21,7 +25,7 @@ if (!defined('TESTSUITE')) {
     // non-js-compatible stuff like DOCTYPE
     define('PMA_MINIMUM_COMMON', true);
     define('PMA_PATH_TO_BASEDIR', '../');
-    require_once './libraries/common.inc.php';
+    require_once ROOT_PATH . 'libraries/common.inc.php';
     // Close session early as we won't write anything there
     session_write_close();
 }

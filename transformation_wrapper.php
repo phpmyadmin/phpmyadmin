@@ -12,6 +12,10 @@ use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Transformations;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  *
  */
@@ -20,7 +24,7 @@ define('IS_TRANSFORMATION_WRAPPER', true);
 /**
  * Gets a core script and starts output buffering work
  */
-require_once './libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $transformations = new Transformations();
 $relation = new Relation($GLOBALS['dbi']);
@@ -29,7 +33,7 @@ $cfgRelation = $relation->getRelationsParam();
 /**
  * Ensures db and table are valid, else moves to the "parent" script
  */
-require_once './libraries/db_table_exists.inc.php';
+require_once ROOT_PATH . 'libraries/db_table_exists.inc.php';
 
 
 /**

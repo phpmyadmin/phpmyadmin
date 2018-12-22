@@ -16,12 +16,12 @@ use PhpMyAdmin\Config\ConfigFile;
 define('PMA_MINIMUM_COMMON', true);
 chdir('..');
 
-if (!file_exists('./libraries/common.inc.php')) {
+if (!file_exists(ROOT_PATH . 'libraries/common.inc.php')) {
     die('Bad invocation!');
 }
 
-require_once './libraries/common.inc.php';
-require_once './setup/lib/ConfigGenerator.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'setup/lib/ConfigGenerator.php';
 
 // use default error handler
 restore_error_handler();

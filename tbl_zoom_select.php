@@ -12,11 +12,15 @@ declare(strict_types=1);
 use PhpMyAdmin\Di\Container;
 use PhpMyAdmin\Response;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries
  */
-require_once './libraries/common.inc.php';
-require_once 'libraries/tbl_common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 
 $container = Container::getDefaultContainer();
 $container->factory('PhpMyAdmin\Controllers\Table\TableSearchController');

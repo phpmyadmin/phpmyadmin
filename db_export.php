@@ -14,10 +14,14 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 PageSettings::showGroup('Export');
 
@@ -31,7 +35,7 @@ $export = new Export();
 // $sub_part is used in Util::getDbInfo() to see if we are coming from
 // db_export.php, in which case we don't obey $cfg['MaxTableList']
 $sub_part  = '_export';
-require_once 'libraries/db_common.inc.php';
+require_once ROOT_PATH . 'libraries/db_common.inc.php';
 $url_query .= '&amp;goto=db_export.php';
 
 list(

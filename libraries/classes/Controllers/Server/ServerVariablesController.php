@@ -63,7 +63,7 @@ class ServerVariablesController extends Controller
             return;
         }
 
-        include 'libraries/server_common.inc.php';
+        include ROOT_PATH . 'libraries/server_common.inc.php';
 
         $header   = $this->response->getHeader();
         $scripts  = $header->getScripts();

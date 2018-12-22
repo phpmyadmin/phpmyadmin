@@ -2163,7 +2163,7 @@ class InsertEdit
             $scripts->addFile('vendor/jquery/additional-methods.js');
             $scripts->addFile('tbl_change.js');
             if (!defined('TESTSUITE')) {
-                include 'tbl_change.php';
+                include ROOT_PATH . 'tbl_change.php';
                 exit;
             }
         }

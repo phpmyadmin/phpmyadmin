@@ -20,6 +20,10 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
 if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
     define('PMA_ENABLE_LDI', 1);
@@ -28,7 +32,7 @@ if (isset($_POST['format']) && $_POST['format'] == 'ldi') {
 /**
  * Get the variables sent or posted to this script and a core script
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 $import = new Import();
 
@@ -786,7 +790,7 @@ if ($go_sql) {
     $response->addJSON('message', PhpMyAdmin\Message::error($msg));
 } else {
     $active_page = $goto;
-    include '' . $goto;
+    include ROOT_PATH . $goto;
 }
 
 // If there is request for ROLLBACK in the end.

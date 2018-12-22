@@ -93,7 +93,7 @@ if (! empty($submit_mult)
                 break;
             case 'export':
                 unset($submit_mult);
-                include 'db_export.php';
+                include ROOT_PATH . 'db_export.php';
                 exit;
             case 'copy_tbl':
                 $views = $GLOBALS['dbi']->getVirtualTables($db);
@@ -172,10 +172,10 @@ if (!empty($submit_mult) && !empty($what)) {
     unset($message);
 
     if (strlen($table) > 0) {
-        include './libraries/tbl_common.inc.php';
+        include ROOT_PATH . 'libraries/tbl_common.inc.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
     } elseif (strlen($db) > 0) {
-        include './libraries/db_common.inc.php';
+        include ROOT_PATH . 'libraries/db_common.inc.php';
 
         list(
             $tables,
@@ -189,7 +189,7 @@ if (!empty($submit_mult) && !empty($what)) {
             $pos
         ) = Util::getDbInfo($db, isset($sub_part) ? $sub_part : '');
     } else {
-        include_once './libraries/server_common.inc.php';
+        include_once ROOT_PATH . 'libraries/server_common.inc.php';
     }
 
     // Builds the query

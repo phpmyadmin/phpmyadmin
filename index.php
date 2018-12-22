@@ -23,10 +23,14 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\UserPreferences;
 
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
 /**
  * Gets some core libraries and displays a top message if required
  */
-require_once 'libraries/common.inc.php';
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 /**
  * pass variables to child pages
@@ -61,7 +65,7 @@ if (! empty($_REQUEST['target'])
     && ! in_array($_REQUEST['target'], $target_blacklist)
     && Core::checkPageValidity($_REQUEST['target'], [], true)
 ) {
-    include $_REQUEST['target'];
+    include ROOT_PATH . $_REQUEST['target'];
     exit;
 }
 
@@ -110,7 +114,7 @@ if (! empty($_REQUEST['db'])) {
             'database'
         );
     }
-    include $page;
+    include ROOT_PATH . $page;
     exit;
 }
 
@@ -159,7 +163,7 @@ $mysql_cur_user_and_host = '';
 // when $server > 0, a server has been chosen so we can display
 // all MySQL-related information
 if ($server > 0) {
-    include 'libraries/server_common.inc.php';
+    include ROOT_PATH . 'libraries/server_common.inc.php';
 
     // Use the verbose name of the server instead of the hostname
     // if a value is set
@@ -227,7 +231,7 @@ if ($server > 0 || count($cfg['Servers']) > 1
      * Displays the mysql server related links
      */
     if ($server > 0) {
-        include_once 'libraries/check_user_privileges.inc.php';
+        include_once ROOT_PATH . 'libraries/check_user_privileges.inc.php';
 
         // Logout for advanced authentication
         if ($cfg['Server']['auth_type'] != 'config') {
@@ -593,7 +597,7 @@ if (! empty($_SESSION['encryption_key'])) {
  * Check for existence of config directory which should not exist in
  * production environment.
  */
-if (@file_exists('config')) {
+if (@file_exists(ROOT_PATH . 'config')) {
     trigger_error(
         __(
             'Directory [code]config[/code], which is used by the setup script, ' .
@@ -672,8 +676,8 @@ if (is_null($GLOBALS['PMA_Config']->getTempDir('twig'))) {
  *
  * The data file is created while creating release by ./scripts/remove-incomplete-mo
  */
-if (@file_exists('libraries/language_stats.inc.php')) {
-    include 'libraries/language_stats.inc.php';
+if (@file_exists(ROOT_PATH . 'libraries/language_stats.inc.php')) {
+    include ROOT_PATH . 'libraries/language_stats.inc.php';
     /*
      * This message is intentionally not translated, because we're
      * handling incomplete translations here and focus on english

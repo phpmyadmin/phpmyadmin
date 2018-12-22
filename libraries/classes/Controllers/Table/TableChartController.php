@@ -126,7 +126,7 @@ class TableChartController extends TableController
                 'table'
             );
             $url_params['back'] = 'tbl_sql.php';
-            include 'libraries/tbl_common.inc.php';
+            include ROOT_PATH . 'libraries/tbl_common.inc.php';
             $this->dbi->selectDb($GLOBALS['db']);
         } elseif (strlen($this->db) > 0) {
             $url_params['goto'] = Util::getScriptNameForOption(
@@ -134,14 +134,14 @@ class TableChartController extends TableController
                 'database'
             );
             $url_params['back'] = 'sql.php';
-            include 'libraries/db_common.inc.php';
+            include ROOT_PATH . 'libraries/db_common.inc.php';
         } else {
             $url_params['goto'] = Util::getScriptNameForOption(
                 $this->cfg['DefaultTabServer'],
                 'server'
             );
             $url_params['back'] = 'sql.php';
-            include 'libraries/server_common.inc.php';
+            include ROOT_PATH . 'libraries/server_common.inc.php';
         }
 
         $data = [];
@@ -205,7 +205,7 @@ class TableChartController extends TableController
         $table = &$this->table;
 
         if (strlen($this->table) > 0 && strlen($this->db) > 0) {
-            include './libraries/tbl_common.inc.php';
+            include ROOT_PATH . 'libraries/tbl_common.inc.php';
         }
 
         $parser = new Parser($this->sql_query);

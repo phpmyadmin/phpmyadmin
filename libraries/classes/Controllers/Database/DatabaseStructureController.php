@@ -164,7 +164,7 @@ class DatabaseStructureController extends DatabaseController
             Core::sendHeaderLocation($uri);
         }
 
-        include_once 'libraries/replication.inc.php';
+        include_once ROOT_PATH . 'libraries/replication.inc.php';
 
         PageSettings::showGroup('DbStructure');
 
@@ -379,7 +379,7 @@ class DatabaseStructureController extends DatabaseController
         // -> db_structure.php and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
         if (! isset($_POST['error']) || false === $_POST['error']) {
-            include 'libraries/mult_submits.inc.php';
+            include ROOT_PATH . 'libraries/mult_submits.inc.php';
         }
         if (empty($_POST['message'])) {
             $_POST['message'] = Message::success();

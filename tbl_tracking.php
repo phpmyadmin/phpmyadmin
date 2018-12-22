@@ -12,7 +12,11 @@ use PhpMyAdmin\Tracker;
 use PhpMyAdmin\Tracking;
 use PhpMyAdmin\Response;
 
-require_once './libraries/common.inc.php';
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/common.inc.php';
 
 //Get some js files needed for Ajax requests
 $response = Response::getInstance();
@@ -22,7 +26,7 @@ $scripts->addFile('vendor/jquery/jquery.tablesorter.js');
 $scripts->addFile('tbl_tracking.js');
 
 define('TABLE_MAY_BE_ABSENT', true);
-require './libraries/tbl_common.inc.php';
+require ROOT_PATH . 'libraries/tbl_common.inc.php';
 
 $tracking = new Tracking();
 

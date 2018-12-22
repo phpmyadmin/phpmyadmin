@@ -1031,13 +1031,13 @@ class Export
         global $cfg;
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
-            include_once 'server_export.php';
+            include_once ROOT_PATH . 'server_export.php';
         } elseif ($export_type == 'database') {
             $active_page = 'db_export.php';
-            include_once 'db_export.php';
+            include_once ROOT_PATH . 'db_export.php';
         } else {
             $active_page = 'tbl_export.php';
-            include_once 'tbl_export.php';
+            include_once ROOT_PATH . 'tbl_export.php';
         }
         exit();
     }

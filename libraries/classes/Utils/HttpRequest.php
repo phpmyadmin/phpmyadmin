@@ -141,7 +141,7 @@ class HttpRequest
          *
          * See https://letsencrypt.org/certificates/
          */
-        $certsDir = dirname(__file__) . '/../../certs/';
+        $certsDir = ROOT_PATH . 'libraries/certs/';
         /* See code below for logic */
         if ($ssl == CURLOPT_CAPATH) {
             $curlStatus &= curl_setopt($curlHandle, CURLOPT_CAPATH, $certsDir);

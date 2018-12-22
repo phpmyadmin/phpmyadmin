@@ -53,7 +53,7 @@ class ConfigTest extends PmaTestCase
         $GLOBALS['cfg']['ProxyUrl'] = '';
 
         //for testing file permissions
-        $this->permTestObj = new Config("./config.sample.inc.php");
+        $this->permTestObj = new Config(ROOT_PATH . "config.sample.inc.php");
     }
 
     /**
@@ -439,7 +439,7 @@ class ConfigTest extends PmaTestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->source_mtime);
 
-        $this->object->setSource('libraries/config.default.php');
+        $this->object->setSource(ROOT_PATH . 'libraries/config.default.php');
 
         $this->assertNotEmpty($this->object->getSource());
         $this->assertTrue($this->object->checkConfigSource());
@@ -470,10 +470,10 @@ class ConfigTest extends PmaTestCase
 
         $this->assertEmpty($this->object->getSource(), "Source is null by default");
 
-        $this->object->setSource("config.sample.inc.php");
+        $this->object->setSource(ROOT_PATH . "config.sample.inc.php");
 
         $this->assertEquals(
-            "config.sample.inc.php",
+            ROOT_PATH . "config.sample.inc.php",
             $this->object->getSource(),
             "Cant set new source"
         );
@@ -697,15 +697,15 @@ class ConfigTest extends PmaTestCase
     {
         return [
             [
-                './test/test_data/config.inc.php',
+                ROOT_PATH . 'test/test_data/config.inc.php',
                 true,
             ],
             [
-                './test/test_data/config-nonexisting.inc.php',
+                ROOT_PATH . 'test/test_data/config-nonexisting.inc.php',
                 false,
             ],
             [
-                './libraries/config.default.php',
+                ROOT_PATH . 'libraries/config.default.php',
                 true,
             ],
         ];
