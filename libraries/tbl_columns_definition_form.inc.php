@@ -111,13 +111,15 @@ if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 }
 
 // this will be used on templates/columns_definitions/transformation.twig
-$mime_type = 'input_transformation';
-if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
-    foreach ($available_mime[$mime_type] as $mimekey => $transform) {
-        $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
-            $available_mime[$mime_type . '_file'][$mimekey],
-            '@'
-        );
+$mime_types = ['input_transformation', 'transformation'];
+foreach($mime_types as $mime_type) {
+    if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
+        foreach ($available_mime[$mime_type] as $mimekey => $transform) {
+            $available_mime[$mime_type . '_file_quoted'][$mimekey] = preg_quote(
+                $available_mime[$mime_type . '_file'][$mimekey],
+                '@'
+            );
+        }
     }
 }
 
