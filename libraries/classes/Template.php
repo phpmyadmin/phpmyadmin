@@ -44,7 +44,7 @@ class Template
     /**
      * @var string
      */
-    public const BASE_PATH = 'templates/';
+    public const BASE_PATH = ROOT_PATH . 'templates/';
 
     /**
      * Template constructor

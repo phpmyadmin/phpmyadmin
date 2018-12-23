@@ -12,7 +12,7 @@ use PhpMyAdmin\TwoFactor;
 use PhpMyAdmin\Template;
 
 if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
 
 /**

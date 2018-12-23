@@ -14,7 +14,7 @@ use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Queries;
 
 if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
 
 require_once ROOT_PATH . 'libraries/common.inc.php';

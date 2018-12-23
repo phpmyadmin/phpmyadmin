@@ -11,7 +11,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Display\ImportAjax;
 
 if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
 
 /* PHP 5.4 stores upload progress data only in the default session.

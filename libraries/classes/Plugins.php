@@ -76,7 +76,8 @@ class Plugins
             return $plugin_list;
         }
 
-        $namespace = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, 18));
+        $pathLength = mb_strlen(ROOT_PATH . 'libraries/classes/');
+        $namespace = 'PhpMyAdmin\\' . str_replace('/', '\\', mb_substr($plugins_dir, $pathLength));
         $class_type = mb_strtoupper($plugin_type[0], 'UTF-8')
             . mb_strtolower(mb_substr($plugin_type, 1), 'UTF-8');
 
@@ -95,12 +96,13 @@ class Plugins
                 )
             ) {
                 $GLOBALS['skip_import'] = false;
-                include_once $plugins_dir . $file;
                 if (! $GLOBALS['skip_import']) {
                     $class_name = $prefix_class_name . $matches[1];
-                    $plugin = new $class_name;
-                    if (null !== $plugin->getProperties()) {
-                        $plugin_list[] = $plugin;
+                    if (class_exists($class_name)) {
+                        $plugin = new $class_name;
+                        if (null !== $plugin->getProperties()) {
+                            $plugin_list[] = $plugin;
+                        }
                     }
                 }
             }

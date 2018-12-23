@@ -49,18 +49,17 @@ class Import
         /* @var $importList \PhpMyAdmin\Plugins\ImportPlugin[] */
         $importList = Plugins::getPlugins(
             "import",
-            'libraries/classes/Plugins/Import/',
+            ROOT_PATH . 'libraries/classes/Plugins/Import/',
             $importType
         );
 
         /* Fail if we didn't find any plugin */
         if (empty($importList)) {
-            Message::error(
+            return Message::error(
                 __(
                     'Could not load import plugins, please check your installation!'
                 )
-            )->display();
-            exit;
+            )->getDisplay();
         }
 
         if (Core::isValid($_REQUEST['offset'], 'numeric')) {

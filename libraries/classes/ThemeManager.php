@@ -291,7 +291,7 @@ class ThemeManager
             // Skip non dirs, . and ..
             if ($PMA_Theme == '.'
                 || $PMA_Theme == '..'
-                || ! @is_dir(ROOT_PATH . $this->_themes_path . $PMA_Theme)
+                || ! @is_dir($this->_themes_path . $PMA_Theme)
             ) {
                 continue;
             }

@@ -681,7 +681,7 @@ class Export
         /* @var $exportList ExportPlugin[] */
         $exportList = Plugins::getPlugins(
             "export",
-            'libraries/classes/Plugins/Export/',
+            ROOT_PATH . 'libraries/classes/Plugins/Export/',
             [
                 'export_type' => $exportType,
                 'single_table' => isset($GLOBALS['single_table']),
@@ -690,10 +690,9 @@ class Export
 
         /* Fail if we didn't find any plugin */
         if (empty($exportList)) {
-            Message::error(
+            return Message::error(
                 __('Could not load export plugins, please check your installation!')
-            )->display();
-            exit;
+            )->getDisplay();
         }
 
         $html = $this->template->render('display/export/option_header', [
