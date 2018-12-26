@@ -200,7 +200,8 @@ class Designer
                 . Util::backquote($cfgRelation['db']) . '.'
                 . Util::backquote($cfgRelation['designer_settings'])
                 . ' WHERE ' . Util::backquote('username') . ' = "'
-                . $GLOBALS['cfg']['Server']['user'] . '";';
+                . $GLOBALS['dbi']->escapeString($GLOBALS['cfg']['Server']['user'])
+                . '";';
 
             $result = $GLOBALS['dbi']->fetchSingleRow($query);
 

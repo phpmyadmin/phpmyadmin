@@ -787,8 +787,8 @@ class Common
                     . Util::backquote($cfgDesigner['db'])
                     . "." . Util::backquote($cfgDesigner['table'])
                     . " (username, settings_data)"
-                    . " VALUES('" . $cfgDesigner['user'] . "',"
-                    . " '" . json_encode($save_data) . "');";
+                    . " VALUES('" . $GLOBALS['dbi']->escapeString($cfgDesigner['user'])
+                    . "', '" . json_encode($save_data) . "');";
 
                 $success = $this->relation->queryAsControlUser($query);
             }
