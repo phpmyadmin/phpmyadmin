@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
 "PO-Revision-Date: 2019-01-01 05:10+0000\n"
-"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
+"Last-Translator: Daigo Hamasaki <daigo.hamasaki.16@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
 "Language: ja\n"
@@ -3336,11 +3336,9 @@ msgid "Greek"
 msgstr "ギリシア語"
 
 #: libraries/classes/Charsets.php:404
-#, fuzzy
-#| msgid "Czech-Slovak"
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr "チェコのスロバキア語"
+msgstr "チェコ・スロバキア語"
 
 #: libraries/classes/Charsets.php:407 libraries/classes/Charsets.php:558
 msgctxt "Collation"
