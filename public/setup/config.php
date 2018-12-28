@@ -14,7 +14,7 @@ use PhpMyAdmin\Url;
 use PhpMyAdmin\Response;
 
 if (! defined('ROOT_PATH')) {
-    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+    define('ROOT_PATH', dirname(__DIR__, 2) . DIRECTORY_SEPARATOR);
 }
 
 /**
