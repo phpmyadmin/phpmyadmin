@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
 "PO-Revision-Date: 2019-01-01 05:10+0000\n"
-"Last-Translator: Daigo Hamasaki <daigo.hamasaki.16@gmail.com>\n"
+"Last-Translator: yutk <ekr48ktq@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
 "Language: ja\n"
@@ -8816,10 +8816,8 @@ msgid "Central columns"
 msgstr "textarea の 1 行の文字数"
 
 #: libraries/classes/Menu.php:607
-#, fuzzy
-#| msgid "Users"
 msgid "User accounts"
-msgstr "ユーザグループ"
+msgstr "ユーザアカウント"
 
 #: libraries/classes/Menu.php:634 libraries/classes/Server/Status/Data.php:121
 #: libraries/classes/Util.php:3970 templates/server/sub_page_header.twig:2
@@ -12559,10 +12557,8 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:4616
 #: libraries/classes/Server/Users.php:30
-#, fuzzy
-#| msgid "Users overview"
 msgid "User accounts overview"
-msgstr "ユーザ概略"
+msgstr "ユーザアカウント概要"
 
 #: libraries/classes/Server/Privileges.php:4691
 msgid ""
