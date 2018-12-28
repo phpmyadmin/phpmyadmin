@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
 "PO-Revision-Date: 2019-01-01 05:10+0000\n"
-"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
+"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
 "Language: ja\n"
@@ -1969,7 +1969,7 @@ msgstr "選択"
 
 #: js/messages.php:429
 msgid "Column selector"
-msgstr "カラムセレクター"
+msgstr "カラムの選択"
 
 #: js/messages.php:430
 msgid "Search this list"
@@ -2036,7 +2036,7 @@ msgstr "決定"
 
 #: js/messages.php:452
 msgid "Confirm partial dependencies"
-msgstr "部分的な依存の確認"
+msgstr "部分依存関係の確認"
 
 #: js/messages.php:453
 msgid "Selected partial dependencies are as follows:"
