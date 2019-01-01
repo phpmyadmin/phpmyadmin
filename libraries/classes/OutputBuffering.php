@@ -107,7 +107,9 @@ class OutputBuffering
         if ($buffer->_on) {
             $buffer->_on = false;
             $buffer->_content = ob_get_contents();
-            ob_end_clean();
+            if (ob_get_length() > 0) {
+                ob_end_clean();
+            }
         }
     }
 
