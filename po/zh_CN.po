@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2018-10-08 16:32+0000\n"
+"PO-Revision-Date: 2019-01-03 15:07+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/zh_Hans/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.2\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: ajax.php:22 ajax.php:51 export.php:208 libraries/classes/Export.php:1214
 msgid "Bad type!"
@@ -325,16 +325,12 @@ msgid "You have to choose at least one column to display!"
 msgstr "您最少要选择显示一列！"
 
 #: db_qbe.php:148 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
-msgstr "模拟查询"
+msgstr "多表查询"
 
 #: db_qbe.php:152 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "查询失败"
+msgstr "通过示例查询"
 
 #: db_qbe.php:171
 #, php-format
@@ -1491,16 +1487,12 @@ msgid "Please select the file you want to import."
 msgstr "请选择您要导入的文件。"
 
 #: js/messages.php:333
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
-msgstr "请输入有效页面名称"
+msgstr "请输入有效表名。"
 
 #: js/messages.php:335
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
-msgstr "请输入有效页面名称"
+msgstr "请输入有效数据库名。"
 
 #: js/messages.php:336
 msgid "No files available on server for import!"
@@ -3942,14 +3934,13 @@ msgstr "添加IF NOT EXISTS语句（效率更低因为创建表时索引会自�
 #: libraries/classes/Config/Descriptions.php:255
 #: libraries/classes/Plugins/Export/ExportSql.php:317
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "排除当前用户的定义"
 
 #: libraries/classes/Config/Descriptions.php:256
 #: libraries/classes/Plugins/Export/ExportSql.php:323
-#, fuzzy, php-format
-#| msgid "%s value"
+#, php-format
 msgid "%s view"
-msgstr "%s值"
+msgstr "%s 视图"
 
 #: libraries/classes/Config/Descriptions.php:257
 msgid "Use ignore inserts"
@@ -4737,16 +4728,12 @@ msgid "Whether to show events under database in the navigation tree"
 msgstr "在导航树中数据库下是否显示事件节点"
 
 #: libraries/classes/Config/Descriptions.php:524
-#, fuzzy
-#| msgid "Copying database"
 msgid "Expand single database"
-msgstr "正在复制数据库"
+msgstr "展开单个数据库"
 
 #: libraries/classes/Config/Descriptions.php:525
-#, fuzzy
-#| msgid "Whether to show events under database in the navigation tree"
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "在导航树中数据库下是否显示事件节点"
+msgstr "是否自动在导航树中展开单个数据库。"
 
 #: libraries/classes/Config/Descriptions.php:526
 msgid "Maximum number of recently used tables; set 0 to disable."
@@ -9216,16 +9203,16 @@ msgstr "在导入时找到重复键时更新数据（添加ON DUPLICATE KEY UPDA
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:67
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "新表的名称（可选）："
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:76
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "新数据库的名称（可选）："
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:85
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "导入这些行（可选）："
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:93
 #: libraries/classes/Plugins/Import/ImportOds.php:67
@@ -9244,10 +9231,8 @@ msgstr ""
 "角逗号分隔且不能用引号括起。"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:118
-#, fuzzy
-#| msgid "Column names: "
 msgid "Column names:"
-msgstr "字段名: "
+msgstr "字段名:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:158
 #: libraries/classes/Plugins/Import/ImportCsv.php:173
