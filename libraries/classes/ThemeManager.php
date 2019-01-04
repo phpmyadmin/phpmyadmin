@@ -32,7 +32,7 @@ class ThemeManager
      * @var string path to theme folder
      * @access protected
      */
-    private $_themes_path = './themes/';
+    private $_themes_path = ROOT_PATH . 'public/themes/';
 
     /**
      * @var array available themes
@@ -80,7 +80,7 @@ class ThemeManager
         $this->theme_default = self::FALLBACK_THEME;
         $this->active_theme = '';
 
-        if (! $this->setThemesPath('./themes/')) {
+        if (! $this->setThemesPath(ROOT_PATH . 'public/themes/')) {
             return;
         }
 
@@ -404,11 +404,19 @@ class ThemeManager
          * the theme path
          * @global string $GLOBALS['pmaThemePath']
          */
-        $GLOBALS['pmaThemePath']    = $GLOBALS['PMA_Theme']->getPath();
+        $GLOBALS['pmaThemePath'] = str_replace(
+            $tmanager->_themes_path,
+            './themes/',
+            $GLOBALS['PMA_Theme']->getPath()
+        );
         /**
          * the theme image path
          * @global string $GLOBALS['pmaThemeImage']
          */
-        $GLOBALS['pmaThemeImage']   = $GLOBALS['PMA_Theme']->getImgPath();
+        $GLOBALS['pmaThemeImage'] = str_replace(
+            $tmanager->_themes_path,
+            './themes/',
+            $GLOBALS['PMA_Theme']->getImgPath()
+        );
     }
 }

@@ -55,11 +55,11 @@ class FilesTest extends TestCase
     {
         return [
             [
-                'js/whitelist.php',
+                'public/js/whitelist.php',
                 'var PMA_gotoWhitelist',
             ],
             [
-                'js/messages.php',
+                'public/js/messages.php',
                 'var PMA_messages = new Array();',
             ],
         ];

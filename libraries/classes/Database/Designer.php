@@ -129,7 +129,7 @@ class Designer
         /* @var $export_list SchemaPlugin[] */
         $export_list = Plugins::getPlugins(
             "schema",
-            'libraries/classes/Plugins/Schema/',
+            ROOT_PATH . 'libraries/classes/Plugins/Schema/',
             null
         );
 

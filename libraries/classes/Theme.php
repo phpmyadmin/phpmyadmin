@@ -194,7 +194,7 @@ class Theme
 
         // try fallback theme
         $fallback = './themes/' . ThemeManager::FALLBACK_THEME . '/img/';
-        if (is_dir($fallback)) {
+        if (is_dir(ROOT_PATH . 'public/' . $fallback)) {
             $this->setImgPath($fallback);
             return true;
         }

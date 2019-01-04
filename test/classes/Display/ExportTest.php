@@ -157,7 +157,7 @@ class ExportTest extends TestCase
         /* Scan for plugins */
         $export_list = Plugins::getPlugins(
             "export",
-            'libraries/classes/Plugins/Export/',
+            ROOT_PATH . 'libraries/classes/Plugins/Export/',
             [
                 'export_type' => $export_type,
                 'single_table' => true,// isset($single_table)
