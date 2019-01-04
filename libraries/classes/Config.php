@@ -389,10 +389,13 @@ class Config
             }
         } elseif (is_file($git)) {
             $contents = file_get_contents($git);
-            $gitmatch = array();
+            $gitmatch = [];
             // Matches expected format
-            if (! preg_match('/^gitdir: (.*)$/',
-                $contents, $gitmatch)) {
+            if (! preg_match(
+                '/^gitdir: (.*)$/',
+                $contents,
+                $gitmatch
+            )) {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
                 return false;

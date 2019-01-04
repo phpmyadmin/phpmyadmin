@@ -69,7 +69,7 @@ class ImportCsv extends AbstractImportCsv
             );
             $generalOptions->addProperty($leaf);
 
-            if($GLOBALS['plugin_param'] === 'server') {
+            if ($GLOBALS['plugin_param'] === 'server') {
                 $leaf = new TextPropertyItem(
                     "new_db_name",
                     __(
@@ -276,12 +276,12 @@ class ImportCsv extends AbstractImportCsv
         $max_lines = 0; // defaults to 0 (get all the lines)
 
         // If we get a negative value, probably someone changed min value attribute in DOM or there is an integer overflow, whatever be the case, get all the lines
-        if(isset($_REQUEST['csv_partial_import']) && $_REQUEST['csv_partial_import'] > 0){
+        if (isset($_REQUEST['csv_partial_import']) && $_REQUEST['csv_partial_import'] > 0) {
             $max_lines = $_REQUEST['csv_partial_import'];
         }
         $max_lines_constraint = $max_lines+1;
         // if the first row has to be counted as column names, include one more row in the max lines
-        if(isset($_REQUEST['csv_col_names'])) {
+        if (isset($_REQUEST['csv_col_names'])) {
             $max_lines_constraint++;
         }
 
@@ -635,13 +635,13 @@ class ImportCsv extends AbstractImportCsv
                     $i = 0;
                     $lasti = -1;
                     $ch = mb_substr($buffer, 0, 1);
-                    if($max_lines > 0 && $line == $max_lines_constraint) {
+                    if ($max_lines > 0 && $line == $max_lines_constraint) {
                         $finished = 1;
                         break;
                     }
                 }
             } // End of parser loop
-            if($max_lines > 0 && $line == $max_lines_constraint) {
+            if ($max_lines > 0 && $line == $max_lines_constraint) {
                 $finished = 1;
                 break;
             }
@@ -679,7 +679,7 @@ class ImportCsv extends AbstractImportCsv
                 && strlen($_REQUEST['csv_new_tbl_name']) > 0
             ) {
                 $tbl_name = $_REQUEST['csv_new_tbl_name'];
-            } else if (mb_strlen((string) $db)) {
+            } elseif (mb_strlen((string) $db)) {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW TABLES');
                 $tbl_name = 'TABLE ' . (count($result) + 1);
             } else {
@@ -710,13 +710,15 @@ class ImportCsv extends AbstractImportCsv
              * Otherwise, check if user provided the database name in the request,
              * if not, set the default name
              */
-            if(isset($_REQUEST['csv_new_db_name'])
+            if (isset($_REQUEST['csv_new_db_name'])
                 && strlen($_REQUEST['csv_new_db_name']) > 0
             ) {
                 $newDb = $_REQUEST['csv_new_db_name'];
             } else {
                 $result = $GLOBALS['dbi']->fetchResult('SHOW DATABASES');
-                if(! is_array($result)) $result = [];
+                if (! is_array($result)) {
+                    $result = [];
+                }
                 $newDb = 'CSV_DB ' . (count($result) + 1);
             }
             list($db_name, $options) = $this->getDbnameAndOptions($db, $newDb);

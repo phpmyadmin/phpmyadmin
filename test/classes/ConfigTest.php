@@ -909,7 +909,7 @@ class ConfigTest extends PmaTestCase
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
-        file_put_contents('.git/config','');
+        file_put_contents('.git/config', '');
 
         $this->assertTrue(
             $this->object->isGitRevision()
@@ -943,7 +943,7 @@ class ConfigTest extends PmaTestCase
         mkdir($test_dir);
         chdir($test_dir);
 
-        file_put_contents('.git','gitdir: ./.customgitdir');
+        file_put_contents('.git', 'gitdir: ./.customgitdir');
         $this->assertFalse(
             $this->object->isGitRevision()
         );
@@ -970,7 +970,7 @@ class ConfigTest extends PmaTestCase
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
-        file_put_contents('.git','random data here');
+        file_put_contents('.git', 'random data here');
 
         $this->assertFalse(
             $this->object->isGitRevision()
@@ -1005,7 +1005,7 @@ class ConfigTest extends PmaTestCase
         chdir($test_dir);
 
         mkdir('.git');
-        file_put_contents('.git/config','');
+        file_put_contents('.git/config', '');
 
         $this->object->checkGitRevision();
 
@@ -1018,17 +1018,18 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/packed-refs',
-        '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
-        'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
-        '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
-        '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
+        file_put_contents(
+            '.git/packed-refs',
+            '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
+            'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
+            '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
+            '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
         );
         mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
         $this->object->checkGitRevision();
@@ -1068,7 +1069,7 @@ class ConfigTest extends PmaTestCase
         chdir($test_dir);
 
         mkdir('.git');
-        file_put_contents('.git/config','');
+        file_put_contents('.git/config', '');
 
         $this->object->checkGitRevision();
 
@@ -1081,9 +1082,9 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
         mkdir('.git/refs/remotes/origin', 0777, true);
-        file_put_contents('.git/refs/remotes/origin/master','c1f2ff2eb0c3fda741f859913fd589379f4e4a8f');
+        file_put_contents('.git/refs/remotes/origin/master', 'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f');
         mkdir('.git/objects/pack', 0777, true);//default = 0777, recursive mode
         $this->object->checkGitRevision();
 
@@ -1123,7 +1124,7 @@ class ConfigTest extends PmaTestCase
         chdir($test_dir);
 
         mkdir('.git');
-        file_put_contents('.git/config','');
+        file_put_contents('.git/config', '');
 
         $this->object->checkGitRevision();
 
@@ -1136,20 +1137,22 @@ class ConfigTest extends PmaTestCase
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/HEAD','ref: refs/remotes/origin/master');
+        file_put_contents('.git/HEAD', 'ref: refs/remotes/origin/master');
         $this->object->checkGitRevision();
         $this->assertEmpty(
             $this->object->get('PMA_VERSION_GIT_COMMITHASH')
         );
 
-        file_put_contents('.git/packed-refs',
+        file_put_contents(
+            '.git/packed-refs',
             '# pack-refs with: peeled fully-peeled sorted' . PHP_EOL .
             'c1f2ff2eb0c3fda741f859913fd589379f4e4a8f refs/tags/4.3.10' . PHP_EOL .
             '^6f2e60343b0a324c65f2d1411bf4bd03e114fb98' . PHP_EOL .
             '17bf8b7309919f8ac593d7c563b31472780ee83b refs/remotes/origin/master' . PHP_EOL
         );
-        mkdir('.git/objects/info', 0777 ,true);
-        file_put_contents('.git/objects/info/packs',
+        mkdir('.git/objects/info', 0777, true);
+        file_put_contents(
+            '.git/objects/info/packs',
             'P pack-faea49765800da462c70bea555848cc8c7a1c28d.pack' . PHP_EOL .
             '  pack-.pack' . PHP_EOL .
             PHP_EOL .

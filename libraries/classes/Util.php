@@ -306,7 +306,8 @@ class Util
      *
      * @access  public
      */
-    public static function showCopyToClipboard($text) {
+    public static function showCopyToClipboard($text)
+    {
         $open_link = '  <a href="#" class="copyQueryBtn" data-text="'
             . htmlspecialchars($text) . '">' . __('Copy') . '</a>';
         return $open_link;
@@ -4289,7 +4290,7 @@ class Util
 
         if (isset($_REQUEST['session_max_rows'])) {
             $rows = $_REQUEST['session_max_rows'];
-        } else if (isset($_SESSION['tmpval']['max_rows'])
+        } elseif (isset($_SESSION['tmpval']['max_rows'])
                     && $_SESSION['tmpval']['max_rows'] != 'all'
         ) {
             $rows = $_SESSION['tmpval']['max_rows'];
@@ -4298,9 +4299,9 @@ class Util
             $_SESSION['tmpval']['max_rows'] = $rows;
         }
 
-        if(isset($_REQUEST['pos'])) {
+        if (isset($_REQUEST['pos'])) {
             $pos = $_REQUEST['pos'];
-        } else if(isset($_SESSION['tmpval']['pos'])) {
+        } elseif (isset($_SESSION['tmpval']['pos'])) {
             $pos = $_SESSION['tmpval']['pos'];
         } else {
             $number_of_line = intval($_REQUEST['unlim_num_rows']);

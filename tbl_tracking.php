@@ -194,12 +194,12 @@ if (isset($_POST['report']) || isset($_POST['report_export'])) {
 /*
  * Main page
  */
- $html .= $tracking->getHtmlForMainPage(
-     $url_query,
-     $url_params,
-     $pmaThemeImage,
-     $text_dir
- );
+$html .= $tracking->getHtmlForMainPage(
+    $url_query,
+    $url_params,
+    $pmaThemeImage,
+    $text_dir
+);
 
 $html .= '<br class="clearfloat">';
 

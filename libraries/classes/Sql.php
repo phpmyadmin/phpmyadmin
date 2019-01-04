@@ -1977,10 +1977,10 @@ EOT;
      * @param array|null          $profiling_results    profiling results
      * @param string|null         $query_type           query type
      * @param array|null          $selectedTables       array of table names selected
-     *                                                     from the database structure page, for
-     *                                                     an action like check table,
-     *                                                     optimize table, analyze table or
-     *                                                     repair table
+     *                                                  from the database structure page, for
+     *                                                  an action like check table,
+     *                                                  optimize table, analyze table or
+     *                                                  repair table
      * @param string              $sql_query            sql query
      * @param string|null         $complete_query       complete sql query
      *
@@ -2231,9 +2231,9 @@ EOT;
      * @param string         $query_type             query type
      * @param string         $sql_query              sql query
      * @param array|null     $selectedTables         array of table names selected from the
-     *                                                   database structure page, for an action
-     *                                                   like check table, optimize table,
-     *                                                   analyze table or repair table
+     *                                               database structure page, for an action
+     *                                               like check table, optimize table,
+     *                                               analyze table or repair table
      * @param string         $complete_query         complete query
      *
      * @return void

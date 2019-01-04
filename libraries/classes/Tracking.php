@@ -174,7 +174,7 @@ class Tracking
         $lastVersion = null
     ) {
         $selectableTablesSqlResult = $this->getSqlResultForSelectableTables();
-        $selectableTablesEntries = array();
+        $selectableTablesEntries = [];
         while (($entry = $GLOBALS['dbi']->fetchArray($selectableTablesSqlResult))) {
             $entry['is_tracked'] = Tracker::isTracked(
                 $entry['db_name'],
@@ -189,7 +189,7 @@ class Tracking
             $lastVersion = $this->getTableLastVersionNumber($versionSqlResult);
         }
         $GLOBALS['dbi']->dataSeek($versionSqlResult, 0);
-        $versions = array();
+        $versions = [];
         while ($version = $GLOBALS['dbi']->fetchArray($versionSqlResult)) {
             $versions[] = $version;
         }

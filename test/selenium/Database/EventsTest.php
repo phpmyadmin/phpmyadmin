@@ -103,7 +103,8 @@ class EventsTest extends TestBase
 
         $this->byName("item_name")->sendKeys("test_event");
         $this->selectByLabel(
-            $this->byName("item_interval_field"), 'MINUTE_SECOND'
+            $this->byName("item_interval_field"),
+            'MINUTE_SECOND'
         );
 
         $this->byName("item_starts")->click()->clear()->sendKeys(date('Y-m-d', strtotime('-1 day')) . ' 00:00:00');

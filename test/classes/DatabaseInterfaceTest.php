@@ -533,6 +533,6 @@ class DatabaseInterfaceTest extends PmaTestCase
                 'REFERENCED_TABLE_NAME' => 'table1',
                 'REFERENCED_COLUMN_NAME' => 'idtable1',
             ]
-        ], $this->_dbi->getForeignKeyConstrains('test',['table1', 'table2']));
+        ], $this->_dbi->getForeignKeyConstrains('test', ['table1', 'table2']));
     }
 }

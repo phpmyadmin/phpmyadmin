@@ -339,7 +339,7 @@ class Export
         $message = '';
         $doNotSaveItOver = true;
 
-        if(isset($_POST['quick_export_onserver_overwrite'])) {
+        if (isset($_POST['quick_export_onserver_overwrite'])) {
             $doNotSaveItOver = $_POST['quick_export_onserver_overwrite'] != 'saveitover';
         }
 
@@ -517,11 +517,10 @@ class Export
         $refreshButton .= '[ <a class="disableAjax" onclick="$(this).parent().submit()">' . __('Refresh') . '</a> ]';
         foreach ($_POST as $name => $value) {
             if (is_array($value)) {
-                foreach($value as $val) {
+                foreach ($value as $val) {
                     $refreshButton .= '<input type="hidden" name="' . urlencode((string) $name) . '[]" value="' . urlencode((string) $val) . '">';
                 }
-            }
-            else {
+            } else {
                 $refreshButton .= '<input type="hidden" name="' . urlencode((string) $name) . '" value="' . urlencode((string) $value) . '">';
             }
         }

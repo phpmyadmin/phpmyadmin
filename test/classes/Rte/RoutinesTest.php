@@ -71,7 +71,8 @@ class RoutinesTest extends TestCase
      */
     public function testGetDataFromRequest($in, $out)
     {
-        unset($_POST); unset($_REQUEST);
+        unset($_POST);
+        unset($_REQUEST);
         foreach ($in as $key => $value) {
             if ($value !== '') {
                 $_POST[$key] = $value;

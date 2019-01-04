@@ -1082,7 +1082,8 @@ class CentralColumns
         $existing_cols = $this->getFromTable($db, $selected_tbl);
         $this->dbi->selectDb($db);
         $columns = (array) $this->dbi->getColumnNames(
-            $db, $selected_tbl
+            $db,
+            $selected_tbl
         );
         $selectColHtml = "";
         foreach ($columns as $column) {

@@ -28,7 +28,7 @@ if (isset($_POST['sql_query'])) {
         $_GET['tables']
     );
     $response = Response::getInstance();
-    $response->addJSON('foreignKeyConstrains',$constrains);
+    $response->addJSON('foreignKeyConstrains', $constrains);
 } else {
     $response = Response::getInstance();
 

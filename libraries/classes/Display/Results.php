@@ -1484,7 +1484,7 @@ class Results
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
         $used_index = false;
-        $local_order = (is_array($sort_expression) ? implode(', ',$sort_expression) : '');
+        $local_order = (is_array($sort_expression) ? implode(', ', $sort_expression) : '');
 
         foreach ($indexes as $index) {
             $asc_sort = '`'
@@ -1969,9 +1969,9 @@ class Results
      * @param array    $sort_expression             sort expression
      * @param array    $sort_expression_nodirection sort expression without direction
      * @param string   $sort_tbl                    The name of the table to which
-     *                                             the current column belongs to
+     *                                              the current column belongs to
      * @param string   $name_to_use_in_sort         The current column under
-     *                                             consideration
+     *                                              consideration
      * @param array    $sort_direction              sort direction
      * @param stdClass $fields_meta                 set of field properties
      * @param integer  $column_index                The index number to current column
@@ -3820,7 +3820,7 @@ class Results
      * @param boolean               $condition_field       the column should highlighted
      *                                                     or not
      * @param TransformationsPlugin $transformation_plugin the name of transformation
-     *                                             function
+     *                                                     function
      * @param string                $default_function      the default transformation
      *                                                     function
      * @param string                $transform_options     the transformation parameters

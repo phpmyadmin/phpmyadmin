@@ -403,7 +403,7 @@ class DatabaseInterface
     public function getForeignKeyConstrains(string $database, array $tables, $link = DatabaseInterface::CONNECT_USER): array
     {
         $tablesListForQuery = '';
-        foreach($tables as $table){
+        foreach ($tables as $table) {
             $tablesListForQuery .= "'" . $this->escapeString($table) . "',";
         }
         $tablesListForQuery = rtrim($tablesListForQuery, ',');

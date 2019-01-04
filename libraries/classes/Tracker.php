@@ -36,12 +36,12 @@ class Tracker
     /**
      * Whether tracking is ready.
      */
-    static protected $enabled = false;
+    protected static $enabled = false;
 
     /**
      * Cache to avoid quering tracking status multiple times.
      */
-    static protected $_tracking_cache = [];
+    protected static $_tracking_cache = [];
 
     /**
      * Actually enables tracking. This needs to be done after all
