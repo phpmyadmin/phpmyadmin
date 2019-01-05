@@ -12,9 +12,9 @@ use PhpMyAdmin\Operations;
 use PhpMyAdmin\Relation;
 use PhpMyAdmin\Response;
 use PhpMyAdmin\Table;
+use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
-
 /**
  *
  */
@@ -96,32 +96,14 @@ $url_params['back'] = 'view_operations.php';
 /**
  * Displays the page
  */
-?>
-<!-- Table operations -->
-<div>
-<form method="post" action="view_operations.php">
-<?php echo Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']); ?>
-<input type="hidden" name="reload" value="1">
-<fieldset>
-    <legend><?php echo __('Operations'); ?></legend>
 
-    <table>
-    <!-- Change view name -->
-    <tr><td><?php echo __('Rename view to'); ?></td>
-        <td><input type="text" name="new_name" onfocus="this.select()"
-                value="<?php echo htmlspecialchars($GLOBALS['table']); ?>"
-                required>
-        </td>
-    </tr>
-    </table>
-</fieldset>
-<fieldset class="tblFooters">
-        <input type="hidden" name="submitoptions" value="1">
-        <input class="btn btn-primary" type="submit" value="<?php echo __('Go'); ?>">
-</fieldset>
-</form>
-</div>
-<?php
+$template = new Template();
+
+echo $template->render('view_operations', [
+    'hidden_inputs' => Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']),
+    'table_name_in_html_entities' => htmlspecialchars($GLOBALS['table']),
+]);
+
 $drop_view_url_params = array_merge(
     $url_params,
     [
