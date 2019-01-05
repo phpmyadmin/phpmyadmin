@@ -117,7 +117,7 @@ if (isset($_POST['edit_central_columns_page'])) {
 }
 if (isset($_POST['multi_edit_central_column_save'])) {
     $message = $centralColumns->updateMultipleColumn();
-    if (!is_bool($message)) {
+    if (! is_bool($message)) {
         $response->setRequestStatus(false);
         $response->addJSON('message', $message);
     }
@@ -130,7 +130,7 @@ if (isset($_POST['delete_save'])) {
         false
     );
 }
-if (!empty($_POST['total_rows'])
+if (! empty($_POST['total_rows'])
     && Core::isValid($_POST['total_rows'], 'integer')
 ) {
     $total_rows = $_POST['total_rows'];

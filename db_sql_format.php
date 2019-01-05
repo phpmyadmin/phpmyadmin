@@ -19,7 +19,7 @@ if (! defined('ROOT_PATH')) {
  */
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-$query = !empty($_POST['sql']) ? $_POST['sql'] : '';
+$query = ! empty($_POST['sql']) ? $_POST['sql'] : '';
 
 $query = PhpMyAdmin\SqlParser\Utils\Formatter::format($query);
 

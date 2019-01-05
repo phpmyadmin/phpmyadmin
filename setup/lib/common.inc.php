@@ -16,7 +16,7 @@ use PhpMyAdmin\Config\ConfigFile;
 define('PMA_MINIMUM_COMMON', true);
 chdir('..');
 
-if (!file_exists(ROOT_PATH . 'libraries/common.inc.php')) {
+if (! file_exists(ROOT_PATH . 'libraries/common.inc.php')) {
     die('Bad invocation!');
 }
 

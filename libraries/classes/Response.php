@@ -583,7 +583,7 @@ class Response
     {
         $this->setHttpResponseCode(303);
         $this->header('Location: ' . $location);
-        if (!defined('TESTSUITE')) {
+        if (! defined('TESTSUITE')) {
             exit;
         }
     }

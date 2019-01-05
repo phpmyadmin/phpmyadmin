@@ -49,10 +49,10 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
     {
         global $row, $fields_meta;
 
-        if (isset($options[0]) && !empty($options[0])) {
+        if (isset($options[0]) && ! empty($options[0])) {
             $cn = $options[0]; // filename
         } else {
-            if (isset($options[1]) && !empty($options[1])) {
+            if (isset($options[1]) && ! empty($options[1])) {
                 foreach ($fields_meta as $key => $val) {
                     if ($val->name == $options[1]) {
                         $pos = $key;

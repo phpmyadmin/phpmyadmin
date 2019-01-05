@@ -51,7 +51,7 @@ if (isset($_POST['revert'])) {
 }
 
 $error = null;
-if ($form_display->process(false) && !$form_display->hasErrors()) {
+if ($form_display->process(false) && ! $form_display->hasErrors()) {
     // save settings
     $result = $userPreferences->save($cf->getConfigArray());
     if ($result === true) {

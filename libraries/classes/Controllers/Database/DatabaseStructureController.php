@@ -121,7 +121,7 @@ class DatabaseStructureController extends DatabaseController
         $response = Response::getInstance();
 
         // Add/Remove favorite tables using Ajax request.
-        if ($response->isAjax() && !empty($_REQUEST['favorite_table'])) {
+        if ($response->isAjax() && ! empty($_REQUEST['favorite_table'])) {
             $this->addRemoveFavoriteTablesAction();
             return;
         }
@@ -281,7 +281,7 @@ class DatabaseStructureController extends DatabaseController
                 $already_favorite = false; // for favorite_anchor template
             }
         } elseif (isset($_REQUEST['add_favorite'])) {
-            if (!$already_favorite) {
+            if (! $already_favorite) {
                 $nbTables = count($fav_instance->getTables());
                 if ($nbTables == $GLOBALS['cfg']['NumFavoriteTables']) {
                     $changes = false;
@@ -295,7 +295,7 @@ class DatabaseStructureController extends DatabaseController
 
         $favorite_tables[$user] = $fav_instance->getTables();
         $this->response->addJSON('changes', $changes);
-        if (!$changes) {
+        if (! $changes) {
             $this->response->addJSON(
                 'message',
                 $this->template->render('components/error_message', [
@@ -333,7 +333,7 @@ class DatabaseStructureController extends DatabaseController
     {
         $ajax_response = $this->response;
         // If there is a request to update all table's row count.
-        if (!isset($_REQUEST['real_row_count_all'])) {
+        if (! isset($_REQUEST['real_row_count_all'])) {
             // Get the real row count for the table.
             $real_row_count = $this->dbi
                 ->getTable($this->db, $_REQUEST['table'])
@@ -454,7 +454,7 @@ class DatabaseStructureController extends DatabaseController
 
             $curTable = $this->dbi
                 ->getTable($this->db, $current_table['TABLE_NAME']);
-            if (!$curTable->isMerge()) {
+            if (! $curTable->isMerge()) {
                 $sum_entries += $current_table['TABLE_ROWS'];
             }
 
@@ -492,7 +492,7 @@ class DatabaseStructureController extends DatabaseController
                 $create_time = isset($current_table['Create_time'])
                     ? $current_table['Create_time'] : '';
                 if ($create_time
-                    && (!$create_time_all
+                    && (! $create_time_all
                     || $create_time < $create_time_all)
                 ) {
                     $create_time_all = $create_time;
@@ -503,7 +503,7 @@ class DatabaseStructureController extends DatabaseController
                 $update_time = isset($current_table['Update_time'])
                     ? $current_table['Update_time'] : '';
                 if ($update_time
-                    && (!$update_time_all
+                    && (! $update_time_all
                     || $update_time < $update_time_all)
                 ) {
                     $update_time_all = $update_time;
@@ -514,14 +514,14 @@ class DatabaseStructureController extends DatabaseController
                 $check_time = isset($current_table['Check_time'])
                     ? $current_table['Check_time'] : '';
                 if ($check_time
-                    && (!$check_time_all
+                    && (! $check_time_all
                     || $check_time < $check_time_all)
                 ) {
                     $check_time_all = $check_time;
                 }
             }
 
-            $truename = !empty($tooltip_truename)
+            $truename = ! empty($tooltip_truename)
                     && isset($tooltip_truename[$current_table['TABLE_NAME']])
                 ? $tooltip_truename[$current_table['TABLE_NAME']]
                 : $current_table['TABLE_NAME'];
@@ -547,7 +547,7 @@ class DatabaseStructureController extends DatabaseController
             $may_have_rows = $current_table['TABLE_ROWS'] > 0 || $table_is_view;
             $titles = Util::buildActionTitles();
 
-            if (!$this->_db_is_system_schema) {
+            if (! $this->_db_is_system_schema) {
                 $drop_query = sprintf(
                     'DROP %s %s',
                     $table_is_view || $current_table['ENGINE'] == null ? 'VIEW'
@@ -766,9 +766,9 @@ class DatabaseStructureController extends DatabaseController
             && ($current_table['ENGINE'] != null || $table_is_view)
         ) {
             // InnoDB/TokuDB table: we did not get an accurate row count
-            $approx_rows = !$table_is_view
+            $approx_rows = ! $table_is_view
                 && in_array($current_table['ENGINE'], ['InnoDB', 'TokuDB'])
-                && !$current_table['COUNTED'];
+                && ! $current_table['COUNTED'];
 
             if ($table_is_view
                 && $current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
@@ -1092,7 +1092,7 @@ class DatabaseStructureController extends DatabaseController
 
         if ((in_array($current_table['ENGINE'], ['InnoDB', 'TokuDB'])
             && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
-            || !isset($current_table['TABLE_ROWS'])
+            || ! isset($current_table['TABLE_ROWS'])
         ) {
             $current_table['COUNTED'] = true;
             $current_table['TABLE_ROWS'] = $this->dbi

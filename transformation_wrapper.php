@@ -114,7 +114,7 @@ $response->getHeader()->sendHttpHeaders();
 if (isset($ct) && ! empty($ct)) {
     $mime_type = $ct;
 } else {
-    $mime_type = (!empty($mime_map[$transform_key]['mimetype'])
+    $mime_type = (! empty($mime_map[$transform_key]['mimetype'])
         ? str_replace('_', '/', $mime_map[$transform_key]['mimetype'])
         : $default_ct)
     . (isset($mime_options['charset']) ? $mime_options['charset'] : '');

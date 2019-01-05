@@ -8,7 +8,7 @@
  */
 declare(strict_types=1);
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 

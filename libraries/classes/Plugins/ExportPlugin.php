@@ -276,10 +276,10 @@ abstract class ExportPlugin
      */
     public function initAlias($aliases, &$db, &$table = null)
     {
-        if (!empty($aliases[$db]['tables'][$table]['alias'])) {
+        if (! empty($aliases[$db]['tables'][$table]['alias'])) {
             $table = $aliases[$db]['tables'][$table]['alias'];
         }
-        if (!empty($aliases[$db]['alias'])) {
+        if (! empty($aliases[$db]['alias'])) {
             $db = $aliases[$db]['alias'];
         }
     }
@@ -298,7 +298,7 @@ abstract class ExportPlugin
      */
     public function getAlias(array $aliases, $id, $type = 'dbtblcol', $db = '', $tbl = '')
     {
-        if (!empty($db) && isset($aliases[$db])) {
+        if (! empty($db) && isset($aliases[$db])) {
             $aliases = [
                 $db => $aliases[$db],
             ];
@@ -308,14 +308,14 @@ abstract class ExportPlugin
             // check if id is database and has alias
             if (stristr($type, 'db') !== false
                 && $db_key === $id
-                && !empty($db['alias'])
+                && ! empty($db['alias'])
             ) {
                 return $db['alias'];
             }
             if (empty($db['tables'])) {
                 continue;
             }
-            if (!empty($tbl) && isset($db['tables'][$tbl])) {
+            if (! empty($tbl) && isset($db['tables'][$tbl])) {
                 $db['tables'] = [
                     $tbl => $db['tables'][$tbl],
                 ];
@@ -325,7 +325,7 @@ abstract class ExportPlugin
                 // check if id is table and has alias
                 if (stristr($type, 'tbl') !== false
                     && $table_key === $id
-                    && !empty($table['alias'])
+                    && ! empty($table['alias'])
                 ) {
                     return $table['alias'];
                 }
@@ -337,7 +337,7 @@ abstract class ExportPlugin
                     // check if id is column
                     if (stristr($type, 'col') !== false
                         && $col_key === $id
-                        && !empty($col)
+                        && ! empty($col)
                     ) {
                         return $col;
                     }
@@ -372,10 +372,10 @@ abstract class ExportPlugin
         if ($foreigner) {
             $ftable = $foreigner['foreign_table'];
             $ffield = $foreigner['foreign_field'];
-            if (!empty($aliases[$db]['tables'][$ftable]['columns'][$ffield])) {
+            if (! empty($aliases[$db]['tables'][$ftable]['columns'][$ffield])) {
                 $ffield = $aliases[$db]['tables'][$ftable]['columns'][$ffield];
             }
-            if (!empty($aliases[$db]['tables'][$ftable]['alias'])) {
+            if (! empty($aliases[$db]['tables'][$ftable]['alias'])) {
                 $ftable = $aliases[$db]['tables'][$ftable]['alias'];
             }
             $relation = $ftable . ' (' . $ffield . ')';

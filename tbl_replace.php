@@ -225,8 +225,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $current_value = $possibly_uploaded_val;
         }
         // Apply Input Transformation if defined
-        if (!empty($mime_map[$column_name])
-            && !empty($mime_map[$column_name]['input_transformation'])
+        if (! empty($mime_map[$column_name])
+            && ! empty($mime_map[$column_name]['input_transformation'])
         ) {
             $filename = 'libraries/classes/Plugins/Transformations/'
                 . $mime_map[$column_name]['input_transformation'];
@@ -245,7 +245,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
                     // check if transformation was successful or not
                     // and accordingly set error messages & insert_fail
                     if (method_exists($transformation_plugin, 'isSuccess')
-                        && !$transformation_plugin->isSuccess()
+                        && ! $transformation_plugin->isSuccess()
                     ) {
                         $insert_fail = true;
                         $row_skipped = true;
@@ -321,7 +321,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
     if ($insert_fail) {
         $unsaved_values[$rownumber] = $multi_edit_columns;
     }
-    if (!$insert_fail && count($query_values) > 0) {
+    if (! $insert_fail && count($query_values) > 0) {
         if ($is_insert) {
             $value_sets[] = implode(', ', $query_values);
         } else {
@@ -354,7 +354,7 @@ unset(
 // Builds the sql query
 if ($is_insert && count($value_sets) > 0) {
     $query = $insertEdit->buildSqlQuery($is_insertignore, $query_fields, $value_sets);
-} elseif (empty($query) && ! isset($_POST['preview_sql']) && !$row_skipped) {
+} elseif (empty($query) && ! isset($_POST['preview_sql']) && ! $row_skipped) {
     // No change -> move back to the calling script
     //
     // Note: logic passes here for inline edit

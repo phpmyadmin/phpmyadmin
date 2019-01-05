@@ -297,7 +297,7 @@ class Config
             return;
         }
 
-        if (!function_exists('imagecreatetruecolor')) {
+        if (! function_exists('imagecreatetruecolor')) {
             $this->set('PMA_IS_GD2', 0);
             return;
         }
@@ -344,7 +344,7 @@ class Config
         $this->set('PMA_IS_WINDOWS', 0);
         // If PHP_OS is defined then continue
         if (defined('PHP_OS')) {
-            if (stristr(PHP_OS, 'win') && !stristr(PHP_OS, 'darwin')) {
+            if (stristr(PHP_OS, 'win') && ! stristr(PHP_OS, 'darwin')) {
                 // Is it some version of Windows
                 $this->set('PMA_IS_WINDOWS', 1);
             } elseif (stristr(PHP_OS, 'OS/2')) {
@@ -865,7 +865,7 @@ class Config
         /**
          * Backward compatibility code
          */
-        if (!empty($cfg['DefaultTabTable'])) {
+        if (! empty($cfg['DefaultTabTable'])) {
             $cfg['DefaultTabTable'] = str_replace(
                 '_properties',
                 '',
@@ -876,7 +876,7 @@ class Config
                 )
             );
         }
-        if (!empty($cfg['DefaultTabDatabase'])) {
+        if (! empty($cfg['DefaultTabDatabase'])) {
             $cfg['DefaultTabDatabase'] = str_replace(
                 '_details',
                 '',
@@ -921,11 +921,11 @@ class Config
         // will have everything available in session cache
         $server = isset($GLOBALS['server'])
             ? $GLOBALS['server']
-            : (!empty($GLOBALS['cfg']['ServerDefault'])
+            : (! empty($GLOBALS['cfg']['ServerDefault'])
                 ? $GLOBALS['cfg']['ServerDefault']
                 : 0);
         $cache_key = 'server_' . $server;
-        if ($server > 0 && !defined('PMA_MINIMUM_COMMON')) {
+        if ($server > 0 && ! defined('PMA_MINIMUM_COMMON')) {
             $config_mtime = max($this->default_source_mtime, $this->source_mtime);
             // cache user preferences, use database only when needed
             if (! isset($_SESSION['cache'][$cache_key]['userprefs'])
@@ -1072,7 +1072,7 @@ class Config
      */
     public function getUserValue(string $cookie_name, $cfg_value)
     {
-        $cookie_exists = isset($_COOKIE) && !empty($_COOKIE[$cookie_name]);
+        $cookie_exists = isset($_COOKIE) && ! empty($_COOKIE[$cookie_name]);
         $prefs_type = $this->get('user_preferences');
         if ($prefs_type == 'db') {
             // permanent user preferences value exists, remove cookie
@@ -1153,7 +1153,7 @@ class Config
         // Check for permissions (on platforms that support it):
         if ($this->get('CheckConfigurationPermissions') && @file_exists($this->getSource())) {
             $perms = @fileperms($this->getSource());
-            if (!($perms === false) && ($perms & 2)) {
+            if (! ($perms === false) && ($perms & 2)) {
                 // This check is normally done after loading configuration
                 $this->checkWebServerOs();
                 if ($this->get('PMA_IS_WINDOWS') == 0) {
@@ -1267,7 +1267,7 @@ class Config
      */
     public function checkUpload(): void
     {
-        if (!ini_get('file_uploads')) {
+        if (! ini_get('file_uploads')) {
             $this->set('enable_upload', false);
             return;
         }
@@ -1353,7 +1353,7 @@ class Config
     {
         static $cookie_path = null;
 
-        if (null !== $cookie_path && !defined('TESTSUITE')) {
+        if (null !== $cookie_path && ! defined('TESTSUITE')) {
             return $cookie_path;
         }
 
@@ -1523,8 +1523,8 @@ class Config
      */
     public static function fatalErrorHandler(): void
     {
-        if (!isset($GLOBALS['pma_config_loading'])
-            || !$GLOBALS['pma_config_loading']
+        if (! isset($GLOBALS['pma_config_loading'])
+            || ! $GLOBALS['pma_config_loading']
         ) {
             return;
         }
@@ -1597,7 +1597,7 @@ class Config
     {
         static $temp_dir = [];
 
-        if (isset($temp_dir[$name]) && !defined('TESTSUITE')) {
+        if (isset($temp_dir[$name]) && ! defined('TESTSUITE')) {
             return $temp_dir[$name];
         }
 
@@ -1686,7 +1686,7 @@ class Config
             $server = $request;
             $this->settings['Server'] = $this->settings['Servers'][$server];
         } else {
-            if (!empty($this->settings['Servers'][$this->settings['ServerDefault']])) {
+            if (! empty($this->settings['Servers'][$this->settings['ServerDefault']])) {
                 $server = $this->settings['ServerDefault'];
                 $this->settings['Server'] = $this->settings['Servers'][$server];
             } else {
@@ -1715,7 +1715,7 @@ class Config
 
             foreach ($this->settings['Servers'] as $server_index => $each_server) {
                 // Detect wrong configuration
-                if (!is_int($server_index) || $server_index < 1) {
+                if (! is_int($server_index) || $server_index < 1) {
                     trigger_error(
                         sprintf(__('Invalid server index: %s'), $server_index),
                         E_USER_ERROR
@@ -1740,6 +1740,6 @@ class Config
     }
 }
 
-if (!defined('TESTSUITE')) {
+if (! defined('TESTSUITE')) {
     register_shutdown_function(['PhpMyAdmin\Config', 'fatalErrorHandler']);
 }

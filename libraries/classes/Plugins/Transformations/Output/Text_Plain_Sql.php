@@ -27,7 +27,7 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
      */
     public function __construct()
     {
-        if (!empty($GLOBALS['cfg']['CodemirrorEnable'])) {
+        if (! empty($GLOBALS['cfg']['CodemirrorEnable'])) {
             $response = Response::getInstance();
             $scripts = $response->getHeader()
                 ->getScripts();

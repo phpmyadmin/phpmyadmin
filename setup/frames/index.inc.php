@@ -17,7 +17,7 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Setup\Index as SetupIndex;
 use PhpMyAdmin\Url;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -238,7 +238,7 @@ if ($cf->getServerCount() > 0) {
     $opts['values_disabled'][] = '-';
 
     foreach ($cf->getServers() as $id => $server) {
-        $opts['values'][(string)$id] = $cf->getServerName($id) . " [$id]";
+        $opts['values'][(string) $id] = $cf->getServerName($id) . " [$id]";
     }
 } else {
     $opts['values']['1'] = __('- none -');

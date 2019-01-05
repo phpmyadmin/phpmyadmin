@@ -523,7 +523,7 @@ class Message
      */
     private function addMessageToList(self $message, string $separator): void
     {
-        if (!empty($separator)) {
+        if (! empty($separator)) {
             $this->addedMessages[] = $separator;
         }
         $this->addedMessages[] = $message;

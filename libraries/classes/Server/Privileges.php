@@ -2051,7 +2051,7 @@ class Privileges
                     . $hostname . "';";
 
                 // Update the plugin for the user
-                if (!$this->dbi->tryQuery($update_plugin_query)) {
+                if (! $this->dbi->tryQuery($update_plugin_query)) {
                     Util::mysqlDie(
                         $this->dbi->getError(),
                         $update_plugin_query,
@@ -2085,7 +2085,7 @@ class Privileges
                     . '(\'' . $this->dbi->escapeString($_POST['pma_pw']) . '\')');
             }
 
-            if (!$this->dbi->tryQuery($local_query)) {
+            if (! $this->dbi->tryQuery($local_query)) {
                 Util::mysqlDie(
                     $this->dbi->getError(),
                     $sql_query,
@@ -2207,19 +2207,19 @@ class Privileges
         }
         if (isset($_POST['max_questions']) || isset($GLOBALS['max_questions'])) {
             $max_questions = isset($_POST['max_questions'])
-                ? (int)$_POST['max_questions'] : (int)$GLOBALS['max_questions'];
+                ? (int) $_POST['max_questions'] : (int) $GLOBALS['max_questions'];
             $max_questions = max(0, $max_questions);
             $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
         }
         if (isset($_POST['max_connections']) || isset($GLOBALS['max_connections'])) {
             $max_connections = isset($_POST['max_connections'])
-                ? (int)$_POST['max_connections'] : (int)$GLOBALS['max_connections'];
+                ? (int) $_POST['max_connections'] : (int) $GLOBALS['max_connections'];
             $max_connections = max(0, $max_connections);
             $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
         }
         if (isset($_POST['max_updates']) || isset($GLOBALS['max_updates'])) {
             $max_updates = isset($_POST['max_updates'])
-                ? (int)$_POST['max_updates'] : (int)$GLOBALS['max_updates'];
+                ? (int) $_POST['max_updates'] : (int) $GLOBALS['max_updates'];
             $max_updates = max(0, $max_updates);
             $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
         }
@@ -2227,12 +2227,12 @@ class Privileges
             || isset($GLOBALS['max_user_connections'])
         ) {
             $max_user_connections = isset($_POST['max_user_connections'])
-                ? (int)$_POST['max_user_connections']
-                : (int)$GLOBALS['max_user_connections'];
+                ? (int) $_POST['max_user_connections']
+                : (int) $GLOBALS['max_user_connections'];
             $max_user_connections = max(0, $max_user_connections);
             $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
         }
-        return (!empty($sql_query) ? ' WITH' . $sql_query : '');
+        return (! empty($sql_query) ? ' WITH' . $sql_query : '');
     }
 
     /**
@@ -3086,7 +3086,7 @@ class Privileges
             // if $cfg['Servers'][$i]['users'] and $cfg['Servers'][$i]['usergroups'] are
             // enabled
             $cfgRelation = $this->relation->getRelationsParam();
-            if (!empty($cfgRelation['users']) && !empty($cfgRelation['usergroups'])) {
+            if (! empty($cfgRelation['users']) && ! empty($cfgRelation['usergroups'])) {
                 $new_user_string .= '<td class="usrGroup"></td>';
             }
 
@@ -4232,7 +4232,7 @@ class Privileges
         $queries_for_display = null;
         $sql_query = null;
 
-        if (!isset($_POST['adduser_submit']) && !isset($_POST['change_copy'])) {
+        if (! isset($_POST['adduser_submit']) && ! isset($_POST['change_copy'])) {
             return [
                 $message, $queries, $queries_for_display, $sql_query, $_add_user_error
             ];
@@ -4298,10 +4298,10 @@ class Privileges
             $_error = false;
 
             if (! is_null($create_user_real)) {
-                if (!$this->dbi->tryQuery($create_user_real)) {
+                if (! $this->dbi->tryQuery($create_user_real)) {
                     $_error = true;
                 }
-                if (isset($password_set_real) && !empty($password_set_real)
+                if (isset($password_set_real) && ! empty($password_set_real)
                     && isset($_POST['authentication_plugin'])
                 ) {
                     $this->setProperPasswordHashing(
@@ -4324,7 +4324,7 @@ class Privileges
                 $alter_real_sql_query,
                 $alter_sql_query
             );
-            if (!empty($_POST['userGroup']) && $is_menuwork) {
+            if (! empty($_POST['userGroup']) && $is_menuwork) {
                 $this->setUserGroup($GLOBALS['username'], $_POST['userGroup']);
             }
 
@@ -4582,19 +4582,19 @@ class Privileges
      */
     public function getAddUserHtmlFieldset($db = '', $table = '')
     {
-        if (!$GLOBALS['is_createuser']) {
+        if (! $GLOBALS['is_createuser']) {
             return '';
         }
         $rel_params = [];
         $url_params = [
             'adduser' => 1
         ];
-        if (!empty($db)) {
+        if (! empty($db)) {
             $url_params['dbname']
                 = $rel_params['checkprivsdb']
                     = $db;
         }
-        if (!empty($table)) {
+        if (! empty($table)) {
             $url_params['tablename']
                 = $rel_params['checkprivstable']
                     = $table;
@@ -5159,13 +5159,13 @@ class Privileges
         $alter_real_sql_query,
         $alter_sql_query
     ) {
-        if ($_error || (!empty($real_sql_query)
-            && !$this->dbi->tryQuery($real_sql_query))
+        if ($_error || (! empty($real_sql_query)
+            && ! $this->dbi->tryQuery($real_sql_query))
         ) {
             $_POST['createdb-1'] = $_POST['createdb-2']
                 = $_POST['createdb-3'] = null;
             $message = Message::rawError($this->dbi->getError());
-        } elseif ($alter_real_sql_query !== '' && !$this->dbi->tryQuery($alter_real_sql_query)) {
+        } elseif ($alter_real_sql_query !== '' && ! $this->dbi->tryQuery($alter_real_sql_query)) {
             $_POST['createdb-1'] = $_POST['createdb-2']
                 = $_POST['createdb-3'] = null;
             $message = Message::rawError($this->dbi->getError());
@@ -5264,7 +5264,7 @@ class Privileges
     public function checkIfMariaDBPwdCheckPluginActive()
     {
         $serverVersion = $this->dbi->getVersion();
-        if (!(Util::getServerType() == 'MariaDB' && $serverVersion >= 100002)) {
+        if (! (Util::getServerType() == 'MariaDB' && $serverVersion >= 100002)) {
             return false;
         }
 
@@ -5503,7 +5503,7 @@ class Privileges
         $real_sql_query .= ';';
         $sql_query .= ';';
         // No Global GRANT_OPTION privilege
-        if (!$GLOBALS['is_grantuser']) {
+        if (! $GLOBALS['is_grantuser']) {
             $real_sql_query = '';
             $sql_query = '';
         }

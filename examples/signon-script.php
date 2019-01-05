@@ -24,7 +24,7 @@ declare(strict_types=1);
 function get_login_credentials($user)
 {
     /* Optionally we can use passed username */
-    if (!empty($user)) {
+    if (! empty($user)) {
         return [$user, 'password'];
     }
 

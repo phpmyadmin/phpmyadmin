@@ -102,7 +102,7 @@ class Common
 
             $DF = $this->relation->getDisplayField($GLOBALS['db'], $one_table['TABLE_NAME']);
             if ($DF != '') {
-                $DF = rawurlencode((string)$DF);
+                $DF = rawurlencode((string) $DF);
                 $retval[rawurlencode($GLOBALS['designer_url']["TABLE_NAME_SMALL"][$i])] = $DF;
             }
 
@@ -501,13 +501,13 @@ class Common
             DatabaseInterface::QUERY_STORE
         );
 
-        if (!$res) {
-            return (bool)$res;
+        if (! $res) {
+            return (bool) $res;
         }
 
         foreach ($_REQUEST['t_h'] as $key => $value) {
             list($DB, $TAB) = explode(".", $key);
-            if (!$value) {
+            if (! $value) {
                 continue;
             }
 
@@ -544,7 +544,7 @@ class Common
     public function saveDisplayField($db, $table, $field)
     {
         $cfgRelation = $this->relation->getRelationsParam();
-        if (!$cfgRelation['displaywork']) {
+        if (! $cfgRelation['displaywork']) {
             return false;
         }
 
@@ -744,7 +744,7 @@ class Common
             DatabaseInterface::QUERY_STORE
         );
 
-        if (!$result) {
+        if (! $result) {
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
             return [
                 false,

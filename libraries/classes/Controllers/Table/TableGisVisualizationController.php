@@ -128,7 +128,7 @@ class TableGisVisualizationController extends TableController
             $this->visualizationSettings = $_REQUEST['visualizationSettings'];
         }
 
-        if (!isset($this->visualizationSettings['labelColumn'])
+        if (! isset($this->visualizationSettings['labelColumn'])
             && isset($labelCandidates[0])
         ) {
             $this->visualizationSettings['labelColumn'] = '';

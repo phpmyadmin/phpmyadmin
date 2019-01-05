@@ -245,7 +245,7 @@ class ExportOds extends ExportPlugin
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($i = 0; $i < $fields_cnt; $i++) {
                 $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-                if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+                if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                     $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
                 }
                 $GLOBALS['ods_buffer']
@@ -264,7 +264,7 @@ class ExportOds extends ExportPlugin
         while ($row = $GLOBALS['dbi']->fetchRow($result)) {
             $GLOBALS['ods_buffer'] .= '<table:table-row>';
             for ($j = 0; $j < $fields_cnt; $j++) {
-                if (!isset($row[$j]) || is_null($row[$j])) {
+                if (! isset($row[$j]) || is_null($row[$j])) {
                     $GLOBALS['ods_buffer']
                         .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
@@ -311,7 +311,7 @@ class ExportOds extends ExportPlugin
                         . '</table:table-cell>';
                 } elseif (($fields_meta[$j]->numeric
                     && $fields_meta[$j]->type != 'timestamp'
-                    && !$fields_meta[$j]->blob)
+                    && ! $fields_meta[$j]->blob)
                     || $fields_meta[$j]->type == 'real'
                 ) {
                     $GLOBALS['ods_buffer']

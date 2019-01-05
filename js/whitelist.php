@@ -11,7 +11,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
 
-if (!defined('TESTSUITE')) {
+if (! defined('TESTSUITE')) {
     chdir('..');
 
     // Send correct type:
@@ -32,7 +32,7 @@ if (!defined('TESTSUITE')) {
 
 $buffer = PhpMyAdmin\OutputBuffering::getInstance();
 $buffer->start();
-if (!defined('TESTSUITE')) {
+if (! defined('TESTSUITE')) {
     register_shutdown_function(
         function () {
             echo PhpMyAdmin\OutputBuffering::getInstance()->getContents();

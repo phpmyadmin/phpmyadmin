@@ -61,7 +61,7 @@ abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlu
         $idindex
     ) {
         $html = '';
-        if (!empty($value)) {
+        if (! empty($value)) {
             $html = '<input type="hidden" name="fields_prev' . $column_name_appendix
                 . '" value="' . htmlspecialchars($value) . '">';
         }

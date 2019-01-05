@@ -45,7 +45,7 @@ class UploadNoplugin implements UploadInterface
         if (trim($id) == "") {
             return null;
         }
-        if (!array_key_exists($id, $_SESSION[$SESSION_KEY])) {
+        if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = [
                 'id'       => $id,
                 'finished' => false,

@@ -221,7 +221,7 @@ class Export
     public function getMemoryLimit(): int
     {
         $memory_limit = trim(ini_get('memory_limit'));
-        $memory_limit_num = (int)substr($memory_limit, 0, -1);
+        $memory_limit_num = (int) substr($memory_limit, 0, -1);
         $lowerLastChar = strtolower(substr($memory_limit, -1));
         // 2 MB as default
         if (empty($memory_limit) || '-1' == $memory_limit) {
@@ -233,7 +233,7 @@ class Export
         } elseif ($lowerLastChar == 'g') {
             $memory_limit = $memory_limit_num * 1024 * 1024 * 1024;
         } else {
-            $memory_limit = (int)$memory_limit;
+            $memory_limit = (int) $memory_limit;
         }
 
         // Some of memory is needed for other things and as threshold.
@@ -506,7 +506,7 @@ class Export
         }
 
         foreach ($_POST as $name => $value) {
-            if (!is_array($value)) {
+            if (! is_array($value)) {
                 $back_button .= '&amp;' . urlencode((string) $name) . '=' . urlencode((string) $value);
             }
         }
@@ -638,7 +638,7 @@ class Export
         array $aliases,
         string $separate_files
     ): void {
-        $db_alias = !empty($aliases[$db]['alias'])
+        $db_alias = ! empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
 
         if (! $export_plugin->exportDBHeader($db, $db_alias)) {
@@ -891,7 +891,7 @@ class Export
         string $sql_query,
         array $aliases
     ): void {
-        $db_alias = !empty($aliases[$db]['alias'])
+        $db_alias = ! empty($aliases[$db]['alias'])
             ? $aliases[$db]['alias'] : '';
         if (! $export_plugin->exportDBHeader($db, $db_alias)) {
             return;
@@ -1067,7 +1067,7 @@ class Export
                 $aliases[$db_name]['alias']
                     = empty($val2) ? $val1 : $val2;
             }
-            if (!isset($db['tables'])) {
+            if (! isset($db['tables'])) {
                 continue;
             }
             foreach ($db['tables'] as $tbl_name => $tbl) {
@@ -1078,7 +1078,7 @@ class Export
                     $aliases[$db_name]['tables'][$tbl_name]['alias']
                         = empty($val2) ? $val1 : $val2;
                 }
-                if (!isset($tbl['columns'])) {
+                if (! isset($tbl['columns'])) {
                     continue;
                 }
                 foreach ($tbl['columns'] as $col => $col_as) {

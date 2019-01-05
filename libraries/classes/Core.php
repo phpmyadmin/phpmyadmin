@@ -274,7 +274,7 @@ class Core
          * Avoid using Response class as config does not have to be loaded yet
          * (this can happen on early fatal error)
          */
-        if (!is_null($GLOBALS['dbi']) && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
+        if (! is_null($GLOBALS['dbi']) && isset($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup') === false && Response::getInstance()->isAjax()) {
             $response = Response::getInstance();
             $response->setRequestStatus(false);
             $response->addJSON('message', Message::error($error_message));
@@ -623,7 +623,7 @@ class Core
         }
         /* Replace all possibly dangerous chars in filename */
         $filename = Sanitize::sanitizeFilename($filename);
-        if (!empty($filename)) {
+        if (! empty($filename)) {
             header('Content-Description: File Transfer');
             header('Content-Disposition: attachment; filename="' . $filename . '"');
         }
@@ -739,7 +739,7 @@ class Core
      */
     public static function linkURL(string $url): string
     {
-        if (!preg_match('#^https?://#', $url)) {
+        if (! preg_match('#^https?://#', $url)) {
             return $url;
         }
 
@@ -752,7 +752,7 @@ class Core
         parse_str($arr["query"], $vars);
         $query = http_build_query(["url" => $vars["url"]]);
 
-        if (!is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup')) {
+        if (! is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup')) {
             $url = '../url.php?' . $query;
         } else {
             $url = './url.php?' . $query;
@@ -1020,7 +1020,7 @@ class Core
         $direct_ip = $_SERVER['REMOTE_ADDR'];
 
         /* Do we trust this IP as a proxy? If yes we will use it's header. */
-        if (!isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
+        if (! isset($GLOBALS['cfg']['TrustedProxies'][$direct_ip])) {
             /* Return true IP */
             return $direct_ip;
         }
@@ -1210,7 +1210,7 @@ class Core
          * We specifically use empty here as we are looking for anything else than
          * empty value or 0.
          */
-        if (extension_loaded('mbstring') && !empty(ini_get('mbstring.func_overload'))) {
+        if (extension_loaded('mbstring') && ! empty(ini_get('mbstring.func_overload'))) {
             self::fatalError(
                 __(
                     'You have enabled mbstring.func_overload in your PHP '

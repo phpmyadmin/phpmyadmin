@@ -34,7 +34,7 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
  *
  * @var string
  */
-$sql_query = !empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
+$sql_query = ! empty($_POST['sql_query']) ? $_POST['sql_query'] : '';
 
 // Disabling standard response.
 Response::getInstance()->disable();

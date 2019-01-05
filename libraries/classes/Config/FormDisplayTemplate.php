@@ -81,7 +81,7 @@ class FormDisplayTemplate
                 . ' id="check_page_refresh" value="">' . "\n";
         }
         $htmlOutput .= Url::getHiddenInputs('', '', 0, 'server') . "\n";
-        $htmlOutput .= Url::getHiddenFields((array)$hiddenFields, '', true);
+        $htmlOutput .= Url::getHiddenFields((array) $hiddenFields, '', true);
         return $htmlOutput;
     }
 
@@ -224,7 +224,7 @@ class FormDisplayTemplate
                 }
             }
         }
-        $hasErrors = isset($opts['errors']) && !empty($opts['errors']);
+        $hasErrors = isset($opts['errors']) && ! empty($opts['errors']);
         $optionIsDisabled = ! $isSetupScript && isset($opts['userprefs_allow'])
             && ! $opts['userprefs_allow'];
         $nameId = 'name="' . htmlspecialchars($path) . '" id="'
@@ -269,7 +269,7 @@ class FormDisplayTemplate
             $htmlOutput .= '">' . __('Disabled') . "</span>";
         }
 
-        if (!empty($description)) {
+        if (! empty($description)) {
             $htmlOutput .= '<small>' . $description . '</small>';
         }
 
@@ -305,7 +305,7 @@ class FormDisplayTemplate
                 break;
             case 'select':
                 $htmlOutput .= '<select class="all85" ' . $nameId . $fieldClass . '>';
-                $escape = !(isset($opts['values_escaped']) && $opts['values_escaped']);
+                $escape = ! (isset($opts['values_escaped']) && $opts['values_escaped']);
                 $valuesDisabled = isset($opts['values_disabled'])
                 ? array_flip($opts['values_disabled']) : [];
                 foreach ($opts['values'] as $optValueKey => $optValue) {
@@ -474,8 +474,8 @@ class FormDisplayTemplate
      */
     public function addJsValidate($fieldId, $validators, array &$jsArray): void
     {
-        foreach ((array)$validators as $validator) {
-            $validator = (array)$validator;
+        foreach ((array) $validators as $validator) {
+            $validator = (array) $validator;
             $vName = array_shift($validator);
             $vName = "PMA_" . $vName;
             $vArgs = [];

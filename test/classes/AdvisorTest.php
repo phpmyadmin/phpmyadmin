@@ -140,7 +140,7 @@ class AdvisorTest extends PmaTestCase
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
-        if (isset($runResult['errors']) || !is_null($error)) {
+        if (isset($runResult['errors']) || ! is_null($error)) {
             $this->assertEquals([$error], $runResult['errors']);
         }
         if (isset($runResult['fired']) || $expected != []) {

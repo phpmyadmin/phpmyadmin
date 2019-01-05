@@ -689,7 +689,7 @@ abstract class TestBase extends TestCase
     public function waitForElementNotPresent($func, $arg)
     {
         while (true) {
-            if (!$this->isElementPresent($func, $arg)) {
+            if (! $this->isElementPresent($func, $arg)) {
                 return true;
             }
             usleep(5000);

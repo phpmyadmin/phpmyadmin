@@ -35,7 +35,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Coun
      */
     public function addProperty($property)
     {
-        if (!$this->getProperties() == null
+        if (! $this->getProperties() == null
             && in_array($property, $this->getProperties(), true)
         ) {
             return;

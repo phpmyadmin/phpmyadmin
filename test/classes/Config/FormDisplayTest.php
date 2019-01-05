@@ -413,11 +413,11 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $expect['comment'] = '';
-        if (!function_exists('iconv')) {
+        if (! function_exists('iconv')) {
             $expect['values']['iconv'] .= " (unavailable)";
             $expect['comment'] = '"iconv" requires iconv extension';
         }
-        if (!function_exists('recode_string')) {
+        if (! function_exists('recode_string')) {
             $expect['values']['recode'] .= " (unavailable)";
             $expect['comment'] .= ($expect['comment'] ? ", " : '') .
                 '"recode" requires recode extension';
@@ -436,11 +436,11 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $comment = '';
-        if (!function_exists("zip_open")) {
+        if (! function_exists("zip_open")) {
             $comment = 'Compressed import will not work due to missing function ' .
                 'zip_open.';
         }
-        if (!function_exists("gzcompress")) {
+        if (! function_exists("gzcompress")) {
             $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function gzcompress.';
         }
@@ -460,11 +460,11 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $comment = '';
-        if (!function_exists("gzopen")) {
+        if (! function_exists("gzopen")) {
             $comment = 'Compressed import will not work due to missing function ' .
                 'gzopen.';
         }
-        if (!function_exists("gzencode")) {
+        if (! function_exists("gzencode")) {
             $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function gzencode.';
         }
@@ -484,11 +484,11 @@ class FormDisplayTest extends PmaTestCase
         );
 
         $comment = '';
-        if (!function_exists("bzopen")) {
+        if (! function_exists("bzopen")) {
             $comment = 'Compressed import will not work due to missing function ' .
                 'bzopen.';
         }
-        if (!function_exists("bzcompress")) {
+        if (! function_exists("bzcompress")) {
             $comment .= ($comment ? '; ' : '') . 'Compressed export will not work ' .
             'due to missing function bzcompress.';
         }

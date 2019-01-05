@@ -127,7 +127,7 @@ class Processes
         if (! empty($_POST['showExecuting'])) {
             $sql_query .= ' WHERE state != "" ';
         }
-        if (!empty($_POST['order_by_field']) && !empty($_POST['sort_order'])) {
+        if (! empty($_POST['order_by_field']) && ! empty($_POST['sort_order'])) {
             $sql_query .= ' ORDER BY '
                 . Util::backquote($_POST['order_by_field'])
                 . ' ' . $_POST['sort_order'];

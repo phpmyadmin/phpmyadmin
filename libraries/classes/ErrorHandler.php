@@ -49,7 +49,7 @@ class ErrorHandler
          * This behavior is not tested there and breaks other tests as they
          * rely on PHPUnit doing it's own error handling which we break here.
          */
-        if (!defined('TESTSUITE')) {
+        if (! defined('TESTSUITE')) {
             set_error_handler([$this, 'handleError']);
         }
         $this->error_reporting = error_reporting();
@@ -536,7 +536,7 @@ class ErrorHandler
     public function reportErrors(): void
     {
         // if there're no actual errors,
-        if (!$this->hasErrors()
+        if (! $this->hasErrors()
             || $this->countErrors() ==  $this->countUserErrors()
         ) {
             // then simply return.
@@ -563,7 +563,7 @@ class ErrorHandler
             }
         } elseif ($GLOBALS['cfg']['SendErrorReports'] == 'ask') {
             //ask user whether to submit errors or not.
-            if (!$response->isAjax()) {
+            if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.
                 $jsCode = 'PMA_ajaxShowMessage(PMA_messages["phpErrorsFound"]);'
                         . '$("#pma_ignore_errors_popup").bind("click", function() {

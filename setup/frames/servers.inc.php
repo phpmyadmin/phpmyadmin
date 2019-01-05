@@ -13,7 +13,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Setup\FormProcessing;
 use PhpMyAdmin\Url;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -22,7 +22,7 @@ $id = Core::isValid($_GET['id'], 'numeric') ? intval($_GET['id']) : null;
 
 /** @var ConfigFile $cf */
 $cf = $GLOBALS['ConfigFile'];
-$server_exists = !empty($id) && $cf->get("Servers/$id") !== null;
+$server_exists = ! empty($id) && $cf->get("Servers/$id") !== null;
 
 if ($mode == 'edit' && $server_exists) {
     $page_title = __('Edit server')

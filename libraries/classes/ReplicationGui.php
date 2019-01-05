@@ -767,7 +767,7 @@ class ReplicationGui
             ? ' selected="selected"' : '') . '>' . __('Local')
             . '</option>';
 
-        if (!empty($thishost)) {
+        if (! empty($thishost)) {
             $html .= '        <option value="thishost"'
                 . ((isset($GLOBALS['pred_hostname'])
                     && $GLOBALS['pred_hostname'] == 'thishost')

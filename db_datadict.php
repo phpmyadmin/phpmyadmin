@@ -113,7 +113,7 @@ foreach ($tables as $table) {
     /**
      * Displays the comments of the table if MySQL >= 3.23
      */
-    if (!empty($show_comment)) {
+    if (! empty($show_comment)) {
         echo __('Table comments:') , ' ';
         echo htmlspecialchars($show_comment) , '<br><br>';
     }

@@ -140,8 +140,8 @@ list(
 /**
  * Checks if the user is allowed to do what he tries to...
  */
-if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
-    && !$GLOBALS['is_createuser']
+if (! $GLOBALS['dbi']->isSuperuser() && ! $GLOBALS['is_grantuser']
+    && ! $GLOBALS['is_createuser']
 ) {
     $response->addHTML(
         $template->render('server/sub_page_header', [
@@ -155,7 +155,7 @@ if (!$GLOBALS['dbi']->isSuperuser() && !$GLOBALS['is_grantuser']
     );
     exit;
 }
-if (! $GLOBALS['is_grantuser'] && !$GLOBALS['is_createuser']) {
+if (! $GLOBALS['is_grantuser'] && ! $GLOBALS['is_createuser']) {
     $response->addHTML(Message::notice(
         __('You do not have the privileges to administrate the users!')
     )->getDisplay());
@@ -451,7 +451,7 @@ if (isset($_GET['adduser'])) {
         $response->addHTML(
             $serverPrivileges->getHtmlForUserOverview($pmaThemeImage, $text_dir)
         );
-    } elseif (!empty($routinename)) {
+    } elseif (! empty($routinename)) {
         $response->addHTML(
             $serverPrivileges->getHtmlForRoutineSpecificPrivileges(
                 $username,

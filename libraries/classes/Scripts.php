@@ -84,7 +84,7 @@ class Scripts
         array $params = []
     ) {
         $hash = md5($filename);
-        if (!empty($this->_files[$hash])) {
+        if (! empty($this->_files[$hash])) {
             return;
         }
 

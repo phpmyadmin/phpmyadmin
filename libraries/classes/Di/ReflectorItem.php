@@ -125,7 +125,7 @@ abstract class ReflectorItem implements Item
         if (is_string($definition)) {
             $definition = explode('::', $definition);
         }
-        if (!isset($definition[1])) {
+        if (! isset($definition[1])) {
             return new \ReflectionClass($definition[0]);
         }
         return new \ReflectionMethod($definition[0], $definition[1]);

@@ -293,7 +293,7 @@ class Encoding
         $fpd      = fopen($tmpfname, 'wb');
         $fps      = fopen($file, 'r');
         self::kanjiChangeOrder();
-        while (!feof($fps)) {
+        while (! feof($fps)) {
             $line = fgets($fps, 4096);
             $dist = self::kanjiStrConv($line, $enc, $kana);
             fputs($fpd, $dist);

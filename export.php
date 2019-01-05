@@ -303,12 +303,12 @@ if ($export_type == 'server') {
 // preference over SQL Query aliases.
 $parser = new \PhpMyAdmin\SqlParser\Parser($sql_query);
 $aliases = [];
-if ((!empty($parser->statements[0]))
+if ((! empty($parser->statements[0]))
     && ($parser->statements[0] instanceof \PhpMyAdmin\SqlParser\Statements\SelectStatement)
 ) {
     $aliases = \PhpMyAdmin\SqlParser\Utils\Misc::getAliases($parser->statements[0], $db);
 }
-if (!empty($_POST['aliases'])) {
+if (! empty($_POST['aliases'])) {
     $aliases = $export->mergeAliases($aliases, $_POST['aliases']);
     $_SESSION['tmpval']['aliases'] = $_POST['aliases'];
 }
@@ -466,13 +466,13 @@ do {
             $separate_files
         );
     } elseif ($export_type == 'database') {
-        if (!isset($table_structure) || !is_array($table_structure)) {
+        if (! isset($table_structure) || ! is_array($table_structure)) {
             $table_structure = [];
         }
-        if (!isset($table_data) || !is_array($table_data)) {
+        if (! isset($table_data) || ! is_array($table_data)) {
             $table_data = [];
         }
-        if (!empty($_POST['structure_or_data_forced'])) {
+        if (! empty($_POST['structure_or_data_forced'])) {
             $table_structure = $tables;
             $table_data = $tables;
         }

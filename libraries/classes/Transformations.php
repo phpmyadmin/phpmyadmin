@@ -280,7 +280,7 @@ class Transformations
             . Util::backquote($cfgRelation['column_info']) . '
              WHERE `db_name`    = \'' . $GLOBALS['dbi']->escapeString($db) . '\'
                AND `table_name` = \'' . $GLOBALS['dbi']->escapeString($table) . '\'
-               AND ( `mimetype` != \'\'' . (!$strict ? '
+               AND ( `mimetype` != \'\'' . (! $strict ? '
                   OR `transformation` != \'\'
                   OR `transformation_options` != \'\'
                   OR `input_transformation` != \'\'

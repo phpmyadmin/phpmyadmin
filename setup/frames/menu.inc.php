@@ -10,7 +10,7 @@ declare(strict_types=1);
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 

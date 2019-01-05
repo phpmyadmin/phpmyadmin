@@ -114,7 +114,7 @@ if (isset($_POST['createview']) || isset($_POST['alterview'])) {
         }
     }
 
-    if (!$GLOBALS['dbi']->tryQuery($sql_query)) {
+    if (! $GLOBALS['dbi']->tryQuery($sql_query)) {
         if (! isset($_POST['ajax_dialog'])) {
             $message = Message::rawError($GLOBALS['dbi']->getError());
             return;

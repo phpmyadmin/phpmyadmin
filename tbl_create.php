@@ -41,7 +41,7 @@ if (strlen($db) === 0) {
 /**
  * Selects the database to work with
  */
-if (!$GLOBALS['dbi']->selectDb($db)) {
+if (! $GLOBALS['dbi']->selectDb($db)) {
     Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',

@@ -99,7 +99,7 @@ class Advisor
             function () {
             },
             function ($arguments, $value) {
-                if (!isset($this->runResult['fired'])) {
+                if (! isset($this->runResult['fired'])) {
                     return 0;
                 }
 
@@ -561,7 +561,7 @@ class Advisor
 
             // Reading rule lines
             if ($ruleLine > 0) {
-                if (!isset($line[0])) {
+                if (! isset($line[0])) {
                     continue; // Empty lines are ok
                 }
                 // Non tabbed lines are not

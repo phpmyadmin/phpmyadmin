@@ -72,7 +72,7 @@ class Plugins
         $GLOBALS['plugin_param'] = $plugin_param;
         /* Scan for plugins */
         $plugin_list = [];
-        if (!($handle = @opendir($plugins_dir))) {
+        if (! ($handle = @opendir($plugins_dir))) {
             return $plugin_list;
         }
 
@@ -173,13 +173,13 @@ class Plugins
             return htmlspecialchars($_REQUEST[$opt]);
         }
 
-        if (!isset($GLOBALS['cfg'][$section][$opt])) {
+        if (! isset($GLOBALS['cfg'][$section][$opt])) {
             return '';
         }
 
         $matches = [];
         /* Possibly replace localised texts */
-        if (!preg_match_all(
+        if (! preg_match_all(
             '/(str[A-Z][A-Za-z0-9]*)/',
             (string) $GLOBALS['cfg'][$section][$opt],
             $matches

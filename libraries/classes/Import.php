@@ -121,8 +121,8 @@ class Import
                 return;
             }
         } else {
-            $a_num_rows = (int)@$GLOBALS['dbi']->numRows($result);
-            $a_aff_rows = (int)@$GLOBALS['dbi']->affectedRows();
+            $a_num_rows = (int) @$GLOBALS['dbi']->numRows($result);
+            $a_aff_rows = (int) @$GLOBALS['dbi']->affectedRows();
             if ($a_num_rows > 0) {
                 $msg .= __('Rows') . ': ' . $a_num_rows;
             } elseif ($a_aff_rows > 0) {
@@ -139,7 +139,7 @@ class Import
 
             if (($a_num_rows > 0) || $is_use_query) {
                 $sql_data['valid_sql'][] = $sql;
-                if (!isset($sql_data['valid_queries'])) {
+                if (! isset($sql_data['valid_queries'])) {
                     $sql_data['valid_queries'] = 0;
                 }
                 $sql_data['valid_queries']++;
@@ -189,7 +189,7 @@ class Import
             $skip_queries, $executed_queries, $max_sql_len, $read_multiply,
             $cfg, $sql_query_disabled, $db, $run_query;
         $read_multiply = 1;
-        if (!isset($import_run_buffer)) {
+        if (! isset($import_run_buffer)) {
             // Do we have something to push into buffer?
             $import_run_buffer = $this->runQueryPost(
                 $import_run_buffer,
@@ -316,7 +316,7 @@ class Import
         string $sql,
         string $full
     ): ?array {
-        if (!empty($sql) || !empty($full)) {
+        if (! empty($sql) || ! empty($full)) {
             $import_run_buffer = ['sql' => $sql, 'full' => $full];
             return $import_run_buffer;
         }
@@ -460,8 +460,8 @@ class Import
         $col_name = "";
 
         if ($num > 26) {
-            $div = (int)($num / 26);
-            $remain = (int)($num % 26);
+            $div = (int) ($num / 26);
+            $remain = (int) ($num % 26);
 
             // subtract 1 of divided value in case the modulus is 0,
             // this is necessary because A-Z has no 'zero'
@@ -518,7 +518,7 @@ class Import
             // and subtract 64 to get corresponding decimal value
             // ASCII value of "A" is 65, "B" is 66, etc.
             // Decimal equivalent of "A" is 1, "B" is 2, etc.
-            $number = (int)(mb_ord($name[$char_pos]) - 64);
+            $number = (int) (mb_ord($name[$char_pos]) - 64);
 
             // base26 to base10 conversion : multiply each number
             // with corresponding value of the position, in this case
@@ -743,7 +743,7 @@ class Import
                 $oldM = $this->getDecimalPrecision($last_cumulative_size);
                 $oldD = $this->getDecimalScale($last_cumulative_size);
                 $oldInt = $oldM - $oldD;
-                $newInt = mb_strlen((string)$cell);
+                $newInt = mb_strlen((string) $cell);
 
                 /* See which has the larger integer length */
                 if ($oldInt >= $newInt) {
@@ -816,11 +816,11 @@ class Import
             return $last_cumulative_type;
         }
 
-        if (!is_numeric($cell)) {
+        if (! is_numeric($cell)) {
             return self::VARCHAR;
         }
 
-        if ($cell == (string)(float)$cell
+        if ($cell == (string) (float) $cell
             && mb_strpos($cell, ".") !== false
             && mb_substr_count($cell, ".") == 1
         ) {
@@ -867,10 +867,10 @@ class Import
         }
 
         /* If the passed array is not of the correct form, do not process it */
-        if (!is_array($table)
+        if (! is_array($table)
             || is_array($table[self::TBL_NAME])
-            || !is_array($table[self::COL_NAMES])
-            || !is_array($table[self::ROWS])
+            || ! is_array($table[self::COL_NAMES])
+            || ! is_array($table[self::ROWS])
         ) {
             /**
              * TODO: Handle this better
@@ -1060,7 +1060,7 @@ class Import
                 . '.' . Util::backquote($tables[$i][self::TBL_NAME]) . " (";
                 for ($j = 0; $j < $num_cols; ++$j) {
                     $size = $analyses[$i][self::SIZES][$j];
-                    if ((int)$size == 0) {
+                    if ((int) $size == 0) {
                         $size = 10;
                     }
 
@@ -1222,7 +1222,7 @@ class Import
             $inTables = false;
         }
 
-        $params = ['db' => (string)$db_name];
+        $params = ['db' => (string) $db_name];
         $db_url = 'db_structure.php' . Url::getCommon($params);
         $db_ops_url = 'db_operations.php' . Url::getCommon($params);
 
@@ -1388,9 +1388,9 @@ class Import
                 'statement' => $statement,
             ];
 
-            if ((!(($statement instanceof UpdateStatement)
+            if ((! (($statement instanceof UpdateStatement)
                 || ($statement instanceof DeleteStatement)))
-                || (!empty($statement->join))
+                || (! empty($statement->join))
             ) {
                 $error = $error_msg;
                 break;
@@ -1488,13 +1488,13 @@ class Import
             }
             $diff[] = $set->column . $not_equal_operator . $set->value;
         }
-        if (!empty($diff)) {
+        if (! empty($diff)) {
             $where .= ' AND (' . implode(' OR ', $diff) . ')';
         }
 
         $order_and_limit = '';
 
-        if (!empty($analyzed_sql_results['statement']->order)) {
+        if (! empty($analyzed_sql_results['statement']->order)) {
             $order_and_limit .= ' ORDER BY ' . Query::getClause(
                 $analyzed_sql_results['statement'],
                 $analyzed_sql_results['parser']->list,
@@ -1502,7 +1502,7 @@ class Import
             );
         }
 
-        if (!empty($analyzed_sql_results['statement']->limit)) {
+        if (! empty($analyzed_sql_results['statement']->limit)) {
             $order_and_limit .= ' LIMIT ' . Query::getClause(
                 $analyzed_sql_results['statement'],
                 $analyzed_sql_results['parser']->list,
@@ -1540,7 +1540,7 @@ class Import
 
         $order_and_limit = '';
 
-        if (!empty($analyzed_sql_results['statement']->order)) {
+        if (! empty($analyzed_sql_results['statement']->order)) {
             $order_and_limit .= ' ORDER BY ' . Query::getClause(
                 $analyzed_sql_results['statement'],
                 $analyzed_sql_results['parser']->list,
@@ -1548,7 +1548,7 @@ class Import
             );
         }
 
-        if (!empty($analyzed_sql_results['statement']->limit)) {
+        if (! empty($analyzed_sql_results['statement']->limit)) {
             $order_and_limit .= ' LIMIT ' . Query::getClause(
                 $analyzed_sql_results['statement'],
                 $analyzed_sql_results['parser']->list,
@@ -1641,7 +1641,7 @@ class Import
         $statement = $parser->statements[0];
 
         // Check if query is supported.
-        if (!(($statement instanceof InsertStatement)
+        if (! (($statement instanceof InsertStatement)
             || ($statement instanceof UpdateStatement)
             || ($statement instanceof DeleteStatement)
             || ($statement instanceof ReplaceStatement))

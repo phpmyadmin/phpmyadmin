@@ -44,7 +44,7 @@ list(
     $table
 );
 // Increase number of rows if unsaved rows are more
-if (!empty($unsaved_values) && count($rows) < count($unsaved_values)) {
+if (! empty($unsaved_values) && count($rows) < count($unsaved_values)) {
     $rows = array_fill(0, count($unsaved_values), false);
 }
 

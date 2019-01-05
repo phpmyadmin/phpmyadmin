@@ -38,7 +38,7 @@ class GisLineString extends GisGeometry
      */
     public static function singleton()
     {
-        if (!isset(self::$_instance)) {
+        if (! isset(self::$_instance)) {
             $class = __CLASS__;
             self::$_instance = new $class;
         }
@@ -103,7 +103,7 @@ class GisLineString extends GisGeometry
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
         foreach ($points_arr as $point) {
-            if (!isset($temp_point)) {
+            if (! isset($temp_point)) {
                 $temp_point = $point;
             } else {
                 // draw line section
@@ -163,7 +163,7 @@ class GisLineString extends GisGeometry
         $points_arr = $this->extractPoints($linesrting, $scale_data);
 
         foreach ($points_arr as $point) {
-            if (!isset($temp_point)) {
+            if (! isset($temp_point)) {
                 $temp_point = $point;
             } else {
                 // draw line section

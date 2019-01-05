@@ -57,7 +57,7 @@ class MessageTest extends PmaTestCase
     public function testToString()
     {
         $this->object->setMessage('test<&>', true);
-        $this->assertEquals('test&lt;&amp;&gt;', (string)$this->object);
+        $this->assertEquals('test&lt;&amp;&gt;', (string) $this->object);
     }
 
     /**

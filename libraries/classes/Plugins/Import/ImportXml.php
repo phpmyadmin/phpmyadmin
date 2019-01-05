@@ -72,7 +72,7 @@ class ImportXml extends ImportPlugin
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
-        while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
+        while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
             $data = $this->import->getNextChunk();
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
@@ -153,9 +153,9 @@ class ImportXml extends ImportPlugin
 
         if ($db_attr instanceof SimpleXMLElement) {
             $db_attr = $db_attr->attributes();
-            $db_name = (string)$db_attr['name'];
-            $collation = (string)$db_attr['collation'];
-            $charset = (string)$db_attr['charset'];
+            $db_name = (string) $db_attr['name'];
+            $collation = (string) $db_attr['collation'];
+            $charset = (string) $db_attr['charset'];
         } else {
             /**
              * If the structure section is not present
@@ -163,7 +163,7 @@ class ImportXml extends ImportPlugin
              */
             $db_attr = $xml->children()
                 ->attributes();
-            $db_name = (string)$db_attr['name'];
+            $db_name = (string) $db_attr['name'];
             $collation = null;
             $charset = null;
         }
@@ -218,7 +218,7 @@ class ImportXml extends ImportPlugin
                         /**
                          * Remove the extra cosmetic spacing
                          */
-                        $val3 = str_replace("                ", "", (string)$val3);
+                        $val3 = str_replace("                ", "", (string) $val3);
                         $create[] = $val3;
                     }
                 }
@@ -250,25 +250,25 @@ class ImportXml extends ImportPlugin
                 $isInTables = false;
                 $num_tables = count($tables);
                 for ($i = 0; $i < $num_tables; ++$i) {
-                    if (!strcmp($tables[$i][Import::TBL_NAME], (string)$tbl_attr['name'])) {
+                    if (! strcmp($tables[$i][Import::TBL_NAME], (string) $tbl_attr['name'])) {
                         $isInTables = true;
                         break;
                     }
                 }
 
-                if (!$isInTables) {
-                    $tables[] = [(string)$tbl_attr['name']];
+                if (! $isInTables) {
+                    $tables[] = [(string) $tbl_attr['name']];
                 }
 
                 foreach ($v1 as $v2) {
                     $row_attr = $v2->attributes();
-                    if (!array_search((string)$row_attr['name'], $tempRow)) {
-                        $tempRow[] = (string)$row_attr['name'];
+                    if (! array_search((string) $row_attr['name'], $tempRow)) {
+                        $tempRow[] = (string) $row_attr['name'];
                     }
-                    $tempCells[] = (string)$v2;
+                    $tempCells[] = (string) $v2;
                 }
 
-                $rows[] = [(string)$tbl_attr['name'], $tempRow, $tempCells];
+                $rows[] = [(string) $tbl_attr['name'], $tempRow, $tempCells];
 
                 $tempRow = [];
                 $tempCells = [];
@@ -285,8 +285,8 @@ class ImportXml extends ImportPlugin
             for ($i = 0; $i < $num_tables; ++$i) {
                 $num_rows = count($rows);
                 for ($j = 0; $j < $num_rows; ++$j) {
-                    if (!strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
-                        if (!isset($tables[$i][Import::COL_NAMES])) {
+                    if (! strcmp($tables[$i][Import::TBL_NAME], $rows[$j][Import::TBL_NAME])) {
+                        if (! isset($tables[$i][Import::COL_NAMES])) {
                             $tables[$i][] = $rows[$j][Import::COL_NAMES];
                         }
 
@@ -297,7 +297,7 @@ class ImportXml extends ImportPlugin
 
             unset($rows);
 
-            if (!$struct_present) {
+            if (! $struct_present) {
                 $analyses = [];
 
                 $len = count($tables);
@@ -319,9 +319,9 @@ class ImportXml extends ImportPlugin
              * Set values to NULL if they were not present
              * to maintain Import::buildSql() call integrity
              */
-            if (!isset($analyses)) {
+            if (! isset($analyses)) {
                 $analyses = null;
-                if (!$struct_present) {
+                if (! $struct_present) {
                     $create = null;
                 }
             }

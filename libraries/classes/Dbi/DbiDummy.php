@@ -94,7 +94,7 @@ class DbiDummy implements DbiExtension
             }
 
             $this->_queries[$i]['pos'] = 0;
-            if (!is_array($this->_queries[$i]['result'])) {
+            if (! is_array($this->_queries[$i]['result'])) {
                 return false;
             }
 
@@ -106,7 +106,7 @@ class DbiDummy implements DbiExtension
             }
 
             $GLOBALS['dummy_queries'][$i]['pos'] = 0;
-            if (!is_array($GLOBALS['dummy_queries'][$i]['result'])) {
+            if (! is_array($GLOBALS['dummy_queries'][$i]['result'])) {
                 return false;
             }
 
@@ -160,8 +160,8 @@ class DbiDummy implements DbiExtension
     {
         $query_data = &$this->getQueryData($result);
         $data = $this->fetchAny($result);
-        if (!is_array($data)
-            || !isset($query_data['columns'])
+        if (! is_array($data)
+            || ! isset($query_data['columns'])
         ) {
             return $data;
         }
@@ -184,7 +184,7 @@ class DbiDummy implements DbiExtension
     {
         $data = $this->fetchAny($result);
         $query_data = &$this->getQueryData($result);
-        if (!is_array($data) || !isset($query_data['columns'])) {
+        if (! is_array($data) || ! isset($query_data['columns'])) {
             return $data;
         }
 
@@ -374,7 +374,7 @@ class DbiDummy implements DbiExtension
     public function numFields($result)
     {
         $query_data = &$this->getQueryData($result);
-        if (!isset($query_data['columns'])) {
+        if (! isset($query_data['columns'])) {
             return 0;
         }
 

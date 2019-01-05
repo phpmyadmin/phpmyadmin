@@ -102,7 +102,7 @@ class ConfigFile
         $this->_baseCfg = $baseConfig;
         $this->_isInSetup = is_null($baseConfig);
         $this->_id = 'ConfigFile' . $GLOBALS['server'];
-        if (!isset($_SESSION[$this->_id])) {
+        if (! isset($_SESSION[$this->_id])) {
             $_SESSION[$this->_id] = [];
         }
     }
@@ -255,7 +255,7 @@ class ConfigFile
     private function _flattenArray($value, $key, $prefix)
     {
         // no recursion for numeric arrays
-        if (is_array($value) && !isset($value[0])) {
+        if (is_array($value) && ! isset($value[0])) {
             $prefix .= $key . '/';
             array_walk($value, [$this, '_flattenArray'], $prefix);
         } else {
@@ -409,7 +409,7 @@ class ConfigFile
      */
     public function getServerDSN($server)
     {
-        if (!isset($_SESSION[$this->_id]['Servers'][$server])) {
+        if (! isset($_SESSION[$this->_id]['Servers'][$server])) {
             return '';
         }
 
@@ -443,11 +443,11 @@ class ConfigFile
      */
     public function getServerName($id)
     {
-        if (!isset($_SESSION[$this->_id]['Servers'][$id])) {
+        if (! isset($_SESSION[$this->_id]['Servers'][$id])) {
             return '';
         }
         $verbose = $this->get("Servers/$id/verbose");
-        if (!empty($verbose)) {
+        if (! empty($verbose)) {
             return $verbose;
         }
         $host = $this->get("Servers/$id/host");
@@ -463,7 +463,7 @@ class ConfigFile
      */
     public function removeServer($server)
     {
-        if (!isset($_SESSION[$this->_id]['Servers'][$server])) {
+        if (! isset($_SESSION[$this->_id]['Servers'][$server])) {
             return;
         }
         $lastServer = $this->getServerCount();
@@ -520,7 +520,7 @@ class ConfigFile
         }
 
         foreach ($this->_cfgUpdateReadMapping as $mapTo => $mapFrom) {
-            if (!isset($c[$mapFrom])) {
+            if (! isset($c[$mapFrom])) {
                 continue;
             }
             $c[$mapTo] = $c[$mapFrom];

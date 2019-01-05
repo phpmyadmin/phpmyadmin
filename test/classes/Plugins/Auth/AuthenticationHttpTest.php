@@ -115,7 +115,7 @@ class AuthenticationHttpTest extends PmaTestCase
             ->method('addHTML')
             ->with();
 
-        if (!empty($_REQUEST['old_usr'])) {
+        if (! empty($_REQUEST['old_usr'])) {
             $this->object->logOut();
         } else {
             $this->assertFalse(

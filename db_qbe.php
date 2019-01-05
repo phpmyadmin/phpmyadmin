@@ -46,7 +46,7 @@ if ($cfgRelation['savedsearcheswork']) {
     $savedSearch->setUsername($GLOBALS['cfg']['Server']['user'])
         ->setDbname($GLOBALS['db']);
 
-    if (!empty($_POST['searchId'])) {
+    if (! empty($_POST['searchId'])) {
         $savedSearch->setId($_POST['searchId']);
     }
 

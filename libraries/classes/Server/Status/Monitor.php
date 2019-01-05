@@ -531,13 +531,13 @@ class Monitor
          * Also do some white list filtering on the names
         */
             case 'servervar':
-                if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+                if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
                     $serverVars[] = $pName;
                 }
                 break;
 
             case 'statusvar':
-                if (!preg_match('/[^a-zA-Z_]+/', $pName)) {
+                if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
                     $statusVars[] = $pName;
                 }
                 break;
@@ -548,10 +548,10 @@ class Monitor
                 break;
 
             case 'cpu':
-                if (!$sysinfo) {
+                if (! $sysinfo) {
                     $sysinfo = SysInfo::get();
                 }
-                if (!$cpuload) {
+                if (! $cpuload) {
                     $cpuload = $sysinfo->loadavg();
                 }
 
@@ -565,10 +565,10 @@ class Monitor
                 break;
 
             case 'memory':
-                if (!$sysinfo) {
+                if (! $sysinfo) {
                     $sysinfo = SysInfo::get();
                 }
-                if (!$memory) {
+                if (! $memory) {
                     $memory = $sysinfo->memory();
                 }
 

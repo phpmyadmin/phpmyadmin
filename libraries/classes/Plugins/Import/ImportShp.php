@@ -133,8 +133,8 @@ class ImportShp extends ImportPlugin
                         }
                     }
                 }
-            } elseif (!empty($local_import_file)
-                && !empty($GLOBALS['cfg']['UploadDir'])
+            } elseif (! empty($local_import_file)
+                && ! empty($GLOBALS['cfg']['UploadDir'])
                 && $compression == 'none'
             ) {
                 // If file is in UploadDir, use .dbf file in the same UploadDir
@@ -226,7 +226,7 @@ class ImportShp extends ImportPlugin
                     foreach ($shp->getDBFHeader() as $c) {
                         $cell = trim($record->DBFData[$c[0]]);
 
-                        if (!strcmp($cell, '')) {
+                        if (! strcmp($cell, '')) {
                             $cell = 'NULL';
                         }
 

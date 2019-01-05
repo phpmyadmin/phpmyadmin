@@ -27,10 +27,10 @@ $ids = Core::isValid($_POST['id'], 'scalar') ? $_POST['id'] : null;
 $vids = explode(',', $ids);
 $vals = Core::isValid($_POST['values'], 'scalar') ? $_POST['values'] : null;
 $values = json_decode($vals);
-if (!($values instanceof stdClass)) {
+if (! ($values instanceof stdClass)) {
     Core::fatalError(__('Wrong data'));
 }
-$values = (array)$values;
+$values = (array) $values;
 $result = Validator::validate($GLOBALS['ConfigFile'], $vids, $values, true);
 if ($result === false) {
     $result = sprintf(

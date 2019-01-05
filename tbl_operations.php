@@ -263,7 +263,7 @@ if (isset($result) && empty($message_to_show)) {
         if ($response->isAjax()) {
             $response->setRequestStatus($_message->isSuccess());
             $response->addJSON('message', $_message);
-            if (!empty($sql_query)) {
+            if (! empty($sql_query)) {
                 $response->addJSON(
                     'sql_query',
                     Util::getMessage(null, $sql_query)
@@ -284,7 +284,7 @@ if (isset($result) && empty($message_to_show)) {
         if ($response->isAjax()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $_message);
-            if (!empty($sql_query)) {
+            if (! empty($sql_query)) {
                 $response->addJSON(
                     'sql_query',
                     Util::getMessage(null, $sql_query)

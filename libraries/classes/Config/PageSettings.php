@@ -73,7 +73,7 @@ class PageSettings
             return;
         }
 
-        if (!empty($elemId)) {
+        if (! empty($elemId)) {
             $this->_elemId = $elemId;
         }
         $this->_groupName = $formGroupName;
@@ -106,7 +106,7 @@ class PageSettings
      */
     private function _processPageSettings(&$formDisplay, &$cf, &$error)
     {
-        if ($formDisplay->process(false) && !$formDisplay->hasErrors()) {
+        if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // save settings
             $result = $this->userPreferences->save($cf->getConfigArray());
             if ($result === true) {

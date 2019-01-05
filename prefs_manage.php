@@ -103,7 +103,7 @@ if (isset($_POST['submit_export'])
         // they came from HTTP POST request
         $form_display = new UserFormList($cf);
         $new_config = $cf->getFlatDefaultConfig();
-        if (!empty($_POST['import_merge'])) {
+        if (! empty($_POST['import_merge'])) {
             $new_config = array_merge($new_config, $cf->getConfigArray());
         }
         $new_config = array_merge($new_config, $config);
@@ -113,14 +113,14 @@ if (isset($_POST['submit_export'])
         }
         $cf->resetConfigData();
         $all_ok = $form_display->process(true, false);
-        $all_ok = $all_ok && !$form_display->hasErrors();
+        $all_ok = $all_ok && ! $form_display->hasErrors();
         $_POST = $_POST_bak;
 
-        if (!$all_ok && isset($_POST['fix_errors'])) {
+        if (! $all_ok && isset($_POST['fix_errors'])) {
             $form_display->fixErrors();
             $all_ok = true;
         }
-        if (!$all_ok) {
+        if (! $all_ok) {
             // mimic original form and post json in a hidden field
             include ROOT_PATH . 'libraries/user_preferences.inc.php';
             $msg = Message::error(
@@ -216,7 +216,7 @@ $scripts->addFile('config.js');
 
 require ROOT_PATH . 'libraries/user_preferences.inc.php';
 if ($error) {
-    if (!$error instanceof Message) {
+    if (! $error instanceof Message) {
         $error = Message::error($error);
     }
     $error->display();

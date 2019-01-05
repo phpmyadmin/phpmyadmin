@@ -32,7 +32,7 @@ $db = $container->get('db');
 $table = $container->get('table');
 $dbi = $container->get('dbi');
 
-if (!isset($_POST['create_edit_table'])) {
+if (! isset($_POST['create_edit_table'])) {
     include_once ROOT_PATH . 'libraries/tbl_common.inc.php';
 }
 if (isset($_POST['index'])) {

@@ -100,7 +100,7 @@ class EpsRelationSchema extends ExportRelationSchema
         $seen_a_relation = false;
         foreach ($alltables as $one_table) {
             $exist_rel = $this->relation->getForeigners($this->db, $one_table, '', 'both');
-            if (!$exist_rel) {
+            if (! $exist_rel) {
                 continue;
             }
 
@@ -127,7 +127,7 @@ class EpsRelationSchema extends ExportRelationSchema
                 }
 
                 foreach ($rel as $one_key) {
-                    if (!in_array($one_key['ref_table_name'], $alltables)) {
+                    if (! in_array($one_key['ref_table_name'], $alltables)) {
                         continue;
                     }
 

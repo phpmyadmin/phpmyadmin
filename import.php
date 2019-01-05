@@ -122,7 +122,7 @@ $GLOBALS['reload'] = false;
 
 // Use to identify current cycle is executing
 // a multiquery statement or stored routine
-if (!isset($_SESSION['is_multi_query'])) {
+if (! isset($_SESSION['is_multi_query'])) {
     $_SESSION['is_multi_query'] = false;
 }
 
@@ -284,7 +284,7 @@ if ($import_type == 'table') {
 } elseif ($import_type == 'server') {
     $goto = 'server_import.php';
 } else {
-    if (empty($goto) || !preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
+    if (empty($goto) || ! preg_match('@^(server|db|tbl)(_[a-z]*)*\.php$@i', $goto)) {
         if (strlen($table) > 0 && strlen($db) > 0) {
             $goto = 'tbl_structure.php';
         } elseif (strlen($db) > 0) {
@@ -340,7 +340,7 @@ $msg = 'Sorry an unexpected error happened!';
 
 // Bookmark Support: get a query back from bookmark if required
 if (! empty($_POST['id_bookmark'])) {
-    $id_bookmark = (int)$_POST['id_bookmark'];
+    $id_bookmark = (int) $_POST['id_bookmark'];
     switch ($_POST['action_bookmark']) {
         case 0: // bookmarked query that have to be run
             $bookmark = Bookmark::get(
@@ -670,7 +670,7 @@ if ($sqlLength <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
     // @todo: possibly refactor
     extract($analyzed_sql_results);
 
-    if ($table != $table_from_sql && !empty($table_from_sql)) {
+    if ($table != $table_from_sql && ! empty($table_from_sql)) {
         $table = $table_from_sql;
     }
 }
@@ -723,7 +723,7 @@ if ($go_sql) {
             return;
         } // end if
 
-        if ($table != $table_from_sql && !empty($table_from_sql)) {
+        if ($table != $table_from_sql && ! empty($table_from_sql)) {
             $table = $table_from_sql;
         }
 

@@ -335,7 +335,7 @@ class CentralColumns
             $has_list = $this->findExistingColNames($db, trim($cols, ','));
             foreach ($field_select as $table) {
                 foreach ($fields[$table] as $field => $def) {
-                    if (!in_array($field, $has_list)) {
+                    if (! in_array($field, $has_list)) {
                         $has_list[] = $field;
                         $insQuery[] = $this->getInsertQuery(
                             $field,
@@ -357,7 +357,7 @@ class CentralColumns
             }
             $has_list = $this->findExistingColNames($db, trim($cols, ','));
             foreach ($field_select as $column) {
-                if (!in_array($column, $has_list)) {
+                if (! in_array($column, $has_list)) {
                     $has_list[] = $column;
                     $field = (array) $this->dbi->getColumns(
                         $db,
@@ -396,7 +396,7 @@ class CentralColumns
         $this->dbi->selectDb($pmadb, DatabaseInterface::CONNECT_CONTROL);
         if (! empty($insQuery)) {
             foreach ($insQuery as $query) {
-                if (!$this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+                if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
                     $message = Message::error(__('Could not add columns!'));
                     $message->addMessage(
                         Message::rawError(
@@ -451,7 +451,7 @@ class CentralColumns
             $has_list = $this->findExistingColNames($db, $cols);
             foreach ($field_select as $table) {
                 foreach ($fields[$table] as $column) {
-                    if (!in_array($column, $has_list)) {
+                    if (! in_array($column, $has_list)) {
                         $colNotExist[] = "'" . $column . "'";
                     }
                 }
@@ -464,12 +464,12 @@ class CentralColumns
             $cols = trim($cols, ',');
             $has_list = $this->findExistingColNames($db, $cols);
             foreach ($field_select as $column) {
-                if (!in_array($column, $has_list)) {
+                if (! in_array($column, $has_list)) {
                     $colNotExist[] = "'" . $column . "'";
                 }
             }
         }
-        if (!empty($colNotExist)) {
+        if (! empty($colNotExist)) {
             $colNotExist = implode(",", array_unique($colNotExist));
             $message = Message::notice(
                 sprintf(
@@ -486,7 +486,7 @@ class CentralColumns
         $query = 'DELETE FROM ' . Util::backquote($central_list_table) . ' '
             . 'WHERE db_name = \'' . $this->dbi->escapeString($db) . '\' AND col_name IN (' . $cols . ');';
 
-        if (!$this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not remove columns!'));
             $message->addHtml('<br>' . htmlspecialchars($cols) . '<br>');
             $message->addMessage(
@@ -555,7 +555,7 @@ class CentralColumns
                 }
             }
             $query = trim($query, " ,") . ";";
-            if (!$this->dbi->tryQuery($query)) {
+            if (! $this->dbi->tryQuery($query)) {
                 if ($message === true) {
                     $message = Message::error(
                         $this->dbi->getError()
@@ -598,12 +598,12 @@ class CentralColumns
         );
         $cols = '';
         foreach ($fields as $col_select) {
-            $cols .= '\'' . $this->dbi->escapeString((string)$col_select) . '\',';
+            $cols .= '\'' . $this->dbi->escapeString((string) $col_select) . '\',';
         }
         $cols = trim($cols, ',');
         $has_list = $this->findExistingColNames($db, $cols, $allFields);
         if (! empty($has_list)) {
-            return (array)$has_list;
+            return (array) $has_list;
         }
 
         return [];
@@ -669,7 +669,7 @@ class CentralColumns
                 . 'AND col_name = \'' . $this->dbi->escapeString($orig_col_name)
                 . '\'';
         }
-        if (!$this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $this->dbi->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             return Message::error(
                 $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL)
             );
@@ -718,7 +718,7 @@ class CentralColumns
                 $col_extra[$i],
                 $col_default[$i]
             );
-            if (!is_bool($message)) {
+            if (! is_bool($message)) {
                 return $message;
             }
         }
@@ -789,7 +789,7 @@ class CentralColumns
             ])
             . '</td>';
         $meta = [];
-        if (!isset($row['col_default']) || $row['col_default'] == '') {
+        if (! isset($row['col_default']) || $row['col_default'] == '') {
             $meta['DefaultType'] = 'NONE';
         } else {
             if ($row['col_default'] == 'CURRENT_TIMESTAMP'
@@ -903,7 +903,7 @@ class CentralColumns
             $query .= ';';
         }
         $this->dbi->selectDb($cfgCentralColumns['db'], DatabaseInterface::CONNECT_CONTROL);
-        $columns_list = (array)$this->dbi->fetchResult(
+        $columns_list = (array) $this->dbi->fetchResult(
             $query,
             null,
             null,
@@ -1087,7 +1087,7 @@ class CentralColumns
         );
         $selectColHtml = "";
         foreach ($columns as $column) {
-            if (!in_array($column, $existing_cols)) {
+            if (! in_array($column, $existing_cols)) {
                 $selectColHtml .= '<option value="' . htmlspecialchars($column) . '">'
                     . htmlspecialchars($column)
                     . '</option>';
@@ -1135,7 +1135,7 @@ class CentralColumns
         $row_num = 0;
         foreach ($rows_list as $row) {
             $rows_meta[$row_num] = [];
-            if (!isset($row['col_default']) || $row['col_default'] == '') {
+            if (! isset($row['col_default']) || $row['col_default'] == '') {
                 $rows_meta[$row_num]['DefaultType'] = 'NONE';
             } else {
                 if ($row['col_default'] == 'CURRENT_TIMESTAMP'
@@ -1149,7 +1149,7 @@ class CentralColumns
                     $rows_meta[$row_num]['DefaultValue'] = $row['col_default'];
                 }
             }
-            $types_upper[$row_num] = mb_strtoupper((string)$row['col_type']);
+            $types_upper[$row_num] = mb_strtoupper((string) $row['col_type']);
             $row_num++;
         }
 

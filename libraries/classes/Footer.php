@@ -102,7 +102,7 @@ class Footer
         if ((is_object($object) || is_array($object)) && $object) {
             if ($object instanceof Traversable) {
                 $object = "***ITERATOR***";
-            } elseif (!in_array($object, $stack, true)) {
+            } elseif (! in_array($object, $stack, true)) {
                 $stack[] = $object;
                 foreach ($object as &$subobject) {
                     self::_removeRecursion($subobject, $stack);
@@ -124,7 +124,7 @@ class Footer
         $retval = '\'null\'';
         if ($GLOBALS['cfg']['DBG']['sql']
             && empty($_REQUEST['no_debug'])
-            && !empty($_SESSION['debug'])
+            && ! empty($_SESSION['debug'])
         ) {
             // Remove recursions and iterators from $_SESSION['debug']
             self::_removeRecursion($_SESSION['debug']);

@@ -362,7 +362,7 @@ class TableStructureController extends TableController
             ->getColumnsWithIndex(Index::UNIQUE);
 
         // 3. Get fields
-        $fields = (array)$this->dbi->getColumns(
+        $fields = (array) $this->dbi->getColumns(
             $this->db,
             $this->table,
             null,
@@ -468,7 +468,7 @@ class TableStructureController extends TableController
             // insert moved column
             array_splice($column_names, $i, 0, $column);
         }
-        if (empty($changes) && !isset($_REQUEST['preview_sql'])) { // should never happen
+        if (empty($changes) && ! isset($_REQUEST['preview_sql'])) { // should never happen
             $this->response->setRequestStatus(false);
             return;
         }
@@ -883,7 +883,7 @@ class TableStructureController extends TableController
                 Index::PRIMARY | Index::UNIQUE
             );
         for ($i = 0; $i < $field_cnt; $i++) {
-            if (!$this->columnNeedsAlterTable($i)) {
+            if (! $this->columnNeedsAlterTable($i)) {
                 continue;
             }
 
@@ -941,7 +941,7 @@ class TableStructureController extends TableController
 
             // To allow replication, we first select the db to use
             // and then run queries on this db.
-            if (!$this->dbi->selectDb($this->db)) {
+            if (! $this->dbi->selectDb($this->db)) {
                 Util::mysqlDie(
                     $this->dbi->getError(),
                     'USE ' . Util::backquote($this->db) . ';',
@@ -1182,7 +1182,7 @@ class TableStructureController extends TableController
                 return true;
             }
         }
-        return !empty($_POST['field_move_to'][$i]);
+        return ! empty($_POST['field_move_to'][$i]);
     }
 
     /**

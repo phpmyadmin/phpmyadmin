@@ -212,7 +212,7 @@ class ImportCsv extends AbstractImportCsv
         $required_fields = 0;
         $sql_template = '';
         $fields = [];
-        if (!$this->_getAnalyze()) {
+        if (! $this->_getAnalyze()) {
             $sql_template = 'INSERT';
             if (isset($_POST['csv_ignore'])) {
                 $sql_template .= ' IGNORE';
@@ -240,7 +240,7 @@ class ImportCsv extends AbstractImportCsv
                             break;
                         }
                     }
-                    if (!$found) {
+                    if (! $found) {
                         $message = Message::error(
                             __(
                                 'Invalid column (%s) specified! Ensure that columns'
@@ -293,7 +293,7 @@ class ImportCsv extends AbstractImportCsv
         $col_count = 0;
         $max_cols = 0;
         $csv_terminated_len = mb_strlen($csv_terminated);
-        while (!($finished && $i >= $len) && !$error && !$timeout_passed) {
+        while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
             $data = $this->import->getNextChunk();
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
@@ -359,7 +359,7 @@ class ImportCsv extends AbstractImportCsv
                 $lastlen = $len;
 
                 // This can happen with auto EOL and \r at the end of buffer
-                if (!$csv_finish) {
+                if (! $csv_finish) {
                     // Grab empty field
                     if ($ch == $csv_terminated) {
                         if ($i == $len - 1) {
@@ -406,8 +406,8 @@ class ImportCsv extends AbstractImportCsv
                     while (($need_end
                             && ($ch != $csv_enclosed
                                 || $csv_enclosed == $csv_escaped))
-                        || (!$need_end
-                            && !($ch == $csv_terminated
+                        || (! $need_end
+                            && ! ($ch == $csv_terminated
                                 || $ch == $csv_new_line
                                 || ($csv_new_line == 'auto'
                                     && ($ch == "\r" || $ch == "\n"))))
@@ -441,7 +441,7 @@ class ImportCsv extends AbstractImportCsv
                         }
                         $value .= $ch;
                         if ($i == $len - 1) {
-                            if (!$finished) {
+                            if (! $finished) {
                                 $fail = true;
                             }
                             break;
@@ -544,7 +544,7 @@ class ImportCsv extends AbstractImportCsv
                     || ($csv_new_line == 'auto' && ($ch == "\r" || $ch == "\n"))
                 ) {
                     if ($csv_new_line == 'auto' && $ch == "\r") { // Handle "\r\n"
-                        if ($i >= ($len - 2) && !$finished) {
+                        if ($i >= ($len - 2) && ! $finished) {
                             break; // We need more data to decide new line
                         }
                         if (mb_substr($buffer, $i + 1, 1) == "\n") {
@@ -553,7 +553,7 @@ class ImportCsv extends AbstractImportCsv
                     }
                     // We didn't parse value till the end of line, so there was
                     // empty one
-                    if (!$csv_finish) {
+                    if (! $csv_finish) {
                         $values[] = '';
                     }
 
@@ -592,7 +592,7 @@ class ImportCsv extends AbstractImportCsv
                         $first = true;
                         $sql = $sql_template;
                         foreach ($values as $key => $val) {
-                            if (!$first) {
+                            if (! $first) {
                                 $sql .= ', ';
                             }
                             if ($val === null) {
@@ -664,7 +664,7 @@ class ImportCsv extends AbstractImportCsv
             }
 
             if ((isset($col_names) && count($col_names) != $max_cols)
-                || !isset($col_names)
+                || ! isset($col_names)
             ) {
                 // Fill out column names
                 for ($i = 0; $i < $max_cols; ++$i) {
@@ -734,7 +734,7 @@ class ImportCsv extends AbstractImportCsv
         // Commit any possible data in buffers
         $this->import->runQuery('', '', $sql_data);
 
-        if (count($values) != 0 && !$error) {
+        if (count($values) != 0 && ! $error) {
             $message = Message::error(
                 __('Invalid format of CSV input on line %d.')
             );

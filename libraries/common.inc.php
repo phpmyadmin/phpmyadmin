@@ -392,7 +392,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         }
 
         // Sets the default delimiter (if specified).
-        if (!empty($_REQUEST['sql_delimiter'])) {
+        if (! empty($_REQUEST['sql_delimiter'])) {
             PhpMyAdmin\SqlParser\Lexer::$DEFAULT_DELIMITER = $_REQUEST['sql_delimiter'];
         }
 

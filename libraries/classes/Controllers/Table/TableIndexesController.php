@@ -146,7 +146,7 @@ class TableIndexesController extends TableController
                 'sql_data',
                 $this->template->render('preview_sql', ['query_data' => $sql_query])
             );
-        } elseif (!$error) {
+        } elseif (! $error) {
             $this->dbi->query($sql_query);
             $response = Response::getInstance();
             if ($response->isAjax()) {

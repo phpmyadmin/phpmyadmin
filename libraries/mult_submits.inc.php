@@ -146,7 +146,7 @@ if (! empty($submit_mult)
                 );
                 break;
         } // end switch
-    } elseif (! (isset($selected_fld) && !empty($selected_fld))) {
+    } elseif (! (isset($selected_fld) && ! empty($selected_fld))) {
         // coming from browsing - do something with selected rows
         $what = 'row_delete';
         $selected = $_REQUEST['rows_to_delete'];
@@ -164,7 +164,7 @@ $views = $GLOBALS['dbi']->getVirtualTables($db);
 /**
  * Displays the confirmation form if required
  */
-if (!empty($submit_mult) && !empty($what)) {
+if (! empty($submit_mult) && ! empty($what)) {
     unset($message);
 
     if (strlen($table) > 0) {
@@ -271,9 +271,9 @@ if (!empty($submit_mult) && !empty($what)) {
     }
 
     if ($query_type == 'drop_tbl') {
-        if (!empty($sql_query)) {
+        if (! empty($sql_query)) {
             $sql_query .= ';';
-        } elseif (!empty($sql_query_views)) {
+        } elseif (! empty($sql_query_views)) {
             $sql_query = $sql_query_views . ';';
             unset($sql_query_views);
         }
@@ -301,10 +301,10 @@ if (!empty($submit_mult) && !empty($what)) {
             $selected, // selectedTables
             null // complete_query
         );
-    } elseif (!$run_parts) {
+    } elseif (! $run_parts) {
         $GLOBALS['dbi']->selectDb($db);
         $result = $GLOBALS['dbi']->tryQuery($sql_query);
-        if ($result && !empty($sql_query_views)) {
+        if ($result && ! empty($sql_query_views)) {
             $sql_query .= ' ' . $sql_query_views . ';';
             $result = $GLOBALS['dbi']->tryQuery($sql_query_views);
             unset($sql_query_views);

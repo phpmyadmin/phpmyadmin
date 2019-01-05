@@ -63,11 +63,11 @@ class ZipExtension
             /* Is the the zip really an ODS file? */
             $ods_mime = 'application/vnd.oasis.opendocument.spreadsheet';
             $first_zip_entry = $this->zip->getFromIndex(0);
-            if (!strcmp($ods_mime, $first_zip_entry)) {
+            if (! strcmp($ods_mime, $first_zip_entry)) {
                 $specific_entry = '/^content\.xml$/';
             }
 
-            if (!isset($specific_entry)) {
+            if (! isset($specific_entry)) {
                 $file_data = $first_zip_entry;
                 $this->zip->close();
                 return (['error' => $error_message, 'data' => $file_data]);

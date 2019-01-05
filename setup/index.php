@@ -28,7 +28,7 @@ $page = preg_replace('/[^a-z]/', '', $page);
 if ($page === '') {
     $page = 'index';
 }
-if (!@file_exists(ROOT_PATH . "setup/frames/$page.inc.php")) {
+if (! @file_exists(ROOT_PATH . "setup/frames/$page.inc.php")) {
     // it will happen only when entering URL by hand, we don't care for these cases
     Core::fatalError(__('Wrong GET file attribute value'));
 }

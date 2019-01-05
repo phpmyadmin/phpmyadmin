@@ -54,7 +54,7 @@ class CheckUserPrivileges
             }
         }
 
-        if (!$tblname_start_offset) {
+        if (! $tblname_start_offset) {
             $tblname_start_offset = mb_strpos($row, '.', $db_name_offset);
         }
 

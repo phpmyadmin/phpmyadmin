@@ -40,7 +40,7 @@ class PrivilegesTest extends TestCase
     protected function setUp()
     {
         //Constants
-        if (!defined("PMA_USR_BROWSER_AGENT")) {
+        if (! defined("PMA_USR_BROWSER_AGENT")) {
             define("PMA_USR_BROWSER_AGENT", "other");
         }
 

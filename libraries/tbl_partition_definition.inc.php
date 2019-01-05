@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\Core;
 
-if (!isset($partitionDetails)) {
+if (! isset($partitionDetails)) {
     $partitionDetails = [];
 
     // Extract some partitioning and subpartitioning parameters from the request

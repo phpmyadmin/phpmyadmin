@@ -190,7 +190,7 @@ class DatabaseInterface
     {
         $loc = &$this->_table_cache;
 
-        if (!isset($contentPath)) {
+        if (! isset($contentPath)) {
             $loc = $value;
             return;
         }
@@ -202,7 +202,7 @@ class DatabaseInterface
             // array to hold the next value, allowing us to create the arrays to hold
             // final values at the correct depth. Then we'll keep digging into the
             // array.
-            if (!isset($loc[$key]) || !is_array($loc[$key])) {
+            if (! isset($loc[$key]) || ! is_array($loc[$key])) {
                 $loc[$key] = [];
             }
             $loc = &$loc[$key];
@@ -841,7 +841,7 @@ class DatabaseInterface
         $views = [];
 
         foreach ($tables_full as $table => $tmp) {
-            $_table = $this->getTable($db, (string)$table);
+            $_table = $this->getTable($db, (string) $table);
             if ($_table->isView()) {
                 $views[] = $table;
             }
@@ -970,7 +970,7 @@ class DatabaseInterface
                 $databases[$database_name]['DEFAULT_COLLATION_NAME']
                     = $this->getDbCollation($database_name);
 
-                if (!$force_stats) {
+                if (! $force_stats) {
                     continue;
                 }
 
@@ -1324,13 +1324,13 @@ class DatabaseInterface
         // Check if column is a part of multiple-column index and set its 'Key'.
         $indexes = Index::getFromTable($table, $database);
         foreach ($fields as $field => $field_data) {
-            if (!empty($field_data['Key'])) {
+            if (! empty($field_data['Key'])) {
                 continue;
             }
 
             foreach ($indexes as $index) {
                 /** @var Index $index */
-                if (!$index->hasColumn($field)) {
+                if (! $index->hasColumn($field)) {
                     continue;
                 }
 
@@ -2027,7 +2027,7 @@ class DatabaseInterface
                     . " = '" . $GLOBALS['dbi']->escapeString($name) . "'";
             }
             $result = $this->fetchResult($query);
-            if (!empty($result)) {
+            if (! empty($result)) {
                 $routines = $result;
             }
         } else {
@@ -2039,7 +2039,7 @@ class DatabaseInterface
                         . $GLOBALS['dbi']->escapeString($name) . "'";
                 }
                 $result = $this->fetchResult($query);
-                if (!empty($result)) {
+                if (! empty($result)) {
                     $routines = array_merge($routines, $result);
                 }
             }
@@ -2051,7 +2051,7 @@ class DatabaseInterface
                         . $GLOBALS['dbi']->escapeString($name) . "'";
                 }
                 $result = $this->fetchResult($query);
-                if (!empty($result)) {
+                if (! empty($result)) {
                     $routines = array_merge($routines, $result);
                 }
             }
@@ -2543,10 +2543,10 @@ class DatabaseInterface
         if (empty($server['host'])) {
             $server['host'] = 'localhost';
         }
-        if (!isset($server['ssl'])) {
+        if (! isset($server['ssl'])) {
             $server['ssl'] = false;
         }
-        if (!isset($server['compress'])) {
+        if (! isset($server['compress'])) {
             $server['compress'] = false;
         }
 
@@ -2941,7 +2941,7 @@ class DatabaseInterface
      */
     public function escapeString(string $str, $link = DatabaseInterface::CONNECT_USER)
     {
-        if ($this->_extension === null || !isset($this->_links[$link])) {
+        if ($this->_extension === null || ! isset($this->_links[$link])) {
             return $str;
         }
 

@@ -406,7 +406,7 @@ class Types
      */
     public function getTypeClass($type)
     {
-        $type = mb_strtoupper((string)$type);
+        $type = mb_strtoupper((string) $type);
         switch ($type) {
             case 'TINYINT':
             case 'SMALLINT':
@@ -758,7 +758,7 @@ class Types
         ];
 
         if (($isMariaDB && $serverVersion > 100207)
-            || (!$isMariaDB && $serverVersion >= 50708)) {
+            || (! $isMariaDB && $serverVersion >= 50708)) {
             $ret['JSON'] = [
                 'JSON',
             ];

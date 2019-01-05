@@ -68,7 +68,7 @@ class ServerBinlogController extends Controller
             $url_params['log'] = $_POST['log'];
         }
 
-        if (!empty($_POST['dontlimitchars'])) {
+        if (! empty($_POST['dontlimitchars'])) {
             $url_params['dontlimitchars'] = 1;
         }
 

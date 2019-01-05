@@ -95,7 +95,7 @@ class ImportMediawiki extends ImportPlugin
         // Initialize the name of the current table
         $cur_table_name = "";
 
-        while (!$finished && !$error && !$timeout_passed) {
+        while (! $finished && ! $error && ! $timeout_passed) {
             $data = $this->import->getNextChunk();
 
             if ($data === false) {
@@ -141,12 +141,12 @@ class ImportMediawiki extends ImportPlugin
                 $matches = [];
 
                 // Check beginning of comment
-                if (!strcmp(mb_substr($cur_buffer_line, 0, 4), "<!--")) {
+                if (! strcmp(mb_substr($cur_buffer_line, 0, 4), "<!--")) {
                     $inside_comment = true;
                     continue;
                 } elseif ($inside_comment) {
                     // Check end of comment
-                    if (!strcmp(mb_substr($cur_buffer_line, 0, 4), "-->")
+                    if (! strcmp(mb_substr($cur_buffer_line, 0, 4), "-->")
                     ) {
                         // Only data comments are closed. The structure comments
                         // will be closed when a data comment begins (in order to
@@ -156,7 +156,7 @@ class ImportMediawiki extends ImportPlugin
                         }
 
                         // End comments that are not related to table structure
-                        if (!$inside_structure_comment) {
+                        if (! $inside_structure_comment) {
                             $inside_comment = false;
                         }
                     } else {
@@ -210,7 +210,7 @@ class ImportMediawiki extends ImportPlugin
                     // Check begin row or end table
 
                     // Add current line to the values storage
-                    if (!empty($cur_temp_line)) {
+                    if (! empty($cur_temp_line)) {
                         // If the current line contains header cells
                         // ( marked with '!' ),
                         // it will be marked as table header
@@ -429,7 +429,7 @@ class ImportMediawiki extends ImportPlugin
             if ($cur_char == '|') {
                 // If we're not inside a tag, then this is part of a real separator,
                 // so we append it to the current segment
-                if (!$inside_attribute) {
+                if (! $inside_attribute) {
                     $cleaned .= $cur_char;
                     if ($partial_separator) {
                         $inside_tag = false;
@@ -443,7 +443,7 @@ class ImportMediawiki extends ImportPlugin
 
                 // If the previous character was also '|', then this ends a
                 // full separator. If not, this may be the beginning of one
-                $partial_separator = !$partial_separator;
+                $partial_separator = ! $partial_separator;
             } else {
                 // If we're inside a tag attribute and the current character is
                 // not '|', but the previous one was, it means that the single '|'
@@ -457,15 +457,15 @@ class ImportMediawiki extends ImportPlugin
                 // any other character should be appended to the current segment
                 $cleaned .= $cur_char;
 
-                if ($cur_char == '<' && !$inside_attribute) {
+                if ($cur_char == '<' && ! $inside_attribute) {
                     // start of a tag
                     $inside_tag = true;
-                } elseif ($cur_char == '>' && !$inside_attribute) {
+                } elseif ($cur_char == '>' && ! $inside_attribute) {
                     // end of a tag
                     $inside_tag = false;
                 } elseif (($cur_char == '"' || $cur_char == "'") && $inside_tag) {
                     // start or end of an attribute
-                    if (!$inside_attribute) {
+                    if (! $inside_attribute) {
                         $inside_attribute = true;
                         // remember the attribute`s declaration character (" or ')
                         $start_attribute_character = $cur_char;

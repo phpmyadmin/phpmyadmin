@@ -260,7 +260,7 @@ if (isset($message)) {
 $db_collation = $GLOBALS['dbi']->getDbCollation($GLOBALS['db']);
 $is_information_schema = $GLOBALS['dbi']->isSystemSchema($GLOBALS['db']);
 
-if (!$is_information_schema) {
+if (! $is_information_schema) {
     if ($cfgRelation['commwork']) {
         /**
          * database comment
@@ -311,7 +311,7 @@ if (!$is_information_schema) {
         $message->addParamHtml('<a href="./chk_rel.php" data-post="' . $url_query . '">');
         $message->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
-        if (!empty($cfg['Servers'][$server]['pmadb'])) {
+        if (! empty($cfg['Servers'][$server]['pmadb'])) {
             $message->isError(true);
         }
     } // end if

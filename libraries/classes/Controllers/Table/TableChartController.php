@@ -84,7 +84,7 @@ class TableChartController extends TableController
         }
 
         // Throw error if no sql query is set
-        if (!isset($this->sql_query) || $this->sql_query == '') {
+        if (! isset($this->sql_query) || $this->sql_query == '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))

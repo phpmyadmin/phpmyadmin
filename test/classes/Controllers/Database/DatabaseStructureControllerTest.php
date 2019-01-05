@@ -52,7 +52,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
 
         //$_SESSION
 
-        if (!defined('PMA_USR_BROWSER_AGENT')) {
+        if (! defined('PMA_USR_BROWSER_AGENT')) {
             define('PMA_USR_BROWSER_AGENT', 'Other');
         }
 

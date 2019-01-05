@@ -216,7 +216,7 @@ class ExportJson extends ExportPlugin
         $this->initAlias($aliases, $db_alias, $table_alias);
 
         if (! $this->first) {
-            if (!$this->export->outputHandler(',')) {
+            if (! $this->export->outputHandler(',')) {
                 return false;
             }
         } else {
@@ -233,7 +233,7 @@ class ExportJson extends ExportPlugin
         );
         list($header, $footer) = explode('"@@DATA@@"', $buffer);
 
-        if (!$this->export->outputHandler($header . $crlf . '[' . $crlf)) {
+        if (! $this->export->outputHandler($header . $crlf . '[' . $crlf)) {
             return false;
         }
 
@@ -247,7 +247,7 @@ class ExportJson extends ExportPlugin
         $columns = [];
         for ($i = 0; $i < $columns_cnt; $i++) {
             $col_as = $GLOBALS['dbi']->fieldName($result, $i);
-            if (!empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
+            if (! empty($aliases[$db]['tables'][$table]['columns'][$col_as])) {
                 $col_as = $aliases[$db]['tables'][$table]['columns'][$col_as];
             }
             $columns[$i] = stripslashes($col_as);
@@ -259,7 +259,7 @@ class ExportJson extends ExportPlugin
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt > 1) {
-                if (!$this->export->outputHandler(',' . $crlf)) {
+                if (! $this->export->outputHandler(',' . $crlf)) {
                     return false;
                 }
             }
@@ -270,12 +270,12 @@ class ExportJson extends ExportPlugin
                 $data[$columns[$i]] = $record[$i];
             }
 
-            if (!$this->export->outputHandler($this->encode($data))) {
+            if (! $this->export->outputHandler($this->encode($data))) {
                 return false;
             }
         }
 
-        if (!$this->export->outputHandler($crlf . ']' . $crlf . $footer . $crlf)) {
+        if (! $this->export->outputHandler($crlf . ']' . $crlf . $footer . $crlf)) {
             return false;
         }
 

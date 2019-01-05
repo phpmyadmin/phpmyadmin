@@ -410,7 +410,7 @@ class SqlQueryForm
         $html .= '<select name="id_bookmark" id="id_bookmark">' . "\n";
         $html .= '<option value="">&nbsp;</option>' . "\n";
         foreach ($bookmark_list as $bookmark) {
-            $html .= '<option value="' . htmlspecialchars((string)$bookmark->getId()) . '"'
+            $html .= '<option value="' . htmlspecialchars((string) $bookmark->getId()) . '"'
                 . ' data-varcount="' . $bookmark->getVariableCount()
                 . '">'
                 . htmlspecialchars($bookmark->getLabel())

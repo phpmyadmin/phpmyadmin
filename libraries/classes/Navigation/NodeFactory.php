@@ -28,7 +28,7 @@ class NodeFactory
      */
     private static function _sanitizeClass($class)
     {
-        if (!preg_match('@^Node\w*$@', $class)) {
+        if (! preg_match('@^Node\w*$@', $class)) {
             $class = 'Node';
             trigger_error(
                 sprintf(

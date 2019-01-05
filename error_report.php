@@ -19,8 +19,8 @@ if (! defined('ROOT_PATH')) {
 
 require_once ROOT_PATH . 'libraries/common.inc.php';
 
-if (!isset($_POST['exception_type'])
-    || !in_array($_POST['exception_type'], ['js', 'php'])
+if (! isset($_POST['exception_type'])
+    || ! in_array($_POST['exception_type'], ['js', 'php'])
 ) {
     die('Oops, something went wrong!!');
 }
@@ -65,7 +65,7 @@ if (isset($_POST['send_error_report'])
             $success = false;
         } else {
             $decoded_response = json_decode($server_response, true);
-            $success = !empty($decoded_response) ?
+            $success = ! empty($decoded_response) ?
                 $decoded_response["success"] : false;
         }
 

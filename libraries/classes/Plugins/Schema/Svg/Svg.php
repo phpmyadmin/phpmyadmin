@@ -146,11 +146,11 @@ class Svg extends XMLWriter
     {
         $this->startElement('svg');
 
-        if (!is_int($width)) {
+        if (! is_int($width)) {
             $width = intval($width);
         }
 
-        if (!is_int($height)) {
+        if (! is_int($height)) {
             $height = intval($height);
         }
 

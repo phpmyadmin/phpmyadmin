@@ -462,7 +462,7 @@ class DatabaseInterfaceTest extends PmaTestCase
     {
         $ver_int = DatabaseInterface::versionToInt($version);
         $this->assertEquals($expected, $ver_int);
-        $this->assertEquals($major, (int)($ver_int / 10000));
+        $this->assertEquals($major, (int) ($ver_int / 10000));
         $this->assertEquals($upgrade, $ver_int < $GLOBALS['cfg']['MysqlMinVersion']['internal']);
     }
 

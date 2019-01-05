@@ -725,10 +725,10 @@ class Results
                 || $this->__get('is_export')
                 || $this->__get('is_func')
                 || $this->__get('is_analyse'))
-            && !empty($analyzed_sql_results['select_from'])
-            && !empty($analyzed_sql_results['statement']->from)
+            && ! empty($analyzed_sql_results['select_from'])
+            && ! empty($analyzed_sql_results['statement']->from)
             && (count($analyzed_sql_results['statement']->from) == 1)
-            && !empty($analyzed_sql_results['statement']->from[0]->table);
+            && ! empty($analyzed_sql_results['statement']->from[0]->table);
     }
 
 
@@ -1632,7 +1632,7 @@ class Results
      */
     private function _getTableCommentsArray(array $analyzed_sql_results)
     {
-        if (!$GLOBALS['cfg']['ShowBrowseComments']
+        if (! $GLOBALS['cfg']['ShowBrowseComments']
             || (empty($analyzed_sql_results['statement']->from))
         ) {
             return [];
@@ -1668,7 +1668,7 @@ class Results
     {
         $highlight_columns = [];
 
-        if (!empty($analyzed_sql_results['statement']->where)) {
+        if (! empty($analyzed_sql_results['statement']->where)) {
             foreach ($analyzed_sql_results['statement']->where as $expr) {
                 foreach ($expr->identifiers as $identifier) {
                     $highlight_columns[$identifier] = 'true';
@@ -2000,7 +2000,7 @@ class Results
             $name_to_use_in_sort
         );
         $current_name = $name_to_use_in_sort;
-        if ($sort_expression_nodirection[0] == '' || !$is_in_sort) {
+        if ($sort_expression_nodirection[0] == '' || ! $is_in_sort) {
             $special_index = $sort_expression_nodirection[0] == ''
                 ? 0
                 : count($sort_expression_nodirection);
@@ -2317,7 +2317,7 @@ class Results
         $th_class = [];
         $th_class[] = 'draggable';
         $this->_getClassForNumericColumnType($fields_meta, $th_class);
-        if ($col_visib && !$col_visib_j) {
+        if ($col_visib && ! $col_visib_j) {
             $th_class[] = 'hide';
         }
 
@@ -2367,7 +2367,7 @@ class Results
         $th_class = [];
         $th_class[] = 'draggable';
         $this->_getClassForNumericColumnType($fields_meta, $th_class);
-        if ($col_visib && !$col_visib_j) {
+        if ($col_visib && ! $col_visib_j) {
             $th_class[] = 'hide';
         }
 
@@ -2576,7 +2576,7 @@ class Results
         $orgFullColName = $this->__get('db') . '.' . $meta->orgtable
             . '.' . $meta->orgname;
         if ($transformation_plugin != $default_function
-            || !empty($mime_map[$orgFullColName]['input_transformation'])
+            || ! empty($mime_map[$orgFullColName]['input_transformation'])
         ) {
             $classes[] = 'transformed';
         }
@@ -2693,7 +2693,7 @@ class Results
         while ($row = $GLOBALS['dbi']->fetchRow($dt_result)) {
             // add repeating headers
             if (($row_no != 0) && ($_SESSION['tmpval']['repeat_cells'] != 0)
-                && !($row_no % $_SESSION['tmpval']['repeat_cells'])
+                && ! ($row_no % $_SESSION['tmpval']['repeat_cells'])
             ) {
                 $table_body_html .= $this->_getRepeatingHeaders(
                     $display_params
@@ -3026,7 +3026,7 @@ class Results
                 && $GLOBALS['cfg']['BrowseMIME']
             ) {
                 if (isset($mime_map[$orgFullColName]['mimetype'])
-                    && !empty($mime_map[$orgFullColName]['transformation'])
+                    && ! empty($mime_map[$orgFullColName]['transformation'])
                 ) {
                     $file = $mime_map[$orgFullColName]['transformation'];
                     $include_file = 'libraries/classes/Plugins/Transformations/' . $file;
@@ -3340,7 +3340,7 @@ class Results
             'FROM'
         );
 
-        if (!empty($from_clause)) {
+        if (! empty($from_clause)) {
             $query .= ' FROM ' . $from_clause;
         }
 
@@ -4016,7 +4016,7 @@ class Results
         if ((stristr($field_flags, self::BINARY_FIELD)
             && ($GLOBALS['cfg']['ProtectBinary'] === 'all'
             || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob'
-            && !stristr($meta->type, self::BLOB_FIELD))
+            && ! stristr($meta->type, self::BLOB_FIELD))
             || ($GLOBALS['cfg']['ProtectBinary'] === 'blob'
             && stristr($meta->type, self::BLOB_FIELD))))
             || $bIsText
@@ -4036,9 +4036,9 @@ class Results
 
         // Cut all fields to $GLOBALS['cfg']['LimitChars']
         // (unless it's a link-type transformation or binary)
-        if (!(gettype($transformation_plugin) === "object"
+        if (! (gettype($transformation_plugin) === "object"
             && strpos($transformation_plugin->getName(), 'Link') !== false)
-            && !stristr($field_flags, self::BINARY_FIELD)
+            && ! stristr($field_flags, self::BINARY_FIELD)
         ) {
             list(
                 $is_field_truncated,
@@ -4058,7 +4058,7 @@ class Results
             // being BINARY but they are quite readable,
             // so don't treat them as BINARY
         } elseif (stristr($field_flags, self::BINARY_FIELD)
-            && !(isset($is_analyse) && $is_analyse)
+            && ! (isset($is_analyse) && $is_analyse)
         ) {
             // we show the BINARY or BLOB message and field's size
             // (or maybe use a transformation)
@@ -4171,7 +4171,7 @@ class Results
         // as this is a form value, the type is always string so we cannot
         // use Core::isValid($_POST['session_max_rows'], 'integer')
         if (Core::isValid($_POST['session_max_rows'], 'numeric')) {
-            $query['max_rows'] = (int)$_POST['session_max_rows'];
+            $query['max_rows'] = (int) $_POST['session_max_rows'];
             unset($_POST['session_max_rows']);
         } elseif ($_POST['session_max_rows'] == self::ALL_ROWS) {
             $query['max_rows'] = self::ALL_ROWS;
@@ -4377,7 +4377,7 @@ class Results
         $sort_expression_nodirection = [];
         $sort_direction = [];
 
-        if (!is_null($statement) && !empty($statement->order)) {
+        if (! is_null($statement) && ! empty($statement->order)) {
             foreach ($statement->order as $o) {
                 $sort_expression[] = $o->expr->expr . ' ' . $o->type;
                 $sort_expression_nodirection[] = $o->expr->expr;
@@ -4418,7 +4418,7 @@ class Results
                 $this->__get('sql_query'),
                 'success'
             );
-        } elseif ((!isset($printview) || ($printview != '1')) && !$is_limited_display) {
+        } elseif ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {
             $table_html .= Util::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 $this->__get('sql_query'),
@@ -4450,7 +4450,7 @@ class Results
             $sort_by_key_html = $unsorted_sql_query = '';
         }
 
-        if (($displayParts['nav_bar'] == '1') && !is_null($statement) && (empty($statement->limit))) {
+        if (($displayParts['nav_bar'] == '1') && ! is_null($statement) && (empty($statement->limit))) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next,
                 $pos_prev,
@@ -4467,9 +4467,9 @@ class Results
         $map = [];
 
         $target = [];
-        if (!is_null($statement) && !empty($statement->from)) {
+        if (! is_null($statement) && ! empty($statement->from)) {
             foreach ($statement->from as $field) {
-                if (!empty($field->table)) {
+                if (! empty($field->table)) {
                     $target[] = $field->table;
                 }
             }
@@ -4534,7 +4534,7 @@ class Results
         }
 
         // 5. ----- Get the navigation bar at the bottom if required -----
-        if (($displayParts['nav_bar'] == '1') && !is_null($statement) && empty($statement->limit)) {
+        if (($displayParts['nav_bar'] == '1') && ! is_null($statement) && empty($statement->limit)) {
             $table_html .= $this->_getPlacedTableNavigations(
                 $pos_next,
                 $pos_prev,
@@ -4743,7 +4743,7 @@ class Results
 
         $unlim_num_rows = $this->__get('unlim_num_rows'); // To use in isset()
 
-        if (!empty($analyzed_sql_results['statement']->limit)) {
+        if (! empty($analyzed_sql_results['statement']->limit)) {
             $first_shown_rec = $analyzed_sql_results['statement']->limit->offset;
             $row_count = $analyzed_sql_results['statement']->limit->rowCount;
 
@@ -4803,7 +4803,7 @@ class Results
                 $message_total->addParam($total);
             }
 
-            if (!empty($after_count)) {
+            if (! empty($after_count)) {
                 $message_total->addHtml($after_count);
             }
             $message->addMessage($message_total, '');
@@ -5170,7 +5170,7 @@ class Results
         ];
         $url_query = Url::getCommon($_url_params);
 
-        if (!$header_shown) {
+        if (! $header_shown) {
             $results_operations_html .= $header;
             $header_shown = true;
         }
@@ -5286,7 +5286,7 @@ class Results
          *        I think we cannot detect db-specific privileges reliably)
          * Note: we don't display a Create view link if we found a PROCEDURE clause
          */
-        if (!$header_shown) {
+        if (! $header_shown) {
             $results_operations_html .= $header;
             $header_shown = true;
         }
@@ -5391,7 +5391,7 @@ class Results
         ) {
             // in this case, restart from the original $content
             if (mb_check_encoding($content, 'utf-8')
-                && !preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $content)
+                && ! preg_match('/[\x00-\x08\x0B\x0C\x0E-\x1F\x80-\x9F]/u', $content)
             ) {
                 // show as text if it's valid utf-8
                 $result = htmlspecialchars($content);
@@ -5410,7 +5410,7 @@ class Results
         // in PHP < 5.5, empty() only checks variables
         $tmpdb = $this->__get('db');
         if (count($url_params) > 0
-            && (!empty($tmpdb) && !empty($meta->orgtable))
+            && (! empty($tmpdb) && ! empty($meta->orgtable))
         ) {
             $result = '<a href="tbl_get_field.php'
                 . Url::getCommon($url_params)
@@ -5532,7 +5532,7 @@ class Results
             )
             . '">';
 
-        if (!empty($analyzed_sql_results['statement']->expr)) {
+        if (! empty($analyzed_sql_results['statement']->expr)) {
             foreach ($analyzed_sql_results['statement']->expr as $expr) {
                 if (empty($expr->alias) || (empty($expr->column))) {
                     continue;

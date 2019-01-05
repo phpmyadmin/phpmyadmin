@@ -31,7 +31,7 @@ PhpMyAdmin\Util::checkParameters(
 );
 
 /* Select database */
-if (!$GLOBALS['dbi']->selectDb($db)) {
+if (! $GLOBALS['dbi']->selectDb($db)) {
     PhpMyAdmin\Util::mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
@@ -40,7 +40,7 @@ if (!$GLOBALS['dbi']->selectDb($db)) {
 }
 
 /* Check if table exists */
-if (!$GLOBALS['dbi']->getColumns($db, $table)) {
+if (! $GLOBALS['dbi']->getColumns($db, $table)) {
     PhpMyAdmin\Util::mysqlDie(__('Invalid table name'));
 }
 

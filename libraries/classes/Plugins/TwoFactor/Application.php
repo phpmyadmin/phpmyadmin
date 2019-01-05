@@ -44,7 +44,7 @@ class Application extends TwoFactorPlugin
             $this->_google2fa = new Google2FA(new SvgImageBackEnd());
         }
         $this->_google2fa->setWindow(8);
-        if (!isset($this->_twofactor->config['settings']['secret'])) {
+        if (! isset($this->_twofactor->config['settings']['secret'])) {
             $this->_twofactor->config['settings']['secret'] = '';
         }
     }
@@ -72,7 +72,7 @@ class Application extends TwoFactorPlugin
     public function check()
     {
         $this->_provided = false;
-        if (!isset($_POST['2fa_code'])) {
+        if (! isset($_POST['2fa_code'])) {
             return false;
         }
         $this->_provided = true;

@@ -49,7 +49,7 @@ abstract class RegexValidationTransformationsPlugin extends IOTransformationsPlu
     {
         // reset properties of object
         $this->reset();
-        if (!empty($options[0]) && !preg_match($options[0], $buffer)) {
+        if (! empty($options[0]) && ! preg_match($options[0], $buffer)) {
             $this->success = false;
             $this->error = sprintf(
                 __('Validation failed for the input string %s.'),

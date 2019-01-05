@@ -46,7 +46,7 @@ class UploadProgress implements UploadInterface
             return null;
         }
 
-        if (!array_key_exists($id, $_SESSION[$SESSION_KEY])) {
+        if (! array_key_exists($id, $_SESSION[$SESSION_KEY])) {
             $_SESSION[$SESSION_KEY][$id] = [
                 'id'       => $id,
                 'finished' => false,
@@ -58,7 +58,7 @@ class UploadProgress implements UploadInterface
         }
         $ret = $_SESSION[$SESSION_KEY][$id];
 
-        if (!ImportAjax::progressCheck() || $ret['finished']) {
+        if (! ImportAjax::progressCheck() || $ret['finished']) {
             return $ret;
         }
 

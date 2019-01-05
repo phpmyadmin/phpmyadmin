@@ -67,7 +67,7 @@ switch ($submit_mult) {
         break;
 }
 
-if (!empty($submit_mult)) {
+if (! empty($submit_mult)) {
     if (isset($_POST['goto'])
         && (! isset($_POST['rows_to_delete'])
         || ! is_array($_POST['rows_to_delete']))

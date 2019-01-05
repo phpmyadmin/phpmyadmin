@@ -43,7 +43,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             Core::sendHeaderLocation($GLOBALS['cfg']['Server']['SignonURL']);
         }
 
-        if (!defined('TESTSUITE')) {
+        if (! defined('TESTSUITE')) {
             exit();
         } else {
             return false;
@@ -87,8 +87,8 @@ class AuthenticationSignon extends AuthenticationPlugin
         $single_signon_cfgupdate = [];
 
         /* Handle script based auth */
-        if (!empty($script_name)) {
-            if (!@file_exists($script_name)) {
+        if (! empty($script_name)) {
+            if (! @file_exists($script_name)) {
                 Core::fatalError(
                     __('Can not find signon authentication script:')
                     . ' ' . $script_name
@@ -103,7 +103,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             $old_session = session_name();
             $old_id = session_id();
             $old_cookie_params = session_get_cookie_params();
-            if (!defined('TESTSUITE')) {
+            if (! defined('TESTSUITE')) {
                 session_write_close();
             }
 
@@ -124,13 +124,13 @@ class AuthenticationSignon extends AuthenticationPlugin
                 return null;
             };
             foreach (['lifetime', 'path', 'domain', 'secure', 'httponly'] as $key) {
-                if (!isset($session_cookie_params[$key])) {
+                if (! isset($session_cookie_params[$key])) {
                     $session_cookie_params[$key] = $defaultCookieParams($key);
                 }
             }
 
             /* Load single signon session */
-            if (!defined('TESTSUITE')) {
+            if (! defined('TESTSUITE')) {
                 session_set_cookie_params($session_cookie_params['lifetime'], $session_cookie_params['path'], $session_cookie_params['domain'], $session_cookie_params['secure'], $session_cookie_params['httponly']);
                 session_name($session_name);
                 session_id($_COOKIE[$session_name]);
@@ -166,15 +166,15 @@ class AuthenticationSignon extends AuthenticationPlugin
             }
 
             /* End single signon session */
-            if (!defined('TESTSUITE')) {
+            if (! defined('TESTSUITE')) {
                 session_write_close();
             }
 
             /* Restart phpMyAdmin session */
-            if (!defined('TESTSUITE')) {
+            if (! defined('TESTSUITE')) {
                 session_set_cookie_params($old_cookie_params['lifetime'], $old_cookie_params['path'], $old_cookie_params['domain'], $old_cookie_params['secure'], $old_cookie_params['httponly']);
                 session_name($old_session);
-                if (!empty($old_id)) {
+                if (! empty($old_id)) {
                     session_id($old_id);
                 }
                 session_start();
@@ -193,7 +193,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             );
 
             /* Restore our token */
-            if (!empty($pma_token)) {
+            if (! empty($pma_token)) {
                 $_SESSION[' PMA_token '] = $pma_token;
             }
 
@@ -231,7 +231,7 @@ class AuthenticationSignon extends AuthenticationPlugin
 
         /* Does session exist? */
         if (isset($_COOKIE[$session_name])) {
-            if (!defined('TESTSUITE')) {
+            if (! defined('TESTSUITE')) {
                 /* End current session */
                 session_write_close();
 

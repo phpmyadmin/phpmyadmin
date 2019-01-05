@@ -155,18 +155,18 @@ abstract class GisGeometry
             // Extract coordinates of the point
             $cordinates = explode(" ", $point);
 
-            $x = (float)$cordinates[0];
-            if (!isset($min_max['maxX']) || $x > $min_max['maxX']) {
+            $x = (float) $cordinates[0];
+            if (! isset($min_max['maxX']) || $x > $min_max['maxX']) {
                 $min_max['maxX'] = $x;
             }
-            if (!isset($min_max['minX']) || $x < $min_max['minX']) {
+            if (! isset($min_max['minX']) || $x < $min_max['minX']) {
                 $min_max['minX'] = $x;
             }
-            $y = (float)$cordinates[1];
-            if (!isset($min_max['maxY']) || $y > $min_max['maxY']) {
+            $y = (float) $cordinates[1];
+            if (! isset($min_max['maxY']) || $y > $min_max['maxY']) {
                 $min_max['maxY'] = $y;
             }
-            if (!isset($min_max['minY']) || $y < $min_max['minY']) {
+            if (! isset($min_max['minY']) || $y < $min_max['minY']) {
                 $min_max['minY'] = $y;
             }
         }
@@ -240,7 +240,7 @@ abstract class GisGeometry
                 $y = 0;
             }
 
-            if (!$linear) {
+            if (! $linear) {
                 $points_arr[] = [$x, $y];
             } else {
                 $points_arr[] = $x;

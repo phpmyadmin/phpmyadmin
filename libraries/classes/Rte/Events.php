@@ -623,7 +623,7 @@ class Events
         ) {
             if ($_POST['item_type'] == 'RECURRING') {
                 if (! empty($_POST['item_interval_value'])
-                    && !empty($_POST['item_interval_field'])
+                    && ! empty($_POST['item_interval_field'])
                     && in_array($_POST['item_interval_field'], $event_interval)
                 ) {
                     $query .= 'EVERY ' . intval($_POST['item_interval_value']) . ' ';

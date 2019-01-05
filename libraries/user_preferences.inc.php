@@ -14,7 +14,7 @@ use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
 
@@ -59,7 +59,7 @@ echo $template->render('list/unordered', [
 echo '<div class="clearfloat"></div>';
 
 // show "configuration saved" message and reload navigation panel if needed
-if (!empty($_GET['saved'])) {
+if (! empty($_GET['saved'])) {
     Message::rawSuccess(__('Configuration has been saved.'))->display();
 }
 

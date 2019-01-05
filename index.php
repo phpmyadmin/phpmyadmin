@@ -183,7 +183,7 @@ if ($server > 0) {
     $mysql_cur_user_and_host = $GLOBALS['dbi']->fetchValue('SELECT USER();');
 
     // should we add the port info here?
-    $short_server_info = (!empty($GLOBALS['cfg']['Server']['verbose'])
+    $short_server_info = (! empty($GLOBALS['cfg']['Server']['verbose'])
                 ? $GLOBALS['cfg']['Server']['verbose']
                 : $GLOBALS['cfg']['Server']['host']);
 }
@@ -527,7 +527,7 @@ if ($cfg['LoginCookieValidityDisableWarning'] == false) {
     /**
      * Check whether session.gc_maxlifetime limits session validity.
      */
-    $gc_time = (int)ini_get('session.gc_maxlifetime');
+    $gc_time = (int) ini_get('session.gc_maxlifetime');
     if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity']) {
         trigger_error(
             __(
@@ -633,7 +633,7 @@ if ($server > 0) {
         $msg->addParamHtml('<a href="./chk_rel.php" data-post="' . $common_url_query . '">');
         $msg->addParamHtml('</a>');
         /* Show error if user has configured something, notice elsewhere */
-        if (!empty($cfg['Servers'][$server]['pmadb'])) {
+        if (! empty($cfg['Servers'][$server]['pmadb'])) {
             $msg->isError(true);
         }
         $msg->display();

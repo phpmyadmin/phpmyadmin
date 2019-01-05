@@ -458,7 +458,7 @@ class Util
     {
         /* Construct base URL */
         $url =  $page . '.html';
-        if (!empty($anchor)) {
+        if (! empty($anchor)) {
             $url .= '#' . $anchor;
         }
 
@@ -566,7 +566,7 @@ class Util
         }
 
         // Finding the query that failed, if not specified.
-        if ((empty($sql_query) && (!empty($GLOBALS['sql_query'])))) {
+        if ((empty($sql_query) && (! empty($GLOBALS['sql_query'])))) {
             $sql_query = $GLOBALS['sql_query'];
         }
         $sql_query = trim($sql_query);
@@ -601,9 +601,9 @@ class Util
 
         // For security reasons, if the MySQL refuses the connection, the query
         // is hidden so no details are revealed.
-        if ((!empty($sql_query)) && (!(mb_strstr($sql_query, 'connect')))) {
+        if ((! empty($sql_query)) && (! (mb_strstr($sql_query, 'connect')))) {
             // Static analysis errors.
-            if (!empty($errors)) {
+            if (! empty($errors)) {
                 $error_msg .= '<p><strong>' . __('Static analysis:')
                     . '</strong></p>';
                 $error_msg .= '<p>' . sprintf(
@@ -661,7 +661,7 @@ class Util
         }
 
         // Display server's error.
-        if (!empty($server_msg)) {
+        if (! empty($server_msg)) {
             $server_msg = preg_replace(
                 "@((\015\012)|(\015)|(\012)){3,}@",
                 "\n\n",
@@ -695,7 +695,7 @@ class Util
         $error_msg .= '</div>';
         $_SESSION['Import_message']['message'] = $error_msg;
 
-        if (!$exit) {
+        if (! $exit) {
             return $error_msg;
         }
 
@@ -710,7 +710,7 @@ class Util
             exit;
         }
 
-        if (!empty($back_url)) {
+        if (! empty($back_url)) {
             if (mb_strstr($back_url, '?')) {
                 $back_url .= '&amp;no_history=true';
             } else {
@@ -892,7 +892,7 @@ class Util
         }
 
         if (! $do_it) {
-            if (!(Context::isKeyword($a_name) & Token::FLAG_KEYWORD_RESERVED)
+            if (! (Context::isKeyword($a_name) & Token::FLAG_KEYWORD_RESERVED)
             ) {
                 return $a_name;
             }
@@ -940,7 +940,7 @@ class Util
         }
 
         if (! $do_it) {
-            if (!Context::isKeyword($a_name)) {
+            if (! Context::isKeyword($a_name)) {
                 return $a_name;
             }
         }
@@ -956,7 +956,7 @@ class Util
         }
 
         // '0' is also empty for php :-(
-        if (strlen((string)$a_name) > 0 && $a_name !== '*') {
+        if (strlen((string) $a_name) > 0 && $a_name !== '*') {
             return $quote . $a_name . $quote;
         }
 
@@ -1279,7 +1279,7 @@ class Util
      */
     public static function profilingSupported()
     {
-        if (!self::cacheExists('profiling_supported')) {
+        if (! self::cacheExists('profiling_supported')) {
             // 5.0.37 has profiling but for example, 5.1.20 does not
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
@@ -1584,7 +1584,7 @@ class Util
 
         $date = preg_replace(
             '@%[aA]@',
-            $day_of_week[(int)strftime('%w', (int) $timestamp)],
+            $day_of_week[(int) strftime('%w', (int) $timestamp)],
             $format
         );
         $date = preg_replace(
@@ -1694,7 +1694,7 @@ class Util
         $tabId = (empty($tab['id']) ? null : $tab['id']);
 
         $item = [];
-        if (!empty($tab['link'])) {
+        if (! empty($tab['link'])) {
             $item = [
                 'content' => $tab['text'],
                 'url' => [
@@ -1900,10 +1900,10 @@ class Util
 
         return sprintf(
             __('%s days, %s hours, %s minutes and %s seconds'),
-            (string)$days,
-            (string)$hours,
-            (string)$minutes,
-            (string)$seconds
+            (string) $days,
+            (string) $hours,
+            (string) $minutes,
+            (string) $seconds
         );
     }
 
@@ -1991,7 +1991,7 @@ class Util
             if (! isset($meta->orgname) || strlen($meta->orgname) === 0) {
                 $meta->orgname = $meta->name;
 
-                if (!empty($analyzed_sql_results['statement']->expr)) {
+                if (! empty($analyzed_sql_results['statement']->expr)) {
                     foreach ($analyzed_sql_results['statement']->expr as $expr) {
                         if ((empty($expr->alias)) || (empty($expr->column))) {
                             continue;
@@ -2971,7 +2971,7 @@ class Util
      */
     public static function isForeignKeySupported($engine)
     {
-        $engine = strtoupper((string)$engine);
+        $engine = strtoupper((string) $engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
             return true;
         } elseif ($engine == 'NDBCLUSTER' || $engine == 'NDB') {
@@ -4189,7 +4189,7 @@ class Util
         if ($disableAjax) {
             $classes[] = 'disableAjax';
         }
-        if (!empty($classes)) {
+        if (! empty($classes)) {
             $retval .= ' class="' . join(" ", $classes) . '"';
         }
         $retval .= ' title="' . $text . '">';
@@ -4645,7 +4645,7 @@ class Util
         while (is_array($value) || is_object($value)) {
             $value = reset($value);
         }
-        return trim((string)$value);
+        return trim((string) $value);
     }
 
     /**
@@ -4719,7 +4719,7 @@ class Util
         }
         $p = array_shift($path);
         while (isset($p)) {
-            if (!isset($array[$p])) {
+            if (! isset($array[$p])) {
                 return $default;
             }
             $array = $array[$p];

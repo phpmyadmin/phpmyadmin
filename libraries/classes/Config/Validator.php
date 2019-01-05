@@ -56,9 +56,9 @@ class Validator
         // better idea than hacking into its code
         $uvs = $cf->getDbEntry('_userValidators', []);
         foreach ($uvs as $field => $uvList) {
-            $uvList = (array)$uvList;
+            $uvList = (array) $uvList;
             foreach ($uvList as &$uv) {
-                if (!is_array($uv)) {
+                if (! is_array($uv)) {
                     continue;
                 }
                 for ($i = 1, $nb = count($uv); $i < $nb; $i++) {
@@ -71,7 +71,7 @@ class Validator
                 }
             }
             $validators[$field] = isset($validators[$field])
-                ? array_merge((array)$validators[$field], $uvList)
+                ? array_merge((array) $validators[$field], $uvList)
                 : $uvList;
         }
         return $validators;
@@ -130,7 +130,7 @@ class Validator
         $result = [];
         foreach ($vids as $vid) {
             // call appropriate validation functions
-            foreach ((array)$validators[$vid] as $validator) {
+            foreach ((array) $validators[$vid] as $validator) {
                 $vdef = (array) $validator;
                 $vname = array_shift($vdef);
                 $vname = 'PhpMyAdmin\Config\Validator::' . $vname;
@@ -138,7 +138,7 @@ class Validator
                 $r = call_user_func_array($vname, $args);
 
                 // merge results
-                if (!is_array($r)) {
+                if (! is_array($r)) {
                     continue;
                 }
 
@@ -152,7 +152,7 @@ class Validator
                     }
                     $result[$key] = array_merge(
                         $result[$key],
-                        (array)$errorList
+                        (array) $errorList
                     );
                 }
             }
@@ -433,7 +433,7 @@ class Validator
             $line = trim($line);
             $matches = [];
             // we catch anything that may (or may not) be an IP
-            if (!preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
+            if (! preg_match("/^(.+):(?:[ ]?)\\w+$/", $line, $matches)) {
                 $result[$path][] = __('Incorrect value:') . ' '
                     . htmlspecialchars($line);
                 continue;
@@ -566,7 +566,7 @@ class Validator
      */
     public static function validateByRegex($path, array $values, $regex)
     {
-        if (!isset($values[$path])) {
+        if (! isset($values[$path])) {
             return '';
         }
         $result = preg_match($regex, Util::requestString($values[$path]));

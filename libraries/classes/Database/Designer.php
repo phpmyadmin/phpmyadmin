@@ -167,7 +167,7 @@ class Designer
 
             $result = $this->dbi->fetchSingleRow($query);
 
-            $params = json_decode((string)$result['settings_data'], true);
+            $params = json_decode((string) $result['settings_data'], true);
         }
 
         return $params;

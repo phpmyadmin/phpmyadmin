@@ -11,7 +11,7 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
 
-if (!defined('TESTSUITE')) {
+if (! defined('TESTSUITE')) {
     chdir('..');
 
     // Send correct type:
@@ -35,7 +35,7 @@ use PhpMyAdmin\Sanitize;
 
 $buffer = PhpMyAdmin\OutputBuffering::getInstance();
 $buffer->start();
-if (!defined('TESTSUITE')) {
+if (! defined('TESTSUITE')) {
     register_shutdown_function(
         function () {
             echo PhpMyAdmin\OutputBuffering::getInstance()->getContents();
@@ -778,7 +778,7 @@ echo "var mysql_doc_template = '" , PhpMyAdmin\Util::getMySQLDocuURL('%s')
 //Max input vars allowed by PHP.
 $maxInputVars = ini_get('max_input_vars');
 echo 'var maxInputVars = '
-    , (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int)$maxInputVars)
+    , (false === $maxInputVars || '' == $maxInputVars ? 'false' : (int) $maxInputVars)
     , ';' . "\n";
 
 echo "if ($.datepicker) {\n";

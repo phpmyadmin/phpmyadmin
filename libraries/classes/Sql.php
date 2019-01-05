@@ -746,7 +746,7 @@ EOT;
      */
     private function isDeleteTransformationInfo(array $analyzed_sql_results)
     {
-        return !empty($analyzed_sql_results['querytype'])
+        return ! empty($analyzed_sql_results['querytype'])
             && (($analyzed_sql_results['querytype'] == 'ALTER')
                 || ($analyzed_sql_results['querytype'] == 'DROP'));
     }
@@ -1207,7 +1207,7 @@ EOT;
             return 0;
         }
 
-        if (!$this->isAppendLimitClause($analyzed_sql_results)) {
+        if (! $this->isAppendLimitClause($analyzed_sql_results)) {
             // if we did not append a limit, set this to get a correct
             // "Showing rows..." message
             // $_SESSION['tmpval']['max_rows'] = 'all';
@@ -1409,10 +1409,10 @@ EOT;
         }
         $statement = $analyzed_sql_results['statement'];
         if ($statement instanceof AlterStatement) {
-            if (!empty($statement->altered[0])
+            if (! empty($statement->altered[0])
                 && $statement->altered[0]->options->has('DROP')
             ) {
-                if (!empty($statement->altered[0]->field->column)) {
+                if (! empty($statement->altered[0]->field->column)) {
                     $this->transformations->clear(
                         $db,
                         $table,
@@ -1562,7 +1562,7 @@ EOT;
             'success'
         );
         $html_output .= $html_message;
-        if (!isset($GLOBALS['show_as_php'])) {
+        if (! isset($GLOBALS['show_as_php'])) {
             if (! empty($GLOBALS['reload'])) {
                 $extra_data['reload'] = 1;
                 $extra_data['db'] = $GLOBALS['db'];
@@ -1579,8 +1579,8 @@ EOT;
             $response = Response::getInstance();
             $response->addJSON(isset($extra_data) ? $extra_data : []);
 
-            if (!empty($analyzed_sql_results['is_select']) &&
-                    !isset($extra_data['error'])) {
+            if (! empty($analyzed_sql_results['is_select']) &&
+                    ! isset($extra_data['error'])) {
                 $url_query = isset($url_query) ? $url_query : null;
 
                 $displayParts = [
@@ -1886,7 +1886,7 @@ EOT;
      */
     private function getMessageIfMissingColumnIndex($table, $db, $editable, $has_unique)
     {
-        if (!empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || !$editable)) {
+        if (! empty($table) && ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable)) {
             $missing_unique_column_msg = Message::notice(
                 sprintf(
                     __(
@@ -2040,7 +2040,7 @@ EOT;
 
         $statement = isset($analyzed_sql_results['statement']) ? $analyzed_sql_results['statement'] : null;
         if ($statement instanceof SelectStatement) {
-            if (!empty($statement->expr)) {
+            if (! empty($statement->expr)) {
                 if ($statement->expr[0]->expr === '*') {
                     $_table = new Table($table, $db);
                     $updatableView = $_table->isUpdatableView();
@@ -2078,7 +2078,7 @@ EOT;
             'pview_lnk' => '1'
         ];
 
-        if ($GLOBALS['dbi']->isSystemSchema($db) || !$editable) {
+        if ($GLOBALS['dbi']->isSystemSchema($db) || ! $editable) {
             $displayParts = [
                 'edit_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
                 'del_lnk' => $displayResultsObject::NO_EDIT_OR_DELETE,
@@ -2131,7 +2131,7 @@ EOT;
             }
         }
 
-        if (!isset($_POST['printview']) || $_POST['printview'] != '1') {
+        if (! isset($_POST['printview']) || $_POST['printview'] != '1') {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
             unset($GLOBALS['message']);
@@ -2268,7 +2268,7 @@ EOT;
             // @todo: possibly refactor
             extract($analyzed_sql_results);
 
-            if ($table != $table_from_sql && !empty($table_from_sql)) {
+            if ($table != $table_from_sql && ! empty($table_from_sql)) {
                 $table = $table_from_sql;
             }
         }

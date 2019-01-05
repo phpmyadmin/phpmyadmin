@@ -67,16 +67,16 @@ class Select
                 continue;
             }
 
-            if (!empty($GLOBALS['server']) && (int) $GLOBALS['server'] === (int) $key) {
+            if (! empty($GLOBALS['server']) && (int) $GLOBALS['server'] === (int) $key) {
                 $selected = 1;
             } else {
                 $selected = 0;
             }
-            if (!empty($server['verbose'])) {
+            if (! empty($server['verbose'])) {
                 $label = $server['verbose'];
             } else {
                 $label = $server['host'];
-                if (!empty($server['port'])) {
+                if (! empty($server['port'])) {
                     $label .= ':' . $server['port'];
                 }
             }
@@ -88,7 +88,7 @@ class Select
                     $label .= ' - ' . implode(', ', $server['only_db']);
                 }
             }
-            if (!empty($server['user']) && $server['auth_type'] == 'config') {
+            if (! empty($server['user']) && $server['auth_type'] == 'config') {
                 $label .= '  (' . $server['user'] . ')';
             }
 

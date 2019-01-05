@@ -107,7 +107,7 @@ class NavigationHeader
         }
 
         // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
-        if (!$GLOBALS['cfg']['NavigationDisplayLogo']) {
+        if (! $GLOBALS['cfg']['NavigationDisplayLogo']) {
             return $this->template->render('navigation/logo', [
                 'display_logo' => false,
                 'use_logo_link' => false,
@@ -117,7 +117,7 @@ class NavigationHeader
             ]);
         }
 
-        if (!$GLOBALS['cfg']['NavigationLogoLink']) {
+        if (! $GLOBALS['cfg']['NavigationLogoLink']) {
             return $this->template->render('navigation/logo', [
                 'display_logo' => true,
                 'use_logo_link' => false,

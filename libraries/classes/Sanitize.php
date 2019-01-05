@@ -56,7 +56,7 @@ class Sanitize
             './server_privileges.php?',
             './tbl_structure.php?',
         ];
-        $is_setup = !is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup');
+        $is_setup = ! is_null($GLOBALS['PMA_Config']) && $GLOBALS['PMA_Config']->get('is_setup');
         // Adjust path to setup script location
         if ($is_setup) {
             foreach ($valid_starts as $key => $value) {
@@ -168,7 +168,7 @@ class Sanitize
      */
     public static function sanitize($message, $escape = false, $safe = false)
     {
-        if (!$safe) {
+        if (! $safe) {
             $message = strtr((string) $message, ['<' => '&lt;', '>' => '&gt;']);
         }
 
@@ -324,7 +324,7 @@ class Sanitize
         }
 
         if (is_int($value)) {
-            return (int)$value;
+            return (int) $value;
         }
 
         return '"' . self::escapeJsString($value) . '"';
@@ -344,7 +344,7 @@ class Sanitize
     public static function getJsValue($key, $value, $escape = true)
     {
         $result = $key . ' = ';
-        if (!$escape) {
+        if (! $escape) {
             $result .= $value;
         } elseif (is_array($value)) {
             $result .= '[';
@@ -441,7 +441,7 @@ class Sanitize
             $_COOKIE = [];
         }
         $keys = array_keys(
-            array_merge((array)$_REQUEST, (array)$_GET, (array)$_POST, (array)$_COOKIE)
+            array_merge((array) $_REQUEST, (array) $_GET, (array) $_POST, (array) $_COOKIE)
         );
 
         foreach ($keys as $key) {

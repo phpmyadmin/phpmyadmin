@@ -168,7 +168,7 @@ class UserPreferences
         if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
             unset($_SESSION['cache'][$cache_key]['userprefs']);
         }
-        if (!$GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
+        if (! $GLOBALS['dbi']->tryQuery($query, DatabaseInterface::CONNECT_CONTROL)) {
             $message = Message::error(__('Could not save configuration'));
             $message->addMessage(
                 Message::rawError(

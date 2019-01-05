@@ -81,7 +81,7 @@ class AuthenticationConfig extends AuthenticationPlugin
     {
         parent::showFailure($failure);
         $conn_error = $GLOBALS['dbi']->getError();
-        if (!$conn_error) {
+        if (! $conn_error) {
             $conn_error = __('Cannot connect: invalid settings.');
         }
 
@@ -119,7 +119,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                     '<a href="setup/">',
                     '</a>'
                 ) , '</p>' , "\n";
-            } elseif (!isset($GLOBALS['errno'])
+            } elseif (! isset($GLOBALS['errno'])
                 || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002)
                 && $GLOBALS['errno'] != 2003
             ) {
@@ -173,7 +173,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             echo '</tr>' , "\n";
         }
         echo '</table>' , "\n";
-        if (!defined('TESTSUITE')) {
+        if (! defined('TESTSUITE')) {
             exit;
         }
     }

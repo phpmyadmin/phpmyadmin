@@ -88,7 +88,7 @@ $multi_values .= '<table class="export_table_select">'
 $multi_values .= "\n";
 
 // when called by libraries/mult_submits.inc.php
-if (!empty($_POST['selected_tbl']) && empty($table_select)) {
+if (! empty($_POST['selected_tbl']) && empty($table_select)) {
     $table_select = $_POST['selected_tbl'];
 }
 

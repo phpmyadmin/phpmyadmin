@@ -262,15 +262,15 @@ class Routines
 
         $sql_query = '';
         $routine_query = $this->getQueryFromRequest();
-        if (!count($errors)) {
+        if (! count($errors)) {
             // Execute the created query
-            if (!empty($_POST['editor_process_edit'])) {
+            if (! empty($_POST['editor_process_edit'])) {
                 $isProcOrFunc = in_array(
                     $_POST['item_original_type'],
                     ['PROCEDURE', 'FUNCTION']
                 );
 
-                if (!$isProcOrFunc) {
+                if (! $isProcOrFunc) {
                     $errors[] = sprintf(
                         __('Invalid routine type: "%s"'),
                         htmlspecialchars($_POST['item_original_type'])
@@ -289,7 +289,7 @@ class Routines
                         . Util::backquote($_POST['item_original_name'])
                         . ";\n";
                     $result = $this->dbi->tryQuery($drop_routine);
-                    if (!$result) {
+                    if (! $result) {
                         $errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($drop_routine)
@@ -316,7 +316,7 @@ class Routines
             } else {
                 // 'Add a new routine' mode
                 $result = $this->dbi->tryQuery($routine_query);
-                if (!$result) {
+                if (! $result) {
                     $errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($routine_query)
@@ -351,11 +351,11 @@ class Routines
 
         $output = Util::getMessage($message, $sql_query);
         $response = Response::getInstance();
-        if (!$response->isAjax()) {
+        if (! $response->isAjax()) {
             return $errors;
         }
 
-        if (!$message->isSuccess()) {
+        if (! $message->isSuccess()) {
             $response->setRequestStatus(false);
             $response->addJSON('message', $output);
             exit;
@@ -374,7 +374,7 @@ class Routines
             )
         );
         $response->addJSON('new_row', $this->rteList->getRoutineRow($routine));
-        $response->addJSON('insert', !empty($routine));
+        $response->addJSON('insert', ! empty($routine));
         $response->addJSON('message', $output);
         exit;
     }
@@ -429,7 +429,7 @@ class Routines
         array $privilegesBackup
     ) {
         $result = $this->dbi->tryQuery($routine_query);
-        if (!$result) {
+        if (! $result) {
             $errors = [];
             $errors[] = sprintf(
                 __('The following query has failed: "%s"'),
@@ -695,7 +695,7 @@ class Routines
         $retval['item_param_opts_text']  = $params['opts'];
 
         // Get extra data
-        if (!$all) {
+        if (! $all) {
             return $retval;
         }
 
@@ -1232,7 +1232,7 @@ class Routines
                         );
                     }
                     if ($item_param_length[$i] != ''
-                        && !preg_match(
+                        && ! preg_match(
                             '@^(DATE|TINYBLOB|TINYTEXT|BLOB|TEXT|'
                             . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|'
                             . 'SERIAL|BOOLEAN)$@i',
@@ -1300,7 +1300,7 @@ class Routines
                 $errors[] = __('You must provide a valid return type for the routine.');
             }
             if (! empty($_POST['item_returnlength'])
-                && !preg_match(
+                && ! preg_match(
                     '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
                     . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN)$@i',
                     $item_returntype

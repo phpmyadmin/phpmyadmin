@@ -30,7 +30,7 @@ $response = Response::getInstance();
  * Kills a selected process
  * on ajax request
  */
-if ($response->isAjax() && !empty($_POST['kill'])) {
+if ($response->isAjax() && ! empty($_POST['kill'])) {
     $kill = intval($_POST['kill']);
     $query = $GLOBALS['dbi']->getKillQuery($kill);
     if ($GLOBALS['dbi']->tryQuery($query)) {
@@ -49,7 +49,7 @@ if ($response->isAjax() && !empty($_POST['kill'])) {
     }
     $message->addParam($kill);
     $response->addJSON('message', $message);
-} elseif ($response->isAjax() && !empty($_POST['refresh'])) {
+} elseif ($response->isAjax() && ! empty($_POST['refresh'])) {
     // Only sends the process list table
     $response->addHTML(Processes::getHtmlForServerProcesslist());
 } else {

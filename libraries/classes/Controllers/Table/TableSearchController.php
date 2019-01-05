@@ -230,8 +230,8 @@ class TableSearchController extends TableController
                 /**
              * No selection criteria received -> display the selection form
              */
-                if (!isset($_POST['columnsToDisplay'])
-                && !isset($_POST['displayAllColumns'])
+                if (! isset($_POST['columnsToDisplay'])
+                && ! isset($_POST['displayAllColumns'])
                 ) {
                     $this->displaySelectionFormAction();
                 } else {
@@ -284,7 +284,7 @@ class TableSearchController extends TableController
                 }
 
                 //Set default datalabel if not selected
-                if (!isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
+                if (! isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
                     $dataLabel = $this->relation->getDisplayField($this->db, $this->table);
                 } else {
                     $dataLabel = $_POST['dataLabel'];
@@ -1007,7 +1007,7 @@ class TableSearchController extends TableController
             }
         } // end foreach
 
-        if (!empty($fullWhereClause)) {
+        if (! empty($fullWhereClause)) {
             return ' WHERE ' . implode(' AND ', $fullWhereClause);
         }
         return '';
@@ -1211,7 +1211,7 @@ class TableSearchController extends TableController
                     unset($values[$emptyKey]);
                 }
                 $wheres = [];
-                if (!empty($values)) {
+                if (! empty($values)) {
                     $wheres[] = $backquoted_name . ' ' . $func_type
                         . ' (' . implode(',', $values) . ')';
                 }
