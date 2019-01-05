@@ -187,7 +187,8 @@ class DatabaseStructureController extends DatabaseController
         $this->response->addHTML('<div id="tableslistcontainer">');
         $_url_params = [
             'pos' => $this->_pos,
-            'db'  => $this->db];
+            'db'  => $this->db
+        ];
 
         // Add the sort options if they exists
         if (isset($_REQUEST['sort'])) {

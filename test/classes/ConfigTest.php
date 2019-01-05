@@ -552,7 +552,7 @@ class ConfigTest extends PmaTestCase
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
             'PMA_USR_BROWSER_AGENT'
-            ];
+        ];
 
         foreach ($defines as $define) {
             $this->assertTrue(defined($define));

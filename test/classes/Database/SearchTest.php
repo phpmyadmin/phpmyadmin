@@ -155,7 +155,7 @@ class SearchTest extends PmaTestCase
                 'select_count' => 'SELECT COUNT(*) AS `count` FROM `pma`.`table1` ' .
                     'WHERE FALSE',
                 'delete' => 'DELETE FROM `pma`.`table1` WHERE FALSE'
-             ],
+            ],
             $this->callProtectedFunction(
                 'getSearchSqls',
                 ['table1']

@@ -528,14 +528,16 @@ class Routines
         global $param_directions, $param_sqldataaccess;
 
         $retval = [];
-        $indices = ['item_name',
-                         'item_original_name',
-                         'item_returnlength',
-                         'item_returnopts_num',
-                         'item_returnopts_text',
-                         'item_definition',
-                         'item_comment',
-                         'item_definer'];
+        $indices = [
+            'item_name',
+            'item_original_name',
+            'item_returnlength',
+            'item_returnopts_num',
+            'item_returnopts_text',
+            'item_definition',
+            'item_comment',
+            'item_definer'
+        ];
         foreach ($indices as $index) {
             $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
         }

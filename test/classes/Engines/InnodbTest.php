@@ -182,7 +182,7 @@ class InnodbTest extends PmaTestCase
             [
                 'Bufferpool' => 'Buffer Pool',
                 'Status' => 'InnoDB Status'
-             ],
+            ],
             $this->object->getInfoPages()
         );
     }

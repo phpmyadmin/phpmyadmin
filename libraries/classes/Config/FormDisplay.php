@@ -103,7 +103,8 @@ class FormDisplay
             'error_nan_nneg' => __('Not a non-negative number!'),
             'error_incorrect_port' => __('Not a valid port number!'),
             'error_invalid_value' => __('Incorrect value!'),
-            'error_value_lte' => __('Value must be equal or lower than %s!')];
+            'error_value_lte' => __('Value must be equal or lower than %s!')
+        ];
         $this->_configFile = $cf;
         // initialize validators
         Validator::getValidators($this->_configFile);
@@ -861,7 +862,8 @@ class FormDisplay
             $funcs = [
                 'ZipDump'  => ['zip_open', 'gzcompress'],
                 'GZipDump' => ['gzopen', 'gzencode'],
-                'BZipDump' => ['bzopen', 'bzcompress']];
+                'BZipDump' => ['bzopen', 'bzcompress']
+            ];
             if (!function_exists($funcs[$systemPath][0])) {
                 $comment = sprintf(
                     __(

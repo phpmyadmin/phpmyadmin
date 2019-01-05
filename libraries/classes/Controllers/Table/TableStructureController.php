@@ -293,10 +293,7 @@ class TableStructureController extends TableController
          */
         if (isset($_POST['do_save_data'])) {
             $regenerate = $this->updateColumns();
-            if ($regenerate) {
-                // This happens when updating failed
-                // @todo: do something appropriate
-            } else {
+            if (! $regenerate) {
                 // continue to show the table's structure
                 unset($_POST['selected']);
             }

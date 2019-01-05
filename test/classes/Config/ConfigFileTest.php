@@ -97,7 +97,8 @@ class ConfigFileTest extends PmaTestCase
         $default_config = [
             self::SIMPLE_KEY_WITH_DEFAULT_VALUE => $default_simple_value,
             'Servers/1/host' => $default_host,
-            'Servers/2/host' => $default_host];
+            'Servers/2/host' => $default_host
+        ];
 
         /**
          * Case 1: set default value, key should not be persisted
@@ -185,11 +186,15 @@ class ConfigFileTest extends PmaTestCase
         $this->object->updateWithGlobalConfig(['Servers/value1' => 3]);
 
         $this->assertEquals(
-            ['Servers' => [
-                1 => [
-                    'passthrough1' => 1,
-                    'passthrough2' => 2,
-                    'value1' => 3]]],
+            [
+                'Servers' => [
+                    1 => [
+                        'passthrough1' => 1,
+                        'passthrough2' => 2,
+                        'value1' => 3
+                    ]
+                ]
+            ],
             $this->object->getConfig()
         );
         $this->assertEquals(

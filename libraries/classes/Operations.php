@@ -1265,16 +1265,16 @@ class Operations
                 'PAGE'      => 'PAGE'
             ],
             'MYISAM' => [
-                 'FIXED'    => 'FIXED',
-                 'DYNAMIC'  => 'DYNAMIC'
+                'FIXED'    => 'FIXED',
+                'DYNAMIC'  => 'DYNAMIC'
             ],
             'PBXT'   => [
-                 'FIXED'    => 'FIXED',
-                 'DYNAMIC'  => 'DYNAMIC'
+                'FIXED'    => 'FIXED',
+                'DYNAMIC'  => 'DYNAMIC'
             ],
             'INNODB' => [
-                 'COMPACT'  => 'COMPACT',
-                 'REDUNDANT' => 'REDUNDANT'
+                'COMPACT'  => 'COMPACT',
+                'REDUNDANT' => 'REDUNDANT'
             ]
         ];
 
@@ -2200,12 +2200,6 @@ class Operations
                 $new = Util::backquote($_POST['target_db']) . '.'
                     . Util::backquote($new_name);
                 $message->addParam($new);
-
-                /* Check: Work on new table or on old table? */
-                if (isset($_POST['submit_move'])
-                    || Core::isValid($_POST['switch_to_new'])
-                ) {
-                }
             }
         } else {
             /**

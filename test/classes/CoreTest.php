@@ -483,9 +483,11 @@ class CoreTest extends PmaTestCase
     {
         return [
             ['https://wiki.phpmyadmin.net',
-             './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'],
+                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'
+            ],
             ['https://wiki.phpmyadmin.net',
-             './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'],
+                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'
+            ],
             ['wiki.phpmyadmin.net', 'wiki.phpmyadmin.net'],
             ['index.php?db=phpmyadmin', 'index.php?db=phpmyadmin']
         ];
@@ -703,7 +705,8 @@ class CoreTest extends PmaTestCase
             [[], false, null],
             [[1, 2, 3], false, null],
             [true, false, null],
-            [false, false, null]];
+            [false, false, null]
+        ];
     }
 
     /**

@@ -3445,13 +3445,13 @@ class Results
     ) {
 
         $_url_params = [
-                'db'               => $this->__get('db'),
-                'table'            => $this->__get('table'),
-                'where_clause'     => $where_clause,
-                'clause_is_unique' => $clause_is_unique,
-                'sql_query'        => $url_sql_query,
-                'goto'             => 'sql.php',
-            ];
+            'db'               => $this->__get('db'),
+            'table'            => $this->__get('table'),
+            'where_clause'     => $where_clause,
+            'clause_is_unique' => $clause_is_unique,
+            'sql_query'        => $url_sql_query,
+            'goto'             => 'sql.php',
+        ];
 
         $edit_url = 'tbl_change.php'
             . Url::getCommon(
@@ -3525,12 +3525,12 @@ class Results
                 ($clause_is_unique ? '' : ' LIMIT 1');
 
             $_url_params = [
-                    'db'        => $this->__get('db'),
-                    'table'     => $this->__get('table'),
-                    'sql_query' => $del_query,
-                    'message_to_show' => __('The row has been deleted.'),
-                    'goto'      => $lnk_goto,
-                ];
+                'db'        => $this->__get('db'),
+                'table'     => $this->__get('table'),
+                'sql_query' => $del_query,
+                'message_to_show' => __('The row has been deleted.'),
+                'goto'      => $lnk_goto,
+            ];
             $del_url  = 'sql.php' . Url::getCommon($_url_params);
 
             $js_conf  = 'DELETE FROM ' . Sanitize::jsFormat($this->__get('table'))
@@ -3540,21 +3540,21 @@ class Results
             $del_str = $this->_getActionLinkContent('b_drop', __('Delete'));
         } elseif ($del_lnk == self::KILL_PROCESS) { // kill process case
             $_url_params = [
-                    'db'        => $this->__get('db'),
-                    'table'     => $this->__get('table'),
-                    'sql_query' => $url_sql_query,
-                    'goto'      => 'index.php',
-                ];
+                'db'        => $this->__get('db'),
+                'table'     => $this->__get('table'),
+                'sql_query' => $url_sql_query,
+                'goto'      => 'index.php',
+            ];
 
             $lnk_goto = 'sql.php' . Url::getCommonRaw($_url_params);
 
             $kill = $GLOBALS['dbi']->getKillQuery($row[0]);
 
             $_url_params = [
-                    'db'        => 'mysql',
-                    'sql_query' => $kill,
-                    'goto'      => $lnk_goto,
-                ];
+                'db'        => 'mysql',
+                'sql_query' => $kill,
+                'goto'      => $lnk_goto,
+            ];
 
             $del_url  = 'sql.php' . Url::getCommon($_url_params);
             $js_conf  = $kill;
@@ -4236,9 +4236,7 @@ class Results
         } elseif (isset($_REQUEST['display_options_form'])) {
             // we know that the checkbox was unchecked
             unset($query['display_binary']);
-        } elseif (isset($_REQUEST['full_text_button'])) {
-            // do nothing to keep the value that is there in the session
-        } else {
+        } elseif (! isset($_REQUEST['full_text_button'])) {
             // selected by default because some operations like OPTIMIZE TABLE
             // and all queries involving functions return "binary" contents,
             // according to low-level field flags
@@ -5165,11 +5163,11 @@ class Results
             . __('Query results operations') . '</legend>';
 
         $_url_params = [
-                    'db'        => $this->__get('db'),
-                    'table'     => $this->__get('table'),
-                    'printview' => '1',
-                    'sql_query' => $this->__get('sql_query'),
-                ];
+            'db'        => $this->__get('db'),
+            'table'     => $this->__get('table'),
+            'printview' => '1',
+            'sql_query' => $this->__get('sql_query'),
+        ];
         $url_query = Url::getCommon($_url_params);
 
         if (!$header_shown) {

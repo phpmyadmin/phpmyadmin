@@ -1261,8 +1261,8 @@ class Import
         $num_tables = count($tables);
         for ($i = 0; $i < $num_tables; ++$i) {
             $params = [
-                 'db' => (string) $db_name,
-                 'table' => (string) $tables[$i][self::TBL_NAME]
+                'db' => (string) $db_name,
+                'table' => (string) $tables[$i][self::TBL_NAME]
             ];
             $tbl_url = 'sql.php' . Url::getCommon($params);
             $tbl_struct_url = 'tbl_structure.php' . Url::getCommon($params);

@@ -123,7 +123,7 @@ class TransformationsTest extends TestCase
                     16 => 'Text/Plain: Longtoipv4',
                     17 => 'Text/Plain: PreApPend',
                     18 => 'Text/Plain: Substring',
-                    ],
+                ],
                 'transformation_file' =>  [
                     0 => 'Output/Application_Octetstream_Download.php',
                     1 => 'Output/Application_Octetstream_Hex.php',
@@ -171,7 +171,7 @@ class TransformationsTest extends TestCase
                     'Text_Plain_PreApPend.php',
                     'Text_Plain_Substring.php',
                 ],
-             ],
+            ],
             $this->transformations->getAvailableMimeTypes()
         );
     }

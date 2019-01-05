@@ -235,9 +235,9 @@ class Sql
             //Handle the case when number of values
             //is more than $cfg['ForeignKeyMaxLimit']
             $_url_params = [
-                    'db' => $db,
-                    'table' => $table,
-                    'field' => $column
+                'db' => $db,
+                'table' => $table,
+                'field' => $column
             ];
 
             $dropdown = '<span class="curr_value">'

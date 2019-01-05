@@ -628,17 +628,17 @@ class TrackerTest extends PmaTestCase
                 'date_from' => '20-03-2013 23:33:58',
                 'date_to' => '20-03-2013 23:39:58',
                 'ddlog' => [
-                                [
-                                    'date' => '20-03-2013 23:33:58',
-                                    'username' => 'user1',
-                                    'statement' => "\nstat1"
-                                ],
-                                [
-                                    'date' => '20-03-2013 23:39:58',
-                                    'username' => 'user2',
-                                    'statement' => ""
-                                ]
-                            ],
+                    [
+                        'date' => '20-03-2013 23:33:58',
+                        'username' => 'user1',
+                        'statement' => "\nstat1"
+                    ],
+                    [
+                        'date' => '20-03-2013 23:39:58',
+                        'username' => 'user2',
+                        'statement' => ""
+                    ]
+                ],
                 'dmlog' => [],
                 "schema_snapshot" => "dataschema",
                 "tracking" => "SELECT, DELETE"
@@ -658,29 +658,29 @@ class TrackerTest extends PmaTestCase
             'date_from' => '20-03-2012 23:33:58',
             'date_to' => '20-03-2013 23:39:58',
             'ddlog' => [
-                            [
-                                'date' => '20-03-2012 23:33:58',
-                                'username' => 'user1',
-                                'statement' => ""
-                            ],
-                            [
-                                'date' => '20-03-2012 23:39:58',
-                                'username' => 'user2',
-                                'statement' => ""
-                            ]
-                        ],
+                [
+                    'date' => '20-03-2012 23:33:58',
+                    'username' => 'user1',
+                    'statement' => ""
+                ],
+                [
+                    'date' => '20-03-2012 23:39:58',
+                    'username' => 'user2',
+                    'statement' => ""
+                ]
+            ],
             'dmlog' => [
-                            [
-                                'date' => '20-03-2013 23:33:58',
-                                'username' => 'user3',
-                                'statement' => ""
-                            ],
-                            [
-                                'date' => '20-03-2013 23:39:58',
-                                'username' => 'user4',
-                                'statement' => ""
-                            ]
-                        ],
+                [
+                    'date' => '20-03-2013 23:33:58',
+                    'username' => 'user3',
+                    'statement' => ""
+                ],
+                [
+                    'date' => '20-03-2013 23:39:58',
+                    'username' => 'user4',
+                    'statement' => ""
+                ]
+            ],
             "schema_snapshot" => "dataschema",
             "tracking" => "SELECT, DELETE"
         ];

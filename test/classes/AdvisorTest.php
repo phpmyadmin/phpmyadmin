@@ -61,7 +61,7 @@ class AdvisorTest extends PmaTestCase
             ['%s%', '%s%%'],
             ['80% foo', '80%% foo'],
             ['%s% foo', '%s%% foo'],
-            ];
+        ];
     }
 
     /**

@@ -218,16 +218,16 @@ class RelationTest extends TestCase
             ->getMock();
 
         $getColumnsResult = [
-                [
-                        'Field' => 'field1',
-                        'Type' => 'int(11)',
-                        'Comment' => 'Comment1'
-                ],
-                [
-                        'Field' => 'field2',
-                        'Type' => 'text',
-                        'Comment' => 'Comment1'
-                ]
+            [
+                'Field' => 'field1',
+                'Type' => 'int(11)',
+                'Comment' => 'Comment1'
+            ],
+            [
+                'Field' => 'field2',
+                'Type' => 'text',
+                'Comment' => 'Comment1'
+            ]
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($getColumnsResult));
@@ -301,10 +301,10 @@ class RelationTest extends TestCase
     {
         $foreigners = [
             'value' => [
-                  'master_field' => 'value',
-                  'foreign_db' => 'GSoC14',
-                  'foreign_table' => 'test',
-                  'foreign_field' => 'value'
+                'master_field' => 'value',
+                'foreign_db' => 'GSoC14',
+                'foreign_table' => 'test',
+                'foreign_field' => 'value'
             ],
             'foreign_keys_data' => [
                 0 => [

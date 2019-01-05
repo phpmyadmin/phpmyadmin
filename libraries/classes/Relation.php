@@ -753,10 +753,12 @@ class Relation
             );
             $this->dbi->tryMultiQuery($query, DatabaseInterface::CONNECT_CONTROL);
             // skips result sets of query as we are not interested in it
-            while ($this->dbi->moreResults(DatabaseInterface::CONNECT_CONTROL)
-                && $this->dbi->nextResult(DatabaseInterface::CONNECT_CONTROL)
-            ) {
-            }
+            do {
+                $hasResult = (
+                    $this->dbi->moreResults(DatabaseInterface::CONNECT_CONTROL)
+                    && $this->dbi->nextResult(DatabaseInterface::CONNECT_CONTROL)
+                );
+            } while ($hasResult);
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
             // return true if no error exists otherwise false
             return empty($error);

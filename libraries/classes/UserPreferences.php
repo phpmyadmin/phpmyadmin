@@ -83,12 +83,14 @@ class UserPreferences
             if (! isset($_SESSION['userconfig'])) {
                 $_SESSION['userconfig'] = [
                     'db' => [],
-                    'ts' => time()];
+                    'ts' => time()
+                ];
             }
             return [
                 'config_data' => $_SESSION['userconfig']['db'],
                 'mtime' => $_SESSION['userconfig']['ts'],
-                'type' => 'session'];
+                'type' => 'session'
+            ];
         }
         // load configuration from pmadb
         $query_table = Util::backquote($cfgRelation['db']) . '.'
@@ -103,7 +105,8 @@ class UserPreferences
         return [
             'config_data' => $row ? json_decode($row['config_data'], true) : [],
             'mtime' => $row ? $row['ts'] : time(),
-            'type' => 'db'];
+            'type' => 'db'
+        ];
     }
 
     /**
@@ -124,7 +127,8 @@ class UserPreferences
             // no pmadb table, use session storage
             $_SESSION['userconfig'] = [
                 'db' => $config_array,
-                'ts' => time()];
+                'ts' => time()
+            ];
             if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
                 unset($_SESSION['cache'][$cache_key]['userprefs']);
             }

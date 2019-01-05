@@ -474,8 +474,8 @@ class CentralColumnsTest extends TestCase
             $result
         );
         $header_cells = [
-        __('Name'), __('Type'), __('Length/Values'), __('Default'),
-        __('Collation'), __('Attributes'), __('Null'), __('A_I')
+            __('Name'), __('Type'), __('Length/Values'), __('Default'),
+            __('Collation'), __('Attributes'), __('Null'), __('A_I')
         ];
         $this->assertContains(
             $this->callProtectedMethod(

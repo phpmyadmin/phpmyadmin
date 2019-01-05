@@ -1554,7 +1554,8 @@ class Util
             /* l10n: Short month name */
             __('Nov'),
             /* l10n: Short month name */
-            __('Dec')];
+            __('Dec')
+        ];
         $day_of_week = [
             /* l10n: Short week day name */
             _pgettext('Short week day name', 'Sun'),
@@ -1569,7 +1570,8 @@ class Util
             /* l10n: Short week day name */
             __('Fri'),
             /* l10n: Short week day name */
-            __('Sat')];
+            __('Sat')
+        ];
 
         if ($format == '') {
             /* l10n: See https://secure.php.net/manual/en/function.strftime.php */
@@ -2420,8 +2422,6 @@ class Util
                 if (self::showIcons('TableNavigationLinksMode')) {
                     $caption3 .= ' &gt;';
                     $caption4 .= ' &gt;&gt;';
-                    if (! self::showText('TableNavigationLinksMode')) {
-                    }
                 }
                 $title3 = ' title="' . _pgettext('Next page', 'Next') . '"';
                 $title4 = ' title="' . _pgettext('Last page', 'End') . '"';
@@ -3255,7 +3255,7 @@ class Util
             '@TABLE@' => $vars['table'],
             '__TABLE__' => $vars['table'],
             '@PHPMYADMIN@' => $vars['phpmyadmin_version'],
-            ];
+        ];
 
         /* Optional escaping */
         if (! is_null($escape)) {
@@ -3609,8 +3609,6 @@ class Util
         if ($geom_type == 'point') {
             $funcs['X'] = ['params' => 1, 'type' => 'float'];
             $funcs['Y'] = ['params' => 1, 'type' => 'float'];
-        } elseif ($geom_type == 'multipoint') {
-            // no functions here
         } elseif ($geom_type == 'linestring') {
             $funcs['EndPoint']   = ['params' => 1, 'type' => 'point'];
             $funcs['GLength']    = ['params' => 1, 'type' => 'float'];
@@ -4477,15 +4475,7 @@ class Util
                 //  (needed for proper working of the MaxTableList feature)
                 $tables = $GLOBALS['dbi']->getTables($db);
                 $total_num_tables = count($tables);
-                if (isset($sub_part) && $sub_part == '_export') {
-                    // (don't fetch only a subset if we are coming from
-                    // db_export.php, because I think it's too risky to display only
-                    // a subset of the table names when exporting a db)
-                    /**
-                     *
-                     * @todo Page selector for table names?
-                     */
-                } else {
+                if (! (isset($sub_part) && $sub_part == '_export')) {
                     // fetch the details for a possible limited subset
                     $limit_offset = $pos;
                     $limit_count = true;

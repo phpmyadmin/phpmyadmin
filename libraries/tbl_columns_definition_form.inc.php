@@ -64,7 +64,8 @@ if ($action == 'tbl_create.php') {
         $form_params = array_merge(
             $form_params,
             [
-            'field_where' => Util::getValueByKey($_POST, 'field_where')]
+                'field_where' => Util::getValueByKey($_POST, 'field_where')
+            ]
         );
         if (isset($_POST['field_where'])) {
             $form_params['after_field'] = $_POST['after_field'];

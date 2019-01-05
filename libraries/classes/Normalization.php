@@ -880,9 +880,10 @@ class Normalization
         $htmlOutput .= '<h3>' . __('Select up to what step you want to normalize')
             . '</h3>';
         $choices = [
-                '1nf' => __('First step of normalization (1NF)'),
-                '2nf'      => __('Second step of normalization (1NF+2NF)'),
-                '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')];
+            '1nf' => __('First step of normalization (1NF)'),
+            '2nf'      => __('Second step of normalization (1NF+2NF)'),
+            '3nf'  => __('Third step of normalization (1NF+2NF+3NF)')
+        ];
 
         $htmlOutput .= Util::getRadioFields(
             'normalizeTo',

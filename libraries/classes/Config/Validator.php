@@ -585,9 +585,11 @@ class Validator
     public static function validateUpperBound($path, array $values, $maxValue)
     {
         $result = $values[$path] <= $maxValue;
-        return [$path => ($result ? '' : sprintf(
-            __('Value must be equal or lower than %s!'),
-            $maxValue
-        ))];
+        return [
+            $path => $result ? '' : sprintf(
+                __('Value must be equal or lower than %s!'),
+                $maxValue
+            )
+        ];
     }
 }

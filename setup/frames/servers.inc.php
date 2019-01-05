@@ -32,9 +32,7 @@ if ($mode == 'edit' && $server_exists) {
     $cf->removeServer($id);
     header('Location: index.php' . Url::getCommonRaw());
     exit;
-} elseif ($mode == 'revert' && $server_exists) {
-    // handled by process_formset()
-} else {
+} elseif (! ($mode == 'revert' && $server_exists)) {
     $page_title = __('Add a new server');
     $id = 0;
 }

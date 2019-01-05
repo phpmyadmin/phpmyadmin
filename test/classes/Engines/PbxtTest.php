@@ -197,24 +197,24 @@ class PbxtTest extends PmaTestCase
         return [
             [
                 '8MB',
-                 [
+                [
                     0 => '8,192',
                     1 => 'KiB'
-                 ]
+                ]
             ],
             [
                 '10mb',
-                 [
+                [
                     0 => '-1',
                     1 => 'B'
-                 ]
+                ]
             ],
             [
                 'A4',
-                 [
+                [
                     0 => '0',
                     1 => 'B'
-                 ]
+                ]
             ]
         ];
     }

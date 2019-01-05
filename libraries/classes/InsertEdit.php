@@ -1457,16 +1457,17 @@ class InsertEdit
 
         $the_class = 'textfield';
         // verify True_Type which does not contain the parentheses and length
-        if ($readOnly) {
-            //NOOP. Disable date/timepicker
-        } elseif ($column['True_Type'] === 'date') {
-            $the_class .= ' datefield';
-        } elseif ($column['True_Type'] === 'time') {
-            $the_class .= ' timefield';
-        } elseif ($column['True_Type'] === 'datetime'
-            || $column['True_Type'] === 'timestamp'
-        ) {
-            $the_class .= ' datetimefield';
+        if (! $readOnly) {
+            if ($column['True_Type'] === 'date') {
+                $the_class .= ' datefield';
+            } elseif ($column['True_Type'] === 'time') {
+                $the_class .= ' timefield';
+            } elseif (
+                $column['True_Type'] === 'datetime'
+                || $column['True_Type'] === 'timestamp'
+            ) {
+                $the_class .= ' datetimefield';
+            }
         }
         $input_min_max = false;
         if (in_array($column['True_Type'], $this->dbi->types->getIntegerTypes())) {
@@ -1667,14 +1668,6 @@ class InsertEdit
             if ($column['True_Type'] == 'bit') {
                 $html_output .= '<input type="hidden" name="fields_type'
                     . $column_name_appendix . '" value="bit">';
-            }
-            if ($column['pma_type'] == 'date'
-                || $column['pma_type'] == 'datetime'
-                || substr($column['pma_type'], 0, 9) == 'timestamp'
-            ) {
-                // the _3 suffix points to the date field
-                // the _2 suffix points to the corresponding NULL checkbox
-                // in dateFormat, 'yy' means the year with 4 digits
             }
         }
         return $html_output;
@@ -2646,13 +2639,13 @@ class InsertEdit
             $query_values[]
                 = Util::backquote($multi_edit_columns_name[$key])
                 . ' = ' . $current_value_as_an_array;
-        } elseif (empty($multi_edit_funcs[$key])
+        } elseif (
+            ! (empty($multi_edit_funcs[$key])
             && isset($multi_edit_columns_prev[$key])
             && (("'" . $this->dbi->escapeString($multi_edit_columns_prev[$key]) . "'" === $current_value)
-            || ('0x' . $multi_edit_columns_prev[$key] === $current_value))
+            || ('0x' . $multi_edit_columns_prev[$key] === $current_value)))
+            && ! empty($current_value)
         ) {
-            // No change for this column and no MySQL function is used -> next column
-        } elseif (! empty($current_value)) {
             // avoid setting a field to NULL when it's already NULL
             // (field had the null checkbox before the update
             //  field still has the null checkbox)

@@ -256,8 +256,8 @@ class SanitizeTest extends TestCase
             ['\r\n\\\'<scrIpt></\' + \'script>', "\r\n'<scrIpt></sCRIPT>"],
             ['\\\';[XSS]', '\';[XSS]'],
             [
-                    '</\' + \'script></head><body>[HTML]',
-                    '</SCRIPT></head><body>[HTML]'
+                '</\' + \'script></head><body>[HTML]',
+                '</SCRIPT></head><body>[HTML]'
             ],
             ['\"\\\'\\\\\\\'\"', '"\'\\\'"'],
             ["\\\\\'\'\'\'\'\'\'\'\'\'\'\'\\\\", "\\''''''''''''\\"]

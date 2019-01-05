@@ -591,9 +591,11 @@ class Tracker
                 }
                 $statement = rtrim(mb_strstr($log_entry, "\n"));
 
-                $ddlog[] = [ 'date' => $date,
-                                  'username' => $username,
-                                  'statement' => $statement ];
+                $ddlog[] = [
+                    'date' => $date,
+                    'username' => $username,
+                    'statement' => $statement
+                ];
             }
         }
 
@@ -621,9 +623,11 @@ class Tracker
                 }
                 $statement = rtrim(mb_strstr($log_entry, "\n"));
 
-                $dmlog[] = [ 'date' => $date,
-                                  'username' => $username,
-                                  'statement' => $statement ];
+                $dmlog[] = [
+                    'date' => $date,
+                    'username' => $username,
+                    'statement' => $statement
+                ];
             }
         }
 
@@ -719,8 +723,7 @@ class Tracker
                     $result['tablename']  = $statement->body[3]->value == '.' ? $statement->body[4]->value
                                                                               : $statement->body[2]->value ;
                 }
-            } // Parse ALTER statement
-            elseif ($statement instanceof AlterStatement) {
+            } elseif ($statement instanceof AlterStatement) { // Parse ALTER statement
                 if (empty($options) || !isset($options[3])) {
                     return $result;
                 }
@@ -734,8 +737,7 @@ class Tracker
 
                     $GLOBALS['db']          = $statement->table->table ;
                 }
-            } // Parse DROP statement
-            elseif ($statement instanceof DropStatement) {
+            } elseif ($statement instanceof DropStatement) { // Parse DROP statement
                 if (empty($options) || !isset($options[1])) {
                     return $result;
                 }
@@ -752,8 +754,7 @@ class Tracker
                     $result['identifier']   = 'DROP INDEX' ;
                     $result['tablename']    = $statement->table->table;
                 }
-            } // Prase RENAME statement
-            elseif ($statement instanceof RenameStatement) {
+            } elseif ($statement instanceof RenameStatement) { // Parse RENAME statement
                 $result['identifier']               = 'RENAME TABLE';
                 $result['tablename']                = $statement->renames[0]->old->table;
                 $result['tablename_after_rename']   = $statement->renames[0]->new->table;

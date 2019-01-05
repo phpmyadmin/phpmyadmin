@@ -38,7 +38,7 @@ class I18nExtension extends TwigI18nExtension
     public function getFilters()
     {
         return [
-             new TwigFilter('trans', '_gettext'),
+            new TwigFilter('trans', '_gettext'),
         ];
     }
 }

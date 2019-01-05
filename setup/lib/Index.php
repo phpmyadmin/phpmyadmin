@@ -58,7 +58,8 @@ class Index
             'fresh' => $fresh,
             'active' => true,
             'title' => $title,
-            'message' => $message];
+            'message' => $message
+        ];
     }
 
     /**

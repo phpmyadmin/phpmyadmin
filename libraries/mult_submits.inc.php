@@ -146,16 +146,12 @@ if (! empty($submit_mult)
                 );
                 break;
         } // end switch
-    } elseif (isset($selected_fld) && !empty($selected_fld)) {
-        // coming from table structure view - do something with
-        // selected columns
-        // handled in StructrueController
-    } else {
+    } elseif (! (isset($selected_fld) && !empty($selected_fld))) {
         // coming from browsing - do something with selected rows
         $what = 'row_delete';
         $selected = $_REQUEST['rows_to_delete'];
     }
-} // end if
+}
 
 if (empty($db)) {
     $db = '';

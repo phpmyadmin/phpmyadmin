@@ -356,8 +356,11 @@ class RecentFavoriteTable
         $cfgRelation = $this->relation->getRelationsParam();
         // Not to show this once list is synchronized.
         if ($cfgRelation['favoritework'] && ! isset($_SESSION['tmpval']['favorites_synced'][$server_id])) {
-            $params  = ['ajax_request' => true, 'favorite_table' => true,
-                'sync_favorite_tables' => true];
+            $params  = [
+                'ajax_request' => true,
+                'favorite_table' => true,
+                'sync_favorite_tables' => true
+            ];
             $url     = 'db_structure.php' . Url::getCommon($params);
             $retval  = '<a class="hide" id="sync_favorite_tables"';
             $retval .= ' href="' . $url . '"></a>';

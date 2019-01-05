@@ -102,9 +102,7 @@ class ImportMediawiki extends ImportPlugin
                 // Subtract data we didn't handle yet and stop processing
                 $GLOBALS['offset'] -= mb_strlen($buffer);
                 break;
-            } elseif ($data === true) {
-                // Handle rest of buffer
-            } else {
+            } elseif ($data !== true) {
                 // Append new data to buffer
                 $buffer = $data;
                 unset($data);

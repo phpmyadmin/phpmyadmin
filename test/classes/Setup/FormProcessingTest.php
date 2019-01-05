@@ -45,7 +45,7 @@ class FormProcessingTest extends PmaTestCase
                 ['status: 303 See Other'],
                 ['Location: index.php?lang=en'],
                 303
-                ]
+            ]
         );
 
         // case 1

@@ -317,18 +317,20 @@ class Events
     public function getDataFromRequest()
     {
         $retval = [];
-        $indices = ['item_name',
-                         'item_original_name',
-                         'item_status',
-                         'item_execute_at',
-                         'item_interval_value',
-                         'item_interval_field',
-                         'item_starts',
-                         'item_ends',
-                         'item_definition',
-                         'item_preserve',
-                         'item_comment',
-                         'item_definer'];
+        $indices = [
+            'item_name',
+            'item_original_name',
+            'item_status',
+            'item_execute_at',
+            'item_interval_value',
+            'item_interval_field',
+            'item_starts',
+            'item_ends',
+            'item_definition',
+            'item_preserve',
+            'item_comment',
+            'item_definer'
+        ];
         foreach ($indices as $index) {
             $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
         }
@@ -412,17 +414,17 @@ class Events
 
         // Escape special characters
         $need_escape = [
-                           'item_original_name',
-                           'item_name',
-                           'item_type',
-                           'item_execute_at',
-                           'item_interval_value',
-                           'item_starts',
-                           'item_ends',
-                           'item_definition',
-                           'item_definer',
-                           'item_comment'
-                       ];
+            'item_original_name',
+            'item_name',
+            'item_type',
+            'item_execute_at',
+            'item_interval_value',
+            'item_starts',
+            'item_ends',
+            'item_definition',
+            'item_definer',
+            'item_comment'
+        ];
         foreach ($need_escape as $index) {
             $item[$index] = htmlentities((string) $item[$index], ENT_QUOTES);
         }
