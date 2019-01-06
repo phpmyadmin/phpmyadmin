@@ -30,6 +30,8 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_operations.js');
 
+$template = new Template();
+
 /**
  * Runs common work
  */
@@ -93,23 +95,12 @@ unset($_message, $_type);
 $url_params['goto'] = 'view_operations.php';
 $url_params['back'] = 'view_operations.php';
 
-/**
- * Displays the page
- */
-
-$template = new Template();
-
-echo $template->render('view_operations', [
-    'hidden_inputs' => Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']),
-    'table_name_in_html_entities' => htmlspecialchars($GLOBALS['table']),
-]);
-
 $drop_view_url_params = array_merge(
     $url_params,
     [
         'sql_query' => 'DROP VIEW ' . Util::backquote(
-            $GLOBALS['table']
-        ),
+                $GLOBALS['table']
+            ),
         'goto' => 'tbl_structure.php',
         'reload' => '1',
         'purge' => '1',
@@ -120,17 +111,14 @@ $drop_view_url_params = array_merge(
         'table' => $GLOBALS['table']
     ]
 );
-echo '<div>';
-echo '<fieldset class="caution">';
-echo '<legend>' , __('Delete data or table') , '</legend>';
 
-echo '<ul>';
-echo $operations->getDeleteDataOrTablelink(
-    $drop_view_url_params,
-    'DROP VIEW',
-    __('Delete the view (DROP)'),
-    'drop_view_anchor'
-);
-echo '</ul>';
-echo '</fieldset>';
-echo '</div>';
+echo $template->render('view_operations', [
+    'hidden_inputs' => Url::getHiddenInputs($GLOBALS['db'], $GLOBALS['table']),
+    'table_name_in_html_entities' => htmlspecialchars($GLOBALS['table']),
+    'delete_data_or_table_link' => $operations->getDeleteDataOrTablelink(
+        $drop_view_url_params,
+        'DROP VIEW',
+        __('Delete the view (DROP)'),
+        'drop_view_anchor'
+    ),
+]);

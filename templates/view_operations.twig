@@ -1,6 +1,4 @@
 <!-- VIEW operations -->
-
-<!-- Table operations -->
 <div>
     <form method="post" action="view_operations.php">
         {{ hidden_inputs | raw }}
@@ -24,4 +22,11 @@
             <input class="btn btn-primary" type="submit" value="{% trans 'Go' %}">
         </fieldset>
     </form>
+</div>
+
+<div>
+    <fieldset class="caution">
+        <legend>{% trans 'Delete data or table' %} novo</legend>
+        <ul>{{ delete_data_or_table_link | raw }}</ul>
+    </fieldset>
 </div>
