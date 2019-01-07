@@ -172,7 +172,7 @@ $post_params = [
     'latex_data_continued_caption',
     'latex_data_label',
     'latex_null',
-    'aliases'
+    'aliases',
 ];
 
 foreach ($post_params as $one_post_param) {
@@ -196,7 +196,7 @@ $export_plugin = Plugins::getPlugin(
     'libraries/classes/Plugins/Export/',
     [
         'export_type' => $export_type,
-        'single_table' => isset($single_table)
+        'single_table' => isset($single_table),
     ]
 );
 
@@ -210,7 +210,7 @@ if (empty($export_plugin)) {
  */
 $compression_methods = [
     'zip',
-    'gzip'
+    'gzip',
 ];
 
 /**
@@ -291,7 +291,8 @@ if ($export_type == 'server') {
 } elseif ($export_type == 'table' && strlen($db) > 0 && strlen($table) > 0) {
     $err_url = 'tbl_export.php' . Url::getCommon(
         [
-            'db' => $db, 'table' => $table
+            'db' => $db,
+            'table' => $table,
         ]
     );
 } else {

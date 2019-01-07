@@ -25,7 +25,13 @@ if (! defined('PHPMYADMIN')) {
  * Check parameters
  */
 Util::checkParameters(
-    ['server', 'db', 'table', 'action', 'num_fields']
+    [
+        'server',
+        'db',
+        'table',
+        'action',
+        'num_fields',
+    ]
 );
 
 global $db, $table;
@@ -54,7 +60,7 @@ $content_cells = [];
 
 /** @var string $db */
 $form_params = [
-    'db' => $db
+    'db' => $db,
 ];
 
 if ($action == 'tbl_create.php') {
@@ -64,7 +70,7 @@ if ($action == 'tbl_create.php') {
         $form_params = array_merge(
             $form_params,
             [
-                'field_where' => Util::getValueByKey($_POST, 'field_where')
+                'field_where' => Util::getValueByKey($_POST, 'field_where'),
             ]
         );
         if (isset($_POST['field_where'])) {
@@ -112,7 +118,10 @@ if ($cfgRelation['mimework'] && $GLOBALS['cfg']['BrowseMIME']) {
 }
 
 // this will be used on templates/columns_definitions/transformation.twig
-$mime_types = ['input_transformation', 'transformation'];
+$mime_types = [
+    'input_transformation',
+    'transformation',
+];
 foreach ($mime_types as $mime_type) {
     if (isset($available_mime[$mime_type]) and is_iterable($available_mime[$mime_type])) {
         foreach ($available_mime[$mime_type] as $mimekey => $transform) {
@@ -273,7 +282,10 @@ for ($columnNumber = 0; $columnNumber < $num_fields; $columnNumber++) {
     } elseif (isset($fields_meta[$columnNumber])) {
         $columnMeta = $fields_meta[$columnNumber];
         $virtual = [
-            'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+            'VIRTUAL',
+            'PERSISTENT',
+            'VIRTUAL GENERATED',
+            'STORED GENERATED',
         ];
         if (in_array($columnMeta['Extra'], $virtual)) {
             $tableObj = new Table($GLOBALS['table'], $GLOBALS['db']);
@@ -507,7 +519,7 @@ $response = Response::getInstance();
 $response->getHeader()->getScripts()->addFiles(
     [
         'vendor/jquery/jquery.uitablefilter.js',
-        'indexes.js'
+        'indexes.js',
     ]
 );
 $response->addHTML($html);

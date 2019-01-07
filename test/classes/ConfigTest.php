@@ -517,15 +517,96 @@ class ConfigTest extends PmaTestCase
     public function httpsParams()
     {
         return [
-            ['http', '', '', '', '', 'http', 80, false],
-            ['http', '', 'http://', '', '', 'http', 80, false],
-            ['http', '', '', '', '', 'http', 443, true],
-            ['http', '', '', '', '', 'https', 80, true],
-            ['http', '', '', '', 'on', 'http', 80, true],
-            ['http', '', '', 'on', '', 'http', 80, true],
-            ['http', '', 'https://', '', '', 'http', 80, true],
-            ['http', 'on', '', '', '', 'http', 80, true],
-            ['https', '', '', '', '', 'http', 80, true],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                false,
+            ],
+            [
+                'http',
+                '',
+                'http://',
+                '',
+                '',
+                'http',
+                80,
+                false,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                443,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                '',
+                'https',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                '',
+                'on',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                '',
+                'on',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                '',
+                'https://',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'http',
+                'on',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
+            [
+                'https',
+                '',
+                '',
+                '',
+                '',
+                'http',
+                80,
+                true,
+            ],
         ];
     }
 
@@ -551,7 +632,7 @@ class ConfigTest extends PmaTestCase
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT'
+            'PMA_USR_BROWSER_AGENT',
         ];
 
         foreach ($defines as $define) {
@@ -1302,12 +1383,15 @@ class ConfigTest extends PmaTestCase
             ],
             'empty_host' => [
                 [1 => ['host' => '']],
-                ['verbose' => 'Server 1', 'host' => ''],
+                [
+                    'verbose' => 'Server 1',
+                    'host' => ''
+                ],
             ],
             'invalid' => [
                 ['invalid' => ['host' => '127.0.0.1']],
                 ['host' => '127.0.0.1'],
-                true
+                true,
             ],
         ];
     }
@@ -1356,14 +1440,24 @@ class ConfigTest extends PmaTestCase
                 2,
             ],
             'verbose' => [
-                [1 => ['verbose' => 'Server 1', 'host' => '']],
+                [
+                    1 => [
+                        'verbose' => 'Server 1',
+                        'host' => ''
+                    ],
+                ],
                 'Server 1',
-                1
+                1,
             ],
             'md5' => [
-                [66 => ['verbose' => 'Server 1', 'host' => '']],
+                [
+                    66 => [
+                        'verbose' => 'Server 1',
+                        'host' => ''
+                    ],
+                ],
                 '753f173bd4ac8a45eae0fe9a4fbe0fc0',
-                66
+                66,
             ],
             'nonexisting_string' => [
                 [1 => []],

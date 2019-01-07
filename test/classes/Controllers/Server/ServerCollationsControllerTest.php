@@ -49,7 +49,12 @@ class ServerCollationsControllerTest extends PmaTestCase
      */
     public function testPMAGetHtmlForCharsets()
     {
-        $mysql_charsets = ["armscii8", "ascii", "big5", "binary"];
+        $mysql_charsets = [
+            "armscii8",
+            "ascii",
+            "big5",
+            "binary",
+        ];
         $mysql_collations = [
             "armscii8" => ["armscii8"],
             "ascii" => ["ascii"],

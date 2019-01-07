@@ -38,7 +38,8 @@ $transformations = new Transformations();
  */
 $err_url = 'tbl_sql.php' . Url::getCommon(
     [
-        'db' => $db, 'table' => $table
+        'db' => $db,
+        'table' => $table,
     ]
 );
 

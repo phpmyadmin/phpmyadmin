@@ -220,7 +220,10 @@ class TableStructureControllerTest extends PmaTestCase
             $method->invoke($ctrl)
         );
 
-        $_POST['selected'] = ['a', 'b'];
+        $_POST['selected'] = [
+            'a',
+            'b',
+        ];
         $method->invoke($ctrl);
         $this->assertEquals(
             $_POST['selected'],
@@ -260,14 +263,21 @@ class TableStructureControllerTest extends PmaTestCase
         $db = "PMA_db";
         $table = "PMA_table";
         $selected = [
-            "table1", "table2"
+            "table1",
+            "table2",
         ];
         $action = 'db_delete_row';
 
         list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
             = $method->invokeArgs(
                 $ctrl,
-                [$submit_mult, $db, $table, $selected, $action]
+                [
+                    $submit_mult,
+                    $db,
+                    $table,
+                    $selected,
+                    $action,
+                ]
             );
 
         //validate 1: $what
@@ -305,7 +315,13 @@ class TableStructureControllerTest extends PmaTestCase
         list($what, $query_type, $is_unset_submit_mult, $mult_btn, $centralColsError)
             = $method->invokeArgs(
                 $ctrl,
-                [$submit_mult, $db, $table, $selected, $action]
+                [
+                    $submit_mult,
+                    $db,
+                    $table,
+                    $selected,
+                    $action,
+                ]
             );
 
         //validate 1: $what

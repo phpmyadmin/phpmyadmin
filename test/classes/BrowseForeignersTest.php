@@ -165,7 +165,10 @@ class BrowseForeignersTest extends TestCase
         $desc = 'foobar<baz';
 
         $this->assertEquals(
-            ['foobar&lt;baz', ''],
+            [
+                'foobar&lt;baz',
+                '',
+            ],
             $this->callProtectedMethod(
                 'getDescriptionAndTitle',
                 [$desc]
@@ -175,7 +178,10 @@ class BrowseForeignersTest extends TestCase
         $browseForeigners = new BrowseForeigners(5, 25, 100, false, '');
 
         $this->assertEquals(
-            ['fooba...', 'foobar&lt;baz'],
+            [
+                'fooba...',
+                'foobar&lt;baz',
+            ],
             $this->callProtectedMethod(
                 'getDescriptionAndTitle',
                 [$desc],

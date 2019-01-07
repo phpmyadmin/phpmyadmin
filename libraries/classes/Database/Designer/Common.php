@@ -209,7 +209,7 @@ class Common
                 $retval[$ti][$c_name_i][$dtn_i] = [];
                 $retval[$ti][$c_name_i][$dtn_i][$con['DCN'][$i]] = [
                     0 => $con['STN'][$i],
-                    1 => $con['SCN'][$i]
+                    1 => $con['SCN'][$i],
                 ];
             }
             $ti++;
@@ -263,7 +263,7 @@ class Common
     {
         $retval = [
             'j_tabs' => [],
-            'h_tabs' => []
+            'h_tabs' => [],
         ];
 
         for ($i = 0, $cnt = count($GLOBALS['designer']['TABLE_NAME']); $i < $cnt; $i++) {
@@ -587,7 +587,10 @@ class Common
             if ($foreigner
                 && isset($foreigner['constraint'])
             ) {
-                return [false, __('Error: relationship already exists.')];
+                return [
+                    false,
+                    __('Error: relationship already exists.'),
+                ];
             }
             // note: in InnoDB, the index does not requires to be on a PRIMARY
             // or UNIQUE key
@@ -633,23 +636,32 @@ class Common
                 }
                 $upd_query .= ';';
                 if ($this->dbi->tryQuery($upd_query)) {
-                    return [true, __('FOREIGN KEY relationship has been added.')];
+                    return [
+                        true,
+                        __('FOREIGN KEY relationship has been added.'),
+                    ];
                 }
 
                 $error = $this->dbi->getError();
                 return [
                     false,
                     __('Error: FOREIGN KEY relationship could not be added!')
-                    . "<br>" . $error
+                    . "<br>" . $error,
                 ];
             }
 
-            return [false, __('Error: Missing index on column(s).')];
+            return [
+                false,
+                __('Error: Missing index on column(s).'),
+            ];
         }
 
         // internal (pmadb) relation
         if ($GLOBALS['cfgRelation']['relwork'] == false) {
-            return [false, __('Error: Relational features are disabled!')];
+            return [
+                false,
+                __('Error: Relational features are disabled!'),
+            ];
         }
 
         // no need to recheck if the keys are primary or unique at this point,
@@ -671,14 +683,17 @@ class Common
 
         if ($this->relation->queryAsControlUser($q, false, DatabaseInterface::QUERY_STORE)
         ) {
-            return [true, __('Internal relationship has been added.')];
+            return [
+                true,
+                __('Internal relationship has been added.'),
+            ];
         }
 
         $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
         return [
             false,
             __('Error: Internal relationship could not be added!')
-            . "<br>" . $error
+            . "<br>" . $error,
         ];
     }
 
@@ -715,14 +730,17 @@ class Common
                     . '.' . Util::backquote($T2) . ' DROP FOREIGN KEY '
                     . Util::backquote($foreigner['constraint']) . ';';
                 if ($this->dbi->query($upd_query)) {
-                    return [true, __('FOREIGN KEY relationship has been removed.')];
+                    return [
+                        true,
+                        __('FOREIGN KEY relationship has been removed.'),
+                    ];
                 }
 
                 $error = $this->dbi->getError();
                 return [
                     false,
                     __('Error: FOREIGN KEY relationship could not be removed!')
-                    . "<br>" . $error
+                    . "<br>" . $error,
                 ];
             }
         }
@@ -748,11 +766,14 @@ class Common
             $error = $this->dbi->getError(DatabaseInterface::CONNECT_CONTROL);
             return [
                 false,
-                __('Error: Internal relationship could not be removed!') . "<br>" . $error
+                __('Error: Internal relationship could not be removed!') . "<br>" . $error,
             ];
         }
 
-        return [true, __('Internal relationship has been removed.')];
+        return [
+            true,
+            __('Internal relationship has been removed.'),
+        ];
     }
 
     /**
@@ -769,7 +790,7 @@ class Common
         $cfgDesigner = [
             'user'  => $GLOBALS['cfg']['Server']['user'],
             'db'    => $cfgRelation['db'],
-            'table' => $cfgRelation['designer_settings']
+            'table' => $cfgRelation['designer_settings'],
         ];
 
         $success = true;

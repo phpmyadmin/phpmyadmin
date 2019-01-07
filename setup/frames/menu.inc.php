@@ -21,7 +21,10 @@ echo '<li><a href="index.php' , Url::getCommon() , '"'
     , ($formset_id === null ? ' class="active' : '')
     , '">' , __('Overview') , '</a></li>';
 
-$ignored = ['Config', 'Servers'];
+$ignored = [
+    'Config',
+    'Servers',
+];
 foreach (SetupFormList::getAll() as $formset) {
     if (in_array($formset, $ignored)) {
         continue;

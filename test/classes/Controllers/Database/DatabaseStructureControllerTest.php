@@ -213,7 +213,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
             'Data_free'    => 300,
         ];
         list($current_table,,,,, $overhead_size, $sum_size)
-            = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0,]);
+            = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0]);
         $this->assertEquals(
             6,
             $current_table['Rows']
@@ -229,7 +229,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
 
         unset($current_table['Data_free']);
         list($current_table,,,,, $overhead_size,)
-            = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0,]);
+            = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0]);
         $this->assertEquals(0, $overhead_size);
 
         $is_show_stats = false;
@@ -249,7 +249,7 @@ class DatabaseStructureControllerTest extends PmaTestCase
             $container->get('db')
         );
         list($current_table,,,,,,)
-            = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0,]);
+            = $method->invokeArgs($ctrl, [$current_table, 0, 0, 0, 0, 0, 0]);
         $this->assertArrayNotHasKey('Row', $current_table);
     }
 
@@ -317,7 +317,10 @@ class DatabaseStructureControllerTest extends PmaTestCase
         );
 
         $_SESSION['tmpval']['favorite_tables'][$GLOBALS['server']] = [
-            ['db' => 'db', 'table' => 'table']
+            [
+                'db' => 'db',
+                'table' => 'table',
+            ],
         ];
 
         $this->assertEquals(
@@ -350,7 +353,10 @@ class DatabaseStructureControllerTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        ['db' => 'db', 'table' => 'table'],
+                        [
+                            'db' => 'db',
+                            'table' => 'table',
+                        ],
                     ]
                 )
             );
@@ -369,7 +375,10 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $user = 'abcdefg';
         $favorite_table = [
             $user => [
-                ['db' => 'db', 'table' => 'table']
+                [
+                    'db' => 'db',
+                    'table' => 'table',
+                ],
             ],
         ];
 
@@ -414,8 +423,8 @@ class DatabaseStructureControllerTest extends PmaTestCase
             $ctrl,
             [
                 [
-                    'TABLE_NAME' => 'table'
-                ]
+                    'TABLE_NAME' => 'table',
+                ],
             ]
         );
         $ctrl->handleRealRowCountRequestAction();
@@ -424,8 +433,8 @@ class DatabaseStructureControllerTest extends PmaTestCase
         $expected_result = [
             [
                 'table' => 'table',
-                'row_count' => 6
-            ]
+                'row_count' => 6,
+            ],
         ];
         $this->assertEquals(
             json_encode($expected_result),

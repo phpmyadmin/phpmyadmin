@@ -48,7 +48,7 @@ class ImportAjax
             //"session",
             "progress",
             "apc",
-            "noplugin"
+            "noplugin",
         ];
 
         // select available plugin
@@ -63,7 +63,11 @@ class ImportAjax
                 break;
             }
         }
-        return [$SESSION_KEY, $upload_id, $plugins];
+        return [
+            $SESSION_KEY,
+            $upload_id,
+            $plugins,
+        ];
     }
 
     /**

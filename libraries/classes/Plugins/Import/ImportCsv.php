@@ -684,7 +684,11 @@ class ImportCsv extends AbstractImportCsv
                 $tbl_name = 'TBL_NAME';
             }
 
-            $tables[] = [$tbl_name, $col_names, $rows];
+            $tables[] = [
+                $tbl_name,
+                $col_names,
+                $rows,
+            ];
 
             /* Obtain the best-fit MySQL types for each column */
             $analyses = [];

@@ -93,7 +93,11 @@ class TemplateTest extends PmaTestCase
     public function providerTestDynamicRender()
     {
         return [
-            ['test/echo', 'variable', 'value'],
+            [
+                'test/echo',
+                'variable',
+                'value',
+            ],
         ];
     }
 
@@ -134,7 +138,10 @@ class TemplateTest extends PmaTestCase
     public function providerTestRender()
     {
         return [
-            ['test/static', 'static content'],
+            [
+                'test/static',
+                'static content',
+            ],
         ];
     }
 
@@ -165,13 +172,41 @@ class TemplateTest extends PmaTestCase
     public function providerTestRenderGettext()
     {
         return [
-            ['test/gettext/gettext', [], 'Text'],
-            ['test/gettext/pgettext', [], 'Text'],
-            ['test/gettext/notes', [], 'Text'],
-            ['test/gettext/plural', ['table_count' => 1], 'One table'],
-            ['test/gettext/plural', ['table_count' => 2], '2 tables'],
-            ['test/gettext/plural_notes', ['table_count' => 1], 'One table'],
-            ['test/gettext/plural_notes', ['table_count' => 2], '2 tables'],
+            [
+                'test/gettext/gettext',
+                [],
+                'Text',
+            ],
+            [
+                'test/gettext/pgettext',
+                [],
+                'Text',
+            ],
+            [
+                'test/gettext/notes',
+                [],
+                'Text',
+            ],
+            [
+                'test/gettext/plural',
+                ['table_count' => 1],
+                'One table',
+            ],
+            [
+                'test/gettext/plural',
+                ['table_count' => 2],
+                '2 tables',
+            ],
+            [
+                'test/gettext/plural_notes',
+                ['table_count' => 1],
+                'One table',
+            ],
+            [
+                'test/gettext/plural_notes',
+                ['table_count' => 2],
+                '2 tables',
+            ],
         ];
     }
 }

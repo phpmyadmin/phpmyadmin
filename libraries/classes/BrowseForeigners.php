@@ -146,7 +146,11 @@ class BrowseForeigners
 
         $output .= '</tr>';
 
-        return [$output, $horizontal_count, $indexByDescription];
+        return [
+            $output,
+            $horizontal_count,
+            $indexByDescription,
+        ];
     }
 
     /**
@@ -295,7 +299,10 @@ class BrowseForeigners
                 . '...'
             );
         }
-        return [$description, $descriptionTitle];
+        return [
+            $description,
+            $descriptionTitle,
+        ];
     }
 
     /**

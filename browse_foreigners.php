@@ -23,7 +23,7 @@ require_once ROOT_PATH . 'libraries/common.inc.php';
  */
 $request_params = [
     'data',
-    'field'
+    'field',
 ];
 
 foreach ($request_params as $one_request_param) {

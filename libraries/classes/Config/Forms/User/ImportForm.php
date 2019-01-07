@@ -28,12 +28,12 @@ class ImportForm extends BaseForm
                 'Import/charset',
                 'Import/allow_interrupt',
                 'Import/skip_queries',
-                'enable_drag_drop_import'
+                'enable_drag_drop_import',
             ],
             'Sql' => [
                 'Import/sql_compatibility',
                 'Import/sql_no_auto_value_on_zero',
-                'Import/sql_read_as_multibytes'
+                'Import/sql_read_as_multibytes',
             ],
             'Csv' => [
                 ':group:' . __('CSV'),
@@ -50,14 +50,14 @@ class ImportForm extends BaseForm
                 'Import/ldi_terminated',
                 'Import/ldi_enclosed',
                 'Import/ldi_escaped',
-                'Import/ldi_local_option'
+                'Import/ldi_local_option',
             ],
             'Open_Document' => [
                 ':group:' . __('OpenDocument Spreadsheet'),
                 'Import/ods_col_names',
                 'Import/ods_empty_rows',
                 'Import/ods_recognize_percentages',
-                'Import/ods_recognize_currency'
+                'Import/ods_recognize_currency',
             ],
 
         ];

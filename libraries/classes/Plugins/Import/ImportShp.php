@@ -260,7 +260,13 @@ class ImportShp extends ImportPlugin
         } else {
             $table_name = 'TBL_NAME';
         }
-        $tables = [[$table_name, $col_names, $rows]];
+        $tables = [
+            [
+                $table_name,
+                $col_names,
+                $rows,
+            ],
+        ];
 
         // Use data from shape file to chose best-fit MySQL types for each column
         $analyses = [];

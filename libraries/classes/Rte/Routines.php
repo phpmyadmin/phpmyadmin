@@ -127,7 +127,7 @@ class Routines
         /**
          * Display a list of available routines
          */
-        if (! Core::isValid($type, ['FUNCTION','PROCEDURE'])) {
+        if (! Core::isValid($type, ['FUNCTION', 'PROCEDURE'])) {
             $type = null;
         }
         $items = $this->dbi->getRoutines($db, $type);
@@ -267,7 +267,10 @@ class Routines
             if (! empty($_POST['editor_process_edit'])) {
                 $isProcOrFunc = in_array(
                     $_POST['item_original_type'],
-                    ['PROCEDURE', 'FUNCTION']
+                    [
+                        'PROCEDURE',
+                        'FUNCTION',
+                    ]
                 );
 
                 if (! $isProcOrFunc) {
@@ -451,7 +454,10 @@ class Routines
                 $errors
             );
 
-            return [$errors, null];
+            return [
+                $errors,
+                null,
+            ];
         }
 
         // Default value
@@ -481,7 +487,10 @@ class Routines
 
         $message = $this->flushPrivileges($resultAdjust);
 
-        return [[], $message];
+        return [
+            [],
+            $message,
+        ];
     }
 
     /**
@@ -536,7 +545,7 @@ class Routines
             'item_returnopts_text',
             'item_definition',
             'item_comment',
-            'item_definer'
+            'item_definer',
         ];
         foreach ($indices as $index) {
             $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
@@ -767,7 +776,7 @@ class Routines
                 'item_param_type'      => [0 => ''],
                 'item_param_length'    => [0 => ''],
                 'item_param_opts_num'  => [0 => ''],
-                'item_param_opts_text' => [0 => '']
+                'item_param_opts_text' => [0 => ''],
             ];
         } elseif (! empty($routine)) {
             // regular row for routine editor
@@ -879,7 +888,7 @@ class Routines
             'item_returnlength',
             'item_definition',
             'item_definer',
-            'item_comment'
+            'item_comment',
         ];
         foreach ($need_escape as $key => $index) {
             $routine[$index] = htmlentities($routine[$index], ENT_QUOTES, 'UTF-8');
@@ -1709,7 +1718,7 @@ class Routines
                         'Key'             => '',
                         'Field'           => '',
                         'Default'         => '',
-                        'first_timestamp' => false
+                        'first_timestamp' => false,
                     ];
                     $retval .= "<select name='funcs["
                         . $routine['item_param_name'][$i] . "]'>";

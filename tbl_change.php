@@ -140,7 +140,12 @@ $has_blob_field = false;
 foreach ($table_columns as $column) {
     if ($insertEdit->isColumn(
         $column,
-        ['blob', 'tinyblob', 'mediumblob', 'longblob']
+        [
+            'blob',
+            'tinyblob',
+            'mediumblob',
+            'longblob',
+        ]
     )) {
         $has_blob_field = true;
         break;

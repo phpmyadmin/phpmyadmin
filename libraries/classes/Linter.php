@@ -80,7 +80,10 @@ class Linter
             }
             $line = $lineNo;
         }
-        return [$line, $pos - $lines[$line]];
+        return [
+            $line,
+            $pos - $lines[$line],
+        ];
     }
 
     /**
@@ -105,7 +108,7 @@ class Linter
                     'toLine' => 0,
                     'toColumn' => 0,
                     'severity' => 'warning',
-                ]
+                ],
             ];
         }
 

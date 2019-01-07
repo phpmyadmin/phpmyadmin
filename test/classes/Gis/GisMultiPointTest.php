@@ -63,14 +63,14 @@ class GisMultiPointTest extends GisGeomTestCase
                     'no_of_points' => 2,
                     0 => [
                         'x' => 5.02,
-                        'y' => 8.45
+                        'y' => 8.45,
                     ],
                     1 => [
                         'x' => 1.56,
-                        'y' => 4.36
+                        'y' => 4.36,
                     ]
-                ]
-            ]
+                ],
+            ],
         ];
 
         $gis_data2 = $gis_data1;
@@ -81,14 +81,14 @@ class GisMultiPointTest extends GisGeomTestCase
                 $gis_data1,
                 0,
                 null,
-                'MULTIPOINT(5.02 8.45,1.56 4.36)'
+                'MULTIPOINT(5.02 8.45,1.56 4.36)',
             ],
             [
                 $gis_data2,
                 0,
                 null,
-                'MULTIPOINT(5.02 8.45)'
-            ]
+                'MULTIPOINT(5.02 8.45)',
+            ],
         ];
     }
 
@@ -102,8 +102,14 @@ class GisMultiPointTest extends GisGeomTestCase
         $gis_data = [
             'numpoints' => 2,
             'points' => [
-                0 => ['x' => 5.02, 'y' => 8.45],
-                1 => ['x' => 6.14, 'y' => 0.15]
+                0 => [
+                    'x' => 5.02,
+                    'y' => 8.45,
+                ],
+                1 => [
+                    'x' => 6.14,
+                    'y' => 0.15,
+                ],
             ]
         ];
 
@@ -123,9 +129,15 @@ class GisMultiPointTest extends GisGeomTestCase
         $temp1 = [
             'MULTIPOINT' => [
                 'no_of_points' => 2,
-                0 => ['x' => '5.02', 'y' => '8.45'],
-                1 => ['x' => '6.14', 'y' => '0.15']
-            ]
+                0 => [
+                    'x' => '5.02',
+                    'y' => '8.45',
+                ],
+                1 => [
+                    'x' => '6.14',
+                    'y' => '0.15',
+                ]
+            ],
         ];
         $temp2 = $temp1;
         $temp2['gis_type'] = 'MULTIPOINT';
@@ -137,15 +149,15 @@ class GisMultiPointTest extends GisGeomTestCase
                 [
                     'srid' => '124',
                     0 => $temp1
-                ]
+                ],
             ],
             [
                 'MULTIPOINT(5.02 8.45,6.14 0.15)',
                 2,
                 [
-                    2 => $temp2
-                ]
-            ]
+                    2 => $temp2,
+                ],
+            ],
         ];
     }
 
@@ -163,9 +175,9 @@ class GisMultiPointTest extends GisGeomTestCase
                     'minX' => 12,
                     'maxX' => 69,
                     'minY' => 23,
-                    'maxY' => 78
-                ]
-            ]
+                    'maxY' => 78,
+                ],
+            ],
         ];
     }
 
@@ -218,10 +230,10 @@ class GisMultiPointTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 imagecreatetruecolor(120, 150),
-            ]
+            ],
         ];
     }
 
@@ -270,10 +282,10 @@ class GisMultiPointTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 new TCPDF(),
-            ]
+            ],
         ];
     }
 
@@ -321,7 +333,7 @@ class GisMultiPointTest extends GisGeomTestCase
                     'x' => 12,
                     'y' => 69,
                     'scale' => 2,
-                    'height' => 150
+                    'height' => 150,
                 ],
                 '/^(<circle cx="72" cy="138" r="3" name="svg" class="multipoint '
                 . 'vector" fill="white" stroke="#B02EE0" stroke-width="2" id="svg)'
@@ -333,8 +345,8 @@ class GisMultiPointTest extends GisGeomTestCase
                 . 'class="multipoint vector" fill="white" stroke="#B02EE0" stroke-'
                 . 'width="2" id="svg)(\d+)("\/><circle cx="46" cy="132" r="3" name='
                 . '"svg" class="multipoint vector" fill="white" stroke="#B02EE0" '
-                . 'stroke-width="2" id="svg)(\d+)("\/>)$/'
-            ]
+                . 'stroke-width="2" id="svg)(\d+)("\/>)$/',
+            ],
         ];
     }
 
@@ -409,8 +421,8 @@ class GisMultiPointTest extends GisGeomTestCase
                 . '(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject('
                 . ')))), null, {"pointRadius":3,"fillColor":"#ffffff","strokeColor"'
                 . ':"#B02EE0","strokeWidth":2,"label":"Ol","labelYOffset":-8,'
-                . '"fontSize":10}));'
-            ]
+                . '"fontSize":10}));',
+            ],
         ];
     }
 }

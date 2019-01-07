@@ -1496,7 +1496,7 @@ class Qbe
         } // end for
         return [
             'where_clause_tables' => $where_clause_tables,
-            'where_clause_columns' => $where_clause_columns
+            'where_clause_columns' => $where_clause_columns,
         ];
     }
 
@@ -1958,19 +1958,31 @@ class Qbe
         if (isset($unique_columns) && count($unique_columns) > 0) {
             $candidate_columns = $unique_columns;
             $needsort = 1;
-            return [$candidate_columns, $needsort];
+            return [
+                $candidate_columns,
+                $needsort,
+            ];
         } elseif (isset($index_columns) && count($index_columns) > 0) {
             $candidate_columns = $index_columns;
             $needsort = 1;
-            return [$candidate_columns, $needsort];
+            return [
+                $candidate_columns,
+                $needsort,
+            ];
         } elseif (isset($where_clause_columns) && count($where_clause_columns) > 0) {
             $candidate_columns = $where_clause_columns;
             $needsort = 0;
-            return [$candidate_columns, $needsort];
+            return [
+                $candidate_columns,
+                $needsort,
+            ];
         }
 
         $candidate_columns = $search_tables;
         $needsort = 0;
-        return [$candidate_columns, $needsort];
+        return [
+            $candidate_columns,
+            $needsort,
+        ];
     }
 }

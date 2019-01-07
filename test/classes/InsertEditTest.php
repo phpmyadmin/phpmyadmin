@@ -98,7 +98,10 @@ class InsertEditTest extends TestCase
      */
     public function testGetFormParametersForInsertForm()
     {
-        $where_clause = ['foo' => 'bar ', '1' => ' test'];
+        $where_clause = [
+            'foo' => 'bar ',
+            '1' => ' test'
+        ];
         $_POST['clause_is_unique'] = false;
         $_POST['sql_query'] = 'SELECT a';
         $GLOBALS['goto'] = 'index.php';
@@ -139,7 +142,11 @@ class InsertEditTest extends TestCase
         );
 
         $this->assertEquals(
-            [1, 2, 3],
+            [
+                1,
+                2,
+                3,
+            ],
             $this->callProtectedMethod('getWhereClauseArray', [[1, 2, 3]])
         );
 
@@ -156,7 +163,10 @@ class InsertEditTest extends TestCase
      */
     public function testAnalyzeWhereClause()
     {
-        $clauses = ['a=1', 'b="fo\o"'];
+        $clauses = [
+            'a=1',
+            'b="fo\o"',
+        ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
             ->disableOriginalConstructor()
@@ -188,18 +198,24 @@ class InsertEditTest extends TestCase
         $result = $this->callProtectedMethod('analyzeWhereClauses', [
             $clauses,
             'table',
-            'db'
+            'db',
         ]);
 
         $this->assertEquals(
             [
-                ['a=1', 'b="fo\\\\o"'],
-                ['result1', 'result2'],
+                [
+                    'a=1',
+                    'b="fo\\\\o"',
+                ],
+                [
+                    'result1',
+                    'result2',
+                ],
                 [
                     ['assoc1'],
-                    ['assoc2']
+                    ['assoc2'],
                 ],
-                ''
+                '',
             ],
             $result
         );
@@ -232,8 +248,11 @@ class InsertEditTest extends TestCase
         $this->insertEdit = new InsertEdit($GLOBALS['dbi']);
 
         $result = $this->callProtectedMethod('showEmptyResultMessageOrSetUniqueCondition', [
-            ['1' => ['1' => 1]], 1, [],
-            'SELECT', ['1' => 'result1']
+            ['1' => ['1' => 1]],
+            1,
+            [],
+            'SELECT',
+            ['1' => 'result1'],
         ]);
 
         $this->assertTrue($result);
@@ -252,7 +271,11 @@ class InsertEditTest extends TestCase
         $response->setValue($responseMock);
 
         $result = $this->callProtectedMethod('showEmptyResultMessageOrSetUniqueCondition', [
-            [false], 0, ['1'], 'SELECT', ['1' => 'result1']
+            [false],
+            0,
+            ['1'],
+            'SELECT',
+            ['1' => 'result1'],
         ]);
 
         $response->setValue($restoreInstance);
@@ -288,7 +311,13 @@ class InsertEditTest extends TestCase
         $result = $this->callProtectedMethod('loadFirstRow', ['table', 'db']);
 
         $this->assertEquals(
-            ['result1', [false, false]],
+            [
+                'result1',
+                [
+                    false,
+                    false,
+                ],
+            ],
             $result
         );
     }
@@ -300,7 +329,10 @@ class InsertEditTest extends TestCase
      */
     public function testUrlParamsInEditMode()
     {
-        $where_clause_array = ['foo=1', 'bar=2'];
+        $where_clause_array = [
+            'foo=1',
+            'bar=2',
+        ];
         $_POST['sql_query'] = 'SELECT 1';
 
         $result = $this->insertEdit->urlParamsInEditMode([1], $where_clause_array, '');
@@ -380,7 +412,9 @@ class InsertEditTest extends TestCase
         ];
 
         $result = $this->callProtectedMethod('analyzeTableColumnsArray', [
-            $column, [], false
+            $column,
+            [],
+            false,
         ]);
 
         $this->assertEquals(
@@ -452,7 +486,8 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             $this->callProtectedMethod('getColumnTitle', [
-                $column, []
+                $column,
+                [],
             ]),
             'f1&lt;'
         );
@@ -461,7 +496,8 @@ class InsertEditTest extends TestCase
         $comments['f1<'] = 'comment>';
 
         $result = $this->callProtectedMethod('getColumnTitle', [
-            $column, $comments
+            $column,
+            $comments,
         ]);
 
         $this->assertContains(
@@ -483,7 +519,10 @@ class InsertEditTest extends TestCase
     public function testIsColumn()
     {
         $column = [];
-        $types = ['binary', 'varbinary'];
+        $types = [
+            'binary',
+            'varbinary',
+        ];
 
         $column['Type'] = 'binaryfoo';
         $this->assertTrue($this->insertEdit->isColumn($column, $types));
@@ -497,7 +536,10 @@ class InsertEditTest extends TestCase
         $column['Type'] = 'barbinaryfoo';
         $this->assertFalse($this->insertEdit->isColumn($column, $types));
 
-        $types = ['char', 'varchar'];
+        $types = [
+            'char',
+            'varchar',
+        ];
 
         $column['Type'] = 'char(10)';
         $this->assertTrue($this->insertEdit->isColumn($column, $types));
@@ -508,7 +550,12 @@ class InsertEditTest extends TestCase
         $column['Type'] = 'foochar';
         $this->assertFalse($this->insertEdit->isColumn($column, $types));
 
-        $types = ['blob', 'tinyblob', 'mediumblob', 'longblob'];
+        $types = [
+            'blob',
+            'tinyblob',
+            'mediumblob',
+            'longblob',
+        ];
 
         $column['Type'] = 'blob';
         $this->assertTrue($this->insertEdit->isColumn($column, $types));
@@ -539,53 +586,83 @@ class InsertEditTest extends TestCase
         $column = [];
         $column['True_Type'] = 'set';
         $this->assertEquals(
-            ['set', '', false],
+            [
+                'set',
+                '',
+                false,
+            ],
             $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column, false
+                $column,
+                false,
             ])
         );
 
         $column['True_Type'] = 'enum';
         $this->assertEquals(
-            ['enum', '', false],
+            [
+                'enum',
+                '',
+                false,
+            ],
             $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column, false
+                $column,
+                false,
             ])
         );
 
         $column['True_Type'] = 'timestamp';
         $column['Type'] = 'date';
         $this->assertEquals(
-            ['date', ' nowrap', true],
+            [
+                'date',
+                ' nowrap',
+                true,
+            ],
             $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column, false
+                $column,
+                false,
             ])
         );
 
         $column['True_Type'] = 'timestamp';
         $column['Type'] = 'date';
         $this->assertEquals(
-            ['date', ' nowrap', false],
+            [
+                'date',
+                ' nowrap',
+                false,
+            ],
             $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column, true
+                $column,
+                true,
             ])
         );
 
         $column['True_Type'] = 'SET';
         $column['Type'] = 'num';
         $this->assertEquals(
-            ['num', ' nowrap', false],
+            [
+                'num',
+                ' nowrap',
+                false,
+            ],
             $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column, false
+                $column,
+                false,
             ])
         );
 
         $column['True_Type'] = '';
         $column['Type'] = 'num';
         $this->assertEquals(
-            ['num', ' nowrap', false],
+            [
+                'num',
+                ' nowrap',
+                false,
+            ],
             $this->callProtectedMethod('getEnumSetAndTimestampColumns', [
-                $column, false
+                $column,
+                false,
             ])
         );
     }
@@ -603,7 +680,17 @@ class InsertEditTest extends TestCase
         $this->assertContains(
             '<td class="center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
-                $column, false, '', '', [], 0, 0, 0, false, false, []
+                $column,
+                false,
+                '',
+                '',
+                [],
+                0,
+                0,
+                0,
+                false,
+                false,
+                [],
             ])
         );
 
@@ -612,7 +699,17 @@ class InsertEditTest extends TestCase
         $this->assertContains(
             '<td class="center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
-                $column, true, '', '', [], 0, 0, 0, false, false, []
+                $column,
+                true,
+                '',
+                '',
+                [],
+                0,
+                0,
+                0,
+                false,
+                false,
+                [],
             ])
         );
 
@@ -621,7 +718,17 @@ class InsertEditTest extends TestCase
         $this->assertContains(
             '<td class="center">Binary</td>',
             $this->callProtectedMethod('getFunctionColumn', [
-                $column, true, '', '', [], 0, 0, 0, false, false, []
+                $column,
+                true,
+                '',
+                '',
+                [],
+                0,
+                0,
+                0,
+                false,
+                false,
+                [],
             ])
         );
 
@@ -630,7 +737,17 @@ class InsertEditTest extends TestCase
         $this->assertContains(
             '<td class="center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
-                $column, true, '', '', [], 0, 0, 0, false, false, []
+                $column,
+                true,
+                '',
+                '',
+                [],
+                0,
+                0,
+                0,
+                false,
+                false,
+                [],
             ])
         );
 
@@ -638,7 +755,17 @@ class InsertEditTest extends TestCase
         $this->assertContains(
             '<td class="center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
-                $column, true, '', '', [], 0, 0, 0, false, false, []
+                $column,
+                true,
+                '',
+                '',
+                [],
+                0,
+                0,
+                0,
+                false,
+                false,
+                [],
             ])
         );
 
@@ -647,7 +774,17 @@ class InsertEditTest extends TestCase
         $this->assertContains(
             '<td class="center">--</td>',
             $this->callProtectedMethod('getFunctionColumn', [
-                $column, true, '', '', ['int'], 0, 0, 0, false, false, []
+                $column,
+                true,
+                '',
+                '',
+                ['int'],
+                0,
+                0,
+                0,
+                false,
+                false,
+                [],
             ])
         );
 
@@ -655,7 +792,17 @@ class InsertEditTest extends TestCase
         $this->assertContains(
             '<select name="funcsa" b tabindex="5" id="field_3_1"',
             $this->callProtectedMethod('getFunctionColumn', [
-                $column, true, 'a', 'b', [], 2, 3, 3, false, false, []
+                $column,
+                true,
+                'a',
+                'b',
+                [],
+                2,
+                3,
+                3,
+                false,
+                false,
+                [],
             ])
         );
     }
@@ -674,11 +821,20 @@ class InsertEditTest extends TestCase
         $column['Type'] = 0;
         $column['Field_md5'] = 'foobar';
         $foreigners = [
-            'foreign_keys_data' => []
+            'foreign_keys_data' => [],
         ];
 
         $result = $this->callProtectedMethod('getNullColumn', [
-            $column, 'a', true, 2, 0, 1, "<script>", $foreigners, [], false
+            $column,
+            'a',
+            true,
+            2,
+            0,
+            1,
+            "<script>",
+            $foreigners,
+            [],
+            false,
         ]);
 
         $this->assertContains(
@@ -713,7 +869,16 @@ class InsertEditTest extends TestCase
         // case 2
         $column['Null'] = 'NO';
         $result = $this->callProtectedMethod('getNullColumn', [
-            $column, 'a', true, 2, 0, 1, "<script>", [], [], false
+            $column,
+            'a',
+            true,
+            2,
+            0,
+            1,
+            "<script>",
+            [],
+            [],
+            false,
         ]);
 
         $this->assertEquals(
@@ -724,7 +889,16 @@ class InsertEditTest extends TestCase
         // case 3
         $column['Null'] = 'YES';
         $result = $this->callProtectedMethod('getNullColumn', [
-            $column, 'a', true, 2, 0, 1, "<script>", [], [], true
+            $column,
+            'a',
+            true,
+            2,
+            0,
+            1,
+            "<script>",
+            [],
+            [],
+            true,
         ]);
 
         $this->assertEquals(
@@ -742,7 +916,7 @@ class InsertEditTest extends TestCase
     {
         $column = $foreignData = [];
         $foreigners = [
-            'foreign_keys_data' => []
+            'foreign_keys_data' => [],
         ];
         $column['Field'] = 'f';
         $column['True_Type'] = 'enum';
@@ -750,7 +924,9 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             '1',
             $this->callProtectedMethod('getNullifyCodeForNullColumn', [
-                $column, $foreigners, []
+                $column,
+                $foreigners,
+                [],
             ])
         );
 
@@ -759,7 +935,9 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             '2',
             $this->callProtectedMethod('getNullifyCodeForNullColumn', [
-                $column, $foreigners, []
+                $column,
+                $foreigners,
+                [],
             ])
         );
 
@@ -767,7 +945,9 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             '3',
             $this->callProtectedMethod('getNullifyCodeForNullColumn', [
-                $column, $foreigners, []
+                $column,
+                $foreigners,
+                [],
             ])
         );
 
@@ -777,7 +957,9 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             '4',
             $this->callProtectedMethod('getNullifyCodeForNullColumn', [
-                $column, $foreigners, $foreignData
+                $column,
+                $foreigners,
+                $foreignData,
             ])
         );
     }
@@ -794,8 +976,21 @@ class InsertEditTest extends TestCase
         $titles['Browse'] = "'";
         $GLOBALS['cfg']['ServerDefault'] = 2;
         $result = $this->callProtectedMethod('getForeignLink', [
-            $column, 'a', 'b', 'd', 2, 0, 1, "abc", ['tbl', 'db'], 8,
-            $titles, false
+            $column,
+            'a',
+            'b',
+            'd',
+            2,
+            0,
+            1,
+            "abc",
+            [
+                'tbl',
+                'db',
+            ],
+            8,
+            $titles,
+            false,
         ]);
 
         $this->assertContains(
@@ -833,7 +1028,16 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 1;
         $GLOBALS['cfg']['NaturalOrder'] = false;
         $result = $this->callProtectedMethod('dispRowForeignData', [
-            $column, 'a', 'b', 'd', 2, 0, 1, "<s>", $foreignData, false
+            $column,
+            'a',
+            'b',
+            'd',
+            2,
+            0,
+            1,
+            "<s>",
+            $foreignData,
+            false,
         ]);
 
         $this->assertContains(
@@ -869,7 +1073,16 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ForeignKeyMaxLimit'] = 1;
         $GLOBALS['cfg']['NaturalOrder'] = false;
         $result = $this->callProtectedMethod('dispRowForeignData', [
-            $column, 'a', 'b', 'd', 2, 0, 1, "<s>", $foreignData, false
+            $column,
+            'a',
+            'b',
+            'd',
+            2,
+            0,
+            1,
+            "<s>",
+            $foreignData,
+            false,
         ]);
 
         $this->assertContains(
@@ -907,7 +1120,17 @@ class InsertEditTest extends TestCase
         $column['Type'] = 'char(10)';
         $column['True_Type'] = 'char';
         $result = $this->callProtectedMethod('getTextarea', [
-            $column, 'a', 'b', '', 2, 0, 1, "abc/", 'foobar', 'CHAR', false
+            $column,
+            'a',
+            'b',
+            '',
+            2,
+            0,
+            1,
+            "abc/",
+            'foobar',
+            'CHAR',
+            false,
         ]);
 
         $this->assertContains(
@@ -931,12 +1154,20 @@ class InsertEditTest extends TestCase
         $column['values'] = [
             [
                 'html' => 'foo',
-                'plain' => 'data'
-            ]
+                'plain' => 'data',
+            ],
         ];
         $result = $this->callProtectedMethod('getPmaTypeEnum', [
-            $column, 'a', 'b', $extracted_columnspec, 'd', 2, 0, 1,
-            'foobar', false
+            $column,
+            'a',
+            'b',
+            $extracted_columnspec,
+            'd',
+            2,
+            0,
+            1,
+            'foobar',
+            false,
         ]);
 
         $this->assertContains(
@@ -951,8 +1182,16 @@ class InsertEditTest extends TestCase
 
         $column['Type'] = 'ababababababababababa';
         $result = $this->callProtectedMethod('getPmaTypeEnum', [
-            $column, 'a', 'b', $extracted_columnspec, 'd', 2, 0, 1,
-            'foobar', false
+            $column,
+            'a',
+            'b',
+            $extracted_columnspec,
+            'd',
+            2,
+            0,
+            1,
+            'foobar',
+            false,
         ]);
 
         $this->assertContains(
@@ -976,18 +1215,26 @@ class InsertEditTest extends TestCase
     {
         $extracted_columnspec = $column = [];
         $extracted_columnspec['enum_set_values'] = [
-            '<abc>', '"foo"'
+            '<abc>',
+            '"foo"',
         ];
 
         $column['values'] = 'abc';
 
         $result = $this->callProtectedMethod('getColumnEnumValues', [
-            $column, $extracted_columnspec
+            $column,
+            $extracted_columnspec,
         ]);
         $this->assertEquals(
             [
-                ['plain' => '<abc>', 'html' => '&lt;abc&gt;'],
-                ['plain' => '"foo"', 'html' => '&quot;foo&quot;'],
+                [
+                    'plain' => '<abc>',
+                    'html' => '&lt;abc&gt;'
+                ],
+                [
+                    'plain' => '"foo"',
+                    'html' => '&quot;foo&quot;'
+                ],
             ],
             $result
         );
@@ -1003,16 +1250,24 @@ class InsertEditTest extends TestCase
         $column_enum_values = [
             [
                 'html' => 'foo',
-                'plain' => 'data'
+                'plain' => 'data',
             ],
             [
                 'html' => 'bar',
-                'plain' => ''
-            ]
+                'plain' => '',
+            ],
         ];
 
         $result = $this->callProtectedMethod('getDropDownDependingOnLength', [
-            [], 'a', 'b', 2, 0, 1, 'data', $column_enum_values, false
+            [],
+            'a',
+            'b',
+            2,
+            0,
+            1,
+            'data',
+            $column_enum_values,
+            false,
         ]);
 
         $this->assertContains(
@@ -1035,15 +1290,23 @@ class InsertEditTest extends TestCase
         $column_enum_values = [
             [
                 'html' => 'foo',
-                'plain' => 'data'
-            ]
+                'plain' => 'data',
+            ],
         ];
 
         $column = [];
         $column['Default'] = 'data';
         $column['Null'] = 'YES';
         $result = $this->callProtectedMethod('getDropDownDependingOnLength', [
-            $column, 'a', 'b', 2, 0, 1, '', $column_enum_values, false
+            $column,
+            'a',
+            'b',
+            2,
+            0,
+            1,
+            '',
+            $column_enum_values,
+            false,
         ]);
 
         $this->assertContains(
@@ -1062,16 +1325,24 @@ class InsertEditTest extends TestCase
         $column_enum_values = [
             [
                 'html' => 'foo',
-                'plain' => 'data'
+                'plain' => 'data',
             ],
             [
                 'html' => 'bar',
-                'plain' => ''
-            ]
+                'plain' => '',
+            ],
         ];
 
         $result = $this->callProtectedMethod('getRadioButtonDependingOnLength', [
-            'a', 'b', 2, [], 0, 1, 'data', $column_enum_values, false
+            'a',
+            'b',
+            2,
+            [],
+            0,
+            1,
+            'data',
+            $column_enum_values,
+            false,
         ]);
 
         $this->assertContains(
@@ -1100,15 +1371,23 @@ class InsertEditTest extends TestCase
         $column_enum_values = [
             [
                 'html' => 'foo',
-                'plain' => 'data'
-            ]
+                'plain' => 'data',
+            ],
         ];
 
         $column = [];
         $column['Default'] = 'data';
         $column['Null'] = 'YES';
         $result = $this->callProtectedMethod('getRadioButtonDependingOnLength', [
-            'a', 'b', 2, $column, 0, 1, '', $column_enum_values, false
+            'a',
+            'b',
+            2,
+            $column,
+            0,
+            1,
+            '',
+            $column_enum_values,
+            false,
         ]);
 
         $this->assertContains(
@@ -1129,14 +1408,23 @@ class InsertEditTest extends TestCase
         $column['values']  = [
             [
                 'html' => '&lt;',
-                'plain' => '<'
-            ]
+                'plain' => '<',
+            ],
         ];
 
         $column['select_size'] = 1;
 
         $result = $this->callProtectedMethod('getPmaTypeSet', [
-            $column, [], 'a', 'b', 'c', 2, 0, 1, 'data,<', false
+            $column,
+            [],
+            'a',
+            'b',
+            'c',
+            2,
+            0,
+            1,
+            'data,<',
+            false,
         ]);
 
         $this->assertContains("a\n", $result);
@@ -1166,32 +1454,49 @@ class InsertEditTest extends TestCase
     public function testGetColumnSetValueAndSelectSize()
     {
         $extracted_columnspec = $column = [];
-        $extracted_columnspec['enum_set_values'] = ['a', '<'];
+        $extracted_columnspec['enum_set_values'] = [
+            'a',
+            '<',
+        ];
         $result = $this->callProtectedMethod('getColumnSetValueAndSelectSize', [
-            [], $extracted_columnspec
+            [],
+            $extracted_columnspec,
         ]);
 
         $this->assertEquals(
             [
                 [
-                    ['plain' => 'a', 'html' => 'a'],
-                    ['plain' => '<', 'html' => '&lt;']
+                    [
+                        'plain' => 'a',
+                        'html' => 'a'
+                    ],
+                    [
+                        'plain' => '<',
+                        'html' => '&lt;'
+                    ],
                 ],
-                2
+                2,
             ],
             $result
         );
 
-        $column['values'] = [1, 2];
+        $column['values'] = [
+            1,
+            2,
+        ];
         $column['select_size'] = 3;
         $result = $this->callProtectedMethod('getColumnSetValueAndSelectSize', [
-            $column, $extracted_columnspec
+            $column,
+            $extracted_columnspec,
         ]);
 
         $this->assertEquals(
             [
-                [1, 2],
-                3
+                [
+                    1,
+                    2,
+                ],
+                3,
             ],
             $result
         );
@@ -1214,8 +1519,21 @@ class InsertEditTest extends TestCase
         $GLOBALS['max_upload_size'] = 65536;
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column, '12\\"23', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
-            'foo', true, false
+            $column,
+            '12\\"23',
+            null,
+            20,
+            'a',
+            'b',
+            'c',
+            2,
+            1,
+            1,
+            '/',
+            null,
+            'foo',
+            true,
+            false,
         ]);
 
         $this->assertEquals(
@@ -1232,8 +1550,21 @@ class InsertEditTest extends TestCase
         $column['is_binary'] = true;
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
-            'foo', false, false
+            $column,
+            '1223',
+            null,
+            20,
+            'a',
+            'b',
+            'c',
+            2,
+            1,
+            1,
+            '/',
+            null,
+            'foo',
+            false,
+            false,
         ]);
 
         $this->assertEquals(
@@ -1248,8 +1579,21 @@ class InsertEditTest extends TestCase
         $column['is_blob'] = false;
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
-            'foo', true, false
+            $column,
+            '1223',
+            null,
+            20,
+            'a',
+            'b',
+            'c',
+            2,
+            1,
+            1,
+            '/',
+            null,
+            'foo',
+            true,
+            false,
         ]);
 
         $this->assertEquals(
@@ -1271,8 +1615,21 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['LimitChars'] = 100;
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
-            'foo', true, false
+            $column,
+            '1223',
+            null,
+            20,
+            'a',
+            'b',
+            'c',
+            2,
+            1,
+            1,
+            '/',
+            null,
+            'foo',
+            true,
+            false,
         ]);
 
         $this->assertEquals(
@@ -1296,8 +1653,21 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['TextareaCols'] = 10;
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
-            'foo', true, false
+            $column,
+            '1223',
+            null,
+            20,
+            'a',
+            'b',
+            'c',
+            2,
+            1,
+            1,
+            '/',
+            null,
+            'foo',
+            true,
+            false,
         ]);
 
         $this->assertEquals(
@@ -1322,8 +1692,21 @@ class InsertEditTest extends TestCase
          */
 
         $result = $this->callProtectedMethod('getBinaryAndBlobColumn', [
-            $column, '1223', null, 20, 'a', 'b', 'c', 2, 1, 1, '/', null,
-            'foo', true, false
+            $column,
+            '1223',
+            null,
+            20,
+            'a',
+            'b',
+            'c',
+            2,
+            1,
+            1,
+            '/',
+            null,
+            'foo',
+            true,
+            false,
         ]);
 
         $this->assertEquals(
@@ -1347,7 +1730,16 @@ class InsertEditTest extends TestCase
         $column['pma_type'] = 'date';
         $column['True_Type'] = 'date';
         $result = $this->callProtectedMethod('getHtmlInput', [
-            $column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false
+            $column,
+            'a',
+            'b',
+            30,
+            'c',
+            23,
+            2,
+            0,
+            'DATE',
+            false,
         ]);
 
         $this->assertEquals(
@@ -1360,7 +1752,16 @@ class InsertEditTest extends TestCase
         $column['pma_type'] = 'datetime';
         $column['True_Type'] = 'datetime';
         $result = $this->callProtectedMethod('getHtmlInput', [
-            $column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false
+            $column,
+            'a',
+            'b',
+            30,
+            'c',
+            23,
+            2,
+            0,
+            'DATE',
+            false,
         ]);
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
@@ -1372,7 +1773,16 @@ class InsertEditTest extends TestCase
         $column['pma_type'] = 'timestamp';
         $column['True_Type'] = 'timestamp';
         $result = $this->callProtectedMethod('getHtmlInput', [
-            $column, 'a', 'b', 30, 'c', 23, 2, 0, 'DATE', false
+            $column,
+            'a',
+            'b',
+            30,
+            'c',
+            23,
+            2,
+            0,
+            'DATE',
+            false,
         ]);
         $this->assertEquals(
             '<input type="text" name="fieldsa" value="b" size="30" data-type="DATE"'
@@ -1392,11 +1802,15 @@ class InsertEditTest extends TestCase
         $column = [];
         $column['pma_type'] = 'tinyblob';
         $result = $this->callProtectedMethod('getMaxUploadSize', [
-            $column, 256
+            $column,
+            256,
         ]);
 
         $this->assertEquals(
-            ["(Max: 256B)\n", 256],
+            [
+                "(Max: 256B)\n",
+                256,
+            ],
             $result
         );
 
@@ -1404,11 +1818,15 @@ class InsertEditTest extends TestCase
         $GLOBALS['max_upload_size'] = 250;
         $column['pma_type'] = 'tinyblob';
         $result = $this->callProtectedMethod('getMaxUploadSize', [
-            $column, 20
+            $column,
+            20,
         ]);
 
         $this->assertEquals(
-            ["(Max: 250B)\n", 250],
+            [
+                "(Max: 250B)\n",
+                250,
+            ],
             $result
         );
     }
@@ -1438,8 +1856,20 @@ class InsertEditTest extends TestCase
         $extracted_columnspec = [];
         $extracted_columnspec['spec_in_brackets'] = 25;
         $result = $this->callProtectedMethod('getValueColumnForOtherDatatypes', [
-            $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
-            "foo\nbar", $extracted_columnspec, false
+            $column,
+            'defchar',
+            'a',
+            'b',
+            'c',
+            22,
+            '&lt;',
+            12,
+            1,
+            "/",
+            "&lt;",
+            "foo\nbar",
+            $extracted_columnspec,
+            false,
         ]);
 
         $this->assertEquals(
@@ -1457,8 +1887,20 @@ class InsertEditTest extends TestCase
         $column['pma_type'] = 'timestamp';
         $column['True_Type'] = 'timestamp';
         $result = $this->callProtectedMethod('getValueColumnForOtherDatatypes', [
-            $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
-            "foo\nbar", $extracted_columnspec, false
+            $column,
+            'defchar',
+            'a',
+            'b',
+            'c',
+            22,
+            '&lt;',
+            12,
+            1,
+            "/",
+            "&lt;",
+            "foo\nbar",
+            $extracted_columnspec,
+            false,
         ]);
 
         $this->assertEquals(
@@ -1473,8 +1915,20 @@ class InsertEditTest extends TestCase
         // case 3: (else -> datetime)
         $column['pma_type'] = 'datetime';
         $result = $this->callProtectedMethod('getValueColumnForOtherDatatypes', [
-            $column, 'defchar', 'a', 'b', 'c', 22, '&lt;', 12, 1, "/", "&lt;",
-            "foo\nbar", $extracted_columnspec, false
+            $column,
+            'defchar',
+            'a',
+            'b',
+            'c',
+            22,
+            '&lt;',
+            12,
+            1,
+            "/",
+            "&lt;",
+            "foo\nbar",
+            $extracted_columnspec,
+            false,
         ]);
 
         $this->assertContains(
@@ -1499,7 +1953,8 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             40,
             $this->callProtectedMethod('getColumnSize', [
-                $column, $extracted_columnspec
+                $column,
+                $extracted_columnspec,
             ])
         );
 
@@ -1514,7 +1969,8 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             30,
             $this->callProtectedMethod('getColumnSize', [
-                $column, $extracted_columnspec
+                $column,
+                $extracted_columnspec,
             ])
         );
     }
@@ -1629,7 +2085,9 @@ class InsertEditTest extends TestCase
     public function testGetSubmitTypeDropDown()
     {
         $result = $this->callProtectedMethod('getSubmitTypeDropDown', [
-            [], 2, 2
+            [],
+            2,
+            2,
         ]);
 
         $this->assertContains(
@@ -1651,7 +2109,9 @@ class InsertEditTest extends TestCase
     public function testGetAfterInsertDropDown()
     {
         $result = $this->callProtectedMethod('getAfterInsertDropDown', [
-            "`t`.`f` = 2", 'new_insert', true
+            "`t`.`f` = 2",
+            'new_insert',
+            true,
         ]);
 
         $this->assertContains(
@@ -1679,7 +2139,8 @@ class InsertEditTest extends TestCase
     {
         $GLOBALS['cfg']['ShowHint'] = false;
         $result = $this->callProtectedMethod('getSubmitAndResetButtonForActionsPanel', [
-            1, 0
+            1,
+            0,
         ]);
 
         $this->assertContains(
@@ -1743,7 +2204,13 @@ class InsertEditTest extends TestCase
         $column['Extra'] = 'fooauto_increment';
 
         $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row, $column, [], false, [], 'a', false
+            $current_row,
+            $column,
+            [],
+            false,
+            [],
+            'a',
+            false,
         ]);
 
         $this->assertEquals(
@@ -1752,7 +2219,7 @@ class InsertEditTest extends TestCase
                 null,
                 null,
                 null,
-                '<input type="hidden" name="fields_preva" value="">'
+                '<input type="hidden" name="fields_preva" value="">',
             ],
             $result
         );
@@ -1765,7 +2232,13 @@ class InsertEditTest extends TestCase
         $column['True_Type'] = 'bit';
 
         $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row, $column, $extracted_columnspec, false, [], 'a', false
+            $current_row,
+            $column,
+            $extracted_columnspec,
+            false,
+            [],
+            'a',
+            false,
         ]);
 
         $this->assertEquals(
@@ -1774,14 +2247,20 @@ class InsertEditTest extends TestCase
                 "",
                 "00000000000001111011",
                 null,
-                '<input type="hidden" name="fields_preva" value="123">'
+                '<input type="hidden" name="fields_preva" value="123">',
             ],
             $result
         );
 
         $current_row['f'] = "abcd";
         $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row, $column, $extracted_columnspec, false, [], 'a', true
+            $current_row,
+            $column,
+            $extracted_columnspec,
+            false,
+            [],
+            'a',
+            true,
         ]);
 
         $this->assertEquals(
@@ -1790,7 +2269,7 @@ class InsertEditTest extends TestCase
                 "",
                 "abcd",
                 null,
-                '<input type="hidden" name="fields_preva" value="abcd">'
+                '<input type="hidden" name="fields_preva" value="abcd">',
             ],
             $result
         );
@@ -1808,8 +2287,13 @@ class InsertEditTest extends TestCase
         $column['True_Type'] = 'int';
 
         $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row, $column, $extracted_columnspec,
-            false, ['int'], 'a', false
+            $current_row,
+            $column,
+            $extracted_columnspec,
+            false,
+            ['int'],
+            'a',
+            false,
         ]);
 
         $this->assertEquals(
@@ -1818,7 +2302,7 @@ class InsertEditTest extends TestCase
                 "",
                 "'',",
                 null,
-                '<input type="hidden" name="fields_preva" value="\'\',">'
+                '<input type="hidden" name="fields_preva" value="\'\',">',
             ],
             $result
         );
@@ -1833,8 +2317,13 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
         $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row, $column, $extracted_columnspec,
-            false, ['int'], 'a', false
+            $current_row,
+            $column,
+            $extracted_columnspec,
+            false,
+            ['int'],
+            'a',
+            false,
         ]);
 
         $this->assertEquals(
@@ -1843,7 +2332,7 @@ class InsertEditTest extends TestCase
                 "3131303031",
                 "3131303031",
                 "3131303031",
-                '<input type="hidden" name="fields_preva" value="3131303031">'
+                '<input type="hidden" name="fields_preva" value="3131303031">',
             ],
             $result
         );
@@ -1852,8 +2341,13 @@ class InsertEditTest extends TestCase
         $current_row['f'] = "11001\x00";
 
         $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForExistingRow', [
-            $current_row, $column, $extracted_columnspec,
-            false, ['int'], 'a', false
+            $current_row,
+            $column,
+            $extracted_columnspec,
+            false,
+            ['int'],
+            'a',
+            false,
         ]);
 
         $this->assertEquals(
@@ -1862,7 +2356,7 @@ class InsertEditTest extends TestCase
                 "313130303100",
                 "313130303100",
                 "313130303100",
-                '<input type="hidden" name="fields_preva" value="313130303100">'
+                '<input type="hidden" name="fields_preva" value="313130303100">',
             ],
             $result
         );
@@ -1883,7 +2377,8 @@ class InsertEditTest extends TestCase
         $GLOBALS['cfg']['ShowFunctionFields'] = true;
 
         $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForInsertingMode', [
-            $column, false
+            $column,
+            false,
         ]);
 
         $this->assertEquals(
@@ -1892,7 +2387,7 @@ class InsertEditTest extends TestCase
                 '101',
                 '101',
                 '',
-                '101'
+                '101',
             ],
             $result
         );
@@ -1902,7 +2397,8 @@ class InsertEditTest extends TestCase
         $column['True_Type'] = 'char';
 
         $result = $this->callProtectedMethod('getSpecialCharsAndBackupFieldForInsertingMode', [
-            $column, false
+            $column,
+            false,
         ]);
 
         $this->assertEquals(
@@ -1911,7 +2407,7 @@ class InsertEditTest extends TestCase
                 '',
                 '',
                 '',
-                ''
+                '',
             ],
             $result
         );
@@ -1934,22 +2430,28 @@ class InsertEditTest extends TestCase
                 ['LIMIT 1'],
                 true,
                 true,
-                false
+                false,
             ],
             $result
         );
 
         // case 2 (else)
         unset($_POST['where_clause']);
-        $_POST['fields']['multi_edit'] = ['a' => 'b', 'c' => 'd'];
+        $_POST['fields']['multi_edit'] = [
+            'a' => 'b',
+            'c' => 'd',
+        ];
         $result = $this->insertEdit->getParamsForUpdateOrInsert();
 
         $this->assertEquals(
             [
-                ['a', 'c'],
+                [
+                    'a',
+                    'c',
+                ],
                 false,
                 true,
-                false
+                false,
             ],
             $result
         );
@@ -2120,8 +2622,14 @@ class InsertEditTest extends TestCase
     {
         $GLOBALS['db'] = 'db';
         $GLOBALS['table'] = 'table';
-        $query_fields = ['a', 'b'];
-        $value_sets = [1, 2];
+        $query_fields = [
+            'a',
+            'b',
+        ];
+        $value_sets = [
+            1,
+            2,
+        ];
 
         $this->assertEquals(
             ['INSERT IGNORE INTO `table` (a, b) VALUES (1), (2)'],
@@ -2141,7 +2649,10 @@ class InsertEditTest extends TestCase
      */
     public function testExecuteSqlQuery()
     {
-        $query = ['SELECT 1', 'SELECT 2'];
+        $query = [
+            'SELECT 1',
+            'SELECT 2',
+        ];
         $GLOBALS['sql_query'] = 'SELECT';
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = false;
         $_POST['submit_type'] = '';
@@ -2228,7 +2739,10 @@ class InsertEditTest extends TestCase
      */
     public function testExecuteSqlQueryWithTryQuery()
     {
-        $query = ['SELECT 1', 'SELECT 2'];
+        $query = [
+            'SELECT 1',
+            'SELECT 2',
+        ];
         $GLOBALS['sql_query'] = 'SELECT';
         $GLOBALS['cfg']['IgnoreMultiSubmitErrors'] = true;
         $_POST['submit_type'] = '';
@@ -2316,8 +2830,16 @@ class InsertEditTest extends TestCase
     public function testGetWarningMessages()
     {
         $warnings = [
-            ['Level' => 1, 'Code' => 42, 'Message' => 'msg1'],
-            ['Level' => 2, 'Code' => 43, 'Message' => 'msg2'],
+            [
+                'Level' => 1,
+                'Code' => 42,
+                'Message' => 'msg1',
+            ],
+            [
+                'Level' => 2,
+                'Code' => 43,
+                'Message' => 'msg2',
+            ],
         ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -2336,7 +2858,7 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             [
                 "1: #42 msg1",
-                "2: #43 msg2"
+                "2: #43 msg2",
             ],
             $result
         );
@@ -2428,13 +2950,16 @@ class InsertEditTest extends TestCase
     public function testTransformEditedValues()
     {
         $edited_values = [
-            ['c' => 'cname']
+            ['c' => 'cname'],
         ];
-        $GLOBALS['cfg']['DefaultTransformations']['PreApPend'] = ['', ''];
+        $GLOBALS['cfg']['DefaultTransformations']['PreApPend'] = [
+            '',
+            '',
+        ];
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $_POST['where_clause'] = 1;
         $transformation = [
-            'transformation_options' => "'','option ,, quoted',abd"
+            'transformation_options' => "'','option ,, quoted',abd",
         ];
         $result = $this->insertEdit->transformEditedValues(
             'db',
@@ -2448,7 +2973,10 @@ class InsertEditTest extends TestCase
         );
 
         $this->assertEquals(
-            ['a' => 'b', 'transformations' => ["cnameoption ,, quoted"]],
+            [
+                'a' => 'b',
+                'transformations' => ["cnameoption ,, quoted"],
+            ],
             $result
         );
     }
@@ -2479,8 +3007,14 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             [
-                [1, 'foo'],
-                [2, '`fld`']
+                [
+                    1,
+                    'foo',
+                ],
+                [
+                    2,
+                    '`fld`',
+                ],
             ],
             $result
         );
@@ -2502,8 +3036,11 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             [
-                [1, '`fld` = foo'],
-                [2]
+                [
+                    1,
+                    '`fld` = foo',
+                ],
+                [2],
             ],
             $result
         );
@@ -2526,7 +3063,7 @@ class InsertEditTest extends TestCase
         $this->assertEquals(
             [
                 [1],
-                [2]
+                [2],
             ],
             $result
         );
@@ -2548,8 +3085,11 @@ class InsertEditTest extends TestCase
 
         $this->assertEquals(
             [
-                [1, '`fld` = foo'],
-                [2]
+                [
+                    1,
+                    '`fld` = foo',
+                ],
+                [2],
             ],
             $result
         );
@@ -3036,7 +3576,10 @@ class InsertEditTest extends TestCase
         $result = $this->insertEdit->getTableColumns('db', 'table');
 
         $this->assertEquals(
-            ['b', 'd'],
+            [
+                'b',
+                'd',
+            ],
             $result
         );
     }
@@ -3085,7 +3628,7 @@ class InsertEditTest extends TestCase
                 [null],
                 [null],
                 false,
-                "edit_next"
+                "edit_next",
             ],
             $result
         );
@@ -3106,9 +3649,12 @@ class InsertEditTest extends TestCase
                 [],
                 null,
                 null,
-                [false, false],
+                [
+                    false,
+                    false,
+                ],
                 false,
-                "edit_next"
+                "edit_next",
             ],
             $result
         );
@@ -3132,7 +3678,12 @@ class InsertEditTest extends TestCase
             ->with('db', 'table', null, true)
             ->will(
                 $this->returnValue(
-                    [['Comment' => 'b', 'Field' => 'd']]
+                    [
+                        [
+                            'Comment' => 'b',
+                            'Field' => 'd'
+                        ],
+                    ]
                 )
             );
 
@@ -3217,23 +3768,47 @@ class InsertEditTest extends TestCase
                 'Field' => 'col',
                 'Type' => 'varchar(20)',
                 'Null' => 'Yes',
-                'Privileges' => 'insert,update,select'
-            ]
+                'Privileges' => 'insert,update,select',
+            ],
         ];
         $repopulate = [
-            md5('col') => 'val'
+            md5('col') => 'val',
         ];
         $column_mime = [
             'input_transformation' => 'Input/Image_JPEG_Upload.php',
-            'input_transformation_options' => '150'
+            'input_transformation_options' => '150',
         ];
 
         // Test w/ input transformation
         $actual = $this->callProtectedMethod('getHtmlForInsertEditFormColumn', [
-            $table_columns, 0, [], false, [], '', '',
-            '', false, [], &$o_rows, &$tabindex, 0, false, 0,
-            [], 0, 0, 'table', 'db', 0, [], 0, '', '',
-            $repopulate, $column_mime, ''
+            $table_columns,
+            0,
+            [],
+            false,
+            [],
+            '',
+            '',
+            '',
+            false,
+            [],
+            &$o_rows,
+            &$tabindex,
+            0,
+            false,
+            0,
+            [],
+            0,
+            0,
+            'table',
+            'db',
+            0,
+            [],
+            0,
+            '',
+            '',
+            $repopulate,
+            $column_mime,
+            '',
         ]);
 
         $this->assertContains(
@@ -3279,17 +3854,41 @@ class InsertEditTest extends TestCase
                 'Key' => '',
                 'Extra' => '',
                 'Default' => null,
-                'Privileges' => 'insert,update,select'
-            ]
+                'Privileges' => 'insert,update,select',
+            ],
         ];
         $repopulate = [
-            md5('qwerty') => '12-10-14'
+            md5('qwerty') => '12-10-14',
         ];
         $actual = $this->callProtectedMethod('getHtmlForInsertEditFormColumn', [
-            $table_columns, 0, [], false, [], '', '',
-            '', true, [], &$o_rows, &$tabindex, 0, false, 0,
-            [], 0, 0, 'table', 'db', 0, [], 0, '', '',
-            $repopulate, [], ''
+            $table_columns,
+            0,
+            [],
+            false,
+            [],
+            '',
+            '',
+            '',
+            true,
+            [],
+            &$o_rows,
+            &$tabindex,
+            0,
+            false,
+            0,
+            [],
+            0,
+            0,
+            'table',
+            'db',
+            0,
+            [],
+            0,
+            '',
+            '',
+            $repopulate,
+            [],
+            '',
         ]);
         $this->assertContains(
             'qwerty',
@@ -3331,7 +3930,7 @@ class InsertEditTest extends TestCase
                 'pma_type' => 'longtext',
                 'True_Type' => 'longtext',
                 'Privileges' => 'select,insert,update,references',
-            ]
+            ],
         ];
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
@@ -3417,7 +4016,7 @@ class InsertEditTest extends TestCase
                 'pma_type' => 'longtext',
                 'True_Type' => 'longtext',
                 'Privileges' => 'select,insert,references',
-            ]
+            ],
         ];
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
@@ -3475,7 +4074,7 @@ class InsertEditTest extends TestCase
                 'pma_type' => 'longtext',
                 'True_Type' => 'longtext',
                 'Privileges' => 'select,update,references',
-            ]
+            ],
         ];
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],

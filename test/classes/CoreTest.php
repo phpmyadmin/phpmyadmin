@@ -64,11 +64,26 @@ class CoreTest extends PmaTestCase
         $arr = [
             "int" => 1,
             "str" => "str_val",
-            "arr" => ['val1', 'val2', 'val3'],
+            "arr" => [
+                'val1',
+                'val2',
+                'val3',
+            ],
             "sarr" => [
-                'arr1' => [1, 2, 3],
-                [3, ['a', 'b', 'c'], 4]
-            ]
+                'arr1' => [
+                    1,
+                    2,
+                    3,
+                ],
+                [
+                    3,
+                    [
+                        'a',
+                        'b',
+                        'c',
+                    ], 4,
+                ]
+            ],
         ];
 
         $this->assertEquals(
@@ -152,11 +167,26 @@ class CoreTest extends PmaTestCase
         $arr = [
             "int" => 1,
             "str" => "str_val",
-            "arr" => ['val1', 'val2', 'val3'],
+            "arr" => [
+                'val1',
+                'val2',
+                'val3',
+            ],
             "sarr" => [
-                'arr1' => [1, 2, 3],
-                [3, ['a', 'b', 'c'], 4]
-            ]
+                'arr1' => [
+                    1,
+                    2,
+                    3,
+                ],
+                [
+                    3,
+                    [
+                        'a',
+                        'b',
+                        'c',
+                    ], 4,
+                ]
+            ],
         ];
 
         Core::arrayWrite('int', $arr, 5);
@@ -206,11 +236,26 @@ class CoreTest extends PmaTestCase
         $arr = [
             "int" => 1,
             "str" => "str_val",
-            "arr" => ['val1', 'val2', 'val3'],
+            "arr" => [
+                'val1',
+                'val2',
+                'val3',
+            ],
             "sarr" => [
-                'arr1' => [1, 2, 3],
-                [3, ['a', 'b', 'c'], 4]
-            ]
+                'arr1' => [
+                    1,
+                    2,
+                    3,
+                ],
+                [
+                    3,
+                    [
+                        'a',
+                        'b',
+                        'c',
+                    ], 4,
+                ]
+            ],
         ];
 
         Core::arrayRemove('int', $arr);
@@ -283,18 +328,78 @@ class CoreTest extends PmaTestCase
     public function providerTestGotoNowhere()
     {
         return [
-            [null, [], false, false],
-            [null, [], true, false],
-            ['export.php', [], false, true],
-            ['export.php', [], true, true],
-            ['export.php', $this->goto_whitelist, false, true],
-            ['export.php', $this->goto_whitelist, true, true],
-            ['shell.php', $this->goto_whitelist, false, false],
-            ['shell.php', $this->goto_whitelist, true, false],
-            ['index.php?sql.php&test=true', $this->goto_whitelist, false, true],
-            ['index.php?sql.php&test=true', $this->goto_whitelist, true, false],
-            ['index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist, false, true],
-            ['index.php%3Fsql.php%26test%3Dtrue', $this->goto_whitelist, true, false],
+            [
+                null,
+                [],
+                false,
+                false,
+            ],
+            [
+                null,
+                [],
+                true,
+                false,
+            ],
+            [
+                'export.php',
+                [],
+                false,
+                true,
+            ],
+            [
+                'export.php',
+                [],
+                true,
+                true,
+            ],
+            [
+                'export.php',
+                $this->goto_whitelist,
+                false,
+                true,
+            ],
+            [
+                'export.php',
+                $this->goto_whitelist,
+                true,
+                true,
+            ],
+            [
+                'shell.php',
+                $this->goto_whitelist,
+                false,
+                false,
+            ],
+            [
+                'shell.php',
+                $this->goto_whitelist,
+                true,
+                false,
+            ],
+            [
+                'index.php?sql.php&test=true',
+                $this->goto_whitelist,
+                false,
+                true,
+            ],
+            [
+                'index.php?sql.php&test=true',
+                $this->goto_whitelist,
+                true,
+                false,
+            ],
+            [
+                'index.php%3Fsql.php%26test%3Dtrue',
+                $this->goto_whitelist,
+                false,
+                true,
+            ],
+            [
+                'index.php%3Fsql.php%26test%3Dtrue',
+                $this->goto_whitelist,
+                true,
+                false,
+            ],
         ];
     }
 
@@ -334,49 +439,49 @@ class CoreTest extends PmaTestCase
                 '/phpmyadmin/index.php/; cookieinj=value/',
                 '/phpmyadmin/index.php/;%20cookieinj=value///',
                 '/; cookieinj=value/',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '/phpmyadmin/index.php/;%20cookieinj=value///',
                 '/; cookieinj=value/',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '//example.com/../phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '//example.com/../../.././phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '/page.php/malicouspathinfo?malicouspathinfo',
                 'malicouspathinfo',
-                '/page.php'
+                '/page.php',
             ],
             [
                 '/phpmyadmin/./index.php',
                 '/phpmyadmin/./index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '/phpmyadmin/index.php',
                 '/phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
             [
                 '',
                 '/phpmyadmin/index.php',
                 '',
-                '/phpmyadmin/index.php'
+                '/phpmyadmin/index.php',
             ],
         ];
     }
@@ -400,7 +505,10 @@ class CoreTest extends PmaTestCase
     public function testFatalErrorMessageWithArgs()
     {
         $message = "Fatal error #%d in file %s.";
-        $params = [1, 'error_file.php'];
+        $params = [
+            1,
+            'error_file.php',
+        ];
 
         $this->expectOutputRegex("/Fatal error #1 in file error_file.php./");
         Core::fatalError($message, $params);
@@ -435,12 +543,30 @@ class CoreTest extends PmaTestCase
     public function providerTestGetRealSize()
     {
         return [
-            ['0', 0],
-            ['1kb', 1024],
-            ['1024k', 1024 * 1024],
-            ['8m', 8 * 1024 * 1024],
-            ['12gb', 12 * 1024 * 1024 * 1024],
-            ['1024', 1024],
+            [
+                '0',
+                0,
+            ],
+            [
+                '1kb',
+                1024,
+            ],
+            [
+                '1024k',
+                1024 * 1024,
+            ],
+            [
+                '8m',
+                8 * 1024 * 1024,
+            ],
+            [
+                '12gb',
+                12 * 1024 * 1024 * 1024,
+            ],
+            [
+                '1024',
+                1024,
+            ],
         ];
     }
 
@@ -482,14 +608,22 @@ class CoreTest extends PmaTestCase
     public function providerTestLinkURL()
     {
         return [
-            ['https://wiki.phpmyadmin.net',
-                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'
+            [
+                'https://wiki.phpmyadmin.net',
+                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net',
             ],
-            ['https://wiki.phpmyadmin.net',
-                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net'
+            [
+                'https://wiki.phpmyadmin.net',
+                './url.php?url=https%3A%2F%2Fwiki.phpmyadmin.net',
             ],
-            ['wiki.phpmyadmin.net', 'wiki.phpmyadmin.net'],
-            ['index.php?db=phpmyadmin', 'index.php?db=phpmyadmin']
+            [
+                'wiki.phpmyadmin.net',
+                'wiki.phpmyadmin.net',
+            ],
+            [
+                'index.php?db=phpmyadmin',
+                'index.php?db=phpmyadmin',
+            ],
         ];
     }
 
@@ -659,14 +793,38 @@ class CoreTest extends PmaTestCase
     public function provideTestIsAllowedDomain()
     {
         return [
-            ['https://www.phpmyadmin.net/', true],
-            ['http://duckduckgo.com\\@github.com', false],
-            ['https://github.com/', true],
-            ['https://github.com:123/', false],
-            ['https://user:pass@github.com:123/', false],
-            ['https://user:pass@github.com/', false],
-            ['https://server.local/', true],
-            ['./relative/', false],
+            [
+                'https://www.phpmyadmin.net/',
+                true,
+            ],
+            [
+                'http://duckduckgo.com\\@github.com',
+                false,
+            ],
+            [
+                'https://github.com/',
+                true,
+            ],
+            [
+                'https://github.com:123/',
+                false,
+            ],
+            [
+                'https://user:pass@github.com:123/',
+                false,
+            ],
+            [
+                'https://user:pass@github.com/',
+                false,
+            ],
+            [
+                'https://server.local/',
+                true,
+            ],
+            [
+                './relative/',
+                false,
+            ],
         ];
     }
 
@@ -694,18 +852,69 @@ class CoreTest extends PmaTestCase
     public static function providerTestNoVarType()
     {
         return [
-            [0, false, 0],
-            [0, false, 1],
-            [1, false, null],
-            [1.1, false, null],
-            ['', false, null],
-            [' ', false, null],
-            ['0', false, null],
-            ['string', false, null],
-            [[], false, null],
-            [[1, 2, 3], false, null],
-            [true, false, null],
-            [false, false, null]
+            [
+                0,
+                false,
+                0,
+            ],
+            [
+                0,
+                false,
+                1,
+            ],
+            [
+                1,
+                false,
+                null,
+            ],
+            [
+                1.1,
+                false,
+                null,
+            ],
+            [
+                '',
+                false,
+                null,
+            ],
+            [
+                ' ',
+                false,
+                null,
+            ],
+            [
+                '0',
+                false,
+                null,
+            ],
+            [
+                'string',
+                false,
+                null,
+            ],
+            [
+                [],
+                false,
+                null,
+            ],
+            [
+                [
+                    1,
+                    2,
+                    3,
+                ], false,
+                null,
+            ],
+            [
+                true,
+                false,
+                null,
+            ],
+            [
+                false,
+                false,
+                null,
+            ],
         ];
     }
 
@@ -914,7 +1123,7 @@ class CoreTest extends PmaTestCase
     public function testValueInArray()
     {
         $var = 'a';
-        $this->assertTrue(Core::isValid($var, ['a', 'b',]));
+        $this->assertTrue(Core::isValid($var, ['a', 'b']));
     }
 
     /**
@@ -925,7 +1134,7 @@ class CoreTest extends PmaTestCase
     public function testValueNotInArray()
     {
         $var = 'c';
-        $this->assertFalse(Core::isValid($var, ['a', 'b',]));
+        $this->assertFalse(Core::isValid($var, ['a', 'b']));
     }
 
     /**
@@ -975,12 +1184,47 @@ class CoreTest extends PmaTestCase
     public function provideTestSimilarType()
     {
         return [
-            [1, 1],
-            [1.5, 1.5],
-            [true, true],
-            ['string', "string"],
-            [[1, 2, 3.4], [1, 2, 3.4]],
-            [[1, '2', '3.4', 5, 'text'], ['1', '2', 3.4,'5']]
+            [
+                1,
+                1,
+            ],
+            [
+                1.5,
+                1.5,
+            ],
+            [
+                true,
+                true,
+            ],
+            [
+                'string',
+                "string",
+            ],
+            [
+                [
+                    1,
+                    2,
+                    3.4,
+                ], [
+                    1,
+                    2,
+                    3.4,
+                ],
+            ],
+            [
+                [
+                    1,
+                    '2',
+                    '3.4',
+                    5,
+                    'text',
+                ], [
+                    '1',
+                    '2',
+                    3.4,
+                    '5',
+                ],
+            ],
         ];
     }
 
@@ -1021,16 +1265,50 @@ class CoreTest extends PmaTestCase
     public function provideTestSafeUnserialize()
     {
         return [
-            ['s:6:"foobar";', 'foobar'],
-            ['foobar', null],
-            ['b:0;', false],
-            ['O:1:"a":1:{s:5:"value";s:3:"100";}', null],
-            ['O:8:"stdClass":1:{s:5:"field";O:8:"stdClass":0:{}}', null],
-            ['a:2:{i:0;s:90:"1234567890;a345678901234567890123456789012345678901234567890123456789012345678901234567890";i:1;O:8:"stdClass":0:{}}', null],
-            [serialize([1, 2, 3]), [1, 2, 3]],
-            [serialize('string""'), 'string""'],
-            [serialize(['foo' => 'bar']), ['foo' => 'bar']],
-            [serialize(['1', new stdClass(), '2']), null],
+            [
+                's:6:"foobar";',
+                'foobar',
+            ],
+            [
+                'foobar',
+                null,
+            ],
+            [
+                'b:0;',
+                false,
+            ],
+            [
+                'O:1:"a":1:{s:5:"value";s:3:"100";}',
+                null,
+            ],
+            [
+                'O:8:"stdClass":1:{s:5:"field";O:8:"stdClass":0:{}}',
+                null,
+            ],
+            [
+                'a:2:{i:0;s:90:"1234567890;a345678901234567890123456789012345678901234567890123456789012345678901234567890";i:1;O:8:"stdClass":0:{}}',
+                null,
+            ],
+            [
+                serialize([1, 2, 3]),
+                [
+                    1,
+                    2,
+                    3,
+                ],
+            ],
+            [
+                serialize('string""'),
+                'string""',
+            ],
+            [
+                serialize(['foo' => 'bar']),
+                ['foo' => 'bar'],
+            ],
+            [
+                serialize(['1', new stdClass(), '2']),
+                null,
+            ],
         ];
     }
 
@@ -1060,10 +1338,22 @@ class CoreTest extends PmaTestCase
     public function provideTestSanitizeMySQLHost()
     {
         return [
-            ['p:foo.bar', 'foo.bar'],
-            ['p:p:foo.bar', 'foo.bar'],
-            ['bar.baz', 'bar.baz'],
-            ['P:example.com', 'example.com'],
+            [
+                'p:foo.bar',
+                'foo.bar',
+            ],
+            [
+                'p:p:foo.bar',
+                'foo.bar',
+            ],
+            [
+                'bar.baz',
+                'bar.baz',
+            ],
+            [
+                'P:example.com',
+                'example.com',
+            ],
         ];
     }
 

@@ -82,7 +82,12 @@ class AuthenticationHttpTest extends PmaTestCase
         $mockHeader = $this->getMockBuilder('PhpMyAdmin\Header')
             ->disableOriginalConstructor()
             ->setMethods(
-                ['setBodyId', 'setTitle', 'disableMenuAndConsole', 'addHTML']
+                [
+                    'setBodyId',
+                    'setTitle',
+                    'disableMenuAndConsole',
+                    'addHTML',
+                ]
             )
             ->getMock();
 
@@ -262,7 +267,7 @@ class AuthenticationHttpTest extends PmaTestCase
                 false,
                 '',
                 'bar',
-                'foo'
+                'foo',
             ],
             [
                 'Basic ' . base64_encode('foobar'),
@@ -271,7 +276,7 @@ class AuthenticationHttpTest extends PmaTestCase
                 'REMOTE_PASSWORD',
                 true,
                 'Basic Zm9vYmFy',
-                'pswd'
+                'pswd',
             ],
             [
                 'Basic ' . base64_encode('foobar:'),
@@ -280,7 +285,7 @@ class AuthenticationHttpTest extends PmaTestCase
                 'AUTH_PASSWORD',
                 true,
                 'foobar',
-                false
+                false,
             ],
             [
                 'Basic ' . base64_encode(':foobar'),
@@ -289,7 +294,7 @@ class AuthenticationHttpTest extends PmaTestCase
                 'AUTH_PASSWORD',
                 true,
                 'Basic OmZvb2Jhcg==',
-                'pswd'
+                'pswd',
             ],
             [
                 'BasicTest',
@@ -298,7 +303,7 @@ class AuthenticationHttpTest extends PmaTestCase
                 'AUTH_PASSWORD',
                 true,
                 'BasicTest',
-                'pswd'
+                'pswd',
             ],
         ];
     }
@@ -352,7 +357,7 @@ class AuthenticationHttpTest extends PmaTestCase
 
         $GLOBALS['cfg']['Server'] = [
             'host' => 'a',
-            'user' => 'user2'
+            'user' => 'user2',
         ];
 
         $this->assertTrue(
@@ -385,7 +390,7 @@ class AuthenticationHttpTest extends PmaTestCase
 
         $GLOBALS['cfg']['Server'] = [
             'host' => 'a',
-            'user' => 'user2'
+            'user' => 'user2',
         ];
 
         $this->assertTrue(

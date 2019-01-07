@@ -134,13 +134,13 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo $this->template->render('login/header', [
                 'theme' => $GLOBALS['PMA_Theme'],
                 'add_class' => ' modal_form',
-                'session_expired' => 1
+                'session_expired' => 1,
             ]);
         } else {
             echo $this->template->render('login/header', [
                 'theme' => $GLOBALS['PMA_Theme'],
                 'add_class' => '',
-                'session_expired' => 0
+                'session_expired' => 0,
             ]);
         }
 

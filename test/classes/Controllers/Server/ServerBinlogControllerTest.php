@@ -56,8 +56,14 @@ class ServerBinlogControllerTest extends PmaTestCase
         Util::cacheSet('profiling_supported', true);
 
         $binary_log_file_names = [];
-        $binary_log_file_names[] = ["Log_name" => "index1", "File_size" => 100];
-        $binary_log_file_names[] = ["Log_name" => "index2", "File_size" => 200];
+        $binary_log_file_names[] = [
+            "Log_name" => "index1",
+            "File_size" => 100,
+        ];
+        $binary_log_file_names[] = [
+            "Log_name" => "index2",
+            "File_size" => 200,
+        ];
 
         //Mock DBI
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -138,15 +144,15 @@ class ServerBinlogControllerTest extends PmaTestCase
                 null,
                 1,
                 true,
-                ["log1" => "logd"]
+                ["log1" => "logd"],
             ],
             [
                 ["log2" => "logb"],
                 null,
                 0,
                 false,
-                'executed'
-            ]
+                'executed',
+            ],
         ];
         $value = [
             'Info' => "index1_Info",

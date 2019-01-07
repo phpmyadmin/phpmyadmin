@@ -81,7 +81,7 @@ class CreateTest extends TestBase
             "field_0_6" => "UNSIGNED",
             "field_1_2" => "VARCHAR",
             "field_1_5" => "utf8_general_ci",
-            "field_1_4" => "As defined:"
+            "field_1_4" => "As defined:",
         ];
 
         foreach ($column_dropdown_details as $selector => $value) {

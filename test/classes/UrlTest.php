@@ -66,7 +66,10 @@ class UrlTest extends TestCase
         $expected = '?db=db'
             . htmlentities($separator) . 'table=table'
             . htmlentities($separator) . $expected;
-        $params = ['db' => 'db', 'table' => 'table'];
+        $params = [
+            'db' => 'db',
+            'table' => 'table',
+        ];
         $this->assertEquals($expected, Url::getCommon($params));
     }
 
@@ -88,7 +91,10 @@ class UrlTest extends TestCase
         $this->assertEquals(
             $expected,
             Url::getCommonRaw(
-                ['db' => 'db', 'table' => 'table'],
+                [
+                    'db' => 'db',
+                    'table' => 'table',
+                ],
                 '#ABC#'
             )
         );

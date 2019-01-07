@@ -88,9 +88,17 @@ class RelationStatsDia
         // left, right, position
         $value = 12;
         if ($pos != 0) {
-            return [$pos + $value + $pos, $pos + $value + $pos + 1, $pos];
+            return [
+                $pos + $value + $pos,
+                $pos + $value + $pos + 1,
+                $pos,
+            ];
         }
-        return [$pos + $value , $pos + $value + 1, $pos];
+        return [
+            $pos + $value,
+            $pos + $value + 1,
+            $pos,
+        ];
     }
 
     /**

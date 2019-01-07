@@ -151,7 +151,14 @@ class GisLineString extends GisGeometry
         $red = hexdec(mb_substr($line_color, 1, 2));
         $green = hexdec(mb_substr($line_color, 3, 2));
         $blue = hexdec(mb_substr($line_color, 4, 2));
-        $line = ['width' => 1.5, 'color' => [$red, $green, $blue]];
+        $line = [
+            'width' => 1.5,
+            'color' => [
+                $red,
+                $green,
+                $blue,
+            ],
+        ];
 
         // Trim to remove leading 'LINESTRING(' and trailing ')'
         $linesrting

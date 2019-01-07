@@ -97,7 +97,7 @@ class ExportForm extends BaseForm
                 'Export/excel_null',
                 'Export/excel_removeCRLF',
                 'Export/excel_columns',
-                'Export/excel_edition'
+                'Export/excel_edition',
             ],
             'Latex' => [
                 'Export/latex_caption',
@@ -115,13 +115,13 @@ class ExportForm extends BaseForm
                 'Export/latex_data_caption',
                 'Export/latex_data_continued_caption',
                 'Export/latex_data_label',
-                'Export/latex_null'
+                'Export/latex_null',
             ],
             'Microsoft_Office' => [
                 ':group:' . __('Microsoft Word 2000'),
                 'Export/htmlword_structure_or_data',
                 'Export/htmlword_null',
-                'Export/htmlword_columns'
+                'Export/htmlword_columns',
             ],
             'Open_Document' => [
                 ':group:' . __('OpenDocument Spreadsheet'),
@@ -137,13 +137,13 @@ class ExportForm extends BaseForm
                 ':group:end',
                 ':group:' . __('Data'),
                 'Export/odt_columns',
-                'Export/odt_null'
+                'Export/odt_null',
             ],
             'Texy' => [
                 'Export/texytext_structure_or_data',
                 ':group:' . __('Data'),
                 'Export/texytext_null',
-                'Export/texytext_columns'
+                'Export/texytext_columns',
             ],
         ];
     }

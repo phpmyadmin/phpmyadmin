@@ -114,8 +114,14 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
         // needs PHP >= 4.3.0
         $newstring = '';
         $descriptorspec = [
-            0 => ["pipe", "r"],
-            1 => ["pipe", "w"],
+            0 => [
+                "pipe",
+                "r",
+            ],
+            1 => [
+                "pipe",
+                "w",
+            ],
         ];
         $process = proc_open($program . ' ' . $options[1], $descriptorspec, $pipes);
         if (is_resource($process)) {

@@ -198,7 +198,7 @@ class MultSubmitsTest extends TestCase
         $db = "PMA_db";
         $table = "PMA_table";
         $selected = [
-            "index1" => "table1"
+            "index1" => "table1",
         ];
         $views = null;
         $originalSqlQuery = "original_sql_query";
@@ -248,7 +248,8 @@ class MultSubmitsTest extends TestCase
         $db = "PMA_db";
         $table = "PMA_table";
         $selected = [
-            "table1", "table2"
+            "table1",
+            "table2",
         ];
         $views = null;
         $primary = null;
@@ -328,10 +329,12 @@ class MultSubmitsTest extends TestCase
         $what = "drop_tbl";
         $table = "PMA_table";
         $selected = [
-            "table1", "table2"
+            "table1",
+            "table2",
         ];
         $views = [
-            "table1", "table2"
+            "table1",
+            "table2",
         ];
 
         list($fullQuery, $reload, $fullQueryViews)

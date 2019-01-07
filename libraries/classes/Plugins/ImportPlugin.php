@@ -86,6 +86,9 @@ abstract class ImportPlugin
             $options = null;
         }
 
-        return [$db_name, $options];
+        return [
+            $db_name,
+            $options,
+        ];
     }
 }

@@ -200,7 +200,7 @@ if ($goto == 'sql.php') {
         [
             'db' => $db,
             'table' => $table,
-            'sql_query' => $sql_query
+            'sql_query' => $sql_query,
         ]
     );
 } // end if

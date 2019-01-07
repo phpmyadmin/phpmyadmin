@@ -312,7 +312,11 @@ class ImportOds extends ImportPlugin
             $tables[] = [(string) $tbl_attr['name']];
 
             /* Store the current sheet in the accumulator */
-            $rows[] = [(string) $tbl_attr['name'], $col_names, $tempRows];
+            $rows[] = [
+                (string) $tbl_attr['name'],
+                $col_names,
+                $tempRows,
+            ];
             $tempRows = [];
             $col_names = [];
             $max_cols = 0;

@@ -82,7 +82,7 @@ class CheckUserPrivileges
         return [
             $show_grants_str,
             $show_grants_dbname,
-            $show_grants_tblname
+            $show_grants_tblname,
         ];
     }
 

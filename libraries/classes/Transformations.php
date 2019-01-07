@@ -229,8 +229,14 @@ class Transformations
     public function fixUpMime($value)
     {
         $value = str_replace(
-            ["jpeg", "png"],
-            ["JPEG", "PNG"],
+            [
+                "jpeg",
+                "png",
+            ],
+            [
+                "JPEG",
+                "PNG",
+            ],
             $value
         );
         return str_replace(

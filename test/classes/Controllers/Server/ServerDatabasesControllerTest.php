@@ -83,7 +83,7 @@ class ServerDatabasesControllerTest extends PmaTestCase
             ["SCHEMA_NAME" => "information_schema"],
             ["SCHEMA_NAME" => "mysql"],
             ["SCHEMA_NAME" => "performance_schema"],
-            ["SCHEMA_NAME" => "phpmyadmin"]
+            ["SCHEMA_NAME" => "phpmyadmin"],
         ];
         $property = $class->getProperty('_databases');
         $property->setAccessible(true);
@@ -109,7 +109,10 @@ class ServerDatabasesControllerTest extends PmaTestCase
         $property->setAccessible(true);
         $property->setValue($ctrl, 'asc');
 
-        $replication_types = ["master", "slave"];
+        $replication_types = [
+            "master",
+            "slave",
+        ];
 
         $html = $method->invoke($ctrl, $replication_types);
 
@@ -264,7 +267,7 @@ class ServerDatabasesControllerTest extends PmaTestCase
                     'disp_name' => __('Collation'),
                     'description_function' => [
                         Charsets::class,
-                        'getCollationDescr'
+                        'getCollationDescr',
                     ],
                     'format'    => 'string',
                     'footer'    => ''
@@ -272,32 +275,32 @@ class ServerDatabasesControllerTest extends PmaTestCase
                 'SCHEMA_TABLES' => [
                     'disp_name' => __('Tables'),
                     'format'    => 'number',
-                    'footer'    => 0
+                    'footer'    => 0,
                 ],
                 'SCHEMA_TABLE_ROWS' => [
                     'disp_name' => __('Rows'),
                     'format'    => 'number',
-                    'footer'    => 0
+                    'footer'    => 0,
                 ],
                 'SCHEMA_DATA_LENGTH' => [
                     'disp_name' => __('Data'),
                     'format'    => 'byte',
-                    'footer'    => 0
+                    'footer'    => 0,
                 ],
                 'SCHEMA_INDEX_LENGTH' => [
                     'disp_name' => __('Indexes'),
                     'format'    => 'byte',
-                    'footer'    => 0
+                    'footer'    => 0,
                 ],
                 'SCHEMA_LENGTH' => [
                     'disp_name' => __('Total'),
                     'format'    => 'byte',
-                    'footer'    => 0
+                    'footer'    => 0,
                 ],
                 'SCHEMA_DATA_FREE' => [
                     'disp_name' => __('Overhead'),
                     'format'    => 'byte',
-                    'footer'    => 0
+                    'footer'    => 0,
                 ]
             ],
             $method->invoke($ctrl)

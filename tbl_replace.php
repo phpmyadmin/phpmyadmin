@@ -61,7 +61,11 @@ $insertEdit = new InsertEdit($GLOBALS['dbi']);
 // check whether insert row mode, if so include tbl_change.php
 $insertEdit->isInsertRow();
 
-$after_insert_actions = ['new_insert', 'same_insert', 'edit_next'];
+$after_insert_actions = [
+    'new_insert',
+    'same_insert',
+    'edit_next',
+];
 if (isset($_POST['after_insert'])
     && in_array($_POST['after_insert'], $after_insert_actions)
 ) {
@@ -469,7 +473,7 @@ if ($response->isAjax() && ! isset($_POST['ajax_page_request'])) {
         }
         $transformation_types = [
             "input_transformation",
-            "transformation"
+            "transformation",
         ];
         foreach ($mime_map as $transformation) {
             $column_name = $transformation['column_name'];

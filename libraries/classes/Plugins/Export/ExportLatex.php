@@ -346,13 +346,19 @@ class ExportLatex extends ExportPlugin
                         'texEscape',
                         get_class($this),
                     ],
-                    ['table' => $table_alias, 'database' => $db_alias]
+                    [
+                        'table' => $table_alias,
+                        'database' => $db_alias,
+                    ]
                 )
                 . '} \\label{'
                 . Util::expandUserString(
                     $GLOBALS['latex_data_label'],
                     null,
-                    ['table' => $table_alias, 'database' => $db_alias]
+                    [
+                        'table' => $table_alias,
+                        'database' => $db_alias,
+                    ]
                 )
                 . '} \\\\';
         }
@@ -381,7 +387,10 @@ class ExportLatex extends ExportPlugin
                             'texEscape',
                             get_class($this),
                         ],
-                        ['table' => $table_alias, 'database' => $db_alias]
+                        [
+                            'table' => $table_alias,
+                            'database' => $db_alias,
+                        ]
                     )
                     . '} \\\\ '
                 )
@@ -553,13 +562,19 @@ class ExportLatex extends ExportPlugin
                         'texEscape',
                         get_class($this),
                     ],
-                    ['table' => $table_alias, 'database' => $db_alias]
+                    [
+                        'table' => $table_alias,
+                        'database' => $db_alias,
+                    ]
                 )
                 . '} \\label{'
                 . Util::expandUserString(
                     $GLOBALS['latex_structure_label'],
                     null,
-                    ['table' => $table_alias, 'database' => $db_alias]
+                    [
+                        'table' => $table_alias,
+                        'database' => $db_alias,
+                    ]
                 )
                 . '} \\\\' . $crlf;
         }
@@ -574,7 +589,10 @@ class ExportLatex extends ExportPlugin
                         'texEscape',
                         get_class($this),
                     ],
-                    ['table' => $table_alias, 'database' => $db_alias]
+                    [
+                        'table' => $table_alias,
+                        'database' => $db_alias,
+                    ]
                 )
                 . '} \\\\ ' . $crlf;
         }
@@ -672,7 +690,16 @@ class ExportLatex extends ExportPlugin
      */
     public static function texEscape($string)
     {
-        $escape = ['$', '%', '{', '}', '&', '#', '_', '^'];
+        $escape = [
+            '$',
+            '%',
+            '{',
+            '}',
+            '&',
+            '#',
+            '_',
+            '^',
+        ];
         $cnt_escape = count($escape);
         for ($k = 0; $k < $cnt_escape; $k++) {
             $string = str_replace($escape[$k], '\\' . $escape[$k], $string);

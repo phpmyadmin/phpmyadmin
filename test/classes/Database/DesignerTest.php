@@ -34,7 +34,10 @@ class DesignerTest extends TestCase
     {
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['ServerDefault'] = 1;
-        $GLOBALS['cfg']['PDFPageSizes'] = ['A3', 'A4'];
+        $GLOBALS['cfg']['PDFPageSizes'] = [
+            'A3',
+            'A4',
+        ];
         $GLOBALS['cfg']['PDFDefaultPageSize'] = 'A4';
         $GLOBALS['cfg']['Schema']['pdf_orientation'] = 'L';
         $GLOBALS['cfg']['Schema']['pdf_paper'] = 'A4';
@@ -46,9 +49,9 @@ class DesignerTest extends TestCase
                     'db' => 'pmadb',
                     'pdf_pages' => 'pdf_pages',
                     'pdfwork' => true
-                ]
+                ],
             ],
-            ' PMA_token ' => 'token'
+            ' PMA_token ' => 'token',
         ];
     }
 
@@ -79,8 +82,14 @@ class DesignerTest extends TestCase
         $dbi->expects($this->exactly(3))
             ->method('fetchAssoc')
             ->willReturnOnConsecutiveCalls(
-                ['page_nr' => '1', 'page_descr' => 'page1'],
-                ['page_nr' => '2', 'page_descr' => 'page2'],
+                [
+                    'page_nr' => '1',
+                    'page_descr' => 'page1',
+                ],
+                [
+                    'page_nr' => '2',
+                    'page_descr' => 'page2',
+                ],
                 false
             );
 
@@ -110,7 +119,7 @@ class DesignerTest extends TestCase
         $this->assertEquals(
             [
                 '1' => 'page1',
-                '2' => 'page2'
+                '2' => 'page2',
             ],
             $result
         );

@@ -92,37 +92,58 @@ class ImportTest extends TestCase
     public function testLookForUse()
     {
         $this->assertEquals(
-            [null, null],
+            [
+                null,
+                null,
+            ],
             $this->import->lookForUse(null, null, null)
         );
 
         $this->assertEquals(
-            ['myDb', null],
+            [
+                'myDb',
+                null,
+            ],
             $this->import->lookForUse(null, 'myDb', null)
         );
 
         $this->assertEquals(
-            ['myDb', true],
+            [
+                'myDb',
+                true,
+            ],
             $this->import->lookForUse(null, 'myDb', true)
         );
 
         $this->assertEquals(
-            ['myDb', true],
+            [
+                'myDb',
+                true,
+            ],
             $this->import->lookForUse('select 1 from myTable', 'myDb', true)
         );
 
         $this->assertEquals(
-            ['anotherDb', true],
+            [
+                'anotherDb',
+                true,
+            ],
             $this->import->lookForUse('use anotherDb', 'myDb', false)
         );
 
         $this->assertEquals(
-            ['anotherDb', true],
+            [
+                'anotherDb',
+                true,
+            ],
             $this->import->lookForUse('use anotherDb', 'myDb', true)
         );
 
         $this->assertEquals(
-            ['anotherDb', true],
+            [
+                'anotherDb',
+                true,
+            ],
             $this->import->lookForUse('use `anotherDb`;', 'myDb', true)
         );
     }
@@ -150,12 +171,30 @@ class ImportTest extends TestCase
     public function provGetColumnAlphaName()
     {
         return [
-            ['A', 1],
-            ['Z', 0],
-            ['AA', 27],
-            ['AZ', 52],
-            ['BA', 53],
-            ['BB', 54],
+            [
+                'A',
+                1,
+            ],
+            [
+                'Z',
+                0,
+            ],
+            [
+                'AA',
+                27,
+            ],
+            [
+                'AZ',
+                52,
+            ],
+            [
+                'BA',
+                53,
+            ],
+            [
+                'BB',
+                54,
+            ],
         ];
     }
 
@@ -182,12 +221,30 @@ class ImportTest extends TestCase
     public function provGetColumnNumberFromName()
     {
         return [
-            [1, 'A'],
-            [26, 'Z'],
-            [27, 'AA'],
-            [52, 'AZ'],
-            [53, 'BA'],
-            [54, 'BB'],
+            [
+                1,
+                'A',
+            ],
+            [
+                26,
+                'Z',
+            ],
+            [
+                27,
+                'AA',
+            ],
+            [
+                52,
+                'AZ',
+            ],
+            [
+                53,
+                'BA',
+            ],
+            [
+                54,
+                'BB',
+            ],
         ];
     }
 
@@ -214,10 +271,22 @@ class ImportTest extends TestCase
     public function provGetDecimalPrecision()
     {
         return [
-            [2, '2,1'],
-            [6, '6,2'],
-            [6, '6,0'],
-            [16, '16,2'],
+            [
+                2,
+                '2,1',
+            ],
+            [
+                6,
+                '6,2',
+            ],
+            [
+                6,
+                '6,0',
+            ],
+            [
+                16,
+                '16,2',
+            ],
         ];
     }
 
@@ -244,10 +313,22 @@ class ImportTest extends TestCase
     public function provGetDecimalScale()
     {
         return [
-            [1, '2,1'],
-            [2, '6,2'],
-            [0, '6,0'],
-            [20, '30,20'],
+            [
+                1,
+                '2,1',
+            ],
+            [
+                2,
+                '6,2',
+            ],
+            [
+                0,
+                '6,0',
+            ],
+            [
+                20,
+                '30,20',
+            ],
         ];
     }
 
@@ -274,10 +355,34 @@ class ImportTest extends TestCase
     public function provGetDecimalSize()
     {
         return [
-            [[2, 1, '2,1'], '2.1'],
-            [[2, 1, '2,1'], '6.2'],
-            [[3, 1, '3,1'], '10.0'],
-            [[4, 2, '4,2'], '30.20'],
+            [
+                [
+                    2,
+                    1,
+                    '2,1',
+                ], '2.1',
+            ],
+            [
+                [
+                    2,
+                    1,
+                    '2,1',
+                ], '6.2',
+            ],
+            [
+                [
+                    3,
+                    1,
+                    '3,1',
+                ], '10.0',
+            ],
+            [
+                [
+                    4,
+                    2,
+                    '4,2',
+                ], '30.20',
+            ],
         ];
     }
 
@@ -307,19 +412,71 @@ class ImportTest extends TestCase
     public function provDetectType()
     {
         return [
-            [Import::NONE, null, 'NULL'],
-            [Import::NONE, Import::NONE, 'NULL'],
-            [Import::INT, Import::INT, 'NULL'],
-            [Import::VARCHAR, Import::VARCHAR, 'NULL'],
-            [Import::VARCHAR, null, null],
-            [Import::VARCHAR, Import::INT, null],
-            [Import::INT, Import::INT, '10'],
-            [Import::DECIMAL, Import::DECIMAL, '10.2'],
-            [Import::DECIMAL, Import::INT, '10.2'],
-            [Import::BIGINT, Import::BIGINT, '2147483648'],
-            [Import::BIGINT, Import::INT, '2147483648'],
-            [Import::VARCHAR, Import::VARCHAR, 'test'],
-            [Import::VARCHAR, Import::INT, 'test'],
+            [
+                Import::NONE,
+                null,
+                'NULL',
+            ],
+            [
+                Import::NONE,
+                Import::NONE,
+                'NULL',
+            ],
+            [
+                Import::INT,
+                Import::INT,
+                'NULL',
+            ],
+            [
+                Import::VARCHAR,
+                Import::VARCHAR,
+                'NULL',
+            ],
+            [
+                Import::VARCHAR,
+                null,
+                null,
+            ],
+            [
+                Import::VARCHAR,
+                Import::INT,
+                null,
+            ],
+            [
+                Import::INT,
+                Import::INT,
+                '10',
+            ],
+            [
+                Import::DECIMAL,
+                Import::DECIMAL,
+                '10.2',
+            ],
+            [
+                Import::DECIMAL,
+                Import::INT,
+                '10.2',
+            ],
+            [
+                Import::BIGINT,
+                Import::BIGINT,
+                '2147483648',
+            ],
+            [
+                Import::BIGINT,
+                Import::INT,
+                '2147483648',
+            ],
+            [
+                Import::VARCHAR,
+                Import::VARCHAR,
+                'test',
+            ],
+            [
+                Import::VARCHAR,
+                Import::INT,
+                'test',
+            ],
         ];
     }
 
@@ -393,7 +550,7 @@ class ImportTest extends TestCase
         // URL to matched rows.
         $_url_params = [
             'db'        => 'PMA',
-            'sql_query' => $simulated_query
+            'sql_query' => $simulated_query,
         ];
         $matched_rows_url  = 'sql.php' . Url::getCommon($_url_params);
 
@@ -403,7 +560,7 @@ class ImportTest extends TestCase
                     $analyzed_sql_results['query']
                 ),
                 'matched_rows' => 2,
-                'matched_rows_url' => $matched_rows_url
+                'matched_rows_url' => $matched_rows_url,
             ],
             $simulated_data
         );
@@ -431,7 +588,7 @@ class ImportTest extends TestCase
             'TOKUDB',
             'XTRADB',
             'SEQUENCE',
-            'BDB'
+            'BDB',
         ];
 
         $check_query = 'SELECT `ENGINE` FROM `information_schema`.`tables` '

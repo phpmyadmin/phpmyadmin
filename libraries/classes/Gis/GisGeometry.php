@@ -199,7 +199,10 @@ abstract class GisGeometry
             $wkt = $value;
         }
 
-        return ['srid' => $srid, 'wkt' => $wkt];
+        return [
+            'srid' => $srid,
+            'wkt' => $wkt
+        ];
     }
 
     /**
@@ -241,7 +244,10 @@ abstract class GisGeometry
             }
 
             if (! $linear) {
-                $points_arr[] = [$x, $y];
+                $points_arr[] = [
+                    $x,
+                    $y,
+                ];
             } else {
                 $points_arr[] = $x;
                 $points_arr[] = $y;

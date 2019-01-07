@@ -162,7 +162,11 @@ class GisPolygon extends GisGeometry
         $red = hexdec(mb_substr($fill_color, 1, 2));
         $green = hexdec(mb_substr($fill_color, 3, 2));
         $blue = hexdec(mb_substr($fill_color, 4, 2));
-        $color = [$red, $green, $blue];
+        $color = [
+            $red,
+            $green,
+            $blue,
+        ];
 
         // Trim to remove leading 'POLYGON((' and trailing '))'
         $polygon = mb_substr(

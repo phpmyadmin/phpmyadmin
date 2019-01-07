@@ -45,10 +45,22 @@ class SysInfoTest extends TestCase
     public function sysInfoOsProvider()
     {
         return [
-            ['FreeBSD', 'Linux'],
-            ['Linux', 'Linux'],
-            ['Winnt', 'Winnt'],
-            ['SunOS', 'SunOS'],
+            [
+                'FreeBSD',
+                'Linux',
+            ],
+            [
+                'Linux',
+                'Linux',
+            ],
+            [
+                'Winnt',
+                'Winnt',
+            ],
+            [
+                'SunOS',
+                'SunOS',
+            ],
         ];
     }
 

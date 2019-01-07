@@ -153,7 +153,14 @@ class GisPoint extends GisGeometry
         $red = hexdec(mb_substr($point_color, 1, 2));
         $green = hexdec(mb_substr($point_color, 3, 2));
         $blue = hexdec(mb_substr($point_color, 4, 2));
-        $line = ['width' => 1.25, 'color' => [$red, $green, $blue]];
+        $line = [
+            'width' => 1.25,
+            'color' => [
+                $red,
+                $green,
+                $blue,
+            ],
+        ];
 
         // Trim to remove leading 'POINT(' and trailing ')'
         $point

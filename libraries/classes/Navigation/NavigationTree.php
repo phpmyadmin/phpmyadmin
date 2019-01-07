@@ -863,7 +863,10 @@ class NavigationTree
         $children = $this->_tree->children;
         usort(
             $children,
-            ['PhpMyAdmin\\Navigation\\NavigationTree', 'sortNode']
+            [
+                'PhpMyAdmin\\Navigation\\NavigationTree',
+                'sortNode',
+            ]
         );
         $this->_setVisibility();
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
@@ -906,7 +909,10 @@ class NavigationTree
             $children = $node->children;
             usort(
                 $children,
-                ['PhpMyAdmin\\Navigation\\NavigationTree', 'sortNode']
+                [
+                    'PhpMyAdmin\\Navigation\\NavigationTree',
+                    'sortNode',
+                ]
             );
             for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {
                 if ($i + 1 != $nbChildren) {
@@ -1210,7 +1216,10 @@ class NavigationTree
             $children = $node->children;
             usort(
                 $children,
-                ['PhpMyAdmin\\Navigation\\NavigationTree', 'sortNode']
+                [
+                    'PhpMyAdmin\\Navigation\\NavigationTree',
+                    'sortNode',
+                ]
             );
             $buffer = '';
             $extra_class = '';
@@ -1302,7 +1311,10 @@ class NavigationTree
         $children = $this->_tree->children;
         usort(
             $children,
-            ['PhpMyAdmin\\Navigation\\NavigationTree', 'sortNode']
+            [
+                'PhpMyAdmin\\Navigation\\NavigationTree',
+                'sortNode',
+            ]
         );
         $this->_setVisibility();
         for ($i = 0, $nbChildren = count($children); $i < $nbChildren; $i++) {

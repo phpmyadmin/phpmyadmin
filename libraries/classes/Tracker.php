@@ -230,7 +230,10 @@ class Tracker
 
         $indexes = $GLOBALS['dbi']->getTableIndexes($dbname, $tablename);
 
-        $snapshot = ['COLUMNS' => $columns, 'INDEXES' => $indexes];
+        $snapshot = [
+            'COLUMNS' => $columns,
+            'INDEXES' => $indexes,
+        ];
         $snapshot = serialize($snapshot);
 
         // Get DROP TABLE / DROP VIEW and CREATE TABLE SQL statements
@@ -594,7 +597,7 @@ class Tracker
                 $ddlog[] = [
                     'date' => $date,
                     'username' => $username,
-                    'statement' => $statement
+                    'statement' => $statement,
                 ];
             }
         }
@@ -626,7 +629,7 @@ class Tracker
                 $dmlog[] = [
                     'date' => $date,
                     'username' => $username,
-                    'statement' => $statement
+                    'statement' => $statement,
                 ];
             }
         }

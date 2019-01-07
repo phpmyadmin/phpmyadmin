@@ -551,6 +551,9 @@ class CreateAddField
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($sqlQuery);
         }
-        return [$this->dbi->tryQuery($sqlQuery), $sqlQuery];
+        return [
+            $this->dbi->tryQuery($sqlQuery),
+            $sqlQuery,
+        ];
     }
 }

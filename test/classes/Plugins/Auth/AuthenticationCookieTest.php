@@ -123,7 +123,7 @@ class AuthenticationCookieTest extends PmaTestCase
                     'setBodyId',
                     'setTitle',
                     'disableMenuAndConsole',
-                    'disableWarnings'
+                    'disableWarnings',
                 ]
             )
             ->getMock();
@@ -157,7 +157,10 @@ class AuthenticationCookieTest extends PmaTestCase
             ->will($this->returnValue($mockHeader));
 
         $GLOBALS['pmaThemeImage'] = 'test';
-        $GLOBALS['cfg']['Servers'] = [1, 2];
+        $GLOBALS['cfg']['Servers'] = [
+            1,
+            2,
+        ];
 
         // mock error handler
 
@@ -372,7 +375,11 @@ class AuthenticationCookieTest extends PmaTestCase
     public function testAuthHeaderPartial()
     {
         $GLOBALS['cfg']['LoginCookieDeleteAll'] = false;
-        $GLOBALS['cfg']['Servers'] = [1, 2, 3];
+        $GLOBALS['cfg']['Servers'] = [
+            1,
+            2,
+            3,
+        ];
         $GLOBALS['cfg']['Server']['LogoutURL'] = 'https://example.com/logout';
         $GLOBALS['cfg']['Server']['auth_type'] = 'cookie';
 

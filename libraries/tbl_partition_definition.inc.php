@@ -14,8 +14,10 @@ if (! isset($partitionDetails)) {
 
     // Extract some partitioning and subpartitioning parameters from the request
     $partitionParams = [
-        'partition_by', 'partition_expr',
-        'subpartition_by', 'subpartition_expr',
+        'partition_by',
+        'partition_expr',
+        'subpartition_by',
+        'subpartition_expr',
     ];
     foreach ($partitionParams as $partitionParam) {
         $partitionDetails[$partitionParam] = isset($_POST[$partitionParam])

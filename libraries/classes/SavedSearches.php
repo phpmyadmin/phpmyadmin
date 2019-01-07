@@ -165,7 +165,7 @@ class SavedSearches
             'criteriaAndOrRow',
             'criteriaAndOrColumn',
             'rows',
-            'TableList'
+            'TableList',
         ];
 
         $data = [];
@@ -329,7 +329,7 @@ class SavedSearches
         //Else, it's an update.
         $wheres = [
             "id != " . $this->getId(),
-            "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "'"
+            "search_name = '" . $GLOBALS['dbi']->escapeString($this->getSearchName()) . "'",
         ];
         $existingSearches = $this->getList($wheres);
 

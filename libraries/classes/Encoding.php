@@ -67,10 +67,26 @@ class Encoding
      * @var array
      */
     private static $_enginemap = [
-        'iconv' => ['iconv', self::ENGINE_ICONV, 'iconv'],
-        'recode' => ['recode_string', self::ENGINE_RECODE, 'recode'],
-        'mb' => ['mb_convert_encoding', self::ENGINE_MB, 'mbstring'],
-        'none' => ['isset', self::ENGINE_NONE, ''],
+        'iconv' => [
+            'iconv',
+            self::ENGINE_ICONV,
+            'iconv',
+        ],
+        'recode' => [
+            'recode_string',
+            self::ENGINE_RECODE,
+            'recode',
+        ],
+        'mb' => [
+            'mb_convert_encoding',
+            self::ENGINE_MB,
+            'mbstring',
+        ],
+        'none' => [
+            'isset',
+            self::ENGINE_NONE,
+            '',
+        ],
     ];
 
     /**
@@ -79,7 +95,9 @@ class Encoding
      * @var array
      */
     private static $_engineorder = [
-        'iconv', 'mb', 'recode',
+        'iconv',
+        'mb',
+        'recode',
     ];
 
     /**

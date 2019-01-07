@@ -687,7 +687,11 @@ class Table
 
         if ($this->_dbi->getCachedTableContent([$db, $table, 'ExactRows']) != null) {
             $row_count = $this->_dbi->getCachedTableContent(
-                [$db, $table, 'ExactRows']
+                [
+                    $db,
+                    $table,
+                    'ExactRows',
+                ]
             );
             return $row_count;
         }
@@ -700,14 +704,21 @@ class Table
                 $tmp_tables = $this->_dbi->getTablesFull($db, $table);
                 if (isset($tmp_tables[$table])) {
                     $this->_dbi->cacheTableContent(
-                        [$db, $table],
+                        [
+                            $db,
+                            $table,
+                        ],
                         $tmp_tables[$table]
                     );
                 }
             }
             if ($this->_dbi->getCachedTableContent([$db, $table, 'Rows']) != null) {
                 $row_count = $this->_dbi->getCachedTableContent(
-                    [$db, $table, 'Rows']
+                    [
+                        $db,
+                        $table,
+                        'Rows',
+                    ]
                 );
             } else {
                 $row_count = false;
@@ -1353,11 +1364,11 @@ class Table
         $get_fields = ['display_field'];
         $where_fields = [
             'db_name' => $source_db,
-            'table_name' => $source_table
+            'table_name' => $source_table,
         ];
         $new_fields = [
             'db_name' => $target_db,
-            'table_name' => $target_table
+            'table_name' => $target_table,
         ];
         self::duplicateInfo(
             'displaywork',
@@ -1373,16 +1384,16 @@ class Table
         $get_fields = [
             'master_field',
             'foreign_table',
-            'foreign_field'
+            'foreign_field',
         ];
         $where_fields = [
             'master_db' => $source_db,
-            'master_table' => $source_table
+            'master_table' => $source_table,
         ];
         $new_fields = [
             'master_db' => $target_db,
             'foreign_db' => $target_db,
-            'master_table' => $target_table
+            'master_table' => $target_table,
         ];
         self::duplicateInfo(
             'relwork',
@@ -1395,16 +1406,16 @@ class Table
         $get_fields = [
             'foreign_field',
             'master_table',
-            'master_field'
+            'master_field',
         ];
         $where_fields = [
             'foreign_db' => $source_db,
-            'foreign_table' => $source_table
+            'foreign_table' => $source_table,
         ];
         $new_fields = [
             'master_db' => $target_db,
             'foreign_db' => $target_db,
-            'foreign_table' => $target_table
+            'foreign_table' => $target_table,
         ];
         self::duplicateInfo(
             'relwork',
@@ -1623,7 +1634,10 @@ class Table
         );
         $uniques = $this->_dbi->fetchResult(
             $sql,
-            ['Key_name', null],
+            [
+                'Key_name',
+                null,
+            ],
             'Column_name'
         );
 
@@ -1886,13 +1900,11 @@ class Table
         // set session variable if it's still undefined
         if (! isset($_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name])) {
             // check whether we can get from pmadb
-            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name]
-            [$this->_name] = $cfgRelation['uiprefswork']
+            $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name] = $cfgRelation['uiprefswork']
                 ?  $this->getUiPrefsFromDb()
                 : [];
         }
-        $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$server_id]
-        [$this->_db_name][$this->_name];
+        $this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$server_id][$this->_db_name][$this->_name];
     }
 
     /**
@@ -2553,7 +2565,7 @@ class Table
             $html_output,
             $preview_sql_data,
             $display_query,
-            $seen_error
+            $seen_error,
         ];
     }
 

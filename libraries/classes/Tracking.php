@@ -75,7 +75,7 @@ class Tracking
                     'id'        => $id,
                     'timestamp' => $timestamp,
                     'username'  => $entry['username'],
-                    'statement' => $entry['statement']
+                    'statement' => $entry['statement'],
                 ];
             }
             $id++;
@@ -371,7 +371,13 @@ class Tracking
             . htmlspecialchars($_POST['users']) . '">';
         $str5 = '<input type="hidden" name="list_report" value="1">'
             . '<input class="btn btn-primary" type="submit" value="' . __('Go') . '">';
-        return [$str1, $str2, $str3, $str4, $str5];
+        return [
+            $str1,
+            $str2,
+            $str3,
+            $str4,
+            $str5,
+        ];
     }
 
     /**
@@ -595,7 +601,10 @@ class Tracking
             'ddl_versions'
         );
 
-        return [$html, $line_number];
+        return [
+            $html,
+            $line_number,
+        ];
     }
 
     /**
@@ -655,7 +664,10 @@ class Tracking
             'drop_image_or_text' => $dropImageOrText,
         ]);
 
-        return [$html, $lineNumber];
+        return [
+            $html,
+            $lineNumber,
+        ];
     }
 
     /**
@@ -696,7 +708,10 @@ class Tracking
         // Unserialize snapshot
         $temp = Core::safeUnserialize($data['schema_snapshot']);
         if ($temp === null) {
-            $temp = ['COLUMNS' => [], 'INDEXES' => []];
+            $temp = [
+                'COLUMNS' => [],
+                'INDEXES' => [],
+            ];
         }
         $columns = $temp['COLUMNS'];
         $indexes = $temp['INDEXES'];
@@ -1284,13 +1299,13 @@ class Tracking
             0 => [
                 'label' => __('not active'),
                 'value' => 'deactivate_now',
-                'selected' => ($state != 'active')
+                'selected' => ($state != 'active'),
             ],
             1 => [
                 'label' => __('active'),
                 'value' => 'activate_now',
-                'selected' => ($state == 'active')
-            ]
+                'selected' => ($state == 'active'),
+            ],
         ];
         $link = 'tbl_tracking.php' . $urlQuery . '&amp;table='
             . htmlspecialchars($versionData['table_name'])

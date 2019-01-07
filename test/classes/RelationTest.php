@@ -221,13 +221,13 @@ class RelationTest extends TestCase
             [
                 'Field' => 'field1',
                 'Type' => 'int(11)',
-                'Comment' => 'Comment1'
+                'Comment' => 'Comment1',
             ],
             [
                 'Field' => 'field2',
                 'Type' => 'text',
-                'Comment' => 'Comment1'
-            ]
+                'Comment' => 'Comment1',
+            ],
         ];
         $dbi->expects($this->any())->method('getColumns')
             ->will($this->returnValue($getColumnsResult));
@@ -246,7 +246,7 @@ class RelationTest extends TestCase
         $this->assertEquals(
             [
                 'field1' => 'Comment1',
-                'field2' => 'Comment1'
+                'field2' => 'Comment1',
             ],
             $this->relation->getComments($db, $table)
         );
@@ -304,19 +304,25 @@ class RelationTest extends TestCase
                 'master_field' => 'value',
                 'foreign_db' => 'GSoC14',
                 'foreign_table' => 'test',
-                'foreign_field' => 'value'
+                'foreign_field' => 'value',
             ],
             'foreign_keys_data' => [
                 0 => [
                     'constraint' => 'ad',
-                    'index_list' => ['id', 'value'],
+                    'index_list' => [
+                        'id',
+                        'value',
+                    ],
                     'ref_db_name' => 'GSoC14',
                     'ref_table_name' => 'table_1',
-                    'ref_index_list' => ['id', 'value'],
+                    'ref_index_list' => [
+                        'id',
+                        'value',
+                    ],
                     'on_delete' => 'CASCADE',
                     'on_update' => 'CASCADE'
-                ]
-            ]
+                ],
+            ],
         ];
 
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, 'id');

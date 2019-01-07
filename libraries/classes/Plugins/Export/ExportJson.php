@@ -157,7 +157,7 @@ class ExportJson extends ExportPlugin
 
         $meta = [
             'type' => 'database',
-            'name' => $db_alias
+            'name' => $db_alias,
         ];
 
         return $this->export->outputHandler(

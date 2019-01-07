@@ -92,7 +92,10 @@ class UserPassword
                 $error = true;
             }
         }
-        return ['error' => $error, 'msg' => $message];
+        return [
+            'error' => $error,
+            'msg' => $message
+        ];
     }
 
     /**

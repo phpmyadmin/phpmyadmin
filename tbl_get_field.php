@@ -27,7 +27,10 @@ $response->disable();
 
 /* Check parameters */
 PhpMyAdmin\Util::checkParameters(
-    ['db', 'table']
+    [
+        'db',
+        'table',
+    ]
 );
 
 /* Select database */

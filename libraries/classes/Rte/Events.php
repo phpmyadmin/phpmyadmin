@@ -329,7 +329,7 @@ class Events
             'item_definition',
             'item_preserve',
             'item_comment',
-            'item_definer'
+            'item_definer',
         ];
         foreach ($indices as $index) {
             $retval[$index] = isset($_POST[$index]) ? $_POST[$index] : '';
@@ -423,7 +423,7 @@ class Events
             'item_ends',
             'item_definition',
             'item_definer',
-            'item_comment'
+            'item_comment',
         ];
         foreach ($need_escape as $index) {
             $item[$index] = htmlentities((string) $item[$index], ENT_QUOTES);

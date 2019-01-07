@@ -268,7 +268,11 @@ class ImportXml extends ImportPlugin
                     $tempCells[] = (string) $v2;
                 }
 
-                $rows[] = [(string) $tbl_attr['name'], $tempRow, $tempCells];
+                $rows[] = [
+                    (string) $tbl_attr['name'],
+                    $tempRow,
+                    $tempCells,
+                ];
 
                 $tempRow = [];
                 $tempCells = [];

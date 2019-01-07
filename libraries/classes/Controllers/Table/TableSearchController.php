@@ -373,7 +373,7 @@ class TableSearchController extends TableController
             'Browse' => Util::getIcon(
                 'b_browse',
                 __('Browse foreign values')
-            )
+            ),
         ];
         $column_names_hashes = [];
 
@@ -724,7 +724,18 @@ class TableSearchController extends TableController
 
         if (is_array($result)) {
             /* Iterate over possible delimiters to get one */
-            $delimiters = ['/', '@', '#', '~', '!', '$', '%', '^', '&', '_'];
+            $delimiters = [
+                '/',
+                '@',
+                '#',
+                '~',
+                '!',
+                '$',
+                '%',
+                '^',
+                '&',
+                '_',
+            ];
             $found = false;
             for ($i = 0, $l = count($delimiters); $i < $l; $i++) {
                 if (strpos($find, $delimiters[$i]) === false) {
@@ -916,7 +927,7 @@ class TableSearchController extends TableController
             'Browse' => Util::getIcon(
                 'b_browse',
                 __('Browse foreign values')
-            )
+            ),
         ];
         //Gets column's type and collation
         $type = $this->_columnTypes[$column_index];

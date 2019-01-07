@@ -681,8 +681,14 @@ class Util
             // All non-single blanks and  TAB-characters are replaced with their
             // HTML-counterpart
             $server_msg = str_replace(
-                ['  ', "\t"],
-                ['&nbsp;&nbsp;', '&nbsp;&nbsp;&nbsp;&nbsp;'],
+                [
+                    '  ',
+                    "\t",
+                ],
+                [
+                    '&nbsp;&nbsp;',
+                    '&nbsp;&nbsp;&nbsp;&nbsp;',
+                ],
                 $server_msg
             );
 
@@ -1325,7 +1331,7 @@ class Util
             /* l10n: shortcuts for Petabyte */
             __('PiB'),
             /* l10n: shortcuts for Exabyte */
-            __('EiB')
+            __('EiB'),
         ];
 
         $dh = pow(10, $comma);
@@ -1352,7 +1358,10 @@ class Util
             $return_value = self::formatNumber($value, 0);
         }
 
-        return [trim($return_value), $unit];
+        return [
+            trim($return_value),
+            $unit,
+        ];
     } // end of the 'formatByteDown' function
 
 
@@ -1554,7 +1563,7 @@ class Util
             /* l10n: Short month name */
             __('Nov'),
             /* l10n: Short month name */
-            __('Dec')
+            __('Dec'),
         ];
         $day_of_week = [
             /* l10n: Short week day name */
@@ -1570,7 +1579,7 @@ class Util
             /* l10n: Short week day name */
             __('Fri'),
             /* l10n: Short week day name */
-            __('Sat')
+            __('Sat'),
         ];
 
         if ($format == '') {
@@ -3536,7 +3545,7 @@ class Util
             'multipoint',
             'multilinestring',
             'multipolygon',
-            'geometrycollection'
+            'geometrycollection',
         ];
         if ($upper_case) {
             for ($i = 0, $nb = count($gis_data_types); $i < $nb; $i++) {
@@ -3593,12 +3602,30 @@ class Util
         }
 
         // Unary functions common to all geometry types
-        $funcs['Dimension']    = ['params' => 1, 'type' => 'int'];
-        $funcs['Envelope']     = ['params' => 1, 'type' => 'Polygon'];
-        $funcs['GeometryType'] = ['params' => 1, 'type' => 'text'];
-        $funcs['SRID']         = ['params' => 1, 'type' => 'int'];
-        $funcs['IsEmpty']      = ['params' => 1, 'type' => 'int'];
-        $funcs['IsSimple']     = ['params' => 1, 'type' => 'int'];
+        $funcs['Dimension']    = [
+            'params' => 1,
+            'type' => 'int'
+        ];
+        $funcs['Envelope']     = [
+            'params' => 1,
+            'type' => 'Polygon'
+        ];
+        $funcs['GeometryType'] = [
+            'params' => 1,
+            'type' => 'text'
+        ];
+        $funcs['SRID']         = [
+            'params' => 1,
+            'type' => 'int'
+        ];
+        $funcs['IsEmpty']      = [
+            'params' => 1,
+            'type' => 'int'
+        ];
+        $funcs['IsSimple']     = [
+            'params' => 1,
+            'type' => 'int'
+        ];
 
         $geom_type = trim(mb_strtolower((string) $geom_type));
         if ($display && $geom_type != 'geometry' && $geom_type != 'multipoint') {
@@ -3607,28 +3634,73 @@ class Util
 
         // Unary functions that are specific to each geometry type
         if ($geom_type == 'point') {
-            $funcs['X'] = ['params' => 1, 'type' => 'float'];
-            $funcs['Y'] = ['params' => 1, 'type' => 'float'];
+            $funcs['X'] = [
+                'params' => 1,
+                'type' => 'float'
+            ];
+            $funcs['Y'] = [
+                'params' => 1,
+                'type' => 'float'
+            ];
         } elseif ($geom_type == 'linestring') {
-            $funcs['EndPoint']   = ['params' => 1, 'type' => 'point'];
-            $funcs['GLength']    = ['params' => 1, 'type' => 'float'];
-            $funcs['NumPoints']  = ['params' => 1, 'type' => 'int'];
-            $funcs['StartPoint'] = ['params' => 1, 'type' => 'point'];
-            $funcs['IsRing']     = ['params' => 1, 'type' => 'int'];
+            $funcs['EndPoint']   = [
+                'params' => 1,
+                'type' => 'point'
+            ];
+            $funcs['GLength']    = [
+                'params' => 1,
+                'type' => 'float'
+            ];
+            $funcs['NumPoints']  = [
+                'params' => 1,
+                'type' => 'int'
+            ];
+            $funcs['StartPoint'] = [
+                'params' => 1,
+                'type' => 'point'
+            ];
+            $funcs['IsRing']     = [
+                'params' => 1,
+                'type' => 'int'
+            ];
         } elseif ($geom_type == 'multilinestring') {
-            $funcs['GLength']  = ['params' => 1, 'type' => 'float'];
-            $funcs['IsClosed'] = ['params' => 1, 'type' => 'int'];
+            $funcs['GLength']  = [
+                'params' => 1,
+                'type' => 'float'
+            ];
+            $funcs['IsClosed'] = [
+                'params' => 1,
+                'type' => 'int'
+            ];
         } elseif ($geom_type == 'polygon') {
-            $funcs['Area']         = ['params' => 1, 'type' => 'float'];
-            $funcs['ExteriorRing'] = ['params' => 1, 'type' => 'linestring'];
-            $funcs['NumInteriorRings'] = ['params' => 1, 'type' => 'int'];
+            $funcs['Area']         = [
+                'params' => 1,
+                'type' => 'float'
+            ];
+            $funcs['ExteriorRing'] = [
+                'params' => 1,
+                'type' => 'linestring'
+            ];
+            $funcs['NumInteriorRings'] = [
+                'params' => 1,
+                'type' => 'int'
+            ];
         } elseif ($geom_type == 'multipolygon') {
-            $funcs['Area']     = ['params' => 1, 'type' => 'float'];
-            $funcs['Centroid'] = ['params' => 1, 'type' => 'point'];
+            $funcs['Area']     = [
+                'params' => 1,
+                'type' => 'float'
+            ];
+            $funcs['Centroid'] = [
+                'params' => 1,
+                'type' => 'point'
+            ];
             // Not yet implemented in MySQL
             //$funcs['PointOnSurface'] = array('params' => 1, 'type' => 'point');
         } elseif ($geom_type == 'geometrycollection') {
-            $funcs['NumGeometries'] = ['params' => 1, 'type' => 'int'];
+            $funcs['NumGeometries'] = [
+                'params' => 1,
+                'type' => 'int'
+            ];
         }
 
         // If we are asked for binary functions as well
@@ -3639,38 +3711,107 @@ class Util
             }
 
             if ($GLOBALS['dbi']->getVersion() < 50601) {
-                $funcs['Crosses']    = ['params' => 2, 'type' => 'int'];
-                $funcs['Contains']   = ['params' => 2, 'type' => 'int'];
-                $funcs['Disjoint']   = ['params' => 2, 'type' => 'int'];
-                $funcs['Equals']     = ['params' => 2, 'type' => 'int'];
-                $funcs['Intersects'] = ['params' => 2, 'type' => 'int'];
-                $funcs['Overlaps']   = ['params' => 2, 'type' => 'int'];
-                $funcs['Touches']    = ['params' => 2, 'type' => 'int'];
-                $funcs['Within']     = ['params' => 2, 'type' => 'int'];
+                $funcs['Crosses']    = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['Contains']   = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['Disjoint']   = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['Equals']     = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['Intersects'] = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['Overlaps']   = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['Touches']    = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['Within']     = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
             } else {
                 // If MySQl version is greater than or equal 5.6.1,
                 // use the ST_ prefix.
-                $funcs['ST_Crosses']    = ['params' => 2, 'type' => 'int'];
-                $funcs['ST_Contains']   = ['params' => 2, 'type' => 'int'];
-                $funcs['ST_Disjoint']   = ['params' => 2, 'type' => 'int'];
-                $funcs['ST_Equals']     = ['params' => 2, 'type' => 'int'];
-                $funcs['ST_Intersects'] = ['params' => 2, 'type' => 'int'];
-                $funcs['ST_Overlaps']   = ['params' => 2, 'type' => 'int'];
-                $funcs['ST_Touches']    = ['params' => 2, 'type' => 'int'];
-                $funcs['ST_Within']     = ['params' => 2, 'type' => 'int'];
+                $funcs['ST_Crosses']    = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['ST_Contains']   = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['ST_Disjoint']   = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['ST_Equals']     = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['ST_Intersects'] = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['ST_Overlaps']   = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['ST_Touches']    = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
+                $funcs['ST_Within']     = [
+                    'params' => 2,
+                    'type' => 'int'
+                ];
             }
 
             if ($display) {
                 $funcs[] = ['display' => '--------'];
             }
             // Minimum bounding rectangle functions
-            $funcs['MBRContains']   = ['params' => 2, 'type' => 'int'];
-            $funcs['MBRDisjoint']   = ['params' => 2, 'type' => 'int'];
-            $funcs['MBREquals']     = ['params' => 2, 'type' => 'int'];
-            $funcs['MBRIntersects'] = ['params' => 2, 'type' => 'int'];
-            $funcs['MBROverlaps']   = ['params' => 2, 'type' => 'int'];
-            $funcs['MBRTouches']    = ['params' => 2, 'type' => 'int'];
-            $funcs['MBRWithin']     = ['params' => 2, 'type' => 'int'];
+            $funcs['MBRContains']   = [
+                'params' => 2,
+                'type' => 'int'
+            ];
+            $funcs['MBRDisjoint']   = [
+                'params' => 2,
+                'type' => 'int'
+            ];
+            $funcs['MBREquals']     = [
+                'params' => 2,
+                'type' => 'int'
+            ];
+            $funcs['MBRIntersects'] = [
+                'params' => 2,
+                'type' => 'int'
+            ];
+            $funcs['MBROverlaps']   = [
+                'params' => 2,
+                'type' => 'int'
+            ];
+            $funcs['MBRTouches']    = [
+                'params' => 2,
+                'type' => 'int'
+            ];
+            $funcs['MBRWithin']     = [
+                'params' => 2,
+                'type' => 'int'
+            ];
         }
         return $funcs;
     }
@@ -4057,7 +4198,7 @@ class Util
                 'vars'        => __('Variables'),
                 'charset'     => __('Charsets'),
                 'plugins'     => __('Plugins'),
-                'engine'      => __('Engines')
+                'engine'      => __('Engines'),
             ],
             'db'     => [
                 'structure'   => __('Structure'),
@@ -4073,7 +4214,7 @@ class Util
                 'triggers'    => __('Triggers'),
                 'tracking'    => __('Tracking'),
                 'designer'    => __('Designer'),
-                'central_columns' => __('Central columns')
+                'central_columns' => __('Central columns'),
             ],
             'table'  => [
                 'browse'      => __('Browse'),
@@ -4087,7 +4228,7 @@ class Util
                 'operation'   => __('Operations'),
                 'tracking'    => __('Tracking'),
                 'triggers'    => __('Triggers'),
-            ]
+            ],
         ];
 
         if ($level == null) {
@@ -4272,7 +4413,12 @@ class Util
             }
         } // end while
 
-        return [$primary, $pk_array, $indexes_info, $indexes_data];
+        return [
+            $primary,
+            $pk_array,
+            $indexes_info,
+            $indexes_data,
+        ];
     }
 
     /**
@@ -4519,7 +4665,7 @@ class Util
             $db_is_system_schema,
             $tooltip_truename,
             $tooltip_aliasname,
-            $pos
+            $pos,
         ];
     }
 
@@ -4659,7 +4805,10 @@ class Util
     {
         $result = '';
         if (class_exists('phpseclib\\Crypt\\Random')) {
-            $random_func = ['phpseclib\\Crypt\\Random', 'string'];
+            $random_func = [
+                'phpseclib\\Crypt\\Random',
+                'string',
+            ];
         } else {
             $random_func = 'openssl_random_pseudo_bytes';
         }
@@ -4760,12 +4909,18 @@ class Util
                 $orderImg = ' ' . self::getImage(
                     's_asc',
                     __('Ascending'),
-                    ['class' => 'sort_arrow', 'title' => '']
+                    [
+                        'class' => 'sort_arrow',
+                        'title' => '',
+                    ]
                 );
                 $orderImg .= ' ' . self::getImage(
                     's_desc',
                     __('Descending'),
-                    ['class' => 'sort_arrow hide', 'title' => '']
+                    [
+                        'class' => 'sort_arrow hide',
+                        'title' => '',
+                    ]
                 );
                 // but on mouse over, show the reverse order (DESC)
                 $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";
@@ -4777,12 +4932,18 @@ class Util
                 $orderImg = ' ' . self::getImage(
                     's_asc',
                     __('Ascending'),
-                    ['class' => 'sort_arrow hide', 'title' => '']
+                    [
+                        'class' => 'sort_arrow hide',
+                        'title' => '',
+                    ]
                 );
                 $orderImg .= ' ' . self::getImage(
                     's_desc',
                     __('Descending'),
-                    ['class' => 'sort_arrow', 'title' => '']
+                    [
+                        'class' => 'sort_arrow',
+                        'title' => '',
+                    ]
                 );
                 // but on mouse over, show the reverse order (ASC)
                 $orderLinkParams['onmouseover'] = "$('.sort_arrow').toggle();";

@@ -60,7 +60,7 @@ if ((isset($_GET['viewing_mode'])
 
 $post_patterns = [
     '/_priv$/i',
-    '/^max_/i'
+    '/^max_/i',
 ];
 
 Core::setPostAsGlobal($post_patterns);
@@ -439,8 +439,14 @@ if (isset($_GET['adduser'])) {
     if (isset($dbname) && ! is_array($dbname)) {
         $url_dbname = urlencode(
             str_replace(
-                ['\_', '\%'],
-                ['_', '%'],
+                [
+                    '\_',
+                    '\%',
+                ],
+                [
+                    '_',
+                    '%',
+                ],
                 $dbname
             )
         );

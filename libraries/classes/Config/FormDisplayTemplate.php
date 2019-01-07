@@ -193,10 +193,22 @@ class FormDisplayTemplate
             // The first element contains the filename and the second
             // element is used for the "alt" and "title" attributes.
             $iconInit = [
-                'edit'   => ['b_edit', ''],
-                'help'   => ['b_help', __('Documentation')],
-                'reload' => ['s_reload', ''],
-                'tblops' => ['b_tblops', '']
+                'edit'   => [
+                    'b_edit',
+                    '',
+                ],
+                'help'   => [
+                    'b_help',
+                    __('Documentation'),
+                ],
+                'reload' => [
+                    's_reload',
+                    '',
+                ],
+                'tblops' => [
+                    'b_tblops',
+                    '',
+                ],
             ];
             if ($isSetupScript) {
                 // When called from the setup script, we don't have access to the

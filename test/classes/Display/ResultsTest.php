@@ -131,7 +131,13 @@ class ResultsTest extends PmaTestCase
 
         $actual = $this->_callPrivateFunction(
             '_getTableNavigationButton',
-            [&$caption, $title, $pos, $html_sql_query, true]
+            [
+                &$caption,
+                $title,
+                $pos,
+                $html_sql_query,
+                true,
+            ]
         );
 
         $this->assertContains(
@@ -165,7 +171,7 @@ class ResultsTest extends PmaTestCase
                 'Submit',
                 1,
                 'SELECT * FROM `pma_bookmark` WHERE 1',
-            ]
+            ],
         ];
     }
 
@@ -181,8 +187,8 @@ class ResultsTest extends PmaTestCase
                 21,
                 41,
                 false,
-                '310'
-            ]
+                '310',
+            ],
         ];
     }
 
@@ -200,8 +206,8 @@ class ResultsTest extends PmaTestCase
                 '',
                 '',
                 '',
-                'data grid_edit not_null   '
-            ]
+                'data grid_edit not_null   ',
+            ],
         ];
     }
 
@@ -235,8 +241,11 @@ class ResultsTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getClassesForColumn',
                 [
-                    $grid_edit_class, $not_null_class, $relation_class,
-                    $hide_class, $field_type_class
+                    $grid_edit_class,
+                    $not_null_class,
+                    $relation_class,
+                    $hide_class,
+                    $field_type_class,
                 ]
             )
         );
@@ -299,7 +308,10 @@ class ResultsTest extends PmaTestCase
     {
         $_SESSION['tmpval']['max_rows'] = DisplayResults::ALL_ROWS;
         $this->assertEquals(
-            [0, 0],
+            [
+                0,
+                0,
+            ],
             $this->_callPrivateFunction('_getOffsets', [])
         );
     }
@@ -314,7 +326,10 @@ class ResultsTest extends PmaTestCase
         $_SESSION['tmpval']['max_rows'] = 5;
         $_SESSION['tmpval']['pos'] = 4;
         $this->assertEquals(
-            [9, 0],
+            [
+                9,
+                0,
+            ],
             $this->_callPrivateFunction('_getOffsets', [])
         );
     }
@@ -341,7 +356,7 @@ class ResultsTest extends PmaTestCase
                     'nav_bar' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
-                    'pview_lnk' => '1'
+                    'pview_lnk' => '1',
                 ],
                 0,
                 '%60new%60.%60id%60+%3D+1',
@@ -353,8 +368,8 @@ class ResultsTest extends PmaTestCase
                 . '"rows_to_delete[0]" class="multi_checkbox checkall" value="%60'
                 . 'new%60.%60id%60+%3D+1"><input type="hidden" class="condition_'
                 . 'array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}">    '
-                . '</td>'
-            ]
+                . '</td>',
+            ],
         ];
     }
 
@@ -390,8 +405,13 @@ class ResultsTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getCheckboxForMultiRowSubmissions',
                 [
-                    $del_url, $displayParts, $row_no, $where_clause_html,
-                    $condition_array, $id_suffix, $class
+                    $del_url,
+                    $displayParts,
+                    $row_no,
+                    $where_clause_html,
+                    $condition_array,
+                    $id_suffix,
+                    $class,
                 ]
             )
         );
@@ -424,8 +444,8 @@ class ResultsTest extends PmaTestCase
                 . '><span class="nowrap"><img src="themes/dot.gif" title="Edit" '
                 . 'alt="Edit" class="icon ic_b_edit"> Edit</span></a>'
                 . '<input type="hidden" class="where_clause" value ="%60customer'
-                . '%60.%60id%60+%3D+1"></span></td>'
-            ]
+                . '%60.%60id%60+%3D+1"></span></td>',
+            ],
         ];
     }
 
@@ -459,7 +479,11 @@ class ResultsTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getEditLink',
                 [
-                    $edit_url, $class, $edit_str, $where_clause, $where_clause_html
+                    $edit_url,
+                    $class,
+                    $edit_str,
+                    $where_clause,
+                    $where_clause_html,
                 ]
             )
         );
@@ -492,8 +516,8 @@ class ResultsTest extends PmaTestCase
                 . '><span class="nowrap"><img src="themes/dot.gif" title="Copy" '
                 . 'alt="Copy" class="icon ic_b_insrow"> Copy</span></a>'
                 . '<input type="hidden" class="where_clause" value="%60customer%60'
-                . '.%60id%60+%3D+1"></span></td>'
-            ]
+                . '.%60id%60+%3D+1"></span></td>',
+            ],
         ];
     }
 
@@ -527,7 +551,11 @@ class ResultsTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getCopyLink',
                 [
-                    $copy_url, $copy_str, $where_clause, $where_clause_html, $class
+                    $copy_url,
+                    $copy_str,
+                    $where_clause,
+                    $where_clause_html,
+                    $class,
                 ]
             )
         );
@@ -563,8 +591,8 @@ class ResultsTest extends PmaTestCase
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop"> '
                 . 'Delete</span></a>'
                 . '<div class="hide">DELETE FROM `Data`.`customer` WHERE '
-                . '`customer`.`id` = 1</div></td>'
-            ]
+                . '`customer`.`id` = 1</div></td>',
+            ],
         ];
     }
 
@@ -596,7 +624,10 @@ class ResultsTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getDeleteLink',
                 [
-                    $del_url, $del_str, $js_conf, $class
+                    $del_url,
+                    $del_str,
+                    $js_conf,
+                    $class,
                 ]
             )
         );
@@ -625,7 +656,7 @@ class ResultsTest extends PmaTestCase
                     'nav_bar' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
-                    'pview_lnk' => '1'
+                    'pview_lnk' => '1',
                 ],
                 0,
                 '`new`.`id` = 1',
@@ -680,7 +711,7 @@ class ResultsTest extends PmaTestCase
                 . 'gif" title="Delete" alt="Delete" class="icon ic_b_drop"> '
                 . 'Delete</span></a>'
                 . '<div class="hide">DELETE FROM `data`.`new` WHERE `new`.`id` = 1'
-                . '</div></td>'
+                . '</div></td>',
             ],
             [
                 DisplayResults::POSITION_RIGHT,
@@ -697,7 +728,7 @@ class ResultsTest extends PmaTestCase
                     'nav_bar' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
-                    'pview_lnk' => '1'
+                    'pview_lnk' => '1',
                 ],
                 0,
                 '`new`.`id` = 1',
@@ -750,7 +781,7 @@ class ResultsTest extends PmaTestCase
                 . '"checkbox" id="id_rows_to_delete0_right" name="rows_to_delete'
                 . '[0]" class="multi_checkbox checkall" value="%60new%60.%60id%60'
                 . '+%3D+1"><input type="hidden" class="condition_array" value="'
-                . '{&quot;`new`.`id`&quot;:&quot;= 1&quot;}">    </td>'
+                . '{&quot;`new`.`id`&quot;:&quot;= 1&quot;}">    </td>',
             ],
             [
                 DisplayResults::POSITION_NONE,
@@ -767,7 +798,7 @@ class ResultsTest extends PmaTestCase
                     'nav_bar' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
-                    'pview_lnk' => '1'
+                    'pview_lnk' => '1',
                 ],
                 0,
                 '`new`.`id` = 1',
@@ -793,7 +824,7 @@ class ResultsTest extends PmaTestCase
                 . 'delete0_left" name="rows_to_delete[0]" class="multi_checkbox '
                 . 'checkall" value="%60new%60.%60id%60+%3D+1"><input type='
                 . '"hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:'
-                . '&quot;= 1&quot;}">    </td>'
+                . '&quot;= 1&quot;}">    </td>',
             ],
         ];
     }
@@ -844,10 +875,20 @@ class ResultsTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getCheckboxAndLinks',
                 [
-                    $position, $del_url, $displayParts, $row_no, $where_clause,
-                    $where_clause_html, $condition_array,
-                    $edit_url, $copy_url, $class, $edit_str,
-                    $copy_str, $del_str, $js_conf
+                    $position,
+                    $del_url,
+                    $displayParts,
+                    $row_no,
+                    $where_clause,
+                    $where_clause_html,
+                    $condition_array,
+                    $edit_url,
+                    $copy_url,
+                    $class,
+                    $edit_str,
+                    $copy_str,
+                    $del_str,
+                    $js_conf,
                 ]
             )
         );
@@ -876,7 +917,7 @@ class ResultsTest extends PmaTestCase
                     'nav_bar' => '1',
                     'bkm_form' => '1',
                     'text_btn' => '1',
-                    'pview_lnk' => '1'
+                    'pview_lnk' => '1',
                 ],
                 0,
                 '`new`.`id` = 1',
@@ -902,8 +943,8 @@ class ResultsTest extends PmaTestCase
                 . 'delete0_left" name="rows_to_delete[0]" class="multi_checkbox '
                 . 'checkall" value="%60new%60.%60id%60+%3D+1"><input type='
                 . '"hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:'
-                . '&quot;= 1&quot;}">    </td>'
-            ]
+                . '&quot;= 1&quot;}">    </td>',
+            ],
         ];
     }
 
@@ -952,10 +993,20 @@ class ResultsTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getPlacedLinks',
                 [
-                    $dir, $del_url, $displayParts, $row_no, $where_clause,
-                    $where_clause_html, $condition_array,
-                    $edit_url, $copy_url, $edit_anchor_class,
-                    $edit_str, $copy_str, $del_str, $js_conf
+                    $dir,
+                    $del_url,
+                    $displayParts,
+                    $row_no,
+                    $where_clause,
+                    $where_clause_html,
+                    $condition_array,
+                    $edit_url,
+                    $copy_url,
+                    $edit_anchor_class,
+                    $edit_str,
+                    $copy_str,
+                    $del_str,
+                    $js_conf,
                 ]
             )
         );
@@ -981,7 +1032,7 @@ class ResultsTest extends PmaTestCase
                 ],
                 'routine_name',
                 'db_routines.php?item_name=circumference&db=data'
-                . '&item_type=FUNCTION&server=0&lang=en'
+                . '&item_type=FUNCTION&server=0&lang=en',
             ],
             [
                 'information_schema',
@@ -994,7 +1045,7 @@ class ResultsTest extends PmaTestCase
                 ],
                 'routine_name',
                 'db_routines.php?item_name=area&db=data'
-                . '&item_type=PROCEDURE&server=0&lang=en'
+                . '&item_type=PROCEDURE&server=0&lang=en',
             ],
             [
                 'information_schema',
@@ -1007,8 +1058,8 @@ class ResultsTest extends PmaTestCase
                 'column_name',
                 'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60info'
                 . 'rmation_schema%60.%60CHARACTER_SETS%60&db=information_schema'
-                . '&test_name=value&server=0&lang=en'
-            ]
+                . '&test_name=value&server=0&lang=en',
+            ],
         ];
     }
 
@@ -1043,36 +1094,39 @@ class ResultsTest extends PmaTestCase
                         'link_dependancy_params' => [
                             0 => [
                                 'param_info' => 'db',
-                                'column_name' => 'routine_schema'
+                                'column_name' => 'routine_schema',
                             ],
                             1 => [
                                 'param_info' => 'item_type',
-                                'column_name' => 'routine_type'
-                            ]
+                                'column_name' => 'routine_type',
+                            ],
                         ],
                         'default_page' => 'db_routines.php'
-                    ]
+                    ],
                 ],
                 'columns' => [
                     'column_name' => [
                         'link_param' => [
                             'sql_query',
                             'table_schema',
-                            'table_name'
+                            'table_name',
                         ],
                         'link_dependancy_params' => [
                             0 => [
                                 'param_info' => 'db',
-                                'column_name' => 'table_schema'
+                                'column_name' => 'table_schema',
                             ],
                             1 => [
-                                'param_info' => ['test_name', 'value']
-                            ]
+                                'param_info' => [
+                                    'test_name',
+                                    'value',
+                                ],
+                            ],
                         ],
                         'default_page' => 'index.php'
-                    ]
+                    ],
                 ]
-            ]
+            ],
         ];
 
         $this->object->__set('db', $db);
@@ -1082,7 +1136,11 @@ class ResultsTest extends PmaTestCase
             $output,
             $this->_callPrivateFunction(
                 '_getSpecialLinkUrl',
-                [$column_value, $row_info, $field_name]
+                [
+                    $column_value,
+                    $row_info,
+                    $field_name,
+                ]
             )
         );
     }
@@ -1095,7 +1153,12 @@ class ResultsTest extends PmaTestCase
      */
     public function dataProviderForTestGetRowInfoForSpecialLinks()
     {
-        $column_names = ['host', 'db', 'user', 'select_privilages'];
+        $column_names = [
+            'host',
+            'db',
+            'user',
+            'select_privilages',
+        ];
         $fields_mata = [];
 
         foreach ($column_names as $column_name) {
@@ -1112,21 +1175,21 @@ class ResultsTest extends PmaTestCase
                     0 => 'localhost',
                     1 => 'phpmyadmin',
                     2 => 'pmauser',
-                    3 => 'Y'
+                    3 => 'Y',
                 ],
                 [
                     0 => '0',
                     1 => '3',
                     2 => '1',
-                    3 => '2'
+                    3 => '2',
                 ],
                 [
                     'host' => 'localhost',
                     'select_privilages' => 'Y',
                     'db' => 'phpmyadmin',
                     'user' => 'pmauser'
-                ]
-            ]
+                ],
+            ],
         ];
     }
 
@@ -1158,7 +1221,10 @@ class ResultsTest extends PmaTestCase
             $output,
             $this->_callPrivateFunction(
                 '_getRowInfoForSpecialLinks',
-                [$row, $col_order]
+                [
+                    $row,
+                    $col_order,
+                ]
             )
         );
     }
@@ -1191,8 +1257,8 @@ class ResultsTest extends PmaTestCase
                 . '<input type="hidden" name="goto" value="tbl_structure.php">'
                 . '<input type="checkbox" name="navig" id="showAll_0"'
                 . ' class="showAllRows" value="all">'
-                . '<label for="showAll_0">Show all</label></form></td>'
-            ]
+                . '<label for="showAll_0">Show all</label></form></td>',
+            ],
         ];
     }
 
@@ -1226,7 +1292,10 @@ class ResultsTest extends PmaTestCase
 
         $result = $this->_callPrivateFunction(
             '_getShowAllCheckboxForTableNavigation',
-            [false, $html_sql_query]
+            [
+                false,
+                $html_sql_query,
+            ]
         );
 
         $this->assertContains(
@@ -1307,10 +1376,46 @@ class ResultsTest extends PmaTestCase
     public function dataProviderForTestGetPartialText()
     {
         return [
-            ['P', 10, 'foo', [false, 'foo', 3]],
-            ['P', 1, 'foo', [true, 'f...', 3]],
-            ['F', 10, 'foo', [false, 'foo', 3]],
-            ['F', 1, 'foo', [false, 'foo', 3]]
+            [
+                'P',
+                10,
+                'foo',
+                [
+                    false,
+                    'foo',
+                    3,
+                ],
+            ],
+            [
+                'P',
+                1,
+                'foo',
+                [
+                    true,
+                    'f...',
+                    3,
+                ],
+            ],
+            [
+                'F',
+                10,
+                'foo',
+                [
+                    false,
+                    'foo',
+                    3,
+                ],
+            ],
+            [
+                'F',
+                1,
+                'foo',
+                [
+                    false,
+                    'foo',
+                    3,
+                ],
+            ],
         ];
     }
 
@@ -1352,7 +1457,10 @@ class ResultsTest extends PmaTestCase
         $meta = new stdClass();
         $meta->type = 'BLOB';
         $meta->orgtable = 'bar';
-        $url_params = ['db' => 'foo', 'table' => 'bar'];
+        $url_params = [
+            'db' => 'foo',
+            'table' => 'bar',
+        ];
 
         return [
             [
@@ -1360,45 +1468,63 @@ class ResultsTest extends PmaTestCase
                 true,
                 'BLOB',
                 '1001',
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 [],
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 $meta,
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en'
-                . '" class="disableAjax">1001</a>'
+                . '" class="disableAjax">1001</a>',
             ],
             [
                 true,
                 true,
                 'BLOB',
                 hex2bin('123456'),
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 [],
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 $meta,
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en'
-                . '" class="disableAjax">0x123456</a>'
+                . '" class="disableAjax">0x123456</a>',
             ],
             [
                 true,
                 false,
                 'BLOB',
                 '1001',
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 [],
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 $meta,
                 $url_params,
                 null,
                 '<a href="tbl_get_field.php?db=foo&amp;table=bar&amp;server=0'
                 . '&amp;lang=en'
-                . '" class="disableAjax">[BLOB - 4 B]</a>'
+                . '" class="disableAjax">[BLOB - 4 B]</a>',
             ],
             [
                 false,
@@ -1407,11 +1533,14 @@ class ResultsTest extends PmaTestCase
                 '1001',
                 $transformation_plugin,
                 [],
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 $meta,
                 $url_params,
                 null,
-                '1001'
+                '1001',
             ],
             [
                 false,
@@ -1420,12 +1549,15 @@ class ResultsTest extends PmaTestCase
                 null,
                 '',
                 [],
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 $meta,
                 $url_params,
                 null,
-                '[GEOMETRY - NULL]'
-            ]
+                '[GEOMETRY - NULL]',
+            ],
         ];
     }
 
@@ -1473,9 +1605,14 @@ class ResultsTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_handleNonPrintableContents',
                 [
-                    $category, $content, $transformation_plugin,
-                    $transform_options, $default_function,
-                    $meta, $url_params, &$is_truncated
+                    $category,
+                    $content,
+                    $transformation_plugin,
+                    $transform_options,
+                    $default_function,
+                    $meta,
+                    $url_params,
+                    &$is_truncated,
                 ]
             )
         );
@@ -1508,7 +1645,10 @@ class ResultsTest extends PmaTestCase
         $meta2->decimals = 0;
         $meta2->name = 'varchar';
         $meta2->orgname = 'varchar';
-        $url_params = ['db' => 'foo', 'table' => 'tbl'];
+        $url_params = [
+            'db' => 'foo',
+            'table' => 'tbl',
+        ];
 
         return [
             [
@@ -1519,8 +1659,14 @@ class ResultsTest extends PmaTestCase
                 [],
                 $url_params,
                 false,
-                [Core::class, 'mimeDefaultFunction'],
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 ['https://www.example.com/'],
                 false,
                 [],
@@ -1531,7 +1677,7 @@ class ResultsTest extends PmaTestCase
                 . 'db=foo&amp;table=tbl&amp;server=0&amp;lang=en'
                 . '" '
                 . 'class="disableAjax">[BLOB - 4 B]</a>' . "\n"
-                . '</td>' . "\n"
+                . '</td>' . "\n",
             ],
             [
                 'noblob',
@@ -1542,7 +1688,10 @@ class ResultsTest extends PmaTestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 [],
                 false,
                 [],
@@ -1550,7 +1699,7 @@ class ResultsTest extends PmaTestCase
                 'binary',
                 '<td class="left grid_edit  transformed hex">' . "\n"
                 . '    1001' . "\n"
-                . '</td>' . "\n"
+                . '</td>' . "\n",
             ],
             [
                 'noblob',
@@ -1561,7 +1710,10 @@ class ResultsTest extends PmaTestCase
                 $url_params,
                 false,
                 $transformation_plugin,
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 [],
                 false,
                 [],
@@ -1572,7 +1724,7 @@ class ResultsTest extends PmaTestCase
                 . '    data-type="string"' . "\n"
                 . '        class="grid_edit  null">' . "\n"
                 . '    <em>NULL</em>' . "\n"
-                . '</td>' . "\n"
+                . '</td>' . "\n",
             ],
             [
                 'all',
@@ -1582,8 +1734,14 @@ class ResultsTest extends PmaTestCase
                 [],
                 $url_params,
                 false,
-                [Core::class, 'mimeDefaultFunction'],
-                [Core::class, 'mimeDefaultFunction'],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
+                [
+                    Core::class,
+                    'mimeDefaultFunction',
+                ],
                 [],
                 false,
                 [],
@@ -1591,8 +1749,8 @@ class ResultsTest extends PmaTestCase
                 0,
                 '<td data-decimals="0" data-type="string" '
                 . 'data-originallength="11" '
-                . 'class="grid_edit ">foo bar baz</td>' . "\n"
-            ]
+                . 'class="grid_edit ">foo bar baz</td>' . "\n",
+            ],
         ];
     }
 
@@ -1649,9 +1807,19 @@ class ResultsTest extends PmaTestCase
             $this->_callPrivateFunction(
                 '_getDataCellForNonNumericColumns',
                 [
-                    $column, $class, $meta, $map, $_url_params, $condition_field,
-                    $transformation_plugin, $default_function, $transform_options,
-                    $is_field_truncated, $analyzed_sql_results, &$dt_result, $col_index
+                    $column,
+                    $class,
+                    $meta,
+                    $map,
+                    $_url_params,
+                    $condition_field,
+                    $transformation_plugin,
+                    $default_function,
+                    $transform_options,
+                    $is_field_truncated,
+                    $analyzed_sql_results,
+                    &$dt_result,
+                    $col_index,
                 ]
             )
         );
@@ -1705,7 +1873,10 @@ class ResultsTest extends PmaTestCase
         $meta2->numeric = true;
         $meta2->primary_key = false;
         $meta2->unique_key = false;
-        $fields_meta = [$meta, $meta2];
+        $fields_meta = [
+            $meta,
+            $meta2,
+        ];
         $this->object->__set('fields_meta', $fields_meta);
 
         // MIME transformations
@@ -1734,9 +1905,18 @@ class ResultsTest extends PmaTestCase
         $output = $this->_callPrivateFunction(
             '_getRowValues',
             [
-                &$result, [3600, true], 0, false, [],
-                '', false, $query,
-                Query::getAll($query)
+                &$result,
+                [
+                    3600,
+                    true,
+                ],
+                0,
+                false,
+                [],
+                '',
+                false,
+                $query,
+                Query::getAll($query),
             ]
         );
 

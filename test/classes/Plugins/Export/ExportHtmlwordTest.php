@@ -144,7 +144,7 @@ class ExportHtmlwordTest extends PmaTestCase
             [
                 'structure' => __('structure'),
                 'data' => __('data'),
-                'structure_and_data' => __('structure and data')
+                'structure_and_data' => __('structure and data'),
             ],
             $property->getValues()
         );
@@ -417,12 +417,12 @@ class ExportHtmlwordTest extends PmaTestCase
         $keys = [
             [
                 'Non_unique' => 0,
-                'Column_name' => 'name1'
+                'Column_name' => 'name1',
             ],
             [
                 'Non_unique' => 1,
-                'Column_name' => 'name2'
-            ]
+                'Column_name' => 'name2',
+            ],
         ];
 
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -471,12 +471,12 @@ class ExportHtmlwordTest extends PmaTestCase
         $keys = [
             [
                 'Non_unique' => 0,
-                'Column_name' => 'name1'
+                'Column_name' => 'name1',
             ],
             [
                 'Non_unique' => 1,
-                'Column_name' => 'name2'
-            ]
+                'Column_name' => 'name2',
+            ],
         ];
 
         // case 1
@@ -494,7 +494,7 @@ class ExportHtmlwordTest extends PmaTestCase
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    ]
+                    ],
                 ]
             );
 
@@ -504,7 +504,7 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will($this->returnValue($keys));
 
         $columns = [
-            'Field' => 'fieldname'
+            'Field' => 'fieldname',
         ];
         $dbi->expects($this->once())
             ->method('getColumns')
@@ -524,7 +524,7 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['fieldname' => 'testComment']
+                        'comment' => ['fieldname' => 'testComment'],
                     ]
                 )
             );
@@ -547,7 +547,7 @@ class ExportHtmlwordTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         $result = $this->object->getTableDef(
@@ -582,15 +582,15 @@ class ExportHtmlwordTest extends PmaTestCase
                 [
                     'fieldname' => [
                         'foreign_table' => 'ftable',
-                        'foreign_field' => 'ffield'
-                    ]
+                        'foreign_field' => 'ffield',
+                    ],
                 ],
                 [
                     'field' => [
                         'values' => 'test-',
                         'transformation' => 'testfoo',
                         'mimetype' => 'test<'
-                    ]
+                    ],
                 ]
             );
 
@@ -600,7 +600,7 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will($this->returnValue($keys));
 
         $columns = [
-            'Field' => 'fieldname'
+            'Field' => 'fieldname',
         ];
 
         $dbi->expects($this->once())
@@ -621,7 +621,7 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['field' => 'testComment']
+                        'comment' => ['field' => 'testComment'],
                     ]
                 )
             );
@@ -639,7 +639,7 @@ class ExportHtmlwordTest extends PmaTestCase
             'mimework' => true,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         $result = $this->object->getTableDef(
@@ -672,7 +672,7 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will($this->returnValue($keys));
 
         $columns = [
-            'Field' => 'fieldname'
+            'Field' => 'fieldname',
         ];
 
         $dbi->expects($this->once())
@@ -693,7 +693,7 @@ class ExportHtmlwordTest extends PmaTestCase
             ->will(
                 $this->returnValue(
                     [
-                        'comment' => ['field' => 'testComment']
+                        'comment' => ['field' => 'testComment'],
                     ]
                 )
             );
@@ -710,7 +710,7 @@ class ExportHtmlwordTest extends PmaTestCase
             'mimework' => false,
             'db' => 'database',
             'relation' => 'rel',
-            'column_info' => 'col'
+            'column_info' => 'col',
         ];
 
         $result = $this->object->getTableDef(
@@ -748,7 +748,7 @@ class ExportHtmlwordTest extends PmaTestCase
                 'action_timing' => 'ac>t',
                 'event_manipulation' => 'manip&',
                 'definition' => 'def'
-            ]
+            ],
         ];
 
         $dbi->expects($this->once())
@@ -923,7 +923,7 @@ class ExportHtmlwordTest extends PmaTestCase
             'Field' => 'fields',
             'Key' => 'COMP',
             'Type' => '',
-            'Default' => 'def'
+            'Default' => 'def',
         ];
 
         $unique_keys = [

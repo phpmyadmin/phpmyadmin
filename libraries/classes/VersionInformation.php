@@ -61,7 +61,7 @@ class VersionInformation
         if ($save) {
             $_SESSION['cache']['version_check'] = [
                 'response' => $response,
-                'timestamp' => time()
+                'timestamp' => time(),
             ];
         }
         return $data;
@@ -185,7 +185,15 @@ class VersionInformation
     {
         $operator = null;
         $version = null;
-        $operators = ["<=", ">=", "!=", "<>", "<", ">", "="]; // preserve order
+        $operators = [
+            "<=",
+            ">=",
+            "!=",
+            "<>",
+            "<",
+            ">",
+            "=",
+        ]; // preserve order
         foreach ($operators as $oneOperator) {
             if (strpos($condition, $oneOperator) === 0) {
                 $operator = $oneOperator;

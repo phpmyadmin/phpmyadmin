@@ -59,14 +59,17 @@ class CreateAddFieldTest extends TestCase
     public function providerGetPartitionsDefinition()
     {
         return [
-            ['', []],
+            [
+                '',
+                [],
+            ],
             [
                 ' PARTITION BY HASH (EXPR()) PARTITIONS 2',
                 [
                     'partition_by' => 'HASH',
                     'partition_expr' => 'EXPR()',
                     'partition_count' => '2',
-                ]
+                ],
             ],
         ];
     }
@@ -99,7 +102,9 @@ class CreateAddFieldTest extends TestCase
     {
         return [
             [
-                'CREATE TABLE `db`.`table` ();', 'db', 'table',
+                'CREATE TABLE `db`.`table` ();',
+                'db',
+                'table',
                 [
                     'field_name' => [],
                     'primary_indexes' => '{}',
@@ -107,7 +112,7 @@ class CreateAddFieldTest extends TestCase
                     'unique_indexes' => '{}',
                     'fulltext_indexes' => '{}',
                     'spatial_indexes' => '{}',
-                ]
+                ],
             ],
         ];
     }
@@ -137,7 +142,10 @@ class CreateAddFieldTest extends TestCase
     public function providerGetNumberOfFieldsFromRequest()
     {
         return [
-            [4, []],
+            [
+                4,
+                [],
+            ],
         ];
     }
 }

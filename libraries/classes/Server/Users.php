@@ -32,7 +32,7 @@ class Users
                 'name' => __('User accounts overview'),
                 'url' => 'server_privileges.php',
                 'params' => Url::getCommon(['viewing_mode' => 'server']),
-            ]
+            ],
         ];
 
         if ($GLOBALS['dbi']->isSuperuser()) {

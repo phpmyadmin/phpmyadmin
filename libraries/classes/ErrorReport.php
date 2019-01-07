@@ -203,7 +203,10 @@ class ErrorReport
         }
 
         $uri = $scriptName . "?" . $query;
-        return [$uri, $scriptName];
+        return [
+            $uri,
+            $scriptName,
+        ];
     }
 
     /**

@@ -47,7 +47,7 @@ if (isset($_POST['index'])) {
 }
 
 $dependency_definitions = [
-    "index" => $index
+    "index" => $index,
 ];
 
 /** @var TableIndexesController $controller */

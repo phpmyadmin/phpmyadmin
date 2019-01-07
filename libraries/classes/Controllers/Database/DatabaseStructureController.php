@@ -159,7 +159,7 @@ class DatabaseStructureController extends DatabaseController
             $uri = './db_structure.php' . Url::getCommonRaw([
                 'db' => $this->db,
                 'pos' => max(0, $this->_total_num_tables - $GLOBALS['cfg']['MaxTableList']),
-                'reload' => 1
+                'reload' => 1,
             ]);
             Core::sendHeaderLocation($uri);
         }
@@ -187,7 +187,7 @@ class DatabaseStructureController extends DatabaseController
         $this->response->addHTML('<div id="tableslistcontainer">');
         $_url_params = [
             'pos' => $this->_pos,
-            'db'  => $this->db
+            'db'  => $this->db,
         ];
 
         // Add the sort options if they exists
@@ -236,7 +236,7 @@ class DatabaseStructureController extends DatabaseController
                 'url_query' => Url::getCommon([
                     'db' => $this->db,
                     'goto' => 'db_structure.php',
-                ])
+                ]),
             ])
         );
 
@@ -305,10 +305,11 @@ class DatabaseStructureController extends DatabaseController
             return;
         }
         // Check if current table is already in favorite list.
-        $favParams = ['db' => $this->db,
+        $favParams = [
+            'db' => $this->db,
             'ajax_request' => true,
             'favorite_table' => $favorite_table,
-            (($already_favorite ? 'remove' : 'add') . '_favorite') => true
+            (($already_favorite ? 'remove' : 'add') . '_favorite') => true,
         ];
         $this->response->addJSON([
             'user' => $user,
@@ -353,7 +354,7 @@ class DatabaseStructureController extends DatabaseController
                 ->getRealRowCountTable();
             $real_row_count_all[] = [
                 'table' => $table['TABLE_NAME'],
-                'row_count' => $row_count
+                'row_count' => $row_count,
             ];
         }
 
@@ -440,7 +441,10 @@ class DatabaseStructureController extends DatabaseController
             $table_is_view = false;
             // Sets parameters for links
             $tbl_url_query = Url::getCommon(
-                ['db' => $this->db, 'table' => $current_table['TABLE_NAME']]
+                [
+                    'db' => $this->db,
+                    'table' => $current_table['TABLE_NAME'],
+                ]
             );
             // do not list the previous table's size info for a view
 
@@ -789,7 +793,10 @@ class DatabaseStructureController extends DatabaseController
             }
         }
 
-        return [$approx_rows, $show_superscript];
+        return [
+            $approx_rows,
+            $show_superscript,
+        ];
     }
 
     /**
@@ -842,7 +849,10 @@ class DatabaseStructureController extends DatabaseController
                 );
         }
 
-        return [$do, $ignored];
+        return [
+            $do,
+            $ignored,
+        ];
     }
 
     /**
@@ -1017,8 +1027,15 @@ class DatabaseStructureController extends DatabaseController
             $table_is_view = true;
         }
 
-        return [$current_table, $formatted_size, $unit, $formatted_overhead,
-            $overhead_unit, $overhead_size, $table_is_view, $sum_size
+        return [
+            $current_table,
+            $formatted_size,
+            $unit,
+            $formatted_overhead,
+            $overhead_unit,
+            $overhead_size,
+            $table_is_view,
+            $sum_size,
         ];
     }
 
@@ -1071,8 +1088,14 @@ class DatabaseStructureController extends DatabaseController
                 $overhead_size += $current_table['Data_free'];
             }
         }
-        return [$current_table, $formatted_size, $unit, $formatted_overhead,
-            $overhead_unit, $overhead_size, $sum_size
+        return [
+            $current_table,
+            $formatted_size,
+            $unit,
+            $formatted_overhead,
+            $overhead_unit,
+            $overhead_size,
+            $sum_size,
         ];
     }
 
@@ -1113,6 +1136,11 @@ class DatabaseStructureController extends DatabaseController
             );
         }
 
-        return [$current_table, $formatted_size, $unit, $sum_size];
+        return [
+            $current_table,
+            $formatted_size,
+            $unit,
+            $sum_size,
+        ];
     }
 }

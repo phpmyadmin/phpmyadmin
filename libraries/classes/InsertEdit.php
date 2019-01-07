@@ -157,7 +157,12 @@ class InsertEdit
                 $found_unique_key = true;
             }
         }
-        return [$where_clauses, $result, $rows, $found_unique_key];
+        return [
+            $where_clauses,
+            $result,
+            $rows,
+            $found_unique_key,
+        ];
     }
 
     /**
@@ -232,7 +237,10 @@ class InsertEdit
             DatabaseInterface::QUERY_STORE
         );
         $rows = array_fill(0, $GLOBALS['cfg']['InsertRows'], false);
-        return [$result, $rows];
+        return [
+            $result,
+            $rows,
+        ];
     }
 
     /**
@@ -343,15 +351,26 @@ class InsertEdit
         $column['Field_title']   = $this->getColumnTitle($column, $comments_map);
         $column['is_binary']     = $this->isColumn(
             $column,
-            ['binary', 'varbinary']
+            [
+                'binary',
+                'varbinary',
+            ]
         );
         $column['is_blob']       = $this->isColumn(
             $column,
-            ['blob', 'tinyblob', 'mediumblob', 'longblob']
+            [
+                'blob',
+                'tinyblob',
+                'mediumblob',
+                'longblob',
+            ]
         );
         $column['is_char']       = $this->isColumn(
             $column,
-            ['char', 'varchar']
+            [
+                'char',
+                'varchar',
+            ]
         );
 
         list($column['pma_type'], $column['wrap'], $column['first_timestamp'])
@@ -432,7 +451,11 @@ class InsertEdit
                 $column['wrap']  = ' nowrap';
                 break;
         }
-        return [$column['pma_type'], $column['wrap'], $column['first_timestamp']];
+        return [
+            $column['pma_type'],
+            $column['wrap'],
+            $column['first_timestamp'],
+        ];
     }
 
     /**
@@ -867,7 +890,7 @@ class InsertEdit
                     'table' => $table,
                     'field' => $column['Field'],
                     'rownumber' => $rownumber,
-                    'data'      => $data
+                    'data'      => $data,
                 ],
                 ''
             ) . '">'
@@ -1300,7 +1323,10 @@ class InsertEdit
             }
             $column['select_size'] = min(4, count($column['values']));
         }
-        return [$column['values'], $column['select_size']];
+        return [
+            $column['values'],
+            $column['select_size'],
+        ];
     }
 
     /**
@@ -1549,7 +1575,7 @@ class InsertEdit
             'tinyblob'   =>        '256',
             'blob'       =>      '65536',
             'mediumblob' =>   '16777216',
-            'longblob'   => '4294967296' // yeah, really
+            'longblob'   => '4294967296',// yeah, really
         ];
 
         $this_field_max_size = $max_upload_size; // from PHP max
@@ -1565,7 +1591,10 @@ class InsertEdit
         if ($this_field_max_size > $biggest_max_file_size) {
             $biggest_max_file_size = $this_field_max_size;
         }
-        return [$html_output, $biggest_max_file_size];
+        return [
+            $html_output,
+            $biggest_max_file_size,
+        ];
     }
 
     /**
@@ -1647,7 +1676,10 @@ class InsertEdit
             );
 
             $virtual = [
-                'VIRTUAL', 'PERSISTENT', 'VIRTUAL GENERATED', 'STORED GENERATED'
+                'VIRTUAL',
+                'PERSISTENT',
+                'VIRTUAL GENERATED',
+                'STORED GENERATED',
             ];
             if (in_array($column['Extra'], $virtual)) {
                 $html_output .= '<input type="hidden" name="virtual'
@@ -2053,7 +2085,7 @@ class InsertEdit
             $special_chars_encoded,
             $special_chars,
             $data,
-            $backup_field
+            $backup_field,
         ];
     }
 
@@ -2099,8 +2131,11 @@ class InsertEdit
             $special_chars
         );
         return [
-            $real_null_value, $data, $special_chars,
-            $backup_field, $special_chars_encoded
+            $real_null_value,
+            $data,
+            $special_chars,
+            $backup_field,
+            $special_chars_encoded,
         ];
     }
 
@@ -2134,7 +2169,12 @@ class InsertEdit
         }
         $is_insertignore  = isset($_POST['submit_type'])
             && $_POST['submit_type'] == 'insertignore';
-        return [$loop_array, $using_key, $is_insert, $is_insertignore];
+        return [
+            $loop_array,
+            $using_key,
+            $is_insert,
+            $is_insertignore,
+        ];
     }
 
     /**
@@ -2208,7 +2248,11 @@ class InsertEdit
      */
     public function getGotoInclude($goto_include)
     {
-        $valid_options = ['new_insert', 'same_insert', 'edit_next'];
+        $valid_options = [
+            'new_insert',
+            'same_insert',
+            'edit_next',
+        ];
         if (isset($_POST['after_insert'])
             && in_array($_POST['after_insert'], $valid_options)
         ) {
@@ -2344,7 +2388,7 @@ class InsertEdit
             $last_messages,
             $warning_messages,
             $error_messages,
-            $return_to_sql_query
+            $return_to_sql_query,
         ];
     }
 
@@ -2446,7 +2490,7 @@ class InsertEdit
                 . Util::backquote($foreigner['foreign_db'])
                 . '.' . Util::backquote($foreigner['foreign_table'])
                 . ' WHERE ' . Util::backquote($foreigner['foreign_field'])
-                . $where_comparison
+                . $where_comparison,
         ];
         $output = '<a href="sql.php'
             . Url::getCommon($_url_params) . '"' . $title . '>';
@@ -2494,7 +2538,7 @@ class InsertEdit
                 'db'            => $db,
                 'table'         => $table,
                 'where_clause'  => $_POST['where_clause'],
-                'transform_key' => $column_name
+                'transform_key' => $column_name,
             ];
             $transform_options = $this->transformations->getOptions(
                 isset($transformation[$type . '_options'])
@@ -2657,7 +2701,10 @@ class InsertEdit
                     . ' = ' . $current_value_as_an_array;
             }
         }
-        return [$query_values, $query_fields];
+        return [
+            $query_values,
+            $query_fields,
+        ];
     }
 
     /**
@@ -2909,9 +2956,14 @@ class InsertEdit
         }
 
         return [
-            $insert_mode, $where_clause, $where_clause_array, $where_clauses,
-            $result, $rows, $found_unique_key,
-            isset($after_insert) ? $after_insert : null
+            $insert_mode,
+            $where_clause,
+            $where_clause_array,
+            $where_clauses,
+            $result,
+            $rows,
+            $found_unique_key,
+            isset($after_insert) ? $after_insert : null,
         ];
     }
 
@@ -2949,7 +3001,7 @@ class InsertEdit
          */
         $url_params = [
             'db' => $db,
-            'sql_query' => $_POST['sql_query']
+            'sql_query' => $_POST['sql_query'],
         ];
 
         if (preg_match('@^tbl_@', $GLOBALS['goto'])) {
@@ -3290,7 +3342,7 @@ class InsertEdit
                         'db'            => $db,
                         'table'         => $table,
                         'transform_key' => $column['Field'],
-                        'where_clause'  => $where_clause
+                        'where_clause'  => $where_clause,
                     ];
                     $transformation_options['wrapper_link']
                         = Url::getCommon($_url_params);
@@ -3334,7 +3386,10 @@ class InsertEdit
                 $data,
                 $special_chars,
                 $foreignData,
-                [$table, $db],
+                [
+                    $table,
+                    $db,
+                ],
                 $row_id,
                 $titles,
                 $text_dir,

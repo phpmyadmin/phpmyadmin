@@ -54,8 +54,14 @@ class FilesTest extends TestCase
     public function listScripts()
     {
         return [
-            ['js/whitelist.php', 'var PMA_gotoWhitelist'],
-            ['js/messages.php', 'var PMA_messages = new Array();'],
+            [
+                'js/whitelist.php',
+                'var PMA_gotoWhitelist',
+            ],
+            [
+                'js/messages.php',
+                'var PMA_messages = new Array();',
+            ],
         ];
     }
 }

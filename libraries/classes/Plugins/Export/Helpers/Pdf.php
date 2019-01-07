@@ -631,29 +631,29 @@ class Pdf extends PdfLib
                     $column['Default'] = 'NULL';
                 }
             }
-            $data [] = $column['Field'];
-            $data [] = $type;
-            $data [] = $column['Null'] == '' || $column['Null'] == 'NO'
+            $data[] = $column['Field'];
+            $data[] = $type;
+            $data[] = $column['Null'] == '' || $column['Null'] == 'NO'
                 ? 'No'
                 : 'Yes';
-            $data [] = isset($column['Default']) ? $column['Default'] : '';
+            $data[] = isset($column['Default']) ? $column['Default'] : '';
 
             $field_name = $column['Field'];
 
             if ($do_relation && $have_rel) {
-                $data [] = isset($res_rel[$field_name])
+                $data[] = isset($res_rel[$field_name])
                     ? $res_rel[$field_name]['foreign_table']
                     . ' (' . $res_rel[$field_name]['foreign_field']
                     . ')'
                     : '';
             }
             if ($do_comments) {
-                $data [] = isset($comments[$field_name])
+                $data[] = isset($comments[$field_name])
                     ? $comments[$field_name]
                     : '';
             }
             if ($do_mime) {
-                $data [] = isset($mime_map[$field_name])
+                $data[] = isset($mime_map[$field_name])
                     ? $mime_map[$field_name]['mimetype']
                     : '';
             }

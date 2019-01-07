@@ -144,7 +144,10 @@ class GisMultiPolygon extends GisGeometry
             imagefilledpolygon($image, $points_arr, sizeof($points_arr) / 2, $color);
             // mark label point if applicable
             if (isset($label) && trim($label) != '' && $first_poly) {
-                $label_point = [$points_arr[2], $points_arr[3]];
+                $label_point = [
+                    $points_arr[2],
+                    $points_arr[3],
+                ];
             }
             $first_poly = false;
         }
@@ -181,7 +184,11 @@ class GisMultiPolygon extends GisGeometry
         $red = hexdec(mb_substr($fill_color, 1, 2));
         $green = hexdec(mb_substr($fill_color, 3, 2));
         $blue = hexdec(mb_substr($fill_color, 4, 2));
-        $color = [$red, $green, $blue];
+        $color = [
+            $red,
+            $green,
+            $blue,
+        ];
 
         // Trim to remove leading 'MULTIPOLYGON(((' and trailing ')))'
         $multipolygon
@@ -217,7 +224,10 @@ class GisMultiPolygon extends GisGeometry
             $pdf->Polygon($points_arr, 'F*', [], $color, true);
             // mark label point if applicable
             if (isset($label) && trim($label) != '' && $first_poly) {
-                $label_point = [$points_arr[2], $points_arr[3]];
+                $label_point = [
+                    $points_arr[2],
+                    $points_arr[3],
+                ];
             }
             $first_poly = false;
         }

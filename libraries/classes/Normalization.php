@@ -355,7 +355,7 @@ class Normalization
             'headText' => $headText,
             'subText' => $subText,
             'extra' => $extra,
-            'primary_key' => json_encode($pk)
+            'primary_key' => json_encode($pk),
         ];
     }
 
@@ -450,7 +450,7 @@ class Normalization
             'headText' => $headText,
             'subText' => $subText,
             'extra' => $extra,
-            'primary_key' => $key
+            'primary_key' => $key,
         ];
     }
 
@@ -508,8 +508,9 @@ class Normalization
         ) . '</h3>';
         if (count((array) $partialDependencies) == 1) {
             return [
-                'legendText' => __('End of step'), 'headText' => $headText,
-                'queryError' => $error
+                'legendText' => __('End of step'),
+                'headText' => $headText,
+                'queryError' => $error,
             ];
         }
         $message = '';
@@ -613,14 +614,19 @@ class Normalization
                             . (count($dependents) > 0 ? ', ' : '')
                             . htmlspecialchars(implode(', ', $dependents)) . ' )';
                         $newTables[$table][$tableName] = [
-                            "pk" => $key, "nonpk" => implode(', ', $dependents)
+                            "pk" => $key,
+                            "nonpk" => implode(', ', $dependents),
                         ];
                         $i++;
                         $tableName = 'table' . $i;
                 }
             }
         }
-        return ['html' => $html, 'newTables' => $newTables, 'success' => true];
+        return [
+            'html' => $html,
+            'newTables' => $newTables,
+            'success' => true
+        ];
     }
 
     /**
@@ -641,8 +647,9 @@ class Normalization
             . '</h3>';
         if (count((array) $newTables) == 0) {
             return [
-                'legendText' => __('End of step'), 'headText' => $headText,
-                'queryError' => $error
+                'legendText' => __('End of step'),
+                'headText' => $headText,
+                'queryError' => $error,
             ];
         }
         $message = '';
@@ -761,7 +768,10 @@ class Normalization
             $query2 .= ' DROP ' . $repeatingColumn . ',';
         }
         $query2 = trim($query2, ',');
-        $queries = [$query1, $query2];
+        $queries = [
+            $query1,
+            $query2,
+        ];
         $this->dbi->selectDb($db);
         foreach ($queries as $query) {
             if (! $this->dbi->tryQuery($query)) {
@@ -777,7 +787,8 @@ class Normalization
             }
         }
         return [
-            'queryError' => $error, 'message' => $message
+            'queryError' => $error,
+            'message' => $message
         ];
     }
 

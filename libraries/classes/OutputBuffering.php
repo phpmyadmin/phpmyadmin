@@ -90,7 +90,10 @@ class OutputBuffering
                 header('X-ob_mode: ' . $this->_mode);
             }
             register_shutdown_function(
-                [OutputBuffering::class, 'stop']
+                [
+                    OutputBuffering::class,
+                    'stop',
+                ]
             );
             $this->_on = true;
         }

@@ -262,7 +262,7 @@ class ServerDatabasesController extends Controller
                 'SCHEMA_DATA_LENGTH',
                 'SCHEMA_INDEX_LENGTH',
                 'SCHEMA_LENGTH',
-                'SCHEMA_DATA_FREE'
+                'SCHEMA_DATA_FREE',
             ];
             if (in_array($_REQUEST['sort_by'], $sort_by_whitelist)) {
                 $this->_sort_by = $_REQUEST['sort_by'];
@@ -360,7 +360,10 @@ class ServerDatabasesController extends Controller
         $column_order = [];
         $column_order['DEFAULT_COLLATION_NAME'] = [
             'disp_name' => __('Collation'),
-            'description_function' => [Charsets::class, 'getCollationDescr'],
+            'description_function' => [
+                Charsets::class,
+                'getCollationDescr',
+            ],
             'format'    => 'string',
             'footer'    => '',
         ];

@@ -197,7 +197,7 @@ class Operations
         $choices = [
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only')
+            'dataonly'  => __('Data only'),
         ];
 
         $pma_switch_to_new = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
@@ -795,7 +795,11 @@ class Operations
     public function duplicateBookmarks($_error, $db)
     {
         if (! $_error && $db != $_POST['newname']) {
-            $get_fields = ['user', 'label', 'query'];
+            $get_fields = [
+                'user',
+                'label',
+                'query',
+            ];
             $where_fields = ['dbase' => $db];
             $new_fields = ['dbase' => $_POST['newname']];
             Table::duplicateInfo(
@@ -1274,7 +1278,7 @@ class Operations
             ],
             'INNODB' => [
                 'COMPACT'  => 'COMPACT',
-                'REDUNDANT' => 'REDUNDANT'
+                'REDUNDANT' => 'REDUNDANT',
             ]
         ];
 
@@ -1333,7 +1337,7 @@ class Operations
         $choices = [
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only')
+            'dataonly'  => __('Data only'),
         ];
 
         $html_output .= Util::getRadioFields(
@@ -1484,7 +1488,7 @@ class Operations
             $params = [
                 'sql_query' => 'ALTER TABLE '
                 . Util::backquote($GLOBALS['table'])
-                . ' ENGINE = InnoDB;'
+                . ' ENGINE = InnoDB;',
             ];
             $html_output .= $this->getMaintainActionlink(
                 __('Defragment table'),
@@ -1620,7 +1624,10 @@ class Operations
         return '<li>' . Util::linkOrButton(
             'sql.php' . Url::getCommon($url_params),
             $link,
-            ['id' => $htmlId, 'class' => 'ajax']
+            [
+                'id' => $htmlId,
+                'class' => 'ajax',
+            ]
         )
             . Util::showMySQLDocu($syntax)
             . '</li>';
@@ -1642,7 +1649,7 @@ class Operations
             'OPTIMIZE' => __('Optimize'),
             'REBUILD' => __('Rebuild'),
             'REPAIR' => __('Repair'),
-            'TRUNCATE' => __('Truncate')
+            'TRUNCATE' => __('Truncate'),
         ];
 
         $partition_method = Partition::getPartitionMethod(
@@ -1699,7 +1706,7 @@ class Operations
             [
                 'sql_query' => 'ALTER TABLE '
                 . Util::backquote($GLOBALS['table'])
-                . ' REMOVE PARTITIONING;'
+                . ' REMOVE PARTITIONING;',
             ]
         );
         $html_output .= '<div class="clearfloat"><br>';
@@ -1806,7 +1813,10 @@ class Operations
         $sql_query .= ';';
         $result = $this->dbi->query($sql_query);
 
-        return [$sql_query, $result];
+        return [
+            $sql_query,
+            $result,
+        ];
     }
 
     /**
@@ -1968,7 +1978,10 @@ class Operations
 
         $result = $this->dbi->query($sql_query);
 
-        return [$sql_query, $result];
+        return [
+            $sql_query,
+            $result,
+        ];
     }
 
     /**

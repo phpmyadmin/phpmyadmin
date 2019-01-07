@@ -285,7 +285,7 @@ class IpAllowDeny
         // lookup table for some name shortcuts
         $shortcuts = [
             'all'       => '0.0.0.0/0',
-            'localhost' => '127.0.0.1/8'
+            'localhost' => '127.0.0.1/8',
         ];
 
         // Provide some useful shortcuts if server gives us address:

@@ -61,9 +61,9 @@ class UserPreferencesTest extends PmaTestCase
             [
                 'Servers' => [
                     1 => [
-                        'hide_db' => 'testval123'
-                    ]
-                ]
+                        'hide_db' => 'testval123',
+                    ],
+                ],
             ],
             $_SESSION['ConfigFile' . $GLOBALS['server']]
         );
@@ -125,7 +125,7 @@ class UserPreferencesTest extends PmaTestCase
                 $this->returnValue(
                     [
                         'ts' => '123',
-                        'config_data' => json_encode([1, 2])
+                        'config_data' => json_encode([1, 2]),
                     ]
                 )
             );
@@ -139,7 +139,10 @@ class UserPreferencesTest extends PmaTestCase
 
         $this->assertEquals(
             [
-                'config_data' => [1, 2],
+                'config_data' => [
+                    1,
+                    2,
+                ],
                 'mtime' => 123,
                 'type' => 'db'
             ],
@@ -293,8 +296,8 @@ class UserPreferencesTest extends PmaTestCase
         $this->assertEquals(
             [
                 'Server' => [
-                    'hide_db' => 1
-                ]
+                    'hide_db' => 1,
+                ],
             ],
             $result
         );

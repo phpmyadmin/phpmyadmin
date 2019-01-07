@@ -38,7 +38,7 @@ $dependency_definitions = [
         'database'
     ),
     "back" => 'sql.php',
-    "visualizationSettings" => []
+    "visualizationSettings" => [],
 ];
 
 /** @var TableGisVisualizationController $controller */

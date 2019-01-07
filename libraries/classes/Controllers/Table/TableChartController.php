@@ -105,7 +105,7 @@ class TableChartController extends TableController
                 'vendor/jqplot/plugins/jqplot.pointLabels.js',
                 'vendor/jqplot/plugins/jqplot.pieRenderer.js',
                 'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
-                'vendor/jqplot/plugins/jqplot.highlighter.js'
+                'vendor/jqplot/plugins/jqplot.highlighter.js',
             ]
         );
 
@@ -154,7 +154,10 @@ class TableChartController extends TableController
 
         $keys = array_keys($data[0]);
 
-        $numeric_types = ['int', 'real'];
+        $numeric_types = [
+            'int',
+            'real',
+        ];
         $numeric_column_count = 0;
         foreach ($keys as $idx => $key) {
             if (in_array($fields_meta[$idx]->type, $numeric_types)) {

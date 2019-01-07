@@ -711,8 +711,16 @@ class Config
         }
 
         if ($commit !== false) {
-            $author = ['name' => '', 'email' => '', 'date' => ''];
-            $committer = ['name' => '', 'email' => '', 'date' => ''];
+            $author = [
+                'name' => '',
+                'email' => '',
+                'date' => ''
+            ];
+            $committer = [
+                'name' => '',
+                'email' => '',
+                'date' => ''
+            ];
 
             do {
                 $dataline = array_shift($commit);
@@ -1414,7 +1422,7 @@ class Config
             'PMA_IS_GD2',
             'PMA_USR_OS',
             'PMA_USR_BROWSER_VER',
-            'PMA_USR_BROWSER_AGENT'
+            'PMA_USR_BROWSER_AGENT',
         ];
 
         foreach ($defines as $define) {

@@ -384,7 +384,7 @@ class ExportSql extends ExportPlugin
             $leaf->setDoc(
                 [
                     'manual_MySQL_Database_Administration',
-                    'insert_delayed'
+                    'insert_delayed',
                 ]
             );
             $subgroup->addProperty($leaf);
@@ -2769,8 +2769,7 @@ class ExportSql extends ExportPlugin
                 // Column name.
                 if (! empty($field->type)) {
                     if (! empty($aliases[$old_database]['tables'][$old_table]['columns'][$field->name])) {
-                        $field->name = $aliases[$old_database]['tables']
-                        [$old_table]['columns'][$field->name];
+                        $field->name = $aliases[$old_database]['tables'][$old_table]['columns'][$field->name];
                         $flag = true;
                     }
                 }
@@ -2779,8 +2778,7 @@ class ExportSql extends ExportPlugin
                 if (! empty($field->key)) {
                     foreach ($field->key->columns as $key => $column) {
                         if (! empty($aliases[$old_database]['tables'][$old_table]['columns'][$column['name']])) {
-                            $field->key->columns[$key]['name'] = $aliases[$old_database]
-                                ['tables'][$old_table]['columns'][$column['name']];
+                            $field->key->columns[$key]['name'] = $aliases[$old_database]['tables'][$old_table]['columns'][$column['name']];
                             $flag = true;
                         }
                     }

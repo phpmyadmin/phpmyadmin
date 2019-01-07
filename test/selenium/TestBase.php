@@ -1051,7 +1051,7 @@ abstract class TestBase extends TestCase
             $payload = json_encode(
                 [
                     'status' => 'failed',
-                    'reason' => $e->getMessage()
+                    'reason' => $e->getMessage(),
                 ]
             );
 

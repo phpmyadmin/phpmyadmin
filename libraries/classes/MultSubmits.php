@@ -384,7 +384,7 @@ class MultSubmits
             $runParts,
             $executeQueryLater,
             $sqlQuery,
-            $sqlQueryViews
+            $sqlQueryViews,
         ];
     }
 
@@ -642,6 +642,10 @@ class MultSubmits
 
         $fullQueryViews = isset($fullQueryViews) ? $fullQueryViews : null;
 
-        return [$fullQuery, $reload, $fullQueryViews];
+        return [
+            $fullQuery,
+            $reload,
+            $fullQueryViews,
+        ];
     }
 }

@@ -31,9 +31,9 @@ class ServersForm extends BaseForm
                         'port',
                         'socket',
                         'ssl',
-                        'compress'
-                    ]
-                ]
+                        'compress',
+                    ],
+                ],
             ],
             'Server_auth' => [
                 'Servers' => [
@@ -49,9 +49,9 @@ class ServersForm extends BaseForm
                         ':group:' . __('Signon authentication'),
                         'SignonSession',
                         'SignonURL',
-                        'LogoutURL'
-                    ]
-                ]
+                        'LogoutURL',
+                    ],
+                ],
             ],
             'Server_config' => [
                 'Servers' => [
@@ -63,9 +63,9 @@ class ServersForm extends BaseForm
                         'DisableIS',
                         'AllowDeny/order',
                         'AllowDeny/rules',
-                        'SessionTimeZone'
-                    ]
-                ]
+                        'SessionTimeZone',
+                    ],
+                ],
             ],
             'Server_pmadb' => [
                 'Servers' => [
@@ -95,8 +95,8 @@ class ServersForm extends BaseForm
                         'designer_settings' => 'pma__designer_settings',
                         'export_templates' => 'pma__export_templates',
                         'MaxTableUiprefs' => 100
-                    ]
-                ]
+                    ],
+                ],
             ],
             'Server_tracking' => [
                 'Servers' => [
@@ -106,8 +106,8 @@ class ServersForm extends BaseForm
                         'tracking_add_drop_view',
                         'tracking_add_drop_table',
                         'tracking_add_drop_database',
-                    ]
-                ]
+                    ],
+                ],
             ],
         ];
     }

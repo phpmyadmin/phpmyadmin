@@ -322,7 +322,10 @@ class Export
             $filename  .= '.zip';
             $mime_type = 'application/zip';
         }
-        return [$filename, $mime_type];
+        return [
+            $filename,
+            $mime_type,
+        ];
     }
 
     /**
@@ -375,7 +378,11 @@ class Export
             );
             $message->addParam($save_filename);
         }
-        return [$save_filename, $message, $file_handle];
+        return [
+            $save_filename,
+            $message,
+            $file_handle,
+        ];
     }
 
     /**
@@ -489,7 +496,10 @@ class Export
             $back_button .= 'db_export.php" data-post="' . Url::getCommon(['db' => $db], '');
         } else {
             $back_button .= 'tbl_export.php" data-post="' . Url::getCommon(
-                ['db' => $db, 'table' => $table],
+                [
+                    'db' => $db,
+                    'table' => $table,
+                ],
                 ''
             );
         }
@@ -531,7 +541,11 @@ class Export
             . '<textarea name="sqldump" cols="50" rows="30" '
             . 'id="textSQLDUMP" wrap="OFF">';
 
-        return [$html, $back_button, $refreshButton];
+        return [
+            $html,
+            $back_button,
+            $refreshButton,
+        ];
     }
 
     /**

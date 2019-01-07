@@ -202,8 +202,18 @@ class ExportYaml extends ExportPlugin
                 }
 
                 $record[$i] = str_replace(
-                    ['\\', '"', "\n", "\r"],
-                    ['\\\\', '\"', '\n', '\r'],
+                    [
+                        '\\',
+                        '"',
+                        "\n",
+                        "\r",
+                    ],
+                    [
+                        '\\\\',
+                        '\"',
+                        '\n',
+                        '\r',
+                    ],
                     $record[$i]
                 );
                 $buffer .= '  ' . $columns[$i] . ': "' . $record[$i] . '"' . $crlf;

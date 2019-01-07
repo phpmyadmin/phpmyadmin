@@ -774,7 +774,13 @@ class Types
      */
     public function getIntegerTypes()
     {
-        return ['tinyint', 'smallint', 'mediumint', 'int', 'bigint'];
+        return [
+            'tinyint',
+            'smallint',
+            'mediumint',
+            'int',
+            'bigint',
+        ];
     }
 
     /**
@@ -789,23 +795,56 @@ class Types
     {
         static $min_max_data = [
             'unsigned' => [
-                'tinyint'   => ['0', '255'],
-                'smallint'  => ['0', '65535'],
-                'mediumint' => ['0', '16777215'],
-                'int'       => ['0', '4294967295'],
-                'bigint'    => ['0', '18446744073709551615']
+                'tinyint'   => [
+                    '0',
+                    '255',
+                ],
+                'smallint'  => [
+                    '0',
+                    '65535',
+                ],
+                'mediumint' => [
+                    '0',
+                    '16777215',
+                ],
+                'int'       => [
+                    '0',
+                    '4294967295',
+                ],
+                'bigint'    => [
+                    '0',
+                    '18446744073709551615',
+                ],
             ],
             'signed' => [
-                'tinyint'   => ['-128', '127'],
-                'smallint'  => ['-32768', '32767'],
-                'mediumint' => ['-8388608', '8388607'],
-                'int'       => ['-2147483648', '2147483647'],
-                'bigint'    => ['-9223372036854775808', '9223372036854775807']
+                'tinyint'   => [
+                    '-128',
+                    '127',
+                ],
+                'smallint'  => [
+                    '-32768',
+                    '32767',
+                ],
+                'mediumint' => [
+                    '-8388608',
+                    '8388607',
+                ],
+                'int'       => [
+                    '-2147483648',
+                    '2147483647',
+                ],
+                'bigint'    => [
+                    '-9223372036854775808',
+                    '9223372036854775807',
+                ],
             ]
         ];
         $relevantArray = $signed
             ? $min_max_data['signed']
             : $min_max_data['unsigned'];
-        return isset($relevantArray[$type]) ? $relevantArray[$type] : ['', ''];
+        return isset($relevantArray[$type]) ? $relevantArray[$type] : [
+            '',
+            '',
+        ];
     }
 }

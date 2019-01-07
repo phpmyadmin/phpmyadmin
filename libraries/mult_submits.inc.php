@@ -34,7 +34,7 @@ $request_params = [
     'submit_mult',
     'table_type',
     'to_prefix',
-    'url_query'
+    'url_query',
 ];
 
 foreach ($request_params as $one_request_param) {

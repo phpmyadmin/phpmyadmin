@@ -60,7 +60,7 @@ class MemoryTest extends PmaTestCase
             [
                 'max_heap_table_size' => [
                     'type'  => 1,
-                ]
+                ],
             ]
         );
     }

@@ -487,9 +487,15 @@ class Relation
 
         $workToTable = [
             'relwork' => 'relation',
-            'displaywork' => ['relation', 'table_info'],
+            'displaywork' => [
+                'relation',
+                'table_info',
+            ],
             'bookmarkwork' => 'bookmarktable',
-            'pdfwork' => ['table_coords', 'pdf_pages'],
+            'pdfwork' => [
+                'table_coords',
+                'pdf_pages',
+            ],
             'commwork' => 'column_info',
             'mimework' => 'column_info',
             'historywork' => 'history',
@@ -498,7 +504,10 @@ class Relation
             'uiprefswork' => 'table_uiprefs',
             'trackingwork' => 'tracking',
             'userconfigwork' => 'userconfig',
-            'menuswork' => ['users', 'usergroups'],
+            'menuswork' => [
+                'users',
+                'usergroups',
+            ],
             'navwork' => 'navigationhiding',
             'savedsearcheswork' => 'savedsearches',
             'centralcolumnswork' => 'central_columns',
@@ -711,7 +720,7 @@ class Relation
         // Check whether column_info table has input transformation columns
         $new_cols = [
             "input_transformation",
-            "input_transformation_options"
+            "input_transformation_options",
         ];
         $query = 'SHOW COLUMNS FROM '
             . Util::backquote($GLOBALS['cfg']['Server']['pmadb'])
@@ -1834,7 +1843,10 @@ class Relation
 
             $child_references = $this->dbi->fetchResult(
                 $rel_query,
-                ['referenced_column_name', null]
+                [
+                    'referenced_column_name',
+                    null,
+                ]
             );
         }
         return $child_references;
@@ -2155,7 +2167,10 @@ class Relation
             $have_rel = false;
             $res_rel = [];
         } // end if
-        return [$res_rel, $have_rel];
+        return [
+            $res_rel,
+            $have_rel,
+        ];
     }
 
     /**

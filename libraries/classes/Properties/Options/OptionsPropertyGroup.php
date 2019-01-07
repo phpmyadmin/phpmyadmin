@@ -40,7 +40,7 @@ abstract class OptionsPropertyGroup extends OptionsPropertyItem implements \Coun
         ) {
             return;
         }
-        $this->_properties [] = $property;
+        $this->_properties[] = $property;
     }
 
     /**

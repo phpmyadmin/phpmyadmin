@@ -131,7 +131,12 @@ class Error extends Message
     {
         $result = [];
 
-        $members = ['line', 'function', 'class', 'type'];
+        $members = [
+            'line',
+            'function',
+            'class',
+            'type',
+        ];
 
         foreach ($backtrace as $idx => $step) {
             /* Create new backtrace entry */
@@ -415,7 +420,7 @@ class Error extends Message
             'mysqli_connect',
             'mysqli_real_connect',
             'connect',
-            '_realConnect'
+            '_realConnect',
         ];
 
         if (in_array($function, $include_functions)) {

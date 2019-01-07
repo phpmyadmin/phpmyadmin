@@ -241,7 +241,11 @@ class ServerConfigChecks
                 );
             }
         }
-        return [$cookieAuthUsed, $blowfishSecret, $blowfishSecretSet];
+        return [
+            $cookieAuthUsed,
+            $blowfishSecret,
+            $blowfishSecretSet,
+        ];
     }
 
     /**
@@ -262,7 +266,10 @@ class ServerConfigChecks
             $blowfishSecretSet = true;
             $this->cfg->set('blowfish_secret', Util::generateRandom(32));
         }
-        return [$blowfishSecret, $blowfishSecretSet];
+        return [
+            $blowfishSecret,
+            $blowfishSecretSet,
+        ];
     }
 
     /**

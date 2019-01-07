@@ -105,7 +105,7 @@ $post_params = [
     'message_to_show',
     'noplugin',
     'skip_queries',
-    'local_import_file'
+    'local_import_file',
 ];
 
 foreach ($post_params as $one_post_param) {
@@ -246,7 +246,7 @@ if (! in_array(
         'ods',
         'shp',
         'sql',
-        'xml'
+        'xml',
     ]
 )
 ) {
@@ -257,7 +257,7 @@ if (! in_array(
 
 $post_patterns = [
     '/^force_file_/',
-    '/^' . $format . '_/'
+    '/^' . $format . '_/',
 ];
 
 Core::setPostAsGlobal($post_patterns);
@@ -269,7 +269,10 @@ PhpMyAdmin\Util::checkParameters(['import_type', 'format']);
 $format = Core::securePath($format);
 
 if (strlen($table) > 0 && strlen($db) > 0) {
-    $urlparams = ['db' => $db, 'table' => $table];
+    $urlparams = [
+        'db' => $db,
+        'table' => $table,
+    ];
 } elseif (strlen($db) > 0) {
     $urlparams = ['db' => $db];
 } else {
@@ -538,7 +541,10 @@ if (! $error && isset($_POST['skip'])) {
 
 // This array contain the data like numberof valid sql queries in the statement
 // and complete valid sql statement (which affected for rows)
-$sql_data = ['valid_sql' => [], 'valid_queries' => 0];
+$sql_data = [
+    'valid_sql' => [],
+    'valid_queries' => 0,
+];
 
 if (! $error) {
     /**

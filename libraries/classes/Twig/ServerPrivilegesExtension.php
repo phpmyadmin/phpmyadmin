@@ -40,7 +40,10 @@ class ServerPrivilegesExtension extends AbstractExtension
         return [
             new TwigFunction(
                 'format_privilege',
-                [$serverPrivileges, 'formatPrivilege'],
+                [
+                    $serverPrivileges,
+                    'formatPrivilege',
+                ],
                 ['is_safe' => ['html']]
             ),
         ];

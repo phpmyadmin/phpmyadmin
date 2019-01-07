@@ -194,7 +194,11 @@ class SqlQueryForm
         }
         $legend .= ': ' . Util::showMySQLDocu('SELECT');
 
-        return [$legend, $query, $columns_list];
+        return [
+            $legend,
+            $query,
+            $columns_list,
+        ];
     }
 
     /**

@@ -618,7 +618,10 @@ class Export
 
         // Empty row for javascript manipulations
         $result .= '</tbody><tfoot class="hide">' . $template->render([
-            'type' => '', 'name' => '', 'field' => 'aliases_new', 'value' => ''
+            'type' => '',
+            'name' => '',
+            'field' => 'aliases_new',
+            'value' => '',
         ]) . '</tfoot>';
 
         return $result . '</table>';
@@ -681,7 +684,7 @@ class Export
             'libraries/classes/Plugins/Export/',
             [
                 'export_type' => $exportType,
-                'single_table' => isset($GLOBALS['single_table'])
+                'single_table' => isset($GLOBALS['single_table']),
             ]
         );
 

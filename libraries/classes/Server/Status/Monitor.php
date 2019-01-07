@@ -297,7 +297,20 @@ class Monitor
         $retval .= Data::getHtmlForRefreshList(
             'gridChartRefresh',
             5,
-            [2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200]
+            [
+                2,
+                3,
+                4,
+                5,
+                10,
+                20,
+                40,
+                60,
+                120,
+                300,
+                600,
+                1200,
+            ]
         );
         $retval .= '<br>';
         $retval .= '</div>';
@@ -497,7 +510,11 @@ class Monitor
                 } /* foreach */
             } /* foreach */
         }
-        return [$serverVars, $statusVars, $ret];
+        return [
+            $serverVars,
+            $statusVars,
+            $ret,
+        ];
     }
 
     /**
@@ -576,7 +593,11 @@ class Monitor
                 break;
         }
 
-        return [$serverVars, $statusVars, $ret];
+        return [
+            $serverVars,
+            $statusVars,
+            $ret,
+        ];
     }
 
     /**
@@ -601,7 +622,10 @@ class Monitor
 
         $result = $GLOBALS['dbi']->tryQuery($query);
 
-        $return = ['rows' => [], 'sum' => []];
+        $return = [
+            'rows' => [],
+            'sum' => []
+        ];
 
         while ($row = $GLOBALS['dbi']->fetchAssoc($result)) {
             $type = mb_strtolower(
@@ -673,7 +697,10 @@ class Monitor
 
         $result = $GLOBALS['dbi']->tryQuery($query);
 
-        $return = ['rows' => [], 'sum' => []];
+        $return = [
+            'rows' => [],
+            'sum' => []
+        ];
         $insertTables = [];
         $insertTablesFirst = -1;
         $i = 0;

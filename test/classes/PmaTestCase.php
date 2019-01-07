@@ -55,9 +55,16 @@ class PmaTestCase extends TestCase
         $mockResponse = $this->getMockBuilder('PhpMyAdmin\Response')
             ->disableOriginalConstructor()
             ->setMethods([
-                'header', 'headersSent', 'disable', 'isAjax',
-                'setRequestStatus', 'addJSON', 'addHTML',
-                'getFooter', 'getHeader','httpResponseCode',
+                'header',
+                'headersSent',
+                'disable',
+                'isAjax',
+                'setRequestStatus',
+                'addJSON',
+                'addHTML',
+                'getFooter',
+                'getHeader',
+                'httpResponseCode',
             ])
             ->getMock();
 
