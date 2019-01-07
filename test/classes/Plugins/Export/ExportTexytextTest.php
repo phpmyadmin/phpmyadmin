@@ -463,7 +463,7 @@ class ExportTexytextTest extends PmaTestCase
         );
     }
 
-     /**
+    /**
      * Test for PhpMyAdmin\Plugins\Export\ExportTexytext::getTriggers
      *
      * @return void

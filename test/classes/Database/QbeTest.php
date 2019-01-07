@@ -16,7 +16,7 @@ use ReflectionClass;
 /**
  * Tests for PhpMyAdmin\Database\Qbe class
  *
- *  @package PhpMyAdmin-test
+ * @package PhpMyAdmin-test
  */
 class QbeTest extends PmaTestCase
 {

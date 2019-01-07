@@ -884,7 +884,7 @@ class ExportOdtTest extends PmaTestCase
         );
     }
 
-     /**
+    /**
      * Test for PhpMyAdmin\Plugins\Export\ExportOdt::getTriggers
      *
      * @return void

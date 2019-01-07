@@ -54,7 +54,7 @@ class TablePropertyTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::__construct
      *
      * @return void
-    */
+     */
     public function testConstructor()
     {
         $this->assertEquals(
@@ -92,7 +92,7 @@ class TablePropertyTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::getPureType
      *
      * @return void
-    */
+     */
     public function testGetPureType()
     {
         $this->object->type = "int(10)";
@@ -397,7 +397,7 @@ class TablePropertyTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatCs
      *
      * @return void
-    */
+     */
     public function testFormatCs()
     {
         $this->object->name = 'Name#name#123';
@@ -412,7 +412,7 @@ class TablePropertyTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::formatXml
      *
      * @return void
-    */
+     */
     public function testFormatXml()
     {
         $this->object->name = '"a\'';
@@ -427,7 +427,7 @@ class TablePropertyTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\Helpers\TableProperty::format
      *
      * @return void
-    */
+     */
     public function testFormat()
     {
         $this->assertEquals(

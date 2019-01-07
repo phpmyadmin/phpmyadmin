@@ -572,7 +572,7 @@ class Response
         }
     }
 
-   /**
+    /**
      * Generate header for 303
      *
      * @param string $location will set location to redirect.

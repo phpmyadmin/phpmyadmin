@@ -21,10 +21,10 @@ use PhpMyAdmin\Util;
 class GitRevision
 {
     /**
-    * Prints details about the current Git commit revision
-    *
-    * @return void
-    */
+     * Prints details about the current Git commit revision
+     *
+     * @return void
+     */
     public static function display()
     {
 

@@ -573,20 +573,20 @@ abstract class TestBase extends TestCase
     }
 
     /**
-    * Checks whether the login is unsuccessful
-    *
-    * @return boolean
-    */
+     * Checks whether the login is unsuccessful
+     *
+     * @return boolean
+     */
     public function isUnsuccessLogin()
     {
         return $this->isElementPresent('cssSelector', "div.error");
     }
 
     /**
-    * Used to go to the homepage
-    *
-    * @return void
-    */
+     * Used to go to the homepage
+     *
+     * @return void
+     */
     public function gotoHomepage()
     {
         $e = $this->byPartialLinkText("Server: ");

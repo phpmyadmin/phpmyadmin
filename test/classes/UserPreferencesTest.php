@@ -153,7 +153,7 @@ class UserPreferencesTest extends PmaTestCase
     /**
      * Test for save
      *
-     *  @return void
+     * @return void
      */
     public function testSave()
     {

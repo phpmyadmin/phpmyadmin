@@ -120,11 +120,11 @@ class ErrorHandler
     }
 
     /**
-    * returns the errors occurred in the current run only.
-    * Does not include the errors saved in the SESSION
-    *
-    * @return Error[]
-    */
+     * returns the errors occurred in the current run only.
+     * Does not include the errors saved in the SESSION
+     *
+     * @return Error[]
+     */
     public function getCurrentErrors(): array
     {
         return $this->errors;
@@ -497,12 +497,12 @@ class ErrorHandler
     }
 
     /**
-    * Deletes previously stored errors in SESSION.
-    * Saves current errors in session as previous errors.
-    * Required to save current errors in case  'ask'
-    *
-    * @return void
-    */
+     * Deletes previously stored errors in SESSION.
+     * Saves current errors in session as previous errors.
+     * Required to save current errors in case  'ask'
+     *
+     * @return void
+     */
     public function savePreviousErrors(): void
     {
         unset($_SESSION['prev_errors']);
@@ -516,7 +516,7 @@ class ErrorHandler
      * This distinguishes between the actual errors
      *      and user errors raised to warn user.
      *
-     *@return boolean true if there are errors to be "prompted", false otherwise
+     * @return boolean true if there are errors to be "prompted", false otherwise
      */
     public function hasErrorsForPrompt(): bool
     {

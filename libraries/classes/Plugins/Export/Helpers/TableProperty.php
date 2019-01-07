@@ -111,7 +111,7 @@ class TableProperty
         return $this->key == "PRI" || $this->key == "UNI" ? "true" : "false";
     }
 
-     /**
+    /**
      * Gets the .NET primitive type
      *
      * @return string type

@@ -1777,7 +1777,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
-    */
+     */
     public function testExportDataWithIsView()
     {
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -1833,7 +1833,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::exportData
      *
      * @return void
-    */
+     */
     public function testExportDataWithError()
     {
         $dbi = $this->getMockBuilder('PhpMyAdmin\DatabaseInterface')
@@ -1941,7 +1941,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::initAlias
      *
      * @return void
-    */
+     */
     public function testInitAlias()
     {
         $aliases = [
@@ -1983,7 +1983,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::getAlias
      *
      * @return void
-    */
+     */
     public function testGetAlias()
     {
         $aliases = [
@@ -2032,7 +2032,7 @@ class ExportSqlTest extends PmaTestCase
      * Test for PhpMyAdmin\Plugins\Export\ExportSql::replaceWithAlias
      *
      * @return void
-    */
+     */
     public function testReplaceWithAlias()
     {
         $aliases = [

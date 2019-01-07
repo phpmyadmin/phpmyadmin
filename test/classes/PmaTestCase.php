@@ -105,9 +105,9 @@ class PmaTestCase extends TestCase
     }
 
     /**
-     *Tear down function for mockResponse method
+     * Tear down function for mockResponse method
      *
-     *@return void
+     * @return void
      */
     protected function tearDown()
     {

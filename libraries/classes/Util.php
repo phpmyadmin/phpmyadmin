@@ -3012,10 +3012,10 @@ class Util
     }
 
     /**
-    * Get HTML for Foreign key check checkbox
-    *
-    * @return string HTML for checkbox
-    */
+     * Get HTML for Foreign key check checkbox
+     *
+     * @return string HTML for checkbox
+     */
     public static function getFKCheckbox()
     {
         $template = new Template();

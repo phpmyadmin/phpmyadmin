@@ -1498,7 +1498,7 @@ class TableTest extends PmaTestCase
         );
     }
 
-     /**
+    /**
      * Test for getCollation
      *
      * @return void

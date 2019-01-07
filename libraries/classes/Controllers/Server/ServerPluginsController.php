@@ -3,9 +3,9 @@
 
 /**
  * Holds the PhpMyAdmin\Controllers\Server\ServerPluginsController
-*
-* @package PhpMyAdmin\Controllers
-*/
+ *
+ * @package PhpMyAdmin\Controllers
+ */
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Server;
