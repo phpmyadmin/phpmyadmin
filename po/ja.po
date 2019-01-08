@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2019-01-08 08:16+0000\n"
+"PO-Revision-Date: 2019-01-08 23:55+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -1693,7 +1693,7 @@ msgstr "エラーテキスト：%s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr "サーバーへの接続が失われたようです。ネットワーク接続とサーバーの状態を確認してください。"
+msgstr "ネットワーク接続が失われているようです。接続状況とサーバーの状態を確認してください。"
 
 #: js/messages.php:375
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:221
@@ -1990,7 +1990,7 @@ msgstr "テーブル内のデータに基づいて可能な部分的な依存関
 
 #: js/messages.php:467
 msgid "Hide partial dependencies list"
-msgstr "部分な依存の一覧を隠す"
+msgstr "部分従属の一覧を隠す"
 
 #: js/messages.php:469
 msgid ""
@@ -3080,7 +3080,7 @@ msgstr "構成ストレージは、カラムの中央リスト機能の準備が
 #: libraries/classes/CentralColumns.php:393
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr "「%1$s」は既に中央リストに存在するので、追加できませんでした。"
+msgstr ""
 
 #: libraries/classes/CentralColumns.php:409
 msgid "Could not add columns!"
@@ -3090,7 +3090,7 @@ msgstr "カラムを追加できませんでした！"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr "カラム「%1$s」は中央のカラムリストに存在しないので、削除が出来ませんでした。"
+msgstr ""
 
 #: libraries/classes/CentralColumns.php:499
 msgid "Could not remove columns!"
@@ -5030,7 +5030,7 @@ msgstr "強調表示を有効にする"
 #: libraries/classes/Config/Descriptions.php:512
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr "ナビゲーションパネルでツリー展開の設定"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:513
 #, fuzzy
@@ -5311,7 +5311,7 @@ msgstr "テーブルのソートを記憶する"
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Default sort order for tables with a primary key."
-msgstr "プライマリキーあるテーブルのデフォルト並び順"
+msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:580
 msgid "Primary key default sort order"
