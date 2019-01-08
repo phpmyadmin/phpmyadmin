@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
 "PO-Revision-Date: 2019-01-09 11:38+0000\n"
-"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
+"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
 "Language: ja\n"
@@ -3215,8 +3215,6 @@ msgid "A_I"
 msgstr "オート・インクリメント"
 
 #: libraries/classes/CentralColumns.php:793
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a table"
 msgstr "テーブルを選択してください"
 
@@ -3226,10 +3224,8 @@ msgid "Add column"
 msgstr "カラムを追加する"
 
 #: libraries/classes/CentralColumns.php:1304
-#, fuzzy
-#| msgid "Add column"
 msgid "Add new column"
-msgstr "カラムを追加する"
+msgstr "新しいカラムを追加する"
 
 #: libraries/classes/CentralColumns.php:1429
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
@@ -3534,10 +3530,8 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 
 #: libraries/classes/Config.php:1135
-#, fuzzy
-#| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "設定ファイルの読み込みに失敗しました"
+msgstr "設定ファイルの読み込みに失敗しました！"
 
 #: libraries/classes/Config.php:1138
 msgid ""
@@ -3558,20 +3552,14 @@ msgid "Invalid server index: %s"
 msgstr "サーバのインデックスが不正です: %s"
 
 #: libraries/classes/Config.php:1788
-#, fuzzy, php-format
-#| msgid "Server"
+#, php-format
 msgid "Server %d"
-msgstr "サーバ"
+msgstr "サーバ %d"
 
 #: libraries/classes/Config/Descriptions.php:62
-#, fuzzy
-#| msgid ""
-#| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
-msgstr ""
-"有効にすると、クッキー認証の場合にログインフォームにおいて、ユーザが任意の "
-"MySQL サーバを入力できるようになります。"
+msgstr "有効にすると、クッキー認証の場合にログインフォームにおいて、ユーザが任意の MySQL サーバを入力できるようになります。"
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
@@ -3585,10 +3573,8 @@ msgid ""
 msgstr "MySQLサーバのIPアドレスまたはホスト名を指定した正規表現によりユーザがログイン出来るサーバを制限されます。"
 
 #: libraries/classes/Config/Descriptions.php:72
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "MySQL サーバにログインできません"
+msgstr "MySQLサーバーへのログインの制限"
 
 #: libraries/classes/Config/Descriptions.php:75
 #, fuzzy
@@ -3647,14 +3633,8 @@ msgid "Highlight pointer"
 msgstr "ポインタを目立たせる"
 
 #: libraries/classes/Config/Descriptions.php:100
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import and export operations"
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"インポートおよびエクスポートの操作に対して [a@https://ja.wikipedia.org/wiki/"
-"Bzip2]bzip2[/a] 圧縮を有効にします。"
+msgstr "インポート操作に対して [a@https://ja.wikipedia.org/wiki/Bzip2]bzip2[/a] 圧縮を有効にします。"
 
 #: libraries/classes/Config/Descriptions.php:104
 msgid "Bzip2"
