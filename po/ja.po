@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
 "PO-Revision-Date: 2019-01-08 08:17+0000\n"
-"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
+"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
 "Language: ja\n"
@@ -2050,7 +2050,7 @@ msgstr "備考：a, b -> d, f は、列「a」と列「b」の値を合わせれ
 
 #: js/messages.php:458
 msgid "No partial dependencies selected!"
-msgstr "部分的な依存が選択されていません!"
+msgstr "部分依存関係が選択されていません!"
 
 #: js/messages.php:461
 msgid "Show me the possible partial dependencies based on data in the table"
