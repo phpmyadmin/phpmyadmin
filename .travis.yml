@@ -12,6 +12,7 @@ install:
   - yarn install --non-interactive
 
 before_script:
+  - phpenv config-rm xdebug.ini
   - export TESTSUITE_PASSWORD=`openssl rand -base64 30`
   - export TESTSUITE_BROWSERSTACK_KEY=`echo cHlDcHJTNmZwZjVlaUR2RmV6VkU= | base64 --decode`
   - mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
