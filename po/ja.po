@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2019-01-01 05:10+0000\n"
+"PO-Revision-Date: 2019-01-08 08:00+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -805,7 +805,7 @@ msgstr "保存していない編集がありますが、このページを離れ
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
-msgstr ""
+msgstr "行数を減らす処理で対象の行にはデータが存在されています。処理を行う場合、削除対象行のデータが失われます。続行しますか？"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -5258,7 +5258,7 @@ msgstr "メニュータブの表示方法"
 
 #: libraries/classes/Config/Descriptions.php:563
 msgid "How to display various action links"
-msgstr ""
+msgstr "操作リンクの表示方法"
 
 #: libraries/classes/Config/Descriptions.php:564
 #, fuzzy
@@ -5316,7 +5316,7 @@ msgstr "テーブルのソートを記憶する"
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "プライマリキーあるテーブルのデフォルト並び順"
 
 #: libraries/classes/Config/Descriptions.php:580
 msgid "Primary key default sort order"
@@ -5337,7 +5337,7 @@ msgstr "カラム名の差し込み間隔"
 
 #: libraries/classes/Config/Descriptions.php:583
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "編集セルのトリガー操作"
 
 #: libraries/classes/Config/Descriptions.php:584
 #, fuzzy
@@ -5405,7 +5405,7 @@ msgstr "セッション値"
 msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
-msgstr ""
+msgstr "タイムゾーンを設定します。(サーバのタイムゾーンと異なっても可能)"
 
 #: libraries/classes/Config/Descriptions.php:600
 #, fuzzy
@@ -5968,12 +5968,12 @@ msgid ""
 "configurable menus feature; leaving either one of them blank will disable "
 "this feature, suggested: [kbd]pma__users[/kbd]."
 msgstr ""
+"ユーザメニュー設定機能を有効するため、このテーブルとユーザグループテーブルは必要です。いずれか空の状態になっている場合、ユーザメニュー設定機能が無効化され"
+"ます。[kbd]pma__users[/kbd]としておくのがいいでしょう。"
 
 #: libraries/classes/Config/Descriptions.php:761
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Users table"
-msgstr "利用するテーブル"
+msgstr "ユーザテーブル"
 
 #: libraries/classes/Config/Descriptions.php:763
 msgid ""
@@ -5981,12 +5981,12 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"ユーザメニュー設定機能を有効するため、このテーブルとユーザテーブルは必要です。いずれか空の状態になっている場合、ユーザメニュー設定機能が無効化されます。["
+"kbd]pma__usergroups[/kbd]としておくのがいいでしょう。"
 
 #: libraries/classes/Config/Descriptions.php:767
-#, fuzzy
-#| msgid "Use Host Table"
 msgid "User groups table"
-msgstr "ホストテーブルを使う"
+msgstr "ユーザグループテーブル"
 
 #: libraries/classes/Config/Descriptions.php:769
 #, fuzzy
@@ -6002,7 +6002,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:772
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "隠されたナビゲーション項目テーブル"
 
 #: libraries/classes/Config/Descriptions.php:774
 msgid "User for config auth"
@@ -6460,10 +6460,12 @@ msgid ""
 "if the server where phpMyAdmin is installed does not have direct access to "
 "the internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"エラー報告を送信する時・phpMyAdminの最新バージョン情報通信時のプロキシサーバ設定です。phpMyAdminが直接にインターネットへ接続が出来ない"
+"場合、必要となります。URL形式：「ホスト名:ポート番号」。"
 
 #: libraries/classes/Config/Descriptions.php:879
 msgid "Proxy url"
-msgstr ""
+msgstr "プロキシURL"
 
 #: libraries/classes/Config/Descriptions.php:881
 msgid ""
@@ -6471,6 +6473,8 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"プロキシサーバで認証するユーザ名。デフォルトでは認証は行われません。ユーザー名が供給される場合、基本認証が利用されます。現在、他の認証種類はサポートされて"
+"いません。"
 
 #: libraries/classes/Config/Descriptions.php:886
 #, fuzzy
@@ -6480,7 +6484,7 @@ msgstr "ユーザ名"
 
 #: libraries/classes/Config/Descriptions.php:887
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "プロキシサーバへログインする為のパスワード。"
 
 #: libraries/classes/Config/Descriptions.php:888
 #, fuzzy
@@ -6504,19 +6508,19 @@ msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:892
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "ドメインのreCaptchaサービスの公開キーを入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:893
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "reCaptchaの公開キー"
 
 #: libraries/classes/Config/Descriptions.php:894
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "ドメインのreCaptchaサービスの秘密キーを入力してください。"
 
 #: libraries/classes/Config/Descriptions.php:895
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "reCaptchaの秘密キー"
 
 #: libraries/classes/Config/Descriptions.php:897
 msgid "Choose the default action when sending error reports."
@@ -6532,7 +6536,7 @@ msgstr "サーバのポート"
 msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
-msgstr ""
+msgstr "クエリは、Ctrl + Enterの代わりにEnterキーを押して実行されます。新しい行はShift + Enterで挿入されます。"
 
 #: libraries/classes/Config/Descriptions.php:904
 #, fuzzy
@@ -6564,16 +6568,16 @@ msgstr "SQL クエリ履歴テーブル"
 #: libraries/classes/Config/Descriptions.php:912
 #: templates/console/display.twig:149
 msgid "Always expand query messages"
-msgstr ""
+msgstr "クエリメッセージを常に展開する"
 
 #: libraries/classes/Config/Descriptions.php:913
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
-msgstr ""
+msgstr "現在のクエリを表示"
 
 #: libraries/classes/Config/Descriptions.php:914
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
-msgstr ""
+msgstr "Enterでクエリを実行し、Shift + Enterで新しい行を挿入します"
 
 #: libraries/classes/Config/Descriptions.php:915
 #: templates/console/display.twig:168
@@ -7180,11 +7184,11 @@ msgstr "変数の設定に失敗しました"
 #: libraries/classes/Controllers/Table/TableChartController.php:90
 #: libraries/classes/Controllers/Table/TableGisVisualizationController.php:106
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "SQLクエリはデータを取得するために設定されませんでした。"
 
 #: libraries/classes/Controllers/Table/TableChartController.php:169
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "テーブルには数字コラムがない理由でチャートを表示するデータポイントないです。"
 
 #: libraries/classes/Controllers/Table/TableChartController.php:236
 #, fuzzy
@@ -7391,7 +7395,7 @@ msgstr "エラー: リレーションを追加できませんでした。"
 
 #: libraries/classes/Database/Designer/Common.php:649
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "エラー：カラムのインデックスがない。"
 
 #: libraries/classes/Database/Designer/Common.php:654
 msgid "Error: Relational features are disabled!"
@@ -10969,10 +10973,8 @@ msgid "User preferences"
 msgstr "ユーザ環境設定"
 
 #: libraries/classes/Relation.php:330
-#, fuzzy
-#| msgid "Configuration: %s"
 msgid "Configurable menus"
-msgstr "設定：%s"
+msgstr "ユーザメニュー設定"
 
 #: libraries/classes/Relation.php:341
 #, fuzzy
