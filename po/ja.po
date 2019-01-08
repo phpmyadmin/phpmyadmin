@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
 "PO-Revision-Date: 2019-01-08 23:55+0000\n"
-"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
+"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
 "Language: ja\n"
@@ -3454,10 +3454,8 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "デフォルトの設定を読み込めませんでした: %1$s"
 
 #: libraries/classes/Config.php:1172
-#, fuzzy
-#| msgid "Failed to read configuration file"
 msgid "Failed to read configuration file!"
-msgstr "設定ファイルの読み込みに失敗しました"
+msgstr "設定ファイルの読み込みに失敗しました！"
 
 #: libraries/classes/Config.php:1175
 msgid ""
@@ -3473,20 +3471,14 @@ msgid "Invalid server index: %s"
 msgstr "サーバのインデックスが不正です: %s"
 
 #: libraries/classes/Config.php:1715
-#, fuzzy, php-format
-#| msgid "Server"
+#, php-format
 msgid "Server %d"
-msgstr "サーバ"
+msgstr "サーバ %d"
 
 #: libraries/classes/Config/Descriptions.php:63
-#, fuzzy
-#| msgid ""
-#| "If enabled user can enter any MySQL server in login form for cookie auth"
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
-msgstr ""
-"有効にすると、クッキー認証の場合にログインフォームにおいて、ユーザが任意の "
-"MySQL サーバを入力できるようになります。"
+msgstr "有効にすると、クッキー認証の場合にログインフォームにおいて、ユーザが任意の MySQL サーバを入力できるようになります。"
 
 #: libraries/classes/Config/Descriptions.php:64
 msgid "Allow login to any MySQL server"
@@ -3562,14 +3554,8 @@ msgid "Highlight pointer"
 msgstr "ポインタを目立たせる"
 
 #: libraries/classes/Config/Descriptions.php:88
-#, fuzzy
-#| msgid ""
-#| "Enable [a@https://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
-#| "import and export operations"
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
-"インポートおよびエクスポートの操作に対して [a@https://ja.wikipedia.org/wiki/"
-"Bzip2]bzip2[/a] 圧縮を有効にします。"
+msgstr "インポート操作に対して [a@https://ja.wikipedia.org/wiki/Bzip2]bzip2[/a] 圧縮を有効にします。"
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Bzip2"
@@ -15635,10 +15621,8 @@ msgid "Select binary log to view"
 msgstr "表示するバイナリログを選択してください"
 
 #: templates/database/central_columns/main.twig:4
-#, fuzzy
-#| msgid "Add column"
 msgid "Add new column"
-msgstr "カラムを追加する"
+msgstr "新しいカラムを追加する"
 
 #: templates/database/central_columns/main.twig:25
 #: templates/database/central_columns/main.twig:242
@@ -15666,8 +15650,6 @@ msgid "Add column"
 msgstr "カラムを追加する"
 
 #: templates/database/central_columns/main.twig:201
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Select a table"
 msgstr "テーブルを選択してください"
 
