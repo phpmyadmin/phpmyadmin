@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
 "PO-Revision-Date: 2019-01-08 08:17+0000\n"
-"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
+"Last-Translator: worldwideskier <worldwideskier@yahoo.co.jp>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
 "Language: ja\n"
@@ -2040,7 +2040,7 @@ msgstr "部分依存関係の確認"
 
 #: js/messages.php:453
 msgid "Selected partial dependencies are as follows:"
-msgstr "選択された部分的な依存は以下の通りです："
+msgstr "選択された部分依存関係は以下の通りです："
 
 #: js/messages.php:455
 msgid ""
