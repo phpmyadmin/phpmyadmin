@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
 "PO-Revision-Date: 2019-01-08 08:16+0000\n"
-"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
+"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
 "Language: ja\n"
@@ -1981,10 +1981,8 @@ msgid ""
 msgstr "備考：a, b -> d, f は、列「a」と列「b」の値を合わせれば、列「d」と列「f」の値を決定することが出来ます。"
 
 #: js/messages.php:463
-#, fuzzy
-#| msgid "No databases selected."
 msgid "No partial dependencies selected!"
-msgstr "部分従属が選択されていません!"
+msgstr "部分的な依存が選択されていません!"
 
 #: js/messages.php:466
 msgid "Show me the possible partial dependencies based on data in the table"
@@ -2977,10 +2975,9 @@ msgid "Error"
 msgstr "エラー"
 
 #: libraries/classes/Advisor.php:257
-#, fuzzy, php-format
-#| msgid "Error while creating PDF:"
+#, php-format
 msgid "Error when evaluating: %s"
-msgstr "PDF を作成中にエラーが発生しました："
+msgstr "評価中にエラーが発生しました：%s"
 
 #: libraries/classes/Advisor.php:288
 #, php-format
@@ -3086,10 +3083,8 @@ msgid "Could not add %1$s as they already exist in central list!"
 msgstr "「%1$s」は既に中央リストに存在するので、追加できませんでした。"
 
 #: libraries/classes/CentralColumns.php:409
-#, fuzzy
-#| msgid "Could not save configuration"
 msgid "Could not add columns!"
-msgstr "設定が保存できません"
+msgstr "カラムを追加できませんでした！"
 
 #: libraries/classes/CentralColumns.php:486
 #, php-format
@@ -3098,10 +3093,8 @@ msgid ""
 msgstr "カラム「%1$s」は中央のカラムリストに存在しないので、削除が出来ませんでした。"
 
 #: libraries/classes/CentralColumns.php:499
-#, fuzzy
-#| msgid "Could not save recent table"
 msgid "Could not remove columns!"
-msgstr "最近使用したテーブルが保存できません"
+msgstr "カラムを削除できませんでした！"
 
 #: libraries/classes/CentralColumns.php:662
 msgid "YES"
