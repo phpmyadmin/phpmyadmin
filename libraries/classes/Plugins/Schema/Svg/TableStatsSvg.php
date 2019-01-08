@@ -34,16 +34,16 @@ class TableStatsSvg extends TableStats
     /**
      * The "PhpMyAdmin\Plugins\Schema\Svg\TableStatsSvg" constructor
      *
-     * @param object  $diagram          The current SVG image document
-     * @param string  $db               The database name
-     * @param string  $tableName        The table name
-     * @param string  $font             Font face
-     * @param integer $fontSize         The font size
-     * @param integer $pageNumber       Page number
-     * @param integer &$same_wide_width The max. width among tables
-     * @param boolean $showKeys         Whether to display keys or not
-     * @param boolean $tableDimension   Whether to display table position or not
-     * @param boolean $offline          Whether the coordinates are sent
+     * @param object  $diagram         The current SVG image document
+     * @param string  $db              The database name
+     * @param string  $tableName       The table name
+     * @param string  $font            Font face
+     * @param integer $fontSize        The font size
+     * @param integer $pageNumber      Page number
+     * @param integer $same_wide_width The max. width among tables
+     * @param boolean $showKeys        Whether to display keys or not
+     * @param boolean $tableDimension  Whether to display table position or not
+     * @param boolean $offline         Whether the coordinates are sent
      *
      *
      * @see PMA_SVG, Table_Stats_Svg::Table_Stats_setWidth,

@@ -12,7 +12,6 @@ parameters:
         - '#Function apc_fetch not found#'# Travis CI
         - '#Binary operation #'
         - '#Part \$k \(array|string|null\) of encapsed string cannot be cast to string#'
-        - '#Unexpected token "&", expected TOKEN_VARIABLE at offset#'
         - '#Method PhpMyAdmin\\Plugins\\ImportPlugin\:\:doImport\(\) invoked with 1 parameter, 0 required#'# Normal
         - '#Call to method ([a-zA-Z\(\)]+) on an unknown class COM#'
         - '#TableStructureController has an unused parameter#'

@@ -783,7 +783,8 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_BUFFER',
                     [
-                        "filename", 'wrapper_link' => 'PMA_wrapper_link'
+                        0 => "filename",
+                        'wrapper_link' => 'PMA_wrapper_link',
                     ],
                 ],
                 '<a href="transformation_wrapper.phpPMA_wrapper_link'
@@ -795,7 +796,9 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_BUFFER',
                     [
-                        "", 'cloumn', 'wrapper_link' => 'PMA_wrapper_link'
+                        0 => "",
+                        1 => 'cloumn',
+                        'wrapper_link' => 'PMA_wrapper_link',
                     ],
                 ],
                 '<a href="transformation_wrapper.phpPMA_wrapper_link&amp;'
@@ -831,7 +834,9 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_IMAGE_LINK',
                     [
-                        "./image/", "200", "wrapper_link" => "PMA_wrapper_link"
+                        0 => "./image/",
+                        1 => "200",
+                        "wrapper_link" => "PMA_wrapper_link",
                     ],
                 ],
                 '<a class="disableAjax" target="_blank" rel="noopener noreferrer"'
@@ -1048,7 +1053,9 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_JPEG_Inline',
                     [
-                        "./image/", "200", "wrapper_link" => "PMA_wrapper_link"
+                        0 => "./image/",
+                        1 => "200",
+                        "wrapper_link" => "PMA_wrapper_link",
                     ],
                 ],
                 '<a href="transformation_wrapper.phpPMA_wrapper_link" '
@@ -1061,7 +1068,9 @@ class TransformationPluginsTest extends PmaTestCase
                 [
                     'PMA_PNG_Inline',
                     [
-                        "./image/", "200", "wrapper_link" => "PMA_wrapper_link"
+                        0 => "./image/",
+                        1 => "200",
+                        "wrapper_link" => "PMA_wrapper_link",
                     ],
                 ],
                 '<a href="transformation_wrapper.phpPMA_wrapper_link"'

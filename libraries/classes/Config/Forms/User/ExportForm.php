@@ -22,6 +22,7 @@ class ExportForm extends BaseForm
      */
     public static function getForms()
     {
+        // phpcs:disable Squiz.Arrays.ArrayDeclaration.KeySpecified,Squiz.Arrays.ArrayDeclaration.NoKeySpecified
         return [
             'Export_defaults' => [
                 'Export/method',
@@ -146,6 +147,7 @@ class ExportForm extends BaseForm
                 'Export/texytext_columns',
             ],
         ];
+        // phpcs:enable
     }
 
     /**

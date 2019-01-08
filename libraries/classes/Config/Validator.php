@@ -88,7 +88,7 @@ class Validator
      *
      * @param ConfigFile   $cf           Config file instance
      * @param string|array $validatorId  ID of validator(s) to run
-     * @param array        &$values      Values to validate
+     * @param array        $values       Values to validate
      * @param bool         $isPostSource tells whether $values are directly from
      *                                   POST request
      *

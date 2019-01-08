@@ -1304,7 +1304,7 @@ class Results
     /**
      * Get the headers of the results table
      *
-     * @param array        &$displayParts               which elements to display
+     * @param array        $displayParts                which elements to display
      * @param array        $analyzed_sql_results        analyzed sql results
      * @param string       $unsorted_sql_query          the unsorted sql query
      * @param array        $sort_expression             sort expression
@@ -1558,7 +1558,7 @@ class Results
      * Set column span, row span and prepare html with full/partial
      * text button or link
      *
-     * @param array  &$displayParts             which elements to display
+     * @param array  $displayParts              which elements to display
      * @param string $full_or_partial_text_link full/partial link or text button
      *
      * @return  array   2 element array - $colspan, $button_html
@@ -2307,7 +2307,7 @@ class Results
      * column header's alignment right
      *
      * @param stdClass $fields_meta set of field properties
-     * @param array    &$th_class   array containing classes
+     * @param array    $th_class    array containing classes
      *
      * @return void
      *
@@ -2425,7 +2425,7 @@ class Results
     /**
      * Prepare column to show at right side - check boxes or empty column
      *
-     * @param array  &$displayParts             which elements to display
+     * @param array  $displayParts              which elements to display
      * @param string $full_or_partial_text_link full/partial link or text button
      * @param string $colspan                   column span of table header
      *
@@ -2638,10 +2638,9 @@ class Results
     /**
      * Prepare the body of the results table
      *
-     * @param integer &$dt_result           the link id associated to the query
-     *                                      which results have to be displayed which
-     *                                      results have to be displayed
-     * @param array   &$displayParts        which elements to display
+     * @param integer $dt_result            the link id associated to the query
+     *                                      which results have to be displayed
+     * @param array   $displayParts         which elements to display
      * @param array   $map                  the list of relations
      * @param array   $analyzed_sql_results analyzed sql results
      * @param boolean $is_limited_display   with limited operations or not
@@ -2962,11 +2961,9 @@ class Results
     /**
      * Get the values for one data row
      *
-     * @param integer              &$dt_result           the link id associated to
+     * @param integer              $dt_result            the link id associated to
      *                                                   the query which results
-     *                                                   have to be displayed which
-     *                                                   results have to be
-     *                                                   displayed
+     *                                                   have to be displayed
      * @param array                $row                  current row data
      * @param integer              $row_no               the index of current row
      * @param array|boolean        $col_order            the column order false when
@@ -4015,7 +4012,7 @@ class Results
      * @param boolean               $is_field_truncated    is data truncated due to
      *                                                     LimitChars
      * @param array                 $analyzed_sql_results  the analyzed query
-     * @param integer               &$dt_result            the link id associated to
+     * @param integer               $dt_result             the link id associated to
      *                                                     the query which results
      *                                                     have to be displayed
      * @param integer               $col_index             the column index
@@ -4342,9 +4339,9 @@ class Results
     /**
      * Prepare a table of results returned by a SQL query.
      *
-     * @param integer &$dt_result           the link id associated to the query
+     * @param integer $dt_result            the link id associated to the query
      *                                      which results have to be displayed
-     * @param array   &$displayParts        the parts to display
+     * @param array   $displayParts         the parts to display
      * @param array   $analyzed_sql_results analyzed sql results
      * @param boolean $is_limited_display   With limited operations or not
      *
@@ -4639,7 +4636,7 @@ class Results
     /**
      * Prepare sorted column message
      *
-     * @param integer &$dt_result                  the link id associated to the
+     * @param integer $dt_result                   the link id associated to the
      *                                             query which results have to
      *                                             be displayed
      * @param string  $sort_expression_nodirection sort expression without direction
@@ -4875,7 +4872,7 @@ class Results
     /**
      * Set the value of $map array for linking foreign key related tables
      *
-     * @param array &$map the list of relations
+     * @param array $map the list of relations
      *
      * @return  void
      *
@@ -4940,7 +4937,7 @@ class Results
     /**
      * Prepare multi field edit/delete links
      *
-     * @param integer &$dt_result           the link id associated to the query which
+     * @param integer $dt_result            the link id associated to the query which
      *                                      results have to be displayed
      * @param array   $analyzed_sql_results analyzed sql results
      * @param string  $del_link             the display element - 'del_link'
@@ -5369,7 +5366,7 @@ class Results
      * @param stdClass    $meta                  the meta-information about the field
      * @param array       $url_params            parameters that should go to the
      *                                           download link
-     * @param boolean     &$is_truncated         the result is truncated or not
+     * @param boolean     $is_truncated          the result is truncated or not
      *
      * @return mixed  string or float
      *

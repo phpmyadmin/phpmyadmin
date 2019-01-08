@@ -168,7 +168,7 @@ class Privileges
     /**
      * Parses privileges into an array, it modifies the array
      *
-     * @param array &$row Results row from
+     * @param array $row Results row from
      *
      * @return void
      */
@@ -2672,8 +2672,8 @@ class Privileges
     /**
      * merge privilege map and rows from resultset
      *
-     * @param array  &$privMap the privilege map reference
-     * @param object $result   the resultset of query
+     * @param array  $privMap the privilege map reference
+     * @param object $result  the resultset of query
      *
      * @return void
      */

@@ -2122,8 +2122,8 @@ class Table
     /**
      * Function to get the sql query for index creation or edit
      *
-     * @param Index $index  current index
-     * @param bool  &$error whether error occurred or not
+     * @param Index $index current index
+     * @param bool  $error whether error occurred or not
      *
      * @return string
      */

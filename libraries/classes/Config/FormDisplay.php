@@ -222,9 +222,9 @@ class FormDisplay
      *
      * @param bool  $showRestoreDefault whether to show "restore default"
      *                                  button besides the input field
-     * @param array &$jsDefault         stores JavaScript code
+     * @param array $jsDefault          stores JavaScript code
      *                                  to be displayed
-     * @param array &$js                will be updated with javascript code
+     * @param array $js                 will be updated with javascript code
      * @param bool  $showButtons        whether show submit and reset button
      *
      * @return string
@@ -376,7 +376,7 @@ class FormDisplay
      * @param bool|null $userPrefsAllow     whether user preferences are enabled
      *                                      for this field (null - no support,
      *                                      true/false - enabled/disabled)
-     * @param array     &$jsDefault         array which stores JavaScript code
+     * @param array     $jsDefault          array which stores JavaScript code
      *                                      to be displayed
      *
      * @return string HTML for input field
@@ -562,7 +562,7 @@ class FormDisplay
     /**
      * Validates select field and casts $value to correct type
      *
-     * @param string &$value  Current value
+     * @param string $value   Current value
      * @param array  $allowed List of allowed values
      *
      * @return bool
@@ -824,7 +824,7 @@ class FormDisplay
      * Sets field comments and warnings based on current environment
      *
      * @param string $systemPath Path to settings
-     * @param array  &$opts      Chosen options
+     * @param array  $opts       Chosen options
      *
      * @return void
      */

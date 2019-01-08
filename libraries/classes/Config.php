@@ -356,7 +356,7 @@ class Config
 
     /**
      * detects if Git revision
-     * @param string &$git_location (optional) verified git directory
+     * @param string $git_location (optional) verified git directory
      * @return boolean
      */
     public function isGitRevision(&$git_location = null): bool
@@ -367,8 +367,7 @@ class Config
         }
 
         // caching
-        if (
-            isset($_SESSION['is_git_revision'])
+        if (isset($_SESSION['is_git_revision'])
             && array_key_exists('git_location', $_SESSION)
         ) {
             // Define location using cached value

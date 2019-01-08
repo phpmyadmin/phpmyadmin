@@ -963,7 +963,7 @@ class CentralColumns
      * Column `col_extra` is used to store both extra and attributes for a column.
      * This method separates them.
      *
-     * @param array &$columns_list columns list
+     * @param array $columns_list columns list
      *
      * @return void
      */

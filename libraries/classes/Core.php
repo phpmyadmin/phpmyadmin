@@ -95,7 +95,7 @@ class Core
      * echo Core::ifSetOr($cfg['EnableFoo'], false, 'boolean'); // true
      * </code>
      *
-     * @param mixed &$var    param to check
+     * @param mixed $var     param to check
      * @param mixed $default default value
      * @param mixed $type    var type or array of values to check against $var
      *
@@ -145,7 +145,7 @@ class Core
      *
      * to avoid this we set this var to null if not isset
      *
-     * @param mixed &$var    variable to check
+     * @param mixed $var     variable to check
      * @param mixed $type    var type or array of valid values to check against $var
      * @param mixed $compare var to compare with $var
      *
@@ -443,7 +443,7 @@ class Core
      * Checks given $page against given $whitelist and returns true if valid
      * it optionally ignores query parameters in $page (script.php?ignored)
      *
-     * @param string  &$page     page to check
+     * @param string  $page      page to check
      * @param array   $whitelist whitelist to check page against
      * @param boolean $include   whether the page is going to be included
      *
@@ -679,9 +679,9 @@ class Core
     /**
      * Stores value in an array
      *
-     * @param string $path   path in the array
-     * @param array  &$array the array
-     * @param mixed  $value  value to store
+     * @param string $path  path in the array
+     * @param array  $array the array
+     * @param mixed  $value value to store
      *
      * @return void
      */
@@ -702,8 +702,8 @@ class Core
     /**
      * Removes value from an array
      *
-     * @param string $path   path in the array
-     * @param array  &$array the array
+     * @param string $path  path in the array
+     * @param array  $array the array
      *
      * @return void
      */

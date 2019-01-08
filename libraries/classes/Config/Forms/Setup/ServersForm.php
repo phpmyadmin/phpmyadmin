@@ -22,6 +22,7 @@ class ServersForm extends BaseForm
      */
     public static function getForms()
     {
+        // phpcs:disable Squiz.Arrays.ArrayDeclaration.KeySpecified,Squiz.Arrays.ArrayDeclaration.NoKeySpecified
         return [
             'Server' => [
                 'Servers' => [
@@ -110,5 +111,6 @@ class ServersForm extends BaseForm
                 ],
             ],
         ];
+        // phpcs:enable
     }
 }

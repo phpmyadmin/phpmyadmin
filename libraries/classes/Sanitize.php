@@ -35,7 +35,7 @@ class Sanitize
             'https://',
             './url.php?url=https%3a%2f%2f',
             './doc/html/',
-            # possible return values from Util::getScriptNameForOption
+            // possible return values from Util::getScriptNameForOption
             './index.php?',
             './server_databases.php?',
             './server_status.php?',
@@ -50,7 +50,7 @@ class Sanitize
             './tbl_select.php?',
             './tbl_change.php?',
             './sql.php?',
-            # Hardcoded options in libraries/special_schema_links.inc.php
+            // Hardcoded options in libraries/special_schema_links.inc.php
             './db_events.php?',
             './db_routines.php?',
             './server_privileges.php?',
@@ -418,7 +418,7 @@ class Sanitize
     /**
      * Removes all variables from request except whitelisted ones.
      *
-     * @param string &$whitelist list of variables to allow
+     * @param string $whitelist list of variables to allow
      *
      * @return void
      * @access public

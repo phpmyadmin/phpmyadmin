@@ -87,10 +87,10 @@ class Sql
     /**
      * Handle remembered sorting order, only for single table query
      *
-     * @param string $db                    database name
-     * @param string $table                 table name
-     * @param array  &$analyzed_sql_results the analyzed query results
-     * @param string &$full_sql_query       SQL query
+     * @param string $db                   database name
+     * @param string $table                table name
+     * @param array  $analyzed_sql_results the analyzed query results
+     * @param string $full_sql_query       SQL query
      *
      * @return void
      */
@@ -141,7 +141,7 @@ class Sql
     /**
      * Append limit clause to SQL query
      *
-     * @param array &$analyzed_sql_results the analyzed query results
+     * @param array $analyzed_sql_results the analyzed query results
      *
      * @return string limit clause appended SQL query
      */

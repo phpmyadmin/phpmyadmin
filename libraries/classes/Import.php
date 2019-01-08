@@ -84,9 +84,9 @@ class Import
      * Runs query inside import buffer. This is needed to allow displaying
      * of last SELECT, SHOW or HANDLER results and similar nice stuff.
      *
-     * @param string $sql       query to run
-     * @param string $full      query to display, this might be commented
-     * @param array  &$sql_data SQL parse data storage
+     * @param string $sql      query to run
+     * @param string $full     query to display, this might be commented
+     * @param array  $sql_data SQL parse data storage
      *
      * @return void
      * @access public
@@ -172,9 +172,9 @@ class Import
      * Runs query inside import buffer. This is needed to allow displaying
      * of last SELECT, SHOW or HANDLER results and similar nice stuff.
      *
-     * @param string $sql       query to run
-     * @param string $full      query to display, this might be commented
-     * @param array  &$sql_data SQL parse data storage
+     * @param string $sql      query to run
+     * @param string $full     query to display, this might be commented
+     * @param array  $sql_data SQL parse data storage
      *
      * @return void
      * @access public
@@ -847,7 +847,7 @@ class Import
     /**
      * Determines if the column types are int, decimal, or string
      *
-     * @param array &$table array(string $table_name, array $col_names, array $rows)
+     * @param array $table array(string $table_name, array $col_names, array $rows)
      *
      * @return array|bool array(array $types, array $sizes)
      * @access  public
@@ -949,12 +949,12 @@ class Import
      * Builds and executes SQL statements to create the database and tables
      * as necessary, as well as insert all the data.
      *
-     * @param string     $db_name         Name of the database
-     * @param array      &$tables         Array of tables for the specified database
-     * @param array|null &$analyses       Analyses of the tables
-     * @param array|null &$additional_sql Additional SQL statements to be executed
-     * @param array|null $options         Associative array of options
-     * @param array      &$sql_data       2-element array with sql data
+     * @param string     $db_name        Name of the database
+     * @param array      $tables         Array of tables for the specified database
+     * @param array|null $analyses       Analyses of the tables
+     * @param array|null $additional_sql Additional SQL statements to be executed
+     * @param array|null $options        Associative array of options
+     * @param array      $sql_data       2-element array with sql data
      *
      * @return void
      * @access  public

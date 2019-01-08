@@ -1679,8 +1679,8 @@ class Qbe
     /**
      * Loads relations for a given table into the $relations array
      *
-     * @param array  &$relations array of relations
-     * @param string $oneTable   the table
+     * @param array  $relations array of relations
+     * @param string $oneTable  the table
      *
      * @return void
      */
@@ -1719,7 +1719,7 @@ class Qbe
     /**
      * Fills the $finalized arrays with JOIN clauses for each of the tables
      *
-     * @param array &$finalized   JOIN clauses for each table
+     * @param array $finalized    JOIN clauses for each table
      * @param array $relations    Relations among tables
      * @param array $searchTables Tables involved in the search
      *

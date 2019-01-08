@@ -91,7 +91,7 @@ class ImportLdi extends AbstractImportCsv
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */

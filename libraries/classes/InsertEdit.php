@@ -1488,8 +1488,7 @@ class InsertEdit
                 $the_class .= ' datefield';
             } elseif ($column['True_Type'] === 'time') {
                 $the_class .= ' timefield';
-            } elseif (
-                $column['True_Type'] === 'datetime'
+            } elseif ($column['True_Type'] === 'datetime'
                 || $column['True_Type'] === 'timestamp'
             ) {
                 $the_class .= ' datetimefield';
@@ -2514,7 +2513,7 @@ class InsertEdit
      * @param string $table          table name
      * @param array  $transformation mimetypes for all columns of a table
      *                               [field_name][field_key]
-     * @param array  &$edited_values transform columns list and new values
+     * @param array  $edited_values  transform columns list and new values
      * @param string $file           file containing the transformation plugin
      * @param string $column_name    column name
      * @param array  $extra_data     extra data array
@@ -2683,8 +2682,7 @@ class InsertEdit
             $query_values[]
                 = Util::backquote($multi_edit_columns_name[$key])
                 . ' = ' . $current_value_as_an_array;
-        } elseif (
-            ! (empty($multi_edit_funcs[$key])
+        } elseif (! (empty($multi_edit_funcs[$key])
             && isset($multi_edit_columns_prev[$key])
             && (("'" . $this->dbi->escapeString($multi_edit_columns_prev[$key]) . "'" === $current_value)
             || ('0x' . $multi_edit_columns_prev[$key] === $current_value)))
@@ -2846,7 +2844,7 @@ class InsertEdit
      * @param string $db          Database name
      * @param string $table       Table name
      * @param string $column_name Column name
-     * @param array  &$extra_data Extra data for ajax response
+     * @param array  $extra_data  Extra data for ajax response
      *
      * @return void
      */
@@ -3111,8 +3109,8 @@ class InsertEdit
      * @param string $vkey                  validation key
      * @param bool   $insert_mode           whether insert mode
      * @param array  $current_row           current row
-     * @param int    &$o_rows               row offset
-     * @param int    &$tabindex             tab index
+     * @param int    $o_rows                row offset
+     * @param int    $tabindex              tab index
      * @param int    $columns_cnt           columns count
      * @param bool   $is_upload             whether upload
      * @param int    $tabindex_for_function tab index offset for function
@@ -3420,8 +3418,8 @@ class InsertEdit
      * @param string $vkey                  validation key
      * @param bool   $insert_mode           whether insert mode
      * @param array  $current_row           current row
-     * @param int    &$o_rows               row offset
-     * @param int    &$tabindex             tab index
+     * @param int    $o_rows                row offset
+     * @param int    $tabindex              tab index
      * @param int    $columns_cnt           columns count
      * @param bool   $is_upload             whether upload
      * @param int    $tabindex_for_function tab index offset for function

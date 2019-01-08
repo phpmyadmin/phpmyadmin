@@ -2685,7 +2685,7 @@ class ExportSql extends ExportPlugin
      * @param array  $aliases   Alias information for db/table/column
      * @param string $db        the database name
      * @param string $table     the tablename
-     * @param string &$flag     the flag denoting whether any replacement was done
+     * @param string $flag      the flag denoting whether any replacement was done
      *
      * @return string query replaced with aliases
      */

@@ -98,9 +98,9 @@ class PageSettings
     /**
      * Process response to form
      *
-     * @param FormDisplay  &$formDisplay Form
-     * @param ConfigFile   &$cf          Configuration file
-     * @param Message|null &$error       Error message
+     * @param FormDisplay  $formDisplay Form
+     * @param ConfigFile   $cf          Configuration file
+     * @param Message|null $error       Error message
      *
      * @return void
      */
@@ -125,8 +125,8 @@ class PageSettings
     /**
      * Store errors in _errorHTML
      *
-     * @param FormDisplay  &$formDisplay Form
-     * @param Message|null &$error       Error message
+     * @param FormDisplay  $formDisplay Form
+     * @param Message|null $error       Error message
      *
      * @return void
      */
@@ -152,8 +152,8 @@ class PageSettings
     /**
      * Display page-related settings
      *
-     * @param FormDisplay &$formDisplay Form
-     * @param Message     &$error       Error message
+     * @param FormDisplay $formDisplay Form
+     * @param Message     $error       Error message
      *
      * @return string
      */

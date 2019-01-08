@@ -480,7 +480,7 @@ class FormDisplayTemplate
      *
      * @param string       $fieldId    ID of field to validate
      * @param string|array $validators validators callback
-     * @param array        &$jsArray   will be updated with javascript code
+     * @param array        $jsArray    will be updated with javascript code
      *
      * @return void
      */

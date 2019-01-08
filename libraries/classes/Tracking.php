@@ -756,7 +756,7 @@ class Tracking
     /**
      * Function to handle the tracking report
      *
-     * @param array &$data tracked data
+     * @param array $data tracked data
      *
      * @return string HTML for the message
      */
@@ -788,7 +788,7 @@ class Tracking
     /**
      * Function to delete from a tracking report log
      *
-     * @param array  &$data     tracked data
+     * @param array  $data      tracked data
      * @param string $which_log ddlog|dmlog
      * @param string $type      DDL|DML
      * @param string $message   success message

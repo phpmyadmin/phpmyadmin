@@ -269,8 +269,8 @@ abstract class ExportPlugin
      * Initialize aliases
      *
      * @param array  $aliases Alias information for db/table/column
-     * @param string &$db     the database
-     * @param string &$table  the table
+     * @param string $db      the database
+     * @param string $table   the table
      *
      * @return void
      */

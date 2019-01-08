@@ -65,7 +65,7 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @return void
      */
@@ -288,14 +288,15 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Imports data from a single table
      *
-     * @param array $table     containing all table info:
-     *                         <code>
-     *                         $table[0] - string containing table name
-     *                         $table[1] - array[]   of table headers
-     *                         $table[2] - array[][] of table content rows
-     *                         </code>
+     * @param array $table    containing all table info:
+     *                        <code> $table[0] - string
+     *                        containing table name
+     *                        $table[1] - array[]   of
+     *                        table headers $table[2] -
+     *                        array[][] of table content
+     *                        rows </code>
      *
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $sql_data 2-element array with sql data
      *
      * @global bool $analyze whether to scan for column types
      *
@@ -333,7 +334,7 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Sets the table name
      *
-     * @param string &$table_name reference to the name of the table
+     * @param string $table_name reference to the name of the table
      *
      * @return void
      */
@@ -349,9 +350,9 @@ class ImportMediawiki extends ImportPlugin
     /**
      * Set generic names for table headers, if they don't exist
      *
-     * @param array &$table_headers reference to the array containing the headers
-     *                              of a table
-     * @param array $table_row      array containing the first content row
+     * @param array $table_headers reference to the array containing the headers
+     *                             of a table
+     * @param array $table_row     array containing the first content row
      *
      * @return void
      */
@@ -371,16 +372,16 @@ class ImportMediawiki extends ImportPlugin
      * Sets the database name and additional options and calls Import::buildSql()
      * Used in PMA_importDataAllTables() and $this->_importDataOneTable()
      *
-     * @param array &$tables   structure:
-     *                         array(
-     *                         array(table_name, array() column_names, array()()
-     *                         rows)
-     *                         )
-     * @param array &$analyses structure:
-     *                         $analyses = array(
-     *                         array(array() column_types, array() column_sizes)
-     *                         )
-     * @param array &$sql_data 2-element array with sql data
+     * @param array $tables   structure:
+     *                        array(
+     *                        array(table_name, array() column_names, array()()
+     *                        rows)
+     *                        )
+     * @param array $analyses structure:
+     *                        $analyses = array(
+     *                        array(array() column_types, array() column_sizes)
+     *                        )
+     * @param array $sql_data 2-element array with sql data
      *
      * @global string $db      name of the database to import in
      *

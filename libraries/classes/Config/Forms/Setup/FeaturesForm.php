@@ -20,6 +20,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
      */
     public static function getForms()
     {
+        // phpcs:disable Squiz.Arrays.ArrayDeclaration.KeySpecified,Squiz.Arrays.ArrayDeclaration.NoKeySpecified
         $result = parent::getForms();
         /* Remove only_db/hide_db, we have proper Server form in setup */
         $result['Databases'] = array_diff(
@@ -71,5 +72,6 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'ZeroConf',
         ];
         return $result;
+        // phpcs:enable
     }
 }
