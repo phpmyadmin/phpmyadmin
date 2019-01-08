@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.8.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 21:57-0300\n"
-"PO-Revision-Date: 2019-01-08 08:00+0000\n"
+"PO-Revision-Date: 2019-01-08 08:16+0000\n"
 "Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/4-8/"
 "ja/>\n"
@@ -942,7 +942,7 @@ msgstr "保存していない編集がありますが、このページを離れ
 msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
-msgstr "行数を減らす処理で対象の行にはデータが存在されています。処理を行う場合、削除対象行のデータが失われます。続行しますか？"
+msgstr "行数を減らす処理で対象の行にはデータが存在しています。処理を行うと対象行のデータが失われますが、続行しますか？"
 
 #: js/messages.php:75
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -1769,7 +1769,7 @@ msgstr "エラーテキスト：%s"
 msgid ""
 "It seems that the connection to server has been lost. Please check your "
 "network connectivity and server status."
-msgstr "サーバーへの通信が切断されました。ネットワーク接続とサーバーの状態を確認してください。"
+msgstr "サーバーへの接続が失われたようです。ネットワーク接続とサーバーの状態を確認してください。"
 
 #: js/messages.php:371
 #: libraries/classes/Controllers/Server/ServerDatabasesController.php:188
