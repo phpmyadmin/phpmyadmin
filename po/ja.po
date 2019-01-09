@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2019-01-08 23:55+0000\n"
-"Last-Translator: Masahiro Nishi <grooversmail@gmail.com>\n"
+"PO-Revision-Date: 2019-01-09 11:39+0000\n"
+"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
 "Language: ja\n"
@@ -3080,7 +3080,7 @@ msgstr "構成ストレージは、カラムの中央リスト機能の準備が
 #: libraries/classes/CentralColumns.php:393
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
-msgstr ""
+msgstr "「%1$s」は中央リストに既に存在するので、追加できませんでした!"
 
 #: libraries/classes/CentralColumns.php:409
 msgid "Could not add columns!"
@@ -3090,7 +3090,7 @@ msgstr "カラムを追加できませんでした！"
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
-msgstr ""
+msgstr "「%1$s」は張横リストに存在しないので、カラムの削除ができませんでした！"
 
 #: libraries/classes/CentralColumns.php:499
 msgid "Could not remove columns!"
@@ -3492,10 +3492,8 @@ msgid ""
 msgstr "MySQLサーバのIPアドレスまたはホスト名を指定した正規表現によりユーザがログイン出来るサーバを制限されます。"
 
 #: libraries/classes/Config/Descriptions.php:70
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
-msgstr "MySQL サーバにログインできません"
+msgstr "MySQLサーバーへのログインの制限"
 
 #: libraries/classes/Config/Descriptions.php:72
 #, fuzzy
@@ -5016,7 +5014,7 @@ msgstr "強調表示を有効にする"
 #: libraries/classes/Config/Descriptions.php:512
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
-msgstr ""
+msgstr "ナビゲーションパネルでツリー展開の設定"
 
 #: libraries/classes/Config/Descriptions.php:513
 #, fuzzy
@@ -5297,7 +5295,7 @@ msgstr "テーブルのソートを記憶する"
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "プライマリキーあるテーブルのデフォルト並び順"
 
 #: libraries/classes/Config/Descriptions.php:580
 msgid "Primary key default sort order"
@@ -7549,6 +7547,8 @@ msgid ""
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
+"サーバ%2$dのタイムゾーン「%1$s」を使用できません。[em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em"
+"]の設定を確認してください。phpMyAdminは現在データベースサーバのデフォルトのタイムゾーンを使用しています。"
 
 #: libraries/classes/DatabaseInterface.php:1578
 #, fuzzy
@@ -7570,7 +7570,7 @@ msgstr "サーバが応答しません。"
 
 #: libraries/classes/DatabaseInterface.php:2227
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "別のユーザーとしてログアウトしてみてください。"
 
 #: libraries/classes/DatabaseInterface.php:2233
 msgid "Please check privileges of directory containing database."
@@ -7595,11 +7595,11 @@ msgstr ""
 #: libraries/classes/DatabaseInterface.php:3089
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "詳しくは%sドキュメンテーション%sを参照してください。"
 
 #: libraries/classes/Dbi/DbiMysqli.php:136
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "サーバーが強制的にSSL接続されています。自動的に有効にします。"
 
 #: libraries/classes/Display/ChangePassword.php:81
 #: libraries/classes/ReplicationGui.php:881
