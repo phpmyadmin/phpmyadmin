@@ -23,7 +23,12 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 define('PHPMYADMIN', 1);
-require_once 'libraries/vendor_config.php';
+
+if (! defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
+}
+
+require_once ROOT_PATH . 'libraries/vendor_config.php';
 require_once AUTOLOAD_FILE;
 
 $GLOBALS['PMA_Config'] = new Config(CONFIG_FILE);
