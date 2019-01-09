@@ -36,7 +36,7 @@ class Processes
                 . 'heavy traffic between the web server and the MySQL server.'
             )
         )->getDisplay();
-        $retval  = $notice . '<div class="tabLinks">';
+        $retval = $notice . '<div class="tabLinks">';
         $retval .= '<label>' . __('Refresh rate') . ': ';
         $retval .= Data::getHtmlForRefreshList(
             'refreshRate',
@@ -73,17 +73,17 @@ class Processes
     {
         $url_params = [];
 
-        $show_full_sql = ! empty($_POST['full']);
+        $show_full_sql = !empty($_POST['full']);
         if ($show_full_sql) {
             $url_params['full'] = 1;
             $full_text_link = 'server_status_processes.php' . Url::getCommon(
-                [],
-                '?'
-            );
+                    [],
+                    '?'
+                );
         } else {
             $full_text_link = 'server_status_processes.php' . Url::getCommon(
-                ['full' => 1]
-            );
+                    ['full' => 1]
+                );
         }
 
         // This array contains display name and real column name of each
@@ -130,15 +130,15 @@ class Processes
         $sql_query = $show_full_sql
             ? 'SHOW FULL PROCESSLIST'
             : 'SHOW PROCESSLIST';
-        if ( (!empty($_REQUEST['order_by_field']) && !empty($_REQUEST['sort_order']))
-                || (!empty($_REQUEST['showExecuting'])) 
+        if ((!empty($_REQUEST['order_by_field']) && !empty($_REQUEST['sort_order']))
+            || (!empty($_REQUEST['showExecuting']))
         ) {
             $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ';
         }
-        if (! empty($_REQUEST['showExecuting'])) {
+        if (!empty($_REQUEST['showExecuting'])) {
             $sql_query .= ' WHERE state != "" ';
         }
-        if (! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order'])) {
+        if (!empty($_REQUEST['order_by_field']) && !empty($_REQUEST['sort_order'])) {
             $sql_query .= ' ORDER BY '
                 . Util::backquote($_REQUEST['order_by_field'])
                 . ' ' . $_REQUEST['sort_order'];
@@ -153,8 +153,8 @@ class Processes
         $retval .= '<tr>';
         $retval .= '<th>' . __('Processes') . '</th>';
         foreach ($sortable_columns as $column) {
-            $is_sorted = ! empty($_REQUEST['order_by_field'])
-                && ! empty($_REQUEST['sort_order'])
+            $is_sorted = !empty($_REQUEST['order_by_field'])
+                && !empty($_REQUEST['sort_order'])
                 && ($_REQUEST['order_by_field'] == $column['order_by_field']);
 
             $column['sort_order'] = 'ASC';
@@ -233,7 +233,7 @@ class Processes
     public static function getHtmlForProcessListFilter()
     {
         $showExecuting = '';
-        if (! empty($_REQUEST['showExecuting'])) {
+        if (!empty($_REQUEST['showExecuting'])) {
             $showExecuting = ' checked="checked"';
         }
 
@@ -242,11 +242,11 @@ class Processes
             'full' => (isset($_POST['full']) ? $_POST['full'] : ''),
             'column_name' => (isset($_POST['column_name']) ? $_POST['column_name'] : ''),
             'order_by_field'
-                => (isset($_POST['order_by_field']) ? $_POST['order_by_field'] : ''),
+            => (isset($_POST['order_by_field']) ? $_POST['order_by_field'] : ''),
             'sort_order' => (isset($_POST['sort_order']) ? $_POST['sort_order'] : ''),
         ];
 
-        $retval  = '';
+        $retval = '';
         $retval .= '<fieldset id="tableFilter">';
         $retval .= '<legend>' . __('Filters') . '</legend>';
         $retval .= '<form action="server_status_processes.php" method="post">';
@@ -268,8 +268,8 @@ class Processes
     /**
      * Prints Every Item of Server Process
      *
-     * @param array $process       data of Every Item of Server Process
-     * @param bool  $show_full_sql show full sql or not
+     * @param array $process data of Every Item of Server Process
+     * @param bool $show_full_sql show full sql or not
      *
      * @return string
      */
@@ -277,8 +277,8 @@ class Processes
     {
         // Array keys need to modify due to the way it has used
         // to display column values
-        if ((! empty($_REQUEST['order_by_field']) && ! empty($_REQUEST['sort_order']))
-            || (! empty($_REQUEST['showExecuting']))
+        if ((!empty($_REQUEST['order_by_field']) && !empty($_REQUEST['sort_order']))
+            || (!empty($_REQUEST['showExecuting']))
         ) {
             foreach (array_keys($process) as $key) {
                 $new_key = ucfirst(mb_strtolower($key));
@@ -289,14 +289,14 @@ class Processes
             }
         }
 
-        $retval  = '<tr>';
+        $retval = '<tr>';
         $retval .= '<td><a class="ajax kill_process" href="server_status_processes.php"'
             . ' data-post="' . Url::getCommon(['kill' => $process['Id']], '') . '">'
             . __('Kill') . '</a></td>';
         $retval .= '<td class="value">' . $process['Id'] . '</td>';
         $retval .= '<td>' . htmlspecialchars($process['User']) . '</td>';
         $retval .= '<td>' . htmlspecialchars($process['Host']) . '</td>';
-        $retval .= '<td>' . ((! isset($process['db'])
+        $retval .= '<td>' . ((!isset($process['db'])
                 || strlen($process['db']) === 0)
                 ? '<i>' . __('None') . '</i>'
                 : htmlspecialchars($process['db'])) . '</td>';
@@ -311,7 +311,7 @@ class Processes
         if (empty($process['Info'])) {
             $retval .= '---';
         } else {
-            $retval .= Util::formatSql($process['Info'], ! $show_full_sql);
+            $retval .= Util::formatSql($process['Info'], !$show_full_sql);
         }
         $retval .= '</td>';
         $retval .= '</tr>';
