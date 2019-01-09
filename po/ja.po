@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2018-10-31 22:16-0300\n"
-"PO-Revision-Date: 2019-01-09 11:39+0000\n"
+"PO-Revision-Date: 2019-01-09 23:45+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -7617,22 +7617,18 @@ msgstr "パスワード:"
 
 #: libraries/classes/Display/ChangePassword.php:92
 msgid "Enter:"
-msgstr ""
+msgstr "パスワード："
 
 #: libraries/classes/Display/ChangePassword.php:99
 #: libraries/classes/ReplicationGui.php:892
 #: libraries/classes/Server/Privileges.php:1780
-#, fuzzy
-#| msgid "Re-type"
 msgid "Re-type:"
-msgstr "もう一度入力してください"
+msgstr "再度入力："
 
 #: libraries/classes/Display/ChangePassword.php:132
 #: libraries/classes/Display/ChangePassword.php:167
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password Hashing:"
-msgstr "パスワードハッシュ"
+msgstr "パスワードハッシュ："
 
 #: libraries/classes/Display/ChangePassword.php:145
 #: libraries/classes/Server/Privileges.php:1828
@@ -7640,7 +7636,7 @@ msgid ""
 "This method requires using an '<i>SSL connection</i>' or an '<i>unencrypted "
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
-msgstr ""
+msgstr "このメソッドは、<i> SSL接続</i>'、または<i>非暗号化接続の場合、RSA パスワードを利用する</i>必要があります。"
 
 #: libraries/classes/Display/Export.php:340
 msgid "@SERVER@ will become the server name"
@@ -7668,12 +7664,12 @@ msgstr ""
 
 #: libraries/classes/Display/Export.php:579
 msgid "Defined aliases"
-msgstr ""
+msgstr "定義されたエイリアス"
 
 #: libraries/classes/Display/Export.php:635
 #: templates/display/export/options_output.twig:7
 msgid "Rename exported databases/tables/columns"
-msgstr ""
+msgstr "エクスポートされた データベース・テーブル・カラムの名前を変更"
 
 #: libraries/classes/Display/Export.php:687
 msgid "Could not load export plugins, please check your installation!"
