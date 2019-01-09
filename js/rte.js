@@ -823,9 +823,7 @@ RTE.ROUTINE = {
          *          the AJAX message shown to the user
          */
         var $msg = PMA_ajaxShowMessage();
-        var params = {
-            'ajax_request': true
-        };
+        var params = getJSConfirmCommonParam($this[0], $this.getPostData());
         $.post($this.attr('href'), params, function (data) {
             if (data.success === true) {
                 PMA_ajaxRemoveMessage($msg);
